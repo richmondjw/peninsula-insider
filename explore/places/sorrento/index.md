@@ -169,11 +169,11 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 5-15 Hotham Rd, Sorrento VIC 3943
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
 weekend escape  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

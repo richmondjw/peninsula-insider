@@ -55,7 +55,7 @@ Sculpture park, hatted dining, casual deck - the Peninsula's most layered single
 
 ## Jackalope Hotel
 
-$$$$ · Red Hill
+$$$$ · Merricks North
 
 Architectural confidence the rest of the region rarely matches. Worth the splurge for the right occasion.](<https://peninsulainsider.com.au/stay/jackalope/>)
 

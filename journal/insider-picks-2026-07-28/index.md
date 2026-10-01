@@ -21,11 +21,11 @@ Photo · Peninsula Insider
 
 Illustrative image  This photograph shows a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree. It is not a photograph of the place described on this page.
 
-**EAT - Doot Doot Doot, Red Hill**
+**EAT - Doot Doot Doot, Merricks North**
 
 The full degustation at Doot Doot Doot is a different proposition in July than it is in November. Michael Demagistris’s kitchen leans into winter produce - root vegetables braised long, game where it appears, dark-fruited sauces that would feel heavy in summer but feel exactly right now. The room, centred on that chandelier of 10,000 hand-blown glass orbs, earns its reputation on cold nights when the Peninsula goes quiet and the only reason to be out is a meal worth the drive. Order the full degustation, not the à la carte - this kitchen builds across the whole arc, and skipping courses means missing the logic. The wine pairing is worth adding; the list tilts toward Burgundy and the Peninsula’s own Pinot Noirs, which suits winter.
 
-Book via the Jackalope Hotel website. Allow four hours minimum. Balnarring Road, Red Hill.
+Book via the Jackalope Hotel website. Allow four hours minimum. 166 Balnarring Road, Merricks North.
 
 Pair it with a room at Jackalope itself - driving back over the ridge in the dark is less appealing than staying.
 
@@ -49,7 +49,7 @@ Pair it with lunch at Bistro Elba on Ocean Beach Road - the gallery and the bist
 
 Pick | Where | When | Practical |
 
-Doot Doot Doot | Balnarring Road, Red Hill | Dinner Wed–Sun | Book ahead via jackalope.com.au |
+Doot Doot Doot | 166 Balnarring Road, Merricks North | Dinner Wed–Sun | Book ahead via jackalope.com.au |
 
 Southern Peninsula Sleepout | 21 Wallis Road, Boneo | Fri 31 Jul 4pm – Sat 1 Aug | Book at visitmorningtonpeninsula.org |
 
@@ -63,7 +63,7 @@ Questions readers actually ask
 
 How far ahead do I need to book Doot Doot Doot?
 
-Weeks, not days. Doot Doot Doot is the restaurant at Jackalope Hotel on Balnarring Road, Red Hill. Book via the Jackalope website. Weekend sittings fill first; midweek is your best chance at short notice.
+Weeks, not days. Doot Doot Doot is the restaurant at Jackalope Hotel at 166 Balnarring Road, Merricks North. Book via the Jackalope website. Weekend sittings fill first; midweek is your best chance at short notice.
 
 What is the Southern Peninsula Sleepout at The Ranch?
 

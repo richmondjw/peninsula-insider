@@ -1,20 +1,316 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-01T03:32:20.943Z",
+  "generatedAt": "2026-10-01T03:49:06.918Z",
   "baselineAvailable": true,
-  "fromSnapshot": "e9b6ca97c715cf13a0e8c06446bb2fa3e3c2c84a1efc1a6980dbbd693058a533",
-  "toSnapshot": "4ffd998574accadd03833f8861cecc3367d69f4218ac2db3ac9300bf617c3fc3",
-  "previousGeneratedAt": "2026-10-01T03:16:16.162Z",
+  "fromSnapshot": "4ffd998574accadd03833f8861cecc3367d69f4218ac2db3ac9300bf617c3fc3",
+  "toSnapshot": "69d0b477891959c53e565a9d136422acfd61f00d6cd08ff86e25b64c07e9717d",
+  "previousGeneratedAt": "2026-10-01T03:32:20.943Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 38,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/index.md",
+      "contentSha256": "a8e5fafc9e59dba6ffb163c7a7f8dcff3a28c872691d954c800261a89b112d10",
+      "previousContentSha256": "783774b47d8f6df259576d7b3fcb1b03b18c17231ac10a2f865dd39897e838e7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/rare-hare/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/rare-hare/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/rare-hare/index.md",
+      "contentSha256": "20f7e8e0fd371a4b350b2acf11258b839c7f5d950d5916953e1e01a25038dbc6",
+      "previousContentSha256": "db304e315c41dfc8affd60096e805412c1be09925b85e9474e2534e4cf438b4d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/coppins-track/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/coppins-track/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/coppins-track/index.md",
+      "contentSha256": "b5a9f29fb947fcef6303a4f3420d428daf551edb6e129d0446e8641b9cf1d7ad",
+      "previousContentSha256": "f4283cf28e59b2d1fe94a523059189cb4041aab468d981108b674e34c8b52478"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/merricks-north/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/index.md",
+      "contentSha256": "8bac9baa598ea9421e2894f2c5dfb614a7551cb250b3a5df7d20c75145f11aab",
+      "previousContentSha256": "02ff27bfbd9d86191b71b457245e9290ccc612205b8b0d42a7165504cdb38b57"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/sorrento/index.md",
+      "contentSha256": "d6e2225553728e99b48abd977e07aa71d3056f69b619f861f1c9c2be0f17ecf4",
+      "previousContentSha256": "92aa530ac099526ecc5624d12b3571242d5851c18b3106f783406b7dc0e2d084"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/index.md",
+      "contentSha256": "6539556bff4e8c825124de417c0c8b24c47230116f572432710d1aba6b8dc809",
+      "previousContentSha256": "20c037ecf27cb0f6bcb5e0cf5cda84d442f79d093ec310c49d8647badb13d675"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/index.md",
+      "contentSha256": "c7c043ed657617af6bfacb3036a3f8c8e2f4dcc165eb5dc72a42b09632613206",
+      "previousContentSha256": "f4cc2eccff890742a3aa9f3ff576c8b1e1323d56c473d244e79ded8ffd255820"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/index.md",
+      "contentSha256": "66384d062e1a26032eec8ebeca22ba5f55ebb72e768d97cb8959da7d7be0e130",
+      "previousContentSha256": "9fc9fb73e4d73f7cb67b845393bf95b5493039fc3c9b89b4fc57909046ddb7a5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-couples-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-couples-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-couples-weekend/index.md",
+      "contentSha256": "d35af9a386a68a93e0d1838573883b7256e264fae51d18fa2284b8fa408660a8",
+      "previousContentSha256": "055b742a896aec2fdd222b2aa52a9c8176c1f9f6e0c5237fbccfd37c01739b9c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/index.md",
+      "contentSha256": "26bbe3408c0e3149490d6c0d8cbd533b24d8c13089f702a72d0450a4b39f3d64",
+      "previousContentSha256": "36aa06a9d8a4ca70ee41dbbdcf648ece60021208923ed99f5e47e448e29fbaa7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/index.md",
+      "contentSha256": "69afae5efc6d4048d50d939367220db1e9a79f0a5a2dc6925612f6ba18dcf86d",
+      "previousContentSha256": "0d2509d51c5b639b412bd064e20663c0b3cf6e2fdf27f8e66403d109270196ca"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
+      "contentSha256": "817d9f4ac172078b2a546a30416f880e8adde642b34d237591d025fa6ec65bf0",
+      "previousContentSha256": "40ce66f459ebfc5e862bab3602ffea5b3588c80f0be86afc7ba623df26b12283"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "593e759ef9018329ba7bf34659a7fde5624fd7e399266b740fd026fa88dad624",
+      "previousContentSha256": "88d5a553cd4e767d38eea37260714099b75160874b3262b9cbc7c0dd32b8b225"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sea-search-encounters/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sea-search-encounters/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sea-search-encounters/index.md",
+      "contentSha256": "f3aab593c791967117d7bf8035fa30da8a27274158519106badff6a1cb4fa7ac",
+      "previousContentSha256": "5dd9e29f281d024f13b3dc6f6c2c7118f14a330b78855860371fd81d2a1a62a8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sorrento-back-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-back-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-back-beach/index.md",
+      "contentSha256": "001b9d014ebd2758e359942d5a37dae74643536e8ccf25e60197ad8390195eb2",
+      "previousContentSha256": "9d6021274f1dbe0ff3a0b62c9d258de420d7e5852c747f746c6f84879e66cf12"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sorrento-ferry/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-ferry/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-ferry/index.md",
+      "contentSha256": "b795f167d74ab15090d321a15976d9324e7b8ca4c29344d12d3c9e97336e331c",
+      "previousContentSha256": "c792c906462c9cf3c9735601c8f31f240aaa6980a6830037932cbf8892f2ebce"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/index.md",
+      "contentSha256": "9d98922c81688f849bf9ba434c725358ff1f38cccf84590b6da6647b02e56d8b",
+      "previousContentSha256": "4b95116079389ecdd11743337e8ae33aad086f7136e76b29bb901e9f2ce5909c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sorrento-ocean-baths/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-ocean-baths/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-ocean-baths/index.md",
+      "contentSha256": "fff234682ae0c58b01cdce2b88292d0bec89e25e634854007c255d57db5502fb",
+      "previousContentSha256": "c50262b746c2d4c5871523744dbdb16b42d082f78731f22bf3fb898072ee57f4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/insiders-30/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/",
+      "markdownUrl": "https://peninsulainsider.com.au/insiders-30/index.md",
+      "contentSha256": "15ee187177eb0085f454a55969e0e4d340ab646c47fdf8fe6d92aba4fffcff41",
+      "previousContentSha256": "19c4ac959090bc540845a737fbe112e5ead1bb368d31915144d5b2da0ae510d4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/insiders-30/2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/insiders-30/2026/index.md",
+      "contentSha256": "154ef26c014e5e9d494144c8fc4324434fb1dd85e494efe959661d7923d187f9",
+      "previousContentSha256": "ec1e5ae3b5d5064861f183391a9a8448d8c1c2b07548f72e371d2b0d8dbf1f97"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-28/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-28/index.md",
+      "contentSha256": "6945a1dbf669e3914b7b4e12f0abf5cd2e2f20f910457fdb284759b9c0fd399a",
+      "previousContentSha256": "c675c9acd047b75fed8a553c0169b8cc3864320f018d1e5e109582b01d8cfb91"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/index.md",
+      "contentSha256": "aef648e95faab8d7c08bced1e6d833e994ca1547a942f3674c789a8a5edcd5fd",
+      "previousContentSha256": "91423f118fd10205d112dd010da2c272e120cdca8ee8847bb1324b7020ca1cec"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-sunset-hour/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-sunset-hour/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-sunset-hour/index.md",
+      "contentSha256": "2cba76995378e1e611ba3b49af277ff52edcabd21f471afea97e695832d03f4d",
+      "previousContentSha256": "e9075847e81904c403c0d20dc49d7763b19abeca1810961fa48f8af5fd5c76a2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/index.md",
+      "contentSha256": "e9e03e5b2c5f7d85f58dfe759a6cd51eea521104ecc0a7694d351de062f66612",
+      "previousContentSha256": "7c304f3ec8b1fa7eb8b4121520156d95e10b2c2169f6bc2e328b804b1f865fdf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/index.md",
+      "contentSha256": "1d89e7285bf8cecdd02617491ec084e9011ea2b5fab093e41a6b17c9c4ec482f",
+      "previousContentSha256": "422ad47fafe267c0f9c345e28fdaed3ec4810b1bd05075f4338a88dfa97f5201"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "00b4aea8a161c56ef3c9ff5c57b0720fb341dea956183bbd8775dd5935644f36",
-      "previousContentSha256": "041f37335792d02f349cc45fe7aedab341868bcc30dae036c448a004bb102917"
+      "contentSha256": "92d2fa55d013a6a03105f7dc2321e42be11ab5f0550e7a8a88aad35686e9bbc5",
+      "previousContentSha256": "00b4aea8a161c56ef3c9ff5c57b0720fb341dea956183bbd8775dd5935644f36"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
+      "contentSha256": "3db028faf978b8f1354aa8e17eb9e0958ceac680c4d795932fb13ac8831c78b6",
+      "previousContentSha256": "d2aafa1cdf44922a39ed15f0453a537f064f35c98c48ee3dde01d94c49a440c3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/boutique-hotels/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/boutique-hotels/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/boutique-hotels/index.md",
+      "contentSha256": "2945e09dbcad86b60c65aa80ffd16258f122a11d25439ca9e603d999c02eac53",
+      "previousContentSha256": "e064e2a0d064d9993fa2648cce988a7975ee822c2e7d6cdeba21cf99b23887a4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/coastal-stays/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/coastal-stays/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/coastal-stays/index.md",
+      "contentSha256": "25242ebe7214904f6d1321b8510846043590c70b5f6489153db3e4303bc8420a",
+      "previousContentSha256": "f0a403988d49ce8ba4ca60391efbb770bcd39f96f3f088240a24bcdd6cf4ab66"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/index.md",
+      "contentSha256": "1ee9307559ec99a89e7ec35291b87272002fedf55587fc86acc600a83a43b0ac",
+      "previousContentSha256": "c549178e496a77f2709a48c49e5377a2746028ddb0fa2ee6f87f9f6b56bbf1cd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/jackalope/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/jackalope/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/jackalope/index.md",
+      "contentSha256": "8144e78f820a15accdc1935513004dd4701cb92160a3054bd2940f518deb7f59",
+      "previousContentSha256": "c8baa951adf2ee1ceaafd34027691a9f6926d155e7688fcfa1c67645065265c2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/lindenderry/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/lindenderry/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/lindenderry/index.md",
+      "contentSha256": "c8e09e2e087a56dcc78e1f90bf38c9902613257f161b709ccb7cf1596a562e0c",
+      "previousContentSha256": "a11e7e502e93c80787c36c6835084cbb99efe98d0e42d715290f4e574eacb8ed"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/luxury/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/luxury/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/luxury/index.md",
+      "contentSha256": "e9085749c8c5391b2983b1ace94e14d4483e6c02894aa5b86007a73d4b1bfdc3",
+      "previousContentSha256": "04fdbfe44d0726f92383c147ca9e53d053069d2cbbaf873aebe04d9d5986b13b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/red-hill/index.md",
+      "contentSha256": "e627026319429c75861e3ca6e77145088255544b4f54e95cf7687ed9e29d8a4d",
+      "previousContentSha256": "8f5ceaaf295edf19873f7c8a9b3bebdf0f7f62986ea3076d4335773a8b12ccec"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/sorrento/index.md",
+      "contentSha256": "7d7d71712a03670b1a8155e20c0973e392e89f7e96f05e7a1ce93f92dc3fb250",
+      "previousContentSha256": "7d423db4f2b7b3c4a79cd9e2734a6f3219752eadce91f22409b90df026f9ff11"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/vineyard-stays/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/index.md",
+      "contentSha256": "1618f43f7bf38e8bf675976eba21358cbd937e5fac83620fa2dc8820ef7bbd36",
+      "previousContentSha256": "0a4f5b0b9a5e74f753fc790727f2e8deb9b9503ed569e2c59b6b8db0210939f4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/wellness-retreats/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/wellness-retreats/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/wellness-retreats/index.md",
+      "contentSha256": "3694f2364570cd5976bc49cc89e36360a5d795a007b2f72eb38a1a86fae0c11b",
+      "previousContentSha256": "d3d165401340d416e01fdbadb023dfc1c2c8313b367bc248d62c9d61b349c406"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/winery-accommodation/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/index.md",
+      "contentSha256": "db993c134034948ff31fe2d885e55bc168df083acebb39794500e5454c5f65b3",
+      "previousContentSha256": "52b367cca8ef2b4b789632f281aa10a52188d0ca3fe0772a7faf56f5a18b17df"
     }
   ]
 }

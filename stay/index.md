@@ -75,7 +75,9 @@ An editorial shortlist. Dates on individual entries describe the recorded detail
 
 A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining. Check room and restaurant availability separately.
 
-Hotel   Red Hill   Couples
+Hotel   Merricks North   Couples
+
+Details checked October 2026
 
 [Check availability](<https://jackalopehotels.com/stay/>)
 
@@ -93,7 +95,9 @@ A coastal hotel above a limestone pub, for a weekend centred on Sorrento. Check 
 
 Hotel   Sorrento   Couples
 
-[Check availability](<https://hotelsorrento.com.au/stay>)
+Details checked October 2026
+
+[Check availability](<https://hotelsorrento.com.au/stay/>)
 
 See 3 more editorial choices
 
@@ -123,11 +127,19 @@ Cottage   Rye   Dog-friendly
 
 [Check availability](<https://www.bluemooncottages.com.au/>)
 
-## Start with a ranked list
+## Choose a stay guide
 
 - ### [The best places to stay](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Choose a coast, wine-country or thermal base, then compare stay formats.
+
+- ### [Boutique hotels](<https://peninsulainsider.com.au/stay/boutique-hotels/>)
+
+Compare a village hotel, vineyard estate and design-led stay.
+
+- ### [Cottages and B&Bs](<https://peninsulainsider.com.au/stay/cottages/>)
+
+Choose a self-contained cottage or a hosted room or suite.
 
 - ### [Couples’ retreats](<https://peninsulainsider.com.au/stay/couples-retreats/>)
 
@@ -145,6 +157,10 @@ Bay villages, south-coast bases and a night inside Point Nepean.
 
 Compare accommodation at the Peninsula thermal estates.
 
+- ### [Wellness stays](<https://peninsulainsider.com.au/stay/wellness-retreats/>)
+
+Choose on-site bathing, a hotel spa or an off-site springs package.
+
 - ### [Dog-friendly stays](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
 
 Stays where the dog is a guest, not a problem.
@@ -157,9 +173,11 @@ The full list
 
 - ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
 
-Hotel   Red Hill   Couples
+Hotel   Merricks North   Couples
+
+Details checked October 2026
 
 [Check availability](<https://jackalopehotels.com/stay/>)
 
@@ -173,11 +191,13 @@ Villa   Red Hill   Couples
 
 - ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
 Hotel   Sorrento   Couples
 
-[Check availability](<https://hotelsorrento.com.au/stay>)
+Details checked October 2026
+
+[Check availability](<https://hotelsorrento.com.au/stay/>)
 
 - Image subject unverified
 

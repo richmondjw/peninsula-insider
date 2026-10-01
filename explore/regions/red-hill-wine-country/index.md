@@ -349,13 +349,13 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
 
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
 166 Balnarring Rd, Merricks North VIC 3926
 
-A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
 
 anniversary  weekend escape
 

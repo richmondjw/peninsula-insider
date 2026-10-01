@@ -35,7 +35,7 @@ Rooms and studios at the clifftop pub-hotel. The operator describes the township
 
 **Stay notice, checked 1 October 2026:** Hotel Sorrento reports daytime midweek construction and possible movement changes ahead of its 1 December expansion. [Read the current notice](<https://hotelsorrento.com.au/stay/>) before reserving.
 
-[Read stay notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Check with operator](<https://hotelsorrento.com.au/stay>)
+[Read stay notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Check with operator](<https://hotelsorrento.com.au/stay/>)
 
 Sorrento bay coast. Area photograph, not a view from a listed room. Peninsula Insider.
 

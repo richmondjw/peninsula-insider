@@ -25,7 +25,7 @@ Luxury Hotels on the Mornington Peninsula - The Honest Guide in 8 photographs
 
 1  / 8
 
-Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front  Jackalope Hotel, Red Hill, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front  Jackalope Hotel, Merricks North, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
 
 ## One clarification before anything else
 

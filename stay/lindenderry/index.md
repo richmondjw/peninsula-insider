@@ -61,6 +61,8 @@ Photo · Peter Foster, courtesy of Visit Victoria
 
 Leave time to walk the gardens between bookings, or use the hotel as a base for the Red Hill cellar doors. Confirm current dining and tasting hours directly when you book.
 
+The operator also lists an Alba Thermal Springs & Spa package pairing a Red Hill hotel stay with bathing at Alba in Fingal. Choose that package explicitly if you want bathing included, check current terms and arrange travel. A room-only booking does not by itself establish Alba entry.
+
 Worth knowing
 
 **Best for**

@@ -30,7 +30,7 @@ Our starting point for a first weekend: vineyard lunches, a coastal walk and Poi
 
 3 days · Red Hill & Merricks · Couples · 6 stops across 3 days
 
-Day 1: Red Hill · Day 2: Red Hill → Cape Schanck → Sorrento · Day 3: Point Nepean
+Day 1: Red Hill → Merricks North · Day 2: Red Hill → Cape Schanck → Sorrento · Day 3: Point Nepean
 
 Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
@@ -126,7 +126,7 @@ Days in order, with the stops already chosen. Check transport between stops and 
 
 Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
 
-Day 1: Red Hill · Day 2: Red Hill → Cape Schanck → Sorrento · Day 3: Point Nepean
+Day 1: Red Hill → Merricks North · Day 2: Red Hill → Cape Schanck → Sorrento · Day 3: Point Nepean
 
 Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
@@ -186,7 +186,7 @@ Book the stay and thermal session first, then check meal service times and cance
 
 One round at St Andrews Beach, with vineyard meals and an optional coastal walk for the rest of the group.
 
-Day 1: Red Hill · Day 2: Cape Schanck → Red Hill · Day 3: Mornington → Main Ridge
+Day 1: Merricks North → Red Hill · Day 2: Cape Schanck → Red Hill · Day 3: Mornington → Main Ridge
 
 Check tee-time availability and book the stay and group meals before committing to the weekend.
 

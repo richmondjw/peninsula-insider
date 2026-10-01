@@ -11,7 +11,7 @@ Sorrento is the Peninsula's cleanest answer for readers who want atmosphere, wal
 
 The strongest Sorrento stays differ less by star rating than by how they shape the weekend. [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) is the classic hilltop answer. [The Continental](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) is the stronger choice if you want the centre of town with the full hotel service experience.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Researched from published sources. Every venue listed was fact-checked September 2026 or later.
 
 Sorrento stays
 
@@ -27,11 +27,11 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 5-15 Hotham Rd, Sorrento VIC 3943
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
 weekend escape  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

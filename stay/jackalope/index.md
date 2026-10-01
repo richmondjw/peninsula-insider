@@ -5,13 +5,13 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Hotel    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Hotel    [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 # Jackalope Hotel
 
-A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
 
-Known for   Carr Design Group Interiors Doot Doot Doot Restaurant Flaggerdoot Cocktail Bar Merricks North Vineyard Setting
+Known for   Art-led hotel design Doot Doot Doot restaurant Flaggerdoot bar Merricks North vineyard setting
 
 [Check availability](<https://jackalopehotels.com/stay/>)  +61 3 5931 2500
 
@@ -51,19 +51,17 @@ Known for   Carr Design Group Interiors Doot Doot Doot Restaurant Flaggerdoot Co
 
 1  / 16
 
-Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel  Jackalope Hotel, Red Hill, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel  Jackalope Hotel, Merricks North, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 
-Nothing else on the Peninsula has committed so completely to a design vision, and it has paid off in a hotel that feels genuinely international rather than aspirationally regional.
+A distinctive hotel and vineyard setting that can make the accommodation and dinner the centre of the trip.
 
-Jackalope is the most cinematically ambitious thing the Peninsula has built in decades: a black-steel monolith rising out of the Merricks North vineyard, interiors by Carr Design, a giant jackalope sculpture on the lawn, and Doot Doot Doot's extraordinary dining room under a chandelier of 10,000 glass orbs. It set out to announce that the Peninsula could compete internationally on design, and it did.
+Jackalope is an art-led hotel on a Merricks North vineyard. Its Terrace Rooms, Vineyard Rooms and Lair Suites offer different spaces and outlooks. The operator specifically lists deep-soak baths and double-sided fireplaces for Lair suites; do not assume those features in another category. The hotel welcomes guests aged 12 and over; pets are not accepted except guide and service animals.
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-The rooms lean into scale and contrast, dark walls, oversized baths, long views across the vines. The Flaggerdoot bar is one of the Peninsula's best cocktail rooms. Doot Doot Doot remains a two-hat restaurant with genuine ambition on the plate, anchored by Head Chef Michael Demagistris's cooking.
-
-This is where to stay when you want the Peninsula to feel like an event. One night minimum, two is better.
+Doot Doot Doot serves dinner on site, with its own reservation. The operator lists breakfast among stay inclusions. Choose the exact room for its view and features, and confirm the current dinner, access and inclusion details before building an occasion around the stay.
 
 Part of Jackalope
 
@@ -77,11 +75,11 @@ Anniversary weekends · Weekend escapes · Design lovers · Food lovers
 
 If you only do one thing
 
-Book the best room category you can justify, have dinner at Doot Doot Doot the same night, and do not try to drive anywhere afterwards.
+Choose the room category for its actual view and bathing features, then reserve Doot Doot Doot separately.
 
 Works well with
 
-Doot Doot Doot · Red Hill Estate
+Doot Doot Doot · Rare Hare
 
 Filed under   Anniversary Weekend Escape Cellar Door First Date All Year Couples
 
@@ -99,13 +97,9 @@ Hotel
 
 +61 3 5931 2500
 
-**Awards**
-
-Condé Nast Hot List · AHA Hotel of the Year Victoria
-
 **Website**
 
-[jackalopehotels.com/mornington-peninsula](<https://jackalopehotels.com/mornington-peninsula>)
+[jackalopehotels.com](<https://jackalopehotels.com/>)
 
 **Directions**
 
@@ -183,7 +177,7 @@ Two-night escape · Best for friends · Rye
 
 Nearby picks
 
-## More from Red Hill
+## More from Merricks North
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
@@ -233,7 +227,9 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Merricks North - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+Information last checked 1 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=jackalope>)
 

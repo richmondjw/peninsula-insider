@@ -1,151 +1,149 @@
 Canonical: https://peninsulainsider.com.au/stay/wellness-retreats/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-09-07
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Wellness stays on the Mornington Peninsula
+Stay / wellness
 
-If the springs are the reason for your trip, stay in Fingal at Peninsula Hot Springs or Alba. If you want a hotel and restaurant weekend with a treatment added, start with Jackalope. Flinders Hotel offers a different arrangement: stay in the village and travel to Peninsula Hot Springs for bathing.
+# Choose your wellness stay.
 
-These 6 accommodation options are grouped by what the stay actually offers. A day spa is not accommodation, and a quiet hotel is not automatically a facilitated retreat.
+Sleep at the springs, add a hotel treatment, or stay elsewhere with bathing in Fingal.
 
-[Choosing a day spa instead? Read the spa guide →](<https://peninsulainsider.com.au/explore/spas-and-wellness/>)
+Alba’s thermal estate in Fingal. The image shows bathing, not a Sanctuary room. Courtesy of Visit Victoria.
 
-On-site bathing
+01 / On-site bathing
 
-## Stay at the springs
+## Sleep where you bathe.
 
-Choose these when bathing is the main reason to stay. Glamping and eco lodges are at Peninsula Hot Springs; The Sanctuary is at Alba. Both operators are in Fingal. Check the inclusions of your chosen accommodation package.
+Peninsula Hot Springs and Alba are different operators in Fingal. Choose the springs first, then compare the accommodation format and inclusions for your dates.
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Canvas stay · Peninsula Hot Springs
 
 ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-140 Springs Lane, Fingal VIC 3939
+Garden View, Lake View and Secluded Pavilion glamping settings keep the springs on the same grounds.
 
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+**Check before booking.** Check the exact tent package, bathing access, guest age rules and arrival times. Reserve treatments or dining separately unless included.
 
-wellness  anniversary
+[Read stay notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)[See glamping packages](<https://www.peninsulahotsprings.com/accommodation/glamping>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
-
-Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Lodge room · Peninsula Hot Springs
 
 ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-140 Springs Lane, Fingal VIC 3939
+Individual rooms in the Eco Lodges offer a different stay from glamping. Private bathing features vary by room type.
 
-Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+**Check before booking.** Compare the Springs Room and Peninsula Suite, then read the current package inclusions. A private bath is not a spa treatment booking.
 
-wellness  anniversary
+[Read stay notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)[See Eco Lodge rooms](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
-
-Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Villa or room · Alba
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-282 Browns Road, Fingal VIC 3939
+The Sanctuary has five standalone villas and two premium rooms above Alba’s thermal springs.
 
-Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
+**Check before booking.** Alba currently lists daily bathing, Thyme breakfast and one private-pool upgrade for both formats. Reserve spa treatments separately.
 
-wellness  anniversary
+[Read stay notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)[See Alba accommodation](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+Pictured: an Eco Lodge room at Peninsula Hot Springs
 
-Hotel and treatments
+An Eco Lodge room at Peninsula Hot Springs. One of the stays here, not every room type. Courtesy of Visit Victoria.
 
-## Build the stay around a hotel spa
+02 / Hotel and treatments
 
-Jackalope in Merricks North pairs accommodation with its spa and restaurants. Arrange treatments separately and check what your room booking includes.
+## Make the hotel the occasion.
 
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Jackalope is a hotel and treatment-spa stay in Merricks North. Its spa is at the hotel; it is not one of the Fingal thermal-springs operators.
+
+Hotel spa · Merricks North
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-166 Balnarring Rd, Merricks North VIC 3926
+Stay at the design hotel and build in a treatment, dining or time by the guest-only pool.
 
-A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+**Check before booking.** Check whether your room package includes a treatment. Otherwise reserve the spa separately. Pool and hot-and-cold facilities are for hotel guests.
 
-anniversary  weekend escape
+[Read stay notes](<https://peninsulainsider.com.au/stay/jackalope/>)[See Jackalope spa](<https://jackalopehotels.com/spa/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
+Pictured: Jackalope Hotel in Merricks North
 
-External bathing package
+Jackalope Hotel in Merricks North. The photograph shows its vineyard setting, not a treatment room. Peter Foster, courtesy of Visit Victoria.
 
-## Stay in Flinders, bathe in Fingal
+03 / Optional off-site packages
 
-The Stay and Bathe package at Quarters at Flinders Hotel combines accommodation with Peninsula Hot Springs Bath House entry. Bathing is off-site; arrange transport between Flinders and Fingal and check package availability and blackout dates.
+## Stay elsewhere. Bathe in Fingal.
 
-Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+These hotels are outside the springs precincts. Each operator lists a package pairing accommodation with bathing at a Fingal venue. A room-only booking does not imply bathing entry.
+
+Flinders hotel · Peninsula Hot Springs package
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929
+The Stay and Bathe package pairs Quarters at Flinders Hotel with Peninsula Hot Springs Bath House bathing in Fingal.
 
-Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
+**Check before booking.** Check package availability, blackout dates and bathing entry. Arrange your own journey between Flinders and Fingal.
 
-weekend escape  slow
+[Read stay notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>)[See Flinders package](<https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)
-
-[Check the official Flinders Stay and Bathe package →](<https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe>)
-
-A separate accommodation base
-
-## Stay on the wine ridge
-
-Lindenderry at Red Hill is a base for a Peninsula break. Book your chosen spa or springs separately; inclusion here does not indicate an on-site treatment spa or a bathing package.
-
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Red Hill hotel · Alba package
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937
+Lindenderry lists an Alba Thermal Springs & Spa package with its Red Hill accommodation and bathing at Alba in Fingal.
 
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
+**Check before booking.** Select the Alba package if you want bathing included, then confirm its terms and transport. A standard room booking is a separate choice.
 
-weekend escape  garden
+[Read stay notes](<https://peninsulainsider.com.au/stay/lindenderry/>)[See Lindenderry package](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/experiences/packages/alba-package/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+Pictured: Lindenderry at Red Hill
 
-## Frequently asked questions
+Lindenderry at Red Hill, one of two off-site hotel bases. Flinders Hotel is a separate property. Peter Foster, courtesy of Visit Victoria.
 
-### Can you stay at Peninsula Hot Springs?
+Before you reserve
 
-Yes. Peninsula Hot Springs offers glamping and eco lodge accommodation in Fingal. They are different accommodation formats at the same operator. Check the room type, guest age policy and bathing inclusions before booking.
+## Book the parts that matter.
 
-### Where is Alba, and can you stay there?
+- **Choose the place.** Peninsula Hot Springs and Alba are separate Fingal operators. Jackalope is in Merricks North. Package hotels are in Flinders and Red Hill.
 
-Alba Thermal Springs & Spa is at 282 Browns Road, Fingal. Its accommodation, The Sanctuary, includes five standalone villas and two rooms. Book accommodation and any spa treatments through Alba.
+- **Read the inclusions.** Bathing, breakfast, treatments and private bathing differ by room and package. Reserve anything outside your booking separately.
 
-### Does Flinders Hotel have an on-site hot spring?
+- **Plan the journey.** An off-site package links a hotel stay with a springs visit; it does not put pools at the hotel. Confirm transport and times before paying.
 
-The Stay and Bathe package combines a stay at Quarters at Flinders Hotel with bathing at Peninsula Hot Springs in Fingal. These are separate locations, so you need to arrange travel between them.
+## The practical questions.
 
-### Is a day-spa booking the same as a wellness retreat stay?
+Looking for a visit without accommodation? Use the [day-spa guide](<https://peninsulainsider.com.au/explore/spas-and-wellness/>).
 
-No. A day-spa booking is a treatment or bathing visit. An overnight stay includes accommodation; a facilitated retreat also needs a confirmed program and dates. Check each booking for what is included.
+### Can I stay at Peninsula Hot Springs or Alba?
+
+Yes. Peninsula Hot Springs has glamping and Eco Lodges; Alba has The Sanctuary’s villas and rooms. They are separate operators in Fingal. Check your room and bathing inclusions.
+
+### Do the Flinders and Red Hill packages include the same springs?
+
+No. The Quarters at Flinders Hotel package is linked to Peninsula Hot Springs. Lindenderry at Red Hill lists a package linked to Alba. Both involve travel to Fingal. Check availability and inclusions with the operator.
+
+### Does a Jackalope room include a spa treatment?
+
+Do not assume it does. Jackalope has an on-site treatment spa and offers different room packages. Check your package and reserve a treatment separately when it is not included.
+
+### Is a day-spa visit the same as a wellness retreat stay?
+
+No. A day-spa visit does not include accommodation. An overnight stay includes a room; a facilitated retreat also needs a confirmed program and dates. Check what your booking includes.
 
 ### Can I plan a wellness stay without a car?
 
-Plan transport before booking. Staying at the springs reduces travel during your visit, but you still need to get there and home. Check current operator transport options and arrange any taxis or transfers in advance.
+Plan transport before booking. Staying at the springs reduces travel between room and bathing, but you still need to reach Fingal. For a Flinders or Red Hill package, arrange the journey to the separate springs venue.
 
-## Plan the rest of the stay
+## Build the rest of the break.
 
-- [Compare Peninsula Hot Springs and Alba](<https://peninsulainsider.com.au/explore/hot-springs/>)
+Compare the two springs, use a weekend plan, or return to the wider stay shortlist.
 
-- [Accommodation inside the thermal precincts](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
+[Compare the springs](<https://peninsulainsider.com.au/explore/hot-springs/>) [See only on-site thermal stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>) [Plan a wellness weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>) [Browse more stays](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-- [The wellness weekend plan](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
-
-- [The wider accommodation shortlist](<https://peninsulainsider.com.au/stay/best-accommodation/>)
-
-## Sources and booking details
-
-Accommodation formats, locations and the Flinders partnership checked on 7 September 2026 against [Peninsula Hot Springs accommodation](<https://www.peninsulahotsprings.com/accommodation>), [The Sanctuary at Alba](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>) and the [official Flinders package](<https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe>). Check current availability, age requirements and inclusions with the operator before booking.
+Accommodation formats and package links checked on 1 October 2026 against [Peninsula Hot Springs](<https://www.peninsulahotsprings.com/accommodation>), [Alba’s Sanctuary](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>), [Jackalope’s spa](<https://jackalopehotels.com/spa/>), the [Flinders package](<https://www.peninsulahotsprings.com/accommodation/stay-local/flinders-hotel-stay-and-bathe>) and [Lindenderry’s Alba package](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/experiences/packages/alba-package/>). Check live availability, age rules, inclusions and travel details with the operator.
 
 ## The Insider Note
 

@@ -35,7 +35,7 @@ Book the degustation over the à la carte. Check in at Jackalope first and don't
 
 Part of Jackalope
 
-[Jackalope Hotel  Hotel  A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.](<https://peninsulainsider.com.au/stay/jackalope/>)[Rare Hare at Willow Creek  Restaurant  Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.](<https://peninsulainsider.com.au/eat/rare-hare/>)[Spa by Jackalope  Spa  The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
+[Jackalope Hotel  Hotel  An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.](<https://peninsulainsider.com.au/stay/jackalope/>)[Rare Hare at Willow Creek  Restaurant  Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.](<https://peninsulainsider.com.au/eat/rare-hare/>)[Spa by Jackalope  Spa  The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
 
 Worth knowing
 

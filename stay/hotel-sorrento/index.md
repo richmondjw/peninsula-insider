@@ -9,33 +9,31 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Hotel Sorrento
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
-Known for   Bay-Facing Heritage Hotel Front Balcony Rooms Sorrento Village Pub Est. 1870s Peninsula Icon
+Known for   Sorrento clifftop location Restored Classic rooms Adults-only guest pool On-site dining and wellness
 
-[Check availability](<https://hotelsorrento.com.au/stay>)  +61 3 5984 8000
+[Check availability](<https://hotelsorrento.com.au/stay/>)  +61 3 5984 8000
 
 Hotel Sorrento · Sorrento
 
 Why we’d go
 
-The front rooms with bay balconies are a convincing argument that the classic Peninsula weekend hasn't been superseded by anything that came after.
+A Sorrento base where restored rooms and newer accommodation offer different outlooks, with dining and a guest pool at the hotel.
 
-Hotel Sorrento has been looking over the bay since the 1870s and, when done right, still delivers the classic Peninsula weekend better than almost anyone. The front rooms are the ones to book, high ceilings, balconies, and views over the water that explain why Melbourne has been escaping down here for more than a century.
+Hotel Sorrento offers five room families: Classic, Poolside, Coastal, Sorrento Studios and Sunset Suites. The room choice matters. Some have bay or pool views, a terrace or a bath; these are not universal features. Its accommodation and guest pool are adults only. The operator warns that Classic Suites may hear the bars or restaurant during weekends and peak periods.
 
-Downstairs, the public bar remains one of the great people-watching rooms in coastal Victoria. Upstairs, the accommodation is more polished than precious. It's less of a destination hotel than Jackalope or The Continental, but often more charming for that.
-
-Book it for a breezy two-night Sorrento weekend with ferries, beach walks, and late pub lunches.
+The hotel has dining and wellness facilities, but check the exact room, breakfast inclusion, dinner or spa reservation and any current works for your dates before paying. Sorrento village and the foreshore are close enough to make the hotel a base for a weekend on foot.
 
 Worth knowing
 
 **Best for**
 
-Weekend escapes · Couples · Sunset drinks · Scenic views
+Weekend escapes · Couples · Sorrento village · Hotel wellness
 
 If you only do one thing
 
-Book a front balcony room and stay the second night, Sorrento on a Sunday morning from that vantage is the Peninsula at its least complicated.
+Choose the exact room for outlook and noise tolerance, then check current works and inclusions directly with the hotel.
 
 Works well with
 
@@ -69,7 +67,7 @@ Hotel
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Hotel%20Sorrento%2C%205-15%20Hotham%20Rd%2C%20Sorrento%20VIC%203943%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://hotelsorrento.com.au/stay>)
+ [Book now](<https://hotelsorrento.com.au/stay/>)
 
 Not sure how to build a day around Hotel Sorrento?
 
@@ -188,6 +186,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Sorrento - view the destination guide](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+Information last checked 1 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=hotel-sorrento>)
 

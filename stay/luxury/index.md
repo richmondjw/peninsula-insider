@@ -29,13 +29,13 @@ The first decision
 
 Choose the room, dining and service together. Confirm restaurant reservations separately.
 
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
 166 Balnarring Rd, Merricks North VIC 3926
 
-A dramatic art-led design hotel set inside a working vineyard, with Doot Doot Doot's eight-metre chandelier overhead.
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
 
 anniversary  weekend escape
 
@@ -149,11 +149,11 @@ Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 5-15 Hotham Rd, Sorrento VIC 3943
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
 weekend escape  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
 
 ## Choose with confidence
 

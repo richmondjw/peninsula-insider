@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-01T03:32:20.943Z",
-  "snapshotId": "4ffd998574accadd03833f8861cecc3367d69f4218ac2db3ac9300bf617c3fc3",
+  "generatedAt": "2026-10-01T03:49:06.918Z",
+  "snapshotId": "69d0b477891959c53e565a9d136422acfd61f00d6cd08ff86e25b64c07e9717d",
   "section": "stay",
   "count": 46,
   "records": [
@@ -11,7 +11,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "d2aafa1cdf44922a39ed15f0453a537f064f35c98c48ee3dde01d94c49a440c3",
+      "contentSha256": "3db028faf978b8f1354aa8e17eb9e0958ceac680c4d795932fb13ac8831c78b6",
       "citation": {
         "title": "Choose the base, and the whole weekend changes",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 329525,
-      "markdownBytes": 17975
+      "htmlBytes": 331812,
+      "markdownBytes": 18556
     },
     {
       "id": "https://peninsulainsider.com.au/stay/arthurs-views/",
@@ -92,20 +92,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/stay/boutique-hotels/",
-      "title": "Boutique Hotels on the Mornington Peninsula",
+      "title": "Boutique hotels, sorted.",
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/boutique-hotels/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/boutique-hotels/index.md",
-      "contentSha256": "e064e2a0d064d9993fa2648cce988a7975ee822c2e7d6cdeba21cf99b23887a4",
+      "contentSha256": "2945e09dbcad86b60c65aa80ffd16258f122a11d25439ca9e603d999c02eac53",
       "citation": {
-        "title": "Boutique Hotels on the Mornington Peninsula",
+        "title": "Boutique hotels, sorted.",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/stay/boutique-hotels/",
         "publishedAt": null,
-        "modifiedAt": "2026-04-24"
+        "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 150837,
-      "markdownBytes": 3814
+      "htmlBytes": 158595,
+      "markdownBytes": 6326
     },
     {
       "id": "https://peninsulainsider.com.au/stay/brewers-cottage/",
@@ -181,7 +181,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/coastal-stays/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/coastal-stays/index.md",
-      "contentSha256": "f0a403988d49ce8ba4ca60391efbb770bcd39f96f3f088240a24bcdd6cf4ab66",
+      "contentSha256": "25242ebe7214904f6d1321b8510846043590c70b5f6489153db3e4303bc8420a",
       "citation": {
         "title": "Choose the coast that fits your stay.",
         "publisher": "Peninsula Insider",
@@ -189,8 +189,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 152928,
-      "markdownBytes": 7152
+      "htmlBytes": 152929,
+      "markdownBytes": 7153
     },
     {
       "id": "https://peninsulainsider.com.au/stay/cottages/",
@@ -368,7 +368,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/index.md",
-      "contentSha256": "c549178e496a77f2709a48c49e5377a2746028ddb0fa2ee6f87f9f6b56bbf1cd",
+      "contentSha256": "1ee9307559ec99a89e7ec35291b87272002fedf55587fc86acc600a83a43b0ac",
       "citation": {
         "title": "Hotel Sorrento",
         "publisher": "Peninsula Insider",
@@ -376,8 +376,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178291,
-      "markdownBytes": 7924
+      "htmlBytes": 178421,
+      "markdownBytes": 7922
     },
     {
       "id": "https://peninsulainsider.com.au/stay/iluka-retreat/",
@@ -402,7 +402,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/jackalope/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/jackalope/index.md",
-      "contentSha256": "c8baa951adf2ee1ceaafd34027691a9f6926d155e7688fcfa1c67645065265c2",
+      "contentSha256": "8144e78f820a15accdc1935513004dd4701cb92160a3054bd2940f518deb7f59",
       "citation": {
         "title": "Jackalope Hotel",
         "publisher": "Peninsula Insider",
@@ -410,8 +410,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 228962,
-      "markdownBytes": 9928
+      "htmlBytes": 228588,
+      "markdownBytes": 9612
     },
     {
       "id": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/",
@@ -436,7 +436,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/lindenderry/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/lindenderry/index.md",
-      "contentSha256": "a11e7e502e93c80787c36c6835084cbb99efe98d0e42d715290f4e574eacb8ed",
+      "contentSha256": "c8e09e2e087a56dcc78e1f90bf38c9902613257f161b709ccb7cf1596a562e0c",
       "citation": {
         "title": "Lindenderry at Red Hill",
         "publisher": "Peninsula Insider",
@@ -444,8 +444,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 221084,
-      "markdownBytes": 8697
+      "htmlBytes": 221697,
+      "markdownBytes": 8984
     },
     {
       "id": "https://peninsulainsider.com.au/stay/luxury/",
@@ -453,7 +453,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/luxury/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/luxury/index.md",
-      "contentSha256": "04fdbfe44d0726f92383c147ca9e53d053069d2cbbaf873aebe04d9d5986b13b",
+      "contentSha256": "e9085749c8c5391b2983b1ace94e14d4483e6c02894aa5b86007a73d4b1bfdc3",
       "citation": {
         "title": "Luxury stays, shaped by the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -461,8 +461,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 173875,
-      "markdownBytes": 7466
+      "htmlBytes": 173920,
+      "markdownBytes": 7497
     },
     {
       "id": "https://peninsulainsider.com.au/stay/mantons-creek-estate/",
@@ -589,7 +589,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/red-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/red-hill/index.md",
-      "contentSha256": "8f5ceaaf295edf19873f7c8a9b3bebdf0f7f62986ea3076d4335773a8b12ccec",
+      "contentSha256": "e627026319429c75861e3ca6e77145088255544b4f54e95cf7687ed9e29d8a4d",
       "citation": {
         "title": "Where to Stay in Red Hill and the Hinterland",
         "publisher": "Peninsula Insider",
@@ -597,8 +597,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-05-08"
       },
-      "htmlBytes": 152365,
-      "markdownBytes": 4708
+      "htmlBytes": 152359,
+      "markdownBytes": 4713
     },
     {
       "id": "https://peninsulainsider.com.au/stay/resorts/",
@@ -640,7 +640,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/sorrento/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/sorrento/index.md",
-      "contentSha256": "7d423db4f2b7b3c4a79cd9e2734a6f3219752eadce91f22409b90df026f9ff11",
+      "contentSha256": "7d7d71712a03670b1a8155e20c0973e392e89f7e96f05e7a1ce93f92dc3fb250",
       "citation": {
         "title": "Where to Stay in Sorrento",
         "publisher": "Peninsula Insider",
@@ -648,8 +648,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 141320,
-      "markdownBytes": 2583
+      "htmlBytes": 141383,
+      "markdownBytes": 2617
     },
     {
       "id": "https://peninsulainsider.com.au/stay/the-continental-sorrento/",
@@ -725,7 +725,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/index.md",
-      "contentSha256": "0a4f5b0b9a5e74f753fc790727f2e8deb9b9503ed569e2c59b6b8db0210939f4",
+      "contentSha256": "1618f43f7bf38e8bf675976eba21358cbd937e5fac83620fa2dc8820ef7bbd36",
       "citation": {
         "title": "Vineyard Stays on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -733,25 +733,25 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 182037,
-      "markdownBytes": 9903
+      "htmlBytes": 182031,
+      "markdownBytes": 9908
     },
     {
       "id": "https://peninsulainsider.com.au/stay/wellness-retreats/",
-      "title": "Wellness stays on the Mornington Peninsula",
+      "title": "Choose your wellness stay.",
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/wellness-retreats/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/wellness-retreats/index.md",
-      "contentSha256": "d3d165401340d416e01fdbadb023dfc1c2c8313b367bc248d62c9d61b349c406",
+      "contentSha256": "3694f2364570cd5976bc49cc89e36360a5d795a007b2f72eb38a1a86fae0c11b",
       "citation": {
-        "title": "Wellness stays on the Mornington Peninsula",
+        "title": "Choose your wellness stay.",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/stay/wellness-retreats/",
         "publishedAt": null,
-        "modifiedAt": "2026-09-07"
+        "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 161947,
-      "markdownBytes": 7719
+      "htmlBytes": 152971,
+      "markdownBytes": 8541
     },
     {
       "id": "https://peninsulainsider.com.au/stay/winery-accommodation/",
@@ -759,7 +759,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/index.md",
-      "contentSha256": "52b367cca8ef2b4b789632f281aa10a52188d0ca3fe0772a7faf56f5a18b17df",
+      "contentSha256": "db993c134034948ff31fe2d885e55bc168df083acebb39794500e5454c5f65b3",
       "citation": {
         "title": "Stay in wine country.",
         "publisher": "Peninsula Insider",
@@ -767,8 +767,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 165319,
-      "markdownBytes": 6797
+      "htmlBytes": 165313,
+      "markdownBytes": 6802
     },
     {
       "id": "https://peninsulainsider.com.au/stay/woodman-estate/",

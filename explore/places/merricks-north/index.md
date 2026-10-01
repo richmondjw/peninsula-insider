@@ -87,6 +87,104 @@ Many Merricks North cellar doors are weekend-only or by appointment - call ahead
 
   - Editor's note
 
+What's mapped here
+
+- [**1** stays](<https://peninsulainsider.com.au/explore/places/merricks-north/#stay>)
+
+- [**2** escape plans](<https://peninsulainsider.com.au/explore/places/merricks-north/#escapes>)
+
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/merricks-north/#journal>)
+
+Stay
+
+## Sleep in Merricks North
+
+When a place has a workable bed attached, it stops being a stop and starts becoming a base.
+
+ [All stays →](<https://peninsulainsider.com.au/stay/>)
+
+Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
+
+anniversary  weekend escape
+
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
+
+[See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+
+Use it in sequence
+
+## Escapes that already route through Merricks North
+
+These plans have been written around the landscape here - not bolted on after.
+
+ [Plan a Merricks North weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Plan
+
+### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Start in Red Hill wine country, finish at the southern tip, and let the weekend widen as it goes.
+
+Two-night escape · Best for couple · Red Hill
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Plan
+
+### [The Peninsula Golf Weekend](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+
+Two nights at Jackalope, one round at St Andrews Beach, vineyard meals and a short coastal alternative for non-golfers.
+
+Two-night escape · Best for friends · Rye
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+
+Read this place properly
+
+## Journal pieces connected to Merricks North
+
+Long-form editorial that builds the picture of a place beyond any single visit.
+
+ [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Service   9 min
+
+### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
+
+10 April 2026
+
+You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+
+10 April 2026
+
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
+
+Service   7 min
+
+### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
+
+16 April 2026
+
+A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
+
+Slow Peninsula   8 min
+
+### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
+
+10 April 2026
+
+One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+
 Planning guides
 
 ## Service guides for your Merricks North trip
