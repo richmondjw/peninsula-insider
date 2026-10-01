@@ -2,20 +2,197 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = ['hotel-sorrento','the-continental-sorrento'];
-const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
+const findVenue = (slug: string) => {
+  const venue = allVenues.find((item) => routeSlug(item) === slug);
+  if (!venue) throw new Error('Sorrento stay guide is missing its required venue: ' + slug);
+  return venue;
+};
+const hotel = findVenue('hotel-sorrento');
+const intercontinental = findVenue('the-continental-sorrento');
+const venues = [hotel, intercontinental];
+const faqs = [
+  { q: 'Which Sorrento hotel can I stay at with children?', a: 'InterContinental Sorrento offers family stays. Hotel Sorrento says its accommodation is adults only and each room accommodates a maximum of two adults. Confirm occupancy for the exact room before booking.' },
+  { q: 'Does a hotel room include dinner or an Aurora Spa visit?', a: 'Do not assume so. At The Continental, the InterContinental hotel, precinct dining and Aurora Spa are distinct reservations. Hotel Sorrento also has separate dining and wellness choices. Check your rate and reserve extras directly.' },
+  { q: 'Will my Sorrento room be quiet and have a bay view?', a: 'Views depend on the exact room. Hotel Sorrento warns that some Classic Suites can hear its bars and restaurant on weekends and in peak periods. Ask about your room and any current works before paying.' },
+];
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Sorrento' }];
-const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Sorrento', url: absUrl('/stay/sorrento/') }]);
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+  { name: 'Sorrento', url: absUrl('/stay/sorrento/') },
+]);
+const collectionSchema = {
+  '@context': 'https://schema.org', '@type': 'CollectionPage',
+  name: 'Where to stay in Sorrento',
+  description: 'Choose between two different Sorrento hotel stays, with room, occupancy and reservation details to check before booking.',
+  url: absUrl('/stay/sorrento/'),
+  mainEntity: { '@type': 'ItemList', itemListOrder: 'https://schema.org/ItemListUnordered', numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({ '@type': 'ListItem', position: index + 1, name: venue.data.name, url: absUrl(venueHref(venue, '/stay')) })) },
+};
 export const prerender = true;
 ---
-<BaseLayout title="Where to Stay in Sorrento · Peninsula Insider" description="The best places to stay in Sorrento, from grand old coastal hotels to refined weekend bases near both bay and back beach." section="stay" canonical="https://peninsulainsider.com.au/stay/sorrento/" modifiedTime="2026-04-24">
+<BaseLayout title="Where to Stay in Sorrento | Peninsula Insider" description="Choose your Sorrento hotel: an adults-only clifftop stay or a family-friendly base within The Continental precinct. Compare the room details that matter." section="stay" canonical="https://peninsulainsider.com.au/stay/sorrento/" modifiedTime="2026-10-01">
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Sorrento</h1><div class="prose"><p>Sorrento is the Peninsula's cleanest answer for readers who want atmosphere, walkability, and a weekend that does not require constant re-driving. It gives you both sides of the place, bay calm on one side, back-beach energy on the other, plus a village core that actually carries a dinner-and-morning-coffee rhythm properly.</p><p>The strongest Sorrento stays differ less by star rating than by how they shape the weekend. <a href="/stay/hotel-sorrento/">Hotel Sorrento</a> is the classic hilltop answer. <a href="/stay/the-continental-sorrento/">The Continental</a> is the stronger choice if you want the centre of town with the full hotel service experience.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Sorrento stays</p><h2 class="venues__title">{venues.length} Sorrento bases worth booking around</h2><p class="venues__sub">For weekends built around village access, bay-to-back-beach movement, and a stronger sense of arrival.</p></div><a href="/explore/places/sorrento/" class="venues__link">Sorrento guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>
+
+  <section class="sorrento-hero" aria-labelledby="sorrento-title">
+    <div class="container sorrento-hero__grid">
+      <div class="sorrento-hero__copy">
+        <h1 id="sorrento-title">Stay in Sorrento.</h1>
+        <p class="sorrento-hero__lead">An adults-only clifftop hotel or a family-friendly precinct base. Choose your hotel, then your room.</p>
+        <nav class="sorrento-hero__choices" aria-label="Choose a Sorrento hotel">
+          <a href="#hotel-sorrento" class="sorrento-choice"><span>Adults only</span><strong>Hotel Sorrento</strong><small>Clifftop rooms, guest pool and a lively hotel evening.</small></a>
+          <a href="#intercontinental" class="sorrento-choice"><span>Families welcome</span><strong>InterContinental Sorrento</strong><small>Rooms across Heritage, Main and Riley Lane wings.</small></a>
+        </nav>
+      </div>
+      <figure class="sorrento-hero__image">
+        <img src="/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp" alt="Aerial view across the Sorrento ferry terminal and bay, with the village and ocean beyond" width="2000" height="1332" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 580px" />
+        <figcaption>Sorrento village and the ferry terminal from above. This is a town view, not a hotel room view. Photo courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="sorrento-intro" aria-labelledby="sorrento-intro-title">
+    <div class="container sorrento-intro__grid">
+      <h2 id="sorrento-intro-title">The place is shared. The stay is not.</h2>
+      <p>Both hotels put Sorrento village and the bay into the weekend. The difference is how you spend the hours inside: Hotel Sorrento is an adults-only hotel with its own dining and guest pool; InterContinental is a separate hotel inside The Continental precinct, with family stays and several room wings. Neither name tells you what your individual room overlooks.</p>
+    </div>
+  </section>
+
+  <section class="sorrento-stay" id="hotel-sorrento" aria-labelledby="hotel-sorrento-title">
+    <div class="container sorrento-stay__grid">
+      <div class="sorrento-stay__identity">
+        <p class="sorrento-stay__setting">Clifftop hotel / adults only</p>
+        <h2 id="hotel-sorrento-title">Hotel Sorrento</h2>
+        <p class="sorrento-stay__verdict">Choose this for the hotel itself: a guest pool, dining and a lively Sorrento evening a short way from the village.</p>
+        <div class="sorrento-stay__actions">
+          <a class="pi-btn pi-btn--solid" href={venueHref(hotel, '/stay')}>Read our hotel notes</a>
+          <a class="sorrento-stay__operator" href="https://hotelsorrento.com.au/stay/" target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={hotel.data.type} data-pi-entity-slug="hotel-sorrento" data-pi-surface="sorrento-guide" data-pi-provider="direct">Check rooms with hotel</a>
+        </div>
+        <PiSaveActions kind="venue" slug="hotel-sorrento" title={hotel.data.name} href={venueHref(hotel, '/stay')} dek={hotel.data.signature} floating={false} />
+      </div>
+      <div class="sorrento-stay__details">
+        <h3>Which room changes the trip?</h3>
+        <p>Restored Classic rooms sit alongside contemporary Poolside, Coastal, Studio and Sunset accommodation. Bay views, baths, terraces and outdoor space belong to particular room types. The hotel's <a href="https://hotelsorrento.com.au/room/classic-suites/" target="_blank" rel="noopener noreferrer">Classic Suites notice</a> warns of possible bar and restaurant noise on weekends and in peak periods.</p>
+        <div class="sorrento-stay__check"><h3>Check before you reserve</h3><p>The hotel says accommodation is for adults only, with a maximum of two adults per room. Confirm breakfast, dining or wellness bookings and the exact room outlook directly.</p></div>
+        <p class="sorrento-stay__works"><strong>Current works, checked 1 October 2026:</strong> The hotel reports daytime midweek construction, with possible noise or changed movement around the property. <a href="https://hotelsorrento.com.au/stay/" target="_blank" rel="noopener noreferrer">Check the latest operator notice</a> for your dates.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sorrento-stay sorrento-stay--continental" id="intercontinental" aria-labelledby="intercontinental-title">
+    <div class="container sorrento-stay__grid">
+      <div class="sorrento-stay__identity">
+        <p class="sorrento-stay__setting">Heritage precinct / family stays</p>
+        <h2 id="intercontinental-title">InterContinental Sorrento</h2>
+        <p class="sorrento-stay__verdict">Choose this for a hotel stay woven into The Continental precinct, with Sorrento village close and different room wings to compare.</p>
+        <div class="sorrento-stay__actions">
+          <a class="pi-btn pi-btn--solid" href={venueHref(intercontinental, '/stay')}>Read our hotel notes</a>
+          <a class="sorrento-stay__operator" href="https://sorrento.intercontinental.com/accommodation" target="_blank" rel="noopener noreferrer" data-pi-book="booking" data-pi-entity-type={intercontinental.data.type} data-pi-entity-slug="the-continental-sorrento" data-pi-surface="sorrento-guide" data-pi-provider="direct">Check rooms with hotel</a>
+        </div>
+        <PiSaveActions kind="venue" slug="the-continental-sorrento" title={intercontinental.data.name} href={venueHref(intercontinental, '/stay')} dek={intercontinental.data.signature} floating={false} />
+      </div>
+      <div class="sorrento-stay__details">
+        <figure class="sorrento-stay__photo">
+          <img src="/images/visit-victoria/vv-22100101-aerials-of-the-continental-sorrento.webp" alt="The Continental heritage building in Sorrento at first light, viewed from above the street" width="2000" height="1332" loading="lazy" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 560px" />
+          <figcaption>The Continental heritage building, which houses part of InterContinental Sorrento. This is a building view, not a room outlook. Photo courtesy of Visit Victoria.</figcaption>
+        </figure>
+        <h3>Choose the wing, not just the hotel.</h3>
+        <p>The hotel lists Heritage, Main and Riley Lane rooms. Ask which wing and room give you the outlook and layout you want. <a href="https://sorrento.intercontinental.com/family-stays" target="_blank" rel="noopener noreferrer">Family stays are offered</a>, but occupancy and connecting arrangements depend on the room you book.</p>
+        <div class="sorrento-stay__check"><h3>Check before you reserve</h3><p>The InterContinental room is a separate booking from <a href="https://thecontinentalsorrento.com.au/" target="_blank" rel="noopener noreferrer">The Continental's restaurants and bars</a> and <a href="https://thecontinentalsorrento.com.au/stay-restore/aurora-spa/" target="_blank" rel="noopener noreferrer">Aurora Spa</a>. Confirm what your hotel rate includes, arrange dining or treatments separately, and ask about parking for your dates.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sorrento-close" aria-labelledby="sorrento-close-title">
+    <div class="container sorrento-close__grid">
+      <div>
+        <h2 id="sorrento-close-title">Make the room choice last.</h2>
+        <p>Once the hotel fits your group and your evening, check the individual room, rate inclusions and any current notices. These are two useful starting points, not a ranking of every Sorrento stay.</p>
+        <p class="sorrento-close__links"><a href="/explore/places/sorrento/">Explore Sorrento</a><a href="/stay/coastal-stays/">Compare coastal stays</a><a href="/stay/">Browse all stays</a></p>
+        <ProvenanceLine records={venues} type="venues" noun="venue" />
+      </div>
+      <div class="sorrento-close__faqs">{faqs.map(({ q, a }) => <div class="sorrento-close__faq"><h3>{q}</h3><p>{a}</p></div>)}</div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .sorrento-hero { background: var(--bg-alt); padding: clamp(1.7rem, 4vw, 4rem) 0 clamp(2.3rem, 4vw, 4rem); }
+  .sorrento-hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); }
+  .sorrento-hero h1 { max-width: 11ch; margin: 0; color: var(--text); font-size: clamp(2.8rem, 5.4vw, 5.4rem); line-height: 1.02; letter-spacing: -0.038em; text-wrap: balance; }
+  .sorrento-hero__lead { max-width: 49ch; margin: 1.2rem 0 0; color: var(--text); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.55; }
+  .sorrento-hero__choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; margin-top: clamp(1.4rem, 3vw, 2.4rem); }
+  .sorrento-choice { display: flex; flex-direction: column; min-height: 10.5rem; padding: 1.1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--white); color: var(--text); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease; }
+  .sorrento-choice:hover { border-color: var(--accent); background: #fffdf9; }
+  .sorrento-choice > span { color: var(--accent); font-size: 0.8rem; font-weight: 750; }
+  .sorrento-choice strong { margin-top: 0.38rem; font-family: var(--font-display); font-size: clamp(1.12rem, 1.6vw, 1.4rem); line-height: 1.18; letter-spacing: -0.025em; }
+  .sorrento-choice small { margin-top: 0.6rem; color: var(--soft); font-size: 0.9rem; line-height: 1.45; }
+  .sorrento-hero__image { margin: 0; }
+  .sorrento-hero__image img { display: block; width: 100%; height: clamp(25rem, 37vw, 36rem); object-fit: cover; object-position: 50% 58%; border-radius: 0.55rem; }
+  .sorrento-hero figcaption, .sorrento-stay__photo figcaption { margin-top: 0.6rem; color: var(--soft); font-size: 0.82rem; line-height: 1.45; }
+  .sorrento-intro { padding: clamp(2.5rem, 5vw, 5rem) 0; border-bottom: 1px solid var(--border); }
+  .sorrento-intro__grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(2rem, 5vw, 5rem); align-items: start; }
+  .sorrento-intro h2, .sorrento-close h2 { max-width: 14ch; margin: 0; color: var(--text); font-size: clamp(2.1rem, 3.7vw, 3.6rem); line-height: 1.09; letter-spacing: -0.035em; text-wrap: balance; }
+  .sorrento-intro p { max-width: 64ch; margin: 0; font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.65; }
+  .sorrento-stay { padding: clamp(3rem, 6vw, 6rem) 0; scroll-margin-top: 12rem; }
+  .sorrento-stay--continental { background: var(--bg-alt); }
+  .sorrento-stay__grid { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: clamp(2rem, 7vw, 7rem); align-items: start; }
+  .sorrento-stay__identity { position: sticky; top: 10rem; }
+  .sorrento-stay__setting { margin: 0 0 0.75rem; color: var(--accent); font-size: 0.85rem; font-weight: 750; }
+  .sorrento-stay h2 { max-width: 12ch; margin: 0; color: var(--text); font-size: clamp(2.3rem, 4vw, 4.25rem); line-height: 1.05; letter-spacing: -0.035em; text-wrap: balance; }
+  .sorrento-stay__verdict { max-width: 43ch; margin: 1.2rem 0 0; font-size: clamp(1.03rem, 1.35vw, 1.18rem); line-height: 1.6; }
+  .sorrento-stay__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1.15rem; margin-top: 1.5rem; }
+  .sorrento-stay__actions a { display: inline-flex; align-items: center; min-height: 44px; }
+  .sorrento-stay__operator { color: var(--accent); font-weight: 750; text-underline-offset: 0.2em; }
+  .sorrento-stay__identity :global(.pi-actions) { margin-top: 1rem; }
+  .sorrento-stay__details { max-width: 65ch; }
+  .sorrento-stay__details h3 { margin: 0 0 0.7rem; color: var(--text); font-size: clamp(1.35rem, 2.2vw, 2rem); line-height: 1.2; letter-spacing: -0.025em; }
+  .sorrento-stay__details p { margin: 0; line-height: 1.65; }
+  .sorrento-stay__details a, .sorrento-close__links a { color: var(--accent); font-weight: 700; text-underline-offset: 0.2em; }
+  .sorrento-stay__check { margin-top: 2rem; padding: 1.4rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .sorrento-stay__check h3 { font-size: 1.12rem; }
+  .sorrento-stay__works { margin-top: 1.5rem !important; padding: 1rem 1.15rem; border: 1px solid #d5b990; border-radius: 0.35rem; background: #fff8ec; font-size: 0.94rem; }
+  .sorrento-stay__photo { margin: 0 0 2rem; }
+  .sorrento-stay__photo img { display: block; width: 100%; height: clamp(18rem, 28vw, 29rem); object-fit: cover; object-position: 50% 54%; border-radius: 0.5rem; }
+  .sorrento-close { padding: clamp(3rem, 6vw, 6rem) 0; border-top: 1px solid var(--border); }
+  .sorrento-close__grid { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 6rem); }
+  .sorrento-close__grid > div:first-child > p:not(.sorrento-close__links) { max-width: 50ch; margin: 1.2rem 0 0; line-height: 1.6; }
+  .sorrento-close__links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.15rem; margin: 1.35rem 0 0; }
+  .sorrento-close__links a { display: inline-flex; align-items: center; min-height: 44px; }
+  .sorrento-close__faq { padding: 1.15rem 0; border-bottom: 1px solid var(--border); }
+  .sorrento-close__faq:first-child { padding-top: 0; }
+  .sorrento-close__faq h3 { margin: 0 0 0.45rem; color: var(--text); font-size: 1.12rem; line-height: 1.3; }
+  .sorrento-close__faq p { margin: 0; color: var(--soft); line-height: 1.58; }
+  .sorrento-choice:focus-visible, .sorrento-stay a:focus-visible, .sorrento-close a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 900px) {
+    .sorrento-hero__grid, .sorrento-intro__grid, .sorrento-stay__grid, .sorrento-close__grid { grid-template-columns: 1fr; }
+    .sorrento-hero__image img { height: clamp(15rem, 45vw, 26rem); }
+    .sorrento-stay__identity { position: static; }
+  }
+  @media (max-width: 650px) {
+    .sorrento-hero { padding: 0.75rem 0 2.25rem; }
+    .sorrento-hero h1 { font-size: clamp(2.4rem, 12vw, 3.35rem); }
+    .sorrento-hero__lead { margin-top: 0.55rem; font-size: 1rem; line-height: 1.42; }
+    .sorrento-hero__choices { grid-template-columns: 1fr; gap: 0.25rem; margin-top: 0.65rem; }
+    .sorrento-choice { min-height: 52px; padding: 0.4rem 0.9rem; }
+    .sorrento-choice strong { margin-top: 0.1rem; font-size: 1.03rem; }
+    .sorrento-choice small { display: none; }
+    .sorrento-hero__image { margin-top: 1.55rem; }
+    .sorrento-hero__image img { height: 13.5rem; }
+    .sorrento-intro { padding: 2.8rem 0; }
+    .sorrento-stay { scroll-margin-top: 8.5rem; }
+    .sorrento-stay__photo img { height: 15rem; }
+  }
+  @media (prefers-reduced-motion: reduce) { .sorrento-choice { transition: none; } }
+</style>

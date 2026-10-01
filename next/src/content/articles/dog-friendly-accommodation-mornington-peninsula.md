@@ -66,7 +66,7 @@ Book through Stayz, Airbnb, or pet-specific platforms like BringFido. Filter for
 Most of the Peninsula's luxury and boutique hotels do not confirm pet-friendly policies:
 
 - **Jackalope Hotel**   -   no children under 12, pet policy not confirmed
-- **InterContinental Sorrento**   -   minimum age 18, pet policy not confirmed
+- **InterContinental Sorrento**   -   family stays available, pet policy not confirmed
 - **Lancemore Lindenderry**   -   pet policy not confirmed
 - **RACV Cape Schanck Resort**   -   pet policy not confirmed
 - **Alba Sanctuary**   -   no pets; [Alba's FAQ](https://albathermalsprings.com.au/faqs/) welcomes service dogs on a leash or harness
