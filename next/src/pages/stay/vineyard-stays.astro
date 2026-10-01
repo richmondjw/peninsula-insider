@@ -2,172 +2,384 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isStayVenue, isListableVenue } from '../../lib/editorial';
-import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
-
-// Vineyard stays: ridge zones + cellar-door mood tag
-const ridgeZones = ['red-hill', 'hinterland'];
-const vineyardSlugs = [
-  'jackalope',
-  'polperro-villas',
-  'port-phillip-estate',
-  'mantons-creek-estate',
-  'lindenderry',
-  'crittenden-villas',
-  'spa-by-jackalope',
+const bySlug = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
+const requireVenue = (slug: string) => {
+  const venue = bySlug.get(slug);
+  if (!venue) throw new Error('Missing vineyard stay venue: ' + slug);
+  return venue;
+};
+const definitions = [
+  {
+    id: 'estate-villas',
+    number: '01',
+    eyebrow: 'A door of your own',
+    title: 'Estate villas',
+    intro: 'For an independent stay on winery grounds. Check the exact villa for cooking, spa and minimum-night details.',
+    choices: [
+      {
+        slug: 'polperro-villas',
+        cue: 'For a couples retreat',
+        description: 'Four studio villas on Polperro’s Red Hill vineyard, with a fireplace and indoor spa bath in each villa.',
+        check: 'Each villa has its own inclusions. Check the restaurant and cellar door service for your dates.',
+        operator: 'https://www.polperrowines.com.au/escape/villas/',
+      },
+      {
+        slug: 'crittenden-villas',
+        cue: 'For a lakeside base',
+        description: 'Self-contained villas by the lake on Crittenden Estate in Dromana, with the winery on the same grounds.',
+        check: 'Confirm the chosen villa, booking terms and cellar door or restaurant hours separately.',
+        operator: 'https://www.lakesidevillas.com.au/rates-bookings/',
+      },
+    ],
+  },
+  {
+    id: 'winery-suites',
+    number: '02',
+    eyebrow: 'A room on the estate',
+    title: 'Winery suites',
+    intro: 'Sleep at the vineyard, then plan dining around the operator’s current service rather than assuming it is open every day.',
+    choices: [
+      {
+        slug: 'port-phillip-estate',
+        cue: 'For architecture and wine',
+        description: 'Six accommodation suites at Port Phillip Estate in Red Hill South, above the vineyard and on the same estate as the cellar door.',
+        check: 'The suites are accommodation at a winery. Check room availability and Dining Room bookings separately.',
+        operator: 'https://www.portphillipestate.com.au/book-accommodation/',
+      },
+      {
+        slug: 'mantons-creek-estate',
+        cue: 'For a quiet Shoreham stay',
+        description: 'Guest accommodation on the Mantons Creek vineyard in Shoreham, with an on-estate restaurant.',
+        check: 'Confirm the room and current restaurant opening days directly with the estate.',
+        operator: 'https://mantonscreekestate.com.au/accommodation',
+      },
+    ],
+  },
+  {
+    id: 'vineyard-hotels',
+    number: '03',
+    eyebrow: 'A full hotel stay',
+    title: 'Vineyard hotels',
+    intro: 'Choose a hotel when you want rooms, service and an estate setting together. Room types and dining arrangements still differ.',
+    choices: [
+      {
+        slug: 'jackalope',
+        cue: 'For bold design',
+        description: 'A design hotel among vines in Merricks North, with distinct room categories and dining on the property.',
+        check: 'Jackalope welcomes guests aged 12 and over. Check the room and dining reservation separately.',
+        operator: 'https://jackalopehotels.com/stay/',
+      },
+      {
+        slug: 'lindenderry',
+        cue: 'For gardens and a slower pace',
+        description: 'A Red Hill hotel on a vineyard estate, with gardens, a cellar door and on-site dining.',
+        check: 'Compare the exact room types and current cellar door or dining service before booking.',
+        operator: 'https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/',
+      },
+    ],
+  },
 ];
+const groups = definitions.map((group) => ({
+  ...group,
+  choices: group.choices.map((choice) => ({
+    ...choice,
+    venue: requireVenue(choice.slug),
+  })),
+}));
+const nearby = {
+  slug: 'cassis',
+  cue: 'For an independent Red Hill base',
+  description: 'Cassis villas look over a neighbouring vineyard. The villas are not accommodation run by that winery.',
+  check: 'Outdoor bath, pool and layout details depend on the villa. Check the exact unit before booking.',
+  operator: 'https://www.cassisredhill.com.au/accommodation',
+  venue: requireVenue('cassis'),
+};
+const estateChoices = groups.flatMap((group) => group.choices);
+const allChoices = [...estateChoices, nearby];
+const hrefFor = (choice: { slug: string; venue: ReturnType<typeof requireVenue> }) => choice.slug === 'port-phillip-estate'
+  ? '/wine/port-phillip-estate/'
+  : venueHref(choice.venue, '/stay');
 
-const venues = vineyardSlugs
-  .map((s) => allVenues.find((v) => routeSlug(v) === s))
-  .filter((v): v is NonNullable<typeof v> => Boolean(v) && isStayVenue(v));
-
-// Fallback: any stay in ridge zone not already captured
-const extraRidgeStays = allVenues.filter((v) =>
-  isStayVenue(v) &&
-  ridgeZones.includes(v.data.zone) &&
-  !vineyardSlugs.includes(routeSlug(v))
-);
-const allVineyardStays = [...venues, ...extraRidgeStays];
-
+const faqs = [
+  {
+    q: 'Which wineries have accommodation on the Mornington Peninsula?',
+    a: 'Polperro, Crittenden Estate, Port Phillip Estate and Mantons Creek Estate offer accommodation on their winery grounds. Jackalope and Lindenderry are hotels on vineyard estates. Check the property and room details directly with each operator.',
+  },
+  {
+    q: 'Is Cassis Red Hill a winery stay?',
+    a: 'Cassis is an independent villa base overlooking a neighbouring vineyard. It suits a wine-country trip, but it is not accommodation operated by that winery.',
+  },
+  {
+    q: 'Can I walk from my room to a cellar door or dinner?',
+    a: 'An on-estate stay can put accommodation and a cellar door on the same property, but opening days, dinner service and booking arrangements vary. Confirm the exact service and any transport needs with the operator before making plans.',
+  },
+];
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Stay', href: '/stay/' },
   { label: 'Vineyard Stays' },
 ];
-
-const schema = {
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+  { name: 'Vineyard Stays', url: absUrl('/stay/vineyard-stays/') },
+]);
+const collectionSchema = {
   '@context': 'https://schema.org',
   '@type': 'CollectionPage',
-  name: 'Vineyard Stays Mornington Peninsula',
-  description: 'Vineyard stays and winery accommodation on the Mornington Peninsula - where vineyard accommodation, cellar doors and long lunches can be combined in one trip.',
-  url: 'https://peninsulainsider.com.au/stay/vineyard-stays/',
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
-      { '@type': 'ListItem', position: 2, name: 'Stay', item: 'https://peninsulainsider.com.au/stay/' },
-      { '@type': 'ListItem', position: 3, name: 'Vineyard Stays', item: 'https://peninsulainsider.com.au/stay/vineyard-stays/' },
-    ],
-  },
+  name: 'Vineyard stays on the Mornington Peninsula',
+  description: 'Compare estate villas, winery suites and vineyard hotels, with a separate nearby Red Hill villa option.',
+  url: absUrl('/stay/vineyard-stays/'),
   mainEntity: {
     '@type': 'ItemList',
-    itemListOrder: 'https://schema.org/ItemListOrderDescending',
-    numberOfItems: allVineyardStays.length,
-    itemListElement: allVineyardStays.map((v, i) => ({
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: allChoices.length,
+    itemListElement: allChoices.map((choice, index) => ({
       '@type': 'ListItem',
-      position: i + 1,
-      name: v.data.name,
-      url: `https://peninsulainsider.com.au/stay/${routeSlug(v)}/`,
+      position: index + 1,
+      name: choice.venue.data.name,
+      url: absUrl(hrefFor(choice)),
     })),
   },
-};
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Which Mornington Peninsula winery has accommodation?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Jackalope Hotel sits inside a working Merricks North vineyard with Doot Doot Doot on site. Polperro has four estate villas in Red Hill, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Its restaurant and cellar door are closed on Mondays and Tuesdays. Port Phillip Estate (Red Hill South) is the Peninsula\'s most architecturally serious winery stay - Wood Marsh-designed, six suites, one-hat restaurant. Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Lindenderry at Red Hill is a boutique hotel on a small vineyard. Crittenden Estate has self-contained villas on the estate grounds. Note: Point Leo Estate does not operate on-estate accommodation.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Which part of the Mornington Peninsula is wine country?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Red Hill, Main Ridge, and Merricks North on the central plateau are the wine country core. The elevation, cool-climate conditions, and concentration of cellar doors here are what makes Mornington Peninsula Pinot Noir and Chardonnay distinctive. Staying in this zone puts you within minutes of 20+ cellar doors.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'How long do I need for a vineyard stay on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Two nights is the natural unit. Day one: arrive, check in, afternoon cellar door session, dinner at a restaurant you have checked and booked. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book Doot Doot Doot, Tedesca, or Laura in advance). Drive home Sunday evening. One night is doable but rushed - you end up spending most of Saturday driving.',
-      },
-    },
-  ],
 };
 export const prerender = true;
 ---
 
 <BaseLayout
   title="Vineyard Stays Mornington Peninsula · Peninsula Insider"
-  description="Vineyard accommodation and winery stays on the Mornington Peninsula - from design hotels to guest suites and estate villas in Peninsula wine country."
+  description="Find your Mornington Peninsula wine-country stay. Compare on-estate villas, winery suites and vineyard hotels, plus one clearly marked nearby villa base."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/vineyard-stays/"
   modifiedTime="2026-10-01"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
 
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Vineyard Stays on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula's wine country is a 20-kilometre belt of plateau running through Red Hill, Main Ridge, and Merricks North. Staying in this zone changes what the weekend is - cellar doors become a planned part of the day, vineyard lunches are the main event rather than a detour, and the ridge light at dusk is what you came for.</p>
-        <p>Jackalope is the design-hotel benchmark: a black-steel structure set inside a working vineyard with one of Victoria's most ambitious dining rooms. Polperro's villas, Port Phillip Estate's suites and Mantons Creek Estate's guest suites offer different ways to stay among vineyards. Port Phillip Estate (Wood Marsh-designed, one-hat restaurant, six suites) is the Peninsula's most architecturally serious winery stay. Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Lindenderry gives the boutique-hotel register that suits those who want character over spectacle.</p>
-        <p>Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.</p>
-        <p>If you're spending two nights on the Peninsula and wine is the main reason, these are the properties that make the trip hold together.</p>
-        <ProvenanceLine class="venues__sub" style="font-size:0.8rem;color:var(--soft)" records={allVineyardStays} type="venues" noun="venue" />
+  <section class="vine-hero" aria-labelledby="vine-title">
+    <div class="container vine-hero__grid">
+      <div class="vine-hero__copy">
+        <p class="vine-eyebrow">The stay guide / wine country</p>
+        <h1 id="vine-title">Stay among the vines.</h1>
+        <a class="vine-hero__cta" href="#choose-format">Find your stay <span aria-hidden="true">↗</span></a>
+        <p class="vine-hero__lead">A villa, a suite or a hotel on the estate? Start with the kind of stay you want. Then check the room, dining and cellar door details directly with the property.</p>
+        <a class="vine-hero__nearby" href="#nearby-base">Prefer a nearby villa? <span aria-hidden="true">↓</span></a>
       </div>
-    </div>
-  </article>
-
-  <section class="venues" id="vineyard-stays">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Vineyard & winery stays</p>
-          <h2 class="venues__title">{allVineyardStays.length} properties on or near the ridge</h2>
-          <p class="venues__sub">Vineyard guest suites, estate villas and boutique hotels for a wine country base.</p>
+      <figure class="vine-hero__visual">
+        <div class="vine-hero__images">
+          <img src="/images/visit-victoria/vv-26070114-jackalope-hotel.webp" alt="Two silhouetted guests raise glasses of red wine above vineyard rows and bushland at Jackalope Hotel" width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 800px) calc((100vw - 2rem) / 2), 400px" />
+          <img src="/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp" alt="Visitors cross a sunlit lawn towards the white homestead building at Lindenderry at Red Hill" width="2000" height="1333" loading="lazy" decoding="async" data-pi-responsive="(max-width: 800px) calc((100vw - 2rem) / 2), 400px" />
         </div>
-        <a href="/wine/" class="venues__link">Wine country →</a>
-      </div>
-      <div class="venues__grid">
-        {allVineyardStays.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        <figcaption>Jackalope vineyard and Lindenderry at Red Hill. These views do not guarantee a particular room or view. Photos: Peter Foster, courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="vine-chooser" id="choose-format" aria-labelledby="vine-chooser-title">
+    <div class="container">
+      <p class="vine-eyebrow">The first decision</p>
+      <h2 id="vine-chooser-title">How do you want to stay?</h2>
+      <p class="vine-chooser__intro">All six choices below are on vineyard or winery estates. Choose the format first, then compare the actual properties.</p>
+      <div class="vine-chooser__grid">
+        {groups.map((group) => (
+          <a class="vine-choice" href={'#' + group.id}>
+            <span class="vine-choice__number">{group.number} / {group.eyebrow}</span>
+            <strong>{group.title}</strong>
+            <span>{group.intro}</span>
+            <span class="vine-choice__action">Explore {group.title.toLowerCase()} <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="faq-section">
-    <div class="container">
-      <div class="prose">
-        <h2>Frequently asked questions</h2>
-        <h3>Which winery has accommodation on the Peninsula?</h3>
-        <p>Jackalope Hotel (Merricks North vineyard), Polperro Villas (Red Hill estate), Port Phillip Estate (Red Hill South - one-hat restaurant, six suites), Lindenderry at Red Hill (boutique vineyard hotel), and Crittenden Estate (self-contained villas on the estate). Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Note: Point Leo Estate does not operate on-estate accommodation.</p>
-        <h3>Which part of the Peninsula is wine country?</h3>
-        <p>Red Hill, Main Ridge, and Merricks North on the central plateau. The elevation and cool-climate conditions here are what produces Mornington Pinot Noir and Chardonnay with the character that's made the region internationally credentialled. Staying in this zone puts you within minutes of 20+ cellar doors.</p>
-        <h3>How long do I need?</h3>
-        <p>Two nights. Day one: arrive, visit a cellar door, then dine where service is confirmed. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book ahead). Drive home Sunday evening. One night is doable but leaves most of Saturday dedicated to travel.</p>
+  {groups.map((group) => (
+    <section class:list={['vine-group', group.number === '02' && 'vine-group--alt']} id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="vine-group__head">
+          <p class="vine-eyebrow">{group.number} / {group.eyebrow}</p>
+          <h2 id={group.id + '-title'}>{group.title}</h2>
+          <p>{group.intro}</p>
+        </div>
+        <div class="vine-grid">
+          {group.choices.map((choice) => (
+            <article class="vine-card" aria-labelledby={'vine-card-' + choice.slug}>
+              <div class="vine-card__top"><span>On the estate</span><span>{choice.cue}</span></div>
+              <h3 id={'vine-card-' + choice.slug}><a href={hrefFor(choice)}>{choice.venue.data.name}</a></h3>
+              <p class="vine-card__description">{choice.description}</p>
+              <p class="vine-card__check"><strong>Before you book</strong> {choice.check}</p>
+              <div class="vine-card__actions">
+                <a href={hrefFor(choice)} aria-label={'Read our notes on ' + choice.venue.data.name}>Read our notes <span aria-hidden="true">↗</span></a>
+                <a href={choice.operator} target="_blank" rel="noopener noreferrer" aria-label={'Check ' + choice.venue.data.name + ' with the operator (opens a new tab)'} data-pi-book="booking" data-pi-entity-type={choice.venue.data.type} data-pi-entity-slug={choice.slug} data-pi-surface="vineyard-stays-guide" data-pi-provider="direct">Check with operator <span aria-hidden="true">↗</span></a>
+                <PiSaveActions kind="venue" slug={choice.slug} title={choice.venue.data.name} href={hrefFor(choice)} dek={choice.description} floating={false} />
+              </div>
+            </article>
+          ))}
+        </div>
       </div>
+    </section>
+  ))}
+
+  {nearby.venue && (
+    <section class="vine-nearby" id="nearby-base" aria-labelledby="vine-nearby-title">
+      <div class="container vine-nearby__grid">
+        <div>
+          <p class="vine-eyebrow">Beyond the estate</p>
+          <h2 id="vine-nearby-title">Stay close to wine country.</h2>
+          <p>Want your own villa in Red Hill without booking an estate stay? This is a nearby base, clearly separate from the on-estate collection.</p>
+        </div>
+        <article class="vine-card vine-card--nearby" aria-labelledby="vine-card-cassis">
+          <div class="vine-card__top"><span>Nearby base</span><span>{nearby.cue}</span></div>
+          <h3 id="vine-card-cassis"><a href={hrefFor(nearby)}>{nearby.venue.data.name}</a></h3>
+          <p class="vine-card__description">{nearby.description}</p>
+          <p class="vine-card__check"><strong>Before you book</strong> {nearby.check}</p>
+          <div class="vine-card__actions">
+            <a href={hrefFor(nearby)} aria-label={'Read our notes on ' + nearby.venue.data.name}>Read our notes <span aria-hidden="true">↗</span></a>
+            <a href={nearby.operator} target="_blank" rel="noopener noreferrer" aria-label={'Check ' + nearby.venue.data.name + ' with the operator (opens a new tab)'} data-pi-book="booking" data-pi-entity-type={nearby.venue.data.type} data-pi-entity-slug={nearby.slug} data-pi-surface="vineyard-stays-guide" data-pi-provider="direct">Check with operator <span aria-hidden="true">↗</span></a>
+            <PiSaveActions kind="venue" slug={nearby.slug} title={nearby.venue.data.name} href={hrefFor(nearby)} dek={nearby.description} floating={false} />
+          </div>
+        </article>
+      </div>
+    </section>
+  )}
+
+  <section class="vine-plan" aria-labelledby="vine-plan-title">
+    <div class="container vine-plan__grid">
+      <div>
+        <p class="vine-eyebrow">Make the stay work</p>
+        <h2 id="vine-plan-title">Book the room. Then build the day.</h2>
+      </div>
+      <ol>
+        <li><strong>Choose the exact room.</strong> Check inclusions, minimum nights and the operator’s booking terms.</li>
+        <li><strong>Confirm food and wine separately.</strong> Cellar door and restaurant services have their own times and reservations.</li>
+        <li><strong>Plan the travel.</strong> Tastings call for a driver or arranged transport. Do not assume every stop is walkable from your stay.</li>
+      </ol>
     </div>
   </section>
 
-  <section class="venues venues--plain">
+  <section class="vine-faq" aria-labelledby="vine-faq-title">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Related guides</p>
-          <h2 class="venues__title">Complete the wine country weekend</h2>
-        </div>
+      <p class="vine-eyebrow">Good to know</p>
+      <h2 id="vine-faq-title">Questions before you go</h2>
+      <div class="vine-faq__grid">
+        {faqs.map((faq) => <div class="vine-faq__item"><h3>{faq.q}</h3><p>{faq.a}</p></div>)}
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/wine/">Wine Country Guide</a></h3><p class="pi-card__dek">Every cellar door on the Peninsula with opening hours, food, and honest notes.</p><div class="pi-card__actions"><a href="/wine/" class="pi-btn pi-btn--solid">Explore wineries →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/eat/cellar-door-lunch/">Cellar Door Lunch</a></h3><p class="pi-card__dek">The best winery restaurants where kitchen and cellar door are the same experience.</p><div class="pi-card__actions"><a href="/eat/cellar-door-lunch/" class="pi-btn pi-btn--solid">See the list →</a></div></div></div>
-        <div class="pi-card"><div class="pi-card__body"><h3 class="pi-card__title"><a href="/stay/best-accommodation/">Best Accommodation</a></h3><p class="pi-card__dek">Start with the type and location of stay that fits your trip, then compare individual properties.</p><div class="pi-card__actions"><a href="/stay/best-accommodation/" class="pi-btn pi-btn--solid">Open the guide →</a></div></div></div>
+      <p class="vine-faq__sources">Property details checked with the operators on 1 October 2026: <a href="https://www.polperrowines.com.au/escape/villas/">Polperro</a>, <a href="https://www.lakesidevillas.com.au/">Crittenden</a>, <a href="https://www.portphillipestate.com.au/quiet-luxury/">Port Phillip Estate</a>, <a href="https://mantonscreekestate.com.au/accommodation">Mantons Creek</a>, <a href="https://jackalopehotels.com/stay/">Jackalope</a>, <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/">Lindenderry</a> and <a href="https://www.cassisredhill.com.au/accommodation">Cassis</a>. Confirm details for your dates.</p>
+    </div>
+  </section>
+
+  <section class="vine-more" aria-labelledby="vine-more-title">
+    <div class="container">
+      <p class="vine-eyebrow">Keep planning</p>
+      <h2 id="vine-more-title">Your wine-country weekend.</h2>
+      <div class="vine-more__links">
+        <a href="/wine/">Explore cellar doors <span aria-hidden="true">↗</span></a>
+        <a href="/eat/cellar-door-lunch/">Find a cellar door lunch <span aria-hidden="true">↗</span></a>
+        <a href="/stay/">Compare all stays <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .vine-eyebrow { margin: 0 0 .85rem; color: #9c643b; font-size: .68rem; font-weight: 800; letter-spacing: .17em; text-transform: uppercase; }
+  .vine-hero { background: #f5f1e9; color: #18394b; padding: clamp(2rem, 5vw, 5.3rem) 0 clamp(2.8rem, 5vw, 5rem); }
+  .vine-hero__grid { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: clamp(2rem, 5vw, 5.5rem); align-items: center; }
+  .vine-hero__copy { min-width: 0; }
+  .vine-hero h1 { max-width: 10ch; margin: 0 0 1.45rem; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(3.5rem, 6.2vw, 6.5rem); line-height: .97; letter-spacing: -.055em; font-weight: 500; }
+  .vine-hero__cta { min-height: 48px; width: fit-content; display: inline-flex; align-items: center; justify-content: space-between; gap: 2rem; padding: .76rem 1.05rem; border-radius: 5px; background: #123a54; color: #fff; text-decoration: none; font-size: .86rem; font-weight: 750; transition: background .2s, transform .2s; }
+  .vine-hero__cta:hover { background: #245f78; transform: translateY(-2px); }
+  .vine-hero__lead { max-width: 37rem; margin: 1.4rem 0 0; font-size: 1rem; line-height: 1.65; }
+  .vine-hero__nearby { display: inline-block; margin-top: 1.1rem; color: #234b64; font-size: .82rem; font-weight: 750; text-underline-offset: 4px; }
+  .vine-hero__visual { margin: 0; }
+  .vine-hero__images { display: grid; grid-template-columns: 1.2fr .8fr; gap: .5rem; height: clamp(17rem, 32vw, 30rem); overflow: hidden; border-radius: 7px; }
+  .vine-hero__images img { width: 100%; height: 100%; object-fit: cover; }
+  .vine-hero__images img:first-child { object-position: 50% 48%; }
+  .vine-hero__images img:last-child { object-position: 50% 50%; }
+  .vine-hero figcaption { margin-top: .6rem; color: #5c655f; font-size: .68rem; line-height: 1.5; }
+  .vine-chooser { scroll-margin-top: 5rem; padding: clamp(3.2rem, 6vw, 6rem) 0; background: #10364a; color: #fff; }
+  .vine-chooser .vine-eyebrow { color: #ecb676; }
+  .vine-chooser h2, .vine-plan h2 { color: #fff; }
+  .vine-chooser h2, .vine-group h2, .vine-nearby h2, .vine-plan h2, .vine-faq h2, .vine-more h2 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-weight: 500; line-height: 1.07; letter-spacing: -.035em; font-size: clamp(2.1rem, 4vw, 3.5rem); }
+  .vine-chooser__intro { max-width: 41rem; margin: 1rem 0 2rem; color: #d5e4e6; line-height: 1.6; }
+  .vine-chooser__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .75rem; }
+  .vine-choice { display: flex; flex-direction: column; gap: 1rem; min-height: 17rem; padding: 1.4rem; background: #f3eee4; color: #163c4f; border-radius: 6px; text-decoration: none; transition: transform .2s, background .2s; }
+  .vine-choice:hover { transform: translateY(-3px); background: #fffaf1; }
+  .vine-choice__number { color: #92603d; font-size: .68rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+  .vine-choice strong { font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.5rem, 2.6vw, 2.15rem); font-weight: 500; line-height: 1.08; }
+  .vine-choice > span:nth-of-type(2) { font-size: .85rem; line-height: 1.52; }
+  .vine-choice__action { margin-top: auto; padding-top: 1.15rem; border-top: 1px solid #d9d2c6; font-size: .8rem; font-weight: 800; }
+  .vine-group { scroll-margin-top: 5rem; padding: clamp(3.5rem, 6vw, 6rem) 0; background: #fffdf9; color: #18394b; }
+  .vine-group--alt { background: #f4f0e9; }
+  .vine-group__head { display: grid; grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr); gap: .4rem 3rem; margin-bottom: 2rem; }
+  .vine-group__head .vine-eyebrow { grid-column: 1 / -1; }
+  .vine-group__head > p:last-child { max-width: 37rem; margin: .2rem 0 0; color: #4c6169; line-height: 1.65; }
+  .vine-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .9rem; }
+  .vine-card { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.3rem, 2.4vw, 2rem); background: #fff; border: 1px solid #d7dcd8; border-radius: 7px; box-shadow: 0 10px 30px rgba(18, 48, 55, .04); }
+  .vine-card__top { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 1.1rem; border-bottom: 1px solid #e7e7e0; color: #9c643b; font-size: .69rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+  .vine-card__top span:last-child { text-align: right; color: #456773; }
+  .vine-card h3 { margin: 1.5rem 0 .9rem; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(1.55rem, 2.4vw, 2.2rem); font-weight: 500; line-height: 1.08; letter-spacing: -.025em; }
+  .vine-card h3 a { color: #153d53; text-decoration: none; }
+  .vine-card h3 a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .vine-card__description { flex: 1; margin: 0; color: #344e58; line-height: 1.58; }
+  .vine-card__check { margin: 1.4rem 0 1.2rem; padding: 1rem; background: #f4f0e9; border-left: 3px solid #b47c4f; color: #3e5056; font-size: .83rem; line-height: 1.56; }
+  .vine-card__check strong { display: block; margin-bottom: .18rem; color: #18394b; font-size: .69rem; text-transform: uppercase; letter-spacing: .08em; }
+  .vine-card__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem .85rem; padding-top: 1rem; border-top: 1px solid #e7e7e0; }
+  .vine-card__actions > a { min-height: 44px; display: inline-flex; align-items: center; gap: .35rem; color: #16415a; font-size: .76rem; font-weight: 800; text-decoration: underline; text-underline-offset: 4px; }
+  .vine-card__actions > a:hover { color: #a7653b; }
+  .vine-card__actions :global(.pi-actions) { margin-left: auto; }
+  .vine-nearby { scroll-margin-top: 5rem; padding: clamp(3.5rem, 6vw, 6rem) 0; background: #e7edea; color: #173b4e; }
+  .vine-nearby__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); align-items: start; gap: clamp(2rem, 7vw, 8rem); }
+  .vine-nearby__grid > div > p:last-child { max-width: 28rem; line-height: 1.65; color: #425961; }
+  .vine-card--nearby { border-color: #c6d4d1; }
+  .vine-plan { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #123a50; color: #fff; }
+  .vine-plan .vine-eyebrow { color: #e9b47d; }
+  .vine-plan__grid { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); gap: clamp(2rem, 7vw, 8rem); }
+  .vine-plan ol { list-style: none; counter-reset: plan; margin: 0; padding: 0; }
+  .vine-plan li { counter-increment: plan; position: relative; padding: .9rem 0 .9rem 3.1rem; border-bottom: 1px solid rgba(255,255,255,.2); color: #d9e8e9; font-size: .9rem; line-height: 1.58; }
+  .vine-plan li:first-child { padding-top: 0; }
+  .vine-plan li:before { content: '0' counter(plan); position: absolute; left: 0; top: .95rem; color: #e6b178; font-size: .7rem; font-weight: 800; }
+  .vine-plan li:first-child:before { top: .07rem; }
+  .vine-plan li strong { display: block; color: #fff; }
+  .vine-faq { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: #fffdf9; color: #173b4e; }
+  .vine-faq__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.4rem; margin-top: 2.5rem; }
+  .vine-faq__item { padding-top: 1.1rem; border-top: 2px solid #c89666; }
+  .vine-faq h3 { margin: 0 0 .65rem; font-size: 1.1rem; line-height: 1.3; }
+  .vine-faq__item p { margin: 0; color: #4b6169; font-size: .88rem; line-height: 1.62; }
+  .vine-faq__sources { max-width: 58rem; margin: 2.6rem 0 0; padding-top: 1.2rem; border-top: 1px solid #d8dcd7; color: #5b6969; font-size: .72rem; line-height: 1.7; }
+  .vine-faq__sources a { color: #27546b; text-underline-offset: 3px; }
+  .vine-more { padding: 3.5rem 0; background: #eee9df; color: #173b4e; }
+  .vine-more__links { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .7rem; margin-top: 1.5rem; }
+  .vine-more__links a { display: flex; align-items: center; justify-content: space-between; min-height: 64px; padding: .9rem 1.1rem; background: #fffdf9; border: 1px solid #d8d7cd; border-radius: 4px; color: #153e55; font-size: .81rem; font-weight: 800; text-decoration: none; }
+  .vine-more__links a:hover { border-color: #ad794f; }
+  :is(.vine-hero, .vine-chooser, .vine-group, .vine-nearby, .vine-plan, .vine-faq, .vine-more) a:focus-visible { outline: 3px solid #db9a4e; outline-offset: 3px; }
+  @media (max-width: 800px) {
+    .vine-hero__grid, .vine-group__head, .vine-nearby__grid, .vine-plan__grid { grid-template-columns: 1fr; }
+    .vine-hero__grid { gap: 2rem; }
+    .vine-hero__images { height: clamp(13rem, 52vw, 21rem); }
+    .vine-chooser__grid, .vine-faq__grid, .vine-more__links { grid-template-columns: 1fr; }
+    .vine-choice { min-height: 0; }
+  }
+  @media (max-width: 600px) {
+    .vine-hero { padding: 1.3rem 0 2.8rem; }
+    .vine-hero h1 { max-width: 11ch; margin-bottom: 1rem; font-size: clamp(2.7rem, 12vw, 3.9rem); }
+    .vine-hero__lead { margin-top: 1.15rem; font-size: .9rem; }
+    .vine-hero__images { height: 12rem; }
+    .vine-chooser, .vine-group, .vine-nearby, .vine-plan, .vine-faq { padding-top: 3.2rem; padding-bottom: 3.2rem; }
+    .vine-grid { grid-template-columns: 1fr; }
+    .vine-card__top { flex-wrap: wrap; }
+    .vine-card__actions :global(.pi-actions) { margin-left: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .vine-hero__cta, .vine-choice { transition: none; }
+  }
+</style>

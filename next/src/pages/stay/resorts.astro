@@ -1,24 +1,200 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
-import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { absUrl, buildBreadcrumbSchema, buildFaqSchema } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
-// Peninsula Hot Springs and Alba Thermal Springs are day spas, not
-// accommodation - their overnight equivalents (glamping/eco lodges on the
-// same estate) are what belong on a "resorts and retreats" Stay page.
-const slugs = ['peninsula-hot-springs-glamping','peninsula-hot-springs-eco-lodges','sanctuary-at-alba','cape-retreat'];
-const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Resorts & Retreats' }];
-const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Resorts & Retreats', url: absUrl('/stay/resorts/') }]);
+const faqs = [
+  { q: 'Is One Spa at RACV Cape Schanck a hot spring?', a: 'No. One Spa is the resort day spa. RACV offers rooms, suites and villas; arrange any spa treatment separately. For accommodation on a thermal springs estate, compare Peninsula Hot Springs and Alba in Fingal.' },
+  { q: 'Does a room at the springs include every bathing experience?', a: 'Inclusions depend on the operator, room and package. Compare the exact bathing access, any private pool arrangement and separate treatments before you reserve. The hot springs accommodation guide explains the three on-site formats.' },
+  { q: 'Does The Cape Retreat include a facilitated program?', a: 'The Cape Retreat is a group-oriented accommodation venue with guest suites and shared spaces. Its retreat setting does not establish a scheduled program for your booking. Confirm the facilitator, timetable, catering and whether your dates require a group booking with the operator.' },
+];
+const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Resorts and retreats' }];
 export const prerender = true;
 ---
-<BaseLayout title="Resorts and Retreats Mornington Peninsula · Peninsula Insider" description="Thermal, spa, and retreat-style accommodation on the Mornington Peninsula for slower, wellness-led escapes." section="stay" canonical="https://peninsulainsider.com.au/stay/resorts/" modifiedTime="2026-04-24">
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<BaseLayout title="Resorts and retreats on the Mornington Peninsula · Peninsula Insider"
+  description="Choose a resort room, accommodation at the Fingal hot springs or a group retreat venue. Compare what the stay includes and what needs a separate booking."
+  section="stay" canonical="https://peninsulainsider.com.au/stay/resorts/" modifiedTime="2026-10-01">
+  <script type="application/ld+json" set:html={JSON.stringify(buildBreadcrumbSchema([
+    { name: 'Home', url: absUrl('/') },
+    { name: 'Stay', url: absUrl('/stay/') },
+    { name: 'Resorts and retreats', url: absUrl('/stay/resorts/') },
+  ]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Resorts and Retreats on the Mornington Peninsula</h1><div class="prose"><p>Strictly speaking, parts of this category sit adjacent to accommodation rather than inside it, but from a Peninsula trip-shaping perspective the logic is coherent: readers want the thermal, resort, or retreat-style stay that lets them disappear for a night or two without turning the trip into a generic hotel booking.</p><p>The strongest versions of that on the Peninsula cluster around Fingal and Cape Schanck, where wellness, slower pace, and enough spatial separation from the busier coastal villages combine properly.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Resort-style stays</p><h2 class="venues__title">Thermal and retreat-led Peninsula bases</h2><p class="venues__sub">For readers who want the escape itself to be the product.</p></div><a href="/explore/hot-springs/" class="venues__link">Hot springs →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>
+
+  <section class="resorts-hero" aria-labelledby="resorts-title">
+    <div class="container resorts-hero__grid">
+      <div class="resorts-hero__copy">
+        <h1 id="resorts-title">Resort, springs, or retreat?</h1>
+        <nav class="resorts-choice" aria-label="Choose a resort or retreat format">
+          <a href="#resort-room"><strong>Resort room</strong><span>RACV Cape Schanck</span></a>
+          <a href="#thermal-stay"><strong>Stay at the springs</strong><span>Fingal</span></a>
+          <a href="#group-retreat"><strong>Group retreat</strong><span>Cape Schanck</span></a>
+        </nav>
+        <p class="resorts-hero__lead">These are different bookings. Choose hotel service, bathing on the same estate, or space for a group before you choose the room.</p>
+      </div>
+      <figure class="resorts-hero__photo">
+        <figcaption>Cape Schanck coast and lighthouse. Destination photograph, not a view from a resort room or retreat suite. Peter Tarasiuk, courtesy of Visit Victoria.</figcaption>
+        <img src="/images/visit-victoria/vv-143799-cape-schanck.webp"
+          alt="Scrubby Cape Schanck cliffs above a rocky shore and sunlit sea, with the lighthouse on the headland"
+          width="1280" height="853" fetchpriority="high" decoding="async"
+          data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 600px" />
+      </figure>
+    </div>
+  </section>
+
+  <section id="resort-room" class="resorts-section" aria-labelledby="resort-room-title">
+    <div class="container resorts-section__grid">
+      <div class="resorts-section__heading">
+        <h2 id="resort-room-title">A room with the resort around it.</h2>
+        <p>Choose this when you want a hotel room or villa and shared facilities in one Cape Schanck base.</p>
+      </div>
+      <div class="resorts-section__detail">
+        <h3>RACV Cape Schanck Resort</h3>
+        <p>RACV lists rooms, suites and separate villas, with restaurants, a pool, golf and One Spa on the property. Room layouts and views vary. Choose the exact format before you reserve, and arrange any spa treatment separately.</p>
+        <p class="resorts-section__check"><strong>Check before booking.</strong> Compare the main-building rooms with the separate villas, confirm your chosen view, and book spa or dining times you want with the operator.</p>
+        <div class="resorts-section__actions">
+          <a class="pi-btn pi-btn--solid" href="https://www.racv.com.au/travel-experiences/resorts/cape-schanck/accommodation.html" target="_blank" rel="noopener noreferrer">Compare RACV rooms</a>
+          <a class="resorts-text-link" href="/explore/spas-and-wellness/#one-spa-racv-cape-schanck">Read about One Spa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="thermal-stay" class="resorts-section resorts-section--thermal" aria-labelledby="thermal-stay-title">
+    <div class="container resorts-thermal__grid">
+      <div class="resorts-section__heading">
+        <h2 id="thermal-stay-title">Sleep where you bathe.</h2>
+        <p>For a bathing-led stay, choose the springs operator first. Peninsula Hot Springs and Alba are separate Fingal properties.</p>
+        <p>Peninsula Hot Springs offers Eco Lodges and glamping. Alba offers villas and rooms at The Sanctuary. The dedicated guide compares these three formats and the booking details that change by room or package.</p>
+        <a class="pi-btn pi-btn--solid" href="/stay/hot-springs-accommodation/">Compare hot springs stays</a>
+      </div>
+      <figure class="resorts-thermal__photo">
+        <img src="/images/visit-victoria/vv-172319-eco-lodges-peninsula-hot-springs.webp"
+          alt="A guest sits beside a bush-view window in an Eco Lodge room at Peninsula Hot Springs"
+          width="1280" height="853" loading="lazy" decoding="async"
+          data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 540px" />
+        <figcaption>An Eco Lodge room at Peninsula Hot Springs. This shows one thermal format, not Alba or every springs room. Courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="group-retreat" class="resorts-section" aria-labelledby="group-retreat-title">
+    <div class="container resorts-section__grid">
+      <div class="resorts-section__heading">
+        <h2 id="group-retreat-title">Bring the group. Plan the program.</h2>
+        <p>A retreat venue gives your group a place to gather. A facilitated program is a separate thing to confirm.</p>
+      </div>
+      <div class="resorts-section__detail">
+        <h3>The Cape Retreat</h3>
+        <p>The operator describes 12 guest suites and shared living, dining and meeting spaces at Cape Schanck. It markets the property for wellness retreats, meetings and celebrations, with Bass Strait and nearby golf-course outlooks.</p>
+        <p class="resorts-section__check"><strong>Check before booking.</strong> Ask whether your dates allow an individual suite or need a group booking. Confirm room allocation, catering, facilitator and timetable. A retreat program is not implied by the accommodation name.</p>
+        <div class="resorts-section__actions">
+          <a class="pi-btn pi-btn--solid" href="/stay/cape-retreat/">Read The Cape Retreat notes</a>
+          <a class="resorts-text-link" href="https://www.thecaperetreat.com.au/book" target="_blank" rel="noopener noreferrer">Ask the operator about your group</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="resorts-next" aria-labelledby="resorts-next-title">
+    <div class="container resorts-next__grid">
+      <div><h2 id="resorts-next-title">Still deciding on the setting?</h2><p>Compare a retreat-led stay with a coast base, a hotel or a bathing-focused weekend.</p></div>
+      <div class="resorts-next__links">
+        <a href="/stay/hot-springs-accommodation/">Hot springs accommodation</a>
+        <a href="/stay/coastal-stays/">Coastal stays</a>
+        <a href="/stay/best-accommodation/">All accommodation guides</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="resorts-faq" aria-labelledby="resorts-faq-title">
+    <div class="container">
+      <h2 id="resorts-faq-title">Questions to settle before reserving</h2>
+      <div class="resorts-faq__grid">{faqs.map(({ q, a }) => <div class="resorts-faq__item"><h3>{q}</h3><p>{a}</p></div>)}</div>
+      <p class="resorts-source">Accommodation formats and venue use checked 1 October 2026 against <a href="https://www.racv.com.au/travel-experiences/resorts/cape-schanck/accommodation.html">RACV Cape Schanck</a>, <a href="https://www.peninsulahotsprings.com/accommodation">Peninsula Hot Springs</a>, <a href="https://albathermalsprings.com.au/alba-experiences/the-sanctuary/">The Sanctuary at Alba</a> and <a href="https://www.thecaperetreat.com.au/">The Cape Retreat</a>. Ask each operator about current rooms, inclusions and dates.</p>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .resorts-hero { padding: clamp(1rem, 3.2vw, 3rem) 0 clamp(2.5rem, 5vw, 4.5rem); background: var(--bg-alt); }
+  .resorts-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(2rem, 5vw, 5.5rem); align-items: start; }
+  .resorts-hero h1 { max-width: 12ch; margin: 0; color: var(--text); font-size: clamp(2.65rem, 5.2vw, 5rem); line-height: 1.04; letter-spacing: -.035em; text-wrap: balance; }
+  .resorts-choice { margin-top: clamp(1.2rem, 2vw, 2rem); border-top: 1px solid var(--border); }
+  .resorts-choice a { display: flex; justify-content: space-between; align-items: center; gap: 1rem; min-height: 68px; padding: .8rem .35rem; border-bottom: 1px solid var(--border); color: var(--text); text-decoration: none; }
+  .resorts-choice a:hover { background: #e9e6df; }
+  .resorts-choice strong { font-size: clamp(1.03rem, 1.5vw, 1.2rem); line-height: 1.2; text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .22em; }
+  .resorts-choice span { color: var(--soft); font-size: .85rem; line-height: 1.3; text-align: right; }
+  .resorts-hero__lead { max-width: 42ch; margin: 1.25rem 0 0; color: var(--soft); font-size: 1rem; line-height: 1.55; }
+  .resorts-hero__photo { margin: 0; }
+  .resorts-hero__photo img { display: block; width: 100%; height: clamp(350px, 30vw, 390px); object-fit: cover; object-position: 65% center; border-radius: .65rem; }
+  .resorts-hero figcaption { margin: 0 0 .55rem; color: var(--soft); font-size: .78rem; line-height: 1.45; }
+  .resorts-thermal figcaption { margin-top: .55rem; color: var(--soft); font-size: .78rem; line-height: 1.45; }
+  .resorts-section { padding: clamp(3rem, 6vw, 5.5rem) 0; scroll-margin-top: 13rem; border-top: 1px solid var(--border); }
+  .resorts-section__grid { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2rem, 6vw, 6rem); }
+  .resorts-section h2, .resorts-next h2, .resorts-faq h2 { max-width: 18ch; margin: 0; color: var(--text); font-size: clamp(2rem, 3.5vw, 3.3rem); line-height: 1.1; letter-spacing: -.03em; text-wrap: balance; }
+  .resorts-section__heading > p { max-width: 42ch; margin: 1.1rem 0 0; font-size: 1.08rem; line-height: 1.58; }
+  .resorts-section__detail { padding-top: .35rem; }
+  .resorts-section__detail h3 { margin: 0; color: var(--text); font-size: clamp(1.5rem, 2.3vw, 2rem); line-height: 1.2; letter-spacing: -.025em; }
+  .resorts-section__detail > p { max-width: 57ch; margin: 1rem 0 0; line-height: 1.65; }
+  .resorts-section__check { padding-top: 1rem; border-top: 1px solid var(--border); }
+  .resorts-section__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .7rem 1.4rem; margin-top: 1.4rem; }
+  .resorts-section__actions .pi-btn, .resorts-thermal__grid .pi-btn { min-height: 48px; }
+  .resorts-text-link { color: var(--accent); font-weight: 700; text-underline-offset: .2em; }
+  .resorts-section--thermal { background: var(--text); color: #fff; }
+  .resorts-thermal__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .9fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .resorts-section--thermal h2, .resorts-section--thermal p { color: #fff; }
+  .resorts-section--thermal .pi-btn { margin-top: 1.5rem; background: var(--sand, #f5c177); color: var(--text); }
+  .resorts-thermal__photo { margin: 0; }
+  .resorts-thermal__photo img { display: block; width: 100%; height: clamp(310px, 32vw, 430px); object-fit: cover; border-radius: .65rem; }
+  .resorts-section--thermal figcaption { color: #e7e6e1; }
+  .resorts-next { padding: clamp(2.8rem, 5vw, 4.5rem) 0; background: var(--bg-alt); border-top: 1px solid var(--border); }
+  .resorts-next__grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(14rem, .8fr); gap: 2rem; align-items: center; }
+  .resorts-next p { max-width: 42rem; margin: .8rem 0 0; line-height: 1.6; }
+  .resorts-next__links { display: grid; }
+  .resorts-next__links a { padding: .8rem 0; border-bottom: 1px solid var(--border); color: var(--accent); font-weight: 700; text-underline-offset: .2em; }
+  .resorts-faq { padding: clamp(3rem, 6vw, 5.5rem) 0; }
+  .resorts-faq__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; margin: 2rem 0; border-top: 1px solid var(--border); }
+  .resorts-faq__item { padding-top: 1.5rem; }
+  .resorts-faq h3 { margin: 0; color: var(--text); font-size: 1.12rem; line-height: 1.3; }
+  .resorts-faq__item p { margin: .7rem 0 0; line-height: 1.62; }
+  .resorts-source { max-width: 90ch; margin: 0; padding-top: 1.5rem; border-top: 1px solid var(--border); color: var(--soft); font-size: .86rem; line-height: 1.6; }
+  .resorts-source a { color: var(--accent); }
+  .resorts-hero a:focus-visible, .resorts-section a:focus-visible, .resorts-next a:focus-visible, .resorts-faq a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .resorts-section--thermal a:focus-visible { outline-color: var(--sand, #f5c177); }
+  @media (max-width: 850px) {
+    .resorts-hero__grid, .resorts-thermal__grid { grid-template-columns: 1fr; }
+    .resorts-hero__photo img, .resorts-thermal__photo img { height: min(58vw, 420px); }
+  }
+  @media (max-width: 700px) {
+    .resorts-section__grid, .resorts-next__grid, .resorts-faq__grid { grid-template-columns: 1fr; }
+    .resorts-section { scroll-margin-top: 9rem; }
+    .resorts-section__detail { padding-top: 0; }
+    .resorts-faq__grid { gap: 0; }
+    .resorts-faq__item { padding: 1.3rem 0; border-bottom: 1px solid var(--border); }
+  }
+  @media (max-width: 560px) {
+    .resorts-hero { padding: .8rem 0 2.4rem; }
+    .resorts-hero h1 { font-size: clamp(2.45rem, 11.5vw, 3.5rem); }
+    .resorts-choice { margin-top: .9rem; }
+    .resorts-choice a { min-height: 52px; padding: .55rem .2rem; }
+    .resorts-choice strong { font-size: 1rem; }
+    .resorts-choice span { font-size: .76rem; }
+    .resorts-hero__lead { margin-top: 1rem; font-size: .96rem; }
+    .resorts-hero__photo { margin-top: 1.2rem; }
+    .resorts-hero__photo img { height: 59vw; }
+    .resorts-thermal__photo img { height: 62vw; }
+    .resorts-section__actions { align-items: stretch; }
+    .resorts-section__actions .pi-btn, .resorts-section--thermal .pi-btn { width: 100%; justify-content: center; }
+  }
+  @media (max-width: 360px) {
+    .resorts-hero { padding-top: .35rem; }
+    .resorts-hero h1 { font-size: 2.35rem; line-height: 1.02; }
+    .resorts-choice { margin-top: .65rem; }
+    .resorts-choice a { min-height: 48px; padding: .45rem .2rem; }
+  }
+</style>
