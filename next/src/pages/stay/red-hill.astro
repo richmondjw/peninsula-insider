@@ -42,7 +42,7 @@ const collectionSchema = { '@context': 'https://schema.org', '@type': 'Collectio
     itemListElement: venues.map((v, i) => ({ '@type': 'ListItem', position: i + 1, name: v.data.name, url: absUrl(venueHref(v)) })) } };
 export const prerender = true;
 ---
-<BaseLayout title="Where to Stay in Red Hill and Red Hill South · Peninsula Insider" description="Compare estate stays and private bases in Red Hill and Red Hill South. Choose by actual locality, accommodation format and current operator details." section="stay" canonical="https://peninsulainsider.com.au/stay/red-hill/" modifiedTime="2026-10-01">
+<BaseLayout title="Where to Stay in Red Hill and Red Hill South · Peninsula Insider" description="Compare estate stays and private bases in Red Hill and Red Hill South. Choose by actual locality, accommodation format and current operator details." section="stay" canonical="https://peninsulainsider.com.au/stay/red-hill/" ogImage="/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp" modifiedTime="2026-10-01">
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />

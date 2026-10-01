@@ -278,3 +278,40 @@ test('Brewer Cottage 2026 short-stay pause removes booking paths but preserves a
     assert.doesNotMatch(sitemap, /\/stay\/brewers-cottage\//);
   } finally { await reader.close(); }
 });
+
+
+test('Sorrento hotel choices remain visible on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    await reader.load('/stay/sorrento/');
+    const result = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.dataset.state,
+      choices: [...document.querySelectorAll('.sorrento-hero__choices a')].map(el => ({
+        href: el.getAttribute('href'),
+        bottom: el.getBoundingClientRect().bottom,
+        height: el.getBoundingClientRect().height,
+      })),
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.equal(result.cookie, 'visible');
+    assert.deepEqual(result.choices.map(choice => choice.href), ['#hotel-sorrento', '#intercontinental']);
+    assert.ok(result.choices.every(choice => choice.height >= 44 && choice.bottom <= 568), JSON.stringify(result.choices));
+    assert.equal(result.overflow, false);
+  } finally { await reader.close(); }
+});
+
+test('four stay guides use social images matching their subjects', () => {
+  const expected = new Map([
+    ['/stay/vineyard-stays/', '/images/visit-victoria/vv-26070114-jackalope-hotel.webp'],
+    ['/stay/resorts/', '/images/visit-victoria/vv-143799-cape-schanck.webp'],
+    ['/stay/sorrento/', '/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp'],
+    ['/stay/red-hill/', '/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp'],
+  ]);
+  for (const [route, image] of expected) {
+    const html = readFileSync(join(DIST, route, 'index.html'), 'utf8');
+    const tag = html.match(/<meta\b[^>]*property="og:image"[^>]*>/)?.[0];
+    assert.ok(tag?.includes(image), route + ' social image');
+  }
+});

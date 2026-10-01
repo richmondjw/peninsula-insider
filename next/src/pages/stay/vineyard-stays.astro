@@ -156,6 +156,7 @@ export const prerender = true;
   description="Find your Mornington Peninsula wine-country stay. Compare on-estate villas, winery suites and vineyard hotels, plus one clearly marked nearby villa base."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/vineyard-stays/"
+  ogImage="/images/visit-victoria/vv-26070114-jackalope-hotel.webp"
   modifiedTime="2026-10-01"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
@@ -364,6 +365,9 @@ export const prerender = true;
   :is(.vine-hero, .vine-chooser, .vine-group, .vine-nearby, .vine-plan, .vine-faq, .vine-more) a:focus-visible { outline: 3px solid #754623; outline-offset: 3px; }
   :is(.vine-chooser, .vine-plan) a:focus-visible { outline-color: #f3be7c; }
   .vine-chooser .vine-choice:focus-visible { outline-color: #754623; }
+  @media (min-width: 801px) {
+    .vine-group, .vine-nearby { scroll-margin-top: 12rem; }
+  }
   @media (max-width: 800px) {
     .vine-hero__grid, .vine-group__head, .vine-nearby__grid, .vine-plan__grid { grid-template-columns: 1fr; }
     .vine-hero__grid { gap: 2rem; }
