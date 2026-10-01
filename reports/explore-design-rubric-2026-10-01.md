@@ -63,3 +63,6 @@ Scores are earned from rendered desktop (1440 px), tablet (768 px), and mobile (
 - The project Impeccable detector returned no additional design flags.
 - [Desktop first view](explore-design/desktop-1440.png), [mobile first view](explore-design/mobile-390.png), and [mobile choice grid](explore-design/mobile-choices-390.png).
 - `npm run check` still reports 136 repository-wide errors; none are in `src/pages/explore/index.astro`. The existing inline JSON-LD hints remain.
+## Deployment-gate iteration
+
+The first main-branch deployment stopped before publication because its mobile discovery journey found the Explore filter below 750 px. That temporarily reduced the review score to 94/100: choice architecture and release integrity were not yet satisfied. The corrective pass moved the existing filter ahead of the editorial choices and compacted its mobile heading. On the fresh preview, the filter starts at 613 px at 390 px width and 668 px at 320 px width. The exact `npm run test:discovery-journeys` release gate passes 13/13 on a fresh production build. The 99/100 design review is restored for this corrected candidate; public deployment still requires its own verification.
