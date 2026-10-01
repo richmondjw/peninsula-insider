@@ -413,6 +413,23 @@ export const prerender = true;
     </div>
   </header>
 
+  <section class="x-discovery" aria-labelledby="explore-filter-heading">
+    <div class="container x-discovery__head">
+      <h2 id="explore-filter-heading">Find a specific outing</h2>
+      <p>Filter the complete guide, or open the map and choose a place.</p>
+    </div>
+    <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
+      <FilterBar
+        surface="explore"
+        noun="experiences"
+        label="Filter experiences"
+        facets={['cat', 'place', 'party', 'price']}
+      />
+      <TrustNote surface="explore" />
+      <PlanningHelp />
+    </CategoryBrowse>
+  </section>
+
   <section class="x-choices" id="choose-day" data-browse-layer aria-labelledby="choose-day-heading">
     <div class="container">
       <div class="x-choices__head">
@@ -431,23 +448,6 @@ export const prerender = true;
         <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. These links do not confirm that a route or beach is suitable on your day.</p>
       </details>
     </div>
-  </section>
-
-  <section class="x-discovery" aria-labelledby="explore-filter-heading">
-    <div class="container x-discovery__head">
-      <h2 id="explore-filter-heading">Find a specific outing</h2>
-      <p>Filter the complete guide, or open the map and choose a place.</p>
-    </div>
-    <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
-      <FilterBar
-        surface="explore"
-        noun="experiences"
-        label="Filter experiences"
-        facets={['cat', 'place', 'party', 'price']}
-      />
-      <TrustNote surface="explore" />
-      <PlanningHelp />
-    </CategoryBrowse>
   </section>
 
   <!-- 3-5. Browse layer: shelves, towns index, verticals. Yields to the
@@ -800,6 +800,8 @@ export const prerender = true;
     .x-hero__actions a:focus-visible { outline-color: var(--sand, #f5c177); }
     .x-choices__head, .x-discovery__head, .x-shelf__header, .x-directory__head { display: block; }
     .x-choices__head p, .x-discovery__head p { margin-top: 0.65rem; }
+    .x-discovery { padding-top: 0.75rem; }
+    .x-discovery__head p { margin-top: 0.25rem; }
     .x-shelf__all { margin-top: 0.8rem; }
     .x-towns__layout { grid-template-columns: 1fr; }
     .x-towns__list { columns: 1; }
