@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-01T07:49:44.490Z",
-  "snapshotId": "80651fad0477dd68a5f018ee117710b3051a742511537b570338a6af2588cc21",
+  "generatedAt": "2026-10-01T14:36:06.288Z",
+  "snapshotId": "c11a6cc0772ecb4d3de024aadc68cbd079fdbe20ea9a776d054297f4312651ff",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 617,
+  "count": 616,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "f009fc07e2fa4bd444fd54c857d1faae6bbd2df639ea3f48b9a6837a6a032e16",
+      "contentSha256": "883745adbdfc6bc7df318a3ec9f2ea5618ff090cc0504827b5e54afbc47f7383",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 190209,
-      "markdownBytes": 6934
+      "htmlBytes": 190207,
+      "markdownBytes": 6932
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -6639,20 +6639,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Thursday 1 October 2026",
+      "title": "Friday 2 October 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "9a5b9b77aaf8949b66fe62d1a7ec27eb8aaae733a4a38bee2e0558a3cf291aa9",
+      "contentSha256": "836b7809eeccd3578c2e2c607bc89ea5ca7e40cb999036ae87f8daaafb8885e6",
       "citation": {
-        "title": "Thursday 1 October 2026",
+        "title": "Friday 2 October 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 126284,
-      "markdownBytes": 1205
+      "htmlBytes": 126277,
+      "markdownBytes": 1204
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -8496,15 +8496,15 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "8ed51377f8670fe47b8b45a07e46eb1231507e3fe956d90fc07efc9a8b8a0ca5",
+      "contentSha256": "2527c2dafd88b090724f86d95ae35ff8dc8bf9182554e2aec9cf60a481864986",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-01"
+        "modifiedAt": "2026-10-02"
       },
-      "htmlBytes": 234775,
+      "htmlBytes": 234772,
       "markdownBytes": 12141
     },
     {
@@ -8615,7 +8615,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
-      "contentSha256": "9085dbd10780fc0aebd0c3df4f66a6690c150c9464d133c465f8b35e1f42a32d",
+      "contentSha256": "5c773247d63131f1f9aa5b1cb013c4cd98a6d1aa7d02dbf39ecdaf4bb641ad73",
       "citation": {
         "title": "Rooms with a roof, in case the forecast turns",
         "publisher": "Peninsula Insider",
@@ -8623,8 +8623,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 169163,
-      "markdownBytes": 5214
+      "htmlBytes": 165634,
+      "markdownBytes": 4733
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
@@ -9006,7 +9006,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/index.md",
-      "contentSha256": "bbee2871d64347a60f43ce9b59e455c930379f81a3bf0429b37cc1660e115d49",
+      "contentSha256": "b9da4c584896148ab4c669698dad2891a32d35b7af0a32d78b098745af729517",
       "citation": {
         "title": "Peninsula Hot Springs Daily Studio Yoga",
         "publisher": "Peninsula Insider",
@@ -9014,8 +9014,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 149990,
-      "markdownBytes": 4067
+      "htmlBytes": 146680,
+      "markdownBytes": 3586
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
@@ -9023,7 +9023,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/index.md",
-      "contentSha256": "afd415c19223900706edf61b860f24964ec2c460d9cbc23f86ccbd7fbf09ffa3",
+      "contentSha256": "6e11eadeb3794e5990b068801102854e56804c56fadc621955c199604880c098",
       "citation": {
         "title": "Peninsula Hot Springs Yoga (Complimentary)",
         "publisher": "Peninsula Insider",
@@ -9031,8 +9031,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 149953,
-      "markdownBytes": 4191
+      "htmlBytes": 146643,
+      "markdownBytes": 3710
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
@@ -9159,7 +9159,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/index.md",
-      "contentSha256": "6aa7f32d08aaef039a1ac570de4d958bdad6dea353a5c6f4c6504aba4689306f",
+      "contentSha256": "4df4f79ea80de4f1df108ae8bfa10f439a10602c8678ef83a7f683199620a84c",
       "citation": {
         "title": "Restore & Pamper Retreat at Polperro Farmhouse",
         "publisher": "Peninsula Insider",
@@ -9167,8 +9167,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 150551,
-      "markdownBytes": 4665
+      "htmlBytes": 147241,
+      "markdownBytes": 4184
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
@@ -9186,23 +9186,6 @@
       },
       "htmlBytes": 147432,
       "markdownBytes": 3035
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-      "title": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/index.md",
-      "contentSha256": "a56a8074313df59bb794539e738bd461c9fc48ec588dfb7d0270a0ee26d1a84c",
-      "citation": {
-        "title": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 149455,
-      "markdownBytes": 3688
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
