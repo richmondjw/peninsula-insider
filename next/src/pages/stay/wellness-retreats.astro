@@ -10,7 +10,7 @@ const allStays = (await getCollection('venues')).filter((venue) => isListableVen
 const bySlug = new Map(allStays.map((venue) => [routeSlug(venue), venue]));
 const definitions = [
   {
-    id: 'stay-at-the-springs', number: '01', label: 'On-site bathing', title: 'Sleep where you bathe.',
+    id: 'stay-at-the-springs', number: '01', label: 'On-site bathing', title: 'Sleep where you bathe.', photoLabel: 'Pictured: an Eco Lodge room at Peninsula Hot Springs',
     summary: 'Peninsula Hot Springs and Alba are different operators in Fingal. Choose the springs first, then compare the accommodation format and inclusions for your dates.',
     image: { src: '/images/visit-victoria/vv-172320-eco-lodges-peninsula-hot-springs.webp', width: 1280, height: 853,
       alt: 'An Eco Lodge bedroom at Peninsula Hot Springs with a bush-view window seat and outdoor bath on its deck.',
@@ -31,7 +31,7 @@ const definitions = [
     ],
   },
   {
-    id: 'hotel-and-spa', number: '02', label: 'Hotel and treatments', title: 'Make the hotel the occasion.',
+    id: 'hotel-and-spa', number: '02', label: 'Hotel and treatments', title: 'Make the hotel the occasion.', photoLabel: 'Pictured: Jackalope Hotel in Merricks North',
     summary: 'Jackalope is a hotel and treatment-spa stay in Merricks North. Its spa is at the hotel; it is not one of the Fingal thermal-springs operators.',
     image: { src: '/images/visit-victoria/vv-26070114-jackalope-hotel.webp', width: 2000, height: 1333,
       alt: 'Guests raise wine glasses over vineyard rows and bushland at Jackalope Hotel.',
@@ -44,7 +44,7 @@ const definitions = [
     ],
   },
   {
-    id: 'stay-and-bathe', number: '03', label: 'Optional off-site packages', title: 'Stay elsewhere. Bathe in Fingal.',
+    id: 'stay-and-bathe', number: '03', label: 'Optional off-site packages', title: 'Stay elsewhere. Bathe in Fingal.', photoLabel: 'Pictured: Lindenderry at Red Hill',
     summary: 'These hotels are outside the springs precincts. Each operator lists a package pairing accommodation with bathing at a Fingal venue. A room-only booking does not imply bathing entry.',
     image: { src: '/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp', width: 2000, height: 1333,
       alt: 'Visitors walk across the lawn towards the white homestead building at Lindenderry at Red Hill.',
@@ -140,6 +140,7 @@ export const prerender = true;
             ))}
           </div>
           <figure class="wellness-group__photo">
+            <p class="wellness-group__photo-label">{group.photoLabel}</p>
             <img src={group.image.src} alt={group.image.alt} width={group.image.width} height={group.image.height}
               loading="lazy" decoding="async" data-pi-responsive="(max-width: 800px) calc(100vw - 2rem), 480px" />
             <figcaption>{group.image.caption}</figcaption>
@@ -220,6 +221,7 @@ export const prerender = true;
   .wellness-stay__links { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; margin-top: 1rem; }
   .wellness-stay__links a { color: var(--accent); font-weight: 600; min-height: 44px; display: inline-flex; align-items: center; text-decoration: underline; text-underline-offset: .24em; }
   .wellness-group__photo { position: sticky; top: 8.5rem; }
+  .wellness-group__photo-label { color: var(--dark); font-size: .8rem; font-weight: 700; letter-spacing: .045em; line-height: 1.35; margin: 0 0 .65rem; }
   .wellness-group__photo img { aspect-ratio: 5 / 4; }
   .wellness-booking { color: #fff; background: var(--dark); padding: clamp(3.5rem, 6vw, 6rem) 0; }
   .wellness-booking__grid { display: grid; grid-template-columns: minmax(0, .7fr) minmax(0, 1.3fr); gap: clamp(2rem, 6vw, 6rem); }
