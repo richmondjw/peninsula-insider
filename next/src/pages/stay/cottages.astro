@@ -31,12 +31,6 @@ const cottageChoices = [
     check: 'Birch Creek has a strict no-pets policy.',
   },
   {
-    slug: 'brewers-cottage',
-    cue: 'For a whole house',
-    distinction: 'A three-bedroom house on the Red Hill Brewery grounds, with a kitchen and an open fire.',
-    check: 'Brewery activity and taproom hours change the feel of the stay.',
-  },
-  {
     slug: 'treetops-red-hill',
     cue: 'For wine country',
     distinction: 'Two private-entry cottages at an artisan vineyard. Peppercorn and Winemakers have different layouts.',
@@ -189,6 +183,7 @@ export const prerender = true;
           </article>
         ))}
       </div>
+      <p class="cottage-group__availability"><strong>Brewer's Cottage update, checked 1 October 2026:</strong> The operator says the cottage is closed for short stays and rented for 2026. It is not a current booking choice. <a href="https://www.redhillbrewery.com.au/brewers-cottage/" target="_blank" rel="noopener noreferrer">Read the cottage notice</a>. The brewery's trading status is separate.</p>
     </div>
   </section>
 
@@ -238,6 +233,8 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  .cottage-group__availability { max-width: 53rem; margin: 1.5rem 0 0; padding: 1rem 1.15rem; border-left: 3px solid var(--sand-text); background: #fff8ee; color: var(--text); font-size: .92rem; line-height: 1.55; }
+  .cottage-group__availability a { color: var(--accent); font-weight: 750; text-underline-offset: .2em; }
   .cottage-eyebrow { margin: 0 0 0.8rem; color: var(--accent); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; }
   .cottage-hero { padding: clamp(2rem, 5vw, 5rem) 0; background: var(--bg-alt); }
   .cottage-hero__grid { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); }

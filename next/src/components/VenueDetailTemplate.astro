@@ -214,7 +214,9 @@ const hasWines = isWinery && data.wines;
 const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
 const isClosed = data.status === 'closed' || isPermanentlyClosed(data);
-const isUnverifiedPaused = data.status === 'paused' && data.sourceStatus === 'unsourced';
+const isPaused = data.status === 'paused';
+const isUnverifiedPaused = isPaused && data.sourceStatus === 'unsourced';
+const isOperatorPaused = isPaused && !isUnverifiedPaused;
 const isNonPublicProducer = data.type === 'producer';
 
 // Wine-specific derived signals
@@ -291,6 +293,9 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
     {isUnverifiedPaused && (
       <p class="venue-detail__closed-notice">Key visitor details are unverified. This listing is paused; check a primary source before planning a visit.</p>
     )}
+    {isOperatorPaused && (
+      <p class="venue-detail__closed-notice">{data.closureNote ?? 'This listing is currently paused. Check the operator before planning a visit.'}</p>
+    )}
     <p class="venue-detail__signature" {...editableText({
       entityType: 'venue', entitySlug: venueSlug, fieldPath: 'signature',
       label: `${data.name} - signature`,
@@ -309,7 +314,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
       </p>
     )}
 
-    {(data.bookingUrl || data.phone) && !isClosed && !isUnverifiedPaused && (
+    {(data.bookingUrl || data.phone) && !isClosed && !isPaused && (
       <div class="venue-detail__booking-bar">
         {data.bookingUrl && (
           <a
@@ -405,7 +410,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
         {venue.data.venueTier === 'destination' && data.whyWeGo && (
           <div class="venue-verdict">
             <blockquote class="venue-verdict__why">
-              <span class="venue-verdict__label">{isUnverifiedPaused ? "About this listing" : "Why we’d go"}</span>
+              <span class="venue-verdict__label">{isPaused ? "About this listing" : "Why we’d go"}</span>
               <p class="venue-verdict__text">{data.whyWeGo}</p>
             </blockquote>
           </div>
@@ -702,7 +707,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           )}
         </dl>
 
-        {data.bookingUrl && !isUnverifiedPaused && (
+        {data.bookingUrl && !isClosed && !isPaused && (
           <a
             class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
             href={data.bookingUrl}

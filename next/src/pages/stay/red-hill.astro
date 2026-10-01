@@ -2,20 +2,177 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
-const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = ['jackalope','lindenderry','polperro-villas','port-phillip-estate','peninsula-hot-springs-glamping'];
-const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Red Hill & Hinterland' }];
-const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Red Hill & Hinterland', url: absUrl('/stay/red-hill/') }]);
+const bySlug = new Map((await getCollection('venues')).filter(isListableVenue).map(v => [routeSlug(v), v]));
+const pick = (slug: string) => {
+  const venue = bySlug.get(slug);
+  if (!venue) throw new Error('Red Hill stay guide missing venue: ' + slug);
+  return venue;
+};
+const groups = [
+  { id: 'estate-stays', label: '01 / On the estate', title: 'Let the vineyard set the pace.',
+    intro: 'These are Red Hill and Red Hill South stays where the bed is part of the estate. Dinner and cellar-door service still need their own plan.',
+    choices: [
+      { slug: 'lindenderry', place: 'Red Hill', cue: 'Country-house hotel', detail: 'A hotel among gardens and vines, with a dining room and cellar door on the property.', check: 'Room types differ. Check dining and cellar-door service for your dates.', url: 'https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/' },
+      { slug: 'polperro-villas', place: 'Red Hill', cue: 'Villas among vines', detail: 'Four couples villas on Talland Hill vineyard, each with an indoor spa and open fireplace.', check: 'Villa and restaurant are separate bookings. Weekend minimum stays may apply.', url: 'https://www.polperrowines.com.au/escape/villas/' },
+      { slug: 'port-phillip-estate', place: 'Red Hill South', cue: 'Architecture and suites', detail: 'Six vineyard suites at a design-led winery with an estate dining room.', check: 'Choose the suite and reserve dining separately. Check the current service calendar.', url: 'https://www.portphillipestate.com.au/book-accommodation/' },
+    ] },
+  { id: 'private-bases', label: '02 / Your own front door', title: 'Keep the evening to yourselves.',
+    intro: 'Villas and cottages suit a quieter Red Hill evening, whether you want your own kitchen, a farm setting or a private bath.',
+    choices: [
+      { slug: 'cassis', place: 'Red Hill', cue: 'Private villas', detail: 'Five adults-only villas overlooking a neighbouring vineyard, rather than rooms on a winery estate.', check: 'Two villas have mineral plunge pools; three have outdoor baths. Select the exact villa.', url: 'https://www.cassisredhill.com.au/' },
+      { slug: 'birch-creek', place: 'Red Hill', cue: 'Farm cottages', detail: 'Two self-contained cottages on a working farm: The Mavis for two and The June for four.', check: 'Birch Creek has a strict no-pets policy. Confirm the cottage and guest conditions.', url: 'https://www.birchcreek.com.au/' },
+      { slug: 'treetops-red-hill', place: 'Red Hill South', cue: 'Vineyard cottages', detail: 'Peppercorn and Winemakers are two private-entry cottages at an artisan vineyard.', check: 'Layouts differ. Breakfast provisions are described for Peppercorn; check inclusions.', url: 'https://treetopsatredhill.com.au/' },
+    ] },
+].map(g => ({ ...g, choices: g.choices.map(c => ({ ...c, venue: pick(c.slug) })) }));
+const venues = groups.flatMap(g => g.choices.map(c => c.venue));
+const faqs = [
+  { q: 'Is Jackalope in Red Hill?', a: 'No. Jackalope is in Merricks North. It can suit a wider wine-country trip, but it is a different base from Red Hill or Red Hill South.' },
+  { q: 'Is Peninsula Hot Springs accommodation in Red Hill?', a: 'No. Peninsula Hot Springs accommodation is in Fingal. Choose it for a thermal-led trip and plan the Red Hill part separately.' },
+  { q: 'Are all the villas on a winery estate?', a: 'No. Polperro Villas and Port Phillip Estate suites are on their estates. Cassis is a private Red Hill villa collection overlooking a neighbouring vineyard. Check the exact address before booking.' },
+];
+const breadcrumbs = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Red Hill' }];
+const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Red Hill', url: absUrl('/stay/red-hill/') }]);
+const collectionSchema = { '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Where to stay in Red Hill and Red Hill South', url: absUrl('/stay/red-hill/'),
+  mainEntity: { '@type': 'ItemList', itemListOrder: 'https://schema.org/ItemListUnordered', numberOfItems: venues.length,
+    itemListElement: venues.map((v, i) => ({ '@type': 'ListItem', position: i + 1, name: v.data.name, url: absUrl(venueHref(v)) })) } };
 export const prerender = true;
 ---
-<BaseLayout title="Where to Stay in Red Hill and the Hinterland · Peninsula Insider" description="The best stays in Red Hill and the Mornington Peninsula hinterland, from design hotels to vineyard villas and slower wine-country bases." section="stay" canonical="https://peninsulainsider.com.au/stay/red-hill/" modifiedTime="2026-05-08">
+<BaseLayout title="Where to Stay in Red Hill and Red Hill South · Peninsula Insider" description="Compare estate stays and private bases in Red Hill and Red Hill South. Choose by actual locality, accommodation format and current operator details." section="stay" canonical="https://peninsulainsider.com.au/stay/red-hill/" modifiedTime="2026-10-01">
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Where to Stay in Red Hill and the Hinterland</h1><div class="prose"><p>If the Peninsula weekend is really about food, wine, fireplaces, and a slower morning, the hinterland is the correct base. Red Hill and the surrounding ridge are where the trip gets depth, not just scenery. Staying here means lunch turns into dinner more naturally, and the drive home after a proper cellar-door day stops dictating everything.</p><p><a href="/stay/jackalope/">Jackalope</a> is the Peninsula's most dramatic hotel expression. <a href="/stay/lindenderry/">Lindenderry</a> is the calmer classic. <a href="/stay/polperro-villas/">Polperro Villas</a> and <a href="/wine/port-phillip-estate/">Port Phillip Estate</a> are stronger when the stay should feel private and more embedded in the landscape - Port Phillip Estate for the most architecturally serious winery experience on the ridge (Wood Marsh-designed, one-hat restaurant, six suites). <a href="/stay/peninsula-hot-springs-glamping/">Peninsula Hot Springs Glamping</a> sits slightly outside the strict vineyard lane, but it belongs in the broader hinterland-and-Fingal conversation because of how often readers are actually trying to combine wine country with thermal downtime.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Hinterland stays</p><h2 class="venues__title">{venues.length} food-and-wine bases worth prioritising</h2><p class="venues__sub">The strongest Peninsula stays for appetite-led weekends, vineyard lunches, and slower couple-focused itineraries.</p></div><a href="/explore/places/red-hill/" class="venues__link">Red Hill guide →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
+  <Breadcrumbs items={breadcrumbs} />
+
+  <section class="rh-hero" aria-labelledby="rh-title">
+    <div class="container rh-hero__grid">
+      <div class="rh-hero__copy">
+        <p class="rh-eyebrow">Local stay guide / Red Hill &amp; Red Hill South</p>
+        <h1 id="rh-title">Make Red Hill your base.</h1>
+        <p class="rh-hero__lead">Choose an estate stay or a private Red Hill base. Let lunch run long.</p>
+        <nav class="rh-hero__choices" aria-label="Choose a Red Hill stay type">
+          <a href="#estate-stays"><small>01 / On the estate</small><strong>Rooms &amp; vineyard villas</strong><span aria-hidden="true">→</span></a>
+          <a href="#private-bases"><small>02 / Your own place</small><strong>Private villas &amp; cottages</strong><span aria-hidden="true">→</span></a>
+        </nav>
+        <p class="rh-hero__geography">Red Hill and Red Hill South are the focus. <a href="#further-afield">Merricks North and Fingal are different bases.</a></p>
+      </div>
+      <figure class="rh-hero__visual">
+        <img src="/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp" alt="Guests approaching Lindenderry's white hotel building through its Red Hill garden" width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 520px" />
+        <figcaption>Lindenderry at Red Hill, pictured from the garden. This shows the hotel exterior, not a room or promised view. Photo: Peter Foster, courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="rh-primer">
+    <div class="container rh-primer__grid"><p class="rh-eyebrow">The short read</p><div><h2>The address changes the weekend.</h2><p>Red Hill is a dispersed food and wine landscape, not a walkable hotel strip. An estate stay keeps vines and dinner close. A private villa or cottage can give you your own kitchen and a quieter evening. Confirm the exact address, dining service and transport before reserving.</p></div></div>
+  </section>
+
+  {groups.map(group => (
+    <section class="rh-group" id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="rh-group__head"><p class="rh-eyebrow">{group.label}</p><h2 id={group.id + '-title'}>{group.title}</h2><p>{group.intro}</p></div>
+        <div class="rh-card-grid">{group.choices.map((c, i) => (
+          <article class="rh-card" aria-labelledby={'rh-' + c.slug}>
+            <div class="rh-card__top"><span>{String(i + 1).padStart(2, '0')} / {c.cue}</span><span>{c.place}</span></div>
+            <h3 id={'rh-' + c.slug}><a href={venueHref(c.venue)}>{c.venue.data.name}</a></h3>
+            <p>{c.detail}</p>
+            <p class="rh-card__check"><strong>Check before booking</strong> {c.check}</p>
+            <div class="rh-card__actions">
+              <a href={venueHref(c.venue)} aria-label={'Read our notes on ' + c.venue.data.name}>Read our notes →</a>
+              <a href={c.url} target="_blank" rel="noopener noreferrer" aria-label={'Check with ' + c.venue.data.name + ' (opens a new tab)'} data-pi-book="booking" data-pi-entity-type={c.venue.data.type} data-pi-entity-slug={c.slug} data-pi-surface="red-hill-guide" data-pi-provider="direct">Check with operator →</a>
+            </div>
+          </article>
+        ))}</div>
+      </div>
+    </section>
+  ))}
+
+  <section class="rh-field">
+    <div class="container rh-field__grid">
+      <figure><img src="/images/visit-victoria/vv-143752-polperro-winery.webp" alt="Guests seated on the deck beside trees and vineyard grounds at Polperro Winery" width="1280" height="853" loading="lazy" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 480px" /><figcaption>Winery grounds at Polperro in Red Hill. This photograph does not show the villas. Photo: Peter Tarasiuk, courtesy of Visit Victoria.</figcaption></figure>
+      <div><p class="rh-eyebrow">The local logic</p><h2>Let the day end where you meant it to.</h2><p>Plan one serious lunch and leave space around it. Red Hill's roads and cellar doors are spread across the ridge, so a nearby bed is useful for more than a short drive. If dinner matters, check its service calendar before choosing a room.</p><a href="/explore/places/red-hill/">Plan a Red Hill day →</a></div>
+    </div>
+  </section>
+
+  <section class="rh-beyond" id="further-afield">
+    <div class="container rh-beyond__grid">
+      <div><p class="rh-eyebrow">Beyond the local shortlist</p><h2>Same trip, different base.</h2><p>These are valid Peninsula stays, but neither is in Red Hill. Choose them because the hotel or thermal experience is the point, then plan the Red Hill part separately.</p></div>
+      <div class="rh-beyond__links">
+        <a href="/stay/jackalope/"><small>Merricks North / design hotel</small><strong>Jackalope</strong><span>Art-led rooms and dining on a Merricks North vineyard.</span><em>Explore the stay →</em></a>
+        <a href="/stay/hot-springs-accommodation/"><small>Fingal / thermal stays</small><strong>Peninsula Hot Springs accommodation</strong><span>Compare on-site options and bathing inclusions in the specialist guide.</span><em>Compare thermal stays →</em></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="rh-notes">
+    <div class="container rh-notes__grid">
+      <div><p class="rh-eyebrow">Before you reserve</p><h2>Check the exact stay.</h2><p>These choices are not a ranking. Room, villa, breakfast, bathing and dining details can differ within one property. The operator's current details for your dates are the final check.</p><ProvenanceLine records={venues} type="venues" noun="venue" />
+        <p class="rh-notes__pause"><strong>Brewer's Cottage update, checked 1 October 2026:</strong> The operator says the cottage is closed for short stays and rented for 2026. It is not in this booking shortlist. <a href="https://www.redhillbrewery.com.au/brewers-cottage/" target="_blank" rel="noopener noreferrer">Read the cottage notice</a>. This does not describe the brewery's trading status.</p>
+      </div>
+      <div class="rh-notes__faq">{faqs.map(({ q, a }) => <div><h3>{q}</h3><p>{a}</p></div>)}</div>
+    </div>
+  </section>
+  <NewsletterBlock />
+</BaseLayout>
+<style>
+.rh-eyebrow{margin:0 0 .7rem;color:var(--accent);font-size:.75rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+.rh-hero{padding:clamp(2rem,5vw,5rem) 0;background:var(--bg-alt)}
+.rh-hero__grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,5rem);align-items:start}
+.rh-hero h1{max-width:12ch;margin:0;color:var(--text);font-size:clamp(2.7rem,5.1vw,5.4rem);line-height:1.02;letter-spacing:-.052em;text-wrap:balance}
+.rh-hero__lead{max-width:35rem;margin:1.1rem 0 0;font-size:clamp(1rem,1.4vw,1.2rem);line-height:1.5}
+.rh-hero__choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.7rem;margin-top:1.35rem}
+.rh-hero__choices a{display:grid;grid-template-columns:1fr auto;align-content:center;gap:.35rem;min-height:5.5rem;padding:.85rem .95rem;border:1px solid #b5cbd7;border-radius:.55rem;background:var(--white);color:var(--text);text-decoration:none;transition:border-color 160ms ease,transform 160ms ease}
+.rh-hero__choices a:hover{border-color:var(--accent);transform:translateY(-2px)}
+.rh-hero__choices small{grid-column:1/-1;color:var(--accent);font-size:.7rem;font-weight:750;letter-spacing:.07em;text-transform:uppercase}
+.rh-hero__choices strong{font-size:clamp(.9rem,1.2vw,1.1rem);line-height:1.22}
+.rh-hero__choices span{color:var(--accent);font-weight:750}
+.rh-hero__geography{margin:1rem 0 0;color:var(--soft);font-size:.9rem;line-height:1.45}
+.rh-hero__geography a,.rh-field a,.rh-notes a{color:var(--accent);font-weight:750;text-underline-offset:.2em}
+.rh-hero__visual,.rh-field figure{margin:0}
+.rh-hero__visual img,.rh-field img{display:block;width:100%;height:clamp(18rem,37vw,31rem);object-fit:cover;border-radius:.6rem}
+.rh-hero__visual img{object-position:center 44%}
+.rh-hero figcaption,.rh-field figcaption{margin-top:.65rem;color:var(--soft);font-size:.81rem;line-height:1.5}
+.rh-primer{padding:clamp(2.6rem,5vw,4.5rem) 0;background:var(--text);color:var(--white)}
+.rh-primer__grid{display:grid;grid-template-columns:minmax(0,.35fr) minmax(0,1fr);gap:clamp(1.5rem,5vw,5rem)}
+.rh-primer .rh-eyebrow{color:#e7b775}
+.rh-primer h2,.rh-group h2,.rh-field h2,.rh-beyond h2,.rh-notes h2{margin:0;font-size:clamp(2rem,3.5vw,3.2rem);line-height:1.1;letter-spacing:-.04em;text-wrap:balance}
+.rh-primer h2{color:var(--white)}.rh-primer p:last-child{max-width:55rem;margin:.9rem 0 0;color:#e1ebf1;line-height:1.62}
+.rh-group,.rh-beyond{scroll-margin-top:10rem}
+.rh-group{padding:clamp(3rem,6vw,5rem) 0;border-bottom:1px solid var(--border)}
+.rh-group:nth-of-type(even){background:var(--bg-alt)}
+.rh-group__head{max-width:48rem;margin-bottom:2rem}
+.rh-group__head p:last-child{max-width:46rem;margin:.9rem 0 0;line-height:1.58}
+.rh-card-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.9rem}
+.rh-card{display:flex;flex-direction:column;min-width:0;padding:clamp(1.2rem,2.2vw,1.7rem);border:1px solid var(--border);border-radius:.6rem;background:var(--white);box-shadow:0 10px 35px rgba(11,46,74,.05)}
+.rh-card__top{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.3rem .8rem;color:var(--accent);font-size:.7rem;font-weight:750;letter-spacing:.07em;text-transform:uppercase}
+.rh-card h3{margin:1.15rem 0 .8rem;color:var(--text);font-size:clamp(1.35rem,1.9vw,1.75rem);line-height:1.16;letter-spacing:-.034em}
+.rh-card h3 a{color:inherit;text-decoration:none}.rh-card h3 a:hover{color:var(--accent)}
+.rh-card>p{margin:0;line-height:1.56}
+.rh-card .rh-card__check{margin:1.15rem 0 0;padding:.85rem 0 0;border-top:1px solid var(--border);color:var(--soft);font-size:.92rem;line-height:1.48}
+.rh-card__check strong{display:block;margin-bottom:.2rem;color:var(--text);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
+.rh-card__actions{display:flex;flex-wrap:wrap;gap:.25rem .85rem;margin-top:auto;padding-top:1rem}
+.rh-card__actions a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-size:.88rem;font-weight:750;text-underline-offset:.17em}
+.rh-field{padding:clamp(3rem,6vw,5rem) 0}.rh-field__grid{display:grid;grid-template-columns:1fr .9fr;gap:clamp(2rem,5vw,5rem);align-items:center}
+.rh-field img{height:clamp(18rem,32vw,26rem)}.rh-field p:not(.rh-eyebrow){line-height:1.65}
+.rh-field a{display:inline-flex;align-items:center;min-height:44px}
+.rh-beyond{padding:clamp(3rem,6vw,5rem) 0;background:var(--bg-alt)}
+.rh-beyond__grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:clamp(2rem,5vw,5rem)}
+.rh-beyond p:last-child{line-height:1.62}
+.rh-beyond__links{display:grid;gap:.7rem}
+.rh-beyond__links a{display:flex;flex-direction:column;gap:.4rem;padding:1.2rem 1.4rem;border:1px solid var(--border);border-radius:.55rem;background:var(--white);color:var(--text);text-decoration:none}
+.rh-beyond__links a:hover{border-color:var(--accent)}
+.rh-beyond__links small{color:var(--accent);font-size:.72rem;font-weight:750;letter-spacing:.09em;text-transform:uppercase}
+.rh-beyond__links strong{font-size:1.3rem}.rh-beyond__links em{color:var(--accent);font-size:.9rem;font-style:normal;font-weight:750}
+.rh-notes{padding:clamp(3rem,6vw,5rem) 0}.rh-notes__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(2rem,5vw,5rem)}
+.rh-notes p{line-height:1.6}.rh-notes__pause{margin-top:1.4rem;padding:1rem 1.15rem;border-left:3px solid var(--sand-text);background:#fff8ee;font-size:.89rem}
+.rh-notes__faq>div{padding:1.1rem 0;border-bottom:1px solid var(--border)}.rh-notes__faq>div:first-child{padding-top:0}
+.rh-notes__faq h3{margin:0 0 .45rem;font-size:1.1rem}.rh-notes__faq p{margin:0;color:var(--soft);line-height:1.55}
+.rh-hero a:focus-visible,.rh-card a:focus-visible,.rh-field a:focus-visible,.rh-beyond a:focus-visible,.rh-notes a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(max-width:900px){.rh-hero__grid,.rh-field__grid,.rh-beyond__grid,.rh-notes__grid{grid-template-columns:1fr}.rh-hero__visual img{height:min(54vw,23rem)}.rh-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.rh-hero{padding:1.2rem 0 2rem}.rh-hero h1{font-size:clamp(2.45rem,11.7vw,3.45rem)}.rh-hero__lead{margin-top:.8rem;font-size:.98rem}.rh-hero__choices{gap:.5rem;margin-top:.9rem}.rh-hero__choices a{min-height:4.65rem;padding:.65rem .58rem}.rh-hero__choices small{font-size:.62rem;letter-spacing:.02em}.rh-hero__choices strong{font-size:.84rem}.rh-hero__geography{margin-top:.8rem;font-size:.84rem}.rh-hero__visual img{height:13rem}.rh-primer__grid,.rh-card-grid{grid-template-columns:1fr}.rh-primer__grid{gap:.8rem}.rh-card{padding:1.25rem}.rh-group,.rh-beyond{scroll-margin-top:9rem}}
+@media(prefers-reduced-motion:reduce){.rh-hero__choices a{transition:none}.rh-hero__choices a:hover{transform:none}}
+</style>

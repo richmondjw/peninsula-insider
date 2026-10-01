@@ -191,7 +191,6 @@ test('boutique and wellness stay choices remain visible on a first visit', async
   } finally { await reader.close(); }
 });
 
-
 test('vineyard and resort stay choices remain visible on a first visit', async () => {
   const reader = await site.reader();
   try {
@@ -227,5 +226,55 @@ test('stay guide booking checks and secondary actions remain usable', async () =
     const links = await reader.page.$$eval('.resorts-text-link', elements => elements.map(el => el.getBoundingClientRect().height));
     assert.equal(links.length, 2);
     assert.ok(links.every(height => height >= 44), 'resort secondary links need a 44px target');
+  } finally { await reader.close(); }
+});
+
+test('Red Hill stay choices are reachable on a first visit and identify the actual locality', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({ width: 320, height: 568 });
+    await reader.load('/stay/red-hill/');
+    const narrow = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.dataset.state,
+      choices: [...document.querySelectorAll('.rh-hero__choices a')].map(a => ({ bottom: a.getBoundingClientRect().bottom, height: a.getBoundingClientRect().height, href: a.getAttribute('href') })),
+      cards: document.querySelectorAll('.rh-card').length,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      copy: document.querySelector('main')?.textContent ?? '',
+    }));
+    assert.equal(narrow.cookie, 'visible');
+    assert.deepEqual(narrow.choices.map(c => c.href), ['#estate-stays', '#private-bases']);
+    assert.ok(narrow.choices.every(c => c.height >= 44 && c.bottom <= 568), JSON.stringify(narrow.choices));
+    assert.equal(narrow.cards, 6);
+    assert.equal(narrow.overflow, false);
+    assert.match(narrow.copy, /Jackalope is in Merricks North/);
+    assert.match(narrow.copy, /Peninsula Hot Springs accommodation is in Fingal/);
+    await reader.page.setViewport({ width: 390, height: 844 });
+    assert.equal(await reader.page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+  } finally { await reader.close(); }
+});
+
+test('Brewer Cottage 2026 short-stay pause removes booking paths but preserves an explanatory detail page', async () => {
+  const reader = await site.reader();
+  try {
+    for (const route of ['/stay/', '/stay/best-accommodation/', '/stay/cottages/', '/stay/red-hill/', '/stay/vineyard-stays/', '/stay/winery-accommodation/', '/explore/places/red-hill/']) {
+      await reader.load(route);
+      const links = await reader.page.$$eval('a[href="/stay/brewers-cottage/"]', nodes => nodes.length);
+      assert.equal(links, 0, route + ' still recommends the paused cottage');
+    }
+    await reader.load('/stay/brewers-cottage/');
+    const detail = await reader.page.evaluate(() => ({
+      robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') ?? '',
+      notice: document.querySelector('.venue-detail__closed-notice')?.textContent ?? '',
+      bookingLinks: document.querySelectorAll('a[data-pi-entity-slug="brewers-cottage"][data-pi-book]').length,
+      lodgingSchema: [...document.querySelectorAll('script[type="application/ld+json"]')].some(el => el.textContent.includes('"LodgingBusiness"')),
+    }));
+    assert.match(detail.robots, /noindex/);
+    assert.match(detail.notice, /short stays.*2026/i);
+    assert.match(detail.notice, /brewery.*trading status/i);
+    assert.equal(detail.bookingLinks, 0);
+    assert.equal(detail.lodgingSchema, false);
+    const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
+    assert.doesNotMatch(sitemap, /\/stay\/brewers-cottage\//);
   } finally { await reader.close(); }
 });
