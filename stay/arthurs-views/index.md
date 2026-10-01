@@ -5,13 +5,13 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Cottage    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 # Arthurs Views
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
-Known for   Arthurs Seat Ridge Views Double Spa Suites Adults-Only Stay Port Phillip Bay Panorama
+Known for   Five couples-only suites Arthurs Seat bay views Optional breakfast provisions Suite-specific spa facilities
 
 [Check availability](<https://arthursviews.com.au/>)
 
@@ -19,13 +19,13 @@ Arthurs Views · Dromana
 
 Why we’d go
 
-The Peninsula's most panoramic B&B position, sitting on the ridge that divides bay from hinterland, halfway between everything.
+A bay-view suite stay for two, with a clear choice between spa suites and penthouse formats.
 
-Five suites on the Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires. AAA 4.5-star rated, adults-only and child-free throughout. Hosts Helen and Greg run the property with the attentiveness of a small owner-operated stay rather than a managed accommodation business, and it shows in the reviews.
+Arthurs Views is a couples-only suite retreat on the Arthurs Seat ridge. Its operator FAQ lists five suites: three spa suites, one penthouse suite and one penthouse studio. The outlook and room facilities differ, so compare the exact suite.
 
-The Arthurs Seat position is genuinely practical as well as scenic. Sitting at the geographic mid-point of the Peninsula, you are equidistant from the bayside towns to the north and the ocean-coast villages to the south, which makes day trips in either direction easy. Rates rise in peak season; book direct for current pricing.
+Breakfast provisions are optional add-ons rather than a universal included meal. The Flinders Penthouse does not have a spa; the Eyrie Penthouse Studio is self-contained with a kitchenette. The property does not cater for children or pets.
 
-Book a north-facing suite for the full bay view rather than the garden-facing rooms. Confirm minimum stay requirements and ask about current condition directly, a January 2025 review noted minor maintenance concerns that may or may not have been addressed.
+Choose this for an elevated bay outlook and a private suite, then check the current room layout, breakfast add-ons and booking terms with the operator.
 
 Worth knowing
 
@@ -35,7 +35,7 @@ Scenic views · Anniversary weekends · Couples · Weekend escapes
 
 If you only do one thing
 
-Request a suite with the north-facing bay view rather than the garden-facing room.
+Check the exact suite before booking: spa, kitchenette and breakfast arrangements differ.
 
 Works well with
 
@@ -47,7 +47,7 @@ At a glance
 
 **Type**
 
-Cottage
+Suite
 
 **Location**
 
@@ -65,7 +65,7 @@ Cottage
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Arthurs%20Views%2C%2010%20Nestle%20Court%2C%20Arthurs%20Seat%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://arthursviews.com.au/>)
+ [Check availability](<https://arthursviews.com.au/>)
 
 Not sure how to build a day around Arthurs Views?
 
@@ -83,7 +83,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -95,7 +95,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 
@@ -107,7 +107,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
 
 cellar door  fireplace
 

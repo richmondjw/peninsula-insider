@@ -91,15 +91,13 @@ Ten-day classical and contemporary festival across Peninsula wineries, churches 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
-Live Music   Monthly
+Live Music  30 Oct
 
-### [Peninsula Hot Springs, Sound Healing Sessions](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/>)
+### [Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 
-[Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+An uplifting evening of live music, mantra meditation, candlelight, movement and connection.
 
-Monthly sound healing immersion at Peninsula Hot Springs through autumn and winter.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

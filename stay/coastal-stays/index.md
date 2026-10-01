@@ -1,279 +1,129 @@
 Canonical: https://peninsulainsider.com.au/stay/coastal-stays/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-24
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Coastal Stays on the Mornington Peninsula
+# Choose the coast that fits your stay.
 
-The Peninsula has two distinct coasts, and they produce quite different trips. The bay coast (Port Phillip side) is calm water, limestone cliffs, and village dining - Sorrento is the centre of this version. The ocean coast (Bass Strait side) is surf beaches, strong prevailing winds, and working fishing villages - Flinders is the centre here, Cape Schanck at the southern tip is the most dramatic.
+[Find a coastal base](<https://peninsulainsider.com.au/stay/coastal-stays/#choose-coast>) [Compare all stay types](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-The Continental Sorrento and Hotel Sorrento sit at the village end of Sorrento's main street, with the ocean baths a short walk away. Both suit couples who want a proper hotel stay with easy restaurant access. For a quieter coastal experience, the Sorrento Coastal Retreat gives bay views without the main-street activity.
+Sorrento hotels, bay-side cottages, a Flinders or Cape Schanck base, or canvas at Point Nepean. Start with the setting, then check the exact room or unit.
 
-Flinders Hotel is the south coast benchmark: a proper country pub with good rooms, directly opposite the pier, in a village that has resisted the temptation to become a weekend destination. That resistance is the point.
+A coastal address does not guarantee a beachfront room or a safe swimming beach.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Cape Schanck boardwalk and coast. Destination view, not a view from a listed stay. Peninsula Insider.
 
-Sorrento · tip · bay coast
+## Sorrento, for a village by the bay
 
-## 18 coastal stays across the Peninsula
+Stay in town for restaurants and the bay beach. The ocean-facing Sorrento Back Beach is a separate outing, so check your route before booking.
 
-Village hotels, coastal retreats, and south-coast properties - Sorrento-tip properties first, then the south coast at Flinders and Cape Schanck.
-
- [Sorrento guide →](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+Hotel · Sorrento village
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-23 Constitution Hill Road, Sorrento VIC 3943
+A heritage hotel in the Continental precinct. The operator places Sorrento Front Beach and the village a few minutes away on foot.
 
-A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
+[Read stay notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [Check with operator](<https://sorrento.intercontinental.com/>)
 
-weekend escape  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
-
-Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+Hotel · Sorrento village
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-5-15 Hotham Rd, Sorrento VIC 3943
+Rooms and studios at the clifftop pub-hotel. The operator describes the township and bay beach as a short stroll.
 
-A grand old bay-facing pub-hotel whose best rooms still make Sorrento feel gloriously old-school.
+**Stay notice, checked 1 October 2026:** Hotel Sorrento reports daytime midweek construction and possible movement changes ahead of its 1 December expansion. [Read the current notice](<https://hotelsorrento.com.au/stay/>) before reserving.
 
-weekend escape  waterfront
+[Read stay notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Check with operator](<https://hotelsorrento.com.au/stay>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay>)
+Sorrento bay coast. Area photograph, not a view from a listed room. Peninsula Insider.
 
-Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+## Rye and Capel Sound, for a cottage
 
-### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+Choose this stretch when a cottage and easy access to the calm bay matter more than a hotel dining room. Check the exact unit layout and pet terms.
 
-Corner of Cook & Wood St, Flinders VIC 3929
-
-Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
-
-weekend escape  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)
-
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
-
-### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
-
-140 Springs Lane, Fingal VIC 3939
-
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
-
-wellness  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
-
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
-
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Cottages · Rye
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941
+The operator places its cottages near Rye bay beach and says pets are welcome across the cottages, subject to its terms.
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+[Read stay notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Check with operator](<https://www.bluemooncottages.com.au/>)
 
-beach  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [View stay](<https://www.bluemooncottages.com.au/>)
-
-Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
-
-### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
-
-41 Trent Jones Drive, Cape Schanck VIC 3939
-
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
-
-view  wellness
-
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://www.thecaperetreat.com.au/book>)
-
-Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
-
-25 Harrisons Rd, Dromana VIC 3936
-
-Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
-
-anniversary  waterfront
-
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
-
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-246 Dundas St, Rye VIC 3941
-
-Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
-
-beach  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
-
-Peninsula-wide, based Point Leo VIC 3916
-
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
-
-beach  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/>)
-
-Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
-
-### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
-
-Red Hill South VIC 3937
-
-Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
-
-wellness  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://www.ilukaretreat.com.au/>)
-
-Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
-
-1-9 Sinclair Ave, Rye VIC 3941
-
-Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
-
-beach  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [View stay](<https://kanastacaravanpark.com.au/retro-caravans/>)
-
-Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
-
-### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
-
-240 Tucks Rd, Shoreham VIC 3916
-
-Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
-
-anniversary  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
-
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Cottages · Capel Sound
 
 ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-Tootgarook VIC 3941
+A small group of cottages near Capel Sound bay beach. Studio, one-bedroom and two-bedroom formats are listed by the operator.
 
-Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
+[Read stay notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Check with operator](<https://mpcottages.com/>)
 
-beach  slow
+Rye bay coast. Area photograph, not a view from either cottage. Peninsula Insider.
 
-[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
+## Flinders and Cape Schanck, for the south coast
 
-Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+These are bases for a different coast, not promises of a room on the sand. Compare a Flinders village hotel with a group-oriented Cape Schanck retreat and plan beach access separately.
 
-### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
+Hotel rooms · Flinders village
 
-140 Springs Lane, Fingal VIC 3939
+### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+Quarters sits behind Flinders Hotel on Cook Street, with hotel dining nearby. The pier and coast are outings from this village base.
 
-wellness  anniversary
+[Read stay notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [Check with operator](<https://flindershotel.com.au/accommodation>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+Suites · Cape Schanck
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
+A group-oriented retreat with suites and shared spaces at Cape Schanck. Confirm the booking arrangement, room format and view with the operator.
 
-33 Maori St, Rye VIC 3941
+[Read stay notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Check with operator](<https://www.thecaperetreat.com.au/book>)
 
-Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
+Cape Schanck coastline. Area photograph, not a property or room view. Peninsula Insider.
 
-beach  slow
+## Point Nepean, for a night in the park
 
-[Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [View stay](<https://www.plantationhouse.com.au/>)
+Parks Victoria offers pre-pitched Discovery Tents in the Quarantine Station precinct. This is a coastal camping stay with park rules, not a hotel or a swimming-beach promise.
 
-Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+Pre-pitched tents · Portsea
 
 ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-Point Nepean National Park, Portsea VIC 3944
+Two- and four-person tents in coastal or woodland campground areas. Parks Victoria lists a September to April season; check current conditions and dates.
 
-Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
+[Read stay notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [Check with operator](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
-beach  walk
+Point Nepean National Park. Area photograph, not the Discovery Tents. Peninsula Insider.
 
-[Read notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [View stay](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
+## Still choosing?
 
-Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Thermal stays around Fingal are a different trip from staying by the water. Compare those separately, or return to the full stay guide.
 
-### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
+[Explore wellness stays](<https://peninsulainsider.com.au/stay/wellness-retreats/>) [Compare accommodation](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-282 Browns Road, Fingal VIC 3939
+## Before you choose a room
 
-Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
+Water access, room views and park conditions are different questions. Check each one for your dates.
 
-wellness  anniversary
+### Which coastal stays put a bay beach within walking reach?
 
-[Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+InterContinental Sorrento and Hotel Sorrento describe the Sorrento bay beach as a short walk. Blue Moon Cottages and Mornington Peninsula Beach Club Cottages describe nearby bay beaches around Rye and Capel Sound. Confirm the route and the exact property address for your stay.
 
-## Frequently asked questions
+### Does a coastal stay mean an oceanfront room?
 
-### Best coastal stay near the ocean?
+No. Sorrento village hotels are near the bay, while Sorrento Back Beach is on the ocean side of town. Quarters at Flinders Hotel is behind the hotel on Cook Street. The Cape Retreat is a Cape Schanck base with outlooks described by its operator. Confirm any room view and beach access before booking.
 
-Sorrento for dining, village atmosphere, and easy beach access - The Continental and Hotel Sorrento both work well. Flinders Hotel for the south coast version: quieter, directly above the pier, working fishing village that hasn't been completely polished for tourism.
+### Can I swim beside the Point Nepean Discovery Tents?
 
-### Can you walk to the beach from the hotels?
+Do not assume the nearby bay beach is a swimming beach. Parks Victoria advises that swimming is not recommended at Point Nepean bay beaches and is not permitted along its ocean coastline. Check park advice and current conditions.
 
-Hotel Sorrento and The Continental are walking distance to the Sorrento ocean baths (bay side). The back ocean beach is a 10-minute drive. Flinders Hotel is a short walk to the Flinders pier and back beach at Flinders Point.
+### Are thermal stays included here?
 
-### Sorrento or Portsea?
+No. The Fingal thermal stays are inland experiences and are covered in the wellness stays guide. This page focuses on bay villages, the south coast and Point Nepean National Park.
 
-Sorrento for more dining options and village infrastructure - better for a first visit. Portsea for quieter and more private. The two are 8 minutes apart; use Sorrento as a base and Portsea as an excursion.
-
-Related guides
-
-## More for the coastal weekend
-
-### [Sorrento Guide](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-The complete Sorrento hub - beaches, restaurants, walks, and where to stay.
-
-[Read the guide →](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-### [Walks & Exploration](<https://peninsulainsider.com.au/explore/>)
-
-The best walking tracks, coastal paths, and lookouts across the Peninsula.
-
-[Explore →](<https://peninsulainsider.com.au/explore/>)
-
-### [Best Accommodation](<https://peninsulainsider.com.au/stay/best-accommodation/>)
-
-Choose between hotels, cottages, coastal bases, wine-country stays and thermal accommodation.
-
-[Open the guide →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+Researched from published sources. Every venue listed was reviewed April 2026 or later.
 
 ## The Insider Note
 

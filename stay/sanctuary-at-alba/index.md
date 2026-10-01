@@ -85,13 +85,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -103,7 +103,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -115,7 +115,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 

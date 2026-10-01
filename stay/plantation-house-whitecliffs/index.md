@@ -5,13 +5,13 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Cottage    [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 # Plantation House at Whitecliffs
 
-Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
+A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
 
-Known for   Heritage 1932 Sandstone Property Host Charles's Cooked Breakfasts 150m from Rye Front Beach 9.7 Booking.com Score
+Known for   Five named rooms and suites Included cooked breakfast 1932 sandstone property Rye foreshore location
 
 [Check availability](<https://www.plantationhouse.com.au/>)
 
@@ -19,23 +19,23 @@ Plantation House at Whitecliffs · Rye
 
 Why we’d go
 
-150 metres from the front beach, a 9.7 Booking.com score, and a host whose breakfasts have become a structural feature of the stay, not a variable.
+A hosted Rye B&B with included cooked breakfast and a choice of room and suite formats.
 
-Four to five suites in a heritage 1932 sandstone property 150 metres from Rye's front beach. Tennis court and hot tub on site. Booking.com score 9.7. Host Charles's cooked breakfasts are named in nearly every 2024 and 2025 review, it is not routine hospitality, it is the reason people return. Family-friendly and among the most family-compatible B&Bs in the Peninsula set.
+Plantation House at Whitecliffs is a Rye bed and breakfast in a 1932 sandstone property. The operator currently lists five named rooms and suites: Havana, Bahama, Georgia, Upstairs and Garden Room. These are not five self-contained cottages.
 
-Rates represent strong value for the location and the host quality. The cooked-breakfast-by-Charles pattern is consistent enough across independent sources that it qualifies as a structural feature of the stay rather than a happy variable. The 1932 sandstone building gives the property a heritage character absent from most of the Peninsula's cottage and B&B stock.
+A cooked breakfast is included and served in the dining room or garden when weather allows. The Upstairs Suite has a kitchenette and the Garden Room has kitchen facilities; compare the exact room if cooking space matters. The operator says dietary requirements can be accommodated when advised.
 
-Alert Charles to any dietary requirements in advance, same-morning flexibility at a four-room property is limited. Book well ahead for school holiday periods.
+Choose this for a hosted breakfast close to Rye foreshore. Check the room configuration, dietary arrangements and current booking terms directly with Plantation House.
 
 Worth knowing
 
 **Best for**
 
-Beach proximity · Family outings · Budget stays · Couples
+Beach proximity · Couples · Weekend escapes
 
 If you only do one thing
 
-Alert Charles to any dietary requirements in advance, the breakfast is the reason people return and the flexibility at a small property has limits.
+Choose the exact room first, then tell the host about dietary needs before arrival.
 
 Works well with
 
@@ -47,7 +47,7 @@ At a glance
 
 **Type**
 
-Cottage
+Suite
 
 **Location**
 
@@ -65,7 +65,7 @@ Cottage
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Plantation%20House%20at%20Whitecliffs%2C%2033%20Maori%20St%2C%20Rye%20VIC%203941%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.plantationhouse.com.au/>)
+ [Check availability](<https://www.plantationhouse.com.au/>)
 
 Not sure how to build a day around Plantation House at Whitecliffs?
 
@@ -77,13 +77,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -95,7 +95,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -107,7 +107,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 

@@ -97,16 +97,6 @@ Conti Bar becomes a German beer hall from 15 to 22 October, with Weihenstephaner
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/>)
 
-Live Music   Monthly
-
-### [Peninsula Hot Springs, Sound Healing Sessions](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/>)
-
-[Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-Monthly sound healing immersion at Peninsula Hot Springs through autumn and winter.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/>)
-
 Live Music   Every Sunday from 12pm; performer changes weekly
 
 ### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)

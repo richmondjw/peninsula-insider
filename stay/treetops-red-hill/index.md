@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Treetops at Red Hill
 
-Two quiet self-contained cottages opposite a micro-vineyard, local breakfast provisions included, and Port Phillip Estate under a kilometre away.
+Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
 
-Known for   Two self-contained cottages directly opposite a micro-vineyard on McIlroys Road Local breakfast provisions included and stocked in the fridge on arrival Port Phillip Estate 0.9km away, the Peninsula's highest-rated winery within walking distance A new entrant to the market, one of the freshest wine-adjacent stay options in Red Hill Genuinely affordable base for a cellar-door weekend
+Known for   Two vineyard cottages Peppercorn local breakfast provisions Winemakers vineyard position
 
 [Check availability](<https://treetopsatredhill.com.au/>)
 
@@ -19,23 +19,23 @@ Treetops at Red Hill · Red Hill
 
 Why we’d go
 
-Proximity to Port Phillip Estate alone makes this address worth knowing. The included breakfast provisions and the micro-vineyard view are a bonus at a price point where most options make you work harder for less.
+A two-cottage vineyard base where you can choose between Peppercorn and Winemakers layouts.
 
-Treetops Red Hill sits at 80 McIlroys Road in Red Hill South, directly opposite a working micro-vineyard. The setting is genuinely wine-country immersive rather than adjacent, you wake up to vines, not a suburban street dressed with a few barrel planters. Two self-contained cottages, new to the market, and priced to make a cellar-door weekend financially sensible.
+Treetops at Red Hill describes two self-contained cottages on its artisan vineyard property: Peppercorn Cottage and Winemakers Cottage. Peppercorn has a king bed, a kitchen and laundry, with local breakfast provisions. Winemakers has a separate lounge and kitchen beside the vineyard.
 
-Local breakfast provisions arrive stocked in the fridge, the kind of detail that makes the first morning easy without requiring you to drive before coffee. Port Phillip Estate is 0.9 kilometres away, which means dinner or a tasting flight there is a viable part of the day without moving the car. The Red Hill cellar-door corridor is well within reach; Main Ridge wineries, Tucks Ridge, and Stonier are all under ten minutes.
+The operator invites enquiries through its website or by phone and links to immediate booking from the cottage descriptions. Compare the two layouts and confirm current inclusions before reserving.
 
-As a new entrant the property has limited historical reviews to draw on, but the address and price point make it a strong wine-adjacent affordable option for couples who want to use the hinterland properly rather than just pass through it.
+Choose this for a wine-country cottage with a private entrance rather than a hosted B&B room.
 
 Worth knowing
 
 **Best for**
 
-Couples · Cellar door visits · Budget stays · Weekend markets
+Couples · Cellar door visits · Weekend escapes
 
 If you only do one thing
 
-Pair with Port Phillip Estate for dinner one night, the drive is under two minutes.
+Compare Peppercorn and Winemakers directly; breakfast provisions are stated for Peppercorn, not necessarily both.
 
 Works well with
 
@@ -77,13 +77,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -95,7 +95,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -107,7 +107,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 

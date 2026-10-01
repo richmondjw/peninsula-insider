@@ -5,163 +5,125 @@ Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# B&Bs and Cottages on the Mornington Peninsula
+The stay guide · cottages & B&Bs
 
-The two formats answer different briefs. A cottage is self-contained: you arrive with groceries, the dog, and no obligations - a wood fire, a kitchen, a fenced garden, and the door closing behind you. A B&B runs on a different logic, built around a host, a breakfast, and a small house where someone has thought about the day ahead of you. Both formats outperform the hotel in shoulder season. Both are mostly hinterland, not coast.
+# Cottage or B&B? Find your Peninsula base.
 
-The winter wood-fire weekend is the strongest use case for cottages. Properties across Main Ridge, Red Hill, and Rye with confirmed fireplaces draw the highest proportion of repeat visitors in the category. For a first-Saturday visit between September and May, check the separate Hill & Ridge Community Market schedule before planning the morning. The dog weekend is the second clear use case: Blue Moon, MP Beach Club, and Birch Creek are the most explicitly dog-welcoming.
+ [Choose your stay](<https://peninsulainsider.com.au/stay/cottages/#choose-format>)
 
-The named-host B&B pattern: at a cottage, the owner is largely invisible after key handover. At a B&B, the host is the reason the format works. The relationship with the host can shape the stay, but breakfast and hosted service differ by property. Check the current inclusions with the operator before booking.
+Start with the format, then the exact room. A cottage gives you your own front door; a B&B can add a hosted breakfast or optional provisions. Pet, kitchen and access details change by property.
 
-Researched from published sources. Every venue listed was reviewed May 2026 or later.
+Red Hill and Rye area views, not photographs of the accommodation. Images: Peninsula Insider.
 
-Cottages
+The first decision
 
-## Self-contained Peninsula cottages
+## How do you want to stay?
 
-Fireplaces, kitchens, dog-friendly yards - strongest in autumn and winter when the hinterland earns its keep.
+[01 / Your own place  **Choose a cottage.**  Bring the groceries, pick the setting, and check the exact unit for pets, cooking and access.   Compare cottages](<https://peninsulainsider.com.au/stay/cottages/#cottages>) [02 / A room or suite  **Choose a B&B.**  Decide whether included breakfast, optional provisions, a spa or a bay view matters most.   Compare B&Bs](<https://peninsulainsider.com.au/stay/cottages/#bnbs>)
 
- [Dog-friendly stays →](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
+Planning around a cellar door instead? [Compare winery accommodation](<https://peninsulainsider.com.au/stay/winery-accommodation/>).
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+01 / Self-contained stays
+
+## A place of your own.
+
+Bay beach, working farm, brewery or vineyard: choose the setting first. Then check the specific cottage or unit, since features vary even within one property.
+
+01 / Cottage   For the dog and the bay
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-12 Blakiston Grove, Rye VIC 3941
+All Blue Moon cottages accept pets. Sandpiper has a log fire and a compact, enclosed courtyard.
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+**Check before booking** Choose the exact cottage and read the pet conditions.
 
-beach  fireplace
+[Read our notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Check with operator](<https://www.bluemooncottages.com.au/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [View stay](<https://www.bluemooncottages.com.au/>)
-
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+02 / Cottage   For a flexible beach base
 
 ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-Tootgarook VIC 3941
+Five pet-friendly units near Capel Sound: a studio, one-bedroom units and two-bedroom units.
 
-Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
+**Check before booking** Unit 1 has published access features. EV charging is communal.
 
-beach  slow
+[Read our notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Check with operator](<https://mpcottages.com/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
-
-Red Hill VIC 3937
-
-Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
-
-cellar door  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+03 / Cottage   For a farm weekend
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937
+The Mavis sleeps two; The June sleeps four. Both have open fires on a working farm.
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+**Check before booking** Birch Creek has a strict no-pets policy.
 
-fireplace  slow
+[Read our notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Check with operator](<https://www.birchcreek.com.au/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+04 / Cottage   For a whole house
 
 ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937
+A three-bedroom house on the Red Hill Brewery grounds, with a kitchen and an open fire.
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+**Check before booking** Brewery activity and taproom hours change the feel of the stay.
 
-cellar door  fireplace
+[Read our notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [Check with operator](<https://www.redhillbrewery.com.au/brewers-cottage/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [View stay](<https://www.redhillbrewery.com.au/brewers-cottage/>)
-
-B&Bs
-
-## Named-host Peninsula B&Bs
-
-Guesthouses and hosted stays with different room formats and inclusions. Check breakfast and host availability for your chosen property.
-
- [Wine-country stays →](<https://peninsulainsider.com.au/stay/winery-accommodation/>)
-
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
-
-33 Maori St, Rye VIC 3941
-
-Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
-
-beach  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [View stay](<https://www.plantationhouse.com.au/>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
-
-Red Hill South VIC 3937
-
-Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
-
-cellar door  wellness
-
-[Read notes](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
-
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-246 Dundas St, Rye VIC 3941
-
-Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
-
-beach  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
-
-Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
-
-### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
-
-240 Tucks Rd, Shoreham VIC 3916
-
-Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
-
-anniversary  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+05 / Cottage   For wine country
 
 ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
-80 McIlroys Rd, Red Hill South VIC 3937
+Two private-entry cottages at an artisan vineyard. Peppercorn and Winemakers have different layouts.
 
-Two quiet self-contained cottages opposite a micro-vineyard, local breakfast provisions included, and Port Phillip Estate under a kilometre away.
+**Check before booking** Breakfast provisions are described for Peppercorn; confirm inclusions for your cottage.
 
-cellar door  romance
+[Read our notes](<https://peninsulainsider.com.au/stay/treetops-red-hill/>) [Check with operator](<https://treetopsatredhill.com.au/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/treetops-red-hill/>) [View stay](<https://treetopsatredhill.com.au/>)
+02 / B&B rooms and suites
+
+## Breakfast changes the brief.
+
+These are rooms and suites, not stand-alone cottages. Plantation House includes a cooked breakfast. Arthurs Views offers optional provisions and different suite layouts.
+
+01 / B&B   For a hosted breakfast
+
+### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
+
+Five named rooms and suites near Rye foreshore, with a cooked breakfast included.
+
+**Check before booking** Kitchen facilities vary by room. Flag dietary needs in advance.
+
+[Read our notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [Check with operator](<https://www.plantationhouse.com.au/>)
+
+02 / B&B   For a view and privacy
+
+### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+
+Five couples-only suites on Arthurs Seat. Breakfast provisions are optional.
+
+**Check before booking** Spa, kitchen and view features differ by suite; children and pets are not accepted.
+
+[Read our notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Check with operator](<https://arthursviews.com.au/>)
+
+Before you reserve
+
+## The detail that matters.
+
+These notes use current operator information. Availability, pet terms, accessibility and inclusions can change; confirm the exact unit and dates with the operator.
+
+Researched from published sources. Every venue listed was reviewed October 2026 or later.
+
+### Are all Peninsula cottages dog friendly?
+
+No. Blue Moon says all its cottages accept pets, and Mornington Peninsula Beach Club says all five units are pet friendly. Birch Creek has a strict no-pets policy. Check the exact operator conditions before booking.
+
+### Does a B&B always include breakfast?
+
+No. Plantation House includes a cooked breakfast. Arthurs Views offers optional breakfast provisions. Confirm what is included for your chosen room and dates.
+
+### Is every cottage fully self-contained?
+
+Facilities depend on the unit. Mornington Peninsula Beach Club has studio, one-bedroom and two-bedroom layouts; its studio has a microwave kitchenette and a separate bathroom within the enclosed courtyard. Check the exact unit before reserving.
 
 ## The Insider Note
 

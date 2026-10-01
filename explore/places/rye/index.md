@@ -165,7 +165,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 
@@ -330,21 +330,3 @@ On the map
 Every editorially verified pin in Rye on one screen - toggle a category, click any marker for the editor's note.
 
 Loading map…
-
-On the calendar in this place
-
-## Events in Rye
-
-Coming up in Rye, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Monthly
-
-### ✦ Peninsula Hot Springs, Sound Healing Sessions
-
-Rye
-
-Monthly sound healing immersion at Peninsula Hot Springs through autumn and winter. Thermal bathing paired with a guided sound session. Adults, bookings essential.
-
- Live Music](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/>)

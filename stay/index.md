@@ -139,7 +139,7 @@ Sleep between the rows and walk to the cellar door.
 
 - ### [Coastal stays](<https://peninsulainsider.com.au/stay/coastal-stays/>)
 
-Bases within earshot of the water, Sorrento to Flinders.
+Bay villages, south-coast bases and a night inside Point Nepean.
 
 - ### [Hot springs stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
 
@@ -199,7 +199,7 @@ Glamping   Fingal   Couples
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 Cottage   Rye   Dog-friendly
 
@@ -215,9 +215,9 @@ Suite   Cape Schanck   Couples
 
 - ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
-Cottage   Dromana   Couples
+Suite   Dromana   Couples
 
 [Check availability](<https://arthursviews.com.au/>)
 
@@ -273,15 +273,15 @@ Glamping   Portsea   Couples
 
 - ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
-Cottage   Red Hill   Dog-friendly
+Cottage   Red Hill   Couples
 
 [Check availability](<https://www.birchcreek.com.au/>)  Books via Airbnb
 
 - ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
 
 Cottage   Red Hill   Couples
 
@@ -319,7 +319,7 @@ Cottage   Red Hill   Dog-friendly
 
 - ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
-Two quiet self-contained cottages opposite a micro-vineyard, local breakfast provisions included, and Port Phillip Estate under a kilometre away.
+Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
 
 Cottage   Red Hill   Couples
 
@@ -333,7 +333,7 @@ Cottage   Rye   Couples
 
 - ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
 
 Cottage   Rye   Dog-friendly
 
@@ -349,11 +349,11 @@ Glamping   Rye   Dog-friendly
 
 - ### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
-Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
+A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
 
-Cottage   Rye   Couples
+Suite   Rye   Couples
 
-[Check availability](<https://www.plantationhouse.com.au/>)  Books via Booking.com
+[Check availability](<https://www.plantationhouse.com.au/>)
 
 - ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 

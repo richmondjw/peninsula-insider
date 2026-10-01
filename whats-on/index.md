@@ -181,12 +181,6 @@ Community market at Crib Point every second Saturday of the month. Spirit of com
 
 ### Live music
 
-- [Peninsula Hot Springs, Sound Healing Sessions](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sound-healing-sessions/>)
-
-Peninsula Hot Springs sound healing isn't a gimmick, it's a genuine 90-minute reset, and the venue is the right one…
-
-Rye · Live Music
-
 - [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
 
 Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.

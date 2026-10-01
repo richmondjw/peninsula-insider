@@ -73,7 +73,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 
@@ -121,19 +121,19 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 Tootgarook VIC 3941
 
-Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
 
 beach  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Suite  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
 33 Maori St, Rye VIC 3941
 
-Heritage 1932 sandstone property 150 metres from Rye's front beach, host Charles's cooked breakfasts are named in almost every recent review.
+A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
 
 beach  slow
 

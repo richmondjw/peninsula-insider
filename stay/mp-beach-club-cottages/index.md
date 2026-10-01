@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Mornington Peninsula Beach Club Cottages
 
-Five two-bedroom bay-beach cottages in Tootgarook, EV charging, disability access, private yards, and eight minutes from Peninsula Hot Springs.
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
 
-Known for   200m from Bay Beach EV Charging Installed Disability-Access Features 8 Minutes to Peninsula Hot Springs
+Known for   Studio, one- and two-bedroom layouts Communal EV charging Unit 1 step-free access features Pet-friendly units
 
 [Check availability](<https://mpcottages.com/>)
 
@@ -19,23 +19,23 @@ Mornington Peninsula Beach Club Cottages · Rye
 
 Why we’d go
 
-Bay beach, EV charging, disability access, the most practically equipped family and accessibility-friendly cottage option on the bayside.
+A flexible bayside cottage set with different unit sizes, pet access and clearly identified features for Unit 1.
 
-Five two-bedroom cottages 200 metres from the bay beach in Tootgarook, with private yards, disability-access features, and EV charging installed. Pet-friendly and family-friendly throughout. Eight minutes to Peninsula Hot Springs, a combination that makes this a practical base for a thermal weekend without the resort price tag.
+Mornington Peninsula Beach Club has five cottage units at Tootgarook near Capel Sound bay beach. The operator lists two two-bedroom units, two one-bedroom units and a studio. The kitchen and bathroom arrangement changes by unit: the studio has a microwave kitchenette and its private bathroom in a separate building within the fenced courtyard.
 
-The disability-access provision is notable in a Peninsula cottage category that mostly does not address it. Combined with the EV charging, increasingly important for Melbourne visitors driving down, and the beach proximity, this property covers more practical bases than any comparable cottage option on the bayside. If you are arriving in an EV and need accessible accommodation near the beach, this is the only properly equipped address in the set.
+The property has a communal EV charger. Unit 1 is the specific unit with published step-free access, wide doorways, fixed grab rails and a shower chair. Ask the operator to confirm these features against your needs before booking. Units 3, 4 and 5 have outdoor bathtubs.
 
-Confirm the specific access features relevant to your needs before booking, 'disability access' covers a wide range of provisions and the specific configuration may matter.
+The operator describes all five cottages as pet friendly. Confirm the exact unit, dog conditions, EV charging arrangements and current availability directly.
 
 Worth knowing
 
 **Best for**
 
-Dog-friendly stays · Beach proximity · Family outings · Budget stays
+Dog-friendly stays · Beach proximity · Family outings
 
 If you only do one thing
 
-Confirm EV charging specifications and disability-access features before booking if either applies, the details vary and matter.
+Match the unit to your needs: Unit 1 for its published access features, Unit 5 for a studio, or the larger units for more space.
 
 Works well with
 
@@ -77,13 +77,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -95,7 +95,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -107,7 +107,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 

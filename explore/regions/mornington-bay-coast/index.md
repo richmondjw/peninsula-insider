@@ -67,13 +67,13 @@ Safety Beach is the long shallow crescent between Mount Martha and Dromana - the
 
 ## Where to eat, drink, stay and explore
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 

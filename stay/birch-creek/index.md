@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Birch Creek
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
-Known for   Dog-Friendly Farm Cottages 40-Acre Property Open Fireplaces Friendly Farm Goats
+Known for   Two adjoining farm cottages Open fireplaces Outdoor baths No pets
 
 [Check availability](<https://www.birchcreek.com.au/>)
 
@@ -19,23 +19,23 @@ Birch Creek · Red Hill
 
 Why we’d go
 
-Dog-friendly on 40 acres with open fires, the most genuinely rural cottage proposition in the Red Hill hinterland, at a price that makes sense.
+A working-farm setting with two cottage sizes, open fires and a clear choice between a stay for two or four.
 
-Two self-contained farm cottages on 40 acres between Red Hill and Dromana: The Mavis sleeps two, The June sleeps four. Both have open fireplaces and an outdoor tub. The property has friendly goats, which sounds like a detail until you have arrived on a cold afternoon and found that it is, in fact, exactly the right detail.
+Birch Creek offers two adjoining self-contained cottages on a working farm near Red Hill. The Mavis sleeps two; The June sleeps four. Both have kitchens and open fireplaces, and the operator describes outdoor baths and farm views. The two cottages can be booked together for a group of six.
 
-Dog-friendly on 40 acres, the most space per dog in the Peninsula cottage category. Less than five minutes from Red Hill or Dromana, which means the market-and-cellar-door loop is easy without sacrificing the rural feel. Listed on Riparide and Airbnb; the fireplace-and-farm proposition comes in well below winery-estate villa prices. The June cottage suits a small group or family; The Mavis is the couples option.
+This is a farm stay to choose for space and a slower pace. It is not a dog-friendly option. The hosts state a strict no-pets policy because the property is a goat stud.
 
-Best in the cooler months when the fireplace earns its keep. Book the June for four; book the Mavis for two; bring the dog either way.
+The operator website links to its current Riparide and Airbnb listings. Compare the exact cottage, guest count, pet policy and booking terms there before reserving.
 
 Worth knowing
 
 **Best for**
 
-Dog-friendly stays · Weekend escapes · Couples · Family outings
+Farm stays · Weekend escapes · Couples · Family outings
 
 If you only do one thing
 
-Bring the dog, the 40-acre setting is the clearest dog-cottage argument on the Peninsula.
+Choose The Mavis for two or The June for four, and leave pets at home.
 
 Works well with
 
@@ -77,13 +77,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -95,7 +95,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 
@@ -107,7 +107,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
 
 cellar door  fireplace
 
@@ -119,7 +119,7 @@ Build a day around this
 
 Peninsula Insider guides that put this stop into the context of a full day or weekend.
 
-[Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The one-night escape →](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Weekend plans →](<https://peninsulainsider.com.au/explore/plans/>) [Dog-friendly Peninsula →](<https://peninsulainsider.com.au/dog-friendly/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+[Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The one-night escape →](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Weekend plans →](<https://peninsulainsider.com.au/explore/plans/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 
 Keep this for later
 

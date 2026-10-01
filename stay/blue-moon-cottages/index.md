@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Blue Moon Cottages
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
-Known for   1940s Character Cottages 250m from Rye Bay Beach Dog-Friendly Sandpiper Unit Wood Fire Fenced Courtyard
+Known for   Rye bay beach location Pet-welcoming cottages Sandpiper log fire and enclosed courtyard
 
 [Check availability](<https://www.bluemooncottages.com.au/>)
 
@@ -19,13 +19,13 @@ Blue Moon Cottages · Rye
 
 Why we’d go
 
-The clearest fireplace-and-beach cottage combination on the bayside, 1940s character, dogs welcome, and a five-minute walk to the water.
+A Rye cottage base near the bay with pet-welcoming rules and a log fire in Sandpiper.
 
-Three 1940s cottages sitting 250 metres from Rye's bay beach. The dog-welcoming unit is Sandpiper, one bedroom plus loft, wood fire, fenced courtyard, no extra pet fee listed. The winter fireplace experience is the reason most guests return: load up at a market on Saturday morning, light the fire by afternoon, walk to the beach the next day without getting in the car.
+Blue Moon Cottages offers named self-catering cottages near Rye bay beach. The Sandpiper has a log fire, a kitchen and a fully fenced courtyard; other cottages have different layouts. Select the exact cottage before comparing capacity and features.
 
-Blue Moon draws one of the highest proportions of repeat visitors in the Peninsula cottage category. The bay beach is close enough to walk in five minutes; the hinterland wine country is twenty minutes away, making the combination of beach proximity and cellar-door access one of the more versatile positions on the bayside. No nightly rates published on the website, contact directly for current pricing and availability.
+The operator FAQ says all Blue Moon cottages accept pets and have secure outdoor areas. Sandpiper is best suited to small dogs because the cottage and courtyard are compact. Read the current pet terms before booking.
 
-Best visited in the cooler months when the wood fire and the beach walk combination is at its most complete. The Sandpiper unit is the one to book if dogs are part of the plan.
+This is a beach base that can work in cooler weather, particularly if the log fire matters to your trip. Check availability and minimum stays on the operator site.
 
 Worth knowing
 
@@ -35,7 +35,7 @@ Dog-friendly stays · Beach proximity · Weekend escapes · Couples
 
 If you only do one thing
 
-Book Sandpiper if dogs are coming, fenced courtyard, no extra pet fee, and the wood fire makes the whole winter-beach proposition work.
+Choose the exact cottage first; all accept pets, but Sandpiper is compact and the operator recommends small dogs there.
 
 Works well with
 
@@ -77,13 +77,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -95,7 +95,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -107,7 +107,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
 
 cellar door  fireplace
 

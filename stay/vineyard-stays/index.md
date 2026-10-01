@@ -91,7 +91,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -103,7 +103,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
 
 cellar door  fireplace
 
@@ -151,7 +151,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 80 McIlroys Rd, Red Hill South VIC 3937
 
-Two quiet self-contained cottages opposite a micro-vineyard, local breakfast provisions included, and Port Phillip Estate under a kilometre away.
+Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
 
 cellar door  romance
 

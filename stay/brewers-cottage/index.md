@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Brewer's Cottage - Red Hill Brewery
 
-A three-bedroom house on the Red Hill Brewery property, stocked beer fridge, open fire, ten seconds from the bar open Thursday to Sunday.
+A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
 
-Known for   On-Brewery-Property Stay Stocked Beer Fridge Open Fire Ten Seconds from the Taproom
+Known for   Three-bedroom whole house Red Hill Brewery grounds Open fire On-site taproom
 
 [Check availability](<https://www.redhillbrewery.com.au/brewers-cottage/>)
 
@@ -19,13 +19,13 @@ Brewer's Cottage - Red Hill Brewery · Red Hill
 
 Why we’d go
 
-You are not just sleeping near a drinks producer, you are sleeping on the producer's property, with the bar ten seconds from the front door.
+A whole-house stay on a working brewery property with the taproom close by on public opening days.
 
-A three-bedroom house on the Red Hill Brewery property, with a designer kitchen, open fire, and a stocked beer fridge. The bar is ten seconds from the front door and open Thursday to Sunday. Midweek stays are private and quiet, the brewery is closed and you have the property to yourself. Weekend stays are sociable rather than secluded, with the taproom operating next door.
+Brewer’s Cottage is a self-contained three-bedroom holiday house on the Red Hill Brewery property. It has a kitchen, an open fire and outdoor space. The brewery notes that public opening days can affect privacy, while production and office work occurs on weekdays.
 
-The most-cited credible alternative to Jackalope Hotel for a wine-immersion Peninsula stay at a different price point. The argument is simple: you are not just sleeping near a drinks producer, you are sleeping on the producer's property. The estate hop garden is thirty metres away. The same yeast going into your beer is going into the tanks you can see from the cottage window.
+This is a stay to choose when the brewery is part of the trip. Check current public opening hours if you want the taproom nearby, or ask about the on-site activity if a quiet stay matters more.
 
-Confirm current nightly rate, dog policy, and minimum stay directly with the brewery before booking. Midweek for quiet; weekend for access to the taproom, choose deliberately.
+The operator page links to its booking engine. Confirm the house layout, guest conditions and current availability there.
 
 Worth knowing
 
@@ -35,7 +35,7 @@ Craft beer · Cellar door visits · Weekend escapes · Couples
 
 If you only do one thing
 
-Choose deliberately: midweek for total quiet on the property, weekend for taproom access and the full producer-stay experience.
+Check brewery opening and on-site activity before choosing dates; the experience changes across the week.
 
 Works well with
 
@@ -77,13 +77,13 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
 10 Nestle Court, Arthurs Seat VIC 3936
 
-Five adults-only suites on Arthurs Seat ridge with panoramic Port Phillip Bay views, double spas, and electric log fires.
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
 
 view  anniversary
 
@@ -95,7 +95,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Two self-contained farm cottages on 40 acres near Red Hill, open fireplaces, outdoor tubs, dog-friendly, and goats.
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
 fireplace  slow
 
@@ -107,7 +107,7 @@ Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 12 Blakiston Grove, Rye VIC 3941
 
-Three 1940s cottages 250 metres from Rye bay beach, Sandpiper is the dog-friendly unit with a wood fire and fenced courtyard.
+Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 beach  fireplace
 

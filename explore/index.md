@@ -9,19 +9,27 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Choose a walk, a beach, an indoor afternoon or a longer outing. Start with the time and effort you have, then check the details for your day.
 
+Cape Schanck lighthouse
+
+## Find a specific outing
+
+Filter the complete guide, or open the map and choose a place.
+
 Save a possibility or plan a visit?
 
 **Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
 
 You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
 
-## Choose the shape of your day
+## What kind of day are you after?
 
-Times below are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Terrain, step-free access, toilets, shade and dog rules need checking for your chosen stop.
+Start with an idea, then compare the practical details.
 
-Check conditions and practical access before you go
+Before you go: times, access and conditions
 
-Use [Parks Victoria’s park notices and access information](<https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park>), [VicEmergency warnings](<https://www.emergency.vic.gov.au/>) and [Beachsafe beach and patrol information](<https://www.beachsafe.org.au/>). Check the operator or land manager for facilities and dog restrictions. These links do not confirm that a route or beach is suitable on your day.
+Times are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.
+
+Use [Parks Victoria’s park notices](<https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park>), [VicEmergency warnings](<https://www.emergency.vic.gov.au/>) and [Beachsafe beach and patrol information](<https://www.beachsafe.org.au/>). These links do not confirm that a route or beach is suitable on your day.
 
 ## Spring ideas for the day
 
@@ -55,6 +63,12 @@ An ocean-coast outing reached on foot. Plan the return walk and check park notic
 
 Cape Schanck   2 hr
 
+## The walks that reset the weekend
+
+Cape Schanck, Bushrangers Bay, the Two Bays. The ranked list lives at [the Peninsula's best walks](<https://peninsulainsider.com.au/explore/walks/>).
+
+ [All 9 →](<https://peninsulainsider.com.au/explore/?cat=walk#directory>)
+
 - Image subject unverified
 
 Walk
@@ -65,30 +79,6 @@ Walk through coastal scrub to the bay; allow for the climb on the return. Check 
 
 Cape Schanck   2 hr · Moderate walk
 
-- Illustrative image
-
-Walk
-
-### [Cape Schanck to London Bridge Coastal Walk](<https://peninsulainsider.com.au/explore/coastal-walk-cape-schanck/>)
-
-Choose a section of the long coastal traverse. Check closures and arrange return transport for a one-way walk.
-
-Cape Schanck   10 hr · Moderate walk
-
-- Walk
-
-### [Coppins Track](<https://peninsulainsider.com.au/explore/coppins-track/>)
-
-Coastal heath, clifftop views and interpretive signs on the way towards Diamond Bay. Plan the return before setting out.
-
-Sorrento   2.5 hr · Moderate walk
-
-## The walks that reset the weekend
-
-Cape Schanck, Bushrangers Bay, the Two Bays. The ranked list lives at [the Peninsula's best walks](<https://peninsulainsider.com.au/explore/walks/>).
-
- [All 9 →](<https://peninsulainsider.com.au/explore/?cat=walk#directory>)
-
 - Walk
 
 ### [Cape Schanck Lighthouse Walk](<https://peninsulainsider.com.au/explore/cape-schanck-lighthouse-walk/>)
@@ -97,47 +87,13 @@ Follow the lighthouse headland for Bass Strait views. Check track access and cho
 
 Cape Schanck   1.5 hr · Easy walk
 
-- Walk
-
-### [Farnsworth Track](<https://peninsulainsider.com.au/explore/farnsworth-track/>)
-
-A clifftop walk between the Portsea ocean coast and London Bridge. Check park notices and plan your return route.
-
-Point Nepean   45 min · Easy walk
-
-- Walk
-
-### [Greens Bush - Two Bays Section](<https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/>)
-
-Choose bushland and birdlife over the beach. This is a longer walking commitment; check route details and return transport.
-
-Main Ridge   4 hr · Moderate walk
-
-- Walk
-
-### [Mornington Peninsula Foreshore Walk](<https://peninsulainsider.com.au/explore/mornington-foreshore-walk/>)
-
-Build a Mornington outing around the foreshore walk. Read the route details before choosing your starting point.
-
-Mornington   2 hr · Easy walk
-
-- Image subject unverified
+- Illustrative image
 
 Walk
 
-### [Summit Circuit Walk - Arthurs Seat](<https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/>)
+### [Cape Schanck to London Bridge Coastal Walk](<https://peninsulainsider.com.au/explore/coastal-walk-cape-schanck/>)
 
-A summit loop through gardens and viewpoints. Check the route and access details before choosing it for your party.
-
-Red Hill   1 hr · Easy walk
-
-- Image subject unverified
-
-Walk
-
-### [Two Bays Walking Track](<https://peninsulainsider.com.au/explore/two-bays-walking-track/>)
-
-A long one-way route between the bay and Cape Schanck. Choose a section or plan a full walking day with return transport.
+Choose a section of the long coastal traverse. Check closures and arrange return transport for a one-way walk.
 
 Cape Schanck   10 hr · Moderate walk
 
@@ -173,31 +129,35 @@ A bay-coast stop with bathing boxes and the village nearby. Check beach conditio
 
 Mount Martha   1 hr
 
-- Beach
+## The indoor and culture layer
 
-### [Portsea Front Beach](<https://peninsulainsider.com.au/explore/portsea-front-beach/>)
+Galleries, sculpture parks, gardens, and the national park at the tip. When the forecast turns, start with [rainy-day plans](<https://peninsulainsider.com.au/explore/rainy-day/>) or [the hot springs](<https://peninsulainsider.com.au/explore/hot-springs/>).
 
-A small bay-side beach near the pier and village. Check current beach access and conditions before your visit.
+ [All 13 →](<https://peninsulainsider.com.au/explore/?cat=gallery,attraction,park,tour,lookout#directory>)
 
-Portsea   1.5 hr
+- Lookout
 
-- Image subject unverified
+### [Arthurs Seat Eagle](<https://peninsulainsider.com.au/explore/arthurs-seat-lookout/>)
 
-Beach
+Start with the bay views, then choose a summit walk. Check the Eagle separately if you want the gondola ride.
 
-### [Rye Ocean Beach](<https://peninsulainsider.com.au/explore/rye-ocean-beach/>)
+Red Hill   1.5 hr
 
-Choose the ocean side for a coastal outing. Check current conditions and patrol information before entering the water.
+- Lookout
 
-Rye   1 hr
+### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
 
-- Beach
+A shorter coastal stop for basalt formations and lighthouse views. Check current access before choosing the boardwalk.
 
-### [Safety Beach](<https://peninsulainsider.com.au/explore/safety-beach-foreshore/>)
+Cape Schanck
 
-A bay foreshore outing to pair with a local meal. Check actual water conditions; the name is not a safety assessment.
+- Gallery
 
-Safety Beach   2 hr
+### [Montalto Sculpture Trail](<https://peninsulainsider.com.au/explore/montalto-sculpture-trail/>)
+
+Walk through sculpture, vineyard and gardens before or after a meal. Confirm trail access and restaurant bookings separately.
+
+Red Hill   1 hr
 
 ## Choose your kind of round
 
@@ -229,87 +189,13 @@ Make golf the centre of the stay, with two courses at the resort. Compare course
 
 Cape Schanck   4.5 hr
 
-- Golf course
+## Find your part of the Peninsula
 
-### [Mornington Golf Club](<https://peninsulainsider.com.au/explore/mornington-golf-club/>)
+Browse 37 towns and localities, with places to eat, stay and explore in each area.
 
-A parkland round to pair with a Mornington stay. Confirm visitor access and available tee times before travelling.
+ [Explore all towns](<https://peninsulainsider.com.au/explore/places/>)
 
-Mornington   4.5 hr
-
-- Golf course
-
-### [Portsea Golf Club](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
-
-A golf outing at the Peninsula’s tip. Confirm the club’s current visitor arrangements before building a day around a round.
-
-Portsea   4.5 hr
-
-- Golf course
-
-### [RACV Cape Schanck Golf Course](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
-
-Combine a resort round with a Cape Schanck stay. Check tee times and the conditions expected for your booking.
-
-Cape Schanck   4.5 hr
-
-## The indoor and culture layer
-
-Galleries, sculpture parks, gardens, and the national park at the tip. When the forecast turns, start with [rainy-day plans](<https://peninsulainsider.com.au/explore/rainy-day/>) or [the hot springs](<https://peninsulainsider.com.au/explore/hot-springs/>).
-
- [All 13 →](<https://peninsulainsider.com.au/explore/?cat=gallery,attraction,park,tour,lookout#directory>)
-
-- Lookout
-
-### [Arthurs Seat Eagle](<https://peninsulainsider.com.au/explore/arthurs-seat-lookout/>)
-
-Start with the bay views, then choose a summit walk. Check the Eagle separately if you want the gondola ride.
-
-Red Hill   1.5 hr
-
-- Lookout
-
-### [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>)
-
-A shorter coastal stop for basalt formations and lighthouse views. Check current access before choosing the boardwalk.
-
-Cape Schanck
-
-- Gallery
-
-### [Montalto Sculpture Trail](<https://peninsulainsider.com.au/explore/montalto-sculpture-trail/>)
-
-Walk through sculpture, vineyard and gardens before or after a meal. Confirm trail access and restaurant bookings separately.
-
-Red Hill   1 hr
-
-- Gallery
-
-### [Mornington Peninsula Regional Gallery](<https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/>)
-
-Make the current exhibition the reason to visit. Check the gallery program and opening days before planning an indoor afternoon.
-
-Mornington   1.3 hr
-
-- Attraction
-
-### [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>)
-
-Combine coastal views with the fort’s military history. Choose your route and check park access before leaving Sorrento.
-
-Point Nepean
-
-- Park
-
-### [Point Nepean National Park](<https://peninsulainsider.com.au/explore/point-nepean-national-park/>)
-
-Give the park a substantial part of the day. Check current walking, cycling and shuttle options with Parks Victoria.
-
-Point Nepean   8 hr
-
-## Every town, its own page
-
-Browse 37 towns and localities to put your day in context, with places to eat, stay and explore in each area.
+Open the town index
 
 - [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)  Arthurs Seat is the highest point on the Mornington Peninsula, rising above Dromana…
 
@@ -385,8 +271,6 @@ Browse 37 towns and localities to put your day in context, with places to eat, s
 
 - [Tyabb](<https://peninsulainsider.com.au/explore/places/tyabb/>)  The Peninsula's antiques district and grass-strip airshow town - two reasons to take…
 
-[All towns →](<https://peninsulainsider.com.au/explore/places/>)
-
 ## Go deeper into an interest
 
 - [Golf →   All courses, ranked](<https://peninsulainsider.com.au/explore/golf/>)
@@ -407,7 +291,9 @@ Markets, exhibitions, and family programs run most weekends. The live calendar i
 
 ## All 52 experiences
 
-Compare walks, beaches, golf, galleries, lookouts, markets and day spas. Use the filters above to narrow the list; seasonal matches are only part of this total.
+Walks, beaches, golf, galleries, lookouts, markets and day spas. Filter the guide above or open the full list.
+
+Browse the complete directory
 
 - ### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
@@ -723,7 +609,7 @@ Walk   Cape Schanck   10 hr · Moderate walk
 
 Turn it into a weekend: our [escape plans](<https://peninsulainsider.com.au/explore/plans/>) sequence these with the right lunch and the right bed.
 
-## Further reading for the afternoon half
+## Stories for the day ahead
 
  [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
