@@ -168,3 +168,25 @@ test('first-visit Explore actions and filters stay in view with the cookie note'
     assert.equal(wider.overflow, false);
   } finally { await reader.close(); }
 });
+
+test('boutique and wellness stay choices remain visible on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    for (const [route, selector] of [
+      ['/stay/boutique-hotels/', '.boutique-hero__cta'],
+      ['/stay/wellness-retreats/', '.wellness-choice a'],
+    ]) {
+      await reader.load(route);
+      const bounds = await reader.page.evaluate((target) => ({
+        cookie: document.querySelector('#cookie-banner')?.dataset.state,
+        bottoms: [...document.querySelectorAll(target)].map(el => el.getBoundingClientRect().bottom),
+        overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      }), selector);
+      assert.equal(bounds.cookie, 'visible', route);
+      assert.ok(bounds.bottoms.length >= 1 && bounds.bottoms.every(bottom => bottom <= 568), route + ' first-screen choice');
+      assert.equal(bounds.overflow, false, route);
+    }
+  } finally { await reader.close(); }
+});
