@@ -9,7 +9,7 @@ Quick Note
 
 # Thursday 1 October 2026
 
-Vol 04 · No 184     1 live briefs     Refreshed every morning     Updated 4:50 pm
+Vol 04 · No 184     1 live briefs     Refreshed every morning     Updated 5:45 pm
 
 ## Today
 

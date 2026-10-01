@@ -5,19 +5,23 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
+The local wine edit
+
 # Mornington Peninsula wine country
 
-Explore Mornington Peninsula wineries from Red Hill and Main Ridge to Merricks and the bay. Choose a tasting, a long lunch or an appointment, then check the producer’s current hours and bookings.
+Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. Find your kind of visit, then confirm current hours.
 
-Sort
+[Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 47 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
 
-Save a possibility or plan a visit?
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photograph: Two Palms Australia, courtesy of Visit Victoria.
 
-**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
-
-You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
+Start with the kind of visit
 
 ## What kind of wine-country day?
+
+Choose the shape of the day first. Then check the producer's current hours and booking details before travelling.
+
+01
 
 ### A tasting, then move on
 
@@ -25,7 +29,9 @@ Make one cellar door the anchor when you have only part of the day. Choose the w
 
 Walk-in labels do not promise space today. Confirm hours and availability with the producer.
 
-[Browse tasting-first visits →](<https://peninsulainsider.com.au/wine/?mood=tasting-first#wine-directory>)
+ [Browse tasting-first visits](<https://peninsulainsider.com.au/wine/?mood=tasting-first#browse-wine>)
+
+02
 
 ### Lunch is the main event
 
@@ -33,7 +39,9 @@ Choose a winery with a kitchen, book the meal, then fit the tasting around it. L
 
 A restaurant reservation and a tasting reservation may be separate.
 
-[Find wineries with lunch →](<https://peninsulainsider.com.au/wine/?mood=lunch-attached#wine-directory>)
+ [Find wineries with lunch](<https://peninsulainsider.com.au/wine/?mood=lunch-attached#browse-wine>)
+
+03
 
 ### Wine worth an appointment
 
@@ -41,9 +49,9 @@ Build the day around a confirmed tasting time. Add another stop only after check
 
 Booking policies vary by producer; the guide is a starting point, not live availability.
 
-[Read the appointment guide →](<https://peninsulainsider.com.au/wine/appointment-producers/>)
+ [Read the appointment guide](<https://peninsulainsider.com.au/wine/appointment-producers/>)
 
-**Plan the return trip first.** Arrange a designated driver or transport before tasting. Use [the winery map](<https://peninsulainsider.com.au/map/?cat=winery>) for location, then check the actual route and timing.
+**Plan the return trip first.** Arrange a designated driver or transport before tasting. Use [the winery map](<https://peninsulainsider.com.au/map/?cat=winery>) for location, then check the route and timing.
 
 **Make wine optional.** Pair the area with [art and galleries](<https://peninsulainsider.com.au/explore/?cat=gallery#directory>) or [a rainy-day plan](<https://peninsulainsider.com.au/explore/rainy-day/>). Ask the venue about non-alcoholic options before booking.
 
@@ -53,9 +61,7 @@ The cellar-door shortlist
 
 An editorial shortlist. Individual check dates describe the recorded research; confirm current hours and bookings with the producer.
 
-- Image subject unverified
-
-### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
+- ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -103,41 +109,37 @@ Pair a tasting with a meal at the same estate. Check the dining room’s current
 
 - ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
-Laura holds 2 Hats from the Good Food Guide.
+Sculpture park, cellar door and a bay-view lunch on one estate.
 
 Merricks   Tasting + restaurant
 
-- Image subject unverified
+- ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
 
-### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
-
-Fine dining, 2 Hats Age Good Food Guide 2023–2025.
+Estate-grown pinot noir with a seasonal restaurant visit at Main Ridge.
 
 Main Ridge   Tasting + restaurant
 
 - ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
-Rare Hare: 1 AGFG Chef Hat, Modern Australian casual.
+Two dining styles at the vineyard, from a relaxed lunch to a longer evening.
 
 Merricks   Tasting + restaurant
 
-- Image subject unverified
+- ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
-### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
-
-1 Chef's Hat, Age Good Food Guide (consistently including 2023).
+A Red Hill cellar door and restaurant terrace suited to a long lunch.
 
 Red Hill   Tasting + restaurant
 
 - ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-Shared dining room with Port Phillip Estate; 1 Chef Hat, Age Good Food Guide 2025.
+A tasting at Kooyong pairs with the shared Port Phillip Estate dining room.
 
 Main Ridge   Tasting + restaurant
 
 - ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
-1 Hat in the Age Good Food Guide 2024 and 2025.
+Estate dining tied to its small-production wine program.
 
 Red Hill   Tasting + restaurant
 
@@ -169,15 +171,25 @@ How the region fits together: soils, subregions and the drives between them.
 
 Release weekends and winemaker dinners live in [What’s On](<https://peninsulainsider.com.au/whats-on/>).
 
+Sort
+
+Swipe to see more visit filters
+
+Save a possibility or plan a visit?
+
+**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
+
+You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
+
 The full list
 
-## All 47 cellar doors, breweries and distilleries
+## All 47 wine-country places
 
-Compare places to taste, eat and explore. Narrow by the visit you want, or sort by name or town.
+Find cellar doors, breweries and distilleries by location and the visit you want.
 
-- Image subject unverified
+ [View the winery map →](<https://peninsulainsider.com.au/map/?cat=winery>)
 
-### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
+- ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
@@ -225,9 +237,7 @@ Quealy helped teach the Peninsula what it could grow beyond pinot and chardonnay
 
 Balnarring   Walk-in welcome
 
-- Image subject unverified
-
-### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
+- ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
 
 Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vineyard.
 
@@ -407,9 +417,7 @@ The Peninsula's original craft brewery, Belgian-style ales from the only estate 
 
 Red Hill   Brewery
 
-- Illustrative image
-
-### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
+- ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 
 One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
 
@@ -469,15 +477,15 @@ The Journal
 
 [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
-- ### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+- ### [The Chardonnay Case](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
 
 The case for Peninsula chardonnay, argued bottle by bottle.
 
-- ### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+- ### [The Cellar Door Short List](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
 
 The shortlist behind The Six: how we pick the rooms worth the drive.
 
-- ### [What to Do in Red Hill This Weekend: The Saturday Plan](<https://peninsulainsider.com.au/journal/how-to-build-a-red-hill-saturday/>)
+- ### [A Red Hill Saturday](<https://peninsulainsider.com.au/journal/how-to-build-a-red-hill-saturday/>)
 
 One ridge, one day: a suggested Saturday route around Red Hill.
 
