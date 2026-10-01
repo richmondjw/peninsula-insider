@@ -6,7 +6,7 @@
     "slug": "birch-creek",
     "field": "address"
   },
-  "statement": "Birch Creek is in Red Hill VIC 3937.",
+  "statement": "Birch Creek is in Dromana VIC.",
   "assertedBy": [
     {
       "type": "venues",
@@ -16,5 +16,5 @@
   ],
   "createdAt": "2026-09-14",
   "origin": "authored",
-  "note": "Filed as the honest negative: the operator publishes no street address at all, so the record cannot be confirmed, and the one locality signal the operator does publish is not the record's. Authored by hand for the PI-005 address and coordinates pilot. Sources were read on 2026-09-14; see ops/reports/claims/2026-09-14-pilot-address.md."
+  "note": "The 2026-09-14 Red Hill claim was disputed because the operator site published no street address and a conflicting postcode. On 2026-10-01 the host-authored Riparide listing for The June identified Dromana and described the two adjoining Birch Creek cottages. The venue record now gives only that supported locality; the street address and exact coordinates remain unverified. The original negative evidence is retained and superseded. See ops/reports/claims/2026-09-14-pilot-address.md for the original pilot."
 }

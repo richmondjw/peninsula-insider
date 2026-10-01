@@ -515,7 +515,7 @@ const venues = defineCollection({
      * never declared and Zod stripped it from all 21 wineries carrying one.
      */
     subregion: z.string().optional(),
-    coordinates,
+    coordinates: coordinates.optional(),
     address: z.string(),
     phone: z.string().optional(),
     /**

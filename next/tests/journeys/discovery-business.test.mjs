@@ -239,13 +239,19 @@ test('Red Hill stay choices are reachable on a first visit and identify the actu
       cookie: document.querySelector('#cookie-banner')?.dataset.state,
       choices: [...document.querySelectorAll('.rh-hero__choices a')].map(a => ({ bottom: a.getBoundingClientRect().bottom, height: a.getBoundingClientRect().height, href: a.getAttribute('href') })),
       cards: document.querySelectorAll('.rh-card').length,
+      localHrefs: [...document.querySelectorAll('.rh-card h3 a')].map(a => a.getAttribute('href')),
+      treetopsPlace: document.querySelector('#rh-treetops-red-hill')?.closest('.rh-card')?.querySelector('.rh-card__top span:last-child')?.textContent?.trim(),
+      birchWider: document.querySelector('#further-afield a[href="/stay/birch-creek/"]')?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
       overflow: document.documentElement.scrollWidth > innerWidth + 1,
       copy: document.querySelector('main')?.textContent ?? '',
     }));
     assert.equal(narrow.cookie, 'visible');
     assert.deepEqual(narrow.choices.map(c => c.href), ['#estate-stays', '#private-bases']);
     assert.ok(narrow.choices.every(c => c.height >= 44 && c.bottom <= 568), JSON.stringify(narrow.choices));
-    assert.equal(narrow.cards, 6);
+    assert.equal(narrow.cards, 5);
+    assert.ok(!narrow.localHrefs.includes('/stay/birch-creek/'), 'Dromana stay must not be a Red Hill local card');
+    assert.equal(narrow.treetopsPlace, 'Red Hill');
+    assert.match(narrow.birchWider, /Dromana \/ farm cottages/);
     assert.equal(narrow.overflow, false);
     assert.match(narrow.copy, /Jackalope is in Merricks North/);
     assert.match(narrow.copy, /Peninsula Hot Springs accommodation is in Fingal/);

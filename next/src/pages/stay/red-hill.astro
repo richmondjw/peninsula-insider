@@ -18,15 +18,14 @@ const groups = [
     intro: 'These are Red Hill and Red Hill South stays where the bed is part of the estate. Dinner and cellar-door service still need their own plan.',
     choices: [
       { slug: 'lindenderry', place: 'Red Hill', cue: 'Country-house hotel', detail: 'A hotel among gardens and vines, with a dining room and cellar door on the property.', check: 'Room types differ. Check dining and cellar-door service for your dates.', url: 'https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/' },
-      { slug: 'polperro-villas', place: 'Red Hill', cue: 'Villas among vines', detail: 'Four couples villas on Talland Hill vineyard, each with an indoor spa and open fireplace.', check: 'Villa and restaurant are separate bookings. Weekend minimum stays may apply.', url: 'https://www.polperrowines.com.au/escape/villas/' },
-      { slug: 'port-phillip-estate', place: 'Red Hill South', cue: 'Architecture and suites', detail: 'Six vineyard suites at a design-led winery with an estate dining room.', check: 'Choose the suite and reserve dining separately. Check the current service calendar.', url: 'https://www.portphillipestate.com.au/book-accommodation/' },
+      { slug: 'polperro-villas', place: 'Red Hill', cue: 'Villas among vines', detail: 'Four couples villas on Talland Hill vineyard, each with an indoor spa and open fireplace.', check: 'Polperro says its villas are not suitable for infants or children under 16. Villa and restaurant are separate bookings; minimum stays may apply.', url: 'https://www.polperrowines.com.au/escape/villas/' },
+      { slug: 'port-phillip-estate', place: 'Red Hill South', cue: 'Architecture and suites', detail: 'Six vineyard suites at a design-led winery with an estate dining room.', check: 'Guests must be 16 or older; under-18s need adult supervision. Choose the suite and reserve dining separately.', url: 'https://www.portphillipestate.com.au/book-accommodation/' },
     ] },
   { id: 'private-bases', label: '02 / Your own front door', title: 'Keep the evening to yourselves.',
-    intro: 'Villas and cottages suit a quieter Red Hill evening, whether you want your own kitchen, a farm setting or a private bath.',
+    intro: 'Villas and cottages suit a quieter Red Hill evening, whether you want your own kitchen, a vineyard setting or a private bath.',
     choices: [
       { slug: 'cassis', place: 'Red Hill', cue: 'Private villas', detail: 'Five adults-only villas overlooking a neighbouring vineyard, rather than rooms on a winery estate.', check: 'Two villas have mineral plunge pools; three have outdoor baths. Select the exact villa.', url: 'https://www.cassisredhill.com.au/' },
-      { slug: 'birch-creek', place: 'Red Hill', cue: 'Farm cottages', detail: 'Two self-contained cottages on a working farm: The Mavis for two and The June for four.', check: 'Birch Creek has a strict no-pets policy. Confirm the cottage and guest conditions.', url: 'https://www.birchcreek.com.au/' },
-      { slug: 'treetops-red-hill', place: 'Red Hill South', cue: 'Vineyard cottages', detail: 'Peppercorn and Winemakers are two private-entry cottages at an artisan vineyard.', check: 'Layouts differ. Breakfast provisions are described for Peppercorn; check inclusions.', url: 'https://treetopsatredhill.com.au/' },
+      { slug: 'treetops-red-hill', place: 'Red Hill', cue: 'Vineyard cottages', detail: 'Peppercorn and Winemakers are two private-entry cottages at an artisan vineyard.', check: 'Layouts differ. Breakfast provisions are described for Peppercorn; check inclusions.', url: 'https://treetopsatredhill.com.au/' },
     ] },
 ].map(g => ({ ...g, choices: g.choices.map(c => ({ ...c, venue: pick(c.slug) })) }));
 const venues = groups.flatMap(g => g.choices.map(c => c.venue));
@@ -51,14 +50,14 @@ export const prerender = true;
   <section class="rh-hero" aria-labelledby="rh-title">
     <div class="container rh-hero__grid">
       <div class="rh-hero__copy">
-        <p class="rh-eyebrow">Local stay guide / Red Hill &amp; Red Hill South</p>
+        <p class="rh-eyebrow">Red Hill &amp; Red Hill South</p>
         <h1 id="rh-title">Make Red Hill your base.</h1>
         <p class="rh-hero__lead">Choose an estate stay or a private Red Hill base. Let lunch run long.</p>
         <nav class="rh-hero__choices" aria-label="Choose a Red Hill stay type">
-          <a href="#estate-stays"><small>01 / On the estate</small><strong>Rooms &amp; vineyard villas</strong><span aria-hidden="true">→</span></a>
-          <a href="#private-bases"><small>02 / Your own place</small><strong>Private villas &amp; cottages</strong><span aria-hidden="true">→</span></a>
+          <a href="#estate-stays"><small>01 / On the estate</small><strong>Estate stays</strong><span aria-hidden="true">→</span></a>
+          <a href="#private-bases"><small>02 / Private base</small><strong>Private stays</strong><span aria-hidden="true">→</span></a>
         </nav>
-        <p class="rh-hero__geography">Red Hill and Red Hill South are the focus. <a href="#further-afield">Merricks North and Fingal are different bases.</a></p>
+        <p class="rh-hero__geography">Red Hill and Red Hill South are the focus. <a href="#further-afield">Dromana, Merricks North and Fingal are different bases.</a></p>
       </div>
       <figure class="rh-hero__visual">
         <img src="/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp" alt="Guests approaching Lindenderry's white hotel building through its Red Hill garden" width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 520px" />
@@ -100,8 +99,9 @@ export const prerender = true;
 
   <section class="rh-beyond" id="further-afield">
     <div class="container rh-beyond__grid">
-      <div><p class="rh-eyebrow">Beyond the local shortlist</p><h2>Same trip, different base.</h2><p>These are valid Peninsula stays, but neither is in Red Hill. Choose them because the hotel or thermal experience is the point, then plan the Red Hill part separately.</p></div>
+      <div><p class="rh-eyebrow">Beyond the local shortlist</p><h2>Same trip, different base.</h2><p>These Peninsula stays are outside Red Hill and Red Hill South. Choose the base that suits the trip, then plan the Red Hill part separately.</p></div>
       <div class="rh-beyond__links">
+        <a href="/stay/birch-creek/"><small>Dromana / farm cottages</small><strong>Birch Creek</strong><span>The Mavis and The June are adjoining cottages on a Dromana farm at the foot of Red Hill.</span><em>Explore the stay →</em></a>
         <a href="/stay/jackalope/"><small>Merricks North / design hotel</small><strong>Jackalope</strong><span>Art-led rooms and dining on a Merricks North vineyard.</span><em>Explore the stay →</em></a>
         <a href="/stay/hot-springs-accommodation/"><small>Fingal / thermal stays</small><strong>Peninsula Hot Springs accommodation</strong><span>Compare on-site options and bathing inclusions in the specialist guide.</span><em>Compare thermal stays →</em></a>
       </div>
@@ -111,6 +111,7 @@ export const prerender = true;
   <section class="rh-notes">
     <div class="container rh-notes__grid">
       <div><p class="rh-eyebrow">Before you reserve</p><h2>Check the exact stay.</h2><p>These choices are not a ranking. Room, villa, breakfast, bathing and dining details can differ within one property. The operator's current details for your dates are the final check.</p><ProvenanceLine records={venues} type="venues" noun="venue" />
+        <p class="rh-notes__sources">Booking-age rules checked 1 October 2026: <a href="https://www.polperrowines.com.au/escape/villas/">Polperro Villas</a>, <a href="https://www.portphillipestate.com.au/accommodation-terms-and-conditions/">Port Phillip Estate guest terms</a> and <a href="https://www.cassisredhill.com.au/about-7">Cassis guest terms</a>. Confirm the exact villa or suite for your dates.</p>
         <p class="rh-notes__pause"><strong>Brewer's Cottage update, checked 1 October 2026:</strong> The operator says the cottage is closed for short stays and rented for 2026. It is not in this booking shortlist. <a href="https://www.redhillbrewery.com.au/brewers-cottage/" target="_blank" rel="noopener noreferrer">Read the cottage notice</a>. This does not describe the brewery's trading status.</p>
       </div>
       <div class="rh-notes__faq">{faqs.map(({ q, a }) => <div><h3>{q}</h3><p>{a}</p></div>)}</div>
@@ -173,6 +174,6 @@ export const prerender = true;
 .rh-notes__faq h3{margin:0 0 .45rem;font-size:1.1rem}.rh-notes__faq p{margin:0;color:var(--soft);line-height:1.55}
 .rh-hero a:focus-visible,.rh-card a:focus-visible,.rh-field a:focus-visible,.rh-beyond a:focus-visible,.rh-notes a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 @media(max-width:900px){.rh-hero__grid,.rh-field__grid,.rh-beyond__grid,.rh-notes__grid{grid-template-columns:1fr}.rh-hero__visual img{height:min(54vw,23rem)}.rh-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:650px){.rh-hero{padding:1.2rem 0 2rem}.rh-hero h1{font-size:clamp(2.45rem,11.7vw,3.45rem)}.rh-hero__lead{margin-top:.8rem;font-size:.98rem}.rh-hero__choices{gap:.5rem;margin-top:.9rem}.rh-hero__choices a{min-height:4.65rem;padding:.65rem .58rem}.rh-hero__choices small{font-size:.62rem;letter-spacing:.02em}.rh-hero__choices strong{font-size:.84rem}.rh-hero__geography{margin-top:.8rem;font-size:.84rem}.rh-hero__visual img{height:13rem}.rh-primer__grid,.rh-card-grid{grid-template-columns:1fr}.rh-primer__grid{gap:.8rem}.rh-card{padding:1.25rem}.rh-group,.rh-beyond{scroll-margin-top:9rem}}
+@media(max-width:650px){.rh-hero{padding:1.2rem 0 2rem}.rh-hero h1{font-size:clamp(2.45rem,11.7vw,3.45rem)}.rh-hero__lead{margin-top:.8rem;font-size:.98rem}.rh-hero__choices{gap:.5rem;margin-top:.9rem}.rh-hero__choices a{min-height:4.65rem;padding:.65rem .58rem}.rh-hero__choices small{font-size:.7rem;letter-spacing:.01em}.rh-hero__choices strong{font-size:.9rem}.rh-hero__geography{margin-top:.8rem;font-size:.84rem}.rh-hero__visual img{height:13rem}.rh-primer__grid,.rh-card-grid{grid-template-columns:1fr}.rh-primer__grid{gap:.8rem}.rh-card{padding:1.25rem}.rh-group,.rh-beyond{scroll-margin-top:9rem}}
 @media(prefers-reduced-motion:reduce){.rh-hero__choices a{transition:none}.rh-hero__choices a:hover{transform:none}}
 </style>

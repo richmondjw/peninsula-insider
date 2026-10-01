@@ -48,9 +48,9 @@ export const prerender = true;
     <div class="container sorrento-hero__grid">
       <div class="sorrento-hero__copy">
         <h1 id="sorrento-title">Stay in Sorrento.</h1>
-        <p class="sorrento-hero__lead">An adults-only clifftop hotel or a family-friendly precinct base. Choose your hotel, then your room.</p>
+        <p class="sorrento-hero__lead">Choose between Hotel Sorrento's adults-only rooms and family stays at InterContinental Sorrento.</p>
         <nav class="sorrento-hero__choices" aria-label="Choose a Sorrento hotel">
-          <a href="#hotel-sorrento" class="sorrento-choice"><span>Adults only</span><strong>Hotel Sorrento</strong><small>Clifftop rooms, guest pool and a lively hotel evening.</small></a>
+          <a href="#hotel-sorrento" class="sorrento-choice"><span>Adults-only rooms</span><strong>Hotel Sorrento</strong><small>Clifftop rooms, guest pool and a lively hotel evening.</small></a>
           <a href="#intercontinental" class="sorrento-choice"><span>Families welcome</span><strong>InterContinental Sorrento</strong><small>Rooms across Heritage, Main and Riley Lane wings.</small></a>
         </nav>
       </div>
@@ -64,14 +64,14 @@ export const prerender = true;
   <section class="sorrento-intro" aria-labelledby="sorrento-intro-title">
     <div class="container sorrento-intro__grid">
       <h2 id="sorrento-intro-title">The place is shared. The stay is not.</h2>
-      <p>Both hotels put Sorrento village and the bay into the weekend. The difference is how you spend the hours inside: Hotel Sorrento is an adults-only hotel with its own dining and guest pool; InterContinental is a separate hotel inside The Continental precinct, with family stays and several room wings. Neither name tells you what your individual room overlooks.</p>
+      <p>Both hotels put Sorrento village and the bay into the weekend. The difference is how you spend the hours inside: Hotel Sorrento offers adults-only accommodation and a guest pool, while children are welcome in its dining areas; InterContinental is a separate hotel inside The Continental precinct, with family stays and several room wings. Neither name tells you what your individual room overlooks.</p>
     </div>
   </section>
 
   <section class="sorrento-stay" id="hotel-sorrento" aria-labelledby="hotel-sorrento-title">
     <div class="container sorrento-stay__grid">
       <div class="sorrento-stay__identity">
-        <p class="sorrento-stay__setting">Clifftop hotel / adults only</p>
+        <p class="sorrento-stay__setting">Clifftop rooms / adults only</p>
         <h2 id="hotel-sorrento-title">Hotel Sorrento</h2>
         <p class="sorrento-stay__verdict">Choose this for the hotel itself: a guest pool, dining and a lively Sorrento evening a short way from the village.</p>
         <div class="sorrento-stay__actions">
@@ -128,12 +128,13 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .sorrento-hero { background: var(--bg-alt); padding: clamp(1.7rem, 4vw, 4rem) 0 clamp(2.3rem, 4vw, 4rem); }
+  .sorrento-hero { background: var(--bg-alt); padding: clamp(1.2rem, 3vw, 3rem) 0 clamp(2.3rem, 4vw, 4rem); }
   .sorrento-hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: center; gap: clamp(2rem, 4vw, 4rem); }
   .sorrento-hero h1 { max-width: 11ch; margin: 0; color: var(--text); font-size: clamp(2.8rem, 5.4vw, 5.4rem); line-height: 1.02; letter-spacing: -0.038em; text-wrap: balance; }
   .sorrento-hero__lead { max-width: 49ch; margin: 1.2rem 0 0; color: var(--text); font-size: clamp(1rem, 1.4vw, 1.2rem); line-height: 1.55; }
   .sorrento-hero__choices { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.6rem; margin-top: clamp(1.4rem, 3vw, 2.4rem); }
-  .sorrento-choice { display: flex; flex-direction: column; min-height: 10.5rem; padding: 1.1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--white); color: var(--text); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease; }
+  .sorrento-choice { position: relative; display: flex; flex-direction: column; min-height: 10.5rem; padding: 1.1rem 2.35rem 1.1rem 1.1rem; border: 1px solid var(--border); border-radius: 0.5rem; background: var(--white); color: var(--text); text-decoration: none; transition: border-color 160ms ease, background-color 160ms ease; }
+  .sorrento-choice::after { content: ""; position: absolute; right: 1.05rem; top: 50%; width: 0.48rem; height: 0.48rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: translateY(-50%) rotate(45deg); }
   .sorrento-choice:hover { border-color: var(--accent); background: #fffdf9; }
   .sorrento-choice > span { color: var(--accent); font-size: 0.8rem; font-weight: 750; }
   .sorrento-choice strong { margin-top: 0.38rem; font-family: var(--font-display); font-size: clamp(1.12rem, 1.6vw, 1.4rem); line-height: 1.18; letter-spacing: -0.025em; }

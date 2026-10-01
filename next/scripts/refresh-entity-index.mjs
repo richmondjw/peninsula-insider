@@ -210,7 +210,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     // next/src/lib/editorial.ts. This script reads the JSON directly, so it
     // cannot import it. Keep the two in step.
     if (status === 'permanently_closed') return null;
-    if (status === 'paused' && entry.sourceStatus === 'unsourced') return null;
+    if (status === 'paused') return null;
     if (entry.operatingStatus === 'permanently-closed') return null;
   }
   const title = entry[titleField] || entry.title || entry.name || slug;
@@ -251,7 +251,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
 // ─── projection pass ─────────────────────────────────────────────────────
 const indexRows = [];
 const attributeRows = [];
-const pausedUnsourcedVenueSlugs = new Set();
+const pausedVenueSlugs = new Set();
 const collectionStats = {};
 
 for (const col of COLLECTIONS) {
@@ -266,8 +266,8 @@ for (const col of COLLECTIONS) {
     const slug = entry.slug || filePath.split(/[\\/]/).pop().replace(/\.(json|md|mdx)$/i, '');
     if (!slug) continue;
     entry.slug = slug;
-    if (col.entityType === 'venue' && entry.status === 'paused' && entry.sourceStatus === 'unsourced') {
-      pausedUnsourcedVenueSlugs.add(slug);
+    if (col.entityType === 'venue' && entry.status === 'paused') {
+      pausedVenueSlugs.add(slug);
     }
     const { facets, attributes } = projectFacets(entry, col.folder);
     // Auto-emit `zone` facet from entry.zone (universal field on most
@@ -498,14 +498,14 @@ try {
   await upsert('entity_index', indexRows, 'entity_type,entity_slug');
   await upsert('entity_attributes', attributeRows, 'entity_type,entity_slug,facet_key,facet_value');
   // Routine refreshes do not broadly prune stale rows. Remove only venues
-  // explicitly paused as unsourced so pi.search cannot retain an old hit.
-  for (const slug of pausedUnsourcedVenueSlugs) {
+  // explicitly paused so pi.search cannot retain an old hit.
+  for (const slug of pausedVenueSlugs) {
     const row = { entity_type: 'venue', entity_slug: slug };
     await deleteEntity('entity_attributes', row);
     await deleteEntity('entity_index', row);
   }
-  if (pausedUnsourcedVenueSlugs.size > 0) {
-    console.log(`[entity-index] removed ${pausedUnsourcedVenueSlugs.size} paused unsourced venue(s).`);
+  if (pausedVenueSlugs.size > 0) {
+    console.log(`[entity-index] removed ${pausedVenueSlugs.size} paused venue(s).`);
   }
   if (opts.prune) await pruneStaleEntities();
   console.log(`[entity-index] apply complete.`);

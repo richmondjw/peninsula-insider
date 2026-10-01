@@ -564,7 +564,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           <dt>Location</dt>
           <dd>
             {isUnverifiedPaused ? "Details withheld while listing is paused" : isNonPublicProducer ? `${placeLabel(data.place)} (not open to the public)` : data.address}
-            {data.address && !isUnverifiedPaused && !isNonPublicProducer && (
+            {data.address && !isPaused && !isNonPublicProducer && (
               <>
                 {' '}·{' '}
                 <a
@@ -629,7 +629,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
               <dd>{data.hoursNote}</dd>
             </>
           )}
-          {!isUnverifiedPaused && !isNonPublicProducer && <><dt>Directions</dt><dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd></>}
+          {!isPaused && !isNonPublicProducer && <><dt>Directions</dt><dd><a href={directionsUrl} target="_blank" rel="noopener noreferrer" data-evt="directions_click" data-entity-type="venue" data-entity-slug={venueSlug} data-surface="venue-facts">Get directions</a></dd></>}
 
           {visitorInformation?.accessibility && <><dt>Accessibility</dt><dd>{visitorInformation.accessibility}</dd></>}
           {visitorInformation?.children && <><dt>With children</dt><dd>{visitorInformation.children}</dd></>}
