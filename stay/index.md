@@ -147,7 +147,7 @@ Choose a vineyard, thermal or Sorrento stay for a weekend together.
 
 - ### [Vineyard stays](<https://peninsulainsider.com.au/stay/vineyard-stays/>)
 
-Sleep between the rows and walk to the cellar door.
+Compare estate suites, villas and a nearby wine-country base.
 
 - ### [Coastal stays](<https://peninsulainsider.com.au/stay/coastal-stays/>)
 
@@ -160,6 +160,10 @@ Compare accommodation at the Peninsula thermal estates.
 - ### [Wellness stays](<https://peninsulainsider.com.au/stay/wellness-retreats/>)
 
 Choose on-site bathing, a hotel spa or an off-site springs package.
+
+- ### [Resorts and retreats](<https://peninsulainsider.com.au/stay/resorts/>)
+
+Choose a resort room, thermal stay or group retreat venue.
 
 - ### [Dog-friendly stays](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
 

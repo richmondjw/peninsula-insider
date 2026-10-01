@@ -5,205 +5,153 @@ Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Vineyard Stays on the Mornington Peninsula
+The stay guide / wine country
 
-The Peninsula's wine country is a 20-kilometre belt of plateau running through Red Hill, Main Ridge, and Merricks North. Staying in this zone changes what the weekend is - cellar doors become a planned part of the day, vineyard lunches are the main event rather than a detour, and the ridge light at dusk is what you came for.
+# Stay among the vines.
 
-Jackalope is the design-hotel benchmark: a black-steel structure set inside a working vineyard with one of Victoria's most ambitious dining rooms. Polperro's villas, Port Phillip Estate's suites and Mantons Creek Estate's guest suites offer different ways to stay among vineyards. Port Phillip Estate (Wood Marsh-designed, one-hat restaurant, six suites) is the Peninsula's most architecturally serious winery stay. Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Lindenderry gives the boutique-hotel register that suits those who want character over spectacle.
+ [Find your stay](<https://peninsulainsider.com.au/stay/vineyard-stays/#choose-format>)
 
-Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.
+A villa, a suite or a hotel on the estate? Start with the kind of stay you want. Then check the room, dining and cellar door details directly with the property.
 
-If you're spending two nights on the Peninsula and wine is the main reason, these are the properties that make the trip hold together.
+ [Prefer a nearby villa?](<https://peninsulainsider.com.au/stay/vineyard-stays/#nearby-base>)
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Jackalope vineyard and Lindenderry at Red Hill. These views do not guarantee a particular room or view. Photos: Peter Foster, courtesy of Visit Victoria.
 
-Vineyard & winery stays
+The first decision
 
-## 12 properties on or near the ridge
+## How do you want to stay?
 
-Vineyard guest suites, estate villas and boutique hotels for a wine country base.
+All six choices below are on vineyard or winery estates. Choose the format first, then compare the actual properties.
 
- [Wine country →](<https://peninsulainsider.com.au/wine/>)
+[01 / A door of your own  **Estate villas**  For an independent stay on winery grounds. Check the exact villa for cooking, spa and minimum-night details.   Explore estate villas](<https://peninsulainsider.com.au/stay/vineyard-stays/#estate-villas>)[02 / A room on the estate  **Winery suites**  Sleep at the vineyard, then plan dining around the operator’s current service rather than assuming it is open every day.   Explore winery suites](<https://peninsulainsider.com.au/stay/vineyard-stays/#winery-suites>)[03 / A full hotel stay  **Vineyard hotels**  Choose a hotel when you want rooms, service and an estate setting together. Room types and dining arrangements still differ.   Explore vineyard hotels](<https://peninsulainsider.com.au/stay/vineyard-stays/#vineyard-hotels>)
 
-Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+01 / A door of your own
 
-### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+## Estate villas
 
-166 Balnarring Rd, Merricks North VIC 3926
+For an independent stay on winery grounds. Check the exact villa for cooking, spa and minimum-night details.
 
-An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
-
-anniversary  weekend escape
-
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
-
-Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+On the estate  For a couples retreat
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937
+Four studio villas on Polperro’s Red Hill vineyard, with a fireplace and indoor spa bath in each villa.
 
-Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
+**Before you book** Polperro says its villas are not suitable for infants or children under 16. Confirm each villa's inclusions, restaurant and cellar door service for your dates.
 
-anniversary  slow
+[Read our notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [Check with operator](<https://www.polperrowines.com.au/escape/villas/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
-
-Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
-
-### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
-
-240 Tucks Rd, Shoreham VIC 3916
-
-Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
-
-anniversary  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
-
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
-
-142 Arthurs Seat Rd, Red Hill VIC 3937
-
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
-
-weekend escape  garden
-
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
-
-Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+On the estate  For a lakeside base
 
 ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-25 Harrisons Rd, Dromana VIC 3936
+Self-contained villas by the lake on Crittenden Estate in Dromana, with the winery on the same grounds.
 
-Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
+**Before you book** Confirm the chosen villa, booking terms and cellar door or restaurant hours separately.
 
-anniversary  waterfront
+[Read our notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [Check with operator](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [View stay](<https://www.lakesidevillas.com.au/rates-bookings/>)
+02 / A room on the estate
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+## Winery suites
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Sleep at the vineyard, then plan dining around the operator’s current service rather than assuming it is open every day.
 
-Red Hill VIC 3937
+On the estate  For architecture and wine
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
-fireplace  slow
+Six accommodation suites at Port Phillip Estate in Red Hill South, above the vineyard and on the same estate as the cellar door.
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
+**Before you book** Accommodation guests must be 16 or older; under-18s need adult supervision. Check suite availability and Dining Room bookings separately.
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Read our notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [Check with operator](<https://www.portphillipestate.com.au/book-accommodation/>)
 
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
+On the estate  For a quiet Shoreham stay
 
-88 Shoreham Rd, Red Hill South VIC 3937
+### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
+Guest accommodation on the Mantons Creek vineyard in Shoreham, with an on-estate restaurant.
 
-cellar door  fireplace
+**Before you book** Confirm the room and current restaurant opening days directly with the estate.
 
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [View stay](<https://www.redhillbrewery.com.au/brewers-cottage/>)
+[Read our notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [Check with operator](<https://mantonscreekestate.com.au/accommodation>)
 
-Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+03 / A full hotel stay
+
+## Vineyard hotels
+
+Choose a hotel when you want rooms, service and an estate setting together. Room types and dining arrangements still differ.
+
+On the estate  For bold design
+
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+
+A design hotel among vines in Merricks North, with distinct room categories and dining on the property.
+
+**Before you book** Jackalope welcomes guests aged 12 and over. Check the room and dining reservation separately.
+
+[Read our notes](<https://peninsulainsider.com.au/stay/jackalope/>) [Check with operator](<https://jackalopehotels.com/stay/>)
+
+On the estate  For gardens and a slower pace
+
+### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
+
+A Red Hill hotel on a vineyard estate, with gardens, a cellar door and on-site dining.
+
+**Before you book** Compare the exact room types and current cellar door or dining service before booking.
+
+[Read our notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [Check with operator](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/>)
+
+Beyond the estate
+
+## Stay close to wine country.
+
+Want your own villa in Red Hill without booking an estate stay? This is a nearby base, clearly separate from the on-estate collection.
+
+Nearby base  For an independent Red Hill base
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-164 Arthurs Seat Road, Red Hill VIC 3937
+Cassis villas look over a neighbouring vineyard. The villas are not accommodation run by that winery.
 
-Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
+**Before you book** Outdoor bath, pool and layout details depend on the villa. Check the exact unit before booking.
 
-anniversary  romance
+[Read our notes](<https://peninsulainsider.com.au/stay/cassis/>) [Check with operator](<https://www.cassisredhill.com.au/accommodation>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
+Make the stay work
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+## Book the room. Then build the day.
 
-### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
+- **Choose the exact room.** Check inclusions, minimum nights and the operator’s booking terms.
 
-Red Hill VIC 3937
+- **Confirm food and wine separately.** Cellar door and restaurant services have their own times and reservations.
 
-Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
+- **Plan the travel.** Tastings call for a driver or arranged transport. Do not assume every stop is walkable from your stay.
 
-cellar door  romance
+Good to know
 
-[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
+## Questions before you go
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+### Which wineries have accommodation on the Mornington Peninsula?
 
-### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
+Polperro, Crittenden Estate, Port Phillip Estate and Mantons Creek Estate offer accommodation on their winery grounds. Jackalope and Lindenderry are hotels on vineyard estates. Check the property and room details directly with each operator.
 
-Red Hill South VIC 3937
+### Is Cassis Red Hill a winery stay?
 
-Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
+Cassis is an independent villa base overlooking a neighbouring vineyard. It suits a wine-country trip, but it is not accommodation operated by that winery.
 
-cellar door  wellness
+### Can I walk from my room to a cellar door or dinner?
 
-[Read notes](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
+An on-estate stay can put accommodation and a cellar door on the same property, but opening days, dinner service and booking arrangements vary. Confirm the exact service and any transport needs with the operator before making plans.
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Property details checked with the operators on 1 October 2026: [Polperro](<https://www.polperrowines.com.au/escape/villas/>), [Crittenden](<https://www.lakesidevillas.com.au/>), [Port Phillip Estate](<https://www.portphillipestate.com.au/quiet-luxury/>) ([guest terms](<https://www.portphillipestate.com.au/accommodation-terms-and-conditions/>)), [Mantons Creek](<https://mantonscreekestate.com.au/accommodation>), [Jackalope](<https://jackalopehotels.com/stay/>), [Lindenderry](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/>) and [Cassis](<https://www.cassisredhill.com.au/accommodation>). Confirm details for your dates.
 
-### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
+Keep planning
 
-80 McIlroys Rd, Red Hill South VIC 3937
+## Your wine-country weekend.
 
-Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
-
-cellar door  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/treetops-red-hill/>) [View stay](<https://treetopsatredhill.com.au/>)
-
-Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
-
-### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
-
-Moorooduc VIC 3931
-
-Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
-
-anniversary  waterfront
-
-[Read notes](<https://peninsulainsider.com.au/stay/woodman-estate/>) [View stay](<https://woodmanestate.com.au/>)
-
-## Frequently asked questions
-
-### Which winery has accommodation on the Peninsula?
-
-Jackalope Hotel (Merricks North vineyard), Polperro Villas (Red Hill estate), Port Phillip Estate (Red Hill South - one-hat restaurant, six suites), Lindenderry at Red Hill (boutique vineyard hotel), and Crittenden Estate (self-contained villas on the estate). Mantons Creek Estate in Shoreham offers vineyard-view guest suites and an on-estate restaurant with regular lunch service Friday to Sunday. Note: Point Leo Estate does not operate on-estate accommodation.
-
-### Which part of the Peninsula is wine country?
-
-Red Hill, Main Ridge, and Merricks North on the central plateau. The elevation and cool-climate conditions here are what produces Mornington Pinot Noir and Chardonnay with the character that's made the region internationally credentialled. Staying in this zone puts you within minutes of 20+ cellar doors.
-
-### How long do I need?
-
-Two nights. Day one: arrive, visit a cellar door, then dine where service is confirmed. Day two: morning walk, two or three cellar doors, a long vineyard lunch (book ahead). Drive home Sunday evening. One night is doable but leaves most of Saturday dedicated to travel.
-
-Related guides
-
-## Complete the wine country weekend
-
-### [Wine Country Guide](<https://peninsulainsider.com.au/wine/>)
-
-Every cellar door on the Peninsula with opening hours, food, and honest notes.
-
-[Explore wineries →](<https://peninsulainsider.com.au/wine/>)
-
-### [Cellar Door Lunch](<https://peninsulainsider.com.au/eat/cellar-door-lunch/>)
-
-The best winery restaurants where kitchen and cellar door are the same experience.
-
-[See the list →](<https://peninsulainsider.com.au/eat/cellar-door-lunch/>)
-
-### [Best Accommodation](<https://peninsulainsider.com.au/stay/best-accommodation/>)
-
-Start with the type and location of stay that fits your trip, then compare individual properties.
-
-[Open the guide →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+[Explore cellar doors](<https://peninsulainsider.com.au/wine/>) [Find a cellar door lunch](<https://peninsulainsider.com.au/eat/cellar-door-lunch/>) [Compare all stays](<https://peninsulainsider.com.au/stay/>)
 
 ## The Insider Note
 
