@@ -165,13 +165,21 @@ Choose on-site bathing, a hotel spa or an off-site springs package.
 
 Choose a resort room, thermal stay or group retreat venue.
 
+- ### [Stay in Sorrento](<https://peninsulainsider.com.au/stay/sorrento/>)
+
+Compare adults-only rooms with a family-friendly precinct stay.
+
+- ### [Stay in Red Hill](<https://peninsulainsider.com.au/stay/red-hill/>)
+
+Compare Red Hill estates and private bases by their actual locality.
+
 - ### [Dog-friendly stays](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
 
 Stays where the dog is a guest, not a problem.
 
 The full list
 
-## All 28 places to stay
+## All 27 places to stay
 
  [Ranked: the best places to stay →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
@@ -245,6 +253,14 @@ Suite   Dromana   Couples
 
 [Check availability](<https://arthursviews.com.au/>)
 
+- ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+
+Cottage   Dromana   Couples
+
+[Check availability](<https://www.birchcreek.com.au/>)  Books via Airbnb
+
 - ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
 Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
@@ -294,22 +310,6 @@ Forty-six pre-pitched canvas tents inside Point Nepean National Park, September 
 Glamping   Portsea   Couples
 
 [Check availability](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
-
-- ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
-
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
-
-Cottage   Red Hill   Couples
-
-[Check availability](<https://www.birchcreek.com.au/>)  Books via Airbnb
-
-- ### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
-
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
-
-Cottage   Red Hill   Couples
-
-[Check availability](<https://www.redhillbrewery.com.au/brewers-cottage/>)
 
 - ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 

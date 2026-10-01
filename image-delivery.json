@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 290,
+  "pages": 292,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -14781,6 +14781,36 @@
       ]
     },
     {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/birch-creek/heroImage-1780003444285.jpg",
+      "originalBytes": 1210118,
+      "variants": [
+        {
+          "src": "/_media/a3d80b8f008192de9f5e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 40264
+        },
+        {
+          "src": "/_media/a3d80b8f008192de9f5e-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 124874
+        },
+        {
+          "src": "/_media/a3d80b8f008192de9f5e-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 333460
+        },
+        {
+          "src": "/_media/a3d80b8f008192de9f5e-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 723572
+        }
+      ]
+    },
+    {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/crittenden-villas/heroImage-1780003550027.jpg",
       "originalBytes": 375508,
       "variants": [
@@ -14921,66 +14951,6 @@
           "width": 1920,
           "height": 1124,
           "bytes": 588856
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/birch-creek/heroImage-1780003444285.jpg",
-      "originalBytes": 1210118,
-      "variants": [
-        {
-          "src": "/_media/a3d80b8f008192de9f5e-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 40264
-        },
-        {
-          "src": "/_media/a3d80b8f008192de9f5e-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 124874
-        },
-        {
-          "src": "/_media/a3d80b8f008192de9f5e-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 333460
-        },
-        {
-          "src": "/_media/a3d80b8f008192de9f5e-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 723572
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/brewers-cottage/heroImage-1780003490093.jpg",
-      "originalBytes": 248941,
-      "variants": [
-        {
-          "src": "/_media/b2d1049f39aa317526fe-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 15112
-        },
-        {
-          "src": "/_media/b2d1049f39aa317526fe-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 34076
-        },
-        {
-          "src": "/_media/b2d1049f39aa317526fe-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 72940
-        },
-        {
-          "src": "/_media/b2d1049f39aa317526fe-1920.webp",
-          "width": 1920,
-          "height": 1280,
-          "bytes": 150608
         }
       ]
     },

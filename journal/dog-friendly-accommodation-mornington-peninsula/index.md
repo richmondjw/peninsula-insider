@@ -49,11 +49,11 @@ Book through Stayz, Airbnb, or pet-specific platforms like BringFido. Filter for
 
 ## What the Peninsula’s main hotel tier offers
 
-Most of the Peninsula’s luxury and boutique hotels do not confirm pet-friendly policies:
+Pet policies differ across the Peninsula’s luxury and boutique hotels. Check the operator’s current policy before booking:
 
 - **Jackalope Hotel** - no children under 12, pet policy not confirmed
 
-- **InterContinental Sorrento** - minimum age 18, pet policy not confirmed
+- **InterContinental Sorrento** - family stays available; [IHG lists no pets except service dogs](<https://www.ihg.com/intercontinental/hotels/gb/en/sorrento/melst/hoteldetail/amenities>)
 
 - **Lancemore Lindenderry** - pet policy not confirmed
 
@@ -97,7 +97,7 @@ Match your accommodation base to the zone that suits your itinerary rather than 
 
 → [Emergency vet and pet help on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/emergency-vet-pet-help-mornington-peninsula/>)
 
-Last fact-verified: 22 April 2026.
+Last full fact-check: 22 April 2026. InterContinental Sorrento pet policy checked: 1 October 2026.
 
 Prices may change. Confirm current rates directly with the venue or operator before booking.
 
@@ -109,7 +109,7 @@ Questions readers actually ask
 
 Are there dog-friendly hotels on the Mornington Peninsula?
 
-Most Peninsula luxury hotels (Jackalope, InterContinental Sorrento, Lancemore Lindenderry, RACV Cape Schanck) do not confirm dogs. Dog-friendly stays are predominantly holiday houses, cottages, and self-contained accommodation booked through platforms like Stayz, Airbnb, and pet-specific booking sites. Search specifically for 'pet-friendly' and 'fenced' as separate filters - both matter.
+Many Peninsula luxury hotels do not confirm dogs. InterContinental Sorrento explicitly permits service dogs only; confirm each other hotel policy directly. Dog-friendly stays are predominantly holiday houses, cottages, and self-contained accommodation booked through platforms like Stayz, Airbnb, and pet-specific booking sites. Search specifically for 'pet-friendly' and 'fenced' as separate filters - both matter.
 
 What should I look for in a dog-friendly Peninsula stay?
 

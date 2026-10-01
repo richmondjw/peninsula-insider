@@ -55,6 +55,18 @@ view  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
 
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+
+Dromana VIC
+
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+
+fireplace  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
+
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
@@ -66,18 +78,6 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 cellar door  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
-
-Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
-
-25 Harrisons Rd, Dromana VIC 3936
-
-Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
-
-long lunch  garden
-
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Keep going
 

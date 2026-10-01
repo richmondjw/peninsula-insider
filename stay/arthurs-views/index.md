@@ -77,11 +77,11 @@ Nearby picks
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937
+Dromana VIC
 
 Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 
@@ -101,17 +101,17 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
+### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937
+41 Trent Jones Drive, Cape Schanck VIC 3939
 
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
-cellar door  fireplace
+view  wellness
 
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [Book](<https://www.redhillbrewery.com.au/brewers-cottage/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Book](<https://www.thecaperetreat.com.au/book>)
 
 Build a day around this
 

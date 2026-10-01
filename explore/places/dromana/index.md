@@ -101,7 +101,7 @@ What's mapped here
 
 - [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/dromana/#wine>)
 
-- [**2** stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
+- [**3** stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/dromana/#explore>)
 
@@ -218,6 +218,18 @@ Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions ar
 view  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
+
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+
+Dromana VIC
+
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+
+fireplace  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
 
 Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

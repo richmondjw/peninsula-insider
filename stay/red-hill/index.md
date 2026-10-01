@@ -1,85 +1,129 @@
 Canonical: https://peninsulainsider.com.au/stay/red-hill/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-05-08
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Where to Stay in Red Hill and the Hinterland
+Red Hill & Red Hill South
 
-If the Peninsula weekend is really about food, wine, fireplaces, and a slower morning, the hinterland is the correct base. Red Hill and the surrounding ridge are where the trip gets depth, not just scenery. Staying here means lunch turns into dinner more naturally, and the drive home after a proper cellar-door day stops dictating everything.
+# Make Red Hill your base.
 
-[Jackalope](<https://peninsulainsider.com.au/stay/jackalope/>) is the Peninsula's most dramatic hotel expression. [Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>) is the calmer classic. [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) and [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) are stronger when the stay should feel private and more embedded in the landscape - Port Phillip Estate for the most architecturally serious winery experience on the ridge (Wood Marsh-designed, one-hat restaurant, six suites). [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) sits slightly outside the strict vineyard lane, but it belongs in the broader hinterland-and-Fingal conversation because of how often readers are actually trying to combine wine country with thermal downtime.
+Choose an estate stay or a private Red Hill base. Let lunch run long.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later. The sources on file have expired and a recheck is due.
+Red Hill and Red Hill South are the focus. [Dromana, Merricks North and Fingal are different bases.](<https://peninsulainsider.com.au/stay/red-hill/#further-afield>)
 
-Hinterland stays
+Lindenderry at Red Hill, pictured from the garden. This shows the hotel exterior, not a room or promised view. Photo: Peter Foster, courtesy of Visit Victoria.
 
-## 5 food-and-wine bases worth prioritising
+The short read
 
-The strongest Peninsula stays for appetite-led weekends, vineyard lunches, and slower couple-focused itineraries.
+## The address changes the weekend.
 
-[Red Hill guide →](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Red Hill is a dispersed food and wine landscape, not a walkable hotel strip. An estate stay keeps vines and dinner close. A private villa or cottage can give you your own kitchen and a quieter evening. Confirm the exact address, dining service and transport before reserving.
 
-Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+01 / On the estate
 
-### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+## Let the vineyard set the pace.
 
-166 Balnarring Rd, Merricks North VIC 3926
+These are Red Hill and Red Hill South stays where the bed is part of the estate. Dinner and cellar-door service still need their own plan.
 
-An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
-
-anniversary  weekend escape
-
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
-
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+01 / Country-house hotel  Red Hill
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-142 Arthurs Seat Rd, Red Hill VIC 3937
+A hotel among gardens and vines, with a dining room and cellar door on the property.
 
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
+**Check before booking** Room types differ. Check dining and cellar-door service for your dates.
 
-weekend escape  garden
+[Read our notes →](<https://peninsulainsider.com.au/stay/lindenderry/>) [Check with operator →](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
-
-Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+02 / Villas among vines  Red Hill
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-150 Red Hill Road, Red Hill VIC 3937
+Four couples villas on Talland Hill vineyard, each with an indoor spa and open fireplace.
 
-Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
+**Check before booking** Polperro says its villas are not suitable for infants or children under 16. Villa and restaurant are separate bookings; minimum stays may apply.
 
-anniversary  slow
+[Read our notes →](<https://peninsulainsider.com.au/stay/polperro-villas/>) [Check with operator →](<https://www.polperrowines.com.au/escape/villas/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
+03 / Architecture and suites  Red Hill South
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
-### [Port Phillip Estate](<https://peninsulainsider.com.au/stay/port-phillip-estate/>)
+Six vineyard suites at a design-led winery with an estate dining room.
 
-263 Red Hill Rd, Red Hill South VIC 3937
+**Check before booking** Guests must be 16 or older; under-18s need adult supervision. Choose the suite and reserve dining separately.
 
-Rammed-earth architecture, an estate dining room and six vineyard suites in Red Hill South.
+[Read our notes →](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [Check with operator →](<https://www.portphillipestate.com.au/book-accommodation/>)
 
-anniversary  long lunch
+02 / Your own front door
 
-[Read notes](<https://peninsulainsider.com.au/stay/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
+## Keep the evening to yourselves.
 
-Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+Villas and cottages suit a quieter Red Hill evening, whether you want your own kitchen, a vineyard setting or a private bath.
 
-### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
+01 / Private villas  Red Hill
 
-140 Springs Lane, Fingal VIC 3939
+### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+Five adults-only villas overlooking a neighbouring vineyard, rather than rooms on a winery estate.
 
-wellness  anniversary
+**Check before booking** Two villas have mineral plunge pools; three have outdoor baths. Select the exact villa.
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
+[Read our notes →](<https://peninsulainsider.com.au/stay/cassis/>) [Check with operator →](<https://www.cassisredhill.com.au/>)
+
+02 / Vineyard cottages  Red Hill
+
+### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
+
+Peppercorn and Winemakers are two private-entry cottages at an artisan vineyard.
+
+**Check before booking** Layouts differ. Breakfast provisions are described for Peppercorn; check inclusions.
+
+[Read our notes →](<https://peninsulainsider.com.au/stay/treetops-red-hill/>) [Check with operator →](<https://treetopsatredhill.com.au/>)
+
+Winery grounds at Polperro in Red Hill. This photograph does not show the villas. Photo: Peter Tarasiuk, courtesy of Visit Victoria.
+
+The local logic
+
+## Let the day end where you meant it to.
+
+Plan one serious lunch and leave space around it. Red Hill's roads and cellar doors are spread across the ridge, so a nearby bed is useful for more than a short drive. If dinner matters, check its service calendar before choosing a room.
+
+[Plan a Red Hill day →](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Beyond the local shortlist
+
+## Same trip, different base.
+
+These Peninsula stays are outside Red Hill and Red Hill South. Choose the base that suits the trip, then plan the Red Hill part separately.
+
+[Dromana / farm cottages**Birch Creek** The Mavis and The June are adjoining cottages on a Dromana farm at the foot of Red Hill. Explore the stay →](<https://peninsulainsider.com.au/stay/birch-creek/>) [Merricks North / design hotel**Jackalope** Art-led rooms and dining on a Merricks North vineyard. Explore the stay →](<https://peninsulainsider.com.au/stay/jackalope/>) [Fingal / thermal stays**Peninsula Hot Springs accommodation** Compare on-site options and bathing inclusions in the specialist guide. Compare thermal stays →](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
+
+Before you reserve
+
+## Check the exact stay.
+
+These choices are not a ranking. Room, villa, breakfast, bathing and dining details can differ within one property. The operator's current details for your dates are the final check.
+
+Researched from published sources. Every venue listed was reviewed April 2026 or later.
+
+Booking-age rules checked 1 October 2026: [Polperro Villas](<https://www.polperrowines.com.au/escape/villas/>), [Port Phillip Estate guest terms](<https://www.portphillipestate.com.au/accommodation-terms-and-conditions/>) and [Cassis guest terms](<https://www.cassisredhill.com.au/about-7>). Confirm the exact villa or suite for your dates.
+
+**Brewer's Cottage update, checked 1 October 2026:** The operator says the cottage is closed for short stays and rented for 2026. It is not in this booking shortlist. [Read the cottage notice](<https://www.redhillbrewery.com.au/brewers-cottage/>). This does not describe the brewery's trading status.
+
+### Is Jackalope in Red Hill?
+
+No. Jackalope is in Merricks North. It can suit a wider wine-country trip, but it is a different base from Red Hill or Red Hill South.
+
+### Is Peninsula Hot Springs accommodation in Red Hill?
+
+No. Peninsula Hot Springs accommodation is in Fingal. Choose it for a thermal-led trip and plan the Red Hill part separately.
+
+### Are all the villas on a winery estate?
+
+No. Polperro Villas and Port Phillip Estate suites are on their estates. Cassis is a private Red Hill villa collection overlooking a neighbouring vineyard. Check the exact address before booking.
 
 ## The Insider Note
 

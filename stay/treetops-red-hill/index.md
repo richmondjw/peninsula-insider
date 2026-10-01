@@ -51,7 +51,7 @@ Cottage
 
 **Location**
 
-80 McIlroys Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
+80 McIlroys Rd, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20VIC%203937>)
 
 **Website**
 
@@ -63,7 +63,7 @@ Cottage
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://treetopsatredhill.com.au/>)
 
@@ -89,11 +89,11 @@ view  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Red Hill VIC 3937
+Dromana VIC
 
 Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
 

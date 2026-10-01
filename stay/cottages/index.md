@@ -59,17 +59,7 @@ The Mavis sleeps two; The June sleeps four. Both have open fires on a working fa
 
 [Read our notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Check with operator](<https://www.birchcreek.com.au/>)
 
-04 / Cottage   For a whole house
-
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
-
-A three-bedroom house on the Red Hill Brewery grounds, with a kitchen and an open fire.
-
-**Check before booking** Brewery activity and taproom hours change the feel of the stay.
-
-[Read our notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [Check with operator](<https://www.redhillbrewery.com.au/brewers-cottage/>)
-
-05 / Cottage   For wine country
+04 / Cottage   For wine country
 
 ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
@@ -78,6 +68,8 @@ Two private-entry cottages at an artisan vineyard. Peppercorn and Winemakers hav
 **Check before booking** Breakfast provisions are described for Peppercorn; confirm inclusions for your cottage.
 
 [Read our notes](<https://peninsulainsider.com.au/stay/treetops-red-hill/>) [Check with operator](<https://treetopsatredhill.com.au/>)
+
+**Brewer's Cottage update, checked 1 October 2026:** The operator says the cottage is closed for short stays and rented for 2026. It is not a current booking choice. [Read the cottage notice](<https://www.redhillbrewery.com.au/brewers-cottage/>). The brewery's trading status is separate.
 
 02 / B&B rooms and suites
 

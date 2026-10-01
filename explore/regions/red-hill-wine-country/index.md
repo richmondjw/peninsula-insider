@@ -169,30 +169,6 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
-
-Red Hill VIC 3937
-
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
-
-fireplace  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
-
-88 Shoreham Rd, Red Hill South VIC 3937
-
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
-
-cellar door  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [View stay](<https://www.redhillbrewery.com.au/brewers-cottage/>)
-
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
@@ -857,7 +833,7 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
-80 McIlroys Rd, Red Hill South VIC 3937
+80 McIlroys Rd, Red Hill VIC 3937
 
 Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
 

@@ -59,29 +59,29 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Red Hill VIC 3937
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
-fireplace  slow
+anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937
+166 Balnarring Rd, Merricks North VIC 3926
 
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
+Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
 
-cellar door  fireplace
+anniversary  first date
 
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [View stay](<https://www.redhillbrewery.com.au/brewers-cottage/>)
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
 Keep going
 

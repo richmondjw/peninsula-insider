@@ -51,7 +51,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Get tickets](<https://www.eventbrite.com.au/e/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs-tickets-1967238998802>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sound+Circle%3A+Full+Moon+Sound+Journey+at+Peninsula+Hot+Springs&dates=20261001T000000Z%2F20261001T050000Z&details=Monthly+full-moon+sound+journey+in+the+PHS+Wellness+Studio+followed+by+an+afternoon+in+the+hot+springs.+All-inclusive+ticket+covers+the+sound+bath+plus+tea+plus+bathing+from+midday.+Hosted+by+Lucy+Ennis+%28Sound+Circle%29.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsound-circle-full-moon-sound-journey-at-peninsula-hot-springs%2F&location=140+Springs+Lane%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

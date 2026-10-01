@@ -1,28 +1,388 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-01T04:44:21.756Z",
+  "generatedAt": "2026-10-01T06:56:49.958Z",
   "baselineAvailable": true,
-  "fromSnapshot": "207e03c37619d889bd2ee3205d16e0f50a86ba6664f7622382e79663414be36a",
-  "toSnapshot": "e6c9e7d5950082924e4043bcc8acf19afb4761ce7d71625ebb8089cfc1318931",
-  "previousGeneratedAt": "2026-10-01T04:25:53.772Z",
+  "fromSnapshot": "e6c9e7d5950082924e4043bcc8acf19afb4761ce7d71625ebb8089cfc1318931",
+  "toSnapshot": "9bd6be64da317a905d194133c89065a5c88e0279a02aeb65eea0823c6c37ca4a",
+  "previousGeneratedAt": "2026-10-01T04:44:21.756Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 47,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
+      "id": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/index.md",
-      "contentSha256": "eda8f5610f1377a5fc9be069dd6b628051a3c070b8feca329677e28e468397b3",
-      "previousContentSha256": "4894ae06b0b7c54ce01b40239c7a38f06923446ec2c5424ea9173387df8e872c"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/index.md",
+      "contentSha256": "8bb1bb7c88f9e0cc693ad2a7d2b6dad64785f40589f998f62edb8b9aae64c5ac",
+      "previousContentSha256": "4fda9be05a585ba103cc60fc0fc5e603b21d487ff3b08cb6c190d86ca5a10a31"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/dromana-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/dromana-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/dromana-beach/index.md",
+      "contentSha256": "a4da34924025e96cb28f3828e3a07ae6177f789328fbfc5a561107c45f60b263",
+      "previousContentSha256": "c9ac9e42b89bd8e2cb957d8ea6caace194a3050aa5cc9e0538c4167ae829ed64"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/index.md",
+      "contentSha256": "2c590a53fc8d78cc16a926b3d4293d2fefae6a2429d3d1559c13354bba495327",
+      "previousContentSha256": "23d5ee2dba926949ad8d62db6b2bc5f99f581a8c07e9247c7e97f65595f96f43"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
+      "contentSha256": "6ef541f3728678fdeb9365f838d1daf606998b00c2cee9b6a53ecc2973a45cf2",
+      "previousContentSha256": "ec23fbca13efa7c8037a1fa0dec2d538718e5d928fb428ccfe4aa71754e8663d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
+      "contentSha256": "47b65c7838c25344332da0d29c781fea7d6ee51a4bf919cfb78734b766f0fab4",
+      "previousContentSha256": "5ce2bc19e03e78f2d62414efaa7a0c52e4908ad3cb7cb880652143b1edc06a2f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/index.md",
+      "contentSha256": "787a153f244c226187613e628ff028911ae66956489da4808c8b1059f6efac7c",
+      "previousContentSha256": "69531f9a079556b847d1c390a0bdf74e543dda96f1cfbdde8f6d52071b702301"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/red-hill-truffles/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/red-hill-truffles/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/red-hill-truffles/index.md",
+      "contentSha256": "845fd2495d9cf48273409404928ea39f9b4227c97cb91b2c789673852a3073d9",
+      "previousContentSha256": "521a8ac9c19b519fea38d687d6f75c3a1783872e78fc622803c259a9a3c4898e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
+      "contentSha256": "c291a5543c27fe15277ad3cfbefa1b743a6ee1533a0248c6c3249a3471872fb8",
+      "previousContentSha256": "8a2a34a153f1fb6532b97b86f8d280b852416ac5a16d7dba4f4fefa3f0368fa2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "9b438a8e195dd7b30ef328dfe503fe17064bbbc8c4361d8277e9818f6ded5952",
+      "previousContentSha256": "593e759ef9018329ba7bf34659a7fde5624fd7e399266b740fd026fa88dad624"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/index.md",
+      "contentSha256": "dad4ff6516df783a2196193db97ab34502cc34d90c5a25d85eed1144b78b56e5",
+      "previousContentSha256": "659f7b21c99956eb1c683dcce7684ad341788925f6ad5c929d1cf7f1956028e1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/index.md",
+      "contentSha256": "a0b79f533322f36fe8f64f4fde7c3321b66ad811ead7ebc75964e9912af3735c",
+      "previousContentSha256": "d5a73cc13d3ebc247ffb647ac112c8e3f0c2480de338ac73e614466b4a670213"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/map/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/map/",
+      "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
+      "contentSha256": "1c32907367ebddbb65554a4b7b68828309baa5b35a32f2892d078c3b0ef7cecb",
+      "previousContentSha256": "e950bef7ea90bc035cc9bdcdf8fa80e33b3a624c1ba2081b4557a8500e9a9052"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "8d3654fcc843a7a9f85d2579a77db5678dfabb295b7bd67961e8c36d758eac64",
-      "previousContentSha256": "7a223aa747df77e26289b02661fbd06bc85c4bf4c07a3659cf16921791620ebd"
+      "contentSha256": "536d0a1b25900c9100bcf10151ac209bd0efafa22a9df3b20ea5448adc3b8a7f",
+      "previousContentSha256": "8d3654fcc843a7a9f85d2579a77db5678dfabb295b7bd67961e8c36d758eac64"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "ff381c9375ef730589331d8271f57bebc5b702bed1467280a771e1739c856ec8",
+      "previousContentSha256": "8bb1b31d46115cfff83486d056249d68383eb9222eec09091a6c022b53270e92"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
+      "contentSha256": "7b13725a9cad4816a1eb60b4b862ea07301349a919142225eb1132f9bcb2ab56",
+      "previousContentSha256": "d9d28430d0c0a6d199da8eb53e9529f9cf73092d43f1d49ea869899f9df13b32"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/arthurs-views/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/arthurs-views/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/arthurs-views/index.md",
+      "contentSha256": "a90268589b998d72f3fb168aa8dba66afcbbf4df0546332c0986e06008bd1020",
+      "previousContentSha256": "e1597897e99d9faaddfed2f49633f8fc95023c0875d2742bdf2662b56b034d51"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/birch-creek/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/birch-creek/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/birch-creek/index.md",
+      "contentSha256": "337a9394dc1063cba3436456d7bfd27a653c6907e032961382a633330fe4bb7a",
+      "previousContentSha256": "d7984ba685c73e68e5470d51adfa86a346bd6393c2e55fcf6c7687dc41562282"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/blue-moon-cottages/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/blue-moon-cottages/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/blue-moon-cottages/index.md",
+      "contentSha256": "f3e4178e50f052cb71280261bccd0815e804e0aa30e56b30b2e447733099556c",
+      "previousContentSha256": "54ce304e8daae30ba86e72b78c312838823374bc61be6d1f97efc1082d7bb0f6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/cape-retreat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/cape-retreat/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/cape-retreat/index.md",
+      "contentSha256": "d60df917c229ebf9a3644d0e1974a33801386d8bc218594a6c841f39d228a683",
+      "previousContentSha256": "973bc30c873d873cadf11a4d338e2d690003657d75e6df6f196caad83137f3e3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/cassis/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/cassis/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/cassis/index.md",
+      "contentSha256": "4fa6b3fa2fb3705f09d39b26988f307d97baae237bc1eff640df41651d042067",
+      "previousContentSha256": "1b83b189d93f4e288ada0f7ecef7575456a2a41a2e1151dba113b5411e9292a3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/cottages/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/cottages/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/cottages/index.md",
+      "contentSha256": "4b7906276373640e6631b418fa20300e54a9cee796b59c34c61a90568f9d1bd7",
+      "previousContentSha256": "d9965ef0e62779ab8ab61bec2d69fca9373b7bdcdcd8923406218173ee5609cd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/crittenden-villas/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/crittenden-villas/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/crittenden-villas/index.md",
+      "contentSha256": "884ed037e79f5f095a41864cf777261675f70cb3fe104259bc4026d48273f839",
+      "previousContentSha256": "e27c754d43c170772b1992bb27f53505a2a84036576c5b7107fc838b5528d21a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/index.md",
+      "contentSha256": "d89577ef77bf66fbf7d7b159fae0f9164ba7a2511fde401604d96e09fc39c761",
+      "previousContentSha256": "a729bb45c63ae7b3d7373fb67d5d96e88089dddc3f47e1bb9cd9174b62c02d8e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/index.md",
+      "contentSha256": "2092d99e998b325f7d6c609c906cbe4b312974d0f25afb7adf3e5162867a9a93",
+      "previousContentSha256": "b06691f35fb253046f4d26ae5f7ff31388e73304636eb52aa16b684e0b485dc9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/happy-glamper/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/happy-glamper/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/happy-glamper/index.md",
+      "contentSha256": "dc95d45a162e8305d9e001d38fe00ed2ee3c8310f31170bde18c5f2ffab9e70e",
+      "previousContentSha256": "d86e02b144bdb21f7c47ed15dbde88c48d71af33fb4b5f70dc29a8ff2dd70701"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/hideaways-red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/hideaways-red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/hideaways-red-hill/index.md",
+      "contentSha256": "6e375124ed37f72cbd2ff47edbff044fac4c3a6df02f6ef8dea6b63f5eb5a7ec",
+      "previousContentSha256": "3aca89d0d6c75799059d12c950013c39f3a6d76d0d75f84b2f73fbb5598bae71"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/index.md",
+      "contentSha256": "d73f57ea8bf5c81c544113f5c5c3240dff190f554375fdb77f9632f7f8fbb39d",
+      "previousContentSha256": "1ee9307559ec99a89e7ec35291b87272002fedf55587fc86acc600a83a43b0ac"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/iluka-retreat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/iluka-retreat/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/iluka-retreat/index.md",
+      "contentSha256": "a7c644a87053955cfe285c0c9cab20ea6b0470abe8c7428017780fe10a419cb1",
+      "previousContentSha256": "a6ae9901ffcc2eb51ef1fb4105993f0e9547eeb4d5d8ab0a8382d1d7e9bae640"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/jackalope/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/jackalope/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/jackalope/index.md",
+      "contentSha256": "19e7470e61103e8d2105e40cabb5ace7d8eab3fff41d2763d79d0773f0bc5043",
+      "previousContentSha256": "8144e78f820a15accdc1935513004dd4701cb92160a3054bd2940f518deb7f59"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/index.md",
+      "contentSha256": "c1a3f10d905ef0d69968d21e6a1e0b53ed3d298035b34f14f50b7e479ee38ee0",
+      "previousContentSha256": "91723d072173043782c3a07d4841616d2f018a9adaffa09d530c4abd49ce923f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/lindenderry/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/lindenderry/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/lindenderry/index.md",
+      "contentSha256": "7ad6128ace58bb1fb63a20dfc5f8a2d21be0032ec09b1cb3a57e78c0060e8548",
+      "previousContentSha256": "c8e09e2e087a56dcc78e1f90bf38c9902613257f161b709ccb7cf1596a562e0c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/mantons-creek-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/mantons-creek-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/mantons-creek-estate/index.md",
+      "contentSha256": "4434056d7caa6e7a0869d1729f8f686a631ddab6eed3fbe8f685c2e7bafb3a58",
+      "previousContentSha256": "fc69e3bb9f59dc795a7d3e860af23e913d7efb0f10440865383a2036cbe2b700"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/mp-beach-club-cottages/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/mp-beach-club-cottages/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/mp-beach-club-cottages/index.md",
+      "contentSha256": "14ca75b0fbfa269df3074283bca856786b09a33a40989cf7c1ed6472ffd79466",
+      "previousContentSha256": "b0b7f75239f4a20ecfd102c5c88a240b63d9a5de5ccf2564c71bebd5e0bf30ed"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/index.md",
+      "contentSha256": "a75f134b0b1424df84a5349b198e6cd97bd7f41a40cce7158b9357c8aa67402d",
+      "previousContentSha256": "137bfa001d6967cd146e976709dac9552458a4d8bdf2af0d44fa5d2bb92b74b4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/index.md",
+      "contentSha256": "2a27dbda03b53f9ab1de126041e88a5b2db5b6fc8639166fcb56f017867ef602",
+      "previousContentSha256": "eb1b0841e2abff8c689220ca1a882ab55cf88d996023e6b26095184a10ed4222"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/index.md",
+      "contentSha256": "9f67d9c4f05d0737f0d99b6c949f406c59029fc422b5372a6ed21744dbc6fd48",
+      "previousContentSha256": "4626e6b5dae8478c741587401fd1661864e9bcda537d4329eef86f6256ffd627"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/index.md",
+      "contentSha256": "81b8bfdadfc66929936bd7a7efc4b68f13f8587246b0780f0ac2dbca7c66853b",
+      "previousContentSha256": "218468baa14492a693b3ab382e1ddb4932231c51558eeccb774e56d9ddb2bf14"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/polperro-villas/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/polperro-villas/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/polperro-villas/index.md",
+      "contentSha256": "9af89fc97b09886546f1d3750a30a69d498fa25713bde5d41a91f1a62e712c31",
+      "previousContentSha256": "97fd5ec149bd4f7b767cc925bc8a8b5077b541ad7827fab60b42a84101ed56b8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/red-hill/index.md",
+      "contentSha256": "033bfba62170fa3f1ea7d430a65267856cef0e65c133a21f91dd1f2f1e19f857",
+      "previousContentSha256": "e627026319429c75861e3ca6e77145088255544b4f54e95cf7687ed9e29d8a4d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/sanctuary-at-alba/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/sanctuary-at-alba/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/sanctuary-at-alba/index.md",
+      "contentSha256": "373bbcc48992f8ba7342c70f49601f43061925a607949d39ee7c1b9f7f8fb61a",
+      "previousContentSha256": "5b6f9af4cca800db1b417c469376b753fcfdbca2195a182585dbff11df90573b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/sorrento/index.md",
+      "contentSha256": "d4417c01cfeb5d97a9b8cd436699b56e9724693dd1c319b7464b7d9d67991788",
+      "previousContentSha256": "7d7d71712a03670b1a8155e20c0973e392e89f7e96f05e7a1ce93f92dc3fb250"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/the-continental-sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/the-continental-sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/the-continental-sorrento/index.md",
+      "contentSha256": "d7595a4931c57684d805128d01f9a8f5e4ef19de270dc5f6b191d332cc7c43d5",
+      "previousContentSha256": "51e989cdefef07e1a65d013ae7d3b8f48c1892fc44220a0db308d277f1256490"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/the-orchard-red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/the-orchard-red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/the-orchard-red-hill/index.md",
+      "contentSha256": "6df92696850e8d30cbda5e63359b2ecb2f1fc6c7589e6a14fcee8e617f8aca01",
+      "previousContentSha256": "ef793c2ccda7eda8ebbbd6ea88cca968999159069f8da9542c662f10815ea75f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/treetops-red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/treetops-red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/treetops-red-hill/index.md",
+      "contentSha256": "e02104f05f0d0c659ca23ecb4962785ebdaf63261bd020c665f4c3751c8ee343",
+      "previousContentSha256": "4c5b54d6913cbb7bb75835d0012a3d78e37d6935eaaaf1de5702ffe6f14d1ba5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/woodman-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/woodman-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/woodman-estate/index.md",
+      "contentSha256": "15c72bfe718669369d6244e92ca2a6f34707a9d66edcef2af3ae2a896a8124fd",
+      "previousContentSha256": "3c3969b91f924b1ea0e005dacb6a8164e4c1aba436b5abcd86e65397156a766c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/index.md",
+      "contentSha256": "a56a8074313df59bb794539e738bd461c9fc48ec588dfb7d0270a0ee26d1a84c",
+      "previousContentSha256": "2f36b7b2c638a1977512fd0752d0ea1096da9f0dd0a79a5e015ed0f31df43a5f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/brewers-cottage/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/brewers-cottage/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "d07b8d5ab743865220098e14c7adfa819c4a6792b5eacfdafbf2afc4f63dd8ec"
     }
   ]
 }

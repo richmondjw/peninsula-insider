@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-01",
-  "generatedAt": "2026-10-01T04:38:03.319Z",
+  "generatedAt": "2026-10-01T06:50:40.615Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -149,8 +149,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
         "startDate": "2026-10-01",
         "endDate": "2026-10-01",
-        "description": "Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs. All-inclusive ticket covers the sound bath plus tea plus bathing from midday. Hosted by Lucy Ennis (Sound Circle).",
-        "eventStatus": "https://schema.org/EventScheduled"
+        "description": "Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs. All-inclusive ticket covers the sound bath plus tea plus bathing from midday. Hosted by Lucy Ennis (Sound Circle)."
       }
     },
     {
@@ -787,7 +786,6 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs. All-inclusive ticket covers the sound bath plus tea plus bathing from midday. Hosted by Lucy Ennis (Sound Circle).",
-      "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
     },

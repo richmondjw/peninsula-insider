@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-210 on the map
+208 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -107,13 +107,9 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 
 - [View : Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-- [View : Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
-
 - [View : Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
 - [View : Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
-
-- [View : Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
 
 - [View : The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 

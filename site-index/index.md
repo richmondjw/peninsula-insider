@@ -257,8 +257,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-- [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
-
 - [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
 - [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
@@ -290,6 +288,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
 - [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
+
+- [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
 ## Selected Wine pages
 

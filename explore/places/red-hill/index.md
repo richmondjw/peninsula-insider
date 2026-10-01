@@ -225,30 +225,6 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [Red Hill stays →](<https://peninsulainsider.com.au/stay/red-hill/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
-
-Red Hill VIC 3937
-
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
-
-fireplace  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
-
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
-
-88 Shoreham Rd, Red Hill South VIC 3937
-
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
-
-cellar door  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [View stay](<https://www.redhillbrewery.com.au/brewers-cottage/>)
-
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
@@ -260,6 +236,30 @@ Five adults-only villas overlooking the vines: two with mineral plunge pools, th
 anniversary  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
+
+Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
+
+Red Hill VIC 3937
+
+Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
+
+cellar door  romance
+
+[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
+
+Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
+
+142 Arthurs Seat Rd, Red Hill VIC 3937
+
+A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
+
+weekend escape  garden
+
+[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
 
 [See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 

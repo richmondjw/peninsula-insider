@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Cottage    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Cottage    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 # Birch Creek
 
@@ -15,17 +15,17 @@ Known for   Two adjoining farm cottages Open fireplaces Outdoor baths No pets
 
 [Check availability](<https://www.birchcreek.com.au/>)
 
-Birch Creek · Red Hill
+Birch Creek · Dromana
 
 Why we’d go
 
 A working-farm setting with two cottage sizes, open fires and a clear choice between a stay for two or four.
 
-Birch Creek offers two adjoining self-contained cottages on a working farm near Red Hill. The Mavis sleeps two; The June sleeps four. Both have kitchens and open fireplaces, and the operator describes outdoor baths and farm views. The two cottages can be booked together for a group of six.
+Birch Creek offers two adjoining self-contained cottages on a working farm in Dromana, at the foot of Red Hill. The Mavis sleeps two; The June sleeps four. Both have kitchens and open fireplaces, and the operator describes outdoor baths and farm views. The two cottages can be booked together for a group of six.
 
 This is a farm stay to choose for space and a slower pace. It is not a dog-friendly option. The hosts state a strict no-pets policy because the property is a goat stud.
 
-The operator website links to its current Riparide and Airbnb listings. Compare the exact cottage, guest count, pet policy and booking terms there before reserving.
+The operator website links to its current Riparide and Airbnb listings. Compare the exact cottage, guest count, pet policy and booking terms there before reserving. Ask the host for arrival details; no street address is recorded here.
 
 Worth knowing
 
@@ -51,7 +51,7 @@ Cottage
 
 **Location**
 
-Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Birch%20Creek%2C%20Red%20Hill%20VIC%203937>)
+Dromana VIC · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Birch%20Creek%2C%20Dromana%20VIC>)
 
 **Website**
 
@@ -59,11 +59,11 @@ Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destin
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.35%2C145.06>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Birch%20Creek%2C%20Dromana%20VIC>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Birch%20Creek%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Birch%20Creek%2C%20Dromana%20VIC%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://www.birchcreek.com.au/>)
 
@@ -73,7 +73,7 @@ Not sure how to build a day around Birch Creek?
 
 Nearby picks
 
-## More from Red Hill
+## More from Dromana
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
@@ -101,17 +101,17 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
 
-Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
-### [Brewer's Cottage - Red Hill Brewery](<https://peninsulainsider.com.au/stay/brewers-cottage/>)
+### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-88 Shoreham Rd, Red Hill South VIC 3937
+41 Trent Jones Drive, Cape Schanck VIC 3939
 
-A self-contained three-bedroom holiday house on the Red Hill Brewery grounds, with a kitchen and open fire.
+Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
 
-cellar door  fireplace
+view  wellness
 
-[Read notes](<https://peninsulainsider.com.au/stay/brewers-cottage/>) [Book](<https://www.redhillbrewery.com.au/brewers-cottage/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Book](<https://www.thecaperetreat.com.au/book>)
 
 Build a day around this
 
@@ -123,7 +123,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Dromana - view the destination guide](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=birch-creek>)
 
