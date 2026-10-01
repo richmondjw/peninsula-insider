@@ -69,6 +69,14 @@ Polperro's private dining room below the winery.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 
+Wellness   Monthly (full moon dates, check Eventbrite for specific dates)
+
+### [Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/>)
+
+Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/>)
+
 Food & Wine   Every Saturday evening year-round from 5pm
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

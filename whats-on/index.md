@@ -155,6 +155,12 @@ Book the bathe and the music comes with it. The easiest good Sunday on this end 
 
 ### Markets
 
+- [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
+
+A useful local market when running; confirm a future date with the organiser before travelling.
+
+9am · Hastings · Free
+
 - [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
 
 Two hundred and fifty stalls of school-fete chaos in the best possible way. Bigger than you'd expect and genuinely worth…
@@ -172,12 +178,6 @@ Emu Plains is the artisan market that actually feels like the Peninsula. Stringy
 Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made…
 
 9am · Crib Point · Free
-
-- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-The only VFMA-accredited farmers market on the Peninsula: if the producer's name is on the stall, the producer grew it.
-
-9am · Mount Eliza · Free
 
 ### Live music
 
