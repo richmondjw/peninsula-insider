@@ -264,11 +264,13 @@ if (/!/.test(standfirst)) {
   .v5-standfirst__aside {
     margin: var(--space-5, 1.5rem) 0 0;
   }
+  /* Explicit heights, not aspect-ratio: the responsive-image pass writes
+     width and height attributes that won the ratio and rendered a tall
+     portrait crop. */
   .v5-standfirst__aside img {
     display: block;
     width: 100%;
-    aspect-ratio: 16 / 9;
-    max-height: 13.75rem;
+    height: 13.75rem;
     object-fit: cover;
     border-radius: var(--radius-m, 16px);
   }
@@ -293,8 +295,7 @@ if (/!/.test(standfirst)) {
       margin: 0;
     }
     .v5-standfirst__aside img {
-      aspect-ratio: 4 / 3;
-      max-height: none;
+      height: clamp(18rem, 24vw, 22rem);
     }
   }
 </style>
