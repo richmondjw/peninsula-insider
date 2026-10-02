@@ -18,7 +18,7 @@ const { directory, noun, mapHref = '/map/', contained = true, showLinks = true }
   {showLinks && (
   <nav class="category-browse__links" aria-label="Browse this guide">
     <a class="pi-section-link" href={`#${directory}`}>Browse every {singularNoun(noun)} <span aria-hidden="true">↓</span></a>
-    <a class="pi-section-link" href={mapHref}>View the map <span aria-hidden="true">→</span></a>
+    <a class="pi-section-link" href={mapHref}>Open the map <span aria-hidden="true">→</span></a>
   </nav>
   )}
   <slot />

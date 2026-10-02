@@ -1,5 +1,5 @@
 ---
-title: "Mornington Peninsula Spa Stays"
+title: "Mornington Peninsula spa stays"
 dek: "Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination."
 author: "editorial"
 houseByline: true

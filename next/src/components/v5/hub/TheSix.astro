@@ -167,7 +167,9 @@ const headingId = `${id ?? `six-${surface}`}-heading`;
   @media (min-width: 64em) {
     .v5-six__lead :global(.v5-card-grid) {
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      grid-template-rows: auto auto;
+      /* Equal rows: the two side cards share one height whatever their
+         copy or metadata, so the stack never reads as uneven. */
+      grid-template-rows: 1fr 1fr;
     }
     .v5-six__lead .v5-six__item:first-child {
       grid-row: 1 / span 2;
@@ -189,7 +191,7 @@ const headingId = `${id ?? `six-${surface}`}-heading`;
     }
     .v5-six__item--side > :global(.pi-card) {
       display: grid;
-      grid-template-columns: 40% minmax(0, 1fr);
+      grid-template-columns: 32% minmax(0, 1fr);
       grid-template-rows: auto 1fr;
     }
     .v5-six__item--side :global(.pi-card__media) {
@@ -209,8 +211,36 @@ const headingId = `${id ?? `six-${surface}`}-heading`;
     .v5-six__item--side :global(.pi-card__actions) {
       grid-column: 2;
       grid-row: 2;
-      align-self: start;
+      align-self: end;
       margin-top: 0;
+      flex-wrap: wrap;
+    }
+    /* The booking link never shrinks below its label; if the three actions
+       cannot share the column it takes its own line instead of clipping. */
+    .v5-six .v5-six__lead .v5-six__item--side :global(.pi-card .pi-card__actions > .v5-booking.v5-booking) {
+      flex: 0 0 auto;
+    }
+    /* In the 280px text column the bookmark goes icon-only (its label stays
+       for screen readers) so Save, Add to trip and Check availability hold
+       one line, matching the lead card's single action row. */
+    .v5-six__item--side :global(.v5-save__btn--labelled) {
+      min-width: 44px;
+      padding-inline: var(--space-2, 0.5rem);
+    }
+    .v5-six__item--side :global(.v5-save__btn--labelled .v5-save__label) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    .v5-six__item--side :global(.pi-card__trip) {
+      min-width: 0;
+      padding-inline: var(--space-2, 0.5rem);
     }
   }
 

@@ -228,8 +228,10 @@ if (/!/.test(standfirst)) {
     background: var(--paper, #faf8f3);
     color: var(--text);
   }
+  /* The band closes with the same air it opens with, so the chip row does
+     not sit pressed against the band's lower edge. */
   .v5-standfirst--compact.v5-standfirst--has-actions {
-    padding-bottom: var(--space-5, 1.5rem);
+    padding-bottom: clamp(2rem, 3vw, 2.75rem);
   }
   .v5-standfirst--compact::before { display: none; }
   /* Sora 600, the site's one display voice (James, 2 October 2026). The

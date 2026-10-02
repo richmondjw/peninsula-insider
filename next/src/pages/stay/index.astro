@@ -167,7 +167,7 @@ const restVenues = venues
 const sixVerdictBySlug = new Map(SIX.map(({ slug, verdict }) => [slug, verdict]));
 const directoryItems = [...disclosedSix, ...restVenues].map((v) => {
   const slug = (v!.id ?? v!.data.slug) as string;
-  return stayItem(v, { verdict: sixVerdictBySlug.get(slug) });
+  return stayItem(v, { verdict: onScreenSlugs.has(slug) ? 'On the shortlist above.' : sixVerdictBySlug.get(slug) });
 });
 
 // The directory's header action opens the map on the stays alone. The ranked
@@ -221,7 +221,7 @@ const journalItems = journalSlugs
 
 // ── Stand-first (<= 80 words, carries the where-to-stay + corridor phrases) ─
 const standfirst =
-  'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
+  'Ridge and hinterland, or a coastal village. ' +
   'Compare the atmosphere, evenings and transport tradeoffs below, then find a hotel, vineyard villa or cottage that fits your party.';
 
 const breadcrumbItems = [
@@ -245,6 +245,14 @@ const faqSchema = {
       acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
   ],
 };
+// Visible questions: the section already names the place, so the page
+// drops the repeated "on the Mornington Peninsula". The schema keeps the
+// full questions above for search.
+const FAQ_LABELS = [
+  'Where is the best area to stay?',
+  'When is it hardest to book a stay?',
+  'Is one night enough?',
+];
 export const prerender = true;
 ---
 
@@ -369,9 +377,9 @@ export const prerender = true;
         </div>
       </div>
       <div class="hub-faq__list">
-        {faqSchema.mainEntity.map((item) => (
+        {faqSchema.mainEntity.map((item, i) => (
           <details class="hub-faq__item">
-            <summary class="hub-faq__q">{item.name}</summary>
+            <summary class="hub-faq__q">{FAQ_LABELS[i] ?? item.name}</summary>
             <div class="hub-faq__a"><p>{item.acceptedAnswer.text}</p></div>
           </details>
         ))}

@@ -1,5 +1,5 @@
 ---
-title: "The One-Night Peninsula Escape"
+title: "The one-night Peninsula escape"
 dek: "One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break."
 author: "editorial"
 houseByline: true

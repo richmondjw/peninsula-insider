@@ -375,7 +375,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   )}
 
   <div class="pi-card__body">
-    {(imageCaption || imageCredit) && (
+    {!isCompact && (imageCaption || imageCredit) && (
       <p class="pi-card__image-note">
         {imageCaption && <span>{imageCaption}</span>}
         {imageCaption && imageCredit && ' '}
@@ -420,6 +420,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
             {durationChip && <li class="pi-card__chip">{durationChip}</li>}
             {metaChips.map((chip) => <li class="pi-card__chip">{chip}</li>)}
             {trailingChip && <li class="pi-card__chip">{trailingChip}</li>}
+            {isCompact && imageCaption && <li class="pi-card__chip">{imageCaption}</li>}
           </>
         )}
         {inlineSave && saveProps && (
@@ -430,10 +431,11 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       </ul>
     )}
 
-    {hasProvenance && (
+    {(hasProvenance || (isCompact && imageCredit)) && (
       <ul class="pi-card__provenance" role="list">
         {freshnessText && <li class="pi-card__chip">{freshnessText}</li>}
         {partnerLabel && <li class="pi-card__chip pi-card__partner">{partnerLabel}</li>}
+        {isCompact && imageCredit && <li class="pi-card__chip">{imageCredit}</li>}
       </ul>
     )}
   </div>
@@ -500,13 +502,6 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 <style>
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
-  /* In a directory row the image note closes the text block instead of
-     opening it, so every row's title starts on the same line. The note is
-     still shown in full (illustrative status and credit). */
-  .pi-card.pi-card--compact .pi-card__body > .pi-card__image-note {
-    order: 10;
-    margin: var(--space-1) 0 0;
-  }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from
@@ -915,6 +910,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   .pi-card .pi-card__actions :global(.v5-save__btn--labelled:not([aria-pressed='true'])),
   .pi-card .pi-card__trip {
     border-color: transparent;
+    background: transparent;
     padding-inline: var(--space-3);
   }
   .pi-card .pi-card__trip {
