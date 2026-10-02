@@ -347,7 +347,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
         </span>
       )}
       {variant === 'event' && <slot name="badges" />}
-      {isCompact && imageCaption && <span class="pi-card__media-tag">{imageCaption.replace(/\s+image\.?$/i, '')}</span>}
+      {imageCaption && <span class="pi-card__media-tag">{imageCaption.replace(/\s+image\.?$/i, '')}</span>}
     </div>
   )}
 
@@ -380,11 +380,11 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   )}
 
   <div class="pi-card__body">
-    {!isCompact && (imageCaption || imageCredit) && (
+    {/* The image's status rides on the image (the media tag) on every card;
+        only the credit stays in a framed card's body. */}
+    {!isCompact && imageCredit && (
       <p class="pi-card__image-note">
-        {imageCaption && <span>{imageCaption}</span>}
-        {imageCaption && imageCredit && ' '}
-        {imageCredit && <span class="pi-card__image-credit">{imageCredit}</span>}
+        <span class="pi-card__image-credit">{imageCredit}</span>
       </p>
     )}
     {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
@@ -506,19 +506,19 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 <style>
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
-  /* Directory rows: the image's status ("Illustrative image") sits on the
-     thumbnail it describes, not in the taxonomy meta line. */
+  /* The image's status ("Illustrative") sits on the picture it describes,
+     on framed cards and directory rows alike, not in the text column. */
   .pi-card__media-tag {
     position: absolute;
     left: 4px;
     bottom: 4px;
     max-width: calc(100% - 8px);
-    padding: 1px 6px;
+    padding: 2px 7px;
     border-radius: 4px;
     background: rgb(11 46 74 / 0.82);
     color: var(--white);
     font-family: var(--font-ui);
-    font-size: 0.625rem;
+    font-size: 0.6875rem;
     line-height: 1.5;
     white-space: nowrap;
     overflow: hidden;
@@ -948,13 +948,20 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
      text action (James, 3 Oct 2026), so a list of 24 reads as an index, not
      a booking widget. Framed cards keep the outlined button. Same 48/44px
      target; the frame shows on hover only. */
+  /* Text and any partner note ("Books via Airbnb") end on the row's right
+     edge, the line the hairline rules and the map link also end on. */
   .pi-card.pi-card--compact .pi-card__actions :global(.v5-booking--card-action .v5-booking__link) {
     border-color: transparent;
-    padding-inline: var(--space-3);
-    justify-content: flex-start;
+    padding-inline: var(--space-3) 0;
+    justify-content: flex-end;
+  }
+  .pi-card.pi-card--compact .pi-card__actions :global(.v5-booking--card-action .v5-booking__disclosure) {
+    text-align: right;
   }
   .pi-card.pi-card--compact .pi-card__actions :global(.v5-booking--card-action .v5-booking__link:hover) {
-    border-color: var(--harbour);
+    border-color: transparent;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
   .pi-card .pi-card__trip {
     min-width: 6.5rem;

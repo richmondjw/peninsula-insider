@@ -220,6 +220,16 @@ const headingId = `${id ?? `six-${surface}`}-heading`;
     .v5-six .v5-six__lead .v5-six__item--side :global(.pi-card .pi-card__actions > .v5-booking.v5-booking) {
       flex: 0 0 auto;
     }
+    /* The feature pick follows the side picks' layout: [Save][Add to trip],
+       then the booking button on its own line at its natural width, so all
+       three shortlist cards share one action pattern. */
+    .v5-six .v5-six__lead .v5-six__item:not(.v5-six__item--side) :global(.pi-card .pi-card__actions > .v5-booking.v5-booking) {
+      flex: 0 0 100%;
+      align-items: flex-start;
+    }
+    .v5-six .v5-six__lead .v5-six__item:not(.v5-six__item--side) :global(.pi-card .pi-card__actions > .v5-booking.v5-booking .v5-booking__link) {
+      width: auto;
+    }
   }
 
   /* ---- the disclosure: three more picks as directory rows ---- */
