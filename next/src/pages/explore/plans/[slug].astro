@@ -110,6 +110,9 @@ const articlePhotoCaption = articleHero?.override
     : ad?.heroImage?.caption;
 const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
 const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
+const articleFactReviewLabel = isOneNightGuide && ad?.lastVerified
+  ? ad.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
+  : null;
 const articleEyebrow = ad?.planEyebrow ??
   (isOneNightGuide ? 'One night, well spent' : ad?.planShape === 'two-night' ? 'Two-night plan' : ad?.planShape === 'day-trip' ? 'Day plan' : (formatLabel[ad?.format] ?? 'A Peninsula plan'));
 const hasPlanQuickChoices = Boolean(ad?.planQuickChoices?.length);
@@ -130,9 +133,9 @@ const articleSectionLinks = articleHeadings
   .filter((heading) => heading.depth === 2)
   .map((heading) => ({ label: heading.text, href: `#${heading.slug}` }));
 const oneNightBases = isOneNightGuide ? [
-  { number: '01', place: 'Sorrento', mood: 'Town life', stay: 'InterContinental Sorrento', stayHref: '/stay/the-continental-sorrento/', dinner: 'Book dinner near the main street', sunday: 'Breakfast and Back Beach if conditions suit', prefix: 'Base one:' },
-  { number: '02', place: 'Red Hill', mood: 'Country house', stay: 'Lindenderry', stayHref: '/stay/lindenderry/', dinner: 'Book dinner on the estate', sunday: 'Slow breakfast and garden time', prefix: 'Base two:' },
-  { number: '03', place: 'Flinders', mood: 'Quiet coast', stay: 'Flinders Hotel', stayHref: '/stay/flinders-hotel/', dinner: 'Book dinner in the village', sunday: 'Breakfast and a local walk', prefix: 'Base three:' },
+  { number: '01', place: 'Sorrento', mood: 'Town life', stay: 'InterContinental Sorrento', stayHref: '/stay/the-continental-sorrento/', dinner: 'Book dinner near the main street', sunday: 'Breakfast and Back Beach if conditions suit', check: 'Town and dinner on foot; check Back Beach conditions.', prefix: 'Base one:' },
+  { number: '02', place: 'Red Hill', mood: 'Country house', stay: 'Lindenderry', stayHref: '/stay/lindenderry/', dinner: 'Book dinner on the estate', sunday: 'Slow breakfast and garden time', check: 'Stay on the estate, or drive to an early Montalto tasting.', prefix: 'Base two:' },
+  { number: '03', place: 'Flinders', mood: 'Quiet coast', stay: 'Flinders Hotel', stayHref: '/stay/flinders-hotel/', dinner: 'Book dinner in the village', sunday: 'Breakfast and a local walk', check: 'Walk the village and pier; King Street beach access is closed.', prefix: 'Base three:' },
 ].map((base) => ({
   ...base,
   href: `#${articleHeadings.find((heading) => heading.depth === 3 && heading.text.startsWith(base.prefix))?.slug ?? 'plan-guide'}`,
@@ -503,7 +506,7 @@ export const prerender = true;
           </div>
           {(articlePhotoCaption || articlePhotoCredit) && (
             <figcaption class="pl-cover__caption">
-              {articlePhotoCaption && <span>{articlePhotoCaption}</span>}
+              {articlePhotoCaption && <span>{articlePhotoCaption}{articlePhotoCredit && ' '}</span>}
               {articlePhotoCredit && <span>{articlePhotoCredit}</span>}
             </figcaption>
           )}
@@ -570,6 +573,7 @@ export const prerender = true;
                   <div><dt>Stay</dt><dd>{base.stay}</dd></div>
                   <div><dt>Dinner</dt><dd>{base.dinner}</dd></div>
                   <div><dt>Sunday</dt><dd>{base.sunday}</dd></div>
+                  <div><dt>Route</dt><dd>{base.check}</dd></div>
                 </dl>
                 <div class="pl-choices__actions">
                   <a class="pl-choices__stay" href={base.stayHref}>Explore {base.stay} <span aria-hidden="true">↗</span></a>
@@ -581,6 +585,24 @@ export const prerender = true;
         </div>
       </section>
     )}
+
+      {/* Keep bookable stay choices close to the route comparison. */}
+    {isOneNightGuide && articleRelatedVenues.length > 0 && (
+      <section class:list={["pl-venues", isOneNightGuide && "pl-venues--one-night"]}>
+        <div class="pl-container">
+          <header class="pl-venues__head">
+            <p class="pl-eyebrow">Places in this plan</p>
+            <h2 class="pl-venues__title">Stay in the base you choose.</h2>
+          </header>
+          <div class="pl-venues__grid">
+            {articleRelatedVenues.map((venue: any) => (
+              <VenueCard venue={venue} hrefPrefix={venueHrefPrefix(venue.data.type)} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
 
     {ad.aiSummary && ad.aiSummary.length > 0 && !ad.planQuickChoices?.length && (
       <section class="pl-glance" aria-label="At a glance">
@@ -603,13 +625,13 @@ export const prerender = true;
             )}
             {isOneNightGuide && (
               <details class="pl-glance__more pl-glance__sources">
-                <summary>Booking and access links checked online 30 September 2026 <span aria-hidden="true">+</span></summary>
+                <summary>Plan facts and access links reviewed {articleFactReviewLabel} <span aria-hidden="true">+</span></summary>
                 <p>We checked these operator and park pages for the options above:</p>
                 <ul>
-                  <li>Sorrento: <a href="https://sorrento.intercontinental.com/">InterContinental Sorrento</a>, <a href="https://thecontinentalsorrento.com.au/">The Continental precinct</a> and <a href="https://www.parks.vic.gov.au/places-to-see/sites/sorrento-back-beach">Sorrento Back Beach</a></li>
-                  <li>Red Hill: <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/">Lindenderry</a> and <a href="https://montalto.com.au/pages/cellar-door">Montalto</a></li>
-                  <li>Flinders: <a href="https://flindershotel.com.au/">Flinders Hotel</a> and <a href="https://www.flinderssourdough.com.au/">Flinders Sourdough</a></li>
-                  <li>Optional bath: <a href="https://albathermalsprings.com.au/faqs/">Alba Thermal Springs</a></li>
+                  <li>Sorrento: <a href="https://sorrento.intercontinental.com/">InterContinental Sorrento</a>, <a href="https://thecontinentalsorrento.com.au/">The Continental precinct</a>, <a href="https://auroraspa.com.au/faqs/">Aurora</a> and <a href="https://www.parks.vic.gov.au/places-to-see/sites/sorrento-back-beach">Sorrento Back Beach</a></li>
+                  <li>Red Hill: <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/">Lindenderry</a>, <a href="https://montalto.com.au/pages/cellar-door">Montalto</a> and <a href="https://www.tedesca.com.au/osteria-tedesca">Tedesca</a> for an extended Sunday</li>
+                  <li>Flinders: <a href="https://flindershotel.com.au/">Flinders Hotel</a>, <a href="https://www.flinderssourdough.com.au/">Flinders Sourdough</a>, <a href="https://www.parks.vic.gov.au/projects/greater-melbourne/flinders-pier-project">Flinders Pier</a> and <a href="https://www.parks.vic.gov.au/projects/greater-melbourne/Flinders-Ocean-Beach-Car-Park-and-Track-Project">King Street access notice</a></li>
+                  <li>Optional bath: <a href="https://albathermalsprings.com.au/alba-experiences/hot-springs/weekend-bathing/">Alba weekend bathing</a> and its <a href="https://albathermalsprings.com.au/faqs/">visitor FAQs</a></li>
                 </ul>
                 <p>Hours, availability and access can change. Confirm them for your travel dates.</p>
               </details>
@@ -709,8 +731,8 @@ export const prerender = true;
 
   {/* ── Places in this plan - venue grid, kept but re-scoped so it
        reads as a continuation of the editorial, not a fresh band. */}
-  {articleRelatedVenues.length > 0 && (
-    <section class="pl-venues">
+  {!isOneNightGuide && articleRelatedVenues.length > 0 && (
+    <section class:list={["pl-venues", isOneNightGuide && "pl-venues--one-night"]}>
       <div class="pl-container">
         <header class="pl-venues__head">
           <p class="pl-eyebrow">Places in this plan</p>
@@ -1294,6 +1316,9 @@ export const prerender = true;
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .pl-cover__visual:hover .pl-cover__image { transform: scale(1.04); }
+  .pl-venues--one-night .venue-card .venue-card__signature { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; min-height: 0; }
+  .pl-venues--one-night .venue-card .venue-card__photo-credit { font-size: .84rem; line-height: 1.5; }
+  .pl-venues--one-night .venue-card .venue-card__type { font-size: .76rem; letter-spacing: .12em; }
   .pl-cover__caption {
     display: flex;
     justify-content: space-between;
@@ -1526,7 +1551,7 @@ export const prerender = true;
   .pl-choices__mood { font: 700 .8rem/1.3 var(--font-ui); color: #8B561C; text-transform: uppercase; letter-spacing: .1em; }
   .pl-choices__outline { margin: 1.15rem 0 1.25rem; border-top: 1px solid #B9C6C8; }
   .pl-choices__outline div { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .5rem; padding: .48rem 0; border-bottom: 1px solid #D0D8D8; }
-  .pl-choices__outline dt { font: 700 .72rem/1.4 var(--font-ui); text-transform: uppercase; letter-spacing: .08em; color: #10527E; }
+  .pl-choices__outline dt { font: 700 .82rem/1.4 var(--font-ui); text-transform: uppercase; letter-spacing: .08em; color: #10527E; }
   .pl-choices__outline dd { margin: 0; font: 400 .88rem/1.4 var(--font-ui); color: #243746; }
   .pl-choices__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .8rem; margin-top: auto; }
   .pl-choices__actions a { display: inline-flex; align-items: center; min-height: 44px; gap: .3rem; font: 700 .83rem/1.3 var(--font-ui); text-underline-offset: .18em; }

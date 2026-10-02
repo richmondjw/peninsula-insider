@@ -1,21 +1,21 @@
 {
-  "probedOn": "2026-09-14",
+  "probedOn": "2026-10-03",
   "licencesFile": "next/public/images/sourced/LICENSES.md",
   "what": "One row per distinct original URL in LICENSES.md, as this probe read it on the date above.",
   "caveat": "A matching licence means the source names that grant today. It is not a check that the file in public/images/sourced is the file at that URL, and it is not permission to publish.",
   "totals": {
-    "urls": 22,
-    "ok": 22,
+    "urls": 24,
+    "ok": 24,
     "moved": 0,
     "blocked": 0,
     "dead": 0,
     "unknown": 0,
-    "licenceMatches": 20,
+    "licenceMatches": 21,
     "licenceDiffers": 1,
-    "licenceNotComparable": 1,
-    "creatorExact": 13,
-    "creatorContains": 3,
-    "creatorNotEstablished": 6
+    "licenceNotComparable": 2,
+    "creatorExact": 15,
+    "creatorContains": 4,
+    "creatorNotEstablished": 5
   },
   "rows": [
     {
@@ -36,7 +36,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
@@ -56,7 +56,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "contains",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bushrangers_Bay,_Mornington_Peninsula_National_Park_Victoria_Australia.jpeg",
@@ -76,7 +76,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "not-established",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
@@ -96,7 +96,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
@@ -116,7 +116,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
@@ -136,7 +136,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Coastal_scrub_near_Range_Area_Walk_at_Point_Nepean_in_Portsea,_Victoria.jpg",
@@ -156,7 +156,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
@@ -176,7 +176,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
@@ -198,7 +198,27 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG",
+      "citedBy": [
+        "venue-flinders-hotel-01.webp"
+      ],
+      "fileLicence": [
+        "CC-BY-SA-3.0"
+      ],
+      "fileCreator": [
+        "Mattinbgn"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "CC BY-SA 3.0",
+      "sourceCreator": "Mattinbgn",
+      "licenceAgrees": "matches",
+      "creatorAgrees": "exact",
+      "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
@@ -218,7 +238,27 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg",
+      "citedBy": [
+        "venue-sorrento-hotel-01.webp"
+      ],
+      "fileLicence": [
+        "This work has been released into the public domain by its author, Biatch at English Wikipedia. This applies worldwide."
+      ],
+      "fileCreator": [
+        "Biatch"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "Public domain",
+      "sourceCreator": "Biatch at English Wikipedia",
+      "licenceAgrees": "not-comparable",
+      "creatorAgrees": "contains",
+      "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
@@ -238,7 +278,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_from_Arthur%27s_Seat.jpg",
@@ -249,16 +289,16 @@
         "CC-BY-SA-4.0"
       ],
       "fileCreator": [
-        "Prateek.agarwal44"
+        "Slyronit"
       ],
       "verdict": "ok",
       "http": 200,
       "sourceLicence": "CC BY-SA 4.0",
       "sourceCreator": "Slyronit",
       "licenceAgrees": "matches",
-      "creatorAgrees": "not-established",
+      "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
@@ -278,7 +318,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
@@ -298,7 +338,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "not-established",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nazaaray_Estate_Winery.jpg",
@@ -318,7 +358,7 @@
       "licenceAgrees": "differs",
       "creatorAgrees": "not-established",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
@@ -338,7 +378,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
@@ -358,7 +398,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
@@ -369,7 +409,7 @@
         "CC-BY-SA-4.0"
       ],
       "fileCreator": [
-        "Emma White (uploaded by BrooksieG), 6 October 2023"
+        "BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023"
       ],
       "verdict": "ok",
       "http": 200,
@@ -378,7 +418,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "contains",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Tablas_Creek_Vineyard_-_Stierch_-_July_2019_03.jpg",
@@ -398,7 +438,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "contains",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Victoria_Mornington_Peninsula_Arthurs_Seat.jpg",
@@ -418,7 +458,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "not-established",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
@@ -438,7 +478,7 @@
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     },
     {
       "sourceUrl": "https://unsplash.com/photos/chefs-prepare-food-in-a-dimly-lit-restaurant-jSGAUxrhtpA",
@@ -458,7 +498,7 @@
       "licenceAgrees": "not-comparable",
       "creatorAgrees": "not-established",
       "note": "not a Wikimedia Commons file page, so only reachability was established",
-      "probedOn": "2026-09-14"
+      "probedOn": "2026-10-03"
     }
   ]
 }

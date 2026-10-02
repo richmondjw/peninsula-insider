@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-02T17:02:29.226Z",
+  "updatedAt": "2026-10-02T18:12:41.272Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -27,6 +27,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Weekday Brunch Thyme - Alba Thermal Springs &amp; Spa"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/hot-springs/weekend-bathing/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Weekday Hot Springs Bathing - Alba Thermal Springs &amp; Spa",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://albathermalsprings.com.au/alba-experiences/spa/",
@@ -176,6 +184,14 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://auroraspa.com.au/faqs/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQs - Aurora Spa &amp; Bathhouse",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://australianjourneys.com.au",
       "verdict": "blocked",
       "httpCode": "403",
@@ -284,6 +300,14 @@
       "httpCode": "200",
       "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Flinders Hotel 001.JPG - Wikimedia Commons",
+      "probedOn": "2026-10-02",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -577,6 +601,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Quarters at Flinders Hotel - Luxury Accommodation on the Mornington Peninsula"
+    },
+    {
+      "url": "https://flindershotel.com.au/accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Quarters at Flinders Hotel - Luxury Accommodation on the Mornington Peninsula",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://flinderssourdough.com.au",
@@ -1025,6 +1057,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Montalto Winery | Red Hill, Mornington Peninsula"
+    },
+    {
+      "url": "https://montalto.com.au/pages/cellar-door",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cellar Door Experiences - Montalto Winery",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://moonlitsanctuary.com.au",
@@ -3566,6 +3606,22 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.parks.vic.gov.au/projects/greater-melbourne/Flinders-Ocean-Beach-Car-Park-and-Track-Project",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Flinders Ocean Beach Car Park and Track Project",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/projects/greater-melbourne/flinders-pier-project",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Flinders Pier Project",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.peninsulafestival.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -4307,6 +4363,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "G &amp; T"
+    },
+    {
+      "url": "https://www.tedesca.com.au/osteria-tedesca",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Tedesca Osteria &mdash; G &amp; T",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.temptationsailing.com",

@@ -151,6 +151,8 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 // provenance at upload is the operator flow, which is gated separately.
 const heroProvenance = hero.override ? null : data.heroImage;
 const heroCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
+const flindersCommonsHero = venueSlug === 'flinders-hotel' && !hero.override && hero.hasPhoto;
+const heroSourceUrl = flindersCommonsHero ? data.heroImage?.sourceUrl : undefined;
 // The photograph rule (src/lib/photo-set.ts): a stage opens the page when
 // there are three or more verified photographs, and the rest are set into
 // the editor note rather than dumped at the foot of the page.
@@ -392,7 +394,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           {!isUnverifiedPaused && <span class="venue-detail__hero-label">{heroLabel}</span>}
         </figure>
         {heroCredit && (
-          <p class="venue-detail__hero-credit">{venueSlug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : ''}{formatHeroCredit(heroCredit)}</p>
+          <p class="venue-detail__hero-credit">{venueSlug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : ''}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label="Flinders Hotel image source">Source</a><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href="https://creativecommons.org/licenses/by-sa/3.0/" aria-label="Flinders Hotel image licence">Licence</a></span>}</p>
         )}
         <MediaProvenanceNote
           image={heroProvenance}
@@ -1009,6 +1011,10 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
 </script>
 
 <style>
+  .venue-detail__credit-links { display: inline-flex; align-items: center; gap: .15rem; margin-left: .35rem; white-space: nowrap; }
+  .venue-detail__credit-link { display: inline-flex; align-items: center; min-height: 1.5rem; padding-inline: .2rem; text-decoration: underline; text-underline-offset: 2px; }
+  .venue-detail__credit-link:focus-visible { outline: 2px solid #10527E; outline-offset: 2px; }
+
   /* Keep the subject and pool visible in Cassis's portrait CMS hero. */
   .venue-detail[data-venue-view="cassis"] .venue-detail__hero > img {
     object-position: center bottom;
