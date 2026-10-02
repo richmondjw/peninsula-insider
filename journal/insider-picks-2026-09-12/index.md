@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · BrooksieG
 
-Illustrative image  This photograph shows rows of trellised vines running to a cypress windbreak. It is not a photograph of the place described on this page.
+Illustrative image  This image shows rows of trellised vines running to a cypress windbreak. It does not depict the place described on this page.
 
 ## WINE - Elgee Park, Merricks North
 

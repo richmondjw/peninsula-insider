@@ -19,7 +19,7 @@ Insider Picks  Winter
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows two children in shallow water beside a timber jetty. It is not a photograph of the place described on this page.
+Illustrative image  This image shows two children in shallow water beside a timber jetty. It does not depict the place described on this page.
 
 ## EAT - The Sorrento Hotel, Sorrento
 

@@ -591,7 +591,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Peninsula Hot Springs – Bathe-in Cinema (Thursdays)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-bathe-in-cinema-thursdays/>)
 
-- [Peninsula Hot Springs Daily Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+- [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
 - [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
 

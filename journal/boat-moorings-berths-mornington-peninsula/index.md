@@ -19,7 +19,7 @@ Boating  Moorings  Berths  Mornington
 
 Photo · Simon Yeo
 
-Illustrative image  This photograph shows brightly painted bathing boxes along a bay beach below a wooded hillside. It is not a photograph of the place described on this page.
+Illustrative image  This image shows brightly painted bathing boxes along a bay beach below a wooded hillside. It does not depict the place described on this page.
 
 Mornington doesn’t have a marina in the Sorrento or Rye sense - what it has is a managed mooring ground, a genuinely competitive annual waiting list, and a seasonal booking system that resets every year. None of that is obvious from the water, and it isn’t obvious from a general web search either. Here’s the actual structure, and who to talk to.
 

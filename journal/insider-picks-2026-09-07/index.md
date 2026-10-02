@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It does not depict the place described on this page.
 
 **Update, 23 September 2026:** The Balnarring market date and venue described below could not be confirmed from a current primary source. This dated pick is retained as historical context; do not use it to plan a future market visit. Emu Plains Market is a separate Balnarring event with its own organiser schedule.
 

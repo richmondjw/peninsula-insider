@@ -128,7 +128,7 @@ Peninsula Insider · Published 4 Apr 2026 · 7 min read
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Jackalope Hotel. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
 
 Stay a little longer
 

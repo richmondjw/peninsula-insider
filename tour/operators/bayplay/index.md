@@ -11,7 +11,7 @@ Tours     Activity Specialist
 
 Bayplay Adventure runs guided snorkelling and other outdoor experiences from Portsea. Its current Sea Dragon tour page describes a briefing at the operator followed by a walk to the beach. Portsea Pier is closed to public access for maintenance, so confirm the current route and availability with Bayplay.
 
-Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Adventure.
+Illustrative image  This image shows Point King Beach, Portsea. It does not depict Bayplay Adventure.
 
 Context photo of Point King Beach, Portsea. This is not Bayplay's confirmed departure or water entry. Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized from the original.
 
@@ -37,7 +37,7 @@ Tours by Bayplay Adventure
 
 ## 1 tour listed
 
-Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Sea Dragon Snorkel Tour.
+Illustrative image  This image shows Point King Beach, Portsea. It does not depict Bayplay Sea Dragon Snorkel Tour.
 
 Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
 

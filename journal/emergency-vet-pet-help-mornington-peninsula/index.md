@@ -19,7 +19,7 @@ Dogs  Emergency  Vet  Peninsula
 
 Photo · Unsplash
 
-Illustrative image  This photograph shows a chocolate Labrador looking up at the camera. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a chocolate Labrador looking up at the camera. It does not depict the place described on this page.
 
 This page exists because not every Peninsula day goes to plan. Use it calmly.
 

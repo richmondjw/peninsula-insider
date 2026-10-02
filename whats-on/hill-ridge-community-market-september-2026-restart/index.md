@@ -9,15 +9,19 @@ Markets     3 October 2026     Recurs monthly
 
 # Hill & Ridge Community Market, 3 October 2026
 
-The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Unsafe weather can cancel the event without notice; check the organiser before travelling.
+The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.
 
 Worth the drive   First timer
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated country market still life with produce, bread and handmade ceramics. It does not depict Hill & Ridge Community Market, 3 October 2026.
 
 Editor's verdict
 
 A confirmed 3 October market date from the Hill & Ridge organiser, subject to unsafe-weather cancellation. This is separate from the temporarily closed original Red Hill Community Market.
 
-Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. Its organiser confirms Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road. Browse local food, produce and artisan stalls, then consider a Red Hill lunch. Unsafe weather can cause cancellation without notice, so check the organiser before travelling.
+Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. Its organiser confirms Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road. Browse local food, produce and artisan stalls, then consider a Red Hill lunch. Entry is free; the organiser says reserve parking has a charge and asks visitors to avoid roadside parking. Unsafe weather can cause cancellation without notice, so check the organiser before travelling.
 
 Hosted at
 
@@ -27,7 +31,7 @@ Red Hill Recreation Reserve
 
 - [Visit venue website →](<https://www.hillandridgemarket.com.au/>)
 
-- [Get directions →](<https://www.google.com/maps?q=-38.377,145.084>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=184%20Arthurs%20Seat%20Road%2C%20Red%20Hill%2C%20VIC>)
 
 At a glance
 
@@ -63,7 +67,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.hillandridgemarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hill+%26+Ridge+Community+Market%2C+3+October+2026&dates=20261002T230000Z%2F20261003T040000Z&details=The+separate+Hill+%26+Ridge+Community+Market+is+confirmed+by+its+organiser+for+Saturday+3+October+2026%2C+9am%E2%80%932pm%2C+at+Red+Hill+Recreation+Reserve%2C+184+Arthurs+Seat+Road.+Unsafe+weather+can+cancel+the+event+without+notice%3B+check+the+organiser+before+travelling.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhill-ridge-community-market-september-2026-restart%2F&location=184+Arthurs+Seat+Road%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.hillandridgemarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hill+%26+Ridge+Community+Market%2C+3+October+2026&dates=20261002T230000Z%2F20261003T040000Z&details=The+separate+Hill+%26+Ridge+Community+Market+is+confirmed+by+its+organiser+for+Saturday+3+October+2026%2C+9am%E2%80%932pm%2C+at+Red+Hill+Recreation+Reserve%2C+184+Arthurs+Seat+Road.+Entry+is+free+but+parking+has+a+charge.+Unsafe+weather+can+cancel+the+event+without+notice%3B+check+the+organiser+before+travelling.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhill-ridge-community-market-september-2026-restart%2F&location=184+Arthurs+Seat+Road%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

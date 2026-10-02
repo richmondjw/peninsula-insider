@@ -5,41 +5,43 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     9 October 2026     Recurs weekly
+Food & Wine     Choose a date on the organiser calendar     Sessions on the organiser calendar
 
 # Bass & Flinders Gin Masterclass
 
-Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.
+A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
 
 Editor's verdict
 
 The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the price.
 
-Three hours at Bass & Flinders' Dromana still. You sit down with their gin expert, work through the history, smell every botanical they distil with, and then build your own blend on a small copper still. It ends with a cheese platter, a G&T, and a 500ml bottle of your own recipe labelled with your name.
+The operator describes a two-hour guided class covering gin history, distillation and botanicals before you blend your own recipe. Its published inclusions are a cheese platter and a 500ml bottle of your gin to take home.
 
-Best suited to couples, small groups and team days. The graduate masterclass exists if you've done the first one and want to go deeper. Book three to four weeks ahead for a weekend slot.
-
-Pair with lunch at Crittenden or a soak at Peninsula Hot Springs afterwards. Don't drive yourself home, you'll be over.
+Choose a specific session on the operator calendar before planning the drive. Adults only; arrange a designated driver if you will be tasting spirits. Pair a confirmed class with a Dromana lunch or another nearby stop, allowing time for travel.
 
 Hosted at
 
 Bass & Flinders Distillery
 
-166 Tucks Road   ,   Dromana VIC
+40 Collins Road   ,   Dromana VIC
 
 - [Visit venue website →](<https://www.bassandflindersdistillery.com/>)
 
-- [Get directions →](<https://www.google.com/maps?q=-38.3424,144.9627>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=40%20Collins%20Road%2C%20Dromana%2C%20VIC>)
 
 At a glance
 
 **When**
 
-9 October 2026
+Choose a date on the organiser calendar
 
 **Recurrence**
 
-Recurs weekly · Weekly (every week year-round)
+Sessions on the organiser calendar · Choose a dated session on the operator calendar; no fixed weekly day confirmed
 
 **Price**
 
@@ -53,7 +55,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Get tickets](<https://www.bassandflindersdistillery.com/pages/events>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bass+%26+Flinders+Gin+Masterclass&dates=20261009%2F20261010&details=Three+hours+at+the+still+in+Dromana.+Learn+how+gin+actually+gets+made%2C+blend+your+own+botanicals%2C+and+walk+out+with+a+500ml+bottle+of+your+own+recipe.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbass-flinders-gin-masterclass%2F&location=166+Tucks+Road%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check dates with organiser](<https://www.bassandflindersdistillery.com/pages/gin-masterclass>)
 
 Filed under
 
@@ -69,13 +71,13 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Food & Wine   Available on request (check availability on TMBT website)
+Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
 [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-One hour in TMBT's private tasting room.
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 

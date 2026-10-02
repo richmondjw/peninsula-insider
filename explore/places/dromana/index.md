@@ -391,12 +391,12 @@ Coming up in Dromana, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Every Friday
+- [1 May – 30 April 2027
 
 ### ✦ Bass & Flinders Gin Masterclass
 
 Dromana
 
-Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.
+A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.
 
  Food & Wine](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)

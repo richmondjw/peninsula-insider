@@ -17,11 +17,9 @@ Editor's verdict
 
 The Peninsula's best-value Saturday evening. Free entry, happy hour drinks, and live acoustic sets at a resort with proper views.
 
-Every Saturday at Peppers Moonah Links, local acoustic artists play the resort lounge from 5pm. Entry is free. Happy hour runs 5–6pm with drinks at the bar - good value for a resort setting.
+On Saturday 3 October, acoustic music is listed from 5–8pm at Moonah Links. The resort places its live music at Spike Bar, with no booking required. The Shire confirms free entry for this date.
 
-Good for anyone staying in the area or finishing a day of wine tasting and wanting to wind down without paying a ticket price. The resort setting feels like more than it costs.
-
-Pair with Arthurs Seat Eagle during the day or a Cape Schanck walk, then come back for the 5pm set.
+This is an easy evening stop after a Fingal or Cape Schanck day. Check the organiser before travelling in case the programme changes.
 
 Hosted at
 
@@ -31,7 +29,7 @@ Peppers Moonah Links
 
 - [Visit venue website →](<https://www.moonahlinks.com.au/>)
 
-- [Get directions →](<https://www.google.com/maps?q=-38.4555,144.8497>)
+- [Get directions →](<https://www.google.com/maps?q=-38.4054765,144.8526463>)
 
 At a glance
 
@@ -73,23 +71,27 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Food & Wine   Available on request (check availability on TMBT website)
+Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
 [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-One hour in TMBT's private tasting room.
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Food & Wine   Weekly (every week year-round)
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+
+Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Three hours at the still in Dromana.
+A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 

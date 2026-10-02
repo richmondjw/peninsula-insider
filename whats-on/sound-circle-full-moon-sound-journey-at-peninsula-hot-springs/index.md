@@ -67,7 +67,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Wellness   Available on request (not fixed public dates)
+Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
@@ -77,11 +77,15 @@ Wellness   Available on request (not fixed public dates)
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
-Wellness   Daily
+AI-assisted artwork · Peninsula Insider
 
-### [Peninsula Hot Springs Daily Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
 
-Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session.
+Wellness   Check session dates
+
+### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+
+A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 

@@ -5,19 +5,23 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Wellness     1 May – 30 April 2027     One-off date
+Wellness     Choose a date on the organiser calendar     Sessions on the organiser calendar
 
-# Peninsula Hot Springs Daily Studio Yoga
+# Peninsula Hot Springs Studio Yoga
 
-Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.
+A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
 
 Editor's verdict
 
 A useful paid add-on if you're already booked in to bathe, not a reason to drive out on its own.
 
-A 45-minute guided yoga session in the Wellness Studio, open to guests aged 16 and over. It is sold as a paid add-on to your bathing admission, not a standalone class.
+Peninsula Hot Springs currently lists a 45-minute studio yoga class at 7:30am daily for guests aged 16 and over, as a paid add-on to bathing. Choose a dated session in the operator booking flow before planning the trip.
 
-The move: book a 7:30am or evening bathing slot when the pools are quieter, do yoga first, then bathe. Avoid the 10am to 4pm window when day-trippers crowd the studio booking. Wellness Studio is indoors so it runs in any weather.
+Pair a confirmed class with time to bathe. The published schedule can change, so check availability directly before travelling.
 
 Hosted at
 
@@ -33,7 +37,7 @@ At a glance
 
 **When**
 
-1 May – 30 April 2027
+Choose a date on the organiser calendar
 
 **Time**
 
@@ -41,7 +45,7 @@ At a glance
 
 **Recurrence**
 
-One-off date · Daily
+Sessions on the organiser calendar · Operator lists daily 7:30am; book a specific available session
 
 **Price**
 
@@ -51,7 +55,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Get tickets](<https://www.peninsulahotsprings.com/bathe/wellness-activities>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Hot+Springs+Daily+Studio+Yoga&dates=20260430T213000Z%2F20270429T221500Z&details=Daily+45-minute+studio+yoga+at+Peninsula+Hot+Springs+%2816%2B%29%2C+a+paid+add-on+to+a+bathing+session.+Book+early-morning+or+evening+slots+to+avoid+the+crowd.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-hot-springs-daily-studio-yoga%2F&location=140+Springs+Lane%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check dates with organiser](<https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga>)
 
 Filed under
 
@@ -65,7 +69,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Wellness   Available on request (not fixed public dates)
+Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 

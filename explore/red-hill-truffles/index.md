@@ -11,7 +11,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Photo · CSIRO
 
-Illustrative image  This photograph shows a grassed row between trellised vines in full leaf. It is not a photograph of Red Hill Truffles.
+Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict Red Hill Truffles.
 
 Red Hill Truffles is a working truffière on the Red Hill ridge that opens for seasonal truffle hunts from late autumn through winter. The format is the one every winter food-obsessive eventually books: a morning in the field with trained dogs working each row and nosing out the black truffles hidden under the inoculated oaks, followed by a small tasting back at the shed where the truffles go into eggs, butter, and whatever the kitchen is running that week. The hunt itself, watching the dogs work, is as much the point as the truffle on the plate.
 

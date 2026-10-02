@@ -41,27 +41,27 @@ Fri, 2 Oct   Mornington   Exhibitions
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Australia's biggest privately owned outdoor sculpture park, and one of the few cultural attractions on the Peninsula that genuinely earns…
+An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
 
-11am · Merricks · Arts · On during your dates · runs to Fri, 30 Apr 2027
+11am · Merricks · Arts · On during your dates · runs to Fri, 30 Apr 2027 · Check opening hours
 
 - [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
 A retreat that takes wellness seriously without the wellness-industrial-complex theatrics.
 
-Red Hill · Wellness · On during your dates · runs to Fri, 30 Apr 2027
+Red Hill · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Dates on request
 
 - [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-This is the masterclass for people who want to understand Pinot, not just drink it. The most serious 60 minutes…
+A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
 
-Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027
+Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the…
 
-Dromana · Food & Wine · Recurring weekly · Ended
+Dromana · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -69,11 +69,11 @@ National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 
 
 11am · Mornington · Exhibitions · On during your dates · runs to Sun, 22 Nov
 
-- [Peninsula Hot Springs Daily Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+- [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
 A useful paid add-on if you're already booked in to bathe, not a reason to drive out on its own.
 
-7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027
+7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
 
@@ -197,7 +197,7 @@ Mornington · Live Music
 
 - [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-This is the masterclass for people who want to understand Pinot, not just drink it. The most serious 60 minutes…
+A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
 
 Main Ridge · Food & Wine
 
@@ -223,7 +223,7 @@ Mornington · Food & Wine
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Australia's biggest privately owned outdoor sculpture park, and one of the few cultural attractions on the Peninsula that genuinely earns…
+An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
 
 11am · Merricks · Arts
 

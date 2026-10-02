@@ -19,7 +19,7 @@ Family  Kids  School Holidays  Spring
 
 Photo · Courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Arthurs Seat Eagle gondolas, not the 2026 school-holiday programme. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Arthurs Seat Eagle gondolas, not the 2026 school-holiday programme. It does not depict the place described on this page.
 
 For 30 September to 4 October 2026; organiser pages checked 30 September. Choose one main outing, then leave room for a beach walk or an unhurried lunch. Published programmes are not proof of ticket availability or today’s conditions, so check the organiser before leaving.
 

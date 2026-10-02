@@ -19,7 +19,7 @@ Insider Picks  Winter
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows the view over Port Phillip Bay from the Arthurs Seat lookout. It is not a photograph of the place described on this page.
+Illustrative image  This image shows the view over Port Phillip Bay from the Arthurs Seat lookout. It does not depict the place described on this page.
 
 **EAT: Jetty Road Brewery, Dromana**
 

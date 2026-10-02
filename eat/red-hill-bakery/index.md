@@ -17,7 +17,7 @@ The Red Hill Baker · Balnarring
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows an illustrative arrangement of rustic loaves. It is not a photograph of The Red Hill Baker.
+Illustrative image  This image shows an illustrative arrangement of rustic loaves. It does not depict The Red Hill Baker.
 
 Why we’d go
 

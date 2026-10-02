@@ -19,6 +19,8 @@ Hosted at
 
 Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line)
 
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=VIC>)
+
 At a glance
 
 **When**

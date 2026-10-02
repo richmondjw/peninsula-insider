@@ -19,7 +19,7 @@ Eat  Produce  Markets  Cook In
 
 Photo · Courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Produce at Mornington Farmers Market. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Produce at Mornington Farmers Market. It does not depict the place described on this page.
 
 Start here
 

@@ -19,6 +19,8 @@ Civic Reserve, Dunns Road   ,   Mornington VIC
 
 - [Visit venue website →](<https://mprg.mornpen.vic.gov.au/>)
 
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Civic%20Reserve%2C%20Dunns%20Road%2C%20Mornington%2C%20VIC>)
+
 At a glance
 
 **When**

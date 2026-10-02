@@ -25,7 +25,7 @@ Doot Doot Doot · Red Hill
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Jackalope Hotel exterior. It is not a photograph of Doot Doot Doot.
+Illustrative image  This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.
 
 Why we’d go
 

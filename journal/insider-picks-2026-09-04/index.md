@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky. It does not depict the place described on this page.
 
 ## Eat & Drink - The Heritage, Balnarring
 

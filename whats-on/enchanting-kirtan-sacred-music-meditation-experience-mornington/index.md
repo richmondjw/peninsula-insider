@@ -17,6 +17,8 @@ Peninsula Community Theatre
 
 Mornington VIC
 
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%2C%20VIC>)
+
 At a glance
 
 **When**
@@ -58,6 +60,8 @@ Live Music  2 Jan
 Ten-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 11 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
+
+Image · Two Palms Australia [Image source](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/Victoria%20Content%20Hub%20asset%20160851,%20downloaded%202026-09-28>)
 
 Live Music   Every Sunday from 12pm; performer changes weekly
 

@@ -39,6 +39,8 @@ with verified provenance and geo-location.
 - **Photographer:** Marshlung
 - **Licence:** CC-BY-SA-4.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg
+- **Adaptation:** Converted to WebP; the weekend hero crops the displayed frame. The image remains under CC BY-SA 4.0.
+- **Used for:** The undated fallback hero on /whats-on/this-weekend/.
 
 ## place-point-nepean-01.webp
 - **Source:** Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria

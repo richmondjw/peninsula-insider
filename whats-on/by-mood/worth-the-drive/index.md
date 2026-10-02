@@ -71,17 +71,19 @@ Ten-day classical and contemporary festival across Peninsula wineries, churches 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
-Arts   Daily year-round
+Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+
+Arts   Check opening hours
 
 ### [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
 [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-Australia's largest privately owned outdoor sculpture park: 16.
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Wellness   Available on request (not fixed public dates)
+Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
@@ -91,13 +93,13 @@ Wellness   Available on request (not fixed public dates)
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
-Food & Wine   Available on request (check availability on TMBT website)
+Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
 [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-One hour in TMBT's private tasting room.
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
@@ -120,6 +122,10 @@ Markets   Monthly October–April (day market); June and August also listed; no 
 Monthly artisan market at Emu Plains Reserve Balnarring.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated country market still life with produce, bread and handmade ceramics. It does not depict Hill & Ridge Community Market, 3 October 2026.
 
 Markets   Monthly (first Saturday Sep–May)
 

@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · CSIRO
 
-Illustrative image  This photograph shows a grassed row between trellised vines in full leaf. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict the place described on this page.
 
 ## Eat: Green Olive at Red Hill
 

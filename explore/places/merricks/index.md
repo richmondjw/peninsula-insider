@@ -417,6 +417,6 @@ Coming up in Merricks, pulled from the events registry.
 
 Merricks
 
-Australia's largest privately owned outdoor sculpture park: 16.5 acres, more than 70 contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.
 
  Arts](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)

@@ -19,7 +19,7 @@ Mornington  Art  Exhibition  Spring
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows brightly painted bathing boxes along a bay beach below a wooded hillside. It is not a photograph of the place described on this page.
+Illustrative image  This image shows brightly painted bathing boxes along a bay beach below a wooded hillside. It does not depict the place described on this page.
 
 National Works on Paper 2026 is showing at Mornington Peninsula Regional Gallery from 5 September to 22 November. For a practical visit, use the gallery’s regular Tuesday-to-Sunday window, 11am to 4pm, and allow the exhibition to set the pace rather than crowding it into another stop.
 

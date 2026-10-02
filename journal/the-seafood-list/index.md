@@ -19,7 +19,7 @@ Eat  Seafood  Bayside  Hastings
 
 Photo · Courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Sorrento Ferry Terminal. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Sorrento Ferry Terminal. It does not depict the place described on this page.
 
 The Mornington Peninsula’s food identity is pinot and long lunches, and that identity is accurate but incomplete. The Peninsula is a literal peninsula - water on three sides, commercial fishing out of Hastings, Mornington, and Flinders, mussel farms in Western Port Bay, oyster beds in the channel. The seafood exists at a level that most visitors never encounter because they are driving past the docks on the way to a cellar door.
 

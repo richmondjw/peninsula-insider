@@ -5,23 +5,21 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     1 May – 30 April 2027     One-off date
+Food & Wine     Choose a date on the organiser calendar     Sessions on the organiser calendar
 
 # Ten Minutes by Tractor, Terroir Masterclass
 
-One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.
 
 Worth the drive
 
 Editor's verdict
 
-This is the masterclass for people who want to understand Pinot, not just drink it. The most serious 60 minutes of wine education on the Peninsula.
+A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
 
-TMBT's three vineyards (McCutcheon, Wallis, Judd) sit minutes apart on Main Ridge and make wildly different Pinot and Chardonnay. The masterclass puts those wines next to each other on the bench, with a winemaker walking you through what changes between rows of vines a kilometre apart. Eight wines: two limited release, six current. Snacks on the table. Minimum two guests, private group only.
+The operator lists an 11am daily Terroir Masterclass in its private tasting room. Its current description covers the vineyards and regional history, with two limited-release and six current-release wines.
 
-Built for people already a bit into wine. Not the entry-level tasting, this is the next step. Book directly through TMBT; the Tripadvisor listing has been on and off but the masterclass runs.
-
-Do the masterclass mid-morning, then stay for lunch at TMBT Restaurant or walk down to Allis Wine Bar. Add Merricks General Store on the way home.
+Book an available dated session directly with the operator before building an itinerary around it. A Main Ridge lunch can follow a confirmed class.
 
 Hosted at
 
@@ -37,11 +35,11 @@ At a glance
 
 **When**
 
-1 May – 30 April 2027
+Choose a date on the organiser calendar
 
 **Recurrence**
 
-One-off date · Available on request (check availability on TMBT website)
+Sessions on the organiser calendar · Operator lists 11am daily; book a specific available session
 
 **Price**
 
@@ -59,7 +57,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Get tickets](<https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ten+Minutes+by+Tractor%2C+Terroir+Masterclass&dates=20260501%2F20270501&details=One+hour+in+TMBT%27s+private+tasting+room.+Eight+wines+%28two+limited-release%2C+six+current%29%2C+the+three+single-vineyard+sites+side-by-side%2C+and+the+long+answer+to+why+Pinot+from+Main+Ridge+tastes+the+way+it+does.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ften-minutes-by-tractor-terroir-masterclass%2F&location=1333+Mornington-Flinders+Road%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check dates with organiser](<https://www.tenminutesbytractor.com.au/visit-us>)
 
 Filed under
 
@@ -77,13 +75,17 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Food & Wine   Weekly (every week year-round)
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+
+Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Three hours at the still in Dromana.
+A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 

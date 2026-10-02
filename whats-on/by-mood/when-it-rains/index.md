@@ -11,33 +11,39 @@ Wet-weather rescue
 
 Indoor events that hold up regardless of the weather. Galleries, cellar doors with proper restaurant tables, hot springs, treatment rooms. The Peninsula has more wet-weather options than people think.
 
-Arts   Daily year-round
+Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+
+Arts   Check opening hours
 
 ### [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
 [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-Australia's largest privately owned outdoor sculpture park: 16.
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Food & Wine   Available on request (check availability on TMBT website)
+Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
 [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-One hour in TMBT's private tasting room.
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Food & Wine   Weekly (every week year-round)
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+
+Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Three hours at the still in Dromana.
+A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
@@ -51,11 +57,15 @@ National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Wellness   Daily
+AI-assisted artwork · Peninsula Insider
 
-### [Peninsula Hot Springs Daily Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
 
-Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session.
+Wellness   Check session dates
+
+### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+
+A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
@@ -87,6 +97,8 @@ Saturday evening acoustic sessions with local artists at Peppers Moonah Links.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Image · Two Palms Australia [Image source](<https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/Victoria%20Content%20Hub%20asset%20161358,%20downloaded%202026-09-28>)
+
 Food & Wine   Runs daily from 15 to 22 October; daily session times not stated on source
 
 ### [Oktoberfest at The Continental Sorrento](<https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/>)
@@ -96,6 +108,8 @@ Food & Wine   Runs daily from 15 to 22 October; daily session times not stated o
 Conti Bar becomes a German beer hall from 15 to 22 October, with Weihenstephaner on tap and a Bavarian menu.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/>)
+
+Image · Two Palms Australia [Image source](<https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/Victoria%20Content%20Hub%20asset%20160851,%20downloaded%202026-09-28>)
 
 Live Music   Every Sunday from 12pm; performer changes weekly
 

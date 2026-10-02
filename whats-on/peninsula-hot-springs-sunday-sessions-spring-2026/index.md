@@ -13,6 +13,8 @@ Live music every Sunday from midday at Peninsula Hot Springs, played to the pool
 
 All weather
 
+Image · Two Palms Australia [Image source](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/Victoria%20Content%20Hub%20asset%20160851,%20downloaded%202026-09-28>)
+
 Editor's verdict
 
 Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.

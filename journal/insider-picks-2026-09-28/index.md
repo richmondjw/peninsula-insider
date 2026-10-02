@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows an illustrative arrangement of rustic loaves. It is not a photograph of the place described on this page.
+Illustrative image  This image shows an illustrative arrangement of rustic loaves. It does not depict the place described on this page.
 
 ## EAT - The Red Hill Baker, Balnarring
 

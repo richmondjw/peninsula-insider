@@ -19,7 +19,7 @@ The Sanctuary at Alba · Fingal
 
 Photo · Courtesy of Visit Victoria
 
-Illustrative image  This photograph shows the Alba Thermal Springs estate in Fingal. It is not a photograph of The Sanctuary at Alba.
+Illustrative image  This image shows the Alba Thermal Springs estate in Fingal. It does not depict The Sanctuary at Alba.
 
 Why we’d go
 

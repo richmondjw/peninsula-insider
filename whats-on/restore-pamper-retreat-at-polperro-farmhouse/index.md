@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Wellness     1 May – 30 April 2027     One-off date
+Wellness     Arrange a date with the organiser     By arrangement
 
 # Restore & Pamper Retreat at Polperro Farmhouse
 
@@ -31,15 +31,17 @@ Polperro Farmhouse
 
 - [Visit venue website →](<https://www.polperrowines.com.au/>)
 
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=64%20Donaldsons%20Road%2C%20Red%20Hill%2C%20VIC>)
+
 At a glance
 
 **When**
 
-1 May – 30 April 2027
+Arrange a date with the organiser
 
 **Recurrence**
 
-One-off date · Available on request (not fixed public dates)
+By arrangement · Available on request (not fixed public dates)
 
 **Price**
 
@@ -57,7 +59,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Visit organiser](<https://www.polperrowines.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Restore+%26+Pamper+Retreat+at+Polperro+Farmhouse&dates=20260501%2F20270501&details=3-day%2C+2-night+wellness+retreat+at+Polperro+Farmhouse+in+Red+Hill.+Yoga%2C+massage+at+PHS+or+Endota%2C+optional+juice+cleanse%2C+at+the+farmhouse+in+Red+Hill.+Booked+direct+via+Polperro+or+Hut+Yoga.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Frestore-pamper-retreat-at-polperro-farmhouse%2F&location=64+Donaldsons+Road%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check dates with organiser](<https://www.polperrowines.com.au/>)
 
 Filed under
 
@@ -73,11 +75,15 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Wellness   Daily
+AI-assisted artwork · Peninsula Insider
 
-### [Peninsula Hot Springs Daily Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
 
-Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session.
+Wellness   Check session dates
+
+### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+
+A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 

@@ -19,7 +19,7 @@ Insider Picks  Winter
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows brightly painted bathing boxes along a bay beach below a wooded hillside. It is not a photograph of the place described on this page.
+Illustrative image  This image shows brightly painted bathing boxes along a bay beach below a wooded hillside. It does not depict the place described on this page.
 
 ## EAT - Sourdough Kitchen, Mornington
 

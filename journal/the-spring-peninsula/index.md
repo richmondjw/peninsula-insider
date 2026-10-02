@@ -19,7 +19,7 @@ Spring  Seasonal  Weekend  Red Hill
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Montalto. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 There is a three-week window in the middle of October when the Mornington Peninsula is at its quiet best, and almost no one comes down for it.
 

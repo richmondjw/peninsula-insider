@@ -309,11 +309,11 @@ Saturday evening acoustic sessions with local artists at Peppers Moonah Links. H
 
 - [1 May – 30 April 2027
 
-### ✦ Peninsula Hot Springs Daily Studio Yoga
+### ✦ Peninsula Hot Springs Studio Yoga
 
 Fingal
 
-Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.
+A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.
 
  Wellness](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 

@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-03",
-  "generatedAt": "2026-10-02T20:12:43.737Z",
+  "generatedAt": "2026-10-02T20:50:56.202Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -41,6 +41,19 @@
       "position": 2,
       "item": {
         "@type": "Event",
+        "name": "Bass & Flinders Gin Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+        "startDate": "2026-10-03",
+        "endDate": "2027-01-01",
+        "description": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "Event",
         "name": "Doggy Day Out on the Mornington Peninsula",
         "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
         "startDate": "2026-10-03",
@@ -51,7 +64,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 4,
       "item": {
         "@type": "Event",
         "name": "Family Mystery Picnic on the Mornington Peninsula",
@@ -64,7 +77,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "item": {
         "@type": "Event",
         "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
@@ -77,20 +90,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "Event",
         "name": "Hill & Ridge Community Market, 3 October 2026",
         "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
         "startDate": "2026-10-03",
         "endDate": "2026-10-03",
-        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
+        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -103,20 +116,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "item": {
         "@type": "Event",
-        "name": "Peninsula Hot Springs Daily Studio Yoga",
+        "name": "Peninsula Hot Springs Studio Yoga",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
         "startDate": "2026-10-03",
         "endDate": "2027-01-01",
-        "description": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+        "description": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Yoga (Complimentary)",
@@ -129,7 +142,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Polperro Cellar Table, Private Dining Experience",
@@ -142,20 +155,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Pt. Leo Estate Sculpture Park",
         "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
         "startDate": "2026-10-03",
         "endDate": "2027-01-01",
-        "description": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, more than 70 contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
+        "description": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -168,20 +181,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
         "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
         "startDate": "2026-10-03",
         "endDate": "2027-01-01",
-        "description": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
+        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Sunday Sessions at Peninsula Hot Springs",
@@ -194,7 +207,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -207,7 +220,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Hastings Thursday Street Market",
@@ -215,19 +228,6 @@
         "startDate": "2026-10-08",
         "endDate": "2026-10-08",
         "description": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 16,
-      "item": {
-        "@type": "Event",
-        "name": "Bass & Flinders Gin Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-        "startDate": "2026-10-09",
-        "endDate": "2026-10-09",
-        "description": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -531,6 +531,37 @@
       "thisWeekend": true
     },
     {
+      "title": "Bass & Flinders Gin Masterclass",
+      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "startDate": "2026-10-03",
+      "endDate": "2027-01-01",
+      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
+      "factCheckedOn": null,
+      "recurrence": "ongoing",
+      "category": "food-wine",
+      "place": "dromana",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-02",
+          "eventStatus": null
+        },
+        {
+          "date": "2026-10-03",
+          "eventStatus": "https://schema.org/EventScheduled"
+        },
+        {
+          "date": "2026-10-04",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Doggy Day Out on the Mornington Peninsula",
       "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
       "startDate": "2026-10-03",
@@ -636,7 +667,7 @@
       "place": "red-hill",
       "venue": null,
       "freePaid": "Free (entry)",
-      "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
+      "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -678,19 +709,19 @@
       "thisWeekend": true
     },
     {
-      "title": "Peninsula Hot Springs Daily Studio Yoga",
+      "title": "Peninsula Hot Springs Studio Yoga",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "startDate": "2026-10-03",
       "endDate": "2027-01-01",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
+      "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": null,
-      "recurrence": "one-off",
+      "recurrence": "ongoing",
       "category": "wellness",
       "place": null,
       "venue": null,
       "freePaid": "Paid (add-on)",
-      "summary": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+      "summary": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -783,7 +814,7 @@
       "place": "merricks",
       "venue": null,
       "freePaid": "Paid",
-      "summary": "Australia's largest privately owned outdoor sculpture park: 16.5 acres, more than 70 contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.",
+      "summary": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -838,14 +869,14 @@
       "startDate": "2026-10-03",
       "endDate": "2027-01-01",
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "sourceUrl": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",
+      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
       "factCheckedOn": null,
-      "recurrence": "one-off",
+      "recurrence": "ongoing",
       "category": "food-wine",
       "place": "main-ridge",
       "venue": null,
       "freePaid": "Paid",
-      "summary": "One hour in TMBT's private tasting room. Eight wines (two limited-release, six current), the three single-vineyard sites side-by-side, and the long answer to why Pinot from Main Ridge tastes the way it does.",
+      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -921,29 +952,6 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
-    },
-    {
-      "title": "Bass & Flinders Gin Masterclass",
-      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-09",
-      "endDate": "2026-10-09",
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "sourceUrl": "https://www.bassandflindersdistillery.com/pages/events",
-      "factCheckedOn": null,
-      "recurrence": "weekly",
-      "category": "food-wine",
-      "place": "dromana",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Three hours at the still in Dromana. Learn how gin actually gets made, blend your own botanicals, and walk out with a 500ml bottle of your own recipe.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-02",
-          "eventStatus": null
-        }
-      ],
-      "thisWeekend": true
     },
     {
       "title": "Crib Point Community Market",

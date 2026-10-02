@@ -5,85 +5,43 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend   Fri 2 – Sun 4 October
+Peninsula This Weekend     Edition · Fri 2 – Sun 4 October
 
-# What’s on this weekend
+This edition covers Fri 2 – Sun 4 October. Check the date with each organiser before travelling, or [browse the current events index](<https://peninsulainsider.com.au/whats-on/>).
 
-Current events across the Mornington Peninsula for Fri 2 – Sun 4 October. Our next edited dispatch is in preparation; this list comes from the live events registry.
+# A Peninsula weekend selection
 
-**Current window: Fri 2 – Sun 4 October.** No expired dispatch is being presented as current.
+Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
-Current registry
+Choose your own timing
 
-## Events running this weekend
+## Experiences worth checking
 
-These listings are date-checked at build time. The most recent edited dispatch is available in the archive below.
+These are not confirmed weekend sessions. Check a date or opening hours with each operator before making a plan.
 
-Arts   Daily year-round
+Check opening hours
 
 ### [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-[Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+An art-led walk in the wine country. Confirm current park hours before setting out.
 
-Australia's largest privately owned outdoor sculpture park: 16.
+ [Check with the operator ↗](<https://www.ptleoestate.com.au/experience/sculpture-park/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
-
-Wellness   Available on request (not fixed public dates)
-
-### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
-
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
-
-Food & Wine   Available on request (check availability on TMBT website)
-
-### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-One hour in TMBT's private tasting room.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-Food & Wine   Weekly (every week year-round)
+Choose a session
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-[Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+A two-hour guided class with a take-home blend. The operator calendar holds the actual dates.
 
-Three hours at the still in Dromana.
+ [Check with the operator ↗](<https://www.bassandflindersdistillery.com/pages/gin-masterclass>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+Check the activity timetable
 
-Exhibitions  5 Sept
+### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+A slower wellness option. The operator timetable determines which sessions are available.
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 5 September to 22 November.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Wellness   Daily
-
-### [Peninsula Hot Springs Daily Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
-
-Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
-
-Get the dispatch in your inbox
-
-Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.
-
-The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
-
- [Join](<https://peninsulainsider.com.au/dispatch/>)
+ [Check with the operator ↗](<https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga>)
 
 Past dispatches
 
@@ -98,14 +56,6 @@ Each week's dispatch stays online at a stable archive URL.
 - [29 June   Peninsula This Weekend - 4 to 5 July   The first full school-holiday weekend of winter is simple: one booked truffle hunt, one Sunday heritage train run, and one indoor family plan that does not feel like a fallback.](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-06-29/>)
 
 - [22 June   Peninsula This Weekend - 27 to 28 June   The solstice crowd has gone home. This is the quiet winter weekend of truffle hunts, local markets, and the final Sunday Sessions at the springs.](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-06-22/>)
-
-- [15 June   Peninsula This Weekend - 20 to 21 June   The solstice weekend moves from Sorrento's festival foreshore on Saturday to the stillness of the springs and the forest on Sunday.](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-06-15/>)
-
-- [7 June   Peninsula This Weekend - 13 to 14 June   The week after King's Birthday: truffle season at its most available, cellar doors open and unhurried, and the Peninsula genuinely itself again.](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-06-07/>)
-
-- [31 May   Peninsula This Weekend - 6 to 7 June   King's Birthday is the loudest winter weekend on the Peninsula. Two clear moves, and the rest of the weekend kept open.](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-05-31/>)
-
-- [24 May   Peninsula This Weekend - 30 to 31 May   Autumn closes and winter opens on the same patch of Main Ridge on Saturday: the Peninsula marking its own calendar.](<https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-05-24/>)
 
 ## The Insider Note
 

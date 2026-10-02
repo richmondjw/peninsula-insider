@@ -19,7 +19,7 @@ Two Bays  Walking Track  Hiking  National Park
 
 Photo · Courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Cape Schanck Boardwalk. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Cape Schanck Boardwalk. It does not depict the place described on this page.
 
 No water on the trail, carry all water from the start
 

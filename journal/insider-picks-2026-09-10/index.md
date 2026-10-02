@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows layered rock shelves running off a sandy beach into shallow water. It is not a photograph of the place described on this page.
+Illustrative image  This image shows layered rock shelves running off a sandy beach into shallow water. It does not depict the place described on this page.
 
 **EAT / DRINK - St Andrews Beach Brewery, Rye**
 

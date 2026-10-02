@@ -17,7 +17,7 @@ Small Stone Pantry · Dromana
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It is not a photograph of Small Stone Pantry.
+Illustrative image  This image shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It does not depict Small Stone Pantry.
 
 Why we’d go
 

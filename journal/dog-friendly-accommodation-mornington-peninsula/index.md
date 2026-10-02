@@ -19,7 +19,7 @@ Dogs  Accommodation  Peninsula  Service
 
 Photo · Unsplash
 
-Illustrative image  This photograph shows a chocolate Labrador looking up at the camera. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a chocolate Labrador looking up at the camera. It does not depict the place described on this page.
 
 The right dog-friendly stay is not just one that allows pets. It is one that still makes the trip feel worth taking. That means less attention to pet-policy marketing language and more attention to fencing, beach proximity, and whether the property’s configuration actually suits a dog for two days.
 

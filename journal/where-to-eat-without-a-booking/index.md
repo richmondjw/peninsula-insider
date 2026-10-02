@@ -19,7 +19,7 @@ Dining  Walk In  No Booking  Pubs
 
 Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Red Hill Brewery. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Red Hill Brewery. It does not depict the place described on this page.
 
 Start here
 

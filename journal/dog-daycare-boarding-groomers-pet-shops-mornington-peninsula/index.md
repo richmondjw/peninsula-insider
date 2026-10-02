@@ -19,7 +19,7 @@ Dogs  Peninsula  Service  Boarding
 
 Photo · Unsplash
 
-Illustrative image  This photograph shows two dogs running along a dirt track in low light. It is not a photograph of the place described on this page.
+Illustrative image  This image shows two dogs running along a dirt track in low light. It does not depict the place described on this page.
 
 Dog-owner utility is where most travel guides fall apart. The practical layer, what to do when the dog needs to be somewhere while you’re at a restaurant, or when you’ve left supplies at home, determines whether the Peninsula trip still works when plans change.
 

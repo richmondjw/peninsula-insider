@@ -13,6 +13,8 @@ Conti Bar becomes a German beer hall from 15 to 22 October, with Weihenstephaner
 
 All weather
 
+Image · Two Palms Australia [Image source](<https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/Victoria%20Content%20Hub%20asset%20161358,%20downloaded%202026-09-28>)
+
 Editor's verdict
 
 Weihenstephaner and a Bavarian menu for a week, with no ticket at the door. Walk in, order a stein.
@@ -73,23 +75,27 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Food & Wine   Available on request (check availability on TMBT website)
+Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
 [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-One hour in TMBT's private tasting room.
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Food & Wine   Weekly (every week year-round)
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+
+Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Three hours at the still in Dromana.
+A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 

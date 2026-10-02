@@ -19,7 +19,7 @@ Red Hill Estate · Red Hill
 
 Photo · CSIRO
 
-Illustrative image  This photograph shows a grassed row between trellised vines in full leaf. It is not a photograph of Red Hill Estate.
+Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict Red Hill Estate.
 
 Why we’d go
 

@@ -19,7 +19,7 @@ Stay  Weekend  Villa  Cottage
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Lancemore Lindenderry Red Hill. It is not a photograph of the place described on this page.
+Illustrative image  This image shows Lancemore Lindenderry Red Hill. It does not depict the place described on this page.
 
 The Peninsula weekend has a default shape.
 

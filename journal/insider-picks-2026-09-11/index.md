@@ -19,7 +19,7 @@ Insider Picks  Spring
 
 Photo · CSIRO
 
-Illustrative image  This photograph shows a grassed row between trellised vines in full leaf. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict the place described on this page.
 
 **Green Olive at Red Hill** runs its wood-fired kitchen off an estate olive grove that is doing its best work right now, as spring pulls the first real warmth back into the hill.
 

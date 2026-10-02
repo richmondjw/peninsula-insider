@@ -13,7 +13,7 @@ Bayplay advertises a guided, approximately two-hour snorkel with weedy sea drago
 
 Photo · Essiewingrove / Wikimedia Commons (CC BY-SA 4.0)
 
-Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Sea Dragon Snorkel Tour.
+Illustrative image  This image shows Point King Beach, Portsea. It does not depict Bayplay Sea Dragon Snorkel Tour.
 
 Context photo of Point King Beach, Portsea. This is not the confirmed tour entry point. By [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized from the original.
 

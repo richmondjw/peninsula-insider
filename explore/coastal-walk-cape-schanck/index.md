@@ -11,7 +11,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
-Illustrative image  This photograph shows Cape Schanck. It is not a photograph of Cape Schanck to London Bridge Coastal Walk.
+Illustrative image  This image shows Cape Schanck. It does not depict Cape Schanck to London Bridge Coastal Walk.
 
 The clifftop traverse from Cape Schanck to London Bridge is the Peninsula's longest coastal walk: 26 kilometres of Bass Strait cliff, small coves, rock platforms, tidal pools, and dense coastal scrub, with the Southern Ocean working below you the entire way. Almost nobody walks the full traverse in one go, and you don't need to.
 

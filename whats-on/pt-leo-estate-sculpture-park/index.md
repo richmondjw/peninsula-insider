@@ -5,23 +5,25 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Arts     1 May – 30 April 2027     One-off date
+Arts     Check current opening hours     Visit during published opening hours
 
 # Pt. Leo Estate Sculpture Park
 
-Australia's largest privately owned outdoor sculpture park: 16.5 acres, more than 70 contemporary works, two walking loops, all set inside a working winery. Open daily 11am to 5pm.
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.
 
 Worth the drive   First timer
 
+Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+
 Editor's verdict
 
-Australia's biggest privately owned outdoor sculpture park, and one of the few cultural attractions on the Peninsula that genuinely earns the comparison to anything in Melbourne.
+An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the wine country.
 
 Sixteen and a half acres of landscaped grounds wrapped around a working winery, planted with over seventy contemporary sculptures. There is a short loop (1.9km, about thirty minutes) and a long loop (3km, an hour), both gentle, both walkable in normal shoes. The collection is serious: international and Australian work that would not look out of place at the NGV.
 
 The practical move is to arrive at 11am opening, walk the long loop while the light is good, then collapse into Pt. Leo's cellar door or Laura restaurant for lunch. Family pricing makes it the rare Peninsula cultural day that doesn't punish you for bringing kids. Bring sunscreen, hats, and proper walking shoes; the grass is the grass.
 
-Open daily 11am to 5pm, last entry 4:30pm. Ticketed entry, kids under 12 free, with a family rate for four.
+Open daily from 11am, with last entry at 4:30pm; check the estate for any changes. Ticketed entry, kids under 12 free, with a family rate for four.
 
 Hosted at
 
@@ -37,15 +39,15 @@ At a glance
 
 **When**
 
-1 May – 30 April 2027
+Check current opening hours
 
 **Time**
 
-11:00 to 17:00
+11:00
 
 **Recurrence**
 
-One-off date · Daily year-round
+Visit during published opening hours · Open daily; check current hours with the estate
 
 **Price**
 
@@ -67,7 +69,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Get tickets](<https://www.ptleoestate.com.au/experience/sculpture-park/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pt.+Leo+Estate+Sculpture+Park&dates=20260501T010000Z%2F20270430T070000Z&details=Australia%27s+largest+privately+owned+outdoor+sculpture+park%3A+16.5+acres%2C+more+than+70+contemporary+works%2C+two+walking+loops%2C+all+set+inside+a+working+winery.+Open+daily+11am+to+5pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpt-leo-estate-sculpture-park%2F&location=3649+Frankston-Flinders+Road%2C+Merricks%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check dates with organiser](<https://www.ptleoestate.com.au/experience/sculpture-park/>)
 
 Filed under
 

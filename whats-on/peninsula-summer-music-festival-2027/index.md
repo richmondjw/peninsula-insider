@@ -31,6 +31,8 @@ Multiple Peninsula venues: Flinders Civic Hall; Montalto; Port Phillip Estate; P
 
 - [Visit venue website →](<https://www.peninsulafestival.com.au/>)
 
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=56%20Cook%20Street%20(Flinders%20Civic%20Hall)%3B%20Merricks%20North%20(Montalto)%3B%20263%20Red%20Hill%20Road%20(Port%20Phillip%20Estate)%2C%20Flinders%20%2F%20Main%20Ridge%20%2F%20Rye%20%2F%20Red%20Hill%2C%20VIC>)
+
 At a glance
 
 **When**
@@ -78,6 +80,8 @@ Live Music   Annual (January)
 Peninsula Summer Music Festival returns 2 to 11 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
+
+Image · Two Palms Australia [Image source](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/Victoria%20Content%20Hub%20asset%20160851,%20downloaded%202026-09-28>)
 
 Live Music   Every Sunday from 12pm; performer changes weekly
 

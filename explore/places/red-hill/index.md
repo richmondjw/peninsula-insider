@@ -509,7 +509,7 @@ Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyar
 
 Red Hill
 
-The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Unsafe weather can cancel the event without notice; check the organiser before travelling.
+The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.
 
  Markets](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
 

@@ -19,7 +19,7 @@ Insider Picks  Winter
 
 Photo · Peninsula Insider
 
-Illustrative image  This photograph shows a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree. It is not a photograph of the place described on this page.
+Illustrative image  This image shows a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree. It does not depict the place described on this page.
 
 **EAT - Doot Doot Doot, Merricks North**
 
