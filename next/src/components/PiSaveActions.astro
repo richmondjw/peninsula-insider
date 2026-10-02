@@ -383,10 +383,21 @@ const { kind, slug, title, href, section, dek, imageUrl, floating = true } = Ast
         <button type="button" data-pi-close>Close</button>
       </div>`;
     const input = dialog.querySelector<HTMLInputElement>('input')!;
+    const closeButton = dialog.querySelector<HTMLButtonElement>('[data-pi-close]')!;
     input.value = url;
     const selectLink = () => { input.focus(); input.select(); };
     dialog.querySelector('[data-pi-select-link]')?.addEventListener('click', selectLink);
-    dialog.querySelector('[data-pi-close]')?.addEventListener('click', () => dialog.close());
+    closeButton.addEventListener('click', () => dialog.close());
+    dialog.addEventListener('keydown', (event) => {
+      if (event.key !== 'Tab') return;
+      if (event.shiftKey && document.activeElement === input) {
+        event.preventDefault();
+        closeButton.focus();
+      } else if (!event.shiftKey && document.activeElement === closeButton) {
+        event.preventDefault();
+        input.focus();
+      }
+    });
     dialog.addEventListener('close', () => {
       dialog.remove();
       originButton.focus();
