@@ -19,6 +19,7 @@ on:
       # them changes what the build will accept. Ratcheting one down and seeing
       # no run at all is the same defect d442813 hit.
       - 'next/scripts/**'
+      - 'next/tests/**'
       - 'ops/scripts/seo/**'
       - 'ops/scripts/generate-llms-txt.mjs'
       - 'ops/seo-automation/**'

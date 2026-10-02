@@ -183,9 +183,17 @@ test('homepage alternate plan actions only copy usable itineraries and cover tar
     const copiedKinds = await reader.page.$$eval('.home-plan [data-variant="fork"]',els=>els.map(el=>el.dataset.kind));
     assert.ok(copiedKinds.length>=1);
     assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
-    const targets = await reader.page.$$eval('[data-cover-dot]',els=>els.map(el=>({w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
+    await reader.waitFor(() => document.querySelector('[data-cover-motion]')?.currentTime > 0, 'cover video did not start');
+    const targets = await reader.page.$$eval('.cover-motion-toggle',els=>els.map(el=>({w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
     assert.ok(targets.length>0);
     assert.ok(targets.every(t=>t.w>=44 && t.h>=44));
+    await reader.page.click('.cover-motion-toggle');
+    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
+    await reader.page.click('.cover-motion-toggle');
+    await reader.waitFor(() => !document.querySelector('[data-cover-motion]').paused, 'cover video did not resume');
+    await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
+    await reader.waitFor(() => document.querySelector('[data-cover-motion]').hidden, 'reduced-motion did not show the still fallback');
+    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
   } finally { await reader.close(); }
 });
 
