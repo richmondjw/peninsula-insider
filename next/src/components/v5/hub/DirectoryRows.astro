@@ -74,6 +74,7 @@ export interface Props {
   missingImagePlate?: boolean;
   desktopColumns?: 1 | 2;
   fullVerdicts?: boolean;
+  detailActionFallback?: boolean;
 }
 
 const {
@@ -91,6 +92,7 @@ const {
   missingImagePlate = false,
   desktopColumns = 1,
   fullVerdicts = false,
+  detailActionFallback = false,
 } = Astro.props;
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
@@ -134,6 +136,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
             freshness={item.freshness}
             freshnessKind={item.freshnessKind}
             booking={item.booking}
+            detailActionLabel={detailActionFallback && !item.booking ? 'View details' : undefined}
             partnerLabel={item.partnerLabel}
             surface={surface}
             position={i + 1}

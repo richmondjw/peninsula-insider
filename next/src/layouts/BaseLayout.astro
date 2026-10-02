@@ -146,7 +146,7 @@ const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
 // Keep active planning and itinerary reading free of promotional interruptions.
 // Navigation and the footer retain their normal publication links.
 const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
-const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
+const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>

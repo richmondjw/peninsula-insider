@@ -8458,6 +8458,7 @@ body.show-subscribe-pill .subscribe-pill {
    already gives the reader a clear, unobscured way to join. */
 body[data-path="/"] .subscribe-pill,
 body[data-path="/agents/"] .subscribe-pill,
+body[data-path="/stay/"] .subscribe-pill,
 body[data-path="/terms/"] .subscribe-pill,
 body[data-path^="/newsletter"] .subscribe-pill,
 body[data-path^="/ask"] .subscribe-pill,

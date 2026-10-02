@@ -26,14 +26,12 @@ import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
-import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
 import StayBaseComparison from '../../components/v5/hub/StayBaseComparison.astro';
-import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { routeSlug, isStayVenue, typeLabel, titleize, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
@@ -49,21 +47,22 @@ const stayCount = venues.length; // FULL corpus, every row server-rendered
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
+// A card photograph must be of the place it names. The corpus includes
+// illustrative and unverified media; those entries receive a neutral PI plate
+// instead of an accommodation claim the photograph cannot support.
 const venueImages = new Map(await Promise.all(venues.map(async (venue) => {
   const slug = routeSlug(venue);
   const hero = await resolveHero('venue', slug, venue.data);
-  const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
-  return [slug, { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : status === 'unverified' ? 'Image subject unverified' : undefined }] as const;
+  const record = venue.data.heroImage;
+  const verified = !hero.override && record?.depictionStatus === 'actual';
+  return [slug, verified && hero.hasPhoto
+    ? { src: hero.src, alt: hero.alt, caption: record.caption, credit: record.credit }
+    : undefined] as const;
 })));
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
 const iso = (d: unknown): string | undefined =>
   d instanceof Date ? d.toISOString().slice(0, 10) : typeof d === 'string' && d ? d : undefined;
-
-const PARTNER_LABEL: Record<string, string> = {
-  airbnb: 'Books via Airbnb',
-  'booking.com': 'Books via Booking.com',
-};
 
 const PARTY_LABEL: Record<string, string> = {
   couples: 'Couples',
@@ -99,8 +98,11 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
   const slug = v.id ?? data.slug;
   const facets = getFacets('venue', data);
   const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
-  const provider = typeof data.bookingProvider === 'string' ? data.bookingProvider : '';
-  const partnerLabel = PARTNER_LABEL[provider] ?? (data.featuredPartner ? 'Sponsored placement' : undefined);
+  const bookingHost = bookingUrl ? new URL(bookingUrl).hostname.replace(/^www\./, '') : '';
+  const partnerLabel = bookingHost.endsWith('airbnb.com.au') || bookingHost.endsWith('airbnb.com')
+    ? 'Opens Airbnb'
+    : bookingHost.endsWith('booking.com') ? 'Opens Booking.com'
+    : data.featuredPartner ? 'Sponsored placement' : undefined;
   return {
     title: data.name as string,
     href: `/stay/${slug}/`,
@@ -116,7 +118,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
     freshness: iso(informationCheckedOn(data)),
     freshnessKind: 'checked' as const,
     booking: bookingUrl
-      ? { url: bookingUrl, label: 'Check availability', venueName: data.name as string, partnerLabel }
+      ? { url: bookingUrl, label: data.bookingUrl ? 'Check availability' : 'Visit website', venueName: data.name as string, partnerLabel }
       : undefined,
     surface: 'stay',
     facets,
@@ -138,7 +140,20 @@ const bySlug = new Map(venues.map((v) => [(v.id ?? v.data.slug) as string, v]));
 const sixItems = SIX
   .map(({ slug, verdict }) => {
     const v = bySlug.get(slug);
-    return v ? stayItem(v, { verdict }) : null;
+    if (!v) return null;
+    const item = stayItem(v, { verdict });
+    return slug === 'jackalope'
+      ? {
+          ...item,
+          image: {
+            src: '/images/visit-victoria/vv-26070116-jackalope-hotel.webp',
+            alt: 'A suite at Jackalope Hotel with a white bed, gold sheer curtains, lounge area and pitched ceiling.',
+            caption: 'A suite at Jackalope Hotel, Merricks North.',
+            credit: 'Peter Foster, courtesy of Visit Victoria',
+          },
+          imageEdit: { entityType: 'venue' as const, entitySlug: 'jackalope', fieldPath: 'gallery[1]' },
+        }
+      : item;
   })
   .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
@@ -152,7 +167,12 @@ const restVenues = venues
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
     return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
   });
-const directoryItems = [...sixVenues, ...restVenues].map((v) => stayItem(v));
+// The full list is a practical text directory. Repeating small image plates
+// beside dozens of records made missing imagery feel like a broken gallery.
+const directoryItems = [...sixVenues, ...restVenues].map((v) => ({
+  ...stayItem(v),
+  image: undefined,
+}));
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
@@ -196,8 +216,14 @@ const journalItems = journalSlugs
 
 // ── Stand-first (<= 80 words, carries the where-to-stay + corridor phrases) ─
 const standfirst =
-  'One decision shapes the weekend: ridge and hinterland, or coastal village. ' +
-  'Compare the atmosphere, evenings and transport tradeoffs below, then find a hotel, vineyard villa or cottage that fits your party.';
+  'The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.';
+
+const stayHero = {
+  src: '/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp',
+  alt: 'Visitors cross a sunlit lawn between large trees towards the white homestead building at Lindenderry in Red Hill.',
+  caption: 'Guests arriving at Lindenderry at Red Hill.',
+  credit: 'Peter Foster, courtesy of Visit Victoria',
+};
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -228,7 +254,7 @@ export const prerender = true;
   description="Choose where to stay on the Mornington Peninsula: compare coastal towns and wine-country bases, then explore hotels, vineyard villas, cottages and farm stays."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
-  modifiedTime="2026-04-30"
+  modifiedTime="2026-10-01"
   ogImage={pageImage('stay-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -236,81 +262,103 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <!-- 1. Stand-first: h1 retained, intro + CompareBlock compressed to <= 80 words -->
-  <HubStandfirst
-    compact
-    title="Choose the base, and the whole weekend changes"
-    standfirst={standfirst}
-  />
-
-  <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays">
-    <FilterBar
-      surface="stay"
-      noun="stays"
-      label="Filter stays"
-      facets={['place', 'cat', 'price', 'party']}
-    >
-      <SortControl />
-    </FilterBar>
-    <PlanningHelp />
-  </CategoryBrowse>
-
-  <div data-category-editorial>
-  <StayBaseComparison />
-
-  <!-- 2. The Six -->
-  <TheSix
-    eyebrow="The stay shortlist"
-    heading="Stays worth building a weekend around"
-    sub="An editorial shortlist. Dates on individual entries describe the recorded detail check, not a new stay or visit."
-    surface="stay"
-    items={sixItems}
-  />
-
-  <!-- 4. Best-of rail -->
-  <section class="v5-bestof" aria-labelledby="bestof-heading">
-    <div class="container">
-      <h2 id="bestof-heading" class="v5-bestof__title">Choose a stay guide</h2>
-      {/* "Best-of guides" is stated once, in the section eyebrow. The cards
-          drop their GUIDE stamp. They are text-only by design, so no media
-          fallback either: a plate on all three would be noise, not repair. */}
-      <CardGrid label="Stay guides" layout="grid" maxCols={3}>
-        {bestOfGuides.map((guide, i) => (
-          <Card
-            variant="guide"
-            title={guide.title}
-            href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
-            entityType="page"
-            entitySlug={`stay-${guide.slug}`}
-            showEyebrow={false}
-            verdict={guide.verdict}
-            surface="stay"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
+  <section class="stay-hero" aria-labelledby="stay-hero-title">
+    <div class="container stay-hero__grid">
+      <div class="stay-hero__copy">
+        <p class="stay-hero__eyebrow">Stay on the Peninsula</p>
+        <h1 id="stay-hero-title">Where you stay shapes the whole trip.</h1>
+        <p class="stay-hero__lead">{standfirst}</p>
+        <div class="stay-hero__actions">
+          <a class="stay-hero__primary" href="#choose-base">Choose your base <span aria-hidden="true">&rarr;</span></a>
+          <a class="stay-hero__secondary" href="#browse-stay">Browse all {stayCount} stays <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+      <figure class="stay-hero__visual">
+        <img src={stayHero.src} alt={stayHero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 720px" />
+        <figcaption>{stayHero.caption} Photo: {stayHero.credit}.</figcaption>
+      </figure>
     </div>
   </section>
 
+  <div data-category-editorial>
+    <div id="choose-base"><StayBaseComparison /></div>
+
+    <TheSix
+      id="stay-shortlist"
+      eyebrow="The stay shortlist"
+      heading="Stays worth building a weekend around"
+      sub="Six distinct ways in. Check the current room, inclusions and dates with each operator."
+      surface="stay"
+      items={sixItems}
+    />
+
+    <section class="stay-guides" aria-labelledby="stay-guides-heading">
+      <div class="container">
+        <div class="stay-guides__head">
+          <p class="stay-guides__eyebrow">Go deeper</p>
+          <h2 id="stay-guides-heading">Find the stay that fits</h2>
+          <p>Start with a broad edit, or follow the kind of weekend you have in mind.</p>
+        </div>
+        <CardGrid label="Featured stay guides" layout="grid" maxCols={3}>
+          {[bestOfGuides[0], bestOfGuides[3], bestOfGuides[5]].map((guide, i) => (
+            <Card
+              variant="guide"
+              title={guide.title}
+              href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
+              entityType="page"
+              entitySlug={`stay-${guide.slug}`}
+              showEyebrow={false}
+              verdict={guide.verdict}
+              surface="stay"
+              position={i + 1}
+            />
+          ))}
+        </CardGrid>
+        <details class="stay-guides__more">
+          <summary>Explore more stay guides <span aria-hidden="true">&rarr;</span></summary>
+          <nav aria-label="More stay guides">
+            {bestOfGuides.filter((_, i) => ![0, 3, 5].includes(i)).map((guide) => (
+              <a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}<span aria-hidden="true">&rarr;</span></a>
+            ))}
+          </nav>
+        </details>
+      </div>
+    </section>
   </div>
 
-  <!-- Full directory; the single early FilterBar owns its state and count. -->
-  <div class="container">
-    <TrustNote surface="stay" />
+  <div id="browse-stay" class="stay-browse">
+    <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays" mapHref="/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay" showLinks={false}>
+      <FilterBar
+        surface="stay"
+        noun="stays"
+        label="Filter stays"
+        pinnedMore
+        facets={['place', 'cat', 'party']}
+      >
+        <SortControl />
+      </FilterBar>
+      <PlanningHelp />
+    </CategoryBrowse>
   </div>
+
   <DirectoryRows
     id="stay-directory"
     eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
+    sub="Compare the actual locality and stay format. Confirm room details and availability with the operator."
     surface="stay"
     noun="stays"
     items={directoryItems}
-    topLink={{ label: 'Ranked: the best places to stay', href: '/stay/best-accommodation/' }}
+    desktopColumns={2}
+    fullVerdicts
+    detailActionFallback
+    topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay' }}
+    emptyHeading="Nothing matches those filters"
+    emptyBody="Clear a filter to see more places to stay."
   />
 
-  <!-- 6. From the Journal (3) -->
   <JournalModule
-    heading="From the Journal"
+    heading="Make more of the night"
     moreHref="/journal/"
     items={journalItems}
   />
@@ -339,26 +387,248 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .v5-bestof {
-    padding: var(--space-8, 4rem) 0;
-    background: var(--bg-alt, var(--bg));
+  .stay-hero {
+    overflow: hidden;
+    background: #f2eee6;
+    border-bottom: 1px solid var(--border);
   }
-  .v5-bestof__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
+  .stay-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+    align-items: center;
+    gap: clamp(2rem, 4vw, 4.5rem);
+    padding-block: clamp(2rem, 4.5vw, 4.5rem);
+  }
+  .stay-hero__eyebrow, .stay-guides__eyebrow {
+    margin: 0 0 1rem;
+    color: var(--accent);
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    font-size: .75rem;
+    font-weight: 750;
+    letter-spacing: .13em;
     text-transform: uppercase;
-    color: var(--teal-text);
   }
-  .v5-bestof__title {
-    margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
+  .stay-hero h1 {
+    max-width: 11ch;
+    margin: 0;
     color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(3.1rem, 4.8vw, 5.2rem);
+    font-weight: 650;
+    line-height: 1.04;
+    letter-spacing: -.045em;
+    text-wrap: balance;
+  }
+  .stay-hero__lead {
+    max-width: 43ch;
+    margin: 1.5rem 0 0;
+    color: var(--text);
+    font-size: clamp(1.02rem, 1.24vw, 1.19rem);
+    line-height: 1.58;
+  }
+  .stay-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .55rem 1.3rem;
+    margin-top: 1.7rem;
+  }
+  .stay-hero__actions a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .9rem;
+    min-height: 48px;
+    font-size: .94rem;
+    font-weight: 750;
+    text-decoration: none;
+  }
+  .stay-hero__primary {
+    padding: .7rem 1.15rem;
+    border: 1px solid var(--text);
+    border-radius: .4rem;
+    background: var(--text);
+    color: #fff;
+  }
+  .stay-hero__primary:hover { background: #1c4962; }
+  .stay-hero__secondary { color: var(--accent); }
+  .stay-hero__secondary:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .stay-hero__actions a:focus-visible, .stay-guides a:focus-visible, .stay-guides summary:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .stay-hero__visual { min-width: 0; margin: 0; }
+  .stay-hero__visual img {
+    display: block;
+    width: 100%;
+    height: clamp(27rem, 43vw, 38rem);
+    object-fit: cover;
+    object-position: 50% 48%;
+    border-radius: .5rem;
+  }
+  .stay-hero__visual figcaption {
+    margin-top: .55rem;
+    color: var(--soft);
+    font-size: .75rem;
+    line-height: 1.45;
+  }
+  #choose-base, #browse-stay, :global(#stay-directory) { scroll-margin-top: 10rem; }
+  .stay-guides {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+    background: #f2eee6;
+  }
+  .stay-guides__head { margin-bottom: 1.5rem; }
+  .stay-guides__eyebrow { margin-bottom: .55rem; }
+  .stay-guides h2 {
+    margin: 0;
+    color: var(--text);
+    font-family: var(--font-display);
+    font-size: clamp(1.85rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -.035em;
+    text-wrap: balance;
+  }
+  .stay-guides__head > p:last-child {
+    margin: .75rem 0 0;
+    color: var(--soft);
+    font-size: 1rem;
+    line-height: 1.55;
+  }
+  .stay-guides__more {
+    margin-top: 1.4rem;
+    border-top: 1px solid var(--border);
+  }
+  .stay-guides__more summary {
+    display: flex;
+    align-items: center;
+    gap: .75rem;
+    min-height: 50px;
+    width: fit-content;
+    cursor: pointer;
+    color: var(--teal-text);
+    font-weight: 700;
+  }
+  .stay-guides__more nav {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: .15rem 1.5rem;
+    padding-block: .35rem 1rem;
+  }
+  .stay-guides__more nav a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+    min-height: 44px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: .91rem;
+    font-weight: 650;
+    text-decoration: none;
+  }
+  .stay-guides__more nav a:hover { color: var(--accent); }
+  .stay-browse { padding-top: clamp(2rem, 4vw, 3.25rem); }
+  :global(#stay-directory .pi-card.pi-card--compact),
+  :global(#stay-shortlist .pi-card.pi-card--compact) {
+    display: grid;
+    grid-template-columns: 76px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    align-items: start;
+    gap: 0 .9rem;
+    padding-block: 1.2rem;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__media),
+  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__media) {
+    display: block;
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 76px;
+    max-width: 76px;
+    height: 76px;
+    flex: none;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
+  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__body) {
+    grid-column: 2;
+    grid-row: 1;
+    min-width: 0;
+    padding: 0;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions),
+  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__actions) {
+    grid-column: 2;
+    grid-row: 2;
+    margin: .55rem 0 0;
+    padding: 0;
+  }
+  :global(#stay-shortlist .pi-card--venue .pi-card__dek) {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__dek),
+  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__dek) {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
+    grid-column: 1;
+  }
+  :global(#stay-shortlist .pi-card.pi-card--compact:not(:has(.pi-card__media))) {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  :global(#stay-shortlist .pi-card.pi-card--compact:not(:has(.pi-card__media)) .pi-card__body),
+  :global(#stay-shortlist .pi-card.pi-card--compact:not(:has(.pi-card__media)) .pi-card__actions) {
+    grid-column: 1;
+  }
+  @media (max-width: 760px) {
+    .stay-hero__grid {
+      grid-template-columns: 1fr;
+      gap: 1.3rem;
+      padding-block: 1.3rem 2.3rem;
+    }
+    .stay-hero__eyebrow { margin-bottom: .6rem; }
+    .stay-hero h1 { max-width: 13ch; font-size: clamp(2.35rem, 9vw, 3.8rem); }
+    .stay-hero__lead { margin-top: .8rem; font-size: 1rem; line-height: 1.5; }
+    .stay-hero__actions { margin-top: 1.2rem; }
+    .stay-hero__visual img { height: clamp(15.5rem, 60vw, 24rem); }
+    .stay-guides__more nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .stay-guides__more nav { grid-template-columns: 1fr; }
+    :global(#stay-directory .pi-card.pi-card--compact),
+    :global(#stay-shortlist .pi-card.pi-card--compact) {
+      grid-template-columns: 64px minmax(0, 1fr);
+      gap: 0 .8rem;
+      padding-block: 1.15rem;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .pi-card__media),
+    :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__media) {
+      width: 64px;
+      max-width: 64px;
+      height: 64px;
+    }
+  }
+  :global(#stay-directory .pi-card.pi-card--compact) {
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: 0;
+  }
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
+  :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
+    grid-column: 1;
+  }
+  @media (max-width: 380px) {
+    .stay-hero__eyebrow { display: none; }
+    .stay-hero h1 { font-size: 2.2rem; }
+    .stay-hero__actions { align-items: flex-start; flex-direction: column; gap: .2rem; }
   }
 </style>

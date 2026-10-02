@@ -27,6 +27,8 @@ export interface Props {
   sticky?: boolean;
   /** Render the paired FilterSheet (turn off if the page composes its own). */
   withSheet?: boolean;
+  /** Keep the advanced-filter trigger visible beside the scrollable chips. */
+  pinnedMore?: boolean;
   /**
    * Restrict the paired FilterSheet to these facet groups (contextual filters,
    * P1.2). Omit for the full shared taxonomy; every hub surface should pass
@@ -42,6 +44,7 @@ const {
   label = 'Filters',
   sticky = false,
   withSheet = true,
+  pinnedMore = false,
   facets,
 } = Astro.props;
 
@@ -49,7 +52,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
 ---
 
 <div
-  class:list={['v5-filterbar', { 'v5-filterbar--sticky': sticky }]}
+  class:list={['v5-filterbar', { 'v5-filterbar--sticky': sticky, 'v5-filterbar--pinned-more': pinnedMore }]}
   data-v5-filterbar
   data-noun={noun}
   role="group"
@@ -70,7 +73,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
           {chip.label}
         </button>
       ))}
-      <button
+      {!pinnedMore && <button
         type="button"
         class="v5-filterbar__chip v5-filterbar__chip--more"
         data-sheet-open
@@ -78,8 +81,17 @@ const presets = CHIP_PRESETS[surface] ?? [];
         aria-haspopup="dialog"
       >
         More filters<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
-      </button>
+      </button>}
     </div>
+    {pinnedMore && <button
+      type="button"
+      class="v5-filterbar__chip v5-filterbar__chip--more v5-filterbar__pinned"
+      data-sheet-open
+      data-evt="filter_open"
+      aria-haspopup="dialog"
+    >
+      Filters<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
+    </button>}
     <div class="v5-filterbar__end">
       <slot />
     </div>
@@ -144,6 +156,9 @@ const presets = CHIP_PRESETS[surface] ?? [];
     .v5-filterbar__row { flex-wrap: wrap; }
     .v5-filterbar__scroll { order: 1; flex-basis: 100%; }
     .v5-filterbar__end { order: 2; flex-basis: 100%; justify-content: flex-end; }
+    .v5-filterbar--pinned-more .v5-filterbar__scroll { flex: 1 1 0; order: 1; }
+    .v5-filterbar--pinned-more .v5-filterbar__pinned { flex: 0 0 auto; order: 2; }
+    .v5-filterbar--pinned-more .v5-filterbar__end { order: 3; }
   }
   .v5-filterbar__chip {
     font-family: var(--font-ui);

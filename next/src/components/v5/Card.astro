@@ -106,6 +106,8 @@ export interface Props {
   partnerLabel?: string;
   /** Secondary booking action (card-action weight). */
   booking?: CardBooking;
+  /** Internal action for entries without an external booking destination. */
+  detailActionLabel?: string;
   /** Render the "+ Trip" affordance backed by the shared trip store. */
   trip?: boolean;
   /** Save metadata overrides. saveKind defaults from entityType. */
@@ -146,6 +148,7 @@ const {
   dayCount,
   partnerLabel,
   booking,
+  detailActionLabel,
   trip = false,
   saveKind,
   saveSection,
@@ -217,7 +220,7 @@ const hasVerdictSlot = Astro.slots.has('verdict');
 const resolvedSaveKind: SaveKind | null =
   saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null);
 
-const hasActions = !!resolvedSaveKind || trip || !!booking;
+const hasActions = !!resolvedSaveKind || trip || !!booking || !!detailActionLabel;
 const creditLine = (credit: string) => {
   const clean = credit.trim().replace(/\.$/, '');
   return /^Courtesy of /i.test(clean)
@@ -404,6 +407,13 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       >
         + Trip
       </button>
+    )}
+    {detailActionLabel && (
+      <a href={href} class="pi-card__detail-action" aria-label={`${detailActionLabel} for ${title}`}
+        data-evt="card_click" data-entity-type={entityType} data-entity-slug={entitySlug}
+        data-variant={variant} data-surface={surface} data-position={position}>
+        {detailActionLabel} <span aria-hidden="true">&rarr;</span>
+      </a>
     )}
     {booking && (
       <BookingControl
@@ -618,6 +628,21 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 
   /* Actions sit outside __body, above the stretched link, so they need the
      body's horizontal gutter restored and a stacking context of their own. */
+  .pi-card__detail-action {
+    display: inline-flex;
+    align-items: center;
+    gap: .35rem;
+    min-height: 48px;
+    padding: 0 .75rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-s, 4px);
+    color: var(--text);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    text-decoration: none;
+  }
+  .pi-card__detail-action:hover { border-color: var(--accent); color: var(--accent); }
+  .pi-card__detail-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .pi-card__actions {
     position: relative;
     z-index: 2;
