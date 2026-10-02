@@ -500,6 +500,13 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 <style>
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
+  /* In a directory row the image note closes the text block instead of
+     opening it, so every row's title starts on the same line. The note is
+     still shown in full (illustrative status and credit). */
+  .pi-card.pi-card--compact .pi-card__body > .pi-card__image-note {
+    order: 10;
+    margin: var(--space-1) 0 0;
+  }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from
@@ -902,16 +909,19 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
      row outweighed the names; "Check availability" keeps its frame, while
      Save and Add to trip become quiet text buttons that keep their label,
      icon and 48px target, and show the frame only on hover or focus. */
-  .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled:not([aria-pressed='true'])),
-  .pi-card.pi-card--compact .pi-card__trip {
+  /* Applies to framed cards too (the shortlist), so Save and Add to trip
+     share one quiet treatment wherever they appear next to a booking link,
+     and the side cards' three actions fit one line. */
+  .pi-card .pi-card__actions :global(.v5-save__btn--labelled:not([aria-pressed='true'])),
+  .pi-card .pi-card__trip {
     border-color: transparent;
     padding-inline: var(--space-3);
   }
-  .pi-card.pi-card--compact .pi-card__trip {
+  .pi-card .pi-card__trip {
     min-width: 6.5rem;
   }
-  .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled:hover),
-  .pi-card.pi-card--compact .pi-card__trip:hover {
+  .pi-card .pi-card__actions :global(.v5-save__btn--labelled:hover),
+  .pi-card .pi-card__trip:hover {
     border-color: var(--border);
   }
 
@@ -997,28 +1007,13 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     .pi-card.pi-card--compact .pi-card__booking-slot {
       display: none;
     }
-    /* The thumb sits beside the title only; the dek and meta run on under
-       it across the full row, so no blank column runs down the left side,
-       and the actions take one line under the text. Rows that carry only a
-       bookmark (solo save) keep their three-column grid. */
-    .pi-card.pi-card--compact:not(.pi-card--solo-save) {
-      display: block;
-    }
-    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__media {
-      float: left;
-      margin: 4px var(--space-4) var(--space-2) 0;
-    }
-    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__body {
-      display: block;
-    }
-    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__body > * + * {
-      margin-top: var(--space-2);
-    }
-    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__dek {
-      max-width: none;
-    }
+    /* Thumb beside a text column with its own left edge (a float let the
+       dek wrap back under the thumb into a ragged L), then the actions on
+       one line across the full row. Rows that carry only a bookmark (solo
+       save) keep their three-column grid. */
     .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__actions {
-      clear: both;
+      grid-column: 1 / -1;
+      justify-self: stretch;
       display: flex;
       flex-wrap: wrap;
       align-items: center;

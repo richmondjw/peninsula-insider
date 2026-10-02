@@ -11,7 +11,7 @@ const bases = [
     <div class="pi-section-head">
       <div class="pi-section-head__text">
         <p class="pi-eyebrow">Where to base yourself</p>
-        <h2 class="pi-h2" id="base-heading">First, choose your corner of the Peninsula</h2>
+        <h2 class="pi-h2" id="base-heading">Each corner of the Peninsula makes a different weekend</h2>
         <p class="pi-section-dek">Pick the days you want, then the bed. These are area comparisons; check each property’s address and transport before booking.</p>
       </div>
       <a class="pi-section-link" href="/map/">Compare stays on the map <span aria-hidden="true">→</span></a>
@@ -21,7 +21,7 @@ const bases = [
         <article class="base-comparison__row">
           <h3><a href={`/explore/places/${base.town}/`}>{base.name}</a></h3>
           <div><p>{base.go}</p><p class="base-comparison__detail"><strong>Evenings.</strong> {base.evening}</p><p class="base-comparison__detail"><strong>Getting around.</strong> {base.trade}</p></div>
-          <div class="base-comparison__actions"><a href={`/stay/?place=${base.places}#stay-directory`}><span class="base-comparison__label">Find stays</span> <span aria-hidden="true">→</span></a><a href={`/map/?place=${base.places}`}><span class="base-comparison__label">Area map</span> <span aria-hidden="true">→</span></a></div>
+          <div class="base-comparison__actions"><a href={`/stay/?place=${base.places}#stay-directory`}><span class="base-comparison__label">Find stays</span> <span aria-hidden="true">→</span></a></div>
         </article>
       ))}
     </div>

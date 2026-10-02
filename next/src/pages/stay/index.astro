@@ -161,13 +161,13 @@ const restVenues = venues
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
     return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
   });
-// A disclosed pick keeps its shortlist line in its row. The three on-screen
-// picks take their own record line, so the list never repeats the shortlist
-// above it word for word.
+// One canonical line per venue on the page: a shortlisted stay carries its
+// shortlist line in its row too, so a reader never meets two competing
+// descriptions of the same place.
 const sixVerdictBySlug = new Map(SIX.map(({ slug, verdict }) => [slug, verdict]));
 const directoryItems = [...disclosedSix, ...restVenues].map((v) => {
   const slug = (v!.id ?? v!.data.slug) as string;
-  return stayItem(v, { verdict: onScreenSlugs.has(slug) ? undefined : sixVerdictBySlug.get(slug) });
+  return stayItem(v, { verdict: sixVerdictBySlug.get(slug) });
 });
 
 // The directory's header action opens the map on the stays alone. The ranked
@@ -178,17 +178,17 @@ const STAY_MAP_HREF = stayCats.length ? `/map/?cat=${stayCats.join(',')}` : '/ma
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
-  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Choose a coast, wine-country or thermal base, then compare stay formats.' },
-  { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'Compare a village hotel, vineyard estate and design-led stay.' },
-  { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'Choose a self-contained cottage or a hosted room or suite.' },
-  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Choose a vineyard, thermal or Sorrento stay for a weekend together.' },
-  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Compare estate suites, villas and a nearby wine-country base.' },
+  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Coast, wine country or the thermal springs: the strongest base in each, side by side.' },
+  { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'A village hotel, a vineyard estate and a design-led stay.' },
+  { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'A self-contained cottage for privacy, or a hosted room or suite.' },
+  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Weekends for two among the vines, at the springs or in Sorrento.' },
+  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Estate suites and villas, plus a wine-country base nearby.' },
   { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bay villages, south-coast bases and a night inside Point Nepean.' },
-  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Compare accommodation at the Peninsula thermal estates.' },
-  { slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'Choose on-site bathing, a hotel spa or an off-site springs package.' },
-  { slug: 'resorts', title: 'Resorts and retreats', verdict: 'Choose a resort room, thermal stay or group retreat venue.' },
-  { slug: 'sorrento', title: 'Stay in Sorrento', verdict: 'Compare adults-only rooms with a family-friendly precinct stay.' },
-  { slug: 'red-hill', title: 'Stay in Red Hill', verdict: 'Compare Red Hill estates and private bases by their actual locality.' },
+  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Rooms on the thermal estates themselves.' },
+  { slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'On-site bathing, a hotel spa, or a springs package you drive to.' },
+  { slug: 'resorts', title: 'Resorts and retreats', verdict: 'Resort rooms, thermal stays and venues for a group retreat.' },
+  { slug: 'sorrento', title: 'Stay in Sorrento', verdict: 'Adults-only rooms, or a family-friendly stay in the village precinct.' },
+  { slug: 'red-hill', title: 'Stay in Red Hill', verdict: 'Red Hill estates and private bases, placed where they actually are.' },
   { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
 
@@ -388,6 +388,33 @@ export const prerender = true;
 <style>
   .v5-bestof {
     background: var(--bg-alt, var(--bg));
+  }
+  /* Phones: twelve guide links read as a list, not twelve framed cards
+     (three screens of near-identical boxes). Title and one short line per
+     row, hairline between rows, the whole row still the link. */
+  @media (max-width: 47.99em) {
+    .v5-bestof :global(.v5-card-grid) {
+      row-gap: 0;
+      column-gap: 0;
+    }
+    .v5-bestof :global(.pi-card--guide) {
+      border: 0;
+      border-bottom: 1px solid var(--border);
+      border-radius: 0;
+      background: none;
+      box-shadow: none;
+    }
+    .v5-bestof :global(.pi-card--guide .pi-card__body) {
+      padding: var(--space-4, 1rem) 0;
+      gap: var(--space-1, 0.25rem);
+    }
+    .v5-bestof :global(.pi-card--guide .pi-card__title) {
+      font-size: var(--fs-400, 1.0625rem);
+    }
+    .v5-bestof :global(.pi-card--guide .pi-card__dek) {
+      font-size: var(--fs-300, 0.9375rem);
+      min-height: 0;
+    }
   }
   /* Sort acts on the list, so it sits under the list heading it reorders. */
   .stay-list-tools {
