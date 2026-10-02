@@ -11,6 +11,8 @@ Tours     Private Charter
 
 Melbourne Elite Tours fills a specific gap in the Peninsula hens day market: a fully private luxury Mercedes van for up to seven guests, at a rate that becomes competitive with shared-group options once the per-person arithmetic is applied. The itinerary is built in consultation with the booking party, which means the group moves at its own pace, stops where it wants to stop, and the day reflects the hens party's priorities rather than a fixed circuit. The Tripadvisor record of 23 reviews at a 5.0 average is a small sample, but it is an encouraging early signal.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -24,10 +26,6 @@ Melbourne hotels / CBD
 Group size
 
 Private charter - max 7 guests
-
-Price band
-
-Premium
 
 Languages
 

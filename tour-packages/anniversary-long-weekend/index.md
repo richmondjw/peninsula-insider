@@ -43,7 +43,7 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 

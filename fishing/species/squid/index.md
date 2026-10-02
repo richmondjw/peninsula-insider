@@ -85,7 +85,7 @@ Source: [Victorian Fisheries Authority Recreational Fishing Guide](<https://vfa.
 
 - **Blairgowrie Pier, jig, dusk to 2100, March to June.** The Peninsula’s most reliable land-based squid location during the autumn peak. The pier extends into deep water with consistent kelp and structure on both sides; jetty lights aggregate baitfish at dusk and squid follow. Weeknight sessions are quieter; the weekend crowd is significant.
 
-- **Portsea Pier, jig, night session, March to June.** The deepest-water pier on the southern Peninsula coast. Premium conditions for larger autumn calamari, but pier-edge safety requires care; the pier is the deepest in the Peninsula network and not a children’s pier.
+- **Portsea Pier, currently closed.** Parks Victoria prohibits public access during major maintenance from 20 July 2026. Do not plan a pier session there until the authority confirms reopening; see the [current access notice](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>).
 
 - **[Sorrento Pier](<https://peninsulainsider.com.au/fishing/locations/sorrento-pier/>), jig, dusk and night, year-round (peak Mar to Jun).** Reliable both inside and outside the autumn peak; the sand flat extending northeast holds squid year-round.
 
@@ -97,7 +97,7 @@ Source: [Victorian Fisheries Authority Recreational Fishing Guide](<https://vfa.
 
 - [Mornington Pier](<https://peninsulainsider.com.au/fishing/locations/mornington-pier/>) · Port Phillip Bay · October to April for snapper; year-round for squid
 
-- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay · December to March (kingfish summer); year-round (squid)
+- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay
 
 - [Rye Pier](<https://peninsulainsider.com.au/fishing/locations/rye-pier/>) · Port Phillip Bay · November to March (whiting); April to June and September to November (squid peaks)
 

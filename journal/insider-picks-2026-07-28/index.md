@@ -23,9 +23,11 @@ Illustrative image  This photograph shows a rocky headland and offshore sea stac
 
 **EAT - Doot Doot Doot, Merricks North**
 
-The full degustation at Doot Doot Doot is a different proposition in July than it is in November. Michael Demagistris’s kitchen leans into winter produce - root vegetables braised long, game where it appears, dark-fruited sauces that would feel heavy in summer but feel exactly right now. The room, centred on that chandelier of 10,000 hand-blown glass orbs, earns its reputation on cold nights when the Peninsula goes quiet and the only reason to be out is a meal worth the drive. Order the full degustation, not the à la carte - this kitchen builds across the whole arc, and skipping courses means missing the logic. The wine pairing is worth adding; the list tilts toward Burgundy and the Peninsula’s own Pinot Noirs, which suits winter.
+Doot Doot Doot is the signature dining room at Jackalope Hotel in Merricks North. For the current menu and service dates, check with Jackalope directly. The operator now describes a seasonal multi-course Signature Dining Experience curated by Group Executive Chef Michael Wickham. This dated July pick is retained as an archive, not a current menu guide.
 
-Book via the Jackalope Hotel website. Allow four hours minimum. 166 Balnarring Road, Merricks North.
+**Correction, 3 October 2026:** An earlier version attributed the current kitchen to Michael Demagistris and described specific dishes and an à la carte choice without current support. We removed those details after checking Jackalope’s dining information.
+
+Book via the Jackalope Hotel website. Confirm the sitting duration with Jackalope. 166 Balnarring Road, Merricks North.
 
 Pair it with a room at Jackalope itself - driving back over the ridge in the dark is less appealing than staying.
 
@@ -49,7 +51,7 @@ Pair it with lunch at Bistro Elba on Ocean Beach Road - the gallery and the bist
 
 Pick | Where | When | Practical |
 
-Doot Doot Doot | 166 Balnarring Road, Merricks North | Dinner Wed–Sun | Book ahead via jackalope.com.au |
+Doot Doot Doot | 166 Balnarring Road, Merricks North | Check current service | Book ahead via jackalope.com.au |
 
 Southern Peninsula Sleepout | 21 Wallis Road, Boneo | Fri 31 Jul 4pm – Sat 1 Aug | Book at visitmorningtonpeninsula.org |
 

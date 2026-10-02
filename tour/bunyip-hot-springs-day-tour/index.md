@@ -11,6 +11,8 @@ Tours     Wellness
 
 Bunyip Tours has been running small-group day tours from Melbourne since 1998, and this tour solves a specific logistics problem: getting to Peninsula Hot Springs at Fingal without a car. The day covers Arthurs Seat State Park and the Mornington beach boxes before arriving at the springs for a four-hour bathing session. The group format accommodates up to 24 guests, and the price band is the accessible end of the guided hot springs day market.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -23,11 +25,7 @@ Melbourne CBD
 
 Group size
 
-Small group (up to 24) - max 24 guests
-
-Price band
-
-Mid-range
+Small group - max 24 guests
 
 Languages
 

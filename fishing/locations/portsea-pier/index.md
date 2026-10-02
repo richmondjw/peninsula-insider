@@ -9,57 +9,63 @@ Fishing · Locations · Port Phillip Bay
 
 # Portsea Pier
 
+Public access closed
+
+Portsea Pier is closed for major maintenance. Parks Victoria says public access is not permitted. Completion is expected before summer 2026, weather permitting; check the current update before travelling.
+
+Access notice checked Sat, 3 Oct 2026. [Read the current authority notice](<https://www.parks.vic.gov.au/places-to-see/sites/portsea-pier>) before travelling.
+
 Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Pier |
+**Type**
 
-Water body | Port Phillip Bay |
+Pier
 
-Best season | December to March (kingfish summer); year-round (squid) |
+**Water body**
 
-Parking | Limited 1 to 2-hour time-limited spaces near pier; free after 6pm; free off-street options nearby |
+Port Phillip Bay
 
-Tide reference station | Portsea (this location is the reference station for southern Port Phillip Bay) |
+**Tide reference station**
 
-Public toilets | Yes |
+Portsea
 
-Accessibility | Concrete pier surface. Ladders for water access (Parks Victoria-managed). Outer pier sections are deep-water; supervise children closely. |
+**Public toilets**
 
-Top species |  [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [yellowtail kingfish](<https://peninsulainsider.com.au/fishing/species/yellowtail-kingfish/>) , [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) |
+Yes
 
-**Tide note.** Incoming tide from the Heads is the strongest period for kingfish; squid are productive across both tidal states with mild current. Slack water at the Heads is safer for vessel transit but less productive for fishing. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea (this location is the reference station for southern Port Phillip Bay) reference station.
+**Accessibility**
 
-**Safety note.** The pier is the deepest in the Peninsula network with no railings on outer sections. The Rip at Port Phillip Heads is 1km west; current and standing waves are real. Pier-edge supervision for children is essential.
+No public access during the Parks Victoria maintenance closure.
 
-## What this location is
+**Top species**
 
-Portsea Pier sits at Portsea, the southernmost township on the Peninsula’s bay shore, approximately 1km east of Point Nepean and the Rip. The pier extends 290m into deep water (over 8m at the outer end at high tide), making it the deepest land-based fishing platform on the Peninsula. The pier is managed by [Parks Victoria](<https://www.parks.vic.gov.au/>) within the Point Nepean precinct.
+[squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [yellowtail kingfish](<https://peninsulainsider.com.au/fishing/species/yellowtail-kingfish/>) , [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>)
 
-The pier’s specific identity is the kingfish summer. Yellowtail kingfish push into the lower bay from December into March following baitfish concentrations, and the deep water at the Portsea pier head is one of the few land-based locations where serious kingfish anglers concentrate. Outside the kingfish season, the pier is a productive squid ground year-round and produces snapper occasionally during the bay’s spring and autumn shoulders. Australian salmon push past the Heads on winter incursions.
+**Tide note.** The Portsea tidal reference is useful for southern Port Phillip Bay, but it does not change the current no-access closure. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea reference station.
 
-## Tide and access
+**Safety note.** Do not enter the closed pier or works area. Check Parks Victoria for the reopening notice and current access conditions.
 
-The reference station is Portsea (this is the station that names the area). Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>). The pier walkway is above water at all tidal states; access is unrestricted by tide.
+## Current access: closed
 
-The Rip at Port Phillip Heads is 1km west. The Rip is one of Australia’s most dangerous tidal passages for small vessels; pier anglers are not exposed to the standing-wave conditions, but the proximity is worth understanding. Boats departing Sorrento or Portsea must stay clear of the Heads channel.
+[Parks Victoria’s Portsea Pier notice](<https://www.parks.vic.gov.au/places-to-see/sites/portsea-pier>) says the pier has been closed since 20 July 2026 for major maintenance. Public access is not permitted while work is underway. The authority expects completion before summer 2026, weather permitting, and will issue updates. We checked this access notice on 3 October 2026. Do not use the historical fishing guidance below as permission to enter.
 
-## Parking and crowd pressure
+For a shore-fishing trip while Portsea is closed, consider [Sorrento Pier](<https://peninsulainsider.com.au/fishing/locations/sorrento-pier/>) or [Rye Pier](<https://peninsulainsider.com.au/fishing/locations/rye-pier/>). Check each location’s current access and conditions before leaving.
 
-Limited 1 to 2-hour time-limited spaces near the pier; free after 6pm. Free off-street options are available within a short walk. Summer school holidays and Easter weekend put extreme pressure on the pier and the carparks; arrive before 6:30am for the outer kingfish positions or fish weekday sessions.
+## About the fishing location
 
-## Best technique
+Portsea Pier extends into deep water near the Heads. Historically, anglers have targeted squid and, in some summers, opportunistic kingfish from the structure. This describes the fishing ground, not current public access. The fishing details below were last broadly fact-checked on 30 April 2026 and need a fresh conditions check after reopening.
 
-For kingfish, live bait is the gold standard from Portsea Pier. A slimy mackerel or yellowtail scad rigged on a single 8/0 to 10/0 hook and balloon-fished off the outer pier produces strikes when fish push past the structure. Heavy gear: 24 to 50lb braid, 50lb-plus leader, a heavy spinning rod that can absorb the first run. The first 20 seconds after the strike is where most fish are lost.
+## Tide and safety when access returns
 
-For squid, an EGI jig in size 3.0 to 3.5 worked along the pier piles is effective; dawn and dusk are the most productive windows. For snapper, a heavy paternoster on fresh squid bait fished into the running tide produces occasionally during the bay’s October to December run.
+Portsea is the tidal reference station for the southern bay. Consult [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) and the relevant marine forecast when access is restored. The Rip at Port Phillip Heads is a serious vessel hazard; stay clear of the Heads channel and follow current maritime guidance.
 
-## Safety notes
+The pier edge and deep water require care, especially with children. Obey barriers and any reopened-section limits. Never enter a closed section to fish, dive or reach a vessel.
 
-The deepest pier on the Peninsula. No railings on outer sections. Water depth at the outer end exceeds 8m at high tide. Strong south-westerlies above 25 knots make the outer pier wet and uncomfortable. Pier-edge supervision for children is essential; the pier is not a children’s pier, and the depth and lack of railings make a fall into the water a serious incident.
+## Historical technique
 
-The Rip channel is 1km west. Stay out of the channel area in any vessel; respect the [Maritime Safety Victoria](<https://www.maritimesafety.vic.gov.au/>) guidance on tidal passage safety.
+When public access is restored and current rules permit fishing, squid jigs worked around the pier structure can be effective around low light. Kingfish are an occasional summer possibility rather than a dependable trip objective. Check the [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide>) for current bag limits, size limits and licence rules before retaining a catch.
 
 ## Species this location holds
 
@@ -77,17 +83,17 @@ Nearest ramp: [Sorrento Boat Ramp](<https://peninsulainsider.com.au/boating/ramp
 
 ## Frequently asked questions
 
-### Can I really catch kingfish from Portsea Pier?
+### Can I fish from Portsea Pier now?
 
-Yes, in the right window. Yellowtail kingfish push into the lower bay following baitfish during the December to March summer peak. Sessions on live slimy mackerel or yellowtail scad rigged on the pier produce kingfish in the right years. The bag limit is now 2 per person per day (reduced from 5 in October 2025); confirm with VFA before retaining.
+No. Parks Victoria says the pier is closed to public access during major maintenance. Check its current Portsea Pier update for reopening; do not enter the works area. Sorrento and Rye piers are alternative shore-fishing locations.
 
-### How dangerous is the Rip from Portsea Pier?
+### When will Portsea Pier reopen?
 
-The Rip itself is a vessel hazard, not a pier hazard. Pier anglers are not exposed to the standing-wave conditions that affect small boats in the Heads channel. The pier risk is depth and lack of railings: the outer end runs deeper than 8m at high tide with no edge protection. Children require close supervision; falls into the water are the realistic risk.
+Parks Victoria expects the maintenance works to finish before summer 2026, weather permitting. That is an estimate, not a confirmed reopening date. Check the current Parks Victoria notice before making plans.
 
-### When do I avoid Portsea Pier?
+### Can I catch kingfish from Portsea Pier after it reopens?
 
-Strong south-westerly above 25 knots. The Heads-adjacent location means swell wraps around the cape and pushes water onto the outer pier. North-easterlies are sheltered. Summer school holidays and Easter weekend put extreme pressure on the pier and the carparks; arrive before 6:30am or fish a weekday.
+Kingfish have been taken from the pier in some summers, but this is opportunistic rather than reliable. The pier is closed now. After reopening, check current access, weather and Victorian Fisheries Authority rules before fishing.
 
 ## Related
 

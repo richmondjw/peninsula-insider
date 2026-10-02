@@ -33,7 +33,7 @@ Tours by Autopia Tours
 
 ## 1 tour listed
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Day Tour](<https://peninsulainsider.com.au/tour/autopia-mornington-peninsula-day-tour/>)
 

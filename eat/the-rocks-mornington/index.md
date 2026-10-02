@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Rocks Mornington
 
-Perched at the end of Mornington Pier with near-360° bay views, a seafood-heavy menu and one of the most romantic tables on the bayside at sunset.
+Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
 
 Known for   Mornington Pier End Location Near-360° Bay Views Seafood-First Menu Sunset Window Tables
 

@@ -39,7 +39,7 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Coastal + Wine Day Tour](<https://peninsulainsider.com.au/tour/wine-hop-coastal-tour/>)
 
@@ -49,7 +49,7 @@ Wine Hop and Coastal Tours holds an Ecotourism Australia certification, which di
 
  [Read notes →](<https://peninsulainsider.com.au/tour/wine-hop-coastal-tour/>)
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 

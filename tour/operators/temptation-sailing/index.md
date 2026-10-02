@@ -27,7 +27,7 @@ Tours by Temptation Sailing
 
 ## 1 tour listed
 
-Half day   Couples   Mid-range
+Half day   Couples
 
 ### [Temptation Sailing Bay Cruise](<https://peninsulainsider.com.au/tour/temptation-sailing-bay-cruise/>)
 

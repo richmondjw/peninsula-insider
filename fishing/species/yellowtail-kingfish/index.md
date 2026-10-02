@@ -71,7 +71,7 @@ Source: [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fis
 
 ## Where to catch yellowtail kingfish on the Peninsula
 
-- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay · December to March (kingfish summer); year-round (squid)
+- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay
 
 ## Charter operators that target yellowtail kingfish
 
@@ -95,7 +95,7 @@ December through March is the summer peak. Schools track south from warmer water
 
 ### Where do I catch kingfish?
 
-Boat fishery almost exclusively. Around the Heads (be aware of the Rip safety considerations), Cape Schanck offshore structures, and the deeper Bass Strait reefs accessible from Sorrento or Portsea. Land-based kingfish are taken occasionally from Portsea Pier in summer when fish push into the bay, but this is opportunistic rather than reliable.
+Boat fishery almost exclusively. Around the Heads (be aware of the Rip safety considerations), Cape Schanck offshore structures, and the deeper Bass Strait reefs accessible from Sorrento or Portsea. Portsea Pier has historically produced occasional land-based kingfish, but Parks Victoria currently prohibits public access during maintenance; check the authority before considering it after reopening.
 
 ### What technique works for kingfish?
 

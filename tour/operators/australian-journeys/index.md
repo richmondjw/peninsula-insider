@@ -33,7 +33,7 @@ Tours by Australian Journeys
 
 ## 1 tour listed
 
-Full day   Couples   Premium
+Full day   Couples
 
 ### [Luxury Peninsula Day - Private Wine and Food Tour](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 

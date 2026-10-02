@@ -35,7 +35,7 @@ Tours by Local Way Tours
 
 ## 1 tour listed
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine and Cheese Tour](<https://peninsulainsider.com.au/tour/local-way-wine-cheese-tour/>)
 

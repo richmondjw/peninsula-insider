@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Foreshore |
+**Type**
 
-Water body | Port Phillip Bay |
+Foreshore
 
-Best season | November to March (whiting and garfish); year-round (squid) |
+**Water body**
 
-Parking | Ample at the adjacent Safety Beach Boat Ramp (Shand St / Marine Drive); free public |
+Port Phillip Bay
 
-Tide reference station | Portsea (or Port Melbourne for northern bay) |
+**Best season**
 
-Public toilets | Yes |
+November to March (whiting and garfish); year-round (squid)
 
-Accessibility | Flat beach and foreshore. All-abilities access path. Toilets, picnic areas, playground nearby. Beach wheelchair available via Mornington Peninsula Shire. |
+**Parking**
 
-Top species |  [garfish](<https://peninsulainsider.com.au/fishing/species/garfish/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) |
+Ample at the adjacent Safety Beach Boat Ramp (Shand St / Marine Drive); free public
+
+**Tide reference station**
+
+Portsea (or Port Melbourne for northern bay)
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Flat beach and foreshore. All-abilities access path. Toilets, picnic areas, playground nearby. Beach wheelchair available via Mornington Peninsula Shire.
+
+**Top species**
+
+[garfish](<https://peninsulainsider.com.au/fishing/species/garfish/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>)
 
 **Tide note.** Rising tide; the two hours before high water is the optimal garfish and whiting window. The shallow-bay margin means low tide leaves much of the productive ground exposed. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea (or Port Melbourne for northern bay) reference station.
 

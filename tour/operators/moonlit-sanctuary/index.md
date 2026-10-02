@@ -59,7 +59,7 @@ Tours by Moonlit Sanctuary Wildlife Conservation Park
 
 ## 1 tour listed
 
-Under 2 hours   Families   Moderate
+Under 2 hours   Families
 
 ### [Moonlit Sanctuary Twilight Tour](<https://peninsulainsider.com.au/tour/moonlit-sanctuary-twilight-tour/>)
 

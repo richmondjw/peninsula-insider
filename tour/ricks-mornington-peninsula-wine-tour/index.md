@@ -11,6 +11,8 @@ Tours     Food & Wine
 
 Rick's Wine Tours occupies a specific niche in the Peninsula wine tour market: a fully private, customisable day at a per-person price that undercuts most competitors by 20 to 40 per cent. Every booking is a private charter, the guest selects the wineries, and pickup can be arranged from the Melbourne CBD or directly from the Mornington region.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -24,10 +26,6 @@ Melbourne CBD; Mornington region; flexible pickup by arrangement
 Group size
 
 Private charter - max 24 guests
-
-Price band
-
-Moderate
 
 Languages
 

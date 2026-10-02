@@ -65,7 +65,7 @@ Doot Doot Doot serves dinner on site, with its own reservation. The operator lis
 
 Part of Jackalope
 
-[Doot Doot Doot  Restaurant  Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)[Rare Hare at Willow Creek  Restaurant  Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.](<https://peninsulainsider.com.au/eat/rare-hare/>)[Spa by Jackalope  Spa  The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
+[Doot Doot Doot  Restaurant  A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)[Rare Hare at Willow Creek  Restaurant  Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.](<https://peninsulainsider.com.au/eat/rare-hare/>)[Spa by Jackalope  Spa  The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
 
 Worth knowing
 

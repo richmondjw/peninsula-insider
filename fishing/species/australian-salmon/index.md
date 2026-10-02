@@ -95,7 +95,7 @@ Source: [Victorian Fisheries Authority](<https://vfa.vic.gov.au/recreational-fis
 
 - [Point Leo Beach](<https://peninsulainsider.com.au/fishing/locations/point-leo-beach/>) · Bass Strait fringe · April to August (winter salmon run); October to March (snapper opportunistic)
 
-- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay · December to March (kingfish summer); year-round (squid)
+- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay
 
 ## Charter operators that target australian salmon
 

@@ -39,17 +39,21 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Under 2 hours   Families   Moderate
+Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Sea Dragon Snorkel Tour.
+
+Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
+
+About 2 hours   Families
 
 ### [Bayplay Sea Dragon Snorkel Tour](<https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/>)
 
 by [Bayplay Adventure](<https://peninsulainsider.com.au/tour/operators/bayplay/>)
 
-A guided snorkel tour at Portsea Pier on the Mornington Peninsula, built around finding and observing weedy sea drago...
+Bayplay advertises a guided, approximately two-hour snorkel with weedy sea dragons in Portsea. The operator says gues...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/>)
 
-Under 2 hours   Families   Budget
+Under 2 hours   Families
 
 ### [Searoad Ferries: Sorrento–Queenscliff Bay Crossing](<https://peninsulainsider.com.au/tour/searoad-sorrento-queenscliff-crossing/>)
 
@@ -63,7 +67,7 @@ The 40-minute roll-on/roll-off ferry crossing between Sorrento and Queenscliff t
 
 Operated by Bayplay Adventure. Book directly with the operator.
 
- [Book this tour →](<https://bayplay.com.au/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=bayplay-sea-dragon-snorkel-tour&utm_content=package-cta>)
+ [Book this tour →](<https://bayplay.com.au/snorkel-with-dragons/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=bayplay-sea-dragon-snorkel-tour&utm_content=package-cta>)
 
 ### Searoad Ferries: Sorrento–Queenscliff Bay Crossing
 

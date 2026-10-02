@@ -33,7 +33,7 @@ Tours by Global Ballooning Australia
 
 ## 1 tour listed
 
-Half day   Couples   Premium
+Half day   Couples
 
 ### [Global Ballooning Peninsula Sunrise Flight](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 

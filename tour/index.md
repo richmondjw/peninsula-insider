@@ -17,7 +17,7 @@ Featured tours
 
 Each entry is written from the operator's own published product and its public review record. We note who each tour suits and who it doesn't. Operators change what they run, so confirm the detail with them before you book.
 
-Under 2 hours   Families   Moderate
+Under 2 hours   Families
 
 ### [Arthurs Seat Eagle Gondola Ride](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
@@ -27,7 +27,7 @@ The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in
 
  [Read notes →](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
-Half day   Couples   Premium
+Half day   Couples
 
 ### [Global Ballooning Peninsula Sunrise Flight](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 
@@ -37,7 +37,7 @@ Global Ballooning's Peninsula sunrise flight launches at dawn over the Red Hill 
 
  [Read notes →](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 
-Under 2 hours   Families   Moderate
+Under 2 hours   Families
 
 ### [Moonlit Sanctuary Twilight Tour](<https://peninsulainsider.com.au/tour/moonlit-sanctuary-twilight-tour/>)
 
@@ -47,7 +47,7 @@ The Moonlit Sanctuary Twilight Tour is a guided nocturnal walk through the park 
 
  [Read notes →](<https://peninsulainsider.com.au/tour/moonlit-sanctuary-twilight-tour/>)
 
-Half day   All guests   Mid-range
+Half day   All guests
 
 ### [Moonraker Whale Watching Tour](<https://peninsulainsider.com.au/tour/moonraker-whale-watching-tour/>)
 
@@ -57,7 +57,7 @@ Moonraker's whale watching tour runs from June through October, when humpback an
 
  [Read notes →](<https://peninsulainsider.com.au/tour/moonraker-whale-watching-tour/>)
 
-Half day   Families   Mid-range
+Half day   Families
 
 ### [Polperro Dolphin Swim](<https://peninsulainsider.com.au/tour/polperro-dolphin-swim/>)
 
@@ -67,7 +67,7 @@ Polperro's dolphin swim tour puts participants in the water alongside wild bottl
 
  [Read notes →](<https://peninsulainsider.com.au/tour/polperro-dolphin-swim/>)
 
-Half day   Couples   Mid-range
+Half day   Couples
 
 ### [Temptation Sailing Bay Cruise](<https://peninsulainsider.com.au/tour/temptation-sailing-bay-cruise/>)
 

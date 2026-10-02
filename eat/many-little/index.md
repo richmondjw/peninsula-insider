@@ -123,7 +123,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 166 Balnarring Rd, Merricks North VIC 3926
 
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
 
 anniversary  first date
 

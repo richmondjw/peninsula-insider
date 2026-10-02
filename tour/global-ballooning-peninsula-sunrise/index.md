@@ -23,11 +23,7 @@ Launch site varies, Red Hill or Merricks area, confirmed the evening before
 
 Group size
 
-Small group (up to 24) - max 16 guests
-
-Price band
-
-Premium
+Small group - max 16 guests
 
 Languages
 

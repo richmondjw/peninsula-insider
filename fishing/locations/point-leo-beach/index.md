@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Beach |
+**Type**
 
-Water body | Bass Strait fringe |
+Beach
 
-Best season | April to August (winter salmon run); October to March (snapper opportunistic) |
+**Water body**
 
-Parking | Car park at Point Leo beach entrance; free |
+Bass Strait fringe
 
-Tide reference station | Stony Point (Bass Strait fringe; Stony Point is the closest reference, expect lag) |
+**Best season**
 
-Public toilets | Yes |
+April to August (winter salmon run); October to March (snapper opportunistic)
 
-Accessibility | Sandy beach with surf. Not accessible for mobility-limited anglers. |
+**Parking**
 
-Top species |  [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>) |
+Car park at Point Leo beach entrance; free
+
+**Tide reference station**
+
+Stony Point (Bass Strait fringe; Stony Point is the closest reference, expect lag)
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Sandy beach with surf. Not accessible for mobility-limited anglers.
+
+**Top species**
+
+[australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>)
 
 **Tide note.** Low to mid-rising tide for daytime salmon. Gutter structure most visible and fishable at low tide. Night sessions for gummy shark on any tidal state with a running phase. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point (Bass Strait fringe; Stony Point is the closest reference, expect lag) reference station.
 

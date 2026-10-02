@@ -43,7 +43,7 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Full day   All guests   Moderate
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 
@@ -53,7 +53,7 @@ Rick's Wine Tours occupies a specific niche in the Peninsula wine tour market: a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Boutique Wine Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 

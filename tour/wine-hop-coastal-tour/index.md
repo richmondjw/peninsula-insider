@@ -11,6 +11,8 @@ Tours     Scenic Sightseeing
 
 Wine Hop and Coastal Tours holds an Ecotourism Australia certification, which distinguishes it from the broader Peninsula wine tour field. The day combines structured coastal interpretation at Peninsula sites with cellar door tastings and an included lunch, and operates on Fridays only.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -23,11 +25,7 @@ Melbourne CBD hotels
 
 Group size
 
-Small group (up to 24)
-
-Price band
-
-Mid-range
+Small group
 
 Languages
 

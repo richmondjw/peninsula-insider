@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Jetty |
+**Type**
 
-Water body | Western Port |
+Jetty
 
-Best season | October to March (snapper); November to March (whiting); year-round (flathead, bream) |
+**Water body**
 
-Parking | Wide spaces for vehicles and trailers nearby (adjacent to Hastings Boat Ramp) |
+Western Port
 
-Tide reference station | Stony Point |
+**Best season**
 
-Public toilets | Yes |
+October to March (snapper); November to March (whiting); year-round (flathead, bream)
 
-Accessibility | Flat foreshore approach. Historic L-shaped structure. Fishing rod holders on the pier (verify current condition). |
+**Parking**
 
-Top species |  [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [bream](<https://peninsulainsider.com.au/fishing/species/bream/>) |
+Wide spaces for vehicles and trailers nearby (adjacent to Hastings Boat Ramp)
+
+**Tide reference station**
+
+Stony Point
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Flat foreshore approach. Historic L-shaped structure. Fishing rod holders on the pier (verify current condition).
+
+**Top species**
+
+[flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [bream](<https://peninsulainsider.com.au/fishing/species/bream/>)
 
 **Tide note.** Running tide is the productive window. Western Port's 2.5 to 2.8m tidal range produces strong current at peak run. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 

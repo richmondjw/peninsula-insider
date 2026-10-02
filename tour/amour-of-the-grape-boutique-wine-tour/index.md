@@ -11,6 +11,8 @@ Tours     Food & Wine
 
 Amour of the Grape is an owner-operated boutique wine tour run by Paul and Liz Gough, who live on the Peninsula and lead every departure themselves. The maximum group size of seven keeps each cellar door visit closer to a private tasting than a group tour, and the itinerary is adjusted on the day to match the group's preferences and the season's releases.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -23,11 +25,7 @@ Melbourne CBD; southern and eastern suburbs; Frankston Station; Mornington Penin
 
 Group size
 
-Intimate (2-4) - max 7 guests
-
-Price band
-
-Mid-range
+Intimate - max 7 guests
 
 Languages
 

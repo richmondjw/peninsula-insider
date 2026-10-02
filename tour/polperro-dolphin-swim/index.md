@@ -29,11 +29,7 @@ Sorrento Pier
 
 Group size
 
-Small group (up to 24) - max 12 guests
-
-Price band
-
-Mid-range
+Small group - max 12 guests
 
 Languages
 

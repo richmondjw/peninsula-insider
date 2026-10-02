@@ -17,7 +17,7 @@ Family tours
 
 ## 5 Peninsula family-friendly tours
 
-Under 2 hours   Families   Moderate
+Under 2 hours   Families
 
 ### [Arthurs Seat Eagle Gondola Ride](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
@@ -27,17 +27,21 @@ The Arthurs Seat Eagle gondola connects its Base Station on Arthurs Seat Road in
 
  [Read notes →](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 
-Under 2 hours   Families   Moderate
+Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Sea Dragon Snorkel Tour.
+
+Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
+
+About 2 hours   Families
 
 ### [Bayplay Sea Dragon Snorkel Tour](<https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/>)
 
 by [Bayplay Adventure](<https://peninsulainsider.com.au/tour/operators/bayplay/>)
 
-A guided snorkel tour at Portsea Pier on the Mornington Peninsula, built around finding and observing weedy sea drago...
+Bayplay advertises a guided, approximately two-hour snorkel with weedy sea dragons in Portsea. The operator says gues...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/>)
 
-Under 2 hours   Families   Moderate
+Under 2 hours   Families
 
 ### [Moonlit Sanctuary Twilight Tour](<https://peninsulainsider.com.au/tour/moonlit-sanctuary-twilight-tour/>)
 
@@ -47,7 +51,7 @@ The Moonlit Sanctuary Twilight Tour is a guided nocturnal walk through the park 
 
  [Read notes →](<https://peninsulainsider.com.au/tour/moonlit-sanctuary-twilight-tour/>)
 
-Half day   Families   Mid-range
+Half day   Families
 
 ### [Polperro Dolphin Swim](<https://peninsulainsider.com.au/tour/polperro-dolphin-swim/>)
 
@@ -57,7 +61,7 @@ Polperro's dolphin swim tour puts participants in the water alongside wild bottl
 
  [Read notes →](<https://peninsulainsider.com.au/tour/polperro-dolphin-swim/>)
 
-Under 2 hours   Families   Budget
+Under 2 hours   Families
 
 ### [Searoad Ferries: Sorrento–Queenscliff Bay Crossing](<https://peninsulainsider.com.au/tour/searoad-sorrento-queenscliff-crossing/>)
 

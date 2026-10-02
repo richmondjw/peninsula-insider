@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Pier |
+**Type**
 
-Water body | Western Port |
+Pier
 
-Best season | October to December (snapper); October to March (whiting); March to June (squid) |
+**Water body**
 
-Parking | Ample free trailer parking at the adjacent ferry terminal and boat ramp precinct |
+Western Port
 
-Tide reference station | Stony Point (this location is the reference station for Western Port) |
+**Best season**
 
-Public toilets | Yes |
+October to December (snapper); October to March (whiting); March to June (squid)
 
-Accessibility | Pontoons are accessible. Various access points suitable for most mobilities. (Confirm details with Mornington Peninsula Shire.) |
+**Parking**
 
-Top species |  [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) |
+Ample free trailer parking at the adjacent ferry terminal and boat ramp precinct
+
+**Tide reference station**
+
+Stony Point (this location is the reference station for Western Port)
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Pontoons are accessible. Various access points suitable for most mobilities. (Confirm details with Mornington Peninsula Shire.)
+
+**Top species**
+
+[king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>)
 
 **Tide note.** Stony Point is the reference station for Western Port. Western Port tidal range here is approximately 2.5 to 2.8m. The pier fishes best during the running phases (2 hours before high water to 1 hour after, and 2 hours before low water to 1 hour after low). Slack water produces a fraction of the results. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point (this location is the reference station for Western Port) reference station.
 

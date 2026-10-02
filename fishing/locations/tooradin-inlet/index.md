@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Inlet |
+**Type**
 
-Water body | Western Port |
+Inlet
 
-Best season | October to April (warmer months produce more reliably); year-round (flathead, bream) |
+**Water body**
 
-Parking | Available at Tooradin Foreshore (26 Foreshore Rd); free public |
+Western Port
 
-Tide reference station | Stony Point |
+**Best season**
 
-Public toilets | Yes |
+October to April (warmer months produce more reliably); year-round (flathead, bream)
 
-Accessibility | Pedestrian paths maintained at the foreshore. Planned all-abilities improvements; verify completion status. |
+**Parking**
 
-Top species |  [bream](<https://peninsulainsider.com.au/fishing/species/bream/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) , [mulloway](<https://peninsulainsider.com.au/fishing/species/mulloway/>) |
+Available at Tooradin Foreshore (26 Foreshore Rd); free public
+
+**Tide reference station**
+
+Stony Point
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Pedestrian paths maintained at the foreshore. Planned all-abilities improvements; verify completion status.
+
+**Top species**
+
+[bream](<https://peninsulainsider.com.au/fishing/species/bream/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) , [mulloway](<https://peninsulainsider.com.au/fishing/species/mulloway/>)
 
 **Tide note.** Flood tide is the productive window. Fish from 2 hours before high water to high water; the bite drops sharply on the ebb. Tooradin Inlet is shallow at low tide and the inlet channel narrows substantially. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 

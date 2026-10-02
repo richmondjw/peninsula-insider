@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Pier |
+**Type**
 
-Water body | Port Phillip Bay |
+Pier
 
-Best season | October to April for snapper; year-round for squid |
+**Water body**
 
-Parking | Free with 2-hour limits near pier; unrestricted further along Schnapper Point Drive |
+Port Phillip Bay
 
-Tide reference station | Port Melbourne (or Portsea, adjusted earlier by 30 minutes) |
+**Best season**
 
-Public toilets | Yes |
+October to April for snapper; year-round for squid
 
-Accessibility | Concrete surface, accessible parking nearby. No full wheelchair railing on the outer platform. |
+**Parking**
 
-Top species |  [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) |
+Free with 2-hour limits near pier; unrestricted further along Schnapper Point Drive
+
+**Tide reference station**
+
+Port Melbourne (or Portsea, adjusted earlier by 30 minutes)
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Concrete surface, accessible parking nearby. No full wheelchair railing on the outer platform.
+
+**Top species**
+
+[snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>)
 
 **Tide note.** The pier fishes best on the rising tide. The two to three hours before high water through to one hour after is the productive window. At high-water slack the bite often dies; the drop produces well for squid but is slower for snapper and whiting. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Port Melbourne (or Portsea, adjusted earlier by 30 minutes) reference station.
 

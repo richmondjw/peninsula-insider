@@ -43,7 +43,7 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 
@@ -53,7 +53,7 @@ Bunyip Tours has been running small-group day tours from Melbourne to the Mornin
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 

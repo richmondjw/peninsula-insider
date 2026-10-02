@@ -53,7 +53,7 @@ Book a table on the terrace if the weather allows, order one more bottle than pl
 
 Part of Jackalope
 
-[Doot Doot Doot  Restaurant  Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)[Jackalope Hotel  Hotel  An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.](<https://peninsulainsider.com.au/stay/jackalope/>)[Spa by Jackalope  Spa  The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
+[Doot Doot Doot  Restaurant  A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)[Jackalope Hotel  Hotel  An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.](<https://peninsulainsider.com.au/stay/jackalope/>)[Spa by Jackalope  Spa  The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
 
 Worth knowing
 

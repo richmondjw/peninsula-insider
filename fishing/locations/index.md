@@ -25,9 +25,9 @@ Mornington Pier is one of the most consistently productive land-based fishing pl
 
 ### [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>)
 
-pier · December to March (kingfish summer); year-round (squid)
+pier
 
-Portsea Pier is the deepest land-based fishing platform on the Peninsula and the only one that puts you within rod-cast of yellowtail kingfish in summer. Squid run year-round; snapper move through in spring and autumn; salmon push past the Heads on winter incursions. The pier sits adjacent to the Rip and the Heads channel, which means proximity to genuine tidal current and to one of Australia's most dangerous tidal passages. Treat both with appropriate respect.
+Portsea Pier is currently closed to the public for major maintenance. Parks Victoria says no public access is permitted from 20 July 2026 and expects works to finish before summer 2026, weather permitting. Check the authority before travelling; Sorrento and Rye piers are alternatives for shore fishing.
 
 [Location guide →](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>)
 

@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-29
+Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,25 +9,27 @@ Tours     Wildlife & Nature
 
 # Bayplay Sea Dragon Snorkel Tour
 
-A guided snorkel tour at Portsea Pier on the Mornington Peninsula, built around finding and observing weedy sea dragons in their natural habitat. The tour departs directly from the pier - no boat required - and takes participants into the marine sanctuary beneath the jetty structure, where sea dragons, cuttlefish, and diverse reef species congregate in the protected waters.
+Bayplay advertises a guided, approximately two-hour snorkel with weedy sea dragons in Portsea. The operator says guests meet for a briefing and walk to the beach. Portsea Pier is closed to public access during Parks Victoria maintenance, so confirm the current water entry and access arrangements with Bayplay before booking.
+
+Photo · Essiewingrove / Wikimedia Commons (CC BY-SA 4.0)
+
+Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Sea Dragon Snorkel Tour.
+
+Context photo of Point King Beach, Portsea. This is not the confirmed tour entry point. By [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized from the original.
 
 ## At a glance
 
 Duration
 
-Under 2 hours (approx. 1.5 hours)
+About 2 hours (approx. 2 hours)
 
 Departs from
 
-Portsea Pier
+Bayplay shop, 3755 Point Nepean Road, Portsea; confirm the beach entry with the operator
 
 Group size
 
-Small group (up to 24) - max 12 guests
-
-Price band
-
-Moderate
+Small group
 
 Languages
 
@@ -35,47 +37,47 @@ EN
 
 Cancellation
 
-Weather-dependent cancellation with rescheduling offered. Direct booking terms at bayplay.com.au.
+Weather may require rescheduling. Check Bayplay current booking terms before paying.
 
 ### Check availability - Bayplay Adventure
 
 Pricing and availability are managed directly by the operator. Booking through the link below confirms your place directly with Bayplay Adventure.
 
- [Book this tour →](<https://bayplay.com.au/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=bayplay-sea-dragon-snorkel-tour&utm_content=hero>)
+ [Book this tour →](<https://bayplay.com.au/snorkel-with-dragons/?utm_source=peninsula-insider&utm_medium=tour-vertical&utm_campaign=bayplay-sea-dragon-snorkel-tour&utm_content=hero>)
 
 ## What happens on this tour
 
-The tour runs in small groups of up to 12 from Portsea Pier. After a shore-based safety and wildlife briefing, participants enter the water from the pier steps with wetsuits and snorkel equipment provided. The guide leads the group along the pier pylons and into the adjacent marine sanctuary area. Sea dragons are reliably present in the shallow reef below the structure; the guide tracks their movements and positions participants for close observation without disturbing the animals. The session runs 60 to 90 minutes in the water, dependent on conditions. A warm rinse and debrief follow on the pier.
+Bayplay describes a presentation and snorkelling skills demonstration, followed by a short walk to the beach and a guided swim to observe marine life. The operator lists snorkelling gear, hot showers and changing facilities. The exact route depends on conditions and current access arrangements; do not assume entry from Portsea Pier.
 
 ## Who this suits
 
-Families with children aged 6 and above. Children between 8 and 14 consistently get the most from this experience - old enough to understand the wildlife context, young enough to find the encounter genuinely exciting. Adults with no prior snorkel experience manage well; the pier structure provides a visual reference point and the shallow depth removes open-water anxiety. Confident non-swimmers can participate from the pier steps with guide assistance.
+Visitors aged 12 and over who want a guided introduction to Portsea marine life. Bayplay asks for reasonable fitness and confidence in ocean water and says buoyancy support may be available; discuss water confidence with the operator before booking.
 
 ### Who should look elsewhere
 
-Children under 6 - the minimum age is firm. Adults seeking scuba or open-ocean snorkel experiences. Anyone with a strong aversion to cold water: the bay temperature in peak summer reaches 18–22°C, and winter sessions are significantly colder. Groups wanting a fully passive tour: some comfort in the water is required.
+Children under 12, according to Bayplay current tour conditions. Anyone who needs a guaranteed pier entry or a fixed route should confirm current arrangements with the operator before committing.
 
 ## Booking intelligence
 
-Book in advance: Saturday morning sessions are the most popular timeslot and fill several weeks ahead in school holiday periods. The tour runs weather-dependent - Bayplay will advise if conditions make the session unviable and offer rescheduling. Wet suit hire is included; bring a towel and a change of clothes for after. Portsea Pier has limited parking on weekends; the ferry terminal and foreshore are within walking distance for families staying in Sorrento.
+Bayplay lists a minimum of four participants and an approximately two-hour duration. Poor weather may require rescheduling. Parks Victoria currently prohibits public access to Portsea Pier; Bayplay describes a beach entry. Confirm the meeting point, route, minimum age and current operating status directly with Bayplay.
 
 ## Frequently asked questions
 
-### What is the minimum age for the sea dragon snorkel tour?
+### What is the minimum age for the Sea Dragon snorkel?
 
-The minimum age is 6. Children under 6 cannot participate in the water component. The pier area is accessible to spectators, so younger siblings can watch from the jetty while other family members snorkel.
+Bayplay currently lists a minimum age of 12, with under-16s accompanied by an adult. Confirm directly when booking.
 
-### Do I need to be able to swim to do this tour?
+### Does the tour enter from Portsea Pier?
 
-Basic water comfort is required. Participants do not need to be strong swimmers, but they must be comfortable floating with a mask and snorkel on. Wetsuits are provided and significantly improve buoyancy. The guide can support hesitant participants from the pier steps.
+Do not assume pier entry. Parks Victoria says the pier is closed to public access during maintenance. Bayplay current tour page describes a briefing followed by a short walk to the beach. Confirm your actual water entry and access route with Bayplay.
 
-### Is equipment provided?
+### Is snorkelling gear provided?
 
-Yes. Wetsuit, mask, snorkel, and fins are all included. Bring a towel and dry clothes for after.
+Bayplay lists snorkelling gear, a guide, hot showers and changing facilities. Bring bathers, a towel and warm dry clothes.
 
-### What if the weather is bad?
+### What if conditions are unsuitable?
 
-Bayplay monitors conditions and will contact you in advance if the session is not viable. Reschedule options are offered. Do not assume a cancellation until you hear from the operator - the bay is often calmer than ocean beaches on days that look windy from shore.
+Bayplay says poor weather may require rescheduling. Check the current terms and the operator confirmation for your booking.
 
 Related planning
 

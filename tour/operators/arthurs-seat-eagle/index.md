@@ -59,7 +59,7 @@ Tours by Arthurs Seat Eagle
 
 ## 1 tour listed
 
-Under 2 hours   Families   Moderate
+Under 2 hours   Families
 
 ### [Arthurs Seat Eagle Gondola Ride](<https://peninsulainsider.com.au/tour/arthurs-seat-eagle-gondola/>)
 

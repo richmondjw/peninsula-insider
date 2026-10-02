@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Pier |
+**Type**
 
-Water body | Port Phillip Bay |
+Pier
 
-Best season | November to March (whiting); April to June and September to November (squid peaks) |
+**Water body**
 
-Parking | Seasonal paid parking near pier in peak season; free parking further along the foreshore strip |
+Port Phillip Bay
 
-Tide reference station | Portsea (or Port Melbourne) |
+**Best season**
 
-Public toilets | Yes |
+November to March (whiting); April to June and September to November (squid peaks)
 
-Accessibility | All-abilities access ramp from road level. Beach wheelchairs available via Parks Victoria. Wide pier with consistent surface. |
+**Parking**
 
-Top species |  [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [garfish](<https://peninsulainsider.com.au/fishing/species/garfish/>) |
+Seasonal paid parking near pier in peak season; free parking further along the foreshore strip
+
+**Tide reference station**
+
+Portsea (or Port Melbourne)
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+All-abilities access ramp from road level. Beach wheelchairs available via Parks Victoria. Wide pier with consistent surface.
+
+**Top species**
+
+[squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [garfish](<https://peninsulainsider.com.au/fishing/species/garfish/>)
 
 **Tide note.** The pier fishes best on the rising tide. The two hours before high water are the prime whiting window. Squid are less tide-dependent and respond more strongly to light levels; dawn and dusk are reliable regardless of tidal state. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Portsea (or Port Melbourne) reference station.
 
@@ -75,7 +91,7 @@ Port Phillip Bay at Rye does not generate surf or significant rip currents. The 
 
 ## What this location is not well-suited to
 
-Not the right pier for anglers chasing snapper specifically. The water depth is modest and the structure does not hold snapper the way Mornington or Portsea do. Not suitable for anglers seeking solitude on summer weekends; the foreshore precinct attracts swimmers, snorkellers, picnickers, and anglers simultaneously. For weekday or shoulder-season sessions, the pier is genuinely uncrowded.
+Not the right pier for anglers chasing snapper specifically. The water depth is modest and the structure does not hold snapper the way Mornington does. Portsea Pier remains closed for maintenance until Parks Victoria confirms reopening. Not suitable for anglers seeking solitude on summer weekends; the foreshore precinct attracts swimmers, snorkellers, picnickers, and anglers simultaneously. For weekday or shoulder-season sessions, the pier is genuinely uncrowded.
 
 ## Species this location holds
 
@@ -103,7 +119,7 @@ Seasonal paid parking applies near the pier during peak season with 3-hour limit
 
 ### Is Rye Pier good for snapper?
 
-Not really. The water depth is modest (4 to 5m at the outer end) and the bottom structure does not hold snapper the way the Schnapper Point reef does. Snapper are caught here occasionally, more reliably at night, but the pier's real strengths are squid and whiting. For pier-based snapper, Mornington Pier or Portsea Pier are the right targets.
+Not really. The water depth is modest (4 to 5m at the outer end) and the bottom structure does not hold snapper the way the Schnapper Point reef does. Snapper are caught here occasionally, more reliably at night, but the pier's real strengths are squid and whiting. For pier-based snapper, Mornington Pier is a better current option; Portsea Pier is closed for maintenance and must not be used until Parks Victoria confirms reopening.
 
 ### When is the best time for squid at Rye Pier?
 

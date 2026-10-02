@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Jetty |
+**Type**
 
-Water body | Western Port |
+Jetty
 
-Best season | October to March (snapper); November to March (whiting); year-round (squid) |
+**Water body**
 
-Parking | Available in San Remo foreshore area; verify current fee status |
+Western Port
 
-Tide reference station | Stony Point |
+**Best season**
 
-Public toilets | Yes |
+October to March (snapper); November to March (whiting); year-round (squid)
 
-Accessibility | Flat foreshore approach to jetty. Some sections may have age-related surface variation; verify current condition. |
+**Parking**
 
-Top species |  [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) |
+Available in San Remo foreshore area; verify current fee status
+
+**Tide reference station**
+
+Stony Point
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Flat foreshore approach to jetty. Some sections may have age-related surface variation; verify current condition.
+
+**Top species**
+
+[snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>)
 
 **Tide note.** San Remo is at the entrance of Western Port; tidal current here is among the strongest at any Peninsula land-based location. Running tide is essential. Use heavy sinkers (60 to 100g) at peak run. Slack water produces noticeably less. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 

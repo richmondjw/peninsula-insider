@@ -35,7 +35,7 @@ Tours by Rick's Wine Tours
 
 ## 1 tour listed
 
-Full day   All guests   Moderate
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 

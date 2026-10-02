@@ -17,7 +17,7 @@ Full day tours
 
 ## 12 full-day Peninsula tours
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Boutique Wine Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 
@@ -27,7 +27,7 @@ Amour of the Grape is an owner-operated boutique wine tour run by Paul and Liz G
 
  [Read notes →](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 
-Full day   Couples   Premium
+Full day   Couples
 
 ### [Luxury Peninsula Day - Private Wine and Food Tour](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
@@ -37,7 +37,7 @@ Australian Journeys operates exclusively private tours for groups of 2 to 11, wi
 
  [Read notes →](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Day Tour](<https://peninsulainsider.com.au/tour/autopia-mornington-peninsula-day-tour/>)
 
@@ -47,7 +47,7 @@ Autopia Tours has been running small-group day tours from Melbourne since 1987 a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/autopia-mornington-peninsula-day-tour/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Hot Springs Day Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/>)
 
@@ -57,7 +57,7 @@ Bunyip Tours has been running small-group day tours from Melbourne since 1998, a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 
@@ -67,7 +67,7 @@ Bunyip Tours has been running small-group day tours from Melbourne to the Mornin
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Corporate Day Charter - Mornington Peninsula](<https://peninsulainsider.com.au/tour/great-private-corporate-charter/>)
 
@@ -77,7 +77,7 @@ Great Private Tours has been operating luxury Mercedes-Benz Sprinter charters on
 
  [Read notes →](<https://peninsulainsider.com.au/tour/great-private-corporate-charter/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine and Cheese Tour](<https://peninsulainsider.com.au/tour/local-way-wine-cheese-tour/>)
 
@@ -87,7 +87,7 @@ Local Way Tours combines cellar door visits with a structured artisan cheese pai
 
  [Read notes →](<https://peninsulainsider.com.au/tour/local-way-wine-cheese-tour/>)
 
-Full day   Couples   Luxury
+Full day   Couples
 
 ### [Private Driver-Guide Wine Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
@@ -97,7 +97,7 @@ Localing is a premium-private operator that builds each Peninsula day around the
 
  [Read notes →](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Private Hens Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/melbourne-elite-private-hens-day/>)
 
@@ -107,7 +107,7 @@ Melbourne Elite Tours fills a specific gap in the Peninsula hens day market: a f
 
  [Read notes →](<https://peninsulainsider.com.au/tour/melbourne-elite-private-hens-day/>)
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 
@@ -117,7 +117,7 @@ Plunge Wine Tours is a private boutique operation run by Arthur O'Bryan, who bri
 
  [Read notes →](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 
-Full day   All guests   Moderate
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 
@@ -127,7 +127,7 @@ Rick's Wine Tours occupies a specific niche in the Peninsula wine tour market: a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Coastal + Wine Day Tour](<https://peninsulainsider.com.au/tour/wine-hop-coastal-tour/>)
 

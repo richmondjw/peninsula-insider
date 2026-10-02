@@ -43,7 +43,7 @@ Component tours
 
 Each tour is booked separately, directly with the operator. See the individual tour pages for booking intelligence and availability notes.
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Corporate Day Charter - Mornington Peninsula](<https://peninsulainsider.com.au/tour/great-private-corporate-charter/>)
 

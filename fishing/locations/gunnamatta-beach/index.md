@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Beach |
+**Type**
 
-Water body | Bass Strait fringe |
+Beach
 
-Best season | June to August (peak salmon run); October to April (mulloway night sessions) |
+**Water body**
 
-Parking | Two large formal car parks at the beach entrance; free |
+Bass Strait fringe
 
-Tide reference station | Stony Point (Bass Strait fringe; expect lag) |
+**Best season**
 
-Public toilets | Yes |
+June to August (peak salmon run); October to April (mulloway night sessions)
 
-Accessibility | Sandy beach with active surf. Not accessible for mobility-limited anglers. Beach patrol October to April only. |
+**Parking**
 
-Top species |  [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) , [mulloway](<https://peninsulainsider.com.au/fishing/species/mulloway/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>) |
+Two large formal car parks at the beach entrance; free
+
+**Tide reference station**
+
+Stony Point (Bass Strait fringe; expect lag)
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Sandy beach with active surf. Not accessible for mobility-limited anglers. Beach patrol October to April only.
+
+**Top species**
+
+[australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) , [mulloway](<https://peninsulainsider.com.au/fishing/species/mulloway/>) , [gummy shark](<https://peninsulainsider.com.au/fishing/species/gummy-shark/>)
 
 **Tide note.** Low to mid-rising tide for daytime salmon. Night sessions for mulloway on any tide with a running phase. Avoid the falling tide; gutter structure dries out and rip currents intensify. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point (Bass Strait fringe; expect lag) reference station.
 

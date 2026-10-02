@@ -33,7 +33,7 @@ Tours by Wine Hop and Coastal Tours
 
 ## 1 tour listed
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Coastal + Wine Day Tour](<https://peninsulainsider.com.au/tour/wine-hop-coastal-tour/>)
 

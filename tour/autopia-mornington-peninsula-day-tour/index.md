@@ -11,6 +11,8 @@ Tours     Food & Wine
 
 Autopia Tours has been running small-group day tours from Melbourne since 1987 and holds one of the largest verified Tripadvisor records in this category: 2,218 reviews at a 4.8 average. The Peninsula wine tour operates daily with multiple CBD pickup points, making it the most operationally reliable entry point for guests booking on shorter notice or staying across different Melbourne hotel precincts.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -23,11 +25,7 @@ Melbourne CBD and multiple inner-city hotels; additional Mornington Peninsula pi
 
 Group size
 
-Small group (up to 24)
-
-Price band
-
-Mid-range
+Small group
 
 Languages
 

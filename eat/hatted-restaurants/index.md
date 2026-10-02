@@ -49,18 +49,6 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/eat/pt-leo-estate/>)
@@ -168,6 +156,18 @@ A Red Hill institution that has turned long lunch into a civic duty.
 long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
+
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
+
+anniversary  first date
+
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
 Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 

@@ -59,7 +59,7 @@ Tours by Polperro Dolphin Swims
 
 ## 1 tour listed
 
-Half day   Families   Mid-range
+Half day   Families
 
 ### [Polperro Dolphin Swim](<https://peninsulainsider.com.au/tour/polperro-dolphin-swim/>)
 

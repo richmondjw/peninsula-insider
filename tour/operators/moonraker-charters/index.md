@@ -59,7 +59,7 @@ Tours by Moonraker Charters
 
 ## 1 tour listed
 
-Half day   All guests   Mid-range
+Half day   All guests
 
 ### [Moonraker Whale Watching Tour](<https://peninsulainsider.com.au/tour/moonraker-whale-watching-tour/>)
 

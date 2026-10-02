@@ -35,7 +35,7 @@ Tours by Mornington Peninsula Plunge Wine Tours
 
 ## 1 tour listed
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 

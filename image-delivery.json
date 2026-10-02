@@ -663,32 +663,26 @@
       ]
     },
     {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/doot-doot-doot/heroImage-1780004337898.jpg",
-      "originalBytes": 911018,
+      "source": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
+      "originalBytes": 85358,
       "variants": [
         {
-          "src": "/_media/de578efc9ffcd8141fc8-480.webp",
+          "src": "/_media/f0be7e949ec07708c68f-480.webp",
           "width": 480,
-          "height": 480,
-          "bytes": 32930
+          "height": 320,
+          "bytes": 16294
         },
         {
-          "src": "/_media/de578efc9ffcd8141fc8-800.webp",
+          "src": "/_media/f0be7e949ec07708c68f-800.webp",
           "width": 800,
-          "height": 800,
-          "bytes": 75772
+          "height": 533,
+          "bytes": 38400
         },
         {
-          "src": "/_media/de578efc9ffcd8141fc8-1280.webp",
+          "src": "/_media/f0be7e949ec07708c68f-1280.webp",
           "width": 1280,
-          "height": 1280,
-          "bytes": 156924
-        },
-        {
-          "src": "/_media/de578efc9ffcd8141fc8-1920.webp",
-          "width": 1920,
-          "height": 1920,
-          "bytes": 274270
+          "height": 853,
+          "bytes": 83348
         }
       ]
     },
@@ -971,36 +965,6 @@
           "width": 1200,
           "height": 612,
           "bytes": 72976
-        }
-      ]
-    },
-    {
-      "source": "/images/sourced/venue-dromana-pier-01.webp",
-      "originalBytes": 72562,
-      "variants": [
-        {
-          "src": "/_media/217388425493cb7addea-480.webp",
-          "width": 480,
-          "height": 309,
-          "bytes": 12952
-        },
-        {
-          "src": "/_media/217388425493cb7addea-800.webp",
-          "width": 800,
-          "height": 514,
-          "bytes": 25404
-        },
-        {
-          "src": "/_media/217388425493cb7addea-1280.webp",
-          "width": 1280,
-          "height": 823,
-          "bytes": 45174
-        },
-        {
-          "src": "/_media/217388425493cb7addea-1400.webp",
-          "width": 1400,
-          "height": 900,
-          "bytes": 57294
         }
       ]
     },
@@ -7209,30 +7173,6 @@
       ]
     },
     {
-      "source": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
-      "originalBytes": 85358,
-      "variants": [
-        {
-          "src": "/_media/f0be7e949ec07708c68f-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 16294
-        },
-        {
-          "src": "/_media/f0be7e949ec07708c68f-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 38400
-        },
-        {
-          "src": "/_media/f0be7e949ec07708c68f-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 83348
-        }
-      ]
-    },
-    {
       "source": "/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp",
       "originalBytes": 314198,
       "variants": [
@@ -11163,6 +11103,36 @@
       ]
     },
     {
+      "source": "/images/sourced/venue-dromana-pier-01.webp",
+      "originalBytes": 72562,
+      "variants": [
+        {
+          "src": "/_media/217388425493cb7addea-480.webp",
+          "width": 480,
+          "height": 309,
+          "bytes": 12952
+        },
+        {
+          "src": "/_media/217388425493cb7addea-800.webp",
+          "width": 800,
+          "height": 514,
+          "bytes": 25404
+        },
+        {
+          "src": "/_media/217388425493cb7addea-1280.webp",
+          "width": 1280,
+          "height": 823,
+          "bytes": 45174
+        },
+        {
+          "src": "/_media/217388425493cb7addea-1400.webp",
+          "width": 1400,
+          "height": 900,
+          "bytes": 57294
+        }
+      ]
+    },
+    {
       "source": "/images/sourced/home-cover.webp",
       "originalBytes": 129134,
       "variants": [
@@ -14957,36 +14927,6 @@
           "width": 1920,
           "height": 1280,
           "bytes": 211022
-        }
-      ]
-    },
-    {
-      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/tour-operator/bayplay/hero-1778846519213.jpg",
-      "originalBytes": 1523136,
-      "variants": [
-        {
-          "src": "/_media/f91e118c2a4cf879b190-480.webp",
-          "width": 480,
-          "height": 360,
-          "bytes": 23160
-        },
-        {
-          "src": "/_media/f91e118c2a4cf879b190-800.webp",
-          "width": 800,
-          "height": 600,
-          "bytes": 53134
-        },
-        {
-          "src": "/_media/f91e118c2a4cf879b190-1280.webp",
-          "width": 1280,
-          "height": 960,
-          "bytes": 120328
-        },
-        {
-          "src": "/_media/f91e118c2a4cf879b190-1920.webp",
-          "width": 1920,
-          "height": 1440,
-          "bytes": 244468
         }
       ]
     },

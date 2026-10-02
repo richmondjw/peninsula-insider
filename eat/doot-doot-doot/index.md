@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Doot Doot Doot
 
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
 
-Known for   10,000 Hand-Blown Glass Orb Chandelier Two-Hat Degustation Michael Demagistris Kitchen Jackalope Hotel Dining Room
+Known for   Jackalope Hotel dining room Seasonal Signature Dining Experience Merricks North wine-country setting
 
 [Reserve a table](<https://jackalopehotels.com/mornington-peninsula>)  +61 3 5931 2500
 
@@ -23,15 +23,15 @@ This month’s prize. Find PI before sunset and go in the draw for $250 to dine 
 
 Doot Doot Doot · Red Hill
 
+Photo · Peter Foster, courtesy of Visit Victoria
+
+Illustrative image  This photograph shows Jackalope Hotel exterior. It is not a photograph of Doot Doot Doot.
+
 Why we’d go
 
-The room alone justifies the booking, but the cooking from Michael Demagistris matches it, which is rarer than it sounds.
+The setting makes dinner feel like part of the Jackalope stay, and the operator currently offers a seasonal multi-course Signature Dining Experience.
 
-Ten thousand hand-blown glass orbs hang from the ceiling on steel cables, the walls are matte black, and the kitchen is working through a tasting menu that sits somewhere between modern Australian and the New Nordic tradition, precise, seasonal, unafraid of silence between flavours.
-
-Head Chef Michael Demagistris has held two hats through multiple Good Food Guide cycles without ever loosening his grip on what makes this room work: produce drawn from the vineyard's own plots and a handful of Peninsula growers, plated with restraint, paired with a wine list that leans into the estate's cool-climate pinot program.
-
-Book the degustation over the à la carte. Check in at Jackalope first and don't try to drive anywhere afterwards. This is one of the Peninsula's most finished fine-dining experiences.
+Doot Doot Doot is the signature dining room at Jackalope in Merricks North. Jackalope currently describes its Signature Dining Experience as a seasonal multi-course menu curated by Group Executive Chef Michael Wickham. The restaurant is a special-occasion choice for visitors staying in the wine country; check the current menu, service dates and dietary arrangements with Jackalope before booking. Correction, 3 October 2026: an earlier version attributed the current kitchen and menu to Michael Demagistris. Jackalope now credits Michael Wickham, so we removed that attribution and unverified dish and award claims.
 
 Part of Jackalope
 
@@ -45,7 +45,7 @@ Special occasions · Anniversary weekends · Food lovers · Design lovers
 
 If you only do one thing
 
-Book the full degustation, not the à la carte, this kitchen only makes complete sense across the whole arc of the menu.
+Check the current Signature Dining Experience and dietary arrangements directly with Jackalope before booking.
 
 Works well with
 
@@ -66,14 +66,6 @@ Restaurant
 **Call**
 
 +61 3 5931 2500
-
-**Guide**
-
-2 Good Food Guide hats
-
-**Awards**
-
-Good Food Guide Chef Hat × 2 · Best New Restaurant Victoria (Gourmet Traveller)
 
 **Website**
 

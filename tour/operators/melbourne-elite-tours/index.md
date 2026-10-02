@@ -33,7 +33,7 @@ Tours by Melbourne Elite Tours
 
 ## 1 tour listed
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Private Hens Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/melbourne-elite-private-hens-day/>)
 

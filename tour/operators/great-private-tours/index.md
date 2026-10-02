@@ -35,7 +35,7 @@ Tours by Great Private Tours
 
 ## 1 tour listed
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Corporate Day Charter - Mornington Peninsula](<https://peninsulainsider.com.au/tour/great-private-corporate-charter/>)
 

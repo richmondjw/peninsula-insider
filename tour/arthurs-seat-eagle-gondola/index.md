@@ -31,10 +31,6 @@ Group size
 
 Large group - max 50 guests
 
-Price band
-
-Moderate
-
 Languages
 
 EN

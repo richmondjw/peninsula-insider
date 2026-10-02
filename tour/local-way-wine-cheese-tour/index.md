@@ -11,6 +11,8 @@ Tours     Food & Wine
 
 Local Way Tours combines cellar door visits with a structured artisan cheese pairing at a Peninsula producer, making this the most food-focused of the mid-range wine tours from Melbourne. The per-person rate is the lowest verified entry point in the daily-departure small-group category, and the fleet, a Mercedes Sprinter, Renault Master, or Yutong midi coach depending on group size, keeps numbers tight enough to stay social. The Tripadvisor record of 484 reviews at 4.9 out of 5 is the strongest verified rating in this segment.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -23,11 +25,7 @@ Melbourne CBD; Mornington Peninsula (additional pickups available - confirm with
 
 Group size
 
-Small group (up to 24) - max 15 guests
-
-Price band
-
-Mid-range
+Small group - max 15 guests
 
 Languages
 

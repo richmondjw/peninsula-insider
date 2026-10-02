@@ -33,7 +33,7 @@ Tours by Amour of the Grape Tours
 
 ## 1 tour listed
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Boutique Wine Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 

@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/tour/operators/bayplay/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-29
+Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,19 +9,23 @@ Tours     Activity Specialist
 
 # Bayplay Adventure
 
-Bayplay Adventure operates marine wildlife experiences at Portsea Pier on the Mornington Peninsula. Their sea dragon snorkel tour is the flagship product - a guided underwater encounter with weedy sea dragons and marine life conducted directly from the pier, requiring no boat transit. The operator has run these tours for over a decade and holds Parks Victoria marine licences for the Portsea Pier marine sanctuary area.
+Bayplay Adventure runs guided snorkelling and other outdoor experiences from Portsea. Its current Sea Dragon tour page describes a briefing at the operator followed by a walk to the beach. Portsea Pier is closed to public access for maintenance, so confirm the current route and availability with Bayplay.
+
+Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Adventure.
+
+Context photo of Point King Beach, Portsea. This is not Bayplay's confirmed departure or water entry. Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized from the original.
 
 ## About Bayplay Adventure
 
-Bayplay Adventure operates marine wildlife experiences at Portsea Pier on the Mornington Peninsula. Their sea dragon snorkel tour is the flagship product - a guided underwater encounter with weedy sea dragons and marine life conducted directly from the pier, requiring no boat transit. The operator has run these tours for over a decade and holds Parks Victoria marine licences for the Portsea Pier marine sanctuary area.
+Bayplay Adventure runs guided snorkelling and other outdoor experiences from Portsea. Its current Sea Dragon tour page describes a briefing at the operator followed by a walk to the beach. Portsea Pier is closed to public access for maintenance, so confirm the current route and availability with Bayplay.
 
 ### What they are good at
 
-Delivering genuine wildlife encounters to families and first-time snorkellers without the anxiety of open-water boat transit. The pier-based format means even hesitant swimmers can participate from the safety of the jetty structure. Guides are marine biology-informed and calibrate the experience well for mixed-age family groups. Consistently strong for children aged 6 to 12.
+Guided marine-life experiences based in Portsea, with snorkelling equipment and a skills demonstration listed for the Sea Dragon tour. Ask the operator about water confidence and the current beach entry before booking.
 
 ### Not suited for
 
-Children under 6 - the minimum age for the snorkel tour is 6. Adults or groups seeking longer open-ocean snorkel experiences or scuba sessions. Anyone expecting resort-style facilities: the operation is pier-based and appropriately utilitarian.
+The current Sea Dragon tour lists a minimum age of 12. Groups seeking a pier-based entry should confirm the route, since public access to Portsea Pier is closed.
 
 ### Visit Bayplay Adventure directly
 
@@ -33,13 +37,17 @@ Tours by Bayplay Adventure
 
 ## 1 tour listed
 
-Under 2 hours   Families   Moderate
+Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Sea Dragon Snorkel Tour.
+
+Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
+
+About 2 hours   Families
 
 ### [Bayplay Sea Dragon Snorkel Tour](<https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/>)
 
 by [Bayplay Adventure](<https://peninsulainsider.com.au/tour/operators/bayplay/>)
 
-A guided snorkel tour at Portsea Pier on the Mornington Peninsula, built around finding and observing weedy sea drago...
+Bayplay advertises a guided, approximately two-hour snorkel with weedy sea dragons in Portsea. The operator says gues...
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/>)
 

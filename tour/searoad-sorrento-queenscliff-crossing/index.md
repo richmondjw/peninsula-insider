@@ -11,6 +11,8 @@ Tours     Cruise & Sailing
 
 The 40-minute roll-on/roll-off ferry crossing between Sorrento and Queenscliff traverses Port Phillip Bay and connects the Mornington Peninsula to the Bellarine Peninsula. For adults, it is a practical route that bypasses the Melbourne ring-road. For children, it tends to become the most memorable part of the day.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -24,10 +26,6 @@ Sorrento Ferry Terminal
 Group size
 
 Large group
-
-Price band
-
-Budget
 
 Languages
 

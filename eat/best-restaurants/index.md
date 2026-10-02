@@ -25,18 +25,6 @@ Ordered by editorial weight. Rooms with a hat rating first, then the places doin
 
  [All 69 venues →](<https://peninsulainsider.com.au/eat/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
@@ -205,11 +193,23 @@ first date  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
+
+98 Stanleys Road, Red Hill South VIC 3937
+
+Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
+
 ## Frequently asked questions
 
 ### What are the best restaurants on the Mornington Peninsula?
 
-The strongest rooms right now are Doot Doot Doot, Laura at Pt. Leo, Pt. Leo Estate. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot.
+The strongest rooms right now are Laura at Pt. Leo, Pt. Leo Estate, Tedesca Osteria. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot.
 
 ### Do I need to book restaurants on the Mornington Peninsula?
 

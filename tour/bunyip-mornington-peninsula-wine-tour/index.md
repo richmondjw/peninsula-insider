@@ -11,6 +11,8 @@ Tours     Food & Wine
 
 Bunyip Tours has been running small-group day tours from Melbourne to the Mornington Peninsula since 1998. The wine tour covers three to four cellar doors on the Red Hill plateau, includes a stop at a produce destination or the hot springs, and returns to Melbourne by early evening.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -23,11 +25,7 @@ Melbourne CBD
 
 Group size
 
-Small group (up to 24) - max 24 guests
-
-Price band
-
-Mid-range
+Small group - max 24 guests
 
 Languages
 

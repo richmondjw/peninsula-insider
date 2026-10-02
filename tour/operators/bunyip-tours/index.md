@@ -33,7 +33,7 @@ Tours by Bunyip Tours
 
 ## 2 tours listed
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Hot Springs Day Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/>)
 
@@ -43,7 +43,7 @@ Bunyip Tours has been running small-group day tours from Melbourne since 1998, a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-hot-springs-day-tour/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 

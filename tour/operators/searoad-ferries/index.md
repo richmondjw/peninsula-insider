@@ -35,7 +35,7 @@ Tours by Searoad Ferries
 
 ## 1 tour listed
 
-Under 2 hours   Families   Budget
+Under 2 hours   Families
 
 ### [Searoad Ferries: Sorrento–Queenscliff Bay Crossing](<https://peninsulainsider.com.au/tour/searoad-sorrento-queenscliff-crossing/>)
 

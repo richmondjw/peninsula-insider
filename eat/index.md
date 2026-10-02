@@ -41,7 +41,9 @@ Merricks   Restaurant
 
 See 3 more editorial choices
 
-- ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+- Illustrative image
+
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
 The occasion room at Jackalope: a tasting-menu setting for a celebration. Check the current menu and dietary options before booking.
 
@@ -66,12 +68,6 @@ The full list
 Use the occasion and town filters above to make your shortlist.
 
  [Ranked top 15 →](<https://peninsulainsider.com.au/eat/best-restaurants/>)
-
-- ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
-
-Red Hill   Restaurant
 
 - ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
@@ -151,9 +147,15 @@ The Peninsula's most serious roaster, hidden in a Mornington warehouse with a ca
 
 Mornington   Cafe
 
-- Image subject unverified
+- Illustrative image
 
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
+
+Red Hill   Restaurant
+
+- ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 
@@ -250,6 +252,8 @@ Handmade chocolates, rich hot chocolates, and a small café, a reliable family s
 Flinders   Providore
 
 - ### [Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>)
+
+Big-room Italian on Mornington's main street, with a lively dining room suited to groups and a long lunch.
 
 Mornington   Restaurant
 
@@ -362,6 +366,8 @@ A heritage-listed former bank on Mornington's main street, main bar, upstairs ba
 Mornington   Pub
 
 - ### [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>)
+
+Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
 
 Mornington   Restaurant
 

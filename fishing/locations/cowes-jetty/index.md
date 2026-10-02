@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Jetty |
+**Type**
 
-Water body | Western Port |
+Jetty
 
-Best season | October to March (snapper); November to March (whiting) |
+**Water body**
 
-Parking | Available in Cowes foreshore area; free |
+Western Port
 
-Tide reference station | Stony Point |
+**Best season**
 
-Public toilets | Yes |
+October to March (snapper); November to March (whiting)
 
-Accessibility | Flat foreshore approach. Jetty surface is accessible. Some sections lack continuous railing; supervise children. |
+**Parking**
 
-Top species |  [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>) |
+Available in Cowes foreshore area; free
+
+**Tide reference station**
+
+Stony Point
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Flat foreshore approach. Jetty surface is accessible. Some sections lack continuous railing; supervise children.
+
+**Top species**
+
+[snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [flathead](<https://peninsulainsider.com.au/fishing/species/flathead/>)
 
 **Tide note.** Running tide is the productive window; rising preferred for snapper. Western Port's 2.5 to 2.8m tidal range produces strong current at peak run; size your sinker accordingly. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 

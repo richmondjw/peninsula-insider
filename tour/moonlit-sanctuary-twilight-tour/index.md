@@ -23,11 +23,7 @@ Moonlit Sanctuary, 550 Tyabb-Tooradin Road, Pearcedale VIC 3912
 
 Group size
 
-Small group (up to 24) - max 20 guests
-
-Price band
-
-Moderate
+Small group - max 20 guests
 
 Languages
 

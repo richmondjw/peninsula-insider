@@ -13,21 +13,37 @@ Last fact-verified Thu, 30 Apr 2026
 
 ## Quick facts
 
-Type | Pier |
+**Type**
 
-Water body | Bass Strait fringe |
+Pier
 
-Best season | April to July (squid peak); November to March (whiting) |
+**Water body**
 
-Parking | Large free car park on The Esplanade adjacent to the pier. (Confirm current fee status; subject to paid-parking pilot in recent years) |
+Bass Strait fringe
 
-Tide reference station | Stony Point |
+**Best season**
 
-Public toilets | Yes |
+April to July (squid peak); November to March (whiting)
 
-Accessibility | Wheelchair-accessible parking. Some outer sections periodically closed for safety inspections; check Parks Victoria. |
+**Parking**
 
-Top species |  [squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>) |
+Large free car park on The Esplanade adjacent to the pier. (Confirm current fee status; subject to paid-parking pilot in recent years)
+
+**Tide reference station**
+
+Stony Point
+
+**Public toilets**
+
+Yes
+
+**Accessibility**
+
+Wheelchair-accessible parking. Some outer sections periodically closed for safety inspections; check Parks Victoria.
+
+**Top species**
+
+[squid](<https://peninsulainsider.com.au/fishing/species/squid/>) , [king george whiting](<https://peninsulainsider.com.au/fishing/species/king-george-whiting/>) , [snapper](<https://peninsulainsider.com.au/fishing/species/snapper/>) , [australian salmon](<https://peninsulainsider.com.au/fishing/species/australian-salmon/>)
 
 **Tide note.** Western Port tidal range here is approximately 2.5 to 2.8m, significantly larger than Port Phillip Bay. Fish when the tide is running. The two hours after the turn in either direction are most productive. Slack water at high and low tide produces a noticeable drop in activity. Use [Willyweather](<https://tides.willyweather.com.au/>) or [BOM tidal predictions](<http://www.bom.gov.au/australia/tides/>) for the Stony Point reference station.
 

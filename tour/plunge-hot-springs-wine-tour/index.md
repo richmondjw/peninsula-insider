@@ -11,6 +11,8 @@ Tours     Wellness
 
 Plunge Wine Tours is a private boutique operation run by Arthur O'Bryan, who brings over 25 years of Mornington Peninsula wine industry experience to every departure. The tour combines private cellar door tastings with a session at Peninsula Hot Springs, Fingal, and operates as an exclusive charter: no shared vehicles, no fixed group departure times.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -24,10 +26,6 @@ Melbourne CBD; Melbourne Airport; St Kilda; door-to-door pickup
 Group size
 
 Private charter
-
-Price band
-
-Mid-range
 
 Languages
 

@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Mr Vincenzo's
 
-Big-room Italian on Mornington's main street, large-format pasta finished tableside in a wheel of parmesan, a loud dining room, and the weekend's most fun long lunch.
+Big-room Italian on Mornington's main street, with a lively dining room suited to groups and a long lunch.
 
 Known for   Parmesan Wheel Pasta Tableside 1970s Italian Dining Room All-Italian Wine List Mornington Main Street Location
 

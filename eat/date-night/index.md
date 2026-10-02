@@ -35,18 +35,6 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) [Book](<https://www.tedesca.com.au/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-Two hats, a chandelier of 10,000 glass orbs, and the Peninsula's most theatrical dining room.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
@@ -82,6 +70,18 @@ Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
+
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
+
+anniversary  first date
+
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
 Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

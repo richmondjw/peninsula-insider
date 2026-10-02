@@ -277,7 +277,7 @@ Restaurant  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 60 Main St, Mornington VIC 3931
 
-Big-room Italian on Mornington's main street, large-format pasta finished tableside in a wheel of parmesan, a loud dining room, and the weekend's most fun long lunch.
+Big-room Italian on Mornington's main street, with a lively dining room suited to groups and a long lunch.
 
 long lunch  big group
 
@@ -361,7 +361,7 @@ Restaurant  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 1 Schnapper Point Dr, Mornington VIC 3931
 
-Perched at the end of Mornington Pier with near-360° bay views, a seafood-heavy menu and one of the most romantic tables on the bayside at sunset.
+Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
 
 waterfront  anniversary
 

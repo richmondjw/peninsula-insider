@@ -11,6 +11,8 @@ Tours     Private Charter
 
 Great Private Tours has been operating luxury Mercedes-Benz Sprinter charters on the Peninsula since 2016, with a confirmed Tripadvisor record of 92 reviews at 5.0 out of 5. The corporate day charter format covers two to three cellar door visits with premium tastings and a fine dining Peninsula lunch across a 9 to 10 hour day. The standard vehicle accommodates 2 to 8 guests; an extended format runs to 4 to 11. The per-person entry point is competitive within the premium-private segment for a full-day private charter.
 
+Photo · Peninsula Insider
+
 ## At a glance
 
 Duration
@@ -24,10 +26,6 @@ Melbourne CBD; Mornington Peninsula
 Group size
 
 Private charter - max 11 guests
-
-Price band
-
-Premium
 
 Languages
 

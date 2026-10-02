@@ -31,7 +31,7 @@ Wine tours
 
 Sorted by publication date. Each entry includes a guide to who the tour suits.
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Boutique Wine Tour - Mornington Peninsula](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 
@@ -41,7 +41,7 @@ Amour of the Grape is an owner-operated boutique wine tour run by Paul and Liz G
 
  [Read notes →](<https://peninsulainsider.com.au/tour/amour-of-the-grape-boutique-wine-tour/>)
 
-Full day   Couples   Premium
+Full day   Couples
 
 ### [Luxury Peninsula Day - Private Wine and Food Tour](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
@@ -51,7 +51,7 @@ Australian Journeys operates exclusively private tours for groups of 2 to 11, wi
 
  [Read notes →](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Day Tour](<https://peninsulainsider.com.au/tour/autopia-mornington-peninsula-day-tour/>)
 
@@ -61,7 +61,7 @@ Autopia Tours has been running small-group day tours from Melbourne since 1987 a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/autopia-mornington-peninsula-day-tour/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 
@@ -71,7 +71,7 @@ Bunyip Tours has been running small-group day tours from Melbourne to the Mornin
 
  [Read notes →](<https://peninsulainsider.com.au/tour/bunyip-mornington-peninsula-wine-tour/>)
 
-Full day   All guests   Mid-range
+Full day   All guests
 
 ### [Mornington Peninsula Wine and Cheese Tour](<https://peninsulainsider.com.au/tour/local-way-wine-cheese-tour/>)
 
@@ -81,7 +81,7 @@ Local Way Tours combines cellar door visits with a structured artisan cheese pai
 
  [Read notes →](<https://peninsulainsider.com.au/tour/local-way-wine-cheese-tour/>)
 
-Full day   Couples   Luxury
+Full day   Couples
 
 ### [Private Driver-Guide Wine Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
@@ -91,7 +91,7 @@ Localing is a premium-private operator that builds each Peninsula day around the
 
  [Read notes →](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
-Full day   All guests   Moderate
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 

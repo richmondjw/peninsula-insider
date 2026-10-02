@@ -19,7 +19,7 @@ Private and premium tours
 
 Private charters and premium-band guided experiences.
 
-Full day   Couples   Premium
+Full day   Couples
 
 ### [Luxury Peninsula Day - Private Wine and Food Tour](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
@@ -29,7 +29,7 @@ Australian Journeys operates exclusively private tours for groups of 2 to 11, wi
 
  [Read notes →](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
-Half day   Couples   Premium
+Half day   Couples
 
 ### [Global Ballooning Peninsula Sunrise Flight](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 
@@ -39,7 +39,7 @@ Global Ballooning's Peninsula sunrise flight launches at dawn over the Red Hill 
 
  [Read notes →](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Corporate Day Charter - Mornington Peninsula](<https://peninsulainsider.com.au/tour/great-private-corporate-charter/>)
 
@@ -49,7 +49,7 @@ Great Private Tours has been operating luxury Mercedes-Benz Sprinter charters on
 
  [Read notes →](<https://peninsulainsider.com.au/tour/great-private-corporate-charter/>)
 
-Full day   Couples   Luxury
+Full day   Couples
 
 ### [Private Driver-Guide Wine Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
@@ -59,7 +59,7 @@ Localing is a premium-private operator that builds each Peninsula day around the
 
  [Read notes →](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
-Full day   Adults   Premium
+Full day   Adults
 
 ### [Private Hens Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/melbourne-elite-private-hens-day/>)
 
@@ -69,7 +69,7 @@ Melbourne Elite Tours fills a specific gap in the Peninsula hens day market: a f
 
  [Read notes →](<https://peninsulainsider.com.au/tour/melbourne-elite-private-hens-day/>)
 
-Full day   Adults   Mid-range
+Full day   Adults
 
 ### [Hot Springs + Wine Combination Tour](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 
@@ -79,7 +79,7 @@ Plunge Wine Tours is a private boutique operation run by Arthur O'Bryan, who bri
 
  [Read notes →](<https://peninsulainsider.com.au/tour/plunge-hot-springs-wine-tour/>)
 
-Full day   All guests   Moderate
+Full day   All guests
 
 ### [Mornington Peninsula Wine Tour](<https://peninsulainsider.com.au/tour/ricks-mornington-peninsula-wine-tour/>)
 

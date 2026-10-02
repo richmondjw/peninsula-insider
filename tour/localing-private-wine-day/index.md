@@ -11,6 +11,8 @@ Tours     Food & Wine
 
 Localing is a premium-private operator that builds each Peninsula day around the specific group: their wine knowledge level, varietal interests, and preferred pace. The price reflects a private guide day rate rather than a tour fare, and the multilingual capability in English, Spanish, Mandarin, French, German, and Italian is the most practical differentiator in this market. For a couple or small group who want a fully bespoke Peninsula day with a local expert, this is the reference product.
 
+Photo · Provided image
+
 ## At a glance
 
 Duration
@@ -24,10 +26,6 @@ Melbourne hotels / CBD (door-to-door pickup)
 Group size
 
 Private charter - max 10 guests
-
-Price band
-
-Luxury
 
 Languages
 

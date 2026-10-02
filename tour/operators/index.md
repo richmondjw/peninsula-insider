@@ -53,11 +53,15 @@ Autopia Tours is a Melbourne-based ecotourism operator founded in 1987, running 
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/autopia-tours/>)
 
+Illustrative image  This photograph shows Point King Beach, Portsea. It is not a photograph of Bayplay Adventure.
+
+Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
+
 Activity Specialist   Assessed
 
 ### [Bayplay Adventure](<https://peninsulainsider.com.au/tour/operators/bayplay/>)
 
-Bayplay Adventure operates marine wildlife experiences at Portsea Pier on the Mornington Peninsula. Their sea dragon ...
+Bayplay Adventure runs guided snorkelling and other outdoor experiences from Portsea. Its current Sea Dragon tour pag...
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/bayplay/>)
 

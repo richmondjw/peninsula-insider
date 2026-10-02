@@ -17,7 +17,7 @@ Tours for couples
 
 ## 4 Peninsula tours for couples
 
-Full day   Couples   Premium
+Full day   Couples
 
 ### [Luxury Peninsula Day - Private Wine and Food Tour](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
@@ -27,7 +27,7 @@ Australian Journeys operates exclusively private tours for groups of 2 to 11, wi
 
  [Read notes →](<https://peninsulainsider.com.au/tour/australian-journeys-luxury-peninsula-day/>)
 
-Half day   Couples   Premium
+Half day   Couples
 
 ### [Global Ballooning Peninsula Sunrise Flight](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 
@@ -37,7 +37,7 @@ Global Ballooning's Peninsula sunrise flight launches at dawn over the Red Hill 
 
  [Read notes →](<https://peninsulainsider.com.au/tour/global-ballooning-peninsula-sunrise/>)
 
-Full day   Couples   Luxury
+Full day   Couples
 
 ### [Private Driver-Guide Wine Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
@@ -47,7 +47,7 @@ Localing is a premium-private operator that builds each Peninsula day around the
 
  [Read notes →](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
-Half day   Couples   Mid-range
+Half day   Couples
 
 ### [Temptation Sailing Bay Cruise](<https://peninsulainsider.com.au/tour/temptation-sailing-bay-cruise/>)
 

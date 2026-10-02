@@ -107,7 +107,7 @@ If you’re booking a charter for the snapper season, confirm the licence arrang
 
 - [Mornington Pier](<https://peninsulainsider.com.au/fishing/locations/mornington-pier/>) · Port Phillip Bay · October to April for snapper; year-round for squid
 
-- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay · December to March (kingfish summer); year-round (squid)
+- [Portsea Pier](<https://peninsulainsider.com.au/fishing/locations/portsea-pier/>) · Port Phillip Bay
 
 - [Rye Pier](<https://peninsulainsider.com.au/fishing/locations/rye-pier/>) · Port Phillip Bay · November to March (whiting); April to June and September to November (squid peaks)
 

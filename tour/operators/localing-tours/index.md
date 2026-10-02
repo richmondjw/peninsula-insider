@@ -35,7 +35,7 @@ Tours by Localing Private Tours Melbourne
 
 ## 1 tour listed
 
-Full day   Couples   Luxury
+Full day   Couples
 
 ### [Private Driver-Guide Wine Day - Mornington Peninsula](<https://peninsulainsider.com.au/tour/localing-private-wine-day/>)
 
