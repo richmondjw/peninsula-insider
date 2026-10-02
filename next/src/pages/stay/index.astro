@@ -18,7 +18,6 @@
  */
 import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
-import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -38,6 +37,7 @@ import { getFacets, type FacetKey } from '../../lib/facets';
 import { routeSlug, isStayVenue, typeLabel, titleize, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import CorrectionNote from '../../components/CorrectionNote.astro';
+import ProvenanceLine from '../../components/ProvenanceLine.astro';
 
 // ── Data ─────────────────────────────────────────────────────────────────────
 // Day spas (type 'spa') pass isStayVenue but aren't accommodation - they get
@@ -84,12 +84,21 @@ function partyFit(facets: Facets): string | undefined {
   return undefined;
 }
 
+/** The page says the booking caveat once, in the area intro (James, 2 October
+ *  2026). A row drops a generic trailing check sentence; a caveat specific to
+ *  the property (a no-pets policy, say) is not a check sentence and stays. */
+function withoutCaveats(line: string): string {
+  const sentences = line.match(/[^.!?]+(?:[.!?]+|$)\s*/g) ?? [line];
+  const kept = sentences.filter((s) => !/^\s*(Check|Confirm|Verify|Ask)\b/.test(s));
+  return (kept.length ? kept : sentences).join('').trim();
+}
+
 /** Row verdict: reuse the entry's own short line only when it fits the
  *  25-word Critic budget; otherwise the row runs on meta alone. */
 function rowVerdict(data: any): string | undefined {
   for (const candidate of [data.signature, data.whyWeGo]) {
     if (typeof candidate !== 'string' || !candidate.trim()) continue;
-    if (candidate.trim().split(/\s+/).length <= 25) return candidate.trim();
+    if (candidate.trim().split(/\s+/).length <= 25) return withoutCaveats(candidate.trim());
   }
   return undefined;
 }
@@ -113,8 +122,6 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
       titleize(String(data.place?.id ?? data.place ?? '')),
       partyFit(facets),
     ].filter(Boolean).slice(0, 3) as string[],
-    freshness: iso(informationCheckedOn(data)),
-    freshnessKind: 'checked' as const,
     booking: bookingUrl
       ? { url: bookingUrl, label: 'Check availability', venueName: data.name as string, partnerLabel }
       : undefined,
@@ -126,12 +133,12 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
 // ── The Six: hand-picked spread of corridor, party and price ────────────────
 // Verdicts are Critic voice, <= 25 words, written here (editorial curation).
 const SIX: { slug: string; verdict: string }[] = [
-  { slug: 'jackalope', verdict: 'A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining. Check room and restaurant availability separately.' },
+  { slug: 'jackalope', verdict: 'A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining.' },
   { slug: 'polperro-villas', verdict: 'Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.' },
-  { slug: 'hotel-sorrento', verdict: 'A coastal hotel above a limestone pub, for a weekend centred on Sorrento. Check your room’s outlook before booking.' },
-  { slug: 'flinders-hotel', verdict: 'A village hotel for a Flinders base, with the southern coast as a separate outing. Confirm dining hours for your stay.' },
-  { slug: 'peninsula-hot-springs-glamping', verdict: 'Stay at the hot springs when bathing is the centre of the escape. Check which sessions and inclusions come with your accommodation.' },
-  { slug: 'blue-moon-cottages', verdict: 'Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage and its current dog policy before booking.' },
+  { slug: 'hotel-sorrento', verdict: 'A coastal hotel above a limestone pub, for a weekend centred on Sorrento.' },
+  { slug: 'flinders-hotel', verdict: 'A village hotel for a Flinders base, with the southern coast as a separate outing.' },
+  { slug: 'peninsula-hot-springs-glamping', verdict: 'Stay at the hot springs when bathing is the centre of the escape.' },
+  { slug: 'blue-moon-cottages', verdict: 'Cottage accommodation in Rye for a bay-side base. Ask about the cottage’s current dog policy.' },
 ];
 
 const bySlug = new Map(venues.map((v) => [(v.id ?? v.data.slug) as string, v]));
@@ -142,39 +149,26 @@ const sixItems = SIX
   })
   .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
-// ── Directory: the FULL corpus ──────────────────────────────────────────────
-// The Six shows three picks up front and three in its disclosure. The three
-// already on screen do not open the full list again (James, 2 October 2026):
-// the list starts with the disclosed picks, then every other stay, including
-// the three on screen, in town/name order. Nothing leaves the list or count.
+// ── Directory ───────────────────────────────────────────────────────────────
+// The three picks on screen in The Six are not listed again (James, 2 October
+// 2026). The list holds the three disclosed picks, then every other stay in
+// town/name order, and its heading counts exactly what it lists. The one
+// filter state still searches The Six and the list together.
 const SIX_ON_SCREEN = 3;
 const sixSlugs = new Set(SIX.map((s) => s.slug));
-const onScreenSlugs = new Set(SIX.slice(0, SIX_ON_SCREEN).map((s) => s.slug));
 const disclosedSix = SIX.slice(SIX_ON_SCREEN).map(({ slug }) => bySlug.get(slug)).filter(Boolean);
 const restVenues = venues
-  .filter((v) => {
-    const slug = (v.id ?? v.data.slug) as string;
-    return !sixSlugs.has(slug) || onScreenSlugs.has(slug);
-  })
+  .filter((v) => !sixSlugs.has((v.id ?? v.data.slug) as string))
   .sort((a, b) => {
     const townA = String(a.data.place?.id ?? a.data.place ?? '');
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
     return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
   });
-// One canonical line per venue on the page: a shortlisted stay carries its
-// shortlist line in its row too, so a reader never meets two competing
-// descriptions of the same place.
+// A disclosed pick keeps its shortlist line in its row (one line per venue).
 const sixVerdictBySlug = new Map(SIX.map(({ slug, verdict }) => [slug, verdict]));
-const directoryItems = [...disclosedSix, ...restVenues].map((v) => {
-  const slug = (v!.id ?? v!.data.slug) as string;
-  if (onScreenSlugs.has(slug)) {
-    // Its own record line, plus a quiet meta tag, so the row is a real entry
-    // rather than a pointer or a word-for-word repeat of the shortlist card.
-    const item = stayItem(v);
-    return { ...item, meta: [...item.meta.slice(0, 2), 'On the shortlist'] };
-  }
-  return stayItem(v, { verdict: sixVerdictBySlug.get(slug) });
-});
+const directoryItems = [...disclosedSix, ...restVenues].map((v) =>
+  stayItem(v, { verdict: sixVerdictBySlug.get((v!.id ?? v!.data.slug) as string) }),
+);
 
 // The directory's header action opens the map on the stays alone. The ranked
 // list it used to link to is already the first best-of card above, and the
@@ -184,19 +178,24 @@ const STAY_MAP_HREF = stayCats.length ? `/map/?cat=${stayCats.join(',')}` : '/ma
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
-  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Coast, wine country or the thermal springs: the strongest base in each, side by side.' },
-  { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'A village hotel, a vineyard estate and a design-led stay.' },
-  { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'A self-contained cottage for privacy, or a hosted room or suite.' },
-  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Weekends for two among the vines, at the springs or in Sorrento.' },
-  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Estate suites and villas, plus a wine-country base nearby.' },
-  { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bay villages, south-coast bases and a night inside Point Nepean.' },
-  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Rooms on the thermal estates themselves.' },
-  { slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'On-site bathing, a hotel spa, or a springs package you drive to.' },
-  { slug: 'resorts', title: 'Resorts and retreats', verdict: 'Resort rooms, thermal stays and venues for a group retreat.' },
-  { slug: 'sorrento', title: 'Stay in Sorrento', verdict: 'Adults-only rooms, or a family-friendly stay in the village precinct.' },
-  { slug: 'red-hill', title: 'Stay in Red Hill', verdict: 'Red Hill estates and private bases, placed where they actually are.' },
-  { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
+  { group: 'kind', slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Coast, wine country or the thermal springs: the strongest base in each, side by side.' },
+  { group: 'kind', slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'A village hotel, a vineyard estate and a design-led stay.' },
+  { group: 'kind', slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'A self-contained cottage for privacy, or a hosted room or suite.' },
+  { group: 'who', slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Weekends for two among the vines, at the springs or in Sorrento.' },
+  { group: 'kind', slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Estate suites and villas, plus a wine-country base nearby.' },
+  { group: 'place', slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bay villages, south-coast bases and a night inside Point Nepean.' },
+  { group: 'kind', slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Rooms on the thermal estates themselves.' },
+  { group: 'kind', slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'On-site bathing, a hotel spa, or a springs package you drive to.' },
+  { group: 'kind', slug: 'resorts', title: 'Resorts and retreats', verdict: 'Resort rooms, thermal stays and venues for a group retreat.' },
+  { group: 'place', slug: 'sorrento', title: 'Stay in Sorrento', verdict: 'Adults-only rooms, or a family-friendly stay in the village precinct.' },
+  { group: 'place', slug: 'red-hill', title: 'Stay in Red Hill', verdict: 'Red Hill estates and private bases, placed where they actually are.' },
+  { group: 'who', slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
+const GUIDE_GROUPS = [
+  { key: 'place', label: 'By place' },
+  { key: 'who', label: 'By who is coming' },
+  { key: 'kind', label: 'By kind of stay' },
+] as const;
 
 // ── From the Journal (3 stay stories, each with its own photograph) ─────────
 // 'where-to-stay-for-a-two-night-escape' borrowed the vineyard villa story's
@@ -324,21 +323,26 @@ export const prerender = true;
       {/* "Best-of guides" is stated once, in the section eyebrow. The cards
           drop their GUIDE stamp. They are text-only by design, so no media
           fallback either: a plate on all three would be noise, not repair. */}
-      <CardGrid label="Stay guides" layout="grid" maxCols={3}>
-        {bestOfGuides.map((guide, i) => (
-          <Card
-            variant="guide"
-            title={guide.title}
-            href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
-            entityType="page"
-            entitySlug={`stay-${guide.slug}`}
-            showEyebrow={false}
-            verdict={guide.verdict}
-            surface="stay"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
+      {GUIDE_GROUPS.map((group) => (
+        <div class="v5-bestof__group">
+          <h3 class="v5-bestof__subhead">{group.label}</h3>
+          <CardGrid label={`Stay guides: ${group.label.toLowerCase()}`} layout="grid" maxCols={3}>
+            {bestOfGuides.filter((guide) => guide.group === group.key).map((guide, i) => (
+              <Card
+                variant="guide"
+                title={guide.title}
+                href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
+                entityType="page"
+                entitySlug={`stay-${guide.slug}`}
+                showEyebrow={false}
+                verdict={guide.verdict}
+                surface="stay"
+                position={i + 1}
+              />
+            ))}
+          </CardGrid>
+        </div>
+      ))}
     </div>
   </section>
 
@@ -351,7 +355,7 @@ export const prerender = true;
   <DirectoryRows
     id="stay-directory"
     eyebrow="The full list"
-    heading={`All ${stayCount} places to stay`}
+    heading={`All ${directoryItems.length} other places to stay`}
     surface="stay"
     noun="stays"
     items={directoryItems}
@@ -359,6 +363,7 @@ export const prerender = true;
   >
     <div slot="before-list" class="stay-list-tools">
       <SortControl />
+      <ProvenanceLine records={venues} type="venues" noun="stay" class="stay-list-tools__checked" />
     </div>
     <div slot="after-list" class="stay-list-help">
       <PlanningHelp />
@@ -403,6 +408,17 @@ export const prerender = true;
   .v5-bestof {
     background: var(--bg-alt, var(--bg));
   }
+  .v5-bestof__group + .v5-bestof__group {
+    margin-top: var(--space-7, 2.5rem);
+  }
+  .v5-bestof__subhead {
+    margin: 0 0 var(--space-4, 1rem);
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-300, 0.9375rem);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--soft, var(--text));
+  }
   /* Phones: twelve guide links read as a list, not twelve framed cards
      (three screens of near-identical boxes). Title and one short line per
      row, hairline between rows, the whole row still the link. */
@@ -433,8 +449,16 @@ export const prerender = true;
   /* Sort acts on the list, so it sits under the list heading it reorders. */
   .stay-list-tools {
     display: flex;
-    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2, 0.5rem) var(--space-5, 1.5rem);
     margin-bottom: var(--space-4, 1rem);
+  }
+  .stay-list-tools :global(.stay-list-tools__checked) {
+    margin: 0;
+    font-size: var(--fs-200, 0.8125rem);
+    color: var(--soft, var(--text));
   }
   /* The planning note closes the full list. */
   .stay-list-help {

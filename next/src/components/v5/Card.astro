@@ -343,7 +343,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
         </span>
       )}
       {variant === 'event' && <slot name="badges" />}
-      {isCompact && imageCaption && <span class="pi-card__media-tag">{imageCaption}</span>}
+      {isCompact && imageCaption && <span class="pi-card__media-tag">{imageCaption.replace(/\s+image\.?$/i, '')}</span>}
     </div>
   )}
 
@@ -524,7 +524,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   /* The first quiet action pulls back by its own inline padding, so its
      icon sits on the card's text edge like the title and the booking link. */
   .pi-card .pi-card__actions > :global(.v5-save:first-child .v5-save__btn--labelled:not([aria-pressed='true'])) {
-    margin-left: calc(-1 * var(--space-3));
+    margin-left: calc(-1 * (var(--space-3) + 1px));
   }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
@@ -936,6 +936,9 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     border-color: transparent;
     background: transparent;
     padding-inline: var(--space-3);
+    /* Content starts at the padding, not centred in the min-width, so the
+       first action's icon lines up with the card text above it. */
+    justify-content: flex-start;
   }
   .pi-card .pi-card__trip {
     min-width: 6.5rem;
@@ -1050,6 +1053,11 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled) {
       min-width: 44px;
       padding-inline: var(--space-2);
+    }
+    /* Icon-only here, so the pull matches this padding: the bookmark sits
+       on the thumbnail's left edge, inside the page gutter. */
+    .pi-card.pi-card--compact .pi-card__actions > :global(.v5-save:first-child .v5-save__btn--labelled:not([aria-pressed='true'])) {
+      margin-left: calc(-1 * (var(--space-2) + 1px));
     }
     .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled .v5-save__label) {
       position: absolute;
