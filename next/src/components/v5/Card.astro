@@ -343,6 +343,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
         </span>
       )}
       {variant === 'event' && <slot name="badges" />}
+      {isCompact && imageCaption && <span class="pi-card__media-tag">{imageCaption}</span>}
     </div>
   )}
 
@@ -420,7 +421,6 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
             {durationChip && <li class="pi-card__chip">{durationChip}</li>}
             {metaChips.map((chip) => <li class="pi-card__chip">{chip}</li>)}
             {trailingChip && <li class="pi-card__chip">{trailingChip}</li>}
-            {isCompact && imageCaption && <li class="pi-card__chip">{imageCaption}</li>}
           </>
         )}
         {inlineSave && saveProps && (
@@ -502,6 +502,30 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 <style>
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
+  /* Directory rows: the image's status ("Illustrative image") sits on the
+     thumbnail it describes, not in the taxonomy meta line. */
+  .pi-card__media-tag {
+    position: absolute;
+    left: 4px;
+    bottom: 4px;
+    max-width: calc(100% - 8px);
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgb(11 46 74 / 0.82);
+    color: var(--white);
+    font-family: var(--font-ui);
+    font-size: 0.625rem;
+    line-height: 1.5;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    pointer-events: none;
+  }
+  /* The first quiet action pulls back by its own inline padding, so its
+     icon sits on the card's text edge like the title and the booking link. */
+  .pi-card .pi-card__actions > :global(.v5-save:first-child .v5-save__btn--labelled:not([aria-pressed='true'])) {
+    margin-left: calc(-1 * var(--space-3));
+  }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from

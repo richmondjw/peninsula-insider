@@ -167,7 +167,13 @@ const restVenues = venues
 const sixVerdictBySlug = new Map(SIX.map(({ slug, verdict }) => [slug, verdict]));
 const directoryItems = [...disclosedSix, ...restVenues].map((v) => {
   const slug = (v!.id ?? v!.data.slug) as string;
-  return stayItem(v, { verdict: onScreenSlugs.has(slug) ? 'On the shortlist above.' : sixVerdictBySlug.get(slug) });
+  if (onScreenSlugs.has(slug)) {
+    // Its own record line, plus a quiet meta tag, so the row is a real entry
+    // rather than a pointer or a word-for-word repeat of the shortlist card.
+    const item = stayItem(v);
+    return { ...item, meta: [...item.meta.slice(0, 2), 'On the shortlist'] };
+  }
+  return stayItem(v, { verdict: sixVerdictBySlug.get(slug) });
 });
 
 // The directory's header action opens the map on the stays alone. The ranked
