@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-02T07:05:29.794Z",
-  "snapshotId": "826f2967cf32b216ba748de6f09e280692e755f06831d2d864ee89944e850d02",
+  "generatedAt": "2026-10-02T14:34:16.633Z",
+  "snapshotId": "a3d25cd7c407768c8be75b3e18a66716f67beeac6babd6e51738f1402944b32a",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "883745adbdfc6bc7df318a3ec9f2ea5618ff090cc0504827b5e54afbc47f7383",
+      "contentSha256": "f5de6363ba03ee0c51b0d1a5dac0d8f274ecfa9d15176dfbf059592c46c61e4f",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181461,
-      "markdownBytes": 6932
+      "htmlBytes": 181463,
+      "markdownBytes": 6934
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -6639,20 +6639,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Friday 2 October 2026",
+      "title": "Saturday 3 October 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "f42e36bceb45e44d8c7cf05827a331f6506ef018583e76b41938ea77ca2eeb36",
+      "contentSha256": "2ca85df1f76618f19678b32a64f3e5828ac3235d09b5a809a4ce32279fbc9f44",
       "citation": {
-        "title": "Friday 2 October 2026",
+        "title": "Saturday 3 October 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 126276,
-      "markdownBytes": 1203
+      "htmlBytes": 126285,
+      "markdownBytes": 1206
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -8496,16 +8496,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "32c90aa76be79acdb8f6454e283d78c623b1edbff78dede3c613efde7d7e5ad8",
+      "contentSha256": "b23a85a3d29b741ac01544cd383844b767d7752a7e0daca511bd8affe69ee270",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-02"
+        "modifiedAt": "2026-10-03"
       },
-      "htmlBytes": 234805,
-      "markdownBytes": 12130
+      "htmlBytes": 234674,
+      "markdownBytes": 12157
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8530,7 +8530,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "0af0286a884c0ef9b3f9a5e677a1d8f275b79f2f66d6ea4fe619845a1618a076",
+      "contentSha256": "ca860a14b0dd07e2a8c40e8774d8d82a120959c4b49d43084afb6f7c8e452637",
       "citation": {
         "title": "Bass & Flinders Gin Masterclass",
         "publisher": "Peninsula Insider",
@@ -8538,8 +8538,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 150071,
-      "markdownBytes": 4354
+      "htmlBytes": 149140,
+      "markdownBytes": 3863
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",

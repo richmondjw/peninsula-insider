@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-02
+Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -61,7 +61,7 @@ Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027
 
 The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the…
 
-Dromana · Food & Wine · Recurring weekly
+Dromana · Food & Wine · Recurring weekly · Ended
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -91,13 +91,13 @@ The most exclusive table at Polperro and the room you book when an occasion has 
 
 The Peninsula's best format for dog people. The digital trail structure keeps it interesting for the owners as much as…
 
-Mornington · Food & Wine · Recurring weekly
+Mornington · Food & Wine · Recurring weekly · Ended
 
 - [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
 
 Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps…
 
-Mornington · Kids & Family · Recurring weekly
+Mornington · Kids & Family · Recurring weekly · Ended
 
 - [Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
 

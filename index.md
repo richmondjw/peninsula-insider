@@ -13,7 +13,7 @@ Independent local picks for where to eat, stay and explore. Every recommendation
 
  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Friday 2 October
+Saturday 3 October
 
 Cape Schanck, Mornington Peninsula.   Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
