@@ -7,6 +7,7 @@
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import MediaProvenanceNote from './MediaProvenanceNote.astro';
 
 export interface Props {
   tour: any;
@@ -19,22 +20,16 @@ const slug = tour.id ?? data.slug;
 const href = `/tour/${slug}/`;
 const hero = await resolveHero('tour', slug, data);
 const showHero = Boolean(hero.override) || Boolean(data.heroImage?.src);
+const commonsCredit = !hero.override && data.heroImage?.license === 'wikimedia-cc-by-sa' && data.heroImage?.sourceUrl;
 
 const durationLabel: Record<string, string> = {
   'under-2h': 'Under 2 hours',
+  'around-2h': 'About 2 hours',
   'half-day': 'Half day',
   'full-day': 'Full day',
   'multi-2n': '2-night',
   'multi-3n': '3-night',
   'multi-extended': 'Extended',
-};
-
-const budgetLabel: Record<string, string> = {
-  'budget': 'Budget',
-  'moderate': 'Moderate',
-  'mid-range': 'Mid-range',
-  'premium': 'Premium',
-  'luxury': 'Luxury',
 };
 
 const audienceLabel: Record<string, string> = {
@@ -80,6 +75,13 @@ const excerpt = data.intro
     </div>
   )}
   <div class="tour-card__body">
+    <MediaProvenanceNote image={hero.override ? null : data.heroImage} subject={data.name} />
+    {commonsCredit && (
+      <p class="tour-card__photo-credit">
+        Photo by <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
+        {' '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external">CC BY-SA 4.0</a>. Resized.
+      </p>
+    )}
     <div class="tour-card__meta">
       {data.duration && (
         <span class="tour-card__badge">{durationLabel[data.duration] ?? data.duration}</span>
@@ -87,9 +89,7 @@ const excerpt = data.intro
       {data.audience && (
         <span class="tour-card__badge tour-card__badge--accent">{audienceLabel[data.audience] ?? data.audience}</span>
       )}
-      {data.budgetBand && (
-        <span class="tour-card__badge">{budgetLabel[data.budgetBand] ?? data.budgetBand}</span>
-      )}
+
     </div>
     <h3 class="tour-card__name">
       <a href={href}>{data.name}</a>
@@ -108,6 +108,11 @@ const excerpt = data.intro
     title={data.name}
     href={href}
     dek={excerpt}
-    imageUrl={hero.src}
+    imageUrl={commonsCredit ? undefined : hero.src}
   />
 </article>
+
+<style>
+  .tour-card__photo-credit { margin: .65rem 0 .35rem; font-size: .75rem; line-height: 1.45; color: var(--soft); }
+  .tour-card__photo-credit a { text-decoration: underline; text-underline-offset: .12em; }
+</style>

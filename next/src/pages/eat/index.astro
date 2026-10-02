@@ -79,7 +79,9 @@ async function cardImage(venue: any): Promise<{ src: string; alt: string; captio
   const hero = await resolveHero('venue', routeSlug(venue), venue.data);
   if (!hero.hasPhoto) return undefined;
   const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
-  return { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : status === 'unverified' ? 'Image subject unverified' : undefined };
+  // A caption cannot make an unverified depiction trustworthy in a discovery card.
+  if (status === 'unverified') return undefined;
+  return { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : undefined };
 }
 
 /** lastVerified arrives as a Date via z.coerce; Card wants an ISO string. */
@@ -141,7 +143,6 @@ for (const pick of sixPicks) {
     image: await cardImage(venue),
     verdict: pick.verdict,
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
-    priceBand: venue.data.priceBand,
     freshness: isoDate(informationCheckedOn(venue.data)),
     facets: getFacets('venue', venue.data),
     saveSection: 'eat',
@@ -169,7 +170,6 @@ for (const venue of venues) {
     image: await cardImage(venue),
     verdict: verdictLine(venue.data.signature),
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
-    priceBand: venue.data.priceBand,
     facets: getFacets('venue', venue.data),
     partnerLabel: venue.data.featuredPartner ? 'Sponsored placement' : undefined,
   });
@@ -275,7 +275,7 @@ export const prerender = true;
   />
 
   <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat">
-    <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'price', 'party']} />
+    <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} />
   </CategoryBrowse>
   <div class="container"><PlanningHelp /></div>
 

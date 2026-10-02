@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-01T04:00:46.020Z",
+  "updatedAt": "2026-10-02T15:02:21.197Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -237,6 +237,14 @@
       "pageTitle": "Bookings - BayPlay Experiences &amp; Group Activities"
     },
     {
+      "url": "https://bayplay.com.au/snorkel-with-dragons/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Snorkel with Dragons - BayPlay Experiences &amp; Group Activities",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect",
       "verdict": "ok",
       "httpCode": "200",
@@ -292,6 +300,14 @@
       "httpCode": "200",
       "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Point king beach in Portsea Victoria.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-02",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -3524,6 +3540,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Greens Bush Access - Greens Road (Mornington Peninsula National Park)"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/sites/portsea-pier",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Portsea Pier (Port Phillip Bay Coastal Reserve (COM), Local Port of Port Phillip, Portsea Pier)",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.parks.vic.gov.au/projects/greater-melbourne/Cape-Schanck-boardwalk-improvements",

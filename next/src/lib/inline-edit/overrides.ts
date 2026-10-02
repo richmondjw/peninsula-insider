@@ -18,6 +18,7 @@
 
 import { createCmsAnonClient } from '../cms/server';
 import bakedImageOverrides from '../../data/cms-image-overrides.json';
+import imageQuarantine from '../../data/cms-image-quarantine.json';
 
 export type CmsEntityType =
   | 'article'
@@ -48,6 +49,16 @@ export interface CmsOverrides {
 const EMPTY: CmsOverrides = { text: {}, image: {} };
 const cache = new Map<string, Promise<CmsOverrides>>();
 const SKIP_LIVE_READS = process.env.PI_SKIP_CMS_LIVE_READS === '1';
+
+// Exact published uploads held after image-subject and rights review.
+// A future upload has a different storage path and remains eligible.
+function isQuarantined(key: string, fieldPath: string, storagePath: string | null | undefined, src: string): boolean {
+  return imageQuarantine.quarantined.some((entry) =>
+    entry.key === key &&
+    entry.fieldPath === fieldPath &&
+    (entry.storagePath === storagePath || src.endsWith('/' + entry.storagePath))
+  );
+}
 
 type BakedImageSlot = {
   src?: string | null;
@@ -88,6 +99,7 @@ async function fetchOverrides(
   entitySlug: string,
 ): Promise<CmsOverrides> {
   const baked = loadBakedImages(entityType, entitySlug);
+  const key = `${entityType}/${entitySlug}`;
   // Deterministic local/CI verification can opt into the checked-in snapshot.
   // Production builds leave this unset and continue to fetch published rows.
   if (SKIP_LIVE_READS) return { text: {}, image: baked };
@@ -127,6 +139,7 @@ async function fetchOverrides(
     for (const row of (imageResp.data as ImageRow[] | null) ?? []) {
       const src = row.public_url ?? row.storage_path;
       if (!src) continue;
+      if (isQuarantined(key, row.field_path, row.storage_path, src)) continue;
       image[row.field_path] = {
         src,
         alt: row.alt_text ? houseStyle(row.alt_text) : row.alt_text,
@@ -152,6 +165,7 @@ function loadBakedImages(entityType: CmsEntityType, entitySlug: string): Record<
   for (const [fieldPath, row] of Object.entries(slots)) {
     const src = row.src ?? row.storagePath;
     if (!src) continue;
+    if (isQuarantined(key, fieldPath, row.storagePath, src)) continue;
     image[fieldPath] = {
       src,
       alt: row.alt ?? null,

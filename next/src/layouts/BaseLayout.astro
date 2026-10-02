@@ -37,6 +37,7 @@ import SaveSiteController from '../components/SaveSiteController.astro';
 import CloudSync from '../components/CloudSync.astro';
 import InlineEditor from '../components/admin/InlineEditor.astro';
 import InsiderNotePopup from '../components/InsiderNotePopup.astro';
+import imageQuarantine from '../data/cms-image-quarantine.json';
 
 export interface Props {
   title: string;
@@ -481,7 +482,7 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
        so right-click image edits on any page (events, places, venues, home) are
        visible immediately on next load without waiting for a rebuild.
        Non-fatal: if Supabase is unreachable the static images remain. -->
-  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp' }}>
+  <script is:inline define:vars={{ __SB_URL: import.meta.env.PUBLIC_SUPABASE_URL || 'https://tjjhpvslpysfklwpqmgz.supabase.co', __SB_ANON: import.meta.env.PUBLIC_SUPABASE_ANON_KEY || 'sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp', __IMAGE_QUARANTINE: imageQuarantine.quarantined.map(({ key, fieldPath, storagePath }) => ({ key, fieldPath, storagePath })) }}>
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
@@ -501,6 +502,12 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
+            var slotKey = slot.entity_type + '/' + slot.entity_slug;
+            if (__IMAGE_QUARANTINE.some(function (entry) {
+              return entry.key === slotKey &&
+                entry.fieldPath === slot.field_path &&
+                slot.public_url.endsWith('/' + entry.storagePath);
+            })) return;
             var el = document.querySelector(
               '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
             );

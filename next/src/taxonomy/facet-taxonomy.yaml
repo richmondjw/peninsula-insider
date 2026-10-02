@@ -187,6 +187,7 @@ facets:
     multi: false
     values:
       under-2h:    { synonyms: [quick] }
+      around-2h:   { synonyms: [two-hours] }
       half-day:    { synonyms: [4-hours] }
       day:         { synonyms: [day-trip, full-day] }
       one-night:   { synonyms: [overnight] }
@@ -638,6 +639,7 @@ mappings:
       facet: duration
       values:
         under-2h:        under-2h
+        around-2h:       around-2h
         half-day:        half-day
         full-day:        day
         multi-2n:        weekend

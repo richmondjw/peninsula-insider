@@ -8,6 +8,7 @@ import NewsletterBlock from '../../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../../components/CorrectionNote.astro';
 import { buildOperatorProfileSchema } from '../../../lib/schema';
 import InlinePhoto from '../../../components/InlinePhoto.astro';
+import MediaProvenanceNote from '../../../components/MediaProvenanceNote.astro';
 import { photoPlan } from '../../../lib/photo-set';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { formatHeroCredit } from '../../../lib/editorial';
@@ -81,8 +82,17 @@ export const prerender = true;
       <p>{data.intro}</p>
     </div>
   </SubpageHero>
+  <div class="container"><MediaProvenanceNote image={!heroResolved.override && !photoSet.stage ? data.heroImage : null} subject={data.name} /></div>
   {heroCredit && !photoSet.stage && (
-    <div class="container"><p class="tour-operator__hero-credit">{heroCredit}</p></div>
+    <div class="container">
+      <p class="tour-operator__hero-credit">
+        {data.heroImage.license === 'wikimedia-cc-by-sa' && data.heroImage.sourceUrl ? (
+          <>Context photo of Point King Beach, Portsea. This is not Bayplay's confirmed departure or water entry.
+            {' '}Photo by <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
+            {' '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external">CC BY-SA 4.0</a>. Resized from the original.</>
+        ) : heroCredit}
+      </p>
+    </div>
   )}
 
   <section class="experience-index experience-index--plain">

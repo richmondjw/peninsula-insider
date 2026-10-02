@@ -107,7 +107,7 @@ Source: [Victorian Fisheries Authority Recreational Fishing Guide](https://vfa.v
 ## Opportunity ranking by location
 
 1. **Blairgowrie Pier, jig, dusk to 2100, March to June.** The Peninsula's most reliable land-based squid location during the autumn peak. The pier extends into deep water with consistent kelp and structure on both sides; jetty lights aggregate baitfish at dusk and squid follow. Weeknight sessions are quieter; the weekend crowd is significant.
-2. **Portsea Pier, jig, night session, March to June.** The deepest-water pier on the southern Peninsula coast. Premium conditions for larger autumn calamari, but pier-edge safety requires care; the pier is the deepest in the Peninsula network and not a children's pier.
+2. **Portsea Pier, currently closed.** Parks Victoria prohibits public access during major maintenance from 20 July 2026. Do not plan a pier session there until the authority confirms reopening; see the [current access notice](/fishing/locations/portsea-pier/).
 3. **[Sorrento Pier](/fishing/locations/sorrento-pier/), jig, dusk and night, year-round (peak Mar to Jun).** Reliable both inside and outside the autumn peak; the sand flat extending northeast holds squid year-round.
 4. **[Rye Pier](/fishing/locations/rye-pier/), jig, dusk, year-round.** The pier's length and accessible parking make it a strong family-friendly squid option. Autumn sessions are the most productive.
 5. **Reef and kelp edge, boat, slow drift with jig, March to June.** The boat option for serious squid anglers targeting size; small-engine vessel hugging the kelp lines from Sorrento to Blairgowrie produces consistently in the autumn aggregation.

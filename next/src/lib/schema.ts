@@ -476,7 +476,7 @@ export function buildTourSchema(tour: any, operatorData: any) {
       url: pageUrl,
       serviceType: 'Tour',
       ...(tour.durationHours ? { duration: `PT${tour.durationHours}H` } : {}),
-      ...(tour.heroImage?.src ? { image: `${TOUR_SITE}${tour.heroImage.src}` } : {}),
+      ...(tour.heroImage?.depictionStatus === 'actual' && tour.heroImage?.src ? { image: `${TOUR_SITE}${tour.heroImage.src}` } : {}),
       touristType: [tour.audience, ...(tour.theme || [])].filter(Boolean),
       availableLanguage: tour.languages || ['en'],
       provider: {
