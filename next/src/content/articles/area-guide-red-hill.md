@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-red-hill-01.webp"
-  alt: "Rolling vineyard rows across Red Hill on the Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-26070118-jackalope-hotel.webp"
+  alt: "Two guests walk out of the black-framed entrance beside a red-brick building at Jackalope Hotel, with a dark sculpture in front"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula."
+  depicts: "Jackalope Hotel"
+  depictionStatus: "actual"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 26070118, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["red-hill", "area-guide", "planning"]
 relatedVenues: []
@@ -72,7 +86,7 @@ If you can stay overnight, do. Red Hill improves dramatically when lunch is not 
 
 ### The supporting cast that matters
 
-**Foxeys Hangout** is worth knowing for a looser tasting. **Paringa Estate** is a dependable answer if you want a benchmark producer. **Red Hill Bakery** is useful before the day gets formal. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself.
+**Foxeys Hangout** is worth knowing for a looser tasting. **Paringa Estate** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in Balnarring.
 
 The basic rule: one major lunch, one meaningful cellar door, one or two incidental stops. More than that and quality drops faster than quantity rises.
 

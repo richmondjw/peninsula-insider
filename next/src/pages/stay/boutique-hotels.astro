@@ -2,20 +2,332 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = ['flinders-hotel','hotel-sorrento','lindenderry','jackalope','the-continental-sorrento'];
-const venues = slugs.map((slug) => allVenues.find((venue) => routeSlug(venue) === slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Stay', href: '/stay/' }, { label: 'Boutique Hotels' }];
-const breadcrumbSchema = buildBreadcrumbSchema([{ name: 'Home', url: absUrl('/') }, { name: 'Stay', url: absUrl('/stay/') }, { name: 'Boutique Hotels', url: absUrl('/stay/boutique-hotels/') }]);
+const bySlug = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
+const findVenue = (slug: string) => {
+  const venue = bySlug.get(slug);
+  if (!venue) throw new Error('Boutique Hotels is missing its required venue: ' + slug);
+  return venue;
+};
+
+const groupBlueprints = [
+  {
+    id: 'village-hotels',
+    eyebrow: '01 / Village and coast',
+    title: 'Stay where the town is part of the trip.',
+    intro: 'Flinders is a smaller village base. Sorrento gives you two quite different hotels near the foreshore. Choose the room and the evening you want, not just the postcode.',
+    choices: [
+      {
+        slug: 'flinders-hotel',
+        cue: 'Quiet Flinders base',
+        distinction: 'Quarters has contemporary guest rooms behind Flinders Hotel, with the village close at hand.',
+        check: 'Quarters and pub dining are separate reservations. Confirm your room layout and breakfast inclusion.',
+        operatorUrl: 'https://flindershotel.com.au/accommodation/',
+      },
+      {
+        slug: 'hotel-sorrento',
+        cue: 'Lively Sorrento hotel',
+        distinction: 'Restored Classic rooms sit alongside Poolside, Coastal, Studio and Sunset accommodation at the clifftop hotel.',
+        check: 'Accommodation is adults only. Classic Suites may hear the bars; views and outdoor space depend on the room.',
+        operatorUrl: 'https://hotelsorrento.com.au/stay/',
+      },
+      {
+        slug: 'the-continental-sorrento',
+        cue: 'Full-service Sorrento',
+        distinction: 'InterContinental is the hotel within The Continental precinct, with rooms across Heritage, Main and Riley Lane wings.',
+        check: 'Choose the exact wing and room for its outlook. Dining and Aurora Spa need separate arrangements.',
+        operatorUrl: 'https://sorrento.intercontinental.com/accommodation',
+      },
+    ],
+  },
+  {
+    id: 'vineyard-hotel',
+    eyebrow: '02 / Vineyard estate',
+    title: 'Let the garden set the pace.',
+    intro: 'Lindenderry makes a Red Hill weekend feel like a stay in the landscape, with rooms, gardens and a cellar door on the estate.',
+    choices: [
+      {
+        slug: 'lindenderry',
+        cue: 'Garden and vineyard',
+        distinction: 'A country-house-style hotel among Red Hill gardens and vines, with several room types and The Dining Room on site.',
+        check: 'Restaurant and cellar-door schedules differ. Reserve dining separately and confirm the exact room and inclusions.',
+        operatorUrl: 'https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/',
+      },
+    ],
+  },
+  {
+    id: 'design-hotel',
+    eyebrow: '03 / Design destination',
+    title: 'Make the hotel the occasion.',
+    intro: 'Jackalope gives an art-led Merricks North vineyard stay its own sense of theatre. Room choice and dinner planning make the difference.',
+    choices: [
+      {
+        slug: 'jackalope',
+        cue: 'Art, wine and dinner',
+        distinction: 'An art-led hotel on a Merricks North vineyard, with Terrace, Vineyard and Lair room categories and Doot Doot Doot on site.',
+        check: 'Guests must be 12 or older. Lair features are room-specific; reserve Doot Doot Doot separately.',
+        operatorUrl: 'https://jackalopehotels.com/stay/',
+      },
+    ],
+  },
+];
+const groups = groupBlueprints.map((group) => ({
+  ...group,
+  choices: group.choices.map((choice) => ({ ...choice, venue: findVenue(choice.slug) })),
+}));
+const venues = groups.flatMap((group) => group.choices.map((choice) => choice.venue));
+
+const faqs = [
+  {
+    q: 'Does every room have a bay view, terrace or bath?',
+    a: 'No. Hotel Sorrento and InterContinental Sorrento offer different room categories and outlooks. Jackalope lists deep-soak baths and double-sided fireplaces for its Lair suites. Choose the exact room before reserving.',
+  },
+  {
+    q: 'Is dinner included when I book a hotel room?',
+    a: 'Do not assume it is. The hotel room and a restaurant table can be separate bookings. Check your package inclusions and reserve the dining you want with the operator.',
+  },
+  {
+    q: 'Can children stay at every hotel on this list?',
+    a: 'No. Hotel Sorrento says its accommodation is adults only, and Jackalope welcomes guests aged 12 and over. Ask each operator about the exact room and occupancy policy for your group.',
+  },
+];
+
+const breadcrumbItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Stay', href: '/stay/' },
+  { label: 'Boutique Hotels' },
+];
+const breadcrumbSchema = buildBreadcrumbSchema([
+  { name: 'Home', url: absUrl('/') },
+  { name: 'Stay', url: absUrl('/stay/') },
+  { name: 'Boutique Hotels', url: absUrl('/stay/boutique-hotels/') },
+]);
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Boutique hotels on the Mornington Peninsula',
+  description: 'Compare five distinctive Peninsula hotels by village, vineyard and design-led setting, then check the exact room with the operator.',
+  url: absUrl('/stay/boutique-hotels/'),
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: venues.length,
+    itemListElement: venues.map((venue, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: venue.data.name,
+      url: absUrl(venueHref(venue, '/stay')),
+    })),
+  },
+};
 export const prerender = true;
 ---
-<BaseLayout title="Boutique Hotels Mornington Peninsula · Peninsula Insider" description="The best boutique hotels on the Mornington Peninsula, from Flinders and Sorrento to Red Hill design-led stays." section="stay" canonical="https://peninsulainsider.com.au/stay/boutique-hotels/" modifiedTime="2026-04-24">
+
+<BaseLayout
+  title="Boutique Hotels Mornington Peninsula · Peninsula Insider"
+  description="Find a distinctive Mornington Peninsula hotel. Compare Flinders and Sorrento village bases, a Red Hill vineyard estate and an art-led Merricks North stay."
+  section="stay"
+  canonical="https://peninsulainsider.com.au/stay/boutique-hotels/"
+  modifiedTime="2026-10-01"
+>
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="article"><div class="container"><h1 class="article__title">Boutique Hotels on the Mornington Peninsula</h1><div class="prose"><p>The Peninsula's boutique hotels work best when they feel grounded in place rather than merely upscale. That usually means village access, architectural character, or a clear relationship to the hinterland and coast. <a href="/stay/flinders-hotel/">Flinders Hotel</a>, <a href="/stay/hotel-sorrento/">Hotel Sorrento</a>, <a href="/stay/lindenderry/">Lindenderry</a>, and <a href="/stay/jackalope/">Jackalope</a> all do that in different registers.</p><ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" /></div></div></article><section class="venues"><div class="container"><div class="venues__header"><div><p class="label label--accent">Boutique stays</p><h2 class="venues__title">{venues.length} boutique hotels worth prioritising</h2><p class="venues__sub">Character over scale, and a stronger sense of place than generic accommodation stock.</p></div><a href="/stay/" class="venues__link">All stays →</a></div><div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div></div></section><NewsletterBlock /></BaseLayout>
+
+  <section class="boutique-hero" aria-labelledby="boutique-title">
+    <div class="container boutique-hero__grid">
+      <div class="boutique-hero__copy">
+        <p class="boutique-eyebrow">The stay guide / five distinctive hotels</p>
+        <h1 id="boutique-title">Boutique hotels, sorted.</h1>
+        <a class="pi-btn pi-btn--solid boutique-hero__cta" href="#choose-hotel">Find your hotel</a>
+        <p class="boutique-hero__lead">The best fit starts with the weekend you want. Stay near a village, settle into a vineyard estate, or make design and dinner the occasion. Then choose the exact room.</p>
+      </div>
+      <figure class="boutique-hero__visual">
+        <div class="boutique-hero__images">
+          <img src="/images/visit-victoria/vv-26070118-jackalope-hotel.webp" alt="Guests leaving the dark entrance of Jackalope Hotel in Merricks North" width="1280" height="853" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 380px" />
+          <img src="/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp" alt="Visitors walking across the garden towards the white Lindenderry building in Red Hill" width="2000" height="1333" loading="lazy" decoding="async" data-pi-responsive="(max-width: 900px) calc(100vw - 2rem), 300px" />
+        </div>
+        <figcaption>Jackalope in Merricks North and Lindenderry in Red Hill. These show the named properties, not a promised room or view. Photos: Peter Foster, courtesy of Visit Victoria.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="boutique-choices" id="choose-hotel" aria-labelledby="choose-title">
+    <div class="container">
+      <p class="boutique-eyebrow">Start with the setting</p>
+      <h2 id="choose-title">Which weekend are you here for?</h2>
+      <div class="boutique-choices__grid">
+        <a href="#village-hotels" class="boutique-choice">
+          <span class="boutique-choice__kicker">Village and coast</span>
+          <strong>Keep town close.</strong>
+          <span>Flinders and Sorrento hotels with distinct room styles and different evenings.</span>
+          <span class="boutique-choice__action">Compare village hotels <span aria-hidden="true">↗</span></span>
+        </a>
+        <a href="#vineyard-hotel" class="boutique-choice">
+          <span class="boutique-choice__kicker">Vineyard estate</span>
+          <strong>Slow into Red Hill.</strong>
+          <span>A country-house stay among Lindenderry's gardens and vines.</span>
+          <span class="boutique-choice__action">Explore Lindenderry <span aria-hidden="true">↗</span></span>
+        </a>
+        <a href="#design-hotel" class="boutique-choice">
+          <span class="boutique-choice__kicker">Design destination</span>
+          <strong>Make a night of it.</strong>
+          <span>Jackalope's art-led rooms, vineyard and on-site dining in Merricks North.</span>
+          <span class="boutique-choice__action">Explore Jackalope <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+      <p class="boutique-choices__aside">Want a wider range of formats? <a href="/stay/">Browse all stays</a>.</p>
+    </div>
+  </section>
+
+  {groups.map((group) => (
+    <section class="boutique-group" id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="boutique-group__intro">
+          <p class="boutique-eyebrow">{group.eyebrow}</p>
+          <h2 id={group.id + '-title'}>{group.title}</h2>
+          <p>{group.intro}</p>
+        </div>
+        <div class="boutique-group__list">
+          {group.choices.map((choice) => (
+            <article class="boutique-card" aria-labelledby={'hotel-' + choice.slug}>
+              <div class="boutique-card__main">
+                <p class="boutique-card__cue">{choice.cue}</p>
+                <h3 id={'hotel-' + choice.slug}><a href={venueHref(choice.venue, '/stay')}>{choice.venue.data.name}</a></h3>
+                <p class="boutique-card__place">{String(choice.venue.data.place?.id ?? choice.venue.data.place).replace(/-/g, ' ')}</p>
+                <p class="boutique-card__distinction">{choice.distinction}</p>
+              </div>
+              <div class="boutique-card__decision">
+                <div class="boutique-card__check">
+                  <p>Check before booking</p>
+                  <span>{choice.check}</span>
+                </div>
+                {choice.slug === 'hotel-sorrento' && (
+                  <p class="boutique-card__notice">
+                    <strong>Works notice, checked 1 October 2026:</strong> Hotel Sorrento reports daytime midweek construction, with possible noise or changes to movement around the property ahead of its 1 December expansion. <a href="https://hotelsorrento.com.au/stay/" target="_blank" rel="noopener noreferrer">Read the operator notice</a> before reserving.
+                  </p>
+                )}
+                <div class="boutique-card__actions">
+                  <a href={venueHref(choice.venue, '/stay')} aria-label={'Read our notes on ' + choice.venue.data.name}>Read notes <span aria-hidden="true">↗</span></a>
+                  <a href={choice.operatorUrl} target="_blank" rel="noopener noreferrer" aria-label={'Check rooms with ' + choice.venue.data.name + ' (opens a new tab)'} data-pi-book="booking" data-pi-entity-type={choice.venue.data.type} data-pi-entity-slug={choice.slug} data-pi-surface="boutique-hotels-guide" data-pi-provider="direct">Check rooms <span aria-hidden="true">↗</span></a>
+                  <PiSaveActions kind="venue" slug={choice.slug} title={choice.venue.data.name} href={venueHref(choice.venue, '/stay')} dek={choice.distinction} floating={false} />
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="boutique-notes" aria-labelledby="boutique-notes-title">
+    <div class="container boutique-notes__grid">
+      <div>
+        <p class="boutique-eyebrow">Before you reserve</p>
+        <h2 id="boutique-notes-title">The room is the decision.</h2>
+        <p>These are five characterful hotels, not a ranking. Each has a direct operator path. Views, bathing features, dining and occupancy depend on the exact room and booking, so use the hotel's current terms for your dates.</p>
+        <ProvenanceLine records={venues} type="venues" noun="venue" />
+      </div>
+      <div class="boutique-notes__list">
+        {faqs.map(({ q, a }) => (
+          <div class="boutique-notes__item">
+            <h3>{q}</h3>
+            <p>{a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <NewsletterBlock />
+</BaseLayout>
+
+<style>
+  .boutique-eyebrow { margin: 0 0 0.78rem; color: var(--accent); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; }
+  .boutique-hero { padding: clamp(2rem, 5vw, 5rem) 0; background: var(--bg-alt); }
+  .boutique-hero__grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); align-items: start; gap: clamp(2rem, 5vw, 5rem); }
+  .boutique-hero h1 { max-width: 11ch; margin: 0; color: var(--text); font-size: clamp(2.8rem, 5.4vw, 5.5rem); line-height: 1.02; letter-spacing: -0.055em; text-wrap: balance; }
+  .boutique-hero__cta { display: inline-flex; align-items: center; min-height: 48px; margin-top: 1.35rem; }
+  .boutique-hero__lead { max-width: 38rem; margin: 1.35rem 0 0; font-size: clamp(1.04rem, 1.5vw, 1.22rem); line-height: 1.55; }
+  .boutique-hero__visual { margin: 0; }
+  .boutique-hero__images { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 0.6rem; height: clamp(18rem, 34vw, 29rem); }
+  .boutique-hero__images img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 0.6rem; }
+  .boutique-hero__images img:first-child { object-position: 44% center; }
+  .boutique-hero__images img:last-child { object-position: 56% center; }
+  .boutique-hero__visual figcaption { margin-top: 0.7rem; color: var(--soft); font-size: 0.84rem; line-height: 1.45; }
+  .boutique-choices, .boutique-group { scroll-margin-top: 13rem; }
+  .boutique-choices { padding: clamp(3rem, 5.5vw, 5rem) 0; background: var(--text); color: var(--white); }
+  .boutique-choices .boutique-eyebrow { color: #e7b775; }
+  .boutique-choices h2, .boutique-group h2, .boutique-notes h2 { max-width: 19ch; margin: 0; font-size: clamp(2rem, 3.7vw, 3.4rem); line-height: 1.08; letter-spacing: -0.045em; text-wrap: balance; }
+  .boutique-choices h2 { color: var(--white); }
+  .boutique-choices__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 1.8rem; }
+  .boutique-choice { display: flex; flex-direction: column; gap: 0.72rem; min-height: 16rem; padding: clamp(1.3rem, 2.5vw, 2rem); border: 1px solid transparent; border-radius: 0.7rem; background: var(--white); color: var(--text); text-decoration: none; transition: transform 160ms ease, border-color 160ms ease; }
+  .boutique-choice:hover { transform: translateY(-2px); border-color: #e7b775; }
+  .boutique-choice__kicker { color: var(--accent); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+  .boutique-choice strong { font-size: clamp(1.45rem, 2.2vw, 2rem); line-height: 1.13; letter-spacing: -0.035em; }
+  .boutique-choice > span:nth-child(3) { max-width: 35ch; color: var(--soft); line-height: 1.5; }
+  .boutique-choice__action { margin-top: auto; color: var(--accent); font-weight: 750; }
+  .boutique-choices__aside { margin: 1.5rem 0 0; color: var(--white); }
+  .boutique-choices__aside a { color: var(--white); font-weight: 750; text-underline-offset: 0.2em; }
+  .boutique-group { padding: clamp(3.5rem, 6vw, 5.8rem) 0; border-top: 1px solid var(--border); }
+  .boutique-group:nth-of-type(even) { background: var(--bg-alt); }
+  .boutique-group__intro { max-width: 50rem; margin-bottom: 2rem; }
+  .boutique-group h2, .boutique-notes h2 { color: var(--text); }
+  .boutique-group__intro > p:last-child { max-width: 46rem; margin: 1rem 0 0; font-size: 1.05rem; line-height: 1.6; }
+  .boutique-group__list { display: grid; gap: 0.85rem; }
+  .boutique-card { display: grid; grid-template-columns: minmax(0, 1.03fr) minmax(0, 0.97fr); gap: clamp(1.5rem, 4vw, 4rem); padding: clamp(1.35rem, 3vw, 2.4rem); border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 0.7rem; background: var(--white); }
+  .boutique-card__cue { margin: 0 0 0.75rem; color: var(--accent); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.1em; text-transform: uppercase; }
+  .boutique-card h3 { margin: 0; color: var(--text); font-size: clamp(1.55rem, 2.5vw, 2.25rem); line-height: 1.12; letter-spacing: -0.04em; }
+  .boutique-card h3 a { color: inherit; text-decoration: none; }
+  .boutique-card h3 a:hover { color: var(--accent); }
+  .boutique-card__place { margin: 0.6rem 0 1.1rem; color: var(--accent); font-size: 0.85rem; font-weight: 750; text-transform: capitalize; }
+  .boutique-card__distinction { max-width: 52ch; margin: 0; font-size: 1.02rem; line-height: 1.55; }
+  .boutique-card__decision { display: flex; flex-direction: column; }
+  .boutique-card__check { padding: 1.05rem 1.2rem; border-left: 3px solid var(--accent); background: var(--bg-alt); }
+  .boutique-card__check p { margin: 0 0 0.45rem; color: var(--accent); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; }
+  .boutique-card__check span { display: block; color: var(--text); line-height: 1.5; }
+  .boutique-card__notice { margin: 0.75rem 0 0; padding: 0.85rem 1rem; border: 1px solid #d5b990; border-radius: 0.35rem; background: #fff8ec; color: var(--text); font-size: 0.9rem; line-height: 1.5; }
+  .boutique-card__notice strong { font-weight: 750; }
+  .boutique-card__notice a { color: var(--accent); font-weight: 750; text-underline-offset: 0.15em; }
+  .boutique-card__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.65rem 1.15rem; margin-top: auto; padding-top: 1rem; }
+  .boutique-card__actions a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: 0.91rem; font-weight: 750; text-underline-offset: 0.2em; }
+  .boutique-card__actions :global(.pi-actions) { margin-left: auto; }
+  .boutique-notes { padding: clamp(3.5rem, 6vw, 5.8rem) 0; }
+  .boutique-notes__grid { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr); gap: clamp(2rem, 5vw, 5rem); }
+  .boutique-notes__grid > div:first-child > p:not(.boutique-eyebrow) { margin: 1rem 0 0; line-height: 1.6; }
+  .boutique-notes__item { padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+  .boutique-notes__item:first-child { padding-top: 0; }
+  .boutique-notes__item h3 { margin: 0 0 0.5rem; font-size: 1.13rem; line-height: 1.3; }
+  .boutique-notes__item p { margin: 0; color: var(--soft); line-height: 1.55; }
+  .boutique-choice:focus-visible, .boutique-card a:focus-visible, .boutique-choices__aside a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .boutique-choices__aside a:focus-visible { outline-color: var(--white); }
+  @media (max-width: 900px) {
+    .boutique-hero__grid, .boutique-notes__grid { grid-template-columns: 1fr; }
+    .boutique-hero h1 { max-width: 15ch; }
+    .boutique-hero__images { height: min(48vw, 24rem); }
+    .boutique-choices__grid { grid-template-columns: 1fr; }
+    .boutique-choice { min-height: 0; }
+  }
+  @media (max-width: 650px) {
+    .boutique-hero { padding: 1.75rem 0 2rem; }
+    .boutique-hero h1 { font-size: clamp(2.55rem, 12.6vw, 3.6rem); }
+    .boutique-hero__cta { margin-top: 1.2rem; }
+    .boutique-hero__lead { margin-top: 1.1rem; font-size: 1rem; }
+    .boutique-hero__images { height: 12rem; gap: 0.4rem; }
+    .boutique-choices, .boutique-group { scroll-margin-top: 9rem; }
+    .boutique-card { grid-template-columns: 1fr; }
+    .boutique-card__place { margin-bottom: 0.8rem; }
+    .boutique-card__actions { margin-top: 0.6rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .boutique-choice { transition: none; }
+    .boutique-choice:hover { transform: none; }
+  }
+</style>

@@ -1,13 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { retrievalPermission } from '../lib/retrieval-permission.mjs';
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Terms' },
 ];
 
-const lastUpdated = '23 September 2026';
+const lastUpdated = retrievalPermission.updatedOn;
 export const prerender = true;
 ---
 
@@ -55,11 +56,10 @@ export const prerender = true;
         <p>Some pages may include affiliate or referral links. Where Peninsula Insider earns a commission through these links, this occurs at no additional cost to you and does not influence editorial judgement.</p>
 
         <h2>Intellectual property</h2>
-        <p>Unless otherwise stated, all editorial copy, curation logic, original graphics, site structure, compiled guides, and branding on Peninsula Insider are protected by copyright. You may read, share, and link to content for personal or non-commercial reference. You may not republish, systematically reproduce, or commercially exploit material from the site without written permission.</p>
+        <p>Unless otherwise stated, all editorial copy, curation logic, original graphics, site structure, compiled guides, and branding on Peninsula Insider are protected by copyright. You may read, share, and link to content for personal or non-commercial reference. {retrievalPermission.intellectualPropertyException}</p>
 
-        <h2>Automated access and extraction</h2>
-        <p>You may not use bots, scrapers, crawlers, bulk collection tools, or other automated methods to extract, reproduce, mirror, republish, or train AI models on Peninsula Insider content without express written permission. This includes building derivative destination or directory products from our editorial corpus.</p>
-        <p>Reasonable search-engine indexing, citation, and linking are permitted where consistent with our robots policy and normal web use.</p>
+        <h2 id="automated-access">Automated access and extraction</h2>
+        {retrievalPermission.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
 
         <h2>External links and third parties</h2>
         <p>We link to third-party venues, booking providers, and external sites. We don't control those sites and aren't responsible for their content, availability, pricing, or policies. If you book or transact with a third party, that relationship is between you and them.</p>

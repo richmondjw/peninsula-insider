@@ -88,3 +88,15 @@ export function photoPlan(
 export function paragraphsOf(text: string | null | undefined): string[] {
   return (text ?? '').split(/\n\n+/).map((p) => p.trim()).filter(Boolean);
 }
+
+const SITE = 'https://peninsulainsider.com.au';
+
+/**
+ * The JSON-LD `image` for an entity: its verified photographs of itself, as
+ * absolute URLs, or nothing. A stand-in (a town or category photograph) is
+ * never offered, because schema.org `image` says the picture shows the thing.
+ */
+export function schemaImage(data: { heroImage?: PhotoRef | null; gallery?: PhotoRef[] | null }): { image?: string[] } {
+  const photos = verifiedPhotos(data).slice(0, 4).map((p) => (p.src.startsWith('http') ? p.src : `${SITE}${p.src}`));
+  return photos.length ? { image: photos } : {};
+}

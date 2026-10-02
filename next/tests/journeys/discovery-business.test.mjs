@@ -100,7 +100,7 @@ test('category filters are reachable before editorial choices and restore the ma
   const reader = await site.reader();
   try {
     await reader.page.setViewport({width:390,height:844});
-    for (const route of ['/eat/','/stay/','/wine/','/explore/']) {
+    for (const route of ['/eat/','/stay/','/explore/']) {
       await reader.load(route);
       const geometry = await reader.page.evaluate(() => ({
         bars:document.querySelectorAll('[data-v5-filterbar]').length,
@@ -131,6 +131,51 @@ test('category filters are reachable before editorial choices and restore the ma
     assert.equal(await more.evaluate(el=>el.open),true);
   } finally { await reader.close(); }
 });
+
+test('wine visitors can choose a day or reach filtered places on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({ width: 320, height: 568 });
+    await reader.load('/wine/');
+    await reader.waitFor(() => document.querySelector('.wine-hero__visual img')?.naturalWidth > 0, 'wine hero photo did not load');
+    const firstFold = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.dataset.state,
+      actionBottom: document.querySelector('.wine-hero__primary')?.getBoundingClientRect().bottom,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      title: document.querySelector('main h1')?.textContent.trim(),
+    }));
+    assert.equal(firstFold.cookie, 'visible');
+    assert.equal(firstFold.title, 'Mornington Peninsula wine country');
+    assert.ok(firstFold.actionBottom <= 568, 'first-screen wine choice is below the 320px fold');
+    assert.equal(firstFold.overflow, false);
+    await reader.page.setViewport({ width: 390, height: 844 });
+    await reader.page.click('.wine-hero__secondary');
+    await reader.waitFor(() => location.hash === '#browse-wine', 'browse link did not reach the directory controls');
+    const browse = await reader.page.evaluate(() => ({
+      top: document.querySelector('#browse-wine')?.getBoundingClientRect().top,
+      filters: document.querySelectorAll('[data-v5-filterbar]').length,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.ok(browse.top >= 100 && browse.top < 300, 'browse controls are obscured by the sticky header');
+    assert.equal(browse.filters, 1);
+    assert.equal(browse.overflow, false);
+    await reader.load('/wine/?mood=lunch-attached#browse-wine');
+    await reader.waitFor(() => document.querySelector('[data-category-editorial]')?.hidden, 'filtered wine directory did not replace editorial');
+    const filtered = await reader.page.evaluate(() => ({
+      selected: document.querySelector('[data-filter-chip][data-key="mood"][data-value="lunch-attached"]')?.getAttribute('aria-pressed'),
+      visible: [...document.querySelectorAll('[data-filter-countable]')].filter(el => !el.hidden).length,
+      all: document.querySelectorAll('[data-filter-countable]').length,
+      top: document.querySelector('#browse-wine')?.getBoundingClientRect().top,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.equal(filtered.selected, 'true');
+    assert.ok(filtered.visible > 0 && filtered.visible < filtered.all);
+    assert.ok(filtered.top >= 100 && filtered.top < 300, 'filtered controls are obscured by the sticky header');
+    assert.equal(filtered.overflow, false);
+  } finally { await reader.close(); }
+});
+
 test('homepage alternate plan actions only copy usable itineraries and cover targets are comfortable', async () => {
   const reader = await site.reader();
   try {
@@ -138,8 +183,194 @@ test('homepage alternate plan actions only copy usable itineraries and cover tar
     const copiedKinds = await reader.page.$$eval('.home-plan [data-variant="fork"]',els=>els.map(el=>el.dataset.kind));
     assert.ok(copiedKinds.length>=1);
     assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
-    const targets = await reader.page.$$eval('[data-cover-dot]',els=>els.map(el=>({w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
+    await reader.waitFor(() => document.querySelector('[data-cover-motion]')?.currentTime > 0, 'cover video did not start');
+    const targets = await reader.page.$$eval('.cover-motion-toggle',els=>els.map(el=>({w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
     assert.ok(targets.length>0);
     assert.ok(targets.every(t=>t.w>=44 && t.h>=44));
+    await reader.page.click('.cover-motion-toggle');
+    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
+    await reader.page.click('.cover-motion-toggle');
+    await reader.waitFor(() => !document.querySelector('[data-cover-motion]').paused, 'cover video did not resume');
+    await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
+    await reader.waitFor(() => document.querySelector('[data-cover-motion]').hidden, 'reduced-motion did not show the still fallback');
+    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
   } finally { await reader.close(); }
+});
+
+
+test('first-visit Explore actions and filters stay in view with the cookie note', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    await reader.load('/explore/');
+    const narrow = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.getAttribute('data-state'),
+      actionBottom: document.querySelector('.x-hero__primary')?.getBoundingClientRect().bottom,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.equal(narrow.cookie, 'visible');
+    assert.ok(narrow.actionBottom <= 568, 'first-visit primary action is below the 320px fold');
+    assert.equal(narrow.overflow, false);
+    await reader.page.setViewport({width:390,height:844});
+    const wider = await reader.page.evaluate(() => ({
+      filterTop: document.querySelector('[data-v5-filterbar]')?.getBoundingClientRect().top,
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.ok(wider.filterTop < 750, 'first-visit filters are buried at 390px');
+    assert.equal(wider.overflow, false);
+  } finally { await reader.close(); }
+});
+
+test('boutique and wellness stay choices remain visible on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    for (const [route, selector] of [
+      ['/stay/boutique-hotels/', '.boutique-hero__cta'],
+      ['/stay/wellness-retreats/', '.wellness-choice a'],
+    ]) {
+      await reader.load(route);
+      const bounds = await reader.page.evaluate((target) => ({
+        cookie: document.querySelector('#cookie-banner')?.dataset.state,
+        bottoms: [...document.querySelectorAll(target)].map(el => el.getBoundingClientRect().bottom),
+        overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      }), selector);
+      assert.equal(bounds.cookie, 'visible', route);
+      assert.ok(bounds.bottoms.length >= 1 && bounds.bottoms.every(bottom => bottom <= 568), route + ' first-screen choice');
+      assert.equal(bounds.overflow, false, route);
+    }
+  } finally { await reader.close(); }
+});
+
+test('vineyard and resort stay choices remain visible on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    for (const [route, selector, expected] of [
+      ['/stay/vineyard-stays/', '.vine-hero__cta', 1],
+      ['/stay/resorts/', '.resorts-choice a', 3],
+    ]) {
+      await reader.load(route);
+      const bounds = await reader.page.evaluate(target => ({
+        cookie: document.querySelector('#cookie-banner')?.dataset.state,
+        bottoms: [...document.querySelectorAll(target)].map(el => el.getBoundingClientRect().bottom),
+        overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      }), selector);
+      assert.equal(bounds.cookie, 'visible', route);
+      assert.equal(bounds.bottoms.length, expected, route + ' choice count');
+      assert.ok(bounds.bottoms.every(bottom => bottom <= 568), route + ' first-screen choice');
+      assert.equal(bounds.overflow, false, route);
+    }
+  } finally { await reader.close(); }
+});
+
+test('stay guide booking checks and secondary actions remain usable', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({width:320,height:700});
+    await reader.load('/stay/vineyard-stays/');
+    const checks = await reader.page.$$eval('.vine-card__check', elements => elements.map(el => el.textContent));
+    assert.ok(checks.some(text => text.includes('not suitable for infants or children under 16')));
+    assert.ok(checks.some(text => text.includes('Accommodation guests must be 16 or older')));
+    await reader.load('/stay/resorts/');
+    const links = await reader.page.$$eval('.resorts-text-link', elements => elements.map(el => el.getBoundingClientRect().height));
+    assert.equal(links.length, 2);
+    assert.ok(links.every(height => height >= 44), 'resort secondary links need a 44px target');
+  } finally { await reader.close(); }
+});
+
+test('Red Hill stay choices are reachable on a first visit and identify the actual locality', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({ width: 320, height: 568 });
+    await reader.load('/stay/red-hill/');
+    const narrow = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.dataset.state,
+      choices: [...document.querySelectorAll('.rh-hero__choices a')].map(a => ({ bottom: a.getBoundingClientRect().bottom, height: a.getBoundingClientRect().height, href: a.getAttribute('href') })),
+      cards: document.querySelectorAll('.rh-card').length,
+      localHrefs: [...document.querySelectorAll('.rh-card h3 a')].map(a => a.getAttribute('href')),
+      treetopsPlace: document.querySelector('#rh-treetops-red-hill')?.closest('.rh-card')?.querySelector('.rh-card__top span:last-child')?.textContent?.trim(),
+      birchWider: document.querySelector('#further-afield a[href="/stay/birch-creek/"]')?.textContent?.replace(/\s+/g, ' ').trim() ?? '',
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+      copy: document.querySelector('main')?.textContent ?? '',
+    }));
+    assert.equal(narrow.cookie, 'visible');
+    assert.deepEqual(narrow.choices.map(c => c.href), ['#estate-stays', '#private-bases']);
+    assert.ok(narrow.choices.every(c => c.height >= 44 && c.bottom <= 568), JSON.stringify(narrow.choices));
+    assert.equal(narrow.cards, 5);
+    assert.ok(!narrow.localHrefs.includes('/stay/birch-creek/'), 'Dromana stay must not be a Red Hill local card');
+    assert.equal(narrow.treetopsPlace, 'Red Hill');
+    assert.match(narrow.birchWider, /Dromana \/ farm cottages/);
+    assert.equal(narrow.overflow, false);
+    assert.match(narrow.copy, /Jackalope is in Merricks North/);
+    assert.match(narrow.copy, /Peninsula Hot Springs accommodation is in Fingal/);
+    await reader.page.setViewport({ width: 390, height: 844 });
+    assert.equal(await reader.page.evaluate(() => document.documentElement.scrollWidth > innerWidth + 1), false);
+  } finally { await reader.close(); }
+});
+
+test('Brewer Cottage 2026 short-stay pause removes booking paths but preserves an explanatory detail page', async () => {
+  const reader = await site.reader();
+  try {
+    for (const route of ['/stay/', '/stay/best-accommodation/', '/stay/cottages/', '/stay/red-hill/', '/stay/vineyard-stays/', '/stay/winery-accommodation/', '/explore/places/red-hill/']) {
+      await reader.load(route);
+      const links = await reader.page.$$eval('a[href="/stay/brewers-cottage/"]', nodes => nodes.length);
+      assert.equal(links, 0, route + ' still recommends the paused cottage');
+    }
+    await reader.load('/stay/brewers-cottage/');
+    const detail = await reader.page.evaluate(() => ({
+      robots: document.querySelector('meta[name="robots"]')?.getAttribute('content') ?? '',
+      notice: document.querySelector('.venue-detail__closed-notice')?.textContent ?? '',
+      bookingLinks: document.querySelectorAll('a[data-pi-entity-slug="brewers-cottage"][data-pi-book]').length,
+      lodgingSchema: [...document.querySelectorAll('script[type="application/ld+json"]')].some(el => el.textContent.includes('"LodgingBusiness"')),
+    }));
+    assert.match(detail.robots, /noindex/);
+    assert.match(detail.notice, /short stays.*2026/i);
+    assert.match(detail.notice, /brewery.*trading status/i);
+    assert.equal(detail.bookingLinks, 0);
+    assert.equal(detail.lodgingSchema, false);
+    const sitemap = readFileSync(join(DIST, 'sitemap.xml'), 'utf8');
+    assert.doesNotMatch(sitemap, /\/stay\/brewers-cottage\//);
+  } finally { await reader.close(); }
+});
+
+
+test('Sorrento hotel choices remain visible on a first visit', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
+    await reader.page.setViewport({width:320,height:568});
+    await reader.load('/stay/sorrento/');
+    const result = await reader.page.evaluate(() => ({
+      cookie: document.querySelector('#cookie-banner')?.dataset.state,
+      choices: [...document.querySelectorAll('.sorrento-hero__choices a')].map(el => ({
+        href: el.getAttribute('href'),
+        bottom: el.getBoundingClientRect().bottom,
+        height: el.getBoundingClientRect().height,
+      })),
+      overflow: document.documentElement.scrollWidth > innerWidth + 1,
+    }));
+    assert.equal(result.cookie, 'visible');
+    assert.deepEqual(result.choices.map(choice => choice.href), ['#hotel-sorrento', '#intercontinental']);
+    assert.ok(result.choices.every(choice => choice.height >= 44 && choice.bottom <= 568), JSON.stringify(result.choices));
+    assert.equal(result.overflow, false);
+  } finally { await reader.close(); }
+});
+
+test('four stay guides use social images matching their subjects', () => {
+  const expected = new Map([
+    ['/stay/vineyard-stays/', '/images/visit-victoria/vv-26070114-jackalope-hotel.webp'],
+    ['/stay/resorts/', '/images/visit-victoria/vv-143799-cape-schanck.webp'],
+    ['/stay/sorrento/', '/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp'],
+    ['/stay/red-hill/', '/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp'],
+  ]);
+  for (const [route, image] of expected) {
+    const html = readFileSync(join(DIST, route, 'index.html'), 'utf8');
+    const tag = html.match(/<meta\b[^>]*property="og:image"[^>]*>/)?.[0];
+    assert.ok(tag?.includes(image), route + ' social image');
+  }
 });

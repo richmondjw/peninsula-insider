@@ -1,4 +1,5 @@
 ---
+import { schemaImage } from '../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -144,6 +145,7 @@ const experienceSchema: Record<string, unknown> = {
   '@id': `${canonical}#${primaryType}`,
   name: experience.data.name,
   description: experience.data.editorNote,
+  ...schemaImage(experience.data),
   address: {
     '@type': 'PostalAddress',
     streetAddress: experience.data.address ?? undefined,

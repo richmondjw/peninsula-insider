@@ -134,6 +134,13 @@ def git_commit_and_push(message: str, files: list[str] = None) -> bool:
                 print(f"  Content admission gate failed:\n{gate.stdout}{gate.stderr}")
                 return False
         if files:
+            # hero_image.stamp records Visit Victoria placements in the where-used
+            # ledger; commit it with the content that placed them.
+            ledger = "ops/records/visit-victoria/placements.json"
+            changed = subprocess.run(["git", "status", "--porcelain", "--", ledger],
+                                     cwd=cwd, capture_output=True, text=True).stdout.strip()
+            if changed and ledger not in files:
+                files = files + [ledger]
             subprocess.run(["git", "add"] + files, cwd=cwd, check=True, capture_output=True)
         else:
             subprocess.run(["git", "add", "-A"], cwd=cwd, check=True, capture_output=True)
@@ -858,8 +865,10 @@ def run_verify_gate(article_path: Path, today: str) -> str:
             sitemap_path=REPO_ROOT / "sitemap.xml",
         )
     except Exception as e:
-        print(f"    Verify gate unavailable ({e}) — frontmatter-only pass")
-        return "PASS"
+        # A missing verifier is not evidence that the article is safe. Fail
+        # closed so an unavailable gate cannot silently turn into a publish.
+        print(f"    Verify gate unavailable ({e}) — blocking publication")
+        return "FAIL"
 
     for flag in report.get("flags", []):
         print(f"    [verify-flag] {flag}")

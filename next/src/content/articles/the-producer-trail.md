@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
 heroImage:
-  src: "/images/sourced/article-producer-trail-01.webp"
-  alt: "A wheel of fresh Peninsula goat cheese being lifted from a chilled rack at a small dairy"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160029-green-olive-at-red-hill.webp"
+  alt: "Four friends holding glasses of wine walk along a grassy path beside vine rows at Green Olive at Red Hill on a clear day"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Green Olive at Red Hill, Mornington Peninsula."
+  depicts: "Green Olive at Red Hill"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160029, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["producers", "food", "day-trip", "red-hill", "main-ridge", "balnarring", "explore", "all-year"]
 relatedVenues: ["main-ridge-dairy", "red-hill-cheese", "peninsula-fresh-organics", "mornington-peninsula-chocolates", "balnarring-bakehouse", "flinders-sourdough", "red-hill-bakery", "somers-general", "green-olive-red-hill", "epicurean-red-hill", "merricks-general-wine-store", "balnarring-pub"]
@@ -90,7 +104,7 @@ You are now four producers in, the cooler bag is full, and it is roughly 12.30pm
 The lunch on a producer day should be light. The point is to refuel between stops. Three options that fit:
 
 - **Merricks General Wine Store** for a wood-oven pizza and a glass of pinot. Forty-five minutes, in and out.
-- **Red Hill Bakery** for a counter lunch: sourdough sandwich, pastry, coffee. Twenty minutes.
+- **The Red Hill Baker, Balnarring** for a counter lunch: bread, pastry and coffee. Twenty minutes. The former Red Hill location is closed.
 - **Epicurean Red Hill** for a slightly more leisurely sit-down with a kitchen that uses a lot of the producers you have just been visiting. An hour.
 
 Pick the one that matches the energy of the group. The producer day is the kind of day where lunch is the supporting act, not the lead.

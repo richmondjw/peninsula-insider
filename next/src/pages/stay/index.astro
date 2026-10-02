@@ -16,6 +16,7 @@
  * ONE filter state governs The Six and the directory: the single FilterBar
  * below the stand-first renders #pi-results-status and the paired sheet;
  */
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
@@ -112,7 +113,6 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
       titleize(String(data.place?.id ?? data.place ?? '')),
       partyFit(facets),
     ].filter(Boolean).slice(0, 3) as string[],
-    priceBand: data.priceBand as string | undefined,
     freshness: iso(informationCheckedOn(data)),
     freshnessKind: 'checked' as const,
     booking: bookingUrl
@@ -178,11 +178,17 @@ const STAY_MAP_HREF = stayCats.length ? `/map/?cat=${stayCats.join(',')}` : '/ma
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
-  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'The full ranking, hotel to cottage, with the reasoning shown.' },
-  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Rooms built for two, from outdoor baths to village balconies.' },
-  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Sleep between the rows and walk to the cellar door.' },
-  { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bases within earshot of the water, Sorrento to Flinders.' },
-  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Stay inside the thermal precinct and beat the day queue.' },
+  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Choose a coast, wine-country or thermal base, then compare stay formats.' },
+  { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'Compare a village hotel, vineyard estate and design-led stay.' },
+  { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'Choose a self-contained cottage or a hosted room or suite.' },
+  { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Choose a vineyard, thermal or Sorrento stay for a weekend together.' },
+  { slug: 'vineyard-stays', title: 'Vineyard stays', verdict: 'Compare estate suites, villas and a nearby wine-country base.' },
+  { slug: 'coastal-stays', title: 'Coastal stays', verdict: 'Bay villages, south-coast bases and a night inside Point Nepean.' },
+  { slug: 'hot-springs-accommodation', title: 'Hot springs stays', verdict: 'Compare accommodation at the Peninsula thermal estates.' },
+  { slug: 'wellness-retreats', title: 'Wellness stays', verdict: 'Choose on-site bathing, a hotel spa or an off-site springs package.' },
+  { slug: 'resorts', title: 'Resorts and retreats', verdict: 'Choose a resort room, thermal stay or group retreat venue.' },
+  { slug: 'sorrento', title: 'Stay in Sorrento', verdict: 'Compare adults-only rooms with a family-friendly precinct stay.' },
+  { slug: 'red-hill', title: 'Stay in Red Hill', verdict: 'Compare Red Hill estates and private bases by their actual locality.' },
   { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
 
@@ -248,7 +254,7 @@ export const prerender = true;
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
   modifiedTime="2026-04-30"
-  ogImage="/images/sourced/venue-jackalope-hotel-01.webp"
+  ogImage={pageImage('stay-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -261,6 +267,12 @@ export const prerender = true;
        a note under the full list. -->
   <HubStandfirst
     compact
+    aside={{
+      src: '/images/visit-victoria/vv-25061217-lancemore-lindenderry-red-hill.webp',
+      alt: 'Guests on the lawn at Lindenderry in Red Hill at dusk, under festoon lights, with the white homestead behind',
+      caption: 'Lindenderry, Red Hill.',
+      credit: 'Peter Foster, courtesy of Visit Victoria',
+    }}
     title="Choose the base, and the whole weekend changes"
     standfirst={standfirst}
   >
@@ -292,7 +304,7 @@ export const prerender = true;
       <div class="pi-section-head">
         <div class="pi-section-head__text">
           <p class="pi-eyebrow">Best-of guides</p>
-          <h2 id="bestof-heading" class="pi-h2">Start with a ranked list</h2>
+          <h2 id="bestof-heading" class="pi-h2">Choose a stay guide</h2>
         </div>
       </div>
       {/* "Best-of guides" is stated once, in the section eyebrow. The cards

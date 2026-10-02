@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-main-ridge-01.webp"
-  alt: "Vineyard rows and cool green farmland across Main Ridge on the Mornington Peninsula"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-159902-grape-explorations-australia-ocean-eight-vineyard.webp"
+  alt: "Red-leaved autumn trees frame a gravel path leading to the timber cellar door building at Ocean Eight Vineyard"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Ocean Eight Vineyard, Main Ridge, Mornington Peninsula."
+  depicts: "Grape Explorations Australia - Ocean Eight Vineyard"
+  depictionStatus: "actual"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 159902, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["main-ridge", "area-guide", "planning"]
 relatedVenues: []

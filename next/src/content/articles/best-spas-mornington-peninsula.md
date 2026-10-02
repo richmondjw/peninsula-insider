@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-14
 heroImage:
-  src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "A woman in a white swimsuit sitting on the stone edge of a geothermal bathing pool at sunset."
-  depicts: "a woman sitting on the stone edge of a geothermal bathing pool at sunset"
+  src: "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp"
+  alt: "Two bathers in white robes walk a timber boardwalk past a round wooden soaking tub in the bush at Peninsula Hot Springs"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Peninsula Hot Springs, Cape Schanck, Mornington Peninsula."
+  depicts: "Peninsula Hot Springs"
   depictionStatus: "illustrative"
-  credit: "Alba Thermal Springs"
-  license: "venue-media-kit"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160851, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "insider-edit"
 tags: ["spa", "wellness", "hot-springs", "mornington-peninsula", "guide", "rankings"]
 relatedVenues: ["peninsula-hot-springs", "alba-thermal-springs", "one-spa-racv-cape-schanck", "spa-by-jackalope", "endota-spa-mornington"]
@@ -26,7 +38,7 @@ clusterLinks:
 status: "published"
 faq:
   - question: "What is the best spa on the Mornington Peninsula?"
-    answer: "For geothermal bathing: Alba Thermal Springs for design, adults-only pacing, and a first-visit couple's experience; Peninsula Hot Springs for scale, the full ritual circuit, treatment rooms, and group visits. For resort spa treatments: One Spa at RACV Cape Schanck for the cliff-edge ocean setting and full-day packages; Spa by Jackalope for design-hotel luxury on the Red Hill ridge."
+    answer: "For geothermal bathing: Alba Thermal Springs for design, quieter pacing, and a first-visit couple's experience; Peninsula Hot Springs for scale, the full ritual circuit, treatment rooms, and group visits. For resort spa treatments: One Spa at RACV Cape Schanck for the cliff-edge ocean setting and full-day packages; Spa by Jackalope for design-hotel luxury in Merricks North."
   - question: "What is the difference between hot springs and resort spas on the Mornington Peninsula?"
     answer: "Hot springs (Alba and Peninsula Hot Springs) are primarily outdoor geothermal bathing - multiple pools at different temperatures, no treatments required. Resort spas (One Spa, Spa by Jackalope, Endota Mornington) are primarily massage, facial, and treatment programs, often with one or two indoor pools. For a bathing-focused day, book the hot springs. For a treatment-focused day, book a resort spa. Some weekends combine both - bath in the morning, treatment in the afternoon."
   - question: "How far in advance should I book a Mornington Peninsula spa?"

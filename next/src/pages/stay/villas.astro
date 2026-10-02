@@ -4,70 +4,237 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { routeSlug, isListableVenue } from '../../lib/editorial';
+import { buildBreadcrumbSchema, buildFaqSchema, absUrl } from '../../lib/schema';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
-const slugs = [
-  'polperro-villas',
-  'sanctuary-at-alba',
-  'crittenden-villas',
-  'port-phillip-estate',
-  'cassis',
-  'mantons-creek-estate',
-  'woodman-estate',
-  'cape-retreat',
+const bySlug = new Map(allVenues.map((venue) => [routeSlug(venue), venue]));
+const villaGroups = [
+  {
+    id: 'vineyard-villas',
+    number: '01',
+    label: 'On a vineyard',
+    title: 'Let the estate set the pace.',
+    lead: 'Polperro and Crittenden offer different villa formats on wine estates. Check each unit’s cooking facilities and the estate’s dining hours.',
+    slugs: ['polperro-villas', 'crittenden-villas'],
+  },
+  {
+    id: 'bathing-villas',
+    number: '02',
+    label: 'Bathing-led',
+    title: 'Choose the exact water feature.',
+    lead: 'Alba’s villas pair a stay with the thermal springs. At Cassis, only the Retreat and Cottage list mineral plunge pools; the other three villas list outdoor baths.',
+    slugs: ['sanctuary-at-alba', 'cassis'],
+  },
 ];
-const venues = slugs
-  .map((slug) => allVenues.find((venue) => routeSlug(venue) === slug))
-  .filter((venue): venue is NonNullable<typeof venue> => Boolean(venue));
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Stay', href: '/stay/' },
-  { label: 'Villas' },
+const relatedFormats = [
+  { slug: 'port-phillip-estate', format: 'Vineyard suites', note: 'Six suites at an architectural wine estate.', href: '/wine/port-phillip-estate/' },
+  { slug: 'mantons-creek-estate', format: 'Vineyard suites', note: 'Compare the operator’s current suite and dining offer.', href: '/stay/mantons-creek-estate/' },
+  { slug: 'woodman-estate', format: 'Lakeside chalets', note: 'A separate chalet format on an estate.', href: '/stay/woodman-estate/' },
+  { slug: 'cape-retreat', format: 'Hilltop suites', note: 'Check whether individual stays are available.', href: '/stay/cape-retreat/' },
+].filter((item) => bySlug.has(item.slug));
+const visibleGroups = villaGroups.map((group) => ({
+  ...group,
+  venues: group.slugs.map((slug) => bySlug.get(slug)).filter((venue): venue is NonNullable<typeof venue> => Boolean(venue)),
+})).filter((group) => group.venues.length > 0);
+const villas = visibleGroups.flatMap((group) => group.venues);
+const hero = bySlug.get('polperro-villas')?.data.heroImage;
+const faqs = [
+  {
+    q: 'What counts as a villa in this guide?',
+    a: 'The main list is limited to properties presented as villas by their operators or in their current accommodation offer. Nearby suites and chalets appear separately so you can compare formats without confusing them.',
+  },
+  {
+    q: 'Does every Cassis villa have a mineral pool?',
+    a: 'No. Cassis lists heated mineral plunge pools for the Retreat and Cottage. The Lodge, Terrace and Studio list private outdoor baths.',
+  },
+  {
+    q: 'Is private bathing included in an Alba villa booking?',
+    a: 'Alba describes bathing on each day of a Sanctuary stay and one upgrade to a separate private-pool experience. Check the exact villa and chosen package before reserving.',
+  },
 ];
-const breadcrumbSchema = buildBreadcrumbSchema([
-  { name: 'Home', url: absUrl('/') },
-  { name: 'Stay', url: absUrl('/stay/') },
-  { name: 'Villas', url: absUrl('/stay/villas/') },
-]);
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Villa stays on the Mornington Peninsula',
+  description: 'Compare vineyard and bathing-led villas by setting, room format and inclusions, with related suites and chalets clearly separated.',
+  url: absUrl('/stay/villas/'),
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListOrder: 'https://schema.org/ItemListUnordered',
+    numberOfItems: villas.length,
+    itemListElement: villas.map((venue, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: venue.data.name,
+      url: absUrl('/stay/' + routeSlug(venue) + '/'),
+    })),
+  },
+};
 export const prerender = true;
 ---
+
 <BaseLayout
-  title="Villa Stays Mornington Peninsula · Peninsula Insider"
-  description="The best villa stays on the Mornington Peninsula - vineyard villas, thermal-anchored suites, and architectural statements in the Red Hill corridor."
+  title="Villa stays on the Mornington Peninsula · Peninsula Insider"
+  description="Compare Mornington Peninsula vineyard and bathing-led villas, with suites and chalets clearly identified as different stay formats."
   section="stay"
   canonical="https://peninsulainsider.com.au/stay/villas/"
-  modifiedTime="2026-05-08"
+  modifiedTime="2026-10-01"
 >
-  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
-  <Breadcrumbs items={breadcrumbItems} />
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">Villa Stays on the Mornington Peninsula</h1>
-      <div class="prose">
-        <p>The Peninsula's villa market is dominated by working-vineyard estates. The on-estate format lets you sleep where you drink, walk to the cellar door before day-trippers arrive, and eat dinner 200 metres from your bed. The variables that separate a worthwhile villa weekend from an expensive one are privacy, setting, on-estate access, and how well the format carries a full Friday-to-Sunday. The mistake is treating a villa as a hotel substitute - it isn't.</p>
-        <p>Three patterns make the format a clear choice. The on-estate weekend: Polperro, Crittenden, and Mantons Creek all operate on the same principle - you sleep on the estate, walk to the cellar door, and never need to drive between your bed and your glass. The architectural set-piece: Port Phillip Estate, Polperro, and Cassis are three completely different interpretations of the adults-only vineyard villa within five kilometres of each other. The thermal-anchored stay: The Sanctuary at Alba, opened June 2025, is the first Peninsula property to combine a genuinely luxurious villa with all-day thermal bathing access.</p>
-        <p>Polperro has four villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave, with no hotplates. There are no outdoor baths. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.</p>
-        <p>Note on Point Leo Estate: Point Leo does not operate on-estate accommodation. The Lon to Leo package partners with Lon Retreat in Sorrento. For on-estate stays near Laura and the sculpture park, Mantons Creek Estate is the closest vineyard-stay alternative.</p>
-        <ProvenanceLine style="font-size:0.8rem;color:var(--soft)" records={venues} type="venues" noun="venue" />
-      </div>
-    </div>
-  </article>
-  <section class="venues" id="rankings">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Villa stays</p>
-          <h2 class="venues__title">{venues.length} villa bases worth booking well ahead</h2>
-          <p class="venues__sub">Vineyard estates, thermal-anchored villas, and architectural standalones - private formats for trips that want more than a room and a lobby.</p>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildBreadcrumbSchema([
+    { name: 'Home', url: absUrl('/') },
+    { name: 'Stay', url: absUrl('/stay/') },
+    { name: 'Villas', url: absUrl('/stay/villas/') },
+  ]))} />
+  <script type="application/ld+json" set:html={JSON.stringify(buildFaqSchema(faqs))} />
+  <Breadcrumbs items={[
+    { label: 'Home', href: '/' },
+    { label: 'Stay', href: '/stay/' },
+    { label: 'Villas' },
+  ]} />
+
+  <section class="villa-hero" aria-labelledby="villas-title">
+    <div class="container villa-hero__grid">
+      <div class="villa-hero__copy">
+        <p class="villa-eyebrow">The stay guide · villas</p>
+        <h1 id="villas-title">Villa stays with room to slow down.</h1>
+        <div class="villa-hero__actions">
+          <a class="pi-btn pi-btn--solid" href="#compare-villas">Compare villas</a>
+          <a class="villa-text-link" href="/stay/winery-accommodation/">Explore wine-country stays <span aria-hidden="true">↗</span></a>
         </div>
-        <a href="/stay/winery-accommodation/" class="venues__link">Wine-country stays →</a>
+        <p class="villa-hero__lead">Start with the setting, then compare what is actually included. A vineyard villa, an Alba stay and a Cassis villa make different weekends.</p>
+        <p class="villa-hero__note">Choose the individual villa before booking. Pool, bath, cooking facilities and dining access vary by property and room.</p>
       </div>
-      <div class="venues__grid">{venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}</div>
+      {hero?.src && (
+        <figure class="villa-hero__image">
+          <img src={hero.src} alt={hero.alt || 'Interior of a Polperro villa'} fetchpriority="high" decoding="async" />
+          <figcaption>Inside a Polperro villa. Image courtesy of Polperro.</figcaption>
+        </figure>
+      )}
     </div>
   </section>
+
+  <section class="villa-choices" id="compare-villas" aria-labelledby="villa-choice-title">
+    <div class="container">
+      <p class="villa-eyebrow">The first decision</p>
+      <h2 id="villa-choice-title">Where do you want to wake up?</h2>
+      <div class="villa-choices__grid">
+        {visibleGroups.map((group) => (
+          <a href={'#' + group.id} class="villa-choice">
+            <span class="villa-choice__number">{group.number} / {group.label}</span>
+            <strong>{group.title}</strong>
+            <span class="villa-choice__action">See villas <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {visibleGroups.map((group) => (
+    <section class="venues villa-group" id={group.id} aria-labelledby={group.id + '-title'}>
+      <div class="container">
+        <div class="venues__header">
+          <div>
+            <p class="label label--accent">{group.number} / {group.label}</p>
+            <h2 class="venues__title" id={group.id + '-title'}>{group.title}</h2>
+            <p class="venues__sub">{group.lead}</p>
+          </div>
+        </div>
+        <div class="venues__grid venues__grid--two">
+          {group.venues.map((venue) => <VenueCard venue={venue} hrefPrefix="/stay" />)}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section class="related-formats" aria-labelledby="related-formats-title">
+    <div class="container">
+      <div class="related-formats__head">
+        <p class="villa-eyebrow">A different format</p>
+        <h2 id="related-formats-title">Suites and chalets nearby.</h2>
+        <p>These stay options appeared alongside villas in earlier guides. They are useful alternatives, with their accommodation type made clear.</p>
+      </div>
+      <div class="related-formats__grid">
+        {relatedFormats.map((item) => (
+          <a href={item.href} class="related-format">
+            <span class="related-format__type">{item.format}</span>
+            <strong>{bySlug.get(item.slug)?.data.name}</strong>
+            <span>{item.note}</span>
+            <span class="related-format__action">Read stay notes <span aria-hidden="true">↗</span></span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="faq-section" aria-labelledby="villa-faq-title">
+    <div class="container">
+      <div class="prose">
+        <h2 id="villa-faq-title">Before you reserve</h2>
+        {faqs.map(({ q, a }) => <><h3>{q}</h3><p>{a}</p></>)}
+        <p><a href="/stay/best-accommodation/">Compare all accommodation formats</a> if a villa is only one option for your trip.</p>
+        <ProvenanceLine records={villas} type="venues" noun="venue" />
+      </div>
+    </div>
+  </section>
+
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .villa-hero { padding: clamp(2rem, 5vw, 5rem) 0; background: var(--bg-alt); }
+  .villa-hero__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; }
+  .villa-eyebrow { margin: 0 0 0.8rem; color: var(--accent); font-size: 0.75rem; font-weight: 750; letter-spacing: 0.12em; text-transform: uppercase; }
+  .villa-hero h1 { max-width: 12ch; margin: 0; color: var(--text); font-size: clamp(2.75rem, 5.7vw, 5.8rem); line-height: 0.99; letter-spacing: -0.055em; text-wrap: balance; }
+  .villa-hero__lead { max-width: 44rem; margin: 1.45rem 0 0; font-size: clamp(1.08rem, 1.6vw, 1.32rem); line-height: 1.55; }
+  .villa-hero__actions { display: flex; flex-wrap: wrap; gap: 0.85rem 1.3rem; align-items: center; margin-top: 1.6rem; }
+  .villa-hero__actions .pi-btn { min-height: 48px; }
+  .villa-text-link { color: var(--accent); font-weight: 700; text-underline-offset: 0.2em; }
+  .villa-text-link:focus-visible, .villa-choice:focus-visible, .related-format:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .villa-hero__note { max-width: 38rem; margin: 1.1rem 0 0; color: var(--soft); font-size: 0.875rem; line-height: 1.5; }
+  .villa-hero__image { margin: 0; }
+  .villa-hero__image img { display: block; width: 100%; aspect-ratio: 4 / 4.4; object-fit: cover; border-radius: 0.75rem; }
+  .villa-hero__image figcaption { margin-top: 0.55rem; color: var(--soft); font-size: 0.76rem; line-height: 1.4; }
+  .villa-choices { padding: clamp(2.4rem, 5vw, 4rem) 0; scroll-margin-top: 13rem; }
+  .villa-choices h2, .related-formats h2 { max-width: 18ch; margin: 0; color: var(--text); font-size: clamp(2rem, 3.7vw, 3.3rem); line-height: 1.08; letter-spacing: -0.045em; }
+  .villa-choices__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.85rem; margin-top: 1.6rem; }
+  .villa-choice { display: flex; flex-direction: column; min-height: 11rem; gap: 0.75rem; padding: 1.25rem; border: 1px solid var(--border); border-radius: 0.65rem; color: var(--text); background: var(--white); text-decoration: none; transition: border-color 160ms ease, transform 160ms ease; }
+  .villa-choice:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .villa-choice__number { color: var(--accent); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; }
+  .villa-choice strong { max-width: 18ch; font-size: clamp(1.25rem, 1.9vw, 1.8rem); line-height: 1.13; letter-spacing: -0.03em; }
+  .villa-choice__action { margin-top: auto; color: var(--accent); font-size: 0.85rem; font-weight: 700; }
+  .villa-group { scroll-margin-top: 13rem; }
+  .villa-group:nth-of-type(even) { background: var(--bg-alt); }
+  .villa-group .venues__sub { max-width: 48rem; }
+  .related-formats { padding: clamp(3rem, 6vw, 5rem) 0; background: var(--bg-alt); }
+  .related-formats__head > p:last-child { max-width: 43rem; color: var(--soft); line-height: 1.6; }
+  .related-formats__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.85rem; margin-top: 1.5rem; }
+  .related-format { display: flex; flex-direction: column; min-height: 14rem; gap: 0.65rem; padding: 1.1rem; border: 1px solid var(--border); border-radius: 0.65rem; color: var(--text); background: var(--white); text-decoration: none; }
+  .related-format:hover { border-color: var(--accent); }
+  .related-format__type { color: var(--accent); font-size: 0.7rem; font-weight: 750; letter-spacing: 0.09em; text-transform: uppercase; }
+  .related-format strong { font-size: 1.25rem; line-height: 1.2; }
+  .related-format > span:nth-of-type(2) { color: var(--soft); font-size: 0.9rem; line-height: 1.5; }
+  .related-format__action { margin-top: auto; color: var(--accent); font-size: 0.82rem; font-weight: 700; }
+  @media (max-width: 900px) {
+    .villa-hero__grid { grid-template-columns: 1fr; }
+    .villa-hero h1 { max-width: 16ch; }
+    .villa-hero__image img { aspect-ratio: 16 / 9; }
+    .related-formats__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 560px) {
+    .villa-hero { padding: 2rem 0 1.5rem; }
+    .villa-hero h1 { font-size: clamp(2.65rem, 13vw, 3.9rem); }
+    .villa-hero__lead { margin-top: 1rem; }
+    .villa-hero__image img { aspect-ratio: 4 / 3; }
+    .villa-choices__grid, .related-formats__grid { grid-template-columns: 1fr; }
+    .villa-choice { min-height: 8.4rem; }
+    .villa-choices, .villa-group { scroll-margin-top: 9rem; }
+    .related-format { min-height: 11rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .villa-choice { transition: none; }
+    .villa-choice:hover { transform: none; }
+  }
+</style>

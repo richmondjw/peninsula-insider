@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/explore-cape-schanck-boardwalk-01.webp"
-  alt: "The Cape Schanck boardwalk stretching toward the clifftop lighthouse at the southern tip of the Mornington Peninsula"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160358-montalto.webp"
+  alt: "A patinated metal sculpture of a figure stands on the lawn in front of the Montalto restaurant and its white umbrellas"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula."
+  depicts: "Montalto"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160358, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["first-timers", "guide", "overview", "planning", "explore", "weekend"]
 relatedVenues: ["montalto", "ten-minutes-by-tractor", "merricks-general-wine-store", "commonfolk-coffee", "flinders-hotel", "hotel-sorrento", "red-hill-brewery", "alba-thermal-springs", "peninsula-hot-springs", "polperro", "lindenderry", "jackalope", "flinders-sourdough", "red-hill-cheese", "sorrento-hotel", "portsea-hotel", "main-ridge-dairy"]

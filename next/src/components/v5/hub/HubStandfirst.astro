@@ -34,12 +34,18 @@ export interface Props {
    * pattern whatever this says, because a 180px sliver of photo is neither.
    */
   compact?: boolean;
+  /**
+   * Compact mode only: a credited photograph beside the heading, so the first
+   * screen carries a sense of place without turning the band into a cover.
+   */
+  aside?: { src: string; alt: string; credit: string; caption?: string; position?: string };
 }
 
-const { title, standfirst, id, eyebrow, image, imagePosition = '50% 40%', compact = false } = Astro.props;
+const { title, standfirst, id, eyebrow, image, imagePosition = '50% 40%', compact = false, aside } = Astro.props;
 const isPhoto = Boolean(image);
 const isCompact = compact && !isPhoto;
 const hasActions = Astro.slots.has('default');
+const hasAside = isCompact && Boolean(aside);
 
 const words = standfirst.trim().split(/\s+/).length;
 if (words > 80) {
@@ -59,6 +65,7 @@ if (/!/.test(standfirst)) {
     'v5-standfirst--photo': isPhoto,
     'v5-standfirst--compact': isCompact,
     'v5-standfirst--has-actions': hasActions,
+    'v5-standfirst--has-aside': hasAside,
   }]}
   id={id}
 >
@@ -66,9 +73,17 @@ if (/!/.test(standfirst)) {
     <img class="v5-standfirst__bg" src={image.src} alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="100vw" style={`--pos:${imagePosition}`} />
   )}
   <div class="container v5-standfirst__inner">
-    {eyebrow && <p class="v5-standfirst__eyebrow">{eyebrow}</p>}
-    <h1 class="v5-standfirst__title">{title}</h1>
-    <p class="v5-standfirst__dek">{standfirst}</p>
+    <div class="v5-standfirst__lead">
+      {eyebrow && <p class="v5-standfirst__eyebrow">{eyebrow}</p>}
+      <h1 class="v5-standfirst__title">{title}</h1>
+      <p class="v5-standfirst__dek">{standfirst}</p>
+    </div>
+    {hasAside && (
+      <figure class="v5-standfirst__aside">
+        <img src={aside!.src} alt={aside!.alt} loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 1023px) 100vw, 40vw" style={aside!.position ? `object-position:${aside!.position}` : undefined} />
+        <figcaption>{aside!.caption ? `${aside!.caption} ` : ''}{aside!.credit}</figcaption>
+      </figure>
+    )}
     {hasActions && <div class="v5-standfirst__actions"><slot /></div>}
   </div>
 </header>
@@ -240,4 +255,46 @@ if (/!/.test(standfirst)) {
     text-wrap: balance;
   }
   .v5-standfirst--compact .v5-standfirst__eyebrow { color: var(--sand-text, #8A5620); }
+
+  /* Compact band with a photograph beside the heading. The lead and the photo
+     share the first row; the band's controls run the full width beneath. On
+     phones the photo follows the lede at a short 16:9 so the filters stay
+     close to the first screen. The credit sits under the photo, as the
+     licence asks. */
+  .v5-standfirst__aside {
+    margin: var(--space-5, 1.5rem) 0 0;
+  }
+  .v5-standfirst__aside img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    max-height: 13.75rem;
+    object-fit: cover;
+    border-radius: var(--radius-m, 16px);
+  }
+  .v5-standfirst__aside figcaption {
+    margin-top: var(--space-2, 0.5rem);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200, 0.8125rem);
+    line-height: 1.5;
+    color: var(--soft);
+  }
+  @media (min-width: 64em) {
+    .v5-standfirst--has-aside .v5-standfirst__inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      column-gap: var(--space-8, 4rem);
+      align-items: center;
+    }
+    .v5-standfirst--has-aside .v5-standfirst__actions {
+      grid-column: 1 / -1;
+    }
+    .v5-standfirst__aside {
+      margin: 0;
+    }
+    .v5-standfirst__aside img {
+      aspect-ratio: 4 / 3;
+      max-height: none;
+    }
+  }
 </style>

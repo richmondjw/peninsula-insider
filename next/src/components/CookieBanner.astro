@@ -2,9 +2,9 @@
 /**
  * CookieBanner - first-visit consent surface.
  *
- * Presented as a compact bottom-left corner toast (P0-7, review finding #7).
- * It was a full-width bar that ate ~15% of every first impression; it is now a
- * ~360px card that never spans the viewport. Consent behaviour is unchanged.
+ * The first-visit note sits in the document flow before main content, so it
+ * cannot cover a hero action or image credit. Explicitly reopened preferences
+ * use the compact corner card near the control that requested them.
  *
  * Two-tier consent (Accept all / Manage preferences). Strictly necessary
  * storage for sign-in and consent preferences is always on; analytics (Google Analytics)
@@ -20,9 +20,8 @@
  * Re-opening: any element with `data-pi-consent="open"` will re-show the
  * banner. The footer "Cookie settings" link uses this hook.
  *
- * Mobile: the toast clears V5BottomBar (56px + safe-area) so the Map / Saved /
- * My Trip bar is never covered or trapped. Below 560px it goes
- * full-width-but-short inside the gutters.
+ * Mobile: the first-visit note stays in flow. The reopened card clears
+ * V5BottomBar (56px + safe-area) and the newsletter strip.
  *
  * Keyboard: Escape dismisses without recording a choice (analytics stays off
  * and the toast returns next visit), and focus is returned to whatever opened
@@ -33,16 +32,17 @@
 <aside
   class="cookie-banner"
   id="cookie-banner"
-  role="dialog"
+  role="region"
   aria-label="Cookie preferences"
   aria-live="polite"
-  data-state="hidden"
+  data-state="visible"
+  data-mode="initial"
 >
   <div class="cookie-banner__inner">
     <div class="cookie-banner__copy">
       <p class="cookie-banner__title">A note on cookies</p>
       <p class="cookie-banner__body">
-        Browser storage supports sign-in and remembers your choices. With your permission, Google Analytics helps us understand site use.
+        Sign-in storage is essential. Analytics is optional.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -126,23 +126,29 @@
 
     function show(fromEl) {
       opener = fromEl || null;
+      banner.setAttribute('data-mode', 'reopen');
+      banner.setAttribute('role', 'dialog');
       banner.setAttribute('data-state', 'visible');
       var manage = document.getElementById('cookie-banner-manage');
       var actions = document.getElementById('cookie-banner-actions');
       if (manage) manage.hidden = true;
       if (actions) actions.hidden = false;
-      // Only pull focus when the user asked for the toast. The first-visit
-      // appearance stays non-modal and does not interrupt reading.
-      if (opener) {
-        var first = document.getElementById('cookie-accept-all');
-        if (first) first.focus();
-      }
+      // Reopening is an explicit action, so move focus into the choices.
+      var first = document.getElementById('cookie-accept-all');
+      if (first) first.focus();
     }
 
     function hide() {
       banner.setAttribute('data-state', 'hidden');
       if (opener && typeof opener.focus === 'function' && document.contains(opener)) {
         opener.focus();
+      } else if (banner.contains(document.activeElement)) {
+        // Do not leave keyboard focus on a control that just disappeared.
+        var main = document.getElementById('main-content');
+        if (main) {
+          main.setAttribute('tabindex', '-1');
+          main.focus({ preventScroll: true });
+        }
       }
       opener = null;
     }
@@ -193,42 +199,37 @@
     }
     document.addEventListener('keydown', onConsentKeydown);
 
-    // Re-open from anywhere via [data-pi-consent="open"]
-    function bindReopenTriggers() {
-      document.querySelectorAll('[data-pi-consent="open"]').forEach(function (el) {
-        if (el._piConsentBound) return;
-        el._piConsentBound = true;
-        el.addEventListener('click', function (e) {
-          e.preventDefault();
-          show(el);
-        });
-      });
+    // Delegate reopen clicks: the footer is parsed after this component and
+    // Astro transitions replace its links on every navigation.
+    function onReopenClick(e) {
+      var trigger = e.target && e.target.closest && e.target.closest('[data-pi-consent="open"]');
+      if (!trigger) return;
+      e.preventDefault();
+      show(trigger);
     }
-    bindReopenTriggers();
-    document.addEventListener('astro:page-load', bindReopenTriggers);
+    document.addEventListener('click', onReopenClick);
     window.__piConsentCleanup = function () {
       controller.abort();
       document.removeEventListener('keydown', onConsentKeydown);
-      document.removeEventListener('astro:page-load', bindReopenTriggers);
+      document.removeEventListener('click', onReopenClick);
     };
 
     // Expose programmatic re-open
     window.openConsent = function () { show(); };
 
-    // Initial: show only if the user has not made a choice yet.
-    if (!read()) {
-      // Defer slightly to avoid layout jank on first paint.
-      setTimeout(function () { if (!controller.signal.aborted) show(); }, 350);
-    } else {
-      // Re-broadcast so any late-bound listeners (e.g. GA loader) see state.
-      window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: read() }));
+    // The first-visit note is present in the HTML before main. Hide it
+    // synchronously for returning visitors, before following content paints.
+    var existing = read();
+    if (existing) {
+      banner.setAttribute('data-state', 'hidden');
+      window.dispatchEvent(new CustomEvent('pi:consent-changed', { detail: existing }));
     }
   })();
 </script>
 
 <style>
   /* ─────────────────────────────────────────────────────────────────────
-     Corner toast. Bottom-left, ~360px, never full-bleed.
+     Corner toast. ~360px, never full-bleed.
      Local derived tokens only: no hardcoded hex.
      ───────────────────────────────────────────────────────────────────── */
   .cookie-banner {
@@ -291,6 +292,64 @@
       visibility 0s linear 0s;
   }
 
+  /* First visit is in flow. A saved choice removes it entirely; an
+     explicit reopen uses the fixed card above. */
+  .cookie-banner[data-mode='initial'] {
+    position: static;
+    inset: auto;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    overscroll-behavior: auto;
+    z-index: auto;
+    background: var(--paper-warm);
+    border: 0;
+    border-bottom: 1px solid var(--border-strong);
+    border-radius: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    transition: none;
+  }
+  .cookie-banner[data-mode='initial'][data-state='hidden'] {
+    display: none;
+  }
+  .cookie-banner[data-mode='initial'] .cookie-banner__inner {
+    width: min(100%, 1280px);
+    margin-inline: auto;
+    padding: var(--space-1) clamp(16px, 3vw, 40px);
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .cookie-banner[data-mode='initial'] .cookie-banner__title {
+    font-size: var(--fs-200);
+    margin-bottom: 0;
+  }
+  .cookie-banner[data-mode='initial'] .cookie-banner__body {
+    font-size: var(--fs-200);
+  }
+  .cookie-banner[data-mode='initial'] .cookie-banner__manage {
+    grid-column: 1 / -1;
+  }
+  @media (max-width: 760px) {
+    .cookie-banner[data-mode='initial'] .cookie-banner__inner {
+      padding: var(--space-2) var(--space-3);
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--space-2);
+    }
+    .cookie-banner[data-mode='initial'] .cookie-banner__actions {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-2);
+    }
+    .cookie-banner[data-mode='initial'] .cookie-banner__actions .pi-btn {
+      white-space: nowrap;
+      padding-inline: var(--space-3);
+    }
+  }
+
   /* ─────────────────────────────────────────────────────────────────────
      Clear the newsletter strip (InsiderNotePopup.astro), at EVERY width.
      The strip is position:fixed, full-bleed, bottom:0, and it is live in
@@ -304,6 +363,14 @@
      ───────────────────────────────────────────────────────────────────── */
   :global(html[data-pi-promo-bar='visible']) .cookie-banner {
     --cb-promo: calc(var(--pi-promo-bar-height, 4.5rem) + var(--space-3));
+  }
+
+  /* Clear desktop hero actions on the homepage and plan pages. */
+  @media (min-width: 1024px) {
+    .cookie-banner {
+      left: auto;
+      right: var(--space-5);
+    }
   }
 
   .cookie-banner__inner {
@@ -344,6 +411,9 @@
     justify-content: flex-start;
     align-items: center;
   }
+
+  .cookie-banner__actions .pi-btn,
+  .cookie-banner__manage-actions .pi-btn { min-height: 44px; }
 
   .cookie-banner__manage {
     border-top: 1px solid var(--border-strong);
@@ -476,6 +546,20 @@
     }
     .cookie-banner__actions .cookie-banner__btn {
       flex: 1 1 auto;
+    }
+  }
+
+  /* On short phones the full heading repeats the dialog label. Collapse it
+     only for the initial choice, keeping the explanation, Privacy link and
+     both 44px actions visible above the persistent bottom chrome. The
+     heading returns when preferences are expanded. */
+  @media (max-width: 380px) and (max-height: 700px) {
+    .cookie-banner__inner {
+      padding: var(--space-2) var(--space-3);
+      gap: var(--space-2);
+    }
+    .cookie-banner:has(.cookie-banner__actions:not([hidden])) .cookie-banner__title {
+      display: none;
     }
   }
 

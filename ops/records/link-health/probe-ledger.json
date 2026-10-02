@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-09-24T22:48:42.461Z",
+  "updatedAt": "2026-10-01T04:00:46.020Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -91,6 +91,30 @@
       "pageTitle": "Exclusive Retreat | P. +613 5981 8400 | E. info@arthursviews.com.au"
     },
     {
+      "url": "https://arthursviews.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Exclusive Retreat | P. +613 5981 8400 | E. info@arthursviews.com.au",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://arthursviews.com.au/contact-us/faq/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQ | Exclusive Retreat",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://arthursviews.com.au/suite-decriptions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Suites | Exclusive Retreat",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://artsandculture.mornpen.vic.gov.au/Galleries/Community-Art-Spaces/Current-Exhibitions/Hastings-Glenn-Walker",
       "verdict": "ok",
       "httpCode": "200",
@@ -116,6 +140,14 @@
       "pageTitle": "Arthurs Seat Eagle | Cable Car - Gondola Rides in Mornington Peninsula"
     },
     {
+      "url": "https://aseagle.com.au/accessibility/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Enjoy Easy Accessibility at Arthurs Seat Eagle",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://aseagle.com.au/book",
       "verdict": "moved",
       "httpCode": "404",
@@ -126,6 +158,14 @@
       "dispositionNote": "Operator renamed the booking path. /tickets/ returns 200, title 'Eagle Cable Car Tickets | Soar Above Arthurs Seat'.",
       "reviewedOn": "2026-09-13",
       "replacement": "https://aseagle.com.au/tickets/"
+    },
+    {
+      "url": "https://aseagle.com.au/getting-here/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Find Your Way to Arthurs Seat Eagle",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://aseagle.com.au/tickets/",
@@ -197,6 +237,14 @@
       "pageTitle": "Bookings - BayPlay Experiences &amp; Group Activities"
     },
     {
+      "url": "https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "&#65279;",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://cassisredhill.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -213,6 +261,46 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Commonfolk Coffee - Specialty Coffee Roaster Melbourne"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Cape Schanck walking trail.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea%2C_Victoria.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Portsea beaches.jpg - Wikimedia Commons",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",
@@ -583,6 +671,14 @@
       "pageTitle": "Stay | Hotel Sorrento | | Boutique Beach Hotel"
     },
     {
+      "url": "https://hotelsorrento.com.au/stay/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Stay | Hotel Sorrento | | Boutique Beach Hotel",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://humanitix.com/au/events/au--mornington--3931",
       "verdict": "blocked",
       "httpCode": "200",
@@ -616,6 +712,14 @@
       "pageTitle": "Luxury Mornington Peninsula Accommodation | Jackalope Hotel"
     },
     {
+      "url": "https://jackalopehotels.com/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "pageTitle": "Luxury Mornington Peninsula Accommodation | Jackalope Hotel",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://jackalopehotels.com/mornington-peninsula",
       "verdict": "blocked",
       "httpCode": "200",
@@ -632,6 +736,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Mornington Peninsula Spa &amp; Infinity Pool"
+    },
+    {
+      "url": "https://jackalopehotels.com/stay/",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "pageTitle": "Mornington Peninsula Accommodation | Rooms &amp; Suites",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://johnnyripe.com.au",
@@ -784,6 +896,14 @@
       "pageTitle": "Mantons Creek Estate | Winery Restaurant, Cellar Door &amp; Accommodation on the Mornington Peninsula"
     },
     {
+      "url": "https://mantonscreekestate.com.au/accommodation",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Winery Accommodation, Escape to the Mornington Peninsula overlooking the vineyard of Mantons Creek Estate &mdash; Mantons Creek Estate | Cellar Door, Restaurant, Boutique Accommodation",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://manylittle.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -892,11 +1012,19 @@
       "pageTitle": "Moonlit Sanctuary - The best place to see Aussie animals!"
     },
     {
+      "url": "https://moonlitsanctuary.com.au/contact/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact - Moonlit Sanctuary",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://moonlitsanctuary.com.au/night-tours/",
       "verdict": "ok",
       "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "NIGHT TOURS - Moonlit Sanctuary Wildlife Park"
     },
     {
@@ -1007,6 +1135,38 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "429 Too Many Requests"
+    },
+    {
+      "url": "https://mpcottages.com/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-1-2/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-3-4/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-5/",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "429 Too Many Requests",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://mpfm.com.au",
@@ -1207,6 +1367,22 @@
       "pageTitle": "Events at Pier 10 | Mornington Peninsula"
     },
     {
+      "url": "https://plantationhouse.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Homepage - Plantation House",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://plantationhouse.com.au/accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Accommodation - Plantation House",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://ptleoestate.com.au",
       "verdict": "blocked",
       "httpCode": "202",
@@ -1328,6 +1504,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Portsea Twilight | Sole Motive"
+    },
+    {
+      "url": "https://sorrento.intercontinental.com/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hotels Sorrento, Mornington Peninsula | InterContinental Sorrento",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://sorrentosolstice.com.au",
@@ -1543,6 +1727,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Treetops at Red Hill: Peppercorn Cottage and The Winemakers Cottage"
+    },
+    {
+      "url": "https://treetopsatredhill.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Treetops at Red Hill: Peppercorn Cottage and The Winemakers Cottage",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://trofeoestate.com",
@@ -1776,6 +1968,23 @@
       "pageTitle": "Alba Thermal Springs &amp; Spa - Mornington Peninsula, Hot Springs"
     },
     {
+      "url": "https://www.amazingco.me",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "AmazingCo - Experiences you’ll love",
+      "effectiveUrl": "https://www.amazingco.me/aus",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.amazingco.me/aus/experiences/mystery-picnics/family/mornington-peninsula",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Family Mystery Picnic - Mornington Peninsula | AmazingCo",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.amourofthegrape.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -1845,6 +2054,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "The best Mornington Peninsula markets for local treasures"
+    },
+    {
+      "url": "https://www.avanisyrah.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Avani Wines - Mornington Peninsula Cellar Door &amp; Winery",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.avanisyrah.com.au/contact-avani/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Avani Wines - Cellar Door, Red Hill South",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.balnarringmarket.com.au",
@@ -1918,6 +2143,14 @@
       "pageTitle": "Birch Creek"
     },
     {
+      "url": "https://www.birchcreek.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Birch Creek",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.bistroelba.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -1948,6 +2181,30 @@
       "effectiveUrl": "https://www.bluemooncottages.com.au/",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Blue Moon Cottages",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/faq/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Faq - Blue Moon Cottages",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/property/?property_id=15",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Property - Blue Moon Cottages",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.bom.gov.au/explore/places/vic/main-ridge/forecast/",
@@ -1986,6 +2243,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Mornington Peninsula Day Trips with Bunyip Tours"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cassis Red Hill | Luxury Villas",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.countryracing.com.au/mornington",
@@ -2463,6 +2728,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.lakesidevillas.com.au/rates-bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Rates &amp; Bookings - Lakeside Villas",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.lovethepen.com.au/blog/national-works-paper-2026-mprg/",
@@ -3224,8 +3497,8 @@
       "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park",
       "verdict": "ok",
       "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "Point Nepean National Park"
     },
     {
@@ -3240,8 +3513,8 @@
       "url": "https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk",
       "verdict": "ok",
       "httpCode": "200",
-      "probedOn": "2026-09-13",
-      "probedBy": "audit-link-health.mjs --probe",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "Bushrangers Bay Walk (Mornington Peninsula National Park)"
     },
     {
@@ -3251,6 +3524,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Greens Bush Access - Greens Road (Mornington Peninsula National Park)"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/projects/greater-melbourne/Cape-Schanck-boardwalk-improvements",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cape Schanck boardwalk improvements",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.peninsulafestival.com.au",
@@ -3527,6 +3808,22 @@
       "pageTitle": "Accommodation Terms and Conditions - Port Phillip Estate"
     },
     {
+      "url": "https://www.portphillipestate.com.au/accommodation-terms-and-conditions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Accommodation Terms and Conditions - Port Phillip Estate",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/book-accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book Accommodation - Port Phillip Estate",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.portphillipestate.com.au/dine",
       "verdict": "moved",
       "httpCode": "404",
@@ -3545,6 +3842,14 @@
       "pageTitle": "Dining Room - Port Phillip Estate",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.portphillipestate.com.au/quiet-luxury/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Quiet Luxury - Port Phillip Estate",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.portseagolf.com.au/",
@@ -3597,11 +3902,27 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://www.ptleoestate.com.au/dine/laura/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Laura",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "verdict": "blocked",
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/faqs/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "FAQs",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.ptleoestate.com.au/laura",
@@ -3660,6 +3981,14 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/accommodation.html",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mornington Peninsula Hotel Accommodation | RACV Cape Schanck",
+      "probedOn": "2026-10-01",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort.html",
       "verdict": "ok",
       "httpCode": "200",
@@ -3689,6 +4018,14 @@
       "disposition": "gone",
       "dispositionNote": "Domain does not resolve. It is a misspelling of Red Hill Estate, and it was cited on 5 May 2026 as the source establishing that venue's Tuesday-Sunday trading. redhillestate.com.au does resolve, but pointing this row at it would manufacture support the row never had: whatever was written on 5 May, this URL was not read.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.redhillbaker.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Red Hill Baker | Balnarring | Cafe",
+      "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.redhillbrewery.com.au",
@@ -3750,6 +4087,30 @@
       "disposition": "gone",
       "dispositionNote": "The domain resolves to a NetRegistry redirector that answers 200 with the two-word body 'Not found'. EDITOR, and this is the important one: the Red Hill Community Market's own site now reads 'The Red Hill Community Market is temporarily closed' and serves only a history archive. The market trading at Red Hill Recreation Reserve on the first Saturday September-May is the Hill & Ridge Community Market, run by the Red Hill Agricultural & Horticultural Society. This site holds them as two separate things and says so in prose.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.relaischateaux.com/us/details/laura/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Laura at Pt Leo Estate Restaurant | Fine dining restaurant Merricks | Relais &amp; Châteaux",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.riparide.com/listings/1569-the-june-at-birch-creek",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.riparide.com/listings/2104-the-frances-farm-cottage",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.rosebudcountryclub.com.au/",
@@ -3985,6 +4346,22 @@
       "reviewedOn": "2026-09-13"
     },
     {
+      "url": "https://www.thecaperetreat.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Cape Retreat | Luxury Group Accommodation in Cape Schanck, Mornington Peninsula",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.thecaperetreat.com.au/book",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book your stay at The Cape Retreat | Luxury Accommodation in Cape Schanck, Mornington Peninsula",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.thedunes.com.au/",
       "verdict": "blocked",
       "httpCode": "202",
@@ -4159,6 +4536,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Beaches + Coastline &mdash; Visit Mornington Peninsula."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Towns-Villages/Dromana/common",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Dromana &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Trips-Itineraries/Accessible-Beaches",

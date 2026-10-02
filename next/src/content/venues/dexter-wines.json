@@ -1,17 +1,15 @@
 {
   "slug": "dexter-wines",
   "name": "Dexter Wines",
-  "type": "winery",
-  "place": "main-ridge",
-  "zone": "red-hill",
+  "type": "producer",
+  "place": "tuerong",
+  "zone": "hinterland",
   "coordinates": {
-    "lat": -38.3921,
-    "lng": 144.9789
+    "lat": -38.3086486,
+    "lng": 145.0656814
   },
-  "address": "210 Foxeys Hangout Rd, Red Hill South VIC 3937",
+  "address": "210 Foxeys Road, Tuerong VIC 3915",
   "website": "https://www.dexterwines.com.au",
-  "bookingUrl": "https://www.dexterwines.com.au",
-  "bookingProvider": "direct",
   "priceBand": "$$$",
   "authority": {
     "hallidayScore": 96,
@@ -19,22 +17,17 @@
       "Halliday 5 Red Stars"
     ]
   },
-  "signature": "Tod Dexter's quiet, considered estate, appointment-only tastings for a small, serious pinot and chardonnay program.",
-  "editorNote": "There's no signage to speak of, no restaurant attached, and the tastings are strictly by appointment. What you get in return is one of the most rewarding hours in Main Ridge: Tod Dexter himself or his team walking you through a focused range of pinot noir and chardonnay that has been built over three decades.\n\nThe wines are quietly structured, long on fruit, a bit austere when young, superb with four or five years on them. The estate is small by Peninsula standards, and the approach is deliberately unflashy. If you want sculpture gardens and lunch menus, go to Montalto. If you want to understand why people keep collecting Peninsula pinot, book here.\n\nAppointment essential. One of the most honest cellar door experiences on the ridge.",
-  "whyWeGo": "The cellar door you find by being told about it, appointment-only, no restaurant, no theatre, just Tod Dexter and thirty years of accumulated Main Ridge pinot knowledge.",
+  "signature": "Tod and Debbie Dexter produce single-vineyard Pinot Noir and Chardonnay in Tuerong. The vineyard is not open to the public.",
+  "editorNote": "Dexter Wines grows Pinot Noir and Chardonnay at its Tuerong vineyard and sells current releases through its own website. The Mornington Peninsula wine association lists the property as not open to the public. Buy the wines online; do not plan a cellar-door visit.\n\nAddress and producer details checked against dexterwines.com.au and morningtonpeninsulawineries.com.au/dexter-wines on 30 September 2026.",
+  "whyWeGo": "Single-vineyard Tuerong Pinot Noir and Chardonnay from Tod and Debbie Dexter; buy the wines online, as the property is not open to the public.",
   "bestFor": [
-    "Cellar door visits",
     "Wine lovers",
-    "Couples"
+    "Online wine purchases"
   ],
-  "ifOnlyOneThing": "Book a tasting appointment, stay long enough for a proper glass afterwards, and ask Tod about the older vintages if he's pouring.",
-  "pairWith": [
-    "Allis Wine Bar",
-    "Main Ridge Dairy"
-  ],
+  "ifOnlyOneThing": "Explore the current Pinot Noir and Chardonnay releases through the producer's online shop.",
+  "pairWith": [],
   "tags": {
     "mood": [
-      "cellar-door",
       "slow"
     ],
     "season": [
@@ -48,25 +41,21 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-main-ridge-01.webp",
-    "alt": "Dexter Wines vineyard rows on Main Ridge in the upper Peninsula wine country",
+    "alt": "Illustrative vineyard landscape in the Mornington Peninsula region; this image does not depict Dexter Wines.",
     "credit": "Wikimedia Commons",
-    "license": "tmp-wikimedia"
+    "license": "tmp-wikimedia",
+    "depictionStatus": "illustrative"
   },
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-04-09",
   "publishedAt": "2026-04-09",
-  "phone": "+61 3 1419 2535",
-  "visiting": {
-    "openingHours": [],
-    "bookingRequired": true,
-    "bookingNotes": "By appointment only - contact the venue directly."
-  },
-  "editorPick": true,
+  "phone": "0417 330 610",
+  "editorPick": false,
   "knownFor": [
-    "Appointment-Only Tastings",
-    "Tod Dexter Single-Vineyard Pinot",
-    "Halliday 96-Point Program",
-    "No Signage Policy"
+    "Tuerong Vineyard",
+    "Single-Vineyard Pinot Noir",
+    "Single-Vineyard Chardonnay",
+    "Online Wine Sales"
   ]
 }

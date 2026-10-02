@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-kids-peninsula-01.webp"
-  alt: "A family on a grass slope above Port Phillip Bay on a bright autumn afternoon"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-143785-red-hill-brewery.webp"
+  alt: "Visitors walk past the open doors of the weathered timber Brewhouse shed, with brewing tanks visible inside"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Red Hill Brewery, Mornington Peninsula."
+  depicts: "Red Hill Brewery"
+  depictionStatus: "illustrative"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143785, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["family", "kids", "day-trip", "explore", "mount-martha", "arthurs-seat"]
 relatedVenues: ["red-hill-brewery", "merricks-general-wine-store", "commonfolk-coffee", "epicurean-red-hill", "main-ridge-dairy", "red-gum-bbq", "st-andrews-beach-brewery", "dromana-hotel", "rye-hotel", "johnny-ripe"]

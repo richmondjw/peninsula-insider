@@ -82,6 +82,9 @@ export interface Props {
    * them again would report more results than the page holds.
    */
   countable?: boolean;
+  missingImagePlate?: boolean;
+  desktopColumns?: 1 | 2;
+  fullVerdicts?: boolean;
   /** Rows shown before "Show all" on lists longer than 20. Default 12. */
   initialCount?: number;
 }
@@ -100,6 +103,9 @@ const {
   emptyHeading,
   emptyBody,
   countable = true,
+  missingImagePlate = false,
+  desktopColumns = 1,
+  fullVerdicts = false,
   initialCount = 12,
 } = Astro.props;
 
@@ -115,7 +121,7 @@ const anyBooking = items.some((item) => Boolean(item.booking));
 const collapsible = items.length > COLLAPSE_THRESHOLD && initialCount < items.length;
 ---
 
-<section class="v5-directory pi-section" id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
+<section class:list={["v5-directory", "pi-section", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
   <div class="container">
     <div class="pi-section-head">
       <div class="pi-section-head__text">
@@ -155,7 +161,7 @@ const collapsible = items.length > COLLAPSE_THRESHOLD && initialCount < items.le
             entityType={item.entityType}
             entitySlug={item.entitySlug}
             image={item.image}
-            mediaFallback={anyImage}
+            mediaFallback={anyImage || (missingImagePlate && !item.image)}
             verdict={item.verdict}
             meta={item.meta}
             priceBand={item.priceBand}
@@ -223,6 +229,11 @@ const collapsible = items.length > COLLAPSE_THRESHOLD && initialCount < items.le
   .v5-directory__row {
     padding-block: var(--space-5, 1.5rem);
     border-bottom: 1px solid var(--border);
+  }
+  .v5-directory--full-verdicts :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; min-height: 0; }
+  @media (min-width: 900px) {
+    .v5-directory--columns-2 .v5-directory__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-6, 2rem); }
+    .v5-directory--columns-2 .v5-directory__row > :global(.pi-card) { height: 100%; }
   }
   .v5-directory__row:last-child {
     border-bottom: none;

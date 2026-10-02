@@ -1,5 +1,7 @@
 ---
 import { PLAY, playUrl } from '../../../lib/play';
+// The homepage and Dispatch page already present the full signup decision.
+const showFooterLetter = Astro.url.pathname !== '/' && !Astro.url.pathname.startsWith('/dispatch');
 // Home promotes the case in the header beacon and the This-weekend panel,
 // so the footer drops its Play link there (design-perfection G6).
 const showPlay = PLAY.enabled && Astro.url.pathname !== '/';
@@ -11,7 +13,7 @@ const showPlay = PLAY.enabled && Astro.url.pathname !== '/';
 </a>
 <p>Every pick earns its place.</p>
 </div>
-{!Astro.url.pathname.startsWith('/dispatch') && <div class="footer-letter">
+{showFooterLetter && <div class="footer-letter">
 <p class="eyebrow">A note from the Peninsula</p>
 <h2>Good stories travel.</h2>
 <p>The Peninsula worth knowing. An occasional email.</p>
@@ -41,6 +43,8 @@ const showPlay = PLAY.enabled && Astro.url.pathname !== '/';
 <div>
 <h2>The publication</h2>
 <a href="/about/">About us</a>
+<a href="/agents/">For AI assistants</a>
+<a href="/photography/">Photography credits</a>
 <a href="/partners/">For Peninsula businesses</a>
 <a href="/contact/">Contact</a>
 <a href="https://www.instagram.com/peninsula_insider/" rel="me noopener" target="_blank" aria-label="Instagram, @peninsula_insider (opens in a new tab)">Instagram</a>

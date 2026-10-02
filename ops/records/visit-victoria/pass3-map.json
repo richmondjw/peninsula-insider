@@ -1,0 +1,152 @@
+{
+ "record": "Visit Victoria pass 3 approvals",
+ "approvedBy": "james (comprehensive implementation approved 2026-09-29: \"go for it\")",
+ "approvedAt": "2026-09-29T12:33:41.235Z",
+ "altBy": "claude-vision-draft",
+ "writtenBy": "ops/scripts/visit-victoria/apply-pass3.mjs",
+ "approved": [
+  {
+   "assetKey": "vv-163894",
+   "entity": "places/sorrento"
+  },
+  {
+   "assetKey": "vv-163895",
+   "entity": "places/sorrento"
+  },
+  {
+   "assetKey": "vv-163896",
+   "entity": "places/sorrento"
+  },
+  {
+   "assetKey": "vv-163897",
+   "entity": "places/sorrento"
+  },
+  {
+   "assetKey": "vv-163898",
+   "entity": "places/sorrento"
+  },
+  {
+   "assetKey": "vv-163902",
+   "entity": "places/sorrento"
+  },
+  {
+   "assetKey": "vv-22100102",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161325",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-161334",
+   "entity": "venues/the-continental-sorrento"
+  },
+  {
+   "assetKey": "vv-22100101",
+   "entity": "venues/the-continental-sorrento",
+   "hero": true
+  },
+  {
+   "assetKey": "vv-164527",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-164540",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-164543",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-164545",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-26070129",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-26070130",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-26070131",
+   "entity": "places/point-nepean"
+  },
+  {
+   "assetKey": "vv-163830",
+   "entity": "places/mornington"
+  },
+  {
+   "assetKey": "vv-163831",
+   "entity": "places/mornington"
+  },
+  {
+   "assetKey": "vv-163832",
+   "entity": "places/mornington"
+  },
+  {
+   "assetKey": "vv-163833",
+   "entity": "places/mornington"
+  },
+  {
+   "assetKey": "vv-163834",
+   "entity": "places/mornington"
+  },
+  {
+   "assetKey": "vv-163835",
+   "entity": "places/mornington"
+  },
+  {
+   "assetKey": "vv-162242",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162243",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162247",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162249",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162253",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162268",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162269",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-162271",
+   "entity": "places/st-andrews-beach"
+  },
+  {
+   "assetKey": "vv-161984",
+   "entity": "places/cape-schanck"
+  },
+  {
+   "assetKey": "vv-162411",
+   "entity": "places/cape-schanck"
+  },
+  {
+   "assetKey": "vv-118016",
+   "entity": "places/cape-schanck"
+  }
+ ],
+ "rejected": [
+  {
+   "assetKey": "vv-162266",
+   "why": "Generic close-up of golf balls; nothing places it at St Andrews Beach."
+  }
+ ]
+}

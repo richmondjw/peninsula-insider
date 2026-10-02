@@ -1,16 +1,27 @@
 ---
-title: "The Thermal Springs Weekend: How to Do Wellness on the Peninsula Without Wasting It"
-dek: "Most people arrive at the Peninsula's thermal baths with a ticket and no plan. That is why most people leave faintly disappointed. Here is the version that actually works."
+title: "Mornington Peninsula Springs Weekend"
+dek: "One Fingal bathhouse, two nights and an unhurried Sunday."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/sourced/spa-alba-thermal-springs-01.webp"
-  alt: "A woman in a white swimsuit sitting on the stone edge of a geothermal bathing pool at sunset."
-  depicts: "a woman sitting on the stone edge of a geothermal bathing pool at sunset"
+  src: "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp"
+  alt: "A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula."
+  depicts: "Alba Thermal Springs and Spa"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  sourceUrl: "Victoria Content Hub asset 172661, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["wellness", "thermal-springs", "weekend", "fingal", "red-hill", "autumn", "winter"]
 relatedVenues:
@@ -24,86 +35,88 @@ relatedVenues:
   - "allis-wine-bar"
 relatedExperiences:
   - "cape-schanck-boardwalk"
-readingTimeMinutes: 8
+readingTimeMinutes: 5
 featured: true
 status: "published"
 section: plans
 planShape: "two-night"
+planEyebrow: "Two-night thermal plan"
+planPrimaryAction: "Choose your springs"
+planQuickChoices:
+  - label: "Alba and The Sanctuary"
+    detail: "Choose Alba's contemporary pools and a villa or room on the same Fingal estate."
+    href: "#alba-and-the-sanctuary"
+  - label: "Peninsula Hot Springs on site"
+    detail: "Choose a broader bathing circuit with an Eco Lodge or glamping room on the springs grounds."
+    href: "#peninsula-hot-springs-on-site"
+  - label: "A Red Hill base"
+    detail: "Stay among the vineyards at Lindenderry or Polperro and allow for a drive after bathing."
+    href: "#a-red-hill-base"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "Peninsula Hot Springs vs Alba - The Honest Comparison"
+  - label: "Peninsula Hot Springs vs Alba"
     href: "/journal/peninsula-hot-springs-vs-alba/"
-  - label: "Best Spas on the Mornington Peninsula - The Tier Guide"
-    href: "/explore/spas-and-wellness/"
-  - label: "Where to Stay Near the Hot Springs"
+  - label: "Compare places to stay for a spa trip"
     href: "/explore/plans/mornington-peninsula-stay-and-soak/"
-  - label: "Guided Hot Springs Tours - From Melbourne"
-    href: "/tour/hot-springs-tours/"
-  - label: "Thermal Springs Wine Weekend Package"
-    href: "/tour-packages/thermal-springs-wine-weekend/"
+  - label: "Spas and wellness across the Peninsula"
+    href: "/explore/spas-and-wellness/"
 faq:
-  - question: "How long should I spend at Peninsula Hot Springs or Alba?"
-    answer: "A proper thermal circuit takes two and a half to three hours done correctly, alternating hot and cold pools with genuine rest in between. The shortest sessions on the menu are rarely enough. Leave a clear hour after your session before any lunch reservation."
-  - question: "What is the difference between Peninsula Hot Springs and Alba Thermal Springs?"
-    answer: "Peninsula Hot Springs is larger (seventy-plus pools, open since 2005), more varied in programming, and busier on weekends; it rewards experience and midweek or twilight timing. Alba opened in 2022 with 22 pools, a hard cap on daily bather numbers, and a calmer architectural feel. Alba suits first-timers and those who prefer quiet; Peninsula Hot Springs suits those who want depth and a longer menu."
-  - question: "Is a Peninsula thermal springs day better as a day trip or an overnight?"
-    answer: "Overnight if possible. The decompression after the bath is half the value; you want a quiet room, a simple dinner, and an early night. Day trips usually end in a rushed lunch or long drive that cuts the rest short. The bath-sleep-Sunday lunch sequence is what the Peninsula wellness weekend is built for."
+  - question: "How much time should I allow for bathing?"
+    answer: "Check the access and arrival details for the experience you book. Leave time to change before dinner or another reservation, follow the venue's bathing guidance and bring a water bottle."
+  - question: "What is the difference between Peninsula Hot Springs and Alba?"
+    answer: "Peninsula Hot Springs has a broad Bath House circuit and a separate Spa Dreaming Centre for guests aged 16 and over. Alba offers contemporary pools, private bathing choices and spa treatments. Compare the current access and inclusions before choosing one."
+  - question: "Can I do this as a day trip?"
+    answer: "Yes. Book one bathing visit, leave the rest of the day light and allow for the return drive. Two nights make room for a local dinner and an optional coastal walk without rushing."
 aiSummary:
-  - "A planning guide for a Peninsula wellness weekend anchored around thermal bathing - Peninsula Hot Springs and Alba Thermal Springs - structured to avoid the common mistake of arriving with only a booking and no wider plan."
-  - "The framework: book the spa visit first, then choose accommodation that minimises post-soak driving, then add one good meal and one coastal walk as the day's other anchors."
-  - "Covers: the difference between Peninsula Hot Springs and Alba Thermal Springs; what to book and when (both sold out weeks ahead on weekends); how to sequence a two-night wellness trip."
-  - "Suits: couples; wellness-focused visitors; autumn and winter visitors - both springs are best in cooler weather when the contrast between air and water is sharpest."
-  - "Planning note: weekday visits are significantly less crowded and cheaper. Both springs require advance booking for peak weekend sessions. Fingal is the natural stay base for Hot Springs; Red Hill for Alba."
+  - "Choose one Fingal bathhouse and book two consecutive nights with a comfortable route after bathing."
+  - "The Sanctuary is on Alba's estate; Eco Lodges and glamping are on Peninsula Hot Springs' grounds. Red Hill stays involve a drive."
+  - "Friday is for arrival, Saturday for bathing and Sunday can remain open. A day trip works if the schedule stays light."
+
 ---
 
-A Peninsula wellness weekend works when the bathing is the centre of the trip, not an errand in the middle of it.
+Choose one bathhouse for the weekend. Alba Thermal Springs and Peninsula Hot Springs are both in Fingal, but the bathing experience and on-site accommodation differ. Settle the room and the bath booking for the same dates, then leave the rest of the weekend loose.
 
-The common pattern: book a two-hour session at one of the thermal complexes, drive down from the city, move through the pools photographing the architecture, get dressed at 4pm, and sit in traffic wondering why you feel tireder than when you arrived. That is an expensive excursion with a robe interlude.
+## Choose a bathhouse and a base
 
-The version that works has a different shape. The bathing is the centre. The body has time to actually receive the heat. The rest of the weekend is built around the rhythm of the water, rather than jamming a spa session between a long lunch and a winery tasting.
+### Alba and The Sanctuary
 
-If you are coming down for this specifically, and there are now plenty of reasons to, it is worth doing properly.
+[Alba Thermal Springs](/explore/spas-and-wellness/#alba-thermal-springs) has contemporary pools, private bathing choices and spa treatments in a quieter, design-led setting. [The Sanctuary at Alba](/stay/sanctuary-at-alba/) puts a villa or room on the same estate, with [current accommodation inclusions](https://albathermalsprings.com.au/alba-experiences/the-sanctuary/) listing springs entry on each day of the stay and breakfast at Thyme. Arrange any treatment separately. This is the simplest Alba-based stay when you want to bathe without a return drive.
 
-## The two springs, and which one to choose
+### Peninsula Hot Springs on site
 
-The Peninsula has two serious thermal bathing complexes and a handful of hotel spas that sit in a different category. For a dedicated wellness weekend, the decision is between [Alba Thermal Springs](/explore/spas-and-wellness/#alba-thermal-springs) and [Peninsula Hot Springs](/explore/spas-and-wellness/#peninsula-hot-springs). They are both in Fingal, fifteen minutes apart, and they solve the same problem from opposite directions.
+[Peninsula Hot Springs](/explore/spas-and-wellness/#peninsula-hot-springs) has a wider Bath House circuit, with more than 50 bathing and wellness experiences. The Spa Dreaming Centre is a separate area for guests aged 16 and over. Choose the access you want before booking; the entry types are not interchangeable.
 
-**Peninsula Hot Springs** is the original. Open since 2005, it has grown into the largest and most ambitious wellness complex in the country, with more than fifty bathing and wellness experiences, a Bath House, a hilltop pool, reflexology walks, private baths, and a long enough menu of add-ons that you can spend an entire day there without repeating yourself. It is also the busier of the two. Weekends can feel more crowded than relaxing, and on the wrong day the Amphitheatre pool is as much about the photograph as the temperature. The program is deeper and more varied than anything else in the category, and the twilight sessions in the cooler months remain the best value the whole operation offers. It rewards people who know how to use it.
+For an overnight stay, compare [Eco Lodges](/stay/peninsula-hot-springs-eco-lodges/) with [glamping](/stay/peninsula-hot-springs-glamping/). Both are on the springs grounds and current packages include bathing, but room layouts and private-bath facilities differ. The [operator's accommodation pages](https://www.peninsulahotsprings.com/accommodation/) set out the current inclusions and guest-age rules. Check those details for your room, and reserve any treatment you want ahead of time.
 
-**Alba** opened in 2022. Twenty-two pools. Stripped-back architecture. A hard cap on daily bather numbers so it never tips into chaos. A sensible cafe. A spa building that is actually a spa building and not a queue. It feels more like a European bath day than a tourist attraction, which suits a first-time visitor or anyone who has been burned by a busy day at the original.
+### A Red Hill base
 
-Pick Alba if this is your first thermal weekend, if you prefer quiet to scale, or if the idea of a cap on bodies in the water matters to you. Pick Peninsula Hot Springs if you know what you are doing, want the deeper menu, and are willing to book a midweek or twilight slot to get the best of it. One a day, not both. The body cannot absorb a second circuit.
+[Lindenderry](/stay/lindenderry/) and [Polperro Villas](/stay/polperro-villas/) offer a vineyard setting after a Fingal bath. Neither removes the drive back from the springs, so check the evening route and reserve dinner near your room. Polperro's [current stay rules](https://www.polperrowines.com.au/escape/villas/) require two nights on a standard weekend and three nights over public-holiday long weekends and the peak summer period. Check your exact dates before building the plan around it.
 
-## How to actually use thermal water
+## The two-night rhythm
 
-Thermal bathing is a slow protocol. A proper circuit alternates hot and cold water, with rest in between, and the rest matters as much as the heat. The progression moves the nervous system into the state where the heat does its work. Thirty seconds in the hot pool, a photograph, a wander to the next one, a glance at the phone, and you have the architecture without the physiology.
+### Friday: arrive and settle in
 
-The useful rhythm looks roughly like this. Enter the hottest pool you can tolerate for ten to fifteen minutes. Move to the cold plunge for thirty seconds to a minute. Rest, dry, and sit for five to ten minutes without scrolling. Repeat three or four times. Then drift into the warm pools and stay there until you have lost track of what time it is. That is the point you are aiming for.
+Book the same room for Friday and Saturday nights. Arrive without a second major reservation to race towards. If you are staying on a bathhouse estate, confirm when the room's bathing access begins. If you are staying off site, keep dinner near your accommodation.
 
-The whole circuit takes two and a half to three hours done properly. Buy the session that gives you that window, not the shortest one on the menu. Leave a clear hour after your session before any lunch reservation. The body needs the time to come down.
+### Saturday: bathe at your own pace
 
-## Where to sleep, so the day extends
+Use the arrival time and access included in your Alba or Peninsula Hot Springs booking. Plan for one venue, not both. A treatment can be added if it is available, but leave a gap to change, rest and get to dinner. If you stay at Alba, Thyme is on the estate; elsewhere, choose a table near your room.
 
-A thermal weekend works better as an overnight than a day trip. The bath is not the trip; the decompression after it is. For that, you need a room nearby.
+**Booking check, 30 September 2026:** [Alba's booking page](https://albathermalsprings.com.au/book/) lists springs and spa experiences. [Peninsula Hot Springs' Bath House page](https://www.peninsulahotsprings.com/bathe/bath-house/revitalise) lists more than 50 Bath House experiences and recommends booking ahead. Confirm the current arrival time and access directly with your chosen venue.
 
-[Lindenderry at Red Hill](/stay/lindenderry/) is the most civilised base. Thirteen minutes from Alba, fifteen from Peninsula Hot Springs, with a garden, a pool, and a terrace breakfast that is itself a reason to stay. The rhythm of a Lindenderry weekend (bath, rest, small dinner, garden walk, long sleep, slow morning) is close to ideal for this kind of trip.
+### Sunday: keep some space
 
-[Polperro Villas](/stay/polperro-villas/) is the move for a couple who want the bath to feed a private weekend. Four vineyard villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. There are no outdoor baths. Cooking facilities are a convection oven and microwave, with no hotplates. Drive to Alba mid-morning, do the full circuit, drive back to the villa, and spend the rest of the afternoon in your own bath with the fire lit. The Polperro restaurant and cellar door are closed on Mondays and Tuesdays. [Book accommodation directly with Polperro](https://www.polperrowines.com.au/escape/).
+Have breakfast, then decide whether another bath included with your stay or an optional [Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk/) walk suits the weather and your energy. Check the signed route and current access before setting out. Leaving Sunday open is also a sound choice.
 
-## What to eat
+### If you only have one day
 
-A proper bath day deserves a simple meal.
+A day trip works: book one bathhouse visit, make any meal a simple addition and allow for the journey home. The two-night version earns its place when you want the bathing, dinner and a slower morning without stacking them into one day.
 
-For dinner, book something local and small. A shared plate of grilled fish, a bowl of pasta, a glass of wine that is not a work of art. The cottage-stay version of this evening (a good loaf from [Flinders Sourdough](/eat/flinders-sourdough/), burrata, a bottle of Merricks pinot, a fire) is almost unbeatable. Hotel-stay version: sit down at the stay's own dining room, order the pasta course and a main, and go to bed early.
+## Before you book
 
-If you want the long lunch as well, do it the following day, not the same one. [Tedesca Osteria](/eat/tedesca-osteria/) on a slow Sunday is the recovery meal this weekend is built for, because you have spent the previous twenty-four hours letting the body open up for it. The sequence matters. Bath, sleep, lunch.
+- **Confirm both reservations.** Check accommodation and bathing availability for the same dates before committing to either. Book treatments separately when needed.
+- **Read the access details.** Bath House, Spa Dreaming Centre, private bathing and accommodation packages have different inclusions and age rules.
+- **Check the practical route.** An on-site stay removes the return drive after bathing. A Red Hill stay changes the setting but requires that drive.
+- **Let the weather decide Sunday.** The coast is optional; check conditions and park access before a walk.
 
-## The one walk that belongs in the weekend
-
-If the weather is fair, add one short coastal walk between the bath and the drive home. The [Cape Schanck Boardwalk](/explore/cape-schanck-boardwalk/) is forty minutes, dramatic, and the salt air after the mineral heat is the closing note the whole trip needs. It is how you land.
-
-## The weekend, in one line
-
-Friday evening: arrive, eat simply, sleep. Saturday: thermal circuit for two and a half hours, rest, small dinner, early night. Sunday morning: slow breakfast, short walk at the cape, long lunch on the plateau, home. Three moves, in the right order, with nothing extra.
-
-That is the wellness weekend the Peninsula is good at.
+For more room-by-room choices, use [Where to Stay for a Peninsula Spa Trip](/explore/plans/mornington-peninsula-stay-and-soak/).

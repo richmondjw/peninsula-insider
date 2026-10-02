@@ -23,7 +23,18 @@ const lead = ['spring-school-holidays-2026', 'area-guide-red-hill']
   .map((slug) => published.find((article) => routeSlug(article) === slug))
   .find((article) => article !== undefined);
 const slug = lead ? routeSlug(lead) : '';
-const hero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+const resolvedHero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
+// The public feature needs alt text and a credit for the photograph actually
+// shown. If an editor's published upload is missing those, keep the original
+// credited artwork until its own metadata is completed.
+const incompleteOverride = resolvedHero?.override &&
+  (!resolvedHero.override.alt?.trim() || !resolvedHero.override.credit?.trim());
+if (incompleteOverride) {
+  console.warn(`[HomeJournalFeature] ${slug} hero upload has no alt or credit; using the credited article artwork`);
+}
+const hero = incompleteOverride && lead?.data.heroImage?.src && resolvedHero
+  ? { ...resolvedHero, src: lead.data.heroImage.src, alt: lead.data.heroImage.alt, override: undefined }
+  : resolvedHero;
 // Reader-facing kicker only. The raw format label ('Service', 'Hub Guide')
 // is an internal content type and never surfaces here. A theme is added
 // only when the desk has given the article one: the first segment of its
@@ -45,6 +56,15 @@ const dek = lead?.data.dek
       (_m: string, d: string, m: string, y?: string) => [d, m, y].filter(Boolean).join(NBSP),
     )
   : '';
+// An editor's replacement is a different image. Its caption and credit must
+// come from the override, never from the frontmatter image it replaced.
+const caption = hero?.override ? hero.override.caption : lead?.data.heroImage?.caption;
+const credit = hero?.override ? hero.override.credit : lead?.data.heroImage?.credit;
+const creditLabel = credit === 'Courtesy of Visit Victoria'
+  ? 'Photo courtesy of Visit Victoria'
+  : credit
+    ? `${!hero?.override && lead?.data.heroImage?.depictionStatus === 'illustrative' ? 'Artwork' : 'Photo'}: ${credit}`
+    : '';
 ---
 
 {lead && hero && (
@@ -56,6 +76,8 @@ const dek = lead?.data.dek
         alt={hero.alt || lead.data.title}
         loading="lazy"
         decoding="async"
+        data-pi-no-hydrate="true"
+        data-pi-requires-image-metadata="true"
         {...editableImage({
           entityType: 'article',
           entitySlug: slug,
@@ -64,6 +86,7 @@ const dek = lead?.data.dek
           purpose: 'hero',
         })}
       />
+      {(caption || creditLabel) && <figcaption>{caption && <span>{caption}</span>} {creditLabel && <span>{creditLabel}</span>}</figcaption>}
     </figure>
     <div class="home-journal__body">
       <p class="pi-eyebrow">{kicker}</p>
@@ -99,19 +122,22 @@ const dek = lead?.data.dek
      same ink and weight as every other section H2. */
   /* Ground: the page's own white, deliberately. The near-white --paper
      read as an accidental seam, and paper-warm would fuse this section
-     with the warm Play band above and the warm doors band below into one
-     long undivided block. On white it alternates cleanly: white picks,
-     warm Play, white Journal, warm doors. It keeps full padding on both
-     sides because both neighbours are on a different ground. */
+     with a warm neighbouring band into one long undivided block. It keeps
+     full padding on both sides because its neighbours sit on a different
+     ground. */
   .home-journal { background: var(--bg, #fff); }
   /* Held against any same-ground padding collapse (G23): the doubled
      class outranks a `.pi-section + .pi-section` rule. */
   :global(body) .home-journal.home-journal.pi-section { padding-block: var(--section-space); }
   /* The text block is centred against the 3:2 picture, so the story ends
-     with the picture rather than 150px above it. */
+     with the picture rather than 150px above it. The ratio sits on the
+     img, not the figure, so the photo credit below it is never clipped. */
   .home-journal__layout { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); align-items: center; }
-  .home-journal__media { margin: 0; min-width: 0; aspect-ratio: 3 / 2; overflow: hidden; border-radius: var(--radius-m); }
-  .home-journal__media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .home-journal__media { margin: 0; min-width: 0; }
+  /* The responsive-image pass adds HTML width/height attributes. Explicitly
+     clear their presentational height so the image follows this layout ratio. */
+  .home-journal__media img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-m); }
+  .home-journal__media figcaption { color: var(--soft); font-size: .75rem; line-height: 1.45; margin-top: .45rem; }
   .home-journal__body { min-width: 0; }
   .home-journal__headline { font-size: clamp(2.25rem, 1.6rem + 2vw, 3rem); }
   .home-journal__headline a { color: inherit; text-decoration: none; }
@@ -121,8 +147,7 @@ const dek = lead?.data.dek
   .home-journal__cta { margin: var(--space-4) 0 0; }
   @media (max-width: 47.94em) {
     .home-journal__layout { grid-template-columns: 1fr; gap: var(--space-5); }
-    .home-journal__media { aspect-ratio: 4 / 3; }
-    .home-journal__media img { object-position: 50% 60%; }
+    .home-journal__media img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
     .home-journal__dek { font-size: var(--fs-400); }
   }
 </style>

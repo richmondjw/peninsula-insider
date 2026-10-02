@@ -10,8 +10,8 @@ import { CONCIERGE_API_URL } from '../lib/concierge-config';
 
 import '../styles/global.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
-import '../styles/search.css';      // site-search overlay + /search page styles
-import '../styles/inline-edit.css'; // admin-only inline editor chrome, inert unless edit mode is on
+import '../styles/search.css';      // masthead search and site-wide overlay only
+// Admin-only editor CSS loads after the allowlist check in inline-edit/client.ts.
 import '../styles/refinement.css'; // approved Harbour editorial refinement
 import '../styles/magenta-stone.css'; // Magenta Stone theme - inert unless html[data-theme="magenta-stone"]
 import '../styles/photo-headers.css'; // Natural colour with feathered contrast behind photo-header copy
@@ -146,7 +146,7 @@ const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
 // Keep active planning and itinerary reading free of promotional interruptions.
 // Navigation and the footer retain their normal publication links.
 const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
-const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
+const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>
@@ -163,6 +163,8 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
+  {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
+  <link rel="alternate" type="application/rss+xml" title="Peninsula Insider stories" href="/feed.xml" />
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
   <!-- Open Graph -->
@@ -189,12 +191,6 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
     name: 'Peninsula Insider',
     legalName: 'Peninsula Insider',
     url: SITE_URL,
-    logo: {
-      '@type': 'ImageObject',
-      // PI-EXP-045: interim publisher logo. Replace with a dedicated square
-      // (≥112×112px) /logo.png once the asset is created.
-      url: `${SITE_URL}/images/sourced/home-cover.webp`,
-    },
     description:
       'The independent editorial guide to the Mornington Peninsula: honest, opinionated coverage of eating, drinking, staying, and exploring. Every pick is independently researched and earns its place.',
     foundingDate: '2024',
@@ -402,6 +398,9 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
       data-pagefind-ignore opts the page out of the search index entirely. */}
   {/* Auto breadcrumbs on every below-level-1 template (future-ia §3.1).
       Defers to any page-authored <Breadcrumbs> inside main. */}
+  {/* Consent stays in flow on first visit, ahead of every page hero. */}
+  <CookieBanner />
+
   {!noindex && <V5Breadcrumbs pageTitle={title} />}
 
   <main
@@ -456,10 +455,6 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
 
-  <!-- Cookie consent banner. Shows on first visit only; gates the
-       gtag.js loader above via the 'pi:consent-changed' event. -->
-  <CookieBanner />
-
   <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
        per week, waits for consent and stands down if the Insider Note
        popup is up. Master switch: PLAY.enabled in lib/play.ts. -->
@@ -491,7 +486,7 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
         var url = new URL('/rest/v1/cms_image_slots', __SB_URL);
-        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url');
+        url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url,alt_text,credit');
         url.searchParams.set('status', 'eq.published');
         fetch(url.toString(), {
           headers: {
@@ -510,6 +505,12 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
               '[data-pi-entity-type="' + slot.entity_type + '"][data-pi-entity-slug="' + slot.entity_slug + '"][data-pi-field-path="' + slot.field_path + '"]'
             );
             if (!el) return;
+            // Some editorial surfaces deliberately retain a credited,
+            // source-verified image when a published upload lacks the
+            // metadata needed to describe or credit that replacement.
+            if (el.hasAttribute('data-pi-no-hydrate')) return;
+            if (el.hasAttribute('data-pi-requires-image-metadata') &&
+                !(slot.alt_text && slot.alt_text.trim() && slot.credit && slot.credit.trim())) return;
             if (el instanceof HTMLImageElement) {
               el.src = slot.public_url;
             } else {
@@ -547,7 +548,8 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
   </script>
 
   <!-- Sticky Subscribe pill, fades in once the reader passes the 50%
-       scroll mark. Mobile-only. Hidden on /newsletter, /ask, /account
+       scroll mark and hides once the inline newsletter is reached. Mobile-only.
+       Hidden on home, /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
   <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
@@ -580,7 +582,9 @@ const showNewsletterPopup = !isPlanningJourney && (newsletterPopupMode === 'prev
           return;
         }
         var pct = window.scrollY / max;
-        body.classList.toggle('show-subscribe-pill', pct >= threshold);
+        var newsletter = document.getElementById('newsletter');
+        var reachedNewsletter = newsletter && newsletter.getBoundingClientRect().top <= window.innerHeight;
+        body.classList.toggle('show-subscribe-pill', pct >= threshold && !reachedNewsletter);
       }
 
       // One listener, registered once. `window` outlives every swap.

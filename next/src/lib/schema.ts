@@ -570,6 +570,7 @@ export function buildOperatorProfileSchema(operator: any, toursList: any[]) {
       '@id': `${pageUrl}#LocalBusiness`,
       name: operator.name,
       url: operator.website || pageUrl,
+      ...schemaImage(operator),
       ...(operator.phone ? { telephone: operator.phone } : {}),
       ...(operator.languages ? { knowsLanguage: operator.languages } : {}),
       areaServed: { '@type': 'GeoShape', name: 'Mornington Peninsula' },
@@ -1033,3 +1034,4 @@ export function buildBfHubSchema({
     ],
   };
 }
+import { schemaImage } from './photo-set';

@@ -188,11 +188,10 @@ export function selectWeekendPicks(
       editorialUsed.add(slugOf(ev));
       editorialCandidates.push({ event: ev, verdict: clampVerdict(pick.editorVerdict) });
     }
-    // The collection remains the source of truth, including its verdicts and
-    // candidate set. The twice-daily cadence simply advances the visible
-    // three through that curated shortlist; when it contains only three, the
-    // same picks are shown in a different lead order.
-    for (const candidate of rotateByMelbourneHours(editorialCandidates, now, 12)) {
+    // An explicitly curated shortlist has an editor-owned lead and position.
+    // Keep that order in sync with What's On and downstream newsletter uses.
+    // The 12-hour rotation below is only for the uncurated fallback pool.
+    for (const candidate of editorialCandidates) {
       used.add(slugOf(candidate.event));
       out.push(candidate);
       if (out.length === 3) break;

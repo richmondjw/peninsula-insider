@@ -45,9 +45,12 @@ lastVerified: YYYY-MM-DD
 
 ### The hierarchy (use in this order)
 1. **Original PI photography** — taken by or commissioned by Peninsula Insider
-2. **Venue-approved media kit** — images provided by the venue with explicit permission for editorial use
-3. **Wikimedia Commons / CC-licensed** — with correct attribution and licence record
-4. **Unsplash / free-use stock** — only if Peninsula-specific and contextually accurate
+2. **Visit Victoria library (licensed, added 2026-09-29)** — real photographs of Peninsula venues and places from the Victoria Content Hub. Look here before anything below: `node ops/scripts/visit-victoria/find-images.mjs "<slug, place or topic>" [--channel site|email|social]`. Use READY results exactly as given (credit beside the image, place named, crop and resize only, never edited, never generative, never paid or sponsored placements, never passed to anyone else); report SUGGEST results for approval. Terms and house rules: `ops/records/visit-victoria/README.md`.
+3. **Venue-approved media kit** — images provided by the venue with explicit permission for editorial use
+4. **Wikimedia Commons / CC-licensed** — with correct attribution and licence record
+5. **Unsplash / free-use stock** — only if Peninsula-specific and contextually accurate
+
+A licensed photograph that shows the place itself always beats a stand-in of the town or category. Detail pages follow the photograph rule in `next/src/lib/photo-set.ts` (photo stage when three or more verified photographs exist, photographs set into the text, no trailing grid).
 
 ### What is never acceptable
 - Screenshots of venue social media posts

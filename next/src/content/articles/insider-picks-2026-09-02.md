@@ -29,7 +29,7 @@ faq:
   - question: "When does Foxeys Hangout cellar door open and do I need to book?"
     answer: "Foxeys Hangout on Red Hill–Shoreham Road is open weekends and most public holidays. Walk-ins are often fine mid-morning, but a booking secures a deck table in spring when the first sunny Saturdays bring a crowd. Check foxeys.com.au for current hours and to reserve."
   - question: "Where does the Bushrangers Bay Track start and how long is it?"
-    answer: "The track starts at the Cape Schanck Lighthouse car park off Boneo Road, Cape Schanck. The out-and-back to Bushrangers Bay is roughly 5 km return and takes around 1.5–2 hours at a comfortable pace. No booking required; Parks Victoria parking fees apply at the car park."
+    answer: "The track starts at the Cape Schanck car park off Cape Schanck Road. The return walk to Bushrangers Bay is 5.4 km and takes about two hours. No booking or parking fee is required. Dogs are prohibited; check Parks Victoria for changed conditions before travelling."
   - question: "What time does the Hill & Ridge Community Market run on 5 September?"
     answer: "The Hill & Ridge Market runs 9 am–2 pm at Red Hill Recreation Reserve on Arthurs Seat Road, Red Hill. Entry is free. The September date is the season restart after the winter break."
 ---
@@ -44,7 +44,7 @@ Pair the visit with a detour to Eldridge Estate on the same road for a single-cl
 
 **WALK - Bushrangers Bay Track, Cape Schanck**
 
-The wattle on the Bushrangers Bay Track is at full bloom in the first two weeks of September. That is the specific reason to go this weekend rather than in a fortnight, when the yellow has already gone green and the coast wind picks up. The track leaves from the Cape Schanck Lighthouse car park and drops through scrub and coastal tea-tree to the bay: 5 km return, around ninety minutes at a relaxed pace. The section between the boardwalk junction and the final descent to the beach is where the wattle is thickest. The basalt platform at Bushrangers Bay itself is exposed at lower tides, worth timing if you can. Go early - by ten on a clear Saturday the car park fills. No booking required. Parks Victoria parking fees apply at the Cape Schanck car park off Boneo Road.
+The wattle on the Bushrangers Bay Track is at full bloom in the first two weeks of September. That is the specific reason to go this weekend rather than in a fortnight, when the yellow has already gone green and the coast wind picks up. The track leaves from the Cape Schanck car park and drops through scrub and coastal tea-tree to the bay: 5.4 km return, around two hours. The section between the boardwalk junction and the final descent to the beach is where the wattle is thickest. The Main Creek estuary may require wading when the tide is in, so check conditions. Go early - by ten on a clear Saturday the car park fills. No booking or parking fee is required. Dogs are prohibited throughout Mornington Peninsula National Park.
 
 One practical note: the track is uneven in the last 400 metres to the beach; closed-toe shoes, not sandals.
 
@@ -63,5 +63,5 @@ Pair the morning with a post-market stop at Avani Wines, a short drive up the ri
 | | Name | Address | Key Practical Info |
 |---|---|---|---|
 | **DRINK** | Foxeys Hangout | Red Hill–Shoreham Road, Red Hill | Weekends + public holidays; book a deck table at foxeys.com.au |
-| **WALK** | Bushrangers Bay Track | Cape Schanck Lighthouse car park, Boneo Road, Cape Schanck | 5 km return, ~90 min; Parks Vic parking fees apply; no booking |
+| **WALK** | Bushrangers Bay Track | Cape Schanck car park, Cape Schanck Road | 5.4 km return, about 2 hrs; no booking or parking fee; no dogs |
 | **DISCOVERY** | Hill & Ridge Community Market | Red Hill Recreation Reserve, Arthurs Seat Road, Red Hill | Saturday 5 September, 9 am–2 pm; free entry; no booking |

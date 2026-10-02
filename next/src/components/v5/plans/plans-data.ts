@@ -56,7 +56,7 @@ export interface PlanRecord {
   /** Verdict line: the dek's first sentence, whole (see verdictLine). */
   verdict: string;
   href: string;
-  image: { src: string; alt: string } | null;
+  image: { src: string; alt: string; caption?: string; credit?: string } | null;
   /** editableImage fieldPath ('heroImage' for itineraries, 'hero' for articles). */
   imageField: string;
   meta: string[];
@@ -175,15 +175,31 @@ function metaFor(record: {
 async function heroFor(
   entityType: 'itinerary' | 'article',
   slug: string,
-  fallback: { src?: string; alt?: string } | undefined,
+  fallback: { src?: string; alt?: string; caption?: string; credit?: string; rightsStatus?: string } | undefined,
   title: string,
-): Promise<{ src: string; alt: string } | null> {
+): Promise<{ src: string; alt: string; caption?: string; credit?: string } | null> {
   // Same override chain the current hub uses so editor-uploaded heroes ship.
   const ov = await loadOverrides(entityType, slug);
-  const o = ov.image['hero'] ?? ov.image['heroImage'];
+  const override = entityType === 'itinerary'
+    ? ov.image['heroImage'] ?? ov.image['hero']
+    : ov.image['hero'] ?? ov.image['heroImage'];
+  // The article detail page falls back to its credited source when an editor
+  // upload lacks either alt text or credit. Keep the listing in step with it.
+  const creditedArticleSource = entityType === 'article' && fallback?.rightsStatus === 'recorded' &&
+    Boolean(fallback.src?.trim() && fallback.alt?.trim() && fallback.credit?.trim());
+  const incompleteArticleOverride = override && (!override.alt?.trim() || !override.credit?.trim());
+  const o = creditedArticleSource && incompleteArticleOverride ? undefined : override;
   const src = o?.src ?? fallback?.src;
   if (!src) return null;
-  return { src, alt: o?.alt ?? (src === fallback?.src ? fallback?.alt : undefined) ?? title };
+  // An uploaded replacement must carry its own words. The content record's
+  // caption and credit only remain valid when the source URL is identical.
+  const sameSource = src === fallback?.src;
+  return {
+    src,
+    alt: o?.alt ?? (sameSource ? fallback?.alt : undefined) ?? title,
+    caption: (o ? o.caption ?? (sameSource ? fallback?.caption : undefined) : fallback?.caption) ?? undefined,
+    credit: (o ? o.credit ?? (sameSource ? fallback?.credit : undefined) : fallback?.credit) ?? undefined,
+  };
 }
 
 export async function buildPlansModel(now: Date = new Date()): Promise<PlansModel> {

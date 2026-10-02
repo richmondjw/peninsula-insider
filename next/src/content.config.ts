@@ -464,7 +464,9 @@ const venues = defineCollection({
       'market',
       'hotel',
       'villa',
+      'suite',
       'cottage',
+      'lodge',
       'glamping',
       'farm-stay',
       'spa',
@@ -513,7 +515,7 @@ const venues = defineCollection({
      * never declared and Zod stripped it from all 21 wineries carrying one.
      */
     subregion: z.string().optional(),
-    coordinates,
+    coordinates: coordinates.optional(),
     address: z.string(),
     phone: z.string().optional(),
     /**
@@ -927,6 +929,8 @@ const regions = defineCollection({
     /** Editorial introduction paragraph. 80 to 120 words. */
     intro: z.string(),
     heroImage: imageRef,
+    // Licensed photographs from the region's places (ops/records/visit-victoria).
+    gallery: z.array(imageRef).default([]),
     /** The zone enum values that fall within this region. */
     zones: z.array(zone),
     /** Place slugs within this region. */
@@ -968,6 +972,9 @@ const articles = defineCollection({
     publishedAt: z.coerce.date(),
     updatedAt: z.coerce.date().optional(),
     heroImage: imageRef,
+    // Licensed photographs of the places an article covers, shown as a
+    // filmstrip under the hero (ops/records/visit-victoria, src/lib/photo-set.ts).
+    gallery: z.array(imageRef).default([]),
     format: z.enum([
       'editors-letter',
       'long-lunch-list',
@@ -1047,6 +1054,15 @@ const articles = defineCollection({
     planShape: z
       .enum(['one-night', 'two-night', 'day-trip', 'seasonal'])
       .optional(),
+    /** Reader-facing label for a plan article; planShape stays a discovery facet. */
+    planEyebrow: z.string().trim().min(3).max(56).optional(),
+    planPrimaryAction: z.string().trim().min(3).max(48).optional(),
+    /** Linked editorial choices that orient readers before long-form guidance. */
+    planQuickChoices: z.array(z.object({
+      label: z.string().trim().min(3).max(48),
+      detail: z.string().trim().min(8).max(160),
+      href: z.string().startsWith('#'),
+    })).min(2).max(4).optional(),
     /**
      * Structured dispatch payload for weekend-picker articles. When present,
      * the /whats-on/this-weekend/ template renders the picks as scannable
@@ -1198,10 +1214,14 @@ const itineraries = defineCollection({
     origin: escapeOrigin.default('melbourne'),
     budget: escapeBudget.default('mixed'),
     season: escapeSeason.default('year-round'),
+    bestSeasonNote: z.string().optional(),
+    bestSeasonMonths: z.array(z.number().int().min(1).max(12)).default([]),
 
-    // Conversion architecture — anchor stay drives the 3-placement rule
-    // (hero CTA, day-N "where you sleep" block, related rail).
+    // Explicit overnight sequence drives the night cards; anchorStay is
+    // retained for older single-base itineraries and the first stay CTA.
     anchorStay: reference('venues').optional(),
+    nightStays: z.array(reference('venues')).default([]),
+    dayLabels: z.array(z.string()).default([]),
     anchorStayBlurb: z.string().optional(),
     altStays: z.array(reference('venues')).default([]),
     anchorTown: reference('places').optional(),

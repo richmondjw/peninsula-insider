@@ -20,7 +20,7 @@
  */
 
 import { eventIsUnqualifiedFree } from './event-access.mjs';
-import { getAustralianSeasonLower } from './season';
+import { getAustralianSeasonLower, melbourneCalendarParts } from './season';
 
 export type FacetKey = 'place' | 'cat' | 'mood' | 'price' | 'party' | 'date';
 
@@ -150,7 +150,9 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
     // Stay
     { value: 'hotel', label: 'Hotels' },
     { value: 'villa', label: 'Villas' },
+    { value: 'suite', label: 'Suites' },
     { value: 'cottage', label: 'Cottages' },
+    { value: 'lodge', label: 'Lodges' },
     { value: 'glamping', label: 'Glamping' },
     { value: 'farm-stay', label: 'Farm stays' },
     // Explore
@@ -232,7 +234,7 @@ export const SURFACE_FACET_VALUES: Record<string, Partial<Record<FacetKey, strin
     mood: ['long-lunch', 'date-night', 'quick', 'slow', 'scenic', 'garden', 'on-the-water', 'cosy', 'worth-the-drive'],
   },
   stay: {
-    cat: ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay'],
+    cat: ['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay'],
   },
   wine: {
     cat: ['winery', 'brewery', 'distillery'],
@@ -735,6 +737,12 @@ function facetsForItinerary(data: Record<string, any>, out: Facets) {
     emit(out, 'date', 'weekend');
   }
 
+  const bestSeasonMonths: number[] = Array.isArray(data.bestSeasonMonths) ? data.bestSeasonMonths : [];
+  if (bestSeasonMonths.length > 0) {
+    emit(out, 'date', 'seasonal');
+    if (bestSeasonMonths.includes(melbourneCalendarParts().month)) emit(out, 'date', 'this-season');
+    return;
+  }
   const season = typeof data.season === 'string' ? data.season : 'year-round';
   if (season === 'rainy') emit(out, 'mood', 'rainy-day');
   if (season !== 'year-round' && season !== getAustralianSeasonLower(new Date())) {

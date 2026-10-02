@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-15
 heroImage:
-  src: "/images/sourced/home-cover-back-beach-horses-01.jpg"
-  alt: "Horses on the back beach at low light, the wide ocean coast that frames a four-hour Peninsula visit"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  src: "/images/visit-victoria/vv-25061231-merricks-general-wine-store.webp"
+  alt: "Shoppers pass through a homewares store with clothing racks, botanical prints and hanging dried foliage at Merricks General Wine Store"
+  credit: "Peter Foster, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Merricks General Wine Store, Mornington Peninsula."
+  depicts: "Merricks General Wine Store"
+  depictionStatus: "illustrative"
+  creator: "Peter Foster"
+  sourceUrl: "Victoria Content Hub asset 25061231, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["day-trip", "quick", "red-hill", "mornington", "first-timers", "explore", "all-year"]
 relatedVenues: ["merricks-general-wine-store", "red-hill-brewery", "commonfolk-coffee", "montalto", "main-ridge-dairy", "red-hill-cheese", "mornington-peninsula-chocolates", "flinders-sourdough", "red-hill-bakery", "johnny-ripe", "somers-general", "allis-wine-bar", "many-little", "bistro-elba"]
@@ -68,7 +82,7 @@ This is the version that fits about seventy per cent of four-hour visits.
 
 **11am, Leave Melbourne.** Arriving at noon is the right arrival time for a lunch-first plan.
 
-**12pm, Lunch at Merricks General Wine Store.** **Merricks General** suits a four-hour lunch because it is relaxed enough to move through in an hour and fifteen, it is on the ridge, and its kitchen does not punish speed. Order a pizza from the wood oven, a glass of Crittenden pinot, and a salad. Save the full tasting menu for a weekend visit. If Merricks General is full, the alternatives in descending order are **Red Hill Brewery** (faster, more casual, pizza-and-beer), **Red Hill Bakery** (counter lunch, in and out in forty minutes), or **Johnny Ripe** (café-level, quick, reliable).
+**12pm, Lunch at Merricks General Wine Store.** **Merricks General** suits a four-hour lunch because it is relaxed enough to move through in an hour and fifteen, it is on the ridge, and its kitchen does not punish speed. Order a pizza from the wood oven, a glass of Crittenden pinot, and a salad. Save the full tasting menu for a weekend visit. If Merricks General is full, the alternatives in descending order are **Red Hill Brewery** (faster, more casual, pizza-and-beer) or **Johnny Ripe** (café-level, quick, reliable). The Red Hill Baker no longer operates in Red Hill.
 
 **1.30pm, A short cellar door or a producer stop.** You have ninety minutes before you need to be heading back. Use forty of them at exactly one cellar door: **Montalto** for the sculpture grounds, **Polperro** for the more serious wine experience, **Ten Minutes by Tractor** for one of the Peninsula's most consistent tastings. Keep it short: four wines, one to take home, pay the tasting fee, move on.
 

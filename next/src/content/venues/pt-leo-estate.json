@@ -50,7 +50,7 @@
     ],
     "tastingFee": "Charged",
     "bookingRequired": false,
-    "tastingNote": "Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. Laura restaurant requires advance booking."
+    "tastingNote": "Walk-ins welcome for groups up to 6. Four tasting tiers: Standard, Red, White and Premium - all include 5 wines; fee partly refundable on bottle purchase. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays."
   },
   "wines": {
     "winemaker": "Tod Dexter",
@@ -93,7 +93,7 @@
   "faq": [
     {
       "q": "Does Pt. Leo Estate take walk-ins or do you need to book?",
-      "a": "Walk-ins are welcome at the cellar door for groups of up to 6 guests. Laura and the main restaurant require advance bookings."
+      "a": "Walk-ins are welcome at the cellar door for groups of up to 6 guests. The estate advises restaurant reservations and requires them on weekends, during peak periods and on public holidays."
     },
     {
       "q": "Does Pt. Leo Estate have a restaurant?",
@@ -102,6 +102,10 @@
     {
       "q": "Are dogs allowed at Pt. Leo Estate?",
       "a": "No. Only on-duty Guide Dogs and certified service animals are permitted on the property."
+    },
+    {
+      "q": "Does Pt. Leo Estate have accommodation on site?",
+      "a": "No. Pt. Leo Estate does not provide on-site accommodation. Book a separate nearby stay and confirm availability directly with its operator."
     }
   ],
   "sameAs": {
@@ -131,10 +135,24 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
-    "alt": "Pt. Leo Estate Sculpture Park overlooking Western Port - Barry Flanagan's hare and other large-scale works on the lawn",
-    "credit": "BrooksieG / Wikimedia Commons (CC BY-SA 4.0)",
-    "license": "wikimedia-cc-by-sa"
+    "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+    "alt": "A colourful mosaic face sculpture shaped like an arch stands on the lawn at Pt. Leo Estate, with vineyards and bushland beyond",
+    "credit": "Courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+    "depicts": "Pt. Leo Estate",
+    "depictionStatus": "actual",
+    "sourceUrl": "Victoria Content Hub asset 163850, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
   "gallery": [
     {
@@ -186,26 +204,6 @@
       "depicts": "Pt. Leo Estate",
       "depictionStatus": "actual",
       "sourceUrl": "Victoria Content Hub asset 163849, downloaded 2026-09-28",
-      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
-      "permittedUses": [
-        "website",
-        "social"
-      ],
-      "rightsHolder": "Visit Victoria",
-      "rightsEstablishedOn": "2026-09-29",
-      "rightsStatus": "recorded",
-      "decorative": false,
-      "provenanceReview": "verified"
-    },
-    {
-      "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
-      "alt": "A colourful mosaic face sculpture shaped like an arch stands on the lawn at Pt. Leo Estate, with vineyards and bushland beyond",
-      "credit": "Courtesy of Visit Victoria",
-      "license": "visit-victoria",
-      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
-      "depicts": "Pt. Leo Estate",
-      "depictionStatus": "actual",
-      "sourceUrl": "Victoria Content Hub asset 163850, downloaded 2026-09-28",
       "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
       "permittedUses": [
         "website",
@@ -316,11 +314,157 @@
       "rightsStatus": "recorded",
       "decorative": false,
       "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-162200-pt-leo-estate.webp",
+      "alt": "Giant grey KAWS figure holding a small blue figure on a lawn at Pt. Leo Estate sculpture park, with the sea beyond",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 162200, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-162210-pt-leo-estate.webp",
+      "alt": "Overhead view of a timber table set with croquettes, cured salmon, glazed pork and white wine on white plates",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 162210, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-162221-pt-leo-estate.webp",
+      "alt": "Row of Pt. Leo Estate Reserve Pinot Noir bottles with gold lion emblems lined up on a timber shelf",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 162221, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-162229-pt-leo-estate.webp",
+      "alt": "Two people walking a curved path past mirrored steel sculptures outside the glass-fronted Pt. Leo Estate building",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 162229, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-162239-pt-leo-estate.webp",
+      "alt": "Aerial view of the Pt. Leo Estate sculpture park, with lawns, winding paths and cypress hedges above vineyards, a lake and the bay",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 162239, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-163865-pt-leo-estate.webp",
+      "alt": "Rows of vines leading up to the curved Pt. Leo Estate restaurant, with white umbrellas on the lawn, sculptures and the sea beyond",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 163865, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-164958-pt-leo-estate.webp",
+      "alt": "Giant grey KAWS figure holding a small blue figure on the sculpture park lawn at Pt. Leo Estate, with the sea and other artworks behind",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 164958, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
     }
   ],
   "featuredPartner": false,
   "lastVerified": "2026-04-01",
   "publishedAt": "2026-04-01",
   "sitemapExclude": false,
-  "editorPick": true
+  "editorPick": true,
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-01",
+    "checkedBy": "desk",
+    "source": "Limited correction on 2026-10-01: the absence of on-site accommodation and qualified restaurant booking guidance checked against https://www.ptleoestate.com.au/faqs/. Other fields were not reverified; no whole-record fact-check date assigned."
+  }
 }

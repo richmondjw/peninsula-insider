@@ -32,7 +32,7 @@ faq:
   - question: "When does St Andrews Beach Brewery serve its Sunday roast, and do I need to book?"
     answer: "St Andrews Beach Brewery runs the Sunday roast on Sundays from midday. Bookings are recommended, especially in spring when the lawn tables fill early. Book via their website at standrewsbeachbrewery.com.au."
   - question: "How do I get to the Greens Bush walking trails in Mornington Peninsula National Park?"
-    answer: "The Greens Bush day visitor area is accessed via Boneo Road, near Boneo. The main car park is signposted off Boneo Road. Allow 2–3 hours for the full loop. No booking required; Parks Victoria day-use fees may apply."
+    answer: "Use Baldry's Crossing on Baldrys Road, Main Ridge. Parks Victoria lists a 1.6 km short circuit and a 3.6 km long circuit. No booking or day-use fee is required; check current park conditions before travelling."
   - question: "Is the Red Hill Truffles hunt season almost over, and how do I book?"
     answer: "The Red Hill Truffles hunt season runs until 30 September 2026. With three weekends remaining, weekend spots are filling. Book directly at redhilltruffles.com/hunts. The property is in Main Ridge."
 ---
@@ -80,5 +80,5 @@ Pair the morning with lunch at a Red Hill cellar door - Merricks General Wine St
 | Pick | Address | Practical |
 |---|---|---|
 | St Andrews Beach Brewery | 65 Boundary Rd, Rye | Sunday roast from midday; book online at standrewsbeachbrewery.com.au |
-| Greens Bush Loop | Boneo Road car park, Boneo | 6.5km loop, 2–3 hrs; no booking, Parks Victoria day-use fees may apply |
+| Greens Bush circuits | Baldry's Crossing, Baldrys Road, Main Ridge | 1.6 km short circuit or 3.6 km long circuit; no booking or day-use fee |
 | Red Hill Truffles Hunt | Main Ridge (address on booking confirmation) | Season ends 30 Sept 2026; book at redhilltruffles.com/hunts |

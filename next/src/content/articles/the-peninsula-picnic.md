@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-picnic-01.webp"
-  alt: "A picnic spread of cheese, bread, charcuterie and wine on a blanket overlooking bay views"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp"
+  alt: "Two people seated at a garden table among vegetable beds, looking out over bushland at Green Olive at Red Hill"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Green Olive at Red Hill, Mornington Peninsula."
+  depicts: "Green Olive at Red Hill"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160021, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["picnic", "producers", "outdoor", "family", "couples", "budget", "autumn", "spring"]
 relatedVenues: ["red-hill-cheese", "main-ridge-dairy", "flinders-sourdough", "red-hill-bakery", "green-olive-red-hill", "mornington-peninsula-chocolates", "peninsula-fresh-organics", "balnarring-bakehouse", "somers-general", "johnny-ripe", "merricks-general-wine-store", "mornington-farmers-market"]
@@ -55,7 +69,7 @@ Start with bread because everything else sits on it.
 
 **Flinders Sourdough** is the bread to seek out on the Peninsula, and the walnut sourdough loaf is the one to buy for a picnic. It holds for hours without going stale, it stands up to cheese and olive oil, and it sets the tone for everything else.
 
-If you are starting from the northern end of the Peninsula, **Red Hill Bakery** is the closer alternative. The sourdough sits a step behind Flinders, but the pastry case is worth a morning sausage roll. **Balnarring Bakehouse** is the quieter eastern option, and its sourdough is more than good enough.
+If you are starting from the eastern side of the Peninsula, **The Red Hill Baker in Balnarring** is the practical alternative. The former Red Hill shop is closed. **Balnarring Bakehouse** is another local option, but confirm current trading before relying on it.
 
 Buy a whole loaf. You will use it.
 

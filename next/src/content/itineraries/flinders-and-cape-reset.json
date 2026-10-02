@@ -6,19 +6,35 @@
   "mood": "slow",
   "lengthNights": 1,
   "duration": "one-night",
-  "theme": ["coastal", "food+wine"],
+  "theme": [
+    "coastal",
+    "food+wine"
+  ],
   "anchorTown": "flinders",
-  "baseTowns": ["flinders", "cape-schanck", "red-hill", "merricks"],
+  "baseTowns": [
+    "flinders",
+    "cape-schanck",
+    "merricks"
+  ],
+  "anchorStay": "flinders-hotel",
+  "nightStays": ["flinders-hotel"],
+  "dayLabels": ["Village, cape and dinner", "Coast, art and lunch"],
   "bookingChecklist": [
-    { "item": "One night at Flinders Hotel", "priority": "essential" },
-    { "item": "Tedesca service availability and Pt. Leo lunch", "priority": "recommended" }
+    {
+      "item": "One night at Quarters at Flinders Hotel",
+      "priority": "essential"
+    },
+    {
+      "item": "Moke dinner service and Pt. Leo lunch",
+      "priority": "recommended"
+    }
   ],
   "stops": [
     {
       "day": 1,
       "order": 1,
       "venue": "flinders-hotel",
-      "note": "Check in early enough to make the village feel like your own base rather than a stopover.",
+      "note": "Arrive in Flinders by midday. Confirm your Quarters check-in time and any luggage arrangements directly before leaving for the cape.",
       "timeOfDay": "midday"
     },
     {
@@ -31,15 +47,15 @@
     {
       "day": 1,
       "order": 3,
-      "venue": "tedesca-osteria",
-      "note": "Check dinner service for your chosen date before booking. Fit the afternoon walk around the reservation.",
+      "venue": "moke-dining",
+      "note": "Moke serves dinner Thursday to Saturday. Book for your date and fit the afternoon walk around the reservation; Flinders Hotel is a nearby dinner fallback.",
       "timeOfDay": "evening"
     },
     {
       "day": 2,
       "order": 1,
       "experience": "bushrangers-bay-walk",
-      "note": "Do the longer coastal walk in the morning while your legs and weather are both fresh.",
+      "note": "Bushrangers Bay is a 5.4 km return walk of about two hours, with a narrow sandy path and steep stairs. Start early; use the Cape Schanck lookouts instead if weather or lunch timing cuts the window.",
       "timeOfDay": "morning"
     },
     {
@@ -50,13 +66,88 @@
       "timeOfDay": "midday"
     }
   ],
-  "totalDriveMinutes": 48,
   "heroImage": {
-    "src": "/images/sourced/place-flinders-01.webp",
-    "alt": "Flinders foreshore, with boats on the bay and the pier in the foreground",
-    "credit": "Wikimedia Commons",
-    "license": "wikimedia-cc-by-sa"
+    "src": "/images/visit-victoria/vv-161976-cape-schanck-lighthouse.webp",
+    "alt": "Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lighthouse and cottages on the headland",
+    "credit": "Courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Cape Schanck, Mornington Peninsula.",
+    "depicts": "Cape Schanck lighthouse",
+    "depictionStatus": "actual",
+    "sourceUrl": "Victoria Content Hub asset 161976, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
-  "editorNote": "The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south, keeps the driving short, and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Tedesca handles dinner. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.",
-  "publishedAt": "2026-04-08"
+  "editorNote": "The one-night Peninsula trip only works if you resist the temptation to cram it full. This version stays south and gives equal weight to coastline and lunch. Flinders gives you a clean village base. Cape Schanck supplies the weather and the scale. Moke makes dinner a walk within the village when its Thursday to Saturday service suits your date; otherwise, book dinner at Flinders Hotel. By the time you are leaving Pt. Leo after lunch the next day, it feels like you were away for longer than twenty-four hours.",
+  "publishedAt": "2026-04-08",
+  "gallery": [
+    {
+      "src": "/images/visit-victoria/vv-161980-cape-schanck-boardwalk.webp",
+      "alt": "A timber boardwalk winds down a green hillside towards a rocky basalt shore and headland at Cape Schanck",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Cape Schanck, Mornington Peninsula.",
+      "depicts": "Cape Schanck Boardwalk",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 161980, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-161981-cape-schanck-boardwalk.webp",
+      "alt": "Two walkers head down the Cape Schanck Boardwalk towards a rocky basalt shore and flat-topped headland",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Cape Schanck, Mornington Peninsula.",
+      "depicts": "Cape Schanck Boardwalk",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 161981, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    {
+      "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+      "alt": "A colourful mosaic face sculpture shaped like an arch stands on the lawn at Pt. Leo Estate, with vineyards and bushland beyond",
+      "credit": "Courtesy of Visit Victoria",
+      "license": "visit-victoria",
+      "caption": "Pt. Leo Estate, Merricks, Mornington Peninsula.",
+      "depicts": "Pt. Leo Estate",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 163850, downloaded 2026-09-28",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    }
+  ]
 }

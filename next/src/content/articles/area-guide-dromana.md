@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-05-02
 heroImage:
-  src: "/images/sourced/place-dromana-01.webp"
-  alt: "Dromana foreshore with calm bay water and Arthurs Seat rising behind"
-  credit: "Peninsula Insider"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp"
+  alt: "A gravel drive leads between lawns and a row of vines to a cottage shaded by trees in yellow autumn leaf"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Crittenden Estate, Dromana, Mornington Peninsula."
+  depicts: "Crittenden Estate Cellar Door"
+  depictionStatus: "actual"
+  sourceUrl: "Victoria Content Hub asset 164273, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "hub-guide"
 tags: ["dromana", "area-guide", "planning"]
 relatedVenues: []
@@ -26,11 +39,16 @@ faq:
     answer: "Spring through autumn, when the chairlift, beach and hill roads all align. Clear winter days also suit it if you are using Dromana as a base rather than a swim destination."
   - question: "How far is Dromana from Melbourne?"
     answer: "Usually about 70 to 90 minutes by car via Peninsula Link, often making it one of the easiest substantial Peninsula towns to reach."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Dromana bay, adjacent towns and position beneath Arthurs Seat checked against https://www.visitmorningtonpeninsula.org/Places-To-See/Towns-Villages/Dromana/common. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 Dromana does not have Sorrento's social theatre, Red Hill's tasting-room prestige or Flinders' cultivated quiet. What it does have is usefulness, and on the Peninsula that matters.
 
-Dromana sits where the land lifts. The beach stretches long and practical on one side, Arthurs Seat rises immediately behind, and the roads up into the hinterland begin almost as soon as the shops thin out. That geography makes Dromana one of the Peninsula's better base towns, especially for visitors who want range without paying for a more romantic postcode.
+Dromana sits on Port Phillip Bay between Safety Beach and McCrae, at the foot of Arthurs Seat. This is where the land lifts. The beach stretches long and practical on one side, Arthurs Seat rises immediately behind, and the roads up into the hinterland begin almost as soon as the shops thin out. That geography makes Dromana one of the Peninsula's better base towns, especially for visitors who want range without paying for a more romantic postcode.
 
 **Best for:** first-timers who value practicality, families, bay-and-wine split weekends, and anyone who wants access rather than mystique.
 

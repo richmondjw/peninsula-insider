@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 /**
  * /explore/hot-springs/ - key SEO landing page, redesigned 2026-05-17.
  *
@@ -111,6 +112,7 @@ export const prerender = true;
   description="Peninsula Hot Springs vs Alba Thermal Springs: when to go, how to book, what to pair with your soak. The complete editorial guide to thermal springs on the Mornington Peninsula."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/hot-springs/"
+  ogImage={pageImage('hot-springs-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />

@@ -163,7 +163,9 @@ export const typeLabel: Record<string, string> = {
   market: 'Market',
   hotel: 'Hotel',
   villa: 'Villa',
+  suite: 'Suite',
   cottage: 'Cottage',
+  lodge: 'Lodge',
   glamping: 'Glamping',
   'farm-stay': 'Farm Stay',
   spa: 'Spa',
@@ -205,11 +207,12 @@ export function isPermanentlyClosed(entry: any): boolean {
  */
 export function isListableVenue(entry: any): boolean {
   const data = entry?.data ?? entry;
-  // Paused records with an unverified source must not appear as current recommendations.
-  return !isPermanentlyClosed(entry) && !(data?.status === 'paused' && data?.sourceStatus === 'unsourced');
+  // Any paused record is unavailable as a current recommendation. Existing
+  // paused records were already unsourced; this also covers operator-confirmed pauses.
+  return !isPermanentlyClosed(entry) && data?.status !== 'paused';
 }
 
-export const stayTypes = ['hotel', 'villa', 'cottage', 'glamping', 'farm-stay', 'spa'];
+export const stayTypes = ['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 export function isStayVenue(entry: any) {
   const data = entry?.data ?? entry;
   const type = data?.type ?? entry;
@@ -255,6 +258,8 @@ export function routeSlug(entry: any) {
    body before navigation, so reaching it from a card can present as a blank
    page when the browser does not complete the script redirect promptly. */
 const venueRouteOverrides: Record<string, string> = {
+  // Dexter is a non-public wine producer; its information page lives under Wine.
+  'dexter-wines': '/wine/dexter-wines/',
   'port-phillip-estate-restaurant': '/wine/port-phillip-estate/',
   // Day spas: not accommodation, so stayEligible:false and no /stay/ page of
   // their own (job 5, 2026-08-29). Their canonical home is the Explore
@@ -299,7 +304,7 @@ export const placesWithHero = new Set<string>([
  *
  * `distillery` borrows brewery variants where we don't have native imagery.
  *
- * Stay-related types (hotel/cottage/villa/glamping/farm-stay) intentionally
+ * Stay-related types (hotel/cottage/villa/suite/lodge/glamping/farm-stay) intentionally
  * use thematic Peninsula `article-*` scenes (vineyard rows, bay water) rather
  * than the original `category-*` files, which were stock images of tropical
  * resorts/overwater bungalows/sports cars that didn't read as Peninsula. The
@@ -386,6 +391,14 @@ const categoryVariantsByType: Record<string, string[]> = {
     'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
     'article-sunset-01.webp', 'journal-late-afternoon-walks-01.webp',
     'explore-greens-bush-01.webp', 'explore-sorrento-ocean-baths-01.webp',
+  ],
+  suite: [
+    'article-vineyard-villa-01.webp', 'article-couples-weekend-01.webp',
+    'place-cape-schanck-01.webp',
+  ],
+  lodge: [
+    'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',
+    'article-couples-weekend-01.webp',
   ],
   glamping: [
     'explore-greens-bush-01.webp', 'explore-farnsworth-track-01.webp',

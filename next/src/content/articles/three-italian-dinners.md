@@ -25,11 +25,16 @@ clusterLinks:
     href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "What is the difference between Tedesca Osteria, Ten Minutes by Tractor, and Laura at Pt Leo?"
-    answer: "Tedesca is the most honest room - one set menu, farmhouse atmosphere, wood oven, best for autumn lunches with small groups who want to be surprised. Ten Minutes by Tractor is technically ambitious fine dining with precise seasonal cooking and a strong estate wine program - best for anniversaries or when the meal should be the headline. Laura at Pt Leo is the smallest and most considered: ten courses, chef's counter, twenty seats, the top of the Peninsula's market."
+    answer: "Tedesca is the most honest room - one set menu, farmhouse atmosphere, wood oven, best for autumn lunches with small groups who want to be surprised. Ten Minutes by Tractor is technically ambitious fine dining with precise seasonal cooking and a strong estate wine program - best for anniversaries or when the meal should be the headline. Laura at Pt. Leo is a separate fine-dining restaurant within Pt. Leo Estate, with seasonal menus and a room for up to 40 guests."
   - question: "Which Peninsula restaurant should I book for a special occasion?"
-    answer: "For a serious anniversary or birthday: Laura at Pt Leo (book 6–8 weeks ahead). For first-time visitors wanting to understand the Peninsula's ceiling: Tedesca Osteria for lunch. For a milestone with fine-dining ambition: Ten Minutes by Tractor for Saturday lunch. For a group dinner: Tedesca for Friday evening if you can get a booking, Tractor for Saturday lunch."
+    answer: "For a serious anniversary or birthday: Laura at Pt Leo (check current service and reserve your date). For first-time visitors wanting to understand the Peninsula's ceiling: Tedesca Osteria for lunch. For a milestone with fine-dining ambition: Ten Minutes by Tractor for Saturday lunch. For a group dinner: Tedesca for Friday evening if you can get a booking, Tractor for Saturday lunch."
   - question: "How far in advance do I need to book Tedesca, Ten Minutes by Tractor, and Laura?"
-    answer: "All three book out at least a month ahead for weekend sittings. Laura regularly fills 6–8 weeks out. Weekday and Thursday/Friday lunches are significantly easier to secure than Saturday and Sunday. If you have flexibility on the day of the week, a Thursday or Friday autumn lunch at any of the three is better-paced and easier to book than a peak Saturday."
+    answer: "Check each restaurant for availability on your date. Laura currently serves lunch Friday to Monday and dinner on Saturday. The estate advises reservations and requires them on weekends, during peak periods and on public holidays."
+editorialProvenance:
+  method: researched
+  reviewedOn: 2026-10-01
+  checkedBy: desk
+  source: "Limited correction on 2026-10-01: Laura dining-room identity, capacity, current menu/service formats, child restrictions and qualified booking guidance; unsupported chef-counter, chef-name and advance-booking interval claims removed checked against https://www.ptleoestate.com.au/dine/laura/ and https://www.ptleoestate.com.au/faqs/. Other fields were not reverified; no whole-record fact-check date assigned."
 ---
 
 The Mornington Peninsula has four or five serious dining rooms at any given moment, and three of them do the same thing in almost entirely different ways. The question of which one you book depends on a set of variables people don't usually name out loud: the mood of the group, the time of the year, how long you are staying, and what you actually want a dining room to do to the weekend.
@@ -56,15 +61,15 @@ The cooking is technically precise in a way that reads as restraint rather than 
 
 **When not to:** if you want a relaxed long lunch with four bottles in a row. Tractor is not casual. The degustation takes three hours and the room is paced for it.
 
-## Laura at Pt. Leo: the smallest, most considered version
+## Laura at Pt. Leo: a meal inside the estate
 
-Laura is the chef's counter tucked behind the main restaurant at Pt. Leo: twenty seats, one sitting per service, a ten-course menu that costs more than the others and rewards it with an experience that sits closer to private dining than restaurant dining. Phillip Daffara is working at the top of his craft here, and the difference between Laura and the main Pt. Leo dining room is the difference between a chef cooking for the house and a chef cooking for the seat in front of him.
+Laura is the fine-dining restaurant at Pt. Leo Estate in Merricks, separate from Pt. Leo Restaurant and the Wine Terrace. The operator describes a dining room for up to 40 guests, with four-course and eight-course menus and a two-course weekday option. Check the current menus when reserving.
 
-The sensibility is Japanese more than Italian or French: restraint, precision, the sense that every element on the plate has been considered twice. The pairings reach beyond Australia into small European producers the main room doesn't run. The grounds outside the window (sculpture park, vineyards, bay view in the distance) are part of the experience.
+The setting gives the meal its shape: leave time for the estate as well as the table. Lunch is offered Friday to Monday, with Saturday dinner. Confirm the service for your date.
 
-**When to book:** a serious anniversary, a proper milestone, the dinner you plan the whole trip around.
+**When to book:** an anniversary or milestone where an unhurried meal is the centre of the visit.
 
-**When not to:** if the person you are eating with finds long tasting menus difficult, or if the price would sit badly with anyone at the table. Laura is the top of the market on the Peninsula; it suits the occasions that warrant it.
+**When not to:** for a meal with children under eight. Laura has no children's menu, high chairs or space for prams; ask the estate about its other dining rooms.
 
 ## Which one is which occasion
 
@@ -72,7 +77,7 @@ The shape of it:
 
 - **First time on the Peninsula, want to understand what all the fuss is about.** Book Tedesca for lunch.
 - **Anniversary, want fine dining with a view and a kitchen that takes itself seriously.** Book Tractor for lunch.
-- **Big birthday, want the absolute top of the Peninsula's game.** Book Laura for dinner.
+- **Big birthday, want the absolute top of the Peninsula's game.** Book Laura for Saturday dinner if that service suits your date.
 - **Long weekend with friends, want one big night out that becomes the story.** Book Tractor for lunch on Saturday and Tedesca for dinner on Friday.
 - **Couple who have been to all three already and want something different.** Book Doot Doot Doot at Jackalope for the dining-room drama, then Rare Hare for lunch the next day.
 
@@ -82,9 +87,9 @@ Pick the one that matches the weekend you are actually having, and the rest of t
 
 ## The booking discipline
 
-A practical note: all three rooms book out at least a month ahead for weekends, and Laura regularly books six to eight weeks out. Weekday lunches are always easier than weekend lunches. Thursday and Friday lunches are almost always better-paced than Saturday and Sunday.
+Check current availability with each restaurant before shaping the trip around it. For Laura, the estate advises reservations and requires them on weekends, during peak periods and on public holidays.
 
-If you only have one chance to eat on the Peninsula this year, book it for a Thursday or Friday in autumn, pick the room that matches the occasion, and let everything else arrange itself around that single decision.
+If you only have one chance to eat on the Peninsula this year, check the service that suits your date, pick the room that matches the occasion, and let everything else arrange itself around that single decision.
 
 The Peninsula has many good restaurants. These three set the ceiling, and choosing between them is less a choice about food than about what kind of weekend you want.
 

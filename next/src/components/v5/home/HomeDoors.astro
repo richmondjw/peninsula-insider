@@ -8,10 +8,11 @@
  * each hub's GuideHero (page/<hub>, fieldPath "hero"), so an editor's hub
  * hero replacement updates the door too.
  *
- * 4-across desktop, 2x2 from tablet down. Verdict lines are always
- * visible (spec 1.22 allows hover reveal; content must be visible by
- * default on touch, so we show it everywhere - no motion, no surprises).
+ * 4-across desktop, 2x2 on tablet, horizontal image-and-copy cards on
+ * phones. Every verdict line sits on a solid paper surface so CMS image
+ * changes cannot reduce text contrast.
  */
+import { pageImage } from '../../../lib/page-images';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { editableImage } from '../../../lib/inline-edit/attrs';
 
@@ -32,8 +33,8 @@ const doors = [
     href: '/stay/',
     line: 'From a weekend shack to a cliff house',
     fallback: {
-      src: '/images/sourced/venue-jackalope-hotel-01.webp',
-      alt: 'Jackalope Hotel, Merricks North vineyard at dusk',
+      src: pageImage('home-door-stay').src,
+      alt: pageImage('home-door-stay').alt,
     },
   },
   {
@@ -106,9 +107,13 @@ const resolved = await Promise.all(
                 })}
               />
             </span>
-            <span class="home-doors__scrim" aria-hidden="true"></span>
-            <span class="home-doors__label">{door.label}</span>
-            <span class="home-doors__line">{door.line}</span>
+            <span class="home-doors__copy">
+              <span class="home-doors__heading">
+                <span class="home-doors__label">{door.label}</span>
+                <span class="home-doors__arrow" aria-hidden="true">&rarr;</span>
+              </span>
+              <span class="home-doors__line">{door.line}</span>
+            </span>
           </a>
         </li>
       ))}
@@ -146,40 +151,36 @@ const resolved = await Promise.all(
     gap: var(--space-5);
   }
 
-  /* Tall rounded photo tile: image fills, dark scrim, text overlaid.
-     justify-content:flex-end pins the label and line to the foot of the
-     tile, inside the densest part of the bottom-up scrim. */
+  /* Photography and copy have distinct surfaces. Editors can replace any
+     image without changing the readability of the title or verdict line. */
   .home-doors__card {
-    position: relative;
-    isolation: isolate;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    /* aspect-ratio sets the preferred height; min-height:auto lets the card
-       grow when the verdict line wraps, so overlaid text can never collide. */
-    aspect-ratio: 3 / 4;
-    padding: var(--space-5);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
     overflow: hidden;
     /* The 16px card radius, the same corner as the event cards, the
        journal picture and the plan cards. */
     border-radius: var(--radius-m);
     text-decoration: none;
-    color: var(--white);
+    color: var(--text);
+    background: var(--white);
   }
   .home-doors__card:focus-visible {
-    outline: 2px solid var(--focus-ring-color-inverse);
+    outline: 2px solid var(--focus-ring-color);
     outline-offset: 3px;
   }
 
   .home-doors__media {
-    position: absolute;
-    inset: 0;
-    z-index: -2;
+    position: relative;
     display: block;
-    background: var(--bg-deep);
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+    background: var(--bg-alt);
   }
 
   .home-doors__media img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -191,25 +192,19 @@ const resolved = await Promise.all(
     transform: scale(1.04);
   }
 
-  /* Cover scrim canon: harbour-deep, bottom-up, at least .82 alpha across
-     the whole text zone, so the label and line hold 4.5:1 on any photo
-     (bright sky, vine leaves, the white lighthouse) without text-shadow.
-     The zone is confined to the text: the label and its reserved two-line
-     line fill the bottom ~25% of a 3:4 tile, the .82 floor holds to 32%,
-     and the tint is gone by 54%, so the top half of every photograph
-     shows in natural colour. Worst case, white paper under .82
-     harbour-deep composites to about rgb(55 84 107): 7.9:1 for white
-     label text and about 6:1 for the .92 line. */
-  .home-doors__scrim {
-    position: absolute;
-    inset: 0;
-    z-index: -1;
-    background: linear-gradient(
-      to top,
-      rgb(11 46 74 / .88) 0%,
-      rgb(11 46 74 / .82) 32%,
-      rgb(11 46 74 / 0) 54%
-    );
+  .home-doors__copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 8.5rem;
+    padding: var(--space-4) var(--space-5) var(--space-5);
+  }
+
+  .home-doors__heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-2);
   }
 
   .home-doors__label {
@@ -218,11 +213,19 @@ const resolved = await Promise.all(
     font-size: var(--fs-600);
     line-height: var(--lh-heading);
     letter-spacing: var(--ls-display);
-    color: var(--white);
+    color: var(--text);
   }
 
-  .home-doors__card:hover .home-doors__label {
-    color: var(--mint);
+  .home-doors__arrow {
+    flex: none;
+    font: var(--fw-medium) var(--fs-300)/1 var(--font-ui);
+    color: var(--accent);
+    transition: transform var(--dur-med) var(--ease-enter);
+  }
+
+  .home-doors__card:hover .home-doors__arrow,
+  .home-doors__card:focus-visible .home-doors__arrow {
+    transform: translateX(2px);
   }
 
   .home-doors__line {
@@ -230,9 +233,7 @@ const resolved = await Promise.all(
     font-family: var(--font-ui);
     font-size: var(--fs-300);
     line-height: var(--lh-dek);
-    /* Brighter than --soft-inverse: over a photo the scrim floor is .82,
-       not the solid ground that token was cut for. */
-    color: rgb(237 241 245 / .92);
+    color: var(--soft);
     max-width: 30ch;
     text-wrap: pretty;
     /* Two lines reserved on every tile, so a one-line line and a two-line
@@ -255,50 +256,41 @@ const resolved = await Promise.all(
     }
   }
 
-  /* Phones. Ordering: these max-width blocks must run largest to
-     smallest, or the 2-column tablet rule wins at 375px.
-
-     The doors stay photographic: a 2x2 grid of 4:5 photo tiles on the
-     16px card radius, text bottom-anchored over the same harbour scrim.
-     In a tile this narrow the longest line runs to three lines, so three
-     are reserved on every tile, and the label, the reserved line block
-     and the padding fill the bottom ~45%. The scrim holds its .84 floor
-     to 50% and is gone by 74%, which keeps the top quarter of each
-     photograph clear. aspect-ratio is a preferred height only (min-height
-     stays auto), so a long line grows the tile instead of being cut off. */
+  /* Phone cards read like compact editorial postcards: image to the left,
+     text on paper to the right, with no photo-dependent scrim. */
   @media (max-width: 35.94em) {
     .home-doors__grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: var(--space-3);
     }
     .home-doors__card {
-      aspect-ratio: 4 / 5;
+      grid-template-columns: 44% minmax(0, 1fr);
+      grid-template-rows: auto;
+    }
+    .home-doors__media {
+      aspect-ratio: auto;
+      min-height: 10.5rem;
+    }
+    .home-doors__copy {
+      min-height: 10.5rem;
       padding: var(--space-4);
     }
-    .home-doors__scrim {
-      background: linear-gradient(
-        to top,
-        rgb(11 46 74 / .9) 0%,
-        rgb(11 46 74 / .84) 50%,
-        rgb(11 46 74 / 0) 74%
-      );
-    }
-    .home-doors__label {
-      font-size: var(--fs-500);
-    }
     .home-doors__line {
-      font-size: var(--fs-200);
-      line-height: var(--lh-ui);
-      max-width: none;
-      min-height: calc(3em * var(--lh-ui));
+      font-size: var(--fs-300);
+      line-height: var(--lh-dek);
+      /* One postcard per row: no row baseline to hold, so no reserve. */
+      min-height: 0;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .home-doors__media img {
+    .home-doors__media img,
+    .home-doors__arrow {
       transition: none;
     }
-    .home-doors__card:hover .home-doors__media img {
+    .home-doors__card:hover .home-doors__media img,
+    .home-doors__card:hover .home-doors__arrow,
+    .home-doors__card:focus-visible .home-doors__arrow {
       transform: none;
     }
   }

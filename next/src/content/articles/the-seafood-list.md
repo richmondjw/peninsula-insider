@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-seafood-01.webp"
-  alt: "A plate of freshly shucked oysters with lemon on a weathered timber table near a pier"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp"
+  alt: "Aerial view of Sorrento at soft early light, with the ferry terminal pier reaching into the bay and the town and ocean beyond"
+  credit: "Courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Sorrento Ferry, Mornington Peninsula."
+  depicts: "Sorrento Ferry Terminal"
+  depictionStatus: "illustrative"
+  sourceUrl: "Victoria Content Hub asset 22100103, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "insider-edit"
 tags: ["eat", "seafood", "bayside", "hastings", "mornington", "sorrento", "flinders"]
 relatedVenues:

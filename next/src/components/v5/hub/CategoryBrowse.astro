@@ -6,18 +6,21 @@
  * jump link reads "Browse every place to eat" rather than repeating it
  * (`count` is still accepted so callers need not change). Pass
  * `contained={false}` when the block renders inside another .container,
- * such as HubStandfirst's compact band.
+ * such as HubStandfirst's compact band. Pass `showLinks={false}` when the
+ * page already carries its own jump and map links.
  */
 import { singularNoun } from '../../../lib/v5-filter-state';
 
-interface Props { directory: string; count?: number; noun: string; mapHref?: string; contained?: boolean; }
-const { directory, noun, mapHref = '/map/', contained = true } = Astro.props;
+interface Props { directory: string; count?: number; noun: string; mapHref?: string; contained?: boolean; showLinks?: boolean; }
+const { directory, noun, mapHref = '/map/', contained = true, showLinks = true } = Astro.props;
 ---
 <div class:list={['category-browse', { container: contained, 'category-browse--inset': !contained }]} data-category-browse>
+  {showLinks && (
   <nav class="category-browse__links" aria-label="Browse this guide">
     <a class="pi-section-link" href={`#${directory}`}>Browse every {singularNoun(noun)} <span aria-hidden="true">↓</span></a>
     <a class="pi-section-link" href={mapHref}>View the map <span aria-hidden="true">→</span></a>
   </nav>
+  )}
   <slot />
 </div>
 <style>

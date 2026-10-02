@@ -1,4 +1,5 @@
 ---
+import { schemaImage } from '../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import VenueDetailTemplate from '../../components/VenueDetailTemplate.astro';
@@ -122,6 +123,7 @@ const venueSchema = {
   '@id': `${canonical}#${schemaType}`,
   name: venue.data.name,
   description: venue.data.signature,
+  ...schemaImage(venue.data),
   address: {
     '@type': 'PostalAddress',
     streetAddress: venue.data.address,

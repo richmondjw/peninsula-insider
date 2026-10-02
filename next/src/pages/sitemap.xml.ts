@@ -45,7 +45,7 @@ const notExcluded = (e: { data: { sitemapExclude?: boolean } }) => !e.data.sitem
 // CI checkout every file's mtime is the checkout time, which reintroduces the
 // all-dates-equal bug fixed 2026-08-13.
 const SECTION_LASTMOD: Record<string, string> = {
-  eat: '2026-09-16', stay: '2026-09-16', wine: '2026-09-16', explore: '2026-09-16',
+  eat: '2026-09-16', stay: '2026-10-01', wine: '2026-09-16', explore: '2026-09-16',
   'explore/plans': '2026-08-16', journal: '2026-08-12', 'explore/places': '2026-08-14',
   'whats-on': '2026-09-16', 'dog-friendly': '2026-08-14', weddings: '2026-08-12',
   'corporate-events': '2026-08-12', fishing: '2026-08-14', boating: '2026-08-14',
@@ -68,7 +68,7 @@ const UTILITY_LASTMOD: Record<string, string> = {
 };
 const BEST_OF_LASTMOD: Record<string, string> = {
   'eat/best-restaurants': '2026-09-16', 'wine/best-cellar-doors': '2026-09-16',
-  'explore/walks': '2026-08-09', 'stay/best-accommodation': '2026-09-16',
+  'explore/walks': '2026-08-09', 'stay/best-accommodation': '2026-10-01',
 };
 const SEO_JOURNAL_LASTMOD: Record<string, string> = {
   '/journal/mornington-peninsula-in-autumn': '2026-08-14',
@@ -94,12 +94,12 @@ const EAT_CATEGORY_LASTMOD: Record<string, string> = {
   seafood: '2026-07-27', waterfront: '2026-08-07',
 };
 const STAY_CATEGORY_LASTMOD: Record<string, string> = {
-  'boutique-hotels': '2026-05-27', 'cape-schanck': '2026-06-01', 'coastal-stays': '2026-07-27',
-  cottages: '2026-08-07', 'couples-retreats': '2026-07-27', flinders: '2026-06-01',
-  glamping: '2026-07-27', 'hot-springs-accommodation': '2026-07-04', luxury: '2026-08-14',
-  mornington: '2026-06-01', 'red-hill': '2026-07-04', resorts: '2026-05-27', sorrento: '2026-06-01',
-  villas: '2026-07-04', 'vineyard-stays': '2026-07-27', 'wellness-retreats': '2026-07-27',
-  'winery-accommodation': '2026-08-14',
+  'boutique-hotels': '2026-10-01', 'cape-schanck': '2026-06-01', 'coastal-stays': '2026-10-01',
+  cottages: '2026-10-01', 'couples-retreats': '2026-10-01', flinders: '2026-06-01',
+  glamping: '2026-10-01', 'hot-springs-accommodation': '2026-07-04', luxury: '2026-10-01',
+  mornington: '2026-06-01', 'red-hill': '2026-10-01', resorts: '2026-10-01', sorrento: '2026-10-01',
+  villas: '2026-10-01', 'vineyard-stays': '2026-10-01', 'wellness-retreats': '2026-10-01',
+  'winery-accommodation': '2026-10-01',
 };
 const WINE_CATEGORY_LASTMOD: Record<string, string> = {
   'appointment-producers': '2026-08-07', balnarring: '2026-08-07', chardonnay: '2026-08-07',
@@ -248,6 +248,8 @@ export const GET: APIRoute = async () => {
   // explanatory content and keeps indexability (§4.3); /search/ never enters.
   entries.push(url('/ask', 1.0, 'weekly', '2026-07-27'));
   entries.push(url('/map', 0.7, 'weekly', '2026-08-07'));
+
+  entries.push(url('/agents', 0.4, 'monthly', '2026-09-30'));
 
   // Trust / editorial-standards pages. /methodology/, /our-approach/ and
   // /ethics/ removed 2026-07-11 - they are redirect stubs into

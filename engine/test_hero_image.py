@@ -95,6 +95,18 @@ class HeroImageTests(unittest.TestCase):
         res = hero_image.select(self.article, root=self.root, today=date(2026, 10, 1))
         self.assertEqual(res["src"], "/images/sourced/place-dromana-01.webp")
 
+    def test_stamp_records_the_placement_once(self):
+        ledger = self.root / hero_image.LEDGER
+        ledger.parent.mkdir(parents=True, exist_ok=True)
+        ledger.write_text(json.dumps({"placements": []}))
+        hero_image.stamp(self.article, root=self.root, today=date(2026, 10, 1))
+        hero_image.stamp(self.article, root=self.root, today=date(2026, 10, 1))
+        rows = json.loads(ledger.read_text())["placements"]
+        self.assertEqual(len(rows), 1)
+        self.assertEqual(rows[0]["entity"], "articles/2026-10-01-insider-picks")
+        self.assertEqual(rows[0]["assetKey"], "vv-169287")
+        self.assertEqual(rows[0]["surface"], "site")
+
     def test_stamp_carries_caption_and_provenance(self):
         hero_image.stamp(self.article, root=self.root, today=date(2026, 10, 1))
         fm, _ = hero_image.split_frontmatter(self.article.read_text())

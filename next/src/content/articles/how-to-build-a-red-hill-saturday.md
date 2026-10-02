@@ -5,10 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-08
 heroImage:
-  src: "/images/sourced/article-red-hill-saturday-01.webp"
-  alt: "A Red Hill Saturday spanning market stalls, vineyard rows, and a long lunch terrace"
-  credit: "Wikimedia Commons"
-  license: "tmp-wikimedia"
+  src: "/images/visit-victoria/vv-160356-montalto.webp"
+  alt: "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees"
+  credit: "Two Palms Australia, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Montalto Vineyard & Olive Grove, Mornington Peninsula, one of the suggested Red Hill stops."
+  depicts: "Montalto"
+  depictionStatus: "illustrative"
+  creator: "Two Palms Australia"
+  sourceUrl: "Victoria Content Hub asset 160356, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["red-hill", "wine", "long-lunch", "weekend", "all-year"]
 relatedVenues: ["montalto", "polperro", "ten-minutes-by-tractor", "lindenderry", "red-hill-bakery", "johnny-ripe", "red-hill-cheese", "foxeys-hangout", "paringa-estate", "main-ridge-estate"]
@@ -46,7 +60,7 @@ They arrive with a list of five cellar doors, two lunch possibilities, maybe a p
 
 ## The plan: start on the ridge
 
-Start with coffee at **Red Hill Bakery** or **Johnny Ripe**, or choose a market with a confirmed date. The original **Red Hill Community Market** is temporarily closed. The separate **Hill & Ridge Community Market** lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve. Check the organiser and the [Peninsula market guide](/eat/markets/) before planning around any market.
+Start with coffee at **Johnny Ripe**, or choose a market with a confirmed date. The original **Red Hill Community Market** is temporarily closed. The separate **Hill & Ridge Community Market** lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve. Check the organiser and the [Peninsula market guide](/eat/markets/) before planning around any market. The Red Hill Baker's former Red Hill shop is closed; its sole current location is in Balnarring.
 
 ## The plan: pick one cellar door, not a crawl
 

@@ -31,7 +31,7 @@ faq:
   - question: "How do I book the vault dining room at The Bay Hotel Mornington?"
     answer: "Contact The Bay Hotel directly via their website or call the venue. The vault seats a private group and requires advance booking - check availability well ahead for weekend dates. The Bay Hotel is on Main Street, Mornington."
   - question: "Where does the Cape Schanck boardwalk start and how long does it take?"
-    answer: "The boardwalk trail starts from the Cape Schanck car park off Cape Schanck Road. The full loop to the lighthouse platform and back takes around 45 minutes at a relaxed pace. Parks Victoria charges a vehicle entry fee - check their website. Dogs are not permitted on the track."
+    answer: "The boardwalk trail starts from the Cape Schanck car park off Cape Schanck Road. The walk to the lighthouse platform and back takes around 45 minutes at a relaxed pace. There is no vehicle entry fee. Dogs are not permitted; check Parks Victoria for changed conditions before travelling."
   - question: "Is National Works on Paper at Mornington Peninsula Regional Gallery free?"
     answer: "Yes, entry is free. The gallery is at Civic Reserve, Dunns Road, Mornington. Open Wednesday to Sunday, 11am–4pm. The show runs until 22 November 2026."
 ---

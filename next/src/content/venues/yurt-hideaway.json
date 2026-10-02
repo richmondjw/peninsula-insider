@@ -9,25 +9,14 @@
     "lng": 144.861
   },
   "address": "Tootgarook VIC 3941",
-  "website": "https://yurthideaway.com.au/",
-  "bookingUrl": "https://yurthideaway.com.au/",
-  "bookingProvider": "airbnb",
+  "bookingProvider": "none",
   "priceBand": "$$",
-  "signature": "A traditional 6-metre Mongolian yurt in Tootgarook, five minutes from Peninsula Hot Springs, hosted by yoga instructors, 4.97 stars.",
-  "editorNote": "Yurt Hideaway is a single 6-metre traditional Mongolian yurt on a residential block in Tootgarook, unusual enough in its format to draw attention, but the 4.97-star Airbnb rating and 100% recommendation rate across all reviews suggest it earns the visits. The hosts are yoga instructors who designed the space with specific intention: no television, private fenced courtyard, separate en-suite, outdoor kitchenette. The environment is built for rest rather than stimulation.\n\nThe proximity to Peninsula Hot Springs is the practical anchor. Five minutes by car, which means an early morning session at the springs followed by a slow return to the yurt is a realistic day structure rather than an aspiration. Three or more nights triggers a rate discount, which makes the maths work better for a proper reset rather than a single-night stop.\n\nDog policy is not confirmed, contact the hosts directly before booking if this is relevant. Book well ahead for peak season and long weekends.",
-  "whyWeGo": "The rating is the first indicator. The hosting philosophy, yoga instructors who designed a space for disconnection, not content, is the second. Five minutes from Peninsula Hot Springs is the third.",
-  "bestFor": [
-    "Wellness day",
-    "Couples",
-    "Budget stays",
-    "Solo travellers",
-    "Beach proximity"
-  ],
-  "ifOnlyOneThing": "Book for three nights or more for the rate discount, and plan an early Peninsula Hot Springs session on at least one morning.",
-  "pairWith": [
-    "Peninsula Hot Springs",
-    "Alba Thermal Springs"
-  ],
+  "signature": "Paused listing: a traditional six-metre Mongolian yurt in Tootgarook. Current booking availability has not been confirmed.",
+  "editorNote": "This listing is paused while we confirm whether Yurt Hideaway is accepting guests. On 1 October 2026 the operator's booking page returned a maintenance response, and its recently indexed text said bookings were closed until further notice. The Airbnb listing previously associated with the yurt did not open in our direct check. Do not plan a stay around this listing until the host confirms that bookings have resumed.\n\nThe operator's published description identifies one traditional six-metre Mongolian yurt in a private, fenced garden in Tootgarook. It describes a covered outdoor kitchenette and a separate bathroom a few steps from the yurt, reached along a paved path. There is no television; Wi-Fi is available. These details describe the accommodation as published, not its current availability.\n\nThe operator's published house rules say no pets and a maximum of two guests. Check the current rules directly with the host if bookings reopen.",
+  "whyWeGo": "The yurt and private garden are a distinctive format, but this listing is paused until current booking availability is confirmed.",
+  "bestFor": [],
+  "ifOnlyOneThing": "Confirm with the host that stays have resumed before planning a visit.",
+  "pairWith": [],
   "tags": {
     "mood": [
       "wellness",
@@ -43,22 +32,45 @@
   },
   "heroImage": {
     "src": "/images/sourced/place-rye-01.webp",
-    "alt": "A wide calm bay beach with footprints in the sand, boats moored offshore and a wooded shoreline curving away.",
+    "alt": "",
     "depicts": "a calm bay beach with boats moored offshore",
     "depictionStatus": "illustrative",
     "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "license": "other-licensed",
+    "decorative": true
   },
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-05-07",
   "publishedAt": "2026-05-08",
-  "sitemapExclude": false,
+  "sitemapExclude": true,
   "knownFor": [
-    "A traditional 6-metre Mongolian yurt in Tootgarook, the only one of its kind on the Peninsula",
-    "4.97-star Airbnb rating across a 100% recommendation rate",
-    "Hosted by yoga instructors, designed intentionally for rest and disconnection",
-    "Five minutes from Peninsula Hot Springs",
-    "Private fenced courtyard, separate en-suite, outdoor kitchenette"
-  ]
+    "A traditional six-metre Mongolian yurt in Tootgarook",
+    "Private, fenced garden and covered outdoor dining area",
+    "Separate bathroom a few steps from the yurt",
+    "Outdoor kitchenette and Wi-Fi, with no television"
+  ],
+  "sourceHealth": "unknown",
+  "sourceHealthCheckedOn": "2026-10-01",
+  "sourceStatus": "unsourced",
+  "sourceStatusNote": "Current booking availability is unverified. The official booking page returned HTTP 503 on 1 October 2026 and a recently indexed version stated that bookings were closed until further notice. The previously linked Airbnb listing returned HTTP 410 in a direct check. The property format and amenities remain documented in operator and Airbnb source copies, but neither is a verified working booking route today. Recheck with the host before restoring recommendations or booking links.",
+  "retiredSourceLinks": [
+    {
+      "field": "website",
+      "url": "https://yurthideaway.com.au/",
+      "verdict": "unknown",
+      "disposition": "archived",
+      "checkedOn": "2026-10-01",
+      "note": "The operator domain returned a maintenance response during this check. Link withheld from the active page pending recovery; permanent closure was not established."
+    },
+    {
+      "field": "bookingUrl",
+      "url": "https://yurthideaway.com.au/",
+      "verdict": "unknown",
+      "disposition": "archived",
+      "checkedOn": "2026-10-01",
+      "note": "The old booking destination was the site homepage, not a booking flow; the current /book-now/ page returned HTTP 503 and indexed text says bookings are closed until further notice."
+    }
+  ],
+  "status": "paused"
 }

@@ -29,7 +29,7 @@ faq:
   - question: "When does the Portsea Hotel open, and do I need to book?"
     answer: "The Portsea Hotel is on Point Nepean Road, Portsea, on the front beach. It opens daily for lunch and dinner. Deck tables fill fast on spring weekends - arrive early or check the website for bookings."
   - question: "How do I book the Point Nepean Number 2 Rifle Range track?"
-    answer: "Point Nepean National Park requires a park entry fee paid at the Portsea entrance on Point Nepean Road. No booking needed for walking. Parks Victoria recommends arriving before 10am on spring weekends to secure parking."
+    answer: "Entry to Point Nepean National Park is free. No booking is needed for walking. Optional services such as the park shuttle are charged separately. Arrive early on spring weekends to reduce parking pressure."
   - question: "Is the Red Hill Truffles season really finishing soon?"
     answer: "The truffle hunt season at Red Hill Truffles, Mornington-Flinders Road, Main Ridge, runs until 30 September 2026. Book directly at redhilltruffles.com/hunts - sessions book out, and almost nothing remains at this point in the season."
 ---
@@ -52,7 +52,7 @@ The native orchid flush along the Number 2 Rifle Range track inside Point Nepean
 
 The track runs from the Visitors Precinct toward the rifle range ruins, roughly 3km return on flat ground. Go in the morning, before the westerly picks up off Bass Strait. The light through the coastal scrub before 10am is worth the early start on its own. The orchids are gone within two weeks of the warmth arriving in October, so this weekend is the right weekend.
 
-Entry via the Portsea entrance on Point Nepean Road. Pay the Parks Victoria entry fee at the gate. Allow two to three hours return including time to stop. No booking required.
+Enter via Point Nepean Road, Portsea. Park entry is free; the optional shuttle is ticketed. Allow two to three hours return including time to stop. No booking is required for walking.
 
 Finish at the Portsea Hotel for lunch and the view earns its place twice in one morning.
 
@@ -75,5 +75,5 @@ Pair it with a stop at a Red Hill cellar door on the way back - the Pinot Noir m
 | | Name | Address | Need to Know |
 |---|---|---|---|
 | **Eat** | Portsea Hotel | Point Nepean Road, Portsea | Deck fills fast on spring weekends; arrive early |
-| **Walk** | Number 2 Rifle Range Track, Point Nepean NP | Portsea entrance, Point Nepean Road, Portsea | Parks Victoria entry fee at gate; no booking needed |
+| **Walk** | Number 2 Rifle Range Track, Point Nepean NP | Portsea entrance, Point Nepean Road, Portsea | Free park entry; optional shuttle is ticketed; no walking booking needed |
 | **Discovery** | Red Hill Truffles - last hunts | Mornington-Flinders Road, Main Ridge | Season closes 30 September; book at redhilltruffles.com/hunts |

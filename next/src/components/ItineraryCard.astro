@@ -21,7 +21,7 @@ const regionLabel = (() => {
   if (/golf|rye/.test(source)) return 'Rye';
   return 'Peninsula';
 })();
-const tripType = data.lengthNights <= 1 ? 'One-night escape' : data.lengthNights === 2 ? 'Two-night escape' : `${data.lengthNights}-night escape`;
+const tripType = data.lengthNights === 0 ? 'Day trip' : data.lengthNights === 1 ? 'One-night escape' : data.lengthNights === 2 ? 'Two-night escape' : `${data.lengthNights}-night escape`;
 const audienceLabel = String(data.audience ?? 'weekend').replace(/-/g, ' ');
 const driveLabel = data.totalDriveMinutes ? `${data.totalDriveMinutes} min drive` : null;
 const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel].filter(Boolean).join(' · ');

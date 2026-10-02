@@ -1,14 +1,16 @@
 ---
-title: "Red Hill Bakery, the Greens Bush orchid flush, and the Hill & Ridge Market"
-dek: Wood-fired sourdough in Red Hill, spider orchids along the Greens Bush track, and Saturday's Hill & Ridge Community Market at Red Hill Recreation Reserve.
+title: "The Red Hill Baker in Balnarring, the Greens Bush orchid flush, and the Hill & Ridge Market"
+dek: Artisan bread in Balnarring, spider orchids along the Greens Bush track, and Saturday's Hill & Ridge Community Market at Red Hill Recreation Reserve.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-09-28
 heroImage:
-  src: "/images/sourced/venue-red-hill-general-store-01.webp"
-  alt: "Red Hill bakery and general store, Mornington Peninsula hinterland - Red Hill Bakery"
+  src: "/images/sourced/category-bakery-02.webp"
+  alt: "Illustrative loaves of bread"
+  depicts: "an illustrative arrangement of rustic loaves"
+  depictionStatus: "illustrative"
   credit: "Peninsula Insider"
-  license: "venue-media-kit"
+  license: "other-licensed"
 format: "insider-edit"
 tags: [insider-picks, spring]
 relatedVenues: []
@@ -26,19 +28,19 @@ clusterLinks:
   - label: "Where to Eat on the Mornington Peninsula"
     href: "/journal/where-to-eat-mornington-peninsula/"
 faq:
-  - question: "When does Red Hill Bakery open on weekends?"
-    answer: "Red Hill Bakery opens early on Saturday and Sunday - aim for before 9am if you want your pick of the loaves. It's on Shoreham Road, Red Hill. No booking required."
+  - question: "Where does The Red Hill Baker operate now?"
+    answer: "The Red Hill Baker no longer operates in Red Hill. Its current bakery is at 1/3000 Frankston-Flinders Road, Balnarring, and opens daily from 6am to 4pm."
   - question: "Where do I park for the Greens Bush orchid walk?"
-    answer: "Use the Greens Bush car park off Boneo Road, Rosebud West. The main loop trails begin there. Allow 90 minutes minimum for the southern sections where the spider orchids concentrate."
+    answer: "Use Baldry's Crossing on Baldrys Road, Main Ridge. Parks Victoria lists the short circuit at 1.6 km and the long circuit at 3.6 km. Check current park conditions before travelling."
   - question: "What time does the Hill & Ridge Community Market run?"
     answer: "The Hill & Ridge Community Market runs Saturday 3 October 2026, 9am–2pm at Red Hill Recreation Reserve, Red Hill. Entry is free. Check hillandridgemarket.com.au for stall updates."
 ---
 
-## EAT - Red Hill Bakery, Red Hill
+## EAT - The Red Hill Baker, Balnarring
 
-Red Hill Bakery's wood-fired sourdough has a crust that doesn't survive the drive home intact, which is the whole point. The Saturday morning ritual here is non-negotiable for the hinterland side of the Peninsula: queue by eight-thirty, choose a loaf, add a morning pastry from the cabinet while you wait. Spring is the right season for it - the bakery's courtyard catches the early sun, and the walk from the car park through Red Hill village takes about four minutes of proper autumn-is-over air. The loaves sell out. The plain sourdough and the seeded rye go first. If you arrive after ten, you are choosing from what is left, which is a fine lesson in timing. No bookings, no fuss. Allow twenty minutes if there is a queue, which there will be on Saturday.
+The Red Hill Baker now operates only in Balnarring. The bakery's own website confirms that its former Red Hill location has closed and lists the Balnarring shop as its sole location. It remains a useful early stop for bread, pies and pastries, but it is not a Red Hill village stop and should not be planned as one.
 
-**Shoreham Road, Red Hill. Open daily, early morning until sold out. No booking required.**
+**1/3000 Frankston-Flinders Road, Balnarring. Open daily, 6am-4pm. No booking required.**
 
 Pair a Saturday bakery stop with a walk through the Red Hill Conservation Reserve, ten minutes from the car park.
 
@@ -46,9 +48,9 @@ Pair a Saturday bakery stop with a walk through the Red Hill Conservation Reserv
 
 ## EXPERIENCE - Greens Bush Orchid Flush, Mornington Peninsula National Park
 
-The Greens Bush section of Mornington Peninsula National Park is the Peninsula's best wildflower walk, and late September is the week you want to be on the track. Spider orchids - *Caladenia* species - appear in the heath understorey along the southern loop, typically from mid-September and peaking through the first week of October. They are small and easy to miss if you are walking fast, so don't walk fast. The track surface is dry by now, the vegetation is low enough that the ocean catches your eye through the banksias, and you will not share the trail with many people on a weekday. The southern loop from the Boneo Road car park covers roughly five kilometres. Give it ninety minutes at minimum, longer if the orchids are thick. Stick to the track edges - the root systems here are shallow and the plants do not recover from foot traffic.
+The Greens Bush section of Mornington Peninsula National Park is the Peninsula's best wildflower walk, and late September is the week you want to be on the track. Spider orchids - *Caladenia* species - appear in the heath understorey along the circuits, typically from mid-September and peaking through the first week of October. They are small and easy to miss if you are walking fast, so don't walk fast. The Baldrys Short Circuit is 1.6 km and the Long Circuit is 3.6 km, both departing from Baldry's Crossing on Baldrys Road. Give the longer circuit at least ninety minutes. Stick to the track edges - the root systems here are shallow and the plants do not recover from foot traffic.
 
-**Greens Bush car park, Boneo Road, Rosebud West. Free entry. No booking required. Allow 90 minutes minimum.**
+**Baldry's Crossing, Baldrys Road, Main Ridge. Free entry. No booking required. Allow 90 minutes for the long circuit and check Parks Victoria for temporary track conditions.**
 
 Combine with a stop at Flinders General Store on the way back through the village - twenty minutes south.
 
@@ -60,7 +62,7 @@ The Hill & Ridge Community Market runs this Saturday, 3 October, 9am to 2pm at R
 
 **Red Hill Recreation Reserve, Red Hill. Saturday 3 October 2026, 9am–2pm. Free entry. No booking required.**
 
-The Red Hill Bakery is a four-minute drive; combine both stops for a full Saturday morning in the hinterland.
+The bakery is in Balnarring, not Red Hill. For a Red Hill stop, use a currently operating local cafe and verify its hours before travelling.
 
 ---
 
@@ -68,6 +70,6 @@ The Red Hill Bakery is a four-minute drive; combine both stops for a full Saturd
 
 | Pick | Address | Key Detail |
 |------|---------|------------|
-| Red Hill Bakery | Shoreham Road, Red Hill | Open early, sell-out by mid-morning; no booking |
-| Greens Bush orchid walk | Boneo Road car park, Rosebud West | Spider orchid peak late September–early October; free entry |
+| The Red Hill Baker | 1/3000 Frankston-Flinders Road, Balnarring | Open daily 6am-4pm; former Red Hill location closed |
+| Greens Bush orchid walk | Baldry's Crossing, Baldrys Road, Main Ridge | Short circuit 1.6 km; long circuit 3.6 km; free entry |
 | Hill & Ridge Community Market | Red Hill Recreation Reserve, Red Hill | Saturday 3 October, 9am–2pm; free entry |

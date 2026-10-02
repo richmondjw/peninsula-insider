@@ -31,21 +31,35 @@ const EXPECTED_PROJECT = 'mvdtkgsfuhmkioygxgge';
 const map = JSON.parse(fs.readFileSync(path.join(REPO, 'ops/records/visit-victoria/entity-map.json'), 'utf8'));
 const cat = new Map(JSON.parse(fs.readFileSync(path.join(REPO, `ops/records/visit-victoria/download-${map.batch}/catalogue.json`), 'utf8')).works.map((w) => [w.assetKey, w]));
 const ledger = JSON.parse(fs.readFileSync(path.join(REPO, 'ops/records/visit-victoria/placements.json'), 'utf8'));
-const content = (entity) => JSON.parse(fs.readFileSync(path.join(REPO, 'next/src/content', `${entity}.json`), 'utf8'));
+const contentPath = (entity) => path.join(REPO, 'next/src/content', `${entity}.json`);
+const content = (entity) => JSON.parse(fs.readFileSync(contentPath(entity), 'utf8'));
+// Annotations for Works approved after the entity map (pass 3).
+const annotations = new Map(JSON.parse(fs.readFileSync(path.join(REPO, `ops/records/visit-victoria/download-${map.batch}/annotations.json`), 'utf8')).works.map((a) => [a.assetKey, a]));
 const slugifyPath = (p) => p.replace(/^\/+/, '').replace(/[^a-zA-Z0-9]+/g, '-').replace(/-+/g, '-').toLowerCase();
 const TOD = new Set(['dawn', 'morning', 'midday', 'afternoon', 'golden', 'dusk', 'night']);
+// pi_media_assets.shot_type accepts wide, establishing, detail, portrait, interior,
+// aerial, food, map, graphic. Annotation vocabularies are wider; map the rest in.
+const SHOT = { people: 'portrait', drink: 'food' };
+const SHOT_OK = new Set(['wide', 'establishing', 'detail', 'portrait', 'interior', 'aerial', 'food', 'map', 'graphic']);
+const shotType = (s) => { const t = SHOT[s] ?? s; return SHOT_OK.has(t) ? t : null; };
 const CHANNELS = ['site_plan', 'site_article', 'site_whats_on', 'site_home', 'email', 'ig_carousel', 'ig_story', 'facebook', 'linkedin'];
 const NOTE = 'Visit Victoria Work. No derivatives, no generative use, never passed to third parties; boosting an organic post that promotes Peninsula tourism is allowed, other paid use is not. See ops/records/visit-victoria.';
 
 const first = new Map();
-for (const p of ledger.placements) if (p.surface === 'site' && !first.has(p.assetKey)) first.set(p.assetKey, p);
+// The owning record for each Work: the first placement on a JSON entity (articles
+// are markdown and events borrow a venue's photograph, so they never own one).
+for (const p of ledger.placements) {
+  if (p.surface !== 'site' || first.has(p.assetKey) || !fs.existsSync(contentPath(p.entity))) continue;
+  if (p.entity.startsWith('events/')) continue;
+  first.set(p.assetKey, p);
+}
 
 const now = new Date().toISOString();
 const rows = [...first.values()].map((p) => {
-  const w = cat.get(p.assetKey); const a = map.assets[p.assetKey];
+  const w = cat.get(p.assetKey); const a = map.assets[p.assetKey] ?? annotations.get(p.assetKey);
   const [collection, slug] = p.entity.split('/');
   const j = content(p.entity);
-  const ref = j.heroImage?.src === p.src ? j.heroImage : j.gallery.find((g) => g.src === p.src);
+  const ref = j.heroImage?.src === p.src ? j.heroImage : (j.gallery ?? []).find((g) => g.src === p.src);
   const people = a.peopleVisible === 'prominent';
   return {
     asset_key: slugifyPath(p.src).slice(0, 180),
@@ -56,7 +70,7 @@ const rows = [...first.values()].map((p) => {
     place_slug: collection === 'places' ? slug : (j.place ?? null),
     orientation: w.orientation,
     aspect_ratio: w.width && w.height ? `${w.width}:${w.height}` : null,
-    shot_type: a.shotType,
+    shot_type: shotType(a.shotType),
     time_of_day: TOD.has(a.timeOfDay) ? a.timeOfDay : null,
     people_present: people,
     people_released: false,
@@ -90,7 +104,7 @@ for (let i = 0; i < rows.length; i += 100) {
     headers: { apikey: key, Authorization: `Bearer ${key}`, 'Content-Type': 'application/json', Prefer: 'resolution=merge-duplicates,return=minimal' },
     body: JSON.stringify(chunk),
   });
-  if (!res.ok) { console.error(`upsert failed at ${i}: ${res.status} ${(await res.text()).slice(0, 300)}`); process.exit(1); }
+  if (!res.ok) { console.error(`upsert failed at ${i}: ${res.status} ${(await res.text()).slice(-400)}`); process.exit(1); }
   written += chunk.length;
 }
 console.log(`upserted ${written}/${rows.length} into pi_media_assets`);

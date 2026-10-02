@@ -29,7 +29,9 @@ each, with `&amp;` entities inside `href` attributes.
 - Up to three "Also on the calendar" lines: when, place, title.
 - Poll question and options.
 - Five hosted image URLs on `https://peninsulainsider.com.au/images/email/`, with alt text,
-  at the ratios in spec §5.
+  at the ratios in spec §5. Source them from the licensed Visit Victoria library first:
+  `node ops/scripts/visit-victoria/find-images.mjs "<venue slug>" --channel email` gives the
+  file, alt text and the exact credit to print under each image.
 - Subject line and preheader.
 
 ## Procedure

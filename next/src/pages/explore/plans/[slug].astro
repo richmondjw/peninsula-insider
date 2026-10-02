@@ -11,6 +11,8 @@
  *   2. Day-N "where you sleep tonight" block at end of each day except last
  *   3. Footer rail - anchor + alt stays
  */
+import PhotoStage from '../../../components/PhotoStage.astro';
+import { photoPlan } from '../../../lib/photo-set';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
@@ -19,6 +21,7 @@ import ExperienceCard from '../../../components/ExperienceCard.astro';
 import ItineraryCard from '../../../components/ItineraryCard.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import NewsletterBlock from '../../../components/NewsletterBlock.astro';
+import PiArticleActions from '../../../components/PiArticleActions.astro';
 import PiForkPlanButton from '../../../components/PiForkPlanButton.astro';
 import { informationCheckedOn } from '../../../lib/verification-date.mjs';
 import {
@@ -43,6 +46,7 @@ import {
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { isListableVenue } from '../../../lib/editorial';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 
 const timeOfDayLabel: Record<string, string> = {
   morning: 'Morning',
@@ -82,10 +86,57 @@ const { itinerary, articleData } = Astro.props;
 
 // ─── Plans-article branch data ─────────────────────────────────────────────
 const isArticle = articleData != null;
-const ArticleContent = isArticle ? (await render(articleData)).Content : (null as any);
+const renderedArticle = isArticle ? await render(articleData) : null;
+const ArticleContent = renderedArticle?.Content ?? (null as any);
+const articleHeadings = renderedArticle?.headings ?? [];
 
 const ad = isArticle ? articleData.data : null;
 const articleSlug = isArticle ? routeSlug(articleData) : null;
+const resolvedArticleHero = isArticle ? await resolveHero('article', articleSlug!, ad, 'heroImage') : null;
+const incompleteArticleOverride = resolvedArticleHero?.override &&
+  (!resolvedArticleHero.override.alt?.trim() || !resolvedArticleHero.override.credit?.trim());
+const creditedArticleSource = ad?.heroImage?.src && ad?.heroImage?.alt?.trim() &&
+  ad?.heroImage?.credit?.trim() && ad?.heroImage?.rightsStatus === 'recorded';
+if (incompleteArticleOverride && creditedArticleSource) {
+  console.warn(`[PlanArticle] ${articleSlug} editor image lacks alt or credit; using its credited source photograph`);
+}
+const articleHero = incompleteArticleOverride && creditedArticleSource && resolvedArticleHero
+  ? { ...resolvedArticleHero, src: ad.heroImage.src, alt: ad.heroImage.alt, style: heroBackgroundStyle(ad), override: undefined }
+  : resolvedArticleHero;
+const articlePhotoCaption = articleHero?.override
+  ? articleHero.override.caption
+  : ad?.planShape === 'one-night' && ad?.heroImage?.depictionStatus === 'illustrative' && ad?.heroImage?.caption
+    ? `${ad.heroImage.caption} One of three suggested bases.`
+    : ad?.heroImage?.caption;
+const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
+const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
+const articleEyebrow = ad?.planEyebrow ??
+  (isOneNightGuide ? 'One night, well spent' : ad?.planShape === 'two-night' ? 'Two-night plan' : ad?.planShape === 'day-trip' ? 'Day plan' : (formatLabel[ad?.format] ?? 'A Peninsula plan'));
+const hasPlanQuickChoices = Boolean(ad?.planQuickChoices?.length);
+const articlePrimaryHref = isOneNightGuide ? '#choose-your-base' : hasPlanQuickChoices ? '#plan-start' : '#plan-guide';
+const articlePrimaryText = isOneNightGuide ? 'Choose your base' : hasPlanQuickChoices ? (ad?.planPrimaryAction ?? 'Explore the options') : 'Read the guide';
+const articleSecondaryHref = isOneNightGuide || hasPlanQuickChoices ? '#plan-guide' : '/explore/plans/';
+const articleSecondaryText = isOneNightGuide || hasPlanQuickChoices ? 'Read the full guide' : 'Browse all plans';
+const planNewsletterBody = isOneNightGuide
+  ? 'The Insider Note brings you independent picks and selected guides from across the Peninsula. An occasional email for your next trip.'
+  : articleSlug === 'the-couples-weekend'
+    ? 'Planning another weekend together? Get occasional independent Peninsula picks and selected guides for the next place you go, meal you book or event you catch.'
+    : articleSlug === 'the-thermal-springs-weekend'
+      ? 'For your next slower Peninsula weekend, get occasional independent picks and selected guides to places, food and things worth doing.'
+      : articleSlug === 'the-point-nepean-half-day'
+        ? 'Keep another Peninsula day out in mind with occasional independent weekend picks and selected guides from across the region.'
+        : undefined;
+const articleSectionLinks = articleHeadings
+  .filter((heading) => heading.depth === 2)
+  .map((heading) => ({ label: heading.text, href: `#${heading.slug}` }));
+const oneNightBases = isOneNightGuide ? [
+  { number: '01', place: 'Sorrento', mood: 'Town life', stay: 'InterContinental Sorrento', stayHref: '/stay/the-continental-sorrento/', dinner: 'Book dinner near the main street', sunday: 'Breakfast and Back Beach if conditions suit', prefix: 'Base one:' },
+  { number: '02', place: 'Red Hill', mood: 'Country house', stay: 'Lindenderry', stayHref: '/stay/lindenderry/', dinner: 'Book dinner on the estate', sunday: 'Slow breakfast and garden time', prefix: 'Base two:' },
+  { number: '03', place: 'Flinders', mood: 'Quiet coast', stay: 'Flinders Hotel', stayHref: '/stay/flinders-hotel/', dinner: 'Book dinner in the village', sunday: 'Breakfast and a local walk', prefix: 'Base three:' },
+].map((base) => ({
+  ...base,
+  href: `#${articleHeadings.find((heading) => heading.depth === 3 && heading.text.startsWith(base.prefix))?.slug ?? 'plan-guide'}`,
+})) : [];
 
 // Resolve related venues/experiences for article branch
 const allVenuesRaw = (await getCollection('venues')).filter(isListableVenue);
@@ -111,12 +162,30 @@ const articleFaqSchema = isArticle && ad.faq && ad.faq.length > 0 ? {
 } : null;
 
 const aCanonical = isArticle ? `https://peninsulainsider.com.au/explore/plans/${articleSlug}/` : '';
-const aOgImage = isArticle
-  ? (ad.heroImage?.src && !ad.heroImage.src.includes('placeholder') ? ad.heroImage.src : '/images/sourced/home-cover.webp')
-  : '';
+const aOgImage = isArticle ? (articleHero?.src ?? '/images/sourced/home-cover.webp') : '';
 const aBreadcrumbs = isArticle
   ? [{ label: 'Home', href: '/' }, { label: 'Plans', href: '/explore/plans/' }, { label: ad.title }]
   : [];
+const articleSchema = isArticle ? {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: ad.title,
+  description: ad.dek,
+  mainEntityOfPage: aCanonical,
+  datePublished: ad.publishedAt.toISOString().slice(0, 10),
+  author: { '@type': 'Organization', name: 'Peninsula Insider' },
+  publisher: { '@type': 'Organization', name: 'Peninsula Insider' },
+  image: aOgImage.startsWith('http') ? aOgImage : `https://peninsulainsider.com.au${aOgImage}`,
+} : null;
+const articleBreadcrumbSchema = isArticle ? {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://peninsulainsider.com.au/' },
+    { '@type': 'ListItem', position: 2, name: 'Plans', item: 'https://peninsulainsider.com.au/explore/plans/' },
+    { '@type': 'ListItem', position: 3, name: ad.title, item: aCanonical },
+  ],
+} : null;
 
 // ─── Itinerary branch data ─────────────────────────────────────────────────
 const data = isArticle ? null : itinerary.data;
@@ -125,7 +194,16 @@ const slug = isArticle ? '' : routeSlug(itinerary);
 // CMS override consult for the itinerary hero - baked at SSR so the
 // editor's uploaded image ships in the static HTML.
 const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
-const itineraryHeroOverride = itineraryOverrides?.image['hero'];
+const requestedItineraryHeroOverride = itineraryOverrides?.image['heroImage'] ?? itineraryOverrides?.image['hero'];
+const incompleteItineraryOverride = requestedItineraryHeroOverride?.src &&
+  (!requestedItineraryHeroOverride.alt?.trim() || !requestedItineraryHeroOverride.credit?.trim());
+if (incompleteItineraryOverride) {
+  console.warn('[PlanItinerary] ' + slug + ' editor image lacks alt or credit; using its credited source photographs');
+}
+const itineraryHeroOverride = incompleteItineraryOverride ? undefined : requestedItineraryHeroOverride;
+// Verified source photographs open the plan unless a complete editor image
+// replaces the hero. Keep the image, alt, caption and credit together.
+const itineraryPhotos = data ? photoPlan(data, { override: Boolean(itineraryHeroOverride?.src) }) : null;
 
 const allItineraries = isArticle ? [] : await getCollection('itineraries');
 const allVenues = isArticle ? allVenuesRaw : allVenuesRaw;
@@ -164,12 +242,8 @@ const altStaySlugs: string[] = data
   ? ((data as any).altStays ?? []).map((entry: any) => String(entry?.id ?? entry ?? '')).filter(Boolean)
   : [];
 const altStays = altStaySlugs.map((s) => venueMap.get(s)).filter(Boolean) as any[];
-const inferredAltStays = altStays.length === 0
-  ? highlightedVenues
-        .filter((v: any) => isStayVenue(v) && routeSlug(v) !== routeSlug(effectiveStay ?? { data: {}, id: '' }))
-      .slice(0, 2)
-  : [];
-const stayRail = [...altStays, ...inferredAltStays].slice(0, 2);
+// The stay rail is resolved after the day groups, so a scheduled second
+// night's accommodation never appears as an alternative.
 
 // ─── Anchor town label ─────────────────────────────────────────────────────
 const anchorTownSlug = data ? String((data as any).anchorTown?.id ?? (data as any).anchorTown ?? '') : '';
@@ -205,6 +279,49 @@ const groupedStops = dayNumbers.map((day) => {
     });
   return { day, stops };
 });
+const routePreview = groupedStops.length > 1
+  ? groupedStops.map((group, index) => ({
+      number: String(index + 1).padStart(2, '0'),
+      title: data?.dayLabels?.[index] ?? `Day ${group.day}`,
+      detail: group.stops.slice(0, 2).map((stop) => stop.label).join(' · '),
+      href: `#day-${group.day}`,
+    }))
+  : (groupedStops[0]?.stops.slice(0, 3).map((stop, index) => ({
+      number: String(index + 1).padStart(2, '0'),
+      title: stop.label,
+      detail: timeOfDayLabel[stop.timeOfDay] ?? titleize(stop.timeOfDay),
+      href: `#stop-${groupedStops[0].day}-${stop.order}`,
+    })) ?? []);
+
+// A venue can also be a dinner stop. Use the editor's explicit overnight
+// sequence when available, with the original anchor as a legacy fallback.
+if (data?.nightStays?.length && data.nightStays.length !== groupedStops.length - 1) {
+  throw new Error("[plans] " + slug + " needs one nightStays entry for every overnight day");
+}
+const overnightStays = groupedStops.slice(0, -1).map((group, index) => {
+  const ref: any = data?.nightStays?.[index];
+  const key = String(ref?.id ?? ref ?? '');
+  const explicitStay = key ? venueMap.get(key) : undefined;
+  if (key && !explicitStay) throw new Error("[plans] " + slug + " has an unavailable night stay: " + key);
+  const stay = explicitStay ?? effectiveStay;
+  return { day: group.day, stay, href: stay ? venueHref(stay) : undefined };
+});
+const scheduledStayKeys = new Set(
+  overnightStays.filter((night) => night.stay).map((night) => routeSlug(night.stay))
+);
+const scheduledOtherStays = overnightStays
+  .map((night) => night.stay)
+  .filter((stay, index, stays) => stay && routeSlug(stay) !== routeSlug(effectiveStay) &&
+    stays.findIndex((candidate) => candidate && routeSlug(candidate) === routeSlug(stay)) === index);
+const inferredAltStays = data?.nightStays?.length ? [] : highlightedVenues
+  .filter((venue: any) => isStayVenue(venue) && !scheduledStayKeys.has(routeSlug(venue)))
+  .slice(0, 2);
+const stayRail = [
+  ...scheduledOtherStays,
+  ...altStays.filter((stay: any) => !scheduledStayKeys.has(routeSlug(stay))),
+  ...inferredAltStays,
+].slice(0, 2);
+const hasMultipleStayBases = scheduledOtherStays.length > 0;
 
 // ─── Related content ──────────────────────────────────────────────────────
 const relatedArticles = articles
@@ -215,8 +332,20 @@ const relatedArticles = articles
   )
   .slice(0, 2);
 const relatedItineraries = allItineraries
-  .filter((entry: any) => routeSlug(entry) !== slug)
-  .slice(0, 4);
+  .filter((entry: any) =>
+    routeSlug(entry) !== slug &&
+    entry.data.audience === data?.audience &&
+    entry.data.lengthNights > 0 &&
+    data?.lengthNights > 0
+  )
+  .sort((a: any, b: any) => {
+    const relevance = (entry: any) =>
+      ((entry.data.theme ?? []).filter((theme: string) => (data?.theme ?? []).includes(theme)).length * 3) +
+      (entry.data.lengthNights === data?.lengthNights ? 2 : 0) +
+      (entry.data.mood === data?.mood ? 1 : 0);
+    return relevance(b) - relevance(a) || a.data.title.localeCompare(b.data.title, 'en-AU');
+  })
+  .slice(0, 3);
 
 // The same sequenced stop payload is used by the hub and detail import.
 const forkPlan = {
@@ -237,7 +366,7 @@ const themeText = data
   ? ((data as any).theme ?? []).map((t: string) => themeLabel[t] ?? t).filter(Boolean).join(' · ')
   : '';
 const occasionText = data ? (occasionLabel[(data as any).occasion ?? 'none'] || '') : '';
-const seasonText = data ? (seasonLabel[(data as any).season ?? 'year-round'] || '') : '';
+const seasonText = data ? ((data as any).bestSeasonNote || seasonLabel[(data as any).season ?? 'year-round'] || '') : '';
 const budgetText = data ? (budgetLabel[(data as any).budget ?? 'mixed'] || '') : '';
 const nightsLabel = data ? `${data.lengthNights} night${data.lengthNights === 1 ? '' : 's'}` : '';
 const durationText = duration ? durationLabel[duration] ?? duration : nightsLabel;
@@ -292,7 +421,7 @@ const breadcrumbItems = data
   : [];
 const canonical = data ? `https://peninsulainsider.com.au/explore/plans/${slug}/` : '';
 const ogImage = data
-  ? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp')
+  ? (itineraryHeroOverride?.src ?? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp'))
   : '';
 export const prerender = true;
 ---
@@ -305,6 +434,8 @@ export const prerender = true;
   canonical={aCanonical}
   ogImage={aOgImage}
 >
+  {articleSchema && <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />}
+  {articleBreadcrumbSchema && <script type="application/ld+json" set:html={JSON.stringify(articleBreadcrumbSchema)} />}
   {articleFaqSchema && <script type="application/ld+json" set:html={JSON.stringify(articleFaqSchema)} />}
 
   {/* ── 2026-05-17: Sunday-magazine redesign for section=plans articles.
@@ -320,14 +451,14 @@ export const prerender = true;
     <Breadcrumbs items={aBreadcrumbs} />
   </div>
 
-  <article class="pl-article">
+  <article class:list={['pl-article', isOneNightGuide && 'pl-article--one-night', hasPlanQuickChoices && 'pl-article--quick-choices']}>
     {/* ── Cover spread ──────────────────────────────────────────────── */}
     <header class="pl-cover" aria-label="Cover">
       <div class="pl-container pl-cover__inner">
         <div class="pl-cover__type">
-          <p class="pl-eyebrow">{formatLabel[ad.format] ?? 'A Peninsula plan'}</p>
+          <p class="pl-eyebrow">{articleEyebrow}</p>
           <h1
-            class="pl-cover__headline"
+            class:list={['pl-cover__headline', ad.title.length > 60 && 'pl-cover__headline--long', isOneNightGuide && 'pl-cover__headline--one-night', articleSlug === 'the-thermal-springs-weekend' && 'pl-cover__headline--springs-weekend']}
             {...editableText({
               entityType: 'article', entitySlug: articleSlug!, fieldPath: 'title',
               label: `${ad.title} - title`,
@@ -340,6 +471,10 @@ export const prerender = true;
               label: `${ad.title} - dek`,
             })}
           >{ad.dek}</p>
+          <div class="pl-cover__actions">
+            <a class="pl-action pl-action--primary" href={articlePrimaryHref}>{articlePrimaryText} <span aria-hidden="true">↗</span></a>
+            <a class="pl-action pl-action--quiet" href={articleSecondaryHref}>{articleSecondaryText} <span aria-hidden="true">→</span></a>
+          </div>
           <p class="pl-cover__byline">
             <span>Peninsula Insider</span>
             <span class="pl-cover__sep" aria-hidden="true">·</span>
@@ -347,47 +482,188 @@ export const prerender = true;
           </p>
         </div>
         <figure class="pl-cover__visual">
-          <div
-            class="pl-cover__image"
-            role="img"
-            aria-label={ad.heroImage.alt}
-            style={heroBackgroundStyle(ad)}
-            {...editableImage({
-              entityType: 'article', entitySlug: articleSlug!, fieldPath: 'heroImage',
-              label: `${ad.title} hero`, purpose: 'hero',
-            })}
-          ></div>
+          <div class="pl-cover__frame">
+            <img
+              class="pl-cover__image"
+              src={articleHero?.src ?? ad.heroImage.src}
+              alt={articleHero?.alt ?? ad.heroImage.alt}
+              width="1200"
+              height="960"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
+              data-pi-responsive="(max-width: 820px) calc(100vw - 3rem), 500px"
+              data-pi-requires-image-metadata="true"
+              data-pi-no-hydrate={incompleteArticleOverride && creditedArticleSource ? 'true' : undefined}
+              {...editableImage({
+                entityType: 'article', entitySlug: articleSlug!, fieldPath: 'heroImage',
+                label: `${ad.title} hero`, purpose: 'hero',
+              })}
+            />
+          </div>
+          {(articlePhotoCaption || articlePhotoCredit) && (
+            <figcaption class="pl-cover__caption">
+              {articlePhotoCaption && <span>{articlePhotoCaption}</span>}
+              {articlePhotoCredit && <span>{articlePhotoCredit}</span>}
+            </figcaption>
+          )}
         </figure>
+          <div class="pl-cover__reader-tools">
+            <PiArticleActions
+              kind="article"
+              slug={articleSlug!}
+              section="plans"
+              title={ad.title}
+              href={`/explore/plans/${articleSlug}/`}
+              dek={ad.dek}
+              imageUrl={articleHero?.src ?? ad.heroImage?.src}
+            />
+          </div>
       </div>
     </header>
 
-    {/* ── At-a-glance card - replaces "The short version" block ──────── */}
-    {ad.aiSummary && ad.aiSummary.length > 0 && (
-      <section class="pl-glance" aria-label="At a glance">
-        <div class="pl-container pl-glance__inner">
-          <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
-          <ol class="pl-glance__list">
-            {ad.aiSummary.slice(0, 5).map((item: string, i: number) => (
-              <li class="pl-glance__item">
-                <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
-                <span class="pl-glance__text">{item}</span>
-              </li>
+    {ad.planQuickChoices && ad.planQuickChoices.length > 0 && (
+      <section class="pl-decision" id="plan-start" aria-labelledby="pl-decision-title">
+        <div class="pl-container">
+          <div class="pl-decision__intro">
+            <p class="pl-eyebrow">Start here</p>
+            <h2 id="pl-decision-title">Choose a starting point</h2>
+          </div>
+          <div class="pl-decision__grid">
+            {ad.planQuickChoices.map((choice, index) => (
+              <a class="pl-decision__choice" href={choice.href}>
+                <span class="pl-decision__num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                <span class="pl-decision__copy">
+                  <strong>{choice.label}</strong>
+                  <span>{choice.detail}</span>
+                </span>
+                <span class="pl-decision__arrow" aria-hidden="true">↗</span>
+              </a>
             ))}
-          </ol>
+          </div>
+          {ad.aiSummary && ad.aiSummary.length > 0 && (
+            <details class="pl-decision__notes">
+              <summary>More planning notes <span aria-hidden="true">+</span></summary>
+              <ol>{ad.aiSummary.map((note) => <li>{note}</li>)}</ol>
+            </details>
+          )}
         </div>
       </section>
     )}
 
-    {/* ── Long-form essay - markdown content rendered in the prose
-         container, with .pl-prose scoping the typography upgrades
-         without touching the global .prose used by other surfaces. */}
-    <section class="pl-essay">
+    {/* ── At-a-glance card - replaces "The short version" block ──────── */}
+    {isOneNightGuide && (
+      <section class="pl-choices" id="choose-your-base" aria-labelledby="pl-choices-title">
+        <div class="pl-container">
+          <div class="pl-choices__head">
+            <p class="pl-eyebrow">Make one choice first</p>
+            <h2 id="pl-choices-title">Which one-night escape feels like yours?</h2>
+            <p>Keep the room, dinner and next morning in one area. The rest of the Peninsula can wait.</p>
+          </div>
+          <div class="pl-choices__grid">
+            {oneNightBases.map((base) => (
+              <div class="pl-choices__card">
+                <span class="pl-choices__num">{base.number} / 03</span>
+                <span class="pl-choices__place">{base.place}</span>
+                <span class="pl-choices__mood">{base.mood}</span>
+                <dl class="pl-choices__outline">
+                  <div><dt>Stay</dt><dd>{base.stay}</dd></div>
+                  <div><dt>Dinner</dt><dd>{base.dinner}</dd></div>
+                  <div><dt>Sunday</dt><dd>{base.sunday}</dd></div>
+                </dl>
+                <div class="pl-choices__actions">
+                  <a class="pl-choices__stay" href={base.stayHref}>Explore {base.stay} <span aria-hidden="true">↗</span></a>
+                  <a class="pl-choices__link" href={base.href}>See {base.place} plan <span aria-hidden="true">↗</span></a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {ad.aiSummary && ad.aiSummary.length > 0 && !ad.planQuickChoices?.length && (
+      <section class="pl-glance" aria-label="At a glance">
+        <div class="pl-container pl-glance__inner">
+          <p class="pl-eyebrow pl-glance__eyebrow">At a glance</p>
+          <div class="pl-glance__body">
+            <ol class="pl-glance__list">
+              {ad.aiSummary.slice(0, 3).map((item: string, i: number) => (
+                <li class="pl-glance__item">
+                  <span class="pl-glance__num">{String(i + 1).padStart(2, '0')}</span>
+                  <span class="pl-glance__text">{item}</span>
+                </li>
+              ))}
+            </ol>
+            {isOneNightGuide && (
+              <div class="pl-glance__next">
+                <p><strong>Book first:</strong> one room and one dinner near it. Confirm availability, Sunday breakfast hours, walk access and weather for your dates; add a thermal session only if it fits the route.</p>
+                <a href="/explore/plans/#build">Build your own trip <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            )}
+            {isOneNightGuide && (
+              <details class="pl-glance__more pl-glance__sources">
+                <summary>Booking and access links checked online 30 September 2026 <span aria-hidden="true">+</span></summary>
+                <p>We checked these operator and park pages for the options above:</p>
+                <ul>
+                  <li>Sorrento: <a href="https://sorrento.intercontinental.com/">InterContinental Sorrento</a>, <a href="https://thecontinentalsorrento.com.au/">The Continental precinct</a> and <a href="https://www.parks.vic.gov.au/places-to-see/sites/sorrento-back-beach">Sorrento Back Beach</a></li>
+                  <li>Red Hill: <a href="https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/">Lindenderry</a> and <a href="https://montalto.com.au/pages/cellar-door">Montalto</a></li>
+                  <li>Flinders: <a href="https://flindershotel.com.au/">Flinders Hotel</a> and <a href="https://www.flinderssourdough.com.au/">Flinders Sourdough</a></li>
+                  <li>Optional bath: <a href="https://albathermalsprings.com.au/faqs/">Alba Thermal Springs</a></li>
+                </ul>
+                <p>Hours, availability and access can change. Confirm them for your travel dates.</p>
+              </details>
+            )}
+            {ad.aiSummary.length > 3 && (
+              <details class="pl-glance__more">
+                <summary>More planning notes <span aria-hidden="true">+</span></summary>
+                <ol class="pl-glance__list pl-glance__list--more" start="4">
+                  {ad.aiSummary.slice(3, 5).map((item: string, i: number) => (
+                    <li class="pl-glance__item">
+                      <span class="pl-glance__num">{String(i + 4).padStart(2, '0')}</span>
+                      <span class="pl-glance__text">{item}</span>
+                    </li>
+                  ))}
+                </ol>
+              </details>
+            )}
+          </div>
+        </div>
+      </section>
+    )}
+
+    {/* The article keeps its editorial voice, with quick section links for readers planning on the move. */}
+    <section class="pl-essay" id="plan-guide">
       <div class="pl-container pl-essay__inner">
+        {articleSectionLinks.length > 2 && (
+          <nav class="pl-contents" aria-label="In this guide">
+            <p class="pl-eyebrow">In this guide</p>
+            <div class="pl-contents__links">
+              {articleSectionLinks.map((item) => <a href={item.href}>{item.label} <span aria-hidden="true">↗</span></a>)}
+            </div>
+          </nav>
+        )}
         <div class="prose pl-prose has-drop-cap">
           <ArticleContent />
         </div>
       </div>
     </section>
+
+    {isOneNightGuide && (
+      <section class="pl-takeaway" aria-labelledby="pl-takeaway-title">
+        <div class="pl-container pl-takeaway__inner">
+          <div>
+            <p class="pl-eyebrow">Take the trip</p>
+            <h2 id="pl-takeaway-title">One room. One dinner. One slow morning.</h2>
+            <p>Choose your area, reserve the stay and dinner, then check the current opening hours and conditions before you leave.</p>
+            <p class="pl-takeaway__follow">Want another weekend idea later? <a href="#newsletter">Get The Insider Note</a>, our occasional email with picks from across the Peninsula. <a href="/whats-on/this-weekend/archive/">Read past picks</a>.</p>
+          </div>
+          <a class="pl-action pl-action--primary" href="/explore/plans/#build">Find a plan for your trip <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    )}
+
+    {isOneNightGuide && <NewsletterBlock body={planNewsletterBody} />}
 
     {/* ── FAQ - hairline-separated open Q/A. No <details> by default;
          every question is visible because they are short and answer
@@ -449,7 +725,7 @@ export const prerender = true;
     </section>
   )}
 
-  <NewsletterBlock />
+  {!isOneNightGuide && <NewsletterBlock body={planNewsletterBody} />}
 </BaseLayout>
 ) : (
 <BaseLayout
@@ -464,11 +740,13 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
-  <Breadcrumbs items={breadcrumbItems} />
+  <div class="itinerary-detail__breadcrumb"><Breadcrumbs items={breadcrumbItems} /></div>
 
   {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
   <section class="itinerary-detail">
     <div class="container">
+      <div class="itinerary-detail__cover">
+        <div class="itinerary-detail__intro">
       <div class="itinerary-detail__meta">
         <a href="/explore/plans/" class="itinerary-detail__back">Plans</a>
         <span class="itinerary-detail__dot" aria-hidden="true"></span>
@@ -499,42 +777,186 @@ export const prerender = true;
         {data!.totalDriveMinutes && <span>About {data!.totalDriveMinutes} min driving (editorial estimate)</span>}
       </div>
 
-      {/* Hero CTA row - anchor-stay (filled, primary) + fork-to-saves (ghost,
-          secondary). One row so the two reader actions read as a pair, not
-          a stacked pile. The utility caption that used to sit beside the
-          anchor CTA and the hint paragraph that used to sit under the fork
-          button were removed 2026-05-14 - both buttons are self-evident. */}
+      {/* The stay decision and My Trip action sit together. Multi-base
+          routes lead to the full stay sequence below. */}
       <div class="itinerary-detail__cta-row">
-        {effectiveStay && effectiveStayHref && (
+        {hasMultipleStayBases ? (
+          <a class="pi-btn pi-btn--solid" href="#where-to-stay">See both stays →</a>
+        ) : effectiveStay && effectiveStayHref && (
           <a
             href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=hero`}
             class="pi-btn pi-btn--solid"
             data-event="escape_hero_anchor_stay_cta_click"
             data-itinerary={slug}
           >
-            Stay at {(effectiveStay as any).data.name} →
+            {slug === 'sorrento-off-season-weekend' ? 'Stay in Sorrento →' : 'Stay at ' + (effectiveStay as any).data.name + ' →'}
           </a>
         )}
-        <PiForkPlanButton plan={forkPlan} variant="ghost" />
+        <PiForkPlanButton plan={forkPlan} variant={effectiveStay && effectiveStayHref ? "ghost" : "solid"} />
+      </div>
+      <nav class="itinerary-detail__jumps" aria-label="On this plan">
+        <a href="#day-by-day">Day by day</a>
+        {showChecklist && <a href="#booking-checklist">Before you book</a>}
+        {(effectiveStay || stayRail.length > 0) && <a href="#where-to-stay">Where to stay</a>}
+      </nav>
+        </div>
+        <div class="itinerary-detail__cover-media">
+      {itineraryPhotos?.stage ? (
+        <div data-pi-no-hydrate={incompleteItineraryOverride ? 'true' : undefined} {...editableImage({ entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage', label: `${data!.title} hero`, purpose: 'hero' })}>
+          <PhotoStage photos={itineraryPhotos.photos} subject={data!.title} id="photos" stageCaption="caption" />
+        </div>
+      ) : (
+        <>
+          <div
+            class="itinerary-detail__hero feature__image-block feature__image-block--sand"
+            role="img"
+            aria-label={itineraryHeroOverride?.alt ?? data!.heroImage.alt}
+            data-pi-no-hydrate={incompleteItineraryOverride ? 'true' : undefined}
+            style={itineraryHeroOverride?.src
+              ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
+              : heroBackgroundStyle(data!)}
+            {...editableImage({
+              entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
+              label: `${data!.title} hero`, purpose: 'hero',
+            })}
+          >
+            <div class="itinerary-detail__hero-fog"></div>
+            <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
+          </div>
+          {(itineraryHeroOverride?.credit || data!.heroImage.credit) && (
+            <p class="itinerary-detail__image-credit">
+              {itineraryHeroOverride?.caption ?? data!.heroImage.caption ?? ''}
+              {' · '}
+              {itineraryHeroOverride?.credit ?? data!.heroImage.credit}
+            </p>
+          )}
+          {(itineraryPhotos?.photos.length ?? 0) >= 3 && <PhotoStage photos={itineraryPhotos!.photos} subject={data!.title} id="photos" variant="strip" />}
+        </>
+      )}
+        </div>
       </div>
 
-      <div
-        class="itinerary-detail__hero feature__image-block feature__image-block--sand"
-        aria-hidden="true"
-        style={itineraryHeroOverride?.src
-          ? `background-image: url('${itineraryHeroOverride.src.replace(/["\\]/g, (m: string) => `\\${m}`)}'); background-size: cover; background-position: center;`
-          : heroBackgroundStyle(data!)}
-        {...editableImage({
-          entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage',
-          label: `${data!.title} hero`, purpose: 'hero',
-        })}
-      >
-        <div class="itinerary-detail__hero-fog"></div>
-        <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
-      </div>
+      <nav class="itinerary-route" id="route-overview" aria-label="Route overview">
+        <div class="itinerary-route__heading">
+          <p class="itinerary-route__eyebrow">Your route</p>
+          <h2>{groupedStops.length === 1 ? 'A day in sequence' : `${groupedStops.length} days, one connected journey`}</h2>
+        </div>
+        <ol class="itinerary-route__list">
+          {routePreview.map((step) => (
+            <li>
+              <a href={step.href}>
+                <span class="itinerary-route__number">{step.number}</span>
+                <span class="itinerary-route__copy"><strong>{step.title}</strong><small>{step.detail}</small></span>
+                <span class="itinerary-route__arrow" aria-hidden="true">↓</span>
+              </a>
+            </li>
+          ))}
+        </ol>
+      </nav>
 
       <div class="itinerary-detail__grid">
-        <div>
+        {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
+        <aside class="facts">
+          <p class="facts__title">At a glance</p>
+          <p>Use this as a route, then confirm bookings, park access and weather for your dates. My Trip drive times cover mapped stops, excluding your journey here and home.</p>
+          <dl>
+            <dt>Duration</dt>
+            <dd>{durationText}</dd>
+
+            <dt>Best for</dt>
+            <dd>{audienceText}{occasionText ? ` · ${occasionText}` : ''}</dd>
+
+            {themeText && (
+              <>
+                <dt>Theme</dt>
+                <dd>{themeText}</dd>
+              </>
+            )}
+
+            {anchorTown && (
+              <>
+                <dt>{hasMultipleStayBases ? 'Starting base' : 'Base town'}</dt>
+                <dd>{(anchorTown as any).data.name}</dd>
+              </>
+            )}
+
+            {seasonText && (
+              <>
+                <dt>Best season</dt>
+                <dd>{seasonText}</dd>
+              </>
+            )}
+
+            {(data as any).walkingIntensity && (
+              <>
+                <dt>Walking</dt>
+                <dd>{titleize((data as any).walkingIntensity)}</dd>
+              </>
+            )}
+
+            {(data as any).drivingDistanceKm && (
+              <>
+                <dt>Driving</dt>
+                <dd>{(data as any).drivingDistanceKm} km on-Peninsula</dd>
+              </>
+            )}
+
+            {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
+              <>
+                <dt>Driving</dt>
+                <dd>About {data!.totalDriveMinutes} min (editorial estimate)</dd>
+              </>
+            )}
+
+            {hasMultipleStayBases ? overnightStays.map((night) => night.stay && night.href && (
+              <>
+                <dt>Night {night.day}</dt>
+                <dd><a href={night.href}>{(night.stay as any).data.name}</a></dd>
+              </>
+            )) : effectiveStay && effectiveStayHref && (
+              <>
+                <dt>Anchor stay</dt>
+                <dd><a href={effectiveStayHref}>{(effectiveStay as any).data.name}</a></dd>
+              </>
+            )}
+
+            {(data as any).budgetRangeAud && (
+              <>
+                <dt>Budget</dt>
+                <dd>{(data as any).budgetRangeAud}</dd>
+              </>
+            )}
+
+            {!((data as any).budgetRangeAud) && budgetText && (
+              <>
+                <dt>Budget</dt>
+                <dd>{budgetText}</dd>
+              </>
+            )}
+
+            <dt>Stops</dt>
+            <dd>{data!.stops.length} sequenced stops</dd>
+          </dl>
+
+          {effectiveStayHref ? (
+            <a
+              class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
+              href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=facts`}
+              data-event="escape_facts_anchor_stay_click"
+              data-itinerary={slug}
+            >
+              {hasMultipleStayBases ? 'See first stay →' : 'Stay here →'}
+            </a>
+          ) : (
+            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="#day-by-day">Follow the route →</a>
+          )}
+
+          {lastVerifiedLabel && (
+            <p class="facts__verified">Information checked {lastVerifiedLabel}</p>
+          )}
+        </aside>
+
+        <div class="itinerary-detail__main">
           {/* ─── 3. Editorial frame ──────────────────────────────────── */}
           {showEditorialFrame && (
             <div class="prose itinerary-detail__editor-note">
@@ -552,15 +974,21 @@ export const prerender = true;
           </div>
 
           {/* ─── 5–6. Day-by-day plan ────────────────────────────────── */}
-          <div class="stop-list">
+          <div class="stop-list" id="day-by-day">
             {groupedStops.map((group, idx) => {
               const isLastDay = idx === groupedStops.length - 1;
+              const nightStay = overnightStays[idx];
+              const nightVenue = nightStay?.stay;
+              const nightHref = nightStay?.href;
               return (
-                <section class="stop-day">
-                  <h2 class="stop-day__heading">Day {group.day}</h2>
+                <section class="stop-day" id={`day-${group.day}`}>
+                  <h2 class="stop-day__heading">
+                    <span>Day {group.day}</span>
+                    {data!.dayLabels?.[idx] && <span class="stop-day__label">{data!.dayLabels[idx]}</span>}
+                  </h2>
                   <ol class="stop-day__stops">
                     {group.stops.map((stop) => (
-                      <li class="stop-item">
+                      <li class="stop-item" id={`stop-${group.day}-${stop.order}`}>
                         <div class="stop-item__time">
                           {stop.timeRange ?? (timeOfDayLabel[stop.timeOfDay] ?? titleize(stop.timeOfDay))}
                         </div>
@@ -580,21 +1008,22 @@ export const prerender = true;
                     ))}
                   </ol>
 
-                  {/* Anchor-stay 3-placement rule, slot 2: where you sleep */}
-                  {!isLastDay && effectiveStay && effectiveStayHref && (
+                  {!isLastDay && nightVenue && nightHref && (
                     <aside class="where-you-sleep">
-                      <p class="where-you-sleep__label">Where you sleep tonight</p>
+                      <p class="where-you-sleep__label">Night {group.day} · Where you sleep</p>
                       <p class="where-you-sleep__body">
-                        {(data as any).anchorStayBlurb ??
-                          `Settle into ${(effectiveStay as any).data.name} for the night. Check the room before dinner so you can step straight into the next morning without admin.`}
+                        {idx > 0 && overnightStays[idx - 1]?.stay &&
+                          routeSlug(overnightStays[idx - 1].stay) === routeSlug(nightVenue)
+                          ? 'Return to ' + (nightVenue as any).data.name + ' for your next night. Confirm dinner separately for your date.'
+                          : 'Stay at ' + (nightVenue as any).data.name + ' tonight. Confirm check-in and dinner for your date before you travel.'}
                       </p>
                       <a
-                        href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=inflow`}
+                        href={`${nightHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=inflow`}
                         class="pi-btn pi-btn--text"
                         data-event="escape_inflow_anchor_stay_click"
                         data-itinerary={slug}
                       >
-                        See {(effectiveStay as any).data.name} →
+                        See {(nightVenue as any).data.name} →
                       </a>
                     </aside>
                   )}
@@ -653,7 +1082,7 @@ export const prerender = true;
 
           {/* ─── 9. Booking checklist ────────────────────────────────── */}
           {showChecklist && (
-            <section class="checklist">
+            <section class="checklist" id="booking-checklist">
               <h2 class="checklist__heading">Booking checklist</h2>
               <ol class="checklist__list">
                 {(data as any).bookingChecklist.map((row: any) => (
@@ -685,109 +1114,19 @@ export const prerender = true;
           )}
         </div>
 
-        {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
-        <aside class="facts">
-          <p class="facts__title">At a glance</p>
-          <p>Drive times are planning estimates. My Trip estimates only travel between mapped stops within each day, excluding your journey here, return travel, traffic and parking. Check opening times and availability directly before travelling.</p>
-          <dl>
-            <dt>Duration</dt>
-            <dd>{durationText}</dd>
 
-            <dt>Best for</dt>
-            <dd>{audienceText}{occasionText ? ` · ${occasionText}` : ''}</dd>
-
-            {themeText && (
-              <>
-                <dt>Theme</dt>
-                <dd>{themeText}</dd>
-              </>
-            )}
-
-            {anchorTown && (
-              <>
-                <dt>Base town</dt>
-                <dd>{(anchorTown as any).data.name}</dd>
-              </>
-            )}
-
-            <dt>Best season</dt>
-            <dd>{seasonText}</dd>
-
-            {(data as any).walkingIntensity && (
-              <>
-                <dt>Walking</dt>
-                <dd>{titleize((data as any).walkingIntensity)}</dd>
-              </>
-            )}
-
-            {(data as any).drivingDistanceKm && (
-              <>
-                <dt>Driving</dt>
-                <dd>{(data as any).drivingDistanceKm} km on-Peninsula</dd>
-              </>
-            )}
-
-            {!(data as any).drivingDistanceKm && data!.totalDriveMinutes && (
-              <>
-                <dt>Driving</dt>
-                <dd>About {data!.totalDriveMinutes} min (editorial estimate)</dd>
-              </>
-            )}
-
-            {effectiveStay && effectiveStayHref && (
-              <>
-                <dt>Anchor stay</dt>
-                <dd><a href={effectiveStayHref}>{(effectiveStay as any).data.name}</a></dd>
-              </>
-            )}
-
-            {(data as any).budgetRangeAud && (
-              <>
-                <dt>Budget</dt>
-                <dd>{(data as any).budgetRangeAud}</dd>
-              </>
-            )}
-
-            {!((data as any).budgetRangeAud) && budgetText && (
-              <>
-                <dt>Budget</dt>
-                <dd>{budgetText}</dd>
-              </>
-            )}
-
-            <dt>Stops</dt>
-            <dd>{data!.stops.length} sequenced stops</dd>
-          </dl>
-
-          {effectiveStayHref ? (
-            <a
-              class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
-              href={`${effectiveStayHref}?utm_source=peninsula-insider&utm_medium=escape&utm_campaign=${slug}&utm_content=facts`}
-              data-event="escape_facts_anchor_stay_click"
-              data-itinerary={slug}
-            >
-              Stay here →
-            </a>
-          ) : (
-            <a class="facts__cta pi-btn pi-btn--ghost pi-btn--block" href="/stay/">Choose the stay</a>
-          )}
-
-          {lastVerifiedLabel && (
-            <p class="facts__verified">Information checked {lastVerifiedLabel}</p>
-          )}
-        </aside>
       </div>
     </div>
   </section>
 
-  {/* ─── 9b. Where to stay (anchor + alts) - also slot 3 of the 3-placement rule */}
+  {/* ─── 9b. The scheduled stay or stays, followed by any alternatives */}
   {(effectiveStay || stayRail.length > 0) && (
-    <section class="venues">
+    <section class="venues" id="where-to-stay">
       <div class="container">
         <div class="venues__header">
           <div>
             <p class="label label--accent">Sleep here</p>
-            <h2 class="venues__title">Stays that anchor this escape properly</h2>
+            <h2 class="venues__title">{hasMultipleStayBases ? 'Your two overnight bases' : 'Your base for this escape'}</h2>
           </div>
           <a href="/stay/" class="venues__link">All stays →</a>
         </div>
@@ -842,7 +1181,7 @@ export const prerender = true;
         <div class="venues__header">
           <div>
             <p class="label label--accent">Try another shape</p>
-            <h2 class="venues__title">More escape plans from the rebuild</h2>
+            <h2 class="venues__title">More ways to explore the Peninsula</h2>
           </div>
           <a href="/explore/plans/" class="venues__link">All plans →</a>
         </div>
@@ -885,42 +1224,45 @@ export const prerender = true;
     font-weight: 600;
     letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.7);
+    color: rgba(20, 32, 42, 0.7);
     margin: 0 0 1.5rem;
   }
 
   /* ── Cover spread ─────────────────────────────────────────────── */
   .pl-cover {
-    background: #FFFFFF;
-    padding: clamp(2rem, 4vw, 3.5rem) 0 clamp(4rem, 8vw, 7.5rem);
+    background: #F2EFEA;
+    padding: clamp(2.25rem, 4vw, 3.5rem) 0 clamp(3rem, 6vw, 5.5rem);
   }
   .pl-cover__inner {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(3rem, 7vw, 7rem);
-    align-items: start;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: clamp(2.5rem, 5vw, 5.25rem);
+    align-items: center;
   }
-  .pl-cover__type { padding-top: clamp(0.5rem, 2vw, 2rem); }
+  .pl-cover__type { padding-block: clamp(0.5rem, 2vw, 2rem); }
   .pl-cover__headline {
     font-family: var(--font-display);
-    font-size: clamp(2.4rem, 5.2vw, 4.6rem);
-    font-weight: 500;
-    line-height: 1.02;
-    letter-spacing: -0.018em;
-    color: #171413;
-    margin: 0 0 1.75rem;
-    max-width: 16ch;
+    font-size: clamp(2.45rem, 4.5vw, 4.35rem);
+    font-weight: 700;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    color: #0B2E4A;
+    margin: 0 0 1.25rem;
+    max-width: 18ch;
     text-wrap: balance;
   }
+  .pl-cover__headline--long { font-size: clamp(2.2rem, 3.35vw, 3.3rem); max-width: 23ch; }
+  @media (min-width: 821px) { .pl-cover__headline.pl-cover__headline--one-night { font-size: clamp(2.5rem, 4vw, 3.75rem); } }
+  @media (min-width: 821px) { .pl-cover__headline.pl-cover__headline--springs-weekend { font-size: clamp(2.5rem, 4.15vw, 3.5rem); } }
   .pl-cover__headline em { font-style: normal; font-weight: 500; }
   .pl-cover__dek {
-    font-family: var(--font-display);
+    font-family: var(--font-ui);
     font-style: normal;
-    font-size: clamp(1.15rem, 1.5vw, 1.35rem);
-    line-height: 1.55;
-    color: rgba(23, 20, 19, 0.78);
-    margin: 0 0 2rem;
-    max-width: 42ch;
+    font-size: clamp(1.12rem, 1.45vw, 1.3rem);
+    line-height: 1.5;
+    color: #314858;
+    margin: 0 0 1.65rem;
+    max-width: 43ch;
   }
   .pl-cover__byline {
     font-family: var(--font-ui);
@@ -928,36 +1270,84 @@ export const prerender = true;
     font-weight: 500;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.55);
+    color: #455965;
     margin: 0;
     display: flex;
     align-items: center;
     gap: 0.6rem;
     flex-wrap: wrap;
   }
-  .pl-cover__sep { color: rgba(23, 20, 19, 0.3); }
-  .pl-cover__visual {
-    margin: 0;
-    aspect-ratio: 4 / 5;
-    overflow: hidden;
-  }
+  .pl-cover__sep { color: rgba(20, 32, 42, 0.3); }
+  .pl-cover__reader-tools { grid-column: 2; margin-top: 0.2rem; padding-top: 0.65rem; border-top: 1px solid rgba(11, 46, 74, 0.18); }
+  .pl-cover__reader-tools .pi-article-actions { display: flex; flex-wrap: wrap; gap: 0.55rem; width: 100%; }
+  .pl-cover__reader-tools .pi-article-actions__hint { margin-right: auto; white-space: nowrap; color: #455965; }
+  .pl-cover__reader-tools .text-scale { padding-left: 0.4rem; border-left: 1px solid rgba(11, 46, 74, 0.18); }
+  .pl-cover__visual { margin: 0; }
+  .pl-cover__frame { aspect-ratio: 5 / 4; overflow: hidden; background: #D7E3E9; }
   .pl-cover__image {
+    display: block;
     width: 100%;
     height: 100%;
-    background-size: cover;
-    background-position: center;
-    background-color: #d8ece7;
+    object-fit: cover;
+    object-position: center;
     transform: scale(1.01);
     transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
   }
   .pl-cover__visual:hover .pl-cover__image { transform: scale(1.04); }
+  .pl-cover__caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.35rem 1.5rem;
+    flex-wrap: wrap;
+    padding-top: 0.65rem;
+    font: 500 0.72rem/1.4 var(--font-ui);
+    color: #49606D;
+  }
+  .pl-cover__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.7rem 1.2rem; margin: 0 0 1.6rem; }
+  .pl-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.7rem;
+    min-height: 44px;
+    padding: 0.75rem 1rem;
+    font: 700 0.86rem/1.2 var(--font-ui);
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+  }
+  .pl-action:hover { transform: translateY(-2px); }
+  .pl-action--primary { background: #0B2E4A; color: #FFFFFF; border: 1px solid #0B2E4A; border-radius: 5px; }
+  .pl-action--primary:hover { background: #10527E; color: #FFFFFF; }
+  .pl-action--quiet { color: #0B2E4A; border-bottom: 1px solid #0B2E4A; }
+  .pl-action--quiet:hover { color: #10527E; }
+
+  /* ── A reader's first choice on service guides ────────────── */
+  .pl-decision { background: #FFFFFF; padding: clamp(2rem, 4vw, 3rem) 0; border-bottom: 1px solid #DCE3E5; scroll-margin-top: 7rem; }
+  .pl-decision__intro { margin-bottom: 1.4rem; }
+  .pl-decision__intro .pl-eyebrow { margin-bottom: .4rem; }
+  .pl-decision__intro h2 { margin: 0; font: 600 clamp(1.55rem, 2.3vw, 2rem)/1.16 var(--font-display); color: #0B2E4A; letter-spacing: -.02em; }
+  .pl-decision__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); gap: 1rem; }
+  .pl-decision__choice { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) auto; align-items: start; gap: .7rem; min-height: 7.5rem; padding: 1rem .15rem; border-top: 1px solid #BACBD1; color: #14202A; text-decoration: none; }
+  .pl-decision__choice:hover .pl-decision__arrow { transform: translate(2px, -2px); }
+  .pl-decision__choice:focus-visible, .pl-decision__notes summary:focus-visible { outline: 3px solid #10527E; outline-offset: 3px; }
+  .pl-decision__num { padding-top: .25rem; font: 700 .67rem/1.3 var(--font-ui); letter-spacing: .1em; color: #10527E; }
+  .pl-decision__copy { display: grid; gap: .4rem; }
+  .pl-decision__copy strong { font: 600 1.02rem/1.3 var(--font-display); color: #0B2E4A; }
+  .pl-decision__copy > span { font: 400 .92rem/1.48 var(--font-ui); color: #3E5361; }
+  .pl-decision__arrow { color: #10527E; font-size: 1.1rem; transition: transform .2s ease; }
+  .pl-decision__notes { margin-top: .75rem; border-top: 1px solid #DCE3E5; }
+  .pl-decision__notes summary { display: flex; align-items: center; justify-content: space-between; min-height: 44px; color: #10527E; cursor: pointer; font: 700 .85rem/1.3 var(--font-ui); list-style: none; }
+  .pl-decision__notes summary::-webkit-details-marker { display: none; }
+  .pl-decision__notes[open] summary span { transform: rotate(45deg); }
+  .pl-decision__notes ol { margin: .25rem 0 0; padding: 0 0 0 1.3rem; columns: 2; column-gap: 2rem; }
+  .pl-decision__notes li { break-inside: avoid; margin: 0 0 .65rem; font: 400 .9rem/1.5 var(--font-ui); color: #3E5361; }
 
   /* ── At-a-glance card ────────────────────────────────────────── */
   .pl-glance {
-    background: #F6F1E8;
+    background: #F2EFEA;
     padding: clamp(3rem, 6vw, 5.5rem) 0;
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
-    border-bottom: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-glance__inner {
     display: grid;
@@ -966,56 +1356,76 @@ export const prerender = true;
     align-items: start;
   }
   .pl-glance__eyebrow { margin: 0; padding-top: 0.4rem; }
+  .pl-glance__body { min-width: 0; }
   .pl-glance__list {
     margin: 0;
     padding: 0;
     list-style: none;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(1.5rem, 3vw, 2.5rem) clamp(2rem, 4vw, 3.5rem);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.2rem;
   }
+  .pl-glance__list--more { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 1.2rem; }
+  .pl-glance__more { margin-top: 1.4rem; border-top: 1px solid rgba(20, 32, 42, 0.18); }
+  .pl-glance__more summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 44px; cursor: pointer; color: #10527E; font: 700 .84rem/1.3 var(--font-ui); list-style: none; }
+  .pl-glance__more summary::-webkit-details-marker { display: none; }
+  .pl-glance__more[open] summary span { transform: rotate(45deg); }
+  .pl-glance__sources p, .pl-glance__sources li { font: 400 .86rem/1.55 var(--font-ui); color: #3E5361; }
+  .pl-glance__sources p { margin: .45rem 0 .65rem; }
+  .pl-glance__sources ul { margin: 0 0 .65rem; padding-left: 1.3rem; }
+  .pl-glance__sources li { margin: .3rem 0; }
+  .pl-glance__sources a { color: #10527E; text-underline-offset: .18em; }
+  .pl-glance__sources a:focus-visible { outline: 3px solid #10527E; outline-offset: 2px; }
   .pl-glance__item {
     display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1.25rem;
-    align-items: baseline;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    align-content: start;
+    border-top: 1px solid rgba(20, 32, 42, 0.18);
+    padding-top: 1rem;
   }
   .pl-glance__num {
     font-family: var(--font-ui);
     font-size: 0.66rem;
     font-weight: 600;
     letter-spacing: 0.16em;
-    color: #26997e;
+    color: #10527E;
   }
   .pl-glance__text {
-    font-family: var(--font-display);
-    font-size: clamp(1.02rem, 1.15vw, 1.12rem);
+    font-family: var(--font-ui);
+    font-size: clamp(1.02rem, 1.12vw, 1.1rem);
     line-height: 1.55;
-    color: rgba(23, 20, 19, 0.82);
+    color: rgba(20, 32, 42, 0.82);
   }
 
   /* ── Essay typography ────────────────────────────────────────── */
+  .pl-glance__next { margin-top: 1.5rem; border-top: 1px solid rgba(20, 32, 42, 0.18); padding-top: 1rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .6rem 1.5rem; }
+  .pl-glance__next p { margin: 0; max-width: 55ch; font: 400 .92rem/1.5 var(--font-ui); color: #243746; }
+  .pl-glance__next strong { color: #0B2E4A; }
+  .pl-glance__next a { display: inline-flex; align-items: center; min-height: 44px; gap: .35rem; color: #10527E; font: 700 .84rem/1.3 var(--font-ui); text-underline-offset: .2em; }
   .pl-essay {
     background: #FFFFFF;
-    padding: clamp(4rem, 8vw, 7rem) 0 clamp(3rem, 6vw, 5rem);
+    padding: clamp(3rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem);
+    scroll-margin-top: 7rem;
   }
   .pl-essay__inner { display: block; }
   .pl-prose {
     max-width: 36rem;
     margin: 0 auto;
-    font-family: var(--font-display);
-    font-size: clamp(1.15rem, 1.25vw, 1.22rem);
-    line-height: 1.7;
-    color: #2A211B;
+    font-family: var(--font-ui);
+    font-size: clamp(1.08rem, 1.2vw, 1.18rem);
+    line-height: 1.72;
+    color: #243746;
     font-weight: 400;
   }
+  .pl-prose h2[id], .pl-prose h3[id] { scroll-margin-top: 7rem; }
   .pl-prose p { margin: 0 0 1.25rem; }
   .pl-prose h2 {
     font-family: var(--font-display);
     font-size: clamp(1.85rem, 2.8vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
-    color: #171413;
+    color: #14202A;
     letter-spacing: -0.012em;
     margin: clamp(3rem, 5vw, 4.5rem) 0 1.25rem;
     max-width: 24ch;
@@ -1025,20 +1435,24 @@ export const prerender = true;
     font-family: var(--font-display);
     font-size: clamp(1.4rem, 1.8vw, 1.6rem);
     font-weight: 500;
-    color: #171413;
+    color: #14202A;
     margin: 2.5rem 0 1rem;
   }
-  .pl-prose strong { font-weight: 600; color: #171413; }
+  .pl-prose strong { font-weight: 600; color: #14202A; }
   .pl-prose em { font-style: normal; }
   .pl-prose a {
-    color: #171413;
+    color: #14202A;
     text-decoration: none;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.35);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.35);
     transition: color 0.2s ease, border-color 0.2s ease;
   }
   .pl-prose a:hover {
-    color: #26997e;
-    border-bottom-color: #26997e;
+    color: #10527E;
+    border-bottom-color: #10527E;
+  }
+  .pl-prose a:focus-visible, .pl-contents a:focus-visible, .pl-choices__actions a:focus-visible, .pl-action:focus-visible {
+    outline: 3px solid #10527E;
+    outline-offset: 3px;
   }
   .pl-prose blockquote {
     border-left: none;
@@ -1048,7 +1462,7 @@ export const prerender = true;
     font-style: normal;
     font-size: clamp(1.4rem, 2vw, 1.65rem);
     line-height: 1.45;
-    color: rgba(23, 20, 19, 0.78);
+    color: rgba(20, 32, 42, 0.78);
     text-align: center;
     max-width: 28ch;
     margin-inline: auto;
@@ -1065,7 +1479,7 @@ export const prerender = true;
   /* Drop cap upgrade - slightly larger to match the heavier serif body */
   .pl-prose.has-drop-cap > p:first-of-type::first-letter {
     font-size: 5.4em;
-    color: #171413;
+    color: #14202A;
     font-weight: 500;
     padding: 0.14em 0.18em 0 0;
   }
@@ -1075,7 +1489,7 @@ export const prerender = true;
     font-family: var(--font-ui);
     font-size: 0.95rem;
     line-height: 1.55;
-    color: #2A211B;
+    color: #243746;
     margin: 2rem 0 2.75rem;
     border-collapse: collapse;
     width: 100%;
@@ -1086,13 +1500,13 @@ export const prerender = true;
     font-size: 0.66rem;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(23, 20, 19, 0.65);
+    color: rgba(20, 32, 42, 0.65);
     padding: 0.4rem 1rem 0.85rem;
-    border-bottom: 1.5px solid #171413;
+    border-bottom: 1.5px solid #14202A;
   }
   .pl-prose table tbody td {
     padding: 0.95rem 1rem;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.1);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.1);
     vertical-align: top;
   }
   .pl-prose table thead th:first-child,
@@ -1100,11 +1514,45 @@ export const prerender = true;
   .pl-prose table thead th:last-child,
   .pl-prose table tbody td:last-child { padding-right: 0; }
 
+  .pl-choices { background: #0B2E4A; color: #FFFFFF; padding: clamp(3.5rem, 6vw, 5rem) 0; scroll-margin-top: 7rem; }
+  .pl-choices .pl-eyebrow { color: #F5C177; margin-bottom: 0.85rem; }
+  .pl-choices__head { max-width: 42rem; margin-bottom: 2rem; }
+  .pl-choices__head h2 { font: 700 clamp(2rem, 3vw, 2.7rem)/1.13 var(--font-display); color: #FFFFFF; letter-spacing: -.025em; margin: 0 0 1rem; text-wrap: balance; }
+  .pl-choices__head p:last-child { font: 400 1.1rem/1.55 var(--font-ui); color: #D9E6EC; max-width: 55ch; margin: 0; }
+  .pl-choices__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.8rem; }
+  .pl-choices__card { display: flex; flex-direction: column; min-height: 20rem; padding: clamp(1.4rem, 2vw, 2rem); color: #14202A; background: #F2EFEA; }
+  .pl-choices__num { font: 700 .68rem/1 var(--font-ui); letter-spacing: .16em; color: #10527E; margin-bottom: 1.2rem; }
+  .pl-choices__place { font: 700 clamp(1.45rem, 2.2vw, 1.9rem)/1.16 var(--font-display); margin-bottom: .35rem; }
+  .pl-choices__mood { font: 700 .8rem/1.3 var(--font-ui); color: #8B561C; text-transform: uppercase; letter-spacing: .1em; }
+  .pl-choices__outline { margin: 1.15rem 0 1.25rem; border-top: 1px solid #B9C6C8; }
+  .pl-choices__outline div { display: grid; grid-template-columns: 4.2rem minmax(0, 1fr); gap: .5rem; padding: .48rem 0; border-bottom: 1px solid #D0D8D8; }
+  .pl-choices__outline dt { font: 700 .72rem/1.4 var(--font-ui); text-transform: uppercase; letter-spacing: .08em; color: #10527E; }
+  .pl-choices__outline dd { margin: 0; font: 400 .88rem/1.4 var(--font-ui); color: #243746; }
+  .pl-choices__actions { display: flex; flex-wrap: wrap; align-items: center; gap: .25rem .8rem; margin-top: auto; }
+  .pl-choices__actions a { display: inline-flex; align-items: center; min-height: 44px; gap: .3rem; font: 700 .83rem/1.3 var(--font-ui); text-underline-offset: .18em; }
+  .pl-choices__stay { color: #0B2E4A; }
+  .pl-choices__link { color: #10527E; }
+  .pl-contents { max-width: 50rem; margin: 0 auto 3.5rem; border-top: 1px solid #CFD9DE; border-bottom: 1px solid #CFD9DE; padding: 1.1rem 0 1.3rem; }
+  .pl-contents .pl-eyebrow { margin: 0 0 .65rem; }
+  .pl-contents__links { display: flex; flex-wrap: wrap; gap: .2rem 1.3rem; }
+  .pl-article--quick-choices .pl-contents__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .15rem 1.5rem; }
+  .pl-article--quick-choices .pl-contents__links a { border-top: 1px solid #E2E8E9; padding-block: .35rem; }
+  .pl-contents a { display: inline-flex; align-items: center; min-height: 44px; gap: .25rem; font: 700 .83rem/1.3 var(--font-ui); color: #10527E; text-decoration: none; }
+  .pl-contents a:hover { text-decoration: underline; }
+  .pl-takeaway { background: #F2EFEA; padding: clamp(2.8rem, 5vw, 4rem) 0; }
+  .pl-takeaway__inner { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem 3rem; }
+  .pl-takeaway .pl-eyebrow { margin-bottom: .7rem; color: #10527E; }
+  .pl-takeaway h2 { font: 700 clamp(1.7rem, 2.5vw, 2.25rem)/1.15 var(--font-display); color: #0B2E4A; letter-spacing: -.02em; margin: 0 0 .65rem; max-width: 24ch; }
+  .pl-takeaway p:not(.pl-eyebrow) { font: 400 1rem/1.55 var(--font-ui); color: #3E5361; margin: 0; max-width: 58ch; }
+  .pl-takeaway__follow { margin-top: .8rem !important; }
+  .pl-takeaway__follow a { color: #10527E; font-weight: 700; text-underline-offset: .2em; }
+  .pl-takeaway .pl-action { flex: 0 0 auto; }
+
   /* ── FAQ ─────────────────────────────────────────────────────── */
   .pl-faq {
     background: #FFFFFF;
     padding: clamp(3.5rem, 7vw, 6.5rem) 0 clamp(4rem, 8vw, 7rem);
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-faq__inner {
     display: grid;
@@ -1118,7 +1566,7 @@ export const prerender = true;
     font-size: clamp(1.85rem, 2.6vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
-    color: #171413;
+    color: #14202A;
     letter-spacing: -0.012em;
     margin: 0;
     max-width: 14ch;
@@ -1126,31 +1574,31 @@ export const prerender = true;
   .pl-faq__list { margin: 0; padding: 0; }
   .pl-faq__item {
     padding: clamp(1.5rem, 2.5vw, 2rem) 0;
-    border-bottom: 1px solid rgba(23, 20, 19, 0.1);
+    border-bottom: 1px solid rgba(20, 32, 42, 0.1);
   }
-  .pl-faq__item:first-child { border-top: 1px solid rgba(23, 20, 19, 0.1); }
+  .pl-faq__item:first-child { border-top: 1px solid rgba(20, 32, 42, 0.1); }
   .pl-faq__q {
     font-family: var(--font-display);
     font-size: clamp(1.2rem, 1.5vw, 1.4rem);
     font-weight: 500;
     line-height: 1.25;
-    color: #171413;
+    color: #14202A;
     margin: 0 0 0.85rem;
   }
   .pl-faq__a {
     font-family: var(--font-display);
     font-size: clamp(1.05rem, 1.15vw, 1.12rem);
     line-height: 1.6;
-    color: rgba(23, 20, 19, 0.78);
+    color: rgba(20, 32, 42, 0.78);
     margin: 0;
     max-width: 56ch;
   }
 
   /* ── Cluster rail ────────────────────────────────────────────── */
   .pl-cluster {
-    background: #F6F1E8;
+    background: #F2EFEA;
     padding: clamp(3rem, 6vw, 5.5rem) 0;
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-cluster__inner {
     display: grid;
@@ -1161,9 +1609,9 @@ export const prerender = true;
   .pl-cluster__list { margin: 0; padding: 0; list-style: none; }
   .pl-cluster__item {
     padding: 0;
-    border-top: 1px solid rgba(23, 20, 19, 0.12);
+    border-top: 1px solid rgba(20, 32, 42, 0.12);
   }
-  .pl-cluster__item:last-child { border-bottom: 1px solid rgba(23, 20, 19, 0.12); }
+  .pl-cluster__item:last-child { border-bottom: 1px solid rgba(20, 32, 42, 0.12); }
   .pl-cluster__link {
     display: flex;
     align-items: baseline;
@@ -1173,23 +1621,23 @@ export const prerender = true;
     font-family: var(--font-display);
     font-size: clamp(1.15rem, 1.4vw, 1.3rem);
     font-weight: 500;
-    color: #171413;
+    color: #14202A;
     text-decoration: none;
-    transition: color 0.2s ease, padding-left 0.25s ease;
-  }
-  .pl-cluster__link:hover { color: #26997e; padding-left: 0.4rem; }
-  .pl-cluster__arrow {
-    font-family: var(--font-ui);
-    color: rgba(23, 20, 19, 0.45);
     transition: color 0.2s ease, transform 0.25s ease;
   }
-  .pl-cluster__link:hover .pl-cluster__arrow { color: #26997e; transform: translateX(3px); }
+  .pl-cluster__link:hover { color: #10527E; transform: translateX(0.25rem); }
+  .pl-cluster__arrow {
+    font-family: var(--font-ui);
+    color: rgba(20, 32, 42, 0.45);
+    transition: color 0.2s ease, transform 0.25s ease;
+  }
+  .pl-cluster__link:hover .pl-cluster__arrow { color: #10527E; transform: translateX(3px); }
 
   /* ── Venues ──────────────────────────────────────────────────── */
   .pl-venues {
     background: #FFFFFF;
     padding: clamp(4rem, 7vw, 6rem) 0 clamp(4rem, 8vw, 7rem);
-    border-top: 1px solid rgba(23, 20, 19, 0.08);
+    border-top: 1px solid rgba(20, 32, 42, 0.08);
   }
   .pl-venues__head {
     text-align: center;
@@ -1201,7 +1649,7 @@ export const prerender = true;
     font-size: clamp(1.85rem, 2.6vw, 2.4rem);
     font-weight: 500;
     line-height: 1.1;
-    color: #171413;
+    color: #14202A;
     letter-spacing: -0.012em;
     margin: 0 auto;
     max-width: 22ch;
@@ -1217,16 +1665,214 @@ export const prerender = true;
     .pl-glance__inner,
     .pl-faq__inner,
     .pl-cluster__inner { grid-template-columns: 1fr; gap: 1.5rem; }
-    .pl-glance__list { grid-template-columns: 1fr; }
+    .pl-glance__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pl-choices__grid { grid-template-columns: 1fr; }
+    .pl-choices__card { min-height: 0; }
+    .pl-takeaway__inner { display: block; }
+    .pl-takeaway .pl-action { margin-top: 1.4rem; }
     .pl-venues__grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 820px) {
     .pl-cover__inner { grid-template-columns: 1fr; gap: 2rem; }
-    .pl-cover__visual { aspect-ratio: 4 / 3; }
+    .pl-cover__reader-tools { grid-column: 1; margin-top: -1rem; }
+    .pl-cover__frame { aspect-ratio: 4 / 3; }
     .pl-cover__headline { font-size: clamp(2rem, 7.5vw, 2.6rem); max-width: none; }
   }
   @media (max-width: 600px) {
     .pl-venues__grid { grid-template-columns: 1fr; }
-    .pl-prose { font-size: 1.08rem; line-height: 1.65; }
+    .pl-glance__list { grid-template-columns: 1fr; }
+    .pl-cover__actions { align-items: stretch; }
+    .pl-cover__actions .pl-action--primary { width: 100%; }
+    .pl-cover__reader-tools .pi-article-actions { justify-content: space-between; flex-wrap: nowrap; }
+    .pl-cover__reader-tools .pi-article-actions__hint { display: none; }
+    .pl-cover__headline { font-size: clamp(2rem, 9vw, 2.7rem); }
+    .pl-cover__headline--long { font-size: clamp(1.9rem, 7.6vw, 2.3rem); }
+    .pl-prose { font-size: 1.07rem; line-height: 1.66; }
+    .pl-article--quick-choices .pl-contents__links { grid-template-columns: 1fr; }
+    .pl-decision { padding: 1.6rem 0; }
+    .pl-decision__grid { gap: 0; }
+    .pl-decision__choice { min-height: 0; padding: .8rem .1rem; }
+    .pl-decision__notes ol { columns: 1; }
+    /* The one-night decision comes before the full reading path on phones. */
+    .pl-article--one-night .pl-cover { padding: 1.5rem 0 2rem; }
+    .pl-article--one-night .pl-cover__inner { gap: 1.3rem; }
+    .pl-article--one-night .pl-cover__frame { aspect-ratio: 16 / 10; }
+    .pl-article--one-night .pl-choices { padding: 2rem 0; }
+    .pl-article--one-night .pl-choices__head { margin-bottom: 1.25rem; }
+    .pl-article--one-night .pl-choices__head h2 { font-size: 1.8rem; margin-bottom: .55rem; }
+    .pl-article--one-night .pl-choices__head p:last-child { font-size: .95rem; }
+    .pl-article--one-night .pl-choices__grid { gap: .6rem; }
+    .pl-article--one-night .pl-choices__card { min-height: 0; padding: 1rem 1.15rem; }
+    .pl-article--one-night .pl-choices__num { margin-bottom: .55rem; }
+    .pl-article--one-night .pl-choices__outline { margin: .7rem 0 .4rem; }
+    .pl-article--one-night .pl-glance { padding: 2rem 0; }
+    .pl-article--one-night .pl-glance__inner { gap: 1rem; }
+    .pl-article--one-night .pl-glance__list { gap: .5rem; }
+    .pl-article--one-night .pl-glance__item { grid-template-columns: 2rem 1fr; gap: .7rem; padding-top: .7rem; }
+    .pl-article--one-night .pl-glance__text { font-size: .95rem; line-height: 1.5; }
+  }
+  /* Short article covers lead with the reading action before long descriptive copy. */
+  @media (max-width: 420px) and (max-height: 720px) {
+    .pl-article--quick-choices .pl-cover { padding: .5rem 0 1.5rem; }
+    .pl-article--quick-choices .pl-cover__inner { gap: 1rem; }
+    .pl-article--quick-choices .pl-cover__type { display: flex; flex-direction: column; padding: 0; }
+    .pl-article--quick-choices .pl-cover__type > .pl-eyebrow { order: 0; margin: 0 0 .45rem; }
+    .pl-article--quick-choices .pl-cover__headline { order: 1; margin: 0 0 .65rem; font-size: 1.8rem; line-height: 1.04; }
+    .pl-article--quick-choices .pl-cover__actions { order: 2; margin: 0 0 .65rem; row-gap: .25rem; }
+    .pl-article--quick-choices .pl-cover__dek { order: 3; margin: 0 0 .7rem; font-size: 1rem; line-height: 1.45; }
+    .pl-article--quick-choices .pl-cover__byline { order: 4; }
+  }
+  /* Keep both cover actions above first-visit consent on short phones. */
+  @media (max-width: 420px) and (max-height: 720px) {
+    .pl-article--one-night .pl-cover { padding-top: .625rem; }
+    .pl-article--one-night .pl-cover__type { padding-top: 0; }
+    .pl-article--one-night .pl-eyebrow,
+    .pl-article--one-night .pl-cover__headline,
+    .pl-article--one-night .pl-cover__dek { margin-bottom: .75rem; }
+    .pl-article--one-night .pl-cover__actions { row-gap: .5rem; }
+  }
+
+
+  /* 2026-10 plan article system: a decisive cover and quieter reading rail. */
+  .pl-cover { background: #0B2E4A; padding: 0; }
+  .pl-cover__inner { max-width: 1280px; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: clamp(2.5rem, 5vw, 5rem); align-items: stretch; }
+  .pl-cover__type { align-self: center; padding-block: clamp(3.5rem, 7vw, 6rem); }
+  .pl-cover__type .pl-eyebrow { color: #F5C177; margin-bottom: 1.2rem; }
+  .pl-cover__headline, .pl-cover__headline--long { color: #FFFFFF; letter-spacing: -.045em; }
+  .pl-cover__headline { font-size: clamp(2.8rem, 4.7vw, 4.7rem); max-width: 17ch; }
+  .pl-cover__headline--long { font-size: clamp(2.45rem, 3.7vw, 3.8rem); max-width: 22ch; }
+  .pl-cover__dek { color: #D8E5E9; font-size: clamp(1.1rem, 1.5vw, 1.32rem); line-height: 1.55; }
+  .pl-cover__byline { color: #BFCFD5; letter-spacing: .12em; }
+  .pl-cover__sep { color: #F5C177; }
+  .pl-cover__visual { display: flex; flex-direction: column; align-self: stretch; padding-top: clamp(2.5rem, 5vw, 4rem); }
+  .pl-cover__frame { aspect-ratio: auto; min-height: 25rem; flex: 1; }
+  .pl-cover__caption { color: #BFCFD5; padding: .8rem 0 1rem; }
+  .pl-cover__reader-tools { grid-column: 2; background: #F2EFEA; border: 0; margin-top: -1rem; padding: .7rem 1rem; align-self: start; }
+  .pl-cover__actions .pl-action--primary { background: #F5C177; color: #0B2E4A; }
+  .pl-cover__actions .pl-action--primary:hover { background: #FFD697; color: #0B2E4A; }
+  .pl-cover__actions .pl-action--quiet { color: #FFFFFF; border-color: rgba(255,255,255,.55); }
+  .pl-cover__actions .pl-action--quiet:hover { color: #F5C177; }
+  .pl-choices { background: #E8EFF0; color: #0B2E4A; }
+  .pl-choices .pl-eyebrow { color: #10527E; }
+  .pl-choices__head { max-width: 46rem; }
+  .pl-choices__head h2 { color: #0B2E4A; }
+  .pl-choices__head p:last-child { color: #3E5361; }
+  .pl-choices__card { background: #FFFFFF; border-top: 4px solid #10527E; box-shadow: 0 12px 32px rgba(11,46,74,.07); }
+  .pl-choices__place { font-size: clamp(1.55rem, 2.3vw, 2.05rem); }
+  .pl-choices__outline { border-top-color: #AEBFC4; }
+  .pl-glance { background: #F2EFEA; }
+  .pl-essay { padding-block: clamp(3.5rem, 6vw, 6rem); }
+  .pl-essay__inner { display: grid; grid-template-columns: minmax(10rem, 14rem) minmax(0, 39rem); justify-content: center; gap: clamp(2rem, 5vw, 5.5rem); align-items: start; }
+  .pl-contents { position: sticky; top: 8rem; max-width: none; margin: 0; padding: 1rem 0; border-color: #C5D3D8; }
+  .pl-contents__links, .pl-article--quick-choices .pl-contents__links { display: grid; grid-template-columns: 1fr; gap: 0; }
+  .pl-contents__links a { border-top: 1px solid #E2E8E9; padding-block: .55rem; font-weight: 600; }
+  .pl-prose { max-width: 39rem; margin: 0; }
+  .pl-prose h2 { font-weight: 700; letter-spacing: -.025em; }
+  .pl-prose h3 { font-weight: 700; letter-spacing: -.015em; }
+  .pl-prose a { border-bottom-color: #10527E; color: #10527E; }
+  .pl-prose.has-drop-cap > p:first-of-type::first-letter { color: #10527E; }
+  @media (max-width: 900px) {
+    .pl-essay__inner { display: block; }
+    .pl-contents { position: static; max-width: 42rem; margin: 0 auto 2.5rem; }
+    .pl-contents__links, .pl-article--quick-choices .pl-contents__links { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .1rem 1rem; }
+    .pl-prose { margin-inline: auto; }
+  }
+  @media (max-width: 820px) {
+    .pl-cover__inner { grid-template-columns: minmax(0, 1fr); gap: 0; }
+    .pl-cover__type { padding-block: 2.2rem 1.7rem; }
+    .pl-cover__headline { font-size: clamp(2.35rem, 7.7vw, 3.4rem); }
+    .pl-cover__headline--long { font-size: clamp(2.15rem, 6.8vw, 3rem); }
+    .pl-cover__visual { padding-top: 0; }
+    .pl-cover__frame { min-height: 0; aspect-ratio: 16 / 9; }
+    .pl-cover__reader-tools { grid-column: 1; margin-top: 0; margin-bottom: 1rem; }
+  }
+  @media (max-width: 600px) {
+    .pl-cover__type { padding-block: 1.8rem 1.5rem; }
+    .pl-cover__headline { font-size: clamp(2.15rem, 9vw, 2.8rem); }
+    .pl-cover__headline--long { font-size: clamp(2rem, 8vw, 2.5rem); }
+    .pl-cover__dek { font-size: 1.06rem; }
+    .pl-cover__visual { margin-inline: -1.5rem; }
+    .pl-cover__caption { padding-inline: 1.5rem; }
+    .pl-cover__frame { aspect-ratio: 16 / 10; }
+    .pl-cover__reader-tools { margin-inline: -1.5rem; }
+    .pl-choices { padding-block: 2.25rem; }
+    .pl-choices__grid { gap: .8rem; }
+    .pl-choices__card { padding: 1.2rem; }
+    .pl-choices__outline { margin-top: .8rem; }
+    .pl-essay { padding-block: 2.8rem 3.5rem; }
+    .pl-contents__links, .pl-article--quick-choices .pl-contents__links { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .pl-cover__image, .pl-cluster__link, .pl-cluster__arrow { transition: none; }
+  }
+
+  /* Itinerary branch: connect the photographic cover to the route itself. */
+  .itinerary-detail__cover {
+    background: #0B2E4A;
+    padding: clamp(1.5rem, 3.5vw, 3rem);
+    align-items: center;
+    margin-bottom: 0;
+  }
+  .itinerary-detail__intro { align-self: center; }
+  .itinerary-detail__meta { color: #D8E5E9; }
+  .itinerary-detail__back { color: #F5C177; }
+  .itinerary-detail__back:hover { color: #FFD697; }
+  .itinerary-detail__nights { color: #D8E5E9; }
+  .itinerary-detail__dot { background: #F5C177; }
+  .itinerary-detail__title { color: #FFFFFF; letter-spacing: -.04em; }
+  .itinerary-detail__dek { color: #D8E5E9; }
+  .itinerary-detail__chips span { color: #E6EFF1; border-color: rgba(255,255,255,.4); }
+  .itinerary-detail__jumps a { color: #F5C177; }
+  .itinerary-detail__jumps a:hover { color: #FFD697; }
+  .itinerary-detail__cta-row .pi-btn--solid { background: #F5C177; border-color: #F5C177; color: #0B2E4A; }
+  .itinerary-detail__cta-row .pi-btn--solid:hover { background: #FFD697; border-color: #FFD697; color: #0B2E4A; }
+  .itinerary-detail__cta-row .pi-btn--ghost { background: transparent; border-color: rgba(255,255,255,.75); color: #FFFFFF; }
+  .itinerary-detail__cta-row .pi-btn--ghost:hover { background: rgba(255,255,255,.12); color: #FFFFFF; }
+  .itinerary-detail__cover-media .pstage__description,
+  .itinerary-detail__cover-media .pstage__credit,
+  .itinerary-detail__image-credit { color: #D8E5E9; }
+  .itinerary-detail__cover-media .pstage__strip-title { color: #D8E5E9; }
+  .itinerary-route { scroll-margin-top: 8rem;
+    display: grid;
+    grid-template-columns: minmax(10rem, 15rem) minmax(0, 1fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    background: #E8EFF0;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: clamp(2.25rem, 5vw, 4rem);
+  }
+  .itinerary-route__eyebrow { margin: 0 0 .6rem; color: #10527E; font: 700 .68rem/1.3 var(--font-ui); letter-spacing: .2em; text-transform: uppercase; }
+  .itinerary-route__heading h2 { margin: 0; max-width: 13ch; color: #0B2E4A; font: 700 clamp(1.45rem, 2.1vw, 2rem)/1.16 var(--font-display); letter-spacing: -.025em; }
+  .itinerary-route__list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .65rem; padding: 0; margin: 0; list-style: none; }
+  .itinerary-route__list li { min-width: 0; }
+  .itinerary-route__list a { display: flex; flex-direction: column; gap: .55rem; min-height: 100%; padding: 1rem; background: #FFFFFF; border-top: 3px solid #10527E; color: #0B2E4A; text-decoration: none; }
+  .itinerary-route__list a:hover { background: #F7FAFA; }
+  .itinerary-route__list a:focus-visible { outline: 3px solid #10527E; outline-offset: 3px; }
+  .itinerary-route__number { font: 700 .68rem/1 var(--font-ui); letter-spacing: .16em; color: #10527E; }
+  .itinerary-route__copy { display: grid; gap: .4rem; margin-top: auto; }
+  .itinerary-route__copy strong { font: 700 1rem/1.25 var(--font-display); }
+  .itinerary-route__copy small { color: #3E5361; font: 400 .8rem/1.45 var(--font-ui); }
+  .itinerary-route__arrow { align-self: flex-end; color: #10527E; font-size: 1rem; }
+  .itinerary-detail__grid > .facts { position: sticky; top: 8rem; }
+  .itinerary-detail .stop-day { scroll-margin-top: 8rem; }
+  .itinerary-detail .stop-item { scroll-margin-top: 8rem; }
+  @media (max-width: 900px) {
+    .itinerary-route { scroll-margin-top: 8rem; grid-template-columns: 1fr; }
+    .itinerary-route__heading h2 { max-width: none; }
+    .itinerary-detail__grid > .itinerary-detail__main { grid-row: 1; }
+    .itinerary-detail__grid > .facts { grid-row: 2; position: static; }
+  }
+  @media (max-width: 600px) {
+    .itinerary-detail__cover { width: calc(100% + 32px); margin-inline: -16px; padding: 1.5rem 16px 1.2rem; }
+    .itinerary-detail__title { color: #FFFFFF; font-size: clamp(2.15rem, 8.8vw, 2.8rem); }
+    .itinerary-detail__chips { display: flex; gap: .35rem; margin-bottom: .8rem; }
+    .itinerary-detail__chips span { font-size: .65rem; padding: .2rem .45rem; }
+    .itinerary-detail__cta-row { flex-wrap: wrap; }
+    .itinerary-detail__cta-row .pi-btn { min-height: 44px; }
+    .itinerary-detail__cover-media .pstage__strip-wrap { display: none; }
+    .itinerary-route { scroll-margin-top: 8rem; width: calc(100% + 32px); margin-inline: -16px; padding: 1.4rem 16px; gap: 1rem; }
+    .itinerary-route__list { grid-template-columns: 1fr; gap: .4rem; }
+    .itinerary-route__list a { display: grid; grid-template-columns: 2rem minmax(0, 1fr) auto; align-items: center; min-height: 68px; padding: .7rem .8rem; }
+    .itinerary-route__copy { margin: 0; }
+    .itinerary-route__arrow { align-self: center; }
   }
 </style>

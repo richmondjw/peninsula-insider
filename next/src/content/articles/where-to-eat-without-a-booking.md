@@ -5,12 +5,24 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/category-restaurant-01.webp"
-  alt: "A dimly lit bar with pendant lamps, a chalkboard beer list, spirits on the back shelf and stools drawn up to a copper-topped counter."
-  depicts: "a dimly lit bar with a chalkboard beer list and stools at the counter"
+  src: "/images/visit-victoria/vv-143825-red-hill-brewery.webp"
+  alt: "A tasting paddle of four beers, from dark to pale, on a weathered outdoor table beside timber chairs"
+  credit: "Peter Tarasiuk, courtesy of Visit Victoria"
+  license: "visit-victoria"
+  caption: "Red Hill Brewery, Mornington Peninsula."
+  depicts: "Red Hill Brewery"
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peter Tarasiuk"
+  sourceUrl: "Victoria Content Hub asset 143825, downloaded 2026-09-28"
+  permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""
+  permittedUses:
+    - "website"
+    - "social"
+  rightsHolder: "Visit Victoria"
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: "recorded"
+  decorative: false
+  provenanceReview: "verified"
 format: "service"
 tags: ["dining", "walk-in", "no-booking", "pubs", "cafes", "casual", "first-timers"]
 relatedVenues: ["red-hill-brewery", "flinders-hotel", "dromana-hotel", "rye-hotel", "mornington-hotel", "portsea-hotel", "sorrento-hotel", "flinders-sourdough", "red-hill-bakery", "commonfolk-coffee", "johnny-ripe", "st-andrews-beach-brewery", "jetty-road-brewery", "two-bays-brewing", "red-gum-bbq", "balnarring-bakehouse", "somers-general", "flinders-general-store"]
@@ -28,9 +40,9 @@ clusterLinks:
     href: "/explore/plans/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "Which Peninsula restaurants take walk-ins without a booking?"
-    answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), and Rye Hotel. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and Red Hill Bakery are counter service only, no booking required."
+    answer: "The pub network is the most reliable: Flinders Hotel (best for a walk-in lunch), Dromana Hotel (most reliably available), and Rye Hotel. Breweries: Red Hill Brewery, St Andrews Beach Brewery, and Jetty Road Brewery all take walk-ins. Bakeries and cafés including Flinders Sourdough, Commonfolk Coffee, and The Red Hill Baker in Balnarring are counter service only, no booking required."
   - question: "What are the best walk-in towns on the Mornington Peninsula?"
-    answer: "Flinders - hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington - Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill - the bakery, Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
+    answer: "Flinders - hotel, sourdough bakery, general store, pier takeaway, and pier walk, all walk-in. Mornington - Commonfolk, the hotel pub, dumplings, the foreshore, and the gallery. Red Hill - Johnny Ripe, Red Hill Brewery, and Red Gum BBQ. Any of these three supports a full day without a reservation."
   - question: "Can you eat well on the Mornington Peninsula without booking ahead?"
     answer: "Yes - but you need to use the right circuit. The booked restaurants (hatted rooms, winery dining) are a separate system from the walk-in circuit (pubs, bakeries, breweries, fast-casual). A walk-in Peninsula day is not a compromise version; it is a different version that is cheaper, more spontaneous, and occasionally more memorable than the booked alternative."
 aiSummary:
@@ -85,7 +97,7 @@ The Peninsula's bakery and café circuit is the secret walk-in infrastructure. T
 
 **Flinders Sourdough.** The Peninsula's best bread and one of its best pastry cases. Walk in, order a loaf and a coffee, eat the croque monsieur if it is on, and leave before the weekend crowd arrives. No booking needed or possible.
 
-**Red Hill Bakery.** The hinterland version. Pies, sausage rolls, a proper counter lunch. This is the walk-in move when you are on the ridge and the winery restaurants are full.
+**The Red Hill Baker, Balnarring.** Pies, sausage rolls, bread and a proper counter lunch. The former Red Hill shop is closed; use the sole current shop at 1/3000 Frankston-Flinders Road, Balnarring.
 
 **Commonfolk Coffee** in Mornington. The town's best café, walk-in only, and the place where most Peninsula days should either begin or end. The coffee is serious. The food menu is small and well-made. There is a back room for quieter sittings.
 

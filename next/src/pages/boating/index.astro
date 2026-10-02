@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
@@ -64,6 +65,7 @@ export const prerender = true;
   description="The complete guide to boating on the Mornington Peninsula: boat hire, ramps and access, tides and safety, charter options, and the line between boating and fishing."
   section="boating"
   canonical="https://peninsulainsider.com.au/boating/"
+  ogImage={pageImage('boating-hub').src}
   modifiedTime={modifiedISO}
 >
   <script type="application/ld+json" set:html={JSON.stringify(hubSchema)} />

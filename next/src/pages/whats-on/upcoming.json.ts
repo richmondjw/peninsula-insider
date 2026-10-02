@@ -15,7 +15,7 @@ import { listingEventStatus } from '../../lib/event-occurrence.mjs';
 // Machine-readable "what's on" feed for AI assistants and agents. The site
 // already emits rich Event JSON-LD per page and llms.txt for site structure;
 // this is the one surface that answers "what's on the Mornington Peninsula
-// this weekend / soon" as a single clean, forward-dated JSON document — the
+// this weekend / soon" as a single clean, forward-dated JSON document - the
 // highest-value query class for both people and agents. Regenerated on every
 // build (like sitemap.xml), so it stays fresh with the events pipeline.
 
@@ -69,6 +69,9 @@ export const GET: APIRoute = async () => {
         url: `${SITE}${live.href}`,
         startDate: startIso,
         endDate: endIso,
+        id: `${SITE}${live.href}`,
+        sourceUrl: e.data.officialEventUrl || e.data.organiser?.website || null,
+        factCheckedOn: e.data.editorialProvenance?.checkedOn ? isoDate(new Date(e.data.editorialProvenance.checkedOn)) : null,
         recurrence: e.data.recurrence ?? 'one-off',
         category: e.data.category ?? null,
         place: (e.data.place as { id?: string } | undefined)?.id ?? null,
@@ -88,12 +91,18 @@ export const GET: APIRoute = async () => {
   const body = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
-    name: "What's on — Mornington Peninsula (upcoming)",
+    name: "What's on - Mornington Peninsula (upcoming)",
     description:
       'Machine-readable feed of upcoming Mornington Peninsula events for AI ' +
       'assistants and agents. Forward-dated; regenerated on each build. See ' +
       `${SITE}/llms.txt for the full site map.`,
     generated: isoDate(now),
+    generatedAt: now.toISOString(),
+    schemaVersion: '1.1',
+    timezone: 'Australia/Sydney',
+    dateSemantics: 'Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.',
+    window: { start: isoDate(window.start), end: isoDate(window.end) },
+    documentation: `${SITE}/agents/#trust`,
     site: SITE,
     windowDays: WINDOW_DAYS,
     thisWeekend: {

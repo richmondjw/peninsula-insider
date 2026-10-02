@@ -4,7 +4,7 @@ export interface Props { plan: EditorialPlan; label?: string; variant?: 'solid' 
 const { plan, label = 'Use this plan', variant = 'solid' } = Astro.props;
 ---
 <div class="pi-fork-plan">
-  <button type="button" class={`pi-btn pi-btn--${variant} pi-btn--sm`} data-pi-fork-plan data-pi-plan={JSON.stringify(plan)}>{label}</button>
+  <button type="button" class={`pi-btn pi-btn--${variant}`} data-pi-fork-plan data-pi-plan={JSON.stringify(plan)}>{label}</button>
 </div>
 <style>
   .pi-fork-plan { display: inline-flex; }

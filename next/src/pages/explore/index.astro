@@ -1,4 +1,5 @@
 ---
+import { pageImage } from '../../lib/page-images';
 /**
  * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
  *
@@ -26,7 +27,6 @@ import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
-import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
 import { exploreSummary, effortLabel, durationLabel } from '../../components/v5/hub/explore-summaries.mjs';
@@ -69,7 +69,7 @@ const DANGLING_TAIL_WORDS = new Set([
 // Punctuation a clip can land on that carries no meaning of its own. The
 // dash forms matter: Sorrento Ocean Baths read "...reputation suggests -…"
 // because only [,;:] was stripped.
-const TRAILING_PUNCT = /[,;:\u2010-\u2015-]+$/u;
+const TRAILING_PUNCT = /[,;:‐-―-]+$/u;
 
 /**
  * First sentence, clipped to a word budget. Was previously "clipped at a
@@ -200,7 +200,7 @@ const countLive = (preset: FilterPreset) =>
 // Shelf assembly: an experience appears in at most ONE shelf (plus its single
 // directory row), enforcing the corpus <=2x-per-entry acceptance (spec 30).
 const shelved = new Set<string>();
-function pickShelf(pool: Row[], n = 6): Row[] {
+function pickShelf(pool: Row[], n = 3): Row[] {
   const picked = pool.filter((r) => !shelved.has(r.slug)).slice(0, n);
   for (const r of picked) shelved.add(r.slug);
   return picked;
@@ -287,7 +287,7 @@ const shelfCulture = await buildShelf(
 );
 
 // HUB-13 guard: a shelf renders only when it holds at least 3 items.
-const shelves = [shelfSeasonal, shelfWalks, shelfBeaches, shelfGolf, shelfCulture].filter(
+const shelves = [shelfSeasonal, shelfWalks, shelfBeaches, shelfCulture, shelfGolf].filter(
   (s) => s.items.length >= 3,
 );
 
@@ -333,10 +333,6 @@ const towns = places.map((p) => {
   const line = candidates.find((s) => s && wordCount(s) <= 25);
   return { slug: routeSlug(p), name: p.data.name, line };
 });
-// The list opens on its first dozen; the rest stay in the page (and in the
-// crawl) behind "Show all".
-const TOWNS_OPEN = 12;
-const DIRECTORY_OPEN = 12;
 
 // ── Verticals rail (6 text links to existing URLs) ───────────────────────────
 const verticals = [
@@ -394,6 +390,7 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Explore the Mornington Peninsula, Peninsula Insider',
   description: 'Browse Mornington Peninsula activities and places by category and area, with links to walks, beaches, hot springs, golf and cultural experiences.',
   path: '/explore/',
+  dateModified: '2026-10-01',
 });
 const faqSchema = buildFaqSchema([
   { q: 'What is the Mornington Peninsula?',
@@ -419,45 +416,68 @@ export const prerender = true;
   description="Explore the Mornington Peninsula by activity and area: coastal walks, beaches, hot springs, golf and cultural places. Find an experience and plan your visit."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/"
-  ogImage="/images/sourced/explore-cape-schanck-lighthouse-01.webp"
+  ogImage={pageImage('explore-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 
-  <HubStandfirst
-    compact
-    title="Things to do on the Mornington Peninsula"
-    standfirst="Choose a walk, a beach, an indoor afternoon or a longer outing. Start with the time and effort you have, then check the details for your day."
-    image={{ src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp', alt: 'Cape Schanck lighthouse and the Peninsula coastline' }}
-    imagePosition="50% 25%"
-  />
+  <header class="x-hero" aria-labelledby="explore-title">
+    <div class="container x-hero__grid">
+      <div class="x-hero__copy">
+        <h1 id="explore-title">Things to do on the Mornington Peninsula</h1>
+        <p>Walk, beach or indoor day? Start with your time and effort, then check the details before you go.</p>
+        <nav class="x-hero__actions" aria-label="Start exploring">
+          <a class="x-hero__primary" href="#choose-day">Choose your day <span class="x-hero__arrow" aria-hidden="true"></span></a>
+          <a class="x-hero__secondary" href="#directory" data-open-directory>Browse every experience <span class="x-hero__arrow x-hero__arrow--down" aria-hidden="true"></span></a>
+        </nav>
+      </div>
+      <figure class="x-hero__media">
+        <img src="/images/sourced/explore-cape-schanck-lighthouse-01.webp" alt="Cape Schanck lighthouse above coastal scrub at dusk" width="800" height="1200" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="50vw" />
+        <figcaption>Cape Schanck lighthouse</figcaption>
+      </figure>
+    </div>
+  </header>
 
-  <!-- 2. Filters: the page's ONE FilterBar (chips from CHIP_PRESETS.explore) -->
-  <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
-    <FilterBar
-      surface="explore"
-      noun="experiences"
-      label="Filter experiences"
-      facets={['cat', 'place', 'party', 'price']}
-    />
-    <TrustNote surface="explore" />
-    <PlanningHelp />
-  </CategoryBrowse>
+  <section class="x-discovery" aria-labelledby="explore-filter-heading">
+    <div class="container x-discovery__head">
+      <h2 id="explore-filter-heading">Find a specific outing</h2>
+      <p>Filter the complete guide, or open the map and choose a place.</p>
+    </div>
+    <div class="container x-discovery__filter">
+      <FilterBar
+        surface="explore"
+        noun="experiences"
+        label="Filter experiences"
+        facets={['cat', 'place', 'party', 'price']}
+      />
+    </div>
+    <CategoryBrowse directory="directory" count={directoryRows.length} noun="experiences">
+      <TrustNote surface="explore" />
+      <PlanningHelp />
+    </CategoryBrowse>
+  </section>
 
-  <section class="x-practical container" aria-labelledby="practical-heading">
-    <h2 class="pi-eyebrow x-practical__label" id="practical-heading">Choose the shape of your day</h2>
-    <nav class="x-practical__links" aria-label="Plan an activity">
-      <a href="/explore/walks/">Compare walks →</a>
-      <a href="/explore/rainy-day/">Plan for rain →</a>
-      <a href="/explore/places/">Choose an area →</a>
-      <a href="/explore/plans/">Use a ready-made day →</a>
-    </nav>
-    <details>
-      <summary class="x-disclosure">Check conditions and practical access before you go</summary>
-      <p>Times below are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Terrain, step-free access, toilets, shade and dog rules need checking for your chosen stop.</p>
-      <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices and access information</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. Check the operator or land manager for facilities and dog restrictions. These links do not confirm that a route or beach is suitable on your day.</p>
-    </details>
+  <section class="x-choices" id="choose-day" data-browse-layer aria-labelledby="choose-day-heading">
+    <div class="container">
+      <div class="pi-section-head x-head">
+        <div class="pi-section-head__text">
+          <h2 class="pi-h2" id="choose-day-heading">What kind of day are you after?</h2>
+          <p class="pi-section-dek">Start with an idea, then compare the practical details.</p>
+        </div>
+      </div>
+      <nav class="x-choices__grid" aria-label="Choose an outing">
+        <a href="/explore/walks/"><span class="x-choices__name">Take a walk</span><span class="x-choices__line">Coastal tracks and longer routes</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+        <a href="/explore/beaches/"><span class="x-choices__name">Find a beach</span><span class="x-choices__line">Bay calm or open coast</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+        <a href="/explore/rainy-day/"><span class="x-choices__name">Go indoors</span><span class="x-choices__line">Galleries and rainy-day ideas</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+        <a href="/explore/places/"><span class="x-choices__name">Pick a town</span><span class="x-choices__line">Find a base for the day</span><span class="x-choices__arrow" aria-hidden="true"></span></a>
+      </nav>
+      <details class="x-choices__advice">
+        <summary class="x-disclosure">Before you go: times, access and conditions</summary>
+        <p>Times are guide estimates, not live conditions. Walking effort is shown where recorded; it is not an accessibility assessment. Check terrain, step-free access, toilets, shade and dog rules for your chosen stop.</p>
+        <p>Use <a href="https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park">Parks Victoria’s park notices</a>, <a href="https://www.emergency.vic.gov.au/">VicEmergency warnings</a> and <a href="https://www.beachsafe.org.au/">Beachsafe beach and patrol information</a>. These links do not confirm that a route or beach is suitable on your day.</p>
+      </details>
+    </div>
   </section>
 
   <!-- 3-5. Browse layer: shelves, towns index, verticals. Yields to the
@@ -506,33 +526,25 @@ export const prerender = true;
       </section>
     ))}
 
-    <!-- Towns text index: 37 places, links not cards -->
-    <section class="x-towns" aria-labelledby="towns-heading">
-      <div class="container">
-        <div class="pi-section-head x-head">
-          <div class="pi-section-head__text">
-            <h2 class="pi-h2" id="towns-heading">Every town, its own page</h2>
-            <p class="pi-section-dek">
-              Browse {towns.length} towns and localities to put your day in context, with places to eat, stay and explore in each area.
-            </p>
-          </div>
-          <a class="pi-section-link" href="/explore/places/">All towns <span aria-hidden="true">→</span></a>
+    <!-- Every place URL remains in the server-rendered town index. -->
+    <section class="x-towns pi-section is-dark" aria-labelledby="towns-heading">
+      <div class="container x-towns__layout">
+        <div class="x-towns__intro-block">
+          <h2 class="pi-h2" id="towns-heading">Find your part of the Peninsula</h2>
+          <p class="pi-section-dek">Browse {towns.length} towns and localities, with places to eat, stay and explore in each area.</p>
+          <a class="pi-section-link x-towns__map" href="/explore/places/">Explore all towns <span aria-hidden="true">→</span></a>
         </div>
-        <div class="x-expandable" data-collapsed>
-          <ul class="x-towns__list" id="towns-list">
-            {towns.map((t, i) => (
-              <li class="x-towns__item" data-overflow={i >= TOWNS_OPEN ? '' : undefined}>
+        <details class="x-towns__details">
+          <summary>Open the town index <span aria-hidden="true">+</span></summary>
+          <ul class="x-towns__list">
+            {towns.map((t) => (
+              <li class="x-towns__item">
                 <a href={`/explore/places/${t.slug}/`}>{t.name}</a>
                 {t.line && <span class="x-towns__line">{t.line}</span>}
               </li>
             ))}
           </ul>
-          {towns.length > TOWNS_OPEN && (
-            <button type="button" class="pi-btn pi-btn--ghost x-expand" data-expand aria-controls="towns-list" aria-expanded="false">
-              Show all {towns.length} towns
-            </button>
-          )}
-        </div>
+        </details>
       </div>
     </section>
 
@@ -570,56 +582,46 @@ export const prerender = true;
     </section>
   </div>
 
-  <!-- 6. Directory: the corpus, rendered exactly once, compact rows -->
+  <!-- The complete corpus stays server-rendered and countable, with a concise arrival state. -->
   <section class="x-directory pi-section" id="directory" aria-labelledby="directory-heading">
     <div class="container">
       <div class="pi-section-head x-head">
         <div class="pi-section-head__text">
           <h2 class="pi-h2" id="directory-heading">All {directoryRows.length} experiences</h2>
-          <p class="pi-section-dek">
-            Compare walks, beaches, golf, galleries, lookouts, markets and day spas. Use the filters above to narrow the list.
-          </p>
+          <p class="pi-section-dek">Walks, beaches, golf, galleries, lookouts, markets and day spas. Filter the guide above or open the full list.</p>
         </div>
       </div>
-      <noscript>
-        <style is:inline>.x-expandable [data-overflow]{display:revert !important}.x-expand{display:none !important}</style>
-      </noscript>
-      <div class="x-expandable x-directory__list" id="directory-list" data-collapsed data-collapse-on-filter>
-      <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
-        {directoryRows.map((r, i) => (
-          <li
-            data-facets={JSON.stringify(r.facets)}
-            data-filter-countable
-            data-title={r.name}
-            data-overflow={i >= DIRECTORY_OPEN ? '' : undefined}
-            class="x-directory__row"
-          >
-            <Card
-              as="div"
-              variant="compact-row"
-              title={r.name}
-              href={r.href}
-              entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
-              entitySlug={r.slug}
-              typeMark={r.type}
-              verdict={r.verdict}
-              meta={r.meta}
-              surface="explore-directory"
-              position={i + 1}
-              saveSection="explore"
-            />
-          </li>
-        ))}
-      </CardGrid>
-      {directoryRows.length > DIRECTORY_OPEN && (
-        <button type="button" class="pi-btn pi-btn--ghost x-expand" data-expand aria-controls="directory-list" aria-expanded="false">
-          Show all {directoryRows.length} experiences
-        </button>
-      )}
-      </div>
-      <div data-filter-empty hidden>
-        <EmptyState variant="filter-zero" surface="explore" />
-      </div>
+      <details class="x-directory__disclosure" data-directory-disclosure>
+        <summary>Browse the complete directory <span aria-hidden="true">+</span></summary>
+        <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
+          {directoryRows.map((r, i) => (
+            <li
+              data-facets={JSON.stringify(r.facets)}
+              data-filter-countable
+              data-title={r.name}
+              class="x-directory__row"
+            >
+              <Card
+                as="div"
+                variant="compact-row"
+                title={r.name}
+                href={r.href}
+                entityType={EXPLORE_VENUE_TYPES.includes(r.data.type) ? 'venue' : 'experience'}
+                entitySlug={r.slug}
+                typeMark={r.type}
+                verdict={r.verdict}
+                meta={r.meta}
+                surface="explore-directory"
+                position={i + 1}
+                saveSection="explore"
+              />
+            </li>
+          ))}
+        </CardGrid>
+        <div data-filter-empty hidden>
+          <EmptyState variant="filter-zero" surface="explore" />
+        </div>
+      </details>
       <p class="x-note x-directory__plans">
         Turn it into a weekend: our <a href="/explore/plans/">escape plans</a> sequence these
         with the right lunch and the right bed.
@@ -633,7 +635,7 @@ export const prerender = true;
       <div class="container">
         <div class="pi-section-head x-head">
           <div class="pi-section-head__text">
-            <h2 class="pi-h2" id="journal-heading">Further reading for the afternoon half</h2>
+            <h2 class="pi-h2" id="journal-heading">Stories for the day ahead</h2>
           </div>
           <a class="pi-section-link" href="/journal/">All in the Journal <span aria-hidden="true">→</span></a>
         </div>
@@ -699,7 +701,9 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  /* Section heads use the site canon (.pi-section-head, .pi-h2,
+  /* Headings use the site display face (Sora, var(--font-display)); the
+     page no longer reaches for an undefined editorial token that fell back
+     to Georgia. Section heads use the site canon (.pi-section-head, .pi-h2,
      .pi-section-dek, .pi-section-link in global.css). On phones the head
      stacks: heading, dek, then the link at the gutter, each at full width. */
   @media (max-width: 47.99em) {
@@ -717,9 +721,11 @@ export const prerender = true;
     text-underline-offset: 0.2em;
   }
 
-  /* ---- disclosures: one marker for every <summary> on the page ----
+  /* ---- disclosures: one chevron marker for the text <summary>s ----
      The native triangle is replaced by a harbour chevron in its own
-     column, so wrapped text hangs clear of it and it turns when open. */
+     column, so wrapped text hangs clear of it and it turns when open.
+     The two full-width disclosure bars (town index, directory) keep
+     their own plus marker. */
   .x-disclosure {
     list-style: none;
     display: grid;
@@ -755,53 +761,56 @@ export const prerender = true;
     .x-disclosure::after { transition: none; }
   }
 
-  /* ---- practical block: a utility row, so its heading is a label ----
-     It stays an h2 for the outline, set as the canonical sand eyebrow
-     above the link row rather than a third, smaller section-H2 size. */
-  .x-practical { padding-block: var(--space-6) 0; }
-  .x-practical .x-practical__label { margin: 0 0 var(--space-1); }
-  .x-practical__links { display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
-  .x-practical__links a {
-    min-height: 44px;
-    display: inline-flex;
-    align-items: center;
-    font-weight: 600;
-    color: var(--harbour);
-    text-underline-offset: 0.2em;
-  }
-  /* Phones: an even 2x2 grid of 44px rows instead of a ragged wrap. */
-  @media (max-width: 47.99em) {
-    .x-practical__links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0 var(--space-4);
-    }
-    .x-practical__links a {
-      font-size: var(--fs-300);
-      line-height: 1.3;
-      text-wrap: balance;
-    }
-  }
-  .x-practical__links a:hover { color: var(--harbour-h); }
-  .x-practical details {
-    margin-top: var(--space-3);
-    border-block: 1px solid var(--border);
-  }
-  .x-practical details p {
-    max-width: 75ch;
-    color: var(--soft);
-    font-size: var(--fs-300);
-    line-height: 1.6;
-    margin: 0 0 var(--space-4);
-  }
-  .x-practical details a { color: var(--harbour); text-underline-offset: 0.2em; }
-  .x-practical a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  /* ---- hero ---- */
+  .x-hero { background: var(--paper, #f2efea); }
+  .x-hero__grid { display: grid; grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr); gap: clamp(2rem, 5vw, 5rem); height: clamp(32rem, 42vw, 39rem); }
+  .x-hero__copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(3rem, 6vw, 6rem) 0; }
+  .x-hero h1 { max-width: 16ch; margin: 0; color: var(--text); font: 600 clamp(3rem, 4.5vw, 4.85rem)/1.04 var(--font-display); letter-spacing: var(--ls-display, -0.02em); text-wrap: balance; }
+  .x-hero__copy > p { max-width: 47ch; margin: 1.5rem 0 0; color: var(--soft); font: 400 clamp(1.05rem, 1.35vw, 1.2rem)/1.55 var(--font-ui); }
+  .x-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 2rem; }
+  .x-hero__actions a { display: inline-flex; align-items: center; justify-content: center; gap: 0.85rem; min-height: 48px; font-family: var(--font-ui); font-weight: 700; text-decoration: none; }
+  .x-hero__primary { padding: 0.75rem 1.25rem; background: var(--accent); color: var(--white); border-radius: var(--radius-s); }
+  .x-hero__primary:hover { background: var(--harbour-hover, #0c4166); }
+  .x-hero__secondary { color: var(--accent); text-decoration: underline !important; text-underline-offset: 0.25em; }
+  .x-hero__actions a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .x-hero__arrow { position: relative; display: inline-block; width: 1rem; height: 1rem; flex: 0 0 1rem; }
+  .x-hero__arrow::before { content: ''; position: absolute; left: 0; top: calc(50% - 1px); width: 0.82rem; height: 2px; background: currentColor; }
+  .x-hero__arrow::after { content: ''; position: absolute; right: 0.08rem; top: 0.24rem; width: 0.48rem; height: 0.48rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; transform: rotate(45deg); }
+  .x-hero__arrow--down { transform: rotate(90deg); }
+  .x-hero__media { position: relative; height: 100%; min-height: 0; margin: 0; overflow: hidden; background: var(--bg-dark); }
+  .x-hero__media img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
+  .x-hero__media figcaption { position: absolute; right: 1rem; bottom: 1rem; padding: 0.35rem 0.6rem; color: var(--white); background: rgba(11, 46, 74, 0.88); font: 600 0.75rem/1.3 var(--font-ui); }
+
+  /* ---- choose your day ---- */
+  .x-choices { padding: clamp(3rem, 5vw, 5rem) 0 2.25rem; scroll-margin-top: 5rem; }
+  .x-discovery__head h2 { margin: 0; color: var(--text); font: 600 var(--h2-size)/var(--lh-heading, 1.14) var(--font-display); letter-spacing: var(--ls-display, -0.02em); text-wrap: balance; }
+  .x-discovery__head p { max-width: 30ch; margin: 0; color: var(--soft); font-size: 1rem; line-height: 1.5; }
+  .x-choices__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--border); }
+  .x-choices__grid a { position: relative; display: flex; flex-direction: column; gap: 0.35rem; min-height: 9rem; padding: 1.35rem 2rem 1.35rem 1rem; color: var(--text); text-decoration: none; border-right: 1px solid var(--border); transition: background var(--dur-fast, 120ms) ease; }
+  .x-choices__grid a:first-child { padding-left: 0; }
+  .x-choices__grid a:last-child { border-right: 0; }
+  .x-choices__grid a:hover { background: var(--paper, #f2efea); }
+  .x-choices__name { font: 600 clamp(1.25rem, 1.8vw, 1.6rem)/1.2 var(--font-display); }
+  .x-choices__line { max-width: 19ch; color: var(--soft); font: 400 0.9rem/1.45 var(--font-ui); }
+  .x-choices__arrow { position: absolute; top: 1.25rem; right: 0.85rem; width: 0.85rem; height: 0.85rem; color: var(--accent); }
+  .x-choices__arrow::before { content: ''; position: absolute; right: 0; top: 0; width: 0.5rem; height: 0.5rem; border-top: 2px solid currentColor; border-right: 2px solid currentColor; }
+  .x-choices__arrow::after { content: ''; position: absolute; right: 0.08rem; top: 0.38rem; width: 0.82rem; height: 2px; background: currentColor; transform: rotate(-45deg); transform-origin: right center; }
+  .x-choices__advice { max-width: 72ch; margin-top: 1rem; color: var(--soft); font-size: 0.9rem; line-height: 1.6; }
+  .x-choices__advice summary { color: var(--accent); font-weight: 700; }
+  .x-choices__advice p { margin: 0 0 0.75rem; }
+  .x-choices__advice a { color: var(--accent); text-underline-offset: 0.2em; }
+  .x-choices a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .x-discovery { padding: clamp(2.5rem, 4vw, 4rem) 0 2.5rem; background: var(--paper, #f2efea); border-block: 1px solid var(--border); }
+  .x-discovery__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 0.5rem; }
+  .x-discovery :global(.category-browse__links) { margin-bottom: 0.5rem; }
+  .x-discovery :global(.v5-filterbar) { background: transparent; }
 
   /* ---- shelves ---- */
+  .x-shelf { scroll-margin-top: 4rem; }
   .x-shelf:nth-of-type(even) { background: var(--bg-alt); }
-  /* The practical block already opens this run of content; the first
-     shelf follows it at a smaller interval so the first photographs land
-     inside the first screen. */
+  /* The choices block already opens this run of content; the first shelf
+     follows it at a smaller interval so the first photographs land sooner. */
   .x-shelf:first-of-type { padding-top: var(--space-7); }
 
   /* Phones: a horizontal scroller whose track bleeds to the viewport edge,
@@ -810,7 +819,9 @@ export const prerender = true;
      public/assets/mobile-fixes.css clips every .container (overflow-x:
      clip), which cut the bleed off at the 16px gutter; these containers
      let it through, and the full-width section still clips the page.
-     Tablet 2-up; desktop 3x2, with the cards on the frame edges. */
+     Tablet keeps a contained scroller (three cards per shelf would leave a
+     2-up grid with an orphan); desktop sets the three cards in one row,
+     on the frame edges. */
   .x-shelf__row {
     list-style: none;
     margin: 0;
@@ -820,8 +831,10 @@ export const prerender = true;
   }
   .x-shelf__row > :global(li) {
     flex: 0 0 min(80%, 20rem);
+    min-width: 0;
     scroll-snap-align: start;
   }
+  .x-shelf__row :global(.pi-card__media) { aspect-ratio: 16 / 10; }
   @media (max-width: 47.99em) {
     .x-shelf > .container,
     .x-journal > .container { overflow-x: visible; }
@@ -845,77 +858,55 @@ export const prerender = true;
       scroll-snap-align: start;
     }
   }
-  @media (min-width: 48em) {
+  @media (min-width: 48em) and (max-width: 63.99em) {
     .x-shelf__row {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      padding: 2px 2px 0.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
     }
+    .x-shelf__row::-webkit-scrollbar { display: none; }
+    .x-shelf__row > :global(li) { flex-basis: min(42vw, 21rem); }
+  }
+  @media (min-width: 64em) {
+    .x-shelf__row { display: grid; grid-template-columns: 1.16fr 1fr 1fr; }
     .x-shelf__row > :global(li) { flex: initial; }
   }
-  @media (min-width: 64em) {
-    .x-shelf__row { grid-template-columns: repeat(3, 1fr); }
-  }
 
-  /* ---- progressive lists: towns and the directory open on 12 ---- */
-  .x-expandable[data-collapsed] [data-overflow] { display: none; }
-  .x-expandable:not([data-collapsed]) .x-expand { display: none; }
-  .x-expand {
-    margin-top: var(--space-5);
-    min-height: 48px;
-    border-radius: var(--radius-s, 8px);
-  }
-
-  /* ---- towns index: a frame-width rule inside the section, not a
-     viewport-wide one on it ---- */
-  .x-towns { padding-bottom: var(--section-space); }
-  .x-towns > .container {
-    border-top: 1px solid var(--border);
-    padding-top: var(--section-space);
-  }
+  /* ---- towns index: the dark band, canon head on the left ---- */
+  .x-towns { background: var(--bg-deep); color: var(--white); }
+  .x-towns__layout { display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: clamp(2rem, 6vw, 6rem); align-items: start; }
+  .x-towns__map { margin-top: var(--space-5); }
+  .x-towns__details { border-block: 1px solid rgba(255,255,255,0.4); }
+  .x-towns__details summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; cursor: pointer; list-style: none; color: var(--white); font: 700 1.05rem/1.35 var(--font-ui); }
+  .x-towns__details summary::-webkit-details-marker { display: none; }
+  .x-towns__details[open] summary span { transform: rotate(45deg); }
+  .x-towns__details summary span { color: var(--sand, #f5c177); font-size: 1.7rem; font-weight: 400; line-height: 1; }
   /* A row-major grid, not CSS columns: each row of towns shares one track,
      so the hairlines line up across the columns and the columns end
-     together, however long one blurb runs. */
+     together, however long one line runs. */
   .x-towns__list {
     list-style: none;
-    margin: 0;
+    margin: 0 0 1rem;
     padding: 0;
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     column-gap: var(--space-6);
   }
-  @media (min-width: 48em) {
-    .x-towns__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (min-width: 64em) {
-    .x-towns__list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  .x-towns__item {
-    padding: var(--space-3) 0;
-    border-bottom: 1px solid var(--border);
-    font-size: var(--fs-300);
-  }
+  .x-towns__item { padding: var(--space-3) 0; border-top: 1px solid rgba(255,255,255,0.2); font-size: var(--fs-300); }
   .x-towns__item a {
     display: inline-flex;
     align-items: center;
-    min-height: 32px;
+    min-height: 44px;
     font-family: var(--font-ui);
     font-weight: 600;
-    color: var(--text);
+    color: var(--white);
     text-decoration: none;
   }
-  .x-towns__item a:hover,
-  .x-towns__item a:focus-visible {
-    color: var(--harbour);
-    text-decoration: underline;
-    text-underline-offset: 0.2em;
-  }
-  .x-towns__line {
-    display: block;
-    color: var(--soft);
-    font-size: var(--fs-300);
-    line-height: 1.5;
-    text-wrap: pretty;
-  }
+  .x-towns__item a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+  .x-towns__line { display: block; color: var(--soft-inverse); font-size: var(--fs-300); line-height: 1.5; text-wrap: pretty; }
+  .x-towns :is(a, summary):focus-visible { outline: 2px solid var(--sand, #f5c177); outline-offset: 3px; }
 
   /* ---- verticals ---- */
   .x-verticals { background: var(--bg-alt); }
@@ -1015,6 +1006,7 @@ export const prerender = true;
     color: var(--harbour-h);
     text-decoration-color: currentColor;
   }
+  .x-basics__list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .x-note {
     margin: var(--space-5) 0 0;
     font-size: var(--fs-300);
@@ -1023,24 +1015,31 @@ export const prerender = true;
     text-wrap: pretty;
   }
 
-  /* ---- directory ---- */
+  /* ---- directory: one disclosure bar holding the complete list ---- */
   .x-directory { scroll-margin-top: 4rem; }
   /* With the browse layer gone (a filter is active) the directory follows
-     the practical block on the same white ground, so it takes a frame
-     rule; otherwise the band change above already separates it. */
+     the filter band on the same white ground, so it takes a frame rule;
+     otherwise the band change above already separates it. */
   [data-browse-layer][hidden] + .x-directory > .container {
     border-top: 1px solid var(--border);
     padding-top: var(--space-6);
   }
+  .x-directory__disclosure { background: var(--white); border: 1px solid var(--border); }
+  .x-directory__disclosure summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.25rem; padding: 0.9rem 1.25rem; color: var(--text); cursor: pointer; list-style: none; font: 700 1rem/1.4 var(--font-ui); }
+  .x-directory__disclosure summary::-webkit-details-marker { display: none; }
+  .x-directory__disclosure summary span { color: var(--accent); font-size: 1.5rem; font-weight: 400; }
+  .x-directory__disclosure[open] summary span { transform: rotate(45deg); }
+  .x-directory__disclosure summary:focus-visible { outline: 2px solid var(--accent); outline-offset: -4px; }
+  .x-directory :global(.v5-card-grid--rows) { display: grid; grid-template-columns: 1fr; gap: 0; margin: 0; padding: 0 1.25rem 1rem; }
   @media (min-width: 64em) {
     .x-directory :global(.v5-card-grid--rows) {
-      display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       column-gap: var(--space-7);
     }
   }
   .x-directory__row {
     list-style: none;
+    min-width: 0;
     padding-block: var(--space-5);
     border-bottom: 1px solid var(--border);
   }
@@ -1050,7 +1049,7 @@ export const prerender = true;
   .x-journal { background: var(--bg-alt); }
 
   /* ---- FAQ ---- */
-  .x-faq__list { border-top: 1px solid var(--border); }
+  .x-faq__list { max-width: 55rem; border-top: 1px solid var(--border); }
   .x-faq__item { border-bottom: 1px solid var(--border); }
   .x-faq__q {
     font-size: var(--fs-400);
@@ -1059,7 +1058,7 @@ export const prerender = true;
   .x-faq__a {
     padding: 0 0 var(--space-4);
     color: var(--soft);
-    max-width: 48em;
+    max-width: 70ch;
   }
   .x-faq__a p { margin: 0; }
 
@@ -1068,7 +1067,7 @@ export const prerender = true;
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: clamp(2.6rem, 7vw, 4.5rem) 0;
+    padding: clamp(3.5rem, 6vw, 5.5rem) 0;
     background: var(--bg-deep);
     color: var(--white);
   }
@@ -1079,20 +1078,15 @@ export const prerender = true;
     z-index: -1;
     background: radial-gradient(90% 120% at 100% 0%, rgb(16 82 126 / 0.35), transparent 60%);
   }
-  .x-ask__inner {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-6, 2rem);
-  }
+  .x-ask__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-6, 2rem); }
   .x-ask__heading {
+    max-width: 20ch;
+    margin: 0 0 var(--space-3, 0.75rem);
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-size: var(--h2-size);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    margin: 0 0 var(--space-2, 0.5rem);
+    letter-spacing: var(--ls-display, -0.02em);
     color: var(--white);
     text-wrap: balance;
   }
@@ -1100,11 +1094,52 @@ export const prerender = true;
      label), which separates from the harbour-deep ground where the harbour
      solid did not (about 1.7:1). */
   .x-ask__line {
+    max-width: 50ch;
     margin: 0;
     font-family: var(--font-ui);
+    line-height: 1.6;
     color: rgb(255 255 255 / 0.82);
-    max-width: var(--measure-dek, 40ch);
     text-wrap: pretty;
+  }
+
+  @media (max-width: 63.99em) {
+    .x-choices__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .x-choices__grid a:nth-child(2) { border-right: 0; }
+    .x-choices__grid a:nth-child(-n+2) { border-bottom: 1px solid var(--border); }
+    .x-choices__grid a:nth-child(3) { padding-left: 0; }
+  }
+  @media (max-width: 47.99em) {
+    .x-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--bg-deep); }
+    .x-hero__grid { display: block; height: auto; min-height: 24rem; }
+    .x-hero__copy { position: relative; z-index: 1; min-height: 24rem; padding: 1.5rem 0 1.25rem; justify-content: flex-end; }
+    .x-hero h1 { max-width: 13ch; color: var(--white); font-size: clamp(2.5rem, 8.6vw, 3.65rem); }
+    .x-hero__copy > p { margin-top: 1.1rem; color: var(--white); font-size: 1rem; line-height: 1.5; }
+    .x-hero__media { position: absolute; inset: 0; z-index: 0; min-height: 0; }
+    .x-hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 31, 47, 0.96) 8%, rgba(11, 31, 47, 0.69) 62%, rgba(11, 31, 47, 0.25)); }
+    .x-hero__media img { object-position: 50% 36%; }
+    .x-hero__media figcaption { display: none; }
+    .x-hero__primary { background: var(--sand, #f5c177); color: var(--bg-deep); }
+    .x-hero__primary:hover { background: var(--white); }
+    .x-hero__secondary { color: var(--white); }
+    .x-hero__actions a:focus-visible { outline-color: var(--sand, #f5c177); }
+    .x-discovery__head { display: block; }
+    .x-discovery { padding-top: 0.5rem; }
+    .x-discovery__head { margin-bottom: 0.5rem; }
+    .x-discovery__head h2 { font-size: 1.5rem; line-height: 1.2; }
+    .x-discovery__head p { display: none; }
+    .x-towns__layout { grid-template-columns: 1fr; }
+    .x-towns__list { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 24em) {
+    .x-hero__copy { min-height: 0; padding: 1rem 0; }
+    .x-hero h1 { font-size: 2.25rem; }
+    .x-hero__copy > p { margin-top: 0.75rem; }
+    .x-hero__actions { margin-top: 0.75rem; }
+    .x-hero__actions { display: block; }
+    .x-hero__actions a { margin: 0 0 0.35rem; }
+    .x-choices__grid { grid-template-columns: 1fr; }
+    .x-choices__grid a { min-height: 6.5rem; padding-left: 0 !important; border-right: 0; border-bottom: 1px solid var(--border); }
+    .x-choices__grid a:last-child { border-bottom: 0; }
   }
 </style>
 
@@ -1117,6 +1152,8 @@ export const prerender = true;
     document
       .querySelectorAll<HTMLElement>('[data-browse-layer]')
       .forEach((el) => el.toggleAttribute('hidden', hide));
+    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+    if (directory) directory.open = hide;
   }
 
   // Both document listeners are registered here rather than from init(),
@@ -1124,40 +1161,27 @@ export const prerender = true;
   // that line; module scope runs exactly once, so it no longer has to. Both
   // handlers resolve their targets at fire time and so need nothing from the
   // page that was current when they were registered.
-  // Towns and the directory open on their first dozen rows. Opening one
-  // reveals every row in place and hands focus to the first new one.
-  function expand(list: HTMLElement, moveFocus: boolean) {
-    if (!list.hasAttribute('data-collapsed')) return;
-    const firstHidden = list.querySelector<HTMLElement>('[data-overflow]');
-    list.removeAttribute('data-collapsed');
-    list.querySelectorAll('[data-expand]').forEach((b) => b.setAttribute('aria-expanded', 'true'));
-    if (moveFocus) firstHidden?.querySelector<HTMLElement>('a[href]')?.focus();
-  }
-
-  // A filter always searches the full directory, so any active facet opens it.
-  function openDirectoryForFilters(filters: Record<string, unknown>) {
-    if (isEmptyState(filters as any)) return;
-    document
-      .querySelectorAll<HTMLElement>('[data-collapse-on-filter]')
-      .forEach((list) => expand(list, false));
-  }
-
   document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
-    const filters = e.detail?.filters ?? {};
-    setBrowseHidden(!isEmptyState(filters));
-    openDirectoryForFilters(filters);
+    setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
   }) as EventListener);
 
+  // Delegation survives Astro navigation and opens the server-rendered list
+  // before a same-page anchor scrolls to its summary.
   document.addEventListener('click', (ev) => {
-    const target = ev.target as HTMLElement;
-    // EmptyState's "Clear filters" primary action.
-    if (target.closest('[data-action="clear-filters"]')) {
-      commit({}, { source: 'clear', noun: NOUN });
-      return;
-    }
-    const more = target.closest<HTMLElement>('[data-expand]');
-    const list = more?.closest<HTMLElement>('.x-expandable');
-    if (list) expand(list, true);
+    if (!(ev.target as HTMLElement).closest('a[href="#directory"]')) return;
+    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+    if (directory) directory.open = true;
+  });
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash !== '#directory') return;
+    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+    if (directory) directory.open = true;
+  });
+
+  // EmptyState's "Clear filters" primary action.
+  document.addEventListener('click', (ev) => {
+    const btn = (ev.target as HTMLElement).closest('[data-action="clear-filters"]');
+    if (btn) commit({}, { source: 'clear', noun: NOUN });
   });
 
   let bound = false;
@@ -1165,9 +1189,11 @@ export const prerender = true;
   function init() {
     // Server renders everything visible; the browse layer yields to the
     // filtered directory whenever any facet is active (URL or interaction).
-    const initial = parseFilters(window.location.search);
-    setBrowseHidden(!isEmptyState(initial));
-    openDirectoryForFilters(initial as Record<string, unknown>);
+    setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
+    if (window.location.hash === '#directory') {
+      const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
+      if (directory) directory.open = true;
+    }
     if (bound) return;
     bound = true;
 
