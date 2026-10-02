@@ -96,7 +96,7 @@ test('high-value discovery URLs are unique sitemap entries with self-canonicals 
   }
 });
 
-test('category filters are reachable before editorial choices and restore the matching directory', async () => {
+test('category filters are reachable from the first screen and restore the matching directory', async () => {
   const reader = await site.reader();
   try {
     await reader.page.setViewport({width:390,height:844});
@@ -108,8 +108,22 @@ test('category filters are reachable before editorial choices and restore the ma
         overflow:document.documentElement.scrollWidth > innerWidth + 1,
       }));
       assert.equal(geometry.bars,1,route);
-      assert.ok(geometry.top < 750,route+' filters buried');
       assert.equal(geometry.overflow,false,route);
+      if (route === '/stay/') {
+        const jump = await reader.page.$('.stay-hero__secondary[href="#browse-stay"]');
+        assert.ok(jump, 'Stay needs a direct first-screen path to filters');
+        const bounds = await jump.boundingBox();
+        assert.ok(bounds && bounds.y + bounds.height < 750, 'Stay browse action buried');
+        await jump.click();
+        const landed = await reader.page.evaluate(() => ({
+          hash:location.hash,
+          top:document.querySelector('[data-v5-filterbar]').getBoundingClientRect().top,
+        }));
+        assert.equal(landed.hash,'#browse-stay');
+        assert.ok(landed.top >= 0 && landed.top < 750, 'Stay jump did not reveal filters');
+      } else {
+        assert.ok(geometry.top < 750,route+' filters buried');
+      }
     }
     await reader.load('/eat/');
     await reader.page.click('[data-filter-chip][data-key="party"][data-value="family"]');
