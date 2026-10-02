@@ -344,6 +344,8 @@ const DISCLOSURE_SURFACES = {
   // failure with an extra field in it.
   experiences: ['src/pages/explore/[slug].astro'],
   articles: ['src/pages/journal/[slug].astro'],
+  tours: ['src/pages/tour/[slug].astro', 'src/components/TourCard.astro'],
+  'tour-operators': ['src/pages/tour/operators/[slug].astro', 'src/components/TourOperatorCard.astro'],
 };
 
 /**

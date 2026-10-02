@@ -18,6 +18,30 @@ Newest entries on top. Do not edit historical entries — append corrections to 
 
 ---
 
+## 2026-10-03 — Portsea Pier access
+- **Surface:** https://peninsulainsider.com.au/fishing/locations/portsea-pier/ and linked fishing guides
+- **Class:** stale
+- **Change:** Replaced active pier-fishing directions with a dated closure notice, authority link and open-location alternatives; corrected linked squid, kingfish and Rye guidance.
+- **Source:** Parks Victoria, https://www.parks.vic.gov.au/places-to-see/sites/portsea-pier (checked 3 October 2026).
+- **Applied by:** Codex under James's approved page-quality programme
+- **Ledger ref:** pending post-publish verification
+
+## 2026-10-03 — Bayplay sea-dragon snorkel
+- **Surface:** https://peninsulainsider.com.au/tour/bayplay-sea-dragon-snorkel-tour/ and https://peninsulainsider.com.au/tour/operators/bayplay/
+- **Class:** factual
+- **Change:** Corrected the minimum age, approximate duration and beach-entry description; removed unsupported group and price labels; replaced an unverified operator image with credited, clearly illustrative Portsea context.
+- **Source:** Bayplay, https://bayplay.com.au/snorkel-with-dragons/ ; Parks Victoria, https://www.parks.vic.gov.au/places-to-see/sites/portsea-pier (checked 3 October 2026).
+- **Applied by:** Codex under James's approved page-quality programme
+- **Ledger ref:** pending post-publish verification
+
+## 2026-10-03 — Doot Doot Doot attribution and image
+- **Surface:** https://peninsulainsider.com.au/eat/doot-doot-doot/ and July 2026 Insider Picks article
+- **Class:** factual
+- **Change:** Updated the current dining attribution and corrected the archive note; quarantined a wrongly branded CMS hero and displayed a licensed, labelled Jackalope context photo.
+- **Source:** Jackalope dining, https://jackalopehotels.com/drink-dine/ ; Visit Victoria image record vv-26070118 (checked 3 October 2026).
+- **Applied by:** Codex under James's approved page-quality programme
+- **Ledger ref:** pending post-publish verification
+
 ## 2026-05-10 — bootstrap entry
 - **Surface:** _(none — this file's creation)_
 - **Class:** _(meta)_

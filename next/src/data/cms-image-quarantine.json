@@ -1,0 +1,25 @@
+{
+  "record": "Published CMS images held from display pending subject and rights verification",
+  "project": "Peninsula Insider",
+  "checkedOn": "2026-10-03",
+  "quarantined": [
+    {
+      "key": "venue/doot-doot-doot",
+      "fieldPath": "heroImage",
+      "storagePath": "venue/doot-doot-doot/heroImage-1780004337898.jpg",
+      "reason": "Current visible image shows Victor Churchill branded food; CMS row has no alt, caption or credit."
+    },
+    {
+      "key": "venue/doot-doot-doot",
+      "fieldPath": "hero",
+      "storagePath": "venue/doot-doot-doot/hero-1778510017495.jpg",
+      "reason": "Older published alternate hero has no alt, caption or credit; not independently cleared."
+    },
+    {
+      "key": "tour-operator/bayplay",
+      "fieldPath": "hero",
+      "storagePath": "tour-operator/bayplay/hero-1778846519213.jpg",
+      "reason": "Current visible kayak image has no alt, caption or credit; the fallback alt was inaccurate."
+    }
+  ]
+}

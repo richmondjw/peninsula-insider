@@ -8,6 +8,7 @@ import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
 import InlinePhoto from '../../components/InlinePhoto.astro';
+import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import { photoPlan } from '../../lib/photo-set';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 
@@ -50,6 +51,7 @@ const experienceTypeLabel: Record<string, string> = {
 
 const durationLabel: Record<string, string> = {
   'under-2h': 'Under 2 hours',
+  'around-2h': 'About 2 hours',
   'half-day': 'Half day',
   'full-day': 'Full day',
   'multi-2n': '2 nights',
@@ -57,17 +59,9 @@ const durationLabel: Record<string, string> = {
   'multi-extended': 'Extended',
 };
 
-const budgetLabel: Record<string, string> = {
-  'budget': 'Budget',
-  'moderate': 'Moderate',
-  'mid-range': 'Mid-range',
-  'premium': 'Premium',
-  'luxury': 'Luxury',
-};
-
 const groupSizeLabel: Record<string, string> = {
-  'intimate': 'Intimate (2-4)',
-  'small-group': 'Small group (up to 24)',
+  'intimate': 'Intimate',
+  'small-group': 'Small group',
   'large-group': 'Large group',
   'private-charter': 'Private charter',
 };
@@ -107,7 +101,8 @@ export const prerender = true;
     heroImage={data.heroImage.src}
     imageAlt={data.heroImage.alt}
     photos={photoSet.photos}
-    imageCaption={data.departsFrom ?? undefined}
+    imageCaption={data.heroImage.caption ?? undefined}
+    imageCredit={data.heroImage.credit}
     entityType="tour"
     entitySlug={slug}
   >
@@ -118,6 +113,16 @@ export const prerender = true;
       })}>{data.intro}</p>
     </div>
   </SubpageHero>
+
+  <div class="container"><MediaProvenanceNote image={!tourOverrides.image['hero'] && !photoSet.stage ? data.heroImage : null} subject={data.name} /></div>
+
+  {data.heroImage.license === 'wikimedia-cc-by-sa' && data.heroImage.sourceUrl ? (
+    <p class="container" style="font-size:0.75rem;line-height:1.5;margin-block:0.5rem 1rem">
+      Context photo of Point King Beach, Portsea. This is not the confirmed tour entry point. By <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
+      {' '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external">CC BY-SA 4.0</a>.
+      Resized from the original.
+    </p>
+  ) : null}
 
   <section class="experience-index experience-index--plain">
     <div class="container">
@@ -141,12 +146,6 @@ export const prerender = true;
           <div class="at-a-glance__value">
             {groupSizeLabel[data.groupSize] ?? data.groupSize}
             {data.maxGroupSize ? ` - max ${data.maxGroupSize} guests` : ''}
-          </div>
-        </div>
-        <div class="at-a-glance__row">
-          <div class="at-a-glance__label">Price band</div>
-          <div class="at-a-glance__value">
-            {budgetLabel[data.budgetBand] ?? data.budgetBand}
           </div>
         </div>
         {data.languages?.length > 0 && (

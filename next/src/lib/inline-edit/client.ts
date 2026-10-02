@@ -25,6 +25,7 @@
 
 import { getSupabase, isAuthEnabled } from '../auth';
 import inlineEditorStylesUrl from '../../styles/inline-edit.css?url';
+import imageQuarantine from '../../data/cms-image-quarantine.json';
 
 type Tone = 'ok' | 'err' | 'info';
 
@@ -1416,7 +1417,13 @@ async function applyOverridesOnLoad() {
       .eq('entity_slug', group.entitySlug)
       .eq('status', 'published');
     const rows = (data as Array<{ field_path: string; public_url: string | null; alt_text: string | null; credit: string | null }> | null) ?? [];
-    const byPath = new Map(rows.map((r) => [r.field_path, r]));
+    const byPath = new Map(rows
+      .filter((row) => !imageQuarantine.quarantined.some((entry) =>
+        entry.key === group.entityType + '/' + group.entitySlug &&
+        entry.fieldPath === row.field_path &&
+        row.public_url?.endsWith('/' + entry.storagePath)
+      ))
+      .map((row) => [row.field_path, row]));
     for (const el of group.els) {
       if (el.hasAttribute('data-pi-no-hydrate')) continue;
       const fieldPath = el.dataset.piFieldPath;

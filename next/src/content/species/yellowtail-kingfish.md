@@ -39,7 +39,7 @@ faq:
   - question: When are kingfish on the Peninsula?
     answer: 'December through March is the summer peak. Schools track south from warmer waters following baitfish, and concentrate around structure: the Heads at Port Phillip Bay, Cape Schanck, offshore reefs into Bass Strait, and occasionally inside the southern bay around channel markers and reefs. Outside summer, kingfish are uncommon on Peninsula grounds.'
   - question: Where do I catch kingfish?
-    answer: 'Boat fishery almost exclusively. Around the Heads (be aware of the Rip safety considerations), Cape Schanck offshore structures, and the deeper Bass Strait reefs accessible from Sorrento or Portsea. Land-based kingfish are taken occasionally from Portsea Pier in summer when fish push into the bay, but this is opportunistic rather than reliable.'
+    answer: 'Boat fishery almost exclusively. Around the Heads (be aware of the Rip safety considerations), Cape Schanck offshore structures, and the deeper Bass Strait reefs accessible from Sorrento or Portsea. Portsea Pier has historically produced occasional land-based kingfish, but Parks Victoria currently prohibits public access during maintenance; check the authority before considering it after reopening.'
   - question: What technique works for kingfish?
     answer: 'Live bait is the gold standard. Slimy mackerel, yellowtail scad, or salmon trolled or balloon-rigged through structure is the canonical approach. Metal jigs (vertical jigging or knife jigs) work when fish are sounder-marked at depth. Top-water poppers produce explosive surface strikes when schools are visible feeding. The species is hard-fighting; gear up: 24 to 50lb braid, 50lb-plus leader, heavy spinning or jigging rod.'
 status: published
