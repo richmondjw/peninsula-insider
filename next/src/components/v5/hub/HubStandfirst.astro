@@ -217,19 +217,24 @@ if (/!/.test(standfirst)) {
     padding-bottom: var(--space-5, 1.5rem);
   }
   .v5-standfirst--compact::before { display: none; }
+  /* Sora 600, the site's one display voice (James, 2 October 2026). The
+     bold Georgia read as a fallback font above Sora section heads. */
   .v5-standfirst--compact .v5-standfirst__title {
-    font-family: var(--font-editorial, Georgia, serif);
-    font-size: clamp(2rem, 4vw, 3.5rem);
-    line-height: 1.08;
-    max-width: 24ch;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display, 600);
+    letter-spacing: var(--ls-display, -0.02em);
+    font-size: clamp(2.25rem, 1.6rem + 2.6vw, 3.5rem);
+    line-height: 1.06;
+    max-width: 22ch;
     color: var(--text);
+    text-wrap: balance;
   }
-  /* Balanced at a 60ch measure, so a two-sentence lede never ends on a
-     one- or two-word last line. */
+  /* The page's main introduction: one step larger than any section lede
+     below it, balanced at a 56ch measure so it never ends on a stray word. */
   .v5-standfirst--compact .v5-standfirst__dek {
-    font-size: 1rem;
-    line-height: 1.6;
-    max-width: 60ch;
+    font-size: var(--fs-500, 1.125rem);
+    line-height: 1.55;
+    max-width: 56ch;
     color: var(--soft);
     margin-top: 0.75rem;
     text-wrap: balance;

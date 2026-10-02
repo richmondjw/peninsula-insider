@@ -142,22 +142,33 @@ const sixItems = SIX
   })
   .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
-// ── Directory: the FULL corpus, The Six first, then town/name order ─────────
+// ── Directory: the FULL corpus ──────────────────────────────────────────────
+// The Six shows three picks up front and three in its disclosure. The three
+// already on screen do not open the full list again (James, 2 October 2026):
+// the list starts with the disclosed picks, then every other stay, including
+// the three on screen, in town/name order. Nothing leaves the list or count.
+const SIX_ON_SCREEN = 3;
 const sixSlugs = new Set(SIX.map((s) => s.slug));
-const sixVenues = SIX.map(({ slug }) => bySlug.get(slug)).filter(Boolean);
+const onScreenSlugs = new Set(SIX.slice(0, SIX_ON_SCREEN).map((s) => s.slug));
+const disclosedSix = SIX.slice(SIX_ON_SCREEN).map(({ slug }) => bySlug.get(slug)).filter(Boolean);
 const restVenues = venues
-  .filter((v) => !sixSlugs.has((v.id ?? v.data.slug) as string))
+  .filter((v) => {
+    const slug = (v.id ?? v.data.slug) as string;
+    return !sixSlugs.has(slug) || onScreenSlugs.has(slug);
+  })
   .sort((a, b) => {
     const townA = String(a.data.place?.id ?? a.data.place ?? '');
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
     return townA.localeCompare(townB) || String(a.data.name).localeCompare(String(b.data.name));
   });
-// A shortlisted venue carries the same line in its directory row as in The
-// Six: one canonical description per venue on the page, no new wording.
+// A disclosed pick keeps its shortlist line in its row. The three on-screen
+// picks take their own record line, so the list never repeats the shortlist
+// above it word for word.
 const sixVerdictBySlug = new Map(SIX.map(({ slug, verdict }) => [slug, verdict]));
-const directoryItems = [...sixVenues, ...restVenues].map((v) =>
-  stayItem(v, { verdict: sixVerdictBySlug.get((v!.id ?? v!.data.slug) as string) }),
-);
+const directoryItems = [...disclosedSix, ...restVenues].map((v) => {
+  const slug = (v!.id ?? v!.data.slug) as string;
+  return stayItem(v, { verdict: onScreenSlugs.has(slug) ? undefined : sixVerdictBySlug.get(slug) });
+});
 
 // The directory's header action opens the map on the stays alone. The ranked
 // list it used to link to is already the first best-of card above, and the
@@ -175,11 +186,14 @@ const bestOfGuides = [
   { slug: 'dog-friendly', href: '/journal/dog-friendly-accommodation-mornington-peninsula/', title: 'Dog-friendly stays', verdict: 'Stays where the dog is a guest, not a problem.' },
 ];
 
-// ── From the Journal (3, retained slugs from the v4 companion set) ──────────
+// ── From the Journal (3 stay stories, each with its own photograph) ─────────
+// 'where-to-stay-for-a-two-night-escape' borrowed the vineyard villa story's
+// cover, so the page's duplicate-image guard drew the brand plate on the
+// villa card. Stay and Soak takes its place with a cover of its own.
 const journalSlugs = [
-  'where-to-stay-for-a-two-night-escape',
   'the-one-night-escape',
   'the-vineyard-villa-weekend',
+  'mornington-peninsula-stay-and-soak',
 ];
 const journalItems = journalSlugs
   .map((slug) => articlesAll.find((a) => routeSlug(a) === slug))
@@ -219,8 +233,8 @@ const faqSchema = {
   mainEntity: [
     { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge suit cellar-door weekends. Check distances and transport between your accommodation and each winery. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
-    { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.' } },
+    { '@type': 'Question', name: 'When is it hardest to book a stay on the Mornington Peninsula?',
+      acceptedAnswer: { '@type': 'Answer', text: 'Summer and the long weekends fill first, so book those early. Autumn midweek is the easiest time to find a room. For a cellar-door weekend, a villa or cottage on the ridge keeps the drives short; Rosebud, Dromana and Rye offer more choice but sit further from the cellar doors.' } },
     { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
       acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
   ],
@@ -327,6 +341,7 @@ export const prerender = true;
 
   <!-- 6. From the Journal (3) -->
   <JournalModule
+    eyebrow="Before you book"
     heading="From the Journal"
     moreHref="/journal/"
     items={journalItems}

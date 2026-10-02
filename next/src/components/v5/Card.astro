@@ -705,9 +705,12 @@ const saveProps = resolvedSaveKind
      "Check availability" across the card's text width. Before this, the
      wide lead card kept three controls on one line while narrow side cards
      wrapped the booking by accident. Compact rows set their own layout. */
+  /* Natural width: on a wide lead card the three controls share one row,
+     and a narrow card wraps the booking link to its own line at the same
+     size, so it never becomes a full-width bar heavier than its siblings. */
   .pi-card:not(.pi-card--compact) .pi-card__actions > :global(.v5-booking) {
     --booking-min: 0;
-    flex: 1 1 100%;
+    flex: 0 1 auto;
     min-width: 0;
   }
   .pi-card__trip {
@@ -841,6 +844,22 @@ const saveProps = resolvedSaveKind
   .pi-card.pi-card--compact.pi-card--no-media .pi-card__actions {
     grid-column: 2;
   }
+  /* One outlined action per row. In a list of thirty, three equal boxes per
+     row outweighed the names; "Check availability" keeps its frame, while
+     Save and Add to trip become quiet text buttons that keep their label,
+     icon and 48px target, and show the frame only on hover or focus. */
+  .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled:not([aria-pressed='true'])),
+  .pi-card.pi-card--compact .pi-card__trip {
+    border-color: transparent;
+    padding-inline: var(--space-3);
+  }
+  .pi-card.pi-card--compact .pi-card__trip {
+    min-width: 6.5rem;
+  }
+  .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled:hover),
+  .pi-card.pi-card--compact .pi-card__trip:hover {
+    border-color: var(--border);
+  }
 
   /* No photo in a list that has them: a paper tile with the PI monogram
      holds the thumb slot, so this row's title stays on the list's text line. */
@@ -923,6 +942,40 @@ const saveProps = resolvedSaveKind
     }
     .pi-card.pi-card--compact .pi-card__booking-slot {
       display: none;
+    }
+    /* The thumb sits beside the title only; the dek and meta run on under
+       it across the full row, so no blank column runs down the left side,
+       and the actions take one line under the text. Rows that carry only a
+       bookmark (solo save) keep their three-column grid. */
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) {
+      display: block;
+    }
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__media {
+      float: left;
+      margin: 4px var(--space-4) var(--space-2) 0;
+    }
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__body {
+      display: block;
+    }
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__body > * + * {
+      margin-top: var(--space-2);
+    }
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__dek {
+      max-width: none;
+    }
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__actions {
+      clear: both;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-1) var(--space-2);
+      padding-top: var(--space-3);
+    }
+    .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__actions > :global(.v5-booking) {
+      flex: 1 0 auto;
+    }
+    .pi-card.pi-card--compact .pi-card__trip {
+      min-width: 5.75rem;
     }
   }
 
