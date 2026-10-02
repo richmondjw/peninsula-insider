@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     2 October 2026     Recurs weekly
+Food & Wine     9 October 2026     Recurs weekly
 
 # Bass & Flinders Gin Masterclass
 
@@ -35,7 +35,7 @@ At a glance
 
 **When**
 
-2 October 2026
+9 October 2026
 
 **Recurrence**
 
@@ -53,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-Booking and calendar links are withdrawn; this session has finished.
+[Get tickets](<https://www.bassandflindersdistillery.com/pages/events>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Bass+%26+Flinders+Gin+Masterclass&dates=20261009%2F20261010&details=Three+hours+at+the+still+in+Dromana.+Learn+how+gin+actually+gets+made%2C+blend+your+own+botanicals%2C+and+walk+out+with+a+500ml+bottle+of+your+own+recipe.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbass-flinders-gin-masterclass%2F&location=166+Tucks+Road%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

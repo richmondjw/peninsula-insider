@@ -1,140 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-02T19:07:13.165Z",
+  "generatedAt": "2026-10-02T19:24:08.178Z",
   "baselineAvailable": true,
-  "fromSnapshot": "41681f0329b62d51c6ca5ee938730259723725a363817f5ee7e1d3d429fd2656",
-  "toSnapshot": "1d1b4ec7025731e52d9ac447f5f746124fd7dea249efbed61db8a70fbdec6bf7",
-  "previousGeneratedAt": "2026-10-02T17:39:03.901Z",
+  "fromSnapshot": "1d1b4ec7025731e52d9ac447f5f746124fd7dea249efbed61db8a70fbdec6bf7",
+  "toSnapshot": "b6aa5a03e7c1dd71b03e105ee197a64cdab960ca7f50e79a0909adf0b99aa51b",
+  "previousGeneratedAt": "2026-10-02T19:07:13.165Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 16,
+  "count": 2,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/flinders-golf-club/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/flinders-golf-club/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/flinders-golf-club/index.md",
-      "contentSha256": "c3b966fcd7ebbf9c227edcb17476029345551d87ac24bfdd3c3296eb9858fa12",
-      "previousContentSha256": "49cf904b6bf592b4d1655b41011892d520bd68467adcb207d84c47de33d4f016"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/flinders/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
-      "contentSha256": "c01b679b4404b24803a6d0ff3f204dc97da74b2c3ff6b9ac59ebfccabea091b4",
-      "previousContentSha256": "ebd5608fdefa3c1e647329af9504061f6849fec53da93eeb2150345917b30ab6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/index.md",
-      "contentSha256": "7bd8c605d151faf6e49db870081c9fea2e2aa8a77b96dff5035cd1eba9479ada",
-      "previousContentSha256": "d1f51e10c67b5e4f79f5d4da3abbfcaa16b8c1f04b9ac6c9f1879cb212502599"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/index.md",
-      "contentSha256": "37f7004e05ca4153005983d3229848fc475e32c71d86bc38ad0fdb0a38f0690b",
-      "previousContentSha256": "cd37d65dc4bcd07e4563ce2df2d2d29fa955451a3d805fc8d174956bed9c1a15"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-pub-crawl/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-pub-crawl/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-pub-crawl/index.md",
-      "contentSha256": "4ea08ffea33d436b17b71a5a0b75f4b67039188e13be4e40029dbc799f3ecd7a",
-      "previousContentSha256": "bf15fecb92219e2f28642bde7b1e3afa66acc42b8ccb80d053ed49f048239bdb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
-      "contentSha256": "7983630a41951c7b452357143f01b29df2815a0ea202b0c907239e0385299e91",
-      "previousContentSha256": "7445cb365567b08cee9426a99951a6a563cc17f1a9c5470661eed0f9614942cd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/insiders-30/map/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/map/",
-      "markdownUrl": "https://peninsulainsider.com.au/insiders-30/map/index.md",
-      "contentSha256": "32ccbd19d9aa6fef56575e2612d4b7f53a686e886a2ef61159e135b74c1bc5b7",
-      "previousContentSha256": "fcc011d41ebfcf3238e084122febcebead05e18d4578e6a0e392e4fc3fb15408"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/index.md",
-      "contentSha256": "21bb55cda0967169ee86dc3e802f5d9d20ce2ed034868b99de1bd1fee8b2a2c9",
-      "previousContentSha256": "8c946893738051364f64eba6916f0a2dea895db793e6a8db5413e7c2651c4dd7"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/map/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/map/",
-      "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
-      "contentSha256": "7c5f854d099ed9219c4de49de9a78c8dc48927d76f944808d8fe03667525fda2",
-      "previousContentSha256": "1c32907367ebddbb65554a4b7b68828309baa5b35a32f2892d078c3b0ef7cecb"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a14e8a98edbdca30fe5df0314d0458d8f92926cb11d37b9b1393f45b61e0b157",
-      "previousContentSha256": "8fd0b81c47055b9f0596b07a17dadccc6446ed4d36d98fc653f12f9ccfafe6c8"
+      "contentSha256": "fe901e9386a9d34e846d4f7c78bd2a35217c8d1023cc1f9e31731d2fe2458981",
+      "previousContentSha256": "a14e8a98edbdca30fe5df0314d0458d8f92926cb11d37b9b1393f45b61e0b157"
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/",
+      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "f2c7962f0503918a57131214e35d99e86c01a01794886336991b4741943da170",
-      "previousContentSha256": "ea53e7f71429952b7c134e0b4979e42e5152fb7ca89b0966eedc388de0d79a71"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/coastal-stays/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/coastal-stays/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/coastal-stays/index.md",
-      "contentSha256": "b1e7e46d34bdc00b055b1db470fd06d837d0d97cbe8c7bb199b0b6e8ff13d648",
-      "previousContentSha256": "25242ebe7214904f6d1321b8510846043590c70b5f6489153db3e4303bc8420a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/index.md",
-      "contentSha256": "1b538f1f8a06540d26d1823dd358b75bc69bfdb702aac17f7e5ace4a3c6c6d31",
-      "previousContentSha256": "b9d246e12aac63cd7ecf2c1938ea8a7a2be8055c8881904663d4cf8bbcb437d5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/flinders/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders/index.md",
-      "contentSha256": "c35a114817ddd28ef200a20b20a50c3db50058aad5b9b2b6ab22b71eca9c19bc",
-      "previousContentSha256": "9c785d5522c9c1609aca288ccce71e274a5a8227a80a8961e3bf49474ba24c9a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/index.md",
-      "contentSha256": "f1c02ed57b47869fb5eb3fa7394f75249222cf0d5c0fd395c3d97704c7c66073",
-      "previousContentSha256": "2a27dbda03b53f9ab1de126041e88a5b2db5b6fc8639166fcb56f017867ef602"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/index.md",
-      "contentSha256": "c0a64ef6aa3ff53dd02942b41987d4c5564f2c42db480de27501e7fb2498b37d",
-      "previousContentSha256": "499c2964532acf96b7e70660a9b9da1f91422129dfcb4ec11ef5745213f0f6fa"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
+      "contentSha256": "e90902a0e25e8002d7ef30d6b850821a1548aed367e6ea544e05261c01f58753",
+      "previousContentSha256": "ca860a14b0dd07e2a8c40e8774d8d82a120959c4b49d43084afb6f7c8e452637"
     }
   ]
 }
