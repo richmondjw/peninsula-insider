@@ -1,28 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-02T19:24:08.178Z",
+  "generatedAt": "2026-10-02T20:18:38.029Z",
   "baselineAvailable": true,
-  "fromSnapshot": "1d1b4ec7025731e52d9ac447f5f746124fd7dea249efbed61db8a70fbdec6bf7",
-  "toSnapshot": "b6aa5a03e7c1dd71b03e105ee197a64cdab960ca7f50e79a0909adf0b99aa51b",
-  "previousGeneratedAt": "2026-10-02T19:07:13.165Z",
+  "fromSnapshot": "b6aa5a03e7c1dd71b03e105ee197a64cdab960ca7f50e79a0909adf0b99aa51b",
+  "toSnapshot": "12b881fc6e9e55c9067fe8b8de2a342f09432f53e32e191fed4d43a0efe5bd23",
+  "previousGeneratedAt": "2026-10-02T19:24:08.178Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 3,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/index.md",
+      "contentSha256": "d880d87fc917225e39370409eede524e8f64b938f0a1bf725db4443d03e84608",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "c3229584100f2c7d7ac35625dc54779d3207632ef34fa23b84eba93b22ffa031",
+      "previousContentSha256": "8d5ad7de129ce8d474afa8086dfd85b8781f7f601ab4effe4b69cf8ddf5b7aa7"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "fe901e9386a9d34e846d4f7c78bd2a35217c8d1023cc1f9e31731d2fe2458981",
-      "previousContentSha256": "a14e8a98edbdca30fe5df0314d0458d8f92926cb11d37b9b1393f45b61e0b157"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "e90902a0e25e8002d7ef30d6b850821a1548aed367e6ea544e05261c01f58753",
-      "previousContentSha256": "ca860a14b0dd07e2a8c40e8774d8d82a120959c4b49d43084afb6f7c8e452637"
+      "contentSha256": "45d8cc06c75d5d517e8d1a4946d923b4dcd417fea25f38521fd19337fc53edfa",
+      "previousContentSha256": "fe901e9386a9d34e846d4f7c78bd2a35217c8d1023cc1f9e31731d2fe2458981"
     }
   ]
 }

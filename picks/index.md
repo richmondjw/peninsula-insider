@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Georgie Bass, the Olivers Hill loop, and Commonfolk's Sunday roast ritual](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/>) - Flinders' all-day breakfast kitchen at spring pace, the Olivers Hill clifftop loop above Port Phillip, and Commonfolk Coffee's single-origin filter bar before the weekend crowd arrives.
+
 - [Moke Dining in Flinders, the Bushrangers Bay boardwalk, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/>) - Michael Cole's five-course set menu in Flinders, the Bushrangers Bay boardwalk track at spring peak, and the Hill & Ridge Community Market at Red Hill Recreation Reserve on Saturday.
 
 - [Red Hill Brewery's hop garden, the spring wildflower window on Arthurs Seat, and Peninsula Hot Springs Sunday Sessions](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/>) - Red Hill Brewery pours from its own estate hop garden, Arthurs Seat's Seawinds Garden hits peak spring bloom, and Peninsula Hot Springs launches its Sunday Sessions series in Fingal.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Kerri Greens in spring, the Olivers Hill bluff walk, and VIRAL Food Festival this weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-17/>) - Kerri Greens' single-vineyard Pinot at the Merricks cellar door, the Olivers Hill coastal bluff at peak wildflower, and VIRAL Food Festival at Mornington Racecourse from Friday.
 
 - [Insider Picks: 16 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-16/>) - Barragunda Dining's spring farm menu at Cape Schanck, the clifftop wildflower walk from Bushrangers Bay to Cape Schanck, and the National Works on Paper 2026 exhibition at Mornington Peninsula Regional Gallery.
-
-- [Insider Picks: 15 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-15/>) - Two Bays' gluten-free pale ale on the Dromana deck, the Arthurs Seat wildflower circuit at peak wattle, and National Works on Paper 2026 at Mornington Peninsula Regional Gallery.
 
 ## Planning a particular weekend?
 
