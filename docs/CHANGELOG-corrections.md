@@ -18,6 +18,14 @@ Newest entries on top. Do not edit historical entries — append corrections to 
 
 ---
 
+## 2026-10-03 — Publication verification for the page-quality corrections
+- **Surface:** Portsea Pier, Bayplay tour and operator, Doot Doot Doot, and Eat hub.
+- **Class:** factual
+- **Change:** No further copy change. The corrections above reached the public site and passed page, image and 390px browser checks.
+- **Source:** Public `/deployment.json` reported source SHA `e361572cf6f947a66cc0a34af5c57248b7c2ff71`, run `37030080618`; public URLs returned HTTP 200 on 3 October 2026.
+- **Applied by:** Codex under James's approved page-quality programme
+- **Ledger ref:** `pi-page-quality-portsea-20261003-e361572`, `pi-page-quality-bayplay-20261003-e361572`, `pi-page-quality-doot-20261003-e361572`, `pi-page-quality-eat-20261003-e361572`
+
 ## 2026-10-03 — Portsea Pier access
 - **Surface:** https://peninsulainsider.com.au/fishing/locations/portsea-pier/ and linked fishing guides
 - **Class:** stale
