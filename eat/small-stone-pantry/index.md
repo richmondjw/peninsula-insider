@@ -73,6 +73,8 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
@@ -96,6 +98,8 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
+
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

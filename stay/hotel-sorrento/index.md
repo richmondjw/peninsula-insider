@@ -17,6 +17,8 @@ Known for   Sorrento clifftop location Restored Classic rooms Adults-only guest 
 
 Hotel Sorrento · Sorrento
 
+Exterior photographed in 2006. Photo · Biatch / Wikimedia Commons (public domain)
+
 Why we’d go
 
 A Sorrento base where restored rooms and newer accommodation offer different outlooks, with dining and a guest pool at the hotel.
@@ -113,6 +115,8 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Plan
 
 ### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -122,6 +126,8 @@ Start in Red Hill wine country, finish at the southern tip, and let the weekend 
 Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

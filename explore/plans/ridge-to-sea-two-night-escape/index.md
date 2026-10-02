@@ -149,6 +149,8 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
@@ -160,6 +162,8 @@ An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room
 anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
+
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -227,6 +231,8 @@ Try another shape
 
 [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+
 Plan
 
 ### [The Sorrento Off-Season Weekend](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
@@ -237,6 +243,8 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
@@ -246,6 +254,8 @@ For people who want salt air, one excellent meal, and just enough structure to s
 One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 

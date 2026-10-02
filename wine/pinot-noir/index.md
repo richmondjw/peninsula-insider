@@ -23,6 +23,8 @@ Ordered by editorial authority and Halliday score.
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
 
+Photo: Paringa Estate
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
@@ -35,6 +37,8 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
 
+Photo: Provided image
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
@@ -46,6 +50,8 @@ Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vin
 long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -94,6 +100,8 @@ Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, sti
 cellar door  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -154,6 +162,8 @@ Tom Carson's single-block Chardonnay and Pinot Noir program, poured from a relax
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/yabby-lake/>) [Book](<https://www.yabbylake.com/>)
+
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

@@ -153,6 +153,8 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
@@ -219,6 +221,8 @@ Try another shape
 
 [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Plan
 
 ### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -229,6 +233,8 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+
 Plan
 
 ### [The Sorrento Off-Season Weekend](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
@@ -238,6 +244,8 @@ Two nights based in Sorrento, with the back beach, Point Nepean and a village di
 Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
+
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 

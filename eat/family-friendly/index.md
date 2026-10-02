@@ -23,6 +23,8 @@ The outdoor, relaxed-format venues first. Hatted rooms are generally not on this
 
 [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
@@ -34,6 +36,8 @@ Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, 
 long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) [Book](<https://redgumbbq.com.au/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -47,6 +51,8 @@ slow  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
@@ -58,6 +64,8 @@ A working olive grove and produce kitchen on the Red Hill ridge, grazing boards,
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) [Book](<https://greenolive.com.au/dine>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

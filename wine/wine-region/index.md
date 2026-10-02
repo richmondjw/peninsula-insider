@@ -33,6 +33,8 @@ Benchmark producers
 
  [Full ranking →](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
@@ -45,6 +47,8 @@ long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/wine/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
 
+Photo: Provided image
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
@@ -56,6 +60,8 @@ Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vin
 long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
+
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -81,6 +87,8 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
+Photo: Paringa Estate
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
@@ -104,6 +112,8 @@ Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decor
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

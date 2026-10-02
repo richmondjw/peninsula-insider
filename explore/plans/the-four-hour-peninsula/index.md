@@ -153,6 +153,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
@@ -164,6 +166,8 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 slow  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

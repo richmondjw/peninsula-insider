@@ -25,11 +25,11 @@ The short list
 
 Swipe or scroll for all three picks
 
-- Mornington Farmers' Market, Mornington Peninsula. Context photo, not the Hill & Ridge Community Market.   Photo courtesy of Visit Victoria.
+- Context photo: Mornington Farmers' Market, not this event.   Photo courtesy of Visit Victoria.
 
-### [Hill & Ridge Community Market, 3 October 2026](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
+### [Hill & Ridge Community Market](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
 
-Local produce and makers at Red Hill Recreation Reserve on Saturday, 9am–2pm. Check the organiser for unsafe-weather cancellations before travelling.
+Local produce and makers at Red Hill Recreation Reserve, Saturday 9am–2pm. Check the organiser if severe weather is forecast.
 
 Red Hill Recreation Reserve   Market
 
@@ -37,9 +37,9 @@ Red Hill Recreation Reserve   Market
 
 Free acoustic music at Moonah Links on Saturday, 5–8pm. No booking required; settle in after a day exploring the Peninsula.
 
-Peppers Moonah Links   Every Saturday evening year-round from 5pm   Free
+Peppers Moonah Links   Every Saturday   Free
 
-- Mornington Peninsula Regional Gallery, Mornington Peninsula. Context photo; exhibition shown is not identified as National Works on Paper 2026.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -55,7 +55,7 @@ Play this weekend’s case
 
 She took her coffee to go from Mornington pier and was gone. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.
 
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.
+Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
 
 [Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=home-band>) Six to ten minutes. Free, no account.
 
@@ -71,9 +71,11 @@ Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit
 
 ### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
-A gondola ride, a brewery lunch and a bay beach, with a coffee stop only if the day runs early.
+A gondola, brewery lunch and a bay beach.
 
 One day   Red Hill & Merricks   Family
+
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
@@ -115,13 +117,13 @@ Choose one to see matching plans.
 
 ## Explore by interest
 
-- [Eat & Drink   Places worth planning lunch around](<https://peninsulainsider.com.au/eat/>)
+- [Eat & Drink   Places worth planning lunch around   Trofeo Estate, Dromana Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/eat/>)
 
-- [Stay   From a weekend shack to a cliff house](<https://peninsulainsider.com.au/stay/>)
+- [Stay   From a weekend shack to a cliff house   Jackalope Hotel, Merricks North Photo: Peter Foster, courtesy of Visit Victoria](<https://peninsulainsider.com.au/stay/>)
 
-- [Wine   Cellar doors worth taking the turn for](<https://peninsulainsider.com.au/wine/>)
+- [Wine   Cellar doors worth taking the turn for   Green Olive at Red Hill Photo: Two Palms Australia, courtesy of Visit Victoria](<https://peninsulainsider.com.au/wine/>)
 
-- [Explore   Walks, beaches, springs, and the roads between them](<https://peninsulainsider.com.au/explore/>)
+- [Explore   Walks, beaches, springs, and the roads between them   Cape Schanck Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/explore/>)
 
 ## Explore by place
 
@@ -147,7 +149,7 @@ Build the day around a booked lunch or cellar door. Arrange transport between st
 
 Use the town as your starting point for the southern Peninsula. Check conditions before choosing a coastal walk.
 
-Arthurs Seat Eagle, Mornington Peninsula. This photograph does not show the 2026 school-holiday programme.  Photo courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula. This photograph does not show the 2026 school-holiday programme. Photo courtesy of Visit Victoria
 
 From the Journal  Service
 

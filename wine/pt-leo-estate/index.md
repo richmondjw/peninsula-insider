@@ -231,6 +231,8 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
@@ -240,6 +242,8 @@ For people who want salt air, one excellent meal, and just enough structure to s
 One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

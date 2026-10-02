@@ -135,6 +135,8 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
 
+Photo: Courtesy of Visit Victoria
+
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
@@ -156,6 +158,8 @@ Use it in sequence
 These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Fingal weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 

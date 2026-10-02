@@ -109,6 +109,8 @@ long lunch  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/eat/portsea-hotel/>) [Book](<https://www.portseahotel.com.au/>)
 
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
@@ -120,6 +122,8 @@ A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a 
 weekend escape  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
+
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

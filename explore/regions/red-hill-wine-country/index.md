@@ -193,6 +193,8 @@ slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/dexter-wines/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
@@ -253,6 +255,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
@@ -276,6 +280,8 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -324,6 +330,8 @@ Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodeston
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -409,6 +417,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
@@ -469,6 +479,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
@@ -480,6 +492,8 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 slow  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -517,6 +531,8 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
@@ -552,6 +568,8 @@ George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-o
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/paradigm-hill/>) [Book](<https://www.paradigmhill.com.au/>)
+
+Photo: Paringa Estate
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -637,6 +655,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) [Book](<https://www.prancinghorseestate.com/>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
@@ -661,6 +681,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) [Book](<https://quealy.com.au/pages/cellar-door>)
 
+Photo: Courtesy of Visit Victoria
+
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
@@ -672,6 +694,8 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -696,6 +720,8 @@ Artisan bread, pies and pastries from the bakery's sole current shop in Balnarri
 slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
+
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -804,6 +830,8 @@ Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse w
 long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) [Book](<https://www.tedesca.com.au/>)
+
+Photo: Provided image
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

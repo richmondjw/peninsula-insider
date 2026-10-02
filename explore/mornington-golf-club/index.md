@@ -47,6 +47,8 @@ The best explore pages should lead somewhere next.
 
  [See Mornington →](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)

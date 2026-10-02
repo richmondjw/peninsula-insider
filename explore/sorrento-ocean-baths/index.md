@@ -63,6 +63,8 @@ anniversary  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/bistro-elba/>) [Book](<https://www.bistroelba.com.au/>)
 
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
@@ -92,6 +94,8 @@ Use it in a weekend
 ## Plans that already sequence this stop properly
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

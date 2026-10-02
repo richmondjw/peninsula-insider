@@ -139,6 +139,8 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [A Peninsula Wellness Weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)

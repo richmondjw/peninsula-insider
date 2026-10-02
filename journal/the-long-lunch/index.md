@@ -63,7 +63,7 @@ Or let PI plan your day
 
 A painted Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
 
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.
+Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
 
 [Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
 
@@ -127,6 +127,8 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
+Photo: Provided image
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
@@ -139,6 +141,8 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
@@ -150,6 +154,8 @@ Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/wine/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
+
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

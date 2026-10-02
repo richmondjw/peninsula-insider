@@ -59,6 +59,8 @@ anniversary  waterfront
 
 Alba’s villas pair a stay with the thermal springs. At Cassis, only the Retreat and Cottage list mineral plunge pools; the other three villas list outdoor baths.
 
+Photo: Courtesy of Visit Victoria
+
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)

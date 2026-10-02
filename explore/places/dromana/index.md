@@ -127,6 +127,8 @@ long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
 
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
+
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
@@ -161,6 +163,8 @@ The producers worth the appointment - and the ones already shaping the region's 
 
  [All cellar doors →](<https://peninsulainsider.com.au/wine/>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
@@ -184,6 +188,8 @@ A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangi
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
+
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

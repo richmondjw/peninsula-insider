@@ -143,6 +143,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Robert Blackburn, courtesy of Visit Victoria
+
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
@@ -154,6 +156,8 @@ A monthly bayfront produce market that knows what it is and stays close to its g
 slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
+
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

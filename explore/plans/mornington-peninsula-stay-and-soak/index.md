@@ -117,6 +117,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Peninsula Hot Springs
+
 Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)

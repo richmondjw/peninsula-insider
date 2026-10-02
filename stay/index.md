@@ -97,7 +97,9 @@ Villa   Red Hill   Couples
 
 [Check availability](<https://www.polperrowines.com.au/escape/>)
 
-- ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
+- Hotel Sorrento exterior, photographed in 2006 before recent renovations.   Photo: Biatch / Wikimedia Commons (public domain).
+
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
 A coastal hotel above a limestone pub, for a weekend centred on Sorrento. Check your room’s outlook before booking.
 

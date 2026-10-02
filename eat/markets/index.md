@@ -21,6 +21,8 @@ Current Peninsula markets; check organiser schedules before visiting.
 
 [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Robert Blackburn, courtesy of Visit Victoria
+
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)

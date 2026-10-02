@@ -113,7 +113,7 @@ Or let PI plan your day
 
 A painted Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
 
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.
+Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
 
 [Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
 
@@ -188,6 +188,8 @@ Contemporary geothermal bathing and spa treatments in a landscaped Fingal settin
 wellness  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) [View stay](<https://albathermalsprings.com.au/book>)
+
+Photo: Peninsula Hot Springs
 
 Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

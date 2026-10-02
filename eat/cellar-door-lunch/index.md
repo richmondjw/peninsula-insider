@@ -25,6 +25,8 @@ Ordered by editorial authority. Hatted rooms first, then the places doing the st
 
  [All wineries →](<https://peninsulainsider.com.au/wine/>)
 
+Photo: Provided image
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>)
@@ -37,6 +39,8 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/eat/pt-leo-estate/>)
@@ -48,6 +52,8 @@ A sculpture park walk followed by a long bay-view lunch in the glass-walled rest
 long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -72,6 +78,8 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
+
+Photo: Paringa Estate
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -108,6 +116,8 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+
+Photo: Courtesy of Visit Victoria
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

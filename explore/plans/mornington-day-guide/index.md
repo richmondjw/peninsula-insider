@@ -115,6 +115,8 @@ slow  solo
 
 [Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
 
+Photo: Robert Blackburn, courtesy of Visit Victoria
+
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
@@ -126,6 +128,8 @@ A monthly bayfront produce market that knows what it is and stays close to its g
 slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

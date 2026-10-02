@@ -93,6 +93,8 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/eat/crittenden-estate/>)
@@ -104,6 +106,8 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 cellar door  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

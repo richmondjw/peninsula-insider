@@ -99,6 +99,8 @@ Use it in a weekend
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)

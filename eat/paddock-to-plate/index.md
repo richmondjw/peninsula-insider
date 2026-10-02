@@ -35,6 +35,8 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) [Book](<https://www.tedesca.com.au/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
@@ -46,6 +48,8 @@ Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
+
+Photo: Paringa Estate
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -70,6 +74,8 @@ Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape 
 anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -107,6 +113,8 @@ long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
@@ -130,6 +138,8 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

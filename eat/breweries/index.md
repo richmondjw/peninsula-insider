@@ -41,6 +41,8 @@ big group  garden
 
 [Read notes](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) [Book](<https://mpbrew.com.au/>)
 
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
+
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
@@ -52,6 +54,8 @@ The Peninsula's original craft brewery, Belgian-style ales from the only estate 
 cellar door  garden
 
 [Read notes](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
+
+Photo: Courtesy of Visit Victoria
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 

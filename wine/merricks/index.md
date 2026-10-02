@@ -155,6 +155,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/paradigm-hill/>) [Book](<https://www.paradigmhill.com.au/>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)

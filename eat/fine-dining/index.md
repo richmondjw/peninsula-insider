@@ -49,6 +49,8 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
+Photo: Provided image
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>)
@@ -73,6 +75,8 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
@@ -84,6 +88,8 @@ Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
+
+Photo: Paringa Estate
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -108,6 +114,8 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/book-accommodation/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

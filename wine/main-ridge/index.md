@@ -111,6 +111,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
@@ -182,6 +184,8 @@ The Peninsula's Pinot Grigio pioneer, a family-friendly cellar door on Main Ridg
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/t-gallant/>) [Book](<https://tgallantvineyard.com.au/>)
+
+Photo: Provided image
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

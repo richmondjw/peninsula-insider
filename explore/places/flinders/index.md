@@ -199,6 +199,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [Flinders stays →](<https://peninsulainsider.com.au/stay/flinders/>)
 
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
@@ -238,6 +240,8 @@ Use it in sequence
 These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Flinders weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 

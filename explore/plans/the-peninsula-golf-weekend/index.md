@@ -157,6 +157,8 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)

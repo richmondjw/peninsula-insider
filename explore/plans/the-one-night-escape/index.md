@@ -201,6 +201,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Courtesy of Visit Victoria
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
@@ -213,6 +215,8 @@ weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
@@ -224,6 +228,8 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 weekend escape  garden
 
 [Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
 
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 

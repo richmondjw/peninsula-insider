@@ -23,6 +23,8 @@ Sorted alphabetically. Location usually determines which one you visit.
 
 [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
+
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)

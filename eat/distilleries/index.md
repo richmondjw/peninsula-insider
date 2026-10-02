@@ -17,6 +17,8 @@ Tasting rooms for gin and spirits made on the Peninsula.
 
  [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)

@@ -25,6 +25,8 @@ Ordered by editorial authority. Hatted rooms first, then the places doing the st
 
  [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
@@ -61,6 +63,8 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
+Photo: Courtesy of Visit Victoria
+
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Pt. Leo Estate](<https://peninsulainsider.com.au/eat/pt-leo-estate/>)
@@ -73,6 +77,8 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
 
+Photo: Paringa Estate
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/eat/paringa-estate/>)
@@ -84,6 +90,8 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
+
+Photo: Provided image
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

@@ -151,6 +151,8 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Point Nepean weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Plan
 
 ### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -160,6 +162,8 @@ Start in Red Hill wine country, finish at the southern tip, and let the weekend 
 Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

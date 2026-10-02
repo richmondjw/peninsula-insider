@@ -121,6 +121,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
@@ -132,6 +134,8 @@ An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room
 anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

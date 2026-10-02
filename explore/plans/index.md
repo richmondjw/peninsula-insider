@@ -40,6 +40,8 @@ Plan transport between stops, and check the route for your dates before booking.
 
 6 stops across 3 days. Yours to adjust in My Trip.
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 At a glance  6 stops
 
 - Day 1
@@ -74,6 +76,8 @@ Plan transport between stops, and check the route for your dates before booking.
 
 5 stops across 2 days. Yours to adjust in My Trip.
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 At a glance  5 stops
 
 - Day 1
@@ -103,6 +107,8 @@ Plan transport between stops, and check the route for your dates before booking.
 [See the itinerary](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
 4 stops across one day. Yours to adjust in My Trip.
+
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 At a glance  4 stops
 

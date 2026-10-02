@@ -125,6 +125,8 @@ slow  beach
 
 [Read notes](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
+Photo: Courtesy of Visit Victoria
+
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)

@@ -99,6 +99,8 @@ Ordered by editorial authority and Halliday score. Each card opens the full edit
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
 
+Photo: Paringa Estate
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
@@ -170,6 +172,8 @@ Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, sti
 cellar door  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

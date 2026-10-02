@@ -171,6 +171,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
+
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
@@ -194,6 +196,8 @@ Handmade chocolates, rich hot chocolates, and a small café, a reliable family s
 family  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
+
+Photo: Courtesy of Visit Victoria
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 

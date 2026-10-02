@@ -61,6 +61,8 @@ waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/martha-s-table/>) [Book](<https://www.marthastable.com.au/book-a-table/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)

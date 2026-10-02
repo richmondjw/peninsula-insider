@@ -91,6 +91,8 @@ beach  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
@@ -199,6 +201,8 @@ family  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) [Book](<https://hotelsorrento.com.au/>)
 
+Photo: Courtesy of Visit Victoria
+
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
@@ -234,6 +238,8 @@ Sorrento's most enduring waterfront dining room, perched on the sand with Port P
 waterfront  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) [Book](<https://thebaths.com.au/>)
+
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

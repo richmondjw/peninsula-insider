@@ -201,6 +201,8 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Plan
 
 ### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)

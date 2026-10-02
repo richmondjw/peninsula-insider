@@ -141,6 +141,8 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
@@ -164,6 +166,8 @@ Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restrai
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/garagiste/>) [Book](<https://garagiste.com.au/>)
+
+Photo: Robert Blackburn, courtesy of Visit Victoria
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

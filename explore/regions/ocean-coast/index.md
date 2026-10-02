@@ -103,6 +103,8 @@ slow  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>) [Book](<https://flindersgeneralstore.com.au/>)
 
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
@@ -211,6 +213,8 @@ wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>) [View stay](<https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort.html>)
 
+Photo: Peninsula Hot Springs
+
 Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
@@ -246,6 +250,8 @@ Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view,
 wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
+
+Photo: Courtesy of Visit Victoria
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

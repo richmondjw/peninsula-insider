@@ -103,6 +103,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
@@ -124,6 +126,8 @@ Use it in sequence
 These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Merricks North weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 

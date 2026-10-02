@@ -81,6 +81,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
@@ -104,6 +106,8 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
+
+Photo: Provided image
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

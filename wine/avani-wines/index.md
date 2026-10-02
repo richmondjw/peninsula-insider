@@ -141,6 +141,8 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)

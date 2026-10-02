@@ -159,6 +159,8 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Photo: Courtesy of Visit Victoria
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
@@ -235,6 +237,8 @@ Try another shape
 
 [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Plan
 
 ### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -245,6 +249,8 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
@@ -254,6 +260,8 @@ For people who want salt air, one excellent meal, and just enough structure to s
 One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 

@@ -163,6 +163,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [Sorrento stays →](<https://peninsulainsider.com.au/stay/sorrento/>)
 
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
@@ -174,6 +176,8 @@ A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a 
 weekend escape  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
+
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -265,6 +269,8 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Sorrento weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Plan
 
 ### [Ridge to Sea: A Two-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -274,6 +280,8 @@ Start in Red Hill wine country, finish at the southern tip, and let the weekend 
 Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

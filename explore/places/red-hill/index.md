@@ -133,6 +133,8 @@ Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star r
 
  [More to eat in Red Hill →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
@@ -145,6 +147,8 @@ anniversary  first date
 
 [Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
@@ -156,6 +160,8 @@ A Red Hill institution that has turned long lunch into a civic duty.
 long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -249,6 +255,8 @@ cellar door  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
@@ -328,6 +336,8 @@ Use it in sequence
 These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Red Hill weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 

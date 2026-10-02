@@ -97,6 +97,8 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)

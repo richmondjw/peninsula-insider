@@ -33,6 +33,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
+Photo: Paringa Estate
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
@@ -44,6 +46,8 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -128,6 +132,8 @@ A rustic, intimate cellar door running a five-wine, five-canape pairing from a h
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
+
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

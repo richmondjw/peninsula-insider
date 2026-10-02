@@ -57,6 +57,8 @@ The best explore pages should lead somewhere next.
 
  [See Mornington →](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
@@ -98,6 +100,8 @@ Use it in a weekend
 ## Plans that already sequence this stop properly
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 

@@ -157,7 +157,7 @@ Or let PI plan your day
 
 A painted Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
 
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.
+Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
 
 [Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
 
@@ -221,6 +221,8 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
+
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
@@ -233,6 +235,8 @@ cellar door  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
 
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
@@ -244,6 +248,8 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 weekend escape  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)
+
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

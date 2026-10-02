@@ -109,6 +109,8 @@ slow  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-general-store/>) [Book](<https://flindersgeneralstore.com.au/>)
 
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)

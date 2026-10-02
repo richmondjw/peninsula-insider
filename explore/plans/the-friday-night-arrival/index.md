@@ -131,6 +131,8 @@ slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)

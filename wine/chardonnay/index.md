@@ -23,6 +23,8 @@ Ordered by editorial authority and Halliday score.
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
 
+Photo: Provided image
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
@@ -47,6 +49,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
+Photo: Paringa Estate
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
@@ -70,6 +74,8 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -119,6 +125,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/stonier-wines/>) [Book](<https://www.stonier.com.au/visit>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
@@ -154,6 +162,8 @@ One of the Peninsula's most photographed cellar-door positions, sweeping Western
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/red-hill-estate/>) [Book](<https://www.redhillestate.com.au/>)
+
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

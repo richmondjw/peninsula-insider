@@ -141,6 +141,8 @@ Places in this plan
 
 ## Worth knowing before you go.
 
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
@@ -152,6 +154,8 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 weekend escape  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)
+
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

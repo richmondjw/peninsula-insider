@@ -21,6 +21,8 @@ Small inventory, strong positioning. Flinders is about choosing the town well, n
 
 [Flinders guide →](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
+Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)

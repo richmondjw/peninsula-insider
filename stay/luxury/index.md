@@ -29,6 +29,8 @@ The first decision
 
 Choose the room, dining and service together. Confirm restaurant reservations separately.
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
@@ -40,6 +42,8 @@ An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room
 anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -101,6 +105,8 @@ anniversary  waterfront
 
 Alba offers on-site thermal bathing. At Cassis, two villas have mineral plunge pools and three have outdoor baths.
 
+Photo: Courtesy of Visit Victoria
+
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
@@ -131,6 +137,8 @@ anniversary  romance
 
 A Sorrento hotel gives a different pace from the wine-country estates.
 
+Photo: Courtesy of Visit Victoria
+
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
@@ -142,6 +150,8 @@ A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dini
 weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
+
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

@@ -137,6 +137,8 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
+Photo: Peter Foster, courtesy of Visit Victoria
+
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
@@ -257,6 +259,8 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Merricks weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
 ### [Flinders and the Cape: A One-Night Reset](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
@@ -267,6 +271,8 @@ One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
+Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+
 Plan
 
 ### [The Sorrento Off-Season Weekend](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
@@ -276,6 +282,8 @@ Two nights based in Sorrento, with the back beach, Point Nepean and a village di
 Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
+
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 
 Plan
 
