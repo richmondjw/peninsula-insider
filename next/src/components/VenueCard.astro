@@ -95,6 +95,9 @@ const photoCredit = hero.override ? hero.override.credit : data.heroImage?.credi
 const photoNote = hasPhoto && photoCredit
   ? (slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
   : '';
+const flindersCommonsPhoto = slug === 'flinders-hotel' && !hero.override && hasPhoto;
+const photoSourceUrl = flindersCommonsPhoto ? data.heroImage?.sourceUrl : undefined;
+const photoLicenceUrl = flindersCommonsPhoto ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined;
 const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -114,7 +117,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
       purpose: 'hero',
     })}
   >{hasPhoto && <img src={hero.src} alt="" loading="lazy" decoding="async" />}</a>
-  {photoNote && <p class="venue-card__photo-credit">{photoNote}</p>}
+  {photoNote && <p class="venue-card__photo-credit">{photoNote}{photoSourceUrl && <span class="venue-card__photo-links">{' '}<a href={photoSourceUrl} aria-label="Flinders Hotel image source">Source</a><span aria-hidden="true">·</span><a href={photoLicenceUrl} aria-label="Flinders Hotel image licence">Licence</a></span>}</p>}
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}
@@ -169,6 +172,9 @@ const verifiedTier = verificationFreshness(data.lastVerified);
 
 <style>
   .venue-card__photo-credit { margin: .5rem 1rem 0; color: var(--soft, #5c6267); font: 400 .72rem/1.45 var(--font-ui, sans-serif); }
+  .venue-card__photo-links { display: inline-flex; align-items: center; gap: .15rem; margin-left: .35rem; white-space: nowrap; }
+  .venue-card__photo-credit a { display: inline-flex; align-items: center; min-height: 1.5rem; padding-inline: .2rem; color: #0B2E4A; text-decoration: underline; text-underline-offset: 2px; }
+  .venue-card__photo-credit a:focus-visible { outline: 2px solid #10527E; outline-offset: 2px; }
   .venue-card__partner-note {
     font-size: 0.7rem;
     color: var(--color-text-muted, #9a9a9a);

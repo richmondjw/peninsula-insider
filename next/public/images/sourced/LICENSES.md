@@ -144,6 +144,13 @@ with verified provenance and geo-location.
 - **Original:** https://commons.wikimedia.org/wiki/File:Nazaaray_Estate_Winery.jpg
 - **Used on:** /wine/nazaaray-estate/
 
+## venue-flinders-hotel-01.webp
+- **Source:** Flinders Hotel pub frontage, photographed 29 December 2010; Quarters rooms are behind the building and are not shown.
+- **Photographer:** Mattinbgn
+- **Licence:** CC-BY-SA-3.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG
+- **Used for:** Historical Flinders Hotel exterior on the Quarters stay page and an archived event. The source JPEG was converted to WebP for web delivery; attribution, licence link and ShareAlike apply to this derivative.
+
 ## venue-sorrento-hotel-01.webp
 - **Source:** Hotel Sorrento exterior, Sorrento Victoria, photographed 2006.
 - **Photographer:** Biatch
