@@ -265,7 +265,9 @@ const showBookingSlot = !booking && reserveBooking;
    Anywhere Save sits beside "Add to trip" or a booking link, it is the
    labelled "Save" button, the same shape as its neighbours. */
 const saveOnly = !!resolvedSaveKind && !trip && !booking && !showBookingSlot;
-const inlineSave = saveOnly && !isCompact && variant !== 'plan';
+// Story cards keep the labelled Save on its own row too (James, 3 Oct
+// 2026): one Save look beside the stay cards they sit under.
+const inlineSave = saveOnly && !isCompact && variant !== 'plan' && entityType !== 'article';
 const soloSave = saveOnly && isCompact;
 const hasActions = (!inlineSave && !!resolvedSaveKind) || trip || !!booking || showBookingSlot;
 
@@ -274,6 +276,8 @@ const hasActions = (!inlineSave && !!resolvedSaveKind) || trip || !!booking || s
    glyph, so each compound sits in a nowrap span. Odd indices are the
    compounds captured by the split. */
 const titleParts = title.split(/(\S+-\S+)/);
+// The same for the verdict line ("golf-course", "no-pets").
+const verdictParts = verdict ? verdict.split(/(\S+-\S+)/) : [];
 
 /* Guide cards without a picture are text links on a band; the trailing
    arrow is their link affordance. */
@@ -402,7 +406,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 
     {(hasVerdictSlot || verdict) && (
       <p class="pi-card__dek">
-        <slot name="verdict">{verdict}</slot>
+        <slot name="verdict">{verdictParts.map((part, i) => (i % 2 === 1 ? <span class="pi-card__nb">{part}</span> : part))}</slot>
       </p>
     )}
 
@@ -939,6 +943,18 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     /* Content starts at the padding, not centred in the min-width, so the
        first action's icon lines up with the card text above it. */
     justify-content: flex-start;
+  }
+  /* Full-list rows: the booking link joins Save and Add to trip as a quiet
+     text action (James, 3 Oct 2026), so a list of 24 reads as an index, not
+     a booking widget. Framed cards keep the outlined button. Same 48/44px
+     target; the frame shows on hover only. */
+  .pi-card.pi-card--compact .pi-card__actions :global(.v5-booking--card-action .v5-booking__link) {
+    border-color: transparent;
+    padding-inline: var(--space-3);
+    justify-content: flex-start;
+  }
+  .pi-card.pi-card--compact .pi-card__actions :global(.v5-booking--card-action .v5-booking__link:hover) {
+    border-color: var(--harbour);
   }
   .pi-card .pi-card__trip {
     min-width: 6.5rem;

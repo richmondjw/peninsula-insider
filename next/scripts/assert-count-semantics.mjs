@@ -36,6 +36,28 @@ export const REQUIRED_SURFACES = [
   'explore/index.html',
 ];
 
+/** Required surfaces whose directory heading deliberately carries no number
+ *  (James, 3 Oct 2026: "All 24 other places to stay" read as database
+ *  output). With no "All N" claim there is nothing for a heading to
+ *  contradict, so the page must instead prove the count it still prints is
+ *  sound: a data-filter-count element, countable markers, and no orphan
+ *  markers. A number that creeps back into the heading is checked as usual. */
+export const COUNT_FREE_SURFACES = ['stay/index.html'];
+
+/** Verdict for a count-free surface; `failures` is empty when it is sound. */
+export function checkCountFree(name, html) {
+  const a = analyseHtml(html);
+  const failures = [];
+  if (!a.hasFilterCount) failures.push('no data-filter-count element, so the filter bar prints no count');
+  if (a.countableNodes === 0) {
+    failures.push('no data-filter-countable markers, so the count would fall back to every data-facets node');
+  }
+  if (a.orphanMarkers > 0) {
+    failures.push(`${a.orphanMarkers} element(s) carry data-filter-countable without data-facets`);
+  }
+  return { name, ...a, failures };
+}
+
 export function decodeEntities(value) {
   return value
     .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
@@ -170,6 +192,12 @@ function main() {
   }
 
   for (const required of REQUIRED_SURFACES) {
+    if (!seen.has(required) && COUNT_FREE_SURFACES.includes(required) && existsSync(join(DIST, required))) {
+      const r = checkCountFree(required, readFileSync(join(DIST, required), 'utf8'));
+      for (const f of r.failures) failures.push(`${required}: ${f}`);
+      console.log(`  ${required.padEnd(24)} heading (none) counted ${String(r.runtimeCount).padStart(4)}  count-free by design`);
+      continue;
+    }
     if (!seen.has(required)) {
       failures.push(
         `${required}: expected a filtered listing with an "All N" heading, found none. ` +

@@ -48,6 +48,12 @@ export interface CmsOverrides {
 const EMPTY: CmsOverrides = { text: {}, image: {} };
 const cache = new Map<string, Promise<CmsOverrides>>();
 const SKIP_LIVE_READS = process.env.PI_SKIP_CMS_LIVE_READS === '1';
+// Preview only: image overrides for these entities ("venue/polperro-villas,...")
+// are left out, so a local build shows the page as it will look once those
+// published rows are retired. Unset in every real build.
+const PREVIEW_RETIRED_IMAGES = new Set(
+  (process.env.PI_CMS_PREVIEW_RETIRED_IMAGES ?? '').split(',').map((s) => s.trim()).filter(Boolean),
+);
 
 type BakedImageSlot = {
   src?: string | null;
@@ -136,6 +142,7 @@ async function fetchOverrides(
       };
     }
 
+    if (PREVIEW_RETIRED_IMAGES.has(`${entityType}/${entitySlug}`)) return { text, image: baked };
     return { text, image: { ...baked, ...image } };
   } catch {
     return { text: {}, image: baked };

@@ -21,7 +21,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
-import { analyseHtml, checkPage } from './assert-count-semantics.mjs';
+import { analyseHtml, checkPage, checkCountFree, COUNT_FREE_SURFACES } from './assert-count-semantics.mjs';
 
 const { countableSubset, itemMatches, parseItemFacets, COUNTABLE_ATTR } = await import(
   new URL('../src/lib/v5-filter-state.ts', import.meta.url).href
@@ -169,8 +169,22 @@ test('built hubs agree (skipped when dist/ is absent)', (t) => {
   }
   for (const page of present) {
     const html = readFileSync(new URL(page, `file://${DIST}`), 'utf8');
+    if (COUNT_FREE_SURFACES.includes(page) && checkPage(page, html).skipped) {
+      assert.deepEqual(checkCountFree(page, html).failures, [], `${page} count-free listing is unsound`);
+      continue;
+    }
     const result = checkPage(page, html);
     assert.equal(result.skipped, false, `${page} made no "All N" count claim`);
     assert.deepEqual(result.failures, [], `${page} heading and count disagree`);
   }
+});
+
+test('a count-free surface still needs a sound count', () => {
+  const sound = '<h2 class="directory__heading">The rest of the list</h2><p data-filter-count>24</p>'
+    + '<li data-facets="a" data-filter-countable></li><li data-facets="b" data-filter-countable></li>';
+  assert.deepEqual(checkCountFree('fixture', sound).failures, []);
+  const unmarked = '<h2>The rest of the list</h2><p data-filter-count>2</p><li data-facets="a"></li>';
+  assert.ok(checkCountFree('fixture', unmarked).failures.some((f) => /no data-filter-countable/.test(f)));
+  const noCount = '<h2>The rest of the list</h2><li data-facets="a" data-filter-countable></li>';
+  assert.ok(checkCountFree('fixture', noCount).failures.some((f) => /no data-filter-count element/.test(f)));
 });
