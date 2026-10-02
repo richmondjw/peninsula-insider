@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "sourceRevision": "8a5bebd served locally at 4387, before iteration 3 image-rights changes",
+  "reviewers": [
+    {
+      "role": "independent factual and journey",
+      "assessedSubtotal": {
+        "points": 46.25,
+        "maxPoints": 58
+      },
+      "keyFindings": [
+        "Dated event facts and directions match primary sources",
+        "Bass fallback had no licence record; Ten Minutes related image and Pt Leo detail credit remained unresolved"
+      ]
+    },
+    {
+      "role": "independent visual and mobile",
+      "assessedSubtotal": {
+        "points": 68.75,
+        "maxPoints": 79
+      },
+      "keyFindings": [
+        "Early event links and expired-page fallback improved the phone journey",
+        "No 320/390/1440 overflow or broken images",
+        "Early links lacked timing and place comparison; scenic hero and archive remained weak"
+      ]
+    },
+    {
+      "role": "independent interaction and accessibility",
+      "assessedSubtotal": {
+        "points": 36,
+        "maxPoints": 36
+      },
+      "keyFindings": [
+        "Event, organiser, Save and Share journeys worked",
+        "Before/after Sunday and no-JavaScript fallback behaved correctly",
+        "Screen-reader and remaining rubric criteria not independently tested"
+      ]
+    }
+  ],
+  "score": null,
+  "status": "provisional-failed",
+  "hardGates": [
+    "Unlicensed linked Bass fallback image in this reviewed revision",
+    "Unreviewed related event image and incomplete linked Pt Leo credit"
+  ],
+  "independenceNote": "Reviewer subsets overlap and must not be added or converted to a /100 rating. The latest image-rights changes are a later iteration and need a new build/regrade.",
+  "nextAction": "Build iteration 3, independently inspect rights-safe linked pages and card imagery, complete the 23-criterion rubric, then release and verify production."
+}

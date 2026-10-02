@@ -13,6 +13,8 @@ import {
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
+import EventImageCredit from '../../components/EventImageCredit.astro';
+import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
@@ -93,12 +95,23 @@ const lensList: Array<{ key: string; label: string }> = ((event.data.lens ?? [])
 
 const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
+const addressForDirections = [event.data.streetAddress, event.data.suburb, 'VIC']
+  .filter(Boolean)
+  .join(', ');
+const directionsHref = event.data.coordinates
+  ? (`https://www.google.com/maps?q=${event.data.coordinates.lat},${event.data.coordinates.lng}`)
+  : addressForDirections
+    ? (`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(addressForDirections)}`)
+    : null;
+
 const canonical = `https://peninsulainsider.com.au/whats-on/${slug}/`;
 
 // Social/search-card image must honour the same CMS-aware hero resolver as
 // event cards, otherwise the detail page and listing/search cards drift.
 const eventHero = await resolveHero('event', slug, event.data);
-const ogImage = eventHero.src;
+const showReviewedImage = !eventHero.override && eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
+// A text-only detail must not redistribute a fallback place photograph without its on-page credit.
+const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-og-card.png';
 
 // Standardised event fields (Discovery Phase 1, workstream 4): every event
 // page always renders price, time (when known), recurrence, and family grade
@@ -108,19 +121,31 @@ const priceKnown = eventHasKnownPrice(event.data);
 const timeLabel = eventTimeLabel(event.data);
 const calendarUrl = eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
-const recurrenceLabel = eventRecurrenceLabel(event.data);
+const dateBasis = event.data.dateBasis ?? 'fixed';
+const flexibleDate = dateBasis !== 'fixed';
+const flexibleRecurrenceLabel: Record<string, string> = {
+  'operator-calendar': 'Sessions on the organiser calendar',
+  'on-request': 'By arrangement',
+  'opening-hours': 'Visit during published opening hours',
+};
+const recurrenceLabel = flexibleDate ? flexibleRecurrenceLabel[dateBasis] : eventRecurrenceLabel(event.data);
+const flexibleWhenLabel: Record<string, string> = {
+  'operator-calendar': 'Choose a date on the organiser calendar',
+  'on-request': 'Arrange a date with the organiser',
+  'opening-hours': 'Check current opening hours',
+};
 const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
 const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
-const whenLabel = eventDateLabel(whenStart, whenEnd);
+const whenLabel = flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);
 
 // PI-008. isCurrentEvent is day-granular, so a session that finished at 2pm
 // still offered a booking link at 6pm on the same day. Resolve the run this
 // page actually displays and ask whether it is over. For a recurring series
 // whenStart is the next occurrence, so this is false until that one passes.
 const displayedRun =
-  USE_OCCURRENCE_MODEL && whenStart
+  USE_OCCURRENCE_MODEL && !flexibleDate && whenStart
     ? resolveOccurrence(event.data as Record<string, any>, dayIsoOf(whenStart), now, {
         endDayIso: dayIsoOf(whenEnd ?? whenStart),
       })
@@ -138,7 +163,7 @@ const bookingClosed = bookingWithdrawn || occurrenceOver || (USE_OCCURRENCE_MODE
 // Keep the retained cancellation URL richly described for search and old
 // inbound links. A cancelled event is deliberately not "current", but its
 // Event JSON-LD must still declare EventCancelled rather than disappearing.
-const eventSchema = (isCurrent || cancelled)
+const eventSchema = !flexibleDate && (isCurrent || cancelled)
   ? eventJsonLd(event, 'https://peninsulainsider.com.au')
   : null;
 
@@ -261,6 +286,16 @@ export const prerender = true;
         )}
       </div>
 
+      {showReviewedImage && (
+        <figure class="event-detail__image">
+          <img src={eventHero.src} alt={eventHero.alt} loading="eager" decoding="async" />
+          <figcaption>
+            <EventImageCredit image={event.data.heroImage} />
+            <MediaProvenanceNote image={event.data.heroImage} subject={event.data.title} />
+          </figcaption>
+        </figure>
+      )}
+
       <div class="event-detail__body">
         <div class="event-detail__main">
           {event.data.editorVerdict && (
@@ -319,13 +354,9 @@ export const prerender = true;
                     </a>
                   </li>
                 )}
-                {event.data.coordinates && (
+                {directionsHref && (
                   <li>
-                    <a
-                      href={`https://www.google.com/maps?q=${event.data.coordinates.lat},${event.data.coordinates.lng}`}
-                      rel="nofollow noreferrer"
-                      target="_blank"
-                    >
+                    <a href={directionsHref} rel="nofollow noreferrer" target="_blank">
                       Get directions &rarr;
                     </a>
                   </li>
@@ -405,10 +436,10 @@ export const prerender = true;
                     data-pi-entity-slug={slug}
                     data-pi-surface="event-detail"
                   >
-                    {bookingTarget.label}
+                    {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
                   </a>
                 )}
-                <a
+                {!flexibleDate && <a
                   href={calendarUrl}
                   class="event-detail__action event-detail__action--secondary"
                   rel="noreferrer"
@@ -416,7 +447,7 @@ export const prerender = true;
                   aria-label={`Add ${event.data.title} to your calendar`}
                 >
                   Add to calendar
-                </a>
+                </a>}
               </div>
             )}
           </div>
@@ -447,7 +478,7 @@ export const prerender = true;
           <a href="/whats-on/" class="venues__link">All events -></a>
         </div>
         <div class="event-grid">
-          {sidebar.map((entry) => <EventCard event={entry} />)}
+          {sidebar.map((entry) => <EventCard event={entry} imagePolicy="recorded-only" />)}
         </div>
       </div>
     </section>
@@ -459,3 +490,10 @@ export const prerender = true;
 
   <NewsletterBlock />
 </BaseLayout>
+
+<style>
+  .event-detail__image { margin: 0 0 2.5rem; }
+  .event-detail__image img { display: block; width: 100%; max-height: 420px; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius-m); }
+  .event-detail__image figcaption { padding: 0 0.2rem; }
+  @media (max-width: 600px) { .event-detail__image img { aspect-ratio: 4 / 3; } }
+</style>

@@ -187,7 +187,7 @@ export function illustrativeDisclosure(
   return {
     label: 'Illustrative image',
     detail: depicts
-      ? `This photograph shows ${depicts}. It is not a photograph of ${target}.`
-      : `This photograph is not of ${target}.`,
+      ? `This image shows ${depicts}. It does not depict ${target}.`
+      : `This image does not depict ${target}.`,
   };
 }

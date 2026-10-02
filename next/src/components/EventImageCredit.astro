@@ -1,0 +1,52 @@
+---
+/** Attribution for an event image with recorded provenance. */
+export interface Props {
+  image?: any;
+  compact?: boolean;
+}
+
+const { image, compact = false } = Astro.props;
+const recorded = image?.rightsStatus === 'recorded';
+const generated = String(image?.src ?? '').startsWith('/images/generated/');
+const licence = String(image?.permission ?? '');
+const licenceLabel = licence.includes('Attribution-ShareAlike 4.0')
+  ? 'CC BY-SA 4.0'
+  : licence.includes('Attribution 3.0')
+    ? 'CC BY 3.0'
+    : null;
+const licenceUrl = licenceLabel === 'CC BY-SA 4.0'
+  ? 'https://creativecommons.org/licenses/by-sa/4.0/'
+  : licenceLabel === 'CC BY 3.0'
+    ? 'https://creativecommons.org/licenses/by/3.0/'
+    : null;
+---
+
+{recorded && (
+  <p class:list={['event-image-credit', compact && 'event-image-credit--compact']}>
+    {generated ? (
+      <span>AI-assisted artwork · Peninsula Insider</span>
+    ) : (
+      <>
+        <span>Image · {image.creator ?? image.credit}</span>
+        {licenceLabel && licenceUrl && <a href={licenceUrl} target="_blank" rel="noopener noreferrer">{licenceLabel}</a>}
+        {image.sourceUrl && <a href={image.sourceUrl} target="_blank" rel="noopener noreferrer">Image source</a>}
+      </>
+    )}
+  </p>
+)}
+
+<style>
+  .event-image-credit {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 0.75rem;
+    align-items: center;
+    margin: 0;
+    padding: 0.65rem 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--soft);
+  }
+  .event-image-credit a { color: var(--dark); text-underline-offset: 0.18em; min-height: 28px; display: inline-flex; align-items: center; }
+  .event-image-credit--compact { padding: 0.3rem 1.6rem 0; font-size: 0.72rem; }
+</style>

@@ -2,7 +2,7 @@
   "slug": "hill-ridge-community-market-september-2026-restart",
   "eventId": "MP-EVT-0066",
   "title": "Hill & Ridge Community Market, 3 October 2026",
-  "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
+  "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
   "startDate": "2026-10-03",
   "endDate": "2026-10-03",
   "startTime": "09:00",
@@ -13,10 +13,6 @@
   "venueRegion": "Red Hill",
   "suburb": "Red Hill",
   "streetAddress": "184 Arthurs Seat Road",
-  "coordinates": {
-    "lat": -38.377,
-    "lng": 145.084
-  },
   "indoorOutdoor": "Outdoor",
   "officialEventUrl": "https://www.hillandridgemarket.com.au",
   "bookingRequired": "No",
@@ -46,7 +42,7 @@
   },
   "primarySourceUrl": "https://www.hillandridgemarket.com.au",
   "verificationStatus": "3 October 2026 date, time and venue confirmed by organiser on 23 September 2026",
-  "lastCheckedDate": "2026-09-23",
+  "lastCheckedDate": "2026-10-03",
   "editorialPriority": 1,
   "nearbyAttractions": "Stonier Wines; Polperro; Foxeys Hangout; Arthur's Seat Eagle",
   "suggestedItineraryPairing": "Pair with a winery lunch at one of the Red Hill estates",
@@ -55,7 +51,7 @@
   "worthTheDrive": true,
   "firstTimer": true,
   "editorVerdict": "A confirmed 3 October market date from the Hill & Ridge organiser, subject to unsafe-weather cancellation. This is separate from the temporarily closed original Red Hill Community Market.",
-  "editorNote": "Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. Its organiser confirms Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road. Browse local food, produce and artisan stalls, then consider a Red Hill lunch. Unsafe weather can cause cancellation without notice, so check the organiser before travelling.",
+  "editorNote": "Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. Its organiser confirms Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road. Browse local food, produce and artisan stalls, then consider a Red Hill lunch. Entry is free; the organiser says reserve parking has a charge and asks visitors to avoid roadside parking. Unsafe weather can cause cancellation without notice, so check the organiser before travelling.",
   "lens": [
     "weekend-pick",
     "family-saturday",
@@ -63,5 +59,29 @@
     "walk-in"
   ],
   "place": "red-hill",
-  "nextOccurrence": "2026-10-03"
+  "nextOccurrence": "2026-10-03",
+  "lastVerifiedAt": "2026-10-03T07:10:00+11:00",
+  "verification": "verified",
+  "verificationNote": "The organiser currently lists Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road; entry is free, reserve parking has a charge, and unsafe weather may cancel without notice. Checked 3 October 2026. The old coordinate pair lacked a source and was removed; directions use the published street address.",
+  "heroImage": {
+    "src": "/images/generated/red-hill-market-editorial.webp",
+    "alt": "Illustrative apples, leafy produce, bread and handmade ceramics at a country market stall",
+    "credit": "Peninsula Insider / AI-assisted artwork",
+    "license": "other-licensed",
+    "caption": "Illustrative artwork created for Peninsula Insider; it does not depict Hill & Ridge Community Market.",
+    "depicts": "AI-generated country market still life with produce, bread and handmade ceramics",
+    "depictionStatus": "illustrative",
+    "creator": "OpenAI image generation directed by Peninsula Insider",
+    "sourceUrl": "https://openai.com/policies/row-terms-of-use/",
+    "permission": "OpenAI Terms of Use, 1 January 2026: as between the user and OpenAI, the user owns Output to the extent permitted by applicable law.",
+    "permittedUses": [
+      "website",
+      "social",
+      "print",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded"
+  }
 }

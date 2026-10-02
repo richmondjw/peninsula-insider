@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "sourceRevision": "7b1125a dirty local preview at 4387, not a public deployment",
+  "reviewers": [
+    {
+      "role": "independent factual and journey",
+      "assessedSubtotal": {
+        "points": 56.75,
+        "maxPoints": 83
+      },
+      "keyFindings": [
+        "Official event dates, times and Bass masterclass facts repaired in local preview",
+        "Moonah Links directions pin wrong by about 5.5 km",
+        "Acoustic detail image rights unresolved"
+      ]
+    },
+    {
+      "role": "independent visual and mobile",
+      "assessedSubtotal": {
+        "points": 59.25,
+        "maxPoints": 79
+      },
+      "keyFindings": [
+        "No overflow or broken images at 320, 390 and 1440px",
+        "First actual event action below first phone screen",
+        "Tall text cards, repeated signup and long archive",
+        "Source and licence touch targets too small"
+      ]
+    },
+    {
+      "role": "independent interaction and accessibility",
+      "assessedSubtotal": {
+        "points": 25.5,
+        "maxPoints": 31
+      },
+      "keyFindings": [
+        "Event, organiser, Save and Share journeys function",
+        "Share lacks accessible feedback and clipboard-denial recovery in this old preview base",
+        "After Sunday expiry hero/schema and no-script view make stale claims"
+      ]
+    }
+  ],
+  "score": null,
+  "status": "provisional-failed",
+  "hardGates": [
+    "Incorrect linked directions",
+    "Static page post-expiry claims",
+    "Published CMS image rights unverified"
+  ],
+  "independenceNote": "Subtotals overlap across reviewers and must not be added or converted to a /100 rating. Iteration 2 fixes followed these reports and require new review.",
+  "nextAction": "Rebuild on current main, retest all fixes including image quarantine and the shared Share update, then independently regrade."
+}

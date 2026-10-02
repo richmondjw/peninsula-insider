@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+  "tier": "T1",
+  "family": "hub",
+  "primaryVisitorTask": "Find genuinely available weekend options and reach reliable planning details.",
+  "assessedAt": "2026-10-03T05:29:00+11:00",
+  "reviewer": "Independent weekend baseline grader; two further T1 reviews pending",
+  "sourceRevision": "7b1125a8515d35ab1e7573de877e68265347cf42",
+  "viewports": [
+    320,
+    390,
+    1440
+  ],
+  "evidence": {
+    "mobileCapture": "Live 320/390px browser inspection; no overflow; status and imagery issues observed.",
+    "desktopCapture": "Live 1440px browser inspection; off-season fallback hero.",
+    "keyboardNotes": "Save persistence observed; full keyboard path unassessed.",
+    "assistiveTechnologyNotes": "Screen-reader journey unassessed.",
+    "factualSources": [
+      "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
+      "https://www.bassandflindersdistillery.com/pages/visit-us"
+    ],
+    "imageRightsSources": [
+      "next/public/images/sourced/LICENSES.md",
+      "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg"
+    ],
+    "technicalReport": "Public 7b1125a, deployment run 37041169527; no controlled performance measurement.",
+    "liveDeploymentReceipt": "https://peninsulainsider.com.au/deployment.json"
+  },
+  "ratings": {
+    "VT1": 2,
+    "VT2": 2,
+    "VT3": 2,
+    "VT4": 1,
+    "FN1": 3,
+    "FN2": 3,
+    "FN3": 2,
+    "ET1": 2,
+    "ET2": 1,
+    "ET3": 1,
+    "ET4": 2,
+    "VS1": 1,
+    "VS2": 3,
+    "VS3": 3,
+    "VS4": 3,
+    "VS5": 3,
+    "MI1": 3,
+    "MI2": 3,
+    "AT4": 2
+  },
+  "assessedSubtotal": {
+    "points": 45,
+    "maxPoints": 83
+  },
+  "unassessed": [
+    "MI3 forms/dialog recovery",
+    "AT1 complete keyboard and assistive-tech journey",
+    "AT2 measured speed",
+    "AT3 measured stability and reduced motion"
+  ],
+  "hardGates": [
+    "Booking journey contradicts event detail",
+    "Gin-class duration and address materially wrong",
+    "Request-only experiences presented as confirmed weekend events",
+    "Active image rights and attribution unverified"
+  ],
+  "issues": [
+    "Bass & Flinders card offers planning while detail says finished",
+    "Pt Leo decimal quantity truncated",
+    "October fallback uses uncredited winter image",
+    "No current edited dispatch or reasons to choose"
+  ],
+  "score": null,
+  "status": "failed-provisional",
+  "nextAction": "Repair factual, availability and rights gates; regrade all 23 criteria at a live revision."
+}
