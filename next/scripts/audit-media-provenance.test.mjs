@@ -59,14 +59,18 @@ async function audit({ records = {}, surfaces = {}, ceilings = {}, assertMode = 
       await mkdir(join(abs, '..'), { recursive: true });
       await writeFile(abs, typeof record === 'string' ? record : JSON.stringify(record, null, 2));
     }
-    // The two collections the script ships as declared disclosure surfaces
-    // are wired by default so a test about rights does not trip the
-    // disclosure gate by accident. A test can override either.
+    // Every declared detail and card surface is wired by default so a
+    // rights test does not accidentally trip the disclosure gate. Individual
+    // tests can override a surface to prove that coverage is enforced.
     const files = {
       'src/components/VenueDetailTemplate.astro': '<MediaProvenanceNote image={x} />',
       'src/components/PlaceDetailTemplate.astro': '<MediaProvenanceNote image={x} />',
       'src/pages/explore/[slug].astro': '<MediaProvenanceNote image={x} />',
       'src/pages/journal/[slug].astro': '<MediaProvenanceNote image={x} />',
+      'src/pages/tour/[slug].astro': '<MediaProvenanceNote image={x} />',
+      'src/components/TourCard.astro': '<MediaProvenanceNote image={x} />',
+      'src/pages/tour/operators/[slug].astro': '<MediaProvenanceNote image={x} />',
+      'src/components/TourOperatorCard.astro': '<MediaProvenanceNote image={x} />',
       ...surfaces,
     };
     for (const [name, source] of Object.entries(files)) {
@@ -306,7 +310,7 @@ test('noProvenanceAtAll counts records that say nothing, and is never gated', as
 
 test('an illustrative image on a collection with no disclosure surface fails', async () => {
   const { code, totals } = await audit({
-    records: { 'tours/a.json': { heroImage: image({ depictionStatus: 'illustrative' }) } },
+    records: { 'tour-packages/a.json': { heroImage: image({ depictionStatus: 'illustrative' }) } },
   });
   assert.equal(totals.illustrativeWithoutDisclosure, 1);
   assert.equal(code, 1);
@@ -318,6 +322,16 @@ test('removing the component from a declared surface un-covers the collection', 
     surfaces: { 'src/components/VenueDetailTemplate.astro': '<div>no disclosure here</div>' },
   });
   assert.equal(totals.brokenDisclosureSurface, 1);
+  assert.equal(code, 1);
+});
+
+test('an illustrative tour card cannot lose its disclosure', async () => {
+  const { code, totals } = await audit({
+    records: { 'tours/a.json': { heroImage: image({ depictionStatus: 'illustrative' }) } },
+    surfaces: { 'src/components/TourCard.astro': '<article>photo with no disclosure</article>' },
+  });
+  assert.equal(totals.brokenDisclosureSurface, 1);
+  assert.equal(totals.illustrativeWithoutDisclosure, 1);
   assert.equal(code, 1);
 });
 
