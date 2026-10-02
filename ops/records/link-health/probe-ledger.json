@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-02T18:12:41.272Z",
+  "updatedAt": "2026-10-02T19:19:01.007Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -348,6 +348,14 @@
       "httpCode": "200",
       "pageTitle": "File:Portsea beaches.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Pt Leo sculpture.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-02",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -2170,6 +2178,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Distillery Events - Tastings, Activities &amp; Special Occasions | Bass &amp; Flinders Distillery | Australia"
+    },
+    {
+      "url": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Gin Masterclass – Blend Your Own Gin &amp; Distillery Experience | Bass &amp; Flinders Distillery | Australia",
+      "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.bayplay.com.au",

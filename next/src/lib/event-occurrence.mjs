@@ -396,6 +396,7 @@ export function recordDisposition(data, now = new Date()) {
   const expiresAt = toDate(data?.expiresAt);
   const expired = Boolean(expiresAt && expiresAt.getTime() <= now.getTime());
   const unverified = sourceOutranksVerification(data);
+  const undated = Boolean(data?.dateBasis && data.dateBasis !== 'fixed');
   const bookingStatus = String(data?.bookingStatus ?? 'unknown');
 
   let status = 'scheduled';
@@ -406,6 +407,7 @@ export function recordDisposition(data, now = new Date()) {
   if (cancelled) reasons.push('cancelled');
   if (status === 'postponed') reasons.push('postponed-without-new-date');
   if (unverified) reasons.push('source-newer-than-verification');
+  if (undated) reasons.push('no-confirmed-occurrence');
 
   // A postponed event with no announced date has no date to be listed under.
   // Cancellation is handled by the caller, because the sitemap deliberately
@@ -415,6 +417,7 @@ export function recordDisposition(data, now = new Date()) {
     listable &&
     status === 'scheduled' &&
     !unverified &&
+    !undated &&
     bookingStatus !== 'sold-out' &&
     bookingStatus !== 'closed';
 
@@ -422,6 +425,9 @@ export function recordDisposition(data, now = new Date()) {
   if (status === 'cancelled') label = 'Cancelled';
   else if (status === 'postponed') label = 'Postponed';
   else if (status === 'rescheduled') label = 'New date';
+  else if (data?.dateBasis === 'on-request') label = 'Dates on request';
+  else if (data?.dateBasis === 'opening-hours') label = 'Check opening hours';
+  else if (data?.dateBasis === 'operator-calendar') label = 'Check session dates';
   else label = BOOKING_LABELS[bookingStatus] ?? null;
 
   return { status, bookingStatus, rescheduledTo, expired, unverified, listable, promotable, label, reasons };

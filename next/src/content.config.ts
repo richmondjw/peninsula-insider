@@ -1410,6 +1410,7 @@ const events = defineCollection({
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
     recurrenceNote: z.string().optional(),
+    dateBasis: z.enum(['fixed', 'operator-calendar', 'on-request', 'opening-hours']).optional(),
     /**
      * Exceptions to the cadence, one entry per affected occurrence.
      *

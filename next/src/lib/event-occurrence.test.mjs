@@ -654,3 +654,18 @@ test('the surfaces consult the model instead of deriving a second answer', () =>
   assert.ok(!/EventScheduled/.test(feed), 'the upcoming feed must not hardcode a status');
   assert.match(feed, /listingEventStatus/, 'the upcoming feed must ask the model');
 });
+
+test('flexible experiences remain discoverable without being promoted as dated picks', () => {
+  const now = at('2026-10-03T00:00:00Z');
+  for (const [dateBasis, label] of [
+    ['operator-calendar', 'Check session dates'],
+    ['on-request', 'Dates on request'],
+    ['opening-hours', 'Check opening hours'],
+  ]) {
+    const disposition = recordDisposition({ dateBasis }, now);
+    assert.equal(disposition.listable, true);
+    assert.equal(disposition.promotable, false);
+    assert.equal(disposition.label, label);
+    assert.ok(disposition.reasons.includes('no-confirmed-occurrence'));
+  }
+});

@@ -109,18 +109,25 @@ const timeLabel = eventTimeLabel(event.data);
 const calendarUrl = eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
 const recurrenceLabel = eventRecurrenceLabel(event.data);
+const dateBasis = event.data.dateBasis ?? 'fixed';
+const flexibleDate = dateBasis !== 'fixed';
+const flexibleWhenLabel: Record<string, string> = {
+  'operator-calendar': 'Choose a date on the organiser calendar',
+  'on-request': 'Arrange a date with the organiser',
+  'opening-hours': 'Check current opening hours',
+};
 const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
 const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
-const whenLabel = eventDateLabel(whenStart, whenEnd);
+const whenLabel = flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);
 
 // PI-008. isCurrentEvent is day-granular, so a session that finished at 2pm
 // still offered a booking link at 6pm on the same day. Resolve the run this
 // page actually displays and ask whether it is over. For a recurring series
 // whenStart is the next occurrence, so this is false until that one passes.
 const displayedRun =
-  USE_OCCURRENCE_MODEL && whenStart
+  USE_OCCURRENCE_MODEL && !flexibleDate && whenStart
     ? resolveOccurrence(event.data as Record<string, any>, dayIsoOf(whenStart), now, {
         endDayIso: dayIsoOf(whenEnd ?? whenStart),
       })
@@ -138,7 +145,7 @@ const bookingClosed = bookingWithdrawn || occurrenceOver || (USE_OCCURRENCE_MODE
 // Keep the retained cancellation URL richly described for search and old
 // inbound links. A cancelled event is deliberately not "current", but its
 // Event JSON-LD must still declare EventCancelled rather than disappearing.
-const eventSchema = (isCurrent || cancelled)
+const eventSchema = !flexibleDate && (isCurrent || cancelled)
   ? eventJsonLd(event, 'https://peninsulainsider.com.au')
   : null;
 
@@ -405,10 +412,10 @@ export const prerender = true;
                     data-pi-entity-slug={slug}
                     data-pi-surface="event-detail"
                   >
-                    {bookingTarget.label}
+                    {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
                   </a>
                 )}
-                <a
+                {!flexibleDate && <a
                   href={calendarUrl}
                   class="event-detail__action event-detail__action--secondary"
                   rel="noreferrer"
@@ -416,7 +423,7 @@ export const prerender = true;
                   aria-label={`Add ${event.data.title} to your calendar`}
                 >
                   Add to calendar
-                </a>
+                </a>}
               </div>
             )}
           </div>

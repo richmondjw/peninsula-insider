@@ -40,7 +40,7 @@ const placeHref = placeId ? `/explore/places/${placeId}/` : null;
 function conciseSummary(value: unknown, maxWords = 22): string {
   const text = String(value ?? '').replace(/\s+/g, ' ').trim();
   if (!text) return '';
-  const firstSentence = text.match(/^[^.!?]+[.!?]/)?.[0]?.trim();
+  const firstSentence = text.match(/^.*?[.!?](?=\s|$)/)?.[0]?.trim();
   const base = firstSentence && firstSentence.split(/\s+/).length <= maxWords
     ? firstSentence
     : text;
@@ -55,9 +55,16 @@ const summary = conciseSummary(event.data.summary);
 function shortDate(d: Date): string {
   return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', timeZone: 'Australia/Melbourne' });
 }
+const flexibleDateLabel: Record<string, string> = {
+  'operator-calendar': 'Check session dates',
+  'on-request': 'Dates on request',
+  'opening-hours': 'Check opening hours',
+};
 const dateLabel: string | null =
   dateLabelOverride
     ? dateLabelOverride
+    : event.data.dateBasis && event.data.dateBasis !== 'fixed'
+    ? flexibleDateLabel[event.data.dateBasis]
     : event.data.recurrenceNote
     ? event.data.recurrenceNote
     : event.data.nextOccurrence
@@ -73,7 +80,7 @@ const ctaLabel = 'Plan this \u2192';
 
 // ISO date for <time datetime> when the label represents a concrete date.
 const dateIso: string | null =
-  !dateLabelOverride && !event.data.recurrenceNote
+  !dateLabelOverride && !event.data.recurrenceNote && (!event.data.dateBasis || event.data.dateBasis === 'fixed')
     ? (event.data.nextOccurrence ?? event.data.startDate)?.toISOString().split('T')[0] ?? null
     : null;
 
@@ -185,8 +192,8 @@ const FILTER_CATEGORY_MAP: Record<string, string> = {
 const filterCategory = FILTER_CATEGORY_MAP[category] ?? category;
 const filterRegions = regionsFor(event.data.suburb ?? event.data.venueRegion);
 const isFree = eventIsUnqualifiedFree(event.data);
-const isoStart = event.data.startDate instanceof Date ? event.data.startDate.toISOString().slice(0, 10) : '';
-const isoEnd = event.data.endDate instanceof Date
+const isoStart = (!event.data.dateBasis || event.data.dateBasis === 'fixed') && event.data.startDate instanceof Date ? event.data.startDate.toISOString().slice(0, 10) : '';
+const isoEnd = (!event.data.dateBasis || event.data.dateBasis === 'fixed') && event.data.endDate instanceof Date
   ? event.data.endDate.toISOString().slice(0, 10)
   : isoStart;
 const recurDayMatch = String(event.data.recurrenceNote ?? '').toLowerCase()

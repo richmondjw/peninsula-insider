@@ -1,0 +1,60 @@
+---
+import PiSaveActions from './PiSaveActions.astro';
+import { eventCategoryLabel, eventDateLabel, routeSlug } from '../lib/editorial';
+
+export interface Props { event: any; choiceCue?: string; }
+const { event, choiceCue } = Astro.props;
+const slug = routeSlug(event);
+const href = '/whats-on/' + slug + '/';
+const next = event.data.nextOccurrence;
+const date = next instanceof Date
+  ? next.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Australia/Melbourne' })
+  : eventDateLabel(event.data.startDate, event.data.endDate);
+const formatClock = (value: string) => {
+  const match = value.match(/^(\d{1,2}):(\d{2})/);
+  if (!match) return value;
+  const hour = Number(match[1]);
+  return String(hour % 12 || 12) + (match[2] === '00' ? '' : ':' + match[2]) + (hour >= 12 ? 'pm' : 'am');
+};
+const time = event.data.startTime
+  ? formatClock(event.data.startTime) + (event.data.endTime ? '–' + formatClock(event.data.endTime) : '')
+  : null;
+const source = event.data.primarySourceUrl ?? event.data.officialEventUrl;
+const checked = event.data.lastCheckedDate instanceof Date
+  ? event.data.lastCheckedDate.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'Australia/Melbourne' })
+  : null;
+---
+
+<article class="weekend-verified">
+  <div class="weekend-verified__body">
+    <p class="weekend-verified__eyebrow">Date confirmed · {eventCategoryLabel[event.data.category] ?? event.data.category}</p>
+    <h3><a href={href}>{event.data.title}</a></h3>
+    <p class="weekend-verified__summary">{choiceCue ?? event.data.summary}</p>
+    <div class="weekend-verified__facts">
+      <span>{date}</span>
+      {time && <span>{time}</span>}
+      <span>{event.data.suburb ?? event.data.venueName}</span>
+      {checked && <span>Checked {checked}</span>}
+    </div>
+    <div class="weekend-verified__links">
+      <a class="weekend-verified__primary" href={href}>View details <span aria-hidden="true">→</span></a>
+      {source && <a href={source} rel="noreferrer">Check organiser details</a>}
+      <PiSaveActions kind="event" slug={slug} title={event.data.title} href={href} dek={event.data.summary} floating={false} />
+    </div>
+  </div>
+</article>
+
+<style>
+  .weekend-verified { border: 1px solid #d8d4ca; border-left: 5px solid #b38448; background: #fff; }
+  .weekend-verified__body { padding: clamp(1.35rem, 3vw, 2.25rem); }
+  .weekend-verified__eyebrow { margin: 0 0 .7rem; color: #795b37; font: 700 .76rem/1.4 var(--font-ui, sans-serif); letter-spacing: .1em; text-transform: uppercase; }
+  .weekend-verified h3 { margin: 0 0 .7rem; font: 600 clamp(1.45rem, 3vw, 2.15rem)/1.14 var(--font-display, Georgia, serif); }
+  .weekend-verified h3 a { color: #11364f; text-decoration: none; }
+  .weekend-verified h3 a:hover { text-decoration: underline; }
+  .weekend-verified__summary { max-width: 64ch; margin: 0 0 1rem; line-height: 1.6; color: #3d4447; }
+  .weekend-verified__facts { display: flex; flex-wrap: wrap; gap: .35rem 1.25rem; margin-bottom: 1.25rem; color: #5e6669; font-size: .88rem; }
+  .weekend-verified__links { display: flex; flex-wrap: wrap; align-items: center; gap: .65rem 1.25rem; }
+  .weekend-verified__links > a { display: inline-flex; align-items: center; min-height: 44px; color: #145773; font-weight: 700; text-underline-offset: 3px; }
+  .weekend-verified__links > .weekend-verified__primary { padding: .45rem .9rem; background: #0b2e4a; color: #fff; text-decoration: none; }
+  .weekend-verified a:focus-visible { outline: 3px solid #10527e; outline-offset: 3px; }
+</style>
