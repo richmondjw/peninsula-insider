@@ -63,6 +63,8 @@ async function audit({ records = {}, surfaces = {}, ceilings = {}, assertMode = 
     // rights test does not accidentally trip the disclosure gate. Individual
     // tests can override a surface to prove that coverage is enforced.
     const files = {
+      'src/pages/whats-on/[slug].astro': '<MediaProvenanceNote image={x} />',
+      'src/components/EventCard.astro': '<MediaProvenanceNote image={x} />',
       'src/components/VenueDetailTemplate.astro': '<MediaProvenanceNote image={x} />',
       'src/components/PlaceDetailTemplate.astro': '<MediaProvenanceNote image={x} />',
       'src/pages/explore/[slug].astro': '<MediaProvenanceNote image={x} />',

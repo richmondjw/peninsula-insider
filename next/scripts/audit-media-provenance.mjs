@@ -335,6 +335,7 @@ async function readImageRecords() {
  * the collection, which is what `brokenDisclosureSurface` catches.
  */
 const DISCLOSURE_SURFACES = {
+  events: ['src/pages/whats-on/[slug].astro', 'src/components/EventCard.astro'],
   venues: ['src/components/VenueDetailTemplate.astro'],
   places: ['src/components/PlaceDetailTemplate.astro'],
   // Added when the 152 inherited representative-alt records were marked. All

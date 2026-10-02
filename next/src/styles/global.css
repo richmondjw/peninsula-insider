@@ -5915,6 +5915,7 @@ p.has-drop-cap::first-letter {
   padding-left: 1.6rem;
   padding-right: 1.6rem;
 }
+.event-card .media-provenance { margin: 0; padding: 0.2rem 1.6rem 0.35rem; }
 .event-card__top { padding-top: 1.4rem; }
 /* Bottom padding reserves a dedicated zone for the floating Save / Share
    pills (2rem tall, anchored at `bottom: 0.75rem`). Anything less than

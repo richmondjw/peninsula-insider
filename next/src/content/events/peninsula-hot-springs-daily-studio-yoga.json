@@ -1,12 +1,10 @@
 {
   "slug": "peninsula-hot-springs-daily-studio-yoga",
   "eventId": "MP-EVT-0014",
-  "title": "Peninsula Hot Springs Daily Studio Yoga",
-  "summary": "Daily 45-minute studio yoga at Peninsula Hot Springs (16+), a paid add-on to a bathing session. Book early-morning or evening slots to avoid the crowd.",
+  "title": "Peninsula Hot Springs Studio Yoga",
+  "summary": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
   "startDate": "2026-05-01",
   "endDate": "2027-04-30",
-  "startTime": "07:30",
-  "endTime": "08:15",
   "season": "autumn",
   "month": "May",
   "venueName": "Peninsula Hot Springs",
@@ -18,17 +16,17 @@
     "lng": 145.1925
   },
   "indoorOutdoor": "Indoor",
-  "bookingUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
-  "ticketingUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
-  "officialEventUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
+  "bookingUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
+  "ticketingUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
+  "officialEventUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
   "bookingRequired": "Yes",
   "freePaid": "Paid (add-on)",
   "priceRange": "Paid add-on to bathing admission",
   "priceTier": "under-50",
   "category": "wellness",
-  "subcategory": "Yoga (Daily Programmed Activity)",
-  "recurrence": "one-off",
-  "recurrenceNote": "Daily",
+  "subcategory": "Yoga (Programmed Activity)",
+  "recurrence": "ongoing",
+  "recurrenceNote": "Operator lists daily 7:30am; book a specific available session",
   "suitableFor": "Adults 16+; wellness seekers; couples; solo travellers",
   "audienceTags": [
     "adults-only",
@@ -45,9 +43,9 @@
     "name": "Peninsula Hot Springs",
     "website": "https://www.peninsulahotsprings.com"
   },
-  "primarySourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
+  "primarySourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
   "secondarySourceUrl": "https://www.peninsulahotsprings.com/events",
-  "lastCheckedDate": "2026-05-04",
+  "lastCheckedDate": "2026-10-03",
   "editorialPriority": 4,
   "nearbyAttractions": "Geothermal hot springs pools; sauna; body clay ritual; Bass & Flinders Distillery nearby",
   "suggestedItineraryPairing": "Combine with full bathing experience; body clay ritual and fire & ice workshop for a full day wellness reset",
@@ -57,17 +55,36 @@
   "worthTheDrive": false,
   "firstTimer": false,
   "editorVerdict": "A useful paid add-on if you're already booked in to bathe, not a reason to drive out on its own.",
-  "editorNote": "A 45-minute guided yoga session in the Wellness Studio, open to guests aged 16 and over. It is sold as a paid add-on to your bathing admission, not a standalone class.\n\nThe move: book a 7:30am or evening bathing slot when the pools are quieter, do yoga first, then bathe. Avoid the 10am to 4pm window when day-trippers crowd the studio booking. Wellness Studio is indoors so it runs in any weather.",
+  "editorNote": "Peninsula Hot Springs currently lists a 45-minute studio yoga class at 7:30am daily for guests aged 16 and over, as a paid add-on to bathing. Choose a dated session in the operator booking flow before planning the trip.\n\nPair a confirmed class with time to bathe. The published schedule can change, so check availability directly before travelling.",
   "lens": [
     "rainy-day",
     "ticketed"
   ],
   "heroImage": {
-    "src": "/images/sourced/spa-dark-boutique-room-01.webp",
-    "alt": "Wellness and yoga studio at Peninsula Hot Springs",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "src": "/images/generated/studio-yoga-editorial.webp",
+    "alt": "Illustrative rolled yoga mat, folded towel and eucalyptus leaves beside a water cup",
+    "credit": "Peninsula Insider / AI-assisted artwork",
+    "license": "other-licensed",
+    "caption": "Illustrative artwork created for Peninsula Insider; it does not depict Peninsula Hot Springs or its studio.",
+    "depicts": "AI-generated yoga still life with a mat, towel, leaves and water cup",
+    "depictionStatus": "illustrative",
+    "creator": "OpenAI image generation directed by Peninsula Insider",
+    "sourceUrl": "https://openai.com/policies/row-terms-of-use/",
+    "permission": "OpenAI Terms of Use, 1 January 2026: as between the user and OpenAI, the user owns Output to the extent permitted by applicable law.",
+    "permittedUses": [
+      "website",
+      "social",
+      "print",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded"
   },
   "dateBasis": "operator-calendar",
-  "verificationNote": "Check the current operator activity schedule; the long record range does not verify a specific weekend class."
+  "verificationNote": "Specific operator Studio Yoga page lists daily 7:30am, 45 minutes, age 16+ and paid bathing add-on. Checked 3 October 2026. A particular future booking remains subject to operator availability.",
+  "lastVerifiedAt": "2026-10-03T07:00:00+11:00",
+  "verification": "verified",
+  "startTime": "07:30",
+  "endTime": "08:15"
 }

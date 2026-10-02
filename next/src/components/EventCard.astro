@@ -7,6 +7,8 @@
  * sentence of context.
  */
 import PiSaveActions from './PiSaveActions.astro';
+import EventImageCredit from './EventImageCredit.astro';
+import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
@@ -15,6 +17,7 @@ import { eventIsUnqualifiedFree } from '../lib/event-access.mjs';
 export interface Props {
   event: any;
   featured?: boolean;
+  imagePolicy?: 'default' | 'recorded-only';
   /**
    * Deprecated no-op. Verdict blocks were removed from cards to keep
    * What's On surfaces cleaner and less review-site driven.
@@ -26,7 +29,7 @@ export interface Props {
   dateLabelOverride?: string;
 }
 
-const { event, featured = false, dateLabelOverride } = Astro.props;
+const { event, featured = false, dateLabelOverride, imagePolicy = 'default' } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 
@@ -132,6 +135,8 @@ const heroImageSrc = eventHero.override?.src
   ?? eventHero.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
+const recordedOwnHero = !eventHero.override && eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
+const renderImage = imagePolicy !== 'recorded-only' || recordedOwnHero;
 
 // Filter data-attributes - consumed by the hub's client-side filter engine.
 // Each event encodes its location region(s), category bucket, recurrence,
@@ -214,7 +219,7 @@ const recurrenceDay = recurDayMatch
   data-date-end={isoEnd}
   data-free={isFree ? '1' : '0'}
 >
-  <a
+  {renderImage && <a
     href={`/whats-on/${slug}/`}
     class="event-card__hero"
     style={`background-image: url(${heroImageSrc});`}
@@ -231,7 +236,13 @@ const recurrenceDay = recurDayMatch
     {weekdayBadge && (
       <span class="event-card__hero-badge" aria-label={`Runs every ${weekdayBadge}`}>{weekdayBadge}</span>
     )}
-  </a>
+  </a>}
+  {renderImage && recordedOwnHero && (
+    <>
+      <EventImageCredit image={event.data.heroImage} compact />
+      <MediaProvenanceNote image={event.data.heroImage} subject={event.data.title} />
+    </>
+  )}
   <div class="event-card__body">
     <div class="event-card__top">
       <span class="event-card__category">{eventCategoryLabel[category] ?? category}</span>
@@ -257,7 +268,7 @@ const recurrenceDay = recurDayMatch
       title={event.data.title}
       href={`/whats-on/${slug}/`}
       dek={event.data.summary}
-      imageUrl={heroImageSrc}
+      imageUrl={renderImage ? heroImageSrc : undefined}
     />
   </div>
 </article>

@@ -118,12 +118,12 @@ test('the disclosure names what the photograph shows when the record says', () =
   );
   assert.equal(note.label, 'Illustrative image');
   assert.match(note.detail, /grilled steak and hand-cut chips/);
-  assert.match(note.detail, /not a photograph of Rye Hotel/);
+  assert.match(note.detail, /does not depict Rye Hotel/);
 });
 
 test('with no depicts the disclosure withholds the subject rather than inventing one', () => {
   const note = illustrativeDisclosure({ depictionStatus: 'illustrative' }, 'Rye Hotel');
-  assert.equal(note.detail, 'This photograph is not of Rye Hotel.');
+  assert.equal(note.detail, 'This image does not depict Rye Hotel.');
 });
 
 test('a decorative image is still illustrative and still discloses', () => {

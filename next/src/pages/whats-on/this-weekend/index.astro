@@ -123,6 +123,11 @@ const dispatchPickEventSlugs = new Set(
     .filter(Boolean),
 );
 const liveEvents = await loadLiveEvents(now);
+const weekendQuickOrder: Record<string, number> = {
+  'hill-ridge-community-market-september-2026-restart': 0,
+  'acoustic-saturdays-peppers-moonah-links-2026': 1,
+  'national-works-on-paper-2026-nwop': 2,
+};
 const liveThisWeekend = liveEvents
   .filter((live) => occursInWindow(live.rule, activeWindow))
   .filter((live) => (live.event.data.dateBasis ?? 'fixed') === 'fixed')
@@ -132,12 +137,23 @@ const liveThisWeekend = liveEvents
     return checked instanceof Date && now.getTime() - checked.getTime() <= 30 * 86400000;
   })
   .filter((live) => !dispatchPickEventSlugs.has(live.slug))
-  .sort((a, b) => b.appeal - a.appeal || a.title.localeCompare(b.title))
+  .sort((a, b) => (weekendQuickOrder[a.slug] ?? 9) - (weekendQuickOrder[b.slug] ?? 9) || b.appeal - a.appeal || a.title.localeCompare(b.title))
   .map((live) => live.event)
   .slice(0, 6);
+const weekendQuickLabels: Record<string, string> = {
+  'national-works-on-paper-2026-nwop': 'National Works on Paper',
+  'acoustic-saturdays-peppers-moonah-links-2026': 'Acoustic Saturdays',
+  'hill-ridge-community-market-september-2026-restart': 'Hill & Ridge Market',
+};
+const weekendQuickFacts: Record<string, string> = {
+  'national-works-on-paper-2026-nwop': 'Sunday · 11am–4pm · Mornington',
+  'acoustic-saturdays-peppers-moonah-links-2026': 'Saturday · 5–8pm · Fingal · Free',
+  'hill-ridge-community-market-september-2026-restart': 'Saturday · 9am–2pm · Red Hill',
+};
 const weekendChoiceCues: Record<string, string> = {
   'national-works-on-paper-2026-nwop': 'Choose this for an indoor art stop. The gallery is open 11am-4pm on Sunday.',
   'acoustic-saturdays-peppers-moonah-links-2026': 'After a Fingal or Cape Schanck day, this is the free Saturday evening option.',
+  'hill-ridge-community-market-september-2026-restart': 'Produce, makers and live music in Red Hill before a wine-country lunch. Check weather with the organiser.',
 };
 const flexibleIdeaCopy: Record<string, { label: string; reason: string }> = {
   'bass-flinders-gin-masterclass': {
@@ -227,9 +243,9 @@ export const prerender = true;
             </p>
             {!hasCurrentDispatch && liveThisWeekend.length > 0 && (
               <nav class="ptw-hero__quick" aria-label="Confirmed weekend events" data-weekend-current hidden>
-                {liveThisWeekend.slice(0, 2).map((event) => (
+                {liveThisWeekend.slice(0, 3).map((event) => (
                   <a href={`/whats-on/${routeSlug(event)}/`}>
-                    <span>{event.data.title}</span><span aria-hidden="true">↗</span>
+                    <span><strong>{weekendQuickLabels[routeSlug(event)] ?? event.data.title}</strong><small>{weekendQuickFacts[routeSlug(event)] ?? event.data.suburb}</small></span><span aria-hidden="true">↗</span>
                   </a>
                 ))}
               </nav>
@@ -632,10 +648,12 @@ export const prerender = true;
   /* ── Hero links and flexible ideas ──────────────────────────────────────────────── */
   .ptw-hero__credit a { display: inline-flex; align-items: center; min-height: 28px; padding: 2px 3px; color: #285a72; text-decoration: underline; text-underline-offset: 2px; }
   .ptw [hidden] { display: none !important; }
-  .ptw-hero__quick { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .55rem; }
+  .ptw-hero__quick { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; }
   .ptw-hero__quick a { display: flex; justify-content: space-between; gap: .5rem; align-items: center; min-height: 48px; padding: .75rem .9rem; background: #11364f; color: #fff; font-weight: 700; line-height: 1.35; text-decoration: none; }
+  .ptw-hero__quick a strong { display: block; font: inherit; }
+  .ptw-hero__quick a small { display: block; margin-top: .2rem; font-size: .76rem; font-weight: 500; opacity: .86; }
   .ptw-hero__quick a:hover { background: #185579; }
-  @media (max-width: 600px) { .ptw-hero__quick { grid-template-columns: 1fr; } .ptw-hero__image { aspect-ratio: 2 / 1; } }
+  @media (max-width: 600px) { .ptw-hero__quick { grid-template-columns: 1fr; gap: .35rem; } .ptw-hero__quick a { min-height: 54px; padding: .45rem .7rem; font-size: .88rem; } .ptw-hero__quick a small { margin-top: .1rem; font-size: .7rem; } .ptw-hero__image { aspect-ratio: 2 / 1; } }
   .ptw-hero__quick a:focus-visible { outline: 3px solid #10527e; outline-offset: 3px; }
   .ptw-hero__credit a:focus-visible, .ptw-flex a:focus-visible { outline: 3px solid #10527e; outline-offset: 3px; }
   .ptw-flex { margin: 2.5rem 0 0; padding-top: 2rem; border-top: 1px solid #dedbd4; }
