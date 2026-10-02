@@ -11,17 +11,17 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
-Known for   Flinders Village Location Bass Strait Proximity Attached Pub Dining Southern Peninsula Base
+Known for   Flinders Village Location Western Port Foreshore Hotel Pub Dining Southern Peninsula Base
 
-[Check availability](<https://flindershotel.com.au/accommodation>)  +61 3 5989 0201
+[Check availability](<https://flindershotel.com.au/accommodation/>)
 
 Quarters at Flinders Hotel · Flinders
 
-Photo · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+Photo · Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
 
 Why we’d go
 
-The southern Peninsula's most practical base, walking distance from Flinders village, a short drive to the coast, and a pub that actually earns its keep.
+Quarters puts you in Flinders village behind the hotel, near Western Port and the pub's dining.
 
 Quarters sits behind Flinders Hotel, giving you a village base near the bakery, shops and pier. Book the room through Quarters and make a separate reservation if you want to eat at the pub. Moke Dining is another village dinner choice when its service suits your dates.
 
@@ -31,17 +31,17 @@ Worth knowing
 
 **Best for**
 
-Weekend escapes · Couples · First-time visitors · Scenic views
+Weekend escapes · Couples · First-time visitors · Coastal walks
 
 If you only do one thing
 
-Book the best room category you can justify, stay the second night, and walk to the pier at low tide before breakfast.
+Book your room and dinner separately, then walk to Flinders Pier when access and weather suit.
 
 Works well with
 
 Flinders Sourdough · Flinders General Store
 
-Filed under   Weekend Escape Slow Walk All Year Couples First Timers Families
+Filed under   Weekend Escape Slow Walk All Year Couples First Timers
 
 At a glance
 
@@ -51,25 +51,21 @@ Hotel
 
 **Location**
 
-Corner of Cook & Wood St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Quarters%20at%20Flinders%20Hotel%2C%20Corner%20of%20Cook%20%26%20Wood%20St%2C%20Flinders%20VIC%203929>)
-
-**Call**
-
-+61 3 5989 0201
+23 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Quarters%20at%20Flinders%20Hotel%2C%2023%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 **Website**
 
-[flindershotel.com.au](<https://flindershotel.com.au/>)
+[flindershotel.com.au/accommodation](<https://flindershotel.com.au/accommodation/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4722%2C145.0242>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Quarters%20at%20Flinders%20Hotel%2C%2023%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Quarters%20at%20Flinders%20Hotel%2C%20Corner%20of%20Cook%20%26%20Wood%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Quarters%20at%20Flinders%20Hotel%2C%2023%20Cook%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://flindershotel.com.au/accommodation>)
+ [Book now](<https://flindershotel.com.au/accommodation/>)
 
 Not sure how to build a day around Quarters at Flinders Hotel?
 

@@ -71,7 +71,7 @@ Hotel rooms · Flinders village
 
 Quarters sits behind Flinders Hotel on Cook Street, with hotel dining nearby. The pier and coast are outings from this village base.
 
-[Read stay notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [Check with operator](<https://flindershotel.com.au/accommodation>)
+[Read stay notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [Check with operator](<https://flindershotel.com.au/accommodation/>)
 
 Suites · Cape Schanck
 

@@ -167,7 +167,7 @@ Cellar Door Dispatch   8 min
 
 Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
 
-Service   7 min
+Service   4 min
 
 ### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 

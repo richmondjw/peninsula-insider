@@ -39,6 +39,10 @@ Book dinner near the main street
 
 Breakfast and Back Beach if conditions suit
 
+**Route**
+
+Town and dinner on foot; check Back Beach conditions.
+
 [Explore InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)[See Sorrento plan](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/#base-one-sorrento-for-the-town-life-version>)
 
 02 / 03  Red Hill  Country house
@@ -54,6 +58,10 @@ Book dinner on the estate
 **Sunday**
 
 Slow breakfast and garden time
+
+**Route**
+
+Stay on the estate, or drive to an early Montalto tasting.
 
 [Explore Lindenderry](<https://peninsulainsider.com.au/stay/lindenderry/>)[See Red Hill plan](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/#base-two-red-hill-for-the-country-house-version>)
 
@@ -71,11 +79,61 @@ Book dinner in the village
 
 Breakfast and a local walk
 
+**Route**
+
+Walk the village and pier; King Street beach access is closed.
+
 [Explore Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)[See Flinders plan](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/#base-three-flinders-for-the-quiet-coast-version>)
+
+Places in this plan
+
+## Stay in the base you choose.
+
+Photo: Courtesy of Visit Victoria
+
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
+
+23 Constitution Hill Road, Sorrento VIC 3943
+
+A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
+
+weekend escape  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
+
+Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
+
+142 Arthurs Seat Rd, Red Hill VIC 3937
+
+A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
+
+weekend escape  garden
+
+[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+
+Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
+
+Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+
+### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+
+23 Cook St, Flinders VIC 3929
+
+Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
+
+weekend escape  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation/>)
 
 At a glance
 
-- 01  Saturday afternoon: settle into one base, then take a local walk or a pre-booked thermal session if it fits.
+- 01  Saturday afternoon: settle into one base, then take a local walk. Add bathing only when its booked time and travel fit.
 
 - 02  Saturday evening: have one booked dinner near your room and leave the rest of the night free.
 
@@ -85,61 +143,57 @@ At a glance
 
 [Build your own trip](<https://peninsulainsider.com.au/explore/plans/#build>)
 
-Booking and access links checked online 30 September 2026
+Plan facts and access links reviewed 3 October 2026
 
 We checked these operator and park pages for the options above:
 
-- Sorrento: [InterContinental Sorrento](<https://sorrento.intercontinental.com/>), [The Continental precinct](<https://thecontinentalsorrento.com.au/>) and [Sorrento Back Beach](<https://www.parks.vic.gov.au/places-to-see/sites/sorrento-back-beach>)
+- Sorrento: [InterContinental Sorrento](<https://sorrento.intercontinental.com/>), [The Continental precinct](<https://thecontinentalsorrento.com.au/>), [Aurora](<https://auroraspa.com.au/faqs/>) and [Sorrento Back Beach](<https://www.parks.vic.gov.au/places-to-see/sites/sorrento-back-beach>)
 
-- Red Hill: [Lindenderry](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>) and [Montalto](<https://montalto.com.au/pages/cellar-door>)
+- Red Hill: [Lindenderry](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>), [Montalto](<https://montalto.com.au/pages/cellar-door>) and [Tedesca](<https://www.tedesca.com.au/osteria-tedesca>) for an extended Sunday
 
-- Flinders: [Flinders Hotel](<https://flindershotel.com.au/>) and [Flinders Sourdough](<https://www.flinderssourdough.com.au/>)
+- Flinders: [Flinders Hotel](<https://flindershotel.com.au/>), [Flinders Sourdough](<https://www.flinderssourdough.com.au/>), [Flinders Pier](<https://www.parks.vic.gov.au/projects/greater-melbourne/flinders-pier-project>) and [King Street access notice](<https://www.parks.vic.gov.au/projects/greater-melbourne/Flinders-Ocean-Beach-Car-Park-and-Track-Project>)
 
-- Optional bath: [Alba Thermal Springs](<https://albathermalsprings.com.au/faqs/>)
+- Optional bath: [Alba weekend bathing](<https://albathermalsprings.com.au/alba-experiences/hot-springs/weekend-bathing/>) and its [visitor FAQs](<https://albathermalsprings.com.au/faqs/>)
 
 Hours, availability and access can change. Confirm them for your travel dates.
 
-A single overnight can feel like a proper break: one room, one dinner, one morning that belongs to you. Done loosely, it becomes a long drive for a hotel room and two meals you could have had at home.
+One room, one dinner and an unhurried morning can make a single night feel longer. Keep the route close to your room so travel does not consume the stay.
 
 ## The three bases that make a one-night trip work
 
-The choice of base matters more on a one-night trip than a three-night one, because there is no time to travel between zones. Pick the zone that fits the mood, and book the room inside the zone, not adjacent to it.
+Choose the base before booking the room. Keep dinner and the next morning nearby.
 
 ### Base one: Sorrento, for the town-life version
 
 Stay at [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>).
 
-The hotel is close to Sorrento’s main street and The Continental dining precinct. Arrive Saturday afternoon, then walk through town or toward the ferry before a separately booked dinner. If you would rather bathe, book an Aurora Spa & Bathhouse session before travel.
+Arrive after check-in and explore Sorrento on foot before your booked dinner. If bathing matters, reserve Aurora Spa & Bathhouse in the hotel precinct ahead of travel.
 
-On Sunday, take breakfast and walk [Sorrento back beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>) if conditions suit before heading home.
+On Sunday, after breakfast, head to [Sorrento Back Beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>) for the short lookout circuit if Parks Victoria’s current conditions allow; then head home. Do not treat the surf beach as a swimming stop.
 
 ### Base two: Red Hill, for the country-house version
 
 Stay at [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>).
 
-This is the country-house version: a hotel set in gardens, time outdoors, and breakfast without another drive. Lindenderry gives the stay a quieter rhythm, with a restaurant on the property. Leave room to enjoy the estate instead of filling every hour.
+Lindenderry puts gardens, dinner and breakfast on one estate. Arrive early if you want a reserved [Montalto](<https://peninsulainsider.com.au/wine/montalto/>) tasting before its 5pm cellar-door close; otherwise walk the hotel grounds. Book dinner at Lindenderry’s Dining Room for Saturday, then have breakfast and another garden walk on Sunday.
 
-Arrive Saturday afternoon and walk the gardens. If you want a tasting, book [Montalto](<https://peninsulainsider.com.au/wine/montalto/>) before dinner; otherwise stay on the property. Dine at Lindenderry, then take breakfast and one short ridge walk on Sunday. For a longer departure, check [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) for current Sunday service and reserve lunch ahead.
+If you want a longer Sunday, book [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)’s fixed-menu lunch ahead. It is a separate meal-led extension to this plan.
 
 ### Base three: Flinders, for the quiet-coast version
 
-Stay at [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>) or a small cottage in the farmland around the village.
-
-Flinders is the quieter coastal choice. The village is small, the weather can change quickly, and the open-water light feels different from the bay towns. Choose it when a walk and an unhurried evening sound better than a packed itinerary.
-
-Arrive Saturday afternoon for a short coastal walk after checking access and conditions, then return for dinner at the Flinders Hotel bistro. On Sunday, visit [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) after its advertised 9am opening if current hours suit. Take coffee outside, then head home; save the longer walks for a trip with more time.
+Stay at [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>), behind the pub in the Western Port village. After checking current conditions, take a short walk at [Flinders Pier](<https://www.parks.vic.gov.au/projects/greater-melbourne/flinders-pier-project>), then book dinner at Flinders Hotel. On Sunday, pick up bread from [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) after its advertised 9am opening if current hours suit, then head home. The King Street Ocean Beach access remains closed; do not substitute that track for the pier walk.
 
 For a longer Flinders itinerary, see our piece on the [quiet side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>).
 
-## One optional upgrade: the thermal arrival
+## If bathing is the reason to go
 
-The Sorrento and Red Hill versions can fit a short arrival session at [Alba Thermal Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) if the route and check-in time allow it. Book ahead and allow for the drive to your base. For Flinders, give that time to the coast.
+In Sorrento, reserve Aurora Spa & Bathhouse in the hotel precinct. For Red Hill, [Alba Thermal Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) asks you to allow at least two hours for bathing, plus travel to your room. Book it only when the arrival schedule genuinely fits. Keep the Flinders version focused on the village and coast.
 
-If you want to make the bath the centre of the trip instead of the warm-up, a full [thermal springs weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>) is the better shape. Different trip, different sequence, different length.
+If the bath is the centre of your trip, use the [thermal springs weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>) instead.
 
 ## Before you go
 
-Reserve the room, dinner and any bathing session. Keep coffee and the morning walk flexible, and stay within the base you chose; crossing the Peninsula will take the time you came to enjoy.
+Book the room and dinner first. Confirm check-in, opening hours and walking conditions for your dates; leave Sunday morning open.
 
 Take the trip
 
@@ -183,11 +237,11 @@ Yes, if you choose one base, book the room and dinner ahead, and protect the nex
 
 **What is the best base for a one-night Peninsula trip?**
 
-Sorrento for town-life energy and a compressed main-street experience. Red Hill (Lindenderry) for a country-house reset. Flinders for ocean weather and a quieter rhythm. Pick the zone that matches the mood - do not move between zones on a short trip.
+Sorrento for a walkable town and Aurora at the hotel. Red Hill for a garden-based stay at Lindenderry. Flinders for a quieter Western Port village and a short pier walk. Choose the area that fits your mood, then keep dinner near the room.
 
 **Should I include the hot springs on a one-night Peninsula trip?**
 
-A short arrival session at Alba Thermal Springs can work if it fits your route and check-in time, especially for Sorrento or Red Hill. For Flinders, keep the trip simple and give the coast the time instead.
+For Sorrento, reserve Aurora Spa & Bathhouse in the hotel precinct. Alba asks you to allow at least two hours for bathing plus the drive, so use it only if a Red Hill arrival can be built around it. For Flinders, keep the trip focused on the village and coast.
 
 Read alongside
 
@@ -196,49 +250,3 @@ Read alongside
 - [Where to Stay Near the Hot Springs](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
 
 - [Best Spas on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/explore/spas-and-wellness/>)
-
-Places in this plan
-
-## Worth knowing before you go.
-
-Photo: Courtesy of Visit Victoria
-
-Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
-
-23 Constitution Hill Road, Sorrento VIC 3943
-
-A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
-
-weekend escape  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
-
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
-
-142 Arthurs Seat Rd, Red Hill VIC 3937
-
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
-
-weekend escape  garden
-
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
-
-Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
-
-Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
-
-Corner of Cook & Wood St, Flinders VIC 3929
-
-Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
-
-weekend escape  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)

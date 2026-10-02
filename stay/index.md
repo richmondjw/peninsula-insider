@@ -111,13 +111,15 @@ Details checked October 2026
 
 See 3 more editorial choices
 
-- ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+- Flinders Hotel pub frontage, photographed in 2010; this is not a photograph of the Quarters rooms.   Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0).
+
+### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 A village hotel for a Flinders base, with the southern coast as a separate outing. Confirm dining hours for your stay.
 
 Hotel   Flinders   Couples
 
-[Check availability](<https://flindershotel.com.au/accommodation>)
+[Check availability](<https://flindershotel.com.au/accommodation/>)
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
@@ -205,7 +207,7 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 
 Hotel   Flinders   Couples
 
-[Check availability](<https://flindershotel.com.au/accommodation>)
+[Check availability](<https://flindershotel.com.au/accommodation/>)
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
@@ -409,7 +411,7 @@ If you only have one weekend, choose your base carefully. These are the stays th
 
 One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-7 min read
+4 min read
 
 - ### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
 

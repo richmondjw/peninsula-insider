@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-208 on the map
+207 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -144,8 +144,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
 - [View : Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
-- [View : Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 - [View : Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 

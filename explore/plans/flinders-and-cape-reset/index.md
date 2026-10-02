@@ -121,19 +121,19 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)
+Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
 
 Hotel  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Corner of Cook & Wood St, Flinders VIC 3929
+23 Cook St, Flinders VIC 3929
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
 weekend escape  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation>)
+[Read notes](<https://peninsulainsider.com.au/stay/flinders-hotel/>) [View stay](<https://flindershotel.com.au/accommodation/>)
 
 Move the trip outside
 
