@@ -1089,6 +1089,17 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       padding-inline: var(--space-2);
     }
   }
+  /* Phone thumbnails are 88px wide: the status tag shrinks to a corner
+     caption so the picture stays the subject. */
+  @media (max-width: 47.99em) {
+    .pi-card.pi-card--compact .pi-card__media-tag {
+      left: 3px;
+      bottom: 3px;
+      padding: 0 4px;
+      font-size: 0.625rem;
+      border-radius: 3px;
+    }
+  }
   /* Below 360px the three labelled actions no longer fit one line: Save
      drops to its icon there, and keeps its label for screen readers. */
   @media (max-width: 22.49em) {
