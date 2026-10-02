@@ -1039,13 +1039,15 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       justify-self: stretch;
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      /* Top, not centre: a booking note ("Books via Airbnb") hangs under its
+         button, and the other actions keep the button's line. */
+      align-items: flex-start;
       gap: var(--space-1) var(--space-2);
       padding-top: var(--space-3);
     }
-    /* Three actions on one 358px line: the bookmark goes icon-only (its
-       label stays for screen readers) and the booking link keeps its
-       natural width instead of stretching into a full-width bar. */
+    /* Three actions on one 358px line: Save keeps its label (the shortlist
+       cards above label it too) with tight padding, and the booking link
+       keeps its natural width instead of stretching into a full-width bar. */
     .pi-card.pi-card--compact:not(.pi-card--solo-save) .pi-card__actions > :global(.v5-booking) {
       flex: 0 1 auto;
       margin-left: auto;
@@ -1054,25 +1056,26 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       min-width: 44px;
       padding-inline: var(--space-2);
     }
-    /* Icon-only here, so the pull matches this padding: the bookmark sits
-       on the thumbnail's left edge, inside the page gutter. */
+    /* Tighter padding here, so the pull matches it: the bookmark sits on
+       the thumbnail's left edge, inside the page gutter. */
     .pi-card.pi-card--compact .pi-card__actions > :global(.v5-save:first-child .v5-save__btn--labelled:not([aria-pressed='true'])) {
       margin-left: calc(-1 * (var(--space-2) + 1px));
-    }
-    .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled .v5-save__label) {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-      border: 0;
     }
     .pi-card.pi-card--compact .pi-card__trip {
       min-width: 0;
       padding-inline: var(--space-2);
+    }
+  }
+  /* Below 360px the three labelled actions no longer fit one line: Save
+     drops to its icon there, and keeps its label for screen readers. */
+  @media (max-width: 22.49em) {
+    .pi-card.pi-card--compact .pi-card__actions :global(.v5-save__btn--labelled .v5-save__label) {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
     }
   }
 
