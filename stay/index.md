@@ -1,67 +1,73 @@
 Canonical: https://peninsulainsider.com.au/stay/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-10-01
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Choose the base, and the whole weekend changes
+Stay on the Peninsula
 
-One decision shapes the weekend: ridge and hinterland, or coastal village. Compare the atmosphere, evenings and transport tradeoffs below, then find a hotel, vineyard villa or cottage that fits your party.
+# Where you stay shapes the whole trip.
 
-Sort
+The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.
 
-Save a possibility or plan a visit?
+[Choose your base](<https://peninsulainsider.com.au/stay/#choose-base>) [Browse all 27 stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
 
-**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
-
-You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
+Guests arriving at Lindenderry at Red Hill. Photo: Peter Foster, courtesy of Visit Victoria.
 
 ## First, choose your corner of the Peninsula
 
-Pick the days you want, then the bed. These are area comparisons; check each property’s address and transport before booking.
+Pick the days you want, then the bed. These are area comparisons; check each property's address and transport before booking.
 
- [Compare stays on the map →](<https://peninsulainsider.com.au/map/>)
+ [Compare stays on the map](<https://peninsulainsider.com.au/map/>)
+
+Swipe to compare Red Hill and Sorrento
+
+Lindenderry at Red Hill  Photo: Peter Foster, courtesy of Visit Victoria
 
 ### [Red Hill & Main Ridge](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Vineyard lunches and a quieter hinterland weekend.
 
-**Evenings.** Make dinner part of the booking plan; properties and cellar doors are spread out.
+**For the evening**Make dinner part of the booking plan; properties and cellar doors are spread out.
 
-**Getting around.** Arrange transport between stops. A ridge address does not mean a walkable winery route.
+**Getting around**Arrange transport between stops. A ridge address does not mean a walkable winery route.
 
-[Find stays →](<https://peninsulainsider.com.au/stay/?place=red-hill,main-ridge#stay-directory>)[Area map →](<https://peninsulainsider.com.au/map/?place=red-hill,main-ridge>)
+[Find stays](<https://peninsulainsider.com.au/stay/?place=red-hill,main-ridge#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=red-hill,main-ridge>)
+
+Sorrento and the bay foreshore  Photo: Courtesy of Visit Victoria
 
 ### [Sorrento & Rye](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
 Bay foreshore days with a coastal village base.
 
-**Evenings.** Look for a property near the village if dinner on foot matters.
+**For the evening**Look for a property near the village if dinner on foot matters.
 
-**Getting around.** Check the actual address: the bay, ocean coast and hot springs are separate outings.
+**Getting around**Check the actual address: the bay, ocean coast and hot springs are separate outings.
 
-[Find stays →](<https://peninsulainsider.com.au/stay/?place=sorrento,rye#stay-directory>)[Area map →](<https://peninsulainsider.com.au/map/?place=sorrento,rye>)
+[Find stays](<https://peninsulainsider.com.au/stay/?place=sorrento,rye#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=sorrento,rye>)
 
-### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+### Two more ways to base your trip
+
+#### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 A town base for dining, the foreshore and a shorter trip down the Peninsula.
 
-**Evenings.** Choose the centre for access to the main street’s food and drink.
+**For the evening**Choose the centre for access to the main street’s food and drink.
 
-**Getting around.** The southern beaches and ridge wineries still need their own transport plan.
+**Getting around**The southern beaches and ridge wineries still need their own transport plan.
 
-[Find stays →](<https://peninsulainsider.com.au/stay/?place=mornington#stay-directory>)[Area map →](<https://peninsulainsider.com.au/map/?place=mornington>)
+[Find stays](<https://peninsulainsider.com.au/stay/?place=mornington#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=mornington>)
 
-### [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+#### [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 A smaller village base for the southern coast.
 
-**Evenings.** Plan around the village’s opening days before choosing a dinner spot.
+**For the evening**Plan around the village’s opening days before choosing a dinner spot.
 
-**Getting around.** Allow for transfers to the ridge and bay coast; do not assume a late return ride is available.
+**Getting around**Allow for transfers to the ridge and bay coast; do not assume a late return ride is available.
 
-[Find stays →](<https://peninsulainsider.com.au/stay/?place=flinders#stay-directory>)[Area map →](<https://peninsulainsider.com.au/map/?place=flinders>)
+[Find stays](<https://peninsulainsider.com.au/stay/?place=flinders#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=flinders>)
 
 Travelling without a car? Start with [the transport guide](<https://peninsulainsider.com.au/explore/getting-around/>) and check the journeys for your dates before selecting a base.
 
@@ -69,9 +75,11 @@ The stay shortlist
 
 ## Stays worth building a weekend around
 
-An editorial shortlist. Dates on individual entries describe the recorded detail check, not a new stay or visit.
+Six distinct ways in. Check the current room, inclusions and dates with each operator.
 
-- ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
+- A suite at Jackalope Hotel, Merricks North.   Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
 A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining. Check room and restaurant availability separately.
 
@@ -101,9 +109,7 @@ Details checked October 2026
 
 See 3 more editorial choices
 
-- Image subject unverified
-
-### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+- ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 A village hotel for a Flinders base, with the southern coast as a separate outing. Confirm dining hours for your stay.
 
@@ -127,61 +133,41 @@ Cottage   Rye   Dog-friendly
 
 [Check availability](<https://www.bluemooncottages.com.au/>)
 
-## Choose a stay guide
+Go deeper
+
+## Find the stay that fits
+
+Start with a broad edit, or follow the kind of weekend you have in mind.
 
 - ### [The best places to stay](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Choose a coast, wine-country or thermal base, then compare stay formats.
 
-- ### [Boutique hotels](<https://peninsulainsider.com.au/stay/boutique-hotels/>)
-
-Compare a village hotel, vineyard estate and design-led stay.
-
-- ### [Cottages and B&Bs](<https://peninsulainsider.com.au/stay/cottages/>)
-
-Choose a self-contained cottage or a hosted room or suite.
-
 - ### [Couples’ retreats](<https://peninsulainsider.com.au/stay/couples-retreats/>)
 
 Choose a vineyard, thermal or Sorrento stay for a weekend together.
-
-- ### [Vineyard stays](<https://peninsulainsider.com.au/stay/vineyard-stays/>)
-
-Compare estate suites, villas and a nearby wine-country base.
 
 - ### [Coastal stays](<https://peninsulainsider.com.au/stay/coastal-stays/>)
 
 Bay villages, south-coast bases and a night inside Point Nepean.
 
-- ### [Hot springs stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
+Explore more stay guides
 
-Compare accommodation at the Peninsula thermal estates.
+Sort
 
-- ### [Wellness stays](<https://peninsulainsider.com.au/stay/wellness-retreats/>)
+Save a possibility or plan a visit?
 
-Choose on-site bathing, a hotel spa or an off-site springs package.
+**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
 
-- ### [Resorts and retreats](<https://peninsulainsider.com.au/stay/resorts/>)
-
-Choose a resort room, thermal stay or group retreat venue.
-
-- ### [Stay in Sorrento](<https://peninsulainsider.com.au/stay/sorrento/>)
-
-Compare adults-only rooms with a family-friendly precinct stay.
-
-- ### [Stay in Red Hill](<https://peninsulainsider.com.au/stay/red-hill/>)
-
-Compare Red Hill estates and private bases by their actual locality.
-
-- ### [Dog-friendly stays](<https://peninsulainsider.com.au/journal/dog-friendly-accommodation-mornington-peninsula/>)
-
-Stays where the dog is a guest, not a problem.
+You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
 
 The full list
 
 ## All 27 places to stay
 
- [Ranked: the best places to stay →](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+Compare the actual locality and stay format. Confirm room details and availability with the operator.
+
+ [View the stay map →](<https://peninsulainsider.com.au/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay>)
 
 - ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
@@ -211,9 +197,7 @@ Details checked October 2026
 
 [Check availability](<https://hotelsorrento.com.au/stay/>)
 
-- Image subject unverified
-
-### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
+- ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
 
@@ -259,7 +243,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 Cottage   Dromana   Couples
 
-[Check availability](<https://www.birchcreek.com.au/>)  Books via Airbnb
+[Check availability](<https://www.birchcreek.com.au/>)
 
 - ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
@@ -277,9 +261,7 @@ Lodge   Fingal   Couples
 
 [Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
 
-- Illustrative image
-
-### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
+- ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
 Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
@@ -325,7 +307,7 @@ Spa cottages for two with gas fires and in-room spa baths, walking distance from
 
 Cottage   Red Hill   Couples
 
-[Check availability](<https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html>)
+[Visit website](<https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html>)
 
 - ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
@@ -341,6 +323,8 @@ Three rammed-earth self-contained apartments on ten acres of Red Hill South wine
 
 Cottage   Red Hill   Dog-friendly
 
+[View details](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
+
 - ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
 Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
@@ -354,6 +338,8 @@ Cottage   Red Hill   Couples
 Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
 
 Cottage   Rye   Couples
+
+[View details](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
 - ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
@@ -407,7 +393,7 @@ Details checked September 2026
 
 The Journal
 
-## From the Journal
+## Make more of the night
 
 [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 

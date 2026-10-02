@@ -9,7 +9,7 @@ Quick Note
 
 # Friday 2 October 2026
 
-Vol 04 · No 185     1 live briefs     Refreshed every morning     Updated 1:03 pm
+Vol 04 · No 185     1 live briefs     Refreshed every morning     Updated 4:59 pm
 
 ## Today
 
