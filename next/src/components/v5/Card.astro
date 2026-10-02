@@ -28,6 +28,7 @@ import { editableImage, type CmsEntityType } from '../../lib/inline-edit/attrs';
 import { freshnessLabel } from '../../lib/freshness';
 import SaveControl from './SaveControl.astro';
 import BookingControl from './BookingControl.astro';
+import type { EditorialPlan } from '../../lib/editorial-plan-import';
 
 export type CardVariant = 'venue' | 'compact-row' | 'event' | 'guide' | 'plan' | 'place' | 'article';
 
@@ -102,6 +103,10 @@ export interface Props {
   dateISO?: string;
   /** Plan variant: renders the day-count chip. */
   dayCount?: number;
+  /** Full itinerary used by the Copy action on a plan card. */
+  plan?: EditorialPlan;
+  /** Give compact layouts a full-width photo attribution row. */
+  separateImageNote?: boolean;
   /** Partner label; mandatory when the placement is commercial. */
   partnerLabel?: string;
   /** Secondary booking action (card-action weight). */
@@ -146,6 +151,8 @@ const {
   readTime,
   dateISO,
   dayCount,
+  plan,
+  separateImageNote = false,
   partnerLabel,
   booking,
   detailActionLabel,
@@ -289,8 +296,16 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     </div>
   )}
 
+  {separateImageNote && (imageCaption || imageCredit) && (
+    <p class="pi-card__image-note pi-card__image-note--separate">
+      {imageCaption && <span>{imageCaption}</span>}
+      {imageCaption && imageCredit && ' '}
+      {imageCredit && <span class="pi-card__image-credit">{imageCredit}</span>}
+    </p>
+  )}
+
   <div class="pi-card__body">
-    {(imageCaption || imageCredit) && (
+    {!separateImageNote && (imageCaption || imageCredit) && (
       <p class="pi-card__image-note">
         {imageCaption && <span>{imageCaption}</span>}
         {imageCaption && imageCredit && ' '}
@@ -388,7 +403,9 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
         section={saveSection}
         dek={saveDek ?? verdict}
         imageUrl={image?.src}
-        variant={variant === 'plan' ? 'fork' : 'save'}
+        variant={variant === 'plan' && plan ? 'fork' : 'save'}
+        plan={plan}
+        labelled={variant === 'plan'}
       />
     )}
     {trip && (
@@ -457,6 +474,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 <style>
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
+  .pi-card__image-note--separate { margin: 0; padding: .65rem var(--space-4); border-bottom: 1px solid var(--border); }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
      the two-line dek clamp and the --compact row direction all come from

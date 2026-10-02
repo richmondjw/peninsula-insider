@@ -236,3 +236,28 @@ test('sharing the wellness plan preserves repeat stays and importing twice is id
     assert.equal((await read(recipient, TRIP_KEY, 'entries')).length, original.length);
   } finally { await author.close(); await recipient.close(); }
 });
+
+test('home plan Copy creates its actual days and stops in My Trip, and a repeat adds nothing', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/');
+    const plan = await reader.page.evaluate(() => JSON.parse(document.querySelector('.home-plan__card [data-v5-save-control]').dataset.plan));
+    assert.ok(plan.stops.length > 0, 'the featured plan needs resolved stops');
+    await reader.page.evaluate(() => document.querySelector('.home-plan__card [data-v5-save-btn]').click());
+    await reader.waitFor(
+      () => /ready/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''),
+      'home Copy did not create a trip',
+    );
+    const first = await read(reader, TRIP_KEY, 'entries');
+    assert.equal(first.length, plan.stops.length);
+    assert.equal((await read(reader, TRIP_KEY, 'days')).length, new Set(plan.stops.map((stop) => stop.day)).size);
+    await reader.page.evaluate(() => document.querySelector('.home-plan__card [data-v5-save-btn]').click());
+    await reader.waitFor(
+      () => /already/i.test(document.querySelector('[data-plan-import-status]')?.textContent || ''),
+      'repeat home Copy did not explain that the plan is present',
+    );
+    assert.deepEqual(await read(reader, TRIP_KEY, 'entries'), first);
+    await reader.navigate('/me/trip/');
+    assert.equal(await reader.page.evaluate(() => document.querySelectorAll('[data-trip-stop]').length), first.length);
+  } finally { await reader.close(); }
+});

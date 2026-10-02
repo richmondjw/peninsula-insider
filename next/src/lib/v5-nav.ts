@@ -85,7 +85,7 @@ const configuredV5Pillars = [
     rail: {
       eyebrow: editorsPickEyebrow,
       title: 'Laura at Pt Leo Estate',
-      verdict: 'Sit at the bar, not the dining room. Better view, faster service. The kingfish is the order.',
+      verdict: 'Choose Laura for a considered, multi-course meal. Allow time to walk the sculpture park before or after lunch.',
       href: '/eat/laura-pt-leo/',
     },
   },

@@ -30,7 +30,10 @@ const USES = {
   'spas-hub': ['/explore/spas-and-wellness/', 'link preview', 'venues/peninsula-hot-springs', 'vv-160851'],
   'golf-hub': ['/explore/golf/', 'hero and link preview', 'experiences/flinders-golf-club', null],
   'best-restaurants': ['/eat/best-restaurants/', 'hero', 'venues/merricks-general-wine-store', null],
-  'home-door-stay': ['/', 'homepage Stay door', 'venues/jackalope', null],
+  'home-door-eat': ['/', 'homepage Eat and Drink door', 'venues/trofeo-estate', 'vv-169287'],
+  'home-door-stay': ['/', 'homepage Stay door', 'venues/jackalope', 'vv-26070116'],
+  'home-door-wine': ['/', 'homepage Wine door', 'venues/green-olive-red-hill', 'vv-160008'],
+  'home-door-explore': ['/', 'homepage Explore door', 'places/cape-schanck', 'vv-161977'],
   // Batch 4: hubs whose on-page hero is a published CMS override, so only the
   // link preview (and the Pagefind result image that mirrors it) changes.
   'whats-on-hub': ['/whats-on/', 'link preview', 'venues/mornington-farmers-market', 'vv-143094'],

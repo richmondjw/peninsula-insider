@@ -76,7 +76,8 @@
         </div>
       </div>
 
-      <ul class="site-search-overlay__results" id="siteSearchOverlayResults" role="listbox" aria-label="Search suggestions" hidden></ul>
+      <p class="site-search-overlay__status" id="siteSearchOverlayStatus" role="status" aria-live="polite" hidden></p>
+      <ul class="site-search-overlay__results" id="siteSearchOverlayResults" aria-label="Search suggestions" hidden></ul>
 
       <a class="pi-btn pi-btn--ghost" id="siteSearchOverlayCTA" href="/search/" hidden>
         <span>See all results</span>
@@ -87,6 +88,10 @@
     </div>
   </div>
 </div>
+
+<style>
+  .site-search-overlay__status { margin: 0 0 .75rem; color: var(--soft); font: var(--fw-medium) var(--fs-200)/var(--lh-ui) var(--font-ui); }
+</style>
 
 <script is:inline>
   /*
@@ -178,6 +183,7 @@
         form: document.getElementById('siteSearchOverlayForm'),
         input: document.getElementById('siteSearchOverlayInput'),
         list: document.getElementById('siteSearchOverlayResults'),
+        status: document.getElementById('siteSearchOverlayStatus'),
         cta: document.getElementById('siteSearchOverlayCTA'),
         suggestions: overlay.querySelector('[data-default-suggestions]'),
       };
@@ -205,7 +211,7 @@
       }
     }
 
-    function openOverlay() {
+    function openOverlay(trigger) {
       const els = getEls();
       if (!els) return;
       const { overlay, input } = els;
@@ -215,11 +221,18 @@
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
       document.addEventListener('keydown', trapTab, true);
-      // Two RAFs so the transition has the first frame to paint before focus
-      // moves the caret in (avoids a tiny visual jolt on some browsers).
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => input && input.focus());
-      });
+      // A native mobile dialog can restore focus to its opener after this
+      // click bubbles. Focus now, then once more after its close event.
+      if (input) input.focus({ preventScroll: true });
+      const sourceDialog = trigger && trigger.closest && trigger.closest('dialog');
+      if (sourceDialog) {
+        sourceDialog.addEventListener('close', () => {
+          requestAnimationFrame(() => {
+            const current = getEls();
+            if (current?.overlay.dataset.open === 'true') current.input?.focus({ preventScroll: true });
+          });
+        }, { once: true });
+      }
       // Lazy load Pagefind on first open. ~80kb of WASM, deferred until
       // someone actually intends to search.
       if (!state.loadedPagefind) {
@@ -248,6 +261,7 @@
 
     function showSuggestions(els) {
       if (els.suggestions) els.suggestions.hidden = false;
+      if (els.status) { els.status.hidden = true; els.status.textContent = ''; }
       if (els.list) els.list.hidden = true;
       if (els.cta) els.cta.hidden = true;
     }
@@ -260,6 +274,12 @@
         ? window.piAnalytics.lengthBucket(query)
         : 'unknown';
       if (els.suggestions) els.suggestions.hidden = true;
+      if (els.status) {
+        els.status.hidden = false;
+        els.status.textContent = results.length === 0
+          ? 'No suggestions found. Try the full results page.'
+          : Math.min(results.length, 6) + (results.length === 1 ? ' suggestion' : ' suggestions') + ' shown.';
+      }
       if (els.list) {
         els.list.hidden = false;
         if (results.length === 0) {
@@ -310,6 +330,18 @@
       return map[entityType] || (entityType.charAt(0).toUpperCase() + entityType.slice(1));
     }
 
+    // Inline scripts have their own scope; the module import below cannot
+    // provide this helper to RPC result rendering.
+    function clipSearchExcerpt(text, maxChars) {
+      const trimmed = String(text || '').trim();
+      if (trimmed.length <= maxChars) return trimmed;
+      const cut = trimmed.slice(0, maxChars);
+      const midWord = /\S/.test(trimmed[maxChars] || '') && /\S/.test(cut[cut.length - 1] || '');
+      const lastSpace = cut.lastIndexOf(' ');
+      const safe = midWord && lastSpace > 0 ? cut.slice(0, lastSpace) : cut;
+      return safe.replace(/[,;:.!?\u2010-\u2015-]+$/u, '').trimEnd() + '…';
+    }
+
     // Shape RPC SearchHit rows into the form showResults expects so the
     // Pagefind-shaped renderer keeps working unchanged.
     function rpcToResults(hits, query) {
@@ -317,7 +349,7 @@
       return hits.map((h) => {
         const dek = h.dek || '';
         // Lightweight highlight: wrap the first query-word match in <mark>.
-        let excerpt = escapeHtml(clipExcerpt(dek, 220));
+        let excerpt = escapeHtml(clipSearchExcerpt(dek, 220));
         if (q && excerpt.toLowerCase().includes(q)) {
           const i = excerpt.toLowerCase().indexOf(q);
           excerpt = excerpt.slice(0, i) + '<mark>' + excerpt.slice(i, i + q.length) + '</mark>' + excerpt.slice(i + q.length);
@@ -366,8 +398,8 @@
         logSearchOutcome(result.results.length);
       } catch (err) {
         console.warn('[search] error', err);
-        // Both engines are gone and the reader sees nothing. This event is
-        // the only record that it happened. docs/analytics-dictionary.md
+        // Both engines failed. Give the reader a recovery path and record
+        // the outcome without the query. docs/analytics-dictionary.md
         if (window.piTrack) {
           window.piTrack('search_failed', {
             surface: 'overlay',
@@ -376,6 +408,10 @@
             query_length: window.piAnalytics ? window.piAnalytics.lengthBucket(q) : 'unknown',
             reason: 'search-error',
           }, { component: 'SearchOverlay', dedupKey: 'search-failed:overlay', dedupMs: 5000 });
+        }
+        if (myToken === state.searchToken && els.status) {
+          els.status.hidden = false;
+          els.status.textContent = 'Suggestions are unavailable. Try the full results page.';
         }
         if (myToken === state.searchToken && els.cta) {
           els.cta.hidden = false;
@@ -453,7 +489,7 @@
         const trigger = e.target && e.target.closest && e.target.closest('[data-open-search]');
         if (trigger) {
           e.preventDefault();
-          openOverlay();
+          openOverlay(trigger);
           return;
         }
         const suggestion = e.target && e.target.closest && e.target.closest('[data-search-suggestion-href]');
@@ -471,11 +507,24 @@
       });
 
       document.addEventListener('keydown', (e) => {
-        // ESC closes the overlay if open
+        // ESC closes the overlay if open. If the native mobile drawer is
+        // still returning focus, keep the first printable key in the search
+        // field instead of losing it on the menu button.
         const overlay = document.getElementById('siteSearchOverlay');
         if (e.key === 'Escape' && overlay && overlay.dataset.open === 'true') {
           closeOverlay();
           return;
+        }
+        if (overlay?.dataset.open === 'true' && e.key.length === 1 &&
+            !e.ctrlKey && !e.metaKey && !e.altKey && !e.isComposing) {
+          const input = document.getElementById('siteSearchOverlayInput');
+          if (input && document.activeElement !== input) {
+            e.preventDefault();
+            input.value += e.key;
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.focus({ preventScroll: true });
+            return;
+          }
         }
         // "/" focuses search (GitHub / GitLab / Stripe convention).
         // Skip when typing in another field or contenteditable.
@@ -506,7 +555,6 @@
 -->
 <script>
   import { search, typeahead } from '../lib/search-client.ts';
-  import { clipExcerpt } from '../lib/editorial.ts';
 
   function isAvailable() {
     const sb = (window as any).__PI_SB;

@@ -85,7 +85,16 @@ const summaryLine = shortAddress;
 // hero via the inline editor, the published row overrides whatever the content
 // file specifies - so the rebuilt page renders the new image directly.
 const hero = await resolveHero('venue', slug, data);
-const hasPhoto = hero.hasPhoto;
+// A CMS replacement is a different photograph. If its own alt or credit is
+// missing, use the existing typographic card plate until that upload is reviewed.
+// Never borrow the content record's metadata for the replacement.
+const hasPhoto = hero.hasPhoto && (hero.override
+  ? Boolean(hero.override.alt?.trim() && hero.override.credit?.trim())
+  : Boolean(data.heroImage?.credit?.trim()));
+const photoCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
+const photoNote = hasPhoto && photoCredit
+  ? (slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
+  : '';
 const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -105,6 +114,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
       purpose: 'hero',
     })}
   >{hasPhoto && <img src={hero.src} alt="" loading="lazy" decoding="async" />}</a>
+  {photoNote && <p class="venue-card__photo-credit">{photoNote}</p>}
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}
@@ -153,11 +163,12 @@ const verifiedTier = verificationFreshness(data.lastVerified);
     title={data.name}
     href={href}
     dek={data.signature}
-    imageUrl={hero.src}
+    imageUrl={hasPhoto ? hero.src : undefined}
   />
 </article>
 
 <style>
+  .venue-card__photo-credit { margin: .5rem 1rem 0; color: var(--soft, #5c6267); font: 400 .72rem/1.45 var(--font-ui, sans-serif); }
   .venue-card__partner-note {
     font-size: 0.7rem;
     color: var(--color-text-muted, #9a9a9a);

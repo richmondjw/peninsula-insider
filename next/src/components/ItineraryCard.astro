@@ -44,6 +44,9 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
       })}
     ></a>
   )}
+  {(hero.override ? hero.override.credit : data.heroImage?.credit) && (
+    <p class="itinerary-card__photo-credit">{hero.override ? hero.override.caption : data.heroImage?.caption} Photo: {hero.override ? hero.override.credit : data.heroImage?.credit}</p>
+  )}
   <div class="itinerary-card__top itinerary-card__top--brand">
     <span class="itinerary-card__label itinerary-card__label--plan" aria-label="Peninsula Insider Plan">
       <span class="itinerary-card__monogram" aria-hidden="true">PI</span>
@@ -68,3 +71,7 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
     />
   </div>
 </article>
+
+<style>
+  .itinerary-card__photo-credit { margin: .45rem 1rem .3rem; color: var(--soft); font: 400 .72rem/1.45 var(--font-ui); }
+</style>

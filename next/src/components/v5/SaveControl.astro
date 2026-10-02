@@ -1,4 +1,5 @@
 ---
+import type { EditorialPlan } from '../../lib/editorial-plan-import';
 /**
  * SaveControl (v5) - save/unsave an entity to the reader's list.
  * Successor to PiSaveActions for the v5 Card system (spec 2.25).
@@ -32,6 +33,8 @@ export interface Props {
   labelled?: boolean;
   /** 'save' (default) or 'fork' ("Copy this plan", plan entities only). */
   variant?: 'save' | 'fork';
+  /** Required for a real plan copy into My Trip. */
+  plan?: EditorialPlan;
 }
 
 const {
@@ -44,9 +47,10 @@ const {
   imageUrl,
   labelled = false,
   variant = 'save',
+  plan,
 } = Astro.props;
 
-const isFork = variant === 'fork';
+const isFork = variant === 'fork' && Boolean(plan);
 const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
 ---
 
@@ -60,12 +64,13 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   data-section={section}
   data-dek={dek}
   data-image={imageUrl}
-  data-variant={variant}
+  data-variant={isFork ? 'fork' : 'save'}
+  data-plan={isFork ? JSON.stringify(plan) : undefined}
 >
   <button
     type="button"
     class:list={['v5-save__btn', labelled && 'v5-save__btn--labelled', isFork && 'v5-save__btn--fork']}
-    aria-pressed="false"
+    aria-pressed={isFork ? undefined : 'false'}
     aria-label={accessibleName}
     data-v5-save-btn
   >
@@ -165,6 +170,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
 
 <script>
   import * as Saves from '../../lib/saves/store';
+  import { useEditorialPlan } from '../../lib/plan-trip-client';
+  import type { EditorialPlan } from '../../lib/editorial-plan-import';
   import type { SaveKind } from '../../lib/saves/store';
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
 
@@ -189,14 +196,34 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     const label = btn.querySelector<HTMLElement>('[data-v5-save-label]');
 
     function paint() {
+      if (variant === 'fork') return;
       const saved = Saves.isSaved(kind, slug!);
       btn!.setAttribute('aria-pressed', saved ? 'true' : 'false');
       if (label && variant === 'save') label.textContent = saved ? 'Saved' : 'Save';
     }
 
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', async (e) => {
       e.preventDefault();
       e.stopPropagation();
+      if (variant === 'fork') {
+        let plan: EditorialPlan | null = null;
+        try { plan = JSON.parse(el.dataset.plan || 'null') as EditorialPlan | null; } catch { /* invalid card data */ }
+        if (!plan) return;
+        if (btn.dataset.busy === 'true') return;
+        btn.dataset.busy = 'true';
+        btn.setAttribute('aria-disabled', 'true');
+        try {
+          const outcome = await useEditorialPlan(plan, btn);
+          if (outcome === 'added') trackEvent('plan_fork', { entity_type: kind, entity_slug: slug, surface: 'card' });
+          if ((outcome === 'added' || outcome === 'existing') && e.detail === 0) {
+            document.querySelector<HTMLAnchorElement>('[data-plan-import-status] a[href="/me/trip/"]')?.focus();
+          }
+        } finally {
+          delete btn.dataset.busy;
+          btn.removeAttribute('aria-disabled');
+        }
+        return;
+      }
       const wasSaved = Saves.isSaved(kind, slug!);
       const result = Saves.toggle({ kind, slug: slug!, section, title, dek, image_url, href });
       if (!result.ok) {
@@ -210,7 +237,7 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
         }
         return;
       }
-      const evt = variant === 'fork' ? 'plan_fork' : wasSaved ? 'save_remove' : 'save_add';
+      const evt = wasSaved ? 'save_remove' : 'save_add';
       trackEvent(evt, {
         entity_type: kind,
         entity_slug: slug,

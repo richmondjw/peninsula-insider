@@ -18,8 +18,15 @@
     "point-nepean"
   ],
   "anchorStay": "jackalope",
-  "nightStays": ["jackalope", "hotel-sorrento"],
-  "dayLabels": ["Vineyards and your first stay", "Coast and a second base", "Point Nepean and home"],
+  "nightStays": [
+    "jackalope",
+    "hotel-sorrento"
+  ],
+  "dayLabels": [
+    "Vineyards and your first stay",
+    "Coast and a second base",
+    "Point Nepean and home"
+  ],
   "bookingChecklist": [
     {
       "item": "First night at Jackalope and second night at Hotel Sorrento",
@@ -75,10 +82,25 @@
     }
   ],
   "heroImage": {
-    "src": "/images/sourced/place-red-hill-01.webp",
-    "alt": "Red Hill hinterland vineyard landscape",
-    "credit": "BrooksieG / Wikimedia Commons",
-    "license": "wikimedia-cc-by"
+    "src": "/images/visit-victoria/vv-160356-montalto.webp",
+    "alt": "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees",
+    "credit": "Two Palms Australia, courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+    "depicts": "Montalto",
+    "depictionStatus": "actual",
+    "creator": "Two Palms Australia",
+    "sourceUrl": "Victoria Content Hub asset 160356, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
   "editorNote": "Start with lunch and a night on the ridge, then move south for the coast and a second night in Sorrento. Each day changes register: vineyards first, a coastal walk next, Point Nepean to finish. Book the two stays and lunches before arranging the rest. Day two has the most moving parts, so have an unhurried breakfast near your stay and leave the short coastal stop out if lunch runs long.",
   "publishedAt": "2026-04-08",

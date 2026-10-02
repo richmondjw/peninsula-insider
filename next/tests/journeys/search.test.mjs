@@ -191,3 +191,50 @@ test('search survives a dropped connection', async () => {
     await reader.close();
   }
 });
+
+test('search overlay renders fast RPC suggestions as linked list items with a result announcement', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/');
+    await reader.page.evaluate(() => {
+      window.PISearchRpc = {
+        available: true,
+        typeahead: async () => [{ href: '/stay/', title: 'Places to stay', dek: 'Find a place for the weekend.', entity_type: 'place' }],
+      };
+      document.querySelector('[data-open-search]').click();
+      const input = document.getElementById('siteSearchOverlayInput');
+      input.value = 'stay';
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await reader.waitFor(
+      () => document.querySelector('#siteSearchOverlayResults a[href="/stay/"]') && /1 suggestion shown/.test(document.getElementById('siteSearchOverlayStatus')?.textContent || ''),
+      'the fast search result did not appear in the overlay',
+      null,
+      { describe: () => ({ status: document.getElementById('siteSearchOverlayStatus')?.textContent, list: document.getElementById('siteSearchOverlayResults')?.textContent }) },
+    );
+    const semantics = await reader.page.evaluate(() => ({
+      tag: document.getElementById('siteSearchOverlayResults').tagName,
+      role: document.getElementById('siteSearchOverlayResults').getAttribute('role'),
+      statusRole: document.getElementById('siteSearchOverlayStatus').getAttribute('role'),
+    }));
+    assert.deepEqual(semantics, { tag: 'UL', role: null, statusRole: 'status' });
+  } finally { await reader.close(); }
+});
+
+
+test('mobile drawer search keeps immediate keyboard input through dialog close', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({ width: 390, height: 844 });
+    await reader.load('/');
+    await reader.page.click('.mobile-menu');
+    await reader.page.click('.mobile-drawer__search');
+    await reader.page.keyboard.type('Sorrento');
+    const result = await reader.page.evaluate(() => ({
+      query: document.getElementById('siteSearchOverlayInput')?.value,
+      open: document.getElementById('siteSearchOverlay')?.dataset.open,
+      drawerOpen: document.getElementById('mobile-drawer')?.open,
+    }));
+    assert.deepEqual(result, { query: 'Sorrento', open: 'true', drawerOpen: false });
+  } finally { await reader.close(); }
+});

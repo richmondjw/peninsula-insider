@@ -136,6 +136,11 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
           image.dataset.piLabel = `${plan.title} image`;
         } else image.removeAttribute('src');
       }
+      const credit = slot<HTMLElement>(el, 'image-credit');
+      if (credit) {
+        credit.hidden = !plan.image?.credit;
+        credit.textContent = plan.image?.credit ? [plan.image.caption, 'Photo: ' + plan.image.credit].filter(Boolean).join(' ') : '';
+      }
       const fitBox = slot(el, 'fit');
       if (fitBox) fitBox.hidden = asked === 0;
       text(el, 'matched', fit.matched.length ? `Fits: ${fit.matched.map(token => criterionLabel(token, labels)).join(' · ')}` : '');

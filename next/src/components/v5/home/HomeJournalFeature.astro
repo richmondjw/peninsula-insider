@@ -44,6 +44,7 @@ const creditLabel = credit === 'Courtesy of Visit Victoria'
   : credit
     ? `${!hero?.override && lead?.data.heroImage?.depictionStatus === 'illustrative' ? 'Artwork' : 'Photo'}: ${credit}`
     : '';
+const photoNote = [caption, creditLabel].filter(Boolean).join(' ');
 ---
 
 {lead && hero && (
@@ -65,7 +66,7 @@ const creditLabel = credit === 'Courtesy of Visit Victoria'
           purpose: 'hero',
         })}
       />
-      {(caption || creditLabel) && <figcaption>{caption && <span>{caption}</span>} {creditLabel && <span>{creditLabel}</span>}</figcaption>}
+      {photoNote && <figcaption>{photoNote}</figcaption>}
     </figure>
     <div class="home-journal__body">
       <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>

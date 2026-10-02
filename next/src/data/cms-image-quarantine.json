@@ -20,6 +20,72 @@
       "fieldPath": "hero",
       "storagePath": "tour-operator/bayplay/hero-1778846519213.jpg",
       "reason": "Current visible kayak image has no alt, caption or credit; the fallback alt was inaccurate."
+    },
+    {
+      "key": "itinerary/ridge-to-sea-two-night-escape",
+      "fieldPath": "hero",
+      "storagePath": "itinerary/ridge-to-sea-two-night-escape/hero-1779171245072.jpg",
+      "reason": "Published replacement has generic title alt and no source-specific credit or licence record; keep the credited CC-BY source image pending independent rights review."
+    },
+    {
+      "key": "itinerary/ridge-to-sea-two-night-escape",
+      "fieldPath": "heroImage",
+      "storagePath": "itinerary/ridge-to-sea-two-night-escape/hero-1779171245072.jpg",
+      "reason": "Published replacement has generic title alt and no source-specific credit or licence record; keep the credited CC-BY source image pending independent rights review."
+    },
+    {
+      "key": "page/eat",
+      "fieldPath": "hero",
+      "storagePath": "page/eat/hero-1781253386089.jpg",
+      "reason": "Published CMS hero has no source-specific alt, caption, credit or licence record; use the recorded Visit Victoria page image pending independent rights review."
+    },
+    {
+      "key": "page/stay",
+      "fieldPath": "hero",
+      "storagePath": "page/stay/hero-1781253660788.jpg",
+      "reason": "Published CMS hero has no source-specific alt, caption, credit or licence record; use the recorded Visit Victoria page image pending independent rights review."
+    },
+    {
+      "key": "itinerary/sorrento-off-season-weekend",
+      "fieldPath": "heroImage",
+      "storagePath": "itinerary/sorrento-off-season-weekend/heroImage-1779859410014.jpg",
+      "reason": "Published image has no source-specific alt, caption, credit or licence record; use the recorded Visit Victoria Sorrento Back Beach fallback pending rights review."
+    },
+    {
+      "key": "itinerary/wellness-weekend",
+      "fieldPath": "heroImage",
+      "storagePath": "itinerary/wellness-weekend/heroImage-1779859425002.jpg",
+      "reason": "Published image has no source-specific alt, caption, credit or licence record; use the recorded Visit Victoria Alba fallback pending rights review."
+    },
+    {
+      "key": "venue/hotel-sorrento",
+      "fieldPath": "heroImage",
+      "storagePath": "venue/hotel-sorrento/heroImage-1781253705315.webp",
+      "reason": "Published image has no source-specific alt, caption, credit or licence record; use the documented 2006 Wikimedia public-domain exterior pending rights review."
+    },
+    {
+      "key": "venue/hotel-sorrento",
+      "fieldPath": "hero",
+      "storagePath": "venue/hotel-sorrento/heroImage-1781253705315.webp",
+      "reason": "Published image has no source-specific alt, caption, credit or licence record; use the documented 2006 Wikimedia public-domain exterior pending rights review."
+    },
+    {
+      "key": "itinerary/sorrento-off-season-weekend",
+      "fieldPath": "hero",
+      "storagePath": "itinerary/sorrento-off-season-weekend/hero-1778842832894.jpg",
+      "reason": "Alternate published hero has no source-specific alt, caption, credit or licence record; restore the documented Visit Victoria beach image."
+    },
+    {
+      "key": "itinerary/wellness-weekend",
+      "fieldPath": "hero",
+      "storagePath": "itinerary/wellness-weekend/hero-1778505411809.jpg",
+      "reason": "Alternate published hero has no source-specific alt, caption, credit or licence record; restore the documented Visit Victoria Alba image."
+    },
+    {
+      "key": "venue/hotel-sorrento",
+      "fieldPath": "hero",
+      "storagePath": "venue/hotel-sorrento/hero-1778648438185.webp",
+      "reason": "Alternate published hero has no source-specific alt, caption, credit or licence record; restore the documented 2006 public-domain exterior."
     }
   ]
 }

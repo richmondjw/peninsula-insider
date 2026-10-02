@@ -148,12 +148,13 @@ const buildHref = (key: 'length' | 'who', value: string) =>
             href={featured.href}
             entityType="itinerary"
             entitySlug={slug}
+            plan={{ slug: featured.slug, title: featured.displayTitle, entityType: featured.entityType, kind: featured.kind, dayCount: featured.dayCount, stops: featured.stops }}
             fieldPath={featured.imageField}
             imageEdit={featuredImageEdit}
             requireImageMetadata={Boolean(featuredImageEdit)}
             suppressImageHydration={true}
             image={featuredImage}
-            verdict={featured.verdict}
+            verdict={alternateSummary[featured.slug] ?? featured.verdict}
             showEyebrow={false}
             meta={featured.meta}
             freshness={featured.verifiedAt}
@@ -175,8 +176,10 @@ const buildHref = (key: 'length' | 'who', value: string) =>
               href={alt.href}
               entityType={alt.entityType}
               entitySlug={alt.slug}
+              plan={{ slug: alt.slug, title: alt.displayTitle, entityType: alt.entityType, kind: alt.kind, dayCount: alt.dayCount, stops: alt.stops }}
               fieldPath={alt.imageField}
               image={alt.image ?? undefined}
+              separateImageNote={true}
               suppressImageHydration={true}
               verdict={alternateSummary[alt.slug] ?? alt.verdict}
               showEyebrow={false}
@@ -286,6 +289,12 @@ const buildHref = (key: 'length' | 'who', value: string) =>
   .home-plan__card :global(.pi-card),
   .home-plan__alt :global(.pi-card) {
     width: 100%;
+  }
+  .home-plan__card :global(.pi-card__dek) {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
   }
   .home-plan__alt :global(.pi-card__dek) {
     display: block;
@@ -495,6 +504,15 @@ const buildHref = (key: 'length' | 'who', value: string) =>
     .home-plan__alt--pt-leo :global(.pi-card__media img) {
       object-position: 12% center;
     }
+    .home-plan__alt :global(.pi-card__image-note--separate) {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      padding: .65rem .75rem;
+      border-top: 1px solid var(--border);
+      border-bottom: 0;
+      font-size: .8125rem;
+      line-height: 1.4;
+    }
     .home-plan__alt :global(.pi-card__body) {
       grid-column: 2;
       grid-row: 1;
@@ -513,8 +531,8 @@ const buildHref = (key: 'length' | 'who', value: string) =>
     }
     .home-plan__alt :global(.pi-card__meta) {
       gap: 0.1rem 0.3rem;
-      font-size: var(--fs-100);
-      line-height: 1.2;
+      font-size: .8125rem;
+      line-height: 1.35;
     }
     .home-plan__alt :global(.pi-card__actions) {
       grid-column: 2;

@@ -22,40 +22,28 @@ const doors = [
     label: 'Eat & Drink',
     href: '/eat/',
     line: 'Places worth planning lunch around',
-    fallback: {
-      src: '/images/sourced/venue-italian-dining-01.webp',
-      alt: 'A Peninsula dining room, table laid, light low',
-    },
+    fallback: pageImage('home-door-eat'),
   },
   {
     key: 'stay',
     label: 'Stay',
     href: '/stay/',
     line: 'From a weekend shack to a cliff house',
-    fallback: {
-      src: pageImage('home-door-stay').src,
-      alt: pageImage('home-door-stay').alt,
-    },
+    fallback: pageImage('home-door-stay'),
   },
   {
     key: 'wine',
     label: 'Wine',
     href: '/wine/',
     line: 'Cellar doors worth taking the turn for',
-    fallback: {
-      src: '/images/sourced/article-cellar-door-01.webp',
-      alt: 'A Peninsula cellar door, bottles open, glasses poured',
-    },
+    fallback: pageImage('home-door-wine'),
   },
   {
     key: 'explore',
     label: 'Explore',
     href: '/explore/',
     line: 'Walks, beaches, springs, and the roads between them',
-    fallback: {
-      src: '/images/sourced/explore-cape-schanck-lighthouse-01.webp',
-      alt: 'Cape Schanck Lighthouse and the Bass Strait coast',
-    },
+    fallback: pageImage('home-door-explore'),
   },
 ];
 
@@ -67,7 +55,7 @@ const resolved = await Promise.all(
       { heroImage: door.fallback },
       'hero',
     );
-    return { ...door, src: hero.src, alt: hero.alt || door.fallback.alt };
+    return { ...door, src: hero.src, alt: hero.alt || door.fallback.alt, credit: hero.override?.credit ?? (hero.src === door.fallback.src ? door.fallback.credit : undefined), caption: hero.override?.caption ?? (hero.src === door.fallback.src ? door.fallback.caption : undefined) };
   }),
 );
 ---
@@ -109,6 +97,7 @@ const resolved = await Promise.all(
               </span>
               <span class="home-doors__line">{door.line}</span>
             </span>
+            {door.credit && <span class="home-doors__credit">{door.caption?.replace(/, Mornington Peninsula\.$/, '')} Photo: {door.credit}</span>}
           </a>
         </li>
       ))}
@@ -218,6 +207,7 @@ const resolved = await Promise.all(
     transform: translate(2px, -2px);
   }
 
+  .home-doors__credit { display: block; padding: .55rem var(--space-5) var(--space-4); color: var(--soft); font-family: var(--font-ui); font-size: .75rem; font-weight: 400; line-height: 1.4; }
   .home-doors__line {
     margin-top: var(--space-1);
     font-family: var(--font-ui);
@@ -252,13 +242,18 @@ const resolved = await Promise.all(
       grid-template-rows: auto;
     }
     .home-doors__media {
+      grid-column: 1;
+      grid-row: 1;
       aspect-ratio: auto;
       min-height: 10.5rem;
     }
     .home-doors__copy {
+      grid-column: 2;
+      grid-row: 1;
       min-height: 10.5rem;
       padding: var(--space-4);
     }
+    .home-doors__credit { grid-column: 1 / -1; grid-row: 2; padding: .5rem var(--space-4) .75rem; }
     .home-doors__line {
       font-size: var(--fs-300);
       line-height: var(--lh-dek);
