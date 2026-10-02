@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-02T15:02:21.197Z",
+  "updatedAt": "2026-10-02T17:02:29.226Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -284,6 +284,14 @@
       "httpCode": "200",
       "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Hotel sorrento.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-02",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

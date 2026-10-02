@@ -143,3 +143,10 @@ with verified provenance and geo-location.
 - **Licence:** CC-BY-SA-3.0
 - **Original:** https://commons.wikimedia.org/wiki/File:Nazaaray_Estate_Winery.jpg
 - **Used on:** /wine/nazaaray-estate/
+
+## venue-sorrento-hotel-01.webp
+- **Source:** Hotel Sorrento exterior, Sorrento Victoria, photographed 2006.
+- **Photographer:** Biatch
+- **Licence:** This work has been released into the public domain by its author, Biatch at English Wikipedia. This applies worldwide.
+- **Original:** https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg
+- **Used for:** Historical exterior on Hotel Sorrento pages and cards. The property has since been renovated.

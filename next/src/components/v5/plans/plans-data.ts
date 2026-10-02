@@ -131,12 +131,14 @@ async function heroFor(
   const override = entityType === 'itinerary'
     ? ov.image['heroImage'] ?? ov.image['hero']
     : ov.image['hero'] ?? ov.image['heroImage'];
-  // The article detail page falls back to its credited source when an editor
-  // upload lacks either alt text or credit. Keep the listing in step with it.
+  // A replacement photograph must bring its own description and credit.
+  // Itinerary detail pages already reject incomplete uploads; keep their
+  // cards in step. For article cards, fall back only when the source photo
+  // carries a recorded credit.
   const creditedArticleSource = entityType === 'article' && fallback?.rightsStatus === 'recorded' &&
     Boolean(fallback.src?.trim() && fallback.alt?.trim() && fallback.credit?.trim());
-  const incompleteArticleOverride = override && (!override.alt?.trim() || !override.credit?.trim());
-  const o = creditedArticleSource && incompleteArticleOverride ? undefined : override;
+  const incompleteOverride = override && (!override.alt?.trim() || !override.credit?.trim());
+  const o = incompleteOverride && (entityType === 'itinerary' || creditedArticleSource) ? undefined : override;
   const src = o?.src ?? fallback?.src;
   if (!src) return null;
   // An uploaded replacement must carry its own words. The content record's

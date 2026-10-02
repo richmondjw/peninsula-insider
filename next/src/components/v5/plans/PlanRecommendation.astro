@@ -33,6 +33,7 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
     <img src={plan.image?.src} alt={plan.image?.alt ?? ''} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" width="720" height="520" data-slot="image" data-pi-responsive={plan.image ? (index === 0 ? '(max-width: 720px) calc(100vw - 72px), (max-width: 1280px) 42vw, 520px' : '(max-width: 720px) 82px, 112px') : undefined}
       {...editableImage({entityType:plan.entityType,entitySlug:plan.slug,fieldPath:plan.imageField,label:`${plan.title} image`,purpose:'card'})} />
   </div>
+  <p class="plan-recommendation__credit" data-slot="image-credit" hidden={!plan.image?.credit}>{plan.image?.caption} Photo: {plan.image?.credit}</p>
   <details class="plan-recommendation__route" data-slot="route">
     <summary><span>At a glance</span><span data-slot="route-count">{plan.stops.length} stops <span aria-hidden="true">+</span></span></summary>
     <div class="plan-recommendation__route-inner">
@@ -55,6 +56,8 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   .plan-recommendation__facts{font:.79rem/1.6 var(--font-ui);color:var(--soft);margin:0 0 1rem}
   .plan-recommendation__media{align-self:start;aspect-ratio:1;overflow:hidden;background:var(--bg-alt)}
   .plan-recommendation__media img{height:100%;width:100%;object-fit:cover;display:block}
+  .plan-recommendation__credit{grid-column:1/-1;margin:.45rem 0 0;color:var(--soft);font:400 .72rem/1.45 var(--font-ui)}
+  .plan-recommendation__credit[hidden]{display:none}
   .plan-recommendation__preview{border-block:1px solid var(--border);padding:.6rem 0;margin:0 0 1rem;font:.8rem/1.6 var(--font-ui);max-width:65ch}.plan-recommendation__preview p{margin:.35rem 0}.plan-recommendation__preview p:last-child{color:var(--soft)}
   .plan-recommendation__actions{display:flex;align-items:center;gap:.45rem .7rem;flex-wrap:wrap}
   .plan-recommendation__actions .pi-btn{font-size:.82rem;min-height:44px}
@@ -76,6 +79,7 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   .plan-recommendation--featured h3{font-size:clamp(1.9rem,3.5vw,2.85rem);max-width:17ch;line-height:1.13;margin-bottom:1rem}
   .plan-recommendation--featured .plan-recommendation__reason{font-size:1rem}
   .plan-recommendation--featured .plan-recommendation__media{aspect-ratio:4/3;align-self:center}
+  .plan-recommendation--featured .plan-recommendation__credit{grid-column:2}
   .plan-recommendation--featured .plan-recommendation__facts{font-size:.85rem}
   .plan-recommendation--featured .plan-recommendation__route{margin-top:1.5rem}
   .plan-recommendation--featured .plan-recommendation__route summary{padding-bottom:0}
@@ -84,9 +88,10 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   @media(max-width:45rem){
     .plan-recommendation{grid-template-columns:minmax(0,1fr) 82px;padding-top:1.2rem;column-gap:.8rem}
     .plan-recommendation--featured{grid-template-columns:1fr;padding:1.2rem}
-    .plan-recommendation--featured .plan-recommendation__body{order:1}
+    .plan-recommendation--featured .plan-recommendation__body{order:2}
     .plan-recommendation--featured .plan-recommendation__media{order:0;margin-bottom:1.2rem;aspect-ratio:2.3}
-    .plan-recommendation--featured .plan-recommendation__route{order:2}
+    .plan-recommendation--featured .plan-recommendation__credit{grid-column:1;order:1;margin:-.8rem 0 .7rem}
+    .plan-recommendation--featured .plan-recommendation__route{order:3}
     .plan-recommendation--featured h3{font-size:1.85rem;max-width:22ch}
     .plan-recommendation__actions .pi-btn{padding-inline:.8rem}
   }

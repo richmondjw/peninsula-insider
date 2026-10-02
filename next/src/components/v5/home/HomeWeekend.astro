@@ -45,13 +45,13 @@ const contextPhotos: Record<string, { src: string; alt: string; caption: string;
   'hill-ridge-community-market-september-2026-restart': {
     src: '/images/visit-victoria/vv-143096-produce-at-mornington-farmers-market.webp',
     alt: 'A stallholder holds out a bunch of freshly pulled beetroot with leaves attached at Mornington Farmers Market',
-    caption: "Mornington Farmers' Market, Mornington Peninsula. Context photo, not the Hill & Ridge Community Market.",
+    caption: "Context photo: Mornington Farmers' Market, not this event.",
     credit: 'Courtesy of Visit Victoria',
   },
   'national-works-on-paper-2026-nwop': {
     src: '/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp',
     alt: 'Gallery room at Mornington Peninsula Regional Gallery with framed prints on white walls and sculptures on plinths under a vaulted ceiling',
-    caption: 'Mornington Peninsula Regional Gallery, Mornington Peninsula. Context photo; exhibition shown is not identified as National Works on Paper 2026.',
+    caption: 'Context photo: Mornington Peninsula Regional Gallery, not this exhibition.',
     credit: 'Robert Blackburn, courtesy of Visit Victoria',
   },
 };
@@ -62,9 +62,11 @@ const cards = await Promise.all(
     const hero = await resolveHero('event', slug, event.data);
     const place =
       event.data.venueName || placeLabel(event.data.place) || event.data.suburb || '';
+    const recurrence = recurrenceChip(event);
+    const cadence = recurrence?.startsWith('Every Saturday evening year-round') ? 'Every Saturday' : recurrence;
     const meta = [
       place,
-      recurrenceChip(event) ?? categoryLabel(event.data.category),
+      cadence ?? categoryLabel(event.data.category),
       isFreeEvent(event) ? 'Free' : '',
     ].filter(Boolean);
     const recorded = event.data.heroImage;
@@ -93,15 +95,23 @@ const cards = await Promise.all(
       credit: recorded.credit,
       badge: status === 'illustrative' ? 'Illustrative image' : '',
     } : undefined;
+    const dateISO = pickDateISO(event, now);
+    const dateLabel = dateISO ? new Date(dateISO + 'T00:00:00Z').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
+    const fullTitle = String(event.data.title);
+    const title = dateLabel && fullTitle.endsWith(', ' + dateLabel)
+      ? fullTitle.slice(0, -(', ' + dateLabel).length)
+      : fullTitle;
     return {
       slug,
-      title: event.data.title,
+      title,
       href: `/whats-on/${slug}/`,
       image,
       plateLabel,
-      verdict,
+      verdict: slug === 'hill-ridge-community-market-september-2026-restart'
+        ? 'Local produce and makers at Red Hill Recreation Reserve, Saturday 9am–2pm. Check the organiser if severe weather is forecast.'
+        : verdict,
       meta,
-      dateISO: pickDateISO(event, now),
+      dateISO,
     };
   }),
 );
@@ -270,7 +280,7 @@ const cards = await Promise.all(
     .home-weekend__scroller :global(.v5-card-grid--grid) {
       grid-template-columns: none;
       grid-auto-flow: column;
-      grid-auto-columns: min(19rem, 72vw);
+      grid-auto-columns: min(21rem, 84vw);
       overflow-x: auto;
       scroll-snap-type: x proximity;
       padding-bottom: var(--space-2, 0.5rem);
@@ -279,6 +289,10 @@ const cards = await Promise.all(
 
     .home-weekend__scroller :global(.v5-card-grid--grid > *) {
       scroll-snap-align: start;
+    }
+
+    .home-weekend__scroller :global(.v5-card-grid--grid) {
+      align-items: start;
     }
 
     /* House rail treatment: hide the native scrollbar (swipe affordance
@@ -290,5 +304,15 @@ const cards = await Promise.all(
     .home-weekend__scroller :global(.v5-card-grid--grid)::-webkit-scrollbar {
       display: none;
     }
+  }
+  @media (max-width: 39.99em) {
+    .home-weekend__scroller { margin-right: -1rem; }
+    .home-weekend__scroller :global(.v5-card-grid--grid) { column-gap: 1rem; }
+    .home-weekend__scroller :global(.pi-card__media) { height: 10.5rem; }
+    .home-weekend__scroller :global(.pi-card__body) { padding: 1rem; }
+    .home-weekend__scroller :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.22; }
+    .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
+    .home-weekend__scroller :global(.pi-card__image-note) { font-size: .8125rem; line-height: 1.4; }
+    .home-weekend__scroller :global(.pi-card__actions) { padding: 0 1rem 1rem; }
   }
 </style>
