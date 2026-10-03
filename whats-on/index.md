@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-03
+Modified: 2026-10-04
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,15 +27,7 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
 
-Sat, 3 Oct   Mornington   Exhibitions
-
-- Photo: Peninsula Insider.
-
-### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
-
-Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
-
-Sat, 3 Oct   Mornington   Kids & Family
+Sun, 4 Oct   Mornington   Exhibitions
 
 - Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
@@ -45,6 +37,12 @@ Book the bathe and the music comes with it. The easiest good Sunday on this end 
 
 Sun, 4 Oct   Fingal   Live Music
 
+- ### [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+
+Free yoga before a hot springs bathe is the move locals know about and tourists don't book.
+
+Sun, 4 Oct   Fingal   Included with bathing
+
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
 Make a day of it
@@ -53,7 +51,7 @@ Make a day of it
 
 Browse by date and save what catches your eye.
 
-### Saturday 3 October
+### Sunday 4 October
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
@@ -120,20 +118,6 @@ Mornington · Kids & Family · Recurring weekly
 A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. The value is genuinely silly.
 
 Red Hill / Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027
-
-### Sunday 4 October
-
-- [Doggy Day Out on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/>)
-
-The Peninsula's best format for dog people. The digital trail structure keeps it interesting for the owners as much as…
-
-Mornington · Food & Wine · Recurring weekly
-
-- [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
-
-Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps…
-
-Mornington · Kids & Family · Recurring weekly
 
 - [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
 

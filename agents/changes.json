@@ -1,44 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T13:56:50.260Z",
+  "generatedAt": "2026-10-03T14:11:03.364Z",
   "baselineAvailable": true,
-  "fromSnapshot": "ef6ca81518fe89f0e0503f761ad7b1dde8b93a1dec31d50e0fa3368fd19f21a0",
-  "toSnapshot": "e3f28cdb4c8de32cfaf6bb04afbdc1673a3b0e5171a62e00e5ed00f69a873cc3",
-  "previousGeneratedAt": "2026-10-03T13:25:25.988Z",
+  "fromSnapshot": "e3f28cdb4c8de32cfaf6bb04afbdc1673a3b0e5171a62e00e5ed00f69a873cc3",
+  "toSnapshot": "694f58ef0f890ded011f1efbd276a23d7c1c086bca21b526527dbd263deef8d8",
+  "previousGeneratedAt": "2026-10-03T13:56:50.260Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 5,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "18f05c775cecfc29e5f4d955869f97f0208d0c04cc86ac8bd21fed1167e68ebe",
+      "previousContentSha256": "6f028dbae86abe7de90c11a434e551dc9b053d84e348890e3c0a188eee4c7d9d"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "cd6e39b3e364ba80c87ec7bf8d3767ccfa07b48cb871be6ce83776447f14fab6",
-      "previousContentSha256": "7ca72130d17d7fb4761e61c268033d33e746808f532d838246b2631303f5fcee"
+      "contentSha256": "613d0eb5a6978d083034a252da5a8a270a59b0896acebd9802c36f551210a87a",
+      "previousContentSha256": "cd6e39b3e364ba80c87ec7bf8d3767ccfa07b48cb871be6ce83776447f14fab6"
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/",
+      "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "a0c357dbfb8af16833acf065a5d4536de8b5d9f38d7bb9b9abf68b48eff0f9f2",
-      "previousContentSha256": "c4df80d510dd5cf61bc5fc1708603b13e8518350258149f613ae76c65d7984ee"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "cdd262f7e13ee5bc9772f79eb4f3dcdcdb3d4af211b931525ec7639b8550e3ed",
+      "previousContentSha256": "d65ddcdb4d434f5f3c235e4ca28f3a02db44572744959792d0d72292332a64a8"
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "id": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/index.md",
-      "contentSha256": "94dd33fb35607c0c24df68b27c585ab7bfe94a97be1f1d02102da694a01d3d39",
-      "previousContentSha256": "f3c23f18391dd2dee5adc955dd41fc581667e5b5a9caeb17b8f4f8d593539c19"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/index.md",
+      "contentSha256": "5b7aae2e1c04373680ff61e85b660d05eba8e0328e857d124a4b39372a1ba45e",
+      "previousContentSha256": "bc3b8f2f768de8c0bae8fe3c432af5a1b38200fd16880db63bd924dbb93ea87b"
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "id": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/index.md",
-      "contentSha256": "a99f8f7fe594272fb7c4bbe2cb738d9dc689abd1ce19e57a1b670b05edf104da",
-      "previousContentSha256": "cdaf6f909cac098d9a22711946c2129c7c34a514e8416f3947d8682a925eae4c"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/index.md",
+      "contentSha256": "bee55b46f0ad4cefd1671f5c3b06ac7a1f707bbbcbc22416b6af5fdd1c80df4f",
+      "previousContentSha256": "4323736f18b25b44d880bf66c4f63c31d209fbede6503a217568eacb28c80341"
     }
   ]
 }

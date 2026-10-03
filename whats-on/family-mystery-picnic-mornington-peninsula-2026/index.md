@@ -53,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.amazingco.me/aus/experiences/mystery-picnics/family/mornington-peninsula>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Family+Mystery+Picnic+on+the+Mornington+Peninsula&dates=20261003%2F20261003&details=Self-guided+family+scavenger+journey%3A+solve+smartphone+clues%2C+collect+picnic+goodies+from+local+providers%2C+hit+activity+stops%2C+and+feast+at+a+scenic+picnic+location.+Runs+Thursday+to+Sunday+weekly.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffamily-mystery-picnic-mornington-peninsula-2026%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

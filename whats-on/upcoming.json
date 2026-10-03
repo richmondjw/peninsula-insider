@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-10-03",
-  "generatedAt": "2026-10-03T13:51:12.987Z",
+  "generated": "2026-10-04",
+  "generatedAt": "2026-10-03T14:05:34.347Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-10-03",
-    "end": "2027-01-01"
+    "start": "2026-10-04",
+    "end": "2027-01-02"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -21,7 +21,7 @@
     "label": "Fri 2 – Sun 4 October",
     "count": 12
   },
-  "numberOfItems": 36,
+  "numberOfItems": 37,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -30,8 +30,8 @@
         "@type": "Event",
         "name": "Bass & Flinders Gin Masterclass",
         "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -43,8 +43,8 @@
         "@type": "Event",
         "name": "Doggy Day Out on the Mornington Peninsula",
         "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
-        "startDate": "2026-10-03",
-        "endDate": "2026-10-03",
+        "startDate": "2026-10-04",
+        "endDate": "2026-10-04",
         "description": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -56,8 +56,8 @@
         "@type": "Event",
         "name": "Family Mystery Picnic on the Mornington Peninsula",
         "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-        "startDate": "2026-10-03",
-        "endDate": "2026-10-03",
+        "startDate": "2026-10-04",
+        "endDate": "2026-10-04",
         "description": "Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -69,8 +69,8 @@
         "@type": "Event",
         "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
         "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -82,7 +82,7 @@
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-10-03",
+        "startDate": "2026-10-04",
         "endDate": "2026-11-22",
         "description": "National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 5 September to 22 November. Regular gallery hours are Tuesday to Sunday, 11am to 4pm.",
         "eventStatus": "https://schema.org/EventScheduled"
@@ -95,8 +95,8 @@
         "@type": "Event",
         "name": "Peninsula Hot Springs Studio Yoga",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -108,8 +108,8 @@
         "@type": "Event",
         "name": "Peninsula Hot Springs Yoga (Complimentary)",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -121,8 +121,8 @@
         "@type": "Event",
         "name": "Polperro Cellar Table, Private Dining Experience",
         "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -134,8 +134,8 @@
         "@type": "Event",
         "name": "Pt. Leo Estate Sculpture Park",
         "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -147,8 +147,8 @@
         "@type": "Event",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
         "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
+        "startDate": "2026-10-04",
+        "endDate": "2027-01-02",
         "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -158,11 +158,11 @@
       "position": 11,
       "item": {
         "@type": "Event",
-        "name": "Ten Minutes by Tractor, Terroir Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-        "startDate": "2026-10-03",
-        "endDate": "2027-01-01",
-        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
+        "name": "Sunday Sessions at Peninsula Hot Springs",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+        "startDate": "2026-10-04",
+        "endDate": "2026-10-04",
+        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -171,11 +171,11 @@
       "position": 12,
       "item": {
         "@type": "Event",
-        "name": "Sunday Sessions at Peninsula Hot Springs",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+        "name": "Ten Minutes by Tractor, Terroir Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
         "startDate": "2026-10-04",
-        "endDate": "2026-10-04",
-        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
+        "endDate": "2027-01-02",
+        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -490,15 +490,28 @@
         "description": "Annual Mornington Christmas Parade at 1pm on Main Street (brass band, dancers, elves, Mr & Mrs Claus), Santa meet-and-greet 1:30 to 4pm same day, Santa on Main Street 4 to 7pm across 21 to 23 December. Free, 2026 dates pattern-based pending council confirmation.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
+      "item": {
+        "@type": "Event",
+        "name": "Peninsula Summer Music Festival 2027",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
+        "startDate": "2027-01-02",
+        "endDate": "2027-01-02",
+        "description": "The organiser confirms Peninsula Summer Music Festival for 2 to 10 January 2027. The programme, artists, venues and ticket details are still to be announced.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
     }
   ],
-  "count": 36,
+  "count": 37,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
       "factCheckedOn": null,
@@ -511,7 +524,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -520,8 +533,8 @@
     {
       "title": "Doggy Day Out on the Mornington Peninsula",
       "url": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
-      "startDate": "2026-10-03",
-      "endDate": "2026-10-03",
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
       "id": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
       "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1",
       "factCheckedOn": null,
@@ -534,10 +547,6 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
           "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
@@ -547,8 +556,8 @@
     {
       "title": "Family Mystery Picnic on the Mornington Peninsula",
       "url": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-      "startDate": "2026-10-03",
-      "endDate": "2026-10-03",
+      "startDate": "2026-10-04",
+      "endDate": "2026-10-04",
       "id": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
       "sourceUrl": "https://www.amazingco.me/aus/experiences/mystery-picnics/family/mornington-peninsula",
       "factCheckedOn": null,
@@ -561,10 +570,6 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
           "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
@@ -574,8 +579,8 @@
     {
       "title": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
       "url": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
       "sourceUrl": "https://www.foxeys-hangout.com.au",
       "factCheckedOn": null,
@@ -588,7 +593,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -597,7 +602,7 @@
     {
       "title": "National Works on Paper 2026 (NWOP)",
       "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-10-03",
+      "startDate": "2026-10-04",
       "endDate": "2026-11-22",
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
@@ -611,7 +616,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -620,8 +625,8 @@
     {
       "title": "Peninsula Hot Springs Studio Yoga",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": null,
@@ -634,7 +639,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -643,8 +648,8 @@
     {
       "title": "Peninsula Hot Springs Yoga (Complimentary)",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities",
       "factCheckedOn": null,
@@ -657,7 +662,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -666,8 +671,8 @@
     {
       "title": "Polperro Cellar Table, Private Dining Experience",
       "url": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/",
       "sourceUrl": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
       "factCheckedOn": null,
@@ -680,7 +685,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -689,8 +694,8 @@
     {
       "title": "Pt. Leo Estate Sculpture Park",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "factCheckedOn": null,
@@ -703,7 +708,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -712,8 +717,8 @@
     {
       "title": "Restore & Pamper Retreat at Polperro Farmhouse",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
       "factCheckedOn": null,
@@ -726,30 +731,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Ten Minutes by Tractor, Terroir Masterclass",
-      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-10-03",
-      "endDate": "2027-01-01",
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
-      "factCheckedOn": null,
-      "recurrence": "ongoing",
-      "category": "food-wine",
-      "place": "main-ridge",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-03",
+          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -769,6 +751,29 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-04",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Ten Minutes by Tractor, Terroir Masterclass",
+      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "startDate": "2026-10-04",
+      "endDate": "2027-01-02",
+      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
+      "factCheckedOn": null,
+      "recurrence": "ongoing",
+      "category": "food-wine",
+      "place": "main-ridge",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1206,6 +1211,24 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Annual Mornington Christmas Parade at 1pm on Main Street (brass band, dancers, elves, Mr & Mrs Claus), Santa meet-and-greet 1:30 to 4pm same day, Santa on Main Street 4 to 7pm across 21 to 23 December. Free, 2026 dates pattern-based pending council confirmation.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Peninsula Summer Music Festival 2027",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
+      "startDate": "2027-01-02",
+      "endDate": "2027-01-02",
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
+      "sourceUrl": "https://www.peninsulafestival.com.au",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "freePaid": null,
+      "summary": "The organiser confirms Peninsula Summer Music Festival for 2 to 10 January 2027. The programme, artists, venues and ticket details are still to be announced.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

@@ -53,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Doggy+Day+Out+on+the+Mornington+Peninsula&dates=20261003%2F20261003&details=Self-guided+pet-friendly+day+following+digital+clues+across+the+Peninsula.+Dog+cafe+with+pup-approved+snacks%2C+human+treats%2C+and+a+relaxed+winery+picnic+lunch.+Runs+Thursday+to+Sunday+weekly.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdoggy-day-out-mornington-peninsula-2026%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

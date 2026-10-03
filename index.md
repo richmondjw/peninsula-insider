@@ -13,7 +13,7 @@ Independent local picks for where to eat, stay and explore. Every recommendation
 
  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Saturday 3 October
+Sunday 4 October
 
 Cape Schanck, Mornington Peninsula.   Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
@@ -33,17 +33,17 @@ MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and S
 
 Mornington Peninsula Regional Gallery   Exhibition
 
-- ### [Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
-
-A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. The value is genuinely silly.
-
-Foxeys Hangout / Morning Sun Vineyard   Food & wine
-
 - ### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
 
 Makes a proper day of it for families in a way that a single activity doesn't.
 
 Multiple venues across Mornington Peninsula   Thursday to Sunday weekly
+
+- ### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
+
+Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
+
+Peninsula Hot Springs   Every Sunday from 12pm; performer changes weekly
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 
