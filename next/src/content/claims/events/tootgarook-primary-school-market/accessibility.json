@@ -16,5 +16,7 @@
   ],
   "createdAt": "2026-05-04",
   "origin": "migrated",
-  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/tootgarook-primary-school-market.json. No editorial judgement was applied and no content record was changed."
+  "note": "Migrated by scripts/migrate-event-claims.mjs (PI-005 Stage 2) from accessibilityNotes already on next/src/content/events/tootgarook-primary-school-market.json. No editorial judgement was applied and no content record was changed.",
+  "retiredAt": "2026-10-03",
+  "retiredReason": "The market organiser has not published an accessibility statement that supports the former 'generally accessible' wording; the live event field was removed."
 }

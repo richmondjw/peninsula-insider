@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T11:17:58.027Z",
+  "updatedAt": "2026-10-03T11:48:31.055Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -420,6 +420,14 @@
       "httpCode": "200",
       "pageTitle": "File:Pt Leo sculpture.jpg - Wikimedia Commons",
       "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://communityplate.org.au/event/tootgarook-primary-school-market/2026-05-23/",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "403 Forbidden",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -1999,6 +2007,14 @@
       "pageTitle": "Pt Leo Estate Sculpture Park"
     },
     {
+      "url": "https://tootps.vic.edu.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Tootgarook Primary School",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://treetopsatredhill.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -2861,6 +2877,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Error"
+    },
+    {
+      "url": "https://www.facebook.com/p/Tootgarook-Primary-School-Market-61552694488631/",
+      "verdict": "blocked",
+      "httpCode": "400",
+      "pageTitle": "Error",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.facebook.com/PolperroWines/posts/introducing-soil-cellar-a-truffle-hunt-and-dinner-collaboration-between-flinders/1743941566857063/",
@@ -5006,6 +5030,15 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "The Somers General - Relaxed Cafe Mornington Peninsula"
+    },
+    {
+      "url": "https://www.tootps.vic.edu.au/page/107/Community-Market-",
+      "verdict": "dead",
+      "httpCode": "404",
+      "pageTitle": "404 Not Found | Tootgarook Primary School",
+      "effectiveUrl": "https://tootps.vic.edu.au/page/107/Community-Market-",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.travelnuity.com/dog-friendly-mornington-peninsula/",
