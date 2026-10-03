@@ -62,9 +62,8 @@ export interface ScopeWindow {
  * The homepage uses Saturday–Sunday and limits its picks to those dates.
  * This calendar includes Friday explicitly in its displayed date label.
  *
- * A Friday occurrence is therefore listable on the hub all weekend, and past
- * once Friday's end time has gone. resolveOccurrence, not this window, is what
- * stops it looking bookable on Sunday morning.
+ * The window retains Friday for a stable weekend label. The What's On listing
+ * omits past days and finished occurrences when presenting choices to readers.
  */
 export function weekendWindow(now: Date, offsetWeeks = 0): ScopeWindow {
   const today = startOfDay(now);

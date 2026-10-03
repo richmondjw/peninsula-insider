@@ -12,11 +12,16 @@
   "category": "arts",
   "subcategory": "Film event accommodation add-on",
   "recurrence": "one-off",
+  "bookingStatus": "closed",
+  "bookingStatusNote": "The accommodation-only Humanitix page said sales have stopped on 3 October 2026. Separate main-event ticket availability was not verified.",
+  "bookingStatusSourceUrl": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
+  "bookingStatusCheckedAt": "2026-10-03T10:02:08Z",
   "bookingUrl": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
   "officialEventUrl": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
   "source": "humanitix-mornington--3931",
   "sourceUrl": "https://humanitix.com/au/events/au--mornington--3931",
   "discoveredAt": "2026-08-23T01:24:14.270Z",
   "publishedAt": "2026-08-23T01:35:30.210Z",
-  "provenance": "Originally auto-published by promote-candidates.mjs from JSON-LD event feed. Accommodation-only scope, separate admission requirement and 21 November 15:00 to 22 November 11:00 AEDT times checked against officialEventUrl on 2026-10-03; category and summary corrected. No age restriction or availability inferred."
+  "provenance": "Originally auto-published by promote-candidates.mjs from JSON-LD event feed. Accommodation-only scope, separate admission requirement and 21 November 15:00 to 22 November 11:00 AEDT times checked against officialEventUrl on 2026-10-03; category and summary corrected. The organiser page showed accommodation-ticket sales stopped on 2026-10-03. No age restriction or main-event ticket availability inferred.",
+  "lastCheckedDate": "2026-10-03"
 }

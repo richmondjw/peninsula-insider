@@ -236,3 +236,69 @@ test('a selected weekend preserves the actual closing date and running state of 
     assert.equal(row.phase,'running');
   } finally { await reader.close(); }
 });
+
+test('the default weekend offers no finished occurrence as a current result', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    const state = await reader.page.evaluate(() => ({
+      rows: [...document.querySelectorAll('[data-wo-days] .wo-row')].map(row => ({
+        phase: row.dataset.occurrencePhase,
+        text: row.textContent,
+      })),
+      firstDay: document.querySelector('[data-wo-days] .wo-day__h')?.textContent ?? '',
+      todayName: new Intl.DateTimeFormat('en-AU', {
+        timeZone: 'Australia/Melbourne', weekday: 'long',
+      }).format(new Date()),
+    }));
+    assert.ok(state.rows.length > 0, 'weekend still needs useful results');
+    assert.ok(state.rows.every(row => row.phase !== 'past' && !row.text.includes('Ended')));
+    if (['Saturday', 'Sunday'].includes(state.todayName)) {
+      assert.match(state.firstDay, new RegExp('^' + state.todayName));
+    }
+  } finally { await reader.close(); }
+});
+
+test('selected dates omit finished occurrences while keeping an ongoing range and a future event', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    await reader.page.evaluate(() => {
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Australia/Melbourne', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).formatToParts(new Date()).map(part => [part.type, part.value]));
+      const today = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+      const iso = offset => new Date(today.getTime() + offset * 86400000).toISOString().slice(0, 10);
+      window.fixtureDates = { from: iso(-1), to: iso(1) };
+      const events = [
+        { slug: 'finished-fixture', href: '/whats-on/finished-fixture/', t: 'Finished fixture',
+          d: 'A completed one-off event.', m: ['Mornington'], k: 'range',
+          s: iso(-1), e: iso(-1), statusData: { startTime: '10:00', endTime: '11:00' } },
+        { slug: 'ongoing-fixture', href: '/whats-on/ongoing-fixture/', t: 'Ongoing fixture',
+          d: 'A multi-day event still running.', m: ['Mornington'], k: 'range',
+          s: iso(-1), e: iso(1), statusData: { startTime: '10:00', endTime: '16:00' } },
+        { slug: 'future-fixture', href: '/whats-on/future-fixture/', t: 'Future fixture',
+          d: 'An event tomorrow.', m: ['Mornington'], k: 'range',
+          s: iso(1), e: iso(1), statusData: { startTime: '10:00', endTime: '11:00' } },
+      ];
+      const nativeFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => String(input).includes('/whats-on/feed.json')
+        ? Promise.resolve(new Response(JSON.stringify({ events }), {
+          status: 200, headers: { 'Content-Type': 'application/json' },
+        }))
+        : nativeFetch(input, init);
+      const form = document.querySelector('[data-wo-custom-form]');
+      form.elements.namedItem('from').value = window.fixtureDates.from;
+      form.elements.namedItem('to').value = window.fixtureDates.to;
+      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    });
+    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('Future fixture'),
+      'selected dates did not load');
+    const result = await reader.page.evaluate(() => document.querySelector('[data-wo-days]').textContent);
+    assert.doesNotMatch(result, /Finished fixture|Ended/);
+    assert.match(result, /Ongoing fixture/);
+    assert.match(result, /Future fixture/);
+    assert.equal(await reader.page.$$eval('[data-wo-days] .wo-day', days => days.length), 2,
+      'past day should not take a result section');
+  } finally { await reader.close(); }
+});

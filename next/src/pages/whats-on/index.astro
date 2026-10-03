@@ -534,11 +534,15 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       let shown = 0;
       for (let i = 0; i < dayCount; i += 1) {
         const day = addDays(start, i);
+        if (day < startOfDay(new Date())) continue;
         const matches: { e: FeedEntry; span: string }[] = [];
         let continuingCount = 0;
         for (const e of entries) {
           if (!matchesFilters(e)) continue;
           if (!occursOn(e, day)) continue;
+          const occurrence = e.statusData ? resolveListingOccurrence(e.statusData,
+            { kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, isoDate(day)) : null;
+          if (occurrence?.phase === 'past') continue;
           if (e.k === 'range') {
             if (seenRanges.has(e.slug)) {
               continuingCount += 1;
