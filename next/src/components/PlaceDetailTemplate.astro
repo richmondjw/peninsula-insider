@@ -66,6 +66,7 @@ const {
 const zoneLabel = titleize(place.data.zone);
 const kindLabel = titleize(place.data.kind);
 const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
+const editorialHero = place.data.heroLayout === 'editorial';
 
 // CMS override consult at SSR - if an editor uploaded a place-specific
 // hero via the inline editor, it wins over the content-JSON default and
@@ -206,7 +207,7 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      1. FULL-BLEED CINEMATIC HERO
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class="pdv2-hero"
+<section class:list={['pdv2-hero', { 'pdv2-hero--editorial': editorialHero }]}
   {...editableImage({
     entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
     label: `${place.data.name} hero`, purpose: 'hero',
@@ -217,7 +218,9 @@ const factual = place.data.factualLede ?? '';
     {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
         up with the region link). Region link when the place has one, else
         the zone · kind fallback. */}
-    {place.data.regionSlug ? (
+    {place.data.heroEyebrow ? (
+      <p class="pdv2-hero__eyebrow">{place.data.heroEyebrow}</p>
+    ) : place.data.regionSlug ? (
       <a
         href={`/explore/regions/${place.data.regionSlug}/`}
         class="pdv2-hero__eyebrow pdv2-hero__region"
@@ -229,10 +232,13 @@ const factual = place.data.factualLede ?? '';
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
-    {!place.data.heroImage?.decorative && place.data.heroImage?.alt && (
+    {editorialHero && place.data.heroDeck ? (
+      <p class="pdv2-hero__alt">{place.data.heroDeck}</p>
+    ) : !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
     )}
   </div>
+  {editorialHero && !hero.override && place.data.heroImage?.caption && <p class="pdv2-hero__caption">{place.data.heroImage.caption}</p>}
   {heroCredit && <p class="pdv2-hero__credit">{heroCredit}{heroSourceUrl && <span> <a href={heroSourceUrl} aria-label={place.data.name + " image source"}>Source</a>{heroLicenceUrl && <> <span aria-hidden="true">·</span> <a href={heroLicenceUrl} aria-label={place.data.name + " image licence"}>Licence</a></>}</span>}</p>}
   <MediaProvenanceNote
     image={heroProvenance}
@@ -917,7 +923,116 @@ const factual = place.data.factualLede ?? '';
     }
   }
 
-    /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
+    /* A place-specific editorial treatment keeps a truthful but modest local
+     photograph in proportion and moves its caption and licence into flow. */
+  .pdv2-hero--editorial {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    column-gap: clamp(2rem, 5vw, 5rem);
+    row-gap: 0;
+    align-items: start;
+    min-height: 0;
+    padding: clamp(2.5rem, 5vw, 5rem) max(1.5rem, calc((100vw - 80rem) / 2));
+    background: var(--bg-alt);
+    color: var(--dark);
+    overflow: visible;
+  }
+  .pdv2-hero--editorial .pdv2-hero__image {
+    position: relative;
+    inset: auto;
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+    border-radius: var(--radius-m);
+  }
+  .pdv2-hero--editorial .pdv2-hero__scrim { display: none; }
+  .pdv2-hero--editorial .pdv2-hero__inner {
+    grid-column: 1;
+    grid-row: 1 / 4;
+    align-self: center;
+    width: 100%;
+    max-width: 34rem;
+    margin: 0;
+    padding: 0;
+  }
+  .pdv2-hero--editorial .pdv2-hero__eyebrow {
+    color: var(--teal-text);
+    text-shadow: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__title {
+    max-width: none;
+    font-size: clamp(3.2rem, 6vw, 5.8rem);
+    color: var(--dark);
+    text-shadow: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__alt {
+    max-width: 38ch;
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+    line-height: 1.6;
+    color: var(--soft);
+    text-shadow: none;
+  }
+  .pdv2-hero--editorial .pdv2-hero__caption {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0.75rem 0 0;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--soft);
+  }
+  .pdv2-hero--editorial .pdv2-hero__credit {
+    position: static;
+    grid-column: 2;
+    grid-row: 3;
+    max-width: none;
+    margin: 0.2rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: var(--soft);
+  }
+  .pdv2-hero--editorial .pdv2-hero__credit a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 0.35rem;
+    color: var(--teal-text);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+  }
+  @media (max-width: 760px) {
+    .pdv2-hero--editorial {
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+      padding: 2rem 1.25rem 2.5rem;
+    }
+    .pdv2-hero--editorial .pdv2-hero__inner {
+      grid-column: 1;
+      grid-row: 1;
+      margin-bottom: 1.5rem;
+    }
+    .pdv2-hero--editorial .pdv2-hero__title {
+      font-size: clamp(2.8rem, 12vw, 3.2rem);
+    }
+    .pdv2-hero--editorial .pdv2-hero__image {
+      grid-column: 1;
+      grid-row: 2;
+    }
+    .pdv2-hero--editorial .pdv2-hero__caption {
+      grid-column: 1;
+      grid-row: 3;
+    }
+    .pdv2-hero--editorial .pdv2-hero__credit {
+      grid-column: 1;
+      grid-row: 4;
+    }
+  }
+
+  /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */
   /* Filmstrip under the cover: the place's photographs, one tap from the viewer. */
   .pdv2-photos { padding-block-start: clamp(1.25rem, 2.5vw, 2rem); }
   .pdv2-photos :global(.pstage) { margin-block-end: 0; }

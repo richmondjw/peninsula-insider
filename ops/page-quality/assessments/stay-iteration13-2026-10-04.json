@@ -1,0 +1,45 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "49e78cb32df23562d1bd9cf0877428dfc06c8045",
+  "baseDeploymentRun": "37131106233",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Independent current-public and exact built-preview review at 320, 390 and 1440px after batch12 public acceptance. All five quick chips exist in the DOM and filters work, but at 320/390 only Couples, Family and Group read clearly; the next faded chip appears behind the pinned Filters action. The directory remains 26 near-identical image-free rows with weak comparison rhythm.",
+    "fullScore": null,
+    "priorIndependentReviews": "Stay iteration11 recorded 81/90, 74.75/90 and 79/95 assessed points with full scores null. No full independent post-batch12 regrade exists."
+  },
+  "baselineEvidence": [
+    "/tmp/pi-stay-preview-390--browse-stay.png",
+    "/tmp/pi-stay-preview-390--stay-directory.png"
+  ],
+  "hypothesis": "Exposing all five Stay intent chips on small screens and naming the advanced action All filters improves discoverability without changing filter state or results.",
+  "boundedChange": "Add optional mobileWrap and moreLabel props to the shared FilterBar; use both only on the Stay hub. Keep Eat and other filter surfaces on their existing defaults. No filter taxonomy, ranking, result or sort logic changes.",
+  "metric": "At 320 and 390px all five quick chips and All filters are visible without clipping/overlap or horizontal overflow; Dog-friendly changes the result count and opens the advanced sheet; keyboard focus and close/recovery work; desktop and Eat retain usable controls. Exact local build, CI and public browser verify the release.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Remove the Stay-specific mobileWrap and moreLabel props if the wrapped controls cause layout or interaction regressions.",
+  "independentReview": "Independent final preview review gave a bounded GO: all five 48px Stay chips remained visible at 320/390px; Dog-friendly changed 26 to 4 results by touch and keyboard; the advanced dialog opened with focus, Escape closed it and restored focus. No overflow or page errors. The reviewer did not assign a full 23-criterion score.",
+  "validation": {
+    "productionBuild": "Final exact-source TZ=UTC npm run build:search passed, including content and provenance checks, 1009 generated pages and a Pagefind index of 727 pages.",
+    "localBrowser": "Chrome preview at 320/390/1440px showed all five chips visible, no overlap or overflow; Dog-friendly yielded 4 of 26 stays and All filters opened the sheet. Independent final responsive and keyboard QA gave a bounded GO. Eat at 390px retained its default filter design and working Filters action.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Full factual verification across 26 Stay listings",
+    "Directory comparison and visual rhythm",
+    "Direct assistive-technology test",
+    "Field performance and remaining visual deductions",
+    "Independent full 23-criterion rescore"
+  ],
+  "negativeFindings": [
+    "The original clipped row did not block the filter task; it reduced discoverability.",
+    "A working local wrap is not a public release or a full score."
+  ],
+  "nextAction": "Release through normal CI and verify the exact public revision at mobile and desktop widths, then improve directory comparison and complete full rubric gates."
+}

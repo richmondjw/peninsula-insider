@@ -881,6 +881,10 @@ const places = defineCollection({
     factualLede: z.string().optional(),
     intro: z.string(),
     heroImage: imageRef,
+    /** Use a framed photograph when a truthful local image is too weak as a full-bleed cover. */
+    heroLayout: z.enum(['cinematic', 'editorial']).optional(),
+    heroEyebrow: z.string().optional(),
+    heroDeck: z.string().optional(),
     // Licensed galleries (ops/records/visit-victoria). Declared so the schema keeps
     // them; templates that do not render a gallery yet simply ignore it.
     gallery: z.array(imageRef).default([]),

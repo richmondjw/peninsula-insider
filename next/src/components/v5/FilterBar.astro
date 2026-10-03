@@ -29,6 +29,10 @@ export interface Props {
   withSheet?: boolean;
   /** Keep the advanced-filter trigger visible beside the scrollable chips. */
   pinnedMore?: boolean;
+  /** Expose every quick filter on narrow screens for this surface. */
+  mobileWrap?: boolean;
+  /** Visible label for the advanced-filter trigger. */
+  moreLabel?: string;
   /**
    * Restrict the paired FilterSheet to these facet groups (contextual filters,
    * P1.2). Omit for the full shared taxonomy; every hub surface should pass
@@ -45,6 +49,8 @@ const {
   sticky = false,
   withSheet = true,
   pinnedMore = false,
+  mobileWrap = false,
+  moreLabel = 'Filters',
   facets,
 } = Astro.props;
 
@@ -52,7 +58,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
 ---
 
 <div
-  class:list={['v5-filterbar', { 'v5-filterbar--sticky': sticky, 'v5-filterbar--pinned-more': pinnedMore }]}
+  class:list={['v5-filterbar', { 'v5-filterbar--sticky': sticky, 'v5-filterbar--pinned-more': pinnedMore, 'v5-filterbar--mobile-wrap': mobileWrap }]}
   data-v5-filterbar
   data-noun={noun}
   role="group"
@@ -90,7 +96,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
       data-evt="filter_open"
       aria-haspopup="dialog"
     >
-      Filters<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
+      {moreLabel}<span class="v5-filterbar__more-count" data-filter-active-count hidden></span>
     </button>}
     <div class="v5-filterbar__end">
       <slot />
@@ -159,6 +165,19 @@ const presets = CHIP_PRESETS[surface] ?? [];
     .v5-filterbar--pinned-more .v5-filterbar__scroll { flex: 1 1 0; order: 1; }
     .v5-filterbar--pinned-more .v5-filterbar__pinned { flex: 0 0 auto; order: 2; }
     .v5-filterbar--pinned-more .v5-filterbar__end { order: 3; }
+    /* The Stay quick choices are a complete small set. Wrap them instead of
+       hinting at a hidden chip behind the advanced-filter button. */
+    .v5-filterbar--mobile-wrap.v5-filterbar--pinned-more .v5-filterbar__scroll {
+      flex: 1 1 100%;
+      flex-wrap: wrap;
+      overflow: visible;
+      mask-image: none;
+      padding-bottom: 2px;
+    }
+    .v5-filterbar--mobile-wrap.v5-filterbar--pinned-more .v5-filterbar__end {
+      flex: 0 1 auto;
+      margin-left: auto;
+    }
   }
   .v5-filterbar__chip {
     font-family: var(--font-ui);
