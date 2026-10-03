@@ -97,6 +97,18 @@ first date  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
+Suite  [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
+
+### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+
+10 Nestle Court, Arthurs Seat VIC 3936
+
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+
+view  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
+
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)

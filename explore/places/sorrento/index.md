@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Bright morning light on the Sorrento coastline, Victoria
 
-Photo · Alan Travers / Wikimedia Commons (CC0)
-
 Sorrento in 18 photographs
 
 1  / 18

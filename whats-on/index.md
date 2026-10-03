@@ -13,9 +13,9 @@ Fri 2 – Sun 4 October  · Mornington Peninsula
 
 A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.
 
-Photo: Robert Blackburn, courtesy of Visit Victoria.
+Photo: Two Palms Australia, courtesy of Visit Victoria.
 
-Mornington Farmers' Market, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria.
+Peninsula Hot Springs, Cape Schanck, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 The short list / Fri 2 – Sun 4 October
 
@@ -23,7 +23,9 @@ The short list / Fri 2 – Sun 4 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-- ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+- The lead pick / 01
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
 
@@ -37,11 +39,13 @@ Book the bathe and the music comes with it. The easiest good Sunday on this end 
 
 Sun, 4 Oct   Fingal   Live Music
 
-- ### [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+- Illustrative family picnic; not a photograph of this event's route.   Photo: Peninsula Insider.
 
-Free yoga before a hot springs bathe is the move locals know about and tourists don't book.
+### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
 
-Sun, 4 Oct   Fingal   Included with bathing
+Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
+
+Sun, 4 Oct   Mornington   Kids & Family
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 

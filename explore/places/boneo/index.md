@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Open Boneo farmland with the Cape Schanck ridge in the distance
 
-Photo · Peninsula Insider
-
 Boneo is a rural locality on the Mornington Peninsula's southern back-beach belt between Rye and Cape Schanck, 90 km from Melbourne, home to the Boneo Maze, the Peninsula Hot Springs / Alba thermal-springs district and the RACV Cape Schanck Resort.
 
 Boneo is the rural triangle between Rye, the back beaches and Cape Schanck, and for most of its history it was almost entirely a farming district. It still feels that way - long straight roads through paddocks, horse studs, the occasional cellar door - but on the southern edge of the district sit Peninsula Hot Springs and RACV Cape Schanck Resort, two of the Peninsula's busiest visitor anchors. That gives Boneo an unusual character: a working agricultural pocket that happens to sit on top of geothermal water and next to a golf-and-spa resort. The Boneo Maze and Wetland is the family-friendly headline, but the real draw is the position - fifteen minutes from a soak, ten minutes from a back-beach walk, and twenty minutes from a long lunch in Red Hill. Stay here if you want the hot-springs belt at your door without the resort vibe.

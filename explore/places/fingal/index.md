@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Ocean coast near Fingal and Cape Schanck, Bass Strait
 
-Photo · Peninsula Insider
-
 Fingal in 12 photographs
 
 1  / 12

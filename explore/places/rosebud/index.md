@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Rosebud foreshore lawn and jetty with the bay behind
 
-Photo · Wikimedia Commons
-
 Rosebud is a bayside town on the Mornington Peninsula's southern Port Phillip shoreline, 85 km from Melbourne, with an 8 km foreshore camping reserve and a long shallow swimming beach.
 
 Rosebud is the largest of the bayside towns and the one locals use when they actually want something done - a supermarket, a hardware store, an everyday main street that has not yet been aestheticised into a postcard. That practicality is also its charm. The beach is long and genuinely good, with a sheltered swimming area and grass right up to the sand; the jetty is a quiet fishing spot at dusk; and a string of ethnic kitchens along Point Nepean Road provide the kind of honest, unheralded lunches that make a weekend on the Peninsula feel less like a brochure and more like a real place. Use Rosebud as your resupply stop, but don't rush through it.

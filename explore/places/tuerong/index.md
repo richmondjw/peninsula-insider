@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Tuerong vineyard rows running down toward a quiet farm road
 
-Photo · Wikimedia Commons
-
 Tuerong is a rural hinterland locality on the Mornington Peninsula's northern wine country, 70 km from Melbourne, known for the Quealy Winemakers cellar door and the Devilbend Reservoir.
 
 Tuerong is where some of the Peninsula's best bottles come from roads most visitors never take. Yabby Lake is the anchor - Halliday Top 100, relaxed cellar-door program - and the same back roads hold Dexter Wines and a cluster of low-volume producers whose fruit ends up in Melbourne's better wine lists. Quiet, specific, worth the detour.

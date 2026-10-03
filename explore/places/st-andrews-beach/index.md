@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Empty sweep of St Andrews Beach with tea-tree dunes catching late afternoon light
 
-Photo · Peninsula Insider
-
 St Andrews Beach in 8 photographs
 
 1  / 8

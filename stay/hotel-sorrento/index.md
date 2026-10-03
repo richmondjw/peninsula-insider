@@ -163,6 +163,18 @@ weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [Book](<https://sorrento.intercontinental.com/>)
 
+Cottage  [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
+
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+
+Tootgarook VIC 3941
+
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Book](<https://mpcottages.com/>)
+
 Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
@@ -174,20 +186,6 @@ Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinc
 beach  walk
 
 [Read notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [Book](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
-
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
-
-### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
-
-anniversary  weekend escape
-
-[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [Book](<https://jackalopehotels.com/stay/>)
 
 Build a day around this
 

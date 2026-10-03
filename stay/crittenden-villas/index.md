@@ -121,18 +121,6 @@ Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
-
 Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
@@ -143,7 +131,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 fireplace  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/book>)
 
 Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
@@ -156,6 +144,20 @@ Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fir
 beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+
+Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
+
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
+
+1-9 Sinclair Ave, Rye VIC 3941
+
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
 Build a day around this
 

@@ -43,18 +43,6 @@ The best explore pages should lead somewhere next.
 
  [See Dromana →](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
-
 Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
@@ -65,7 +53,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 fireplace  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/book>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -80,6 +68,18 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 cellar door  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+
+Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
+
+25 Harrisons Rd, Dromana VIC 3936
+
+Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
+
+long lunch  garden
+
+[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Keep going
 

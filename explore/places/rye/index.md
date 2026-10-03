@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Rye pier and calm front beach at dusk with the ridge rising behind
 
-Photo · Wikimedia Commons
-
 Rye in 12 photographs
 
 1  / 12
@@ -187,17 +185,17 @@ beach  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [View stay](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Suite  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
-Tootgarook VIC 3941
+33 Maori St, Rye VIC 3941
 
-Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
+A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
 
 beach  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
+[Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [View stay](<https://www.plantationhouse.com.au/>)
 
 [See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 

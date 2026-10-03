@@ -9,23 +9,19 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Tootgarook
 
-Reeds and standing water at the Tootgarook Wetland in spring
+Tootgarook Recreation Reserve from Marshall Street, with grass, a path, playground and trees under a blue sky
 
-Photo · Peninsula Insider
+Photo · Tangerineduel / Wikimedia Commons (CC BY-SA 4.0; resized to 1920 px) [Source](<https://commons.wikimedia.org/wiki/File:Tootgarook_Recreation_Reserve_2023-02-22.jpg>)   [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
 
-Tootgarook is a small village on the Mornington Peninsula's southern Port Phillip coast between Rye and Capel Sound, 80 km from Melbourne, with a calm bay beach across the highway and the Tootgarook Wetland reserve behind the dunes.
+Tootgarook is a bayside village between Capel Sound and Rye, with a shallow Port Phillip beach and public wetland walks at nearby Tootgarook Bushland Reserve.
 
-Tootgarook is a small, mostly residential village squeezed between Rye and Capel Sound, and its real identity lives behind the streets in the Tootgarook Wetland - the largest privately-protected freshwater wetland on the Peninsula and a quiet ecological headline most visitors do not know exists. Out front, the village sits across the road from a wide bay beach with shallow water and a long pier; out back, the wetland soaks into the dunes and the migratory bird counts each spring are among the highest on the Peninsula. The village itself has a handful of shops and an unfussy main street and is almost entirely a place locals use. Stay nearby for cheaper Peninsula accommodation than Rye or Sorrento; come to walk the wetland boardwalk and read birds in the reeds.
+Tootgarook sits between Capel Sound and Rye on the shallow Port Phillip bay coast. Behind the village, the Tootgarook Wetland is a significant freshwater habitat. To explore a public part of it, use the council-managed Tootgarook Bushland Reserve: its access points lead to short gravel tracks, boardwalks, bird hides and viewing platforms. Dogs are prohibited in the reserve. The bay beach offers a different outing; Rye is nearby for a longer food stop. Check current reserve and beach conditions before setting out.
 
 At a glance
 
-**From Melbourne**
-
-approximately 1 hour 20 minutes
-
 **Best season**
 
-Spring
+Spring For Wetland Birdwatching; Bay Beach Visits In Warmer Weather
 
 **Stay**
 
@@ -33,15 +29,11 @@ two nights
 
 **Best for**
 
-birders, budget Peninsula visitors
+birdwatchers, families using the bay beach
 
-**Avoid**
+Insider  The reserve's main access is via Truemans Road Recreation Reserve; dogs are prohibited in the wetland reserve.
 
-midsummer heatwaves
-
-Insider  Tootgarook Wetland is one of the Peninsula's most important migratory bird sites - bring binoculars in spring and bird lists in summer.
-
-A modest bayside village hiding the Peninsula's largest freshwater wetland behind its dunes.
+A quiet bayside village with a shallow beach and public access to part of the Tootgarook Wetland.
 
 Peninsula Insider - editor's note
 
@@ -51,43 +43,63 @@ Is Tootgarook the right base?
 
 ### It's for
 
-- birders
+- birdwatchers
 
-- budget Peninsula visitors
+- families using the bay beach
 
-- young families
+- quiet bayside stays
 
-### It's not for
-
-- anyone wanting a dining scene at the doorstep
-
-- first-time Peninsula visitors with one day
-
-Driving past on the highway - pull off, find the wetland boardwalk, and the village becomes interesting fast.
+Do not assume the whole wetland is publicly walkable; use the boardwalks and gravel paths in Tootgarook Bushland Reserve.
 
 Tootgarook in brief
 
 ## Tootgarook in four lines
 
-- 01   Tootgarook is a quiet bayside village with the Peninsula's largest freshwater wetland reserve behind the dunes.
+- 01   Tootgarook is a quiet bayside village beside the significant Tootgarook Wetland.
 
-- 02   Best for: birders; budget weekenders looking for a Rye-adjacent base; families using the bay beach.
+- 02   Best for: families at the shallow bay beach and birdwatchers using the council-managed bushland reserve.
 
-- 03   Signature experience: a spring morning walking the Tootgarook Wetland boardwalk, then a swim from the bayside pier.
+- 03   Signature experience: follow the boardwalks and gravel tracks from Tootgarook Bushland Reserve's access points; dogs are prohibited there.
 
-- 04   A weekend; pair with Rye, Boneo and the back beaches for a full Peninsula loop.
+- 04   Pair a reserve walk with Tootgarook Beach, then continue to nearby Rye for more places to eat.
 
-- 05   There is little to eat in the village - walk into Rye for restaurants.
+- 05   Check current reserve access and weather before planning the outing.
 
 A perfect day here
 
 ## A day in Tootgarook
 
-Dawn walk on the Tootgarook Wetland boardwalk, late breakfast in Rye, midday swim from the bayside pier, afternoon back-beach detour, dinner in Rye.
+Use the boardwalks and gravel tracks at Tootgarook Bushland Reserve, then return to the bay beach for a swim and continue to Rye for dinner.
 
-Tootgarook Wetland is one of the Peninsula's most important migratory bird sites - bring binoculars in spring and bird lists in summer.
+The reserve's main access is via Truemans Road Recreation Reserve; dogs are prohibited in the wetland reserve.
 
   - Editor's note
+
+What's mapped here
+
+- [**1** stays](<https://peninsulainsider.com.au/explore/places/tootgarook/#stay>)
+
+Stay
+
+## Sleep in Tootgarook
+
+When a place has a workable bed attached, it stops being a stop and starts becoming a base.
+
+ [All stays →](<https://peninsulainsider.com.au/stay/>)
+
+Cottage  [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
+
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+
+Tootgarook VIC 3941
+
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
+
+[See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Planning guides
 

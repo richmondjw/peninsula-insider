@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Flinders Pier extending into Western Port Bay on a quiet winter day
 
-Photo · Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)
-
 Where in the Peninsula is PI?
 
 PI passed through here. Case 02, Took the long way to dinner. Twenty minutes ahead of you, as usual.

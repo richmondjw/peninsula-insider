@@ -13,7 +13,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 Known for   Two adjoining farm cottages Open fireplaces Outdoor baths No pets
 
-[Check availability](<https://www.birchcreek.com.au/>)
+[Check availability](<https://www.birchcreek.com.au/book>)
 
 Birch Creek · Dromana
 
@@ -69,7 +69,7 @@ Dromana VIC · [Directions](<https://www.google.com/maps/dir/?api=1&destination=
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Birch%20Creek%2C%20Dromana%20VIC%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.birchcreek.com.au/>)
+ [Book now](<https://www.birchcreek.com.au/book>)
 
 Not sure how to build a day around Birch Creek?
 
@@ -82,18 +82,6 @@ More to explore
 Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
-
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
 
 Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -119,6 +107,20 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
 
+Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
+
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
+
+1-9 Sinclair Ave, Rye VIC 3941
+
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
+
 Build a day around this
 
 ## Planning guides that include Birch Creek
@@ -130,6 +132,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Dromana - view the destination guide](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=birch-creek>)
 

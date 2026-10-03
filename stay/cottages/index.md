@@ -57,7 +57,7 @@ The Mavis sleeps two; The June sleeps four. Both have open fires on a working fa
 
 **Check before booking** Birch Creek has a strict no-pets policy.
 
-[Read our notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Check with operator](<https://www.birchcreek.com.au/>)
+[Read our notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Check with operator](<https://www.birchcreek.com.au/book>)
 
 04 / Cottage   For wine country
 
@@ -103,7 +103,7 @@ Before you reserve
 
 These notes use current operator information. Availability, pet terms, accessibility and inclusions can change; confirm the exact unit and dates with the operator.
 
-Researched from published sources. Every venue listed was reviewed October 2026 or later.
+Researched from published sources. Every venue listed was fact-checked October 2026 or later.
 
 ### Are all Peninsula cottages dog friendly?
 

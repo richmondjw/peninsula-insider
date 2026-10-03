@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Mangroves and a wooden walkway at Woolleys Beach near Crib Point
 
-Photo · Peninsula Insider
-
 Crib Point is a small residential village on the Mornington Peninsula's Western Port coast between Hastings and Stony Point, 80 km from Melbourne, with a station on the Stony Point train line and Woolleys Beach on the foreshore.
 
 Crib Point sits halfway between Hastings and Stony Point on the Western Port shoreline, a small village built around a navy history that quietly defined it for most of the twentieth century - HMAS Cerberus is its southern neighbour and the largest naval base in the country. The village is residential, with a station on the Stony Point train line and a few low-key streets that lead down to Woolleys Beach, a small shaded swimming pocket that locals know about and almost no visitors do. The Western Port coast here is mangrove and mudflat country, and walking south along the foreshore toward Stony Point at low tide is one of the better long, flat coastal walks on the Peninsula. Come here for the walks and the train; stay in Hastings for the meal.

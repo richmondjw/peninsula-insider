@@ -111,19 +111,17 @@ weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [Book](<https://sorrento.intercontinental.com/>)
 
-Illustrative, not Happy Glamper Balnarring Deluxe. Photo: Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
+Cottage  [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
 
-Glamping  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+Tootgarook VIC 3941
 
-Balnarring Foreshore Reserve, Balnarring Beach VIC
-
-A furnished bell tent at Balnarring Foreshore Reserve with the campsite fee included, subject to the operator's seasonal availability.
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
 
 beach  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [Book](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Book](<https://mpcottages.com/>)
 
 Build a day around this
 

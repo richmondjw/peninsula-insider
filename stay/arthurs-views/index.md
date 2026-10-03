@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
 # Arthurs Views
 
@@ -15,7 +15,7 @@ Known for   Five couples-only suites Arthurs Seat bay views Optional breakfast p
 
 [Check availability](<https://arthursviews.com.au/>)
 
-Arthurs Views · Dromana
+Arthurs Views · Arthurs Seat
 
 Photo · Peninsula Insider
 
@@ -25,7 +25,7 @@ Why we’d go
 
 A bay-view suite stay for two, with a clear choice between spa suites and penthouse formats.
 
-Arthurs Views is a couples-only suite retreat on the Arthurs Seat ridge. Its operator FAQ lists five suites: three spa suites, one penthouse suite and one penthouse studio. The outlook and room facilities differ, so compare the exact suite.
+Arthurs Views is a couples-only suite retreat on the Arthurs Seat ridge. Its operator FAQ lists five suites: three spa suites, one penthouse suite and one penthouse studio. The outlook and room facilities differ, so compare the exact suite. A separate operator suite overview still says four suites; confirm the available room with the operator before booking.
 
 Breakfast provisions are optional add-ons rather than a universal included meal. The Flinders Penthouse does not have a spa; the Eyrie Penthouse Studio is self-contained with a kitchenette. The property does not cater for children or pets.
 
@@ -63,7 +63,7 @@ Suite
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.346%2C144.965>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.352762%2C144.954247>)
 
 **Live status**
 
@@ -83,41 +83,47 @@ Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Dromana VIC
+### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-fireplace  slow
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+anniversary  romance
 
-Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [Book](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
+Illustrative, not Hideaways at Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-25 Harrisons Rd, Dromana VIC 3936
+Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
+### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
-anniversary  waterfront
+Red Hill VIC 3937
 
-[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [Book](<https://www.lakesidevillas.com.au/rates-bookings/>)
+Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an indoor spa bath.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+cellar door  romance
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) [Book](<https://www.airbnb.com/rooms/12077435>)
 
-12 Blakiston Grove, Rye VIC 3941
+Photo: Peter Foster, courtesy of Visit Victoria
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-beach  fireplace
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+166 Balnarring Rd, Merricks North VIC 3926
+
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
+
+anniversary  weekend escape
+
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [Book](<https://jackalopehotels.com/stay/>)
 
 Build a day around this
 
@@ -129,7 +135,9 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Dromana - view the destination guide](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[← Part of Arthurs Seat - view the destination guide](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=arthurs-views>)
 

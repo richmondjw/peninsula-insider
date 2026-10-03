@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Chardonnay grapes at the Main Ridge Estate vineyard, Mornington Peninsula
 
-Photo · CSIRO / Wikimedia Commons (CC-BY-3.0)
-
 Where in the Peninsula is PI?
 
 PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of you, as usual.

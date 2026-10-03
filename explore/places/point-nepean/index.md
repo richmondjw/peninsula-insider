@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Looking out towards the waves near Cheviot Hill at Point Nepean
 
-Photo · Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)
-
 Point Nepean in 18 photographs
 
 1  / 18

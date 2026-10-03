@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Dromana foreshore looking across the bay toward Arthurs Seat
 
-Photo · Wikimedia Commons
-
 Dromana in 12 photographs
 
 1  / 12
@@ -101,7 +99,7 @@ What's mapped here
 
 - [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/dromana/#wine>)
 
-- [**3** stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
+- [**2** stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/dromana/#explore>)
 
@@ -213,18 +211,6 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
-
 Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
@@ -235,7 +221,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 fireplace  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/book>)
 
 Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

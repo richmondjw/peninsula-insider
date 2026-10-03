@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Vines and a farmhouse gate at Red Hill South in early autumn light
 
-Photo · Peninsula Insider
-
 Red Hill South is a quiet rural locality on the lower Red Hill plateau on the Mornington Peninsula, 85 km from Melbourne, with a country pub, established cellar doors and a high concentration of farmhouse bed-and-breakfasts.
 
 Red Hill South is the lower, quieter half of the Red Hill plateau, and for visitors who already know the headline village it is often the better stay. The roads drop down off the ridge into a softer landscape - a community shop, a small handful of cellar doors, a popular country pub, and a long catalogue of bed-and-breakfasts in renovated farmhouses. The cellar doors here - Foxeys Hangout, Quealy, Lindenderry - pull a different crowd to the ridge-top names, and the lunch options below Red Hill village proper are some of the most rewarding on the Peninsula. The original Red Hill Community Market is temporarily closed; the separate Hill and Ridge Community Market runs first Saturdays from September to May at Red Hill Recreation Reserve. Stay here when the upper village is full or when you want a cellar-door weekend that is slightly off the obvious circuit.

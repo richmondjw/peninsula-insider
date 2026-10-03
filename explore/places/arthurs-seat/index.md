@@ -47,7 +47,31 @@ Arthurs Seat in brief
 
 What's mapped here
 
+- [**1** stays](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#stay>)
+
 - [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#journal>)
+
+Stay
+
+## Sleep in Arthurs Seat
+
+When a place has a workable bed attached, it stops being a stop and starts becoming a base.
+
+ [All stays →](<https://peninsulainsider.com.au/stay/>)
+
+Suite  [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
+
+### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+
+10 Nestle Court, Arthurs Seat VIC 3936
+
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+
+view  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
+
+[See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Read this place properly
 

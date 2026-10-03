@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Vineyard rows at Merricks North with a country hall on the ridge behind
 
-Photo · Peninsula Insider
-
 Merricks North is a small wine-country locality on the Mornington Peninsula's red-hill plateau, 80 km from Melbourne, home to Elgee Park, Baillieu, Stonier and other established cool-climate cellar doors.
 
 Merricks North is wine country with a quieter accent than Red Hill and a longer pedigree than the Merricks village down the road. The roads here run between vineyards that were planted in the 1970s and 1980s - Elgee Park, Baillieu, Stonier - back when the Peninsula's cool-climate Pinot was an experiment most people did not believe in. The result is a small dense pocket of cellar doors with serious wines and almost no signage, hedged in by polo fields, horse studs, and one of the prettier country halls on the Peninsula. There is no town centre, no general store, and that is part of the point. Drive in for a slow cellar-door morning, lunch held at a vineyard restaurant, and an afternoon detour to the Merricks beach side if the weather allows. Stay nearby in Merricks or Red Hill; come here to drink.

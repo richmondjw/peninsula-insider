@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Hastings pier and fishing fleet looking across Western Port
 
-Photo · Peninsula Insider
-
 Hastings is a port town on the Mornington Peninsula's Western Port shoreline, 75 km from Melbourne, with a Thursday street market and a working commercial harbour on the eastern bay.
 
 Hastings sits on the eastern, working side of the Peninsula - the Western Port side, with its mangroves, mudflats, and fishing fleet. It is not a tourist town and never has tried to be, which is exactly what makes it useful. The fishermen's co-op here supplies some of the best seafood in Melbourne, the mussel farms offshore are among the largest sustainable producers in Australia, and if you are driving back from French Island or heading down to Flinders the long way round, Hastings is the place to stop for fish and chips eaten on the pier. The town itself is unvarnished in a way the western Peninsula no longer is, and that counts for something.

@@ -127,7 +127,7 @@ Peninsula Tip · village
 
 ### [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
 
-Tootgarook is a small, mostly residential village squeezed between Rye and Capel Sound, and its real identity lives behind the streets in the Tootgarook Wetland - the largest privately-protected freshwater wetland on the Peninsula and a quiet ecological headline most visitors do not know exists. Out front, the village sits across the road from a wide bay beach with shallow water and a long pier; out back, the wetland soaks into the dunes and the migratory bird counts each spring are among the highest on the Peninsula. The village itself has a handful of shops and an unfussy main street and is almost entirely a place locals use. Stay nearby for cheaper Peninsula accommodation than Rye or Sorrento; come to walk the wetland boardwalk and read birds in the reeds.
+Tootgarook sits between Capel Sound and Rye on the shallow Port Phillip bay coast. Behind the village, the Tootgarook Wetland is a significant freshwater habitat. To explore a public part of it, use the council-managed Tootgarook Bushland Reserve: its access points lead to short gravel tracks, boardwalks, bird hides and viewing platforms. Dogs are prohibited in the reserve. The bay beach offers a different outing; Rye is nearby for a longer food stop. Check current reserve and beach conditions before setting out.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Point King Beach in Portsea, Victoria - calm bay water and wharf
 
-Photo · Essiewingrove / Wikimedia Commons (CC-BY-SA-4.0)
-
 Portsea in 9 photographs
 
 1  / 9

@@ -201,7 +201,7 @@ Stony Point is the smallest possible village - a jetty, a ferry terminal, a rail
 
 ### [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
 
-Tootgarook is a small, mostly residential village squeezed between Rye and Capel Sound, and its real identity lives behind the streets in the Tootgarook…
+Tootgarook sits between Capel Sound and Rye on the shallow Port Phillip bay coast. Behind the village, the Tootgarook Wetland is a significant freshwater…
 
 ### [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 

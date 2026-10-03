@@ -63,7 +63,7 @@ Cottage
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.373%2C145.081>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Treetops%20at%20Red%20Hill%2C%2080%20McIlroys%20Rd%2C%20Red%20Hill%20VIC%203937>)
 
 **Live status**
 
@@ -136,6 +136,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=treetops-red-hill>)
 

@@ -67,18 +67,6 @@ Safety Beach is the long shallow crescent between Mount Martha and Dromana - the
 
 ## Where to eat, drink, stay and explore
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
-
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
@@ -103,7 +91,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 fireplace  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/book>)
 
 Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

@@ -185,6 +185,18 @@ Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
+Suite  [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
+
+### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+
+10 Nestle Court, Arthurs Seat VIC 3936
+
+Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+
+view  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+
 Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
@@ -212,20 +224,6 @@ Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an in
 cellar door  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) [Book](<https://www.airbnb.com/rooms/12077435>)
-
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
-
-142 Arthurs Seat Rd, Red Hill VIC 3937
-
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
-
-weekend escape  garden
-
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [Book](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 Build a day around this
 

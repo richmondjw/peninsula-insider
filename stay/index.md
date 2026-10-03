@@ -241,6 +241,16 @@ Details checked October 2026
 
 [Visit website](<https://www.bluemooncottages.com.au/>)
 
+- ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+
+Five couples-only suites on Arthurs Seat with bay views.
+
+Suite   Arthurs Seat   Couples
+
+Details checked October 2026
+
+[Visit website](<https://arthursviews.com.au/>)
+
 - ### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
 Balnarring Deluxe bell tent at the foreshore reserve.
@@ -261,21 +271,15 @@ Details checked October 2026
 
 [Visit website](<https://www.thecaperetreat.com.au/book>)
 
-- ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-Five couples-only suites on Arthurs Seat with bay views.
-
-Suite   Dromana   Couples
-
-[Visit website](<https://arthursviews.com.au/>)
-
 - ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
 Two adjoining farm cottages for two or four guests.
 
 Cottage   Dromana   Couples
 
-[Visit website](<https://www.birchcreek.com.au/>)
+Details checked October 2026
+
+[Visit website](<https://www.birchcreek.com.au/book>)
 
 - ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
@@ -373,15 +377,9 @@ Two self-contained cottages on a Red Hill vineyard.
 
 Cottage   Red Hill   Couples
 
+Details checked October 2026
+
 [Visit website](<https://treetopsatredhill.com.au/>)
-
-- ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
-
-Five pet-friendly beach cottages with shared EV charging.
-
-Cottage   Rye   Dog-friendly
-
-[Visit website](<https://mpcottages.com/>)
 
 - ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
@@ -398,6 +396,8 @@ Details checked October 2026
 Rye bed and breakfast with five rooms and cooked breakfast.
 
 Suite   Rye   Couples
+
+Details checked October 2026
 
 [Visit website](<https://www.plantationhouse.com.au/>)
 
@@ -430,6 +430,16 @@ Hotel   Sorrento   Couples
 Details checked September 2026
 
 [Visit website](<https://sorrento.intercontinental.com/>)
+
+- ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+
+Five pet-friendly beach cottages with shared EV charging.
+
+Cottage   Tootgarook   Dog-friendly
+
+Details checked October 2026
+
+[Visit website](<https://mpcottages.com/>)
 
 ## Make more of the night
 

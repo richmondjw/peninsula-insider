@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Cottage    [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Cottage    [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
 
 # Mornington Peninsula Beach Club Cottages
 
@@ -15,7 +15,7 @@ Known for   Studio, one- and two-bedroom layouts Communal EV charging Unit 1 ste
 
 [Check availability](<https://mpcottages.com/>)
 
-Mornington Peninsula Beach Club Cottages · Rye
+Mornington Peninsula Beach Club Cottages · Tootgarook
 
 Photo · Peninsula Insider
 
@@ -63,7 +63,7 @@ Tootgarook VIC 3941 · [Directions](<https://www.google.com/maps/dir/?api=1&dest
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.386%2C144.857>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Beach%20Club%20Cottages%2C%20Tootgarook%20VIC%203941>)
 
 **Live status**
 
@@ -83,43 +83,45 @@ Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-12 Blakiston Grove, Rye VIC 3941
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+5-15 Hotham Rd, Sorrento VIC 3943
 
-beach  fireplace
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+weekend escape  waterfront
 
-Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Book](<https://hotelsorrento.com.au/stay/>)
 
-Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Photo: Courtesy of Visit Victoria
 
-### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-1-9 Sinclair Ave, Rye VIC 3941
+### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
+23 Constitution Hill Road, Sorrento VIC 3943
 
-beach  slow
+A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 
-[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
+weekend escape  anniversary
 
-Suite  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [Book](<https://sorrento.intercontinental.com/>)
 
-### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
+Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
-33 Maori St, Rye VIC 3941
+### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
+Point Nepean National Park, Portsea VIC 3944
 
-beach  slow
+Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinct, available September to April.
 
-[Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [Book](<https://www.plantationhouse.com.au/>)
+beach  walk
+
+[Read notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [Book](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
 Build a day around this
 
@@ -131,7 +133,9 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Rye - view the destination guide](<https://peninsulainsider.com.au/explore/places/rye/>)
+[← Part of Tootgarook - view the destination guide](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=mp-beach-club-cottages>)
 

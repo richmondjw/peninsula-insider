@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Tea-tree dunes and shallow Western Port water at Somers beach
 
-Photo · Peninsula Insider
-
 Somers is a quiet residential village on the Mornington Peninsula's Western Port coast, 80 km from Melbourne, fronting a long sheltered beach and bordering Coolart Wetlands and Homestead Reserve.
 
 Somers is the quiet Western Port answer to the bay-side beach villages, and it has been keeping that profile low on purpose for a century. The village is set back from a long shallow beach with tea-tree banking the dunes, a small general store, a yacht club that has changed almost nothing about itself since the 1950s, and not much else. Coolart Wetlands and Homestead, set in its 87-hectare reserve on the village edge, is the other reason to come - one of the best places to walk a wetland boardwalk under a winter sky on the entire Peninsula. The Lord Somers Camp gives the village a residual association with leadership weeks and a particular kind of Australian institutional history. Stay here if you want a beach village without polish, where the loudest sound in the morning is birds in the reserve.

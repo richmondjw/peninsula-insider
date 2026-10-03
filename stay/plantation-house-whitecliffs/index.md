@@ -63,7 +63,7 @@ Suite
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.374%2C144.829>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Plantation%20House%20at%20Whitecliffs%2C%2033%20Maori%20St%2C%20Rye%20VIC%203941>)
 
 **Live status**
 
@@ -95,18 +95,6 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
-
-Tootgarook VIC 3941
-
-Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
-
-beach  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Book](<https://mpcottages.com/>)
-
 Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
 
 Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
@@ -121,6 +109,18 @@ beach  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+
+Dromana VIC
+
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+
+fireplace  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/book>)
+
 Build a day around this
 
 ## Planning guides that include Plantation House at Whitecliffs
@@ -132,6 +132,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Rye - view the destination guide](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=plantation-house-whitecliffs>)
 

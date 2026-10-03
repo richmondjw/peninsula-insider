@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-202 on the map
+199 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -209,8 +209,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 
 - [View : Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
-- [View : Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
-
 - [View : Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>)
 
 - [View : Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
@@ -236,8 +234,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 - [View : Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
-
-- [View : Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
 - [View : Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
@@ -312,8 +308,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 
 - [View : The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>)
-
-- [View : Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
 - [View : Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
 

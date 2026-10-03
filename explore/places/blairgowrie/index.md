@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Blairgowrie yacht club and foreshore with moored boats
 
-Photo · Peninsula Insider
-
 Blairgowrie is a coastal township on the Mornington Peninsula's western tip, 95 km from Melbourne, between Sorrento and Rye on the Port Phillip Bay shoreline.
 
 Blairgowrie is the quieter neighbour between Rye and Sorrento - the stretch of front beach that still feels like a holiday pattern most of the Peninsula gave up on. The yacht club runs a working moorings marina that defines the skyline; the foreshore is unbroken sand you can swim off without fighting a crowd; and the shops are mostly limited to a pub, a bakery, a couple of cafés and a deli, which is most of what you need. The back beach (Bridgewater Bay) is five minutes inland and quieter still. Blairgowrie rewards the kind of weekend that's built around walking the foreshore, reading on a beach towel, and not making a plan until dinner. It's the last town before the tourist-district tone of Sorrento and the first one where families still outnumber influencers.

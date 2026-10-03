@@ -93,18 +93,6 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
-
-Tootgarook VIC 3941
-
-Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
-
-beach  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Book](<https://mpcottages.com/>)
-
 Suite  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
@@ -116,6 +104,18 @@ A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is in
 beach  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [Book](<https://www.plantationhouse.com.au/>)
+
+Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+
+Dromana VIC
+
+Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+
+fireplace  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/book>)
 
 Build a day around this
 
