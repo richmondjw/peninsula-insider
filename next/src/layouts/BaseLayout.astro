@@ -47,6 +47,8 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   searchImage?: string;
+  /** Omit image metadata when this page has no individually evidenced image. */
+  suppressImageMeta?: boolean;
   ogType?: string;
   noindex?: boolean;
   publishedTime?: string;
@@ -93,6 +95,7 @@ const {
   canonical,
   ogImage,
   searchImage,
+  suppressImageMeta = false,
   ogType = 'website',
   noindex = false,
   publishedTime,
@@ -171,7 +174,7 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
   <!-- Open Graph -->
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageAbsolute} />
+  {!suppressImageMeta && <meta property="og:image" content={ogImageAbsolute} />}
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content={ogType} />
   <meta property="og:site_name" content="Peninsula Insider" />
@@ -180,10 +183,10 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
   {modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
 
   <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:card" content={suppressImageMeta ? "summary" : "summary_large_image"} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImageAbsolute} />
+  {!suppressImageMeta && <meta name="twitter:image" content={ogImageAbsolute} />}
 
   <script type="application/ld+json" set:html={JSON.stringify({
     '@context': 'https://schema.org',
@@ -422,7 +425,7 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
         display:none elements as invisible and skips them during indexing,
         which means `data-pagefind-meta` attributes on hidden elements are
         ignored. Empty <span> has zero visual impact regardless. */}
-    {!searchExclude && searchImageSource && (
+    {!searchExclude && !suppressImageMeta && searchImageSource && (
       <span data-pagefind-meta={`image:${searchImageAbsolute}`}></span>
     )}
     <slot />

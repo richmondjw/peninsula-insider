@@ -164,6 +164,23 @@ export function hasRecordedProvenance(
   return filled(image?.creator) || filled(image?.sourceUrl) || filled(image?.permission);
 }
 
+/** A photograph may appear on a venue surface only when its own record
+ * establishes source, website use, rights holder, depiction and attribution.
+ * This is a presentation gate for documented evidence, not legal certification. */
+export function hasWebsitePhotoEvidence(image: ProvenanceImage | null | undefined): boolean {
+  return Boolean(
+    image?.src?.trim() &&
+    image?.alt?.trim() &&
+    image?.credit?.trim() &&
+    rightsStateOf(image) === 'recorded' &&
+    hasRecordedProvenance(image) &&
+    depictionStatusOf(image) !== 'unverified' &&
+    image?.permission?.trim() &&
+    image?.rightsHolder?.trim() &&
+    image?.permittedUses?.includes('website')
+  );
+}
+
 /**
  * The sentence shown to a sighted reader beneath an illustrative image.
  *

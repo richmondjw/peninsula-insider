@@ -33,7 +33,7 @@ import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
-import { rightsStateOf, hasRecordedProvenance, depictionStatusOf, illustrativeDisclosure } from '../../lib/media-provenance';
+import { hasWebsitePhotoEvidence, illustrativeDisclosure } from '../../lib/media-provenance';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import { routeSlug, eatTypes, isListableVenue } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
@@ -78,9 +78,7 @@ const typeLabel: Record<string, string> = {
  *  fields; a different frontmatter photo cannot lend them its provenance. */
 async function cardImage(venue: any): Promise<{ src: string; alt: string; caption?: string; credit?: string } | undefined> {
   const image = venue.data.heroImage;
-  if (rightsStateOf(image) !== 'recorded' || !hasRecordedProvenance(image)) return undefined;
-  if (!image?.permission?.trim() || !image?.rightsHolder?.trim() || !image?.permittedUses?.includes('website') || !image?.credit?.trim()) return undefined;
-  if (depictionStatusOf(image) === 'unverified') return undefined;
+  if (!hasWebsitePhotoEvidence(image)) return undefined;
   const hero = await resolveHero('venue', routeSlug(venue), venue.data, 'heroImage', { ignoreOverride: true });
   if (!hero.hasPhoto) return undefined;
   const disclosure = illustrativeDisclosure(image, venue.data.name);
