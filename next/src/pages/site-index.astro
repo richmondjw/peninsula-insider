@@ -4,15 +4,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { routeSlug, isStayVenue, wineTypes, isListableVenue } from '../lib/editorial';
 import { getAustralianSeason } from '../lib/season';
+import { loadLiveEvents } from './whats-on/_data';
 
-const [venues, experiences, places, articles, itineraries, events] = await Promise.all([
+const [venues, experiences, places, articles, itineraries, liveEvents] = await Promise.all([
   getCollection('venues'),
   getCollection('experiences'),
   getCollection('places'),
   getCollection('articles', ({ data }) => data.status === 'published'),
   getCollection('itineraries'),
-  getCollection('events'),
+  loadLiveEvents(new Date()),
 ]);
+const events = liveEvents.map(({ event }) => event);
 
 const eatTypes = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
 

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T10:23:33.582Z",
+  "generatedAt": "2026-10-03T10:35:25.480Z",
   "asOf": "2026-10-03",
   "staleAfterDays": 90,
   "assertedMetrics": [
@@ -14,18 +14,18 @@
     "unboundedOccurrence"
   ],
   "totals": {
-    "liveEvents": 39,
+    "liveEvents": 38,
     "cancelledEvents": 1,
     "missingVerificationDate": 0,
-    "staleVerificationDate": 14,
+    "staleVerificationDate": 13,
     "duplicateTitleGroups": 0,
     "duplicateVenueDateGroups": 0,
-    "unresolvableRecurrence": 2,
+    "unresolvableRecurrence": 0,
     "cancelledWithoutProvenance": 0,
     "postponedEvents": 0,
     "postponedWithoutProvenance": 0,
     "occurrenceQueueEntries": 0,
-    "freeTextVerificationStatus": 6,
+    "freeTextVerificationStatus": 5,
     "unboundedOccurrence": 2
   },
   "missingVerificationDate": [],
@@ -76,11 +76,6 @@
       "ageDays": 152
     },
     {
-      "file": "sound-circle-full-moon-sound-journey-at-peninsula-hot-springs.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
       "file": "the-bloody-long-walk-mornington-peninsula-2026.json",
       "lastCheckedDate": "2026-05-04",
       "ageDays": 152
@@ -103,20 +98,7 @@
   ],
   "duplicateTitleGroups": [],
   "duplicateVenueDateGroups": [],
-  "unresolvableRecurrence": [
-    {
-      "file": "emu-plains-market.json",
-      "recurrence": "monthly",
-      "recurrenceNote": "Monthly October–April (day market); June and August also listed; no July, May or September",
-      "nextOccurrence": "2026-10-17"
-    },
-    {
-      "file": "sound-circle-full-moon-sound-journey-at-peninsula-hot-springs.json",
-      "recurrence": "monthly",
-      "recurrenceNote": "Monthly (full moon dates, check Eventbrite for specific dates)",
-      "nextOccurrence": "2026-11-01"
-    }
-  ],
+  "unresolvableRecurrence": [],
   "cancelledWithoutProvenance": [],
   "postponedWithoutProvenance": [],
   "occurrenceQueue": [],
@@ -124,7 +106,6 @@
   "freeTextVerificationStatus": [
     "boneo-community-market.json",
     "emu-plains-market-balnarring.json",
-    "emu-plains-market.json",
     "hastings-thursday-street-market.json",
     "mt-eliza-farmers-market.json",
     "peninsula-vinehop-festival-2026.json"
