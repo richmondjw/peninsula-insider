@@ -18,7 +18,7 @@
   "decision": "adapt",
   "finding": "Four more Stay listings lacked current dated operator checks. The Orchard was incorrectly marked unsourced after a September TLS failure even though its operator site now responds; it also claimed an infrared sauna absent from the current operator description. Hideaways used an old review page, a direct-booking label without a booking URL, unsupported price comparisons and amenity claims. Cassis and The Sanctuary had current operator information but stale review dates.",
   "hypothesis": "Recovering the live operator and host sources, removing unsupported comparisons and amenities, and dating the two otherwise sound records will make these four stay decisions more truthful and usable.",
-  "boundedChange": "Recover The Orchard operator website and booking route, remove unsupported sauna and price positioning, and retain only operator-supported apartment details. Link Hideaways to its current host listing, label Airbnb as provider, and narrow copy to the identified Woodland Cottage. Date source checks for Cassis and The Sanctuary. Preserve negative evidence in this assessment. Replace the three shared fallback hero assets with a sourced Mornington Peninsula vineyard photograph, visibly disclose it as illustrative and link the original and CC BY-SA licence.",
+  "boundedChange": "Recover The Orchard operator website and booking route, remove unsupported sauna and price positioning, and retain only operator-supported apartment details. Link Hideaways to its current host listing, label Airbnb as provider, and narrow copy to the identified Woodland Cottage. Date source checks for Cassis and The Sanctuary. Preserve negative evidence in this assessment. Replace the three shared fallback hero assets with a sourced Mornington Peninsula vineyard photograph, visibly disclose it as illustrative and link the original and CC BY-SA licence. Reject uncredited or undescribed CMS hero overrides for these three listings so the licensed fallback and its attribution are actually rendered. Apply the same override guard to each detail page social image so metadata matches the visible hero.",
   "sources": [
     "https://www.the-orchard.com.au/",
     "https://www.airbnb.com/rooms/12077435",
@@ -44,10 +44,10 @@
     "houseStyle": "passed",
     "firsthandClaimLint": "passed",
     "linkHealth": "Eleven new source URLs probed ok. assert:link-health passed with zero unrecorded citations; one previously ratcheted dead event URL remains outside this batch.",
-    "productionBuild": "pending",
-    "independentRegrade": "Independent bounded factual/media reviewer confirmed four venue corrections, identified an image source mismatch, then verified the new Commons source JPEG byte-identical to its imageinfo SHA-1 and the WebP derivative visually matched. The reviewer required visible title/modification notice; the display credit was amended. This is not a full 23-criterion score.",
-    "settledBrowser": "pending",
-    "liveAcceptance": "pending",
+    "productionBuild": "Final npm run build:search passed on the rebased final source, including content, licence, media-provenance, link-health and schema gates, responsive image processing and 728 indexed search pages.",
+    "independentRegrade": "Independent bounded factual/media reviewer confirmed four venue source corrections, verified the new Commons JPEG against the source SHA-1 and the WebP derivative, reviewed the scoped CMS guard and metadata paths, and found no logic regression outside the three named Stay records. This is not a full 23-criterion score.",
+    "settledBrowser": "Local Chromium on final generated build: /stay/cassis/, /stay/hideaways-red-hill/ and /stay/the-orchard-red-hill/ returned 200 at 390px and 1440px; the new image loaded, author/title/modification notice and working Source/Licence hrefs were visible, illustrative disclosure appeared, social image matched the fallback, and horizontal overflow was zero.",
+    "liveAcceptance": "pending CI merge and exact public revision verification",
     "mediaRights": "New replacement asset: original Commons source and CC BY-SA 2.0 probed and recorded; author, title, modification notice, source and licence links included in venue hero/card credits. Existing place-red-hill-01.webp rights remain unverified; 30 next/src files still reference it.",
     "parentMobileRelease": "PR 529 deployment run 37088613623 succeeded; public manifest sourceSha faf30efffa2b51c88f11f4b51a02a29c0bb46d73; live /stay/ browser at 390px and 320px returned 200, 27 cards, no clipped cards or horizontal overflow, all 27 Save controls at least 48px."
   },
@@ -72,7 +72,8 @@
     "Eleven Stay listings still lack dated operator source checks",
     "Current Hotel Sorrento decision imagery and full image-rights review remain open",
     "Direct assistive-technology review, production performance and full three-reviewer 23-criterion regrade remain open",
-    "The shared place-red-hill-01.webp asset has unverified provenance despite its current CSIRO listing; audit remaining uses before full image-rights clearance"
+    "The shared place-red-hill-01.webp asset has unverified provenance despite its current CSIRO listing; audit remaining uses before full image-rights clearance",
+    "CMS upload metadata only requires alt and credit; future image-rights evidence is not captured by the current override slot"
   ],
   "negativeFindings": [
     "The Orchard operator URL was recorded as gone after a 2026-09-13 TLS fault; on 2026-10-03 it responded over HTTPS and displayed the apartments. Historical retired-link fields were removed from the current record; the old probe remains in the ledger.",
@@ -81,7 +82,10 @@
     "Woodman Estate and Happy Glamper require separate service-format and current-inclusion reviews; they remain in the eleven outstanding records.",
     "Independent review found that place-red-hill-01.webp is a vineyard-row photograph, whereas its LICENSES.md citation resolves to a close-up of CSIRO grapes. The file does not match its recorded source, so its rights cannot be verified from that citation. This batch removes the asset from three Stay records; other corpus uses remain a separate image-rights hard gate.",
     "The Hideaways host describes Woodland Cottage as a guest suite attached to the hosts home. Copy implying a standalone private cottage was removed.",
-    "The refreshed source ledger no longer assigns the wrong CSIRO file to place-red-hill-01.webp. Thirty remaining next/src files still reference that asset; the sitewide rights and image-subject review remains open."
+    "The refreshed source ledger no longer assigns the wrong CSIRO file to place-red-hill-01.webp. Thirty remaining next/src files still reference that asset; the sitewide rights and image-subject review remains open.",
+    "Rendered build inspection found all three Stay detail pages used CMS hero overrides with no visible credit, hiding the newly sourced fallback. The hero resolver now requires both override alt and credit for these three venues; otherwise it uses the verified fallback.",
+    "Independent follow-up review found the Stay detail route still emitted the incomplete CMS image as its social preview despite the guarded visible hero; the route now uses the same scoped resolver option.",
+    "A rendered fallback photograph did not show Source/Licence links because the old hasPhoto predicate classifies shared place artwork as a placeholder; link rendering now follows the actually rendered non-CMS hero, not that classification."
   ],
-  "nextAction": "Rebase onto the verified PR 529 release, run full build and browser checks, release through CI and verify the exact public revision; then resolve the remaining eleven Stay source checks and the inherited shared-image rights debt."
+  "nextAction": "Submit this bounded set through CI, merge after required checks, verify exact public revision and three detail pages; then source-check the remaining eleven Stay listings and resolve inherited shared-image rights debt."
 }

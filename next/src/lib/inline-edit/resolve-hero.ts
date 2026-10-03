@@ -70,12 +70,20 @@ export async function resolveHero(
   slug: string,
   data: any,
   fieldPath: string = 'heroImage',
+  options: { requireOverrideMetadata?: boolean } = {},
 ): Promise<ResolvedHero> {
   const images = (await loadOverrides(entityType, slug)).image;
   // Honour the requested key first, then tolerate the other common key so
   // an override saved from any surface for this entity is always applied.
-  const override =
+  const candidateOverride =
     images[fieldPath] ?? images.hero ?? images.heroImage ?? undefined;
+  // Where a page has a verified fallback, an upload without both its own alt
+  // and credit must not displace it. The fallback's metadata cannot describe
+  // the different uploaded photograph.
+  const override = options.requireOverrideMetadata &&
+    (!candidateOverride?.alt?.trim() || !candidateOverride?.credit?.trim())
+      ? undefined
+      : candidateOverride;
 
   const src = override?.src ?? resolveHeroSrc(data);
   const decorative = !override && data?.heroImage?.decorative === true;

@@ -138,7 +138,11 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
-const hero = await resolveHero('venue', venueSlug, data);
+const requireVerifiedStayHero = section === 'stay' &&
+  ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill'].includes(String(venueSlug));
+const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
+  requireOverrideMetadata: requireVerifiedStayHero,
+});
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
 // replaces: a decorative image's deliberately empty alt fell through the `||`
 // and was refilled with "<venue name> · <place>", re-asserting on a stand-in
@@ -152,8 +156,8 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 const heroProvenance = hero.override ? null : data.heroImage;
 const heroCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
 const flindersCommonsHero = venueSlug === 'flinders-hotel' && !hero.override && hero.hasPhoto;
-const heroSourceUrl = !hero.override && hero.hasPhoto ? data.heroImage?.sourceUrl : undefined;
-const heroLicenceUrl = !hero.override && hero.hasPhoto ? data.heroImage?.licenseUrl ?? (flindersCommonsHero ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
+const heroSourceUrl = !hero.override ? data.heroImage?.sourceUrl : undefined;
+const heroLicenceUrl = !hero.override ? data.heroImage?.licenseUrl ?? (flindersCommonsHero ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
 // The photograph rule (src/lib/photo-set.ts): a stage opens the page when
 // there are three or more verified photographs, and the rest are set into
 // the editor note rather than dumped at the foot of the page.

@@ -58,7 +58,10 @@ const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/stay/${slug}/`;
-const hero = await resolveHero('venue', slug, venue.data);
+const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill'].includes(slug);
+const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
+  requireOverrideMetadata: requireVerifiedStayHero,
+});
 const ogImage = hero.src;
 
 // Mirrors the visible trail built in VenueDetailTemplate.astro exactly
