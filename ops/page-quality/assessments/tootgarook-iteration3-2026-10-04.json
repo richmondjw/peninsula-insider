@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/tootgarook/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "12ac8ab06192b7586900a4ceaeae06e54f13fb8e",
+  "baseDeploymentRun": "37133457835",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Three independent exact-live rubric reviews at 320/390/1440 after batch13 release. Full score null. Reviewers found a timed newsletter dialog interrupting first-visit map/nearby reading while cookie consent was undecided, an additional sticky subscribe pill after dismissal, three nearby cards using placeholder or CMS media without item-level subject/rights proof, a five-item list titled four lines, no direct Council reserve-access link, and a heavy hero JPEG.",
+    "independentAssessedSubsets": [
+      "55/76 assessed points, full score null",
+      "60.5/95 assessed points, full score null"
+    ],
+    "mobilePerformance": "Independent Chrome 390x844 lab with 4x CPU, 150ms latency and 1.6 Mb/s measured hero LCP 9.69-10.16s; original JPEG 615757 bytes transferred over about 9.6s. Lab sample, not field data."
+  },
+  "sources": [
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Parks-and-reserves/Tootgarook-Bushland-Reserve",
+      "supports": "Current reserve access, boardwalk and public advice, including time-sensitive notices."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Tootgarook_Recreation_Reserve_2023-02-22.jpg",
+      "supports": "Photographer, actual local subject and derivative permissions under CC BY-SA 4.0."
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "supports": "Licence terms for resizing and format conversion with attribution."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline/Port-Phillip-Beaches/View/5ef02b2a976db8465c2aafd7/Capel-Sound-Beach",
+      "supports": "Capel Sound bay beach and foreshore camping in the nearby text card."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Towns-Villages/Rye",
+      "supports": "Rye bay beach and food choices in the nearby text card."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Towns-Villages/Fingal",
+      "supports": "Adjacent hot springs district context for the Boneo text card."
+    }
+  ],
+  "hypothesis": "A source-linked reserve action, responsive licensed image, verified-media-only nearby treatment and uninterrupted reading reduce mobile task friction and remove the currently uncertain nearby-card imagery.",
+  "boundedChange": "On place guide pages, omit the timed newsletter popup and sticky subscribe pill while retaining the footer Dispatch link; globally prevent the popup from overtaking an undecided cookie prompt. On Tootgarook only, render its three nearby places as designed text cards without any CMS-swappable image; correct the numbered heading; add a direct Council access link; deliver the same Commons photograph as 480/960/1440 WebP derivatives with visible conversion disclosure. No change to booking, filtering, cookie consent, image source or other place heroes.",
+  "metric": "At 320/390/1440 the Council link works, all five summary points are correctly labelled, no newsletter modal or pill interrupts Tootgarook, three nearby cards have no image/CMS slot, footer signup remains, all content fits with no overflow or page errors. At 390 the selected hero derivative is at most 960px and under 100 KB; rerun the same 4x CPU/1.6 Mb/s lab and compare LCP with 9.69-10.16s baseline. Full build, CI and exact live manifest/browser acceptance required.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Restore place-page promo rendering and the original image/nearby-card presentation if measured outcomes regress; retain the copyright attribution and original Commons source file.",
+  "independentReview": "Final corrected candidate independently reviewed at 320/390/1440: bounded GO for this release. FN1 rating 4/4 x weight 4 = 4; FN2 3/4 x 4 = 3; VS1 3/4 x 5 = 3.75; VS2 3/4 x 4 = 3; VS3 4/4 x 4 = 4; MI1 4/4 x 5 = 5. Total 22.75/26 weighted assessed points; full 100-point score remains null. No hard gate observed within changed scope. Other 17 criteria and whole-page/linked-page gates remain unassessed.",
+  "validation": {
+    "productionBuild": "TZ=UTC npm run build:search passed all repository quality gates and indexed 727 pages on corrected source; no generated reports included in change.",
+    "localBrowser": "Final static build at 320/390/1440 returned HTTP 200; no document overflow or page errors; five-point heading, Council CTA 48px or taller, three image-free nearby cards with complete titles and summaries (320 longest 71px client=scroll), no place-guide popup/pill after scroll+dwell, cookie consent visible and #newsletter form retained. Independent reviewer repeated and accepted at all three widths.",
+    "mobileLab": "Same Chrome 390x844, 4x CPU, 150ms latency, 1.6 Mb/s conditions: live LCP 10.776s and 9.600s with 616057-byte JPEG transfer; candidate local LCP 3.892s and 3.912s with 18908-byte 480px WebP transfer. Local transport differs from public, so this is directional lab evidence, not field performance.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Whole-page and linked-page image subject/rights audit beyond these three Tootgarook cards",
+    "Direct screen-reader and complete keyboard journey",
+    "Full factual review and current conditions",
+    "Field performance",
+    "Independent full 23-criterion score above 99"
+  ],
+  "negativeFindings": [
+    "The Commons hero subject and licence were verified; the photographed reserve is not the Tootgarook Wetland and remains explicitly captioned.",
+    "The three linked destinations retain their own placeholder image records, so their destination pages need separate review.",
+    "A fast local build or lab result cannot certify field performance or a full 99-point score.",
+    "Independent candidate QA found that a shared card-body two-line clamp cropped the new text cards at 320px, including apparent trailing dots on titles. A scoped body and intro override was applied; final browser measured full text height with no crop.",
+    "Independent design review found the licensed reserve photo accurate but visually pedestrian, and desktop text-only related cards have more empty space than ideal; these remain next visual iterations."
+  ],
+  "nextAction": "Complete final build, independent candidate review, protected release and exact public verification; then continue linked place rights and full rubric evidence."
+}

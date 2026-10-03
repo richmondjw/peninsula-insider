@@ -150,7 +150,10 @@ const newsletterPopupMode = import.meta.env.PUBLIC_NEWSLETTER_POPUP;
 // Keep active planning and itinerary reading free of promotional interruptions.
 // Navigation and the footer retain their normal publication links.
 const isPlanningJourney = /^\/(?:explore\/plans|plans|me\/trip)(?:\/|$)/.test(rawPathname);
-const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
+// Place guides are reading and comparison tasks. Keep their footer signup
+// pathway, but do not interrupt a location decision with a timed modal.
+const isPlaceGuide = /^\/explore\/places(?:\/|$)/.test(rawPathname);
+const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPath !== '/stay/' && normalizedPath !== '/agents/' && (newsletterPopupMode === 'preview' || newsletterPopupMode === 'on');
 ---
 
 <!doctype html>
@@ -565,13 +568,13 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
        Hidden on home, /newsletter, /ask, /account
        via CSS rules keyed on body[data-path]. Bottom-LEFT so it sits
        opposite the concierge FAB (bottom-right) and they don't collide. -->
-  <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
+  {!isPlaceGuide && <a href="/dispatch/" class="subscribe-pill" aria-label="Join The Insider Note">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
       <polyline points="22,6 12,13 2,6"/>
     </svg>
     <span class="subscribe-pill__label">Join</span>
-  </a>
+  </a>}
 
   <script is:inline>
     (function () {

@@ -1,10 +1,10 @@
 ---
 /**
- * Preview-only, vanilla-JS Beehiiv signup overlay.
+ * Environment-controlled, vanilla-JS Beehiiv signup overlay.
  *
  * Subscription is delegated to the existing Supabase edge function, which
  * keeps the Beehiiv API credential on the server. This component is mounted
- * only when PUBLIC_NEWSLETTER_POPUP=preview.
+ * only when PUBLIC_NEWSLETTER_POPUP=preview or on.
  */
 const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe';
 ---
@@ -104,6 +104,9 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
         return saved.joined || (saved.until && Date.now() < saved.until) ||
           document.body.classList.contains('search-open') ||
           !!document.querySelector('dialog[open]') ||
+          // Let the first-visit consent decision finish before a promotional
+          // modal can take focus; the consent note may be far above the scroll.
+          document.getElementById('cookie-banner')?.getAttribute('data-state') === 'visible' ||
           // The homepage has the complete signup form in its own closing
           // section. A second fixed invitation obscures that section on phones.
           !!document.querySelector('[data-home-dispatch]') ||
