@@ -142,13 +142,15 @@ assert(!getFacets('venue', ecoLodges?.data ?? {}).cat?.includes('glamping'), 'Ec
 assert(springsGlamping?.data.type === 'glamping', 'the canvas stay retains its glamping type');
 assert(surfaceFacetOptions('stay', 'cat').some((option) => option.value === 'lodge'), 'Stay filter offers Lodges');
 
-// Verified guest-suite properties must resolve as stays, not villas.
-for (const slug of ['mantons-creek-estate', 'cape-retreat']) {
-  const entry = venues.find((venue) => venue.data.slug === slug);
-  assert(entry?.data.type === 'suite', slug + ' uses the guest-suite type');
-  assert(getFacets('venue', entry?.data ?? {}).cat?.includes('suite'), slug + ' resolves to the Suites facet');
-}
+// Preserve verified suites and classify a stay with no confirmed room subtype honestly.
+const capeRetreat = venues.find((venue) => venue.data.slug === 'cape-retreat');
+assert(capeRetreat?.data.type === 'suite', 'cape-retreat uses the verified guest-suite type');
+assert(getFacets('venue', capeRetreat?.data ?? {}).cat?.includes('suite'), 'cape-retreat resolves to Suites');
+const mantons = venues.find((venue) => venue.data.slug === 'mantons-creek-estate');
+assert(mantons?.data.type === 'accommodation', 'Mantons uses generic accommodation until the room subtype is verified');
+assert(getFacets('venue', mantons?.data ?? {}).cat?.includes('accommodation'), 'Mantons resolves to Accommodation');
 assert(surfaceFacetOptions('stay', 'cat').some((option) => option.value === 'suite'), 'Stay filter offers Suites');
+assert(surfaceFacetOptions('stay', 'cat').some((option) => option.value === 'accommodation'), 'Stay filter offers Accommodation');
 
 // Canonical places match the places collection on disk
 const placeFiles = (await readdir(join(CONTENT, 'places')))

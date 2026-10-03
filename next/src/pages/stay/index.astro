@@ -185,20 +185,19 @@ const directoryVerdicts: Record<string, string> = {
   'crittenden-villas': 'Self-contained lakeside villas with dining and cellar door.',
   'peninsula-hot-springs-eco-lodges': 'Eco Lodge rooms; confirm private bathing for your chosen room.',
   'sanctuary-at-alba': 'Villas and rooms above Alba springs with daily bathing.',
-  'happy-glamper': 'Styled bell tents set up at selected Peninsula campsites.',
-  'woodman-estate': 'Country estate chalets beside a private lake.',
+  'happy-glamper': 'Balnarring Deluxe bell tent at the foreshore reserve.',
+  'woodman-estate': 'Chalet Un beside the lake on shared estate grounds.',
   'point-nepean-discovery-tents': "Pre-pitched tents in Point Nepean's Quarantine Station.",
   cassis: 'Adults-only vineyard villas with plunge pools or outdoor baths.',
   'hideaways-red-hill': 'Red Hill spa cottages for two, near the village.',
   lindenderry: 'Red Hill estate hotel with gardens, dining and a weekend cellar door.',
   'the-orchard-red-hill': 'Rammed-earth Red Hill apartments with in-room spa baths.',
   'treetops-red-hill': 'Two self-contained cottages on a Red Hill vineyard.',
-  'driftaway-on-dundas': 'Self-contained Rye villas with breakfast hampers and spa baths.',
   'mp-beach-club-cottages': 'Five pet-friendly beach cottages with shared EV charging.',
-  'kanasta-retro-caravans': 'Restored retro caravans close to Rye bay beach.',
+  'kanasta-retro-caravans': 'Retro Rye caravans with shared bathrooms and heating and cooling.',
   'plantation-house-whitecliffs': 'Rye bed and breakfast with five rooms and cooked breakfast.',
-  'iluka-retreat': 'Shoreham group glamping beside a private freshwater lake.',
-  'mantons-creek-estate': 'Shoreham vineyard suites with dining and a cellar door.',
+  'iluka-retreat': 'Shoreham bell tents for two with shared camp facilities.',
+  'mantons-creek-estate': 'Shoreham vineyard accommodation with lunch and a cellar door.',
   'the-continental-sorrento': 'Heritage Sorrento hotel beside The Continental dining precinct.',
 };
 const directoryItems = [...sixVenues, ...restVenues].map((v) => {
@@ -375,7 +374,7 @@ export const prerender = true;
   </div>
 
   <div id="browse-stay" class="stay-browse">
-    <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays" mapHref="/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay" showLinks={false}>
+    <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays" mapHref="/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay" showLinks={false}>
       <FilterBar
         surface="stay"
         noun="stays"
@@ -400,7 +399,7 @@ export const prerender = true;
     desktopColumns={2}
     fullVerdicts
     detailActionFallback
-    topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay' }}
+    topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay' }}
     emptyHeading="Nothing matches those filters"
     emptyBody="Clear a filter to see more places to stay."
   >

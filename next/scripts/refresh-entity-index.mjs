@@ -85,7 +85,7 @@ for (const fields of Object.values(taxonomy.mappings)) {
 // can appear in collection/list pages, but do not have /{section}/{slug}/
 // detail pages and must not enter pi.search as direct hits.
 const EAT_TYPES = ['restaurant', 'cafe', 'bakery', 'pub', 'market', 'winery'];
-const STAY_TYPES = ['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
+const STAY_TYPES = ['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
 const ROUTABLE_VENUE_TYPES = [...new Set([...EAT_TYPES, ...STAY_TYPES, ...WINE_TYPES])];
 const NON_PUBLIC_STATUSES = new Set(['draft', 'review', 'archived']);

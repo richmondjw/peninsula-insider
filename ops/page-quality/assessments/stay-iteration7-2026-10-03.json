@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "515c0aac57a7021a77de60169729a065f110dd37",
+  "dependsOn": "PR #531 live acceptance verified by protected deployment, exact public manifest and public browser.",
+  "baseline": {
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "note": "Older bounded visual review; current 23-criterion score is not established. Prior release recorded 23 dated source checks among 27 Stay listings."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "Four remaining Stay records needed operator review. Iluka had the wrong locality and map pin and overstated its glamping setup. Kanasta omitted shared bathrooms and had an unsettled pet policy. Mantons was called a suite despite no operator confirmation of room type, and its map pin was inaccurate. Driftaway had no current operator booking source yet remained recommended, with an uncredited CMS image on its historical page.",
+  "hypothesis": "Pausing unverified recommendations, aligning every active format and location to operator sources, and showing rights-cleared illustrative media will improve decision trust without inventing current booking availability.",
+  "boundedChange": "Pause Driftaway in discovery, search and booking actions while retaining a noindex historical reference. Suppress its old CMS hero and use a visibly disclosed, sourced Sorrento coast illustration. Correct Iluka to operator-published Shoreham address, retire former address and inaccurate coordinate claims, and withhold its map pin. Clarify Iluka tents for two and shared unpowered camp facilities. Clarify Kanasta retro vans, shared bathrooms, air conditioning and operator pet-policy uncertainty. Clarify Mantons accommodation and Friday-Sunday lunch; withhold inaccurate coordinates and classify it as generic accommodation across the schema, maps and directory. Replace the three active records hero fallbacks with credited and disclosed illustrations, reject uncredited CMS overrides, and update related Stay summaries.",
+  "sources": [
+    "https://ilukaretreat.com.au/accommodation/glamping/",
+    "https://kanastacaravanpark.com.au/accommodation/",
+    "https://kanastacaravanpark.com.au/faq/",
+    "https://mantonscreekestate.com.au/accommodation",
+    "https://mantonscreekestate.com.au/restaurant",
+    "https://www.driftawayondundas.com/",
+    "https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg",
+    "https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q",
+    "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+    "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg"
+  ],
+  "metric": "Twenty-six currently listable Stay records each have an attributable operator or manager source dated 2026-09-30 or later. The one additional unverified record is paused and excluded from current recommendations. The four reviewed detail pages must render accurate formats and locations, correct image provenance, and no false current booking route for Driftaway.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded content and taxonomy commit; no data migration. Restore previously listed venue type only with new operator evidence.",
+  "validation": {
+    "contentSchema": "passed after source and taxonomy edits",
+    "claimSupport": "passed; two historical Iluka claims retired, one corrected address claim with operator evidence added. Sitewide ratcheted unsupported claims remain.",
+    "imageRights": "scoped source/image audit passed with 17 inherited sitewide conflicts and no new conflict. Unsplash source page was visually read and licence confirmed; automated probe received HTTP 401 and is recorded as blocked, not a successful probe.",
+    "designDetector": "Impeccable source scan reported eight primary findings in Stay templates. Rendered 390px Stay hub scan reported 33 primary findings and four advisory notes, including 10px functional text, repeated kickers, colored shadow glow and one edge-flush card. These are triaged visual debt, not a 99/100 score.",
+    "productionBuild": "Final npm run build:search passed from the corrected source, including Astro, all content/style/rights/link/schema/claim gates, and Pagefind indexing 727 pages. Focused test:media-provenance passed 36 tests; test-facets passed; emma-ui-render passed six rendered tests.",
+    "independentReview": "Independent source reviewer checked the operator offerings, rights and current Driftaway 404. Independent QA found and then accepted corrections to stale guide copy, Iluka/Mantons pins and empty GeoCoordinates, Driftaway CMS image, and Mantons taxonomy. At 320/390/1440 the reviewer found no bounded release blocker. This is not a full 23-criterion score.",
+    "settledBrowser": "Final local Chromium at 1440, 390 and 320: /stay/ returned 200 with 26 current stays, Accommodation filter and Driftaway excluded; four affected details returned 200 with intended loaded illustration, source/licence link, visible disclosure, matching OG and zero horizontal overflow. Three active pages used current operator booking targets; Driftaway remained noindex with no own booking or LodgingBusiness. Generated JSON-LD omits geo for Iluka/Mantons, retains valid Kanasta geo.",
+    "liveAcceptance": "pending CI, merge, exact public revision and browser check"
+  },
+  "sourceCoverage": {
+    "activeStayListings": 26,
+    "withDatedSourceCheck": 26,
+    "pausedUnverified": [
+      "driftaway-on-dundas"
+    ],
+    "note": "Counts from active stay types excluding paused records, using editorialProvenance.source and reviewedOn/checkedOn dated 2026-09-30 or later."
+  },
+  "hardGatesOpen": [
+    "Full independent three-reviewer 23-criterion regrade and direct assistive-technology review",
+    "Production performance and first-visit consent interaction checks",
+    "Eight inherited Stay design-detector findings and broader sitewide image-rights conflicts",
+    "Actual property photographs for reviewed stays lack established reuse rights; current regional illustrations are disclosed",
+    "CMS image overrides still lack a complete rights-evidence slot",
+    "Balnarring Beach place taxonomy and other previously recorded cross-page issues",
+    "Rendered mobile Stay hub design scan has 33 primary Impeccable findings, notably small functional text, repeated kickers, colored glow and edge-flush card."
+  ],
+  "negativeFindings": [
+    "The former Driftaway operator site returns HTTP 404; no current operator-controlled booking route was established. This does not prove permanent closure.",
+    "Iluka operator gives 20 Shoreham Road, Shoreham VIC 3916; the former Red Hill South address and old pin were unreliable.",
+    "Kanasta operator pages differ on pets; the listing advises confirmation rather than guaranteeing pet access.",
+    "Mantons operator page confirms accommodation but does not clearly name a suite; the former suite type was unsupported.",
+    "The selected caravan photograph is a German vintage caravan, not Kanasta; it is disclosed as illustrative.",
+    "The three replacement regional images do not depict the named properties and are visibly labelled as illustrations.",
+    "Removing unverified Iluka and Mantons coordinates initially left empty GeoCoordinates objects in LodgingBusiness JSON-LD; the independent reviewer caught this before release."
+  ],
+  "nextAction": "Submit this reviewed batch through protected CI, merge, verify the exact public revision and affected pages, then continue visual, rights, accessibility, consent and performance gates before full scoring."
+}

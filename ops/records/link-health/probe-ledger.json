@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T03:19:48.501Z",
+  "updatedAt": "2026-10-03T04:24:50.771Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -319,6 +319,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Bright morning Sorrento Victoria (51527287664).jpg - Wikimedia Commons",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
       "verdict": "ok",
       "httpCode": "200",
@@ -379,6 +387,14 @@
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "File:Mornington Peninsula vineyard.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:P1030597 - Flickr - mattyv.au.jpg - Wikimedia Commons",
       "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
@@ -815,6 +831,22 @@
       "pageTitle": "Best things to do in Sorrento, Australia"
     },
     {
+      "url": "https://ilukaretreat.com.au/accommodation/glamping/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Glamping | Iluka Retreat &amp; Camp | Mornington Peninsula",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://ilukaretreat.com.au/contact-us/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact Us | Iluka Retreat &amp; Camp | Mornington Peninsula | Book &amp; Enquire",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://jackalopehotels.com",
       "verdict": "blocked",
       "httpCode": "200",
@@ -865,6 +897,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Johnny Ripe | FRESHLY MADE ON THE MORNINGTON PENINSULA"
+    },
+    {
+      "url": "https://kanastacaravanpark.com.au/accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Accommodation Rye | Cabins, Caravans &amp; Holiday Homes",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://kanastacaravanpark.com.au/faq/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Kanasta Caravan Park FAQ | Pricing, Pets &amp; Bookings",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://kanastacaravanpark.com.au/retro-caravans/",
@@ -1061,6 +1109,22 @@
       "httpCode": "200",
       "pageTitle": "Red Hill Winery Accommodation, Escape to the Mornington Peninsula overlooking the vineyard of Mantons Creek Estate &mdash; Mantons Creek Estate | Cellar Door, Restaurant, Boutique Accommodation",
       "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mantonscreekestate.com.au/mantons-creek-cellar-door",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cellar Door &amp; Retail Wine &mdash; Mantons Creek Estate | Cellar Door, Restaurant, Boutique Accommodation",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://mantonscreekestate.com.au/restaurant",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mantons Creek Estate | Winery Restaurant &mdash; Mantons Creek Estate | Cellar Door, Restaurant, Boutique Accommodation",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -1992,6 +2056,15 @@
       "disposition": "gone",
       "dispositionNote": "Serves a self-signed certificate, so a reader following it sees a browser security warning. www.tucksridge.com.au refuses the connection outright, and tucks.com.au is an industrial packings company. EDITOR: no fetchable operator site was found for Tuck's Ridge.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q",
+      "verdict": "blocked",
+      "httpCode": "401",
+      "pageTitle": "Making sure you&#39;re not a bot!",
+      "effectiveUrl": "https://unsplash.com/.within.website?redir=%2Fphotos%2Fvintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://vfa.vic.gov.au/recreational-fishing/recreational-fishing-guide",

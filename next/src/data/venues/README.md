@@ -2,7 +2,7 @@
 
 One JSON file per venue. Schema: `venues` in `../../content/config.ts`.
 
-Types covered: `restaurant | winery | cafe | bakery | pub | brewery | distillery | producer | market | hotel | villa | suite | cottage | lodge | glamping | farm-stay | spa`
+Types covered: `restaurant | winery | cafe | bakery | pub | brewery | distillery | producer | market | hotel | villa | suite | accommodation | cottage | lodge | glamping | farm-stay | spa`
 
 ## Example file layout
 

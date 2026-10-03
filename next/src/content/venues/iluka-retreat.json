@@ -4,25 +4,21 @@
   "type": "glamping",
   "place": "shoreham",
   "zone": "ocean-coast",
-  "coordinates": {
-    "lat": -38.486,
-    "lng": 145.043
-  },
-  "address": "Red Hill South VIC 3937",
+  "address": "20 Shoreham Rd, Shoreham VIC 3916",
   "website": "https://www.ilukaretreat.com.au/",
-  "bookingUrl": "https://www.ilukaretreat.com.au/",
+  "bookingUrl": "https://ilukaretreat.com.au/accommodation/glamping/",
   "bookingProvider": "direct",
   "priceBand": "$$",
-  "signature": "Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.",
-  "editorNote": "Iluka is the Peninsula's group glamping venue. A bell-tent village plus two group lodges on 36 acres near Shoreham, with a private freshwater lake, bird hides, a challenge course, and canoe and SUP hire. Capacity to 100 guests across 30 structures. Shared camp bathrooms and a shared camp kitchen are the practical trade-off for the scale, this is an outdoor retreat, not a boutique glamping escape.\n\nThis is not a couples-escape product. The rate-per-head calculation changes depending on how many structures you book, and the appeal runs through the group dynamic, yoga weekends, corporate retreats, social weekends, hens parties. For an individual glamping stay, Peninsula Hot Springs is the right address. For a group that wants to own an outdoor venue for two nights, Iluka is the most capable product on the Peninsula by a considerable margin.\n\nConfirm whether you need the full site or just the bell-tent section, capacity and pricing are both more flexible than the website implies. Book well ahead for peak season weekends.",
-  "whyWeGo": "The Peninsula's only fixed-site glamping venue built for groups, the right answer for retreats and social weekends that need real outdoor infrastructure.",
+  "signature": "Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.",
+  "editorNote": "Iluka offers styled bell tents for two with a queen bed, linen and towels. Extra single beds can be added for family or friends. The tents are unpowered; the shared camp kitchen and bathrooms have power. Bring a head torch for the walk back to your tent.\n\nThe lake and wetlands are part of the 36-acre setting. The operator also offers group lodges and whole-property bookings as separate arrangements, so a tent booking does not mean exclusive use of the grounds. Check the tent configuration, availability and optional activities directly before planning your stay.",
+  "whyWeGo": "A Shoreham tent stay for couples or small groups who want the lake setting and are comfortable with shared camp facilities.",
   "bestFor": [
-    "Big groups",
-    "Wellness day",
-    "Weekend escapes",
-    "Family outings"
+    "Couples",
+    "Small groups",
+    "Outdoor stays",
+    "Weekend escapes"
   ],
-  "ifOnlyOneThing": "Confirm whether you need the full site or just the bell-tent section, capacity and pricing are both much more flexible than the website implies.",
+  "ifOnlyOneThing": "Expect an unpowered tent and shared powered bathrooms and kitchen; bring a head torch.",
   "pairWith": [
     "Peninsula Hot Springs",
     "Flinders Hotel"
@@ -38,28 +34,48 @@
       "autumn"
     ],
     "audience": [
+      "couples",
       "group",
-      "couples"
+      "families"
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/place-balnarring-01.webp",
-    "alt": "",
-    "depicts": "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky",
+    "src": "/images/sourced/place-balnarring-rural-sunrise-cc-by-sa-2.webp",
+    "alt": "Sunrise through mist over a Mornington Peninsula rural field near Balnarring.",
+    "depicts": "P1030597, rural sunrise near Balnarring, Victoria.",
     "depictionStatus": "illustrative",
-    "decorative": true,
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "credit": "mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP",
+    "license": "other-licensed",
+    "creator": "mattyv.au",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "permission": "CC-BY-SA-2.0",
+    "permittedUses": [
+      "website",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "caption": "Illustrative Mornington Peninsula rural setting near Balnarring, not Iluka Retreat or its glamping tents. Cropped and converted to WebP from a CC BY-SA 2.0 photograph."
   },
   "gallery": [],
   "featuredPartner": false,
-  "lastVerified": "2026-05-07",
+  "lastVerified": "2026-10-03",
   "publishedAt": "2026-05-08",
   "sitemapExclude": false,
   "knownFor": [
-    "Group Glamping to 100 Guests",
-    "Private Freshwater Lake",
-    "36-Acre Bell-Tent Village",
-    "Challenge Course and SUP Hire"
-  ]
+    "Styled Bell Tents",
+    "Lake and Wetlands",
+    "Shared Camp Kitchen and Bathrooms",
+    "Group Lodges Booked Separately"
+  ],
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-03",
+    "checkedOn": "2026-10-03",
+    "checkedBy": "desk",
+    "source": "Operator sources checked 2026-10-03: https://ilukaretreat.com.au/accommodation/glamping/, https://ilukaretreat.com.au/contact-us/"
+  }
 }

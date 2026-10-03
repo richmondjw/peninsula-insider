@@ -164,6 +164,7 @@ export const typeLabel: Record<string, string> = {
   hotel: 'Hotel',
   villa: 'Villa',
   suite: 'Suite',
+  accommodation: 'Accommodation',
   cottage: 'Cottage',
   lodge: 'Lodge',
   glamping: 'Glamping',
@@ -212,7 +213,7 @@ export function isListableVenue(entry: any): boolean {
   return !isPermanentlyClosed(entry) && data?.status !== 'paused';
 }
 
-export const stayTypes = ['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
+export const stayTypes = ['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'];
 export function isStayVenue(entry: any) {
   const data = entry?.data ?? entry;
   const type = data?.type ?? entry;

@@ -19,7 +19,7 @@ test('active homepage has current editorial, no authoring hint, and the active I
 test('each vertical displays only its relevant category choices', () => {
   const expected = {
     eat: ['restaurant', 'cafe', 'bakery', 'pub', 'brewery', 'distillery', 'providore', 'market'],
-    stay: ['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay'],
+    stay: ['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay'],
     wine: ['winery', 'brewery', 'distillery'],
     explore: ['spa', 'walk', 'beach', 'golf', 'gallery', 'lookout', 'attraction', 'park', 'tour', 'garden', 'market'],
   };

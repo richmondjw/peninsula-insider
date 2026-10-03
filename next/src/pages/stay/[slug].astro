@@ -58,9 +58,10 @@ const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/stay/${slug}/`;
-const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate'].includes(slug);
+const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate', 'iluka-retreat', 'kanasta-retro-caravans', 'mantons-creek-estate'].includes(slug);
 const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
   requireOverrideMetadata: requireVerifiedStayHero,
+  ignoreOverride: slug === 'driftaway-on-dundas' && isPaused,
 });
 const ogImage = hero.src;
 
@@ -87,11 +88,13 @@ const venueSchema = isPaused ? null : {
     addressRegion: 'VIC',
     addressCountry: 'AU',
   },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: venue.data.coordinates?.lat,
-    longitude: venue.data.coordinates?.lng,
-  },
+  ...(Number.isFinite(venue.data.coordinates?.lat) && Number.isFinite(venue.data.coordinates?.lng)
+    ? { geo: {
+        '@type': 'GeoCoordinates',
+        latitude: venue.data.coordinates.lat,
+        longitude: venue.data.coordinates.lng,
+      } }
+    : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
   ...(placeId

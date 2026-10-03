@@ -34,7 +34,7 @@ const placeNameBySlug = new Map<string, string>(
 /** Pin colour group; grouping only, filtering uses the shared facets. */
 function venueGroup(type: string): MapViewItem['group'] {
   if (['winery', 'brewery', 'distillery', 'producer'].includes(type)) return 'wine';
-  if (['hotel', 'villa', 'suite', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'].includes(type)) return 'stay';
+  if (['hotel', 'villa', 'suite', 'accommodation', 'cottage', 'lodge', 'glamping', 'farm-stay', 'spa'].includes(type)) return 'stay';
   return 'eat';
 }
 

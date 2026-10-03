@@ -1,20 +1,16 @@
 {
   "slug": "mantons-creek-estate",
   "name": "Mantons Creek Estate",
-  "type": "suite",
+  "type": "accommodation",
   "place": "shoreham",
   "zone": "ocean-coast",
-  "coordinates": {
-    "lat": -38.497,
-    "lng": 145.048
-  },
   "address": "240 Tucks Rd, Shoreham VIC 3916",
   "website": "https://mantonscreekestate.com.au/accommodation",
   "bookingUrl": "https://mantonscreekestate.com.au/accommodation",
   "bookingProvider": "direct",
   "priceBand": "$$$",
-  "signature": "Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.",
-  "editorNote": "Mantons Creek Estate offers boutique accommodation overlooking its Shoreham vineyard. The operator calls its rooms guest suites. Check the current room layout, guest policy and inclusions for your dates through its accommodation booking page.\n\nThe restaurant is on the estate, but its published regular service is lunch from 11:45 am Friday to Sunday. Cellar door hours are separate. Reserve dining and tastings directly; do not assume on-site dinner is available.\n\nChoose this for a vineyard base with accommodation, food and wine on one property. Confirm the stay and lunch bookings separately before planning the day.",
+  "signature": "Vineyard accommodation at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.",
+  "editorNote": "Mantons Creek Estate offers accommodation overlooking its Shoreham vineyard. The operator does not clearly describe the room types in the public accommodation page, so check the layout and inclusions through its direct booking link for your dates.\n\nThe restaurant is on the estate, but regular service is lunch from 11:45 am Friday to Sunday. Cellar door hours are separate. Reserve dining and tastings directly; do not assume on-site dinner is available.\n\nChoose this for a vineyard base with accommodation, food and wine on one property. Confirm the stay and lunch bookings separately before planning the day.",
   "whyWeGo": "A Shoreham vineyard stay with an on-estate restaurant for a planned lunch.",
   "bestFor": [
     "Vineyard weekends",
@@ -42,22 +38,41 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/place-balnarring-01.webp",
-    "alt": "",
-    "depicts": "a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky",
+    "src": "/images/sourced/place-mornington-vineyard-cc-by-sa-2.webp",
+    "alt": "Rows of grapevines across a Mornington Peninsula vineyard under a cloudy sky.",
+    "depicts": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
     "depictionStatus": "illustrative",
-    "decorative": true,
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "credit": "faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP",
+    "license": "other-licensed",
+    "creator": "faVori rouge",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "permission": "CC-BY-SA-2.0",
+    "permittedUses": [
+      "website",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "caption": "Illustrative Mornington Peninsula vineyard, not Mantons Creek Estate. Resized and converted to WebP from a CC BY-SA 2.0 photograph."
   },
   "gallery": [],
   "featuredPartner": false,
-  "lastVerified": "2026-10-01",
+  "lastVerified": "2026-10-03",
   "publishedAt": "2026-05-08",
   "sitemapExclude": false,
   "knownFor": [
-    "Vineyard Guest Suites",
+    "Vineyard Accommodation",
     "On-Estate Restaurant",
     "Shoreham Vineyard Setting"
-  ]
+  ],
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-03",
+    "checkedOn": "2026-10-03",
+    "checkedBy": "desk",
+    "source": "Operator sources checked 2026-10-03: https://mantonscreekestate.com.au/accommodation, https://mantonscreekestate.com.au/restaurant, https://mantonscreekestate.com.au/mantons-creek-cellar-door"
+  }
 }

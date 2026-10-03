@@ -70,9 +70,9 @@ export async function resolveHero(
   slug: string,
   data: any,
   fieldPath: string = 'heroImage',
-  options: { requireOverrideMetadata?: boolean } = {},
+  options: { requireOverrideMetadata?: boolean; ignoreOverride?: boolean } = {},
 ): Promise<ResolvedHero> {
-  const images = (await loadOverrides(entityType, slug)).image;
+  const images = options.ignoreOverride ? {} : (await loadOverrides(entityType, slug)).image;
   // Honour the requested key first, then tolerate the other common key so
   // an override saved from any surface for this entity is always applied.
   const candidateOverride =
