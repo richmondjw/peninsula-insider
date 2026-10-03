@@ -10,7 +10,7 @@
   "assessedAt": "2026-10-04",
   "baseRevision": "daffa69e7aef10ccb42990e7d0d118f16fecfd24",
   "baseDeploymentRun": "37137966864",
-  "status": "independent-bounded-go-awaiting-ci",
+  "status": "live-accepted-bounded",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -64,7 +64,7 @@
     "content": "npm run validate:content passed after edits.",
     "productionBuild": "Final TZ=UTC npm run build:search passed all repository quality gates and Pagefind indexed 727 pages after the shared override-description guard; generated reports excluded from commit.",
     "localBrowser": "Final static preview at 320/390/1440: all three pages HTTP 200, no overflow or page JS errors; Capel selected 480px mobile and 960px desktop WebP with visible credit/source/licence and operator CTA; Rye/Boneo override heroes now have no misleading visible fallback image description. Independent reviewer repeated all widths and approved bounded release.",
-    "liveAcceptance": "Pending protected CI, deploy and exact-source public browser check."
+    "liveAcceptance": "PR #556 merged as e4cc4c26c27a98be9c6626bf7e25f78d7ed66e04 after all eight checks passed; protected deploy run 37140399506 succeeded. Cache-busted public release-manifest.json named exactly this sourceSha and run. Public Chrome at 320/390/1440: all three pages HTTP 200, no horizontal overflow or page errors; Capel 480px mobile and 960px desktop licensed WebP, visible BobTanGo credit, source/licence and operator CTA, correct 2016 and no ballot; Boneo Fingal/Cape Schanck and Rye Blairgowrie copy visible; neither CMS override shows fallback image description. Screenshot visually reviewed at 390."
   },
   "hardGatesOpen": [
     "Rye and Boneo live CMS override image subject and licence proof, descriptive alt and visible attribution",
@@ -79,5 +79,5 @@
     "A bounded factual and Capel hero release is not a full-page design acceptance or 99/100 score.",
     "Independent candidate QA caught a Rye hero mismatch: template displayed the fallback image description over a different public CMS override. The shared template now withholds fallback description when an override wins; the image alt remains the override's generic text until its provenance is resolved."
   ],
-  "nextAction": "Release through protected CI, verify exact live manifest and all three public pages; then establish Rye/Boneo CMS hero subject/rights or replace with verified media before full 23-criterion grading."
+  "nextAction": "Resolve Rye/Boneo CMS hero subject/rights or replace with verified local media, then run independent full 23-criterion, assistive-technology and field-performance reviews; scores remain null."
 }
