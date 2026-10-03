@@ -7,7 +7,7 @@ import { pageImage } from '../../lib/page-images';
  *   1. h1 date context + selection rule (one line)
  *   2. Scope controls: This weekend (default, in-DOM) / Next weekend /
  *      Pick dates / School holidays
- *   3. PI's picks: exactly 3, Local voice verdicts
+ *   3. PI's picks: up to 3 recently checked choices, Local voice verdicts
  *   4. Day-grouped compact rows for the current scope (weekend is fully
  *      server-rendered; other scopes render client-side from feed.json)
  *   5. Shelf anchor links + category shelves (Markets, Live music,
@@ -48,6 +48,7 @@ const nextWeekend = weekendWindow(now, 1);
 const holidays = schoolHolidayWindow(now);
 
 const picks = await getPicks(events, weekend, now);
+const pickHeading = ['A reason to go', 'A reason to go', 'Two reasons to go', 'Three reasons to go'][Math.min(picks.length, 3)];
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
 const dayGroups = groupByDay(events, weekend, now);
@@ -63,7 +64,9 @@ const shelfVisuals = shelves.map((shelf, index) => {
     return photo?.src && photo?.alt && photo?.credit && photo?.depictionStatus === 'actual';
   });
   const photo = source ? (source.event.data as Record<string, any>).heroImage : null;
-  const regionalKey = ({ markets: 'whats-on-hub', 'food-wine': 'wine-hub' } as Record<string, string>)[shelf.id];
+  // The old markets hero depicts a venue whose current operation is unresolved.
+  // Do not imply that it is a current featured event in this discovery rail.
+  const regionalKey = ({ 'food-wine': 'wine-hub' } as Record<string, string>)[shelf.id];
   const regional = !photo && regionalKey ? pageImage(regionalKey) : null;
   return {
     id: shelf.id,
@@ -182,7 +185,13 @@ const categoryOptions = [...new Set(events.map((entry) => entry.event.data.categ
   .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
 const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
-const hubImage = pageImage('whats-on-hub');
+// The photo at the top must depict a currently listed pick. The verified
+// Peninsula Hot Springs venue image is suitable when that pick is present;
+// otherwise use an explicitly captioned regional scene, not an unverified
+// market that could be mistaken for a live event.
+const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-sunday-sessions-spring-2026')
+  ? pageImage('spas-hub')
+  : pageImage('explore-hub');
 ---
 
 <BaseLayout
@@ -190,7 +199,7 @@ const hubImage = pageImage('whats-on-hub');
   description={pageDescription}
   section="whats-on"
   canonical="https://peninsulainsider.com.au/whats-on"
-  ogImage={pageImage('whats-on-hub').src}
+  ogImage={hubImage.src}
   modifiedTime={modifiedTime}
 >
   <script data-wo-event-schema type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
@@ -252,7 +261,7 @@ const hubImage = pageImage('whats-on-hub');
         <div class="wo-picks__head">
           <div>
             <p class="wo-section-kicker">The short list / {weekend.label}</p>
-            <h2 class="wo-picks__title" id="wo-picks-h">Three reasons to go</h2>
+            <h2 class="wo-picks__title" id="wo-picks-h">{pickHeading}</h2>
           </div>
           <p class="wo-picks__dek">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
         </div>
@@ -268,8 +277,9 @@ const hubImage = pageImage('whats-on-hub');
               verdict={c.verdict}
               meta={c.meta}
               dateISO={c.dateISO}
-              showEyebrow={false}
-              mediaFallback={true}
+              showEyebrow={c.position === 1}
+              typeMark="The lead pick / 01"
+              mediaFallback={c.position !== 1}
               trip={true}
               surface="whatson"
               position={c.position}
@@ -1113,14 +1123,33 @@ const hubImage = pageImage('whats-on-hub');
     .wo-head__figure figcaption { display: none; }
     .wo-head__credit-mobile { display: block; margin: .25rem 0 0; color: #ced8dc; font-size: .58rem; line-height: 1.2; }
     .wo-picks__head, .wo-days__head { display: block; }
-    .wo-picks { padding-top: 1.25rem; }
-    .wo-picks__head { margin-bottom: .8rem; }
+    .wo-picks { padding-top: .75rem; }
+    .wo-picks__head { margin-bottom: .4rem; }
+    .wo-picks .wo-section-kicker { margin-bottom: .6rem; }
     .wo-picks__dek { max-width: none; margin-top: .45rem; }
     .wo-days__hint { display: none; }
     .wo-picks__dek { display: none; }
   }
 </style>
 <style is:global>
+  /* The lead is a typographic cover; the two supporting picks carry photos.
+     Keep the first decision close to the top on a phone. */
+  .wo-picks .v5-card-grid > .pi-card:first-of-type { background: #0b2e4a; border-color: #0b2e4a; color: #f2efea; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__body { display: flex; flex-direction: column; justify-content: center; padding: clamp(1rem, 2.5vw, 2rem); }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__eyebrow { color: #f5c177; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title,
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link { color: #f2efea; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__dek,
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__meta { color: #d7e4e8; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link:hover { color: #f5c177; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link:focus-visible { outline-color: #f5c177; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip] { background: #f5c177; border-color: #f5c177; color: #0b2e4a; font-weight: 700; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip]:hover { background: #fff1d1; border-color: #fff1d1; color: #0b2e4a; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip]:focus-visible { outline: 2px solid #f5c177; outline-offset: 3px; }
+  @media (min-width: 1024px) {
+    .wo-picks .v5-card-grid { grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); }
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title { font-size: clamp(1.9rem, 2.7vw, 2.65rem); line-height: 1.06; }
+  }
   /* Date scopes added from feed.json do not carry Astro's scoped-style marker. */
   @media (min-width: 1024px) {
     .wo-days .wo-day { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
