@@ -1,18 +1,18 @@
 {
-  "generatedAt": "2026-10-03T11:18:09.123Z",
+  "generatedAt": "2026-10-03T12:12:19.417Z",
   "assertedMetrics": [
     "unrecordedSourceUrl",
     "deadSourceUrlCited",
     "staleRedirectCited"
   ],
   "probeRecord": "ops/records/link-health/probe-ledger.json",
-  "citations": 1636,
-  "distinctUrls": 553,
+  "citations": 1637,
+  "distinctUrls": 554,
   "verdictCounts": {
-    "ok": 465,
+    "ok": 466,
     "moved": 16,
-    "blocked": 105,
-    "dead": 36,
+    "blocked": 107,
+    "dead": 37,
     "tls-fault": 3
   },
   "staleness": {
