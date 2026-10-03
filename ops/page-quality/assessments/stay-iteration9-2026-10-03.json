@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "40533cf97e276315a2c1521a8329891b898cb79c",
+  "dependsOn": "Stay iteration8, PR #533, protected deployment 37101480387 and exact public release manifest; public Chromium at 320/390/1440.",
+  "baseline": {
+    "independentReviews": [
+      {
+        "reviewer": "editorial",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 4,
+          "VT3": 3,
+          "VT4": 3,
+          "FN1": 4,
+          "FN2": 2,
+          "FN3": 4,
+          "ET1": 4,
+          "ET2": 4,
+          "ET3": 2,
+          "ET4": 3,
+          "VS1": 3,
+          "VS2": 4,
+          "VS3": 3,
+          "VS4": 3,
+          "VS5": 4,
+          "MI1": 4,
+          "MI2": 3,
+          "MI3": 3,
+          "AT1": null,
+          "AT2": null,
+          "AT3": null,
+          "AT4": 4
+        },
+        "assessedWeight": 87,
+        "assessedPoints": 73.5,
+        "fullScore": null,
+        "unknownCriteria": [
+          "AT1",
+          "AT2",
+          "AT3"
+        ]
+      },
+      {
+        "reviewer": "visual",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 3,
+          "VT3": 3,
+          "VT4": 3,
+          "FN1": 3,
+          "FN2": 2,
+          "FN3": 3,
+          "ET1": 3,
+          "ET2": 4,
+          "ET3": 2,
+          "ET4": 3,
+          "VS1": 3,
+          "VS2": 3,
+          "VS3": 3,
+          "VS4": 4,
+          "VS5": 4,
+          "MI1": 3,
+          "MI2": 3,
+          "MI3": 3,
+          "AT1": null,
+          "AT2": null,
+          "AT3": null,
+          "AT4": 3
+        },
+        "assessedWeight": 87,
+        "assessedPoints": 67.25,
+        "fullScore": null,
+        "unknownCriteria": [
+          "AT1",
+          "AT2",
+          "AT3"
+        ]
+      },
+      {
+        "reviewer": "technical",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 4,
+          "VT3": 2,
+          "VT4": 2,
+          "FN1": 4,
+          "FN2": 2,
+          "FN3": 4,
+          "ET1": 4,
+          "ET2": 3,
+          "ET3": 2,
+          "ET4": null,
+          "VS1": null,
+          "VS2": 4,
+          "VS3": 3,
+          "VS4": 4,
+          "VS5": 4,
+          "MI1": 4,
+          "MI2": 3,
+          "MI3": 3,
+          "AT1": null,
+          "AT2": 4,
+          "AT3": 4,
+          "AT4": 4
+        },
+        "assessedWeight": 85,
+        "assessedPoints": 71.5,
+        "fullScore": null,
+        "unknownCriteria": [
+          "ET4",
+          "VS1",
+          "AT1"
+        ]
+      }
+    ],
+    "fullScore": null,
+    "note": "Three independent reviews of the exact public release. Each reviewer left unsupported criteria unknown and therefore provided no full 100-point score. Points are over assessed rubric weight, not a normalized score. Distinct major gates were reproduced across reviewers."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "At 320/390/1440 the released Stay hub had 26 current listings, functional filters and no horizontal overflow, but Mornington Find stays returned 0 of 26. Linked stay detail pages falsely called fixed unrelated cards Nearby picks and More from the current town. The first guide card promised best places but began with category routes. FAQ schema and visible answers asserted a universal 60-minute Mornington trip and autumn midweek best value without a current source. A later local visual pass found an additional rights/visual leak: the sitewide browser image hydrator painted an uncredited CMS venue image onto a Stay card whose build had rejected that override, leaving an Add photo placeholder watermark over the photograph. Independent QA also found broken Visit Victoria Source links made from asset-reference text and a Polperro CMS-hosted photo without recorded reuse permission.",
+  "hypothesis": "Inventory-aware base actions, place-and-zone ranked Stay comparisons with honest headings, and copy aligned to actual guide contents and verifiable rates will restore truthful decision paths without losing working filters or booking routes. Keeping Stay venue images tied to the vetted build and allowing explicitly rights-verified regional illustrations in comparison cards will remove the misleading, uncredited runtime image without sacrificing useful visual context.",
+  "boundedChange": "Rank current non-spa Stay detail recommendations by same town, then same zone, then same type, with a generic comparison heading. Give Wine a generic heading because its shared template also selects across towns; retain Eat local wording. Make base-card Find stays conditional on current directory inventory, and direct the zero-stock Mornington card to its town page with a clear availability note. Retitle the category-first guide card. Remove unsupported fixed travel-time and seasonal-value claims from visible FAQ and matching JSON-LD. Skip public runtime venue-image hydration on /stay/ pages so the vetted build image and its disclosure stay together. In related Stay cards only, show content illustrations when provenance is verified, rights are recorded and source/licence/credit exist; label them explicitly as illustrative. All Stay detail and related-card heroes now ignore CMS overrides until upload rights evidence is supported. A scoped brand plate replaces visitor-facing Add photo chrome where no approved photo is shown. Only absolute HTTP(S) image source references render as links. Polperro uses an already licensed Peninsula vineyard illustration with explicit not-the-property disclosure.",
+  "metric": "No base-card Find stays link may lead to zero active directory results; all 26 active Stay detail pages must omit false same-town/nearby claims and recommend only current listed stays. Stay hub and detail pages must build, render without overflow at 320/390/1440, and preserve filters, menu, consent, booking and keyboard operation. Independent QA must accept the bounded fixes; exact public release must match the merged SHA and show them. A real published CMS override that lacks rights metadata must not replace the built Stay image on reload. Vetted illustrative comparison photos must load with an explicit not-the-property disclosure and source/licence links; no visible Add photo watermark may sit over a painted photo. No Stay hero may render the old Polperro CMS photo or any uncredited CMS slot; no Visit Victoria asset-reference text may become a clickable Source link.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded Stay journey commit. No data migration or booking endpoint change.",
+  "validation": {
+    "productionBuild": "Final npm run build:search exited 0 on this exact source, including content, rights, claim, SEO, link, schema and style gates; Astro output 1013 HTML files and Pagefind indexed 727 pages.",
+    "settledBrowser": "Final local Chromium acceptance: all 26 active Stay detail routes returned 200 with one H1 and no horizontal overflow at 390px; hub and sampled detail routes had no overflow at 320, 390 or 1440px. Related sections used truthful labels and active links. Mornington no longer offered an empty Find stays route. Sampled Stay imagery retained source-built assets, illustrative disclosures and credits; a synthetic CMS slot was intercepted six times without repainting the vetted image.",
+    "independentReview": "Fresh independent release QA accepted the bounded batch after the complete build and browser checks. It verified all 26 active Stay details, responsive samples, related links, Mornington route, source-link guard, Polperro Commons licence and visible illustrative disclosure. This is a scoped release acceptance, not a full 23-criterion or 99/100 grade.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "False Nearby/More from locality claims on Stay details until public release is verified",
+    "Mornington Find stays empty route until public release is verified",
+    "Full 23-criterion score remains unknown; independent reviewers rated 67.25/87, 71.5/85, 73.5/87 on exact public base",
+    "Direct screen-reader assessment, full image-rights and sources audit, and unresolved first-visit/menu Escape interaction",
+    "Sitewide image-rights conflicts and other recorded cross-page defects",
+    "Newly discovered CMS runtime image override leak until exact public release verification"
+  ],
+  "negativeFindings": [
+    "The prior pagewide Impeccable detector counts of 5 mobile and 15 desktop primary findings are not rubric scores. Several mobile reports concern intentionally offscreen carousel content.",
+    "Technical reviewer measured one synthetic 4G/CPU4 public LCP 1.78s and CLS 0.001; this is a sample, not comprehensive field performance.",
+    "Mornington currently has no active Stay listing. Removing a dead Find stays action does not establish local accommodation availability.",
+    "The guide begins with category choices rather than a ranked property list; its card is retitled to match.",
+    "No new property photograph was adopted because reuse rights and exact subject remain unverified.",
+    "A local screenshot exposed an uncredited CMS image painted at runtime onto a placeholder Stay card, with Add photo still visible; build/source checks alone did not catch it. This reopened the bounded release before publication.",
+    "The old Polperro source image was hosted in CMS assets and credited to the operator, but the record had no documented permission proof; it was replaced, without asserting permanent unavailability.",
+    "Several Visit Victoria sourceUrl fields contain internal asset references rather than web URLs; they remain in source records for audit and are no longer visitor-facing links."
+  ],
+  "nextAction": "Commit and publish the independently accepted bounded change through protected CI, verify exact public SHA and browser behavior, then continue open 23-criterion gates."
+}

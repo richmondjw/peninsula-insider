@@ -210,7 +210,7 @@ const directoryItems = [...sixVenues, ...restVenues].map((v) => {
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
-  { slug: 'best-accommodation', title: 'The best places to stay', verdict: 'Choose a coast, wine-country or thermal base, then compare stay formats.' },
+  { slug: 'best-accommodation', title: 'Choose your stay style', verdict: 'Start with your trip style, then compare hotels, cottages, coast, wine country and thermal stays.' },
   { slug: 'boutique-hotels', title: 'Boutique hotels', verdict: 'Compare a village hotel, vineyard estate and design-led stay.' },
   { slug: 'cottages', title: 'Cottages and B&Bs', verdict: 'Choose a self-contained cottage or a hosted room or suite.' },
   { slug: 'couples-retreats', title: 'Couples’ retreats', verdict: 'Choose a vineyard, thermal or Sorrento stay for a weekend together.' },
@@ -276,16 +276,16 @@ const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Stay', url: absUrl('/stay/') },
 ]);
 
-// FAQ schema retained verbatim from v4 (title/meta/schema unchanged).
+// Keep visible FAQ and schema aligned with current, operator-checkable guidance.
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'Where is the best area to stay on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge suit cellar-door weekends. Check distances and transport between your accommodation and each winery. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Red Hill and Main Ridge suit cellar-door weekends; check distances between your stay and each winery. Sorrento and Rye suit coastal village days. Mornington offers a northern town base, but our current directory has no Mornington stay listings. Compare actual addresses and transport for the places you plan to visit.' } },
     { '@type': 'Question', name: 'How much does accommodation cost on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Rates vary by property, room, dates and inclusions. Compare live quotes for the same dates directly with operators, including meals, bathing access and cancellation terms. This directory does not publish a reliable current price for every stay.' } },
     { '@type': 'Question', name: 'Is one night enough on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Choose a base close to the one or two activities you can realistically fit in.' } },
   ],
 };
 export const prerender = true;
@@ -411,7 +411,7 @@ export const prerender = true;
     items={journalItems}
   />
 
-  <!-- 7. FAQ: retained from v4, in-DOM, schema above -->
+  <!-- 7. FAQ: visible answers and schema share the same source above -->
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">

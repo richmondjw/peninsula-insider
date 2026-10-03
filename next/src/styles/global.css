@@ -1260,6 +1260,11 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   text-transform: uppercase;
   color: var(--soft);
 }
+/* A missing Stay photograph is an editorial plate, never a public CMS prompt. */
+body[data-page="stay"] .venue-card__hero--placeholder { background: linear-gradient(145deg, #edf3f0, #dceae5); }
+body[data-page="stay"] .venue-card__hero--placeholder::before { content: 'PI'; width: auto; height: auto; background: none; opacity: 1; color: #0b2e4a; font: 600 2.5rem/1 var(--font-display); }
+body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsula Insider'; color: #315c60; font-size: .75rem; letter-spacing: .08em; }
+
 .venue-card > .venue-card__top,
 .venue-card > .venue-card__name,
 .venue-card > .venue-card__place,

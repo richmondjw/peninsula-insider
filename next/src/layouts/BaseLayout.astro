@@ -502,6 +502,9 @@ const showNewsletterPopup = !isPlanningJourney && normalizedPath !== '/stay/' &&
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
+            // Stay images are rendered through the vetted build resolver.
+            // Browser swaps can bypass the rights and disclosure shown beside them.
+            if (window.location.pathname.startsWith('/stay/') && slot.entity_type === 'venue') return;
             var slotKey = slot.entity_type + '/' + slot.entity_slug;
             if (__IMAGE_QUARANTINE.some(function (entry) {
               return entry.key === slotKey &&
