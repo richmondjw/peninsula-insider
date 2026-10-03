@@ -5,15 +5,53 @@ Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
+The Peninsula, in motion   spring edition
+
 # What's on this weekend
 
-Fri 2 – Sun 4 October  · spring on the Peninsula
+Fri 2 – Sun 4 October  · Mornington Peninsula
 
-Browse events by date, then check the organiser before you go.
+A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.
 
-This calendar includes Friday to Sunday. Ongoing listings show their full run; check opening days with the organiser.
+Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+Mornington Farmers' Market, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+The short list / Fri 2 – Sun 4 October
+
+## Three reasons to go
+
+Our edit of the weekend. Open an event for the details, then confirm with its organiser.
+
+- ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
+
+Sat, 3 Oct   Mornington   Exhibitions
+
+- Photo: Peninsula Insider.
+
+### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+
+Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
+
+Sat, 3 Oct   Mornington   Kids & Family
+
+- Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
+
+Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
+
+Sun, 4 Oct   Fingal   Live Music
+
+ [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
+
+Make a day of it
 
 ## Everything on, by day
+
+Browse by date and save what catches your eye.
 
 ### Saturday 3 October
 
@@ -102,28 +140,6 @@ Mornington · Kids & Family · Recurring weekly
 Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
 
 12pm · Fingal · Live Music · Recurring weekly
-
-## PI's picks
-
-Selected events for this weekend. Check the organiser for the latest details.
-
-- ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
-
-Sat, 3 Oct   Mornington   Exhibitions
-
-- ### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
-
-Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
-
-Sat, 3 Oct   Mornington   Kids & Family
-
-- ### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
-
-Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
-
-Sun, 4 Oct   Fingal   Live Music
 
 ## Browse the next two months
 
