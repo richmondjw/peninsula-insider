@@ -1,28 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T15:37:38.830Z",
+  "generatedAt": "2026-10-03T16:13:24.135Z",
   "baselineAvailable": true,
-  "fromSnapshot": "fbbd7fcd7d6f29eed4a07a51742b3fdfbf03a0335cd911cec232febdb7b23baa",
-  "toSnapshot": "11719762693647c9a19c573d8cd098ef79e4928cdcd3be1b7565a214a3e9b974",
-  "previousGeneratedAt": "2026-10-03T15:16:31.377Z",
+  "fromSnapshot": "11719762693647c9a19c573d8cd098ef79e4928cdcd3be1b7565a214a3e9b974",
+  "toSnapshot": "cec339d1b7a7bd1ddf39f845db49311bacfecedb9ec17eb14bd01a66ae488850",
+  "previousGeneratedAt": "2026-10-03T15:37:38.830Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/tootgarook/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/index.md",
-      "contentSha256": "8b76728047cdae6c507d7e743a6d7587a57cc6f03b83bd0c8f240d8c8be20704",
-      "previousContentSha256": "9e21047c3a289f662f5ae92edf3bd6bd5212472830db8d0e8ccb3c419d5cb9fd"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "cabd315e049b5e16d0b89564772db841684a28c90b90a2be23edd0914d5ced54",
-      "previousContentSha256": "9b306c7c6c9eac8ae4246d230baf5aba388f7493ef461d606dd7177cf9175c78"
+      "contentSha256": "3f6818ab3c48a7d7ff237c6bcc991b189ab702f3f90a7196dac447d4e78c21a7",
+      "previousContentSha256": "cabd315e049b5e16d0b89564772db841684a28c90b90a2be23edd0914d5ced54"
     }
   ]
 }
