@@ -33,3 +33,13 @@ body .pi-conditions__inner,body .v5-breadcrumbs__container{width:min(1280px,calc
 @media(max-width:767px){body .pi-conditions__inner,body .v5-breadcrumbs__container{width:calc(100% - 32px)}}
 
 /* JavaScript-disabled navigation fallback is in V5Masthead.astro. Keep the compact mobile header stable before its script binds. */
+
+/* Keep footer copy legible at every width and mobile navigation labels readable. */
+.pi-shell.footer .footer-links h2{font-size:12px;line-height:1.5}
+.pi-shell.footer .footer-links .footer-play{font-size:12px;gap:8px}
+.pi-shell.footer .legal-links{font-size:12px}
+.pi-shell.footer .legal-links a{min-height:44px}
+.pi-shell.footer .footer-bottom>p{font-size:12px;line-height:1.6}
+@media(max-width:767px){
+  .pi-shell .site-nav .mobile-search,.pi-shell .site-nav .mobile-note{font-size:12px}
+}

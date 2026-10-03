@@ -42,7 +42,7 @@
     "productionBuild": "Final npm run build:search passed from the corrected source, including Astro, all content/style/rights/link/schema/claim gates, and Pagefind indexing 727 pages. Focused test:media-provenance passed 36 tests; test-facets passed; emma-ui-render passed six rendered tests.",
     "independentReview": "Independent source reviewer checked the operator offerings, rights and current Driftaway 404. Independent QA found and then accepted corrections to stale guide copy, Iluka/Mantons pins and empty GeoCoordinates, Driftaway CMS image, and Mantons taxonomy. At 320/390/1440 the reviewer found no bounded release blocker. This is not a full 23-criterion score.",
     "settledBrowser": "Final local Chromium at 1440, 390 and 320: /stay/ returned 200 with 26 current stays, Accommodation filter and Driftaway excluded; four affected details returned 200 with intended loaded illustration, source/licence link, visible disclosure, matching OG and zero horizontal overflow. Three active pages used current operator booking targets; Driftaway remained noindex with no own booking or LodgingBusiness. Generated JSON-LD omits geo for Iluka/Mantons, retains valid Kanasta geo.",
-    "liveAcceptance": "pending CI, merge, exact public revision and browser check"
+    "liveAcceptance": "PR #532 merged as b49022dae66e6c2c6f48f9cdeb2915927087d02f. Protected deployment run 37097931772 passed; public release manifest matched exact source SHA and run. Public Chromium at 390/1440 returned 200 for /stay/ and four affected details, with 26 active stays, loaded images, disclosed illustrations, no horizontal overflow, Driftaway noindex/no own booking/no LodgingBusiness, and active operator booking actions. Public JSON-LD omitted unsupported geo for Iluka/Mantons and kept valid Kanasta coordinates."
   },
   "sourceCoverage": {
     "activeStayListings": 26,
@@ -70,5 +70,5 @@
     "The three replacement regional images do not depict the named properties and are visibly labelled as illustrations.",
     "Removing unverified Iluka and Mantons coordinates initially left empty GeoCoordinates objects in LodgingBusiness JSON-LD; the independent reviewer caught this before release."
   ],
-  "nextAction": "Submit this reviewed batch through protected CI, merge, verify the exact public revision and affected pages, then continue visual, rights, accessibility, consent and performance gates before full scoring."
+  "nextAction": "Live batch6 accepted. Continue rendered mobile readability, density, navigation and footer fixes in batch7; then independently review, build, release and verify. Full 23-criterion score remains unestablished."
 }
