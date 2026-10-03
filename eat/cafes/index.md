@@ -59,7 +59,7 @@ slow  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/somers-general/>) [Book](<https://www.thesomersgeneral.com.au/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/cafes/Victoria%20Content%20Hub%20asset%2025061243,%20downloaded%202026-09-28>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

@@ -35,7 +35,7 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) [Book](<https://www.tedesca.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/paddock-to-plate/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -75,7 +75,7 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/paddock-to-plate/Victoria%20Content%20Hub%20asset%20160006,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -113,7 +113,7 @@ long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/paddock-to-plate/Victoria%20Content%20Hub%20asset%20161021,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -139,7 +139,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/paddock-to-plate/Victoria%20Content%20Hub%20asset%2025061243,%20downloaded%202026-09-28>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

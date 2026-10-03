@@ -149,7 +149,7 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -163,7 +163,7 @@ anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
-Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

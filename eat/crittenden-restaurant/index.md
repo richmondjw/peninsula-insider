@@ -93,7 +93,7 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/crittenden-restaurant/Victoria%20Content%20Hub%20asset%20164290,%20downloaded%202026-09-28>)
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

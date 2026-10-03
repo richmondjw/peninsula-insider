@@ -9,31 +9,35 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Orchard Luxury Accommodation
 
-Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
+Three rammed-earth apartments on ten acres in Red Hill South, each with a spa bath and a private deck overlooking the lake and valley.
 
-Known for   Three self-contained rammed-earth apartments on ten acres in Red Hill South wine country In-room spa baths and infrared sauna, both uncommon at this price point Lake and valley views from all units Small dogs welcome with an additional fee Host Frank Haddy's direct mobile on the website, a genuinely reachable host
+Known for   Three self-contained rammed-earth apartments Spa baths and private decks Lake and valley views Host contact on the operator website
+
+[Check availability](<https://www.the-orchard.com.au/>)
 
 The Orchard Luxury Accommodation · Red Hill
 
+Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
+Illustrative image  This image shows Mornington Peninsula vineyard landscape. It does not depict The Orchard Luxury Accommodation.
+
 Why we’d go
 
-The rammed-earth architecture and the in-room spa baths put this well above most $$ cottage options in the hinterland, and the host is a phone call away, not a chatbot.
+A rammed-earth apartment with a private deck and spa bath, looking across a quiet ten-acre property.
 
-The Orchard Red Hill is run by Helen and Frank Haddy on ten acres in Red Hill South, positioned inside the wine country corridor rather than adjacent to it. The three apartments are built from rammed earth, which keeps the interiors cool in summer and quieter than you'd expect given how close the main cellar-door route is. Each unit has an in-room spa bath and access to an infrared saura, both of which put the property well above the standard hinterland cottage offer at this price point.
+The Orchard has three apartments, Apple, Cherry and Olive, on a ten-acre Red Hill South property. Each has a separate entrance, rammed-earth walls, a spa bath and a private deck overlooking the lake and valley. Choose the apartment layout that suits your stay rather than assuming every extra is the same.
 
-Views run to the lake and valley, and small dogs are welcome with an additional fee. Frank's direct mobile number is on the website, use it to confirm the current breakfast hamper inclusion before you book, as this has been listed as unconfirmed and is worth clarifying directly. The host accessibility alone is worth noting: at most comparable properties you're dealing with a booking platform, not a person.
-
-Check for current rates and availability through the website or by calling Frank directly.
+The operator site invites guests to contact Frank directly and asks visitors to enquire before bringing a dog. Confirm current availability, dog terms and any extras with the host before booking.
 
 Worth knowing
 
 **Best for**
 
-Couples · Wellness day · Cellar door visits · Budget stays · Dog-friendly stays
+Couples · Wellness day · Cellar door visits · Dog-friendly stays
 
 If you only do one thing
 
-Call Frank before you book to confirm the breakfast hamper and dog policy, then book the infrared sauna session for your first morning.
+Choose Apple, Cherry or Olive, then confirm current dog terms and stay inclusions with Frank before booking.
 
 Works well with
 
@@ -49,7 +53,11 @@ Cottage
 
 **Location**
 
-Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Orchard%20Luxury%20Accommodation%2C%20Red%20Hill%20South%20VIC%203937>)
+45 Thomas Road, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Orchard%20Luxury%20Accommodation%2C%2045%20Thomas%20Road%2C%20Red%20Hill%20South%20VIC%203937>)
+
+**Website**
+
+[www.the-orchard.com.au](<https://www.the-orchard.com.au/>)
 
 **Directions**
 
@@ -57,7 +65,9 @@ Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Orchard%20Luxury%20Accommodation%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Orchard%20Luxury%20Accommodation%2C%2045%20Thomas%20Road%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+
+ [Book now](<https://www.the-orchard.com.au/>)
 
 Not sure how to build a day around The Orchard Luxury Accommodation?
 
@@ -116,6 +126,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=the-orchard-red-hill>)
 

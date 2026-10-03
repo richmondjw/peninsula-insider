@@ -193,7 +193,7 @@ slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/dexter-wines/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -255,7 +255,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -281,7 +281,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20160006,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -313,11 +313,11 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
+Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an indoor spa bath.
 
 cellar door  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) [View stay](<https://www.airbnb.com/rooms/12077435>)
 
 Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
@@ -331,7 +331,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -417,7 +417,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -479,7 +479,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%2025061243,%20downloaded%202026-09-28>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -493,7 +493,7 @@ slow  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -531,7 +531,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20159902,%20downloaded%202026-09-28>)
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -655,7 +655,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) [Book](<https://www.prancinghorseestate.com/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20163850,%20downloaded%202026-09-28>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -681,7 +681,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) [Book](<https://quealy.com.au/pages/cellar-door>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20161950,%20downloaded%202026-09-28>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -695,7 +695,7 @@ long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20161021,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -721,7 +721,7 @@ slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-Photo: Peter Tarasiuk, courtesy of Visit Victoria
+Photo: Peter Tarasiuk, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/Victoria%20Content%20Hub%20asset%20143785,%20downloaded%202026-09-28>)
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -849,13 +849,13 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 
-Red Hill South VIC 3937
+45 Thomas Road, Red Hill South VIC 3937
 
-Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
+Three rammed-earth apartments on ten acres in Red Hill South, each with a spa bath and a private deck overlooking the lake and valley.
 
 cellar door  wellness
 
-[Read notes](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
+[Read notes](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) [View stay](<https://www.the-orchard.com.au/>)
 
 Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

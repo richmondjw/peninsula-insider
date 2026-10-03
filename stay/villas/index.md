@@ -59,7 +59,7 @@ anniversary  waterfront
 
 Alba’s villas pair a stay with the thermal springs. At Cassis, only the Retreat and Cottage list mineral plunge pools; the other three villas list outdoor baths.
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/villas/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -109,7 +109,7 @@ Alba describes bathing on each day of a Sanctuary stay and one upgrade to a sepa
 
 [Compare all accommodation formats](<https://peninsulainsider.com.au/stay/best-accommodation/>) if a villa is only one option for your trip.
 
-Researched from published sources. Every venue listed was reviewed May 2026 or later.
+Researched from published sources. Every venue listed was fact-checked October 2026 or later.
 
 ## The Insider Note
 

@@ -41,7 +41,7 @@ big group  garden
 
 [Read notes](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) [Book](<https://mpbrew.com.au/>)
 
-Photo: Peter Tarasiuk, courtesy of Visit Victoria
+Photo: Peter Tarasiuk, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/breweries/Victoria%20Content%20Hub%20asset%20143785,%20downloaded%202026-09-28>)
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -55,7 +55,7 @@ cellar door  garden
 
 [Read notes](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/breweries/Victoria%20Content%20Hub%20asset%20168568,%20downloaded%202026-09-28>)
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 

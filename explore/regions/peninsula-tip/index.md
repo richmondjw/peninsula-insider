@@ -91,7 +91,7 @@ beach  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
-Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -201,7 +201,7 @@ family  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) [Book](<https://hotelsorrento.com.au/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/Victoria%20Content%20Hub%20asset%20168568,%20downloaded%202026-09-28>)
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
@@ -239,7 +239,7 @@ waterfront  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) [Book](<https://thebaths.com.au/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

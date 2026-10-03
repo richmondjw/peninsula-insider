@@ -215,7 +215,7 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
-Photo: Robert Blackburn, courtesy of Visit Victoria
+Photo: Robert Blackburn, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/Victoria%20Content%20Hub%20asset%20143094,%20downloaded%202026-09-28>)
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -241,7 +241,7 @@ quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/Victoria%20Content%20Hub%20asset%2025061243,%20downloaded%202026-09-28>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

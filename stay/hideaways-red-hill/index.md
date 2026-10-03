@@ -9,23 +9,25 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Hideaways at Red Hill
 
-Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
+Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an indoor spa bath.
 
-Known for   In-Room Spa Baths Gas Fireplace Cottages Walk to Red Hill Village Wine-Country Walking Distance
+Known for   Woodland Cottage for two Indoor spa bath Red Hill wine-country base
 
-+61 3 5989 2288
+[Check availability](<https://www.airbnb.com/rooms/12077435>)
 
 Hideaways at Red Hill · Red Hill
 
+Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
+Illustrative image  This image shows Mornington Peninsula vineyard landscape. It does not depict Hideaways at Red Hill.
+
 Why we’d go
 
-The hinterland wine-country cottage position at a price below the estate villas, spa bath, gas fire, and the Saturday market on foot.
+A Red Hill guest suite for two with an indoor spa bath and easy access by car to wine-country stops.
 
-Spa cottages for two with gas fires and in-room spa baths, within walking distance of Red Hill village and the surrounding cellar door cluster. The wine-country position is the primary argument: the cellar doors are within easy driving in every direction, and the format is right for a couple whose trip is shaped around the hinterland rather than the beach.
+The current host listing describes Woodland Cottage as a guest suite for two in Red Hill, with an indoor spa bath and a recently refreshed bedroom and bathroom layout. It is a guest-suite base for a wine-country visit; allow for travel between the property and cellar doors.
 
-The gas fire and spa bath combination puts this in direct competition with the estate villas on the ridge, but at a price point that gives you more budget for the cellar doors and lunches. It is not trying to be a resort property; it is trying to be the hinterland cottage that makes the wine-country weekend work without the premium accommodation bill.
-
-Older reviews note occasional housekeeping inconsistencies, worth confirming current condition via recent reviews or a direct call before booking.
+This listing establishes Woodland Cottage, not every cottage formerly associated with Hideaways. Check the live listing and ask the host about the exact unit, amenities and access before booking.
 
 Worth knowing
 
@@ -35,13 +37,13 @@ Cellar door visits · Couples · Weekend escapes · Anniversary weekends
 
 If you only do one thing
 
-Call ahead to confirm current housekeeping standards, older reviews flag inconsistency that may have been resolved.
+Check the current Woodland Cottage listing and confirm the exact unit and amenities with the host.
 
 Works well with
 
 Red Hill Estate · Main Ridge Estate
 
-Filed under   Cellar Door Romance Slow Fireplace Autumn Winter Spring Couples
+Filed under   Cellar Door Romance Slow Autumn Winter Spring Couples
 
 At a glance
 
@@ -53,13 +55,9 @@ Cottage
 
 Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Hideaways%20at%20Red%20Hill%2C%20Red%20Hill%20VIC%203937>)
 
-**Call**
-
-+61 3 5989 2288
-
 **Website**
 
-[www.tripadvisor.com/Hotel\_Review-g552249-d1437809-Reviews-Hideaways\_at\_Red\_Hill-Red\_Hill\_Mornington\_Peninsula\_Victoria.html](<https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html>)
+[www.airbnb.com/rooms/12077435](<https://www.airbnb.com/rooms/12077435>)
 
 **Directions**
 
@@ -68,6 +66,8 @@ Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destin
 **Live status**
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Hideaways%20at%20Red%20Hill%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+
+ [Book now](<https://www.airbnb.com/rooms/12077435>)
 
 Not sure how to build a day around Hideaways at Red Hill?
 
@@ -126,6 +126,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=hideaways-red-hill>)
 

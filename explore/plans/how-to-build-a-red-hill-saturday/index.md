@@ -81,7 +81,7 @@ Places in this plan
 
 ## Worth knowing before you go.
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

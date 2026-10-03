@@ -29,7 +29,7 @@ The first decision
 
 Choose the room, dining and service together. Confirm restaurant reservations separately.
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -43,7 +43,7 @@ anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -105,7 +105,7 @@ anniversary  waterfront
 
 Alba offers on-site thermal bathing. At Cassis, two villas have mineral plunge pools and three have outdoor baths.
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -137,7 +137,7 @@ anniversary  romance
 
 A Sorrento hotel gives a different pace from the wine-country estates.
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -151,7 +151,7 @@ weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
 
-Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

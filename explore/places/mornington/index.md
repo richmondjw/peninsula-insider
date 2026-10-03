@@ -121,7 +121,7 @@ Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star r
 
  [More to eat in Mornington →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/mornington/Victoria%20Content%20Hub%20asset%20159175,%20downloaded%202026-09-28>)
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -147,7 +147,7 @@ slow  solo
 
 [Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
 
-Photo: Robert Blackburn, courtesy of Visit Victoria
+Photo: Robert Blackburn, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/mornington/Victoria%20Content%20Hub%20asset%20143094,%20downloaded%202026-09-28>)
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

@@ -17,7 +17,7 @@ Known for   Sorrento clifftop location Restored Classic rooms Adults-only guest 
 
 Hotel Sorrento · Sorrento
 
-Exterior photographed in 2006. Photo · Biatch / Wikimedia Commons (public domain)
+Exterior photographed in 2006. Photo · Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
 Why we’d go
 

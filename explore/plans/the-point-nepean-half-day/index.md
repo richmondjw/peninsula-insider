@@ -109,7 +109,7 @@ long lunch  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/eat/portsea-hotel/>) [Book](<https://www.portseahotel.com.au/>)
 
-Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -123,7 +123,7 @@ weekend escape  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

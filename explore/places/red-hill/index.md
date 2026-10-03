@@ -133,7 +133,7 @@ Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star r
 
  [More to eat in Red Hill →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -147,7 +147,7 @@ anniversary  first date
 
 [Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -161,7 +161,7 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%20160006,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -249,13 +249,13 @@ Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Red Hill VIC 3937
 
-Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
+Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an indoor spa bath.
 
 cellar door  romance
 
-[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) [View stay](<https://www.airbnb.com/rooms/12077435>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

@@ -17,7 +17,7 @@ Known for   Heritage and contemporary rooms CeeCee's breakfast Guest pool deck S
 
 InterContinental Sorrento · Sorrento
 
-Photo · Courtesy of Visit Victoria
+Photo · Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/the-continental-sorrento/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
 
 Why we’d go
 

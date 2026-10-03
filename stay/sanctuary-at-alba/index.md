@@ -17,7 +17,7 @@ Known for   On-site Alba stay Villas and premium rooms Daily springs entry Break
 
 The Sanctuary at Alba · Fingal
 
-Photo · Courtesy of Visit Victoria
+Photo · Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
 
 Illustrative image  This image shows the Alba Thermal Springs estate in Fingal. It does not depict The Sanctuary at Alba.
 
@@ -132,6 +132,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Fingal - view the destination guide](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=sanctuary-at-alba>)
 

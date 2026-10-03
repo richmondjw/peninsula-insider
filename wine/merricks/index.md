@@ -155,7 +155,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/paradigm-hill/>) [Book](<https://www.paradigmhill.com.au/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/merricks/Victoria%20Content%20Hub%20asset%20163850,%20downloaded%202026-09-28>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

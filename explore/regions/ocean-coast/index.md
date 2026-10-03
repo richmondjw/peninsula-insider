@@ -251,7 +251,7 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/ocean-coast/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

@@ -23,7 +23,7 @@ This month’s prize. Find PI before sunset and go in the draw for $250 to dine 
 
 Doot Doot Doot · Red Hill
 
-Photo · Peter Foster, courtesy of Visit Victoria
+Photo · Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/doot-doot-doot/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
 
 Illustrative image  This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.
 
@@ -165,7 +165,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/doot-doot-doot/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

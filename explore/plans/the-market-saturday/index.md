@@ -143,7 +143,7 @@ Places in this plan
 
 ## Worth knowing before you go.
 
-Photo: Robert Blackburn, courtesy of Visit Victoria
+Photo: Robert Blackburn, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/Victoria%20Content%20Hub%20asset%20143094,%20downloaded%202026-09-28>)
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -157,7 +157,7 @@ slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-Photo: Peter Tarasiuk, courtesy of Visit Victoria
+Photo: Peter Tarasiuk, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/Victoria%20Content%20Hub%20asset%20143785,%20downloaded%202026-09-28>)
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

@@ -131,7 +131,7 @@ slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

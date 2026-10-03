@@ -61,7 +61,7 @@ family  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/rye-beachside-market/Victoria%20Content%20Hub%20asset%20168568,%20downloaded%202026-09-28>)
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 

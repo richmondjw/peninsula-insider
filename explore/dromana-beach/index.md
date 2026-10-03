@@ -67,7 +67,7 @@ fireplace  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [View stay](<https://www.birchcreek.com.au/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/dromana-beach/Victoria%20Content%20Hub%20asset%20164290,%20downloaded%202026-09-28>)
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

@@ -157,7 +157,7 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 

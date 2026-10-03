@@ -121,7 +121,7 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/mornington-farmers-market/Victoria%20Content%20Hub%20asset%20159175,%20downloaded%202026-09-28>)
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

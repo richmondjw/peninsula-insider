@@ -205,7 +205,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

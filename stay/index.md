@@ -299,6 +299,8 @@ Villas and rooms above Alba springs with daily bathing.
 
 Villa   Fingal   Couples
 
+Details checked October 2026
+
 [Visit website](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
 - ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
@@ -333,6 +335,8 @@ Adults-only vineyard villas with plunge pools or outdoor baths.
 
 Villa   Red Hill   Couples
 
+Details checked October 2026
+
 [Check availability](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
 - ### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
@@ -341,7 +345,9 @@ Red Hill spa cottages for two, near the village.
 
 Cottage   Red Hill   Couples
 
-[Visit website](<https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html>)
+Details checked October 2026
+
+[Visit website](<https://www.airbnb.com/rooms/12077435>)  Opens Airbnb
 
 - ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
@@ -359,7 +365,9 @@ Rammed-earth Red Hill apartments with in-room spa baths.
 
 Cottage   Red Hill   Dog-friendly
 
-[View details](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
+Details checked October 2026
+
+[Visit website](<https://www.the-orchard.com.au/>)
 
 - ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 

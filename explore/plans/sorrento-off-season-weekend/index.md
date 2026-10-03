@@ -159,7 +159,7 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Courtesy of Visit Victoria
+Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
