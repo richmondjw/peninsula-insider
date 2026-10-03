@@ -166,3 +166,21 @@ with verified provenance and geo-location.
 - **Licence:** This work has been released into the public domain by its author, Biatch at English Wikipedia. This applies worldwide.
 - **Original:** https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg
 - **Used for:** Historical exterior on Hotel Sorrento pages and cards. The property has since been renovated.
+
+## place-balnarring-beach-public-domain.webp
+- **Source:** Balnarring Beach, Victoria, Australia
+- **Photographer:** Honk squeak
+- **Licence:** Public domain dedication by the author
+- **Original:** https://commons.wikimedia.org/wiki/File:Balnarring_Beach,_Victoria,_Australia.jpg
+- **Original SHA-1:** af3981614575841efa59ba9f24232bd1115970bd
+- **Adaptation:** Resized to 1600px and converted to WebP.
+- **Used for:** Illustrative Balnarring Beach setting on /stay/happy-glamper/, not a photograph of the tent.
+
+## place-devilbend-lake-cc-by-sa-4.webp
+- **Source:** Devilbend lake
+- **Photographer:** Smartiejl
+- **Licence:** CC-BY-SA-4.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg
+- **Original SHA-1:** da8684e046472dd95387d96fc9d3ed8f262507b7
+- **Adaptation:** Resized to 1600px and converted to WebP; derivative remains under CC BY-SA 4.0.
+- **Used for:** Illustrative nearby Moorooduc lake landscape on /stay/woodman-estate/, not Woodman Estate or its lake.

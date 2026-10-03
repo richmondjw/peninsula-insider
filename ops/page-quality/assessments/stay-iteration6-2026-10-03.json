@@ -1,0 +1,77 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "0ad04a525460b3a7ea2fb6bcb863e3422a9f7629",
+  "dependsOn": "PR 530 live acceptance verified by exact public manifest and browser.",
+  "baseline": {
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "note": "Earlier visual baseline on an older revision; no current full 23-criterion score."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "Happy Glamper was represented as a fixed Merricks stay even though its general tent service travels to guest-selected sites. Its Balnarring Deluxe fee and seasonal terms were mixed with general tent hire, and the Peninsula Hot Springs extra was given an unsupported old name. Woodman Estate chalet copy asserted over-water construction, daily housekeeping, breakfast delivery and rowboat access, while omitting shared grounds, limited Wi-Fi and a kitchenette without stove or oven.",
+  "hypothesis": "Anchor each page to a current bookable accommodation format, identify inclusions and shared space before the visitor leaves for booking, and remove unsupported benefits to improve decision trust.",
+  "boundedChange": "Reframe Happy Glamper as the named Balnarring Deluxe tent at Balnarring Foreshore Reserve and remove the false Merricks point; describe the separate campground booking needed for other mobile setups. Reframe Woodman as separately bookable lakeside chalets, link the current manager and one chalet booking page, identify shared estate grounds and the separate whole-estate option, and remove unsupported amenities. Review hero images separately before release. Replace the two mismatched and inadequately credited vineyard fallbacks with source-hash-verified Balnarring Beach and Devilbend Reservoir photographs. Label both as regional illustrations rather than property photos, expose photographer, source and licence links, and reject uncredited CMS hero overrides on these two pages, cards and social images. Set the Balnarring Beach tent zone to Western Port; the existing Balnarring place page remains under Red Hill and Merricks, a cross-taxonomy issue for a later place-model review.",
+  "sources": [
+    "https://www.happyglamper.com.au/about/",
+    "https://www.happyglamper.com.au/campsite",
+    "https://www.happyglamper.com.au/5m-balnarring-deluxe",
+    "https://www.happyglamper.com.au/appointments-4",
+    "https://peninsulagroupstays.com.au/properties/chalet-un/",
+    "https://peninsulagroupstays.com.au/properties/chalet-3/",
+    "https://peninsulagroupstays.com.au/properties/woodman-estate-2/",
+    "https://commons.wikimedia.org/wiki/File:Balnarring_Beach,_Victoria,_Australia.jpg",
+    "https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg",
+    "https://creativecommons.org/licenses/by-sa/4.0/"
+  ],
+  "metric": "After release, 23 of 27 Stay listings will have dated operator or manager checks. Seven newly cited source URLs were fetched and recorded ok. The two pages will present correct product scope, booking route, inclusions and exclusivity conditions. The two hero fallbacks will display visible source and rights information rather than the incomplete CMS images.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded content and evidence commit; no migration.",
+  "validation": {
+    "contentSchema": "passed",
+    "houseStyle": "passed, including no-price and firsthand-claim gates",
+    "linkHealth": "Seven new operator and manager URLs plus image source/licence URLs probed. Offline assert:link-health passed with zero unrecorded citations; one previously ratcheted dead event URL remains outside scope.",
+    "productionBuild": "Final npm run build:search passed on the corrected Western Port source. The full content, schema, licence, image-rights, link-health, media-provenance, claim and SEO gates passed; Pagefind indexed 728 pages.",
+    "independentRegrade": "Independent bounded reviewer confirmed operator details, booking destinations, inclusion distinctions and source-image rights. They downloaded both Commons originals, matched their SHA-1 values, visually compared the WebPs, found the first-build CMS override defect, then confirmed the corrected rendered heroes, credits, source/licence links, disclosures and social images. They separately recounted 27 Stay records, 21 qualifying source receipts at HEAD and 23 in this set. No bounded release blocker remained. This is not a full 23-criterion score.",
+    "settledBrowser": "Local Chromium on final rendered source: both /stay/happy-glamper/ and /stay/woodman-estate/ returned 200 at 390px and 1440px. Each loaded the intended local WebP with author/title/adaptation credit, working Source and Licence links, one visible illustrative disclosure, matching OG image and exact named-product booking target. At 320px both loaded without horizontal overflow. The Stay directory remains 27 records.",
+    "liveAcceptance": "pending CI, merge and exact public revision check",
+    "mediaRights": "Balnarring Beach original SHA-1 af3981614575841efa59ba9f24232bd1115970bd is public domain per Commons; Devilbend lake original SHA-1 da8684e046472dd95387d96fc9d3ed8f262507b7 is CC BY-SA 4.0. Both originals visually match optimized WebPs. Source ledger was refreshed; venue records show authors, source and licence destinations, modification, and explicit non-property illustrations. Scoped CMS guard and rendered disclosure were confirmed in the final build and browser. Future overrides with alt and credit still need a rights evidence slot."
+  },
+  "sourceCoverage": {
+    "totalStayListings": 27,
+    "withDatedCheckAfterSet": 23,
+    "withoutDatedCheck": [
+      "driftaway-on-dundas",
+      "iluka-retreat",
+      "kanasta-retro-caravans",
+      "mantons-creek-estate"
+    ]
+  },
+  "hardGatesOpen": [
+    "Four Stay listings still lack dated operator source checks after this set",
+    "Current Hotel Sorrento decision imagery and full image-rights review remain open",
+    "Actual property photographs for Happy Glamper and Woodman remain unavailable with established reuse rights; current regional illustrations are a disclosed fallback",
+    "Shared place-red-hill-01.webp has unverified rights and remains in other site content",
+    "CMS overrides still lack a full image-rights evidence slot",
+    "Direct assistive-technology review, production performance and full independent three-reviewer 23-criterion regrade remain open",
+    "Balnarring Beach needs a distinct place taxonomy or an explicit service-area model; the current Balnarring place reference groups the beach stay under Red Hill and Merricks."
+  ],
+  "negativeFindings": [
+    "Happy Glamper is a mobile service based on the Peninsula; Merricks was not a verified accommodation address. The Balnarring Deluxe option has a named campsite and included site fee, so the Stay record now points to that product and omits coordinates.",
+    "Other Happy Glamper campsite stays require a separately booked and paid campsite. The operator page lists an optional Bath House pass, not the former Spa Dreaming Centre wording.",
+    "Woodman chalet bookings share the 50-acre estate grounds with other accommodations. The manager lists limited Wi-Fi and no stove or oven in the chalet.",
+    "Woodman manager pages do not list daily housekeeping, delivered breakfast or a rowboat as chalet inclusions. The current booking page describes chalets at the waters edge, not constructed over the lake.",
+    "Both old hero images were unrelated vineyard scenes. The Happy Glamper credit disagreed with LICENSES.md; Woodman had no matching source entry. They were replaced with hash-verified, visibly disclosed regional photographs. Neither replacement depicts the accommodation.",
+    "The first rendered build still used CMS overrides with generic alt and no source/credit, hiding both licensed fallbacks. Extended the existing three-path metadata guard to these two venues; final rendered acceptance is pending.",
+    "The prior ocean-coast and draft bay-coast zone labels did not describe Balnarring Beach. Western Port is the geographic coast; the Balnarring place reference is still grouped with Red Hill and Merricks in the place taxonomy.",
+    "Coverage is counted from the 27 actual listable Stay records, requiring an attributable editorialProvenance.source and a reviewedOn or checkedOn date of 2026-09-30 or later. The last live release had 21; this set brings it to 23 if published. Four records have no such source receipt. Several public lastVerified fields still predate their source reviews and need separate reconciliation."
+  ],
+  "nextAction": "Submit this bounded set through required CI, merge, verify the exact public revision and two detail pages; then source-check the four Stay records without a dated receipt, reconcile stale public verification dates, image rights and Balnarring place taxonomy."
+}

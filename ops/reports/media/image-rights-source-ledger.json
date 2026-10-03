@@ -4,17 +4,17 @@
   "what": "One row per distinct original URL in LICENSES.md, as this probe read it on the date above.",
   "caveat": "A matching licence means the source names that grant today. It is not a check that the file in public/images/sourced is the file at that URL, and it is not permission to publish.",
   "totals": {
-    "urls": 25,
-    "ok": 25,
+    "urls": 27,
+    "ok": 27,
     "moved": 0,
     "blocked": 0,
     "dead": 0,
     "unknown": 0,
-    "licenceMatches": 22,
+    "licenceMatches": 24,
     "licenceDiffers": 1,
     "licenceNotComparable": 2,
-    "creatorExact": 15,
-    "creatorContains": 5,
+    "creatorExact": 16,
+    "creatorContains": 6,
     "creatorNotEstablished": 5
   },
   "rows": [
@@ -35,6 +35,26 @@
       "sourceCreator": "Kevin Graham de Valle",
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
+      "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Balnarring_Beach,_Victoria,_Australia.jpg",
+      "citedBy": [
+        "place-balnarring-beach-public-domain.webp"
+      ],
+      "fileLicence": [
+        "Public domain dedication by the author"
+      ],
+      "fileCreator": [
+        "Honk squeak"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "Public domain",
+      "sourceCreator": "Honk squeak at en.wikipedia",
+      "licenceAgrees": "matches",
+      "creatorAgrees": "contains",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
       "probedOn": "2026-10-03"
     },
@@ -195,6 +215,26 @@
       "sourceCreator": ", CSIRO",
       "licenceAgrees": "matches",
       "creatorAgrees": "contains",
+      "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg",
+      "citedBy": [
+        "place-devilbend-lake-cc-by-sa-4.webp"
+      ],
+      "fileLicence": [
+        "CC-BY-SA-4.0"
+      ],
+      "fileCreator": [
+        "Smartiejl"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "CC BY-SA 4.0",
+      "sourceCreator": "Smartiejl",
+      "licenceAgrees": "matches",
+      "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
       "probedOn": "2026-10-03"
     },
