@@ -60,7 +60,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.DsMDqkBL.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.Bwpmooyw.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.CuG4Mw81.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DnKmNHSW.css">
 <style>.awards-nominate-page[data-astro-cid-7oxezpt4]{padding:clamp(1.5rem,3vw,2.5rem) 0 clamp(2rem,4vw,3rem)}.awards-nominate-form[data-astro-cid-7oxezpt4]{display:flex;flex-direction:column;gap:1rem;border:1px solid var(--border);background:var(--paper, #fbf7f0);padding:clamp(1.25rem,2.5vw,1.75rem);max-width:38rem}.awards-nominate-form__heading[data-astro-cid-7oxezpt4]{font-family:var(--font-display);font-size:1.4rem;font-weight:500;color:var(--text);margin:0}.awards-nominate-form__field[data-astro-cid-7oxezpt4]{display:flex;flex-direction:column;gap:.4rem}.awards-nominate-form__field[data-astro-cid-7oxezpt4] label[data-astro-cid-7oxezpt4]{font-family:var(--font-ui);font-size:.78rem;font-weight:600;letter-spacing:.04em;color:var(--dark)}.awards-nominate-form__field[data-astro-cid-7oxezpt4] input[data-astro-cid-7oxezpt4],.awards-nominate-form__field[data-astro-cid-7oxezpt4] textarea[data-astro-cid-7oxezpt4],.awards-nominate-form__field[data-astro-cid-7oxezpt4] select[data-astro-cid-7oxezpt4]{width:100%;font-family:var(--font-ui);font-size:.95rem;line-height:1.45;color:var(--dark);background:var(--bg, #fff);border:1px solid var(--border);padding:.6rem .75rem}.awards-nominate-form__field[data-astro-cid-7oxezpt4] textarea[data-astro-cid-7oxezpt4]{resize:vertical;min-height:7rem}.awards-nominate-form__field[data-astro-cid-7oxezpt4] input[data-astro-cid-7oxezpt4]:focus,.awards-nominate-form__field[data-astro-cid-7oxezpt4] textarea[data-astro-cid-7oxezpt4]:focus,.awards-nominate-form__field[data-astro-cid-7oxezpt4] select[data-astro-cid-7oxezpt4]:focus{outline:2px solid var(--accent);outline-offset:1px}.awards-nominate-form__submit[data-astro-cid-7oxezpt4]{align-self:flex-start;font-family:var(--font-ui);font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--bg, #fff);border:1px solid var(--accent);padding:.7rem 1.2rem;cursor:pointer}.awards-nominate-form__submit[data-astro-cid-7oxezpt4]:disabled{opacity:.6;cursor:progress}.awards-nominate-form__submit[data-astro-cid-7oxezpt4]:hover:not(:disabled){background:var(--text, #1a1a1a);border-color:var(--text, #1a1a1a)}.awards-nominate-form__status[data-astro-cid-7oxezpt4]{font-family:var(--font-ui);font-size:.92rem;padding:.7rem .95rem;border:1px solid var(--border)}.awards-nominate-form__status[data-astro-cid-7oxezpt4][data-status-kind=success]{color:#2f6e3a;border-color:#2f6e3a80;background:#2f6e3a12}.awards-nominate-form__status[data-astro-cid-7oxezpt4][data-status-kind=error]{color:#b14b3a;border-color:#b14b3a80;background:#b14b3a12}
 </style>
 <link rel="stylesheet" href="/_astro/NewsletterBlock.C3_4PD7y.css"><link rel="alternate" type="text/markdown" href="https://peninsulainsider.com.au/awards/nominate/index.md" title="Plain text version"></head> <body data-page="explore" data-path="/awards/nominate/" data-v4="true"> <a href="#main-content" class="skip-link">Skip to content</a>  <div class="pi-conditions" data-astro-cid-7kfxatlb> <div class="pi-conditions__inner" data-astro-cid-7kfxatlb> <p class="pi-conditions__now" data-astro-cid-7kfxatlb> <span class="pi-conditions__item pi-conditions__item--place" data-astro-cid-7kfxatlb>Sorrento</span> <span class="pi-conditions__item pi-conditions__item--sunset" data-astro-cid-7kfxatlb>Sunset 6:26 PM</span>  <a class="pi-conditions__item pi-conditions__item--play" href="https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&amp;utm_medium=site&amp;utm_campaign=where-is-pi-case-02&amp;utm_content=ticker" data-evt="pi_play_promo" data-surface="ticker" data-astro-cid-7kfxatlb>
@@ -471,6 +471,11 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
       const focusable = els.overlay.querySelectorAll(
         'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
+      if (!els.overlay.contains(document.activeElement)) {
+        e.preventDefault();
+        els.input?.focus({ preventScroll: true });
+        return;
+      }
       const visible = Array.prototype.filter.call(focusable, (el) => el.offsetParent !== null || el === document.activeElement);
       if (!visible.length) return;
       const first = visible[0];
@@ -494,9 +499,11 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
       document.addEventListener('keydown', trapTab, true);
-      // A native mobile dialog can restore focus to its opener after this
-      // click bubbles. Focus now, then once more after its close event.
+      // Flush the open visibility state before focusing. CSS keeps the
+      // opacity fade, while visibility becomes immediate on open.
+      void overlay.offsetWidth;
       if (input) input.focus({ preventScroll: true });
+      // A native mobile dialog can restore focus after this click bubbles.
       const sourceDialog = trigger && trigger.closest && trigger.closest('dialog');
       if (sourceDialog) {
         sourceDialog.addEventListener('close', () => {
@@ -785,6 +792,8 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
         // field instead of losing it on the menu button.
         const overlay = document.getElementById('siteSearchOverlay');
         if (e.key === 'Escape' && overlay && overlay.dataset.open === 'true') {
+          // An open Insider Note is above search and owns this keypress.
+          if (document.body.classList.contains('inote-open')) return;
           closeOverlay();
           return;
         }
@@ -876,6 +885,8 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
         var saved = read();
         var params = new URLSearchParams(window.location.search);
         return saved.joined || (saved.until && Date.now() < saved.until) ||
+          document.body.classList.contains('search-open') ||
+          !!document.querySelector('dialog[open]') ||
           // The homepage has the complete signup form in its own closing
           // section. A second fixed invitation obscures that section on phones.
           !!document.querySelector('[data-home-dispatch]') ||

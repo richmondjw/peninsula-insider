@@ -60,7 +60,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.DsMDqkBL.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.Bwpmooyw.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.CuG4Mw81.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DnKmNHSW.css">
 <style>.subpage-hero__stage[data-astro-cid-hwizvnsu]{min-width:0;align-self:center}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__credit[data-astro-cid-hwizvnsu]{grid-column:-2 / -1;margin:.5rem 0 0;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-align:right}.subpage-hero__photos[data-astro-cid-hwizvnsu]{padding-block-start:clamp(1.25rem,2.5vw,2rem)}.subpage-hero__photos[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{--pstage-h: .75}
 </style>
 <link rel="stylesheet" href="/_astro/PhotoStage.DesciBr7.css">
@@ -511,6 +511,11 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
       const focusable = els.overlay.querySelectorAll(
         'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
+      if (!els.overlay.contains(document.activeElement)) {
+        e.preventDefault();
+        els.input?.focus({ preventScroll: true });
+        return;
+      }
       const visible = Array.prototype.filter.call(focusable, (el) => el.offsetParent !== null || el === document.activeElement);
       if (!visible.length) return;
       const first = visible[0];
@@ -534,9 +539,11 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
       document.addEventListener('keydown', trapTab, true);
-      // A native mobile dialog can restore focus to its opener after this
-      // click bubbles. Focus now, then once more after its close event.
+      // Flush the open visibility state before focusing. CSS keeps the
+      // opacity fade, while visibility becomes immediate on open.
+      void overlay.offsetWidth;
       if (input) input.focus({ preventScroll: true });
+      // A native mobile dialog can restore focus after this click bubbles.
       const sourceDialog = trigger && trigger.closest && trigger.closest('dialog');
       if (sourceDialog) {
         sourceDialog.addEventListener('close', () => {
@@ -825,6 +832,8 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
         // field instead of losing it on the menu button.
         const overlay = document.getElementById('siteSearchOverlay');
         if (e.key === 'Escape' && overlay && overlay.dataset.open === 'true') {
+          // An open Insider Note is above search and owns this keypress.
+          if (document.body.classList.contains('inote-open')) return;
           closeOverlay();
           return;
         }
@@ -916,6 +925,8 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
         var saved = read();
         var params = new URLSearchParams(window.location.search);
         return saved.joined || (saved.until && Date.now() < saved.until) ||
+          document.body.classList.contains('search-open') ||
+          !!document.querySelector('dialog[open]') ||
           // The homepage has the complete signup form in its own closing
           // section. A second fixed invitation obscures that section on phones.
           !!document.querySelector('[data-home-dispatch]') ||
