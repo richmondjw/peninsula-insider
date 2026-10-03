@@ -1,0 +1,38 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/eat/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "9229c1315cee8417b31e95be115144c8ef951a70",
+  "dependsOn": "Three independent exact-live Eat baseline reviews at public 07c366d, unchanged Eat/search/popup source in later consent-only release 9229c13.",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "The search overlay sets aria-modal and data-open but synchronous input.focus can run while its CSS visibility has not changed, leaving Tab on underlying masthead controls. A scroll-triggered Insider Note can then open over search after 1.5 seconds and steal focus; one Escape closes both. Clearing an Eat zero-result directory state removes the focused button and leaves focus on BODY.",
+  "hypothesis": "Making search visible before synchronous input focus, containing any Tab that starts outside it, and suppressing the promotional popup while another dialog or search is active will restore one active keyboard surface. Returning focus to the directory heading after clearing filters will make recovered results discoverable.",
+  "boundedChange": "Make the search overlay visible on open before focusing its input, and redirect an outside Tab into the overlay. Let the topmost Insider Note own Escape if it is open, and keep its automatic invite from opening over active search or native dialogs. Restore focus to the directory heading after clearing an empty state. Do not change search results, filters, email submission, analytics consent or bookings.",
+  "metric": "At 320/390/1440, opening search by Enter or Search instead moves focus into the input; Tab and Shift+Tab stay within the open search, and Escape closes it and restores its opener. Scroll and the 20-second fallback do not open Insider Note over active search or native dialog; if the invite is open, one Escape closes only it. On the exact 0/52 Eat URL, Clear filters restores 52 results and focuses the directory heading. Existing filter/search journeys and no-overflow layout remain intact. Full build and independent browser QA pass; exact public SHA/browser accept release.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded shared-interaction commit; no data migration or booking/consent endpoint change.",
+  "validation": {
+    "productionBuild": "Final corrected npm run build:search exited 0 on exact source, including existing content, rights, claim, SEO, link, schema and style gates; Astro output 1013 HTML files and Pagefind indexed 727 pages.",
+    "settledBrowser": "Final static build Chromium at 320/390/1440: Enter on masthead Search immediately focused #siteSearchOverlayInput; immediate Tab and Shift+Tab remained inside, Escape restored opener. Exact 0/52 Eat URL recovered to 52/52 with #directory-heading focused; Date night remained 13/52; no overflow. Popup-enabled Astro preview at 390/1440: #inote remained hidden while search was active through the 1.5s scroll trigger and 20s fallback, with focus in search; on a separate normal visit the popup still appeared and Escape dismissed it.",
+    "independentReview": "Independent final static artifact QA accepted bounded release at 320/390/1440: strict immediate Enter/focus/Tab/Shift+Tab/wrap/Escape return, zero-result recovery, Date night 13/52, mobile navigation, consent, and no overflow. Independent popup-enabled preview QA at 390/1440 accepted suppression through the 1.5-second scroll trigger and 20-second fallback during active search, plus suppression while mobile drawer open; separate normal visit opened and Escape dismissed popup. No source edits by reviewer. Exact public verification remains pending.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Search aria-modal focus escapes to underlying page until exact public fix is verified",
+    "Insider Note can overlap open search and Escape closes both until exact public fix is verified",
+    "CMS image rights and subject evidence, factual freshness, direct assistive tech and remaining 23-criterion deductions remain open"
+  ],
+  "negativeFindings": [
+    "The 52-item Eat directory and filter count/URL state work; this change should preserve them.",
+    "The promotional popup collision was observed during a scroll-triggered zero-result search journey, not every first visit.",
+    "A lab performance sample is not field proof or a full rubric score.",
+    "The first full local artifact failed immediate Tab containment during the opening visibility transition. Source was corrected with immediate open visibility and synchronous focus; the final exact-source build passed this strict retest.",
+    "Default local build omits preview-gated Insider Note; the popup interaction was tested in a separate PUBLIC_NEWSLETTER_POPUP=preview server and still requires exact public verification after release."
+  ],
+  "nextAction": "Publish the independently accepted bounded interaction fix through protected CI, then verify exact public revision/browser paths and continue Eat image-rights and factual triage."
+}

@@ -198,6 +198,11 @@
       const focusable = els.overlay.querySelectorAll(
         'a[href], button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])'
       );
+      if (!els.overlay.contains(document.activeElement)) {
+        e.preventDefault();
+        els.input?.focus({ preventScroll: true });
+        return;
+      }
       const visible = Array.prototype.filter.call(focusable, (el) => el.offsetParent !== null || el === document.activeElement);
       if (!visible.length) return;
       const first = visible[0];
@@ -221,9 +226,11 @@
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
       document.addEventListener('keydown', trapTab, true);
-      // A native mobile dialog can restore focus to its opener after this
-      // click bubbles. Focus now, then once more after its close event.
+      // Flush the open visibility state before focusing. CSS keeps the
+      // opacity fade, while visibility becomes immediate on open.
+      void overlay.offsetWidth;
       if (input) input.focus({ preventScroll: true });
+      // A native mobile dialog can restore focus after this click bubbles.
       const sourceDialog = trigger && trigger.closest && trigger.closest('dialog');
       if (sourceDialog) {
         sourceDialog.addEventListener('close', () => {
@@ -512,6 +519,8 @@
         // field instead of losing it on the menu button.
         const overlay = document.getElementById('siteSearchOverlay');
         if (e.key === 'Escape' && overlay && overlay.dataset.open === 'true') {
+          // An open Insider Note is above search and owns this keypress.
+          if (document.body.classList.contains('inote-open')) return;
           closeOverlay();
           return;
         }
