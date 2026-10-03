@@ -181,6 +181,8 @@ const imageRef = z.object({
   creator: z.string().optional(),
   /** Where the image was obtained: file page, media kit, upload receipt. */
   sourceUrl: z.string().optional(),
+  /** Link to the exact recorded image licence for visible attribution. */
+  licenseUrl: z.string().url().optional(),
   /** The permission as recorded at that source, verbatim. Never inferred. */
   permission: z.string().optional(),
   /** Channels that permission actually covers. Empty means unrecorded. */

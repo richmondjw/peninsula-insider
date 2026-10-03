@@ -8,26 +8,25 @@
     "lat": -38.393,
     "lng": 145.027
   },
-  "address": "Red Hill South VIC 3937",
+  "address": "45 Thomas Road, Red Hill South VIC 3937",
   "bookingProvider": "direct",
   "priceBand": "$$",
-  "signature": "Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.",
-  "editorNote": "The Orchard Red Hill is run by Helen and Frank Haddy on ten acres in Red Hill South, positioned inside the wine country corridor rather than adjacent to it. The three apartments are built from rammed earth, which keeps the interiors cool in summer and quieter than you'd expect given how close the main cellar-door route is. Each unit has an in-room spa bath and access to an infrared saura, both of which put the property well above the standard hinterland cottage offer at this price point.\n\nViews run to the lake and valley, and small dogs are welcome with an additional fee. Frank's direct mobile number is on the website, use it to confirm the current breakfast hamper inclusion before you book, as this has been listed as unconfirmed and is worth clarifying directly. The host accessibility alone is worth noting: at most comparable properties you're dealing with a booking platform, not a person.\n\nCheck for current rates and availability through the website or by calling Frank directly.",
-  "whyWeGo": "The rammed-earth architecture and the in-room spa baths put this well above most $$ cottage options in the hinterland, and the host is a phone call away, not a chatbot.",
+  "signature": "Three rammed-earth apartments on ten acres in Red Hill South, each with a spa bath and a private deck overlooking the lake and valley.",
+  "editorNote": "The Orchard has three apartments, Apple, Cherry and Olive, on a ten-acre Red Hill South property. Each has a separate entrance, rammed-earth walls, a spa bath and a private deck overlooking the lake and valley. Choose the apartment layout that suits your stay rather than assuming every extra is the same.\n\nThe operator site invites guests to contact Frank directly and asks visitors to enquire before bringing a dog. Confirm current availability, dog terms and any extras with the host before booking.",
+  "whyWeGo": "A rammed-earth apartment with a private deck and spa bath, looking across a quiet ten-acre property.",
   "bestFor": [
     "Couples",
     "Wellness day",
     "Cellar door visits",
-    "Budget stays",
     "Dog-friendly stays"
   ],
-  "ifOnlyOneThing": "Call Frank before you book to confirm the breakfast hamper and dog policy, then book the infrared sauna session for your first morning.",
+  "ifOnlyOneThing": "Choose Apple, Cherry or Olive, then confirm current dog terms and stay inclusions with Frank before booking.",
   "pairWith": [
     "Port Phillip Estate",
     "Ten Minutes by Tractor"
   ],
   "dogFriendly": true,
-  "dogFriendlyNotes": "Small dogs welcome for a fee. Confirm size and breed when booking.",
+  "dogFriendlyNotes": "Ask the host about bringing a dog and any conditions before booking.",
   "tags": {
     "mood": [
       "cellar-door",
@@ -43,43 +42,44 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/place-red-hill-01.webp",
-    "alt": "Looking down a grassed row between trellised vines in full leaf, a treeline and paddocks beyond.",
-    "depicts": "a grassed row between trellised vines in full leaf",
+    "src": "/images/sourced/place-mornington-vineyard-cc-by-sa-2.webp",
+    "alt": "Rows of vines across a Mornington Peninsula vineyard beneath a cloudy sky.",
+    "depicts": "Mornington Peninsula vineyard landscape",
     "depictionStatus": "illustrative",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "credit": "faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP",
+    "license": "wikimedia-cc-by-sa",
+    "creator": "faVori rouge",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "permission": "This file is licensed under the Creative Commons Attribution-Share Alike 2.0 Generic license.",
+    "permittedUses": [
+      "website",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "caption": "Illustrative Mornington Peninsula vineyard; resized and converted to WebP from the source photograph. CC BY-SA 2.0."
   },
   "gallery": [],
   "featuredPartner": false,
-  "lastVerified": "2026-05-07",
+  "lastVerified": "2026-10-03",
   "publishedAt": "2026-05-08",
   "sitemapExclude": false,
   "knownFor": [
-    "Three self-contained rammed-earth apartments on ten acres in Red Hill South wine country",
-    "In-room spa baths and infrared sauna, both uncommon at this price point",
-    "Lake and valley views from all units",
-    "Small dogs welcome with an additional fee",
-    "Host Frank Haddy's direct mobile on the website, a genuinely reachable host"
+    "Three self-contained rammed-earth apartments",
+    "Spa baths and private decks",
+    "Lake and valley views",
+    "Host contact on the operator website"
   ],
-  "retiredSourceLinks": [
-    {
-      "field": "website",
-      "url": "https://www.the-orchard.com.au",
-      "verdict": "tls-fault",
-      "disposition": "gone",
-      "checkedOn": "2026-09-13",
-      "note": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
-    },
-    {
-      "field": "bookingUrl",
-      "url": "https://www.the-orchard.com.au",
-      "verdict": "tls-fault",
-      "disposition": "gone",
-      "checkedOn": "2026-09-13",
-      "note": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
-    }
-  ],
-  "sourceStatus": "unsourced",
-  "sourceStatusNote": "TLS handshake fails with an internal error from the server. No fetchable replacement found."
+  "website": "https://www.the-orchard.com.au/",
+  "bookingUrl": "https://www.the-orchard.com.au/",
+  "editorialProvenance": {
+    "method": "researched",
+    "reviewedOn": "2026-10-03",
+    "checkedOn": "2026-10-03",
+    "checkedBy": "desk",
+    "source": "Operator sources checked 2026-10-03: https://www.the-orchard.com.au/"
+  }
 }

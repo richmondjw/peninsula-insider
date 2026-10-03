@@ -4,17 +4,17 @@
   "what": "One row per distinct original URL in LICENSES.md, as this probe read it on the date above.",
   "caveat": "A matching licence means the source names that grant today. It is not a check that the file in public/images/sourced is the file at that URL, and it is not permission to publish.",
   "totals": {
-    "urls": 24,
-    "ok": 24,
+    "urls": 25,
+    "ok": 25,
     "moved": 0,
     "blocked": 0,
     "dead": 0,
     "unknown": 0,
-    "licenceMatches": 21,
+    "licenceMatches": 22,
     "licenceDiffers": 1,
     "licenceNotComparable": 2,
     "creatorExact": 15,
-    "creatorContains": 4,
+    "creatorContains": 5,
     "creatorNotEstablished": 5
   },
   "rows": [
@@ -181,22 +181,20 @@
     {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
       "citedBy": [
-        "place-red-hill-01.webp",
         "wine-hub-hero-01.webp"
       ],
       "fileLicence": [
         "CC-BY-3.0"
       ],
       "fileCreator": [
-        "CSIRO ScienceImage",
-        "CSIRO"
+        "CSIRO ScienceImage"
       ],
       "verdict": "ok",
       "http": 200,
       "sourceLicence": "CC BY 3.0",
       "sourceCreator": ", CSIRO",
       "licenceAgrees": "matches",
-      "creatorAgrees": "exact",
+      "creatorAgrees": "contains",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
       "probedOn": "2026-10-03"
     },
@@ -315,6 +313,26 @@
       "http": 200,
       "sourceLicence": "CC BY 2.0",
       "sourceCreator": "pru_mitchell",
+      "licenceAgrees": "matches",
+      "creatorAgrees": "exact",
+      "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+      "citedBy": [
+        "place-mornington-vineyard-cc-by-sa-2.webp"
+      ],
+      "fileLicence": [
+        "CC-BY-SA-2.0"
+      ],
+      "fileCreator": [
+        "faVori rouge"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "CC BY-SA 2.0",
+      "sourceCreator": "faVori rouge",
       "licenceAgrees": "matches",
       "creatorAgrees": "exact",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",

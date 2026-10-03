@@ -2,28 +2,28 @@
   "licencesFile": "next/public/images/sourced/LICENSES.md",
   "contentDir": "next/src/content",
   "sourceLedger": "ops/reports/media/image-rights-source-ledger.json",
-  "sourceLedgerProbedOn": "2026-09-14",
+  "sourceLedgerProbedOn": "2026-10-03",
   "totals": {
-    "imageRecords": 572,
-    "distinctSources": 226,
-    "licenceEntries": 23,
+    "imageRecords": 1229,
+    "distinctSources": 660,
+    "licenceEntries": 26,
     "entriesMatchingNoRecord": 2,
-    "recordsTheFileCanSpeakTo": 176,
-    "recordsTheFileCannot": 396,
-    "fileOnly": 107,
-    "agree": 0,
-    "conflict": 16,
-    "placeholder": 53,
-    "recordOnly": 77,
-    "neither": 319,
-    "fileSelfConflicts": 1
+    "recordsTheFileCanSpeakTo": 147,
+    "recordsTheFileCannot": 1082,
+    "fileOnly": 100,
+    "agree": 3,
+    "conflict": 15,
+    "placeholder": 29,
+    "recordOnly": 818,
+    "neither": 264,
+    "fileSelfConflicts": 0
   },
   "sharedHeroes": {
-    "distinctImages": 93,
-    "sharedImages": 44,
-    "entitiesOnSharedImages": 215,
-    "sharedImagesCovered": 15,
-    "entitiesCovered": 114
+    "distinctImages": 517,
+    "sharedImages": 167,
+    "entitiesOnSharedImages": 442,
+    "sharedImagesCovered": 14,
+    "entitiesCovered": 91
   },
   "namedEntityCollections": [
     "venues",
@@ -33,29 +33,105 @@
     "tours",
     "tour-packages"
   ],
-  "anomalies": [],
-  "fileSelfConflicts": [
+  "anomalies": [
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-      "field": "creator",
-      "entries": [
-        "wine-hub-hero-01.webp",
-        "place-red-hill-01.webp"
-      ],
-      "values": [
-        "CSIRO ScienceImage",
-        "CSIRO"
-      ]
+      "line": 42,
+      "kind": "unknown-label",
+      "text": "Adaptation",
+      "filename": "place-cape-schanck-01.webp"
+    },
+    {
+      "line": 91,
+      "kind": "unknown-label",
+      "text": "Prior incorrect citation",
+      "filename": "place-red-hill-01.webp"
+    },
+    {
+      "line": 87,
+      "kind": "missing-field",
+      "text": "sourceUrl",
+      "filename": "place-red-hill-01.webp"
+    },
+    {
+      "line": 87,
+      "kind": "unbucketed-licence",
+      "text": "Unverified. Do not use this asset for new placements until its source and permission are established. at no host",
+      "filename": "place-red-hill-01.webp"
+    },
+    {
+      "line": 98,
+      "kind": "unknown-label",
+      "text": "Licence link",
+      "filename": "place-mornington-vineyard-cc-by-sa-2.webp"
+    },
+    {
+      "line": 93,
+      "kind": "unbucketed-licence",
+      "text": "CC-BY-SA-2.0 at commons.wikimedia.org",
+      "filename": "place-mornington-vineyard-cc-by-sa-2.webp"
+    },
+    {
+      "line": 163,
+      "kind": "unbucketed-licence",
+      "text": "This work has been released into the public domain by its author, Biatch at English Wikipedia. This applies worldwide. at commons.wikimedia.org",
+      "filename": "venue-sorrento-hotel-01.webp"
     }
   ],
+  "fileSelfConflicts": [],
   "entriesMatchingNoRecord": [
     "article-hatted-restaurants-01.webp",
     "places-hub-hero-01.webp"
   ],
   "conflicts": [
     {
-      "file": "articles/free-things-to-do-mornington-peninsula.mdx",
-      "collection": "articles",
+      "file": "events/pt-leo-estate-sculpture-park.json",
+      "collection": "events",
+      "field": "heroImage",
+      "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
+      "entry": "venue-pt-leo-sculpture-01.webp",
+      "verdict": "conflict",
+      "fields": [
+        {
+          "field": "creator",
+          "file": "BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023",
+          "record": "BrooksieG",
+          "verdict": "conflict"
+        },
+        {
+          "field": "sourceUrl",
+          "file": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
+          "record": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
+          "verdict": "agree"
+        },
+        {
+          "field": "permission",
+          "file": "CC-BY-SA-4.0",
+          "record": "Creative Commons Attribution-ShareAlike 4.0 International",
+          "verdict": "conflict"
+        },
+        {
+          "field": "license",
+          "file": "wikimedia-cc-by-sa",
+          "record": "wikimedia-cc-by-sa",
+          "verdict": "agree"
+        },
+        {
+          "field": "depicts",
+          "file": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
+          "record": "Pt. Leo Estate sculpture park",
+          "verdict": "conflict"
+        }
+      ],
+      "depicts": {
+        "field": "depicts",
+        "file": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
+        "record": "Pt. Leo Estate sculpture park",
+        "verdict": "conflict"
+      }
+    },
+    {
+      "file": "events/ten-minutes-by-tractor-terroir-masterclass.json",
+      "collection": "events",
       "field": "heroImage",
       "src": "/images/sourced/place-main-ridge-01.webp",
       "entry": "place-main-ridge-01.webp",
@@ -64,223 +140,39 @@
         {
           "field": "creator",
           "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
+          "record": "CSIRO ScienceImage",
+          "verdict": "conflict"
         },
         {
           "field": "sourceUrl",
           "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
+          "record": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+          "verdict": "agree"
         },
         {
           "field": "permission",
           "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
+          "record": "Creative Commons Attribution 3.0",
+          "verdict": "conflict"
         },
         {
           "field": "license",
           "file": "wikimedia-cc-by",
-          "record": "visit-victoria",
-          "verdict": "conflict"
+          "record": "wikimedia-cc-by",
+          "verdict": "agree"
         },
         {
           "field": "depicts",
           "file": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
+          "record": "Chardonnay grapes at Main Ridge Estate",
+          "verdict": "conflict"
         }
       ],
       "depicts": {
         "field": "depicts",
         "file": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/mornington-peninsula-beach-guide.mdx",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-sorrento-ocean-baths-01.webp",
-      "entry": "explore-sorrento-ocean-baths-01.webp",
-      "verdict": "conflict",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Simone Kealy",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "visit-victoria",
-          "verdict": "conflict"
-        },
-        {
-          "field": "depicts",
-          "file": "Beach near Portsea during winter",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Beach near Portsea during winter",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/point-nepean-national-park-guide.mdx",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-point-nepean-01.webp",
-      "entry": "place-point-nepean-01.webp",
-      "verdict": "conflict",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Philip Mallis",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "visit-victoria",
-          "verdict": "conflict"
-        },
-        {
-          "field": "depicts",
-          "file": "Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/things-to-do-mornington-peninsula.mdx",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-hub-hero-01.webp",
-      "entry": "explore-hub-hero-01.webp",
-      "verdict": "conflict",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "DenisFrolow",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "visit-victoria",
-          "verdict": "conflict"
-        },
-        {
-          "field": "depicts",
-          "file": "Cape Schanck walking trail",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Cape Schanck walking trail",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "events/mprg-autumn-exhibition.json",
-      "collection": "events",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-mprg-01.webp",
-      "entry": "explore-mprg-01.webp",
-      "verdict": "conflict",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "pru_mitchell",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-2.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "wikimedia-cc-by-sa",
-          "verdict": "conflict"
-        },
-        {
-          "field": "depicts",
-          "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-        "record": null,
-        "verdict": "file-only"
+        "record": "Chardonnay grapes at Main Ridge Estate",
+        "verdict": "conflict"
       }
     },
     {
@@ -376,52 +268,6 @@
       }
     },
     {
-      "file": "tour-operators/arthurs-seat-eagle.json",
-      "collection": "tour-operators",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-mprg-01.webp",
-      "entry": "explore-mprg-01.webp",
-      "verdict": "conflict",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "pru_mitchell",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-2.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "venue-media-kit",
-          "verdict": "conflict"
-        },
-        {
-          "field": "depicts",
-          "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
       "file": "tour-operators/australian-journeys.json",
       "collection": "tour-operators",
       "field": "heroImage",
@@ -468,6 +314,52 @@
       }
     },
     {
+      "file": "tour-operators/bayplay.json",
+      "collection": "tour-operators",
+      "field": "heroImage",
+      "src": "/images/sourced/place-portsea-01.webp",
+      "entry": "place-portsea-01.webp",
+      "verdict": "conflict",
+      "fields": [
+        {
+          "field": "creator",
+          "file": "Essiewingrove",
+          "record": null,
+          "verdict": "file-only"
+        },
+        {
+          "field": "sourceUrl",
+          "file": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
+          "record": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
+          "verdict": "agree"
+        },
+        {
+          "field": "permission",
+          "file": "CC-BY-SA-4.0",
+          "record": "CC BY-SA 4.0; attribution and licence link required. Local WebP is a resized conversion of the original.",
+          "verdict": "conflict"
+        },
+        {
+          "field": "license",
+          "file": "wikimedia-cc-by-sa",
+          "record": "wikimedia-cc-by-sa",
+          "verdict": "agree"
+        },
+        {
+          "field": "depicts",
+          "file": "Point King beach in Portsea Victoria",
+          "record": "Point King Beach, Portsea",
+          "verdict": "conflict"
+        }
+      ],
+      "depicts": {
+        "field": "depicts",
+        "file": "Point King beach in Portsea Victoria",
+        "record": "Point King Beach, Portsea",
+        "verdict": "conflict"
+      }
+    },
+    {
       "file": "tour-operators/great-private-tours.json",
       "collection": "tour-operators",
       "field": "heroImage",
@@ -477,7 +369,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Emma White (uploaded by BrooksieG), 6 October 2023",
+          "file": "BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023",
           "record": null,
           "verdict": "file-only"
         },
@@ -668,79 +560,33 @@
         {
           "field": "sourceUrl",
           "file": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
-          "record": null,
-          "verdict": "file-only"
+          "record": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
+          "verdict": "agree"
         },
         {
           "field": "permission",
           "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
+          "record": "CC BY-SA 4.0; attribution and licence link required. Local WebP is a resized conversion of the original.",
+          "verdict": "conflict"
         },
         {
           "field": "license",
           "file": "wikimedia-cc-by-sa",
-          "record": "venue-media-kit",
-          "verdict": "conflict"
+          "record": "wikimedia-cc-by-sa",
+          "verdict": "agree"
         },
         {
           "field": "depicts",
           "file": "Point King beach in Portsea Victoria",
-          "record": null,
-          "verdict": "file-only"
+          "record": "Point King Beach, Portsea",
+          "verdict": "conflict"
         }
       ],
       "depicts": {
         "field": "depicts",
         "file": "Point King beach in Portsea Victoria",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "tours/great-private-corporate-charter.json",
-      "collection": "tours",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "conflict",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "venue-media-kit",
-          "verdict": "conflict"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
+        "record": "Point King Beach, Portsea",
+        "verdict": "conflict"
       }
     },
     {
@@ -788,239 +634,147 @@
         "record": null,
         "verdict": "file-only"
       }
+    },
+    {
+      "file": "venues/cassis.json",
+      "collection": "venues",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-vineyard-cc-by-sa-2.webp",
+      "entry": "place-mornington-vineyard-cc-by-sa-2.webp",
+      "verdict": "conflict",
+      "fields": [
+        {
+          "field": "creator",
+          "file": "faVori rouge",
+          "record": "faVori rouge",
+          "verdict": "agree"
+        },
+        {
+          "field": "sourceUrl",
+          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+          "record": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+          "verdict": "agree"
+        },
+        {
+          "field": "permission",
+          "file": "CC-BY-SA-2.0",
+          "record": "This file is licensed under the Creative Commons Attribution-Share Alike 2.0 Generic license.",
+          "verdict": "conflict"
+        },
+        {
+          "field": "license",
+          "file": null,
+          "record": "wikimedia-cc-by-sa",
+          "verdict": "record-only"
+        },
+        {
+          "field": "depicts",
+          "file": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
+          "record": "Mornington Peninsula vineyard landscape",
+          "verdict": "conflict"
+        }
+      ],
+      "depicts": {
+        "field": "depicts",
+        "file": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
+        "record": "Mornington Peninsula vineyard landscape",
+        "verdict": "conflict"
+      }
+    },
+    {
+      "file": "venues/hideaways-red-hill.json",
+      "collection": "venues",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-vineyard-cc-by-sa-2.webp",
+      "entry": "place-mornington-vineyard-cc-by-sa-2.webp",
+      "verdict": "conflict",
+      "fields": [
+        {
+          "field": "creator",
+          "file": "faVori rouge",
+          "record": "faVori rouge",
+          "verdict": "agree"
+        },
+        {
+          "field": "sourceUrl",
+          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+          "record": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+          "verdict": "agree"
+        },
+        {
+          "field": "permission",
+          "file": "CC-BY-SA-2.0",
+          "record": "This file is licensed under the Creative Commons Attribution-Share Alike 2.0 Generic license.",
+          "verdict": "conflict"
+        },
+        {
+          "field": "license",
+          "file": null,
+          "record": "wikimedia-cc-by-sa",
+          "verdict": "record-only"
+        },
+        {
+          "field": "depicts",
+          "file": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
+          "record": "Mornington Peninsula vineyard landscape",
+          "verdict": "conflict"
+        }
+      ],
+      "depicts": {
+        "field": "depicts",
+        "file": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
+        "record": "Mornington Peninsula vineyard landscape",
+        "verdict": "conflict"
+      }
+    },
+    {
+      "file": "venues/the-orchard-red-hill.json",
+      "collection": "venues",
+      "field": "heroImage",
+      "src": "/images/sourced/place-mornington-vineyard-cc-by-sa-2.webp",
+      "entry": "place-mornington-vineyard-cc-by-sa-2.webp",
+      "verdict": "conflict",
+      "fields": [
+        {
+          "field": "creator",
+          "file": "faVori rouge",
+          "record": "faVori rouge",
+          "verdict": "agree"
+        },
+        {
+          "field": "sourceUrl",
+          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+          "record": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+          "verdict": "agree"
+        },
+        {
+          "field": "permission",
+          "file": "CC-BY-SA-2.0",
+          "record": "This file is licensed under the Creative Commons Attribution-Share Alike 2.0 Generic license.",
+          "verdict": "conflict"
+        },
+        {
+          "field": "license",
+          "file": null,
+          "record": "wikimedia-cc-by-sa",
+          "verdict": "record-only"
+        },
+        {
+          "field": "depicts",
+          "file": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
+          "record": "Mornington Peninsula vineyard landscape",
+          "verdict": "conflict"
+        }
+      ],
+      "depicts": {
+        "field": "depicts",
+        "file": "Mornington Peninsula vineyard (resized to 1600px and converted to WebP)",
+        "record": "Mornington Peninsula vineyard landscape",
+        "verdict": "conflict"
+      }
     }
   ],
   "placeholders": [
-    {
-      "file": "articles/area-guide-flinders.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-flinders-01.webp",
-      "entry": "place-flinders-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Daniel Kabel",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Flinders Pier 2nd Jul 2019",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Flinders Pier 2nd Jul 2019",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/area-guide-main-ridge.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-main-ridge-01.webp",
-      "entry": "place-main-ridge-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/area-guide-merricks.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-merricks-01.webp",
-      "entry": "place-merricks-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "BrooksieG",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Vineyard Merricks Grove Victoria Australia",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Vineyard Merricks Grove Victoria Australia",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/area-guide-portsea.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-portsea-01.webp",
-      "entry": "place-portsea-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Essiewingrove",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Point King beach in Portsea Victoria",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Point King beach in Portsea Victoria",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/area-guide-red-hill.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
     {
       "file": "articles/corporate-events-red-hill-vs-sorrento.md",
       "collection": "articles",
@@ -1063,52 +817,6 @@
       "depicts": {
         "field": "depicts",
         "file": "Bright morning Sorrento Victoria",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "articles/first-time-peninsula.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
-      "entry": "explore-cape-schanck-boardwalk-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Danilo Ramirez",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Cape Schanck Upper Trail View",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Cape Schanck Upper Trail View",
         "record": null,
         "verdict": "file-only"
       }
@@ -1169,7 +877,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Prateek.agarwal44",
+          "file": "Slyronit",
           "record": null,
           "verdict": "file-only"
         },
@@ -1528,52 +1236,6 @@
       }
     },
     {
-      "file": "articles/peninsula-notes-june-2026.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "tmp-unsplash",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
       "file": "articles/peninsula-this-weekend-april-24.md",
       "collection": "articles",
       "field": "heroImage",
@@ -1620,52 +1282,6 @@
       }
     },
     {
-      "file": "articles/peninsula-this-weekend-april-26.md",
-      "collection": "articles",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
       "file": "articles/peninsula-this-weekend-jul-18.md",
       "collection": "articles",
       "field": "heroImage",
@@ -1675,7 +1291,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Emma White (uploaded by BrooksieG), 6 October 2023",
+          "file": "BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023",
           "record": null,
           "verdict": "file-only"
         },
@@ -1712,49 +1328,49 @@
       }
     },
     {
-      "file": "articles/walks-cape-schanck-hot-springs-day.mdx",
+      "file": "articles/practical-spring-visit-national-works-on-paper.md",
       "collection": "articles",
       "field": "heroImage",
-      "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
-      "entry": "explore-cape-schanck-boardwalk-01.webp",
+      "src": "/images/sourced/place-mornington-01.webp",
+      "entry": "place-mornington-01.webp",
       "verdict": "placeholder",
       "fields": [
         {
           "field": "creator",
-          "file": "Danilo Ramirez",
+          "file": "Simon Yeo",
           "record": null,
           "verdict": "file-only"
         },
         {
           "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
+          "file": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
           "record": null,
           "verdict": "file-only"
         },
         {
           "field": "permission",
-          "file": "CC-BY-SA-4.0",
+          "file": "CC-BY-2.0",
           "record": null,
           "verdict": "file-only"
         },
         {
           "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
+          "file": "wikimedia-cc-by",
+          "record": "other-licensed",
           "verdict": "placeholder"
         },
         {
           "field": "depicts",
-          "file": "Cape Schanck Upper Trail View",
-          "record": null,
-          "verdict": "file-only"
+          "file": "Mornington, Victoria Bathing boxes on the beach",
+          "record": "brightly painted bathing boxes along a bay beach below a wooded hillside",
+          "verdict": "conflict"
         }
       ],
       "depicts": {
         "field": "depicts",
-        "file": "Cape Schanck Upper Trail View",
-        "record": null,
-        "verdict": "file-only"
+        "file": "Mornington, Victoria Bathing boxes on the beach",
+        "record": "brightly painted bathing boxes along a bay beach below a wooded hillside",
+        "verdict": "conflict"
       }
     },
     {
@@ -1767,7 +1383,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Prateek.agarwal44",
+          "file": "Slyronit",
           "record": null,
           "verdict": "file-only"
         },
@@ -1813,7 +1429,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Emma White (uploaded by BrooksieG), 6 October 2023",
+          "file": "BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023",
           "record": null,
           "verdict": "file-only"
         },
@@ -1942,98 +1558,6 @@
       }
     },
     {
-      "file": "events/natalia-milosz-piekarska-sifted-light-mprg-2026.json",
-      "collection": "events",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-mprg-01.webp",
-      "entry": "explore-mprg-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "pru_mitchell",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-2.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "events/new-wave-26-at-mprg.json",
-      "collection": "events",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-mprg-01.webp",
-      "entry": "explore-mprg-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "pru_mitchell",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-2.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Mornington Peninsula Regional Gallery (MPRG), Civic Reserve, Dunns Road Mornington",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
       "file": "events/pt-leo-estate-local-complimentary-sculpture-park-winter-2026.json",
       "collection": "events",
       "field": "heroImage",
@@ -2043,53 +1567,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Emma White (uploaded by BrooksieG), 6 October 2023",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Pt. Leo Estate Sculpture Park, Mornington Peninsula (Barry Flanagan's \"Drummer\" hare and other works on the lawn above Western Port)",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "events/pt-leo-estate-sculpture-park.json",
-      "collection": "events",
-      "field": "heroImage",
-      "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
-      "entry": "venue-pt-leo-sculpture-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Emma White (uploaded by BrooksieG), 6 October 2023",
+          "file": "BrooksieG (Commons author and licensing holder; EXIF Author says Emma White), 6 October 2023",
           "record": null,
           "verdict": "file-only"
         },
@@ -2264,144 +1742,6 @@
       }
     },
     {
-      "file": "experiences/coastal-walk-cape-schanck.json",
-      "collection": "experiences",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
-      "entry": "explore-cape-schanck-boardwalk-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Danilo Ramirez",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Cape Schanck Upper Trail View",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Cape Schanck Upper Trail View",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "experiences/point-nepean-national-park.json",
-      "collection": "experiences",
-      "field": "heroImage",
-      "src": "/images/sourced/place-point-nepean-01.webp",
-      "entry": "place-point-nepean-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Philip Mallis",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "experiences/sorrento-back-beach.json",
-      "collection": "experiences",
-      "field": "heroImage",
-      "src": "/images/sourced/explore-sorrento-ocean-baths-01.webp",
-      "entry": "explore-sorrento-ocean-baths-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Simone Kealy",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Portsea_beaches.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Beach near Portsea during winter",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Beach near Portsea during winter",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
       "file": "experiences/summit-circuit-arthurs-seat.json",
       "collection": "experiences",
       "field": "heroImage",
@@ -2411,7 +1751,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Prateek.agarwal44",
+          "file": "Slyronit",
           "record": null,
           "verdict": "file-only"
         },
@@ -2448,144 +1788,6 @@
       }
     },
     {
-      "file": "itineraries/the-peninsula-golf-weekend.json",
-      "collection": "itineraries",
-      "field": "heroImage",
-      "src": "/images/sourced/place-cape-schanck-01.webp",
-      "entry": "place-cape-schanck-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Marshlung",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-SA-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by-sa",
-          "record": "tmp-wikimedia",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Cape Schanck looking towards Pulpit Rock at dawn",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Cape Schanck looking towards Pulpit Rock at dawn",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "regions/mornington-bay-coast.json",
-      "collection": "regions",
-      "field": "heroImage",
-      "src": "/images/sourced/place-mornington-01.webp",
-      "entry": "place-mornington-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "Simon Yeo",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-2.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "tmp-unsplash",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Mornington, Victoria Bathing boxes on the beach",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Mornington, Victoria Bathing boxes on the beach",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
-      "file": "regions/red-hill-wine-country.json",
-      "collection": "regions",
-      "field": "heroImage",
-      "src": "/images/sourced/wine-hub-hero-01.webp",
-      "entry": "wine-hub-hero-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO ScienceImage",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "tmp-unsplash",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": null,
-          "verdict": "file-only"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": null,
-        "verdict": "file-only"
-      }
-    },
-    {
       "file": "venues/arthurs-views.json",
       "collection": "venues",
       "field": "heroImage",
@@ -2595,7 +1797,7 @@
       "fields": [
         {
           "field": "creator",
-          "file": "Prateek.agarwal44",
+          "file": "Slyronit",
           "record": null,
           "verdict": "file-only"
         },
@@ -2628,98 +1830,6 @@
         "field": "depicts",
         "file": "Mornington Peninsula from Arthur's Seat",
         "record": "the view over Port Phillip Bay from the Arthurs Seat lookout",
-        "verdict": "conflict"
-      }
-    },
-    {
-      "file": "venues/birch-creek.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": "a grassed row between trellised vines in full leaf",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": "a grassed row between trellised vines in full leaf",
-        "verdict": "conflict"
-      }
-    },
-    {
-      "file": "venues/brewers-cottage.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": "a grassed row between trellised vines in full leaf",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": "a grassed row between trellised vines in full leaf",
         "verdict": "conflict"
       }
     },
@@ -2766,52 +1876,6 @@
         "field": "depicts",
         "file": "Cape Schanck looking towards Pulpit Rock at dawn",
         "record": "a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree",
-        "verdict": "conflict"
-      }
-    },
-    {
-      "file": "venues/cassis.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": "a grassed row between trellised vines in full leaf",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": "a grassed row between trellised vines in full leaf",
         "verdict": "conflict"
       }
     },
@@ -2863,98 +1927,6 @@
     },
     {
       "file": "venues/happy-glamper.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-merricks-01.webp",
-      "entry": "place-merricks-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "BrooksieG",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:Vineyard_Merricks_Grove_Victoria_Australia.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-4.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "Vineyard Merricks Grove Victoria Australia",
-          "record": "rows of trellised vines running to a cypress windbreak",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "Vineyard Merricks Grove Victoria Australia",
-        "record": "rows of trellised vines running to a cypress windbreak",
-        "verdict": "conflict"
-      }
-    },
-    {
-      "file": "venues/hideaways-red-hill.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": "a grassed row between trellised vines in full leaf",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": "a grassed row between trellised vines in full leaf",
-        "verdict": "conflict"
-      }
-    },
-    {
-      "file": "venues/merricks-general-wine-store.json",
       "collection": "venues",
       "field": "heroImage",
       "src": "/images/sourced/place-merricks-01.webp",
@@ -3136,114 +2108,22 @@
         "record": "brightly painted bathing boxes along a bay beach below a wooded hillside",
         "verdict": "conflict"
       }
-    },
-    {
-      "file": "venues/the-orchard-red-hill.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": "a grassed row between trellised vines in full leaf",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": "a grassed row between trellised vines in full leaf",
-        "verdict": "conflict"
-      }
-    },
-    {
-      "file": "venues/treetops-red-hill.json",
-      "collection": "venues",
-      "field": "heroImage",
-      "src": "/images/sourced/place-red-hill-01.webp",
-      "entry": "place-red-hill-01.webp",
-      "verdict": "placeholder",
-      "fields": [
-        {
-          "field": "creator",
-          "file": "CSIRO",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "sourceUrl",
-          "file": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "permission",
-          "file": "CC-BY-3.0",
-          "record": null,
-          "verdict": "file-only"
-        },
-        {
-          "field": "license",
-          "file": "wikimedia-cc-by",
-          "record": "other-licensed",
-          "verdict": "placeholder"
-        },
-        {
-          "field": "depicts",
-          "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-          "record": "a grassed row between trellised vines in full leaf",
-          "verdict": "conflict"
-        }
-      ],
-      "depicts": {
-        "field": "depicts",
-        "file": "CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate",
-        "record": "a grassed row between trellised vines in full leaf",
-        "verdict": "conflict"
-      }
     }
   ],
   "sharedHeroImages": [
     {
       "src": "/images/sourced/place-red-hill-01.webp",
-      "entities": 24,
-      "covered": true
-    },
-    {
-      "src": "/images/sourced/place-mornington-01.webp",
-      "entities": 16,
+      "entities": 17,
       "covered": true
     },
     {
       "src": "/images/sourced/place-main-ridge-01.webp",
-      "entities": 14,
+      "entities": 13,
+      "covered": true
+    },
+    {
+      "src": "/images/sourced/place-mornington-01.webp",
+      "entities": 13,
       "covered": true
     },
     {
@@ -3252,34 +2132,29 @@
       "covered": false
     },
     {
-      "src": "/images/sourced/place-merricks-01.webp",
-      "entities": 11,
-      "covered": true
-    },
-    {
-      "src": "/images/sourced/place-dromana-01.webp",
-      "entities": 10,
-      "covered": false
-    },
-    {
       "src": "/images/sourced/place-moorooduc-01.webp",
       "entities": 10,
       "covered": false
     },
     {
-      "src": "/images/sourced/place-cape-schanck-01.webp",
-      "entities": 8,
+      "src": "/images/sourced/place-merricks-01.webp",
+      "entities": 9,
       "covered": true
     },
     {
-      "src": "/images/sourced/place-flinders-01.webp",
+      "src": "/images/sourced/place-dromana-01.webp",
       "entities": 8,
-      "covered": true
+      "covered": false
     },
     {
       "src": "/images/sourced/place-rye-01.webp",
       "entities": 8,
       "covered": false
+    },
+    {
+      "src": "/images/sourced/place-flinders-01.webp",
+      "entities": 7,
+      "covered": true
     },
     {
       "src": "/images/sourced/place-sorrento-01.webp",
@@ -3288,48 +2163,33 @@
     },
     {
       "src": "/images/sourced/explore-sorrento-ferry-01.webp",
-      "entities": 6,
+      "entities": 5,
       "covered": false
     },
     {
+      "src": "/images/sourced/place-portsea-01.webp",
+      "entities": 5,
+      "covered": true
+    },
+    {
+      "src": "/images/sourced/place-cape-schanck-01.webp",
+      "entities": 4,
+      "covered": true
+    },
+    {
       "src": "/images/sourced/venue-pt-leo-sculpture-01.webp",
-      "entities": 6,
+      "entities": 4,
       "covered": true
     },
     {
       "src": "/images/sourced/explore-arthurs-seat-lookout-01.webp",
-      "entities": 4,
+      "entities": 3,
       "covered": true
     },
     {
-      "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
-      "entities": 4,
+      "src": "/images/sourced/place-mornington-vineyard-cc-by-sa-2.webp",
+      "entities": 3,
       "covered": true
-    },
-    {
-      "src": "/images/sourced/place-portsea-01.webp",
-      "entities": 4,
-      "covered": true
-    },
-    {
-      "src": "/images/sourced/explore-dromana-beach-01.webp",
-      "entities": 3,
-      "covered": false
-    },
-    {
-      "src": "/images/sourced/explore-gunnamatta-01.webp",
-      "entities": 3,
-      "covered": false
-    },
-    {
-      "src": "/images/sourced/explore-portsea-front-beach-01.webp",
-      "entities": 3,
-      "covered": false
-    },
-    {
-      "src": "/images/sourced/explore-rye-ocean-beach-01.webp",
-      "entities": 3,
-      "covered": false
     },
     {
       "src": "/images/sourced/place-safety-beach-01.webp",
@@ -3337,17 +2197,62 @@
       "covered": false
     },
     {
-      "src": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
+      "src": "/images/visit-victoria/vv-143799-cape-schanck.webp",
       "entities": 3,
       "covered": false
     },
     {
-      "src": "/images/sourced/spa-wellness-stones-01.webp",
+      "src": "/images/visit-victoria/vv-143811-arthurs-seat-cable-car.webp",
       "entities": 3,
       "covered": false
     },
     {
-      "src": "/images/sourced/venue-jackalope-hotel-01.webp",
+      "src": "/images/visit-victoria/vv-147209-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-151508-sorrento-back-beach.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167059-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167061-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167075-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167077-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167084-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-167085-arthurs-seat-eagle.webp",
+      "entities": 3,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
       "entities": 3,
       "covered": false
     },
@@ -3362,7 +2267,12 @@
       "covered": true
     },
     {
-      "src": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
+      "src": "/images/sourced/explore-cape-schanck-boardwalk-01.webp",
+      "entities": 2,
+      "covered": true
+    },
+    {
+      "src": "/images/sourced/explore-dromana-beach-01.webp",
       "entities": 2,
       "covered": false
     },
@@ -3372,12 +2282,7 @@
       "covered": false
     },
     {
-      "src": "/images/sourced/explore-greens-bush-01.webp",
-      "entities": 2,
-      "covered": false
-    },
-    {
-      "src": "/images/sourced/explore-mornington-foreshore-01.webp",
+      "src": "/images/sourced/explore-gunnamatta-01.webp",
       "entities": 2,
       "covered": false
     },
@@ -3387,24 +2292,19 @@
       "covered": false
     },
     {
-      "src": "/images/sourced/explore-mprg-01.webp",
+      "src": "/images/sourced/explore-portsea-front-beach-01.webp",
       "entities": 2,
-      "covered": true
+      "covered": false
     },
     {
-      "src": "/images/sourced/explore-sorrento-ocean-baths-01.webp",
+      "src": "/images/sourced/explore-rye-ocean-beach-01.webp",
       "entities": 2,
-      "covered": true
+      "covered": false
     },
     {
       "src": "/images/sourced/place-mount-martha-01.webp",
       "entities": 2,
       "covered": false
-    },
-    {
-      "src": "/images/sourced/place-point-nepean-01.webp",
-      "entities": 2,
-      "covered": true
     },
     {
       "src": "/images/sourced/place-rosebud-01.webp",
@@ -3427,12 +2327,12 @@
       "covered": false
     },
     {
-      "src": "/images/sourced/venue-lindenderry-01.webp",
+      "src": "/images/sourced/spa-peninsula-hot-springs-hilltop-01.webp",
       "entities": 2,
       "covered": false
     },
     {
-      "src": "/images/sourced/venue-montalto-banner-01.webp",
+      "src": "/images/sourced/spa-wellness-stones-01.webp",
       "entities": 2,
       "covered": false
     },
@@ -3444,10 +2344,605 @@
     {
       "src": "/images/sourced/venue-sorrento-hotel-01.webp",
       "entities": 2,
-      "covered": false
+      "covered": true
     },
     {
       "src": "/images/sourced/venue-ten-minutes-by-tractor-01.jpg",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-118016-cape-schanck-lighthouse.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143094-mornington-farmers-market.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143119-mornington-farmers-market.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143140-mornington-peninsula-regional-gallery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143152-paringa-estate-mornington-peninsula.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143752-polperro-winery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143785-red-hill-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-143808-cape-schanck.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157332-the-dunes-golf-links-rye.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157333-the-dunes-golf-links-rye.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157334-the-dunes-golf-links-rye.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157335-the-dunes-golf-links-rye.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157338-the-dunes-golf-links-rye.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157340-the-dunes-golf-links-rye.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157359-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157369-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157378-moonah-links-golf-course-fingal.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157379-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157380-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157398-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157402-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157403-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157404-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157405-flinders-golf-course.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-157418-st-andrews-beach-golf-course-fingal.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159175-bass-and-flinders-distillery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159194-bass-and-flinders-distillery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159887-grape-explorations-australia-ocean-eight.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159889-grape-explorations-australia-ocean-eight.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159890-grape-explorations-australia-ocean-eight.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159891-grape-explorations-australia-ocean-eight.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159894-grape-explorations-australia-ocean-eight.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159902-grape-explorations-australia-ocean-eight-vineyard.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-159905-grape-explorations-australia-ocean-eight-vineyard.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160006-green-olive-at-red-hill.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160021-green-olive-at-red-hill.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160356-montalto.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160851-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160925-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160926-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160927-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160928-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160929-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160941-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160944-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160946-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-160947-polperro-dolphin-swims.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161029-red-gum-bbq.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161950-rare-hare-wine-and-foodstore.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161951-rare-hare-wine-and-foodstore.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161954-rare-hare-wine-and-foodstore.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161955-rare-hare-wine-and-foodstore.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161977-cape-schanck-lighthouse.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161978-cape-schanck-lighthouse.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161979-cape-schanck-boardwalk.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161980-cape-schanck-boardwalk.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161981-cape-schanck-boardwalk.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161983-cape-schanck-boardwalk.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-161984-cape-schanck-boardwalk.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-162001-sup-at-mills-beach.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-162411-cape-schanck-lighthouse-reserve.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163798-alba-thermal-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163804-alba-thermal-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163808-alba-thermal-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163810-alba-thermal-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163811-alba-thermal-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163821-alba-thermal-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163830-stand-up-paddleboarding-at-mornington.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163841-bathing-boxes-at-mornington.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163844-bathing-boxes-at-mornington.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163847-pt-leo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163849-pt-leo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163850-pt-leo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-163852-pt-leo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164273-crittenden-estate-cellar-door.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164290-crittenden-estate-cellar-door.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164528-bike-riding-at-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164529-bike-riding-at-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164530-bike-riding-at-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164533-bike-riding-at-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164534-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164535-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164536-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164537-point-nepean-fort-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164538-point-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164539-point-nepean-fort-nepean.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164669-crittenden-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164676-crittenden-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164684-crittenden-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-164692-crittenden-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-168546-st-andrews-beach-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-168556-st-andrews-beach-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-168565-st-andrews-beach-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-168568-st-andrews-beach-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-168570-st-andrews-beach-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-168572-st-andrews-beach-brewery.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-169289-trofeo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-169294-trofeo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-169303-trofeo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-169308-trofeo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-169319-trofeo-estate.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172318-eco-lodges-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172319-eco-lodges-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172320-eco-lodges-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172321-eco-lodges-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172322-eco-lodges-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172323-eco-lodges-peninsula-hot-springs.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-22100103-sorrento-ferry-terminal.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061225-the-epicurean-red-hill.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061231-merricks-general-wine-store.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061239-merricks-general-wine-store.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-25061244-merricks-general-wine-store.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070114-jackalope-hotel.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070132-point-nepean-national-park.webp",
+      "entities": 2,
+      "covered": false
+    },
+    {
+      "src": "/images/visit-victoria/vv-26070140-avani-winery.webp",
       "entities": 2,
       "covered": false
     }

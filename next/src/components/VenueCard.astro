@@ -84,7 +84,10 @@ const summaryLine = shortAddress;
 // Resolve CMS image override at SSR. When an editor has replaced this venue's
 // hero via the inline editor, the published row overrides whatever the content
 // file specifies - so the rebuilt page renders the new image directly.
-const hero = await resolveHero('venue', slug, data);
+const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill'].includes(slug);
+const hero = await resolveHero('venue', slug, data, 'heroImage', {
+  requireOverrideMetadata: requireVerifiedStayHero,
+});
 // A CMS replacement is a different photograph. If its own alt or credit is
 // missing, use the existing typographic card plate until that upload is reviewed.
 // Never borrow the content record's metadata for the replacement.
@@ -96,8 +99,8 @@ const photoNote = hasPhoto && photoCredit
   ? (slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
   : '';
 const flindersCommonsPhoto = slug === 'flinders-hotel' && !hero.override && hasPhoto;
-const photoSourceUrl = flindersCommonsPhoto ? data.heroImage?.sourceUrl : undefined;
-const photoLicenceUrl = flindersCommonsPhoto ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined;
+const photoSourceUrl = !hero.override && hasPhoto ? data.heroImage?.sourceUrl : undefined;
+const photoLicenceUrl = !hero.override && hasPhoto ? data.heroImage?.licenseUrl ?? (flindersCommonsPhoto ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
 const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -117,7 +120,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
       purpose: 'hero',
     })}
   >{hasPhoto && <img src={hero.src} alt="" loading="lazy" decoding="async" />}</a>
-  {photoNote && <p class="venue-card__photo-credit">{photoNote}{photoSourceUrl && <span class="venue-card__photo-links">{' '}<a href={photoSourceUrl} aria-label="Flinders Hotel image source">Source</a><span aria-hidden="true">·</span><a href={photoLicenceUrl} aria-label="Flinders Hotel image licence">Licence</a></span>}</p>}
+  {photoNote && <p class="venue-card__photo-credit">{photoNote}{photoSourceUrl && <span class="venue-card__photo-links">{' '}<a href={photoSourceUrl} aria-label={data.name + " image source"}>Source</a>{photoLicenceUrl && <><span aria-hidden="true">·</span><a href={photoLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}</p>}
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}

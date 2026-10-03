@@ -45,6 +45,7 @@ export interface ProvenanceImage {
   depictionStatus?: string;
   creator?: string;
   sourceUrl?: string;
+  licenseUrl?: string;
   permission?: string;
   permittedUses?: string[];
   provenanceReview?: string;

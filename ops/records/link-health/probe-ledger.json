@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T01:17:34.201Z",
+  "updatedAt": "2026-10-03T02:17:53.884Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -51,6 +51,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "The Sanctuary | Luxury Accommodation | Alba Thermal Springs &amp; Spa"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/the-sanctuary/rooms/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Luxury Rooms at The Sanctuary - Alba Thermal Springs &amp; Spa",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/the-sanctuary/villas/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Luxury Villas | Alba Thermal Springs &amp; Spa",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://albathermalsprings.com.au/book",
@@ -332,6 +348,14 @@
       "httpCode": "200",
       "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Mornington Peninsula vineyard.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -2094,6 +2118,14 @@
       "pageTitle": "Portsea Swim Classic | Victoria Ocean Swims | World Series Swims"
     },
     {
+      "url": "https://www.airbnb.com/rooms/12077435",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Redirecting to www.airbnb.com.au",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.albathermalsprings.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -2401,6 +2433,62 @@
       "httpCode": "200",
       "pageTitle": "Cassis Red Hill | Luxury Villas",
       "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/about-7",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Terms + Conditions | Cassis Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/accommodation",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Accommodation | Cassis Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/the-cottage",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Cottage | Cassis Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/the-lodge",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Lodge | Cassis Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/the-retreat",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Retreat | Cassis Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/the-studio",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Studio | Cassis Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.cassisredhill.com.au/the-terrace",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Terrace | Cassis Red Hill",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -4591,6 +4679,13 @@
       "disposition": "gone",
       "dispositionNote": "TLS handshake fails with an internal error from the server. No fetchable replacement found.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.the-orchard.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.thecaperetreat.com.au/",

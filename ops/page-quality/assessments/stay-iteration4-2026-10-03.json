@@ -31,7 +31,7 @@
     "productionBuild": "Final npm run build:search passed, including content gates, image processing, responsive image generation and 728 indexed pages.",
     "settledBrowser": "Final complete local build at 320px, 390px and 1440px renders 27 directory rows, zero clipped verdicts and no horizontal overflow. Mobile title links have at least 44px height and show the underlined treatment. Independent reviewers tested the prior compact build; final copy/link refinements were checked in the local browser.",
     "independentFullRegrade": "pending",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "PR 529 merged at faf30efffa2b51c88f11f4b51a02a29c0bb46d73; deployment run 37088613623 succeeded and the public release manifest named that exact source SHA. Real Chromium checks on public /stay/ at 390px and 320px returned 200, 27 cards, 27 title elements, no clipped cards or horizontal overflow, and all 27 Save controls at least 48px."
   },
   "hardGatesOpen": [
     "Fifteen Stay listings still lack dated operator source checks",
@@ -43,5 +43,5 @@
     "Nonbreaking-space pseudo arrow still wrapped alone on the longest title; replaced with a tested underlined link treatment.",
     "The live-region status has an intentional 350ms debounce; an early 250ms read was not a defect."
   ],
-  "nextAction": "Complete final build, rebase on the merged source revision, submit the mobile directory PR, pass CI, verify exact live revision, then continue source and whole-page gates."
+  "nextAction": "Continue the separate factual source set for 15 remaining listings and the inherited image-rights debt; obtain direct assistive-technology, performance and full 23-criterion independent regrade before claiming the target."
 }
