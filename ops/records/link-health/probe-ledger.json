@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T00:50:36.167Z",
+  "updatedAt": "2026-10-03T01:17:34.201Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -824,6 +824,54 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Lancemore: Lindenderry Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mornington Peninsula Luxury Accommodation | Lindenderry Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/celebrate/function-rooms/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Function Venues in Mornington Peninsula - Lancemore",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/experiences/packages/alba-package/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Alba Thermal Springs &amp; Spa Package | Lancemore Lindenderry Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/the-dining-room/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Restaurants | Award Winning Wineries &amp; Restaurants",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/the-dining-room/cellar-door/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Winery | Lindenderry Winery &amp; Cellar Door",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill",
@@ -2826,6 +2874,14 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://www.lakesidevillas.com.au/accommodation/villas/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Winery Accommodation Mornington Peninsula | Crittenden Lakeside Villas",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.lakesidevillas.com.au/book",
       "verdict": "blocked",
       "httpCode": "202",
@@ -2838,6 +2894,14 @@
       "httpCode": "200",
       "pageTitle": "Rates &amp; Bookings - Lakeside Villas",
       "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.lakesidevillas.com.au/restaurant/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Winery Restaurant Mornington Peninsula | Crittenden",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -3717,6 +3781,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Accommodation | Peninsula Hot Springs Accommodations"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/accommodation/eco-lodges",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Eco Lodges Accommodation | Peninsula Hot Springs",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.peninsulahotsprings.com/accommodation/eco-lodges/",

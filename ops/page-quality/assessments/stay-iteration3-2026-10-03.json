@@ -1,0 +1,80 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "2cd6631101bd9112271dec696cb5e04684c63a6c",
+  "dependsOn": "PR 527 merged as 2cd6631101bd9112271dec696cb5e04684c63a6c; public deploy still requires exact-manifest verification.",
+  "baseline": {
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "note": "Earlier independently reviewed live revision. Neither this source set nor all 23 criteria have been independently regraded."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "Five further Stay records lacked dated operator source checks. Point Nepean copy asserted 46 tents, a market price position, superior shoulder-season tent positions and visitation patterns without current Parks Victoria evidence; it also omitted current requirements to bring eating utensils and the accessible-tent enquiry caveat.",
+  "boundedChange": "Add dated operator evidence to Lindenderry, Crittenden Villas, Peninsula Hot Springs Eco Lodges, Point Nepean Discovery Tents and The Cape Retreat. Canonicalise redirects for Lindenderry and the Eco Lodges. Replace Point Nepean claims with operator-supported capacity, season, equipment, accessibility and park rules.",
+  "sources": [
+    "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/accommodation/",
+    "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/celebrate/function-rooms/",
+    "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/the-dining-room/",
+    "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/the-dining-room/cellar-door/",
+    "https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/experiences/packages/alba-package/",
+    "https://www.lakesidevillas.com.au/accommodation/villas/",
+    "https://www.lakesidevillas.com.au/restaurant/",
+    "https://www.peninsulahotsprings.com/accommodation/eco-lodges",
+    "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents",
+    "https://www.thecaperetreat.com.au/",
+    "https://www.thecaperetreat.com.au/book"
+  ],
+  "metric": "Twelve of 27 Stay listings have dated operator checks after this set; the edited Point Nepean record contains no unsupported tent count or market price claim. All source citations are probed and content/build gates pass.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded content commit; no schema or data migration.",
+  "validation": {
+    "contentSchema": "passed",
+    "noPricing": "passed",
+    "houseStyle": "passed",
+    "firsthandClaimLint": "passed",
+    "linkHealth": "Nine new official source URLs probed and recorded as ok; assert:link-health passed with zero unrecorded citations.",
+    "productionBuild": "Full build:search passed on the corrected copy; final added operator acreage citation is covered by focused checks and will be rechecked in CI.",
+    "independentRegrade": "pending",
+    "liveAcceptance": "pending",
+    "settledBrowser": "Local static preview at 320, 390 and 1440px: all 27 directory rows render with no horizontal overflow. Point Nepean detail omits the unsupported tent count and renders updated equipment, accessibility and assistance-dog guidance."
+  },
+  "sourceCoverage": {
+    "totalStayListings": 27,
+    "withDatedCheckAfterSet": 12,
+    "withoutDatedCheck": [
+      "arthurs-views",
+      "birch-creek",
+      "cassis",
+      "driftaway-on-dundas",
+      "happy-glamper",
+      "hideaways-red-hill",
+      "iluka-retreat",
+      "kanasta-retro-caravans",
+      "mantons-creek-estate",
+      "mp-beach-club-cottages",
+      "plantation-house-whitecliffs",
+      "sanctuary-at-alba",
+      "the-orchard-red-hill",
+      "treetops-red-hill",
+      "woodman-estate"
+    ]
+  },
+  "hardGatesOpen": [
+    "Fifteen Stay listings still lack dated source evidence",
+    "Full assistive technology review and independent 23-criterion regrade remain open",
+    "Mobile directory density and current Hotel Sorrento decision imagery remain open"
+  ],
+  "negativeFindings": [
+    "Current Parks Victoria page does not publish the exact tent count; the number 46 was removed rather than inferred.",
+    "Parks Victoria asks visitors to bring cutlery, plates and cups, which older video material incorrectly presents as supplied.",
+    "Existing ratcheted dead daily-insight event URL is outside this Stay set."
+  ],
+  "nextAction": "Release through CI after reviewing the final source citation; verify exact public revision, then address the remaining fifteen listings and mobile directory density."
+}
