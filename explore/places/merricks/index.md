@@ -75,7 +75,7 @@ Treating it as a destination rather than a stop - it's part of a day, not the wh
 
 Merricks in brief
 
-## Merricks in four lines
+## Merricks in 4 points
 
 - 01   Merricks is a small rural village that punches above its size - Pt Leo Estate alone makes it worth the detour.
 

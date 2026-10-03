@@ -73,7 +73,7 @@ Looking for a village to wander - there isn't one, and pretending otherwise will
 
 St Andrews Beach in brief
 
-## St Andrews Beach in four lines
+## St Andrews Beach in 5 points
 
 - 01   St Andrews Beach is a back-beach village built around surf, dunes and the St Andrews Beach Brewery - minimal village, maximum coast.
 

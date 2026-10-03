@@ -73,7 +73,7 @@ The busiest stretch of the front beach in peak season - head further along the s
 
 Rye in brief
 
-## Rye in four lines
+## Rye in 4 points
 
 - 01   Rye is the Peninsula's two-beach town - calm bay front, wild ocean back, with Peninsula Hot Springs and a brewery in between.
 

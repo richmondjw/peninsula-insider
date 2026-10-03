@@ -65,7 +65,7 @@ Expecting a major dining scene - Mount Martha is for beach time and quiet mornin
 
 Mount Martha in brief
 
-## Mount Martha in four lines
+## Mount Martha in 4 points
 
 - 01   Mount Martha is the Peninsula's most scenic bay-coast village - a long pale arc of beach backed by low hills, quieter than anything south of Mornington.
 

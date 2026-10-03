@@ -65,7 +65,7 @@ Dropping in without knowing where you are headed - Tuerong only works if you cho
 
 Tuerong in brief
 
-## Tuerong in four lines
+## Tuerong in 3 points
 
 - 01   Tuerong is a rural locality best known to wine enthusiasts as the address of Yabby Lake Vineyard and Dromana Estate.
 

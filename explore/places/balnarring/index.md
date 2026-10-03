@@ -73,7 +73,7 @@ Treating it like a shopping stop - the real point is the slower pace and the bea
 
 Balnarring in brief
 
-## Balnarring in four lines
+## Balnarring in 4 points
 
 - 01   Balnarring is the Peninsula's quietest genuine village - a monthly Saturday market in the warmer months, a village pub, a clean beach on Western Port, and wine-country roads nobody else is driving.
 

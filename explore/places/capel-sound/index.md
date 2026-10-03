@@ -67,7 +67,7 @@ Visiting in school-holiday peak expecting calm - for that, come in May.
 
 Capel Sound in brief
 
-## Capel Sound in four lines
+## Capel Sound in 5 points
 
 - 01   Capel Sound is the bayside town west of Rosebud - long foreshore, one of Australia's biggest beachfront camp grounds, a flat residential grid behind.
 

@@ -63,7 +63,7 @@ Expecting a town centre worth lingering in - Blairgowrie is about the foreshore,
 
 Blairgowrie in brief
 
-## Blairgowrie in four lines
+## Blairgowrie in 4 points
 
 - 01   Blairgowrie is the quieter town between Rye and Sorrento - a working marina, uncrowded bay beach, and one of the Peninsula's best dive sites off the back-beach pier.
 

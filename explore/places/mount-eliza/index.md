@@ -67,7 +67,7 @@ Driving through to Mornington without stopping - Mount Eliza is more interesting
 
 Mount Eliza in brief
 
-## Mount Eliza in four lines
+## Mount Eliza in 5 points
 
 - 01   Mount Eliza is the Peninsula's affluent northern gateway - a tight village strip with strong cafés, and a string of small bay beaches the rest of Melbourne has mostly missed.
 

@@ -67,7 +67,7 @@ Expecting a village atmosphere - Safety Beach works as a foreshore, not a town.
 
 Safety Beach in brief
 
-## Safety Beach in four lines
+## Safety Beach in 4 points
 
 - 01   Safety Beach is a long, calm bay foreshore between Mount Martha and Dromana - shallow water makes it the Peninsula's best swimming spot for young children.
 

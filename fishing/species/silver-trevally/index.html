@@ -60,7 +60,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.BC_rbSGU.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.DnKmNHSW.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.1sLxTW9n.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.B1Kc_A5C.css">
 <style>.subpage-hero__stage[data-astro-cid-hwizvnsu]{min-width:0;align-self:center}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__credit[data-astro-cid-hwizvnsu]{grid-column:-2 / -1;margin:.5rem 0 0;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-align:right}.subpage-hero__photos[data-astro-cid-hwizvnsu]{padding-block-start:clamp(1.25rem,2.5vw,2rem)}.subpage-hero__photos[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{--pstage-h: .75}
 </style>
 <link rel="stylesheet" href="/_astro/PhotoStage.DesciBr7.css">
@@ -927,6 +927,9 @@ const SB_ANON_KEY = "sb_publishable_JlZuo95QvNZi2ZNrFyK-Cw_2y0U7HLp";
         return saved.joined || (saved.until && Date.now() < saved.until) ||
           document.body.classList.contains('search-open') ||
           !!document.querySelector('dialog[open]') ||
+          // Let the first-visit consent decision finish before a promotional
+          // modal can take focus; the consent note may be far above the scroll.
+          document.getElementById('cookie-banner')?.getAttribute('data-state') === 'visible' ||
           // The homepage has the complete signup form in its own closing
           // section. A second fixed invitation obscures that section on phones.
           !!document.querySelector('[data-home-dispatch]') ||

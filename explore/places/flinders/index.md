@@ -79,7 +79,7 @@ Expecting Sorrento - Flinders is quieter, more local, deliberately understated.
 
 Flinders in brief
 
-## Flinders in four lines
+## Flinders in 4 points
 
 - 01   Flinders is the Peninsula's most complete ocean-coast village - a bakery, a pub, a world-class golf course, and a marine sanctuary immediately offshore.
 

@@ -63,7 +63,7 @@ Trying to fit five cellar doors into a day - Merricks North rewards three at a s
 
 Merricks North in brief
 
-## Merricks North in four lines
+## Merricks North in 5 points
 
 - 01   Merricks North is the older, quieter wine pocket above Merricks village - Elgee Park, Baillieu, Stonier and a polo field on a country road.
 

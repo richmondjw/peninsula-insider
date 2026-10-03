@@ -81,7 +81,7 @@ Main Street on a summer Saturday - go to the market instead.
 
 Mornington in brief
 
-## Mornington in four lines
+## Mornington in 4 points
 
 - 01   Mornington is the Peninsula's most complete town - a real main street, a Wednesday farmers' market, bathing boxes, and serious restaurants all within reach of each other.
 

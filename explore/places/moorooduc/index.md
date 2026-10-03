@@ -67,7 +67,7 @@ Using it as a scenic stop on the highway - the point is the cellar doors, not th
 
 Moorooduc in brief
 
-## Moorooduc in four lines
+## Moorooduc in 3 points
 
 - 01   Moorooduc is a small hinterland locality that most visitors pass through on Moorooduc Highway rather than stop in - the ones who do stop find it quiet and unhurried.
 

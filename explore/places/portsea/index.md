@@ -73,7 +73,7 @@ Coming without a booking in summer - the hotel fills fast and the town has limit
 
 Portsea in brief
 
-## Portsea in four lines
+## Portsea in 4 points
 
 - 01   Portsea is the Peninsula's final town and most quietly exclusive - old holiday houses behind gates, a pub on the foreshore, and Point Nepean National Park next door.
 

@@ -67,7 +67,7 @@ Driving past on the way to Sorrento - McCrae rewards stopping properly.
 
 McCrae in brief
 
-## McCrae in four lines
+## McCrae in 5 points
 
 - 01   McCrae is the in-between bay town most visitors skip - calm beach, the Peninsula's oldest homestead, a lighthouse, and the back of Arthurs Seat right behind.
 

@@ -65,7 +65,7 @@ Turning up expecting a full-service village - Shoreham is a beach and a few road
 
 Shoreham in brief
 
-## Shoreham in four lines
+## Shoreham in 4 points
 
 - 01   Shoreham is the most quietly beautiful small beach on the Western Port coast - a family-scaled foreshore backed by bush, with cellar doors ten minutes up the ridge.
 

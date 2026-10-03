@@ -65,7 +65,7 @@ Treating Boneo as a destination on its own - it is a base for the back-beach bel
 
 Boneo in brief
 
-## Boneo in four lines
+## Boneo in 5 points
 
 - 01   Boneo is rural country that happens to sit beside Peninsula Hot Springs, Alba Thermal Springs and RACV Cape Schanck - a quieter base than Rye for the same belt.
 

@@ -73,7 +73,7 @@ Driving in and rushing the forts - Point Nepean only works if you give it time a
 
 Point Nepean in brief
 
-## Point Nepean in four lines
+## Point Nepean in 5 points
 
 - 01   Point Nepean National Park is the Peninsula's most dramatic walk - quarantine station ruins, gun emplacements, and views across Port Phillip Heads at the continent's edge.
 

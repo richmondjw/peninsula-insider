@@ -65,7 +65,7 @@ Looking for charm in the town centre - stop for seafood and the pier, then move 
 
 Hastings in brief
 
-## Hastings in four lines
+## Hastings in 3 points
 
 - 01   Hastings is the Peninsula's working port town - a fishermen's co-op, mussel farms offshore, and a Stony Point ferry to Phillip Island that most visitors don't know exists.
 

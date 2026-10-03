@@ -63,7 +63,7 @@ Writing it off as just the main road - the foreshore is the reason to stay.
 
 Rosebud in brief
 
-## Rosebud in four lines
+## Rosebud in 4 points
 
 - 01   Rosebud is the Peninsula's most liveable bay town - long foreshore, practical main street, and a beach that genuinely delivers without requiring effort.
 

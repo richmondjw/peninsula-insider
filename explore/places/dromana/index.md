@@ -73,7 +73,7 @@ Spending a whole day here - it's better as a base or a stop than a destination.
 
 Dromana in brief
 
-## Dromana in four lines
+## Dromana in 4 points
 
 - 01   Dromana is the practical hinge between the bay and the hinterland - base camp for Arthurs Seat, the gondola, and the wine country immediately behind it.
 

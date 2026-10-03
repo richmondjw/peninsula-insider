@@ -73,7 +73,7 @@ Expecting a village. Fingal is a destination, not a town.
 
 Fingal in brief
 
-## Fingal in four lines
+## Fingal in 4 points
 
 - 01   Fingal is the Peninsula's wellness and golf destination - Peninsula Hot Springs is here, Moonah Links is here, and Cape Schanck is a short drive south.
 

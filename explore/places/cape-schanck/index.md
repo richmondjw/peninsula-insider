@@ -81,7 +81,7 @@ Expecting facilities - it's a national park, not a township.
 
 Cape Schanck in brief
 
-## Cape Schanck in four lines
+## Cape Schanck in 4 points
 
 - 01   Cape Schanck is the Peninsula's most cinematic short walk - an 1859 lighthouse, basalt sea stacks, and the open Southern Ocean to the south.
 

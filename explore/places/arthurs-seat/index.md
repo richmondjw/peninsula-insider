@@ -33,7 +33,7 @@ about 1 hour 15 minutes
 
 Arthurs Seat in brief
 
-## Arthurs Seat in four lines
+## Arthurs Seat in 5 points
 
 - 01   Arthurs Seat is the Peninsula's highest point and one of its clearest orientation stops.
 

@@ -73,7 +73,7 @@ The main strip on a summer Saturday - too crowded to enjoy properly.
 
 Sorrento in brief
 
-## Sorrento in four lines
+## Sorrento in 5 points
 
 - 01   Sorrento is the Peninsula's most celebrated town - limestone cliffs, ocean baths carved from rock, a ferry to Queenscliff across the Heads, and a main street that has earned its reputation.
 

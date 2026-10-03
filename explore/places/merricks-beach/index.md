@@ -65,7 +65,7 @@ Looking for a town to wander - Merricks Beach is a residential hamlet, by design
 
 Merricks Beach in brief
 
-## Merricks Beach in four lines
+## Merricks Beach in 5 points
 
 - 01   Merricks Beach is a 1950s-built holiday-house hamlet on a shallow Western Port beach - quiet, low-rise, no shops.
 

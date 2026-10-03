@@ -65,7 +65,7 @@ Looking for nightlife or a polished main street - Somers is a residential villag
 
 Somers in brief
 
-## Somers in four lines
+## Somers in 5 points
 
 - 01   Somers is a deliberately quiet Western Port beach village - long sheltered beach, tea-tree dunes, a 1950s-era yacht club, and the Coolart wetlands on the edge.
 

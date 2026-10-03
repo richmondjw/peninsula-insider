@@ -79,7 +79,7 @@ Rushing - Main Ridge rewards slow, intentional visits.
 
 Main Ridge in brief
 
-## Main Ridge in four lines
+## Main Ridge in 4 points
 
 - 01   Main Ridge is the most rural locality in the Mornington Peninsula hinterland - no cafés, no boutiques, just farmland, bush, and cellar doors.
 

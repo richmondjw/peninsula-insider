@@ -67,7 +67,7 @@ Assuming there is nothing here - Tyabb Packing House alone earns the detour.
 
 Tyabb in brief
 
-## Tyabb in four lines
+## Tyabb in 5 points
 
 - 01   Tyabb has two anchors most visitors don't know about - Tyabb Packing House, the Peninsula's antique district, and the Tyabb Air Show on the grass airfield.
 

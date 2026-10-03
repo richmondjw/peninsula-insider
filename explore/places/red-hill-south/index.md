@@ -65,7 +65,7 @@ Driving past the country pub assuming it's nothing - it's a serious lunch destin
 
 Red Hill South in brief
 
-## Red Hill South in four lines
+## Red Hill South in 5 points
 
 - 01   Red Hill South is the lower-elevation half of the Red Hill plateau - same wine country, quieter roads, more bed-and-breakfasts than its better-known neighbour.
 

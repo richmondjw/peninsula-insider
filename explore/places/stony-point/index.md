@@ -67,7 +67,7 @@ Trying to find a café - Stony Point is a jetty, not a village.
 
 Stony Point in brief
 
-## Stony Point in four lines
+## Stony Point in 5 points
 
 - 01   Stony Point is a jetty, a ferry terminal and a train terminus - the rare Australian point where you step off a train and onto a boat.
 

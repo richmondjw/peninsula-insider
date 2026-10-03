@@ -81,7 +81,7 @@ Trying to do more than three cellar doors in a day - the road between them is na
 
 Red Hill in brief
 
-## Red Hill in four lines
+## Red Hill in 5 points
 
 - 01   Red Hill is the Mornington Peninsula's wine and food epicentre - specifically Pinot Noir, Chardonnay, and orchards producing apples and cherries.
 
