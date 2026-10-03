@@ -473,6 +473,10 @@ export interface FeedEntry {
   t: string; // title
   d: string; // one-liner
   m: string[]; // meta chips
+  c: string; // canonical event category
+  p: string; // town, when explicitly supplied
+  f: boolean; // unqualified free entry
+  g: boolean; // explicitly marked family friendly
   k: 'range' | 'weekly' | 'monthly';
   s: string; // rule start ISO date
   e: string; // rule end ISO date
@@ -498,6 +502,10 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       t: live.title,
       d: live.oneLiner,
       m: live.meta,
+      c: String(live.event.data.category ?? ''),
+      p: String(live.event.data.suburb ?? ''),
+      f: live.free,
+      g: live.event.data.familyFriendly === true,
       k: live.rule.kind,
       s: isoDate(live.rule.start),
       e: isoDate(live.rule.end),

@@ -36,6 +36,7 @@ import {
   type OccurrenceState,
 } from './_data';
 import { getAustralianSeasonLower } from '../../lib/season';
+import { eventCategoryLabel } from '../../lib/editorial';
 
 export const prerender = true;
 
@@ -150,6 +151,10 @@ const pickCards = picks.map((p, i) => {
 
 const season = getAustralianSeasonLower(now);
 const todayISO = isoDate(startOfDay(now));
+const townOptions = [...new Set(events.map((entry) => entry.event.data.suburb).filter((town): town is string => typeof town === 'string' && town.trim().length > 0))].sort((a, b) => a.localeCompare(b));
+const categoryOptions = [...new Set(events.map((entry) => entry.event.data.category))]
+  .map((category) => ({ value: category, label: eventCategoryLabel[category] ?? category }))
+  .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
 const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
 ---
@@ -190,41 +195,25 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         : null}
       todayISO={todayISO}
     />
+    <details class="wo-filter-disclosure" data-wo-filter-disclosure hidden>
+      <summary>Search and filter events</summary>
+    <form class="wo-filters" data-wo-filters role="search" aria-label="Find an event" hidden>
+      <label class="wo-filters__search">Search events
+        <input type="search" name="q" placeholder="Event or venue" autocomplete="off" />
+      </label>
+      <label>Town
+        <select name="town"><option value="">Any town</option>{townOptions.map((town) => <option value={town}>{town}</option>)}</select>
+      </label>
+      <label>Category
+        <select name="category"><option value="">All categories</option>{categoryOptions.map((category) => <option value={category.value}>{category.label}</option>)}</select>
+      </label>
+      <label class="wo-filters__check"><input type="checkbox" name="free" /> Free entry</label>
+      <label class="wo-filters__check"><input type="checkbox" name="kids" /> With kids</label>
+      <button type="button" class="wo-filters__clear" data-wo-filter-reset>Clear filters</button>
+    </form>
+    </details>
     <TrustNote surface="whatson" />
   </div>
-
-  {picks.length > 0 && (
-    <section class="wo-picks" aria-labelledby="wo-picks-h">
-      <div class="container">
-        <div class="wo-picks__head">
-          <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
-          <p class="wo-picks__dek">Selected events for this weekend. Check the organiser for the latest details.</p>
-        </div>
-        {/* Every card here is an event on the What's On page, under a heading
-            that says so: the per-card EVENT stamp is dropped. */}
-        <CardGrid label="PI's picks for this weekend">
-          {pickCards.map((c) => (
-            <Card
-              variant="event"
-              title={c.title}
-              href={c.href}
-              entityType="event"
-              entitySlug={c.slug}
-              image={c.image}
-              verdict={c.verdict}
-              meta={c.meta}
-              dateISO={c.dateISO}
-              showEyebrow={false}
-              mediaFallback={true}
-              trip={true}
-              surface="whatson"
-              position={c.position}
-            />
-          ))}
-        </CardGrid>
-      </div>
-    </section>
-  )}
 
   <section class="wo-days" aria-label="Everything on for the selected dates">
     <div class="container">
@@ -270,6 +259,39 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       </p>
     </div>
   </section>
+
+  {picks.length > 0 && (
+    <section class="wo-picks" aria-labelledby="wo-picks-h">
+      <div class="container">
+        <div class="wo-picks__head">
+          <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
+          <p class="wo-picks__dek">Selected events for this weekend. Check the organiser for the latest details.</p>
+        </div>
+        {/* Every card here is an event on the What's On page, under a heading
+            that says so: the per-card EVENT stamp is dropped. */}
+        <CardGrid label="PI's picks for this weekend">
+          {pickCards.map((c) => (
+            <Card
+              variant="event"
+              title={c.title}
+              href={c.href}
+              entityType="event"
+              entitySlug={c.slug}
+              image={c.image}
+              verdict={c.verdict}
+              meta={c.meta}
+              dateISO={c.dateISO}
+              showEyebrow={false}
+              mediaFallback={true}
+              trip={true}
+              surface="whatson"
+              position={c.position}
+            />
+          ))}
+        </CardGrid>
+      </div>
+    </section>
+  )}
 
   {shelves.length > 0 && (
     <section class="wo-shelves" aria-labelledby="wo-shelves-h">
@@ -349,6 +371,10 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     t: string;
     d: string;
     m: string[];
+    c: string;
+    p: string;
+    f: boolean;
+    g: boolean;
     k: 'range' | 'weekly' | 'monthly';
     s: string;
     e: string;
@@ -379,6 +405,8 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   const custom = document.querySelector<HTMLDetailsElement>('[data-wo-custom]');
   const customForm = document.querySelector<HTMLFormElement>('[data-wo-custom-form]');
   const rowTpl = document.querySelector<HTMLTemplateElement>('[data-wo-row-template]');
+  const filterForm = document.querySelector<HTMLFormElement>('[data-wo-filters]');
+  const filterDisclosure = document.querySelector<HTMLDetailsElement>('[data-wo-filter-disclosure]');
 
   if (daysEl && scopeNav && rowTpl) {
     if (daysEl.dataset.scopeInitialized === 'true') return;
@@ -388,6 +416,11 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     const defaultHTML = daysEl.innerHTML;
     const defaultRange = rangeEl?.textContent ?? '';
     if (monthBtn) monthBtn.hidden = false;
+    if (filterForm) filterForm.hidden = false;
+    if (filterDisclosure) {
+      filterDisclosure.hidden = false;
+      if (window.matchMedia('(min-width: 700px)').matches) filterDisclosure.open = true;
+    }
 
     // Calendar dates use Melbourne's day and UTC date-only arithmetic in all surfaces.
     const parseISO = (s: string) => new Date(`${s}T00:00:00Z`);
@@ -412,6 +445,30 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     });
     let requestVersion = 0;
     let readingUrl = false;
+    let activeScope = 'weekend';
+    let activeCustomRange: { from: string; to: string } | null = null;
+    const filters = () => {
+      const fields = filterForm ? new FormData(filterForm) : new FormData();
+      return {
+        q: String(fields.get('q') ?? '').trim().toLocaleLowerCase('en-AU'),
+        town: String(fields.get('town') ?? ''),
+        category: String(fields.get('category') ?? ''),
+        free: fields.has('free'),
+        kids: fields.has('kids'),
+      };
+    };
+    const hasFilters = () => {
+      const value = filters();
+      return Boolean(value.q || value.town || value.category || value.free || value.kids);
+    };
+    const matchesFilters = (entry: FeedEntry) => {
+      const value = filters();
+      if (value.town && entry.p !== value.town) return false;
+      if (value.category && entry.c !== value.category) return false;
+      if (value.free && !entry.f) return false;
+      if (value.kids && !entry.g) return false;
+      return !value.q || [entry.t, entry.d, entry.p, ...entry.m].join(' ').toLocaleLowerCase('en-AU').includes(value.q);
+    };
 
     // ── feed island (fetched once, on first non-default scope) ─────────
     let feedPromise: Promise<FeedEntry[]> | null = null;
@@ -471,7 +528,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         62,
         Math.round((startOfDay(end).getTime() - startOfDay(start).getTime()) / 86400000) + 1
       );
-      const showEmptyDays = dayCount <= 4;
+      const showEmptyDays = dayCount <= 4 && !hasFilters();
       const seenRanges = new Set<string>();
       daysEl.textContent = '';
       let shown = 0;
@@ -480,6 +537,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         const matches: { e: FeedEntry; span: string }[] = [];
         let continuingCount = 0;
         for (const e of entries) {
+          if (!matchesFilters(e)) continue;
           if (!occursOn(e, day)) continue;
           if (e.k === 'range') {
             if (seenRanges.has(e.slug)) {
@@ -520,7 +578,9 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       if (shown === 0) {
         const p = document.createElement('p');
         p.className = 'wo-day__empty';
-        p.textContent = 'Nothing in the registry for those dates yet. Try the month ahead.';
+        p.textContent = hasFilters()
+          ? 'No matching events for these dates. Clear a filter or choose another date.'
+          : 'Nothing in the registry for those dates yet. Try the month ahead.';
         daysEl.appendChild(p);
       }
       // Re-run SaveControl hydration for the cloned rows (its init listens
@@ -547,6 +607,13 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       const url = new URL(window.location.href);
       if (param) url.searchParams.set('date', param);
       else url.searchParams.delete('date');
+      const value = filters();
+      for (const key of ['q', 'town', 'category', 'free', 'kids']) url.searchParams.delete(key);
+      if (value.q) url.searchParams.set('q', value.q);
+      if (value.town) url.searchParams.set('town', value.town);
+      if (value.category) url.searchParams.set('category', value.category);
+      if (value.free) url.searchParams.set('free', '1');
+      if (value.kids) url.searchParams.set('kids', '1');
       if (!readingUrl && url.href !== window.location.href) history.pushState({ ...history.state, piWhatsOnScope: true }, '', url.pathname + url.search + url.hash);
     };
 
@@ -556,6 +623,11 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     };
 
     const applyDefault = () => {
+      if (hasFilters()) {
+        const win = weekendWindow(new Date());
+        applyWindow('weekend', win.start, win.end, "What's on this weekend", null, 'this weekend');
+        return;
+      }
       requestVersion += 1;
       showDefaultContent(true);
       daysEl.innerHTML = defaultHTML;
@@ -571,7 +643,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       start: Date,
       end: Date,
       headline: string,
-      param: string,
+      param: string | null,
       announceLabel: string
     ) => {
       const version = ++requestVersion;
@@ -588,6 +660,9 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         announce(shown, announceLabel);
       } catch {
         if (version !== requestVersion) return;
+        filterForm?.reset();
+        activeScope = 'weekend';
+        activeCustomRange = null;
         applyDefault();
         if (statusEl) statusEl.textContent = 'Could not load those dates. Showing this weekend instead.';
         document.dispatchEvent(new Event('astro:page-load'));
@@ -595,8 +670,15 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     };
 
     const applyScope = (scope: string, from?: string, to?: string) => {
+      activeScope = scope;
+      if (scope !== 'custom') activeCustomRange = null;
       if (scope === 'weekend') {
         applyDefault();
+        return;
+      }
+      if (scope === 'today' || scope === 'tomorrow') {
+        const day = addDays(startOfDay(new Date()), scope === 'tomorrow' ? 1 : 0);
+        applyWindow(scope, day, day, scope === 'today' ? "What's on today" : "What's on tomorrow", scope, scope);
         return;
       }
       if (scope === 'next-weekend') {
@@ -618,6 +700,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
         return;
       }
       if (scope === 'custom' && from && to) {
+        activeCustomRange = { from, to };
         let a = parseISO(from);
         let b = parseISO(to);
         if (!Number.isFinite(a.getTime()) || !Number.isFinite(b.getTime()) || isoDate(a) !== from || isoDate(b) !== to) { applyDefault(); return; }
@@ -646,16 +729,44 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
 
     monthBtn?.addEventListener('click', () => applyScope('month'));
 
+    let searchTimer: ReturnType<typeof setTimeout> | null = null;
+    filterForm?.addEventListener('input', (event) => {
+      if ((event.target as HTMLElement).getAttribute('name') !== 'q') return;
+      if (searchTimer) clearTimeout(searchTimer);
+      searchTimer = setTimeout(() => applyScope(activeScope, activeCustomRange?.from, activeCustomRange?.to), 180);
+    });
+    filterForm?.addEventListener('change', (event) => {
+      if ((event.target as HTMLElement).getAttribute('name') === 'q') return;
+      applyScope(activeScope, activeCustomRange?.from, activeCustomRange?.to);
+    });
+    filterForm?.addEventListener('submit', (event) => event.preventDefault());
+    filterForm?.querySelector('[data-wo-filter-reset]')?.addEventListener('click', () => {
+      filterForm.reset();
+      applyScope(activeScope, activeCustomRange?.from, activeCustomRange?.to);
+    });
+
     // Deep links + back/forward.
     const applyFromUrl = () => {
       readingUrl = true;
       try {
-      const v = new URLSearchParams(window.location.search).get('date');
+      const query = new URLSearchParams(window.location.search);
+      if (filterForm) {
+        for (const name of ['q', 'town', 'category']) {
+          const control = filterForm.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | null;
+          if (control) control.value = query.get(name) ?? '';
+        }
+        for (const name of ['free', 'kids']) {
+          const control = filterForm.elements.namedItem(name) as HTMLInputElement | null;
+          if (control) control.checked = query.get(name) === '1';
+        }
+        if (filterDisclosure && hasFilters()) filterDisclosure.open = true;
+      }
+      const v = query.get('date');
       if (!v) {
         applyDefault();
         return;
       }
-      if (v === 'next-weekend' || v === 'school-holidays') applyScope(v);
+      if (v === 'today' || v === 'tomorrow' || v === 'next-weekend' || v === 'school-holidays') applyScope(v);
       else if (v === 'this-month') applyScope('month');
       else if (/^\d{4}-\d{2}-\d{2}\.\.\d{4}-\d{2}-\d{2}$/.test(v)) {
         const [from, to] = v.split('..');
@@ -671,7 +782,7 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     };
     scopeHistoryHandler = onScopeHistory;
     disposeScope = () => { requestVersion += 1; };
-    if (new URLSearchParams(window.location.search).get('date')) applyFromUrl();
+    if ([...new URLSearchParams(window.location.search).keys()].some((key) => ['date', 'q', 'town', 'category', 'free', 'kids'].includes(key))) applyFromUrl();
   }
   }
   document.addEventListener('astro:page-load', initEventScopes);
@@ -717,6 +828,50 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   }
   .wo-scope-wrap {
     padding-top: 1rem;
+  }
+  .wo-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: 0.75rem;
+    margin: 0.5rem 0 0;
+    padding: 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-m, 10px);
+    background: var(--surface, var(--bg));
+  }
+  .wo-filters[hidden] { display: none; }
+  .wo-filter-disclosure { margin-top: 0.75rem; }
+  .wo-filter-disclosure[hidden] { display: none; }
+  .wo-filter-disclosure > summary { min-height: 44px; display: flex; align-items: center; width: fit-content; color: var(--accent); font-weight: var(--fw-semibold, 600); cursor: pointer; }
+  .wo-filter-disclosure > summary::after { content: '⌄'; margin-left: 0.5rem; font-size: 1.25rem; line-height: 1; }
+  .wo-filter-disclosure > summary:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
+  .wo-filters label:not(.wo-filters__check) {
+    display: grid;
+    gap: 0.25rem;
+    min-width: 10rem;
+    font-size: var(--fs-200, 0.8rem);
+    font-weight: var(--fw-semibold, 600);
+  }
+  .wo-filters__search { flex: 1 1 15rem; }
+  .wo-filters input[type='search'], .wo-filters select {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    background: var(--bg);
+    color: var(--text);
+    font: inherit;
+  }
+  .wo-filters__check { display: inline-flex; align-items: center; min-height: 44px; gap: 0.4rem; white-space: nowrap; }
+  .wo-filters__check input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); }
+  .wo-filters__clear { min-height: 44px; border: 0; background: none; color: var(--accent); font: inherit; text-decoration: underline; cursor: pointer; }
+  .wo-filters :is(input, select, button):focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
+  @media (max-width: 640px) {
+    .wo-head { padding-top: 1rem; }
+    .wo-head__rule + .wo-head__rule { display: none; }
+    .wo-filters label:not(.wo-filters__check) { flex: 1 1 100%; }
   }
 
   /* ── PI's picks ── */
