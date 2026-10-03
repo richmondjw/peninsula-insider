@@ -457,8 +457,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 ## What's On
 
-- [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
-
 - [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
 
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
@@ -472,8 +470,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-- [Peninsula Summer Music Festival 2027](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
@@ -498,6 +494,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
 - [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+
+- [Peninsula Summer Music Festival 2027](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
 - [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 

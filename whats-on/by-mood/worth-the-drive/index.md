@@ -11,14 +11,6 @@ Worth the trip from Melbourne
 
 Most regional event sites pretend the drive is free. We do not. These are the events worth booking accommodation for, or the day trip from Melbourne that earns its travel time.
 
-Live Music   Annual (January)
-
-### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
-
-Peninsula Summer Music Festival returns 2 to 10 January 2027.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
-
 Markets   Weekly – every Thursday year-round
 
 ### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
@@ -72,14 +64,6 @@ Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-Live Music  2 Jan
-
-### [Peninsula Summer Music Festival 2027](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
-
-Nine-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 10 January 2027.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
 Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 

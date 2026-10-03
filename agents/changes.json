@@ -1,28 +1,116 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T11:29:46.279Z",
+  "generatedAt": "2026-10-03T11:44:32.753Z",
   "baselineAvailable": true,
-  "fromSnapshot": "60d32370f3c96e63a098429d10b6e26129f979dfa8ba68ede2a4425bf71e74b0",
-  "toSnapshot": "e4e8d20bc25b7a34b73ad89eb98da6b32ed623980f020f42c36cd3e1fdeb3336",
-  "previousGeneratedAt": "2026-10-03T11:17:47.539Z",
+  "fromSnapshot": "e4e8d20bc25b7a34b73ad89eb98da6b32ed623980f020f42c36cd3e1fdeb3336",
+  "toSnapshot": "9ba1187d7a48fe73733d18ff0ac56b3407b3bf48336903fa540dba6c0165407c",
+  "previousGeneratedAt": "2026-10-03T11:29:46.279Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 13,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/eat/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
-      "contentSha256": "5b4456932b44455c3d636376847a098df454a89ea93975de12bb57c1fa5d33e2",
-      "previousContentSha256": "0eb741a9ad9e4e673ea1a18a6c0889ca3b16c29928b0dd3b9339701907758826"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "8679b1aceae7b80d0768773e7135f9908bb8b79308e66a8bf6a4bcc21b79a862",
-      "previousContentSha256": "70ddd25b9792de15e166846cc20b5e8a8d113647985ba97850c7995b6375f449"
+      "contentSha256": "921704bf7635db29274dfe6d37cc18a783a2f3e4f7b26895c11086845567fc66",
+      "previousContentSha256": "8679b1aceae7b80d0768773e7135f9908bb8b79308e66a8bf6a4bcc21b79a862"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "a82cf06eaf84e7f995a411e1a8cf98917faa27c23e4a39b35bae23c10db83a3e",
+      "previousContentSha256": "99ef771993cc634beb2e653d56051c3e6031f66cd5a0a343de07adfc19565355"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
+      "contentSha256": "20d9ae5db4ad095d63fceccc611cc94a078aad7a2dc98299b73bf2d850ed81c4",
+      "previousContentSha256": "ba4189e65ab688df0569837a0ffdfff9b66b4451dde5b615ff0f3f6b60ddb906"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/index.md",
+      "contentSha256": "8b8cc5b58573278e3b0ac60ff6fc26f6eb50298afef6819ad61f828dcefb3af2",
+      "previousContentSha256": "2262046e07c99aa16cccc69e8acbfc9eeae7d99cf34c4e24d5abb0bd43d2215d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/index.md",
+      "contentSha256": "79ea276a8565a3389a457477913d53cbb6bfb055fa79557ea266061b35b48e3c",
+      "previousContentSha256": "5ddf86e5df03fe9f7c6507ca6079dfb5fad6d68e328ffeb279937952ac058fc7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
+      "contentSha256": "e5d79eb6d56834cd9a54990715f6dc2b1251fbd5ac6ad5dda7d5a9ae695f3a1f",
+      "previousContentSha256": "5ec5dd73d3775586b9c8a231eddc94c43cf2f2cfcbbb9c68197585150be74d4b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/index.md",
+      "contentSha256": "d7579f146c1749d82f02cac893ae189ebe26f4f994e7f48adf1211975e24c6cb",
+      "previousContentSha256": "aa6cea87725ab0d1053a0842f32585b515291b4d0597fa5177c072f3f7902c62"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/index.md",
+      "contentSha256": "3ee51503adb981e61fdcf69cf2657c835afa729bd068fbdc70c123bd24a9342d",
+      "previousContentSha256": "64df79703e72a5af859a2371f3e7166f79b2caec71eae8b480bb749fb12a27aa"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
+      "contentSha256": "5a2f53bfb907251140eb4beb4ef8a485ded220bca0b5087b15bdaa1e47d26f4c",
+      "previousContentSha256": "4c64c67603986a93de97e4c3787b5174d9184da0192589450b349a90a7335862"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/index.md",
+      "contentSha256": "4e33cfeafe44ebe621203558e2f587c69b9f28d933cdceb8d05997c2ae52e048",
+      "previousContentSha256": "57e1d508f0bc8415dfe45bd79fea49ac5edadd8f9c23b4e6b574c05dc784115d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/index.md",
+      "contentSha256": "e0d9668cdf5281ebb99eacd3e3a6d84e39475588a1b3ab5fbed05dcbd210d542",
+      "previousContentSha256": "ee667d0bf659f7ec7919ae756ea32ca33d5d85a44278bb8a15ac9d11a7c9a53e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
+      "contentSha256": "25e630f1c2bd2ab83c037af431a1c2d32a473bd31b2b4f0aa2965c04309718da",
+      "previousContentSha256": "1442f91ade3f731c8b510117b85c20c7649924fc310ff99d0d1a169a10cfca50"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "8c03f9f4f442c3a0a03c1ccfe1db79a74f179b26436ae8c18136d31121eca5e9"
     }
   ]
 }
