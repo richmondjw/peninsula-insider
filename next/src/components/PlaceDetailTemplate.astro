@@ -73,7 +73,9 @@ const placeSlug = place.id ?? place.slug ?? place.data?.slug ?? place.data?.id;
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
 const hero = await resolveHero('place', placeSlug, place.data);
-const heroCredit = formatHeroCredit(place.data.heroImage?.credit);
+const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);
+const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(place.data.heroImage?.sourceUrl)) ? place.data.heroImage.sourceUrl : undefined;
+const heroLicenceUrl = !hero.override ? place.data.heroImage?.licenseUrl : undefined;
 // See the note in VenueDetailTemplate: a published CMS override is a
 // different image with no recorded provenance of its own.
 const heroProvenance = hero.override ? null : place.data.heroImage;
@@ -231,7 +233,7 @@ const factual = place.data.factualLede ?? '';
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
     )}
   </div>
-  {heroCredit && <p class="pdv2-hero__credit">{heroCredit}</p>}
+  {heroCredit && <p class="pdv2-hero__credit">{heroCredit}{heroSourceUrl && <span> <a href={heroSourceUrl} aria-label={place.data.name + " image source"}>Source</a>{heroLicenceUrl && <> <span aria-hidden="true">·</span> <a href={heroLicenceUrl} aria-label={place.data.name + " image licence"}>Licence</a></>}</span>}</p>}
   <MediaProvenanceNote
     image={heroProvenance}
     subject={place.data.name}
@@ -883,8 +885,36 @@ const factual = place.data.factualLede ?? '';
     color: rgba(255,255,255,0.7);
   }
   @media (max-width: 600px) {
-    .pdv2-hero { min-height: 70vh; }
+    .pdv2-hero {
+      min-height: 70vh;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: stretch;
+    }
     .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
+    .pdv2-hero__inner { padding-bottom: 0.75rem; }
+    .pdv2-hero__credit {
+      position: relative;
+      right: auto;
+      bottom: auto;
+      align-self: flex-start;
+      max-width: calc(100% - 3rem);
+      margin: 0 1.5rem 1rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.01em;
+      line-height: 1.5;
+      text-transform: none;
+      color: var(--white);
+    }
+    .pdv2-hero__credit a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 0 0.35rem;
+      color: var(--white);
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
   }
 
     /* ── 2. EDITORIAL LEDE ──────────────────────────────────────────────── */

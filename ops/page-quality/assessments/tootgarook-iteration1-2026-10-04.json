@@ -1,0 +1,85 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/tootgarook/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Current public guide and linked Stay route inspected against source JSON and built preview. Hero requested /images/placeholder-tootgarook.jpg (404); fallback was generic sourced home cover with a wetland alt/caption. Copy asserted a long pier, broad wetland boardwalk access and cheaper pricing without sufficient source.",
+    "fullScore": null
+  },
+  "sources": [
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Parks-and-reserves/Tootgarook-Bushland-Reserve",
+      "supports": "Public access points, gravel paths, boardwalks, bird hides and platforms; dogs prohibited in the council reserve."
+    },
+    {
+      "url": "https://shape.mornpen.vic.gov.au/our-coast-our-future/ocof-area-2",
+      "supports": "Shallow bay coast context."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Tootgarook_Recreation_Reserve_2023-02-22.jpg",
+      "supports": "Tangerineduel photograph of Tootgarook Recreation Reserve on 22 February 2023."
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "supports": "CC BY-SA 4.0 reuse with attribution, source, licence and change indication."
+    }
+  ],
+  "triage": [
+    {
+      "priority": 1,
+      "criterion": [
+        "ET3",
+        "VS1"
+      ],
+      "finding": "Wrong/missing hero depiction and no adjacent rights trail.",
+      "action": "Use source-recorded actual Tootgarook Recreation Reserve image; call out that it is not the wetland; link author, source and licence and note resize."
+    },
+    {
+      "priority": 2,
+      "criterion": [
+        "ET3",
+        "FN2"
+      ],
+      "finding": "Unsupported pier, pricing and general wetland access claims.",
+      "action": "Constrain visits to published council reserve access and source-backed coastal description."
+    },
+    {
+      "priority": 3,
+      "criterion": [
+        "AT2",
+        "MI1"
+      ],
+      "finding": "Independent mobile QA found hero alt and absolute photo credit overlapped by 14.4px at 320px.",
+      "action": "Put mobile credit in document flow with readable text and 44px source/licence targets."
+    }
+  ],
+  "hypothesis": "Accurate imagery, access copy and a readable rights line reduce misinformation and make the destination useful on small screens.",
+  "boundedChange": "One guide record, one licensed local photograph and scoped mobile hero-credit presentation in the shared place template.",
+  "metric": "Built and public page at 320/390/1440 loads the correct image and source/licence without text overlap or overflow; copy matches cited sources; exact release manifest verifies publication.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert guide copy and template change on factual, rights or layout regression while preserving documented source evidence.",
+  "independentReview": "Independent reviewer checked the Commons file and Shire pages, flagged unsupported signed-path wording and a 14.4px mobile credit collision. Both were corrected. Final built preview at 320/390/1440 received bounded GO: actual image loads, source/licence/resizing visible, 44px mobile link targets, no overlap, overflow or browser errors. The reviewer explicitly withheld a 99/100 design conclusion.",
+  "validation": {
+    "sourceAndRightsChecks": "TZ=UTC content and rights checks passed; Commons source probe HTTP 200 is recorded in link-health ledger, and final full link-health audit passed.",
+    "productionBuild": "Final exact-source TZ=UTC npm run build:search exited 0 with standard source, rights, link, schema and agent-readiness gates. Generated site contains the corrected place route.",
+    "localBrowser": "Chrome at 320/390/1440px: 200, 1920px local hero image loaded, no overflow/page errors, author and CC BY-SA 4.0 credit plus source/licence visible. Independent reviewer measured zero alt/credit overlap after mobile flow fix.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Full independent 23-criterion Tootgarook review and score",
+    "Sharper truthful photographic art direction",
+    "Direct assistive technology and field performance checks"
+  ],
+  "negativeFindings": [
+    "The new photo is of the recreation reserve, not the wetland; caption and alt make this explicit.",
+    "The Shire sources support paths and access but did not establish signage; signed-path wording was removed.",
+    "This bounded correction is not a 99/100 acceptance."
+  ],
+  "nextAction": "Complete final build and mobile verification, publish and check public exact revision, then grade the place page fully."
+}

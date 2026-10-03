@@ -184,13 +184,12 @@
     "productionBuild": "Final exact-source npm run build:search exited 0 after the commercial disclosure audit fix. All normal build/content/rights/link/schema gates passed; Astro built 1009 pages and Pagefind indexed 727. The prior 9-vs-6 commercial gate failure is recorded separately and was not treated as a pass.",
     "localBrowser": "Final exact built preview: /stay/ returned 200 at 320, 390 and 1440px with all 26 rows, Hotel Sorrento works warning, Flinders creator/source/licence/conversion note after opening additional choices, no overflow or page errors. Hotel Sorrento and Flinders detail pages returned 200 at 390px with direct operator notice and image source/licence disclosures respectively; no overflow.",
     "independentScopedReview": "Independent reviewer confirmed warnings against operator notice; verified Wikimedia creator/CC BY-SA 3.0 source, visible links and conversion note, keyboard Enter/Tab/focus at 320/390/1440. Separate independent reviewer classified three commercial reads as disclosure-only and identified future sponsor precedence/mobile exposure risk, now corrected in source. This is bounded QA, not a full 23-criterion rescore.",
-    "liveAcceptance": "pending",
+    "liveAcceptance": "Protected release merged as b8959c2a45c33a8881025b7e7aa363c57516eae5 in PR #548; deployment run 37127430575 succeeded. Public release manifest matched that exact source SHA and run. Public Chrome checked /stay/ at 320, 390 and 1440px plus Hotel Sorrento and Flinders detail at 390px: HTTP 200, no overflow or page errors, Hotel Sorrento warning present. Independent reviewer opened the live Flinders extra choices and confirmed source, CC BY-SA 3.0 licence and WebP transformation visible together on the hub card. This accepts the bounded release, not a full 99 score.",
     "commercialFirewall": "Focused assert passed: 6 reads against baseline 6, zero commercial sort keys; all 16 audit tests passed. Independent reviewer confirmed the three allowances are disclosure-only."
   },
   "hardGatesOpen": [
     "Full factual verification across 26 stay listings",
     "Direct screen-reader/assistive technology test",
-    "Independent rights-condition review of Flinders attribution after public render",
     "Field performance and remaining visual deductions"
   ],
   "negativeFindings": [
@@ -199,5 +198,5 @@
     "A displayed “Details checked” date alone does not prove every property claim is current.",
     "The failed full build was a real gate: 9 reads against baseline 6. The three excess reads were already on main, were independently traced to labels rather than ordering, and were narrowly allowlisted without changing the baseline."
   ],
-  "nextAction": "Publish this bounded correction through the normal PR and protected deployment, verify exact manifest and public browser, then correct five undated Stay listings and two locality mismatches before further independent 23-criterion rescore. Keep full Stay score null until every criterion and hard gate is evidenced."
+  "nextAction": "Batch6 is live accepted. Continue source checks for the five remaining undated Stay records, locality and direction corrections, then independent full 23-criterion rescore. Keep full Stay score null until every criterion and hard gate is evidenced."
 }
