@@ -93,6 +93,7 @@ const ASSERTED_METRICS = new Set([
   'missingVerificationDate',
   'duplicateTitleGroups',
   'duplicateVenueDateGroups',
+  'duplicateSaveDateGroups',
   'unresolvableRecurrence',
   'cancelledWithoutProvenance',
   // PI-008. All four are author-introducible and clock-independent, which is
@@ -182,17 +183,28 @@ async function main() {
   // venue+date alone misses a series duplicated across two source feeds.
   const byTitle = new Map();
   const byVenueDate = new Map();
+  const byEditionDate = new Map();
   const titleByFile = new Map(live.map(({ file, data }) => [file, data.title ?? '']));
   for (const { file, data } of live) {
     const title = normalise(data.title);
+    const start = String(data.startDate ?? '').slice(0, 10);
+    const end = String(data.endDate ?? data.startDate ?? '').slice(0, 10);
     if (title) {
       if (!byTitle.has(title)) byTitle.set(title, []);
       byTitle.get(title).push(file);
+      // A save-the-date clone can have a different broad venue label, so the
+      // venue+date check below misses it. Match only the same named edition
+      // and identical date window; different festival sessions remain distinct.
+      const edition = title.replace(/ save the date$/, '');
+      if (edition && start && end) {
+        const key = `${edition}@${start}..${end}`;
+        if (!byEditionDate.has(key)) byEditionDate.set(key, []);
+        byEditionDate.get(key).push({ file, isSaveDate: edition !== title });
+      }
     }
     const venue = normalise(
       data.venueName ?? data.locationName ?? (typeof data.venue === 'object' ? data.venue?.name : data.venue)
     );
-    const start = String(data.startDate ?? '').slice(0, 10);
     if (venue && start) {
       const key = `${venue}@${start}`;
       if (!byVenueDate.has(key)) byVenueDate.set(key, []);
@@ -202,6 +214,9 @@ async function main() {
   const groupsOf = (map) =>
     [...map.entries()].filter(([, files]) => files.length > 1).map(([key, files]) => ({ key, files }));
   const duplicateTitles = groupsOf(byTitle);
+  const duplicateSaveDates = [...byEditionDate.entries()]
+    .filter(([, records]) => records.some((r) => r.isSaveDate) && records.some((r) => !r.isSaveDate))
+    .map(([key, records]) => ({ key, files: records.map((r) => r.file) }));
 
   // Venue+date alone is not a duplicate signal. A gallery runs two exhibitions
   // from the same opening date and a bathhouse runs three classes from the same
@@ -338,6 +353,7 @@ async function main() {
       staleVerificationDate: staleVerification.length,
       duplicateTitleGroups: duplicateTitles.length,
       duplicateVenueDateGroups: duplicateVenueDates.length,
+      duplicateSaveDateGroups: duplicateSaveDates.length,
       unresolvableRecurrence: unresolvableRecurrence.length,
       cancelledWithoutProvenance: cancelledWithoutProvenance.length,
       postponedEvents: postponed.length,
@@ -350,6 +366,7 @@ async function main() {
     staleVerificationDate: staleVerification,
     duplicateTitleGroups: duplicateTitles,
     duplicateVenueDateGroups: duplicateVenueDates,
+    duplicateSaveDateGroups: duplicateSaveDates,
     unresolvableRecurrence,
     cancelledWithoutProvenance,
     postponedWithoutProvenance,
@@ -368,6 +385,7 @@ async function main() {
   console.log('  Duplicates');
   console.log(`    same normalised title ....... ${t.duplicateTitleGroups}   [gated]`);
   console.log(`    same venue + start date ..... ${t.duplicateVenueDateGroups}   [gated]`);
+  console.log(`    save-date edition clones .... ${t.duplicateSaveDateGroups}   [gated]`);
   console.log('  Recurrence & cancellation');
   console.log(`    unresolvable recurrence ..... ${t.unresolvableRecurrence}   [gated]`);
   console.log(`    cancelled w/o provenance .... ${t.cancelledWithoutProvenance}   [gated]`);
@@ -378,7 +396,7 @@ async function main() {
   console.log(`    start time, no end time ..... ${t.unboundedOccurrence}   [gated, ratchet down]`);
   console.log('');
 
-  for (const g of [...duplicateTitles, ...duplicateVenueDates]) {
+  for (const g of [...duplicateTitles, ...duplicateVenueDates, ...duplicateSaveDates]) {
     console.log(`    DUPLICATE  ${g.key}`);
     for (const f of g.files) console.log(`               ${f}`);
   }
