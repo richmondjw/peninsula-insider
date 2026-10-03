@@ -12,7 +12,7 @@
     "fullScore": null,
     "note": "Earlier independently reviewed live revision. Neither this source set nor all 23 criteria have been independently regraded."
   },
-  "status": "in-remediation",
+  "status": "released-below-target",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider task",
   "decision": "adapt",
@@ -42,7 +42,7 @@
     "linkHealth": "Nine new official source URLs probed and recorded as ok; assert:link-health passed with zero unrecorded citations.",
     "productionBuild": "Full build:search passed on the corrected copy; final added operator acreage citation is covered by focused checks and will be rechecked in CI.",
     "independentRegrade": "pending",
-    "liveAcceptance": "pending",
+    "liveAcceptance": "Public release manifest matched acc8c37cfa887608b933781943c529bdf8f556b0 (deploy run 37086815482). Live 390px browser returned 200 for Stay, Point Nepean, Lindenderry and Peninsula Hot Springs Eco Lodges; directory rendered 27 rows with no horizontal overflow. Point Nepean omitted the unsupported 46-tent claim and included cutlery/plates/cups and accessible-tent guidance.",
     "settledBrowser": "Local static preview at 320, 390 and 1440px: all 27 directory rows render with no horizontal overflow. Point Nepean detail omits the unsupported tent count and renders updated equipment, accessibility and assistance-dog guidance."
   },
   "sourceCoverage": {
@@ -76,5 +76,11 @@
     "Parks Victoria asks visitors to bring cutlery, plates and cups, which older video material incorrectly presents as supplied.",
     "Existing ratcheted dead daily-insight event URL is outside this Stay set."
   ],
-  "nextAction": "Release through CI after reviewing the final source citation; verify exact public revision, then address the remaining fifteen listings and mobile directory density."
+  "nextAction": "Complete and release the mobile directory revision, then source-check fifteen remaining Stay listings and obtain a full independent 23-criterion regrade.",
+  "release": {
+    "pr": "https://github.com/richmondjw/peninsula-insider/pull/528",
+    "mergeRevision": "acc8c37cfa887608b933781943c529bdf8f556b0",
+    "deployRun": 37086815482,
+    "publicVerified": true
+  }
 }
