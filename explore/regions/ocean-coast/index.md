@@ -237,7 +237,7 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 
 wellness  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
 Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

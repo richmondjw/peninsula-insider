@@ -109,7 +109,7 @@ Alba describes bathing on each day of a Sanctuary stay and one upgrade to a sepa
 
 [Compare all accommodation formats](<https://peninsulainsider.com.au/stay/best-accommodation/>) if a villa is only one option for your trip.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Researched from published sources. Every venue listed was reviewed May 2026 or later.
 
 ## The Insider Note
 

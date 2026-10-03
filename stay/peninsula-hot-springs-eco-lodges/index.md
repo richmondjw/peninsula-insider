@@ -13,7 +13,7 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 
 Known for   Eco Lodge Accommodation Peninsula Hot Springs Precinct Geothermal Bathing Stay
 
-[Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)  +61 3 5950 8777
+[Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)  +61 3 5950 8777
 
 Peninsula Hot Springs Eco Lodges · Fingal
 
@@ -31,7 +31,7 @@ The Eco Lodges are Peninsula Hot Springs accommodation in Fingal. They are a sep
 
 Photo · Courtesy of Visit Victoria
 
-Choose this format when the accommodation itself matters as much as access to the springs. Private bathing facilities depend on the room or lodge selected; check the operator’s current description before reserving. Guest ages, arrival times and access arrangements also need to be checked against the booking.
+The operator describes sleep-inspired rooms with a private hot spring or outdoor mineral bath and includes geothermal bathing across the site with its Eco Lodge packages. The exact private bathing format and package inclusions depend on the room you choose; check the current description, guest ages and arrival arrangements before reserving.
 
 The practical advantage is staying with the springs operator. Allow time for bathing and meals on site, and book any treatments you want before building the rest of the trip around them.
 
@@ -67,7 +67,7 @@ Lodge
 
 **Website**
 
-[www.peninsulahotsprings.com/accommodation/eco-lodges](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+[www.peninsulahotsprings.com/accommodation/eco-lodges](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
 **Directions**
 
@@ -77,7 +77,7 @@ Lodge
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Hot%20Springs%20Eco%20Lodges%2C%20140%20Springs%20Lane%2C%20Fingal%20VIC%203939%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+ [Book now](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
 Not sure how to build a day around Peninsula Hot Springs Eco Lodges?
 
@@ -136,6 +136,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Fingal - view the destination guide](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=peninsula-hot-springs-eco-lodges>)
 

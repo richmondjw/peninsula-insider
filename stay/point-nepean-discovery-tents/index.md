@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Point Nepean Discovery Tents
 
-Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
+Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinct, available September to April.
 
-Known for   Inside Point Nepean National Park Historic Quarantine Station Setting Budget-End Nightly Rates September to April Season
+Known for   Inside Point Nepean National Park Historic Quarantine Station Setting Pre-Pitched Canvas Tents September to April Season
 
 [Check availability](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
@@ -19,23 +19,23 @@ Point Nepean Discovery Tents · Portsea
 
 Why we’d go
 
-The Peninsula's most atmospheric glamping setting, sleeping inside a national park quarantine station at the southernmost tip, at the budget end of the Peninsula market.
+A pre-pitched national-park stay inside the historic Quarantine Station precinct, with two-person and four-person options.
 
-Forty-six pre-pitched standing-height canvas tents inside the Point Nepean National Park quarantine station precinct at Portsea. The two configurations, 2-person and 4-person, share modern amenities, a camp kitchen, and a recreation room. BYO bedding and torch; stretcher beds and mattresses provided.
+The pre-pitched, standing-height Discovery Tents sit in the Quarantine Station precinct of Point Nepean National Park. Two-person and four-person options share hot showers, a camp kitchen and a recreation room. Stretcher beds and mattresses are provided; bring pillows, bedding, a torch, food and your own cutlery, plates and cups.
 
-This is the Peninsula's clearest budget-gateway glamping product. The setting is the argument: sleeping inside a historic quarantine station at the southernmost accessible point of the Peninsula, with the ocean and heritage buildings on every side. September to April only, closed May through August. No domestic pets permitted. Booking fills quickly in school holiday periods and long weekends at the tip.
+The tents operate from September to April. Parks Victoria lists dedicated accessible tents but asks guests to discuss suitability before booking. Dogs, cats and other domestic animals are prohibited; Parks Victoria lists separate assistance-dog entry rules. Fires are prohibited in the campground. Check current park notices, availability and booking terms before travelling.
 
-Book the 2-person tent in shoulder season, less competition for the best tent positions and fewer day visitors in the park. The combination of national park trails and the quarantine station heritage walk makes this one of the better two-night stays on the entire Peninsula.
+Choose a coastal or woodland site, then leave time for the Quarantine Station and park trails. Parks Victoria notes that some event weekends may be busier, so read the operator's current notices before settling on dates.
 
 Worth knowing
 
 **Best for**
 
-Budget stays · Beach proximity · Solo travellers · Weekend escapes
+National-park stays · Beach proximity · Solo travellers · Weekend escapes
 
 If you only do one thing
 
-Book the 2-person tent in shoulder season, fewer day visitors, better tent positions, and the national park to yourself in the morning.
+Check the current park notices and book the tent size that suits your group; bring bedding, a torch and eating utensils.
 
 Works well with
 
@@ -124,6 +124,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Portsea - view the destination guide](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=point-nepean-discovery-tents>)
 

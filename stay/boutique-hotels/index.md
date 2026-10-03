@@ -119,7 +119,7 @@ Before you reserve
 
 These are five characterful hotels, not a ranking. Each has a direct operator path. Views, bathing features, dining and occupancy depend on the exact room and booking, so use the hotel's current terms for your dates.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Researched from published sources. Every venue listed was fact-checked September 2026 or later.
 
 ### Does every room have a bay view, terrace or bath?
 

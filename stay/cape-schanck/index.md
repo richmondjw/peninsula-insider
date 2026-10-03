@@ -11,7 +11,7 @@ Cape Schanck is not a town-base choice in the same way Sorrento or Mornington ar
 
 The category is therefore narrow but clear. If Cape Schanck is the right answer, it is because the weekend is about reset, not browsing.
 
-Researched from published sources. Every venue listed was reviewed October 2026 or later.
+Researched from published sources. Every venue listed was fact-checked October 2026 or later.
 
 Cape Schanck stays
 

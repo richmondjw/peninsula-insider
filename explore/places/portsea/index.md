@@ -141,7 +141,7 @@ Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
 Point Nepean National Park, Portsea VIC 3944
 
-Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
+Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinct, available September to April.
 
 beach  walk
 

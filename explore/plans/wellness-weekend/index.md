@@ -165,7 +165,7 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 weekend escape  garden
 
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 Move the trip outside
 

@@ -115,7 +115,7 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 weekend escape  garden
 
-[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
 

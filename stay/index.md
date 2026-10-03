@@ -251,6 +251,8 @@ Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass
 
 Suite   Cape Schanck   Couples
 
+Details checked October 2026
+
 [Visit website](<https://www.thecaperetreat.com.au/book>)
 
 - ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
@@ -275,6 +277,8 @@ Self-contained lakeside villas at Crittenden Estate, with a cellar door and rest
 
 Villa   Dromana   Couples
 
+Details checked October 2026
+
 [Check availability](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
 - ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
@@ -283,7 +287,9 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 
 Lodge   Fingal   Couples
 
-[Visit website](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+Details checked October 2026
+
+[Visit website](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
 - ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
@@ -311,9 +317,11 @@ Villa   Moorooduc   Couples
 
 - ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-Forty-six pre-pitched canvas tents inside Point Nepean National Park, September to April, inside the historic quarantine station precinct.
+Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinct, available September to April.
 
 Glamping   Portsea   Couples
+
+Details checked October 2026
 
 [Visit website](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
@@ -339,7 +347,9 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 Hotel   Red Hill   Couples
 
-[Visit website](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+Details checked October 2026
+
+[Visit website](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 - ### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 

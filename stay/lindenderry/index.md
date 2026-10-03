@@ -13,7 +13,7 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 Known for   34-Acre Garden and Vineyard Estate Lancemore Group Property Weekend Cellar Door On-Site Dining Room
 
-[Check availability](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)  +61 3 5989 2933
+[Check availability](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)  +61 3 5989 2933
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -95,7 +95,7 @@ Hotel
 
 **Website**
 
-[lancemore.com.au/properties-2/lancemore-lindenderry-red-hill](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+[lancemore.com.au/hotels/lancemore-lindenderry-red-hill](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 **Directions**
 
@@ -105,7 +105,7 @@ Hotel
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Lindenderry%20at%20Red%20Hill%2C%20142%20Arthurs%20Seat%20Rd%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+ [Book now](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
 Not sure how to build a day around Lindenderry at Red Hill?
 
@@ -216,6 +216,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=lindenderry>)
 
