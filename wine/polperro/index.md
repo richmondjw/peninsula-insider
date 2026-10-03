@@ -213,9 +213,9 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

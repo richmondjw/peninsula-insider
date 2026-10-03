@@ -29,7 +29,7 @@ The first decision
 
 Choose the room, dining and service together. Confirm restaurant reservations separately.
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -43,7 +43,7 @@ anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -75,6 +75,8 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
 
+Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
@@ -105,7 +107,7 @@ anniversary  waterfront
 
 Alba offers on-site thermal bathing. At Cassis, two villas have mineral plunge pools and three have outdoor baths.
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
+Illustrative, not The Sanctuary at Alba. Photo: Courtesy of Visit Victoria
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -118,6 +120,8 @@ Five secluded villas or two premium rooms above Alba’s springs, with daily bat
 wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -137,7 +141,7 @@ anniversary  romance
 
 A Sorrento hotel gives a different pace from the wine-country estates.
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/luxury/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

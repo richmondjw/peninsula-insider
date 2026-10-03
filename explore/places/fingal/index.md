@@ -111,6 +111,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Photo: Courtesy of Visit Victoria
+
 Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
@@ -122,6 +124,8 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
+
+Illustrative, not Peninsula Hot Springs Glamping. Photo: Peninsula Hot Springs
 
 Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -135,7 +139,7 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/fingal/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
+Illustrative, not The Sanctuary at Alba. Photo: Courtesy of Visit Victoria
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

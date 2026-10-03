@@ -17,6 +17,10 @@ Known for   On-Site Glamping Garden and Lake View Options Secluded Pavilion Acco
 
 Peninsula Hot Springs Glamping · Fingal
 
+Photo · Peninsula Hot Springs
+
+Illustrative image  This image shows a hilltop bathing pool reached by a curving path through scrub, seen from the air at dusk. It does not depict Peninsula Hot Springs Glamping.
+
 Why we’d go
 
 Accommodation within the hot springs grounds keeps bathing at the centre of the stay.
@@ -107,47 +111,55 @@ Service   4 min
 
 One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
-Nearby picks
+More to explore
 
-## More from Fingal
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Photo: Courtesy of Visit Victoria
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+140 Springs Lane, Fingal VIC 3939
 
-view  anniversary
+Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+wellness  anniversary
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [Book](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Illustrative, not The Sanctuary at Alba. Photo: Courtesy of Visit Victoria
 
-Dromana VIC
+Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-fireplace  slow
+282 Browns Road, Fingal VIC 3939
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+wellness  anniversary
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [Book](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
-12 Blakiston Grove, Rye VIC 3941
+Illustrative, not Iluka Retreat & Camp. Photo: mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-beach  fireplace
+### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+20 Shoreham Rd, Shoreham VIC 3916
+
+Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.
+
+wellness  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [Book](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
 Build a day around this
 

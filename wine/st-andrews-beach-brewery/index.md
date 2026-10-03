@@ -137,9 +137,9 @@ Insider Edit   7 min
 
 Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
-Nearby picks
+More to explore
 
-## More from Rye
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

@@ -137,7 +137,7 @@ wellness  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) [View stay](<https://www.peninsulahotsprings.com/bathe>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

@@ -153,7 +153,7 @@ Sleep here
 
 [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

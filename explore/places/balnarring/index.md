@@ -213,7 +213,7 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
+Illustrative, not Happy Glamper Balnarring Deluxe. Photo: Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
 
 Glamping  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 

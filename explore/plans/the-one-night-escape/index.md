@@ -89,7 +89,7 @@ Places in this plan
 
 ## Stay in the base you choose.
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -103,7 +103,7 @@ weekend escape  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [View stay](<https://sorrento.intercontinental.com/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

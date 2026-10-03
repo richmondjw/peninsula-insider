@@ -111,9 +111,9 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
@@ -141,7 +141,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/avani-wines/Victoria%20Content%20Hub%20asset%20159175,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

@@ -59,7 +59,7 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/date-night/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -73,7 +73,7 @@ long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/date-night/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

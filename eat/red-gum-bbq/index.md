@@ -149,7 +149,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/red-gum-bbq/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

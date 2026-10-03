@@ -95,9 +95,9 @@ Service   7 min
 
 A drinking guide to the Mornington Peninsula's public houses - the fires, the bistros, the beer gardens, the locals, and the argument for building a whole day around them.
 
-Nearby picks
+More to explore
 
-## More from Mornington
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

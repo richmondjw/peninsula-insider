@@ -17,6 +17,10 @@ Known for   Twelve Guest Suites Shared Group Spaces Cape Schanck Outlook
 
 The Cape Retreat · Cape Schanck
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree. It does not depict The Cape Retreat.
+
 Why we’d go
 
 A Cape Schanck retreat with suite accommodation and shared spaces suited to a group stay.
@@ -69,47 +73,55 @@ Not sure how to build a day around The Cape Retreat?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Cape Schanck
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Iluka Retreat & Camp. Photo: mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+20 Shoreham Rd, Shoreham VIC 3916
 
-view  anniversary
+Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+wellness  slow
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [Book](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Illustrative, not Mantons Creek Estate. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Dromana VIC
+Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-fireplace  slow
+240 Tucks Rd, Shoreham VIC 3916
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+Vineyard accommodation at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+anniversary  cellar door
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [Book](<https://mantonscreekestate.com.au/accommodation>)
 
-12 Blakiston Grove, Rye VIC 3941
+Photo: Courtesy of Visit Victoria
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-beach  fireplace
+### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+140 Springs Lane, Fingal VIC 3939
+
+Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+
+wellness  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [Book](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
 Build a day around this
 

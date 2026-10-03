@@ -255,9 +255,9 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-Nearby picks
+More to explore
 
-## More from Merricks
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

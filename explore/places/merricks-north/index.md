@@ -103,7 +103,7 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/merricks-north/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 

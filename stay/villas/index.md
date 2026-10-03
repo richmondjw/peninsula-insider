@@ -29,6 +29,8 @@ The first decision
 
 Polperro and Crittenden offer different villa formats on wine estates. Check each unit’s cooking facilities and the estate’s dining hours.
 
+Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
@@ -59,7 +61,7 @@ anniversary  waterfront
 
 Alba’s villas pair a stay with the thermal springs. At Cassis, only the Retreat and Cottage list mineral plunge pools; the other three villas list outdoor baths.
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/villas/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
+Illustrative, not The Sanctuary at Alba. Photo: Courtesy of Visit Victoria
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -72,6 +74,8 @@ Five secluded villas or two premium rooms above Alba’s springs, with daily bat
 wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

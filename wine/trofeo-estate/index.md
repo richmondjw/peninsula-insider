@@ -133,9 +133,9 @@ Insider Edit   3 min
 
 A Thursday market in Hastings, Friday aperitivo at Trofeo Estate, and two final winter weeks at Mornington Peninsula Regional Gallery.
 
-Nearby picks
+More to explore
 
-## More from Dromana
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

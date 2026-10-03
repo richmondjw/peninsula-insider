@@ -209,9 +209,9 @@ Editor's Letter   7 min
 
 The vines coming back into leaf, the back beaches at their cleanest, the cellar doors quiet enough to actually talk to the winemakers, and the first warm afternoons of the year. The case for coming down in spring, before everyone else remembers to.
 
-Nearby picks
+More to explore
 
-## More from Dromana
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

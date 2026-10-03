@@ -183,9 +183,9 @@ Stay Notes   7 min
 
 The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list.
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

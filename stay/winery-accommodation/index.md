@@ -55,6 +55,8 @@ Look at the stay itself, then confirm current dining, tasting and room details w
 
  [Wine country →](<https://peninsulainsider.com.au/wine/>)
 
+Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
@@ -91,6 +93,8 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
 
+Illustrative, not Mantons Creek Estate. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
@@ -102,6 +106,8 @@ Vineyard accommodation with an on-estate restaurant in Shoreham.
 anniversary  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
+
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -115,7 +121,7 @@ anniversary  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/winery-accommodation/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -129,7 +135,7 @@ anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/winery-accommodation/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

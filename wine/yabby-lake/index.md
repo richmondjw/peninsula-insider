@@ -167,9 +167,9 @@ Service   8 min
 
 The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay - in that order, with most of a day to enjoy it.
 
-Nearby picks
+More to explore
 
-## More from Tuerong
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

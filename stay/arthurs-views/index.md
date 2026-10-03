@@ -17,6 +17,10 @@ Known for   Five couples-only suites Arthurs Seat bay views Optional breakfast p
 
 Arthurs Views · Dromana
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows the view over Port Phillip Bay from the Arthurs Seat lookout. It does not depict Arthurs Views.
+
 Why we’d go
 
 A bay-view suite stay for two, with a clear choice between spa suites and penthouse formats.
@@ -71,9 +75,11 @@ Not sure how to build a day around Arthurs Views?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Dromana
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
@@ -89,6 +95,18 @@ fireplace  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
 
+Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
+
+25 Harrisons Rd, Dromana VIC 3936
+
+Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
+
+anniversary  waterfront
+
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [Book](<https://www.lakesidevillas.com.au/rates-bookings/>)
+
 Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
@@ -100,18 +118,6 @@ Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fir
 beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
-
-Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
-
-### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
-
-41 Trent Jones Drive, Cape Schanck VIC 3939
-
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
-
-view  wellness
-
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Book](<https://www.thecaperetreat.com.au/book>)
 
 Build a day around this
 

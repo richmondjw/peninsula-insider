@@ -17,6 +17,10 @@ Known for   Inside Point Nepean National Park Historic Quarantine Station Settin
 
 Point Nepean Discovery Tents · Portsea
 
+Photo · Essiewingrove
+
+Illustrative image  This image shows two children in shallow water beside a timber jetty. It does not depict Point Nepean Discovery Tents.
+
 Why we’d go
 
 A pre-pitched national-park stay inside the historic Quarantine Station precinct, with two-person and four-person options.
@@ -71,47 +75,55 @@ Not sure how to build a day around Point Nepean Discovery Tents?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Portsea
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+5-15 Hotham Rd, Sorrento VIC 3943
 
-view  anniversary
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+weekend escape  waterfront
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Book](<https://hotelsorrento.com.au/stay/>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Photo: Courtesy of Visit Victoria
 
-Dromana VIC
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-fireplace  slow
+23 Constitution Hill Road, Sorrento VIC 3943
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+weekend escape  anniversary
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [Book](<https://sorrento.intercontinental.com/>)
 
-12 Blakiston Grove, Rye VIC 3941
+Illustrative, not Happy Glamper Balnarring Deluxe. Photo: Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Glamping  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-beach  fireplace
+### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+Balnarring Foreshore Reserve, Balnarring Beach VIC
+
+A furnished bell tent at Balnarring Foreshore Reserve with the campsite fee included, subject to the operator's seasonal availability.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [Book](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
 
 Build a day around this
 

@@ -151,9 +151,9 @@ Cellar Door Dispatch   6 min
 
 Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

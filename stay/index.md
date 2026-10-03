@@ -55,7 +55,9 @@ A town base for dining, the foreshore and a shorter trip down the Peninsula.
 
 **Getting around**The southern beaches and ridge wineries still need their own transport plan.
 
-[Find stays](<https://peninsulainsider.com.au/stay/?place=mornington#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=mornington>)
+[Explore the town](<https://peninsulainsider.com.au/explore/places/mornington/>) [Area map](<https://peninsulainsider.com.au/map/?place=mornington>)
+
+No stays currently listed for Mornington; check accommodation separately.
 
 #### [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
@@ -65,7 +67,7 @@ A smaller village base for the southern coast.
 
 **Getting around**Allow for transfers to the ridge and bay coast; do not assume a late return ride is available.
 
-[Find stays](<https://peninsulainsider.com.au/stay/?place=flinders#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=flinders>)
+[Find stays](<https://peninsulainsider.com.au/stay/?place=flinders#browse-stay>) [Area map](<https://peninsulainsider.com.au/map/?place=flinders>)
 
 Travelling without a car? Start with [the transport guide](<https://peninsulainsider.com.au/explore/getting-around/>) and check the journeys for your dates before selecting a base.
 
@@ -149,9 +151,9 @@ Our shortlist compares different settings and stay formats. Use each stay guide 
 
 Start with a broad edit, or follow the kind of weekend you have in mind.
 
-- ### [The best places to stay](<https://peninsulainsider.com.au/stay/best-accommodation/>)
+- ### [Choose your stay style](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
-Choose a coast, wine-country or thermal base, then compare stay formats.
+Start with your trip style, then compare hotels, cottages, coast, wine country and thermal stays.
 
 - ### [Couples’ retreats](<https://peninsulainsider.com.au/stay/couples-retreats/>)
 
@@ -461,14 +463,14 @@ The best Peninsula stay right now is not a design hotel. It is a cottage on a wo
 
 Where is the best area to stay on the Mornington Peninsula?
 
-Red Hill and Main Ridge suit cellar-door weekends. Check distances and transport between your accommodation and each winery. Sorrento for coastal village atmosphere and ocean beach access. Mornington town for the most accessible base from Melbourne (60 minutes). The right answer depends on the weekend you want, wine country, beach village, or practical proximity.
+Red Hill and Main Ridge suit cellar-door weekends; check distances between your stay and each winery. Sorrento and Rye suit coastal village days. Mornington offers a northern town base, but our current directory has no Mornington stay listings. Compare actual addresses and transport for the places you plan to visit.
 
 How much does accommodation cost on the Mornington Peninsula?
 
-A good mid-range self-contained villa or cottage is the sensible baseline. Luxury vineyard stays (Jackalope, Lindenderry) sit a clear tier above that. Cheaper options in Rosebud, Dromana, and Rye bring the cost down at the price of distance from the cellar door cluster. Rates peak in summer and over long weekends, autumn midweek offers the best value.
+Rates vary by property, room, dates and inclusions. Compare live quotes for the same dates directly with operators, including meals, bathing access and cancellation terms. This directory does not publish a reliable current price for every stay.
 
 Is one night enough on the Mornington Peninsula?
 
-One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Base in Mornington or Sorrento for single-night trips.
+One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Choose a base close to the one or two activities you can realistically fit in.
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.

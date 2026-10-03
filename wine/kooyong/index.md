@@ -171,9 +171,9 @@ Slow Peninsula   8 min
 
 One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
 
-Nearby picks
+More to explore
 
-## More from Main Ridge
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

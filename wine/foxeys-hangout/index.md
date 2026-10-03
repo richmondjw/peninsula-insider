@@ -161,9 +161,9 @@ Insider Edit   7 min
 
 The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

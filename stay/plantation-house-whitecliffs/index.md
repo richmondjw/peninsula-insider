@@ -17,6 +17,10 @@ Known for   Five named rooms and suites Included cooked breakfast 1932 sandstone
 
 Plantation House at Whitecliffs · Rye
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows a calm bay beach with boats moored offshore. It does not depict Plantation House at Whitecliffs.
+
 Why we’d go
 
 A hosted Rye B&B with included cooked breakfast and a choice of room and suite formats.
@@ -71,35 +75,13 @@ Not sure how to build a day around Plantation House at Whitecliffs?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Rye
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
-
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
-
-10 Nestle Court, Arthurs Seat VIC 3936
-
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
-
-view  anniversary
-
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
-
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
-
-Dromana VIC
-
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
-
-fireplace  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
 
 Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
@@ -112,6 +94,32 @@ Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fir
 beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+
+Tootgarook VIC 3941
+
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Book](<https://mpcottages.com/>)
+
+Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
+
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
+
+1-9 Sinclair Ave, Rye VIC 3941
+
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
 Build a day around this
 

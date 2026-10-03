@@ -60,7 +60,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.Im8JvB28.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.D9g4YiRP.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.vYPSOowQ.js"></script><link rel="stylesheet" href="/_astro/BaseLayout.Bwpmooyw.css">
 <style>.subpage-hero__stage[data-astro-cid-hwizvnsu]{min-width:0;align-self:center}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__credit[data-astro-cid-hwizvnsu]{grid-column:-2 / -1;margin:.5rem 0 0;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-align:right}.subpage-hero__photos[data-astro-cid-hwizvnsu]{padding-block-start:clamp(1.25rem,2.5vw,2rem)}.subpage-hero__photos[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{--pstage-h: .75}
 </style>
 <link rel="stylesheet" href="/_astro/PhotoStage.DesciBr7.css">
@@ -1072,6 +1072,9 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
+            // Stay images are rendered through the vetted build resolver.
+            // Browser swaps can bypass the rights and disclosure shown beside them.
+            if (window.location.pathname.startsWith('/stay/') && slot.entity_type === 'venue') return;
             var slotKey = slot.entity_type + '/' + slot.entity_slug;
             if (__IMAGE_QUARANTINE.some(function (entry) {
               return entry.key === slotKey &&

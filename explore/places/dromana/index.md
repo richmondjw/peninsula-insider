@@ -163,7 +163,7 @@ The producers worth the appointment - and the ones already shaping the region's 
 
  [All cellar doors →](<https://peninsulainsider.com.au/wine/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/dromana/Victoria%20Content%20Hub%20asset%20164290,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -189,7 +189,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/dromana/Victoria%20Content%20Hub%20asset%20169287,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

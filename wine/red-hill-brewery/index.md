@@ -145,9 +145,9 @@ Day trip · Best for family · Mornington
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

@@ -199,9 +199,9 @@ Service   6 min
 
 A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

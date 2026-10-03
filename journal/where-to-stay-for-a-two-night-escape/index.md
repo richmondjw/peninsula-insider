@@ -135,7 +135,7 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
@@ -149,7 +149,7 @@ anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -163,7 +163,7 @@ weekend escape  garden
 
 [Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

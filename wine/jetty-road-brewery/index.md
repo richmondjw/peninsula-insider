@@ -115,9 +115,9 @@ Service   7 min
 
 The walk-in dining guide to the Mornington Peninsula - the pubs, cafés, bakeries and bars where you can turn up hungry, without a reservation, and leave properly fed.
 
-Nearby picks
+More to explore
 
-## More from Dromana
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

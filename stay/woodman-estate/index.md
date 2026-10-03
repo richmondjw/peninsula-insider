@@ -73,47 +73,53 @@ Not sure how to build a day around Chalet Un at Woodman Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Moorooduc
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+164 Arthurs Seat Road, Red Hill VIC 3937
 
-view  anniversary
+Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+anniversary  romance
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [Book](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Dromana VIC
+### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+25 Harrisons Rd, Dromana VIC 3936
 
-fireplace  slow
+Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+anniversary  waterfront
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+[Read notes](<https://peninsulainsider.com.au/stay/crittenden-villas/>) [Book](<https://www.lakesidevillas.com.au/rates-bookings/>)
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-12 Blakiston Grove, Rye VIC 3941
+Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-beach  fireplace
+150 Red Hill Road, Red Hill VIC 3937
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
+
+anniversary  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [Book](<https://www.polperrowines.com.au/escape/>)
 
 Build a day around this
 

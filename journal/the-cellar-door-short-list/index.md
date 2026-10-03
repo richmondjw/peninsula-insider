@@ -163,7 +163,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/Victoria%20Content%20Hub%20asset%20159902,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

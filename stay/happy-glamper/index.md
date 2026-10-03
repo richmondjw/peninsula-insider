@@ -73,47 +73,55 @@ Not sure how to build a day around Happy Glamper Balnarring Deluxe?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Balnarring
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Iluka Retreat & Camp. Photo: mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+20 Shoreham Rd, Shoreham VIC 3916
 
-view  anniversary
+Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+wellness  slow
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [Book](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
 
-Dromana VIC
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-fireplace  slow
+1-9 Sinclair Ave, Rye VIC 3941
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+beach  slow
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
-12 Blakiston Grove, Rye VIC 3941
+Illustrative, not Peninsula Hot Springs Glamping. Photo: Peninsula Hot Springs
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-beach  fireplace
+### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+140 Springs Lane, Fingal VIC 3939
+
+Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+
+wellness  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [Book](<https://www.peninsulahotsprings.com/accommodation>)
 
 Build a day around this
 

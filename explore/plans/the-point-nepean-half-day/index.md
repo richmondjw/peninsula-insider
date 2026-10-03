@@ -123,7 +123,7 @@ weekend escape  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-point-nepean-half-day/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

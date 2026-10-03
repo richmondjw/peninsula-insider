@@ -17,6 +17,10 @@ Known for   Lakeside Villas On-Estate Restaurant Crittenden Cellar Door Self-Con
 
 Crittenden Estate Villas · Dromana
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It does not depict Crittenden Estate Villas.
+
 Why we’d go
 
 A self-contained lakeside stay with wine tasting and dining options on the same estate.
@@ -109,9 +113,11 @@ Service   7 min
 
 A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
 
-Nearby picks
+More to explore
 
-## More from Dromana
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 

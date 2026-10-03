@@ -73,47 +73,55 @@ Not sure how to build a day around Iluka Retreat & Camp?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Shoreham
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Mantons Creek Estate. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+240 Tucks Rd, Shoreham VIC 3916
 
-view  anniversary
+Vineyard accommodation at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+anniversary  cellar door
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [Book](<https://mantonscreekestate.com.au/accommodation>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Photo: Courtesy of Visit Victoria
 
-Dromana VIC
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-fireplace  slow
+140 Springs Lane, Fingal VIC 3939
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+wellness  anniversary
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [Book](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
-12 Blakiston Grove, Rye VIC 3941
+Illustrative, not Peninsula Hot Springs Glamping. Photo: Peninsula Hot Springs
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-beach  fireplace
+### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+140 Springs Lane, Fingal VIC 3939
+
+Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+
+wellness  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [Book](<https://www.peninsulahotsprings.com/accommodation>)
 
 Build a day around this
 

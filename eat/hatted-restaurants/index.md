@@ -49,7 +49,7 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/hatted-restaurants/Victoria%20Content%20Hub%20asset%20163850,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -89,7 +89,7 @@ cellar door  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/hatted-restaurants/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -153,7 +153,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/yabby-lake/>) [Book](<https://www.yabbylake.com/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/hatted-restaurants/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -167,7 +167,7 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/hatted-restaurants/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -193,7 +193,7 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/hatted-restaurants/Victoria%20Content%20Hub%20asset%20161950,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

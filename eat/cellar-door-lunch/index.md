@@ -39,7 +39,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/cellar-door-lunch/Victoria%20Content%20Hub%20asset%20163850,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -53,7 +53,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/cellar-door-lunch/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -117,7 +117,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/cellar-door-lunch/Victoria%20Content%20Hub%20asset%20161950,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

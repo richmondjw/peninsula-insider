@@ -185,9 +185,9 @@ Service   9 min
 
 If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
-Nearby picks
+More to explore
 
-## More from Main Ridge
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

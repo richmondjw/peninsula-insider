@@ -95,9 +95,9 @@ Slow Peninsula   7 min
 
 When Red Hill is booked out and Sorrento feels like a queue, there is another version of the Peninsula weekend that runs south of everything, closer to the ocean, and slower on purpose.
 
-Nearby picks
+More to explore
 
-## More from Flinders
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

@@ -37,7 +37,7 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/best-restaurants/Victoria%20Content%20Hub%20asset%20163850,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -101,7 +101,7 @@ long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/best-restaurants/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -115,7 +115,7 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/best-restaurants/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

@@ -47,7 +47,7 @@ waterfront  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) [Book](<https://therocksmornington.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/seafood/Victoria%20Content%20Hub%20asset%20159902,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

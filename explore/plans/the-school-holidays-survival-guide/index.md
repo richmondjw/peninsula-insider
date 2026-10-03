@@ -171,7 +171,7 @@ Places in this plan
 
 ## Worth knowing before you go.
 
-Photo: Peter Tarasiuk, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/Victoria%20Content%20Hub%20asset%20143785,%20downloaded%202026-09-28>)
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -197,7 +197,7 @@ family  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/Victoria%20Content%20Hub%20asset%20168568,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 

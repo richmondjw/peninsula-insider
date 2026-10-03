@@ -51,7 +51,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/pinot-noir/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -101,7 +101,7 @@ cellar door  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/pinot-noir/Victoria%20Content%20Hub%20asset%20159902,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -163,7 +163,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/yabby-lake/>) [Book](<https://www.yabbylake.com/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/pinot-noir/Victoria%20Content%20Hub%20asset%20163850,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

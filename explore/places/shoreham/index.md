@@ -103,6 +103,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Illustrative, not Iluka Retreat & Camp. Photo: mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
@@ -114,6 +116,8 @@ Styled bell tents for two on a 36-acre Shoreham property, with lake access and s
 wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://ilukaretreat.com.au/accommodation/glamping/>)
+
+Illustrative, not Mantons Creek Estate. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 

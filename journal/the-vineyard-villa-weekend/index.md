@@ -167,6 +167,8 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
+Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
@@ -179,7 +181,7 @@ anniversary  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [View stay](<https://www.polperrowines.com.au/escape/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -193,7 +195,7 @@ weekend escape  garden
 
 [Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [View stay](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/Victoria%20Content%20Hub%20asset%2026070114,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 

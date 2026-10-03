@@ -17,7 +17,7 @@ Known for   Heritage and contemporary rooms CeeCee's breakfast Guest pool deck S
 
 InterContinental Sorrento · Sorrento
 
-Photo · Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/stay/the-continental-sorrento/Victoria%20Content%20Hub%20asset%2022100101,%20downloaded%202026-09-28>)
+Photo · Courtesy of Visit Victoria
 
 Why we’d go
 
@@ -127,47 +127,53 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-Nearby picks
+More to explore
 
-## More from Sorrento
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+5-15 Hotham Rd, Sorrento VIC 3943
 
-view  anniversary
+A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+weekend escape  waterfront
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Book](<https://hotelsorrento.com.au/stay/>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Glamping  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
-Dromana VIC
+### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+Point Nepean National Park, Portsea VIC 3944
 
-fireplace  slow
+Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinct, available September to April.
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+beach  walk
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+[Read notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [Book](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
-12 Blakiston Grove, Rye VIC 3941
+Hotel  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-beach  fireplace
+166 Balnarring Rd, Merricks North VIC 3926
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
+
+anniversary  weekend escape
+
+[Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [Book](<https://jackalopehotels.com/stay/>)
 
 Build a day around this
 

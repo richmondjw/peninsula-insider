@@ -105,9 +105,9 @@ Long Lunch List   8 min
 
 Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
 
-Nearby picks
+More to explore
 
-## More from Main Ridge
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 

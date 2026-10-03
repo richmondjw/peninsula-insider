@@ -221,7 +221,7 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
-Photo: Peter Tarasiuk, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/Victoria%20Content%20Hub%20asset%20143785,%20downloaded%202026-09-28>)
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
 Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

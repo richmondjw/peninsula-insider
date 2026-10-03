@@ -17,7 +17,7 @@ Tasting rooms for gin and spirits made on the Peninsula.
 
  [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/distilleries/Victoria%20Content%20Hub%20asset%20159175,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

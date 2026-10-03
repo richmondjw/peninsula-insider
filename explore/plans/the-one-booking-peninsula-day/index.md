@@ -73,7 +73,7 @@ Places in this plan
 
 ## Worth knowing before you go.
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/Victoria%20Content%20Hub%20asset%20160356,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -99,7 +99,7 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/Victoria%20Content%20Hub%20asset%2025061243,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 

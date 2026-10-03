@@ -65,6 +65,8 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
@@ -77,7 +79,7 @@ anniversary  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

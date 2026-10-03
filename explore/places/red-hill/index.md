@@ -133,7 +133,7 @@ Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star r
 
  [More to eat in Red Hill →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%2026070118,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -147,7 +147,7 @@ anniversary  first date
 
 [Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%2025061225,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -161,7 +161,7 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%20160006,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -231,6 +231,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [Red Hill stays →](<https://peninsulainsider.com.au/stay/red-hill/>)
 
+Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
@@ -242,6 +244,8 @@ Five adults-only villas overlooking the vines: two with mineral plunge pools, th
 anniversary  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
+
+Illustrative, not Hideaways at Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -255,7 +259,7 @@ cellar door  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) [View stay](<https://www.airbnb.com/rooms/12077435>)
 
-Photo: Peter Foster, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/places/red-hill/Victoria%20Content%20Hub%20asset%2025061209,%20downloaded%202026-09-28>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
 Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

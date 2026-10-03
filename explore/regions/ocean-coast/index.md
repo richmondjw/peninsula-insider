@@ -141,6 +141,8 @@ slow  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/georgie-bass/>) [Book](<https://www.georgiebass.com.au/>)
 
+Illustrative, not Iluka Retreat & Camp. Photo: mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
 Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
@@ -152,6 +154,8 @@ Styled bell tents for two on a 36-acre Shoreham property, with lake access and s
 wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://ilukaretreat.com.au/accommodation/glamping/>)
+
+Illustrative, not Mantons Creek Estate. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
@@ -227,6 +231,8 @@ wellness  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) [View stay](<https://www.peninsulahotsprings.com/bathe>)
 
+Photo: Courtesy of Visit Victoria
+
 Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
@@ -238,6 +244,8 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
+
+Illustrative, not Peninsula Hot Springs Glamping. Photo: Peninsula Hot Springs
 
 Glamping  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
@@ -251,7 +259,7 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [View stay](<https://www.peninsulahotsprings.com/accommodation>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/ocean-coast/Victoria%20Content%20Hub%20asset%20163821,%20downloaded%202026-09-28>)
+Illustrative, not The Sanctuary at Alba. Photo: Courtesy of Visit Victoria
 
 Villa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 

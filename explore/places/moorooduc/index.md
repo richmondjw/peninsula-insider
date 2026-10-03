@@ -179,6 +179,8 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
  [All stays →](<https://peninsulainsider.com.au/stay/>)
 
+Illustrative, not Chalet Un at Woodman Estate. Photo: Smartiejl · Devilbend lake · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
+
 Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)

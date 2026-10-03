@@ -71,47 +71,55 @@ Not sure how to build a day around Cassis Red Hill?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Red Hill
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Hideaways at Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+Red Hill VIC 3937
 
-view  anniversary
+Woodland Cottage at Hideaways at Red Hill is a two-person guest suite with an indoor spa bath.
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+cellar door  romance
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Read notes](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) [Book](<https://www.airbnb.com/rooms/12077435>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
-Dromana VIC
+Hotel  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-fireplace  slow
+142 Arthurs Seat Rd, Red Hill VIC 3937
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+weekend escape  garden
 
-### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
+[Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [Book](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
-12 Blakiston Grove, Rye VIC 3941
+Illustrative, not Polperro Villas. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-beach  fireplace
+### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-[Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [Book](<https://www.bluemooncottages.com.au/>)
+150 Red Hill Road, Red Hill VIC 3937
+
+Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
+
+anniversary  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/polperro-villas/>) [Book](<https://www.polperrowines.com.au/escape/>)
 
 Build a day around this
 

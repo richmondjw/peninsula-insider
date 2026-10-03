@@ -47,7 +47,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/best-cellar-doors/Victoria%20Content%20Hub%20asset%20159902,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -133,7 +133,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/wine/best-cellar-doors/Victoria%20Content%20Hub%20asset%20164290,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

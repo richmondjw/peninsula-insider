@@ -125,7 +125,7 @@ slow  beach
 
 [Read notes](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/eat/rye-hotel/Victoria%20Content%20Hub%20asset%20168568,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 

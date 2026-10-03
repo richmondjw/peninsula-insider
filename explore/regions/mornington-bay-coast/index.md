@@ -79,7 +79,7 @@ view  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/Victoria%20Content%20Hub%20asset%20159175,%20downloaded%202026-09-28>)
+Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -117,7 +117,7 @@ slow  solo
 
 [Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/Victoria%20Content%20Hub%20asset%20164290,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -217,7 +217,7 @@ waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/martha-s-table/>) [Book](<https://www.marthastable.com.au/book-a-table/>)
 
-Photo: Robert Blackburn, courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/Victoria%20Content%20Hub%20asset%20143094,%20downloaded%202026-09-28>)
+Photo: Robert Blackburn, courtesy of Visit Victoria
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -375,7 +375,7 @@ waterfront  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) [Book](<https://therocksmornington.com.au/>)
 
-Photo: Courtesy of Visit Victoria [Source](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/Victoria%20Content%20Hub%20asset%20169287,%20downloaded%202026-09-28>)
+Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

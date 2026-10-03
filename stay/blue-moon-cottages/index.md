@@ -17,6 +17,10 @@ Known for   Rye bay beach location Pet-welcoming cottages Sandpiper log fire and
 
 Blue Moon Cottages · Rye
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows a calm bay beach with boats moored offshore. It does not depict Blue Moon Cottages.
+
 Why we’d go
 
 A Rye cottage base near the bay with pet-welcoming rules and a log fire in Sandpiper.
@@ -71,47 +75,51 @@ Not sure how to build a day around Blue Moon Cottages?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
-Nearby picks
+More to explore
 
-## More from Rye
+## Other stays to compare
+
+Compare the town, setting and stay format before deciding.
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
-Suite  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-10 Nestle Court, Arthurs Seat VIC 3936
+Tootgarook VIC 3941
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
 
-view  anniversary
+beach  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [Book](<https://arthursviews.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Book](<https://mpcottages.com/>)
 
-Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Illustrative, not Mornington Peninsula Retro Caravans. Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
 
-### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
+Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-Dromana VIC
+### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+1-9 Sinclair Ave, Rye VIC 3941
 
-fireplace  slow
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
 
-[Read notes](<https://peninsulainsider.com.au/stay/birch-creek/>) [Book](<https://www.birchcreek.com.au/>)
+beach  slow
 
-Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+[Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
-### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
+Suite  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-41 Trent Jones Drive, Cape Schanck VIC 3939
+### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
+33 Maori St, Rye VIC 3941
 
-view  wellness
+A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
 
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Book](<https://www.thecaperetreat.com.au/book>)
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>) [Book](<https://www.plantationhouse.com.au/>)
 
 Build a day around this
 

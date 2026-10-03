@@ -197,9 +197,9 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Nearby picks
+More to explore
 
-## More from Main Ridge
+## Other wine experiences to compare
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
