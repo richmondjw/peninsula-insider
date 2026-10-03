@@ -1,236 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T01:46:57.736Z",
+  "generatedAt": "2026-10-03T02:15:00.280Z",
   "baselineAvailable": true,
-  "fromSnapshot": "bb99505b33533245f9d920d511013026fe61d6df3ce1953db45d427c167753ec",
-  "toSnapshot": "8aacb52897b764e5925645bf0f8ff70c80af6c546e374bbc4a5f5347be6fc430",
-  "previousGeneratedAt": "2026-10-03T01:17:14.818Z",
+  "fromSnapshot": "8aacb52897b764e5925645bf0f8ff70c80af6c546e374bbc4a5f5347be6fc430",
+  "toSnapshot": "20645c87853351d62f45f4a285b74c7355396217da06dd44e64812fc2b21e79e",
+  "previousGeneratedAt": "2026-10-03T01:46:57.736Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 28,
+  "count": 2,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
-      "contentSha256": "b330ee567668188877952d1319e33efdce8acde4bb42f00f8a7a5e7d5e2b01cc",
-      "previousContentSha256": "f92646893ae9a7bee0cabab277cba6034d3ebc2c8bd9b3e57983e35adc74c6da"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/portsea/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "8a5fd26494f5a0b046824cc76b25981a6f912976306587e5bb0eb7d1953e1715",
-      "previousContentSha256": "8f0932f0bc4f20e3b902b62dc2d5e254bfd6dc712c74b828dc326d1f5e640d33"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
-      "contentSha256": "bbca31d304e2a3c8e4a9ab25874aac49a569c9cc6fd5157a95bad23c32434e6d",
-      "previousContentSha256": "62f5e955fb800dbe38f1537af81ae4a19a78bcf69c8716abeb430f33906461d6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/index.md",
-      "contentSha256": "e9535fcee41986eda817a4cbe2f18fc75e570537cb128d5d54f06377e4800b77",
-      "previousContentSha256": "a810f7afcf736fa6b6832298e0e91e3bb02696aa9fe0f872265f8e23b6faa36a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-couples-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-couples-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-couples-weekend/index.md",
-      "contentSha256": "1e58a00432271d9e46aee3ae243a41d98271f8495e8cd8944155c776629e7fd7",
-      "previousContentSha256": "2eaec5ff7b89ba70f0422a678cfe905ba572f9b130b584eb6f0acdaf0ae304ba"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-one-night-escape/index.md",
-      "contentSha256": "eddfed3e4d8cf548631f37c3d778c9300d1428df616f100438e4fe331c2bc76f",
-      "previousContentSha256": "37f7004e05ca4153005983d3229848fc475e32c71d86bc38ad0fdb0a38f0690b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/index.md",
-      "contentSha256": "c3b798c8224fcb3abe5eeaa0fab2148070c4d970529870bc07106d19027aa686",
-      "previousContentSha256": "2534edeecadf55d25c2f3021c5f885422fa6b42b4bd346ccc0550b507a897505"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/wellness-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/wellness-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/wellness-weekend/index.md",
-      "contentSha256": "b89779a78969f6242ed2e8b09e8cc86c388f3fce19fd5b4d57c2c590ce086415",
-      "previousContentSha256": "0f49627f32cbc91fcd8d98b5cfd8daae309ff760e8b34e51882791be8ae27b54"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/portsea-front-beach/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/portsea-front-beach/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/portsea-front-beach/index.md",
-      "contentSha256": "c0ed0ad9f1a9772a8060f19708cc5ad946c46874bbe21bde735bfa0a7744c598",
-      "previousContentSha256": "55bd962d141d82b242700ec2c3c83a509514adf101d33d36e52647f60fb2cdd9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/portsea-golf-club/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/portsea-golf-club/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/portsea-golf-club/index.md",
-      "contentSha256": "9a0e0ba765ab92fca2c91d9984436c8bd9081dcf2223cb85c589c586f172467a",
-      "previousContentSha256": "0ebe8412ca5f44a8a33989e4688a09209e7312bfdda14c0cfb1c0e4528233009"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
-      "contentSha256": "2af6196c4fd094442b5f8e054fae462429bba388a0cc7597364eadf42e205e47",
-      "previousContentSha256": "7983630a41951c7b452357143f01b29df2815a0ea202b0c907239e0385299e91"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
-      "contentSha256": "f3d1750e159718a8b0364b600c0f6a6b42699ca52d78b0ba7524c0c9cc7c0640",
-      "previousContentSha256": "b5ec7dcc959c5bfa24fde3f85d53fd4c1a27658f51e03db56760c3b3440e6520"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
-      "contentSha256": "baf6d02abf6eb323d7c9d4305083f0216046838b66cc707286d4ace3dbb2aa69",
-      "previousContentSha256": "b17840158d8a46fb536449e419c89c6db289765d3adb5cf3f4ee28632a0ed4bb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/index.md",
-      "contentSha256": "aaed96113259d7f01a1ad2258ed8a7b7b8fe4e9ef999c1ca82b0c9b54debcb37",
-      "previousContentSha256": "360762b5340f8542e41d2ef1a31ebd705428a78f6eec3200c83f2a35f26fc982"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/index.md",
-      "contentSha256": "e5aa5d692a9386b4d2a0eaba7c56fda88787bdcd3301497d690442560d3b3525",
-      "previousContentSha256": "2e2bdfb1d0382d1662b4f804f6a7885d6a3be69d058c6ee0fb7ff2ebabd0e849"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4052132a2a76c481c08cac21ad679467a982934db0771354c882a328d1795d53",
-      "previousContentSha256": "4eb83d68eb53594458a20b778ed7db56f1a10d067f2b1e2c2b7930c2be72d2d0"
+      "contentSha256": "e74947811b4336885d42b7d04799e1829dcba9131c59d691735f114e35b19536",
+      "previousContentSha256": "4052132a2a76c481c08cac21ad679467a982934db0771354c882a328d1795d53"
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "58136cc6a926b9273062f632da3166725ec6ae86d622cc1eda97729b4accca52",
-      "previousContentSha256": "636d5d31b9afa8dc9b0b20afddadabdc17417e575760974b7320a9067b7a7c1c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/boutique-hotels/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/boutique-hotels/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/boutique-hotels/index.md",
-      "contentSha256": "54d3fddd17c51f2b7d91715ff840cc6c1d65a7fd7c8f84511be7514308ff46a8",
-      "previousContentSha256": "2945e09dbcad86b60c65aa80ffd16258f122a11d25439ca9e603d999c02eac53"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/cape-retreat/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/cape-retreat/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/cape-retreat/index.md",
-      "contentSha256": "e2057998893e645fca1b56098439b1061024be2b657c667dcf9d803c5cb08086",
-      "previousContentSha256": "d60df917c229ebf9a3644d0e1974a33801386d8bc218594a6c841f39d228a683"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/cape-schanck/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/cape-schanck/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/cape-schanck/index.md",
-      "contentSha256": "6bc9bb676c0be2befab069fdc6c502438e52340d4ae7294a058ade2159754bf1",
-      "previousContentSha256": "fd58db57e7dd342817cf2d41cbfff602a207839aed249406291cb5f6424f6255"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/coastal-stays/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/coastal-stays/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/coastal-stays/index.md",
-      "contentSha256": "5255a9f1577aa55998181f0aca8ba46fa8331def94c8ae4b55ff9aa236537d3b",
-      "previousContentSha256": "dcfc888a9176826c1a0fd20b555bd08c04580991caa212031d962ccfb17939a4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/crittenden-villas/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/crittenden-villas/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/crittenden-villas/index.md",
-      "contentSha256": "724a952a832e494f86ac7509dd5e46a2c302ff517cfe5b88df9fa3aed86d107d",
-      "previousContentSha256": "884ed037e79f5f095a41864cf777261675f70cb3fe104259bc4026d48273f839"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/lindenderry/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/lindenderry/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/lindenderry/index.md",
-      "contentSha256": "da5f0a47bef8bf13b275721dd07e45c3408c20f9fbe5a06697d0383221fa0362",
-      "previousContentSha256": "aeaf913a00ddd534bdc84d1f4936039a974c8fa106959070cd9b4cb25a7b92f2"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/luxury/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/luxury/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/luxury/index.md",
-      "contentSha256": "133df5abc1cdb4bed6e6be51cd0e825624e86e719c32af6f798380c5141cce0d",
-      "previousContentSha256": "6ec809edcd936aaf2e9e85920aa9378f40b4e259fb4ba976b7921fc0da0cde2f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/index.md",
-      "contentSha256": "74b3925266c2c1651dd5d6e665db95ab4704d3f6dc254c23d489e1027959298e",
-      "previousContentSha256": "a75f134b0b1424df84a5349b198e6cd97bd7f41a40cce7158b9357c8aa67402d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/index.md",
-      "contentSha256": "c73c3750f73e505ad1248232ef0863caee62f1f36d2990cc1d9fc0c14a9721e1",
-      "previousContentSha256": "81b8bfdadfc66929936bd7a7efc4b68f13f8587246b0780f0ac2dbca7c66853b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/villas/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/villas/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/villas/index.md",
-      "contentSha256": "fda53ce9bae9a934c5944aa19688b7eff1bf063b95b58697693b1c258d9dc9a5",
-      "previousContentSha256": "9ffca62925687f37ae581281005faec2e0daf4f8642de77adef32a4322c06aeb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/winery-accommodation/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/index.md",
-      "contentSha256": "95fa19c173c04d735f4b3292a6b76dd1fd8facb780132dfdc54b915d135b680b",
-      "previousContentSha256": "2b5581268234da07019785b1f1a9cbe015d6b1c8263f7c63350bc5a3eb8295b2"
+      "contentSha256": "228937928419be1f58777f5ed81b4907dc28d2fc4524d0cdfc7ec0dde8b38144",
+      "previousContentSha256": "58136cc6a926b9273062f632da3166725ec6ae86d622cc1eda97729b4accca52"
     }
   ]
 }

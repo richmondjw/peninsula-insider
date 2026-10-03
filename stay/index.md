@@ -181,13 +181,15 @@ The full list
 
 ## All 27 places to stay
 
-Compare the actual locality and stay format. Confirm room details and availability with the operator.
+Compare the locality and stay format. Open a stay for room details and the operator link.
 
  [View the stay map →](<https://peninsulainsider.com.au/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay>)
 
+ [Refine stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
+
 - ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
-An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room choices from Terrace to Lair.
+Art-led Merricks North hotel with Doot Doot Doot dining.
 
 Hotel   Merricks North   Couples
 
@@ -197,7 +199,7 @@ Details checked October 2026
 
 - ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
-Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.
+Four Red Hill vineyard villas with indoor spas and fireplaces.
 
 Villa   Red Hill   Couples
 
@@ -207,7 +209,7 @@ Details checked October 2026
 
 - ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-A Sorrento clifftop hotel with restored limestone rooms, contemporary suites, a guest-only pool and several dining spaces.
+Clifftop Sorrento hotel with heritage rooms and a guest pool.
 
 Hotel   Sorrento   Couples
 
@@ -217,7 +219,7 @@ Details checked October 2026
 
 - ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the coast close at hand.
+Quiet rooms behind Flinders Hotel, close to village and coast.
 
 Hotel   Flinders   Couples
 
@@ -227,7 +229,7 @@ Details checked October 2026
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
-Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view, lake-view and secluded pavilion options for a stay built around bathing.
+On-site Fingal glamping built around geothermal bathing.
 
 Glamping   Fingal   Couples
 
@@ -237,7 +239,7 @@ Details checked October 2026
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
-Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
+Pet-welcoming Rye cottages; Sandpiper has a log fire.
 
 Cottage   Rye   Dog-friendly
 
@@ -247,7 +249,7 @@ Details checked October 2026
 
 - ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
+Twelve Cape Schanck suites suited to group retreats.
 
 Suite   Cape Schanck   Couples
 
@@ -257,7 +259,7 @@ Details checked October 2026
 
 - ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
-Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions are optional; spa and kitchen features vary by suite.
+Five couples-only suites on Arthurs Seat with bay views.
 
 Suite   Dromana   Couples
 
@@ -265,7 +267,7 @@ Suite   Dromana   Couples
 
 - ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
-Two adjoining self-contained farm cottages, The Mavis for two and The June for four, with open fireplaces. The operator has a strict no-pets policy.
+Two adjoining farm cottages for two or four guests.
 
 Cottage   Dromana   Couples
 
@@ -273,7 +275,7 @@ Cottage   Dromana   Couples
 
 - ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-Self-contained lakeside villas at Crittenden Estate, with a cellar door and restaurant on the property.
+Self-contained lakeside villas with dining and cellar door.
 
 Villa   Dromana   Couples
 
@@ -283,7 +285,7 @@ Details checked October 2026
 
 - ### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+Eco Lodge rooms; confirm private bathing for your chosen room.
 
 Lodge   Fingal   Couples
 
@@ -293,7 +295,7 @@ Details checked October 2026
 
 - ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
-Five secluded villas or two premium rooms above Alba’s springs, with daily bathing and breakfast at Thyme included.
+Villas and rooms above Alba springs with daily bathing.
 
 Villa   Fingal   Couples
 
@@ -301,7 +303,7 @@ Villa   Fingal   Couples
 
 - ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
+Styled bell tents set up at selected Peninsula campsites.
 
 Glamping   Merricks   Family
 
@@ -309,7 +311,7 @@ Glamping   Merricks   Family
 
 - ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
+Country estate chalets beside a private lake.
 
 Villa   Moorooduc   Couples
 
@@ -317,7 +319,7 @@ Villa   Moorooduc   Couples
 
 - ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
-Pre-pitched canvas tents in the historic Point Nepean Quarantine Station precinct, available September to April.
+Pre-pitched tents in Point Nepean's Quarantine Station.
 
 Glamping   Portsea   Couples
 
@@ -327,7 +329,7 @@ Details checked October 2026
 
 - ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
-Five adults-only villas overlooking the vines: two with mineral plunge pools, three with outdoor baths.
+Adults-only vineyard villas with plunge pools or outdoor baths.
 
 Villa   Red Hill   Couples
 
@@ -335,7 +337,7 @@ Villa   Red Hill   Couples
 
 - ### [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
-Spa cottages for two with gas fires and in-room spa baths, walking distance from Red Hill village and the weekend market.
+Red Hill spa cottages for two, near the village.
 
 Cottage   Red Hill   Couples
 
@@ -343,7 +345,7 @@ Cottage   Red Hill   Couples
 
 - ### [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>)
 
-A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining room and a weekend cellar door.
+Red Hill estate hotel with gardens, dining and a weekend cellar door.
 
 Hotel   Red Hill   Couples
 
@@ -353,7 +355,7 @@ Details checked October 2026
 
 - ### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 
-Three rammed-earth self-contained apartments on ten acres of Red Hill South wine country, in-room spa baths, infrared sauna, and valley views.
+Rammed-earth Red Hill apartments with in-room spa baths.
 
 Cottage   Red Hill   Dog-friendly
 
@@ -361,7 +363,7 @@ Cottage   Red Hill   Dog-friendly
 
 - ### [Treetops at Red Hill](<https://peninsulainsider.com.au/stay/treetops-red-hill/>)
 
-Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan vineyard property. Breakfast provisions are described for Peppercorn.
+Two self-contained cottages on a Red Hill vineyard.
 
 Cottage   Red Hill   Couples
 
@@ -369,7 +371,7 @@ Cottage   Red Hill   Couples
 
 - ### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
-Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
+Self-contained Rye villas with breakfast hampers and spa baths.
 
 Cottage   Rye   Couples
 
@@ -377,7 +379,7 @@ Cottage   Rye   Couples
 
 - ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
-Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
+Five pet-friendly beach cottages with shared EV charging.
 
 Cottage   Rye   Dog-friendly
 
@@ -385,7 +387,7 @@ Cottage   Rye   Dog-friendly
 
 - ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
+Restored retro caravans close to Rye bay beach.
 
 Glamping   Rye   Dog-friendly
 
@@ -393,7 +395,7 @@ Glamping   Rye   Dog-friendly
 
 - ### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
-A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is included; cooking facilities vary by room.
+Rye bed and breakfast with five rooms and cooked breakfast.
 
 Suite   Rye   Couples
 
@@ -401,7 +403,7 @@ Suite   Rye   Couples
 
 - ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
+Shoreham group glamping beside a private freshwater lake.
 
 Glamping   Shoreham   Couples
 
@@ -409,7 +411,7 @@ Glamping   Shoreham   Couples
 
 - ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
+Shoreham vineyard suites with dining and a cellar door.
 
 Suite   Shoreham   Couples
 
@@ -417,7 +419,7 @@ Suite   Shoreham   Couples
 
 - ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
-A Sorrento hotel with heritage rooms, a guest pool deck and The Continental dining precinct close by.
+Heritage Sorrento hotel beside The Continental dining precinct.
 
 Hotel   Sorrento   Couples
 
