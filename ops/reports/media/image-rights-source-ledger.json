@@ -4,18 +4,18 @@
   "what": "One row per distinct original URL in LICENSES.md, as this probe read it on the date above.",
   "caveat": "A matching licence means the source names that grant today. It is not a check that the file in public/images/sourced is the file at that URL, and it is not permission to publish.",
   "totals": {
-    "urls": 27,
-    "ok": 27,
+    "urls": 29,
+    "ok": 28,
     "moved": 0,
-    "blocked": 0,
+    "blocked": 1,
     "dead": 0,
     "unknown": 0,
-    "licenceMatches": 24,
+    "licenceMatches": 25,
     "licenceDiffers": 1,
-    "licenceNotComparable": 2,
-    "creatorExact": 16,
+    "licenceNotComparable": 3,
+    "creatorExact": 17,
     "creatorContains": 6,
-    "creatorNotEstablished": 5
+    "creatorNotEstablished": 6
   },
   "rows": [
     {
@@ -319,6 +319,26 @@
       "probedOn": "2026-10-03"
     },
     {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
+      "citedBy": [
+        "place-mornington-01.webp"
+      ],
+      "fileLicence": [
+        "CC-BY-2.0"
+      ],
+      "fileCreator": [
+        "Simon Yeo"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "CC BY 2.0",
+      "sourceCreator": "Simon, Mandy, Joshua, Bradley and baby Karla Yeo from Pakenham, Australia",
+      "licenceAgrees": "matches",
+      "creatorAgrees": "not-established",
+      "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
+    },
+    {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_from_Arthur%27s_Seat.jpg",
       "citedBy": [
         "explore-arthurs-seat-lookout-01.webp"
@@ -379,26 +399,6 @@
       "probedOn": "2026-10-03"
     },
     {
-      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
-      "citedBy": [
-        "place-mornington-01.webp"
-      ],
-      "fileLicence": [
-        "CC-BY-2.0"
-      ],
-      "fileCreator": [
-        "Simon Yeo"
-      ],
-      "verdict": "ok",
-      "http": 200,
-      "sourceLicence": "CC BY 2.0",
-      "sourceCreator": "Simon, Mandy, Joshua, Bradley and baby Karla Yeo from Pakenham, Australia",
-      "licenceAgrees": "matches",
-      "creatorAgrees": "not-established",
-      "note": "read from the Commons imageinfo API, which is the record the file page renders",
-      "probedOn": "2026-10-03"
-    },
-    {
       "sourceUrl": "https://commons.wikimedia.org/wiki/File:Nazaaray_Estate_Winery.jpg",
       "citedBy": [
         "venue-nazaaray-estate-01.webp"
@@ -416,6 +416,26 @@
       "licenceAgrees": "differs",
       "creatorAgrees": "not-established",
       "note": "read from the Commons imageinfo API, which is the record the file page renders",
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg",
+      "citedBy": [
+        "place-balnarring-rural-sunrise-cc-by-sa-2.webp"
+      ],
+      "fileLicence": [
+        "CC-BY-SA-2.0"
+      ],
+      "fileCreator": [
+        "mattyv.au"
+      ],
+      "verdict": "ok",
+      "http": 200,
+      "sourceLicence": "CC BY-SA 2.0",
+      "sourceCreator": "mattyv.au",
+      "licenceAgrees": "matches",
+      "creatorAgrees": "exact",
+      "note": "read from the Commons imageinfo API; original SHA-1 matched the downloaded JPEG",
       "probedOn": "2026-10-03"
     },
     {
@@ -556,6 +576,26 @@
       "licenceAgrees": "not-comparable",
       "creatorAgrees": "not-established",
       "note": "not a Wikimedia Commons file page, so only reachability was established",
+      "probedOn": "2026-10-03"
+    },
+    {
+      "sourceUrl": "https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q",
+      "citedBy": [
+        "stay-vintage-caravan-unsplash.webp"
+      ],
+      "fileLicence": [
+        "Unsplash License (free for commercial use and modifications)"
+      ],
+      "fileCreator": [
+        "Nicolas Görmer"
+      ],
+      "verdict": "blocked",
+      "http": 401,
+      "sourceLicence": null,
+      "sourceCreator": null,
+      "licenceAgrees": "not-comparable",
+      "creatorAgrees": "not-established",
+      "note": "Automated source-link probe reached a bot challenge (401); the public Unsplash photo page and Unsplash License page were separately read on 2026-10-03 and identify Nicolas Görmer and free commercial reuse. Fetched 2200px JPEG SHA-256 a44ac5fbf79780cb1990b41585a569ff0e7686ca37f2a4a80ae4adaf178d7faf.",
       "probedOn": "2026-10-03"
     }
   ]

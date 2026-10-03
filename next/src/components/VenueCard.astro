@@ -26,6 +26,7 @@ const typeLabel: Record<string, string> = {
   hotel:       'Hotel',
   villa:       'Villa',
   suite:       'Suite',
+  accommodation: 'Accommodation',
   cottage:     'Cottage',
   lodge:       'Lodge',
   glamping:    'Glamping',
@@ -84,9 +85,10 @@ const summaryLine = shortAddress;
 // Resolve CMS image override at SSR. When an editor has replaced this venue's
 // hero via the inline editor, the published row overrides whatever the content
 // file specifies - so the rebuilt page renders the new image directly.
-const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate'].includes(slug);
+const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate', 'iluka-retreat', 'kanasta-retro-caravans', 'mantons-creek-estate'].includes(slug);
 const hero = await resolveHero('venue', slug, data, 'heroImage', {
   requireOverrideMetadata: requireVerifiedStayHero,
+  ignoreOverride: slug === 'driftaway-on-dundas' && data.status === 'paused',
 });
 // A CMS replacement is a different photograph. If its own alt or credit is
 // missing, use the existing typographic card plate until that upload is reviewed.

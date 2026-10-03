@@ -181,7 +181,7 @@ export function illustrativeDisclosure(
 ): { label: string; detail: string } | null {
   if (!isIllustrative(image)) return null;
 
-  const depicts = typeof image?.depicts === 'string' ? image.depicts.trim() : '';
+  const depicts = typeof image?.depicts === 'string' ? image.depicts.trim().replace(/[.!?]+$/, '') : '';
   const named = typeof subject === 'string' ? subject.trim() : '';
   const target = named || 'the place described on this page';
 

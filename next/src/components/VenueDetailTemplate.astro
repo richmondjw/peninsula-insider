@@ -139,9 +139,10 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 const venueSlug = venue.id ?? data.slug;
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
 const requireVerifiedStayHero = section === 'stay' &&
-  ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate'].includes(String(venueSlug));
+  ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate', 'iluka-retreat', 'kanasta-retro-caravans', 'mantons-creek-estate'].includes(String(venueSlug));
 const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
   requireOverrideMetadata: requireVerifiedStayHero,
+  ignoreOverride: section === 'stay' && venueSlug === 'driftaway-on-dundas' && data.status === 'paused',
 });
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
 // replaces: a decorative image's deliberately empty alt fell through the `||`
@@ -335,7 +336,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             data-pi-surface="venue-booking-bar"
             data-pi-provider={data.bookingProvider}
           >
-            {data.type === 'hotel' || data.type === 'villa' || data.type === 'suite' || data.type === 'cottage' || data.type === 'lodge' || data.type === 'glamping' || data.type === 'farm-stay'
+            {data.type === 'hotel' || data.type === 'villa' || data.type === 'suite' || data.type === 'accommodation' || data.type === 'cottage' || data.type === 'lodge' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
                 ? (isPortPhillipEstate ? 'Check suite availability' : 'Book a tasting')
@@ -723,7 +724,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             data-pi-entity-slug={venueSlug}
             data-pi-surface="venue-facts-rail"
             data-pi-provider={data.bookingProvider}
-          >{data.type === 'suite' ? 'Check availability' : isPortPhillipEstate ? 'Check suite availability' : 'Book now'}</a>
+          >{data.type === 'suite' || data.type === 'accommodation' ? 'Check availability' : isPortPhillipEstate ? 'Check suite availability' : 'Book now'}</a>
         )}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>

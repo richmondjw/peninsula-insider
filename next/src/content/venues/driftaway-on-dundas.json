@@ -11,20 +11,12 @@
   "address": "246 Dundas St, Rye VIC 3941",
   "bookingProvider": "direct",
   "priceBand": "$$",
-  "signature": "Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.",
-  "editorNote": "Three self-contained villas on 2.5 acres of tea-tree near Rye beach. Each villa includes breakfast hampers and oversized spa baths; one villa is disability-accessible, which is notable in a Peninsula accommodation category that rarely addresses accessibility at all. The tea-tree setting is quieter than the hinterland B&B set and positioned for guests whose preference is bay proximity over wine-country walking distance.\n\nThe format is couples-first: the spa bath, the hamper, the private villa entry, the tea-tree enclosure. It suits an anniversary weekend or a quiet mid-week escape without the cellar-door agenda. Rye beach is a short drive or a manageable walk, and the beach access makes this more flexible than a strictly hinterland stay.\n\nConfirm current rates, minimum stay, and dog policy directly, details were unverified as of May 2026. Worth a direct call to ask about current availability and any improvements since last reviewed.",
-  "whyWeGo": "The bay-side villa option with the most complete amenity set, spa baths, breakfast hampers, and one of the few Peninsula stays with a disability-accessible unit.",
-  "bestFor": [
-    "Beach proximity",
-    "Couples",
-    "Anniversary weekends",
-    "Budget stays"
-  ],
-  "ifOnlyOneThing": "Confirm rates, minimum stay, and dog policy before booking, and ask specifically about the accessible villa if it is relevant.",
-  "pairWith": [
-    "Peninsula Hot Springs",
-    "Rye Ocean Beach"
-  ],
+  "signature": "This Rye accommodation listing is paused while current trading and booking details are confirmed.",
+  "editorNote": "Earlier information described self-contained villas on Dundas Street in Rye, but the operator website is unavailable and we could not confirm a current booking route on 3 October 2026. Historical directory listings and reviews do not establish that the accommodation is taking bookings now.\n\nThis page is retained for reference. We are withholding it from current Stay recommendations until the operator or a current manager confirms the property and booking details.",
+  "whyWeGo": "This listing is paused; there is no current recommendation to book.",
+  "bestFor": [],
+  "ifOnlyOneThing": "Do not make plans around this property until its current operator or manager confirms availability directly.",
+  "pairWith": [],
   "tags": {
     "mood": [
       "beach",
@@ -39,44 +31,52 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/place-rye-01.webp",
-    "alt": "A wide calm bay beach with footprints in the sand, boats moored offshore and a wooded shoreline curving away.",
-    "depicts": "a calm bay beach with boats moored offshore",
+    "src": "/images/sourced/place-sorrento-01.webp",
+    "alt": "Morning light over the bay near Sorrento, with boats on calm water.",
+    "depicts": "the Sorrento bay coast",
     "depictionStatus": "illustrative",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
+    "credit": "Alan Travers / Wikimedia Commons (CC0)",
+    "license": "wikimedia-cc0",
+    "creator": "Alan Travers",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "permission": "CC0 (Public Domain)",
+    "permittedUses": [
+      "website",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "caption": "Illustrative Sorrento bay coast. This does not show Driftaway on Dundas or Rye."
   },
   "gallery": [],
   "featuredPartner": false,
   "lastVerified": "2026-05-07",
   "publishedAt": "2026-05-08",
-  "sitemapExclude": false,
+  "sitemapExclude": true,
   "operatingStatus": "verify-open",
-  "knownFor": [
-    "Tea-Tree Setting Near Rye Beach",
-    "Oversized Spa Baths",
-    "Disability-Accessible Villa",
-    "Breakfast Hampers"
-  ],
-  "closureNote": "Review marker retained after a check on 2026-09-13. driftawayondundas.com resolves, but every path tried returns HTTP 404, including the pages search engines still index, so the operator site is effectively down rather than merely moved. The property is still carried by Tripadvisor (https://www.tripadvisor.com.au/Hotel_Review-g499625-d12380220-Reviews-Driftaway_on_Dundas-Rye_Mornington_Peninsula_Victoria.html) and Google Hotels, and no closure notice was found. Trading status unresolved.",
+  "closureNote": "Trading status unresolved as of 2026-10-03. The former operator website returns HTTP 404 and no current operator-controlled booking source was found. This is a verification pause, not evidence that the property has permanently closed.",
   "retiredSourceLinks": [
     {
       "field": "website",
       "url": "https://www.driftawayondundas.com",
       "verdict": "dead",
       "disposition": "gone",
-      "checkedOn": "2026-09-13",
-      "note": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
+      "checkedOn": "2026-10-03",
+      "note": "Former operator website returned HTTP 404. No current operator or manager booking source found; trading status remains unresolved."
     },
     {
       "field": "bookingUrl",
       "url": "https://www.driftawayondundas.com",
       "verdict": "dead",
       "disposition": "gone",
-      "checkedOn": "2026-09-13",
-      "note": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
+      "checkedOn": "2026-10-03",
+      "note": "Former operator website returned HTTP 404. No current operator or manager booking source found; trading status remains unresolved."
     }
   ],
   "sourceStatus": "unsourced",
-  "sourceStatusNote": "Serves the Squarespace 'Website Expired' page. The operator stopped paying for the site; no successor found."
+  "sourceStatusNote": "Former operator site returned HTTP 404 on 2026-10-03; no current operator or manager booking source found.",
+  "status": "paused"
 }

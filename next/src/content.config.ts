@@ -467,6 +467,7 @@ const venues = defineCollection({
       'hotel',
       'villa',
       'suite',
+      'accommodation', // verified overnight stay; room subtype not established
       'cottage',
       'lodge',
       'glamping',
