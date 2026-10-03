@@ -33,7 +33,9 @@ The quick warm-up: serious coffee in a Mornington warehouse, best before ten, wi
 
 Mornington   Cafe
 
-- ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
+- Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
 The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.
 
@@ -41,7 +43,7 @@ Merricks   Restaurant
 
 See 3 more editorial choices
 
-- Illustrative image
+- Illustrative image. This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
@@ -87,7 +89,9 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 Dromana   Restaurant
 
-- ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+- Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
 A Red Hill institution that has turned long lunch into a civic duty.
 
@@ -129,7 +133,9 @@ Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape 
 
 Cape Schanck   Restaurant
 
-- ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+- Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -147,7 +153,7 @@ The Peninsula's most serious roaster, hidden in a Mornington warehouse with a ca
 
 Mornington   Cafe
 
-- Illustrative image
+- Illustrative image. This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
@@ -179,7 +185,9 @@ All-day cafe on Cook Street built around produce from their own farm, the natura
 
 Flinders   Cafe
 
-- ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
+- Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -221,7 +229,9 @@ Bayside all-day bistro across from Safety Beach, modern Australian plates, a bay
 
 Safety Beach   Restaurant
 
-- ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
+- Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -281,13 +291,17 @@ The front-row pub on Port Phillip, still the cleanest long lunch at the tip of t
 
 Portsea   Pub
 
-- ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
+- Photo courtesy of Visit Victoria.
+
+### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
 Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
 
 Merricks   Restaurant
 
-- ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
+- Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 
@@ -299,7 +313,9 @@ Artisan bread, pies and pastries from the bakery's sole current shop in Balnarri
 
 Balnarring   Bakery
 
-- ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
+- Photo: Peter Tarasiuk, courtesy of Visit Victoria.
+
+### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -341,7 +357,9 @@ A small-batch sourdough baker at the top of Mornington's Main Street, long-ferme
 
 Mornington   Bakery
 
-- ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+- Photo courtesy of Visit Victoria.
+
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 
