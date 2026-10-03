@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-02T20:34:53.724Z",
+  "updatedAt": "2026-10-03T00:50:36.167Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1056,6 +1056,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Moke Dining"
+    },
+    {
+      "url": "https://mokedining.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Moke Dining",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://montalto.com.au",
@@ -2291,6 +2299,14 @@
       "httpCode": "200",
       "pageTitle": "Property - Blue Moon Cottages",
       "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.bluemooncottages.com.au/terms-conditions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Terms &amp; Conditions - Blue Moon Cottages",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -3881,6 +3897,22 @@
       "probedBy": "audit-link-health.mjs --probe"
     },
     {
+      "url": "https://www.polperrowines.com.au/cellar-door/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Cellar Door &amp; Wine Tasting | Polperro Winery Red Hill",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/dine/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Winery Restaurant Red Hill | Polperro Dining",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.polperrowines.com.au/end-of-year-events-at-polperro-and-many-little/",
       "verdict": "blocked",
       "httpCode": "202",
@@ -3893,6 +3925,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/escape/villas/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Luxury Vineyard Villas Red Hill | Polperro Winery Stays",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.polperrowines.com.au/event/soil-cellar-flinders-truffles-x-polperro-winery/",

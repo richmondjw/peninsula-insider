@@ -7,7 +7,7 @@
   "baselineRevision": "d7f7bf9a1fd767e0543cf16e93d90529ba1d3ac9",
   "workingBranch": "codex/pi-stay-quality-next",
   "score": null,
-  "status": "in-remediation",
+  "status": "released-below-target",
   "reviewers": [
     {
       "role": "independent visual/mobile",
@@ -65,7 +65,7 @@
     "saveStore": "20 tests passed",
     "visitVictoria": "792 uses / 895 catalogued works passed after caption correction",
     "productionBuild": "npm run build:search passed, including all repository gates and 728 indexed pages",
-    "liveAcceptance": "not released",
+    "liveAcceptance": "Release 68fc53d2ab1ec2362c813af791496534947cc37e matched public manifest; live 390px browser confirmed 27 stays, four visible Visit Victoria credits, illustrative caption, selection link, no overflow, clear focus and dialog inert/restore.",
     "settledBrowser": "Static preview 4387 at 320, 390, 1440: all 27 stays, corrected image/caption/credits, no horizontal overflow; only two direct availability buttons"
   },
   "remaining": [
@@ -78,5 +78,11 @@
   "decision": "adapt",
   "owner": "Codex in current James-approved Peninsula Insider task",
   "rollback": "Revert this bounded commit; no data migrations or service changes.",
-  "nextAction": "Finish build, recheck settled static preview, publish through normal CI and verify live; retain below-target status."
+  "nextAction": "Continue the Stay factual-source pass and full 23-criterion review; first release is live but remains below target.",
+  "release": {
+    "pr": "https://github.com/richmondjw/peninsula-insider/pull/526",
+    "mergeRevision": "68fc53d2ab1ec2362c813af791496534947cc37e",
+    "deployRun": 37082898353,
+    "publicVerified": true
+  }
 }
