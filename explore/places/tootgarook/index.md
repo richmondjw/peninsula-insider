@@ -5,11 +5,13 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Sorrento & Portsea](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/>)
+Between Capel Sound & Rye
 
 # Tootgarook
 
-Tootgarook Recreation Reserve from Marshall Street, with grass, a path, playground and trees under a blue sky
+A bay beach morning, a reserve walk, and Rye nearby for dinner.
+
+Tootgarook Recreation Reserve, photographed in February 2023. This is not the Tootgarook Wetland.
 
 Photo · Tangerineduel / Wikimedia Commons (CC BY-SA 4.0; resized to 1920 px) [Source](<https://commons.wikimedia.org/wiki/File:Tootgarook_Recreation_Reserve_2023-02-22.jpg>)   [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
 

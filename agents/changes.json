@@ -1,20 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T15:16:31.377Z",
+  "generatedAt": "2026-10-03T15:37:38.830Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b46ded4a7c4c6ef7de8e6bcc5f8d8d68650b77eb75d03be9c37ecb2db15eccc9",
-  "toSnapshot": "fbbd7fcd7d6f29eed4a07a51742b3fdfbf03a0335cd911cec232febdb7b23baa",
-  "previousGeneratedAt": "2026-10-03T15:00:49.091Z",
+  "fromSnapshot": "fbbd7fcd7d6f29eed4a07a51742b3fdfbf03a0335cd911cec232febdb7b23baa",
+  "toSnapshot": "11719762693647c9a19c573d8cd098ef79e4928cdcd3be1b7565a214a3e9b974",
+  "previousGeneratedAt": "2026-10-03T15:16:31.377Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 2,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/tootgarook/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/index.md",
+      "contentSha256": "8b76728047cdae6c507d7e743a6d7587a57cc6f03b83bd0c8f240d8c8be20704",
+      "previousContentSha256": "9e21047c3a289f662f5ae92edf3bd6bd5212472830db8d0e8ccb3c419d5cb9fd"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "9b306c7c6c9eac8ae4246d230baf5aba388f7493ef461d606dd7177cf9175c78",
-      "previousContentSha256": "2ad2d2cc68f4bc04914b5ebdd79f6188e1b08292f21697d546b2611ade6f50b8"
+      "contentSha256": "cabd315e049b5e16d0b89564772db841684a28c90b90a2be23edd0914d5ced54",
+      "previousContentSha256": "9b306c7c6c9eac8ae4246d230baf5aba388f7493ef461d606dd7177cf9175c78"
     }
   ]
 }
