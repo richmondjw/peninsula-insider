@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/eat/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "978c9606e32e01a0d5bef3caed4f4829c5b9f4ff",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "Exact live 390 and 1440px screenshots show Browse all landing with the directory eyebrow and, at desktop, much of the header behind the sticky masthead. The one filter bar sits near the page opening, above editorial content, so directory readers cannot reach it beside results. More filters scrolls off the narrow chip rail. The one-column desktop catalogue leaves unused horizontal space. At 390/1440 most verdicts are visibly clipped, and the first-sentence parser cuts Laura at Pt. Leo after Pt.",
+  "hypothesis": "Keep one filter bar immediately above the result list, pin its advanced-filter action on mobile, offset the directory anchor for the masthead, use two desktop columns and allow complete short verdicts. Protect common place/name abbreviations before first-sentence splitting. This should improve scan, comparison and keyboard/anchor orientation without changing the 52-item corpus or filter state.",
+  "boundedChange": "Move the existing Eat FilterBar to the DirectoryRows before-list slot; keep the top Browse all and map links. Apply scroll margin to the directory, expose complete verdicts, use two columns at desktop, and preserve Pt./St./Mr./Mrs./Dr. in first-sentence extraction. No venue data, booking destinations, images or global filter logic change.",
+  "metric": "At 320/390/1440, Browse all reveals the directory heading and its working filters below sticky chrome. More filters remains visible on mobile. All 52 results and URL/state transitions still work, the exact 0/52 recovery still works, and the first 52/52 directory verdicts are not visually clipped. Laura at Pt. Leo shows the full first sentence. Desktop uses two balanced columns with no overflow. Full build, independent browser QA and exact public release acceptance pass.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded Eat directory presentation commit; no content or data migration.",
+  "validation": {
+    "productionBuild": "Exact-source npm run build:search passed exit 0: 1,013 HTML files, Pagefind 727 pages, and existing content/rights/claim/SEO/link/schema/style gates. Generated report noise was restored without touching intended source.",
+    "independentReview": "Independent read-only final static QA accepted bounded local release at 320/390/1440: anchor top 84/84/149px, 16px below sticky masthead; bar stuck after scrolling with pinned Filters fully visible; 52 rows and 52 complete verdicts with 0 measured clipping; Laura Pt. Leo sentence complete; desktop two equal 624px columns and no overflow. Filters dialog focused, Bakery staged 5/52 and applied URL; Date night 13/52; exact 0/52 cleared to 52/52 and heading focus. Search, consent and source diff regressions passed. Image rights and full score excluded.",
+    "liveAcceptance": "pending",
+    "settledBrowser": "Built static preview at 320/390/1440: Browse all anchor top 84/84/149px below sticky chrome and heading visible; filter bar immediately below heading with pinned Filters visible; 52 rows, zero clipped verdicts across 52 rendered deks; Laura at Pt. Leo complete first sentence; no horizontal overflow. At 390/1440 Date night produced 13/52 and URL ?mood=date-night; exact 0/52 URL showed empty state and Clear restored 52 rows with focus on directory heading. At 390 Filters sheet opened, focused its panel, Escape closed and restored trigger. Visual screenshots inspected at 390/1440; desktop uses two balanced columns."
+  },
+  "hardGatesOpen": [
+    "Eat CMS image subject and rights evidence remains missing for many published slots",
+    "Factual freshness and remaining 23-criterion deductions remain open"
+  ],
+  "negativeFindings": [
+    "The source already has DirectoryRows fullVerdicts and desktopColumns options; this batch uses them only on Eat.",
+    "CMS image evidence is not established by a credit string or source filename. A visual fix does not clear that hard gate.",
+    "54 content files match a simple Eat-type/status query, while the actual public catalogue has 52 because the site closure predicate excludes two more; do not treat raw candidate counts as public counts."
+  ],
+  "nextAction": "Publish the independently accepted bounded directory presentation fix through protected CI, verify the exact public revision, then continue item-level image rights/subject and factual triage."
+}

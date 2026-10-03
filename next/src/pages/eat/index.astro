@@ -95,7 +95,9 @@ function isoDate(v: unknown): string | undefined {
  *  truncated or rewritten at render time). */
 function verdictLine(signature?: string): string | undefined {
   if (!signature) return undefined;
-  const first = signature.split(/(?<=[.?])\s+/)[0]?.trim();
+  // Protect place abbreviations such as "Pt. Leo" before splitting the first sentence.
+  const protectedCopy = signature.replace(/\b(Pt|St|Mr|Mrs|Dr)\./g, (_match, prefix) => prefix + '\uE000');
+  const first = protectedCopy.split(/(?<=[.!?])\s+/)[0]?.replace(/\uE000/g, '.').trim();
   if (!first) return undefined;
   return first.split(/\s+/).length <= 25 ? first : undefined;
 }
@@ -274,9 +276,7 @@ export const prerender = true;
     compact
   />
 
-  <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat">
-    <FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} />
-  </CategoryBrowse>
+  <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" />
   <div class="container"><PlanningHelp /></div>
 
   <div data-category-editorial>
@@ -305,23 +305,23 @@ export const prerender = true;
   </div>
 
   <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM.
-       Intent chips + filters are slotted directly above the list they
-       reshape (moved below The Six 2026-07-24 per James; slotted inside the
-       directory so the sticky bar has the full list height to stick
-       against). ONE state still governs The Six AND the directory
-       (URL-persisted; restoration per pi:restore:v1 contract). -->
+       One filter bar sits beside the results it changes, below The Six.
+       ONE URL-persisted state still governs The Six AND the directory. -->
   <DirectoryRows
     id="directory"
     eyebrow="The full list"
     heading={`All ${directoryItems.length} places to eat`}
-    sub="Use the occasion and town filters above to make your shortlist."
+    sub="Compare the full list, then narrow it by occasion or town."
     noun="places"
     surface="eat"
     items={directoryItems}
+    fullVerdicts
+    desktopColumns={2}
     topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
+    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore sticky />
   </DirectoryRows>
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
