@@ -169,6 +169,6 @@ Coming up in Tootgarook, pulled from the events registry.
 
 Tootgarook
 
-Fourth-Saturday-of-the-month fundraiser market run by Tootgarook Primary, 250 stalls of everything from produce to second-hand. Proceeds back into the school.
+Fourth-Saturday fundraising market at Tootgarook Primary School, with produce, plants, crafts and second-hand stalls. Confirm current hours and entry with the organiser before travelling.
 
  Markets](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)

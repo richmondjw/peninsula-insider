@@ -9,25 +9,21 @@ Markets     24 October 2026     Recurs monthly
 
 # Tootgarook Primary School Market
 
-Fourth-Saturday-of-the-month fundraiser market run by Tootgarook Primary, 250 stalls of everything from produce to second-hand. Proceeds back into the school.
-
-Worth the drive
+Fourth-Saturday fundraising market at Tootgarook Primary School, with produce, plants, crafts and second-hand stalls. Confirm current hours and entry with the organiser before travelling.
 
 Editor's verdict
 
-Two hundred and fifty stalls of school-fete chaos in the best possible way. Bigger than you'd expect and genuinely worth the drive down the southern arm.
+A school-run market on the southern Peninsula, with produce, plants, crafts and second-hand stalls.
 
-Tootgarook Primary's fourth-Saturday-of-the-month market is the sleeper hit of the southern Peninsula. 250 stalls is a serious number, the mix runs from produce to plants to second-hand to craft, and every dollar goes back into the school.
-
-Get there by 8am. The car queue down Carmichael Street is real, and the bargains thin out fast. Pair it with a swim or a walk at Rye Beach (ten minutes' drive), or finish with breakfast on the Rosebud foreshore.
-
-If you're a Mornington or northern Peninsula local, this is the cross-Peninsula market worth a Saturday.
+The school's former market page now returns 404, and local guides disagree on current opening hours. Contact the school for current hours and entry terms before making the trip. The school is near Rye Beach and the Rosebud foreshore if you want to make a longer outing of it.
 
 Hosted at
 
 Tootgarook Primary School
 
 7 Carmichael Street   ,   Tootgarook VIC
+
+- [Visit venue website →](<https://tootps.vic.edu.au/>)
 
 - [Get directions →](<https://www.google.com/maps?q=-38.3728,144.8457>)
 
@@ -47,25 +43,17 @@ Recurs monthly · Monthly – 4th Saturday of every month
 
 **Price**
 
-Free
+Check organiser for pricing
 
 **Weather**
 
 Weather flexible
 
-**Worth the drive**
-
-Yes - unprompted recommendation
-
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tootgarook+Primary+School+Market&dates=20261023T203000Z%2F20261024T013000Z&details=Fourth-Saturday-of-the-month+fundraiser+market+run+by+Tootgarook+Primary%2C+250+stalls+of+everything+from+produce+to+second-hand.+Proceeds+back+into+the+school.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftootgarook-primary-school-market%2F&location=7+Carmichael+Street%2C+Tootgarook%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://tootps.vic.edu.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tootgarook+Primary+School+Market&dates=20261023T203000Z%2F20261024T013000Z&details=Fourth-Saturday+fundraising+market+at+Tootgarook+Primary+School%2C+with+produce%2C+plants%2C+crafts+and+second-hand+stalls.+Confirm+current+hours+and+entry+with+the+organiser+before+travelling.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftootgarook-primary-school-market%2F&location=7+Carmichael+Street%2C+Tootgarook%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
 - Weekend Pick
-
-- Worth The Drive
-
-- Free
 
 - Walk-In
 

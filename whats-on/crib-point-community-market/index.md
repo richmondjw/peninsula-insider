@@ -73,7 +73,7 @@ Markets   Monthly – 4th Saturday of every month
 
 ### [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
 
-Fourth-Saturday-of-the-month fundraiser market run by Tootgarook Primary, 250 stalls of everything from produce to second-hand.
+Fourth-Saturday fundraising market at Tootgarook Primary School, with produce, plants, crafts and second-hand stalls.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
 

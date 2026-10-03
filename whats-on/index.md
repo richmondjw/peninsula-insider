@@ -137,9 +137,9 @@ A useful local market when running; confirm a future date with the organiser bef
 
 - [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
 
-Two hundred and fifty stalls of school-fete chaos in the best possible way. Bigger than you'd expect and genuinely worth…
+A school-run market on the southern Peninsula, with produce, plants, crafts and second-hand stalls.
 
-7.30am · Tootgarook · Free
+7.30am · Tootgarook · Markets
 
 - [Emu Plains Market, Balnarring](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
 
