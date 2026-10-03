@@ -24,6 +24,7 @@ The benchmark screenshots taken during this work show Visit Mornington Peninsula
 | PI before this loop | 22 | 6 | 4 | 8 | 8 | 8 | **56/100** |
 | PI local redesign | 23 | 17 | 13 | 13 | 9 | 7 | **82/100** |
 | PI local loop 2 | 23 | 18 | 15 | 14 | 9 | 8 | **87/100** |
+| PI local loop 3 | 23 | 19 | 16 | 15 | 9 | 8 | **90/100** |
 | City of Melbourne observed page | 13 | 20 | 19 | 15 | 9 | 8 | **84/100** |
 | Visit Mornington Peninsula observed page | 9 | 16 | 19 | 11 | 8 | 9 | **72/100** |
 
@@ -40,3 +41,11 @@ The first redesign was released in PR #547 as `383a01995a97b5ee2ba2d8b7860924449
 The second local pass gives the lower half a different rhythm: a horizontally browsable category gallery with three credited, accurately captioned photos and two numbered type tiles where no verified subject-matched photo exists; date and category headings form a left editorial rail on desktop while event rows stay readable on mobile. The regional category photos are labelled as their actual subjects, not as photographs of every event in the section. At 320, 390, 768 and 1440px there is no document overflow; the category rail scrolls inside its own bounds below 1024px. A client-selected next weekend also uses the desktop grid. The **87/100** row is a local, provisional visual grade. Production release, five-reader task evidence and the overall 95/100 gate remain open.
 
 The next loop should replace the remaining generic and missing event artwork with rights-cleared, subject-matched assets where possible, then test the full page with five readers and compare actual task success to both named sites. A score of 95 cannot be earned by adding decorative images alone.
+
+## Loop 3, 4 October 2026
+
+The local preview now opens on a photographed, currently listed Peninsula Hot Springs venue when that event is a weekend pick, with the subject and photographer shown; otherwise it uses an explicitly captioned Cape Schanck scene. The previous market photograph was removed from the opening and category gallery because that venue's current operation is unresolved. The lead exhibition becomes a navy typographic cover instead of a generic photo plate, while two supporting picks form a different-width editorial spread on desktop. At 390px the lead pick's date and place end at 843px with the cookie note open, and there is no document overflow at 320, 390, 768 or 1440px. The trip action has a legible sand treatment on the dark card.
+
+Visual review caught a deeper curation fault: the prior fallback repeated Peninsula Hot Springs in two of three slots. Automatic picks now favour different venues and categories, only promote records checked in the last 30 calendar days, and show fewer than three when a safe short list cannot be filled. Editor-selected picks retain their order. In the current local preview the three choices are the MPRG exhibition, Sunday Sessions at Peninsula Hot Springs, and Family Mystery Picnic. The picnic photograph is explicitly labelled illustrative rather than shown as event documentation.
+
+The **90/100** row is a provisional local visual judgment, not an overall production score or a verified lead over the comparator sites. Full CI, a production screenshot, five-reader same-task comparison, mobile performance, accessibility review and two natural publication cycles remain open. The visual spread is stronger, but the first exhibition still lacks approved event-specific imagery and the picnic image is illustrative. The next gains must come from verified event artwork, measured page delivery and real visitor task performance.

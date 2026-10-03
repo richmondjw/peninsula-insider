@@ -12,7 +12,7 @@
  *  - date-scope windows: this weekend (Fri-Sun), next weekend, VIC school
  *    holidays, custom range, month ahead
  *  - PI's picks: the weekend-picks collection entry for the current
- *    weekend, falling back to lens/appeal scoring (exactly 3)
+ *    weekend, falling back to recently checked, varied choices (up to 3)
  *  - category shelves (Markets, Live music, Food & wine, Openings,
  *    Major events)
  *  - the compact feed payload for /whats-on/feed.json (HUB-11: the month+
@@ -20,6 +20,7 @@
  */
 import { listingDateLabel, resolveListingOccurrence } from '../../lib/whatson-listing.mjs';
 import { rotateDaily } from '../../lib/daily-rotation';
+import { fillDistinctPicks, recentlyChecked } from '../../lib/pick-diversity.mjs';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
 import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
@@ -333,7 +334,7 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = ne
 }
 
 // ---------------------------------------------------------------------------
-// PI's picks - exactly 3
+// PI's picks - up to 3; never fill a shortage with stale recommendations
 // ---------------------------------------------------------------------------
 
 export interface Pick {
@@ -410,7 +411,7 @@ export async function getPicks(
   // that is a decision, not a scoring accident. Inert when the flag is off.
   const chosen = new Set(picks.map((p) => p.live.slug));
   const scored = inWindow
-    .filter((e) => !chosen.has(e.slug) && e.promotable)
+    .filter((e) => !chosen.has(e.slug) && e.promotable && recentlyChecked(e.event.data.lastCheckedDate, now))
     .map((e) => {
       const data = e.event.data as Record<string, any>;
       const lens: string[] = Array.isArray(data.lens) ? data.lens : [];
@@ -426,14 +427,21 @@ export async function getPicks(
   // the same three surface every day the window holds. Rotate through the top
   // of the ranking once per Melbourne day. The editorial sheet above returns
   // early and is never rotated.
-  for (const { e } of rotateDaily(scored, now)) {
-    const pick = toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner);
-    if (pick.occurrence.phase === 'past') continue;
-    picks.push(pick);
-    if (picks.length === 3) break;
-  }
+  const identity = (pick: Pick) => {
+    const data = pick.live.event.data as Record<string, any>;
+    return {
+      slug: pick.live.slug,
+      venue: String(data.venueName ?? pick.live.slug).trim().toLowerCase(),
+      category: String(data.category ?? '').trim().toLowerCase(),
+      pick,
+    };
+  };
+  const candidates = rotateDaily(scored, now)
+    .map(({ e }) => toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner))
+    .filter((pick) => pick.occurrence.phase !== 'past')
+    .map(identity);
 
-  return picks;
+  return fillDistinctPicks(candidates, picks.map(identity), 3).map(({ pick }) => pick);
 }
 
 // ---------------------------------------------------------------------------
