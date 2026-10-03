@@ -6,7 +6,7 @@
   "tier": "T1",
   "family": "place",
   "assessedAt": "2026-10-04",
-  "status": "bounded-release-ready",
+  "status": "live-accepted-bounded",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -47,7 +47,7 @@
     "productionBuild": "TZ=UTC npm run build:search passed every repository gate and Pagefind indexed 727 pages; generated reports excluded from the commit.",
     "localBrowser": "Static preview at 320/390/1440: HTTP 200, exact new Boneo map data coordinates, Fingal address and Hawkes Farm visible; old signature absent, no page errors or horizontal overflow. Rendered Leaflet tiles and Boneo marker confirmed independently.",
     "independentReview": "Independent reviewer compared exact live and candidate public rendering and primary sources. Bounded factual/map release GO: OSM named locality point matches candidate; live pin ~6 km west, Boneo and Fingal operator addresses correct. 320/390/1440 HTTP 200, marker/tiles rendered, no page errors or overflow. Full 23-criterion score null; CMS hero VS1 hard gate remains.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "PR #557 merged after all eight checks passed as da58703e5e05289aefad68a310b52e1bd6de29d8; protected deployment run 37144128210 succeeded. Cache-busted public release-manifest.json named exactly this sourceSha and run. Public Chrome at 320/390/1440: HTTP 200, new Boneo pin coordinates, Leaflet marker and tiles loaded, Fingal address and Hawkes Farm visible, old signature absent, no page errors or horizontal overflow. The public 390px first screen was visually inspected."
   },
   "hardGatesOpen": [
     "Boneo CMS hero item-level subject and rights proof, descriptive alt and visible attribution",
@@ -59,5 +59,5 @@
     "The published JPEG has only JFIF and ICC segments; it contains no embedded creator or rights metadata. This is missing proof, not proof of infringement.",
     "A bounded locality correction cannot be converted into a 99/100 page score."
   ],
-  "nextAction": "Commit, push, pass normal CI and protected deploy, then verify exact public release and page; resolve CMS hero and full-rubric gates in a separate set."
+  "nextAction": "Resolve Boneo and Rye exact CMS hero provenance or replace with subject-accurate rights-verified media, then complete full independent 23-criterion, direct assistive-technology and field-performance reviews; scores remain null."
 }

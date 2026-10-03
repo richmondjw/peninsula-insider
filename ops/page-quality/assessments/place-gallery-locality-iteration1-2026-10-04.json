@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/places/rye/",
+    "https://peninsulainsider.com.au/explore/places/cape-schanck/",
+    "https://peninsulainsider.com.au/explore/places/st-andrews-beach/"
+  ],
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "status": "release-ready-bounded",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "publicRevision": "da58703e5e05289aefad68a310b52e1bd6de29d8",
+    "observed": "Exact public mobile pages showed Rye in 12 photographs including six St Andrews Beach Brewery images captioned Rye; Cape Schanck in 15 photographs including three Fingal operators captioned Cape Schanck; St Andrews Beach in eight photographs, all of a golf course whose operator contact lists Fingal. The St Andrews Beach introduction and visitor summary also treated Fingal brewery/golf as local anchors, called it a dog-walking base, and omitted the park warning against swimming. Source links also assigned the Fingal brewery to Rye and the Fingal golf course to Cape Schanck; Rye SEO metadata/FAQ repeated the brewery locality implication.",
+    "rubric": "No independent complete 23-criterion score is available. Baseline and current scores remain null."
+  },
+  "hypothesis": "Removing off-locality images from town galleries and correcting the St Andrews Beach planning copy will prevent visitors and structured-data consumers from mistaking Fingal operators for photographs or amenities of these places.",
+  "boundedChange": "Remove only the six brewery references from Rye, three Fingal operator references from Cape Schanck and eight Fingal golf references from St Andrews Beach; keep licensed assets in the media library. Correct the St Andrews Beach intro, lede and planning fields to centre the actual coast, explain the separate Fingal drive, and state the Parks Victoria beach hazards and dog rule. No shared-template or unrelated page edits. Reassign those two operator place fields to Fingal; correct the brewery photo captions, Rye title/description/FAQ/signature and Cape Schanck golf FAQ to distinguish local from nearby. Align the brewery zone with other Fingal operators (ocean-coast). Remove an unsupported blanket Cape Schanck-to-bay drive time and absolute swimming-safety promise from its FAQ.",
+  "metric": "Content validation and production build pass. Mobile and desktop previews display only locality-correct gallery media and schema images, updated St Andrews Beach guidance, no horizontal overflow or page errors. Independent reviewer gives bounded factual and visual release verdict. Exact live verification follows normal CI and protected deployment. Full score remains null.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the bounded three-place content commit if source review or exact public verification contradicts the changes.",
+  "sources": [
+    {
+      "url": "https://standrewsbeachbrewery.com.au/",
+      "supports": "Brewery address 160 Sandy Road, Fingal; the branded place name does not locate it in Rye or St Andrews Beach."
+    },
+    {
+      "url": "https://standrewsbeachgolf.com.au/contact/",
+      "supports": "Course contact section lists 209 Sandy Road, Fingal; the page also has a conflicting St Andrews Beach label, so the operator imagery is conservatively excluded from that village gallery."
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/contact-us",
+      "supports": "Hot springs address 140 Springs Lane, Fingal."
+    },
+    {
+      "url": "https://www.moonahlinks.com.au/cms/contact/",
+      "supports": "Moonah Links address 55 Peter Thomson Drive, Fingal."
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/sites/st%2C-d-%2C-andrews-beach",
+      "supports": "Actual beach, sandy steep access, Hooded Plover habitat, dangerous unpatrolled swimming conditions, and no dogs."
+    },
+    {
+      "url": "https://www.visitvictoria.com/regions/mornington-peninsula/eat-and-drink/breweries-and-distilleries/breweries/st-andrews-beach-brewery-fingal",
+      "supports": "Independent tourism listing locates the brewery in Fingal."
+    },
+    {
+      "url": "https://www.visitvictoria.com/regions/mornington-peninsula/see-and-do/outdoor-and-adventure/golf/st-andrews-beach-golf-course",
+      "supports": "Independent tourism listing gives 209 Sandy Road, Fingal for the golf course."
+    },
+    {
+      "url": "https://dunes.miclub.com.au/guests/bookings/ViewPublicCalendar.msp?booking_resource_id=3000000",
+      "supports": "The Dunes Golf Links lists 335 Browns Road, Rye, supporting the retained Rye gallery subject."
+    }
+  ],
+  "validation": {
+    "content": "npm run validate:content passed after content edits; final clean build revalidated all Astro content and schema fields.",
+    "productionBuild": "TZ=UTC npm run build:search passed all repository build, lint, content, schema, media, link and agent-format gates; Pagefind indexed 727 pages. Generated reports excluded from source commit.",
+    "localBrowser": "Exact final static preview checked in Chrome at 320/390/1440: Rye six Rye Dunes photos, Cape 12 Cape lighthouse/boardwalk photos, St Andrews no off-locality golf strip or blank gap; Rye/Cape no Fingal operator cards, Fingal has both. St Andrews safety/dog copy visible; operator detail titles and 160/209 Sandy Road Fingal addresses correct at 390. All checked pages rendered with no script errors or horizontal overflow; one local 304 cache response rendered correctly.",
+    "independentReview": "Independent reviewer compared public 390 baseline, primary sources and final preview at 320/390/1440. Bounded factual/locality/safety GO: no errors, overflow or blank gap. Rye gallery now repeats only The Dunes; St Andrews is image-light. CMS hero subject/rights, full AT and field performance remain open; full 23-criterion score null.",
+    "liveAcceptance": null
+  },
+  "hardGatesOpen": [
+    "Rye and St Andrews Beach CMS hero item-level subject and rights proof, descriptive alt and visible attribution",
+    "Full independent 23-criterion review for all three",
+    "Direct assistive-technology journeys",
+    "Field performance"
+  ],
+  "negativeFindings": [
+    "The golf operator contact page has both St Andrews Beach and Fingal labels for the same street address. Until its physical locality is settled, avoid asserting it depicts the beach township.",
+    "Rye retains six licensed actual Rye photographs, all of The Dunes Golf Links; breadth of town imagery remains limited."
+  ],
+  "nextAction": "Publish through normal CI and verify exact public release manifest, gallery counts, structured images, operator placements and mobile/desktop render. Then obtain rights-cleared local imagery and full independent 23-criterion/AT/performance evidence; scores remain null.",
+  "linkedUrls": [
+    "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
+    "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/"
+  ]
+}
