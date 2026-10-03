@@ -5,7 +5,7 @@
   "family": "hub",
   "assessedAt": "2026-10-03",
   "baseRevision": "978c9606e32e01a0d5bef3caed4f4829c5b9f4ff",
-  "status": "in-remediation",
+  "status": "merged-deploy-gate-repair",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider task",
   "decision": "adapt",
@@ -19,7 +19,9 @@
     "productionBuild": "Exact-source npm run build:search passed exit 0: 1,013 HTML files, Pagefind 727 pages, and existing content/rights/claim/SEO/link/schema/style gates. Generated report noise was restored without touching intended source.",
     "independentReview": "Independent read-only final static QA accepted bounded local release at 320/390/1440: anchor top 84/84/149px, 16px below sticky masthead; bar stuck after scrolling with pinned Filters fully visible; 52 rows and 52 complete verdicts with 0 measured clipping; Laura Pt. Leo sentence complete; desktop two equal 624px columns and no overflow. Filters dialog focused, Bakery staged 5/52 and applied URL; Date night 13/52; exact 0/52 cleared to 52/52 and heading focus. Search, consent and source diff regressions passed. Image rights and full score excluded.",
     "liveAcceptance": "pending",
-    "settledBrowser": "Built static preview at 320/390/1440: Browse all anchor top 84/84/149px below sticky chrome and heading visible; filter bar immediately below heading with pinned Filters visible; 52 rows, zero clipped verdicts across 52 rendered deks; Laura at Pt. Leo complete first sentence; no horizontal overflow. At 390/1440 Date night produced 13/52 and URL ?mood=date-night; exact 0/52 URL showed empty state and Clear restored 52 rows with focus on directory heading. At 390 Filters sheet opened, focused its panel, Escape closed and restored trigger. Visual screenshots inspected at 390/1440; desktop uses two balanced columns."
+    "settledBrowser": "Built static preview at 320/390/1440: Browse all anchor top 84/84/149px below sticky chrome and heading visible; filter bar immediately below heading with pinned Filters visible; 52 rows, zero clipped verdicts across 52 rendered deks; Laura at Pt. Leo complete first sentence; no horizontal overflow. At 390/1440 Date night produced 13/52 and URL ?mood=date-night; exact 0/52 URL showed empty state and Clear restored 52 rows with focus on directory heading. At 390 Filters sheet opened, focused its panel, Escape closed and restored trigger. Visual screenshots inspected at 390/1440; desktop uses two balanced columns.",
+    "deployFailure": "PR #537 passed all branch checks and merged as 7f8e150a90f1ff8114dde7ba77a554faa35d4c30, but protected Build and Deploy run 37114159294 failed before publishing. The discovery-business journey asserted the filter bar itself must be under 750px on first Eat load. The new intentional layout instead has one first-screen Browse all link directly to the filter beside results. GitHub Pages deploy was skipped; no live acceptance claimed.",
+    "gateRepair": "The first-screen journey now verifies the Eat Browse all link is in the first 750px, clicks it, and requires the directory heading and one filter bar to appear within the viewport. This preserves the intent of first-screen filter reachability while measuring the changed journey. Exact built artifact local npm run test:discovery-journeys passed all 22 tests after this assertion change."
   },
   "hardGatesOpen": [
     "Eat CMS image subject and rights evidence remains missing for many published slots",
@@ -30,5 +32,5 @@
     "CMS image evidence is not established by a credit string or source filename. A visual fix does not clear that hard gate.",
     "54 content files match a simple Eat-type/status query, while the actual public catalogue has 52 because the site closure predicate excludes two more; do not treat raw candidate counts as public counts."
   ],
-  "nextAction": "Publish the independently accepted bounded directory presentation fix through protected CI, verify the exact public revision, then continue item-level image rights/subject and factual triage."
+  "nextAction": "Publish the corrected journey gate through protected CI, require successful deployment, then verify exact public revision and bounded Eat directory behavior."
 }
