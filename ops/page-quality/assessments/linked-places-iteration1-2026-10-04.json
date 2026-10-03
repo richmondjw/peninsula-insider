@@ -1,0 +1,83 @@
+{
+  "schemaVersion": "1.0",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/places/capel-sound/",
+    "https://peninsulainsider.com.au/explore/places/boneo/",
+    "https://peninsulainsider.com.au/explore/places/rye/"
+  ],
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "daffa69e7aef10ccb42990e7d0d118f16fecfd24",
+  "baseDeploymentRun": "37137966864",
+  "status": "independent-bounded-go-awaiting-ci",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Independent exact-live review and public/source comparison after batch14. Complete 23-criterion scores unavailable for all three pages.",
+    "capelSound": "Published text claimed campsite booking by ballot a year ahead; current operator states first come, first served and a waitlist. The page dated the Rosebud West rename 2017, while the Victoria Government Gazette records 2016. Fallback image depicted a generic pier/headland but alt described tents behind dunes; its rights record was temporary.",
+    "boneo": "Lede put Peninsula Hot Springs, Alba and RACV Cape Schanck Resort in Boneo; operator addresses place them in Fingal and Cape Schanck.",
+    "rye": "Intro implied Rye was the last town before Sorrento and Portsea, omitting Blairgowrie. Fallback alt described a dusk pier while source image showed a daytime bay beach. The public CMS hero override has generic alt and no visible item-level source/credit."
+  },
+  "sources": [
+    {
+      "url": "https://capelsoundforeshores.com.au/20232024-booking-information",
+      "supports": "Current booking process, seasonal conditions and waitlist; source contains an internally contradictory old season-date line, so no dates copied."
+    },
+    {
+      "url": "https://www.gazette.vic.gov.au/gazette/Gazettes2016/GG2016G037.pdf",
+      "supports": "Government notice registering Rosebud West to Capel Sound name in September 2016."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Capel_Sound_aerial_panorama._April_2024.jpg",
+      "supports": "Actual Capel Sound subject, BobTanGo creator, April 2024 image and CC BY 4.0 licence."
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "supports": "Attribution requirements and derivative permission."
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/contact-us",
+      "supports": "Peninsula Hot Springs address in Fingal."
+    },
+    {
+      "url": "https://albathermalsprings.com.au/get-in-touch/",
+      "supports": "Alba location in Fingal."
+    },
+    {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck.html",
+      "supports": "RACV resort location in Cape Schanck."
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/files/assets/public/v/1/new-website-documents/building-amp-planning/strategic-planning/docs/background-report-march-2019-chapter-4-part-1.pdf",
+      "supports": "Rye, Blairgowrie and Sorrento township sequence."
+    }
+  ],
+  "hypothesis": "Correcting visitor-critical geography and camping instructions and using an attributable local image will make these linked guides more trustworthy and Capel Sound easier to use.",
+  "boundedChange": "Correct Capel Sound booking/name/visit copy, add current operator CTA and a locally rendered, credited Capel Sound aerial with responsive sizes and visible source/licence; use text-only related cards on Capel Sound. Correct Boneo and Rye place descriptions and Rye fallback alt; prevent all CMS override photos from inheriting the fallback image's visible description. Do not assert rights for the existing Rye/Boneo public CMS hero overrides.",
+  "metric": "Build and content validation pass. At 320/390/1440 all three guides show corrected copy with no overflow or JS errors; Capel uses 480px mobile and 960px desktop derivative, visible credit/source/licence, and direct booking link. Verify exact merge manifest and public pages after deployment. Full scores remain null pending complete rubric.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the bounded page-content/image commit if current operator facts or page UX regress; retain source evidence and rights records for review.",
+  "independentReview": "Independent reviewer gave bounded GO after the final build at 320/390/1440: all three pages HTTP 200 with no page errors or overflow; Rye mismatch is absent when its CMS hero renders; Capel 2016, operator CTA, accurate local image, visible creator/source/licence remain; Boneo and Rye locality corrections remain. Review covered ET3, ET4, VS1 and MI1 (20 possible points), without assigning a numeric subtotal because their full image records and page criteria remain unverified. Full-page 99/100 acceptance NO-GO; scores null. Rye/Boneo CMS override subject, rights and attribution are an explicit VS1 hard gate.",
+  "validation": {
+    "content": "npm run validate:content passed after edits.",
+    "productionBuild": "Final TZ=UTC npm run build:search passed all repository quality gates and Pagefind indexed 727 pages after the shared override-description guard; generated reports excluded from commit.",
+    "localBrowser": "Final static preview at 320/390/1440: all three pages HTTP 200, no overflow or page JS errors; Capel selected 480px mobile and 960px desktop WebP with visible credit/source/licence and operator CTA; Rye/Boneo override heroes now have no misleading visible fallback image description. Independent reviewer repeated all widths and approved bounded release.",
+    "liveAcceptance": "Pending protected CI, deploy and exact-source public browser check."
+  },
+  "hardGatesOpen": [
+    "Rye and Boneo live CMS override image subject and licence proof, descriptive alt and visible attribution",
+    "Full factual and image audit of all three guides beyond changed copy",
+    "Direct screen-reader and complete keyboard journey",
+    "Field performance",
+    "Independent complete 23-criterion score above 99 for each page"
+  ],
+  "negativeFindings": [
+    "Operator booking page currently has a 2026/27 title and rules but also an internally inconsistent old season-date line; the site copies neither season dates nor rates.",
+    "The Rye and Boneo CMS override assets do not have item-level rights records in the scoped repo. This is uncertainty, not proof of infringement.",
+    "A bounded factual and Capel hero release is not a full-page design acceptance or 99/100 score.",
+    "Independent candidate QA caught a Rye hero mismatch: template displayed the fallback image description over a different public CMS override. The shared template now withholds fallback description when an override wins; the image alt remains the override's generic text until its provenance is resolved."
+  ],
+  "nextAction": "Release through protected CI, verify exact live manifest and all three public pages; then establish Rye/Boneo CMS hero subject/rights or replace with verified media before full 23-criterion grading."
+}

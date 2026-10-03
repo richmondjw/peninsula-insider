@@ -235,7 +235,7 @@ const factual = place.data.factualLede ?? '';
     >{place.data.name}</h1>
     {editorialHero && place.data.heroDeck ? (
       <p class="pdv2-hero__alt">{place.data.heroDeck}</p>
-    ) : !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
+    ) : !hero.override && !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
     )}
     {editorialHero && place.data.visitSource && (

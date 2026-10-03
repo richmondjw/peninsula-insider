@@ -6,7 +6,7 @@
   "assessedAt": "2026-10-04",
   "baseRevision": "12ac8ab06192b7586900a4ceaeae06e54f13fb8e",
   "baseDeploymentRun": "37133457835",
-  "status": "in-remediation",
+  "status": "live-accepted-bounded",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -53,8 +53,8 @@
   "validation": {
     "productionBuild": "TZ=UTC npm run build:search passed all repository quality gates and indexed 727 pages on corrected source; no generated reports included in change.",
     "localBrowser": "Final static build at 320/390/1440 returned HTTP 200; no document overflow or page errors; five-point heading, Council CTA 48px or taller, three image-free nearby cards with complete titles and summaries (320 longest 71px client=scroll), no place-guide popup/pill after scroll+dwell, cookie consent visible and #newsletter form retained. Independent reviewer repeated and accepted at all three widths.",
-    "mobileLab": "Same Chrome 390x844, 4x CPU, 150ms latency, 1.6 Mb/s conditions: live LCP 10.776s and 9.600s with 616057-byte JPEG transfer; candidate local LCP 3.892s and 3.912s with 18908-byte 480px WebP transfer. Local transport differs from public, so this is directional lab evidence, not field performance.",
-    "liveAcceptance": "pending"
+    "mobileLab": "Same 390x844 Chrome, 4x CPU, 150ms latency, 1.6 Mb/s public-origin lab: before release LCP 10.776s and 9.600s with 616057-byte JPEG transfer; after exact live release LCP 1.908s and 1.560s with 18908-byte 480px WebP transfer. Two samples per state, not field performance.",
+    "liveAcceptance": "Protected deploy run 37137966864 succeeded for merge daffa69e7aef10ccb42990e7d0d118f16fecfd24. Cache-busted public release-manifest.json named exactly this sourceSha and run. Public Chrome HTTP 200 at 320/390/1440: no overflow or page errors; 480px WebP selected on mobile, 960px desktop; five matching points; 48px+ Shire CTA and 44px source/licence links; three image-free nearby cards with complete titles and summaries; no timed dialog or sticky pill after scroll/dwell; cookie consent visible and #newsletter form retained."
   },
   "hardGatesOpen": [
     "Whole-page and linked-page image subject/rights audit beyond these three Tootgarook cards",
@@ -70,5 +70,5 @@
     "Independent candidate QA found that a shared card-body two-line clamp cropped the new text cards at 320px, including apparent trailing dots on titles. A scoped body and intro override was applied; final browser measured full text height with no crop.",
     "Independent design review found the licensed reserve photo accurate but visually pedestrian, and desktop text-only related cards have more empty space than ideal; these remain next visual iterations."
   ],
-  "nextAction": "Complete final build, independent candidate review, protected release and exact public verification; then continue linked place rights and full rubric evidence."
+  "nextAction": "Triage and correct confirmed Capel Sound booking, hero-truth and naming issues, Boneo locality attribution and Rye route copy; continue linked-page image provenance, direct assistive technology, field performance and full rubric evidence."
 }
