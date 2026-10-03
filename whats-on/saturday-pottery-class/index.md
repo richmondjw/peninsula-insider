@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Exhibitions     31 October 2026     One-off date
+Arts     31 October 2026     One-off date
 
 # Saturday Pottery Class
 
-Dive into a 7 week pottery adventure! Shape, sculpt & create in a fun, hands on class at Oak Hill Gallery. All materials and firing supplied
+A seven-Saturday pottery course at Oak Hill Gallery for adults. The full-term booking covers wheel throwing, materials and firing, with sessions from 11am to 1pm, 31 October to 12 December.
 
 Hosted at
 
@@ -25,6 +25,10 @@ At a glance
 
 31 October 2026
 
+**Time**
+
+11:00 to 13:00
+
 **Recurrence**
 
 One-off date
@@ -37,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Saturday+Pottery+Class&dates=20261031%2F20261101&details=Dive+into+a+7+week+pottery+adventure%21+Shape%2C+sculpt+%26+create+in+a+fun%2C+hands+on+class+at+Oak+Hill+Gallery.+All+materials+and+firing+supplied%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsaturday-pottery-class%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Saturday+Pottery+Class&dates=20261031T000000Z%2F20261031T020000Z&details=A+seven-Saturday+pottery+course+at+Oak+Hill+Gallery+for+adults.+The+full-term+booking+covers+wheel+throwing%2C+materials+and+firing%2C+with+sessions+from+11am+to+1pm%2C+31+October+to+12+December.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsaturday-pottery-class%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -45,31 +49,25 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Live Music   Annual (January)
+Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
-### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
+Arts   Check opening hours
 
-Peninsula Summer Music Festival returns 2 to 11 January 2027.
+### [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
+[Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-Markets   Weekly – every Thursday year-round
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery.
 
-### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
+Arts  21 Nov
 
-Weekly outdoor street market on High Street Hastings every Thursday.
+### [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
+Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November.
 
-Festivals   Annual, November
-
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -9,13 +9,15 @@ Markets     10 October 2026     Recurs monthly
 
 # Heart of the Community Market (Rosebud)
 
-Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.
+Rosebud Primary School's community market on the foreshore, on the second Saturday of the month. Recent market notices give 8am to 1pm at 996 Point Nepean Road.
 
 Hosted at
 
 Rosebud Foreshore Reserve
 
 996 Point Nepean Road   ,   Rosebud VIC
+
+- [Visit venue website →](<https://rosebudps.vic.edu.au/community/>)
 
 - [Get directions →](<https://www.google.com/maps?q=-38.3565,144.9>)
 
@@ -27,7 +29,7 @@ At a glance
 
 **Time**
 
-09:00 to 13:00
+08:00 to 13:00
 
 **Recurrence**
 
@@ -45,7 +47,7 @@ Free
 
 Weather flexible
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Heart+of+the+Community+Market+%28Rosebud%29&dates=20261009T220000Z%2F20261010T020000Z&details=Community+market+at+Rosebud+on+the+second+Saturday+of+the+month.+Approximately+160+stalls+with+craft%2C+handmade+and+new+products%2C+fresh+produce+and+plants.+No+used+goods+policy.+Located+near+Rosebud+foreshore.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fheart-of-the-community-market-rosebud%2F&location=996+Point+Nepean+Road%2C+Rosebud%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://rosebudps.vic.edu.au/community/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Heart+of+the+Community+Market+%28Rosebud%29&dates=20261009T210000Z%2F20261010T020000Z&details=Rosebud+Primary+School%27s+community+market+on+the+foreshore%2C+on+the+second+Saturday+of+the+month.+Recent+market+notices+give+8am+to+1pm+at+996+Point+Nepean+Road.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fheart-of-the-community-market-rosebud%2F&location=996+Point+Nepean+Road%2C+Rosebud%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

@@ -9,19 +9,19 @@ Live Music     2 January 2027     Annual
 
 # Peninsula Summer Music Festival 2027, Save the Date
 
-Peninsula Summer Music Festival returns 2 to 11 January 2027. Program and tickets TBC. 2026 edition spanned 18 events at wineries, churches and outdoor venues.
+Peninsula Summer Music Festival returns 2 to 10 January 2027. Program and tickets TBC. 2026 edition spanned 18 events at wineries, churches and outdoor venues.
 
 Worth the drive
 
 Editor's verdict
 
-Save-the-date for the festival that puts world-class chamber music inside a winery. Tickets release expected October 2026.
+Save-the-date for the festival that puts world-class chamber music inside a winery. Check the official festival site for program and ticket announcements.
 
-The Peninsula Summer Music Festival has confirmed 2 to 11 January 2027 on its official site. Program, artists, venues and ticketing not yet released; based on the 2026 pattern, expect on-sale around October 2026.
+The Peninsula Summer Music Festival has confirmed 2 to 10 January 2027 on its official site. Program, artists, venues and ticketing not yet released.
 
 The 2026 edition ran 18 events across Flinders Civic Hall, Montalto, Port Phillip Estate, Peninsula Hot Springs and St John's Anglican Flinders, with classical at the centre and jazz and contemporary on the flanks (The Bamboos, Karin Schaupp, Ensemble Offspring, AYO Young Artists, Ensemble 642). Events were individually ticketed.
 
-If you're a returning attendee, get on the festival mailing list now. If new, watch for the program drop and a multi-event pass.
+If you're a returning attendee, get on the festival mailing list now. If new, watch for the program announcement.
 
 Hosted at
 
@@ -55,7 +55,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Get tickets](<https://www.peninsulafestival.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Summer+Music+Festival+2027%2C+Save+the+Date&dates=20270102%2F20270103&details=Peninsula+Summer+Music+Festival+returns+2+to+11+January+2027.+Program+and+tickets+TBC.+2026+edition+spanned+18+events+at+wineries%2C+churches+and+outdoor+venues.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-summer-music-festival-2027-save-the-date%2F&location=Mornington+Peninsula%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Get tickets](<https://www.peninsulafestival.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Summer+Music+Festival+2027%2C+Save+the+Date&dates=20270102%2F20270103&details=Peninsula+Summer+Music+Festival+returns+2+to+10+January+2027.+Program+and+tickets+TBC.+2026+edition+spanned+18+events+at+wineries%2C+churches+and+outdoor+venues.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-summer-music-festival-2027-save-the-date%2F&location=Mornington+Peninsula%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -75,7 +75,7 @@ Live Music  2 Jan
 
 ### [Peninsula Summer Music Festival 2027](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
-Ten-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 11 January 2027.
+Nine-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 10 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
@@ -95,7 +95,7 @@ Live Music  30 Oct
 
 ### [Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 
-An uplifting evening of live music, mantra meditation, candlelight, movement and connection.
+Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 

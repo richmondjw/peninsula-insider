@@ -95,14 +95,6 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
-Wellness   Monthly (full moon dates, check Eventbrite for specific dates)
-
-### [Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/>)
-
-Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/>)
-
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
 ## The Insider Note

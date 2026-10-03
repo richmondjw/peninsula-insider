@@ -81,7 +81,7 @@ Live Music   Annual (January)
 
 ### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-Peninsula Summer Music Festival returns 2 to 11 January 2027.
+Peninsula Summer Music Festival returns 2 to 10 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 

@@ -401,7 +401,7 @@ Self-guided pet-friendly day following digital clues across the Peninsula. Dog c
 
 Mornington
 
-An uplifting evening of live music, mantra meditation, candlelight, movement and connection.
+Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October. Doors open at 6:30pm and the session starts at 7pm; donations are appreciated.
 
  Live Music](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 

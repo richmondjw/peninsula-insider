@@ -169,6 +169,6 @@ Coming up in Crib Point, pulled from the events registry.
 
 Crib Point
 
-Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
  Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

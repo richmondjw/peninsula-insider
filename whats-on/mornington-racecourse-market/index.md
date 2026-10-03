@@ -9,19 +9,17 @@ Markets     11 October 2026     Recurs monthly
 
 # Mornington Racecourse Market
 
-Monthly craft market at Mornington Racecourse. 300+ stalls of hand-made, home-made and Australian-designed goods. Street food vendors, live music, animal farm and face painting for kids. Paid parking. Dogs not permitted (service dogs exempt).
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Entry is free; parking is paid. Dogs are not permitted.
 
 Worth the drive   First timer
 
-**Cancelled. This event will not go ahead.**
-
 Editor's verdict
 
-300 stalls under big Peninsula sky: if Red Hill is the marquee, Racecourse is the everyman version, and it runs all year.
+A broad makers market with food and music at the racecourse; check the date before travelling because race days can shift it.
 
-Mornington Racecourse Market is the year-round answer to Red Hill (which goes quiet over winter). Second Sunday of the month, 300-plus stalls of hand-made and Australian-designed goods, street food, live music. Parking is paid and dogs stay home (service dogs aside).
+Entry is free and parking is paid. The operator warns that racing can shift the usual second-Sunday schedule, so check the current date before setting off.
 
-The move: arrive around 9:15am, do the food vendors before the queue, then the craft loop. The kids zone makes this a low-stress family Sunday. Heads up: occasional schedule shifts around race days, so check before driving from outside the Peninsula. The 10 May 2026 edition was cancelled for exactly this reason.
+The move: browse the makers first, then have lunch on the lawn or continue into Mornington.
 
 Hosted at
 
@@ -31,7 +29,7 @@ Mornington Racecourse
 
 - [Visit venue website →](<https://www.craftmarkets.com.au/mornington>)
 
-- [Get directions →](<https://www.google.com/maps?q=-38.2167,145.0333>)
+- [Get directions →](<https://www.google.com/maps?q=-38.2364234,145.0695037>)
 
 At a glance
 
@@ -49,7 +47,7 @@ Recurs monthly · Monthly – 2nd Sunday of month (year-round; occasionally 3rd 
 
 **Price**
 
-Check organiser for pricing
+Free
 
 **Where**
 
@@ -67,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-Booking and calendar links are withdrawn while this event is cancelled.
+[Visit organiser](<https://www.craftmarkets.com.au/mornington>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Racecourse+Market&dates=20261010T220000Z%2F20261011T030000Z&details=Monthly+makers+market+at+Mornington+Racecourse%2C+with+handmade+and+Australian-designed+goods%2C+food+stalls+and+live+music.+Entry+is+free%3B+parking+is+paid.+Dogs+are+not+permitted.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-racecourse-market%2F&location=320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

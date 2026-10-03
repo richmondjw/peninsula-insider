@@ -385,6 +385,6 @@ Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcas
 
 Balnarring
 
-Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm; parking is paid.
 
  Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)

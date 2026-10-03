@@ -61,11 +61,11 @@ Racing & Sport  25 Oct
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
-Racing & Sport  29 Nov
+Racing & Sport  30 Nov
 
 ### ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
-"Nancye Wynne Bolton" OLA Golf Day 2026 at Sorrento Golf Club.
+The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 

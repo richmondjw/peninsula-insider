@@ -77,23 +77,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Kids & Family   Thursday to Sunday weekly
+Live Music   Annual (January)
 
-### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Peninsula Summer Music Festival returns 2 to 10 January 2027.
 
-Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic…
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+Markets   Weekly – every Thursday year-round
 
-Kids & Family  21 Nov
+### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
 
-### [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
+[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
 
-Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.
+Weekly outdoor street market on High Street Hastings every Thursday.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
+
+Festivals   Annual, November
+
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

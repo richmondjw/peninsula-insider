@@ -9,7 +9,7 @@ Markets     17 October 2026     Recurs monthly
 
 # Emu Plains Market
 
-Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm; parking is paid.
 
 Worth the drive   First timer
 
@@ -17,15 +17,17 @@ Editor's verdict
 
 Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
 
-Emu Plains runs monthly at Balnarring's Coolart Road reserve, with a seasonal schedule that skips most of winter (October through April plus June and August). It is volunteer-run, craft-and-design heavy, and the kind of market where the food trucks are worth queueing for.
+The organiser confirms 17 October, 21 November and 19 December 2026 as 9am–2pm markets at Emu Plains Reserve. Its January session is a separately timed twilight market, so check the organiser before making plans for dates beyond December.
 
-The move: get there by 9:30am for the food and coffee before queues set in, do a full lap, then walk over to Coolart Wetlands next door (it's right there) or push on to Balnarring Beach. Skip in midsummer if you can't handle heat: minimal shade once the sun is up.
+The move: browse the makers and food stalls, then continue to Balnarring Beach or nearby Coolart Wetlands.
 
 Hosted at
 
 Emu Plains Reserve
 
 54-58 Coolart Road   ,   Balnarring VIC
+
+- [Visit venue website →](<https://www.emuplainsmarket.com.au/>)
 
 - [Get directions →](<https://www.google.com/maps?q=-38.347,145.1417>)
 
@@ -41,7 +43,7 @@ At a glance
 
 **Recurrence**
 
-Recurs monthly · Monthly October–April (day market); June and August also listed; no July, May or September
+Recurs monthly · Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 
 **Price**
 
@@ -63,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emu+Plains+Market&dates=20261016T220000Z%2F20261017T030000Z&details=Monthly+artisan+market+at+Emu+Plains+Reserve+Balnarring.+For+lovers+of+craft%2C+design%2C+vintage%2C+music+and+food.+Seasonal+schedule+October%E2%80%93April+%28day+market+9am%E2%80%932pm%29+plus+June+and+August+dates.+Site+of+the+Womin+Djeka+cultural+festival.+Volunteer-run+community+hub.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Femu-plains-market%2F&location=54-58+Coolart+Road%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.emuplainsmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emu+Plains+Market&dates=20261016T220000Z%2F20261017T030000Z&details=Seasonal+makers+market+at+Emu+Plains+Reserve%2C+Balnarring%2C+with+craft%2C+design%2C+vintage%2C+food+and+live+music.+The+organiser+confirms+daytime+markets+on+the+third+Saturdays+of+October%2C+November+and+December+2026%2C+9am+to+2pm%3B+parking+is+paid.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Femu-plains-market%2F&location=54-58+Coolart+Road%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

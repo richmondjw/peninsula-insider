@@ -5,11 +5,13 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Kids & Family     21 November – 22 November 2026     One-off date
+Arts     21 November – 22 November 2026     One-off date
 
 # Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026
 
-Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.
+Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November. This booking covers accommodation only; separate event admission is required.
+
+** Bookings have closed. ** The accommodation-only Humanitix page said sales have stopped on 3 October 2026. Separate main-event ticket availability was not verified. [Check with the organiser](<https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026>)
 
 Hosted at
 
@@ -23,6 +25,10 @@ At a glance
 
 21 November – 22 November 2026
 
+**Time**
+
+15:00 to 11:00
+
 **Recurrence**
 
 One-off date
@@ -35,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Glamping+Tents+-+Horror+Movie+Campout%3A+Back+From+The+Dead+Tour+2026&dates=20261121%2F20261123&details=Glamping+Tents+-+Horror+Movie+Campout%3A+Back+From+The+Dead+Tour+2026+at+Mornington+Racecourse.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fglamping-tents-horror-movie-campout-back-from-the-dead-tour-2026%2F&location=Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking links are withdrawn while this event is sold out.
 
 Keep planning
 
@@ -43,25 +49,25 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Kids & Family   Annual, selected Sundays in December (typically 1st, 2nd and 3rd Sunday)
+Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
-### [Mornington Tourist Railway, Santa Specials](<https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/>)
+Arts   Check opening hours
 
-[Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+### [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Heritage steam train rides with Santa on selected December Sundays.
+[Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/>)
+An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery.
 
-Kids & Family   Thursday to Sunday weekly
+[Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+Arts  31 Oct
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+### [Saturday Pottery Class](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
 
-Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic…
+A seven-Saturday pottery course at Oak Hill Gallery for adults.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

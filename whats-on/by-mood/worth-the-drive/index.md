@@ -15,7 +15,7 @@ Live Music   Annual (January)
 
 ### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-Peninsula Summer Music Festival returns 2 to 11 January 2027.
+Peninsula Summer Music Festival returns 2 to 10 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
@@ -55,6 +55,16 @@ Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring).
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
 
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
 Markets   Monthly – 4th Sunday of every month (year-round)
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
@@ -67,7 +77,7 @@ Live Music  2 Jan
 
 ### [Peninsula Summer Music Festival 2027](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
-Ten-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 11 January 2027.
+Nine-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 10 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
@@ -113,13 +123,13 @@ Racing & Sport  25 Oct
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
-Markets   Monthly October–April (day market); June and August also listed; no July, May or September
+Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-Monthly artisan market at Emu Plains Reserve Balnarring.
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 

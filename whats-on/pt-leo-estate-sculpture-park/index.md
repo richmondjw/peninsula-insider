@@ -89,31 +89,21 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Live Music   Annual (January)
+Arts  21 Nov
 
-### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
+### [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
 
-Peninsula Summer Music Festival returns 2 to 11 January 2027.
+Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
 
-Markets   Weekly – every Thursday year-round
+Arts  31 Oct
 
-### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
+### [Saturday Pottery Class](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
 
-[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
+A seven-Saturday pottery course at Oak Hill Gallery for adults.
 
-Weekly outdoor street market on High Street Hastings every Thursday.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
-Festivals   Annual, November
-
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -9,7 +9,7 @@ Live Music     30 October 2026     One-off date
 
 # Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington
 
-An uplifting evening of live music, mantra meditation, candlelight, movement and connection.
+Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October. Doors open at 6:30pm and the session starts at 7pm; donations are appreciated.
 
 Hosted at
 
@@ -31,13 +31,13 @@ One-off date
 
 **Price**
 
-Check organiser for pricing
+Free
 
 **Weather**
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com/e/enchanting-kirtan-sacred-music-meditation-experience-mornington-tickets-1998394282093>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Enchanting+Kirtan%3A+Sacred+Music+%26+Meditation+Experience+-+Mornington&dates=20261030%2F20261031&details=An+uplifting+evening+of+live+music%2C+mantra+meditation%2C+candlelight%2C+movement+and+connection.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fenchanting-kirtan-sacred-music-meditation-experience-mornington%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.eventbrite.com/e/enchanting-kirtan-sacred-music-meditation-experience-mornington-tickets-1998394282093>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Enchanting+Kirtan%3A+Sacred+Music+%26+Meditation+Experience+-+Mornington&dates=20261030%2F20261031&details=Free+live+music+and+mantra+meditation+at+Peninsula+Community+Theatre+on+Friday+30+October.+Doors+open+at+6%3A30pm+and+the+session+starts+at+7pm%3B+donations+are+appreciated.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fenchanting-kirtan-sacred-music-meditation-experience-mornington%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -49,7 +49,7 @@ Live Music   Annual (January)
 
 ### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-Peninsula Summer Music Festival returns 2 to 11 January 2027.
+Peninsula Summer Music Festival returns 2 to 10 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
@@ -57,7 +57,7 @@ Live Music  2 Jan
 
 ### [Peninsula Summer Music Festival 2027](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 
-Ten-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 11 January 2027.
+Nine-day classical and contemporary festival across Peninsula wineries, churches and outdoor venues, 2 to 10 January 2027.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/>)
 

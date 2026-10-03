@@ -409,6 +409,16 @@ Coming up in Sorrento, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [30 November 2026
+
+### "Nancye Wynne Bolton" OLA Golf Day 2026
+
+Sorrento
+
+The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.
+
+ Racing & Sport](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
+
 - [15 October – 22 October 2026
 
 ### ✦ Oktoberfest at The Continental Sorrento

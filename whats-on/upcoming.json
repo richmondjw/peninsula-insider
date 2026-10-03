@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-03",
-  "generatedAt": "2026-10-03T10:12:52.816Z",
+  "generatedAt": "2026-10-03T10:53:22.670Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -19,25 +19,13 @@
     "start": "2026-10-02",
     "end": "2026-10-04",
     "label": "Fri 2 – Sun 4 October",
-    "count": 14
+    "count": 12
   },
-  "numberOfItems": 37,
+  "numberOfItems": 36,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "item": {
-        "@type": "Event",
-        "name": "Acoustic Saturdays at Peppers Moonah Links",
-        "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-        "startDate": "2026-10-03",
-        "endDate": "2026-10-03",
-        "description": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
       "item": {
         "@type": "Event",
         "name": "Bass & Flinders Gin Masterclass",
@@ -50,7 +38,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 2,
       "item": {
         "@type": "Event",
         "name": "Doggy Day Out on the Mornington Peninsula",
@@ -63,7 +51,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 3,
       "item": {
         "@type": "Event",
         "name": "Family Mystery Picnic on the Mornington Peninsula",
@@ -76,7 +64,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 4,
       "item": {
         "@type": "Event",
         "name": "Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)",
@@ -89,19 +77,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Event",
-        "name": "Hill & Ridge Community Market, 3 October 2026",
-        "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-        "startDate": "2026-10-03",
-        "endDate": "2026-10-03",
-        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
+      "position": 5,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -114,7 +90,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 6,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Studio Yoga",
@@ -127,7 +103,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Peninsula Hot Springs Yoga (Complimentary)",
@@ -140,7 +116,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Polperro Cellar Table, Private Dining Experience",
@@ -153,7 +129,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -166,7 +142,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -179,7 +155,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -192,7 +168,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Sunday Sessions at Peninsula Hot Springs",
@@ -205,20 +181,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
         "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
         "startDate": "2026-10-07",
         "endDate": "2026-10-07",
-        "description": "Victoria's longest-running street market – operating over 40 years every Wednesday on Main Street Mornington. 120+ stalls of handmade crafts, home-baked treats, home-grown plants and produce. Rain, hail or shine (high-wind policy applies). Vibrant weekly community gathering.",
+        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Hastings Thursday Street Market",
@@ -231,14 +207,40 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 15,
+      "item": {
+        "@type": "Event",
+        "name": "Acoustic Saturdays at Peppers Moonah Links",
+        "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+        "startDate": "2026-10-10",
+        "endDate": "2026-10-10",
+        "description": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
         "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
         "startDate": "2026-10-10",
         "endDate": "2026-10-10",
-        "description": "Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.",
+        "description": "Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
+      "item": {
+        "@type": "Event",
+        "name": "Heart of the Community Market (Rosebud)",
+        "url": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
+        "startDate": "2026-10-10",
+        "endDate": "2026-10-10",
+        "description": "Rosebud Primary School's community market on the foreshore, on the second Saturday of the month. Recent market notices give 8am to 1pm at 996 Point Nepean Road.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -247,11 +249,11 @@
       "position": 18,
       "item": {
         "@type": "Event",
-        "name": "Heart of the Community Market (Rosebud)",
-        "url": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
-        "startDate": "2026-10-10",
-        "endDate": "2026-10-10",
-        "description": "Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.",
+        "name": "Mornington Racecourse Market",
+        "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+        "startDate": "2026-10-11",
+        "endDate": "2026-10-11",
+        "description": "Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Entry is free; parking is paid. Dogs are not permitted.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -303,7 +305,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
         "startDate": "2026-10-17",
         "endDate": "2026-10-17",
-        "description": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+        "description": "Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm; parking is paid.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -342,7 +344,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
         "startDate": "2026-10-18",
         "endDate": "2026-10-18",
-        "description": "High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.",
+        "description": "A high tea in the Mornington Botanical Rose Gardens Main Building. The organiser lists a 2:30–4pm session on 18 October and further dates on its booking page. Tickets are paid; check the organiser for availability.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -394,7 +396,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/",
         "startDate": "2026-10-30",
         "endDate": "2026-10-30",
-        "description": "An uplifting evening of live music, mantra meditation, candlelight, movement and connection.",
+        "description": "Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October. Doors open at 6:30pm and the session starts at 7pm; donations are appreciated.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -407,7 +409,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
         "startDate": "2026-10-31",
         "endDate": "2026-10-31",
-        "description": "Dive into a 7 week pottery adventure! Shape, sculpt & create in a fun, hands on class at Oak Hill Gallery. All materials and firing supplied",
+        "description": "A seven-Saturday pottery course at Oak Hill Gallery for adults. The full-term booking covers wheel throwing, materials and firing, with sessions from 11am to 1pm, 31 October to 12 December.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -416,11 +418,11 @@
       "position": 31,
       "item": {
         "@type": "Event",
-        "name": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
-        "url": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-        "startDate": "2026-11-01",
-        "endDate": "2026-11-01",
-        "description": "Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs. All-inclusive ticket covers the sound bath plus tea plus bathing from midday. Hosted by Lucy Ennis (Sound Circle).",
+        "name": "Hill & Ridge Community Market, 3 October 2026",
+        "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+        "startDate": "2026-11-07",
+        "endDate": "2026-11-07",
+        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -433,7 +435,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/",
         "startDate": "2026-11-21",
         "endDate": "2026-11-22",
-        "description": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
+        "description": "Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November. This booking covers accommodation only; separate event admission is required.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -457,9 +459,9 @@
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
         "url": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-        "startDate": "2026-11-29",
+        "startDate": "2026-11-30",
         "endDate": "2026-11-30",
-        "description": "\"Nancye Wynne Bolton\" OLA Golf Day 2026 at Sorrento Golf Club.",
+        "description": "The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -481,19 +483,6 @@
       "position": 36,
       "item": {
         "@type": "Event",
-        "name": "Pub Carols - Thursday 17th December",
-        "url": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/",
-        "startDate": "2026-12-17",
-        "endDate": "2026-12-17",
-        "description": "Pub Carols - Thursday 17th December at The Pig & Whistle Tavern, Main Ridge.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 37,
-      "item": {
-        "@type": "Event",
         "name": "Mornington Christmas Festival & Main Street Christmas Parade",
         "url": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
         "startDate": "2026-12-20",
@@ -503,30 +492,8 @@
       }
     }
   ],
-  "count": 37,
+  "count": 36,
   "events": [
-    {
-      "title": "Acoustic Saturdays at Peppers Moonah Links",
-      "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "startDate": "2026-10-03",
-      "endDate": "2026-10-03",
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
-      "factCheckedOn": null,
-      "recurrence": "weekly",
-      "category": "food-wine",
-      "place": "fingal",
-      "venue": null,
-      "freePaid": "Free",
-      "summary": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-03",
-          "eventStatus": null
-        }
-      ],
-      "thisWeekend": true
-    },
     {
       "title": "Bass & Flinders Gin Masterclass",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -544,15 +511,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -574,10 +533,6 @@
       "summary": "Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
-        {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
         {
           "date": "2026-10-03",
           "eventStatus": "https://schema.org/EventScheduled"
@@ -606,10 +561,6 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
           "eventStatus": "https://schema.org/EventScheduled"
         },
@@ -637,38 +588,8 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
           "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-04",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Hill & Ridge Community Market, 3 October 2026",
-      "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "startDate": "2026-10-03",
-      "endDate": "2026-10-03",
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "sourceUrl": "https://www.hillandridgemarket.com.au",
-      "factCheckedOn": null,
-      "recurrence": "monthly",
-      "category": "market",
-      "place": "red-hill",
-      "venue": null,
-      "freePaid": "Free (entry)",
-      "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-03",
-          "eventStatus": null
         }
       ],
       "thisWeekend": true
@@ -690,15 +611,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": null
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -721,15 +634,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": null
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -752,15 +657,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": null
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -783,15 +680,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -814,15 +703,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -845,15 +726,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -876,15 +749,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-02",
-          "eventStatus": null
-        },
-        {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-04",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -926,7 +791,7 @@
       "place": "mornington",
       "venue": null,
       "freePaid": "Free",
-      "summary": "Victoria's longest-running street market – operating over 40 years every Wednesday on Main Street Mornington. 120+ stalls of handmade crafts, home-baked treats, home-grown plants and produce. Rain, hail or shine (high-wind policy applies). Vibrant weekly community gathering.",
+      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -950,19 +815,37 @@
       "thisWeekend": false
     },
     {
+      "title": "Acoustic Saturdays at Peppers Moonah Links",
+      "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "startDate": "2026-10-10",
+      "endDate": "2026-10-10",
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
+      "factCheckedOn": null,
+      "recurrence": "weekly",
+      "category": "food-wine",
+      "place": "fingal",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "Crib Point Community Market",
       "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
       "startDate": "2026-10-10",
       "endDate": "2026-10-10",
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "sourceUrl": "https://peninsulakids.com.au/markets-3/",
+      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
       "factCheckedOn": null,
       "recurrence": "monthly",
       "category": "market",
       "place": null,
       "venue": null,
       "freePaid": "Free",
-      "summary": "Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.",
+      "summary": "Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -973,14 +856,32 @@
       "startDate": "2026-10-10",
       "endDate": "2026-10-10",
       "id": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
-      "sourceUrl": "https://peninsulakids.com.au/markets-3/",
+      "sourceUrl": "https://rosebudps.vic.edu.au/community/",
       "factCheckedOn": null,
       "recurrence": "monthly",
       "category": "market",
       "place": "rosebud",
       "venue": null,
       "freePaid": "Free",
-      "summary": "Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.",
+      "summary": "Rosebud Primary School's community market on the foreshore, on the second Saturday of the month. Recent market notices give 8am to 1pm at 996 Point Nepean Road.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Mornington Racecourse Market",
+      "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-11",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1",
+      "factCheckedOn": null,
+      "recurrence": "monthly",
+      "category": "market",
+      "place": "mornington",
+      "venue": null,
+      "freePaid": "Free",
+      "summary": "Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Entry is free; parking is paid. Dogs are not permitted.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1045,14 +946,14 @@
       "startDate": "2026-10-17",
       "endDate": "2026-10-17",
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "sourceUrl": null,
+      "sourceUrl": "https://www.emuplainsmarket.com.au/markets/october",
       "factCheckedOn": null,
       "recurrence": "monthly",
       "category": "market",
       "place": "balnarring",
       "venue": null,
       "freePaid": "Free",
-      "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+      "summary": "Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm; parking is paid.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1105,8 +1006,8 @@
       "category": "food-wine",
       "place": null,
       "venue": null,
-      "freePaid": null,
-      "summary": "High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.",
+      "freePaid": "Paid",
+      "summary": "A high tea in the Mornington Botanical Rose Gardens Main Building. The organiser lists a 2:30–4pm session on 18 October and further dates on its booking page. Tickets are paid; check the organiser for availability.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1177,8 +1078,8 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "freePaid": null,
-      "summary": "An uplifting evening of live music, mantra meditation, candlelight, movement and connection.",
+      "freePaid": "Free",
+      "summary": "Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October. Doors open at 6:30pm and the session starts at 7pm; donations are appreciated.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1192,29 +1093,29 @@
       "sourceUrl": "https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676",
       "factCheckedOn": null,
       "recurrence": "one-off",
-      "category": "exhibition",
+      "category": "arts",
       "place": null,
       "venue": null,
-      "freePaid": null,
-      "summary": "Dive into a 7 week pottery adventure! Shape, sculpt & create in a fun, hands on class at Oak Hill Gallery. All materials and firing supplied",
+      "freePaid": "Paid",
+      "summary": "A seven-Saturday pottery course at Oak Hill Gallery for adults. The full-term booking covers wheel throwing, materials and firing, with sessions from 11am to 1pm, 31 October to 12 December.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
     },
     {
-      "title": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
-      "url": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-      "startDate": "2026-11-01",
-      "endDate": "2026-11-01",
-      "id": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-      "sourceUrl": null,
+      "title": "Hill & Ridge Community Market, 3 October 2026",
+      "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "startDate": "2026-11-07",
+      "endDate": "2026-11-07",
+      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "sourceUrl": "https://www.hillandridgemarket.com.au",
       "factCheckedOn": null,
       "recurrence": "monthly",
-      "category": "wellness",
-      "place": null,
+      "category": "market",
+      "place": "red-hill",
       "venue": null,
-      "freePaid": "Paid",
-      "summary": "Monthly full-moon sound journey in the PHS Wellness Studio followed by an afternoon in the hot springs. All-inclusive ticket covers the sound bath plus tea plus bathing from midday. Hosted by Lucy Ennis (Sound Circle).",
+      "freePaid": "Free (entry)",
+      "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1228,11 +1129,11 @@
       "sourceUrl": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
       "factCheckedOn": null,
       "recurrence": "one-off",
-      "category": "family-programs",
+      "category": "arts",
       "place": null,
       "venue": null,
       "freePaid": null,
-      "summary": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.",
+      "summary": "Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November. This booking covers accommodation only; separate event admission is required.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1258,7 +1159,7 @@
     {
       "title": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
       "url": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "startDate": "2026-11-29",
+      "startDate": "2026-11-30",
       "endDate": "2026-11-30",
       "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
       "sourceUrl": "https://events.humanitix.com/olagolf2026",
@@ -1267,8 +1168,8 @@
       "category": "racing-sport",
       "place": null,
       "venue": null,
-      "freePaid": null,
-      "summary": "\"Nancye Wynne Bolton\" OLA Golf Day 2026 at Sorrento Golf Club.",
+      "freePaid": "Paid",
+      "summary": "The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1287,24 +1188,6 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "Heritage steam train rides with Santa on selected December Sundays. Letters to the North Pole, carols at Moorooduc Station, the full Christmas treatment. Booking essential.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
-    },
-    {
-      "title": "Pub Carols - Thursday 17th December",
-      "url": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/",
-      "startDate": "2026-12-17",
-      "endDate": "2026-12-17",
-      "id": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/",
-      "sourceUrl": null,
-      "factCheckedOn": null,
-      "recurrence": "one-off",
-      "category": "live-music",
-      "place": null,
-      "venue": null,
-      "freePaid": null,
-      "summary": "Pub Carols - Thursday 17th December at The Pig & Whistle Tavern, Main Ridge.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

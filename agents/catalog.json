@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-03T10:18:56.865Z",
-  "snapshotId": "11ad1374692fd38ea1b0b9c5592772b35d1e129cbd354f41de802465aa630467",
+  "generatedAt": "2026-10-03T10:57:40.444Z",
+  "snapshotId": "f862920029792c70e1e9f55e14e4c5e2b77398ae1b201597bbf0250d06ed2a35",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 618,
+  "count": 616,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2257,7 +2257,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "634697163bbbd994581fb391dc8d9ca1b8646de03cd8a12a5e19e38d83b774ef",
+      "contentSha256": "b15e2769edaff722decd2c23cb6a3eb655634ea25551e43c32cd56288823156f",
       "citation": {
         "title": "Balnarring",
         "publisher": "Peninsula Insider",
@@ -2265,8 +2265,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 243911,
-      "markdownBytes": 17088
+      "htmlBytes": 243880,
+      "markdownBytes": 17059
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/bittern/",
@@ -2359,7 +2359,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/crib-point/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/crib-point/index.md",
-      "contentSha256": "e1c7d8d0ad231804d84d147050f0c4c5b15d3bd3c1d7fdb0e1a82747126ad072",
+      "contentSha256": "b5608b0428398fe42b3843cfd2f4173bad2e5a542310d5f2bc2e5eb04702820f",
       "citation": {
         "title": "Crib Point",
         "publisher": "Peninsula Insider",
@@ -2367,8 +2367,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 193315,
-      "markdownBytes": 8363
+      "htmlBytes": 193327,
+      "markdownBytes": 8367
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/dromana/",
@@ -2401,7 +2401,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 251589,
+      "htmlBytes": 250902,
       "markdownBytes": 14344
     },
     {
@@ -2546,7 +2546,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "38ddf5c5ae3e2be4098c5dbb296dd4c9bc80b70b411b4b730ef9f9690737309f",
+      "contentSha256": "9fcca16f60c8bb792f6af8ae3f117fda8333ce44bcc7b250a8b430c2f1f0a2bc",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2554,8 +2554,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 290098,
-      "markdownBytes": 19946
+      "htmlBytes": 290746,
+      "markdownBytes": 20023
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -2682,7 +2682,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
-      "contentSha256": "244bd1a519f3730ef5254ac001f83d3fff09704ad3f1b82e205de3f4746107c5",
+      "contentSha256": "6a802da1b6a9ac8b074aefb360db86ae5988445e33d06a3272e5a271351254ee",
       "citation": {
         "title": "Rosebud",
         "publisher": "Peninsula Insider",
@@ -2690,8 +2690,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 201048,
-      "markdownBytes": 9972
+      "htmlBytes": 201004,
+      "markdownBytes": 9924
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/rye/",
@@ -2767,7 +2767,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/sorrento/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/sorrento/index.md",
-      "contentSha256": "db2fd8e5a23a0dfb9461b3f0a06afb6373ee010df7a05808505b6c266ea819ff",
+      "contentSha256": "b2d1abba6c66fd486c3b9bda0615f71856526d932d049258525448e7053899b1",
       "citation": {
         "title": "Sorrento",
         "publisher": "Peninsula Insider",
@@ -2775,8 +2775,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 290545,
-      "markdownBytes": 20930
+      "htmlBytes": 291283,
+      "markdownBytes": 21272
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
@@ -6660,7 +6660,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "d9c9e69d7cd12a3af0448c426f3713f405c35ffce930c8eb9b61351693e46907",
+      "contentSha256": "ad190110a15fc7bf2b60ce7b220995e1c37aa07750ca6d7a3632bd326f4b0aae",
       "citation": {
         "title": "Saturday 3 October 2026",
         "publisher": "Peninsula Insider",
@@ -6677,7 +6677,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "26fa7efc6952755d2311ac6ce598a059d10dd279bd38ed39c457d2c750836170",
+      "contentSha256": "99ef771993cc634beb2e653d56051c3e6031f66cd5a0a343de07adfc19565355",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6685,8 +6685,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 165397,
-      "markdownBytes": 40931
+      "htmlBytes": 155438,
+      "markdownBytes": 29604
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8496,7 +8496,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "4e173b45ab4d55ab9fa2c5b7dd796e794fdff7ea642580cb239e26f9901810fc",
+      "contentSha256": "3d45ec2d9b241d62af4838719af8dc37960cf44de79f76c47347de957fcf20e4",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8504,8 +8504,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-03"
       },
-      "htmlBytes": 241898,
-      "markdownBytes": 12258
+      "htmlBytes": 236301,
+      "markdownBytes": 11133
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8564,7 +8564,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/index.md",
-      "contentSha256": "59333080079439b74fcfe2da4c5849eb98b4666bf054d6c5ee32a2971b4b8e4f",
+      "contentSha256": "3eb5d9fe071f6eabeca389d28788b0633ced363a3d0dc22ec35043bbb85cee0c",
       "citation": {
         "title": "Breast Foot Forward Annual Community Walk & Run 2026",
         "publisher": "Peninsula Insider",
@@ -8572,8 +8572,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 155854,
-      "markdownBytes": 3289
+      "htmlBytes": 155964,
+      "markdownBytes": 3303
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
@@ -8615,7 +8615,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
-      "contentSha256": "99dc84c82e8b09e036101169037d9b8255f895d321fb1ddd0a90e666bc55c19b",
+      "contentSha256": "1d5b37f2b36e4f654ccffd595fde15dac9187712cca857b8392620cb7bcc899f",
       "citation": {
         "title": "Rooms with a roof, in case the forecast turns",
         "publisher": "Peninsula Insider",
@@ -8623,8 +8623,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 180859,
-      "markdownBytes": 6252
+      "htmlBytes": 177240,
+      "markdownBytes": 5771
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
@@ -8632,7 +8632,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "0bf1f0d5bc7b7817878ac3b5d485512303d79c0a421c99d4d601efdcc3eb381c",
+      "contentSha256": "da2e58f0db01d3ae2f17ad38984ed3517756569aefbfe08198226597b05bf61d",
       "citation": {
         "title": "Events that justify the ninety-minute drive",
         "publisher": "Peninsula Insider",
@@ -8640,8 +8640,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 189699,
-      "markdownBytes": 6585
+      "htmlBytes": 193116,
+      "markdownBytes": 7155
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -8649,7 +8649,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
-      "contentSha256": "333474c3d9a221a6c1f8271fd8a20213d962f31c3710ff05fbe5859e10b4eba8",
+      "contentSha256": "730a5939854c3cc67d1ac2c72289c4598e2b97b9c4a56870b97d0dd49f1045bf",
       "citation": {
         "title": "Crib Point Community Market",
         "publisher": "Peninsula Insider",
@@ -8657,8 +8657,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157671,
-      "markdownBytes": 3304
+      "htmlBytes": 157713,
+      "markdownBytes": 3323
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
@@ -8683,7 +8683,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/index.md",
-      "contentSha256": "097cba7acb99988137c4db90234dcd0daec49328e554e195e4eb8c62e6e5b7e4",
+      "contentSha256": "8d5b8b019426572f40007ee9bf860d2894a7943d7c0e94a58b643d2d365ef79b",
       "citation": {
         "title": "Emu Plains Market, Balnarring",
         "publisher": "Peninsula Insider",
@@ -8691,8 +8691,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159834,
-      "markdownBytes": 4227
+      "htmlBytes": 159886,
+      "markdownBytes": 4275
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
@@ -8700,7 +8700,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
-      "contentSha256": "7815409d5e2427b23426fae4cae4f8839e67024920e03b2809b007fe36d74339",
+      "contentSha256": "91332b862165d944dcbda2bf1a3e46d665a5b3e454d3439131a705b6a2b7ab73",
       "citation": {
         "title": "Emu Plains Market",
         "publisher": "Peninsula Insider",
@@ -8708,8 +8708,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159854,
-      "markdownBytes": 4433
+      "htmlBytes": 159992,
+      "markdownBytes": 4321
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/",
@@ -8717,7 +8717,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/index.md",
-      "contentSha256": "3651f2220fd5c34508d8210997cc6e17c0d3d06ec694781a386304e91b539877",
+      "contentSha256": "2262046e07c99aa16cccc69e8acbfc9eeae7d99cf34c4e24d5abb0bd43d2215d",
       "citation": {
         "title": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
         "publisher": "Peninsula Insider",
@@ -8725,8 +8725,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158803,
-      "markdownBytes": 3570
+      "htmlBytes": 159217,
+      "markdownBytes": 3700
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
@@ -8734,7 +8734,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/index.md",
-      "contentSha256": "d48cbc126aedfc8cb4f1100afb2b479d6458befc7f4a6369a2f2213d618c1f20",
+      "contentSha256": "5ddf86e5df03fe9f7c6507ca6079dfb5fad6d68e328ffeb279937952ac058fc7",
       "citation": {
         "title": "Family Mystery Picnic on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -8742,8 +8742,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157631,
-      "markdownBytes": 3998
+      "htmlBytes": 159866,
+      "markdownBytes": 4236
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
@@ -8768,7 +8768,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/index.md",
-      "contentSha256": "8cf7300a61d92e22623131dfc83b19dc01734571616977e37ef4727878f49e1c",
+      "contentSha256": "aaffc6c57404ac30ca99bcc551a171b21ad992ca3b0e0979a92b1b430947005e",
       "citation": {
         "title": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
         "publisher": "Peninsula Insider",
@@ -8776,8 +8776,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 155283,
-      "markdownBytes": 3096
+      "htmlBytes": 155679,
+      "markdownBytes": 2827
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
@@ -8785,7 +8785,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/index.md",
-      "contentSha256": "0c1eb5b02d384cd1af6a16f43cef08210e5ad08b9b012ee03f7f37eb6536a576",
+      "contentSha256": "5919430ee3881187ee07e71755cd24e4995ecce6348ccfa84e88b80fa0412ea6",
       "citation": {
         "title": "Hastings Thursday Street Market",
         "publisher": "Peninsula Insider",
@@ -8793,8 +8793,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158678,
-      "markdownBytes": 3808
+      "htmlBytes": 158730,
+      "markdownBytes": 3856
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
@@ -8802,7 +8802,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/index.md",
-      "contentSha256": "3bf04bebb1e63627f5a862379fe1284d08738b95435123a7eda533416370a073",
+      "contentSha256": "a4125e038256bcf0c96c25bef9ece6f192366f8bb61c43ffee75257057d2b743",
       "citation": {
         "title": "Heart of the Community Market (Rosebud)",
         "publisher": "Peninsula Insider",
@@ -8810,8 +8810,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158282,
-      "markdownBytes": 3504
+      "htmlBytes": 158532,
+      "markdownBytes": 3541
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
@@ -8819,7 +8819,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/high-tea-at-mornington-botanical-rose-gardens/index.md",
-      "contentSha256": "3914e81c59c176c8552462eda4da2208a41574d9bcd9c91efaf2f939c7037ae5",
+      "contentSha256": "bdb849a5fed32ebfa95d6e3322809a51528dd963301e9941d0c3f97841b6181e",
       "citation": {
         "title": "High Tea at Mornington Botanical Rose Gardens",
         "publisher": "Peninsula Insider",
@@ -8827,8 +8827,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158137,
-      "markdownBytes": 3430
+      "htmlBytes": 159001,
+      "markdownBytes": 3720
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
@@ -8853,7 +8853,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "22b7b3701e4100b659aab54e33fe54dbd4b943cffa0e1625caf6a5df6209691d",
+      "contentSha256": "5ec5dd73d3775586b9c8a231eddc94c43cf2f2cfcbbb9c68197585150be74d4b",
       "citation": {
         "title": "Main Street Mornington Festival 2026",
         "publisher": "Peninsula Insider",
@@ -8870,7 +8870,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/index.md",
-      "contentSha256": "e41ef0f6a177d42670698cf452db9c42311eaed137687e8d4c38a4df0f15b98d",
+      "contentSha256": "aa6cea87725ab0d1053a0842f32585b515291b4d0597fa5177c072f3f7902c62",
       "citation": {
         "title": "Mornington Christmas Festival & Main Street Christmas Parade",
         "publisher": "Peninsula Insider",
@@ -8887,7 +8887,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/index.md",
-      "contentSha256": "d139ab372ff4a22a66efd2bb51f215d8351a98ee3f955548c22b436144043108",
+      "contentSha256": "85cec84b0506808346f936dd9d01207c425d0fd9247417c77b5f456693088c89",
       "citation": {
         "title": "Mornington Racecourse Market",
         "publisher": "Peninsula Insider",
@@ -8895,8 +8895,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159586,
-      "markdownBytes": 4067
+      "htmlBytes": 159706,
+      "markdownBytes": 4134
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
@@ -8904,7 +8904,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/index.md",
-      "contentSha256": "e1db1030c0feb854720dcaa8ee75aa817b4934db17cd4bbaee8fc3018aa48a23",
+      "contentSha256": "64df79703e72a5af859a2371f3e7166f79b2caec71eae8b480bb749fb12a27aa",
       "citation": {
         "title": "Mornington Tourist Railway, Santa Specials",
         "publisher": "Peninsula Insider",
@@ -8912,8 +8912,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157903,
-      "markdownBytes": 4137
+      "htmlBytes": 160005,
+      "markdownBytes": 4310
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
@@ -8921,7 +8921,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "4384778ec34daed988cfc039a5a5b7e6f8250e0b72c1db34b3651f801ce09bd4",
+      "contentSha256": "94888ee579b6152e5ea9223b1d09b4cbc8990e2b0783b5a155031587a9ea05f3",
       "citation": {
         "title": "Mornington Wednesday Market (Main Street Market)",
         "publisher": "Peninsula Insider",
@@ -8929,8 +8929,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 160736,
-      "markdownBytes": 4580
+      "htmlBytes": 159854,
+      "markdownBytes": 4094
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
@@ -8955,7 +8955,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
-      "contentSha256": "326169d1ac35247c99f0a36fa579d1cb630377813e638f3c97dfac0f7e696627",
+      "contentSha256": "75b804e3f08c6a38ce939ce2cb61d2ee146a647dea6128fe111b36c0bee3f063",
       "citation": {
         "title": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
         "publisher": "Peninsula Insider",
@@ -8963,8 +8963,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 154501,
-      "markdownBytes": 2749
+      "htmlBytes": 155435,
+      "markdownBytes": 3003
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
@@ -8972,7 +8972,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
-      "contentSha256": "71b549e8cc54fcfb607cf0e4b91e61b97decd35e55b4fd53bd9690f2fa543de5",
+      "contentSha256": "4c64c67603986a93de97e4c3787b5174d9184da0192589450b349a90a7335862",
       "citation": {
         "title": "National Works on Paper 2026 (NWOP)",
         "publisher": "Peninsula Insider",
@@ -9023,7 +9023,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/index.md",
-      "contentSha256": "ce426a9861990da4992092dc035f8e3c033a053bb63c48e813797a1a3e44c776",
+      "contentSha256": "8a0b720e0a74093fc211b4dbb62027436fbc00feeccba02bf5efdfd7a24e623e",
       "citation": {
         "title": "Peninsula Hot Springs Studio Yoga",
         "publisher": "Peninsula Insider",
@@ -9031,8 +9031,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158513,
-      "markdownBytes": 3823
+      "htmlBytes": 155800,
+      "markdownBytes": 3342
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
@@ -9040,7 +9040,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/index.md",
-      "contentSha256": "dc408a4712218e7861b72a34a8cc5d7ca66293c96692419c4b1a616458eabca0",
+      "contentSha256": "e966d1579998ec033d59a2cbe0f897d46fdf4b6d19eb874129e77f4052ebc178",
       "citation": {
         "title": "Peninsula Hot Springs Yoga (Complimentary)",
         "publisher": "Peninsula Insider",
@@ -9048,8 +9048,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 160756,
-      "markdownBytes": 4395
+      "htmlBytes": 158043,
+      "markdownBytes": 3914
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
@@ -9057,7 +9057,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/index.md",
-      "contentSha256": "bcf1ebb906e30c74fa5b962c8c9ff08b04069245029887fe30b7b90b098001e3",
+      "contentSha256": "57e1d508f0bc8415dfe45bd79fea49ac5edadd8f9c23b4e6b574c05dc784115d",
       "citation": {
         "title": "Sunday Sessions at Peninsula Hot Springs",
         "publisher": "Peninsula Insider",
@@ -9065,8 +9065,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 161031,
-      "markdownBytes": 4476
+      "htmlBytes": 161108,
+      "markdownBytes": 4475
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/",
@@ -9074,7 +9074,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/index.md",
-      "contentSha256": "e701f46b31b2c942f238515741b71aa698e1ace108ceccfdfb02655a39e6e7c7",
+      "contentSha256": "8c03f9f4f442c3a0a03c1ccfe1db79a74f179b26436ae8c18136d31121eca5e9",
       "citation": {
         "title": "Peninsula Summer Music Festival 2027, Save the Date",
         "publisher": "Peninsula Insider",
@@ -9082,8 +9082,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 161087,
-      "markdownBytes": 4675
+      "htmlBytes": 161118,
+      "markdownBytes": 4628
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
@@ -9091,7 +9091,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027/index.md",
-      "contentSha256": "11c7bdc0c08bb9a44a7d8fb3f63f2d98ccdc19c2ae469c3a1959512559e86505",
+      "contentSha256": "ee667d0bf659f7ec7919ae756ea32ca33d5d85a44278bb8a15ac9d11a7c9a53e",
       "citation": {
         "title": "Peninsula Summer Music Festival 2027",
         "publisher": "Peninsula Insider",
@@ -9099,8 +9099,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 162208,
-      "markdownBytes": 5408
+      "htmlBytes": 162244,
+      "markdownBytes": 5367
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
@@ -9108,7 +9108,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
-      "contentSha256": "01798c49bab2c272e45cec31797265880d9dd09a7786997b26e0ea78f91fc7de",
+      "contentSha256": "1442f91ade3f731c8b510117b85c20c7649924fc310ff99d0d1a169a10cfca50",
       "citation": {
         "title": "Peninsula VineHop Festival 2026",
         "publisher": "Peninsula Insider",
@@ -9142,7 +9142,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
-      "contentSha256": "8f55b6dca745a85946a8af2d66b8938b0a0e64cf11ff3c7df54830e65b1cce29",
+      "contentSha256": "7f6bb4851ce7ad2495ff578237b088d0d0e7a7778c89d97b621c60d962217a71",
       "citation": {
         "title": "Pt. Leo Estate Sculpture Park",
         "publisher": "Peninsula Insider",
@@ -9150,25 +9150,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159444,
-      "markdownBytes": 4407
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/",
-      "title": "Pub Carols - Thursday 17th December",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/index.md",
-      "contentSha256": "f026701ad12519e22022c19f853bbd82a2f2ac9f2562041d8a4355e923ed630f",
-      "citation": {
-        "title": "Pub Carols - Thursday 17th December",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/pub-carols-thursday-17th-december/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 157197,
-      "markdownBytes": 3199
+      "htmlBytes": 157035,
+      "markdownBytes": 3983
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
@@ -9176,7 +9159,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/index.md",
-      "contentSha256": "f72cd22061e55694cf4090c6c9d9cbbe13f35cb21954659b4ca42091ec5ff80d",
+      "contentSha256": "18738f3b980e11994d005010ca22575e2316f6410b510129a9311f4f8fc93e33",
       "citation": {
         "title": "Restore & Pamper Retreat at Polperro Farmhouse",
         "publisher": "Peninsula Insider",
@@ -9184,8 +9167,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159729,
-      "markdownBytes": 4487
+      "htmlBytes": 157016,
+      "markdownBytes": 4006
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
@@ -9193,7 +9176,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/saturday-pottery-class/index.md",
-      "contentSha256": "0198210b6eee69323424a13ccc05e52ed43108e42346485203f2507b55b0b0da",
+      "contentSha256": "047fe36887ed745009a4bc6b94fa8a7e785397408ae31449895916ec67beaf53",
       "citation": {
         "title": "Saturday Pottery Class",
         "publisher": "Peninsula Insider",
@@ -9201,25 +9184,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 156995,
-      "markdownBytes": 3137
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-      "title": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/index.md",
-      "contentSha256": "b01cf751ae4d7d98e826d0f9522d0a6f52aef964edef99228ef79c599418546c",
-      "citation": {
-        "title": "Sound Circle: Full Moon Sound Journey at Peninsula Hot Springs",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 161536,
-      "markdownBytes": 4594
+      "htmlBytes": 156058,
+      "markdownBytes": 3176
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
@@ -9244,7 +9210,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "944c3e1b7426080a9162c8804b29984fc208fc4a70f14943f9c6646c00e76f95",
+      "contentSha256": "8be56937e2702fbee01626290a1a5868ce0f3df746767c05a518eb4de434fe46",
       "citation": {
         "title": "The Bloody Long Walk – Mornington Peninsula 2026",
         "publisher": "Peninsula Insider",
@@ -9252,8 +9218,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157504,
-      "markdownBytes": 3928
+      "htmlBytes": 157614,
+      "markdownBytes": 3942
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
@@ -9499,7 +9465,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/index.md",
-      "contentSha256": "9935f89c5805bd05f8b998e4fe11c0e3b432c092926d79ebba1a05d53fb7057c",
+      "contentSha256": "b80ee3ffe84900f15adf574477ef35e1898fea6a78cccedcc1f53b76053a74c8",
       "citation": {
         "title": "Tootgarook Primary School Market",
         "publisher": "Peninsula Insider",
@@ -9507,8 +9473,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159039,
-      "markdownBytes": 4061
+      "htmlBytes": 159091,
+      "markdownBytes": 4109
     },
     {
       "id": "https://peninsulainsider.com.au/wine/",

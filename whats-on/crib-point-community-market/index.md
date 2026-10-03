@@ -9,15 +9,15 @@ Markets     10 October 2026     Recurs monthly
 
 # Crib Point Community Market
 
-Community market at Crib Point every second Saturday of the month. Spirit of community support and inclusion; promotes locally made handcrafted products and local produce.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
 Hosted at
 
-Crib Point Community Hall
+Crib Point Community House
 
 7 Park Road   ,   Crib Point VIC
 
-- [Get directions →](<https://www.google.com/maps?q=-38.3627,145.1978>)
+- [Get directions →](<https://www.google.com/maps?q=-38.362284,145.204751>)
 
 At a glance
 
@@ -41,7 +41,7 @@ Free
 
 Weather flexible
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Crib+Point+Community+Market&dates=20261009T220000Z%2F20261010T020000Z&details=Community+market+at+Crib+Point+every+second+Saturday+of+the+month.+Spirit+of+community+support+and+inclusion%3B+promotes+locally+made+handcrafted+products+and+local+produce.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcrib-point-community-market%2F&location=7+Park+Road%2C+Crib+Point%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Crib+Point+Community+Market&dates=20261009T220000Z%2F20261010T020000Z&details=Indoor+and+outdoor+community+market+at+Crib+Point+Community+House+on+the+second+Saturday+of+the+month%2C+9am+to+1pm.+Expect+produce%2C+plants%2C+food+and+a+children%27s+treasure+hunt.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcrib-point-community-market%2F&location=7+Park+Road%2C+Crib+Point%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

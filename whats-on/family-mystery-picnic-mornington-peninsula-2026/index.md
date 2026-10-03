@@ -65,23 +65,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Kids & Family   Annual, selected Sundays in December (typically 1st, 2nd and 3rd Sunday)
+Live Music   Annual (January)
 
-### [Mornington Tourist Railway, Santa Specials](<https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/>)
+### [Peninsula Summer Music Festival 2027, Save the Date](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-[Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+Peninsula Summer Music Festival returns 2 to 10 January 2027.
 
-Heritage steam train rides with Santa on selected December Sundays.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-2027-save-the-date/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/>)
+Markets   Weekly – every Thursday year-round
 
-Kids & Family  21 Nov
+### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
 
-### [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
+[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
 
-Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 at Mornington Racecourse.
+Weekly outdoor street market on High Street Hastings every Thursday.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
+
+Festivals   Annual, November
+
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

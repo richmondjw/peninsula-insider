@@ -9,7 +9,7 @@ Food & Wine     18 October 2026     One-off date
 
 # High Tea at Mornington Botanical Rose Gardens
 
-High Tea at Mornington Botanical Rose Gardens at Mornington Botanical Rose Gardens Main Building.
+A high tea in the Mornington Botanical Rose Gardens Main Building. The organiser lists a 2:30–4pm session on 18 October and further dates on its booking page. Tickets are paid; check the organiser for availability.
 
 Hosted at
 
@@ -23,6 +23,10 @@ At a glance
 
 18 October 2026
 
+**Time**
+
+14:30 to 16:00
+
 **Recurrence**
 
 One-off date
@@ -35,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=High+Tea+at+Mornington+Botanical+Rose+Gardens&dates=20261018%2F20261019&details=High+Tea+at+Mornington+Botanical+Rose+Gardens+at+Mornington+Botanical+Rose+Gardens+Main+Building.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhigh-tea-at-mornington-botanical-rose-gardens%2F&location=Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=High+Tea+at+Mornington+Botanical+Rose+Gardens&dates=20261018T033000Z%2F20261018T050000Z&details=A+high+tea+in+the+Mornington+Botanical+Rose+Gardens+Main+Building.+The+organiser+lists+a+2%3A30%E2%80%934pm+session+on+18+October+and+further+dates+on+its+booking+page.+Tickets+are+paid%3B+check+the+organiser+for+availability.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhigh-tea-at-mornington-botanical-rose-gardens%2F&location=Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

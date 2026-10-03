@@ -187,6 +187,6 @@ Coming up in Rosebud, pulled from the events registry.
 
 Rosebud
 
-Community market at Rosebud on the second Saturday of the month. Approximately 160 stalls with craft, handmade and new products, fresh produce and plants. No used goods policy. Located near Rosebud foreshore.
+Rosebud Primary School's community market on the foreshore, on the second Saturday of the month. Recent market notices give 8am to 1pm at 996 Point Nepean Road.
 
  Markets](<https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/>)

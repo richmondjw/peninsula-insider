@@ -105,7 +105,7 @@ Markets   Monthly – 2nd Saturday of every month
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Community market at Crib Point every second Saturday of the month.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
