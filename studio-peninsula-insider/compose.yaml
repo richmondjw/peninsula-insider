@@ -1,0 +1,24 @@
+services:
+  workbench:
+    build:
+      context: .
+      additional_contexts:
+        pi_fonts: ../next/public/fonts
+    init: true
+    read_only: true
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    environment:
+      FOUNDRY_REAL_URLS_ENABLED: "0"
+    ports:
+      - "127.0.0.1:4310:4310"
+    volumes:
+      - foundry-data:/data
+    tmpfs:
+      - /tmp:size=64m,noexec,nosuid,nodev
+    restart: unless-stopped
+
+volumes:
+  foundry-data:

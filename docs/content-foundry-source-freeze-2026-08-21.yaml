@@ -1,0 +1,56 @@
+schema_version: pi.content-foundry-source-freeze.v1
+captured_at: 2026-08-21T15:48:00+10:00
+implementation:
+  repository: richmondjw/peninsula-insider
+  commit: 5f2a53c9b16bad28b400c1897dc2ad9875b89d6b
+  branch: feature/content-foundry-workbench
+  worktree: C:\Users\James\.openclaw\workspace\peninsula-insider-content-foundry
+authority:
+  product_contract: PRODUCT.md
+  newsletter_contract: ops/email/INSIDER-NOTE-PROCESS.md
+  newsletter_contract_sha256: 7f223e5c8c5c35dfd6f7bf63ae7d4b0612288e4963b231a8bad9fdfbf29c928f
+  newsletter_note: The current fixed 11-position process supersedes the handover's older six-module language.
+pi_untracked_supplements:
+  source_root: C:\Users\James\.openclaw\workspace\peninsula-insider
+  file_count: 8
+  collection_sha256: a8f05b076d253c209e8c59e14766e3c57f5e1544cf560cb964e0781fdc4651de
+  treatment: Reference bytes only. Do not copy the six image modules over committed pilot-core.mjs.
+  files:
+    - path: docs/peninsula-insider-content-foundry-agent-handover-2026-08-21.md
+      sha256: 9337c56ada2a0e90cd93a1d15b93d46ed2b336c04318a115b15a55a5613fc850
+    - path: docs/peninsula-insider-image-intelligence-project-brief-2026-07-31.md
+      sha256: 47fa78fbe9b3b754cdb4624940772f1bc508e0c21b0124b92b456e7146c868d3
+    - path: next/scripts/image-intelligence/lib/config.mjs
+      sha256: 943c289e27cbeab6bdd77377d11d632755ba89391d49b3922b3ad082cd247132
+    - path: next/scripts/image-intelligence/lib/fs-utils.mjs
+      sha256: 47888308a9d1cafbd337fef2885b8d53e9355fe50248aa5b0c8375d74245f89f
+    - path: next/scripts/image-intelligence/lib/image-utils.mjs
+      sha256: ef282ef32dee84b784915f8ef83c1692df04f1ef32ad2e9e2e57075b5928a73e
+    - path: next/scripts/image-intelligence/lib/policy.mjs
+      sha256: bfe115fc197c636a5080cc360ab36d69dfef2ba9864677e5a002ef17e574c908
+    - path: next/scripts/image-intelligence/lib/schema.mjs
+      sha256: cf22ee051a06ea197a1e7dda9fdf8e87d53ba2ee913844abdd5eebbbf6633d5b
+    - path: next/scripts/image-intelligence/lib/taxonomy.mjs
+      sha256: 4f0946f441347a805f382dd7dc187d3ad7c4a5cefc4d01b49e06f4bca625f211
+committed_image_core:
+  path: next/scripts/image-intelligence/lib/pilot-core.mjs
+  sha256: c549c0f0ea3900930026580857d6dd2288972afed0f65fcd09ec970e2ef22bd1
+reference_workbench:
+  repository_commit: 75fb8daed3d25434b492c03afa398d2672987def
+  upstream_commit: 4d68536cea64d44d89a4330cf8d305b6de096e23
+  exact_reference_file_count: 34
+  working_bytes_collection_sha256: 8ca35080ec79af23a83210628da299e8a4ff46e3ab18ca6f98bd39af181f01ef
+  reproducibility: 7 committed, 7 modified, 20 untracked
+  treatment: Provenance-pinned design-law reference, never an imported dependency or current runtime proof.
+reference_runsheet:
+  repository_commit: b5f058f5b91623d38919a53cbbf2e38c13776e5d
+  exact_reference_file_count: 6
+  working_bytes_collection_sha256: ac6c5e3e9c4349f0f83f841b99faeabcd71d812f34d2b5efb09a2dc0979fdcad
+  reproducibility: All six cited files are modified working bytes.
+  treatment: Provenance-pinned human-gate reference only.
+runtime_evidence:
+  production_checked: false
+  database_checked: false
+  webhook_checked: false
+  canary_checked: false
+  note: Historical receipts in source material were not re-run during this baseline audit.
