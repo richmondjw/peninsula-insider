@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Brewery    [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Brewery    [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 # St Andrews Beach Brewery
 
@@ -37,7 +37,7 @@ Known for   Former racehorse training stables converted to a working brewery Acr
 
 1  / 9
 
-Pizzas, a grazing board, fried chicken and two pints of beer on a marble table before a blazing open fireplace  St Andrews Beach Brewery, Rye, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Pizzas, a grazing board, fried chicken and two pints of beer on a marble table before a blazing open fireplace  St Andrews Beach Brewery, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 
@@ -189,7 +189,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Rye - view the destination guide](<https://peninsulainsider.com.au/explore/places/rye/>)
+[← Part of Fingal - view the destination guide](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=st-andrews-beach-brewery>)
 

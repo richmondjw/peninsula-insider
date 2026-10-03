@@ -433,7 +433,7 @@ Merricks   Check ahead
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 
-Rye   Brewery
+Fingal   Brewery
 
 - ### [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>)
 

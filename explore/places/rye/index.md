@@ -9,17 +9,17 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Rye
 
-Rye in 12 photographs
+Rye in 6 photographs
 
-1  / 12
+1  / 6
 
-Pizzas, a grazing board, fried chicken and two pints of beer on a marble table before a blazing open fireplace  St Andrews Beach Brewery, Rye, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Aerial view of the clubhouse, accommodation and car park at The Dunes Golf Links, with fairways and greens stretching behind  The Dunes Golf Links, Rye, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Rye is a coastal town on the Mornington Peninsula's southern Port Phillip shore, 90 km from Melbourne, with a back beach on Bass Strait, the Rye Pier, and a foreshore that fills with summer holidaymakers.
 
 Rye sits on the lower Peninsula between Tootgarook and Blairgowrie. The bay-facing front beach has a pier and sheltered water; the ocean-facing back beach is a separate outing with different conditions. Point Nepean Road gives visitors places to eat and shop, while the Fingal hot springs are a drive inland. Use Rye as a base for both coasts, and check beach conditions before swimming.
 
-Photo · Courtesy of Visit Victoria
+Photo · Gary Lisbon, courtesy of Visit Victoria
 
 At a glance
 
@@ -45,7 +45,7 @@ January weekends
 
 Insider  If you want Rye at its best, use it as a base and leave the beach-hopping to the edges of the day.
 
-The Peninsula town that gives you the calm bay, the surf beach and the hot springs without making you choose.
+A practical two-coast base: calm bay water in town, an exposed ocean beach nearby and Fingal hot springs a drive inland.
 
 Peninsula Insider - editor's note
 
@@ -73,7 +73,7 @@ Rye in brief
 
 ## Rye in 4 points
 
-- 01   Rye is the Peninsula's two-beach town - calm bay front, wild ocean back, with Peninsula Hot Springs and a brewery in between.
+- 01   Rye is a two-coast base: a sheltered bay foreshore and a separate ocean back beach, with Fingal hot springs a drive inland.
 
 - 02   Best for: families who want both bay and ocean in one base; divers; visitors who want Peninsula Hot Springs without driving further south.
 
@@ -93,7 +93,7 @@ If you want Rye at its best, use it as a base and leave the beach-hopping to the
 
 What's mapped here
 
-- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/rye/#eat-drink>)
+- [**2** places to eat](<https://peninsulainsider.com.au/explore/places/rye/#eat-drink>)
 
 - [**3** stays](<https://peninsulainsider.com.au/explore/places/rye/#stay>)
 
@@ -132,20 +132,6 @@ An enormous foreshore pub a short walk from Rye's front beach, family-friendly, 
 family  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
-
-Photo: Courtesy of Visit Victoria
-
-Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
-
-160 Sandy Rd, Fingal VIC 3939
-
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
-
-big group  family
-
-[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 

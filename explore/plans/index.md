@@ -192,7 +192,7 @@ Book the stay and thermal session first, then check meal service times and cance
 
 One round at St Andrews Beach, with vineyard meals and an optional coastal walk for the rest of the group.
 
-Day 1: Merricks North · Day 2: Cape Schanck → Red Hill · Day 3: Mornington → Main Ridge
+Day 1: Merricks North · Day 2: Fingal → Red Hill · Day 3: Mornington → Main Ridge
 
 Check tee-time availability and book the stay and group meals before committing to the weekend.
 

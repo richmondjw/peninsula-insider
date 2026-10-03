@@ -59,20 +59,6 @@ family  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
 
-Photo: Courtesy of Visit Victoria
-
-Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
-
-160 Sandy Rd, Fingal VIC 3939
-
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
-
-big group  family
-
-[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
-
 Build a day around this
 
 ## Planning guides that include Rye Foreshore Market

@@ -193,7 +193,7 @@ Somers is the quiet Western Port answer to the bay-side beach villages, and it h
 
 ### [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>)
 
-St Andrews Beach is what the Peninsula's back beaches look like when no one is trying. It sits between Rye and Cape Schanck, low and unstructured - a grid of…
+St Andrews Beach is a quiet back-beach settlement between Rye Ocean Beach and Gunnamatta Surf Beach. Its draw is the exposed Bass Strait coast: dunes, rock…
 
 ### [Stony Point](<https://peninsulainsider.com.au/explore/places/stony-point/>)
 

@@ -51,7 +51,7 @@ Peninsula Tip · village
 
 ### [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>)
 
-St Andrews Beach is what the Peninsula's back beaches look like when no one is trying. It sits between Rye and Cape Schanck, low and unstructured - a grid of holiday houses scattered through tea-tree and a long, raw ocean beach that locals still treat as their own. The pub here is a brewery, the brewery is a destination, and the destination doesn't care if you turn up in board shorts and sand. Surfers know the breaks; equestrians know the dressage venue; everyone else mostly just knows the brewery. The village has no centre to speak of, which is most of its charm - this is a place you base yourself for the dunes, the surf, and the long pour at sunset, not for boutiques or brunch culture. Off-season it empties out almost entirely. Stay then if you can.
+St Andrews Beach is a quiet back-beach settlement between Rye Ocean Beach and Gunnamatta Surf Beach. Its draw is the exposed Bass Strait coast: dunes, rock pools and long walks when conditions allow. Parks Victoria describes a short sandy path from the car park with a steep descent to the shore. The beach is unpatrolled, with dangerous rips, currents and reefs; swimming is not recommended. Keep to marked paths around the dunes and check park conditions before visiting. The St Andrews Beach Brewery and golf course share the place name but list their addresses in nearby Fingal, so allow a separate drive for either.
 
 ## Where to eat, drink, stay and explore
 
@@ -273,6 +273,20 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) [View stay](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
+Photo: Courtesy of Visit Victoria
+
+Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+
+160 Sandy Rd, Fingal VIC 3939
+
+Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+
+big group  family
+
+[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
+
 [Attraction](<https://peninsulainsider.com.au/explore/ashcombe-maze/>)
 
 [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
@@ -385,7 +399,7 @@ RACV Cape Schanck is the scenic one. The course plays along the clifftops and th
 
 [Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  4.5 h
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)  4.5 h
 
 ### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

@@ -19,9 +19,9 @@ PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of 
 
 [Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
 
-Cape Schanck in 15 photographs
+Cape Schanck in 12 photographs
 
-1  / 15
+1  / 12
 
 Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lighthouse and cottages on the headland  Cape Schanck, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
@@ -107,7 +107,7 @@ What's mapped here
 
 - [**1** stays](<https://peninsulainsider.com.au/explore/places/cape-schanck/#stay>)
 
-- [**11** ways to explore](<https://peninsulainsider.com.au/explore/places/cape-schanck/#explore>)
+- [**10** ways to explore](<https://peninsulainsider.com.au/explore/places/cape-schanck/#explore>)
 
 - [**3** escape plans](<https://peninsulainsider.com.au/explore/places/cape-schanck/#escapes>)
 
@@ -245,16 +245,6 @@ RACV Cape Schanck is the scenic one. The course plays along the clifftops and th
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
 
-[Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
-
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  4.5 h
-
-### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
-
-St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up. Go in autumn when the light flattens and the crowds thin. Book well ahead for weekends. Pair it with the hot springs or a southern Peninsula lunch and the whole day holds together as a proper trip rather than an isolated round.
-
- [Open the guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
-
 [Golf Course](<https://peninsulainsider.com.au/explore/the-national-golf-club/>)
 
 [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  4.5 h
@@ -307,15 +297,17 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
 Plan
 
-### [The Peninsula Golf Weekend](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+### [A Peninsula Wellness Weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
-Two nights at Jackalope, one round at St Andrews Beach, vineyard meals and a short coastal alternative for non-golfers.
+Thermal pools, a coastal walk and vineyard meals, with two nights to slow down at the same Red Hill stay.
 
-Two-night escape · Best for friends · Rye
+Two-night escape · Best for couple · Peninsula
 
-[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
 
 Read this place properly
 

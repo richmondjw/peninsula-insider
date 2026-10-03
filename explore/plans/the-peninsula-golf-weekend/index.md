@@ -179,7 +179,7 @@ Move the trip outside
 
 [Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  4.5 h
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)  4.5 h
 
 ### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

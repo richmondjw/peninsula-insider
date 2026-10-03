@@ -93,11 +93,39 @@ Book Peninsula Hot Springs at least three weeks ahead for weekend sessions. Week
 
 What's mapped here
 
+- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/fingal/#eat-drink>)
+
 - [**3** stays](<https://peninsulainsider.com.au/explore/places/fingal/#stay>)
 
-- [**1** escape plans](<https://peninsulainsider.com.au/explore/places/fingal/#escapes>)
+- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/fingal/#explore>)
+
+- [**2** escape plans](<https://peninsulainsider.com.au/explore/places/fingal/#escapes>)
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/fingal/#journal>)
+
+Eat & drink
+
+## Where to eat and drink in Fingal
+
+Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+
+ [More to eat in Fingal →](<https://peninsulainsider.com.au/eat/>)
+
+Photo: Courtesy of Visit Victoria
+
+Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+
+160 Sandy Rd, Fingal VIC 3939
+
+Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+
+big group  family
+
+[Read notes](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
+
+[See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
 Stay
 
@@ -151,6 +179,24 @@ wellness  anniversary
 
 [See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
+Get outside
+
+## Explore moves anchored to Fingal
+
+Walks, beaches, lookouts, and markets worth scheduling around the meals.
+
+ [Explore near Fingal →](<https://peninsulainsider.com.au/explore/>)
+
+[Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
+
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)  4.5 h
+
+### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
+
+St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up. Go in autumn when the light flattens and the crowds thin. Book well ahead for weekends. Pair it with the hot springs or a southern Peninsula lunch and the whole day holds together as a proper trip rather than an isolated round.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
+
 Use it in sequence
 
 ## Escapes that already route through Fingal
@@ -158,6 +204,16 @@ Use it in sequence
 These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Fingal weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Plan
+
+### [The Peninsula Golf Weekend](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
+
+Two nights at Jackalope, one round at St Andrews Beach, vineyard meals and a short coastal alternative for non-golfers.
+
+Two-night escape · Best for friends · Rye
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
 Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
 

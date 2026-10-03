@@ -57,7 +57,7 @@ cellar door  garden
 
 Photo: Courtesy of Visit Victoria
 
-Brewery  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 

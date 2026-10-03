@@ -251,7 +251,7 @@ Open the town index
 
 - [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)  The practical bay town where the beach is better than the reputation suggests.
 
-- [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)  The Peninsula town that gives you the calm bay, the surf beach…
+- [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)  A practical two-coast base: calm bay water in town, an exposed ocean beach nearby…
 
 - [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>)  The calmest broad bay foreshore on the Peninsula, with the ridge rising straight…
 
@@ -261,7 +261,7 @@ Open the town index
 
 - [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)  Ocean baths carved from limestone at the tip of the Peninsula.
 
-- [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>)  Back-beach surf country with the Peninsula's best brewery for a sunset.
+- [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>)  A wild Bass Strait beach, dunes and rock pools, with a quiet settlement…
 
 - [Stony Point](<https://peninsulainsider.com.au/explore/places/stony-point/>)  The only point in Victoria where you step off a train…
 
@@ -575,7 +575,7 @@ Springs & spa   Merricks
 
 Make the dune-course round the day’s anchor. Book a tee time and allow for the coastal forecast.
 
-Golf course   Cape Schanck   4.5 hr
+Golf course   Fingal   4.5 hr
 
 - ### [Summit Circuit Walk - Arthurs Seat](<https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/>)
 

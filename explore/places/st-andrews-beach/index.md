@@ -9,17 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # St Andrews Beach
 
-St Andrews Beach in 8 photographs
+St Andrews Beach is an ocean-coast settlement on the Mornington Peninsula between Rye Ocean Beach and Gunnamatta Surf Beach. The beach lies within Mornington Peninsula National Park and is an exposed, unpatrolled stretch of Bass Strait shore.
 
-1  / 8
-
-A golf cart follows a winding path past sandy bunkers and grassy dunes at St Andrews Beach Golf Course, with bushland beyond  St Andrews Beach Golf Course, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
-
-St Andrews Beach is a coastal village on the Mornington Peninsula's back-beach coast between Rye and Cape Schanck, 90 km from Melbourne, anchored by a long ocean beach, the St Andrews Beach Brewery and the Boneo Park equestrian venue nearby.
-
-St Andrews Beach is what the Peninsula's back beaches look like when no one is trying. It sits between Rye and Cape Schanck, low and unstructured - a grid of holiday houses scattered through tea-tree and a long, raw ocean beach that locals still treat as their own. The pub here is a brewery, the brewery is a destination, and the destination doesn't care if you turn up in board shorts and sand. Surfers know the breaks; equestrians know the dressage venue; everyone else mostly just knows the brewery. The village has no centre to speak of, which is most of its charm - this is a place you base yourself for the dunes, the surf, and the long pour at sunset, not for boutiques or brunch culture. Off-season it empties out almost entirely. Stay then if you can.
-
-Photo · Courtesy of Visit Victoria
+St Andrews Beach is a quiet back-beach settlement between Rye Ocean Beach and Gunnamatta Surf Beach. Its draw is the exposed Bass Strait coast: dunes, rock pools and long walks when conditions allow. Parks Victoria describes a short sandy path from the car park with a steep descent to the shore. The beach is unpatrolled, with dangerous rips, currents and reefs; swimming is not recommended. Keep to marked paths around the dunes and check park conditions before visiting. The St Andrews Beach Brewery and golf course share the place name but list their addresses in nearby Fingal, so allow a separate drive for either.
 
 At a glance
 
@@ -37,15 +29,15 @@ two nights
 
 **Best for**
 
-surfers, long-lunch weekenders
+coastal walkers, experienced surfers assessing conditions
 
 **Avoid**
 
 wet winter mid-week
 
-Insider  Book the Brewery for a long, late Sunday lunch - the room slows down properly once the day-trippers have headed back to Melbourne.
+Insider  The sandy access path drops steeply from the car park, and the coast is exposed. Choose a suitable weather window and keep the visit to shore walking and views.
 
-Back-beach surf country with the Peninsula's best brewery for a sunset.
+A wild Bass Strait beach, dunes and rock pools, with a quiet settlement behind the shore.
 
 Peninsula Insider - editor's note
 
@@ -55,41 +47,43 @@ Is St Andrews Beach the right base?
 
 ### It's for
 
-- surfers
+- coastal walkers
 
-- long-lunch weekenders
+- experienced surfers assessing conditions
 
-- dog walkers
+- quiet back-beach stays
 
 ### It's not for
 
-- anyone wanting cafés in walking distance
+- swimming or calm-water beach days
 
-- calm-water swimmers
+- dog beach walks
 
-Looking for a village to wander - there isn't one, and pretending otherwise will disappoint.
+- walkable cafés and shops
+
+Treating the unpatrolled ocean beach as a swimming spot; Parks Victoria advises against swimming here.
 
 St Andrews Beach in brief
 
 ## St Andrews Beach in 5 points
 
-- 01   St Andrews Beach is a back-beach village built around surf, dunes and the St Andrews Beach Brewery - minimal village, maximum coast.
+- 01   St Andrews Beach is a quiet ocean-coast base for dunes, rock pools and shore walks, rather than a village with a main street.
 
-- 02   Best for: surfers; brewery long-lunchers; equestrians; anyone who wants Cape Schanck on their doorstep without driving to it.
+- 02   The beach is unpatrolled. Parks Victoria warns of rips, currents, reefs and large waves and does not recommend swimming.
 
-- 03   Signature experience: a morning walk down the beach toward Gunnamatta, lunch at the Brewery, sunset back at the dunes.
+- 03   The beach access path is sandy and steep; follow marked tracks to protect Hooded Plover habitat.
 
-- 04   Two nights minimum to feel it; off-season the village belongs to locals and dogs.
+- 04   The brewery and golf course named St Andrews Beach are in nearby Fingal; plan a separate drive.
 
-- 05   There is no main street and no supermarket - provision before you arrive.
+- 05   Dogs are not allowed on the national-park beach.
 
 A perfect day here
 
 ## A day in St Andrews Beach
 
-Early surf or beach walk, late breakfast at the brewery courtyard, dressage at Boneo Park or a Cape Schanck loop, back for a sundowner at the brewery's fire pits.
+Check Parks Victoria conditions, then take the marked path from the St Andrews Beach car park for a shore walk when conditions allow. Keep clear of signed Hooded Plover habitat; drive to Fingal for a brewery or golf stop if you want one.
 
-Book the Brewery for a long, late Sunday lunch - the room slows down properly once the day-trippers have headed back to Melbourne.
+The sandy access path drops steeply from the car park, and the coast is exposed. Choose a suitable weather window and keep the visit to shore walking and views.
 
   - Editor's note
 

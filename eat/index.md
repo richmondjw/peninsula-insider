@@ -363,7 +363,7 @@ Mornington   Bakery
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 
-Rye   Brewery
+Fingal   Brewery
 
 - ### [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>)
 

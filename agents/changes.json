@@ -1,52 +1,164 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T18:34:07.853Z",
+  "generatedAt": "2026-10-03T19:33:18.651Z",
   "baselineAvailable": true,
-  "fromSnapshot": "e3ad21c1c3ed4314f6e2ec1c535db530e21d3821ff6d6ad738043224b4eb2722",
-  "toSnapshot": "a98ec07414ed44f38b149dd5316c689dfa9ea2a070f9a7a682c3927896e1c447",
-  "previousGeneratedAt": "2026-10-03T17:33:03.289Z",
+  "fromSnapshot": "a98ec07414ed44f38b149dd5316c689dfa9ea2a070f9a7a682c3927896e1c447",
+  "toSnapshot": "2aad5bd633732c5cfc08da8a7f49d729eaa497175c3a61692027d9900c4876bb",
+  "previousGeneratedAt": "2026-10-03T18:34:07.853Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 5,
+  "count": 19,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/eat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
+      "contentSha256": "b001d706ae31a7e659bb46eae10346e962328800dcab201ea7f52dededf60006",
+      "previousContentSha256": "b0c81579f42ed4bf9c778b785c6e3162d173b266807d1b009b7bd9d769f42e97"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/breweries/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/breweries/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/breweries/index.md",
+      "contentSha256": "b8ff6d8c57511ea9aceebdb58fe760c9f0f198771b7914a3fb86e4f47f557729",
+      "previousContentSha256": "41d00122efeb4c3698c8d9a2d7db4f561b1930fc1a21ddff93b65709fd788519"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/rye-beachside-market/index.md",
+      "contentSha256": "59dc3e6c7ddd248e0287cd57766e6c3132cf8f6df704fab705fcfb11a0bd9eb7",
+      "previousContentSha256": "ba69d7217042c51d74fa2f6d4b506791c6222df1b14892968494fe98b447402f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/rye-hotel/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/rye-hotel/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/rye-hotel/index.md",
+      "contentSha256": "7cefc5780a76488b31b27ebdf5c2192410914c105a546d3b494aea2e8ef266f0",
+      "previousContentSha256": "8606a8d4fcd99a02bfa42097680090f7752b2bb33a4510b1549fa158d48efae1"
+    },
     {
       "id": "https://peninsulainsider.com.au/explore/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
-      "contentSha256": "12843655a1cd53b38a12101798d5c9be955c09930dc168bacb12a677f21da97d",
-      "previousContentSha256": "f5bcff1fa99738fc29f5fbabfd183a19dec17b2ef93cdf34cd9bdb702e8121f1"
+      "contentSha256": "bb6749c5f51bdbf66b7e8192d4099f834772dded7367fc41522e1c4dd8f0bebe",
+      "previousContentSha256": "12843655a1cd53b38a12101798d5c9be955c09930dc168bacb12a677f21da97d"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/index.md",
-      "contentSha256": "48dc2b3e6b5c6a6961148780d9d24e8e7018b3b773cf3a646fdefb9e0bc7783d",
-      "previousContentSha256": "59ed69c4e82425ff95528b798fd9421d76f462b09222e61506e1a37d9f07bb5a"
+      "contentSha256": "ea6b44d7523a67e7b7979f1fe9c1f70cab8895231127eecab9973cb07a08f2bd",
+      "previousContentSha256": "48dc2b3e6b5c6a6961148780d9d24e8e7018b3b773cf3a646fdefb9e0bc7783d"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "id": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "cad0ba5fd838fa900bc03137730d8ff5396d7e8ec0f931ac36d6c40838d3a87a",
-      "previousContentSha256": "b448fd2ecdbe9a3db18af41c61d592bc0d676bc00def0a4ea56bcf43dbacec19"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/index.md",
+      "contentSha256": "e1652578286f892767d2b063624c64bce3ab532cef5e90d03eb380f39fcb69c1",
+      "previousContentSha256": "d94d0fa0e88c7599ba61271ae93f8df723160bc1f1e09eb092227d74321a6a03"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "035eaef92dc8c39e35acd481e21efb92ba800ad71e6473a0ef9641d35444eb37",
+      "previousContentSha256": "a8b667586497098d27ab3372a0b79a2fc0319b13c5f959d2894cd91d53c3f25c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/rye/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
+      "contentSha256": "9bd993fa06f67aa366c937583e3ab9e50e8b43243e99f9f47f871e0823b59197",
+      "previousContentSha256": "18c134120398b52b46e5858fcfca8fce15c26c3a90e6e4be3422d98331d5dd1b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/index.md",
+      "contentSha256": "1b6330ca5ceb44e2006f6b65816a45b2f1d6007a71693a70d3d8de48b94d61c5",
+      "previousContentSha256": "700338a6942be914e163b0d61fff0ec0b794b3c4e074032ade2911c88e64ca63"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/index.md",
+      "contentSha256": "d72901127794530abdc0a5578597993de0f21ca4fe72c33f385a5706408a0768",
+      "previousContentSha256": "0c532d71e6f6b66a5d72e08e3c7a96ec1aff66c02ffef6960e13f0d85dcbd4f9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/index.md",
+      "contentSha256": "9c4dc301425a69453d807569123e81a87523ef6bfffd895828238a11357ec14f",
+      "previousContentSha256": "613cb916912490ce95004ddf4798fd67731329a9f18de0a92e691d1b9f2fb19a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/index.md",
+      "contentSha256": "b0511a1f081d8d2293870654065e00e62440c936df6860496d6c24ae62b28385",
+      "previousContentSha256": "e29c5eae2e5b5fe51fc5bb3cfd49c855b306a6affd3c8ecf6a16d2edc96bbda6"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
-      "contentSha256": "455b55b129158d115c35d859728c5263a803588cd385fc41b8eb2219396cec72",
-      "previousContentSha256": "627a88f7a3e99390fe2260cc4a9c4e2ec582a141b18c08c2347caf205d0619ee"
+      "contentSha256": "d23bbb9af7054909accdc0acf3a8878910c888b2e993e8eeb659345199291baa",
+      "previousContentSha256": "455b55b129158d115c35d859728c5263a803588cd385fc41b8eb2219396cec72"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
+      "contentSha256": "1f58554a2bd39b2b647b8c5323df0da7a1cbf7b62f4e6f588ebdaa1a193e95f9",
+      "previousContentSha256": "3e7375ccba9ef4386ab2011716f2927c3c4eba99aeb611d25d4ee029ff0e2f85"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/index.md",
+      "contentSha256": "d2badc19c7225427bd7bbab4f891cbb8cc36e1df194ff8a07b16b7090588a8ac",
+      "previousContentSha256": "57b33e6d737476809e958cc8b055ba95bcdcecf318482a6f874cd050a3135721"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "d2a836e61d7d90b9d23e2616bd944a37884ef2d529f1b966fa27817857719445",
-      "previousContentSha256": "78e421d3c6a14f2b365caca81f0d02ca71e61bc8a3ac26170dc00c96c1fbe933"
+      "contentSha256": "823bd4b28bc2b20cfaf4a0706417ea4fd6bb829c3242a342ef200fa80c055855",
+      "previousContentSha256": "d2a836e61d7d90b9d23e2616bd944a37884ef2d529f1b966fa27817857719445"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/index.md",
+      "contentSha256": "6a48305daf6d71216c6b921cbf3a81042f5c013c29c07d1f210461690b1f1cdd",
+      "previousContentSha256": "94a2aada777608516d80aca35c9c752f88341fb68504e7cc2528bdb729cd1752"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/index.md",
+      "contentSha256": "37b784b3e8033cbe64c000e5884321fa2a6ea2c851f59dcb64446a772b5e0d0a",
+      "previousContentSha256": "8cea7b3759c4c650aeab23c822a104646a1b3eae7862f66e2edecb5bb938ec31"
     }
   ]
 }
