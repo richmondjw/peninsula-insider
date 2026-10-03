@@ -8,9 +8,11 @@ on:
     # Acts as a backstop; the primary trigger is workflow_run below.
     - cron: '30 22 * * *'
   workflow_run:
-    # Fire automatically after the daily content engine completes so failures
-    # are caught within minutes rather than waiting for the 08:30 cron.
-    workflows: ["Daily Content Engine — Peninsula Insider"]
+    # Fire automatically after the build-and-deploy workflow completes so the
+    # live page is actually deployed before we verify it. Triggering after the
+    # daily content engine was too early: content was committed but GitHub Pages
+    # had not yet received the deploy, causing a spurious 404 on the live check.
+    workflows: ["Build and Deploy — Peninsula Insider"]
     types: [completed]
   workflow_dispatch:
 
