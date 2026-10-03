@@ -289,6 +289,8 @@ const presets = CHIP_PRESETS[surface] ?? [];
     });
 
     bar.querySelector('[data-filter-clear]')?.addEventListener('click', () => {
+      const clear = bar.querySelector<HTMLElement>('[data-filter-clear]');
+      if (document.activeElement === clear) bar.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus();
       commit({}, { source: 'clear', noun });
     });
 

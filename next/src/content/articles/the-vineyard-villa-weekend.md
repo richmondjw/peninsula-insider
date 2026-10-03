@@ -5,15 +5,15 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/visit-victoria/vv-25061220-lancemore-lindenderry-red-hill.webp"
+  src: "/images/visit-victoria/vv-25061217-lancemore-lindenderry-red-hill.webp"
   alt: "Two guests stand beside a wine barrel under festoon lights near outdoor tables and the white homestead at Lindenderry at dusk"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Lindenderry at Red Hill, Mornington Peninsula."
+  caption: "Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting."
   depicts: "Lancemore Lindenderry Red Hill"
   depictionStatus: "illustrative"
   creator: "Peter Foster"
-  sourceUrl: "Victoria Content Hub asset 25061220, downloaded 2026-09-28"
+  sourceUrl: "Victoria Content Hub asset 25061217, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
   permittedUses:
     - "website"

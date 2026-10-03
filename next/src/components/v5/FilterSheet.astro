@@ -291,6 +291,24 @@ const groups = facets
     let staged: FilterState = {};
     let invoker: HTMLElement | null = null;
     let open = false;
+    let inerted: { node: HTMLElement; wasInert: boolean }[] = [];
+
+    function setBackgroundInert() {
+      let current: HTMLElement = sheet;
+      while (current.parentElement && current.parentElement !== document.documentElement) {
+        for (const sibling of current.parentElement.children) {
+          if (sibling === current || !(sibling instanceof HTMLElement)) continue;
+          inerted.push({ node: sibling, wasInert: sibling.inert });
+          sibling.inert = true;
+        }
+        current = current.parentElement;
+      }
+    }
+
+    function restoreBackground() {
+      for (const { node, wasInert } of inerted) node.inert = wasInert;
+      inerted = [];
+    }
 
     /**
      * Drop options this page cannot satisfy. The sheet markup is the whole
@@ -337,6 +355,7 @@ const groups = facets
       paintOptions();
       paintCount();
       sheet.removeAttribute('hidden');
+      setBackgroundInert();
       document.body.style.overflow = 'hidden'; // scroll locked behind
       panel.style.transform = '';
       panel.focus();
@@ -351,6 +370,7 @@ const groups = facets
       }
       open = false;
       sheet.setAttribute('hidden', '');
+      restoreBackground();
       document.body.style.overflow = '';
       document.removeEventListener('keydown', onKeydown, true);
       // Restore focus to the button that opened the sheet.
@@ -394,6 +414,7 @@ const groups = facets
     // The opener is published on the element instead, and the single
     // module-scope listener below finds whichever sheet is live.
     (sheet as any)._piOpenSheet = openSheet;
+    (sheet as any)._piCloseSheet = () => closeSheet(false);
 
     sheet.querySelector('[data-sheet-close]')?.addEventListener('click', () => closeSheet(false));
     sheet.querySelector('[data-sheet-backdrop]')?.addEventListener('click', () => closeSheet(false));
@@ -459,6 +480,12 @@ const groups = facets
     const sheet = document.querySelector<HTMLElement>('[data-v5-filtersheet]');
     const open = sheet && (sheet as any)._piOpenSheet;
     if (typeof open === 'function') open(btn);
+  });
+
+  document.addEventListener('astro:before-swap', () => {
+    document.querySelectorAll<HTMLElement>('[data-v5-filtersheet]').forEach((sheet) => {
+      (sheet as any)._piCloseSheet?.();
+    });
   });
 
   function init() {

@@ -99,6 +99,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
   const facets = getFacets('venue', data);
   const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
   const bookingHost = bookingUrl ? new URL(bookingUrl).hostname.replace(/^www\./, '') : '';
+  const isBookingForm = bookingUrl ? /book-directonline\.com|\/rates-bookings\/?$/i.test(bookingUrl) : false;
   const partnerLabel = bookingHost.endsWith('airbnb.com.au') || bookingHost.endsWith('airbnb.com')
     ? 'Opens Airbnb'
     : bookingHost.endsWith('booking.com') ? 'Opens Booking.com'
@@ -118,7 +119,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
     freshness: iso(informationCheckedOn(data)),
     freshnessKind: 'checked' as const,
     booking: bookingUrl
-      ? { url: bookingUrl, label: data.bookingUrl ? 'Check availability' : 'Visit website', venueName: data.name as string, partnerLabel }
+      ? { url: bookingUrl, label: isBookingForm ? 'Check availability' : 'Visit website', venueName: data.name as string, partnerLabel }
       : undefined,
     surface: 'stay',
     facets,
@@ -207,8 +208,16 @@ const journalItems = journalSlugs
       : `/journal/${routeSlug(a)}/`,
     entitySlug: routeSlug(a) as string,
     image: a.data.heroImage?.src
-      ? { src: a.data.heroImage.src as string, alt: (a.data.heroImage.alt ?? a.data.title) as string }
+      ? {
+          src: a.data.heroImage.src as string,
+          alt: (a.data.heroImage.alt ?? a.data.title) as string,
+          caption: routeSlug(a) === 'the-vineyard-villa-weekend'
+            ? 'Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting.'
+            : a.data.heroImage.caption as string | undefined,
+          credit: a.data.heroImage.credit as string | undefined,
+        }
       : undefined,
+    suppressImageHydration: Boolean(a.data.heroImage?.src),
     verdict: a.data.dek as string | undefined,
     readTime: a.data.readingTimeMinutes ? `${a.data.readingTimeMinutes} min read` : undefined,
     dateISO: iso(a.data.publishedAt),
@@ -291,6 +300,11 @@ export const prerender = true;
       surface="stay"
       items={sixItems}
     />
+
+    <div class="container stay-selection-note">
+      <p>Our shortlist compares different settings and stay formats. Use each stay guide for the detail behind the choice, then confirm rooms and inclusions with the operator.</p>
+      <a href="/about/#how-we-choose">How we choose and check our picks <span aria-hidden="true">&rarr;</span></a>
+    </div>
 
     <section class="stay-guides" aria-labelledby="stay-guides-heading">
       <div class="container">
@@ -473,6 +487,9 @@ export const prerender = true;
     line-height: 1.45;
   }
   #choose-base, #browse-stay, :global(#stay-directory) { scroll-margin-top: 10rem; }
+  .stay-selection-note { padding-bottom: 2rem; }
+  .stay-selection-note p { max-width: 75ch; margin: 0 0 .5rem; color: var(--soft); line-height: 1.55; }
+  .stay-selection-note a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; color: var(--teal-text); font-weight: 650; text-underline-offset: .2em; }
   .stay-guides {
     padding: clamp(3rem, 6vw, 5rem) 0;
     background: #f2eee6;
