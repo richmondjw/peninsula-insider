@@ -37,6 +37,9 @@ export interface CardImage {
   alt: string;
   caption?: string;
   credit?: string;
+  sourceUrl?: string;
+  licenceUrl?: string;
+  changeNote?: string;
 }
 
 export interface CardBooking {
@@ -304,7 +307,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     <p class="pi-card__image-note pi-card__image-note--separate">
       {imageCaption && <span>{imageCaption}</span>}
       {imageCaption && imageCredit && ' '}
-      {imageCredit && <span class="pi-card__image-credit">{imageCredit}</span>}
+      {imageCredit && <span class="pi-card__image-credit">{image?.sourceUrl ? <a href={image.sourceUrl}>{imageCredit}</a> : imageCredit}{image?.licenceUrl && <>{' · '}<a href={image.licenceUrl}>CC BY-SA 3.0 licence</a></>}{image?.changeNote && <>{' · '}{image.changeNote}</>}</span>}
     </p>
   )}
 
@@ -313,7 +316,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       <p class="pi-card__image-note">
         {imageCaption && <span>{imageCaption}</span>}
         {imageCaption && imageCredit && ' '}
-        {imageCredit && <span class="pi-card__image-credit">{imageCredit}</span>}
+        {imageCredit && <span class="pi-card__image-credit">{image?.sourceUrl ? <a href={image.sourceUrl}>{imageCredit}</a> : imageCredit}{image?.licenceUrl && <>{' · '}<a href={image.licenceUrl}>CC BY-SA 3.0 licence</a></>}{image?.changeNote && <>{' · '}{image.changeNote}</>}</span>}
       </p>
     )}
     {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
@@ -494,6 +497,8 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   .pi-card__actions [data-card-trip] { min-height: 44px; }
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
+  .pi-card__image-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .pi-card__image-credit a:focus-visible { outline: 2px solid var(--teal-text); outline-offset: 2px; }
   .pi-card__image-note--separate { margin: 0; padding: .65rem var(--space-4); border-bottom: 1px solid var(--border); }
   /* Only what the shared primitive does NOT provide lives here.
      Ground, hairline, radius, body/eyebrow/title/dek/meta typography,

@@ -263,6 +263,21 @@ const COMMERCIAL_READ_ALLOWLIST = [
       'The paid slot renders its own destination. It is a standalone card with a mandatory ' +
       'disclosure chip, not a member of any ranked or filtered set.',
   },
+  {
+    file: 'pages/eat/index.astro',
+    field: 'featuredPartner',
+    reason: 'Adds a visible sponsored label to an existing directory row; it does not select or sort venues.',
+  },
+  {
+    file: 'pages/stay/index.astro',
+    field: 'featuredPartner',
+    reason: 'Adds sponsored disclosure to an existing stay card or booking action; locality and name determine order.',
+  },
+  {
+    file: 'pages/dev/v5-cards.astro',
+    field: 'featuredPartner',
+    reason: 'Labels a card in the noindex component lab; it does not select or sort venues.',
+  },
 ];
 
 /**
