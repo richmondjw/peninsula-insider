@@ -205,7 +205,7 @@ Open the town index
 
 - [Blairgowrie](<https://peninsulainsider.com.au/explore/places/blairgowrie/>)  The gap between Rye and Sorrento - less talked about, underrated for a Peninsula…
 
-- [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)  The quiet rural triangle that holds Peninsula Hot Springs, the Boneo Maze and Cape…
+- [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)  A farmgate stop, a bush track and a quieter inland route through the Peninsula.
 
 - [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  The boardwalk at the tip of the headland, where the Southern Ocean comes in.
 

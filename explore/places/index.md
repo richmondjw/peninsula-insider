@@ -125,7 +125,7 @@ Bittern is a small Western-Port village named for the marsh bird that still nest
 
 ### [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)
 
-Boneo is a rural district inland from the southern beaches, between Rye and Cape Schanck. Paddocks, wetlands and broad roads give it a different pace from the…
+Boneo is an inland rural locality with working farms and access to Greens Bush. Hawkes Farm's farmgate shop is in Boneo, and Boneo Park hosts equestrian…
 
 ### [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)
 

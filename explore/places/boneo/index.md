@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Boneo
 
-Boneo is a rural locality between Rye and Cape Schanck, near the Fingal thermal springs and Cape Schanck coastal attractions.
+Boneo is an inland rural locality on the Mornington Peninsula, with farmgate produce and access to Greens Bush; Boneo Discovery Park and the thermal springs are in neighbouring Fingal.
 
-Boneo is a rural district inland from the southern beaches, between Rye and Cape Schanck. Paddocks, wetlands and broad roads give it a different pace from the bay towns. Boneo Discovery Park is a family stop in the area; Peninsula Hot Springs and Alba are in nearby Fingal, while RACV Cape Schanck is farther south in Cape Schanck. Use Boneo as a base for those outings, and check each operator's address and opening details before setting out.
+Boneo is an inland rural locality with working farms and access to Greens Bush. Hawkes Farm's farmgate shop is in Boneo, and Boneo Park hosts equestrian events. The similarly named Boneo Discovery Park, Peninsula Hot Springs and Alba are in neighbouring Fingal. Choose a farmgate stop or a Parks Victoria walk here, then check each operator's address and access details before adding a nearby attraction.
 
 At a glance
 
@@ -23,21 +23,13 @@ approximately 1 hour 25 minutes
 
 Spring
 
-**Stay**
-
-two nights
-
 **Best for**
 
-families, hot-springs weekenders
+farmgate stops, bushwalking
 
-**Avoid**
+Insider  For an easy planning check: Hawkes Farm is in Boneo; Boneo Discovery Park is in Fingal. The similarly named places do not share an address.
 
-wet midwinter weekdays
-
-Insider  The Maze is a much better stop than its name suggests - the wetland walk behind it is a real Peninsula nature pocket.
-
-The quiet rural triangle that holds Peninsula Hot Springs, the Boneo Maze and Cape Schanck on three sides.
+A farmgate stop, a bush track and a quieter inland route through the Peninsula.
 
 Peninsula Insider - editor's note
 
@@ -47,41 +39,41 @@ Is Boneo the right base?
 
 ### It's for
 
-- families
+- farmgate stops
 
-- hot-springs weekenders
+- bushwalking
 
-- golfers
+- equestrian events
 
 ### It's not for
 
-- anyone wanting cafés in walking distance
+- a walkable cafe strip
 
-- carless travellers
+- a beachfront base
 
-Treating Boneo as a destination on its own - it is a base for the back-beach belt, not a place to wander.
+Do not navigate to Boneo Discovery Park by town name alone. Its entrance is in Fingal at 695 Limestone Road.
 
 Boneo in brief
 
 ## Boneo in 5 points
 
-- 01   Boneo is rural country near Fingal's thermal springs and Cape Schanck, rather than a resort strip itself.
+- 01   Boneo is farm and bush country inland from the bay, with no town-centre shopping strip.
 
-- 02   Best for: families considering Boneo Discovery Park, golfers and visitors wanting a rural base near the hot springs.
+- 02   Best for: a farmgate stop at Hawkes Farm, a Greens Bush walk, or an event at Boneo Park.
 
-- 03   Signature experience: an afternoon at the maze with kids, a sundown soak, breakfast on the deck the next morning.
+- 03   Check the address: Boneo Discovery Park is at 695 Limestone Road, Fingal, despite its name.
 
-- 04   Two nights to do it properly; pair the soak with one of the back beaches.
+- 04   Allow a few hours for a stop or walk; a hot-springs booking in Fingal is a separate outing.
 
-- 05   Boneo is a district, not a village - there is no shop strip.
+- 05   Use current Parks Victoria and operator advice for track access, events and opening times.
 
 A perfect day here
 
 ## A day in Boneo
 
-Morning at the Boneo Maze with kids, mid-afternoon at Peninsula Hot Springs, sunset drinks at RACV's bay-window bar, dinner held loosely.
+Begin at Hawkes Farm on Boneo Road, then choose a signed Greens Bush walk using Parks Victoria's current access advice. If Boneo Park has an event you want to attend, check its programme and visitor details. Keep Fingal's hot springs or Discovery Park as a separate planned stop.
 
-The Maze is a much better stop than its name suggests - the wetland walk behind it is a real Peninsula nature pocket.
+For an easy planning check: Hawkes Farm is in Boneo; Boneo Discovery Park is in Fingal. The similarly named places do not share an address.
 
   - Editor's note
 

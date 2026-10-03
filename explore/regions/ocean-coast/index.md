@@ -21,7 +21,7 @@ Peninsula Tip · village
 
 ### [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)
 
-Boneo is a rural district inland from the southern beaches, between Rye and Cape Schanck. Paddocks, wetlands and broad roads give it a different pace from the bay towns. Boneo Discovery Park is a family stop in the area; Peninsula Hot Springs and Alba are in nearby Fingal, while RACV Cape Schanck is farther south in Cape Schanck. Use Boneo as a base for those outings, and check each operator's address and opening details before setting out.
+Boneo is an inland rural locality with working farms and access to Greens Bush. Hawkes Farm's farmgate shop is in Boneo, and Boneo Park hosts equestrian events. The similarly named Boneo Discovery Park, Peninsula Hot Springs and Alba are in neighbouring Fingal. Choose a farmgate stop or a Parks Victoria walk here, then check each operator's address and access details before adding a nearby attraction.
 
 Ocean Coast · cape
 
