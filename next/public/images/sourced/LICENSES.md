@@ -85,10 +85,17 @@ with verified provenance and geo-location.
 - **Original:** https://commons.wikimedia.org/wiki/File:Cape_Schanck_Upper_Trail_View.jpg
 
 ## place-red-hill-01.webp
-- **Source:** CSIRO ScienceImage 1981 Pinot Noir grapes at the Main Ridge Estate
-- **Photographer:** CSIRO
-- **Licence:** CC-BY-3.0
-- **Original:** https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg
+- **Source:** Unverified. The local file shows a vineyard row; the previously recorded CSIRO link shows a close-up of grapes and is not this image.
+- **Photographer:** Unverified
+- **Licence:** Unverified. Do not use this asset for new placements until its source and permission are established.
+- **Prior incorrect citation:** https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1981_Pinot_Noir_grapes_at_the_Main_Ridge_Estate.jpg
+
+## place-mornington-vineyard-cc-by-sa-2.webp
+- **Source:** Mornington Peninsula vineyard (resized to 1600px and converted to WebP)
+- **Photographer:** faVori rouge
+- **Licence:** CC-BY-SA-2.0
+- **Original:** https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg
+- **Licence link:** https://creativecommons.org/licenses/by-sa/2.0/
 
 ## place-main-ridge-01.webp
 - **Source:** CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate

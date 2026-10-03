@@ -96,8 +96,8 @@ const photoNote = hasPhoto && photoCredit
   ? (slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
   : '';
 const flindersCommonsPhoto = slug === 'flinders-hotel' && !hero.override && hasPhoto;
-const photoSourceUrl = flindersCommonsPhoto ? data.heroImage?.sourceUrl : undefined;
-const photoLicenceUrl = flindersCommonsPhoto ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined;
+const photoSourceUrl = !hero.override && hasPhoto ? data.heroImage?.sourceUrl : undefined;
+const photoLicenceUrl = !hero.override && hasPhoto ? data.heroImage?.licenseUrl ?? (flindersCommonsPhoto ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
 const verifiedLabel = verifiedFreshnessLabel(informationCheckedOn(data));
 const verifiedTier = verificationFreshness(data.lastVerified);
 ---
@@ -117,7 +117,7 @@ const verifiedTier = verificationFreshness(data.lastVerified);
       purpose: 'hero',
     })}
   >{hasPhoto && <img src={hero.src} alt="" loading="lazy" decoding="async" />}</a>
-  {photoNote && <p class="venue-card__photo-credit">{photoNote}{photoSourceUrl && <span class="venue-card__photo-links">{' '}<a href={photoSourceUrl} aria-label="Flinders Hotel image source">Source</a><span aria-hidden="true">·</span><a href={photoLicenceUrl} aria-label="Flinders Hotel image licence">Licence</a></span>}</p>}
+  {photoNote && <p class="venue-card__photo-credit">{photoNote}{photoSourceUrl && <span class="venue-card__photo-links">{' '}<a href={photoSourceUrl} aria-label={data.name + " image source"}>Source</a>{photoLicenceUrl && <><span aria-hidden="true">·</span><a href={photoLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}</p>}
   <div class="venue-card__top">
     <span class="venue-card__type">
       {typeLabel[data.type] ?? data.type}

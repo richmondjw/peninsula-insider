@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "faf30efffa2b51c88f11f4b51a02a29c0bb46d73",
+  "dependsOn": "PR 529 merged; exact public deployment verification remains pending at assessment creation.",
+  "baseline": {
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "note": "Earlier visual baseline on a prior live revision; current full 23-criterion score remains unverified."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "Four more Stay listings lacked current dated operator checks. The Orchard was incorrectly marked unsourced after a September TLS failure even though its operator site now responds; it also claimed an infrared sauna absent from the current operator description. Hideaways used an old review page, a direct-booking label without a booking URL, unsupported price comparisons and amenity claims. Cassis and The Sanctuary had current operator information but stale review dates.",
+  "hypothesis": "Recovering the live operator and host sources, removing unsupported comparisons and amenities, and dating the two otherwise sound records will make these four stay decisions more truthful and usable.",
+  "boundedChange": "Recover The Orchard operator website and booking route, remove unsupported sauna and price positioning, and retain only operator-supported apartment details. Link Hideaways to its current host listing, label Airbnb as provider, and narrow copy to the identified Woodland Cottage. Date source checks for Cassis and The Sanctuary. Preserve negative evidence in this assessment. Replace the three shared fallback hero assets with a sourced Mornington Peninsula vineyard photograph, visibly disclose it as illustrative and link the original and CC BY-SA licence.",
+  "sources": [
+    "https://www.the-orchard.com.au/",
+    "https://www.airbnb.com/rooms/12077435",
+    "https://www.cassisredhill.com.au/accommodation",
+    "https://www.cassisredhill.com.au/about-7",
+    "https://www.cassisredhill.com.au/the-lodge",
+    "https://www.cassisredhill.com.au/the-cottage",
+    "https://www.cassisredhill.com.au/the-retreat",
+    "https://www.cassisredhill.com.au/the-terrace",
+    "https://www.cassisredhill.com.au/the-studio",
+    "https://albathermalsprings.com.au/alba-experiences/the-sanctuary/",
+    "https://albathermalsprings.com.au/alba-experiences/the-sanctuary/villas/",
+    "https://albathermalsprings.com.au/alba-experiences/the-sanctuary/rooms/",
+    "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
+    "https://creativecommons.org/licenses/by-sa/2.0/"
+  ],
+  "metric": "After release, 16 of 27 Stay listings will have dated checks; all eleven previously unrecorded source URLs tested ok and no unrecorded citation remains. The Orchard no longer asserts an infrared sauna or an unsourced state; Hideaways has a functioning host booking route and no unsupported price comparison.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded content and link-ledger commit; no schema or data migration.",
+  "validation": {
+    "contentSchema": "passed",
+    "noPricing": "passed",
+    "houseStyle": "passed",
+    "firsthandClaimLint": "passed",
+    "linkHealth": "Eleven new source URLs probed ok. assert:link-health passed with zero unrecorded citations; one previously ratcheted dead event URL remains outside this batch.",
+    "productionBuild": "pending",
+    "independentRegrade": "Independent bounded factual/media reviewer confirmed four venue corrections, identified an image source mismatch, then verified the new Commons source JPEG byte-identical to its imageinfo SHA-1 and the WebP derivative visually matched. The reviewer required visible title/modification notice; the display credit was amended. This is not a full 23-criterion score.",
+    "settledBrowser": "pending",
+    "liveAcceptance": "pending",
+    "mediaRights": "New replacement asset: original Commons source and CC BY-SA 2.0 probed and recorded; author, title, modification notice, source and licence links included in venue hero/card credits. Existing place-red-hill-01.webp rights remain unverified; 30 next/src files still reference it.",
+    "parentMobileRelease": "PR 529 deployment run 37088613623 succeeded; public manifest sourceSha faf30efffa2b51c88f11f4b51a02a29c0bb46d73; live /stay/ browser at 390px and 320px returned 200, 27 cards, no clipped cards or horizontal overflow, all 27 Save controls at least 48px."
+  },
+  "sourceCoverage": {
+    "totalStayListings": 27,
+    "withDatedCheckAfterSet": 16,
+    "withoutDatedCheck": [
+      "arthurs-views",
+      "birch-creek",
+      "driftaway-on-dundas",
+      "happy-glamper",
+      "iluka-retreat",
+      "kanasta-retro-caravans",
+      "mantons-creek-estate",
+      "mp-beach-club-cottages",
+      "plantation-house-whitecliffs",
+      "treetops-red-hill",
+      "woodman-estate"
+    ]
+  },
+  "hardGatesOpen": [
+    "Eleven Stay listings still lack dated operator source checks",
+    "Current Hotel Sorrento decision imagery and full image-rights review remain open",
+    "Direct assistive-technology review, production performance and full three-reviewer 23-criterion regrade remain open",
+    "The shared place-red-hill-01.webp asset has unverified provenance despite its current CSIRO listing; audit remaining uses before full image-rights clearance"
+  ],
+  "negativeFindings": [
+    "The Orchard operator URL was recorded as gone after a 2026-09-13 TLS fault; on 2026-10-03 it responded over HTTPS and displayed the apartments. Historical retired-link fields were removed from the current record; the old probe remains in the ledger.",
+    "The Orchard operator page does not describe an infrared sauna; that claim was removed.",
+    "The current Hideaways host listing supports Woodland Cottage, not every formerly advertised cottage; the page no longer generalises amenities across the business.",
+    "Woodman Estate and Happy Glamper require separate service-format and current-inclusion reviews; they remain in the eleven outstanding records.",
+    "Independent review found that place-red-hill-01.webp is a vineyard-row photograph, whereas its LICENSES.md citation resolves to a close-up of CSIRO grapes. The file does not match its recorded source, so its rights cannot be verified from that citation. This batch removes the asset from three Stay records; other corpus uses remain a separate image-rights hard gate.",
+    "The Hideaways host describes Woodland Cottage as a guest suite attached to the hosts home. Copy implying a standalone private cottage was removed.",
+    "The refreshed source ledger no longer assigns the wrong CSIRO file to place-red-hill-01.webp. Thirty remaining next/src files still reference that asset; the sitewide rights and image-subject review remains open."
+  ],
+  "nextAction": "Rebase onto the verified PR 529 release, run full build and browser checks, release through CI and verify the exact public revision; then resolve the remaining eleven Stay source checks and the inherited shared-image rights debt."
+}
