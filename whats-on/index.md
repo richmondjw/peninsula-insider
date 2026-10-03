@@ -129,7 +129,7 @@ Mornington · Kids & Family · Recurring weekly
 
 A confirmed 3 October market date from the Hill & Ridge organiser, subject to unsafe-weather cancellation. This is separate from…
 
-9am · Red Hill · Free entry · Recurring monthly
+9am · Red Hill · Free entry · Recurring monthly · Ended
 
 ### Sunday 4 October
 

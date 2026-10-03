@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-03",
-  "generatedAt": "2026-10-03T03:52:42.435Z",
+  "generatedAt": "2026-10-03T04:14:24.036Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -97,8 +97,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
         "startDate": "2026-10-03",
         "endDate": "2026-10-03",
-        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
-        "eventStatus": "https://schema.org/EventScheduled"
+        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling."
       }
     },
     {
@@ -668,11 +667,10 @@
       "venue": null,
       "freePaid": "Free (entry)",
       "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
-      "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         }
       ],
       "thisWeekend": true

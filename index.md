@@ -25,14 +25,6 @@ The short list
 
 Swipe or scroll for all three picks
 
-- Context photo: Mornington Farmers' Market, not this event.   Photo courtesy of Visit Victoria.
-
-### [Hill & Ridge Community Market](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
-
-Local produce and makers at Red Hill Recreation Reserve, Saturday 9am–2pm. Check the organiser if severe weather is forecast.
-
-Red Hill Recreation Reserve   Market
-
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Free acoustic music at Moonah Links on Saturday, 5–8pm. No booking required; settle in after a day exploring the Peninsula.
@@ -46,6 +38,12 @@ Peppers Moonah Links   Every Saturday   Free
 MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
 
 Mornington Peninsula Regional Gallery   Exhibition
+
+- ### [Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
+
+A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. The value is genuinely silly.
+
+Foxeys Hangout / Morning Sun Vineyard   Food & wine
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 

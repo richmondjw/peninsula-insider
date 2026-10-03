@@ -1,108 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T03:58:33.487Z",
+  "generatedAt": "2026-10-03T04:18:43.461Z",
   "baselineAvailable": true,
-  "fromSnapshot": "749953e3ee3e9b88e7b3e719e43b04e1aa980e9437a40e998f156ccf0875618a",
-  "toSnapshot": "1f4db01afd14394196c6ba5f180c035f93d29118f844e3369043eb068737d034",
-  "previousGeneratedAt": "2026-10-03T03:02:33.070Z",
+  "fromSnapshot": "1f4db01afd14394196c6ba5f180c035f93d29118f844e3369043eb068737d034",
+  "toSnapshot": "cbefa1ece5215185c495eaba00aaf00225b6286191a9dade9fa4e23a0858890f",
+  "previousGeneratedAt": "2026-10-03T03:58:33.487Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 12,
+  "count": 4,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "7027afe8c647e183a5d237138b0f4b978ad610338b1b7d58b676603f1b74d005",
-      "previousContentSha256": "87965dbd0dd8ed0febf666f8f6b312b78375fd24f5c21a7bd2517412be76b5d4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
-      "contentSha256": "a8ca40cf0210470370cda95bb3db91afba78a801b07dca4efc5d7fa92f9a7804",
-      "previousContentSha256": "1b700f88a22c4c4aeaaf2eb580b1bc25b149d9b5f65286a9e885a2c10c8efdb4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "2a11ee9734d74de88bd66b41f5e334fb18a9d10f3d821a4e41e421787764c2db",
-      "previousContentSha256": "99836588b2d4dc572cb844e74cd34d21bb175c8bea3e45b0a163cc7d4399702a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/index.md",
-      "contentSha256": "db9b222fb2a80497d97c23b54da8dce8313a3dd5885c8e4486a18fa621083a63",
-      "previousContentSha256": "3edf1ac29c790ef40f9bf3daaab7c97274026601fdd3a1d11b97228d4c3825b5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
-      "contentSha256": "d49fbe94ad0c74637c7590bc2a7ed4e94b37d3a28ca1be6309f550d2eccd9038",
-      "previousContentSha256": "2a1c450504c9f2719e19ab204d7be1d532f60a37e0feefe4db4ea3a4952ca6f1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/map/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/map/",
-      "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
-      "contentSha256": "f40ca57cfeb88413d6777bb18327ae6dc55dbd6cb8665c52b8a1ecdb2c87f420",
-      "previousContentSha256": "7c5f854d099ed9219c4de49de9a78c8dc48927d76f944808d8fe03667525fda2"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "ba3f3c2946d5ad2a744cfafe1dc0294bb246cb582bfb76b426f768755d25771a",
+      "previousContentSha256": "1e80923eb2c396f36543c620f49c5cde04ef31bd98a7fd74c9426db77453a4de"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4ec3f4086d3f6eccfac176fb6931b34642d2597b2b0e172b7fdcc030ecddd079",
-      "previousContentSha256": "a2f66e06213b0f4dec43586ef7365da18ad0bcc1ee2831a85d680de473245973"
+      "contentSha256": "b670e762ae3c68886094446e5d5d22f84d8e5d7367999bec2f12422f69e82fd3",
+      "previousContentSha256": "4ec3f4086d3f6eccfac176fb6931b34642d2597b2b0e172b7fdcc030ecddd079"
     },
     {
-      "id": "https://peninsulainsider.com.au/site-index/",
+      "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "bb78d4e4fdf17e55c12b6ebbccb497f9d71449f5a308823982e8d40c35ed1aee",
-      "previousContentSha256": "46c8978411769a1e76d86e73309013076ebfe3efd76ab875401710561b877fd4"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "ab452ecb71d4c24c9ef08780c8884e02901530c4ff6409a129d376342e73467f",
+      "previousContentSha256": "8867cec9e1973e2e0f2b1ba594b681b0715d2b961db17715b5aee0a040f25c79"
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/",
+      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "0f99798a9b2bb0994cea42cdf411bd09f6901c9a398c06085aa8cc88025f8e7c",
-      "previousContentSha256": "804e97fef7a9ec09fcd0cd5467dc293bb576eb6074a1ac0f5a4bb781e4ba3615"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/happy-glamper/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/happy-glamper/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/happy-glamper/index.md",
-      "contentSha256": "5930c08eec9ffa936266c444e32e9acc24e4e86c0b524aae886b7b588f85bca8",
-      "previousContentSha256": "dc95d45a162e8305d9e001d38fe00ed2ee3c8310f31170bde18c5f2ffab9e70e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/villas/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/villas/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/villas/index.md",
-      "contentSha256": "7b84f48e20b70d2c000fcce03f4a098ef7947fa5b475d2c9f090cf50077fae3d",
-      "previousContentSha256": "5b9aaf4e2bf0f1adf1ddfde7f988e9f99072ceb49adddea7a37920bbb78acc46"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/woodman-estate/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/woodman-estate/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/woodman-estate/index.md",
-      "contentSha256": "4536dc90df81aeb5da65354123d92d57125c5843aaab9e64e8ffe510b74b1459",
-      "previousContentSha256": "15c72bfe718669369d6244e92ca2a6f34707a9d66edcef2af3ae2a896a8124fd"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
+      "contentSha256": "56cbcceb039115b7b8bd559d5dc4d2c960b3f80ed153ba614f3b26cd1a9ba0a8",
+      "previousContentSha256": "d350b3cc7562030e9e5e02b79fa1a9433b154c89f0d531b6210f809e75b43107"
     }
   ]
 }

@@ -67,7 +67,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.hillandridgemarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Hill+%26+Ridge+Community+Market%2C+3+October+2026&dates=20261002T230000Z%2F20261003T040000Z&details=The+separate+Hill+%26+Ridge+Community+Market+is+confirmed+by+its+organiser+for+Saturday+3+October+2026%2C+9am%E2%80%932pm%2C+at+Red+Hill+Recreation+Reserve%2C+184+Arthurs+Seat+Road.+Entry+is+free+but+parking+has+a+charge.+Unsafe+weather+can+cancel+the+event+without+notice%3B+check+the+organiser+before+travelling.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhill-ridge-community-market-september-2026-restart%2F&location=184+Arthurs+Seat+Road%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 
