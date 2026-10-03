@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Merricks Beach
 
-Shallow Western Port tide flats at Merricks Beach with timber holiday houses set behind the dunes
-
 Merricks Beach is a small residential hamlet on the Mornington Peninsula's Western Port coast, 80 km from Melbourne, with a shallow tide-dependent beach and no commercial centre.
 
 Merricks Beach is a hamlet, not a town, and is largely the work of one generation of holiday-house builders who put up timber shacks along the dunes in the 1950s and 60s and then refused to let the place change much since. The beach is shallow, tide-dependent, and quiet - there is no surf, no foreshore café strip, and at low tide it spreads out into hundreds of metres of flat sand that visiting children turn into a private kingdom. The Merricks General Store, technically up in Merricks village, is the one polished thing nearby and is famous for a reason. Stay at Merricks Beach if you want the holiday-house feeling the Peninsula has mostly lost: front-door dunes, no shops, neighbours you have to walk past, and an evening rhythm built around a sundowner on the verandah.

@@ -21,7 +21,7 @@ Bay Coast · town
 
 ### [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)
 
-Capel Sound is the western half of what was, until 2017, simply called Rosebud West, and the renaming did the place a quiet favour. It is now its own town in the postcodes if not yet in everyone's mental map: a long stretch of bayside foreshore camping ground, a small but lengthening main road of cafés and surf shops, and a residential grid that runs back from the beach in long flat blocks. The Rosebud-Capel Sound foreshore camp is one of the largest beachfront camping grounds in Australia, and for two months every summer it doubles the population of the entire stretch. Outside that window Capel Sound is calm, flat, and uncomplicated - a town that locals use when they want a bay-side walk that isn't busy. Stay here for foreshore camping or a cheaper inland rental; for restaurants, walk or drive five minutes into Rosebud.
+Capel Sound runs along Port Phillip Bay west of Rosebud and east of Tootgarook. Its long beach, foreshore campsites and flat Bay Trail make walking and camping the main reasons to stop. Cafes and shops sit across Point Nepean Road from the reserve. Summer camping rules and availability change by season, so check the foreshore operator before making plans. The locality was renamed from Rosebud West in 2016.
 
 Bay Coast · town
 

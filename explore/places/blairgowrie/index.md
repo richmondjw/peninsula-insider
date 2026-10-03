@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Blairgowrie
 
-Blairgowrie yacht club and foreshore with moored boats
-
 Blairgowrie is a coastal township on the Mornington Peninsula's western tip, 95 km from Melbourne, between Sorrento and Rye on the Port Phillip Bay shoreline.
 
 Blairgowrie is the quieter neighbour between Rye and Sorrento - the stretch of front beach that still feels like a holiday pattern most of the Peninsula gave up on. The yacht club runs a working moorings marina that defines the skyline; the foreshore is unbroken sand you can swim off without fighting a crowd; and the shops are mostly limited to a pub, a bakery, a couple of cafés and a deli, which is most of what you need. The back beach (Bridgewater Bay) is five minutes inland and quieter still. Blairgowrie rewards the kind of weekend that's built around walking the foreshore, reading on a beach towel, and not making a plan until dinner. It's the last town before the tourist-district tone of Sorrento and the first one where families still outnumber influencers.
@@ -115,7 +113,7 @@ Bay Coast · town
 
 ### [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-Rye is the pivot point of the lower Peninsula - the last town before Sorrento and Portsea, the first one where the landscape really opens up to the Southern Ocean. The front beach is a long bay-calm stretch with a pier and a century of summer memory behind it; the back beach is where you drive to in ten minutes to remind yourself that the ocean side is an entirely different country. In between sits a main street that has quietly improved itself over the past five years, a brewery precinct in the hills above the town, and Peninsula Hot Springs close enough to slot into an afternoon without rearranging the day. Rye is where families have always come to do nothing in particular, and that remains the right instinct.
+Rye sits on the lower Peninsula between Tootgarook and Blairgowrie. The bay-facing front beach has a pier and sheltered water; the ocean-facing back beach is a separate outing with different conditions. Point Nepean Road gives visitors places to eat and shop, while the Fingal hot springs are a drive inland. Use Rye as a base for both coasts, and check beach conditions before swimming.
 
 Peninsula Tip · town
 

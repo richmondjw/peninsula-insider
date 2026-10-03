@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Dromana
 
-Dromana foreshore looking across the bay toward Arthurs Seat
-
 Dromana in 12 photographs
 
 1  / 12

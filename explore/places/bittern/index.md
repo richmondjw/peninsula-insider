@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Bittern
 
-Saltmarsh and mangrove channels at the Bittern Coastal Wetlands at low tide
-
 Bittern is a small residential village on the Mornington Peninsula's Western Port coast, 75 km from Melbourne, with a station on the Stony Point train line and a coastal wetland reserve known for wading birds.
 
 Bittern is a small Western-Port village named for the marsh bird that still nests in the coastal wetlands at its edge, and it has a thoroughly ordinary main street that conceals one of the most birdable shorelines on the Peninsula. The Bittern Coastal Wetlands - saltmarsh, mudflats, mangroves - are one of the least-promoted nature reserves in the region and one of the best places in Victoria to watch wading birds at low tide. The village itself is residential, with a station on the Stony Point train line and a general store. Bittern matters mostly as a stopping point: a wetland walk in the morning, a coffee on the main street, then drive south to Hastings or onward to Crib Point. There is little reason to stay here, every reason to stop for an hour or two if birds and quiet shorelines interest you.

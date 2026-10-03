@@ -5,17 +5,21 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Mornington & the Bay](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/>)
+West of Rosebud · Bay Coast
 
 # Capel Sound
 
-Foreshore camping with tents set behind tea-tree dunes at Capel Sound
+A bay beach, foreshore camps and the Bay Trail on the doorstep.
 
-Photo · Peninsula Insider
+ [Check current foreshore bookings](<https://capelsoundforeshores.com.au/20232024-booking-information>)
 
-Capel Sound is a bayside town on the Mornington Peninsula's Port Phillip coast immediately west of Rosebud, 75 km from Melbourne, with a long bay beach, the Rosebud Foreshore camping ground and a developing café strip.
+Capel Sound foreshore from above in April 2024. Cropped from the original panorama.
 
-Capel Sound is the western half of what was, until 2017, simply called Rosebud West, and the renaming did the place a quiet favour. It is now its own town in the postcodes if not yet in everyone's mental map: a long stretch of bayside foreshore camping ground, a small but lengthening main road of cafés and surf shops, and a residential grid that runs back from the beach in long flat blocks. The Rosebud-Capel Sound foreshore camp is one of the largest beachfront camping grounds in Australia, and for two months every summer it doubles the population of the entire stretch. Outside that window Capel Sound is calm, flat, and uncomplicated - a town that locals use when they want a bay-side walk that isn't busy. Stay here for foreshore camping or a cheaper inland rental; for restaurants, walk or drive five minutes into Rosebud.
+Photo · BobTanGo / Wikimedia Commons (CC BY 4.0; cropped and converted to WebP) [Source](<https://commons.wikimedia.org/wiki/File:Capel_Sound_aerial_panorama._April_2024.jpg>)   [Licence](<https://creativecommons.org/licenses/by/4.0/>)
+
+Capel Sound is a bayside town west of Rosebud, with a Port Phillip beach, foreshore campsites and a section of the Bay Trail.
+
+Capel Sound runs along Port Phillip Bay west of Rosebud and east of Tootgarook. Its long beach, foreshore campsites and flat Bay Trail make walking and camping the main reasons to stop. Cafes and shops sit across Point Nepean Road from the reserve. Summer camping rules and availability change by season, so check the foreshore operator before making plans. The locality was renamed from Rosebud West in 2016.
 
 At a glance
 
@@ -37,11 +41,11 @@ foreshore campers, summer families
 
 **Avoid**
 
-first week of January (peak camp)
+summer holiday peak if you want an uncrowded beach
 
-Insider  Beach-front tent sites on the foreshore camp ground are released by ballot months in advance - register the year before you want to camp.
+Insider  Foreshore camping is seasonal. Check the operator's current booking instructions and cancellation waitlist before travelling.
 
-The Peninsula's biggest beachfront camp ground and the quieter half of the Rosebud bay strip.
+A broad bay foreshore where camping and a flat coast walk set the pace.
 
 Peninsula Insider - editor's note
 
@@ -59,33 +63,33 @@ Is Capel Sound the right base?
 
 ### It's not for
 
-- anyone wanting a dense restaurant strip
+- visitors relying on guaranteed campsite availability
 
-- people who hate caravan crowds in January
+- anyone expecting a dense restaurant strip
 
-Visiting in school-holiday peak expecting calm - for that, come in May.
+Assuming a campsite will be available without checking the operator's current booking instructions.
 
 Capel Sound in brief
 
 ## Capel Sound in 5 points
 
-- 01   Capel Sound is the bayside town west of Rosebud - long foreshore, one of Australia's biggest beachfront camp grounds, a flat residential grid behind.
+- 01   Capel Sound is a bay-coast town between Rosebud and Tootgarook, with a long beach and foreshore camping.
 
-- 02   Best for: summer foreshore campers; families wanting a calm bay base outside school holidays; renters chasing lower rates than Rosebud proper.
+- 02   Best for: a flat Bay Trail walk, beach time and a camping base close to the water.
 
-- 03   Signature experience: a long foreshore walk between Capel Sound and Rye at sunset, summer-camp life behind the dunes.
+- 03   Signature outing: follow the foreshore path toward Tootgarook, then return for a swim when conditions suit.
 
-- 04   A weekend in shoulder seasons; longer for foreshore camping.
+- 04   Allow a few hours for a walk and beach stop; check the operator for seasonal camping availability.
 
-- 05   Treat Rosebud and Capel Sound as one continuous strip for restaurants.
+- 05   Rosebud and Rye offer further food stops along the bay.
 
 A perfect day here
 
 ## A day in Capel Sound
 
-Early walk along the foreshore from Capel Sound toward Rye, breakfast in Rosebud, paddleboard or swim by midday, sundown back at the campsite or rental.
+Walk the Bay Trail toward Tootgarook in the morning, pause at the bay beach, then spend sunset along the foreshore.
 
-Beach-front tent sites on the foreshore camp ground are released by ballot months in advance - register the year before you want to camp.
+Foreshore camping is seasonal. Check the operator's current booking instructions and cancellation waitlist before travelling.
 
   - Editor's note
 
@@ -115,19 +119,19 @@ Bay Coast · town
 
 ### [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
 
-Rosebud is the largest of the bayside towns and the one locals use when they actually want something done - a supermarket, a hardware store, an everyday main street that has not yet been aestheticised into a postcard. That practicality is also its charm. The beach is long and genuinely good, with a sheltered swimming area and grass right up to the sand; the jetty is a quiet fishing spot at dusk; and a string of ethnic kitchens along Point Nepean Road provide the kind of honest, unheralded lunches that make a weekend on the Peninsula feel less like a brochure and more like a real place. Use Rosebud as your resupply stop, but don't rush through it.
+Head east for the pier, a longer shopping strip and more places to eat.
 
 Bay Coast · town
 
 ### [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-Rye is the pivot point of the lower Peninsula - the last town before Sorrento and Portsea, the first one where the landscape really opens up to the Southern Ocean. The front beach is a long bay-calm stretch with a pier and a century of summer memory behind it; the back beach is where you drive to in ten minutes to remind yourself that the ocean side is an entirely different country. In between sits a main street that has quietly improved itself over the past five years, a brewery precinct in the hills above the town, and Peninsula Hot Springs close enough to slot into an afternoon without rearranging the day. Rye is where families have always come to do nothing in particular, and that remains the right instinct.
+Follow the bay west to a beach town with a pier and an ocean side nearby.
 
 Peninsula Tip · village
 
 ### [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>)
 
-Tootgarook sits between Capel Sound and Rye on the shallow Port Phillip bay coast. Behind the village, the Tootgarook Wetland is a significant freshwater habitat. To explore a public part of it, use the council-managed Tootgarook Bushland Reserve: its access points lead to short gravel tracks, boardwalks, bird hides and viewing platforms. Dogs are prohibited in the reserve. The bay beach offers a different outing; Rye is nearby for a longer food stop. Check current reserve and beach conditions before setting out.
+Continue west for a bay beach and public reserve walks near the wetland.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

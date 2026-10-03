@@ -21,7 +21,7 @@ Peninsula Tip · village
 
 ### [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)
 
-Boneo is the rural triangle between Rye, the back beaches and Cape Schanck, and for most of its history it was almost entirely a farming district. It still feels that way - long straight roads through paddocks, horse studs, the occasional cellar door - but on the southern edge of the district sit Peninsula Hot Springs and RACV Cape Schanck Resort, two of the Peninsula's busiest visitor anchors. That gives Boneo an unusual character: a working agricultural pocket that happens to sit on top of geothermal water and next to a golf-and-spa resort. The Boneo Maze and Wetland is the family-friendly headline, but the real draw is the position - fifteen minutes from a soak, ten minutes from a back-beach walk, and twenty minutes from a long lunch in Red Hill. Stay here if you want the hot-springs belt at your door without the resort vibe.
+Boneo is a rural district inland from the southern beaches, between Rye and Cape Schanck. Paddocks, wetlands and broad roads give it a different pace from the bay towns. Boneo Discovery Park is a family stop in the area; Peninsula Hot Springs and Alba are in nearby Fingal, while RACV Cape Schanck is farther south in Cape Schanck. Use Boneo as a base for those outings, and check each operator's address and opening details before setting out.
 
 Ocean Coast · cape
 

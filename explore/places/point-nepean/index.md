@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Point Nepean
 
-Looking out towards the waves near Cheviot Hill at Point Nepean
-
 Point Nepean in 18 photographs
 
 1  / 18

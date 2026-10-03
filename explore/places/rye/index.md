@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Rye
 
-Rye pier and calm front beach at dusk with the ridge rising behind
-
 Rye in 12 photographs
 
 1  / 12
@@ -19,7 +17,7 @@ Pizzas, a grazing board, fried chicken and two pints of beer on a marble table b
 
 Rye is a coastal town on the Mornington Peninsula's southern Port Phillip shore, 90 km from Melbourne, with a back beach on Bass Strait, the Rye Pier, and a foreshore that fills with summer holidaymakers.
 
-Rye is the pivot point of the lower Peninsula - the last town before Sorrento and Portsea, the first one where the landscape really opens up to the Southern Ocean. The front beach is a long bay-calm stretch with a pier and a century of summer memory behind it; the back beach is where you drive to in ten minutes to remind yourself that the ocean side is an entirely different country. In between sits a main street that has quietly improved itself over the past five years, a brewery precinct in the hills above the town, and Peninsula Hot Springs close enough to slot into an afternoon without rearranging the day. Rye is where families have always come to do nothing in particular, and that remains the right instinct.
+Rye sits on the lower Peninsula between Tootgarook and Blairgowrie. The bay-facing front beach has a pier and sheltered water; the ocean-facing back beach is a separate outing with different conditions. Point Nepean Road gives visitors places to eat and shop, while the Fingal hot springs are a drive inland. Use Rye as a base for both coasts, and check beach conditions before swimming.
 
 Photo · Courtesy of Visit Victoria
 

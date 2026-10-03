@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Shoreham
 
-Shoreham beach and rocky foreshore on a still Peninsula afternoon
-
 Shoreham is a small coastal village on the Mornington Peninsula's Western Port shoreline, 95 km from Melbourne, with a foreshore reserve, a beach swimming pool at low tide, and Pier 10 vineyard nearby.
 
 Shoreham barely qualifies as a village, and that is exactly its charm. A store, a hall, a tangle of narrow roads threading down to one of the loveliest small beaches on the Peninsula, and a handful of vineyards and olive groves that quietly produce some of the region's best fruit. The beach is family-scaled and protected enough for children, the bush behind it runs into Point Leo, and the drive up onto the ridge puts you in cellar door country within ten minutes. This is where locals go when the southern beaches start to feel loud and the long weekend crowd has swallowed Sorrento. Park once, walk to the beach, and stay until the light goes.

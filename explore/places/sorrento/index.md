@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Sorrento
 
-Bright morning light on the Sorrento coastline, Victoria
-
 Sorrento in 18 photographs
 
 1  / 18

@@ -1,316 +1,252 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T16:50:45.617Z",
+  "generatedAt": "2026-10-03T17:33:03.289Z",
   "baselineAvailable": true,
-  "fromSnapshot": "cec339d1b7a7bd1ddf39f845db49311bacfecedb9ec17eb14bd01a66ae488850",
-  "toSnapshot": "7f1ce03532b053a61bf727929e9e52100e899f5a78167a2c28b81e9e81615795",
-  "previousGeneratedAt": "2026-10-03T16:13:24.135Z",
+  "fromSnapshot": "7f1ce03532b053a61bf727929e9e52100e899f5a78167a2c28b81e9e81615795",
+  "toSnapshot": "e3ad21c1c3ed4314f6e2ec1c535db530e21d3821ff6d6ad738043224b4eb2722",
+  "previousGeneratedAt": "2026-10-03T16:50:45.617Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 38,
+  "count": 30,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
+      "id": "https://peninsulainsider.com.au/explore/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
-      "contentSha256": "bd4a6807903a97b72dcaf1601dded375eb9737903879503bf96c9d5077aac3af",
-      "previousContentSha256": "3b0c1962213fbfaa9779bcfc2f2f4b086bccc0e773950aad934d536bc03e6dec"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
+      "contentSha256": "f5bcff1fa99738fc29f5fbabfd183a19dec17b2ef93cdf34cd9bdb702e8121f1",
+      "previousContentSha256": "9c3ba79f3407021716c5fda1b7bbf8b07182afb2a744667479db08078ab9855b"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
+      "id": "https://peninsulainsider.com.au/explore/places/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "ad9b208157fd4dbef2b9d249b348d752ae44da69640cb9f12468e39b6f179db1",
-      "previousContentSha256": "b15e2769edaff722decd2c23cb6a3eb655634ea25551e43c32cd56288823156f"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/index.md",
+      "contentSha256": "59ed69c4e82425ff95528b798fd9421d76f462b09222e61506e1a37d9f07bb5a",
+      "previousContentSha256": "498c0cd76f1f4659131f0a3723a4d3f11b5aa147269a44f84e8eca2eb2d25851"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/bittern/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/bittern/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/bittern/index.md",
-      "contentSha256": "f300a5cb25a72369d487ef2b6aad2467e0cfb63b008195e75c026a5c30232947",
-      "previousContentSha256": "7bc3bb0acf59c27397a67cdec87e1ad8ee87c632c68816e7bb52899acf5fd433"
+      "contentSha256": "c74451881467e9f90cdde127c9be0cb5319701c53faf4ec9a29d30be07e61329",
+      "previousContentSha256": "f300a5cb25a72369d487ef2b6aad2467e0cfb63b008195e75c026a5c30232947"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/blairgowrie/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/blairgowrie/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/blairgowrie/index.md",
-      "contentSha256": "20f4019b38bb9085ad6b6f9df626c9f85e37d8050ef82c05573c174c0810fe4e",
-      "previousContentSha256": "4efb0fc9f480f8d45b3171d0d54a75cf01dcf765f1650d52bba7c7917a70c33c"
+      "contentSha256": "adea8a38c4521dfe4d325ca2f634c6d507fe1f12294156187c6d9b08f287f048",
+      "previousContentSha256": "20f4019b38bb9085ad6b6f9df626c9f85e37d8050ef82c05573c174c0810fe4e"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/boneo/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "3d7ca847bca6efe7dc07f1268d5511bdc7b144fe07094a10f1f9d26658420deb",
-      "previousContentSha256": "75317208bcb980556c465b4906e121dff9b18586b2655ff1b5c4384410bb2f7b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/index.md",
-      "contentSha256": "d94d0fa0e88c7599ba61271ae93f8df723160bc1f1e09eb092227d74321a6a03",
-      "previousContentSha256": "95c6f83700618960aca90002b2d9c38dd279b8b412118f9c17d9f1b2625d269c"
+      "contentSha256": "b448fd2ecdbe9a3db18af41c61d592bc0d676bc00def0a4ea56bcf43dbacec19",
+      "previousContentSha256": "3d7ca847bca6efe7dc07f1268d5511bdc7b144fe07094a10f1f9d26658420deb"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/capel-sound/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/index.md",
-      "contentSha256": "80af8b7d9fe13c1cb57da15aea8a7ca91153e43921fdfbbe2068eac451d3fb7b",
-      "previousContentSha256": "7daab16319dad6e097eb331310039faa3220aa701de9dc5252b0a6f6abc10b76"
+      "contentSha256": "f44809235d7fdf0b5d56f87d2a64f25fa79e6a6869f927bda84f1d6b815c28ca",
+      "previousContentSha256": "80af8b7d9fe13c1cb57da15aea8a7ca91153e43921fdfbbe2068eac451d3fb7b"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/crib-point/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/crib-point/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/crib-point/index.md",
-      "contentSha256": "5db1f764d153b8ec81f4a3f7e1eeb0192c99a34217e3757c1d50c9321ff100e2",
-      "previousContentSha256": "a3fd1fa78cdddceca58bfcfb696b0895a5fe777535755b95cde4bf3cade1abd5"
+      "contentSha256": "48ce2fe0e41b1ac53e665343129f2827ae8227c60e7e32852533c96f4ec1dcf2",
+      "previousContentSha256": "5db1f764d153b8ec81f4a3f7e1eeb0192c99a34217e3757c1d50c9321ff100e2"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/dromana/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
-      "contentSha256": "3d39e531a68bd8533d92b303714867cf0c8407d7f02dd8a01923719834b9dfbb",
-      "previousContentSha256": "4f058ce49e1b0c6b7e0ccc00b8f73ce85ca1244fc9ad3f40d95b2d526bd4af05"
+      "contentSha256": "ef85eabfea88804fed5a66d8cada52c95c84cfac1d1e6fec501c69e5f887ec95",
+      "previousContentSha256": "3d39e531a68bd8533d92b303714867cf0c8407d7f02dd8a01923719834b9dfbb"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/fingal/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
-      "contentSha256": "b35ce5c081a5cf2bdc53f1f9a4f903badcdd7526fa5f23821f6830e2128385c1",
-      "previousContentSha256": "a9255130d590cd5b7f17323bc065cf34529bfed5925a387b80ea7f595e3a8536"
+      "contentSha256": "a8b667586497098d27ab3372a0b79a2fc0319b13c5f959d2894cd91d53c3f25c",
+      "previousContentSha256": "b35ce5c081a5cf2bdc53f1f9a4f903badcdd7526fa5f23821f6830e2128385c1"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/flinders/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
-      "contentSha256": "6da0c5d750c442b618fe9c6c3a8e8d68525ae3fc538201810f591100bb827060",
-      "previousContentSha256": "a87f622f3105a7847b4ad85aa15171e90ddb0912390331b7267287eb32ca0299"
+      "contentSha256": "d3d81381bf346eb1c155019b3671e1e34b33feaca658ba12b2ca00f9eeb04084",
+      "previousContentSha256": "6da0c5d750c442b618fe9c6c3a8e8d68525ae3fc538201810f591100bb827060"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/hastings/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
-      "contentSha256": "eba5db6f12c3761b755b4eba5a8d18b6bd3a80c71a958df795af1f7b755766be",
-      "previousContentSha256": "3328979ebd4f514f07e0410ed1536eb2d9d70c2a00aceb326a2cc89c331d7917"
+      "contentSha256": "293d52b87c552fcf94ccfb2ff1f310609e565e4f80a404c99f9ae3276d078054",
+      "previousContentSha256": "eba5db6f12c3761b755b4eba5a8d18b6bd3a80c71a958df795af1f7b755766be"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
-      "contentSha256": "4028ec55cbb8d12f4f86e90d73d0d22ca3ecdd994c7c9c062e500be999f0cc77",
-      "previousContentSha256": "2a5e5d97145c052b7443f81565843225114c35fd0dbad12e665b7da22a5aa3fd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mccrae/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mccrae/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mccrae/index.md",
-      "contentSha256": "8fa7768e1ed2cfe49028c7a9f02368edb9e12a60bf645efd7ee9879b68e8a9cf",
-      "previousContentSha256": "96f8a0fed005af244c5361418b198ae31e5fe70c683655990cd3c9860fa9716b"
+      "contentSha256": "db77edaec3ef653f7f9f90dabc66c5cdf7a9ec59f43cf6e2d132f3e0600a14a9",
+      "previousContentSha256": "4028ec55cbb8d12f4f86e90d73d0d22ca3ecdd994c7c9c062e500be999f0cc77"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/merricks-beach/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks-beach/index.md",
-      "contentSha256": "f700bcfab25349de4e0712cf9af19c0c902741e27615abd4879b94b804b540bc",
-      "previousContentSha256": "281ccebd2637408c3baf397d90a0ccb14e9b1d29f756e0f7106904c03a737d9f"
+      "contentSha256": "afd82e849d005f17c6ae73aff51ac364d7de65e79baa79480ea5326479774b0e",
+      "previousContentSha256": "f700bcfab25349de4e0712cf9af19c0c902741e27615abd4879b94b804b540bc"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/merricks-north/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/index.md",
-      "contentSha256": "9258f4526229520cd1d4f23d1711cf69b72a431324a66e378b246d01b8644056",
-      "previousContentSha256": "0954d631ceed051b047877ff8bb7e86807ab054b3e48e46cbbe3549c266c667e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
-      "contentSha256": "3567d59454983d1160e0e5bce1f97d6b9dfa51d43df69872ad0f626b80093ed9",
-      "previousContentSha256": "d56957f3baf99a445c2cf9437d5d0254b5db2beaa6acf5bf6fe44cf9fb43c9d7"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "42af74097c2ce670a0900e6e1b86e2e35102bf8390f5e3fd96fad7af5d203bcf",
-      "previousContentSha256": "5245b90adc2f556a1499ee33a529e4ce168746833ac051145c670f36cfe65c68"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "b6253da2d9168432ba6ec62fc821f58872b07d2382db6c630bede13344746318",
-      "previousContentSha256": "9fcca16f60c8bb792f6af8ae3f117fda8333ce44bcc7b250a8b430c2f1f0a2bc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/index.md",
-      "contentSha256": "bf32d34bc03941b73abc472e835928172657aa18ad6922f4dd985baecc1ea365",
-      "previousContentSha256": "83984de5e55ed1a5550282d39c2c7d64217a01d342a2d46af58a9f5342e69c59"
+      "contentSha256": "8fdf17385b8ff171ff3514487b389af10c776099928a59855263432d0fc3dfe3",
+      "previousContentSha256": "9258f4526229520cd1d4f23d1711cf69b72a431324a66e378b246d01b8644056"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
-      "contentSha256": "6f2dc172e48313ec312bc175697bdf3afd131c34a2d85883ce88f3072c142594",
-      "previousContentSha256": "1be08e1ecfc6a0db85f2777d549bca63895775d0ef3b1ad48fee49e67a45cedb"
+      "contentSha256": "ed6c97c0327c27b673f520041cb564265ca56c5d52f81b944f5cc66d0d87c8bc",
+      "previousContentSha256": "6f2dc172e48313ec312bc175697bdf3afd131c34a2d85883ce88f3072c142594"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/point-leo/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/point-leo/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/point-leo/index.md",
-      "contentSha256": "a6f287c418d54d3c214b11a5606abd206ebd8b8323653a054c92db844e7be859",
-      "previousContentSha256": "c8a9a6b3783c54efd070e41057a91ca1ba2e3cddbca3f6f6f3841abe75eacdcf"
+      "contentSha256": "be6ae9629a9c9bf4652d5c5b2cf7798513f5fdcf143ff5664f4e6f8d39725334",
+      "previousContentSha256": "a6f287c418d54d3c214b11a5606abd206ebd8b8323653a054c92db844e7be859"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/point-nepean/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/point-nepean/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/point-nepean/index.md",
-      "contentSha256": "9fc724b0b8f44e06ec4f530abc2d6d86f205c44caa70ab554eb6e9009dff3de8",
-      "previousContentSha256": "3729275ddfd2aace87374e88e9a7551ec6037c2ccbdf5dee769974123564bb0d"
+      "contentSha256": "b613aa705e94950f14d4ee4d92b6c55cd1c046cb2654d241c01f86c49122d269",
+      "previousContentSha256": "9fc724b0b8f44e06ec4f530abc2d6d86f205c44caa70ab554eb6e9009dff3de8"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/portsea/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "f57545d02164e61dcb0f76a1a34c02e9b0e4ddbac00b25e1ff97c7e90a1e84c0",
-      "previousContentSha256": "0464ddcd51151933d661cba3b33b2a5591c4b80e1ae613912cece9fb4f2e2912"
+      "contentSha256": "0c558582c6c7e1790914d377877ca5149b19b8bbd9e1497548a904d70fcdc937",
+      "previousContentSha256": "f57545d02164e61dcb0f76a1a34c02e9b0e4ddbac00b25e1ff97c7e90a1e84c0"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/index.md",
-      "contentSha256": "124f6f4cfe10cd229e9725bce6e8b94f4e46cdf91eb3eda24b5dec0448a0e457",
-      "previousContentSha256": "1ed6898903ba3409188786be1540d0b55c03196e1f4f9f10755a9f9760af3a0b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
-      "contentSha256": "cc8568be4a76a102260dfd3b0e409de277d4b355295ba5970869b99aa54bccba",
-      "previousContentSha256": "e3dc209ecc363e772cec3163aab033698293ce002063522312bace0d83830606"
+      "contentSha256": "58e5177646ddd8072a1e6447f30216566be74cdea1eaa4a2ce7c00abe3c3366c",
+      "previousContentSha256": "124f6f4cfe10cd229e9725bce6e8b94f4e46cdf91eb3eda24b5dec0448a0e457"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
-      "contentSha256": "f98b9295d65a33716aea42a0426a1921978a3530c21551de302ff82d6e7a94d5",
-      "previousContentSha256": "a0db3eb4f5af1de5bdca56bc5c3cdd6dec0212e8e2ebe81ade175a0458bdf307"
+      "contentSha256": "7576db2101743093edcd1c0c539a0c460b0c80c359625e8d0318d3c2e264a7f3",
+      "previousContentSha256": "f98b9295d65a33716aea42a0426a1921978a3530c21551de302ff82d6e7a94d5"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/rye/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "8a5ea8cb76aa6bfddb113964964709bbe644c3e7c248e507bdec01904b3f64ef",
-      "previousContentSha256": "37bdf4840670a10c2dad06474694a21fa71ad282bf96dce44df4562a65980f72"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/safety-beach/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/safety-beach/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/safety-beach/index.md",
-      "contentSha256": "10465e6eb98eed583decdfc093a6940fd04283ae1d15ddce4aa0456dd5ea909f",
-      "previousContentSha256": "134ae1eceae00373b7be907db9b917166e5ac4decd14947568c7ed724aebbcef"
+      "contentSha256": "18c134120398b52b46e5858fcfca8fce15c26c3a90e6e4be3422d98331d5dd1b",
+      "previousContentSha256": "8a5ea8cb76aa6bfddb113964964709bbe644c3e7c248e507bdec01904b3f64ef"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/shoreham/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/shoreham/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/shoreham/index.md",
-      "contentSha256": "08cda2590fa6d85bdfc1b25879bfd89060ee80d4df69194804a52df2086efe8c",
-      "previousContentSha256": "819860ba86d6037a0245795a838250aadcc0995e517d74db2f99b51d841b0066"
+      "contentSha256": "c61565306267fef1e83b77a76c180cbf37eab16469fe5d3da30e06e37dab45bc",
+      "previousContentSha256": "08cda2590fa6d85bdfc1b25879bfd89060ee80d4df69194804a52df2086efe8c"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/somers/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/somers/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/somers/index.md",
-      "contentSha256": "7257b87a3b5216ea4664965f6fd119312c43c8be1f7cdb2774cc40790a127068",
-      "previousContentSha256": "130db248936986a7279d322fa519dfbaa5ef678194bffe8f41c961fa7a271645"
+      "contentSha256": "4fc4bd3935508fdf243e6b11fb888bf0a03e67a8f534c819bcb2ecc1fa9fa315",
+      "previousContentSha256": "7257b87a3b5216ea4664965f6fd119312c43c8be1f7cdb2774cc40790a127068"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/sorrento/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/sorrento/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/sorrento/index.md",
-      "contentSha256": "33db1dc66585160e09e9ae983c38ab8e58cca24f41d5894d2f09aaffa4156cad",
-      "previousContentSha256": "dd27c62aead5c6b670653fd434f18b3c9cccc8125d4dd7be50e95b0c0d67cddf"
+      "contentSha256": "2e5f93562c71d438717115d276ca40264683bf80e7e2c5b358511aa9c78b4276",
+      "previousContentSha256": "33db1dc66585160e09e9ae983c38ab8e58cca24f41d5894d2f09aaffa4156cad"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/index.md",
-      "contentSha256": "44ce4fb7d3e40471965103c87732df870d0c2a37ad1b8e3ece00fc9757a1fa45",
-      "previousContentSha256": "d576648f8ab8b3147827a02c6d2b956718264b5dea4cf73f81252bf7ea8940b7"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/stony-point/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/stony-point/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/stony-point/index.md",
-      "contentSha256": "2f699f661c15401d9e7d8e902ee6476d0e1b4f8e8c424032f2bf2ef8ddc7e181",
-      "previousContentSha256": "b7702d8689c1eeb57eec456bc5b0099620ecba6a52197ab8c020f3ba2ea61ff0"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/tootgarook/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/index.md",
-      "contentSha256": "94f08e11cc872ea8af9b711c065b476bcaf7099f76d758f305252ebfcae041a0",
-      "previousContentSha256": "8b76728047cdae6c507d7e743a6d7587a57cc6f03b83bd0c8f240d8c8be20704"
+      "contentSha256": "700338a6942be914e163b0d61fff0ec0b794b3c4e074032ade2911c88e64ca63",
+      "previousContentSha256": "44ce4fb7d3e40471965103c87732df870d0c2a37ad1b8e3ece00fc9757a1fa45"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/tuerong/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tuerong/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/tuerong/index.md",
-      "contentSha256": "5904daf2425ab7e82eea583c2adde6a57c08138dda8cb90551e44ad5d1ddf31f",
-      "previousContentSha256": "13f18c138f2ad84e390cf3163b6ac0d3481550bffad40980bc7d8dcaadf2c09f"
+      "contentSha256": "4f20c30614f7424babe3acdb36d69f8ee78c3733127fe59e91fb77a072ac534f",
+      "previousContentSha256": "5904daf2425ab7e82eea583c2adde6a57c08138dda8cb90551e44ad5d1ddf31f"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/tyabb/",
+      "id": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tyabb/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tyabb/index.md",
-      "contentSha256": "0b5a4895ce7b9b33d4330cd7c1a04220a9af493e69300fcd8f16426e7986f883",
-      "previousContentSha256": "7a6bc4e32ceb8d667eeaba9d31c13d28530e9faedd55493ec06cd0e5a9d66912"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
+      "contentSha256": "74c5df2648d21e6ef8a111f690c679a3c98a6525423e17ed7c7aaebeb214d3a1",
+      "previousContentSha256": "766588e63b88edd8d9ffa5b900a5a57bb0ce799e952b40f62cf95259153b9244"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
+      "contentSha256": "627a88f7a3e99390fe2260cc4a9c4e2ec582a141b18c08c2347caf205d0619ee",
+      "previousContentSha256": "8b30219298d2c24f43edfda6a5022a3d022cfcb0ca573eeec94f3da040d376e6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
+      "contentSha256": "3e7375ccba9ef4386ab2011716f2927c3c4eba99aeb611d25d4ee029ff0e2f85",
+      "previousContentSha256": "b5305d7b5b6cd1ed6bf2cf355b07b752d44bf2e9aff00f5a9299636f5f1510c5"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "b08b6f1180290e032e4c59a4cc721ae2c16eb066a5acb78b896d1df9d2d83dff",
-      "previousContentSha256": "3f6818ab3c48a7d7ff237c6bcc991b189ab702f3f90a7196dac447d4e78c21a7"
+      "contentSha256": "78e421d3c6a14f2b365caca81f0d02ca71e61bc8a3ac26170dc00c96c1fbe933",
+      "previousContentSha256": "b08b6f1180290e032e4c59a4cc721ae2c16eb066a5acb78b896d1df9d2d83dff"
     }
   ]
 }

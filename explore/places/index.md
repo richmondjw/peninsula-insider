@@ -61,7 +61,7 @@ Blairgowrie is the quieter neighbour between Rye and Sorrento - the stretch of f
 
 ### [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-Rye is the pivot point of the lower Peninsula - the last town before Sorrento and Portsea, the first one where the landscape really opens up to the Southern Ocean. The front beach is a long…
+Rye sits on the lower Peninsula between Tootgarook and Blairgowrie. The bay-facing front beach has a pier and sheltered water; the ocean-facing back beach is a separate outing with different…
 
 The decision before the booking
 
@@ -125,11 +125,11 @@ Bittern is a small Western-Port village named for the marsh bird that still nest
 
 ### [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>)
 
-Boneo is the rural triangle between Rye, the back beaches and Cape Schanck, and for most of its history it was almost entirely a farming district. It still…
+Boneo is a rural district inland from the southern beaches, between Rye and Cape Schanck. Paddocks, wetlands and broad roads give it a different pace from the…
 
 ### [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)
 
-Capel Sound is the western half of what was, until 2017, simply called Rosebud West, and the renaming did the place a quiet favour. It is now its own town in…
+Capel Sound runs along Port Phillip Bay west of Rosebud and east of Tootgarook. Its long beach, foreshore campsites and flat Bay Trail make walking and camping…
 
 ### [Crib Point](<https://peninsulainsider.com.au/explore/places/crib-point/>)
 

@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Main Ridge
 
-Chardonnay grapes at the Main Ridge Estate vineyard, Mornington Peninsula
-
 Where in the Peninsula is PI?
 
 PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of you, as usual.

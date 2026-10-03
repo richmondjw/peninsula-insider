@@ -209,7 +209,7 @@ Open the town index
 
 - [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  The boardwalk at the tip of the headland, where the Southern Ocean comes in.
 
-- [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)  The Peninsula's biggest beachfront camp ground and the quieter half of the Rosebud bay…
+- [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>)  A broad bay foreshore where camping and a flat coast walk set the pace.
 
 - [Crib Point](<https://peninsulainsider.com.au/explore/places/crib-point/>)  The walking village between Hastings and the Stony Point ferry - quiet, mangrove-edged, train-accessible.
 

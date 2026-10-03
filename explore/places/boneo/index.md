@@ -9,11 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Boneo
 
-Open Boneo farmland with the Cape Schanck ridge in the distance
+Boneo is a rural locality between Rye and Cape Schanck, near the Fingal thermal springs and Cape Schanck coastal attractions.
 
-Boneo is a rural locality on the Mornington Peninsula's southern back-beach belt between Rye and Cape Schanck, 90 km from Melbourne, home to the Boneo Maze, the Peninsula Hot Springs / Alba thermal-springs district and the RACV Cape Schanck Resort.
-
-Boneo is the rural triangle between Rye, the back beaches and Cape Schanck, and for most of its history it was almost entirely a farming district. It still feels that way - long straight roads through paddocks, horse studs, the occasional cellar door - but on the southern edge of the district sit Peninsula Hot Springs and RACV Cape Schanck Resort, two of the Peninsula's busiest visitor anchors. That gives Boneo an unusual character: a working agricultural pocket that happens to sit on top of geothermal water and next to a golf-and-spa resort. The Boneo Maze and Wetland is the family-friendly headline, but the real draw is the position - fifteen minutes from a soak, ten minutes from a back-beach walk, and twenty minutes from a long lunch in Red Hill. Stay here if you want the hot-springs belt at your door without the resort vibe.
+Boneo is a rural district inland from the southern beaches, between Rye and Cape Schanck. Paddocks, wetlands and broad roads give it a different pace from the bay towns. Boneo Discovery Park is a family stop in the area; Peninsula Hot Springs and Alba are in nearby Fingal, while RACV Cape Schanck is farther south in Cape Schanck. Use Boneo as a base for those outings, and check each operator's address and opening details before setting out.
 
 At a glance
 
@@ -67,9 +65,9 @@ Boneo in brief
 
 ## Boneo in 5 points
 
-- 01   Boneo is rural country that happens to sit beside Peninsula Hot Springs, Alba Thermal Springs and RACV Cape Schanck - a quieter base than Rye for the same belt.
+- 01   Boneo is rural country near Fingal's thermal springs and Cape Schanck, rather than a resort strip itself.
 
-- 02   Best for: families wanting the Boneo Maze plus a soak; golfers basing at RACV; visitors who want hot-springs proximity without staying inside a resort.
+- 02   Best for: families considering Boneo Discovery Park, golfers and visitors wanting a rural base near the hot springs.
 
 - 03   Signature experience: an afternoon at the maze with kids, a sundown soak, breakfast on the deck the next morning.
 
@@ -147,7 +145,7 @@ Bay Coast · town
 
 ### [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
-Rye is the pivot point of the lower Peninsula - the last town before Sorrento and Portsea, the first one where the landscape really opens up to the Southern Ocean. The front beach is a long bay-calm stretch with a pier and a century of summer memory behind it; the back beach is where you drive to in ten minutes to remind yourself that the ocean side is an entirely different country. In between sits a main street that has quietly improved itself over the past five years, a brewery precinct in the hills above the town, and Peninsula Hot Springs close enough to slot into an afternoon without rearranging the day. Rye is where families have always come to do nothing in particular, and that remains the right instinct.
+Rye sits on the lower Peninsula between Tootgarook and Blairgowrie. The bay-facing front beach has a pier and sheltered water; the ocean-facing back beach is a separate outing with different conditions. Point Nepean Road gives visitors places to eat and shop, while the Fingal hot springs are a drive inland. Use Rye as a base for both coasts, and check beach conditions before swimming.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 
