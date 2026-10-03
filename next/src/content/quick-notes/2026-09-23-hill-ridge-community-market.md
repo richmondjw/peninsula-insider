@@ -13,7 +13,7 @@ sources:
     url: "https://www.hillandridgemarket.com.au/"
     note: "Organiser homepage lists 3 October 2026, 9am to 2pm, Red Hill Recreation Reserve, and says unsafe weather may cancel the event."
     checkedAt: 2026-09-23T22:38:00+10:00
-status: published
+status: archived
 ---
 The Hill & Ridge Community Market organiser lists its next date as Saturday 3 October, from 9am to 2pm at Red Hill Recreation Reserve.
 
