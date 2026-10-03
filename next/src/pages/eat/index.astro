@@ -33,10 +33,10 @@ import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { rightsStateOf, hasRecordedProvenance, depictionStatusOf, illustrativeDisclosure } from '../../lib/media-provenance';
 import FilterBar from '../../components/v5/FilterBar.astro';
-import { routeSlug, resolveHeroSrc, hasOwnHeroImage, eatTypes, isListableVenue } from '../../lib/editorial';
+import { routeSlug, eatTypes, isListableVenue } from '../../lib/editorial';
 import { getFacets } from '../../lib/facets';
-import { loadOverrides } from '../../lib/inline-edit/overrides';
 import { loadLiveEvents } from '../whats-on/_data';
 
 // ── Data ──────────────────────────────────────────────────────────────────────
@@ -73,15 +73,23 @@ const typeLabel: Record<string, string> = {
   winery: 'Winery',
 };
 
-/** Card image: CMS override first, then the venue's own hero. Text-only when
- *  the venue has no photo of its own (compact-row tolerates that). */
-async function cardImage(venue: any): Promise<{ src: string; alt: string; caption?: string } | undefined> {
-  const hero = await resolveHero('venue', routeSlug(venue), venue.data);
+/** Directory and Six cards may show only images with their own recorded
+ *  subject and rights evidence. CMS replacements have no per-image permission
+ *  fields; a different frontmatter photo cannot lend them its provenance. */
+async function cardImage(venue: any): Promise<{ src: string; alt: string; caption?: string; credit?: string } | undefined> {
+  const image = venue.data.heroImage;
+  if (rightsStateOf(image) !== 'recorded' || !hasRecordedProvenance(image)) return undefined;
+  if (!image?.permission?.trim() || !image?.rightsHolder?.trim() || !image?.permittedUses?.includes('website') || !image?.credit?.trim()) return undefined;
+  if (depictionStatusOf(image) === 'unverified') return undefined;
+  const hero = await resolveHero('venue', routeSlug(venue), venue.data, 'heroImage', { ignoreOverride: true });
   if (!hero.hasPhoto) return undefined;
-  const status = !hero.override ? venue.data.heroImage?.depictionStatus : undefined;
-  // A caption cannot make an unverified depiction trustworthy in a discovery card.
-  if (status === 'unverified') return undefined;
-  return { src: hero.src, alt: hero.alt, caption: status === 'illustrative' ? 'Illustrative image' : undefined };
+  const disclosure = illustrativeDisclosure(image, venue.data.name);
+  return {
+    src: hero.src,
+    alt: hero.alt,
+    caption: disclosure ? `${disclosure.label}. ${disclosure.detail}` : undefined,
+    credit: image.credit,
+  };
 }
 
 /** lastVerified arrives as a Date via z.coerce; Card wants an ISO string. */
@@ -104,9 +112,10 @@ function verdictLine(signature?: string): string | undefined {
 
 // ── The Six: editorially pinned by the desk. Verdicts are Critic
 //    voice, 25 words maximum, distilled from each venue's own editorial copy.
-const sixPicks: Array<{ slug: string; verdict: string }> = [
+const sixPicks: Array<{ slug: string; verdict: string; plateLabel?: string }> = [
   {
     slug: 'tedesca-osteria',
+    plateLabel: 'The long lunch',
     verdict: 'The long lunch, settled: wood oven, one set menu, and a room built for a slow table. Book lunch, not dinner.',
   },
   {
@@ -143,6 +152,7 @@ for (const pick of sixPicks) {
     entityType: 'venue',
     entitySlug: routeSlug(venue),
     image: await cardImage(venue),
+    plateLabel: pick.plateLabel,
     verdict: pick.verdict,
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     freshness: isoDate(informationCheckedOn(venue.data)),
@@ -287,6 +297,8 @@ export const prerender = true;
     sub="Start with a long lunch, a coffee stop or an easy village meal. Check opening times, menus and bookings with the venue."
     surface="eat"
     items={sixItems}
+    suppressImageHydration
+    lockImageEditing
   />
 
   <!-- Best-of rail: the strongest guide lanes, 6 maximum -->
@@ -315,6 +327,8 @@ export const prerender = true;
     noun="places"
     surface="eat"
     items={directoryItems}
+    suppressImageHydration
+    lockImageEditing
     fullVerdicts
     desktopColumns={2}
     topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
