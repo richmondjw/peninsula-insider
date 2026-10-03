@@ -1,0 +1,63 @@
+{
+  "schemaVersion": "1.0",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/places/boneo/"
+  ],
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "status": "bounded-release-ready",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "publicRevision": "e4cc4c26c27a98be9c6626bf7e25f78d7ed66e04",
+    "observed": "Exact public HTML still carried map data-lat=-38.4194, data-lng=144.8333; its day plan promoted Boneo Discovery Park, Fingal hot springs and RACV Cape Schanck as the defining Boneo circuit. The generic CMS hero has no item-level source, creator or licence record.",
+    "rubric": "No independent complete 23-criterion score is available; baseline score stays null."
+  },
+  "hypothesis": "A verified locality pin and an actual-Boneo itinerary will prevent misnavigation and make the page a more useful planning guide.",
+  "boundedChange": "Move the Boneo map and structured-data coordinates to the named OpenStreetMap locality point. Rewrite only the Boneo intro, lede and planning fields around Hawkes Farm, Greens Bush and Boneo Park, and explicitly place the similarly named Discovery Park in Fingal. No imagery or broad shared template changes.",
+  "metric": "Content validation and production build pass; local and live Boneo page show the new pin and Fingal address, with no horizontal overflow or page errors at 320, 390 and 1440 pixels. Independent reviewer gives bounded factual release verdict. Full score remains null.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the bounded Boneo content commit if verified locality or visitor guidance fails exact public checks.",
+  "sources": [
+    {
+      "url": "https://api.openstreetmap.org/api/0.6/node/9304234293",
+      "supports": "Named Boneo locality point at -38.4062537, 144.9005697."
+    },
+    {
+      "url": "https://store.hawkesfarm.com.au/pages/visit-us",
+      "supports": "Hawkes Farm market address: 661 Boneo Road, Boneo."
+    },
+    {
+      "url": "https://www.boneodiscoverypark.com.au/welcome/",
+      "supports": "Boneo Discovery Park address: 695 Limestone Road, Fingal."
+    },
+    {
+      "url": "https://boneopark.com.au/",
+      "supports": "Boneo Park equestrian activity and events."
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/-/media/project/pv/main/parks/documents/visitor-guides-and-publications/mornington-peninsula-national-park/mornington-peninsula-national-park---greens-bush-visitor-guide.pdf",
+      "supports": "Greens Bush walks and Patterson Road Boneo access."
+    }
+  ],
+  "validation": {
+    "content": "npm run validate:content passed on candidate",
+    "productionBuild": "TZ=UTC npm run build:search passed every repository gate and Pagefind indexed 727 pages; generated reports excluded from the commit.",
+    "localBrowser": "Static preview at 320/390/1440: HTTP 200, exact new Boneo map data coordinates, Fingal address and Hawkes Farm visible; old signature absent, no page errors or horizontal overflow. Rendered Leaflet tiles and Boneo marker confirmed independently.",
+    "independentReview": "Independent reviewer compared exact live and candidate public rendering and primary sources. Bounded factual/map release GO: OSM named locality point matches candidate; live pin ~6 km west, Boneo and Fingal operator addresses correct. 320/390/1440 HTTP 200, marker/tiles rendered, no page errors or overflow. Full 23-criterion score null; CMS hero VS1 hard gate remains.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Boneo CMS hero item-level subject and rights proof, descriptive alt and visible attribution",
+    "Full independent 23-criterion review",
+    "Direct assistive-technology journey",
+    "Field performance"
+  ],
+  "negativeFindings": [
+    "The published JPEG has only JFIF and ICC segments; it contains no embedded creator or rights metadata. This is missing proof, not proof of infringement.",
+    "A bounded locality correction cannot be converted into a 99/100 page score."
+  ],
+  "nextAction": "Commit, push, pass normal CI and protected deploy, then verify exact public release and page; resolve CMS hero and full-rubric gates in a separate set."
+}
