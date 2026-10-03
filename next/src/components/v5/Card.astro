@@ -62,6 +62,8 @@ export interface Props {
   imageEdit?: { entityType: CmsEntityType; entitySlug: string; fieldPath: string };
   /** Keep a curated image when an incomplete CMS row exists at this slot. */
   suppressImageHydration?: boolean;
+  /** Lock this card photo to its reviewed source; editing remains available on its detail page. */
+  lockImageEditing?: boolean;
   /** Client CMS replacement must have descriptive alt text and a credit. */
   requireImageMetadata?: boolean;
   /** Omit for text-only compact rows (enforcer HERO_EXEMPT case). */
@@ -135,6 +137,7 @@ const {
   fieldPath = 'heroImage',
   imageEdit,
   suppressImageHydration = false,
+  lockImageEditing = false,
   requireImageMetadata = false,
   image,
   verdict,
@@ -245,6 +248,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     'pi-card',
     variant === 'compact-row' ? 'pi-card--compact' : `pi-card--${variant}`,
     isEditorial && 'pi-card--editorial',
+    lockImageEditing && 'pi-card--image-locked',
   ]}
   data-variant={variant}
 >
@@ -257,13 +261,13 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
         alt={image!.alt}
         loading="lazy"
         decoding="async"
-        {...editableImage({
+        {...(lockImageEditing ? {} : editableImage({
           entityType: imageEdit?.entityType ?? entityType,
           entitySlug: imageEdit?.entitySlug ?? entitySlug,
           fieldPath: imageEdit?.fieldPath ?? fieldPath,
           label: `${title} image`,
           purpose: 'card',
-        })}
+        }))}
       />
       {eventDate && (
         <span class="pi-card__date-block" aria-hidden="true">
@@ -715,6 +719,12 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   .pi-card.pi-card--compact .pi-card__body {
     padding: 0;
   }
+  .pi-card.pi-card--compact.pi-card--image-locked .pi-card__image-note {
+    order: 1;
+    margin: 0;
+    font-size: 0.6875rem;
+    line-height: 1.35;
+  }
   .pi-card.pi-card--compact .pi-card__title {
     font-size: var(--fs-400);
   }
@@ -726,9 +736,12 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     margin-left: auto;
   }
   @media (max-width: 22.5em) {
-    /* thumb hides below 360px per spec 2.15 responsive rules */
+    /* Default compact cards stay text-first at narrow widths. Reviewed Eat photos remain beside their credits. */
     .pi-card.pi-card--compact .pi-card__media {
       display: none;
+    }
+    .pi-card.pi-card--compact.pi-card--image-locked .pi-card__media:not(.pi-card__media--plate) {
+      display: block;
     }
   }
 

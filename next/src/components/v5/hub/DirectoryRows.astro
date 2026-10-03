@@ -72,6 +72,9 @@ export interface Props {
    */
   countable?: boolean;
   missingImagePlate?: boolean;
+  /** Keep documented listing photography fixed when the public CMS hydrates image slots. */
+  suppressImageHydration?: boolean;
+  lockImageEditing?: boolean;
   desktopColumns?: 1 | 2;
   fullVerdicts?: boolean;
   detailActionFallback?: boolean;
@@ -90,6 +93,8 @@ const {
   emptyBody,
   countable = true,
   missingImagePlate = false,
+  suppressImageHydration = false,
+  lockImageEditing = false,
   desktopColumns = 1,
   fullVerdicts = false,
   detailActionFallback = false,
@@ -129,6 +134,8 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
             entityType={item.entityType}
             entitySlug={item.entitySlug}
             image={item.image}
+            suppressImageHydration={suppressImageHydration}
+            lockImageEditing={lockImageEditing}
             mediaFallback={missingImagePlate && !item.image}
             verdict={item.verdict}
             meta={item.meta}

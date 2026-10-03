@@ -1,11 +1,12 @@
 {
-  "generatedAt": "2026-10-03T10:55:40.330Z",
+  "generatedAt": "2026-10-03T11:12:29.613Z",
   "asOf": "2026-10-03",
   "staleAfterDays": 90,
   "assertedMetrics": [
     "missingVerificationDate",
     "duplicateTitleGroups",
     "duplicateVenueDateGroups",
+    "duplicateSaveDateGroups",
     "unresolvableRecurrence",
     "cancelledWithoutProvenance",
     "postponedWithoutProvenance",
@@ -14,12 +15,13 @@
     "unboundedOccurrence"
   ],
   "totals": {
-    "liveEvents": 38,
+    "liveEvents": 37,
     "cancelledEvents": 1,
     "missingVerificationDate": 0,
-    "staleVerificationDate": 12,
+    "staleVerificationDate": 10,
     "duplicateTitleGroups": 0,
     "duplicateVenueDateGroups": 0,
+    "duplicateSaveDateGroups": 0,
     "unresolvableRecurrence": 0,
     "cancelledWithoutProvenance": 0,
     "postponedEvents": 0,
@@ -47,16 +49,6 @@
     },
     {
       "file": "peninsula-hot-springs-hot-springs-yoga-complimentary.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
-      "file": "peninsula-summer-music-festival-2027-save-the-date.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
-      "file": "peninsula-summer-music-festival-2027.json",
       "lastCheckedDate": "2026-05-04",
       "ageDays": 152
     },
@@ -93,6 +85,7 @@
   ],
   "duplicateTitleGroups": [],
   "duplicateVenueDateGroups": [],
+  "duplicateSaveDateGroups": [],
   "unresolvableRecurrence": [],
   "cancelledWithoutProvenance": [],
   "postponedWithoutProvenance": [],

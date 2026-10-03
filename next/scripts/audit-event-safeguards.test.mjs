@@ -54,6 +54,7 @@ async function audit(records, { today = '2026-08-29', ceilings = {} } = {}) {
           missingVerificationDate: 0,
           duplicateTitleGroups: 0,
           duplicateVenueDateGroups: 0,
+          duplicateSaveDateGroups: 0,
           unresolvableRecurrence: 0,
           cancelledWithoutProvenance: 0,
           // PI-008 metrics. Zero by default so a new test has to opt out
@@ -107,6 +108,23 @@ test('same venue and date with genuinely different events is not a duplicate', a
   const { code } = await audit({
     a: { ...BASE, title: 'Sound Healing Sessions' },
     b: { ...BASE, slug: 'b', title: 'Complimentary Morning Yoga' },
+  });
+  assert.equal(code, 0);
+});
+
+test('a save-the-date clone with a different broad venue is a duplicate', async () => {
+  const { code, out } = await audit({
+    a: { ...BASE, title: 'Peninsula Summer Music Festival 2027', venueName: 'Various venues' },
+    b: { ...BASE, slug: 'festival-save-date', title: 'Peninsula Summer Music Festival 2027, Save the Date', venueName: 'Festival region' },
+  });
+  assert.equal(code, 1);
+  assert.match(out, /duplicateSaveDateGroups: 1 > baseline 0/);
+});
+
+test('a save-the-date for a different edition window is not a duplicate', async () => {
+  const { code } = await audit({
+    a: { ...BASE, title: 'Peninsula Summer Music Festival 2027', venueName: 'Various venues' },
+    b: { ...BASE, slug: 'festival-save-date', title: 'Peninsula Summer Music Festival 2027, Save the Date', venueName: 'Festival region', startDate: '2027-01-02', endDate: '2027-01-10' },
   });
   assert.equal(code, 0);
 });
