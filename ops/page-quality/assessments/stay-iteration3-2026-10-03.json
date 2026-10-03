@@ -5,7 +5,7 @@
   "family": "hub",
   "assessedAt": "2026-10-03",
   "baseRevision": "2cd6631101bd9112271dec696cb5e04684c63a6c",
-  "dependsOn": "PR 527 merged as 2cd6631101bd9112271dec696cb5e04684c63a6c; public deploy still requires exact-manifest verification.",
+  "dependsOn": "PR 527 merged and public manifest verified as 2cd6631101bd9112271dec696cb5e04684c63a6c.",
   "baseline": {
     "independentVisualPoints": 85.25,
     "assessedWeight": 90,

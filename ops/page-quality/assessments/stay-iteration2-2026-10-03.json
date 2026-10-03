@@ -11,7 +11,7 @@
     "fullScore": null,
     "note": "Visual baseline on earlier live revision; new build has not been independently graded against all 23 criteria."
   },
-  "status": "in-remediation",
+  "status": "released-below-target",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider task",
   "decision": "adapt",
@@ -64,7 +64,7 @@
     "firsthandClaimLint": "passed",
     "productionBuild": "npm run build:search passed, including repository gates and 728 indexed pages.",
     "independentRegrade": "pending",
-    "liveAcceptance": "pending",
+    "liveAcceptance": "Public release manifest matched 2cd6631101bd9112271dec696cb5e04684c63a6c; live 390px browser returned 200 on Stay, Polperro, Blue Moon and vineyard-villa pages, rendered 27 directory rows with no overflow, and omitted the unsupported appliance, dog-size and price claims.",
     "linkHealth": "Five new operator citations probed and recorded as ok; assert:link-health passed with zero unrecorded citations.",
     "settledBrowser": "Static preview at 320, 390 and 1440px: Stay loaded without horizontal overflow; corrected vineyard-villa article omitted the removed price and unsupported appliance claims."
   },
@@ -73,7 +73,7 @@
     "full assistive technology and 23-criterion independent regrade",
     "mobile directory density and current Hotel Sorrento decision imagery"
   ],
-  "nextAction": "Release through CI and verify exact public revision; then source-check the remaining 20 listings and complete independent grading.",
+  "nextAction": "Continue the next five operator checks in PR 528, then source-check fifteen more Stay listings and complete full independent grading.",
   "sourceCoverage": {
     "totalStayListings": 27,
     "withDatedCheck": 7,
@@ -133,5 +133,11 @@
   },
   "negativeFindings": [
     "Existing ratcheted dead URL in next/src/content/daily-insights/2026-08-22.json events[0].url remains in link-health report; not introduced by this Stay batch."
-  ]
+  ],
+  "release": {
+    "pr": "https://github.com/richmondjw/peninsula-insider/pull/527",
+    "mergeRevision": "2cd6631101bd9112271dec696cb5e04684c63a6c",
+    "deployRun": 37085035560,
+    "publicVerified": true
+  }
 }
