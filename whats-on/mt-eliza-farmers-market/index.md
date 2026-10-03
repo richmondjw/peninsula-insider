@@ -9,23 +9,25 @@ Markets     25 October 2026     Recurs monthly
 
 # Mt Eliza Farmers Market
 
-The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm, with paid entry supporting local Rotary and Lions work.
 
 Worth the drive   First timer
 
 Editor's verdict
 
-The only VFMA-accredited farmers market on the Peninsula: if the producer's name is on the stall, the producer grew it.
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
-Mt Eliza runs the fourth Sunday of every month in the village precinct. The VFMA accreditation is the point: no resellers, no imports dressed up as local. Flinders Sourdough, Mumma Made, Red Hill Apples, Blue Bay cheese: a tight, quality lineup rather than 200 stalls of variable quality.
+The organiser lists 25 October and 22 November 2026 as 9am–1pm markets. Paid entry supports Mt Eliza Rotary and Lions clubs; check the organiser for the current fee. The 18 December twilight market has a separate schedule, so check the organiser's page before planning around that date.
 
-The move: go for the weekly shop, not the day out. Bring bags and an esky, hit it by 9:30am, then stay for brunch in the village. The right market if you care about provenance over volume.
+Browse the growers and makers, then stop for brunch in Mt Eliza village.
 
 Hosted at
 
 Mt Eliza Village Precinct
 
 Corner Mt Eliza Way and Canadian Bay Road   ,   Mount Eliza VIC
+
+- [Visit venue website →](<https://www.mtelizafarmersmarket.com.au/>)
 
 - [Get directions →](<https://www.google.com/maps?q=-38.1898,145.0931>)
 
@@ -41,11 +43,11 @@ At a glance
 
 **Recurrence**
 
-Recurs monthly · Monthly – 4th Sunday of every month (year-round)
+Recurs monthly · Fourth Sunday October through November 2026, 9am to 1pm.
 
 **Price**
 
-Free
+Check organiser for pricing
 
 **Weather**
 
@@ -59,15 +61,11 @@ Yes - unprompted recommendation
 
 Start here
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mt+Eliza+Farmers+Market&dates=20261024T220000Z%2F20261025T020000Z&details=The+only+VFMA-accredited+farmers+market+on+the+Mornington+Peninsula.+Only+genuine+farmers+and+specialty+makers.+Monthly+on+the+4th+Sunday.+Produce+includes+Flinders+Sourdough%2C+Mumma+Made+jams%2C+Red+Hill+Apples%2C+Blue+Bay+cheese.+VFMA+accreditation+guarantees+farm-gate+authenticity.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmt-eliza-farmers-market%2F&location=Corner+Mt+Eliza+Way+and+Canadian+Bay+Road%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.mtelizafarmersmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mt+Eliza+Farmers+Market&dates=20261024T220000Z%2F20261025T020000Z&details=VFMA-accredited+farmers+market+on+the+Mount+Eliza+Village+Green+and+Mt+Eliza+Way+service+road.+The+organiser+lists+25+October+and+22+November+2026%2C+9am%E2%80%931pm%2C+with+paid+entry+supporting+local+Rotary+and+Lions+work.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmt-eliza-farmers-market%2F&location=Corner+Mt+Eliza+Way+and+Canadian+Bay+Road%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
 - Weekend Pick
-
-- Family Saturday
-
-- Free
 
 - Walk-In
 

@@ -11,6 +11,14 @@ Wet-weather rescue
 
 Indoor events that hold up regardless of the weather. Galleries, cellar doors with proper restaurant tables, hot springs, treatment rooms. The Peninsula has more wet-weather options than people think.
 
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
 Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours

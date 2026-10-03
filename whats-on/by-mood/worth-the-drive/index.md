@@ -65,11 +65,11 @@ Monthly makers market at Mornington Racecourse, with handmade and Australian-des
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-Markets   Monthly – 4th Sunday of every month (year-round)
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-The only VFMA-accredited farmers market on the Mornington Peninsula.
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 

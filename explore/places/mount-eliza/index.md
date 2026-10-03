@@ -189,6 +189,6 @@ Coming up in Mount Eliza, pulled from the events registry.
 
 Mount Eliza
 
-The only VFMA-accredited farmers market on the Mornington Peninsula. Only genuine farmers and specialty makers. Monthly on the 4th Sunday. Produce includes Flinders Sourdough, Mumma Made jams, Red Hill Apples, Blue Bay cheese. VFMA accreditation guarantees farm-gate authenticity.
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm, with paid entry supporting local Rotary and Lions work.
 
  Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
