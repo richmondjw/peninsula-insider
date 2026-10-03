@@ -226,12 +226,21 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
   }
 
   @media (max-width: 47.9375em) {
+    .wo-scope {
+      margin-top: 0.5rem;
+    }
+    .wo-scope__row {
+      gap: 0.375rem;
+    }
     .wo-scope__dates {
       display: none;
     }
     .wo-scope__btn {
       flex-direction: row;
       align-items: center;
+      min-height: 44px;
+      padding-inline: 0.55rem;
+      font-size: 0.875rem;
     }
     .wo-scope__form {
       left: auto;

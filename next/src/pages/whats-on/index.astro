@@ -873,8 +873,13 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
   .wo-filters__clear { min-height: 44px; border: 0; background: none; color: var(--accent); font: inherit; text-decoration: underline; cursor: pointer; }
   .wo-filters :is(input, select, button):focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
   @media (max-width: 640px) {
-    .wo-head { padding-top: 1rem; }
+    .wo-head { padding: 0.5rem 0 0.75rem; }
     .wo-head__rule + .wo-head__rule { display: none; }
+    .wo-scope-wrap { padding-top: 0.5rem; }
+    .wo-filter-disclosure { margin-top: 0.25rem; }
+    .wo-days { padding-top: 0.75rem; }
+    .wo-days__title { margin-bottom: 0.5rem; }
+    .wo-day { margin-top: 0.75rem; }
     .wo-filters label:not(.wo-filters__check) { flex: 1 1 100%; }
   }
 
