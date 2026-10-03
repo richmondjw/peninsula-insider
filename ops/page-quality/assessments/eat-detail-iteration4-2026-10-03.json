@@ -8,7 +8,7 @@
     "sourceSha": "de0041dd6e85963816c291f61e09ef4cb1c1b9ce",
     "buildRunId": "37119506010"
   },
-  "status": "in-remediation",
+  "status": "live-bounded-verified",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider programme",
   "decision": "adapt",
@@ -21,7 +21,7 @@
   "validation": {
     "productionBuild": "PASS: final npm run build:search exited 0; Pagefind indexed 727 pages. Generated HTML sweep of all 52 baseline destinations had zero media-classification failures.",
     "independentReview": "Two independent bounded GO reviews: visual reviewer checked Laura, Dromana, Doot and Epicurean at 320/390/1440 with zero overflow and no empty hero; release QA fetched all 52 destinations, checked media/OG/Twitter/Pagefind classes, representative booking, credits, disclosure and sampled Stay/Wine unchanged. These are not full 23-criterion scores.",
-    "liveAcceptance": "pending protected CI, exact public manifest and browser verification",
+    "liveAcceptance": "PASS: public manifest sourceSha f1230d4f06a9e799c3790be42860b83f8376eaa7, buildRunId 37121713795; deploy workflow succeeded. Browser fetched all 52 linked Eat destinations with zero media/metadata classification failures and checked Laura, Dromana, Doot and Epic at 320/390/1440: all 200, zero overflow, documented credits/disclosure preserved.",
     "independentPublicBaseline": "Laura 50/75 across 17 assessed criteria; Doot 55/75 across 17; Epicurean 59/79 across 18. Full score null and unassessed criteria remain open. Image gate and separate place/claim issues noted.",
     "firstVisualReview": "NO-GO: the first title-panel treatment removed unsupported photos but duplicated H1 and stacked a 224px/400px dark panel above the dark Why we’d go card. Replaced with true text-first layout; re-review pending.",
     "firstMetadataReview": "NO-GO: unsupported Eat pages inherited a generic section photo in Open Graph, Twitter and Pagefind metadata despite omitting the visible hero. Added a scoped suppressImageMeta prop on those pages; final build and independent recheck pending.",
@@ -38,5 +38,5 @@
     "Five Eat detail photo stages each carry documented website permission and visible photo credits in source/public rendering.",
     "The Doot hero content record explicitly identifies a Jackalope Hotel exterior as illustrative."
   ],
-  "nextAction": "Create and merge a bounded PR through protected CI; verify exact public manifest and 320/390/1440 public behavior. Then triage factual claims, sitemap register drift and full 23-criterion regrade."
+  "nextAction": "Resolve factual hard gates on The Epicurean, Doot and Laura; reconcile sitemap inventory and independently grade all 23 criteria with remaining accessibility/performance evidence. Full score remains null."
 }
