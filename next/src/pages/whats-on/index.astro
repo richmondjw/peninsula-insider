@@ -138,7 +138,8 @@ const pickCards = picks.map((p, i) => {
     href: p.live.href,
     slug: p.live.slug,
     image: data.heroImage
-      ? { src: data.heroImage.src as string, alt: (data.heroImage.alt ?? p.live.title) as string }
+      ? { src: data.heroImage.src as string, alt: (data.heroImage.alt ?? p.live.title) as string,
+          caption: data.heroImage.caption as string | undefined, credit: data.heroImage.credit as string | undefined }
       : undefined,
     verdict: p.verdict,
     meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
@@ -157,6 +158,7 @@ const categoryOptions = [...new Set(events.map((entry) => entry.event.data.categ
   .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
 const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
+const hubImage = pageImage('whats-on-hub');
 ---
 
 <BaseLayout
@@ -171,12 +173,17 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
 
   <header class="wo-head">
     <div class="container wo-head__inner">
-      <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
-      <p class="wo-head__context">
-        <span data-wo-range>{weekend.label}</span> · {season} on the Peninsula
-      </p>
-      <p class="wo-head__rule">Browse events by date, then check the organiser before you go.</p>
-      <p class="wo-head__rule">This calendar includes Friday to Sunday. Ongoing listings show their full run; check opening days with the organiser.</p>
+      <div class="wo-head__copy">
+        <p class="wo-head__eyebrow">The Peninsula, in motion <span aria-hidden="true">✳</span> {season} edition</p>
+        <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
+        <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
+        <p class="wo-head__rule">A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.</p>
+        <p class="wo-head__credit-mobile">Photo: {hubImage.credit}.</p>
+      </div>
+      <figure class="wo-head__figure">
+        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" />
+        <figcaption>{hubImage.caption} Photo: {hubImage.credit}.</figcaption>
+      </figure>
     </div>
   </header>
 
@@ -215,10 +222,49 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     <TrustNote surface="whatson" />
   </div>
 
-  <section class="wo-days" aria-label="Everything on for the selected dates">
+  {picks.length > 0 && (
+    <section class="wo-picks" aria-labelledby="wo-picks-h">
+      <div class="container">
+        <div class="wo-picks__head">
+          <div>
+            <p class="wo-section-kicker">The short list / {weekend.label}</p>
+            <h2 class="wo-picks__title" id="wo-picks-h">Three reasons to go</h2>
+          </div>
+          <p class="wo-picks__dek">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
+        </div>
+        <CardGrid label="PI's picks for this weekend">
+          {pickCards.map((c) => (
+            <Card
+              variant="event"
+              title={c.title}
+              href={c.href}
+              entityType="event"
+              entitySlug={c.slug}
+              image={c.image}
+              verdict={c.verdict}
+              meta={c.meta}
+              dateISO={c.dateISO}
+              showEyebrow={false}
+              mediaFallback={true}
+              trip={true}
+              surface="whatson"
+              position={c.position}
+            />
+          ))}
+        </CardGrid>
+        <a class="wo-picks__all" href="#wo-calendar">Explore the full calendar <span aria-hidden="true">↘</span></a>
+      </div>
+    </section>
+  )}
+
+  <section class="wo-days" id="wo-calendar" aria-label="Everything on for the selected dates">
     <div class="container">
       <div class="wo-days__head">
-        <h2 class="wo-days__title">Everything on, by day</h2>
+        <div>
+          <p class="wo-section-kicker">Make a day of it</p>
+          <h2 class="wo-days__title">Everything on, by day</h2>
+        </div>
+        <p class="wo-days__hint">Browse by date and save what catches your eye.</p>
         <p id="pi-results-status" class="wo-vh" role="status" aria-live="polite"></p>
       </div>
       <div data-wo-days data-wo-default-count={weekendCount}>
@@ -259,39 +305,6 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
       </p>
     </div>
   </section>
-
-  {picks.length > 0 && (
-    <section class="wo-picks" aria-labelledby="wo-picks-h">
-      <div class="container">
-        <div class="wo-picks__head">
-          <h2 class="wo-picks__title" id="wo-picks-h">PI's picks</h2>
-          <p class="wo-picks__dek">Selected events for this weekend. Check the organiser for the latest details.</p>
-        </div>
-        {/* Every card here is an event on the What's On page, under a heading
-            that says so: the per-card EVENT stamp is dropped. */}
-        <CardGrid label="PI's picks for this weekend">
-          {pickCards.map((c) => (
-            <Card
-              variant="event"
-              title={c.title}
-              href={c.href}
-              entityType="event"
-              entitySlug={c.slug}
-              image={c.image}
-              verdict={c.verdict}
-              meta={c.meta}
-              dateISO={c.dateISO}
-              showEyebrow={false}
-              mediaFallback={true}
-              trip={true}
-              surface="whatson"
-              position={c.position}
-            />
-          ))}
-        </CardGrid>
-      </div>
-    </section>
-  )}
 
   {shelves.length > 0 && (
     <section class="wo-shelves" aria-labelledby="wo-shelves-h">
@@ -419,7 +432,6 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     if (filterForm) filterForm.hidden = false;
     if (filterDisclosure) {
       filterDisclosure.hidden = false;
-      if (window.matchMedia('(min-width: 700px)').matches) filterDisclosure.open = true;
     }
 
     // Calendar dates use Melbourne's day and UTC date-only arithmetic in all surfaces.
@@ -1003,5 +1015,55 @@ const pageDescription = `Browse Mornington Peninsula events by date: markets, li
     margin: 0;
     padding: 0;
     border-bottom: 1px solid var(--border);
+  }
+  /* Editorial treatment: a photographic opening, curated cards, then the full calendar. */
+  .wo-head { overflow: hidden; padding: 0; background: #0b2e4a; color: #f2efea; border: 0; }
+  .wo-head__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .82fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: stretch; min-height: 22rem; }
+  .wo-head__copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 4.5rem) 0; }
+  .wo-head__eyebrow, .wo-section-kicker { margin: 0 0 .8rem; color: #a9552a; font-size: .73rem; font-weight: 800; letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; }
+  .wo-head__eyebrow { color: #f5c177; }
+  .wo-head__eyebrow span { margin: 0 .35rem; font-size: 1.1em; }
+  .wo-head__title { color: #f2efea; }
+  .wo-head__context { color: #f5c177; }
+  .wo-head__rule { color: #e5e5e0; line-height: 1.5; max-width: 38ch; }
+  .wo-head__figure { position: relative; margin: 0; min-height: 100%; }
+  .wo-head__figure::before { content: ''; position: absolute; z-index: 1; inset: 0 auto 0 0; width: 22%; background: linear-gradient(90deg, #0b2e4a, transparent); pointer-events: none; }
+  .wo-head__figure img { display: block; width: 100%; height: 100%; min-height: 22rem; object-fit: cover; }
+  .wo-head__figure figcaption { position: absolute; z-index: 2; right: .5rem; bottom: .5rem; max-width: calc(100% - 1rem); padding: .25rem .4rem; border-radius: .2rem; background: rgba(11, 46, 74, .8); color: white; font-size: .64rem; line-height: 1.3; }
+  .wo-head__credit-mobile { display: none; }
+  .wo-picks { padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(2rem, 4vw, 3.25rem); background: #f2efea; }
+  .wo-picks__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem 2rem; max-width: none; }
+  .wo-picks__dek { max-width: 26ch; margin: 0 0 .2rem; }
+  .wo-picks__all { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; margin-top: 1rem; color: #0b2e4a; font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: .2rem; }
+  .wo-picks__all span { font-size: 1.25rem; }
+  .wo-picks__all:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
+  .wo-days { padding: clamp(2rem, 4vw, 3.5rem) 0; scroll-margin-top: 5rem; }
+  .wo-days__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; max-width: none; padding-bottom: .5rem; border-bottom: 2px solid #0b2e4a; }
+  .wo-days__hint { margin: 0 0 .5rem; color: var(--soft); font-size: .9rem; }
+  .wo-day__h { color: #0b2e4a; font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 700; letter-spacing: -.02em; text-transform: none; }
+  @media (max-width: 640px) {
+    .wo-head__inner { grid-template-columns: minmax(0, 1fr) 6.5rem; min-height: 0; gap: .5rem; }
+    .wo-head__copy { padding: 1rem 0 1.1rem; }
+    .wo-head__eyebrow { margin-bottom: .35rem; font-size: .61rem; }
+    .wo-head__title { font-size: clamp(1.9rem, 8vw, 2.65rem); }
+    .wo-head__context { margin-top: .45rem; font-size: .85rem; }
+    .wo-head__rule { display: none; }
+    .wo-head__figure { margin-right: -1rem; }
+    .wo-head__figure::before { width: 55%; }
+    .wo-head__figure img { min-height: 100%; }
+    .wo-head__figure figcaption { display: none; }
+    .wo-head__credit-mobile { display: block; margin: .25rem 0 0; color: #ced8dc; font-size: .58rem; line-height: 1.2; }
+    .wo-picks__head, .wo-days__head { display: block; }
+    .wo-picks { padding-top: 1.25rem; }
+    .wo-picks__head { margin-bottom: .8rem; }
+    .wo-picks__dek { max-width: none; margin-top: .45rem; }
+    .wo-days__hint { display: none; }
+    .wo-picks__dek { display: none; }
+  }
+</style>
+<style is:global>
+  @media (max-width: 640px) {
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media,
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note { display: none; }
   }
 </style>
