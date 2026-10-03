@@ -1,0 +1,203 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "1a6ab54d2bc56fa620694f3c9aeb9165d8b50efe",
+  "baseDeploymentRun": "37122785604",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Three independent exact-public Stay reviews against rubric v1 at 320, 390 and 1440px. Public release manifest matched baseRevision/run at review. The later Eat-only release efa3cdad did not alter Stay source.",
+    "independentReviews": [
+      {
+        "reviewer": "visual",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 4,
+          "VT3": 3,
+          "VT4": 4,
+          "FN1": 4,
+          "FN2": 4,
+          "FN3": 3,
+          "ET1": 4,
+          "ET2": 3,
+          "ET3": null,
+          "ET4": 3,
+          "VS1": 3,
+          "VS2": 3,
+          "VS3": 4,
+          "VS4": 4,
+          "VS5": 4,
+          "MI1": 3,
+          "MI2": 4,
+          "MI3": 4,
+          "AT1": null,
+          "AT2": 3,
+          "AT3": 4,
+          "AT4": 4
+        },
+        "assessedWeight": 90,
+        "assessedPoints": 81.0,
+        "fullScore": null,
+        "unassessed": [
+          "ET3",
+          "AT1"
+        ],
+        "evidence": "Clear hero and area comparison; functional filters at 320/390/1440. Mobile chips conceal options, six cards and long text directory lack visual rhythm. Five listings undated; direct assistive technology not tested. One throttled lab LCP 1.78s, CLS 0.00053."
+      },
+      {
+        "reviewer": "functional",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 4,
+          "VT3": 3,
+          "VT4": 3,
+          "FN1": 3,
+          "FN2": 4,
+          "FN3": 3,
+          "ET1": 4,
+          "ET2": 3,
+          "ET3": null,
+          "ET4": 3,
+          "VS1": 3,
+          "VS2": 3,
+          "VS3": 4,
+          "VS4": 4,
+          "VS5": 3,
+          "MI1": 3,
+          "MI2": 3,
+          "MI3": 3,
+          "AT1": null,
+          "AT2": 3,
+          "AT3": 3,
+          "AT4": 4
+        },
+        "assessedWeight": 90,
+        "assessedPoints": 74.75,
+        "fullScore": null,
+        "unassessed": [
+          "ET3",
+          "AT1"
+        ],
+        "evidence": "26 directory rows; family filter 8, Mornington zero state clears to 26; focus recovery, consent and no overflow tested at 320/390/1440. Save accessible label remains stale after save. Facts and direct assistive technology still unverified; two sampled lab LCP values 240-276ms without field claim."
+      },
+      {
+        "reviewer": "editorial-and-accessibility",
+        "ratings": {
+          "VT1": 4,
+          "VT2": 4,
+          "VT3": 3,
+          "VT4": 3,
+          "FN1": 3,
+          "FN2": 4,
+          "FN3": 3,
+          "ET1": 3,
+          "ET2": 4,
+          "ET3": 2,
+          "ET4": 3,
+          "VS1": 2,
+          "VS2": 3,
+          "VS3": 4,
+          "VS4": 4,
+          "VS5": 4,
+          "MI1": 3,
+          "MI2": 4,
+          "MI3": 3,
+          "AT1": null,
+          "AT2": 3,
+          "AT3": 4,
+          "AT4": 4
+        },
+        "assessedWeight": 95,
+        "assessedPoints": 79.0,
+        "fullScore": null,
+        "unassessed": [
+          "AT1"
+        ],
+        "evidence": "Operator Hotel Sorrento warns of daytime midweek construction before its 1 December expansion, absent from the hub and detail. Five listings lack dated checks. Flinders CC BY-SA source/licence links appear on detail but not hub; rights proximity unresolved. Keyboard and Chromium accessibility tree sampled, no screen-reader sign-off. Throttled lab LCP 1.85s, CLS 0.0005."
+      }
+    ],
+    "fullScore": null,
+    "reason": "Two reviewers left ET3 and AT1 unassessed; the third treated AT1 as provisional after keyboard and accessibility-tree checks but did not run a screen reader. Factual freshness, full image-rights compliance, field performance and direct assistive technology remain open. No reviewer verified a 99/100 result."
+  },
+  "triage": [
+    {
+      "priority": 1,
+      "criterion": [
+        "ET3",
+        "VT4"
+      ],
+      "finding": "Hotel Sorrento reports possible daytime midweek construction noise and changed movement ahead of its 1 December expansion. The Stay hub shortlist and detail did not surface the current condition, although related category guides did.",
+      "source": "https://hotelsorrento.com.au/stay/",
+      "action": "Disclose the time-bounded operator notice in hub shortlist, directory and detail, and ask readers to check current conditions before reserving."
+    },
+    {
+      "priority": 2,
+      "criterion": [
+        "VS1",
+        "ET4"
+      ],
+      "finding": "The Flinders CC BY-SA 3.0 photo has a source and licence link on its detail page but only plain credit on the Stay hub card; attribution proximity and conversion disclosure remained unresolved.",
+      "source": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "action": "Link the creator credit to the source and the licence beside the hub photo, disclose resize/WebP conversion on both hub and detail."
+    },
+    {
+      "priority": 3,
+      "criterion": [
+        "ET3"
+      ],
+      "finding": "Arthurs Views, Birch Creek, Treetops, MP Beach Club Cottages and Plantation House lack displayed dated checks; all 26 operator claims need fresh source review.",
+      "action": "Verify operator facts in the next bounded batch; do not manufacture checked dates."
+    },
+    {
+      "priority": 4,
+      "criterion": [
+        "AT1",
+        "FN3",
+        "VS2",
+        "MI1"
+      ],
+      "finding": "Direct screen-reader use, chip discoverability and long directory visual rhythm remain unverified or deducted.",
+      "action": "Test assistive technology and iterate design with documented imagery only."
+    },
+    {
+      "priority": 5,
+      "criterion": [
+        "ET4",
+        "MI2"
+      ],
+      "finding": "The exact-source build exposed three existing disclosure-only featuredPartner reads beyond the dated commercial firewall baseline. Stay also prioritised platform wording over sponsorship and only attached sponsorship to a booking action, which mobile directory cards can hide. No current venue record is marked featuredPartner.",
+      "action": "Independent reviewer confirmed no ranking dependency. Allowlist only the three exact page/field disclosure reads; put sponsor wording first and on the card regardless of booking action; preserve sort and paid-content gates."
+    }
+  ],
+  "hypothesis": "Prominent construction guidance improves booking decisions; adjacent source/licence links and transformation notice make the Flinders photo provenance clear without replacing a truthful historical image.",
+  "boundedChange": "Update one Stay venue record, two Stay hub verdicts, conditional CC BY-SA card attribution and the Flinders detail transformation note. No booking, filter, consent or routing logic changes. Include three independently reviewed commercial-read allowlist pairs and future-proof Stay sponsorship labels; no sort, ranking or paid-record changes.",
+  "metric": "Public hub and Hotel Sorrento detail show the warning, the Flinders card and detail show source/licence/change note, builds and link/rights gates pass, 320/390/1440 render and keyboard links have no regressions. Exact release manifest and public browser confirm the revision. The commercial firewall read count returns to its six-read ceiling with zero commercial sort keys.",
+  "evaluationDate": "2026-10-04",
+  "recheckDate": "2026-12-01",
+  "rollback": "Revert this bounded patch if it causes a rendering or navigation regression; recheck the time-bound construction notice with the operator after the announced expansion.",
+  "validation": {
+    "productionBuild": "Final exact-source npm run build:search exited 0 after the commercial disclosure audit fix. All normal build/content/rights/link/schema gates passed; Astro built 1009 pages and Pagefind indexed 727. The prior 9-vs-6 commercial gate failure is recorded separately and was not treated as a pass.",
+    "localBrowser": "Final exact built preview: /stay/ returned 200 at 320, 390 and 1440px with all 26 rows, Hotel Sorrento works warning, Flinders creator/source/licence/conversion note after opening additional choices, no overflow or page errors. Hotel Sorrento and Flinders detail pages returned 200 at 390px with direct operator notice and image source/licence disclosures respectively; no overflow.",
+    "independentScopedReview": "Independent reviewer confirmed warnings against operator notice; verified Wikimedia creator/CC BY-SA 3.0 source, visible links and conversion note, keyboard Enter/Tab/focus at 320/390/1440. Separate independent reviewer classified three commercial reads as disclosure-only and identified future sponsor precedence/mobile exposure risk, now corrected in source. This is bounded QA, not a full 23-criterion rescore.",
+    "liveAcceptance": "pending",
+    "commercialFirewall": "Focused assert passed: 6 reads against baseline 6, zero commercial sort keys; all 16 audit tests passed. Independent reviewer confirmed the three allowances are disclosure-only."
+  },
+  "hardGatesOpen": [
+    "Full factual verification across 26 stay listings",
+    "Direct screen-reader/assistive technology test",
+    "Independent rights-condition review of Flinders attribution after public render",
+    "Field performance and remaining visual deductions"
+  ],
+  "negativeFindings": [
+    "The existing Flinders detail already had source and licence links; the hub did not. This is an attribution proximity uncertainty, not a confirmed unlicensed image.",
+    "No confirmed horizontal overflow, blocked base-filter task or consent collision on the tested public release.",
+    "A displayed “Details checked” date alone does not prove every property claim is current.",
+    "The failed full build was a real gate: 9 reads against baseline 6. The three excess reads were already on main, were independently traced to labels rather than ordering, and were narrowly allowlisted without changing the baseline."
+  ],
+  "nextAction": "Publish this bounded correction through the normal PR and protected deployment, verify exact manifest and public browser, then correct five undated Stay listings and two locality mismatches before further independent 23-criterion rescore. Keep full Stay score null until every criterion and hard gate is evidenced."
+}

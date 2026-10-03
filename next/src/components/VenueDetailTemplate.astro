@@ -399,7 +399,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           {!isUnverifiedPaused && <span class="venue-detail__hero-label">{heroLabel}</span>}
         </figure>
         {heroCredit && (
-          <p class="venue-detail__hero-credit">{venueSlug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : ''}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label={data.name + " image source"}>Source</a>{heroLicenceUrl && <><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href={heroLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}</p>
+          <p class="venue-detail__hero-credit">{venueSlug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : ''}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label={data.name + " image source"}>Source</a>{heroLicenceUrl && <><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href={heroLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}{flindersCommonsHero && <span> Resized and converted to WebP.</span>}</p>
         )}
         <MediaProvenanceNote
           image={heroProvenance}
@@ -428,6 +428,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           {editorParagraphs.map((paragraph: string, i: number) => (
             <>
               <p>{paragraph}</p>
+              {venueSlug === 'hotel-sorrento' && i === 0 && <p>Source: <a href="https://hotelsorrento.com.au/stay/">Hotel Sorrento's current stay notice</a>. Checked 3 October 2026; confirm conditions for your dates.</p>}
               {i === 0 && photoSet.afterFirst !== null && <InlinePhoto photos={photoSet.photos} indexes={[photoSet.afterFirst]} subject={data.name} />}
               {i === 2 && photoSet.pair && <InlinePhoto photos={photoSet.photos} indexes={photoSet.pair} subject={data.name} />}
             </>

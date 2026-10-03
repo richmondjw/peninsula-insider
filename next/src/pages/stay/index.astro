@@ -55,8 +55,16 @@ const venueImages = new Map(await Promise.all(venues.map(async (venue) => {
   const hero = await resolveHero('venue', slug, venue.data);
   const record = venue.data.heroImage;
   const verified = !hero.override && record?.depictionStatus === 'actual';
+  const ccBySaThree = record?.license === 'wikimedia-cc-by-sa' && record?.permission === 'CC-BY-SA-3.0';
   return [slug, verified && hero.hasPhoto
-    ? { src: hero.src, alt: hero.alt, caption: record.caption, credit: record.credit }
+    ? {
+        src: hero.src, alt: hero.alt, caption: record.caption, credit: record.credit,
+        ...(ccBySaThree ? {
+          sourceUrl: record.sourceUrl,
+          licenceUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+          changeNote: 'Resized and converted to WebP.',
+        } : {}),
+      }
     : undefined] as const;
 })));
 
@@ -100,10 +108,11 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
   const bookingUrl: string | undefined = data.bookingUrl ?? data.website;
   const bookingHost = bookingUrl ? new URL(bookingUrl).hostname.replace(/^www\./, '') : '';
   const isBookingForm = bookingUrl ? /book-directonline\.com|\/rates-bookings\/?$/i.test(bookingUrl) : false;
-  const partnerLabel = bookingHost.endsWith('airbnb.com.au') || bookingHost.endsWith('airbnb.com')
-    ? 'Opens Airbnb'
-    : bookingHost.endsWith('booking.com') ? 'Opens Booking.com'
-    : data.featuredPartner ? 'Sponsored placement' : undefined;
+  const partnerLabel = data.featuredPartner
+    ? 'Sponsored placement'
+    : bookingHost.endsWith('airbnb.com.au') || bookingHost.endsWith('airbnb.com')
+      ? 'Opens Airbnb'
+      : bookingHost.endsWith('booking.com') ? 'Opens Booking.com' : undefined;
   return {
     title: data.name as string,
     href: `/stay/${slug}/`,
@@ -118,6 +127,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
     ].filter(Boolean).slice(0, 3) as string[],
     freshness: iso(informationCheckedOn(data)),
     freshnessKind: 'checked' as const,
+    partnerLabel: data.featuredPartner ? 'Sponsored placement' : undefined,
     booking: bookingUrl
       ? { url: bookingUrl, label: isBookingForm ? 'Check availability' : 'Visit website', venueName: data.name as string, partnerLabel }
       : undefined,
@@ -131,7 +141,7 @@ function stayItem(v: any, overrides: { verdict?: string } = {}) {
 const SIX: { slug: string; verdict: string }[] = [
   { slug: 'jackalope', verdict: 'A vineyard hotel for an occasion-led escape, with striking architecture and Doot Doot Doot dining. Check room and restaurant availability separately.' },
   { slug: 'polperro-villas', verdict: 'Four vineyard villas, each sleeping two with a king-size bed, indoor spa and open fireplace.' },
-  { slug: 'hotel-sorrento', verdict: 'A coastal hotel above a limestone pub, for a weekend centred on Sorrento. Check your room’s outlook before booking.' },
+  { slug: 'hotel-sorrento', verdict: 'A Sorrento base with heritage rooms and a guest pool. The hotel flags possible midweek daytime construction noise; check before booking.' },
   { slug: 'flinders-hotel', verdict: 'A village hotel for a Flinders base, with the southern coast as a separate outing. Confirm dining hours for your stay.' },
   { slug: 'peninsula-hot-springs-glamping', verdict: 'Stay at the hot springs when bathing is the centre of the escape. Check which sessions and inclusions come with your accommodation.' },
   { slug: 'blue-moon-cottages', verdict: 'Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage and its current dog policy before booking.' },
@@ -175,7 +185,7 @@ const restVenues = venues
 const directoryVerdicts: Record<string, string> = {
   jackalope: 'Art-led Merricks North hotel with Doot Doot Doot dining.',
   'polperro-villas': 'Four Red Hill vineyard villas with indoor spas and fireplaces.',
-  'hotel-sorrento': 'Clifftop Sorrento hotel with heritage rooms and a guest pool.',
+  'hotel-sorrento': 'Clifftop Sorrento hotel with heritage rooms and a guest pool. Check its midweek daytime construction notice before booking.',
   'flinders-hotel': 'Quiet rooms behind Flinders Hotel, close to village and coast.',
   'peninsula-hot-springs-glamping': 'On-site Fingal glamping built around geothermal bathing.',
   'blue-moon-cottages': 'Pet-welcoming Rye cottages; Sandpiper has a log fire.',
