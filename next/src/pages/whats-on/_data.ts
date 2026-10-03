@@ -216,12 +216,11 @@ export interface DayGroup {
  * One occurrence of one record, resolved. PI-008, per occurrence rather than
  * per record.
  *
- * A Sunday reader is allowed to look back over Friday and Saturday, which is
- * exactly why day granularity was not enough: Friday's 10am-to-2pm market was
- * still being offered with a live booking link at 4pm on Friday and all day
- * Saturday. `phase` is the clock's answer, `bookable` is the reader's, and
- * they come apart on purpose. With the flag off, every item reads
- * upcoming/bookable, which is the previous behaviour.
+ * Past days and finished occurrences are omitted from forward-looking
+ * discovery. `phase` and `bookable` still travel with current and future
+ * rows so an ongoing event can be shown without implying booking remains open.
+ * With the flag off, every item reads upcoming/bookable, which is the
+ * previous behaviour.
  *
  * `schemaStatus` travels with the rest so the markup on a page cannot
  * contradict the badge beside it. The listing used to derive its own from the
@@ -289,10 +288,12 @@ export function occurrenceStateFor(live: LiveEvent, dayIso: string, now: Date): 
 export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = new Date()): DayGroup[] {
   const dayCount =
     Math.round((startOfDay(win.end).getTime() - startOfDay(win.start).getTime()) / 86400000) + 1;
+  const today = startOfDay(now);
   const seenRanges = new Set<string>();
   const groups: DayGroup[] = [];
   for (let i = 0; i < Math.min(dayCount, 62); i += 1) {
     const day = addDays(win.start, i);
+    if (day < today) continue;
     const items: DayGroup['items'] = [];
     let continuingCount = 0;
     for (const live of events) {
@@ -304,6 +305,9 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = ne
       // Measuring it over `dayIso` alone marked a festival that opened on
       // Friday and finishes on Wednesday as Ended from Friday midnight.
       const state = occurrenceStateFor(live, dayIso, now);
+      // The calendar is a decision surface. An occurrence that has already
+      // finished must not occupy a result slot for the selected dates.
+      if (state.phase === 'past') continue;
       if (live.rule.kind === 'range') {
         if (seenRanges.has(live.slug)) {
           continuingCount += 1;
@@ -365,7 +369,9 @@ export async function getPicks(
   const picks: Pick[] = [];
 
   const toPick = (live: LiveEvent, verdict: string, scope: ScopeWindow = win): Pick => {
-    const day = firstDayInWindow(live.rule, scope) ?? scope.start;
+    const today = startOfDay(now);
+    const actionableScope = { ...scope, start: scope.start > today ? scope.start : today };
+    const day = firstDayInWindow(live.rule, actionableScope) ?? scope.start;
     const dateISO = isoDate(day);
     return {
       live,
@@ -386,7 +392,10 @@ export async function getPicks(
   if (sheet) {
     for (const p of [...sheet.data.picks].sort((a, b) => a.position - b.position)) {
       const live = bySlug.get(p.eventSlug);
-      if (live) picks.push(toPick(live, p.editorVerdict));
+      if (live) {
+        const pick = toPick(live, p.editorVerdict);
+        if (pick.occurrence.phase !== 'past') picks.push(pick);
+      }
       if (picks.length === 3) return picks;
     }
   }
@@ -418,7 +427,9 @@ export async function getPicks(
   // of the ranking once per Melbourne day. The editorial sheet above returns
   // early and is never rotated.
   for (const { e } of rotateDaily(scored, now)) {
-    picks.push(toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner));
+    const pick = toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner);
+    if (pick.occurrence.phase === 'past') continue;
+    picks.push(pick);
     if (picks.length === 3) break;
   }
 
@@ -473,6 +484,10 @@ export interface FeedEntry {
   t: string; // title
   d: string; // one-liner
   m: string[]; // meta chips
+  c: string; // canonical event category
+  p: string; // town, when explicitly supplied
+  f: boolean; // unqualified free entry
+  g: boolean; // explicitly marked family friendly
   k: 'range' | 'weekly' | 'monthly';
   s: string; // rule start ISO date
   e: string; // rule end ISO date
@@ -498,6 +513,10 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       t: live.title,
       d: live.oneLiner,
       m: live.meta,
+      c: String(live.event.data.category ?? ''),
+      p: String(live.event.data.suburb ?? ''),
+      f: live.free,
+      g: live.event.data.familyFriendly === true,
       k: live.rule.kind,
       s: isoDate(live.rule.start),
       e: isoDate(live.rule.end),

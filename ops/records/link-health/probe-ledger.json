@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T04:24:50.771Z",
+  "updatedAt": "2026-10-03T10:34:37.998Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1749,6 +1749,14 @@
       "pageTitle": "Mornington Peninsula"
     },
     {
+      "url": "https://rosebudps.vic.edu.au/community/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Community | Rosebud Primary School",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://ryehotel.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -2320,6 +2328,14 @@
       "pageTitle": "Ashcombe Maze and Lavender Gardens"
     },
     {
+      "url": "https://www.atdw.com.au/marketplace/6508efd44865ee7470f897e7",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "ATDW",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.atdw.com.au/marketplace/6719ba926b99aee72e06ddc8",
       "verdict": "ok",
       "httpCode": "200",
@@ -2622,6 +2638,14 @@
       "pageTitle": "64 Country Racing Clubs | Victoria&#x27;s Great Day Out | Country Racing Victoria"
     },
     {
+      "url": "https://www.cpch.org.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home | Crib Point Community",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.craftmarkets.com.au/mornington",
       "verdict": "ok",
       "httpCode": "200",
@@ -2709,6 +2733,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Eldridge Estate | Best Red Hill Winery Mornington Peninsula"
+    },
+    {
+      "url": "https://www.emuplainsmarket.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Emu Plains Market | Fresh Produce &amp; Craft Market | Balnarring, Mornington Peninsula",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.emuplainsmarket.com.au/markets/october",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "17 October 2026 | Emu Plains Market | Fresh Produce &amp; Craft Market | Balnarring, Mornington Peninsula",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.enchantedadventure.com.au",
@@ -3600,6 +3640,14 @@
       "pageTitle": "Acoustic Saturdays Peppers Moonah Links Live Music - Mornington Peninsula Shire"
     },
     {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1",
       "verdict": "ok",
       "httpCode": "200",
@@ -3630,6 +3678,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Lunch and Learn Webinar: Electrifying Local Businesses - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Rye-Foreshore-Market-1",
@@ -4594,6 +4650,14 @@
       "pageTitle": "Welcome - Rosebud Country Club"
     },
     {
+      "url": "https://www.rosebudryerotary.org.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Rotary Club of Rosebud Rye",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.runguides.com/event/30975/the-bloody-long-walk-mornington-peninsula",
       "verdict": "ok",
       "httpCode": "200",
@@ -4659,6 +4723,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Sorrento Golf Club &#8211; Classic Golf in the heart of the Mornington Peninsula, Victoria, Australia"
+    },
+    {
+      "url": "https://www.soundcircle.com.au/classes",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Classes &mdash; soundcircle",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.spiritoftasmania.com.au/things-to-do/mushroom-reef-marine-sanctuary/",
@@ -5206,6 +5278,14 @@
       "httpCode": "200",
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
       "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitvictoria.com/regions/mornington-peninsula/whats-on/markets-and-vintage/emu-plains-market",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Just a moment...",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

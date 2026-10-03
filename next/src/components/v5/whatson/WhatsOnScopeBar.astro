@@ -38,6 +38,8 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
   data-holiday-name={holidays?.name}
 >
   <div class="wo-scope__row">
+    <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="today" aria-pressed="false" data-evt="wo_date_change">Today</button>
+    <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="tomorrow" aria-pressed="false" data-evt="wo_date_change">Tomorrow</button>
     <button
       type="button"
       class="wo-scope__btn"

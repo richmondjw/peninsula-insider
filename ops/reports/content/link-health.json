@@ -1,24 +1,24 @@
 {
-  "generatedAt": "2026-09-24T22:48:43.477Z",
+  "generatedAt": "2026-10-03T10:34:51.702Z",
   "assertedMetrics": [
     "unrecordedSourceUrl",
     "deadSourceUrlCited",
     "staleRedirectCited"
   ],
   "probeRecord": "ops/records/link-health/probe-ledger.json",
-  "citations": 1518,
-  "distinctUrls": 462,
+  "citations": 1638,
+  "distinctUrls": 551,
   "verdictCounts": {
-    "ok": 357,
+    "ok": 463,
     "moved": 16,
-    "blocked": 92,
-    "dead": 35,
+    "blocked": 105,
+    "dead": 36,
     "tls-fault": 3
   },
   "staleness": {
     "oldestProbe": "2026-09-13",
-    "newestProbe": "2026-09-24",
-    "distinctProbeDates": 7,
+    "newestProbe": "2026-10-03",
+    "distinctProbeDates": 12,
     "note": "Reported only. Never asserted: the calendar is not a code change."
   },
   "malformedRecordRows": 0,
@@ -135,6 +135,11 @@
       "field": "secondarySourceUrl"
     },
     {
+      "url": "https://openai.com/policies/row-terms-of-use/",
+      "file": "next/src/content/events/bass-flinders-gin-masterclass.json",
+      "field": "heroImage.sourceUrl"
+    },
+    {
       "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
       "file": "next/src/content/events/breast-foot-forward-annual-community-walk-and-run-2026.json",
       "field": "bookingUrl"
@@ -148,6 +153,21 @@
       "url": "https://humanitix.com/au/events/au--rosebud--3939",
       "file": "next/src/content/events/breast-foot-forward-annual-community-walk-and-run-2026.json",
       "field": "sourceUrl"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
+      "file": "next/src/content/events/crib-point-community-market.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
+      "file": "next/src/content/events/crib-point-community-market.json",
+      "field": "primarySourceUrl"
+    },
+    {
+      "url": "https://www.visitvictoria.com/regions/mornington-peninsula/whats-on/markets-and-vintage/emu-plains-market",
+      "file": "next/src/content/events/emu-plains-market.json",
+      "field": "secondarySourceUrl"
     },
     {
       "url": "https://www.facebook.com/flinderstruffles/",
@@ -210,6 +230,11 @@
       "field": "sourceUrl"
     },
     {
+      "url": "https://openai.com/policies/row-terms-of-use/",
+      "file": "next/src/content/events/hill-ridge-community-market-september-2026-restart.json",
+      "field": "heroImage.sourceUrl"
+    },
+    {
       "url": "https://events.humanitix.com/winter-wine-festival",
       "file": "next/src/content/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
       "field": "bookingUrl"
@@ -218,6 +243,16 @@
       "url": "https://events.humanitix.com/winter-wine-festival",
       "file": "next/src/content/events/mornington-peninsula-winter-wine-weekend-winter-wine-festival.json",
       "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1",
+      "file": "next/src/content/events/mornington-racecourse-market.json",
+      "field": "officialEventUrl"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1",
+      "file": "next/src/content/events/mornington-racecourse-market.json",
+      "field": "primarySourceUrl"
     },
     {
       "url": "https://communityplate.org.au/event/wednesday-main-street-mornington-market/2026-01-14/",
@@ -248,6 +283,11 @@
       "url": "https://www.facebook.com/p/Pearcedale-Market-100064719966925/",
       "file": "next/src/content/events/pearcedale-community-market.json",
       "field": "secondarySourceUrl"
+    },
+    {
+      "url": "https://openai.com/policies/row-terms-of-use/",
+      "file": "next/src/content/events/peninsula-hot-springs-daily-studio-yoga.json",
+      "field": "heroImage.sourceUrl"
     },
     {
       "url": "https://events.humanitix.com/peninsula-vinehop-festival-2026",
@@ -900,6 +940,11 @@
       "field": "url"
     },
     {
+      "url": "https://www.riparide.com/listings/1569-the-june-at-birch-creek",
+      "file": "next/src/content/evidence/venues/birch-creek/address-host-riparide-2026-10-01.json",
+      "field": "url"
+    },
+    {
       "url": "https://www.ptleoestate.com.au/our-story/",
       "file": "next/src/content/evidence/venues/pt-leo-estate/offering-operator-vineyard-2026-09-13.json",
       "field": "url"
@@ -1030,6 +1075,16 @@
       "field": "bookingUrl"
     },
     {
+      "url": "https://www.riparide.com/listings/2104-the-frances-farm-cottage",
+      "file": "next/src/content/venues/birch-creek.json",
+      "field": "editorialProvenance.source"
+    },
+    {
+      "url": "https://www.riparide.com/listings/1569-the-june-at-birch-creek",
+      "file": "next/src/content/venues/birch-creek.json",
+      "field": "editorialProvenance.source"
+    },
+    {
       "url": "https://www.bluemooncottages.com.au",
       "file": "next/src/content/venues/blue-moon-cottages.json",
       "field": "website"
@@ -1043,11 +1098,6 @@
       "url": "https://www.lakesidevillas.com.au",
       "file": "next/src/content/venues/crittenden-villas.json",
       "field": "website"
-    },
-    {
-      "url": "https://www.lakesidevillas.com.au/book",
-      "file": "next/src/content/venues/crittenden-villas.json",
-      "field": "bookingUrl"
     },
     {
       "url": "https://jackalopehotels.com/mornington-peninsula",
@@ -1090,19 +1140,19 @@
       "field": "bookingUrl"
     },
     {
-      "url": "https://www.tripadvisor.com/Hotel_Review-g552249-d1437809-Reviews-Hideaways_at_Red_Hill-Red_Hill_Mornington_Peninsula_Victoria.html",
-      "file": "next/src/content/venues/hideaways-red-hill.json",
-      "field": "website"
-    },
-    {
-      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "url": "https://jackalopehotels.com/",
       "file": "next/src/content/venues/jackalope.json",
       "field": "website"
     },
     {
-      "url": "https://jackalopehotels.com/mornington-peninsula",
+      "url": "https://jackalopehotels.com/stay/",
       "file": "next/src/content/venues/jackalope.json",
       "field": "bookingUrl"
+    },
+    {
+      "url": "https://jackalopehotels.com/stay/",
+      "file": "next/src/content/venues/jackalope.json",
+      "field": "editorialProvenance.source"
     },
     {
       "url": "https://kanastacaravanpark.com.au/retro-caravans/",
@@ -1115,14 +1165,14 @@
       "field": "bookingUrl"
     },
     {
-      "url": "https://www.ptleoestate.com.au/laura",
-      "file": "next/src/content/venues/laura-pt-leo.json",
-      "field": "website"
+      "url": "https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q",
+      "file": "next/src/content/venues/kanasta-retro-caravans.json",
+      "field": "heroImage.sourceUrl"
     },
     {
-      "url": "https://www.ptleoestate.com.au/laura-reservations",
-      "file": "next/src/content/venues/laura-pt-leo.json",
-      "field": "bookingUrl"
+      "url": "https://kanastacaravanpark.com.au/retro-caravans/",
+      "file": "next/src/content/venues/kanasta-retro-caravans.json",
+      "field": "editorialProvenance.source"
     },
     {
       "url": "https://moorooducestate.com.au",
@@ -1155,14 +1205,24 @@
       "field": "bookingUrl"
     },
     {
-      "url": "https://www.ptleoestate.com.au/stay",
-      "file": "next/src/content/venues/point-leo-estate-villas.json",
-      "field": "website"
+      "url": "https://mpcottages.com/",
+      "file": "next/src/content/venues/mp-beach-club-cottages.json",
+      "field": "editorialProvenance.source"
     },
     {
-      "url": "https://www.ptleoestate.com.au/accommodation",
-      "file": "next/src/content/venues/point-leo-estate-villas.json",
-      "field": "bookingUrl"
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-1-2/",
+      "file": "next/src/content/venues/mp-beach-club-cottages.json",
+      "field": "editorialProvenance.source"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-3-4/",
+      "file": "next/src/content/venues/mp-beach-club-cottages.json",
+      "field": "editorialProvenance.source"
+    },
+    {
+      "url": "https://mpcottages.com/accommodation/mp-beach-club-unit-5/",
+      "file": "next/src/content/venues/mp-beach-club-cottages.json",
+      "field": "editorialProvenance.source"
     },
     {
       "url": "https://www.ptleoestate.com.au",
@@ -1232,16 +1292,6 @@
     {
       "url": "https://www.trofeoestate.com.au/visit-us/",
       "file": "next/src/content/venues/trofeo-estate.json",
-      "field": "bookingUrl"
-    },
-    {
-      "url": "https://yurthideaway.com.au/",
-      "file": "next/src/content/venues/yurt-hideaway.json",
-      "field": "website"
-    },
-    {
-      "url": "https://yurthideaway.com.au/",
-      "file": "next/src/content/venues/yurt-hideaway.json",
       "field": "bookingUrl"
     }
   ]

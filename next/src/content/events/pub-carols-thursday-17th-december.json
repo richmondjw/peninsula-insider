@@ -12,7 +12,12 @@
   "sourceUrl": "https://humanitix.com/au/events/au--rosebud--3939",
   "discoveredAt": "2026-08-23T01:24:14.270Z",
   "publishedAt": "2026-08-23T20:00:58.321Z",
-  "provenance": "auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten",
+  "provenance": "Originally auto-published from a Humanitix feed. The previously retired official event URL still returned HTTP 404 on 2026-10-03; a search cache showed event details but did not prove the organiser page was live. Archived pending a working organiser source and fresh confirmation.",
+  "verificationStatus": "Unverified; organiser event page unavailable on 2026-10-03",
+  "lastCheckedDate": "2026-10-03",
+  "status": "archived",
+  "archivedAt": "2026-10-03",
+  "archivedReason": "Official Humanitix event page still returned HTTP 404; the 17 December event could not be confirmed live.",
   "retiredSourceLinks": [
     {
       "field": "bookingUrl",

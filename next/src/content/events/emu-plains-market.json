@@ -2,9 +2,9 @@
   "slug": "emu-plains-market",
   "eventId": "MP-EVT-0067",
   "title": "Emu Plains Market",
-  "summary": "Monthly artisan market at Emu Plains Reserve Balnarring. For lovers of craft, design, vintage, music and food. Seasonal schedule October–April (day market 9am–2pm) plus June and August dates. Site of the Womin Djeka cultural festival. Volunteer-run community hub.",
+  "summary": "Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm; parking is paid.",
   "startDate": "2026-10-17",
-  "endDate": "2026-10-17",
+  "endDate": "2026-12-19",
   "startTime": "09:00",
   "endTime": "14:00",
   "season": "spring",
@@ -18,14 +18,15 @@
     "lng": 145.1417
   },
   "indoorOutdoor": "Outdoor",
+  "officialEventUrl": "https://www.emuplainsmarket.com.au/markets/october",
   "bookingRequired": "No",
   "freePaid": "Free",
-  "priceRange": "Free entry",
+  "priceRange": "Free entry; paid parking",
   "priceTier": "free",
   "category": "market",
   "subcategory": "Artisan & Community Market",
   "recurrence": "monthly",
-  "recurrenceNote": "Monthly October–April (day market); June and August also listed; no July, May or September",
+  "recurrenceNote": "Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.",
   "suitableFor": "Families; craft lovers; day trippers",
   "audienceTags": [
     "families"
@@ -37,11 +38,14 @@
   "weatherDependency": "Outdoor – seasonal schedule; weather dependent",
   "weatherShape": "fair-weather-only",
   "organiser": {
-    "name": "Emu Plains Market Committee"
+    "name": "Untold Events Co",
+    "website": "https://www.emuplainsmarket.com.au/"
   },
-  "secondarySourceUrl": "https://www.australiantraveller.com/vic/mornington-peninsula/mornington-peninsula-markets/",
-  "verificationStatus": "Tentative",
-  "lastCheckedDate": "2026-09-19",
+  "primarySourceUrl": "https://www.emuplainsmarket.com.au/",
+  "secondarySourceUrl": "https://www.visitvictoria.com/regions/mornington-peninsula/whats-on/markets-and-vintage/emu-plains-market",
+  "verification": "verified",
+  "lastCheckedDate": "2026-10-03",
+  "provenance": "The organiser's current dated page and market calendar were checked on 2026-10-03. Its word 'cancelled' appears only in Webflow w-condition-invisible template elements, not in the visible event state; Visit Victoria also lists 17 October. Daytime sessions are dated 17 October, 21 November and 19 December, 09:00 to 14:00. The monthly rule is bounded to those verified daytime dates. January is a 15:00 to 20:00 twilight market and must not inherit this record's 09:00 time.",
   "editorialPriority": 3,
   "nearbyAttractions": "Balnarring Village; Balnarring Beach; Merricks wineries",
   "suggestedItineraryPairing": "Market + Balnarring beach + winery lunch",
@@ -50,7 +54,7 @@
   "worthTheDrive": true,
   "firstTimer": true,
   "editorVerdict": "Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.",
-  "editorNote": "Emu Plains runs monthly at Balnarring's Coolart Road reserve, with a seasonal schedule that skips most of winter (October through April plus June and August). It is volunteer-run, craft-and-design heavy, and the kind of market where the food trucks are worth queueing for.\n\nThe move: get there by 9:30am for the food and coffee before queues set in, do a full lap, then walk over to Coolart Wetlands next door (it's right there) or push on to Balnarring Beach. Skip in midsummer if you can't handle heat: minimal shade once the sun is up.",
+  "editorNote": "The organiser confirms 17 October, 21 November and 19 December 2026 as 9am–2pm markets at Emu Plains Reserve. Its January session is a separately timed twilight market, so check the organiser before making plans for dates beyond December.\n\nThe move: browse the makers and food stalls, then continue to Balnarring Beach or nearby Coolart Wetlands.",
   "lens": [
     "family-saturday",
     "free",

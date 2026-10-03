@@ -1,9 +1,9 @@
 import type { APIRoute } from 'astro';
 import {
   addDays,
-  firstDayInWindow,
   isoDate,
   loadLiveEvents,
+  occurrenceStateFor,
   occursInWindow,
   occursOnDay,
   startOfDay,
@@ -37,7 +37,13 @@ export const GET: APIRoute = async () => {
     .filter((live) => occursInWindow(live.rule, window))
     .map((live) => {
       const e = live.event;
-      const nextOccurrence = firstDayInWindow(live.rule, window);
+      let nextOccurrence: Date | null = null;
+      for (let day = window.start; day <= window.end; day = addDays(day, 1)) {
+        if (!occursOnDay(live.rule, day)) continue;
+        if (occurrenceStateFor(live, isoDate(day), now).phase === 'past') continue;
+        nextOccurrence = day;
+        break;
+      }
       if (!nextOccurrence) return null;
       const occurrenceEnd = live.rule.kind === 'range'
         ? new Date(Math.min(live.rule.end.getTime(), window.end.getTime()))
@@ -60,9 +66,14 @@ export const GET: APIRoute = async () => {
       // those actual occurrences independently of its next upcoming date.
       const weekendOccurrences = [];
       for (let day = weekend.start; day <= weekend.end; day = addDays(day, 1)) {
+        if (day < today) continue;
         if (!occursOnDay(live.rule, day)) continue;
         const date = isoDate(day);
-        weekendOccurrences.push({ date, eventStatus: listingEventStatus(e.data, date, now) });
+        const state = occurrenceStateFor(live, date, now);
+        if (state.phase === 'past') continue;
+        weekendOccurrences.push({ date, eventStatus: state.schemaStatus });
+        // A range is one continuous occurrence, even when it spans days.
+        if (live.rule.kind === 'range') break;
       }
       return {
         title: e.data.title,

@@ -120,6 +120,92 @@ test('date controls still work after leaving and returning through client naviga
   } finally { await reader.close(); }
 });
 
+test('a feed failure with active filters recovers to the unfiltered weekend', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    await reader.page.evaluate(() => {
+      const nativeFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => String(input).includes('/whats-on/feed.json') ? Promise.reject(new Error('test failure')) : nativeFetch(input, init);
+      const form = document.querySelector('[data-wo-filters]');
+      form.elements.namedItem('q').value = 'market';
+      form.elements.namedItem('q').dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await reader.waitFor(() => document.querySelector('#pi-results-status')?.textContent.includes('Could not load'), 'filtered feed failure was not announced');
+    const state = await reader.page.evaluate(() => ({
+      heading: document.querySelector('[data-wo-heading]')?.textContent,
+      query: location.search,
+      filter: document.querySelector('[data-wo-filters]').elements.namedItem('q').value,
+      schema: Boolean(document.querySelector('[data-wo-event-schema]')),
+    }));
+    assert.deepEqual(state, { heading: "What's on this weekend", query: '', filter: '', schema: true });
+  } finally { await reader.close(); }
+});
+
+test('today and discovery filters can be combined, shared, cleared and revisited', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    await reader.page.evaluate(() => {
+      const nativeFetch = window.fetch.bind(window);
+      const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Melbourne', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      const events = [
+        { slug: 'free-family-market', href: '/whats-on/free-family-market/', t: 'Family market fixture', d: 'Local makers', m: ['Mornington'], c: 'market', p: 'Mornington', f: true, g: true, k: 'range', s: today, e: today },
+        { slug: 'paid-adult-market', href: '/whats-on/paid-adult-market/', t: 'Adult market fixture', d: 'Local makers', m: ['Mornington'], c: 'market', p: 'Mornington', f: false, g: false, k: 'range', s: today, e: today },
+      ];
+      window.fetch = (input, init) => String(input).includes('/whats-on/feed.json')
+        ? Promise.resolve(new Response(JSON.stringify({ events }), { status: 200, headers: { 'Content-Type': 'application/json' } }))
+        : nativeFetch(input, init);
+    });
+    await clickScope(reader, 'today');
+    await reader.waitFor(() => document.querySelector('[data-wo-heading]')?.textContent === "What's on today" && document.querySelector('[data-wo-days]')?.textContent.includes('Family market fixture'), 'today did not load');
+    await reader.page.evaluate(() => {
+      const form = document.querySelector('[data-wo-filters]');
+      form.elements.namedItem('town').value = 'Mornington';
+      form.elements.namedItem('town').dispatchEvent(new Event('change', { bubbles: true }));
+      for (const name of ['free', 'kids']) {
+        form.elements.namedItem(name).checked = true;
+        form.elements.namedItem(name).dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    });
+    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('Family market fixture') && !document.querySelector('[data-wo-days]')?.textContent.includes('Adult market fixture'), 'combined filters did not isolate the event');
+    const filtered = await reader.page.evaluate(() => ({
+      url: location.search,
+      text: document.querySelector('[data-wo-days]').textContent,
+      schema: document.querySelector('[data-wo-event-schema]'),
+    }));
+    assert.match(filtered.url, /date=today/);
+    assert.match(filtered.url, /town=Mornington/);
+    assert.match(filtered.url, /free=1/);
+    assert.match(filtered.url, /kids=1/);
+    assert.equal(filtered.schema, null);
+    await reader.page.evaluate(() => {
+      const form = document.querySelector('[data-wo-filters]');
+      form.elements.namedItem('q').value = 'no-such-event';
+      form.elements.namedItem('q').dispatchEvent(new Event('input', { bubbles: true }));
+    });
+    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('No matching events'), 'empty filtered state did not appear');
+    await reader.page.evaluate(() => document.querySelector('[data-wo-filter-reset]').click());
+    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('Adult market fixture'), 'reset did not restore the wider date results');
+    assert.equal(new URL((await reader.page.url())).searchParams.get('date'), 'today');
+    await clickScope(reader, 'tomorrow');
+    await reader.waitFor(() => document.querySelector('[data-wo-heading]')?.textContent === "What's on tomorrow", 'tomorrow did not load');
+    assert.equal(new URL((await reader.page.url())).searchParams.get('date'), 'tomorrow');
+    await reader.load('/whats-on/?date=today&town=Mornington&free=1&kids=1');
+    await reader.waitFor(() => document.querySelector('[data-wo-heading]')?.textContent === "What's on today", 'shared date did not restore');
+    const shared = await reader.page.evaluate(() => {
+      const form = document.querySelector('[data-wo-filters]');
+      return {
+        town: form.elements.namedItem('town').value,
+        free: form.elements.namedItem('free').checked,
+        kids: form.elements.namedItem('kids').checked,
+        open: document.querySelector('[data-wo-filter-disclosure]').open,
+      };
+    });
+    assert.deepEqual(shared, { town: 'Mornington', free: true, kids: true, open: true });
+  } finally { await reader.close(); }
+});
+
 
 test('a selected weekend preserves the actual closing date and running state of an ongoing exhibition', async () => {
   const reader = await site.reader();
@@ -148,5 +234,71 @@ test('a selected weekend preserves the actual closing date and running state of 
     assert.match(row.meta,/On during your dates/);
     assert.doesNotMatch(row.meta,/Ended/);
     assert.equal(row.phase,'running');
+  } finally { await reader.close(); }
+});
+
+test('the default weekend offers no finished occurrence as a current result', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    const state = await reader.page.evaluate(() => ({
+      rows: [...document.querySelectorAll('[data-wo-days] .wo-row')].map(row => ({
+        phase: row.dataset.occurrencePhase,
+        text: row.textContent,
+      })),
+      firstDay: document.querySelector('[data-wo-days] .wo-day__h')?.textContent ?? '',
+      todayName: new Intl.DateTimeFormat('en-AU', {
+        timeZone: 'Australia/Melbourne', weekday: 'long',
+      }).format(new Date()),
+    }));
+    assert.ok(state.rows.length > 0, 'weekend still needs useful results');
+    assert.ok(state.rows.every(row => row.phase !== 'past' && !row.text.includes('Ended')));
+    if (['Saturday', 'Sunday'].includes(state.todayName)) {
+      assert.match(state.firstDay, new RegExp('^' + state.todayName));
+    }
+  } finally { await reader.close(); }
+});
+
+test('selected dates omit finished occurrences while keeping an ongoing range and a future event', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/');
+    await reader.page.evaluate(() => {
+      const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
+        timeZone: 'Australia/Melbourne', year: 'numeric', month: '2-digit', day: '2-digit',
+      }).formatToParts(new Date()).map(part => [part.type, part.value]));
+      const today = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day)));
+      const iso = offset => new Date(today.getTime() + offset * 86400000).toISOString().slice(0, 10);
+      window.fixtureDates = { from: iso(-1), to: iso(1) };
+      const events = [
+        { slug: 'finished-fixture', href: '/whats-on/finished-fixture/', t: 'Finished fixture',
+          d: 'A completed one-off event.', m: ['Mornington'], k: 'range',
+          s: iso(-1), e: iso(-1), statusData: { startTime: '10:00', endTime: '11:00' } },
+        { slug: 'ongoing-fixture', href: '/whats-on/ongoing-fixture/', t: 'Ongoing fixture',
+          d: 'A multi-day event still running.', m: ['Mornington'], k: 'range',
+          s: iso(-1), e: iso(1), statusData: { startTime: '10:00', endTime: '16:00' } },
+        { slug: 'future-fixture', href: '/whats-on/future-fixture/', t: 'Future fixture',
+          d: 'An event tomorrow.', m: ['Mornington'], k: 'range',
+          s: iso(1), e: iso(1), statusData: { startTime: '10:00', endTime: '11:00' } },
+      ];
+      const nativeFetch = window.fetch.bind(window);
+      window.fetch = (input, init) => String(input).includes('/whats-on/feed.json')
+        ? Promise.resolve(new Response(JSON.stringify({ events }), {
+          status: 200, headers: { 'Content-Type': 'application/json' },
+        }))
+        : nativeFetch(input, init);
+      const form = document.querySelector('[data-wo-custom-form]');
+      form.elements.namedItem('from').value = window.fixtureDates.from;
+      form.elements.namedItem('to').value = window.fixtureDates.to;
+      form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+    });
+    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('Future fixture'),
+      'selected dates did not load');
+    const result = await reader.page.evaluate(() => document.querySelector('[data-wo-days]').textContent);
+    assert.doesNotMatch(result, /Finished fixture|Ended/);
+    assert.match(result, /Ongoing fixture/);
+    assert.match(result, /Future fixture/);
+    assert.equal(await reader.page.$$eval('[data-wo-days] .wo-day', days => days.length), 2,
+      'past day should not take a result section');
   } finally { await reader.close(); }
 });
