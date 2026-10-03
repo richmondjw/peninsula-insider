@@ -25,12 +25,6 @@ The short list
 
 Swipe or scroll for all three picks
 
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Free acoustic music at Moonah Links on Saturday, 5–8pm. No booking required; settle in after a day exploring the Peninsula.
-
-Peppers Moonah Links   Every Saturday   Free
-
 - Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -44,6 +38,12 @@ Mornington Peninsula Regional Gallery   Exhibition
 A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. The value is genuinely silly.
 
 Foxeys Hangout / Morning Sun Vineyard   Food & wine
+
+- ### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+
+Makes a proper day of it for families in a way that a single activity doesn't.
+
+Multiple venues across Mornington Peninsula   Thursday to Sunday weekly
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 

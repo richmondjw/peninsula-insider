@@ -111,7 +111,7 @@ Red Hill / Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 
 
 The Peninsula's best-value Saturday evening. Free entry, happy hour drinks, and live acoustic sets at a resort with proper views.
 
-5pm · Fingal · Free · Recurring weekly
+5pm · Fingal · Free · Recurring weekly · Ended
 
 - [Doggy Day Out on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/>)
 

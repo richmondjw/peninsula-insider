@@ -65,13 +65,13 @@ The full list
 
 ## All 52 places to eat
 
-Use the occasion and town filters above to make your shortlist.
+Compare the full list, then narrow it by occasion or town.
 
  [Ranked top 15 →](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
 - ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
-An intimate fine-dining room at Pt.
+An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
 Merricks   Restaurant
 
