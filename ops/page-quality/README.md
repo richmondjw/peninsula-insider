@@ -6,7 +6,7 @@
 
 Every page in the public sitemap enters the register. Tiers set work order, not a lower standard. A sitemap entry is checked for live status and self-canonical status during audit. Redirects, internal tools, account pages and previews are outside the register unless specifically promoted.
 
-The first live sitemap snapshot has 618 URLs. The checked-in root sitemap has 408 and is stale relative to the public sitemap. The public sitemap is the inventory source. Source retrieval time and hash appear in source.json.
+The first live sitemap snapshot has 618 URLs. The checked-in root sitemap has 408 and is stale relative to the public sitemap. The public sitemap is the inventory source. Source retrieval time and hash appear in source.json. A second public snapshot after Eat detail batch 4 has 615 URLs: four previous URLs moved to `removed.csv` for scope review, and one new Journal URL entered unscored. The linked `/eat/la-baracca-tgallant/` page is marked `sitemapExclude` and is tracked in the Eat assessment as a scope question rather than silently added to this sitemap-based register.
 
 ## Continuous page loop
 

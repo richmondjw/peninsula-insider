@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "assessedAt": "2026-10-03",
+  "publicRelease": {
+    "sourceSha": "f1230d4f06a9e799c3790be42860b83f8376eaa7",
+    "buildRunId": "37121713795"
+  },
+  "sourceSnapshot": "sources/2026-10-03-batch4-sitemap.xml",
+  "priorCount": 618,
+  "currentCount": 615,
+  "added": [
+    "/journal/insider-picks-2026-10-03/"
+  ],
+  "removed": [
+    "/stay/driftaway-on-dundas/",
+    "/whats-on/peninsula-summer-music-festival-2027-save-the-date/",
+    "/whats-on/pub-carols-thursday-17th-december/",
+    "/whats-on/sound-circle-full-moon-sound-journey-at-peninsula-hot-springs/"
+  ],
+  "removedCheck": "All four removed URLs returned HTTP 200, self-canonical and robots noindex,nofollow on the exact public release, so they remain visible but excluded from sitemap-based scoring while noindex. No redirect was asserted.",
+  "linkedOutOfSitemap": "/eat/la-baracca-tgallant/ is linked by the Eat directory and renders at HTTP 200 but has source sitemapExclude true/noindex; retain as an explicit scope question.",
+  "score": null,
+  "nextAction": "Review noindex decisions when editorial status changes; independently grade the new Journal URL and continue the existing 615-row register without treating excluded pages as scored."
+}
