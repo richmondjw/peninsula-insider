@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "07c366db785faad254b71963c56ba63bc3b58c5f",
+  "dependsOn": "Stay iteration9, PR #534, protected deployment 37106203957 and matching public release manifest.",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Exact public Chromium at 390px after release 07c366d, with fresh localStorage and no pi-consent-v1 value.",
+    "observed": "First-visit consent initially visible. Mobile menu opens and focuses Close navigation. One Escape closes the menu but also changes cookie-banner data-state from visible to hidden; pi-consent-v1 remains null. The prompt returns next visit, but disappears for the current visit without a choice.",
+    "rubricScore": null,
+    "reason": "This is a reproduced AT/UX hard gate, not a fresh complete independent 23-criterion score."
+  },
+  "finding": "The document-level CookieBanner Escape listener hides a visible consent surface even when keyboard focus belongs to the mobile navigation dialog. Both handlers respond to the same Escape key.",
+  "hypothesis": "Let consent respond to Escape only while focus is inside the consent surface. Then a menu Escape will close only navigation; consent Escape will still dismiss its own prompt without storing a choice, and a reopened dialog will restore focus to its opener.",
+  "boundedChange": "Add a focus-ownership guard to CookieBanner onConsentKeydown. No consent storage shape, analytics choice, navigation, or booking behavior changes.",
+  "metric": "On first visit at 390px, Escape from an open mobile menu closes the menu and preserves visible, unsaved consent. Escape from a focused consent control hides the prompt without storing a choice. Reopened preferences still focus Accept all, Escape restores the opening control, and Accept/Reject/Save persist the selected value. Build and independent browser QA pass; exact public manifest and browser confirm release.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this one guarded listener change; no migration or data change.",
+  "validation": {
+    "productionBuild": "Final npm run build:search exited 0 on this exact source, including the existing content, rights, claim, SEO, link, schema and style gates; Astro output 1013 HTML files and Pagefind indexed 727 pages.",
+    "settledBrowser": "Local Chromium at 320 and 390px: fresh consent remained visible and unsaved through menu open and Escape, focus returned to Open navigation, and a second Escape with menu-button focus also left consent visible. Consent-focused Escape hid without storage and prompt returned on reload. Footer reopen focused Accept all; Escape returned focus to the footer trigger. Accept, Reject, and custom Save persisted the expected analytics values across reloads. No horizontal overflow.",
+    "independentReview": "Independent bounded release QA repeated local browser checks at 320 and 390px, including reopened consent with mobile drawer open: first Escape closed only the drawer, next consent-focused Escape closed only consent. It accepted release of this scoped guard. This is not a full 23-criterion grade.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Exact public first-visit/menu Escape collision until published and verified",
+    "Full 23-criterion score remains unknown, with image rights, direct assistive technology, design and performance gates open"
+  ],
+  "negativeFindings": [
+    "Consent is not stored when the collision occurs, so analytics does not become opted in; the loss is the current-visit choice prompt.",
+    "CookieBanner already exempts an open Insider Note popup; the reproduced collision is the mobile navigation dialog."
+  ],
+  "nextAction": "Publish the independently accepted guarded listener through protected CI, verify exact public SHA and mobile browser behavior, then continue open rubric gates."
+}
