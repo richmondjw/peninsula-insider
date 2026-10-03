@@ -263,8 +263,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-- [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
 - [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
 - [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
@@ -290,6 +288,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
 - [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
+
+- [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
 ## Selected Wine pages
 

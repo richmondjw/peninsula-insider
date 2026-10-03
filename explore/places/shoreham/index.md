@@ -107,21 +107,21 @@ Glamping  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Red Hill South VIC 3937
+20 Shoreham Rd, Shoreham VIC 3916
 
-Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
+Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.
 
 wellness  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://www.ilukaretreat.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/iluka-retreat/>) [View stay](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
-Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 240 Tucks Rd, Shoreham VIC 3916
 
-Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
+Vineyard accommodation at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
 anniversary  cellar door
 

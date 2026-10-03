@@ -9,33 +9,35 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Mornington Peninsula Retro Caravans
 
-Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
 
-Known for   1950s–60s Styled Caravans 500m from Rye Bay Beach Dog-Friendly Units Kanasta Caravan Park
+Known for   Vintage and Retro Caravans Shared Bathroom Block Heating and Cooling in Every Van Rye Beach Nearby
 
 [Check availability](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
 Mornington Peninsula Retro Caravans · Rye
 
+Photo · Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
+
+Illustrative image  This image shows Vintage orange and brown caravan parked outdoors, Potsdam, Germany. It does not depict Mornington Peninsula Retro Caravans.
+
 Why we’d go
 
-Retro caravans, 500 metres from the bay beach, dogs welcome, the most accessible and characterful overnight option on the bay side.
+A characterful caravan stay near Rye bay beach, with practical heating and cooling and a shared park bathroom.
 
-Thirteen themed retro caravans at Kanasta Caravan Park, restored and styled to a 1950s and 1960s aesthetic, 500 metres from Rye's bay beach. Named units, each styled distinctly, with select vans carrying an electric stove-top, fridge, microwave, and air-conditioning. Dogs welcome in designated units for a nightly fee; confirm the policy for your specific breed before booking.
+Kanasta Caravan Park has vintage and retro caravans with different layouts for two to six guests. All retro vans use the park's shared bathroom block; they do not have private ensuites. The operator lists cooking basics, linen, towels and reverse-cycle heating and cooling in every caravan.
 
-This is not a thermal-wellness proposition. The appeal is character, beach proximity, and the dog-friendly format, it is the clearest answer on the Peninsula for a glamping-adjacent stay where dogs are genuinely welcome and the bay beach is a short walk. The price range sits at the accessible end of the Peninsula overnight market, making it a strong option for a summer beach weekend without the full holiday-house outlay.
-
-Book a unit with air-conditioning for summer visits, the 1950s character is more comfortable with modern temperature control. Confirm the dog policy for your specific breed directly with the park before booking.
+The park describes Rye Beach as a short walk away. Pet wording differs across its own pages: one says selected retro vans accept pets, while the FAQ suggests approval may be available on request. Confirm permission for your chosen van and dates before booking. Pick the layout that suits your group, then check the current stay conditions directly.
 
 Worth knowing
 
 **Best for**
 
-Dog-friendly stays · Beach proximity · Budget stays · Weekend escapes
+Beach proximity · Couples · Families · Weekend escapes
 
 If you only do one thing
 
-Book a unit with air-conditioning for summer and confirm the dog policy for your specific breed before paying a deposit.
+Expect shared bathrooms and confirm pet approval for the chosen caravan and dates before paying.
 
 Works well with
 
@@ -124,6 +126,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Rye - view the destination guide](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=kanasta-retro-caravans>)
 

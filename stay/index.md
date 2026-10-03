@@ -11,7 +11,7 @@ Stay on the Peninsula
 
 The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.
 
-[Choose your base](<https://peninsulainsider.com.au/stay/#choose-base>) [Browse all 27 stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
+[Choose your base](<https://peninsulainsider.com.au/stay/#choose-base>) [Browse all 26 stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
 
 Guests arriving at Lindenderry at Red Hill. Photo: Peter Foster, courtesy of Visit Victoria.
 
@@ -179,11 +179,11 @@ You can start as a guest on this device. Saving or adding a stop does not reserv
 
 The full list
 
-## All 27 places to stay
+## All 26 places to stay
 
 Compare the locality and stay format. Open a stay for room details and the operator link.
 
- [View the stay map →](<https://peninsulainsider.com.au/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay>)
+ [View the stay map →](<https://peninsulainsider.com.au/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay>)
 
  [Refine stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
 
@@ -249,7 +249,7 @@ Details checked October 2026
 
 - ### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-Styled bell tents set up at selected Peninsula campsites.
+Balnarring Deluxe bell tent at the foreshore reserve.
 
 Glamping   Balnarring   Couples
 
@@ -315,7 +315,7 @@ Details checked October 2026
 
 - ### [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Country estate chalets beside a private lake.
+Chalet Un beside the lake on shared estate grounds.
 
 Villa   Moorooduc   Couples
 
@@ -381,14 +381,6 @@ Cottage   Red Hill   Couples
 
 [Visit website](<https://treetopsatredhill.com.au/>)
 
-- ### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-Self-contained Rye villas with breakfast hampers and spa baths.
-
-Cottage   Rye   Couples
-
-[View details](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
 - ### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
 
 Five pet-friendly beach cottages with shared EV charging.
@@ -399,9 +391,11 @@ Cottage   Rye   Dog-friendly
 
 - ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
-Restored retro caravans close to Rye bay beach.
+Retro Rye caravans with shared bathrooms and heating and cooling.
 
 Glamping   Rye   Dog-friendly
+
+Details checked October 2026
 
 [Visit website](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
@@ -415,17 +409,21 @@ Suite   Rye   Couples
 
 - ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
-Shoreham group glamping beside a private freshwater lake.
+Shoreham bell tents for two with shared camp facilities.
 
 Glamping   Shoreham   Couples
 
-[Visit website](<https://www.ilukaretreat.com.au/>)
+Details checked October 2026
+
+[Visit website](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
 - ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
-Shoreham vineyard suites with dining and a cellar door.
+Shoreham vineyard accommodation with lunch and a cellar door.
 
-Suite   Shoreham   Couples
+Accommodation   Shoreham   Couples
+
+Details checked October 2026
 
 [Visit website](<https://mantonscreekestate.com.au/accommodation>)
 

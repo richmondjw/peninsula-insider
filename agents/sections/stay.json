@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-03T04:18:43.461Z",
-  "snapshotId": "cbefa1ece5215185c495eaba00aaf00225b6286191a9dade9fa4e23a0858890f",
+  "generatedAt": "2026-10-03T05:00:34.829Z",
+  "snapshotId": "c3c4c277541d82969c8931de3dd5f3c4c571436d7b269ce908ba356b47a201b3",
   "section": "stay",
-  "count": 45,
+  "count": 44,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -11,7 +11,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "0f99798a9b2bb0994cea42cdf411bd09f6901c9a398c06085aa8cc88025f8e7c",
+      "contentSha256": "8a6fc5d23d061fd60e6653a78e7814cefc069ed6efc561e8ec9d3183e87667c5",
       "citation": {
         "title": "Where you stay shapes the whole trip.",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-03"
       },
-      "htmlBytes": 290278,
-      "markdownBytes": 17623
+      "htmlBytes": 288225,
+      "markdownBytes": 17522
     },
     {
       "id": "https://peninsulainsider.com.au/stay/arthurs-views/",
@@ -70,7 +70,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171723,
+      "htmlBytes": 171690,
       "markdownBytes": 5484
     },
     {
@@ -227,23 +227,6 @@
       "markdownBytes": 7560
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
-      "title": "Driftaway on Dundas",
-      "section": "stay",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/index.md",
-      "contentSha256": "d89577ef77bf66fbf7d7b159fae0f9164ba7a2511fde401604d96e09fc39c761",
-      "citation": {
-        "title": "Driftaway on Dundas",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 171162,
-      "markdownBytes": 5640
-    },
-    {
       "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
       "title": "Quarters at Flinders Hotel",
       "section": "stay",
@@ -257,7 +240,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 183661,
+      "htmlBytes": 183628,
       "markdownBytes": 7761
     },
     {
@@ -308,7 +291,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173712,
+      "htmlBytes": 173679,
       "markdownBytes": 6444
     },
     {
@@ -368,7 +351,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/iluka-retreat/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/iluka-retreat/index.md",
-      "contentSha256": "a7c644a87053955cfe285c0c9cab20ea6b0470abe8c7428017780fe10a419cb1",
+      "contentSha256": "2cb825153e5870f47a85eaa0e70c7fd1db01a94072b4f3545101231790291710",
       "citation": {
         "title": "Iluka Retreat & Camp",
         "publisher": "Peninsula Insider",
@@ -376,8 +359,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 172623,
-      "markdownBytes": 5952
+      "htmlBytes": 172757,
+      "markdownBytes": 5914
     },
     {
       "id": "https://peninsulainsider.com.au/stay/jackalope/",
@@ -402,7 +385,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/index.md",
-      "contentSha256": "c1a3f10d905ef0d69968d21e6a1e0b53ed3d298035b34f14f50b7e479ee38ee0",
+      "contentSha256": "a469c17f2c8c16f64f618c0e77fc288c6a4e9237ce98c2a875a7a5f73541ab04",
       "citation": {
         "title": "Mornington Peninsula Retro Caravans",
         "publisher": "Peninsula Insider",
@@ -410,8 +393,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173289,
-      "markdownBytes": 6171
+      "htmlBytes": 173269,
+      "markdownBytes": 6136
     },
     {
       "id": "https://peninsulainsider.com.au/stay/lindenderry/",
@@ -453,7 +436,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/mantons-creek-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/mantons-creek-estate/index.md",
-      "contentSha256": "4434056d7caa6e7a0869d1729f8f686a631ddab6eed3fbe8f685c2e7bafb3a58",
+      "contentSha256": "643e0fa740152178740a105d1dd254922941b0756d6d86c25e8b5f6016b20962",
       "citation": {
         "title": "Mantons Creek Estate",
         "publisher": "Peninsula Insider",
@@ -461,8 +444,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171404,
-      "markdownBytes": 5462
+      "htmlBytes": 172515,
+      "markdownBytes": 5947
     },
     {
       "id": "https://peninsulainsider.com.au/stay/mp-beach-club-cottages/",
@@ -691,7 +674,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/villas/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/villas/index.md",
-      "contentSha256": "7b84f48e20b70d2c000fcce03f4a098ef7947fa5b475d2c9f090cf50077fae3d",
+      "contentSha256": "a1f050a4ba18e3fb9fc53182fcc739c3f12b71b5095d850c7efd3b4778c38f20",
       "citation": {
         "title": "Villa stays with room to slow down.",
         "publisher": "Peninsula Insider",
@@ -699,8 +682,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 164619,
-      "markdownBytes": 5695
+      "htmlBytes": 164625,
+      "markdownBytes": 5701
     },
     {
       "id": "https://peninsulainsider.com.au/stay/vineyard-stays/",
@@ -708,7 +691,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/index.md",
-      "contentSha256": "fc7691bb2569c36fffeee64d1335fc7ff92729b23a8660886fecf720146249fe",
+      "contentSha256": "18675619d9919934bc5438def7ba1e0113454fe9ce8bf0f6409f299cc320d3ca",
       "citation": {
         "title": "Stay among the vines.",
         "publisher": "Peninsula Insider",
@@ -716,8 +699,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 174285,
-      "markdownBytes": 8475
+      "htmlBytes": 174311,
+      "markdownBytes": 8493
     },
     {
       "id": "https://peninsulainsider.com.au/stay/wellness-retreats/",
@@ -742,7 +725,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/index.md",
-      "contentSha256": "5dffebb4137889b595d7200d16c355db52f77560ff447b515fe2207d6a82f8b8",
+      "contentSha256": "a6076b4d33b53875cc591bc0aa1013e8911f915bb6c38dbc4906f3c0385b5b32",
       "citation": {
         "title": "Stay in wine country.",
         "publisher": "Peninsula Insider",
@@ -750,8 +733,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 173268,
-      "markdownBytes": 7177
+      "htmlBytes": 173283,
+      "markdownBytes": 7184
     },
     {
       "id": "https://peninsulainsider.com.au/stay/woodman-estate/",

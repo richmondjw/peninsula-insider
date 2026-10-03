@@ -57,17 +57,7 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [View stay](<https://www.bluemooncottages.com.au/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-246 Dundas St, Rye VIC 3941
-
-Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
-
-beach  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
+Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
 
 Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
@@ -75,11 +65,23 @@ Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 1-9 Sinclair Ave, Rye VIC 3941
 
-Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
 
 beach  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [View stay](<https://kanastacaravanpark.com.au/retro-caravans/>)
+
+Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+### [Mornington Peninsula Beach Club Cottages](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>)
+
+Tootgarook VIC 3941
+
+Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two-bedroom layouts. Shared EV charging and Unit 1 access features.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [View stay](<https://mpcottages.com/>)
 
 Keep going
 

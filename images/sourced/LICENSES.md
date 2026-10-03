@@ -184,3 +184,23 @@ with verified provenance and geo-location.
 - **Original SHA-1:** da8684e046472dd95387d96fc9d3ed8f262507b7
 - **Adaptation:** Resized to 1600px and converted to WebP; derivative remains under CC BY-SA 4.0.
 - **Used for:** Illustrative nearby Moorooduc lake landscape on /stay/woodman-estate/, not Woodman Estate or its lake.
+
+## place-balnarring-rural-sunrise-cc-by-sa-2.webp
+- **Source:** P1030597, rural sunrise near Balnarring, Victoria.
+- **Photographer:** mattyv.au
+- **Licence:** CC-BY-SA-2.0
+- **Original:** https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg
+- **Licence link:** https://creativecommons.org/licenses/by-sa/2.0/
+- **Original SHA-1:** 6a5e8b7c775c6e378c951ee0270d4a839c171aaa
+- **Adaptation:** Cropped to 1600 x 1000 pixels and converted to WebP; derivative remains under CC BY-SA 2.0.
+- **Used for:** Illustrative rural setting on /stay/iluka-retreat/, not Iluka Retreat or its tents.
+
+## stay-vintage-caravan-unsplash.webp
+- **Source:** Vintage orange and brown caravan parked outdoors, Potsdam, Germany.
+- **Photographer:** Nicolas Görmer
+- **Licence:** Unsplash License (free for commercial use and modifications)
+- **Original:** https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q
+- **Licence link:** https://unsplash.com/license
+- **Fetched derivative SHA-256:** a44ac5fbf79780cb1990b41585a569ff0e7686ca37f2a4a80ae4adaf178d7faf
+- **Adaptation:** Unsplash 2200px JPEG cropped to 1600 x 1000 pixels and converted to WebP.
+- **Used for:** Illustrative vintage caravan on /stay/kanasta-retro-caravans/, not a Kanasta caravan.

@@ -5,25 +5,29 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Suite    [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Accommodation    [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 # Mantons Creek Estate
 
-Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
+Vineyard accommodation at Mantons Creek Estate in Shoreham, with a restaurant and cellar door on the property.
 
-Known for   Vineyard Guest Suites On-Estate Restaurant Shoreham Vineyard Setting
+Known for   Vineyard Accommodation On-Estate Restaurant Shoreham Vineyard Setting
 
 [Check availability](<https://mantonscreekestate.com.au/accommodation>)
 
 Mantons Creek Estate · Shoreham
 
+Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
+Illustrative image  This image shows Mornington Peninsula vineyard (resized to 1600px and converted to WebP). It does not depict Mantons Creek Estate.
+
 Why we’d go
 
 A Shoreham vineyard stay with an on-estate restaurant for a planned lunch.
 
-Mantons Creek Estate offers boutique accommodation overlooking its Shoreham vineyard. The operator calls its rooms guest suites. Check the current room layout, guest policy and inclusions for your dates through its accommodation booking page.
+Mantons Creek Estate offers accommodation overlooking its Shoreham vineyard. The operator does not clearly describe the room types in the public accommodation page, so check the layout and inclusions through its direct booking link for your dates.
 
-The restaurant is on the estate, but its published regular service is lunch from 11:45 am Friday to Sunday. Cellar door hours are separate. Reserve dining and tastings directly; do not assume on-site dinner is available.
+The restaurant is on the estate, but regular service is lunch from 11:45 am Friday to Sunday. Cellar door hours are separate. Reserve dining and tastings directly; do not assume on-site dinner is available.
 
 Choose this for a vineyard base with accommodation, food and wine on one property. Confirm the stay and lunch bookings separately before planning the day.
 
@@ -47,7 +51,7 @@ At a glance
 
 **Type**
 
-Suite
+Accommodation
 
 **Location**
 
@@ -59,7 +63,7 @@ Suite
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.497%2C145.048>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Mantons%20Creek%20Estate%2C%20240%20Tucks%20Rd%2C%20Shoreham%20VIC%203916>)
 
 **Live status**
 
@@ -124,6 +128,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Shoreham - view the destination guide](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=mantons-creek-estate>)
 

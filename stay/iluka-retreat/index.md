@@ -9,39 +9,41 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Iluka Retreat & Camp
 
-Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site multi-tent group glamping venue, with a private freshwater lake.
+Styled bell tents for two on a 36-acre Shoreham property, with lake access and shared powered kitchen and bathrooms.
 
-Known for   Group Glamping to 100 Guests Private Freshwater Lake 36-Acre Bell-Tent Village Challenge Course and SUP Hire
+Known for   Styled Bell Tents Lake and Wetlands Shared Camp Kitchen and Bathrooms Group Lodges Booked Separately
 
-[Check availability](<https://www.ilukaretreat.com.au/>)
+[Check availability](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
 Iluka Retreat & Camp · Shoreham
 
+Photo · mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
+
+Illustrative image  This image shows P1030597, rural sunrise near Balnarring, Victoria. It does not depict Iluka Retreat & Camp.
+
 Why we’d go
 
-The Peninsula's only fixed-site glamping venue built for groups, the right answer for retreats and social weekends that need real outdoor infrastructure.
+A Shoreham tent stay for couples or small groups who want the lake setting and are comfortable with shared camp facilities.
 
-Iluka is the Peninsula's group glamping venue. A bell-tent village plus two group lodges on 36 acres near Shoreham, with a private freshwater lake, bird hides, a challenge course, and canoe and SUP hire. Capacity to 100 guests across 30 structures. Shared camp bathrooms and a shared camp kitchen are the practical trade-off for the scale, this is an outdoor retreat, not a boutique glamping escape.
+Iluka offers styled bell tents for two with a queen bed, linen and towels. Extra single beds can be added for family or friends. The tents are unpowered; the shared camp kitchen and bathrooms have power. Bring a head torch for the walk back to your tent.
 
-This is not a couples-escape product. The rate-per-head calculation changes depending on how many structures you book, and the appeal runs through the group dynamic, yoga weekends, corporate retreats, social weekends, hens parties. For an individual glamping stay, Peninsula Hot Springs is the right address. For a group that wants to own an outdoor venue for two nights, Iluka is the most capable product on the Peninsula by a considerable margin.
-
-Confirm whether you need the full site or just the bell-tent section, capacity and pricing are both more flexible than the website implies. Book well ahead for peak season weekends.
+The lake and wetlands are part of the 36-acre setting. The operator also offers group lodges and whole-property bookings as separate arrangements, so a tent booking does not mean exclusive use of the grounds. Check the tent configuration, availability and optional activities directly before planning your stay.
 
 Worth knowing
 
 **Best for**
 
-Big groups · Wellness day · Weekend escapes · Family outings
+Couples · Small groups · Outdoor stays · Weekend escapes
 
 If you only do one thing
 
-Confirm whether you need the full site or just the bell-tent section, capacity and pricing are both much more flexible than the website implies.
+Expect an unpowered tent and shared powered bathrooms and kitchen; bring a head torch.
 
 Works well with
 
 Peninsula Hot Springs · Flinders Hotel
 
-Filed under   Wellness Slow Spring Summer Autumn Group Couples
+Filed under   Wellness Slow Spring Summer Autumn Couples Group Families
 
 At a glance
 
@@ -51,7 +53,7 @@ Glamping
 
 **Location**
 
-Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Iluka%20Retreat%20%26%20Camp%2C%20Red%20Hill%20South%20VIC%203937>)
+20 Shoreham Rd, Shoreham VIC 3916 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Iluka%20Retreat%20%26%20Camp%2C%2020%20Shoreham%20Rd%2C%20Shoreham%20VIC%203916>)
 
 **Website**
 
@@ -59,13 +61,13 @@ Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.486%2C145.043>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Iluka%20Retreat%20%26%20Camp%2C%2020%20Shoreham%20Rd%2C%20Shoreham%20VIC%203916>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Iluka%20Retreat%20%26%20Camp%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Iluka%20Retreat%20%26%20Camp%2C%2020%20Shoreham%20Rd%2C%20Shoreham%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.ilukaretreat.com.au/>)
+ [Book now](<https://ilukaretreat.com.au/accommodation/glamping/>)
 
 Not sure how to build a day around Iluka Retreat & Camp?
 
@@ -124,6 +126,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Shoreham - view the destination guide](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=iluka-retreat>)
 

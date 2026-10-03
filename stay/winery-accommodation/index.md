@@ -29,7 +29,7 @@ Stay among the vines, with the vineyard as part of the trip.
 
 [Polperro Villas →](<https://peninsulainsider.com.au/stay/polperro-villas/>)[Crittenden Estate Villas →](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
-02 / Winery suites
+02 / Estate rooms
 
 Choose an estate room and build the stay around food and place.
 
@@ -91,7 +91,7 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [View stay](<https://www.portphillipestate.com.au/book-accommodation/>)
 
-Suite  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+Accommodation  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 

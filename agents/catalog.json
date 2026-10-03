@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-03T04:18:43.461Z",
-  "snapshotId": "cbefa1ece5215185c495eaba00aaf00225b6286191a9dade9fa4e23a0858890f",
+  "generatedAt": "2026-10-03T05:00:34.829Z",
+  "snapshotId": "c3c4c277541d82969c8931de3dd5f3c4c571436d7b269ce908ba356b47a201b3",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 619,
+  "count": 618,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -1747,7 +1747,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/ashcombe-maze/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/ashcombe-maze/index.md",
-      "contentSha256": "8ee4511c7a8d72e5b859f25f2a64742a89a6fc58f705a072fb36d7d562d9a517",
+      "contentSha256": "412632cf937c1919ce5b26351c77aab33fbfb22f1ec3e8d4f3382776d09ce127",
       "citation": {
         "title": "Ashcombe Maze & Lavender Gardens",
         "publisher": "Peninsula Insider",
@@ -1755,8 +1755,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171269,
-      "markdownBytes": 6865
+      "htmlBytes": 171252,
+      "markdownBytes": 6873
     },
     {
       "id": "https://peninsulainsider.com.au/explore/balnarring-beach/",
@@ -2699,7 +2699,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "9108c9ccf69d91c6fbb2622bf7a8b3f99f5576c09b6e75d2d987df7f8b1ff2b9",
+      "contentSha256": "be5216bf69fd932698df3a8c1872978a03db97a751f2be7e75d4478d798e2ffa",
       "citation": {
         "title": "Rye",
         "publisher": "Peninsula Insider",
@@ -2707,8 +2707,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 261795,
-      "markdownBytes": 16231
+      "htmlBytes": 262357,
+      "markdownBytes": 16483
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/safety-beach/",
@@ -2733,7 +2733,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/shoreham/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/shoreham/index.md",
-      "contentSha256": "0cc16168144993510046095b020969c06416607de81f6a570e578efad15629de",
+      "contentSha256": "0f5da93a3abee64ad750e9632523c4ab43e6297587da0ee438717742d2b91ee5",
       "citation": {
         "title": "Shoreham",
         "publisher": "Peninsula Insider",
@@ -2741,8 +2741,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 208279,
-      "markdownBytes": 10522
+      "htmlBytes": 206948,
+      "markdownBytes": 10530
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/somers/",
@@ -3583,7 +3583,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
-      "contentSha256": "f5336eb7c3aeed0702b155038abaf710d4e949e1b99ffbe8b321379df2010d6a",
+      "contentSha256": "0fac8af2057f62d3584585fac916538f77cebf30c14bf97206be78ae2df5e73b",
       "citation": {
         "title": "Flinders & the Ocean Coast",
         "publisher": "Peninsula Insider",
@@ -3591,8 +3591,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 308933,
-      "markdownBytes": 32441
+      "htmlBytes": 308916,
+      "markdownBytes": 32449
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
@@ -3600,7 +3600,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
-      "contentSha256": "bcd88f2b280d6cbe9a02b14c2e5a72819358edb988a7d05bae66a63ff23c5d06",
+      "contentSha256": "369cfa9b1e9931e865b68b29f7398f9cde28102f4d4e3bb2eea77738f78975a8",
       "citation": {
         "title": "Sorrento & Portsea",
         "publisher": "Peninsula Insider",
@@ -3608,8 +3608,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 298581,
-      "markdownBytes": 30231
+      "htmlBytes": 296312,
+      "markdownBytes": 30003
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
@@ -3668,7 +3668,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/rye-ocean-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/rye-ocean-beach/index.md",
-      "contentSha256": "b09b60e6d53643e925e12b2e50797a9aac5e22ceb618553c883919c3dec888b0",
+      "contentSha256": "394c55929adb2404820ccedf38a7084bac7499d12f61cc6e8e1a5b3c072d5914",
       "citation": {
         "title": "Rye Ocean Beach",
         "publisher": "Peninsula Insider",
@@ -3676,8 +3676,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176812,
-      "markdownBytes": 7841
+      "htmlBytes": 177923,
+      "markdownBytes": 8093
     },
     {
       "id": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/",
@@ -3855,7 +3855,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/index.md",
-      "contentSha256": "2038782c1b8d279b83915190f27147045cf03ba9fd66a18137f6b9b91365e443",
+      "contentSha256": "4dfa0dccffd20b3426ed2d91ffa4f84b98984faac290bcdbddf36b7d9963fa76",
       "citation": {
         "title": "The Dunes Golf Links",
         "publisher": "Peninsula Insider",
@@ -3863,8 +3863,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 215757,
-      "markdownBytes": 8784
+      "htmlBytes": 216868,
+      "markdownBytes": 9036
     },
     {
       "id": "https://peninsulainsider.com.au/explore/the-national-golf-club/",
@@ -6541,7 +6541,7 @@
       "section": "map",
       "canonicalUrl": "https://peninsulainsider.com.au/map/",
       "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
-      "contentSha256": "f40ca57cfeb88413d6777bb18327ae6dc55dbd6cb8665c52b8a1ecdb2c87f420",
+      "contentSha256": "4f930793eb35d0679eef7a71c5996a8de6f254d06d29c63b491a97be3c07a8f4",
       "citation": {
         "title": "The Insider Map",
         "publisher": "Peninsula Insider",
@@ -6549,8 +6549,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 504194,
-      "markdownBytes": 19351
+      "htmlBytes": 499127,
+      "markdownBytes": 19075
     },
     {
       "id": "https://peninsulainsider.com.au/partners/",
@@ -6617,7 +6617,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 147929,
+      "htmlBytes": 147828,
       "markdownBytes": 593
     },
     {
@@ -6660,7 +6660,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "b670e762ae3c68886094446e5d5d22f84d8e5d7367999bec2f12422f69e82fd3",
+      "contentSha256": "18657e5fcf5634f17991daad2e7840e598225c685bd71939e35a0e9c0882ee2e",
       "citation": {
         "title": "Saturday 3 October 2026",
         "publisher": "Peninsula Insider",
@@ -6677,7 +6677,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "bb78d4e4fdf17e55c12b6ebbccb497f9d71449f5a308823982e8d40c35ed1aee",
+      "contentSha256": "26fa7efc6952755d2311ac6ce598a059d10dd279bd38ed39c457d2c750836170",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6685,8 +6685,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 164492,
-      "markdownBytes": 40913
+      "htmlBytes": 164510,
+      "markdownBytes": 40931
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -6694,7 +6694,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "0f99798a9b2bb0994cea42cdf411bd09f6901c9a398c06085aa8cc88025f8e7c",
+      "contentSha256": "8a6fc5d23d061fd60e6653a78e7814cefc069ed6efc561e8ec9d3183e87667c5",
       "citation": {
         "title": "Where you stay shapes the whole trip.",
         "publisher": "Peninsula Insider",
@@ -6702,8 +6702,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-03"
       },
-      "htmlBytes": 290278,
-      "markdownBytes": 17623
+      "htmlBytes": 288225,
+      "markdownBytes": 17522
     },
     {
       "id": "https://peninsulainsider.com.au/stay/arthurs-views/",
@@ -6753,7 +6753,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171723,
+      "htmlBytes": 171690,
       "markdownBytes": 5484
     },
     {
@@ -6910,23 +6910,6 @@
       "markdownBytes": 7560
     },
     {
-      "id": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
-      "title": "Driftaway on Dundas",
-      "section": "stay",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/index.md",
-      "contentSha256": "d89577ef77bf66fbf7d7b159fae0f9164ba7a2511fde401604d96e09fc39c761",
-      "citation": {
-        "title": "Driftaway on Dundas",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/stay/driftaway-on-dundas/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 171162,
-      "markdownBytes": 5640
-    },
-    {
       "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
       "title": "Quarters at Flinders Hotel",
       "section": "stay",
@@ -6940,7 +6923,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 183661,
+      "htmlBytes": 183628,
       "markdownBytes": 7761
     },
     {
@@ -6991,7 +6974,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173712,
+      "htmlBytes": 173679,
       "markdownBytes": 6444
     },
     {
@@ -7051,7 +7034,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/iluka-retreat/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/iluka-retreat/index.md",
-      "contentSha256": "a7c644a87053955cfe285c0c9cab20ea6b0470abe8c7428017780fe10a419cb1",
+      "contentSha256": "2cb825153e5870f47a85eaa0e70c7fd1db01a94072b4f3545101231790291710",
       "citation": {
         "title": "Iluka Retreat & Camp",
         "publisher": "Peninsula Insider",
@@ -7059,8 +7042,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 172623,
-      "markdownBytes": 5952
+      "htmlBytes": 172757,
+      "markdownBytes": 5914
     },
     {
       "id": "https://peninsulainsider.com.au/stay/jackalope/",
@@ -7085,7 +7068,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/index.md",
-      "contentSha256": "c1a3f10d905ef0d69968d21e6a1e0b53ed3d298035b34f14f50b7e479ee38ee0",
+      "contentSha256": "a469c17f2c8c16f64f618c0e77fc288c6a4e9237ce98c2a875a7a5f73541ab04",
       "citation": {
         "title": "Mornington Peninsula Retro Caravans",
         "publisher": "Peninsula Insider",
@@ -7093,8 +7076,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173289,
-      "markdownBytes": 6171
+      "htmlBytes": 173269,
+      "markdownBytes": 6136
     },
     {
       "id": "https://peninsulainsider.com.au/stay/lindenderry/",
@@ -7136,7 +7119,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/mantons-creek-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/mantons-creek-estate/index.md",
-      "contentSha256": "4434056d7caa6e7a0869d1729f8f686a631ddab6eed3fbe8f685c2e7bafb3a58",
+      "contentSha256": "643e0fa740152178740a105d1dd254922941b0756d6d86c25e8b5f6016b20962",
       "citation": {
         "title": "Mantons Creek Estate",
         "publisher": "Peninsula Insider",
@@ -7144,8 +7127,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171404,
-      "markdownBytes": 5462
+      "htmlBytes": 172515,
+      "markdownBytes": 5947
     },
     {
       "id": "https://peninsulainsider.com.au/stay/mp-beach-club-cottages/",
@@ -7374,7 +7357,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/villas/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/villas/index.md",
-      "contentSha256": "7b84f48e20b70d2c000fcce03f4a098ef7947fa5b475d2c9f090cf50077fae3d",
+      "contentSha256": "a1f050a4ba18e3fb9fc53182fcc739c3f12b71b5095d850c7efd3b4778c38f20",
       "citation": {
         "title": "Villa stays with room to slow down.",
         "publisher": "Peninsula Insider",
@@ -7382,8 +7365,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 164619,
-      "markdownBytes": 5695
+      "htmlBytes": 164625,
+      "markdownBytes": 5701
     },
     {
       "id": "https://peninsulainsider.com.au/stay/vineyard-stays/",
@@ -7391,7 +7374,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/vineyard-stays/index.md",
-      "contentSha256": "fc7691bb2569c36fffeee64d1335fc7ff92729b23a8660886fecf720146249fe",
+      "contentSha256": "18675619d9919934bc5438def7ba1e0113454fe9ce8bf0f6409f299cc320d3ca",
       "citation": {
         "title": "Stay among the vines.",
         "publisher": "Peninsula Insider",
@@ -7399,8 +7382,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 174285,
-      "markdownBytes": 8475
+      "htmlBytes": 174311,
+      "markdownBytes": 8493
     },
     {
       "id": "https://peninsulainsider.com.au/stay/wellness-retreats/",
@@ -7425,7 +7408,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/winery-accommodation/index.md",
-      "contentSha256": "5dffebb4137889b595d7200d16c355db52f77560ff447b515fe2207d6a82f8b8",
+      "contentSha256": "a6076b4d33b53875cc591bc0aa1013e8911f915bb6c38dbc4906f3c0385b5b32",
       "citation": {
         "title": "Stay in wine country.",
         "publisher": "Peninsula Insider",
@@ -7433,8 +7416,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-01"
       },
-      "htmlBytes": 173268,
-      "markdownBytes": 7177
+      "htmlBytes": 173283,
+      "markdownBytes": 7184
     },
     {
       "id": "https://peninsulainsider.com.au/stay/woodman-estate/",

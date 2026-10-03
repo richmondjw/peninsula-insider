@@ -79,18 +79,6 @@ beach  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) [View stay](<https://www.bluemooncottages.com.au/>)
 
-Cottage  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
-246 Dundas St, Rye VIC 3941
-
-Three self-contained villas on 2.5 acres of tea-tree near Rye beach, breakfast hampers, oversized spa baths, one disability-accessible villa.
-
-beach  romance
-
-[Read notes](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
 Exterior photographed in 2006. Photo: Biatch / Wikimedia Commons (public domain) [Source](<https://commons.wikimedia.org/wiki/File:Hotel_sorrento.jpg>)
 
 Hotel  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
@@ -105,13 +93,15 @@ weekend escape  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [View stay](<https://hotelsorrento.com.au/stay/>)
 
+Photo: Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
+
 Glamping  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
 ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
 1-9 Sinclair Ave, Rye VIC 3941
 
-Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly in designated units, the most characterful glamping-adjacent option on the bayside.
+Vintage and retro caravans near Rye bay beach, with shared bathrooms and heating and cooling in every van.
 
 beach  slow
 

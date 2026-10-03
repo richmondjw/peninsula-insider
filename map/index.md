@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-206 on the map
+203 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -127,8 +127,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 
 - [View : Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-- [View : Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
-
 - [View : Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
 - [View : Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
@@ -161,8 +159,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 
 - [View : Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-- [View : Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
-
 - [View : Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
 - [View : Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
@@ -186,8 +182,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
 - [View : Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
-
-- [View : Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
 - [View : Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
