@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-03",
-  "generatedAt": "2026-10-03T04:54:24.585Z",
+  "generatedAt": "2026-10-03T06:00:24.003Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -697,7 +697,7 @@
         },
         {
           "date": "2026-10-03",
-          "eventStatus": "https://schema.org/EventScheduled"
+          "eventStatus": null
         },
         {
           "date": "2026-10-04",

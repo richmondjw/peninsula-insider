@@ -5,8 +5,6 @@ Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Stay on the Peninsula
-
 # Where you stay shapes the whole trip.
 
 The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.
@@ -70,8 +68,6 @@ A smaller village base for the southern coast.
 [Find stays](<https://peninsulainsider.com.au/stay/?place=flinders#browse-stay>)[Area map](<https://peninsulainsider.com.au/map/?place=flinders>)
 
 Travelling without a car? Start with [the transport guide](<https://peninsulainsider.com.au/explore/getting-around/>) and check the journeys for your dates before selecting a base.
-
-The stay shortlist
 
 ## Stays worth building a weekend around
 
@@ -149,8 +145,6 @@ Our shortlist compares different settings and stay formats. Use each stay guide 
 
  [How we choose and check our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Go deeper
-
 ## Find the stay that fits
 
 Start with a broad edit, or follow the kind of weekend you have in mind.
@@ -176,8 +170,6 @@ Save a possibility or plan a visit?
 **Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
 
 You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
-
-The full list
 
 ## All 26 places to stay
 
@@ -436,8 +428,6 @@ Hotel   Sorrento   Couples
 Details checked September 2026
 
 [Visit website](<https://sorrento.intercontinental.com/>)
-
-The Journal
 
 ## Make more of the night
 
