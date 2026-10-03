@@ -9,11 +9,11 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Epicurean
 
-A Red Hill institution that has turned long lunch into a civic duty.
+A long table in Red Hill’s historic coolstore and packing shed.
 
-Known for   One-Hat Red Hill Restaurant Sunday Long Lunch Mediterranean Produce Cooking Vineyard Row Terrace
+Known for   Historic Red Hill coolstore The Shed Restaurant Sunday lunch Seasonal Table group menu
 
-[Reserve a table](<https://epicurean.com.au/reservations>)  +61 3 5989 2000
+[Reserve a table](<https://www.theepicurean.com.au/shed-restaurant-reservations>)  +61 3 5989 4000
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -33,31 +33,27 @@ Long dining tables set between walls of stacked wine barrels under a neon swan s
 
 Why we’d go
 
-One hat, sensible prices, and a kitchen that has been quietly doing the work longer than most of the ridge's trophy restaurants have been open.
+The historic packing shed gives a group meal a strong sense of place, and The Shed Restaurant serves Sunday lunch.
 
-The Epicurean has been doing Red Hill Sunday lunch for longer than most of the ridge's trophy restaurants have existed, and it is finally getting the recognition the food deserves. The dining room is unshowy in the best sense, timber, stone, long windows onto vineyard rows, and the cooking is confident Mediterranean with a clear affection for the Peninsula's producers.
+The Epicurean is housed in Red Hill’s historic coolstore and packing shed. Its Shed Restaurant currently serves lunch from Thursday to Sunday and dinner from Thursday to Saturday. The operator asks visitors to reserve; groups of eight or more can use its Seasonal Table menu. The shed setting makes this a useful choice for a group meal or a Sunday lunch. Check the current menu, service times and any surcharges on The Epicurean’s booking page before travelling.
 
 Photo · Peter Tarasiuk, courtesy of Visit Victoria
-
-The pasta course is where the kitchen shows itself; the roast-of-the-day is the secret weapon. The wine list is sensibly priced and leans local without any of the estate chauvinism that creeps into cellar door restaurants. This is the place you take parents, in-laws, or anyone who wants Red Hill to feel like a warm weekend rather than a performance.
-
-Weekday lunches are easier to book and almost always better-paced. Order the tasting plate for the table and let the kitchen run.
 
 Worth knowing
 
 **Best for**
 
-Long lunches · Food lovers · Scenic views · Wine lovers
+Long lunches · Food lovers · Group dining · Wine lovers
 
 If you only do one thing
 
-Order the pasta that sounds most seasonal and the roast-of-the-day if it's on, this kitchen earns its hat in those two dishes.
+Reserve through The Epicurean’s current Shed Restaurant page and check the menu for your date.
 
 Works well with
 
 Port Phillip Estate · Red Hill Brewery
 
-Filed under   Long Lunch Fireplace View Cellar Door All Year Couples Families Group First Timers
+Filed under   Long Lunch All Year Couples Families Group First Timers
 
 At a glance
 
@@ -67,33 +63,25 @@ Restaurant
 
 **Location**
 
-165 Purves Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Epicurean%2C%20165%20Purves%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
+165 Shoreham Road, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Epicurean%2C%20165%20Shoreham%20Road%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Call**
 
-+61 3 5989 2000
-
-**Guide**
-
-1 Good Food Guide hat
-
-**Awards**
-
-Good Food Guide 2024
++61 3 5989 4000
 
 **Website**
 
-[epicurean.com.au](<https://epicurean.com.au/>)
+[www.theepicurean.com.au](<https://www.theepicurean.com.au/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3649%2C145.0198>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Epicurean%2C%20165%20Shoreham%20Road%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Epicurean%2C%20165%20Purves%20Rd%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Epicurean%2C%20165%20Shoreham%20Road%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://epicurean.com.au/reservations>)
+ [Book now](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
 Not sure how to build a day around The Epicurean?
 
@@ -149,20 +137,6 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
@@ -174,6 +148,18 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
+
+795 White Hill Rd, Red Hill VIC 3937
+
+Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
+
+cellar door  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
 Build a day around this
 

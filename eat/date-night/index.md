@@ -35,18 +35,6 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) [Book](<https://www.tedesca.com.au/>)
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
-
-3649 Frankston-Flinders Rd, Merricks VIC 3916
-
-An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
-
-anniversary  long lunch
-
-[Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
-
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Polperro](<https://peninsulainsider.com.au/eat/polperro/>)
@@ -75,7 +63,7 @@ long lunch  cellar door
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
@@ -85,7 +73,7 @@ A multi-course dining experience at Jackalope Hotel, with a dramatic room and a 
 
 anniversary  first date
 
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
 
 Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -110,6 +98,18 @@ Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape 
 anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
+
+Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
+
+3649 Frankston-Flinders Rd, Merricks VIC 3916
+
+An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
+
+anniversary  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
 Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 

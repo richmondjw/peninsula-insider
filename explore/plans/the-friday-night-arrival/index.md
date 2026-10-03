@@ -137,13 +137,13 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-165 Purves Rd, Red Hill South VIC 3937
+165 Shoreham Road, Red Hill South VIC 3937
 
-A Red Hill institution that has turned long lunch into a civic duty.
+A long table in Red Hill’s historic coolstore and packing shed.
 
-long lunch  fireplace
+long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
+[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
 Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

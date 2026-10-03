@@ -25,18 +25,6 @@ Ordered by editorial weight. Rooms with a hat rating first, then the places doin
 
  [All 69 venues →](<https://peninsulainsider.com.au/eat/>)
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
-
-3649 Frankston-Flinders Rd, Merricks VIC 3916
-
-An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
-
-anniversary  long lunch
-
-[Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
-
 Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
@@ -100,20 +88,6 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
-
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
-
-165 Purves Rd, Red Hill South VIC 3937
-
-A Red Hill institution that has turned long lunch into a civic duty.
-
-long lunch  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -215,11 +189,35 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
+Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+
+51 Stanleys Rd, Merricks VIC 3916
+
+A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+
+Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+
+### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+
+3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+
+All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+
+slow  garden
+
+[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>)
+
 ## Frequently asked questions
 
 ### What are the best restaurants on the Mornington Peninsula?
 
-The strongest rooms right now are Laura at Pt. Leo, Pt. Leo Estate, Tedesca Osteria. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot.
+The strongest rooms right now are Pt. Leo Estate, Tedesca Osteria, Ten Minutes by Tractor. All three offer serious food in the vineyard-dining tradition the Peninsula does best - long lunches, estate-grown produce, and wine lists anchored by Mornington Pinot.
 
 ### Do I need to book restaurants on the Mornington Peninsula?
 

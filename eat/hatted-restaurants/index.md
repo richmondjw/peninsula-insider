@@ -37,18 +37,6 @@ long lunch  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) [Book](<https://www.tedesca.com.au/>)
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
-
-3649 Frankston-Flinders Rd, Merricks VIC 3916
-
-An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
-
-anniversary  long lunch
-
-[Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
-
 Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
@@ -153,23 +141,21 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/yabby-lake/>) [Book](<https://www.yabbylake.com/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
 
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+3649 Frankston-Flinders Rd, Merricks VIC 3916
 
-165 Purves Rd, Red Hill South VIC 3937
+An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
-A Red Hill institution that has turned long lunch into a civic duty.
+anniversary  long lunch
 
-long lunch  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
+[Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
@@ -179,7 +165,21 @@ A multi-course dining experience at Jackalope Hotel, with a dramatic room and a 
 
 anniversary  first date
 
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
+
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+
+165 Shoreham Road, Red Hill South VIC 3937
+
+A long table in Red Hill’s historic coolstore and packing shed.
+
+long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
 Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 

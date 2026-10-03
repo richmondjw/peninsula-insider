@@ -11,7 +11,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
 
-Known for   Seasonal Fine Dining Pt. Leo Estate Two-Hat Dining Merricks
+Known for   Seasonal Fine Dining Pt. Leo Estate Merricks
 
 [Reserve a table](<https://www.ptleoestate.com.au/dine/laura/>)  +61 3 5989 9011
 
@@ -19,7 +19,7 @@ Why we’d go
 
 A small dining room, a seasonal menu and time to settle into the estate: Laura suits a meal that is the reason for the trip.
 
-Laura is the fine-dining restaurant at Pt. Leo Estate in Merricks, separate from Pt. Leo Restaurant and the Wine Terrace. The operator describes a room for up to 40 guests, with a four-course Signature menu and an eight-course Seasonal menu. A two-course option is also offered on weekdays. Confirm the current menu when booking.
+Laura is the fine-dining restaurant at Pt. Leo Estate in Merricks, separate from Pt. Leo Restaurant and the Wine Terrace. Pt. Leo Estate describes Laura as a two-hatted dining room. The operator describes a room for up to 40 guests, with a four-course Signature menu and an eight-course Seasonal menu. A two-course option is also offered on weekdays. Confirm the current menu when booking.
 
 Lunch is served Friday to Monday from noon, with Saturday dinner from 6pm. Service can change for private events, so check your date directly with the estate. The estate advises reservations, and requires them on weekends, during peak periods and on public holidays.
 
@@ -58,14 +58,6 @@ Restaurant
 **Call**
 
 +61 3 5989 9011
-
-**Guide**
-
-2 Good Food Guide hats
-
-**Awards**
-
-Good Food Guide 2024 · Chef Hat × 2
 
 **Website**
 

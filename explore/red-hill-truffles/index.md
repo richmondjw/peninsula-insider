@@ -77,19 +77,17 @@ anniversary  romance
 
 [Read notes](<https://peninsulainsider.com.au/stay/cassis/>) [View stay](<https://book-directonline.com/cassis-redhill/properties/cassisredhilldirect>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+120 Arthurs Seat Rd, Red Hill VIC 3937
 
-166 Balnarring Rd, Merricks North VIC 3926
+David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
 
-A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
+cellar door  slow
 
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
 Keep going
 

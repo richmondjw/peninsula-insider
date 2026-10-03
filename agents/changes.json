@@ -1,188 +1,228 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T12:32:10.993Z",
+  "generatedAt": "2026-10-03T13:00:35.941Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b6a90135637879717b2abf00c70cddf44209718508e2dd0652cef70000ddf55b",
-  "toSnapshot": "7787e76891609c1d42366744b779b5bc7b3289ba4e380f5efbe3abe81c0404c3",
-  "previousGeneratedAt": "2026-10-03T12:11:09.662Z",
+  "fromSnapshot": "7787e76891609c1d42366744b779b5bc7b3289ba4e380f5efbe3abe81c0404c3",
+  "toSnapshot": "cba8b05cb714a5c532019fff340f1e02ab0e35af8ae9447f81fad6d89224cfa1",
+  "previousGeneratedAt": "2026-10-03T12:32:10.993Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 22,
+  "count": 27,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/tootgarook/",
+      "id": "https://peninsulainsider.com.au/eat/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tootgarook/index.md",
-      "contentSha256": "eb24ede2f2546f6a8295a443b230e0221bf818bcc5d07c746b79728fa2a9ec90",
-      "previousContentSha256": "1ee5c63b6ba58f3b194077632d7070cc0b7e48be817ad9e7865bdde8c988206a"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
+      "contentSha256": "b0c81579f42ed4bf9c778b785c6e3162d173b266807d1b009b7bd9d769f42e97",
+      "previousContentSha256": "5b4456932b44455c3d636376847a098df454a89ea93975de12bb57c1fa5d33e2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/best-restaurants/index.md",
+      "contentSha256": "5530c7dd07d52a3f70e5ce2f038ce538a4f7a0496a3efa7006d76d928a6b2b6f",
+      "previousContentSha256": "c37184b843b38f4fad2dbc1f4d68b72536fa25a900ee025810afabfc3b6e9065"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/date-night/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/date-night/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/date-night/index.md",
+      "contentSha256": "3a1ffde5fdcd9804fb720d723ad64cc2bb7f8f32fc667839dc596d8c29e4a4a7",
+      "previousContentSha256": "1849baa7dd21c1d46fcaf5f259bf9fa22b09bc5216c5e20d0d511d727eab455a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/index.md",
+      "contentSha256": "1dae5e1cfa4b871df2832e92902a31ddb39b769d1be78d9d2db5f5f8e6fd0ed6",
+      "previousContentSha256": "41f40903a69dd5943a56de80cc25fbca7877bd1c7fd2be04bb84a0c88b096dfb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/epicurean-red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/epicurean-red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/epicurean-red-hill/index.md",
+      "contentSha256": "dfac19749d544f004b64e282b9ad438d3e9c1ec5fe2cc06a9404b3432674d756",
+      "previousContentSha256": "df83da9a4b33a392b44ae684453dc69b56b28d8f225d688e3eb4f4a8927742e4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/fine-dining/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/fine-dining/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/fine-dining/index.md",
+      "contentSha256": "d1803a4c60fabdcec64cc2b2952bb48cb749853135c8f418fb1985137fc9d0c3",
+      "previousContentSha256": "07888f6715741a5f4847edbf3d73295c1e832e2d60879ba85beaa923b2f40681"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/green-olive-red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/green-olive-red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/green-olive-red-hill/index.md",
+      "contentSha256": "52a7d66799aadf9e540d77243db626309457b8f28feecc0745ae96c18dddeeab",
+      "previousContentSha256": "3ff855a59316a55f988fb309307b2b5bc886068157fefa1859b73678589605f1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/hatted-restaurants/index.md",
+      "contentSha256": "9315debd96be67c0b2f9f7ddcfb237c341c7f47d39ec4c93340ff470bc80966f",
+      "previousContentSha256": "63e7fbb2660ad7355e51ec66a8a327c4f6918503cffe0c3f5e44492e6c5e513a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/laura-pt-leo/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/laura-pt-leo/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/laura-pt-leo/index.md",
+      "contentSha256": "d827ec1cf2de614d4355f78911718ace93659d1dee418e5532dcaedc378946ab",
+      "previousContentSha256": "f046a8bebc9e2d8ffe11edc05979b8b09920dc4c74c7df779ff7acc024b2a0c7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/many-little/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/many-little/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/many-little/index.md",
+      "contentSha256": "1364fed6d6cd5a635176b56ad707f342cf5758aa0f140408ec0397b5653208be",
+      "previousContentSha256": "6237b4f3ae404db5bfdde6fab40c2620e18aab8c910da46a013c8aed862dec80"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/index.md",
+      "contentSha256": "1e5d45c5d6da4dadfb94142891ac3744ce4c0857e9380c60d47ff5e04e03f396",
+      "previousContentSha256": "6217bd3716e410a8f6dd9474d428345a344ff868054f1fb50709ea594389b417"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/red-hill-cheese/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/red-hill-cheese/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/red-hill-cheese/index.md",
+      "contentSha256": "af141c9d00834136975a33699b9dbe56ddb158a24f5ae642dee59f9dcce0d82e",
+      "previousContentSha256": "8f75a952cbbd08f4936c0d3d388efcd0036d44dc6bf4f9f8a08c06d191c809bd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/tedesca-osteria/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/tedesca-osteria/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/tedesca-osteria/index.md",
+      "contentSha256": "e4c98a54bc6b4a0ddf5c6c1c0ecbba9d6d49ba6a79cdd0dc81eae23712858890",
+      "previousContentSha256": "9540921d317e5ffad31c2116740384a2d30567b13625e8a91c257051ffc9be8b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/index.md",
+      "contentSha256": "286c2746c9ee7dcc41ccc9a16b9999f0dd993ee1e39b57277a3a5b34d563278a",
+      "previousContentSha256": "c9c71824a1afbd6214cb8587b8faadeeaefdf244760c07ccda4922ea83f717fa"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/index.md",
+      "contentSha256": "76de5d7f13a351b08261b3ef0477234ffbdf09d1ff95b219b9b3965c0c7a9fec",
+      "previousContentSha256": "80c8d83ed5ec447a3799ae7ab8c77f1c026b6b0cd4f36a22c106f51730594f51"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/merricks-north/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/index.md",
+      "contentSha256": "2b0cd7b295fd167c9453fa630c417a665cd525303b95c9931c4fed7112cc9bea",
+      "previousContentSha256": "08ede8b26810ee65c268687a34d5a8441d385a98bf11a398580ba6a4abc08609"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
+      "contentSha256": "e3dc209ecc363e772cec3163aab033698293ce002063522312bace0d83830606",
+      "previousContentSha256": "cdde40041060cdfd8ef4699a0f796463598cccd091f76617385cc0008e07caed"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/index.md",
+      "contentSha256": "0c532d71e6f6b66a5d72e08e3c7a96ec1aff66c02ffef6960e13f0d85dcbd4f9",
+      "previousContentSha256": "430702f032795810da46c87f48ece35f9c64e2fae8e9f6e681ad9e3294013c4b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/index.md",
+      "contentSha256": "819a062f01971e9d6088227a673fdb3b3b02ce552cf3fab93b5dc44042a0944e",
+      "previousContentSha256": "47fe72cd3f2bdac287b677a12af9adafd9c27972f2eabd197422edaad8cc302f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/index.md",
+      "contentSha256": "c71e9ca042901bce33e439c613e6dff8aea9810a05c4c016a461cea60e43ed92",
+      "previousContentSha256": "2949b974d374d71b772c14672a1837549d0043460fad4b0b00dc4e2e389e3301"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/red-hill-truffles/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/red-hill-truffles/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/red-hill-truffles/index.md",
+      "contentSha256": "e50b03705c73e6a2c543a66d112bb05f1c43c2c3384f3614bded60b960bfeef1",
+      "previousContentSha256": "19ba43fba5639cac86471acc26ddc9105cb0c0151cccbd4e8359bd98795c2150"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "21feeff6b82809ae556298efdbda787fb142263546e74530792fe127532619cc",
+      "previousContentSha256": "580478f51616a4bba22822ec3543b478b2e82f4f3a63f28eabd050b274d8fed6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/index.md",
+      "contentSha256": "bcc6c2445692f8048976990c7f50e562c43857327e2d4cbfb18c714953ade79a",
+      "previousContentSha256": "e604fa1ca083abdfbc9042b1deffca9de240ed7fbc7a7fb242b3d2400a3ee1d7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/insiders-30/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/",
+      "markdownUrl": "https://peninsulainsider.com.au/insiders-30/index.md",
+      "contentSha256": "cd1a142a411d3d95f2edc3d3b4a4e6888881a55a755bf1901cce0d7994e7c862",
+      "previousContentSha256": "15ee187177eb0085f454a55969e0e4d340ab646c47fdf8fe6d92aba4fffcff41"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/insiders-30/2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/insiders-30/2026/index.md",
+      "contentSha256": "ba72bba08687d755bdb8495af3cd0f37db3f2cf06a5f6030d82d3bf72c11bf38",
+      "previousContentSha256": "154ef26c014e5e9d494144c8fc4324434fb1dd85e494efe959661d7923d187f9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/map/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/map/",
+      "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
+      "contentSha256": "221a8a21d3ee7ce529fb6c0105f568ca5ad1a1730655678168ccdf722229d2f7",
+      "previousContentSha256": "4f930793eb35d0679eef7a71c5996a8de6f254d06d29c63b491a97be3c07a8f4"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "5cb7a7e2ef005c64967a206e490db4907fd70688418846aecf2a381e8d4e17a3",
-      "previousContentSha256": "fcf18e457f1d03ab4717f96d2d5db13d4d79725e1946ff7d96d04dbe7aa8adb8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "033ef62848121ac0bd276240f6cb5b7fcfe4ed32b209d0fba6f624cdf8658dcf",
-      "previousContentSha256": "3d45ec2d9b241d62af4838719af8dc37960cf44de79f76c47347de957fcf20e4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/boneo-community-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/boneo-community-market/index.md",
-      "contentSha256": "61c4f1aea953a80acdf3654a719c0a00549ef3e6e1774d5d27a6b4353b7330ea",
-      "previousContentSha256": "4cb53e8b10b0319094560ce6e6050f6a0ef5c889b31638402f0b9470d9a4c9a8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "8272602ee76f5bce804ee2e527d89be3fcf9f3555909b87764850808c8f48e34",
-      "previousContentSha256": "20d9ae5db4ad095d63fceccc611cc94a078aad7a2dc98299b73bf2d850ed81c4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
-      "contentSha256": "8942d78ec011a28ab70faaf2c01e48be2b313c1c218295517fb0cce9df38e9f7",
-      "previousContentSha256": "730a5939854c3cc67d1ac2c72289c4598e2b97b9c4a56870b97d0dd49f1045bf"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/index.md",
-      "contentSha256": "ccdc3bfe6a4ea18a8872cd2bc76222514c2cc75675247fe22904472c3bfaf4b1",
-      "previousContentSha256": "8d5b8b019426572f40007ee9bf860d2894a7943d7c0e94a58b643d2d365ef79b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
-      "contentSha256": "0c505d6f881016cfba098c3a105f3aa28b58256297b208ed9920a1c578568b48",
-      "previousContentSha256": "91332b862165d944dcbda2bf1a3e46d665a5b3e454d3439131a705b6a2b7ab73"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/index.md",
-      "contentSha256": "4323736f18b25b44d880bf66c4f63c31d209fbede6503a217568eacb28c80341",
-      "previousContentSha256": "79ea276a8565a3389a457477913d53cbb6bfb055fa79557ea266061b35b48e3c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/index.md",
-      "contentSha256": "89eb3f49c76e94fdcc050c165d3154359b7cf2f6ff57b94b785e457aeb1832ea",
-      "previousContentSha256": "5919430ee3881187ee07e71755cd24e4995ecce6348ccfa84e88b80fa0412ea6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/index.md",
-      "contentSha256": "324c8e41a1627816404c54f131acac644bfc2ae9beff95e98dbf2e6dc27042e7",
-      "previousContentSha256": "a4125e038256bcf0c96c25bef9ece6f192366f8bb61c43ffee75257057d2b743"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
-      "contentSha256": "9a4f90f51c22a5a633ac4afa4a1a38a06ea5c261b0361d9ef61f40918dbaf650",
-      "previousContentSha256": "56cbcceb039115b7b8bd559d5dc4d2c960b3f80ed153ba614f3b26cd1a9ba0a8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "3b8dccf3100559c230e006a02223887b3d94006c2db9947c535aba93c57a434f",
-      "previousContentSha256": "e5d79eb6d56834cd9a54990715f6dc2b1251fbd5ac6ad5dda7d5a9ae695f3a1f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/index.md",
-      "contentSha256": "469a79c3eb49b76b3f04c75d9e3ba4d48888dc5b1348a6f0daf1a3003e6d708f",
-      "previousContentSha256": "d7579f146c1749d82f02cac893ae189ebe26f4f994e7f48adf1211975e24c6cb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/index.md",
-      "contentSha256": "83c9b8d353c4cfbeda66a30004e63781b79f5c88d961650a2fab7203728f1f78",
-      "previousContentSha256": "85cec84b0506808346f936dd9d01207c425d0fd9247417c77b5f456693088c89"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/index.md",
-      "contentSha256": "a79eeaf2a952e78f9275c90c80b236fc33f4fea3d9afdb7c42a246393e6711b5",
-      "previousContentSha256": "3ee51503adb981e61fdcf69cf2657c835afa729bd068fbdc70c123bd24a9342d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "ddd54115218dd966478cfedf4c2c50a7f9e0db2492cfcef11e421bdea183d9a8",
-      "previousContentSha256": "94888ee579b6152e5ea9223b1d09b4cbc8990e2b0783b5a155031587a9ea05f3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
-      "contentSha256": "2b18c06065de4e8387feada710321ebf43382102e850512efe9f8bed49d037fd",
-      "previousContentSha256": "ebb14f6a9fcbec771e3c1e3fb2f424293c9003a089f95f9447aa3c9bb012d900"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
-      "contentSha256": "7b66fe3ec465d31094bfe18c56e19e848d80e36ef1864a7b2fe82fdeb1a25444",
-      "previousContentSha256": "5a2f53bfb907251140eb4beb4ef8a485ded220bca0b5087b15bdaa1e47d26f4c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pearcedale-community-market/index.md",
-      "contentSha256": "2c762931428d42924a799baa98839925982810eb123329f9147d89b85fdea2a4",
-      "previousContentSha256": "100f03fc218b59f7449059f0d93fa3b9628d33bbc5e26fce270b61dc3a0c471a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
-      "contentSha256": "11412c42f3ea7cf10bed3acef38c0b8d6d2d5e2cdb9a5bc6feb6c910fb641645",
-      "previousContentSha256": "25e630f1c2bd2ab83c037af431a1c2d32a473bd31b2b4f0aa2965c04309718da"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/index.md",
-      "contentSha256": "755081ef689dcb309f34c5555a3324763a06d0d6d0dc9042613b64f59a68575b",
-      "previousContentSha256": "b80ee3ffe84900f15adf574477ef35e1898fea6a78cccedcc1f53b76053a74c8"
+      "contentSha256": "22cce615a92d2d36fe3b63e8d77d8465057b880fcc4785a537a9da20e681d102",
+      "previousContentSha256": "5cb7a7e2ef005c64967a206e490db4907fd70688418846aecf2a381e8d4e17a3"
     }
   ]
 }

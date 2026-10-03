@@ -137,29 +137,15 @@ Photo: Peter Foster, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-165 Purves Rd, Red Hill South VIC 3937
+165 Shoreham Road, Red Hill South VIC 3937
 
-A Red Hill institution that has turned long lunch into a civic duty.
+A long table in Red Hill’s historic coolstore and packing shed.
 
-long lunch  fireplace
+long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
+[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -174,6 +160,18 @@ A working olive grove and produce kitchen on the Red Hill ridge, grazing boards,
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) [Book](<https://greenolive.com.au/dine>)
+
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
+
+166 Red Hill Rd, Red Hill South VIC 3937
+
+Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
+
+first date  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 

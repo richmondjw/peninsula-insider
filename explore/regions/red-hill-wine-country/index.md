@@ -197,7 +197,7 @@ slow
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
@@ -207,7 +207,7 @@ A multi-course dining experience at Jackalope Hotel, with a dramatic room and a 
 
 anniversary  first date
 
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
 
 Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
@@ -263,13 +263,13 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
-165 Purves Rd, Red Hill South VIC 3937
+165 Shoreham Road, Red Hill South VIC 3937
 
-A Red Hill institution that has turned long lunch into a civic duty.
+A long table in Red Hill’s historic coolstore and packing shed.
 
-long lunch  fireplace
+long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
+[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

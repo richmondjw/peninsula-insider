@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-203 on the map
+202 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -138,8 +138,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
 
 - [View : Endota Spa Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
-
-- [View : The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
 - [View : Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 

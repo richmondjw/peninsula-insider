@@ -89,11 +89,37 @@ Many Merricks North cellar doors are weekend-only or by appointment - call ahead
 
 What's mapped here
 
+- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/merricks-north/#eat-drink>)
+
 - [**1** stays](<https://peninsulainsider.com.au/explore/places/merricks-north/#stay>)
 
 - [**2** escape plans](<https://peninsulainsider.com.au/explore/places/merricks-north/#escapes>)
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/merricks-north/#journal>)
+
+Eat & drink
+
+## Where to eat and drink in Merricks North
+
+Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+
+ [More to eat in Merricks North →](<https://peninsulainsider.com.au/eat/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
+
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
+
+anniversary  first date
+
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
+
+[See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
 Stay
 

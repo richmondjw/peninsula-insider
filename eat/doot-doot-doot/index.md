@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 # Doot Doot Doot
 
@@ -13,7 +13,7 @@ A multi-course dining experience at Jackalope Hotel, with a dramatic room and a 
 
 Known for   Jackalope Hotel dining room Seasonal Signature Dining Experience Merricks North wine-country setting
 
-[Reserve a table](<https://jackalopehotels.com/mornington-peninsula>)  +61 3 5931 2500
+[Reserve a table](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)  +61 3 5931 2500
 
 Where in the Peninsula is PI?
 
@@ -21,7 +21,7 @@ This month’s prize. Find PI before sunset and go in the draw for $250 to dine 
 
 [Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-prize>)
 
-Doot Doot Doot · Red Hill
+Doot Doot Doot · Merricks North
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -69,7 +69,7 @@ Restaurant
 
 **Website**
 
-[jackalopehotels.com/mornington-peninsula](<https://jackalopehotels.com/mornington-peninsula>)
+[jackalopehotels.com/drink-dine](<https://jackalopehotels.com/drink-dine/>)
 
 **Directions**
 
@@ -79,7 +79,7 @@ Restaurant
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Doot%20Doot%20Doot%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://jackalopehotels.com/mornington-peninsula>)
+ [Book now](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
 
 Not sure how to build a day around Doot Doot Doot?
 
@@ -135,50 +135,6 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Nearby picks
-
-## More from Red Hill
-
- [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
-
-98 Stanleys Road, Red Hill South VIC 3937
-
-Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
-
-120 Arthurs Seat Rd, Red Hill VIC 3937
-
-David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
-
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
-
-165 Purves Rd, Red Hill South VIC 3937
-
-A Red Hill institution that has turned long lunch into a civic duty.
-
-long lunch  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://epicurean.com.au/reservations>)
-
 Build a day around this
 
 ## Planning guides that include Doot Doot Doot
@@ -189,7 +145,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Merricks North - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=doot-doot-doot>)
 

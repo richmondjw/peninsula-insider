@@ -157,7 +157,7 @@ Small-producer cellar door that's quietly become the Saturday afternoon people c
 
 ## Doot Doot Doot
 
-$$$$ · Red Hill
+$$$$ · Merricks North
 
 Jackalope's signature room where the design and the menu finally converged in 2026. Worth the ride to the bottom of the ridge.](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 

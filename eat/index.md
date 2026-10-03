@@ -49,7 +49,7 @@ See 3 more editorial choices
 
 The occasion room at Jackalope: a tasting-menu setting for a celebration. Check the current menu and dietary options before booking.
 
-Red Hill   Restaurant
+Merricks North   Restaurant
 
 - ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
@@ -71,12 +71,6 @@ Compare the full list, then narrow it by occasion or town.
 
  [Ranked top 15 →](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
-- ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
-
-An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
-
-Merricks   Restaurant
-
 - ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
 Brigitte Hafner's single-set-menu osteria inside a restored Red Hill farmhouse with the wood oven running all service.
@@ -88,14 +82,6 @@ Red Hill   Restaurant
 Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
 
 Dromana   Restaurant
-
-- Photo: Peter Foster, courtesy of Visit Victoria.
-
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
-
-A Red Hill institution that has turned long lunch into a civic duty.
-
-Red Hill   Restaurant
 
 - ### [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/eat/port-phillip-estate-restaurant/>)
 
@@ -159,13 +145,21 @@ Mornington   Cafe
 
 A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
 
-Red Hill   Restaurant
+Merricks North   Restaurant
 
 - ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
 Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
 
 Dromana   Pub
+
+- Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+
+A long table in Red Hill’s historic coolstore and packing shed.
+
+Red Hill   Restaurant
 
 - ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
@@ -210,6 +204,12 @@ Main Ridge   Bakery
 The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 
 Main Ridge   Restaurant
+
+- ### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
+
+An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
+
+Merricks   Restaurant
 
 - ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 

@@ -129,20 +129,6 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
-
-166 Balnarring Rd, Merricks North VIC 3926
-
-A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
-
-anniversary  first date
-
-[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
-
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
@@ -154,6 +140,20 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
+
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+
+165 Shoreham Road, Red Hill South VIC 3937
+
+A long table in Red Hill’s historic coolstore and packing shed.
+
+long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
 Build a day around this
 
