@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/eat/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "90e5e54d059308fd767c07d230a9b2c14cf01136",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "The exact public Eat directory has 52 rows: 40 CMS replacement images, nine content fallback images with recorded rights and depiction fields, and three with no image. Published CMS slot schema does not carry image-specific permission or depiction status. A content fallback record cannot establish the different CMS upload rights or subject. None of 49 image rows displayed a visible credit. The same card image selection feeds The Six.",
+  "hypothesis": "Resolve Eat listing imagery only from frontmatter heroes whose own rights, website permission, provenance and depiction are recorded. Present a deliberate typographic editorial lead and honest text-first directory rows where photos are unverified, and show visible credit plus an illustrative disclosure for retained photos. This prevents unsupported CMS uploads from being presented as venue depictions while preserving navigation, 52-item coverage and a clean visual rhythm.",
+  "boundedChange": "For Eat cards only, call the shared hero resolver with ignoreOverride and require rightsStatus recorded, provenance, explicit depiction status, item-level permission, rights holder, website use and credit before rendering a photo. Suppress public CMS image hydration and misleading inline editing on these reviewed listing photos. Pass each image own credit and any illustrative disclosure to Card. Use an editorial typographic lead plate for Tedesca and text-first compact cards where documented imagery is unavailable. Keep verified photos visible with their credit at 320px, and wrap compact Six card actions below the body at <=360px. Do not change CMS data, delete uploads, alter venue detail pages, booking routes or other page families.",
+  "metric": "At 320/390/1440 the Eat directory keeps 52 rows, showing only nine documented content photos with visible adjacent credits and 43 intentional text-first rows. The Six keeps six choices, two documented photos and one editorial lead plate, with no unverified CMS image. Doot has honest illustrative disclosure. At 320px, Merricks and Doot Six cards keep 220px body width and put actions below the content. Filters, saves, trips, anchors, search and no-overflow design remain usable. Full build, independent browser review and exact live release acceptance pass. Other image surfaces and full 23-criterion score remain open.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this scoped Eat card image selection and plate change; it does not change stored CMS media or data.",
+  "validation": {
+    "productionBuild": "PASS: npm run build:search exited 0 on final wrap variant; 1013 HTML files scanned by Pagefind, 727 indexed pages; build structural gates and generated-page checks passed. Full score remains null.",
+    "independentReview": "GO for bounded Eat image update after full build: nine credited photos/43 text-first rows, Doot illustrative disclosure, 320/390/1440 layout, filter/zero-state recovery, Save, Trip, sampled links, search and consent checks. Does not certify signed-in licence receipts, linked detail pages, performance, full rubric or public deployment.",
+    "liveAcceptance": "pending",
+    "independentInventoryReview": "GO for exact asset identification and triage; NO-GO for baseline rights display because none of the nine documented photos had adjacent visible credits.",
+    "firstVisualReview": "NO-GO: at 320px compact media was hidden while credits remained; credits were awkwardly placed above thumbnails; 43 repeated PI plates weakened visual rhythm. Bounded fixes added and recheck pending.",
+    "localBrowser": "At 320/390/1440: 52 directory rows, nine documented photos, nine visible credits, 43 text-first rows, no horizontal overflow; The Six has two documented photos and one typographic lead plate. At 320 the action row follows the card body (Merricks and Doot); all image alts nonempty, each directory credit pairs with a visible photo, Doot discloses Jackalope exterior. Browse anchor aligns at 84px; date-night yields 13/52, Clear restores 52, Trip and Save controls update. Responsive image final build and independent acceptance still pending.",
+    "independentVisualReview": "GO for bounded Eat visual release at 320/390/1440 after action-wrap iteration: compact titles/credits readable, nine documented photos and adjacent credits visible, 43 text-first rows coherent, intentional Tedesca lead plate, no overflow. Reviewer did not certify full build, live site or 99/100.",
+    "independentRightsSourceReview": "Nine retained local files reconcile to individual Visit Victoria source, subject, credit, permission, rights holder and website-use records; eight actual depictions, Doot illustrative hotel exterior. CMS replacements lack those fields in inspected published slots. Exact signed-in source terms and download receipts were not freshly reopened; this remains recorded evidence, not a new legal determination."
+  },
+  "hardGatesOpen": [
+    "Linked Eat venue detail pages and other surfaces can still resolve CMS uploads without item-specific rights/subject evidence",
+    "Factual freshness, direct assistive-tech, measured performance and remaining 23-criterion deductions"
+  ],
+  "negativeFindings": [
+    "Missing CMS permission metadata is not proof of infringement; a permission record may exist elsewhere.",
+    "A content fallback credit cannot be transferred to a different CMS file.",
+    "One exact venue content file has a filename differing from its route slug; the inventory joined by declared slug to preserve its identity.",
+    "Nine licensed Visit Victoria fallbacks were visible and mapped to their own content heroes; forty CMS replacements were separate assets.",
+    "Visit Victoria content records document item-level download permission and asset IDs, but the exact signed-in terms and download receipts could not be independently reopened from the public Content Hub; recorded evidence is not a fresh legal determination."
+  ],
+  "nextAction": "Commit scoped source and evidence, publish via normal protected CI, verify exact public release manifest and live 320/390/1440 Eat behavior, then audit linked detail-page images and remaining full-rubric hard gates."
+}
