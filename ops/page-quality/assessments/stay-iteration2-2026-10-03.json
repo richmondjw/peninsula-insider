@@ -1,0 +1,137 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "68fc53d2ab1ec2362c813af791496534947cc37e",
+  "baseline": {
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "note": "Visual baseline on earlier live revision; new build has not been independently graded against all 23 criteria."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "Four featured stay records lacked a current source check; Polperro appliance and Blue Moon dog-size specifics were unsupported by the operator information reviewed. A seasonal article also attributed private hot tubs and fire pits to Peninsula Hot Springs glamping without support. The vineyard-villa article also published an explicit nightly amount and unsupported price comparisons, contrary to PRODUCT.md no-prices rule.",
+  "evidence": [
+    {
+      "subject": "Polperro",
+      "sources": [
+        "https://www.polperrowines.com.au/escape/villas/",
+        "https://www.polperrowines.com.au/dine/",
+        "https://www.polperrowines.com.au/cellar-door/",
+        "https://www.polperrowines.com.au/wp-content/uploads/2024/11/24_Wedding_FAQs.pdf"
+      ],
+      "finding": "Current villa page supports four villas, king beds, open fireplaces and indoor spas; current dining pages support Wed-Sun service. Older operator FAQ lists a microwave, dishwasher and fridge but does not corroborate a convection oven or a no-hotplate assertion."
+    },
+    {
+      "subject": "Flinders Hotel",
+      "sources": [
+        "https://flindershotel.com.au/accommodation/",
+        "https://mokedining.com.au/"
+      ],
+      "finding": "Quarters remains behind Flinders Hotel; Moke operates in Flinders. Specific dining hours still need confirmation for each visit."
+    },
+    {
+      "subject": "Peninsula Hot Springs Glamping",
+      "sources": [
+        "https://www.peninsulahotsprings.com/accommodation/glamping",
+        "https://www.peninsulahotsprings.com/accommodation"
+      ],
+      "finding": "Garden, lake and secluded pavilion accommodation plus geothermal bathing are current; private hot tubs and fire pits were not supported as standard glamping features."
+    },
+    {
+      "subject": "Blue Moon Cottages",
+      "sources": [
+        "https://www.bluemooncottages.com.au/",
+        "https://www.bluemooncottages.com.au/faq/",
+        "https://www.bluemooncottages.com.au/terms-conditions/"
+      ],
+      "finding": "Operator supports Rye cottages, pet acceptance and secure outdoor areas; specific small-dog recommendation for Sandpiper was not found."
+    }
+  ],
+  "boundedChange": "Remove unsupported feature claims across the affected venue and article pages; add current operator source records to four featured stays. Keep dated claims conservative and direct readers to confirm exact appliances, dog terms and bathing inclusions. Remove the article amount and speculative price comparisons.",
+  "metric": "All six featured stays have source records; no unsupported appliance, dog-size or standard private hot-tub claims in the edited surfaces; content gates pass. No public price amounts or unsupported comparative claims remain in the edited Stay articles.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert the bounded content commit; no schema or data migration.",
+  "validation": {
+    "contentSchema": "passed",
+    "noPricing": "passed",
+    "houseStyle": "passed",
+    "firsthandClaimLint": "passed",
+    "productionBuild": "npm run build:search passed, including repository gates and 728 indexed pages.",
+    "independentRegrade": "pending",
+    "liveAcceptance": "pending",
+    "linkHealth": "Five new operator citations probed and recorded as ok; assert:link-health passed with zero unrecorded citations.",
+    "settledBrowser": "Static preview at 320, 390 and 1440px: Stay loaded without horizontal overflow; corrected vineyard-villa article omitted the removed price and unsupported appliance claims."
+  },
+  "remaining": [
+    "20 additional Stay directory records have no checkedOn source evidence and require current source review",
+    "full assistive technology and 23-criterion independent regrade",
+    "mobile directory density and current Hotel Sorrento decision imagery"
+  ],
+  "nextAction": "Release through CI and verify exact public revision; then source-check the remaining 20 listings and complete independent grading.",
+  "sourceCoverage": {
+    "totalStayListings": 27,
+    "withDatedCheck": 7,
+    "withoutDatedCheck": [
+      "arthurs-views",
+      "birch-creek",
+      "cape-retreat",
+      "cassis",
+      "crittenden-villas",
+      "driftaway-on-dundas",
+      "happy-glamper",
+      "hideaways-red-hill",
+      "iluka-retreat",
+      "kanasta-retro-caravans",
+      "lindenderry",
+      "mantons-creek-estate",
+      "mp-beach-club-cottages",
+      "peninsula-hot-springs-eco-lodges",
+      "plantation-house-whitecliffs",
+      "point-nepean-discovery-tents",
+      "sanctuary-at-alba",
+      "the-orchard-red-hill",
+      "treetops-red-hill",
+      "woodman-estate"
+    ],
+    "sourcePresentWithoutDatedCheck": [
+      "arthurs-views",
+      "birch-creek",
+      "mp-beach-club-cottages",
+      "plantation-house-whitecliffs",
+      "treetops-red-hill"
+    ],
+    "sourceMissing": [
+      "cape-retreat",
+      "cassis",
+      "crittenden-villas",
+      "driftaway-on-dundas",
+      "happy-glamper",
+      "hideaways-red-hill",
+      "iluka-retreat",
+      "kanasta-retro-caravans",
+      "lindenderry",
+      "mantons-creek-estate",
+      "peninsula-hot-springs-eco-lodges",
+      "point-nepean-discovery-tents",
+      "sanctuary-at-alba",
+      "the-orchard-red-hill",
+      "woodman-estate"
+    ],
+    "nextPriority": [
+      "lindenderry",
+      "crittenden-villas",
+      "peninsula-hot-springs-eco-lodges",
+      "point-nepean-discovery-tents",
+      "cape-retreat"
+    ]
+  },
+  "negativeFindings": [
+    "Existing ratcheted dead URL in next/src/content/daily-insights/2026-08-22.json events[0].url remains in link-health report; not introduced by this Stay batch."
+  ]
+}

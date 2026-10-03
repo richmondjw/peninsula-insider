@@ -76,9 +76,9 @@ Done this way, the long weekend has the same number of moves as the standard wee
 
 ## Where to stay at Easter
 
-Easter accommodation on the Peninsula is the second most stressful booking exercise of the year after Christmas, and the rule is simple: book in February, not in March. By the middle of March, the good rooms are gone and the leftover stock is either overpriced or in the wrong town for what you want.
+Easter accommodation on the Peninsula is the second most stressful booking exercise of the year after Christmas, and the rule is simple: book in February, not in March. By the middle of March, the choice can narrow and the remaining rooms may be in the wrong town for what you want.
 
-The stays that handle Easter best are the self-contained ones. **Polperro Villas** and **Crittenden Villas** offer a quieter base. At Polperro, plan meals for the convection oven and microwave; there are no hotplates. Polperro's restaurant and cellar door are closed on Mondays and Tuesdays, including the usual Easter Monday closure; confirm any holiday arrangements directly. **Lindenderry** is the formal alternative if you want a hotel with a dining room, and the gardens come into their own at the Easter weekend. **Peninsula Hot Springs Glamping** is the most underrated Easter stay; the tented suites with private hot tubs and fire pits are well suited to a long-weekend reset.
+The stays that handle Easter best are the self-contained ones. **Polperro Villas** and **Crittenden Villas** offer a quieter base. At Polperro, confirm the kitchenette appliances before planning meals. Polperro's restaurant and cellar door are closed on Mondays and Tuesdays, including the usual Easter Monday closure; confirm any holiday arrangements directly. **Lindenderry** is the formal alternative if you want a hotel with a dining room, and the gardens come into their own at the Easter weekend. **Peninsula Hot Springs Glamping** is the most underrated Easter stay; its glamping tents and on-site geothermal bathing can suit a long-weekend reset.
 
 One to avoid: any hotel within walking distance of a cellar door. The car park noise from Friday afternoon onwards will undo whatever calm you came for.
 
@@ -153,4 +153,4 @@ The Peninsula at Easter gives you four days instead of two. Autumn light and sea
 Treat Easter as its own weekend. Different rhythm, different bookings, different moves. The four days feel like four days.
 
 
-*Prices may change. Confirm current rates directly with the venue or operator before booking.*
+*Confirm current availability and stay conditions directly with the operator before booking.*
