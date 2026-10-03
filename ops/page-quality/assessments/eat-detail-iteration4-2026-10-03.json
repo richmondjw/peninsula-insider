@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "urlFamily": "https://peninsulainsider.com.au/eat/{venue}/",
+  "tier": "T2",
+  "family": "eat",
+  "assessedAt": "2026-10-03",
+  "basePublicRelease": {
+    "sourceSha": "de0041dd6e85963816c291f61e09ef4cb1c1b9ce",
+    "buildRunId": "37119506010"
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider programme",
+  "decision": "adapt",
+  "baseline": "Exact public inventory of 52 links: 36 detail pages displayed an uncredited CMS hero with no item-specific permission or depiction in inspected slot records; three displayed unrecorded content heroes; five displayed documented photo stages; one (Doot) displayed an explicitly illustrative documented content hero; seven are Wine aliases. All 52 links returned 200, but alias pages are redirect stubs. The 36 CMS records have no recorded content hero fallback or gallery. See eat-detail-image-baseline-2026-10-03.json.",
+  "hypothesis": "On Eat detail pages only, retain images with their own recorded rights, website use, depiction, credit and source. Keep the five documented stages and Doot hero. For 39 unsupported single-photo pages, a tightened text-first opening lets the existing verdict and planning facts carry the page without implying a venue photograph.",
+  "boundedChange": "Add one explicit website-photo evidence predicate and reuse it in Eat hub/detail pages. Ignore CMS hero overrides only for Eat detail pages; omit an unsupported hero and tighten the space from booking actions to the existing verdict/facts. Preserve five documented stages, Doot illustrative hero, Stay/Wine behavior, aliases, content records and CMS assets. Avoid unsupported OG/search photo. Keep vetted Eat hero static and remove its inline image editing affordance.",
+  "metric": "On exact local and public release, 36 former CMS and three unrecorded content hero pages render without a hero image or empty slot, moving existing Why we’d go and At a glance content upward; five documented photo stages and Doot documented illustrative hero remain. The 52 Eat links and all navigation/booking routes work. At 320/390/1440 no clipped copy or overflow. Full build and independent visual/source QA pass. Full 23-criterion score remains null.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded Eat detail template and helper change; CMS uploads and content records are untouched.",
+  "validation": {
+    "productionBuild": "PASS: final npm run build:search exited 0; Pagefind indexed 727 pages. Generated HTML sweep of all 52 baseline destinations had zero media-classification failures.",
+    "independentReview": "Two independent bounded GO reviews: visual reviewer checked Laura, Dromana, Doot and Epicurean at 320/390/1440 with zero overflow and no empty hero; release QA fetched all 52 destinations, checked media/OG/Twitter/Pagefind classes, representative booking, credits, disclosure and sampled Stay/Wine unchanged. These are not full 23-criterion scores.",
+    "liveAcceptance": "pending protected CI, exact public manifest and browser verification",
+    "independentPublicBaseline": "Laura 50/75 across 17 assessed criteria; Doot 55/75 across 17; Epicurean 59/79 across 18. Full score null and unassessed criteria remain open. Image gate and separate place/claim issues noted.",
+    "firstVisualReview": "NO-GO: the first title-panel treatment removed unsupported photos but duplicated H1 and stacked a 224px/400px dark panel above the dark Why we’d go card. Replaced with true text-first layout; re-review pending.",
+    "firstMetadataReview": "NO-GO: unsupported Eat pages inherited a generic section photo in Open Graph, Twitter and Pagefind metadata despite omitting the visible hero. Added a scoped suppressImageMeta prop on those pages; final build and independent recheck pending.",
+    "registerReconciliation": "Original 618-URL register lacks /eat/la-baracca-tgallant/ although this exact public Eat directory destination was 200 and self-canonical in the baseline; reconcile after deployment against current public sitemap rather than silently adding a URL without sitemap evidence."
+  },
+  "hardGatesOpen": [
+    "Signed-in CMS upload permission/subject records may exist outside inspected slots; do not call missing evidence infringement.",
+    "Other media surfaces, factual freshness, direct assistive-tech checks, measured performance and complete 23-criterion grading remain open.",
+    "Doot Doot Doot location label Red Hill conflicts with Merricks North address/editorial evidence; verify the operator and correct the content record in a factual batch.",
+    "The Epicurean present-tense award, price and menu guidance needs fresh primary-source verification before final score."
+  ],
+  "negativeFindings": [
+    "Seven Eat directory links are Wine aliases and do not render this Eat detail template.",
+    "Five Eat detail photo stages each carry documented website permission and visible photo credits in source/public rendering.",
+    "The Doot hero content record explicitly identifies a Jackalope Hotel exterior as illustrative."
+  ],
+  "nextAction": "Create and merge a bounded PR through protected CI; verify exact public manifest and 320/390/1440 public behavior. Then triage factual claims, sitemap register drift and full 23-criterion regrade."
+}

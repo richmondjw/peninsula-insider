@@ -14,7 +14,7 @@ import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import PhotoStage from './PhotoStage.astro';
 import InlinePhoto from './InlinePhoto.astro';
 import { photoPlan, paragraphsOf } from '../lib/photo-set';
-import { altFor } from '../lib/media-provenance';
+import { altFor, hasWebsitePhotoEvidence } from '../lib/media-provenance';
 import CorrectionNote from './CorrectionNote.astro';
 import { editableImage, editableText } from '../lib/inline-edit/attrs';
 import EstateCluster from './EstateCluster.astro';
@@ -140,7 +140,7 @@ const venueSlug = venue.id ?? data.slug;
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
 // Stay pages keep the reviewed source image and its matching disclosure together.
 const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
-  ignoreOverride: section === 'stay',
+  ignoreOverride: section === 'stay' || section === 'eat',
 });
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
 // replaces: a decorative image's deliberately empty alt fell through the `||`
@@ -162,6 +162,7 @@ const heroLicenceUrl = !hero.override ? data.heroImage?.licenseUrl ?? (flindersC
 // the editor note rather than dumped at the foot of the page.
 const editorParagraphs = paragraphsOf(data.editorNote);
 const photoSet = photoPlan(data, { override: Boolean(hero.override), paragraphs: editorParagraphs.length });
+const eatHeroApproved = section !== 'eat' || hasWebsitePhotoEvidence(data.heroImage);
 
 // Sibling venues within a multi-venue estate (EstateCluster block).
 const estateSlug = data.estateSlug as string | undefined;
@@ -274,7 +275,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
 
 <Breadcrumbs items={breadcrumbItems} />
 
-<section class="venue-detail" data-venue-view={venueSlug} data-venue-type={data.type}>
+<section class:list={["venue-detail", { "venue-detail--text-first": section === "eat" && !photoSet.stage && !eatHeroApproved }]} data-venue-view={venueSlug} data-venue-type={data.type}>
   <div class="container">
     <div class="venue-detail__meta">
       <a href={sectionHref} class="venue-detail__type">{sectionLabel}</a>
@@ -378,22 +379,22 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
     <PlayRibbon kind="venue" slug={venueSlug} />
 
     {photoSet.stage ? (
-      <div {...editableImage({ entityType: 'venue', entitySlug: venueSlug, fieldPath: 'heroImage', label: `${data.name} hero`, purpose: 'hero' })}>
+      <div {...(section === 'eat' ? {} : editableImage({ entityType: 'venue', entitySlug: venueSlug, fieldPath: 'heroImage', label: `${data.name} hero`, purpose: 'hero' }))}>
         <PhotoStage photos={photoSet.photos} subject={data.name} id="photos" />
       </div>
-    ) : (
+    ) : eatHeroApproved ? (
       <>
         <figure
           class="venue-detail__hero"
-          {...editableImage({
+          {...(section === 'eat' ? {} : editableImage({
             entityType: 'venue',
             entitySlug: venueSlug,
             fieldPath: 'heroImage',
             label: `${data.name} hero`,
             purpose: 'hero',
-          })}
+          }))}
         >
-          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
+          <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} data-pi-no-hydrate={section === 'eat' ? 'true' : undefined} fetchpriority="high" decoding="async" />
           <div class="venue-detail__hero-fog"></div>
           {!isUnverifiedPaused && <span class="venue-detail__hero-label">{heroLabel}</span>}
         </figure>
@@ -407,7 +408,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
         />
         {photoSet.photos.length >= 3 && <PhotoStage photos={photoSet.photos} subject={data.name} id="photos" variant="strip" />}
       </>
-    )}
+    ) : null}
 
     <div class="venue-detail__grid">
       <div>
@@ -1016,6 +1017,9 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
 </script>
 
 <style>
+  .venue-detail--text-first :global(.venue-detail__signature) { margin-bottom: 1.75rem; }
+  .venue-detail--text-first :global(.venue-detail__booking-bar) { margin-bottom: 1.25rem; }
+  .venue-detail--text-first :global(.venue-detail__grid) { border-top: 1px solid var(--border); padding-top: clamp(1.5rem, 3vw, 2.5rem); }
   .venue-detail__credit-links { display: inline-flex; align-items: center; gap: .15rem; margin-left: .35rem; white-space: nowrap; }
   .venue-detail__credit-link { display: inline-flex; align-items: center; min-height: 1.5rem; padding-inline: .2rem; text-decoration: underline; text-underline-offset: 2px; }
   .venue-detail__credit-link:focus-visible { outline: 2px solid #10527E; outline-offset: 2px; }

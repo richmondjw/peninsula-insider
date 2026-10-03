@@ -8,6 +8,7 @@ import Redirect from '../../components/Redirect.astro';
 import { routeSlug, typeLabel, titleize, isUpcoming, placeLabel, isListableVenue } from '../../lib/editorial';
 import { buildKnownForProperties, buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { hasWebsitePhotoEvidence } from '../../lib/media-provenance';
 
 export async function getStaticPaths() {
   const STATIC_EAT_OVERRIDES = new Set(['barmah-park-vineyard', 'port-phillip-estate-restaurant']);
@@ -93,8 +94,9 @@ const isWineryAlias = PRODUCER_TYPES.includes(venue.data.type);
 const canonical = isWineryAlias
   ? `https://peninsulainsider.com.au/wine/${slug}/`
   : `https://peninsulainsider.com.au/eat/${slug}/`;
-const hero = await resolveHero('venue', slug, venue.data);
-const ogImage = hero.src;
+const hero = await resolveHero('venue', slug, venue.data, 'heroImage', { ignoreOverride: true });
+const approvedHero = hasWebsitePhotoEvidence(venue.data.heroImage);
+const ogImage = approvedHero ? hero.src : schemaImage(venue.data).image?.[0];
 
 // JSON-LD: map venue type to schema.org type
 const schemaTypeMap: Record<string, string> = {
@@ -163,6 +165,7 @@ export const prerender = true;
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
+  suppressImageMeta={!ogImage}
   noindex={venue.data.sitemapExclude === true}
 >
   {!(venue.data.status === 'paused' && venue.data.sourceStatus === 'unsourced') && <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />}
