@@ -307,7 +307,6 @@ export const prerender = true;
   <section class="stay-hero" aria-labelledby="stay-hero-title">
     <div class="container stay-hero__grid">
       <div class="stay-hero__copy">
-        <p class="stay-hero__eyebrow">Stay on the Peninsula</p>
         <h1 id="stay-hero-title">Where you stay shapes the whole trip.</h1>
         <p class="stay-hero__lead">{standfirst}</p>
         <div class="stay-hero__actions">
@@ -327,7 +326,6 @@ export const prerender = true;
 
     <TheSix
       id="stay-shortlist"
-      eyebrow="The stay shortlist"
       heading="Stays worth building a weekend around"
       sub="Six distinct ways in. Check the current room, inclusions and dates with each operator."
       surface="stay"
@@ -342,7 +340,6 @@ export const prerender = true;
     <section class="stay-guides" aria-labelledby="stay-guides-heading">
       <div class="container">
         <div class="stay-guides__head">
-          <p class="stay-guides__eyebrow">Go deeper</p>
           <h2 id="stay-guides-heading">Find the stay that fits</h2>
           <p>Start with a broad edit, or follow the kind of weekend you have in mind.</p>
         </div>
@@ -390,7 +387,6 @@ export const prerender = true;
 
   <DirectoryRows
     id="stay-directory"
-    eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
     sub="Compare the locality and stay format. Open a stay for room details and the operator link."
     surface="stay"
@@ -409,6 +405,7 @@ export const prerender = true;
   </DirectoryRows>
 
   <JournalModule
+    eyebrow=""
     heading="Make more of the night"
     moreHref="/journal/"
     items={journalItems}
@@ -617,7 +614,8 @@ export const prerender = true;
     grid-template-rows: auto auto;
     align-items: start;
     gap: 0 .9rem;
-    padding-block: 1.2rem;
+    padding: 1.2rem .75rem;
+    background: transparent;
   }
   :global(#stay-directory .pi-card.pi-card--compact .pi-card__media),
   :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__media) {
@@ -691,7 +689,7 @@ export const prerender = true;
     :global(#stay-shortlist .pi-card.pi-card--compact) {
       grid-template-columns: 64px minmax(0, 1fr);
       gap: 0 .8rem;
-      padding-block: 1.15rem;
+      padding: 1.15rem .75rem;
     }
     :global(#stay-directory .pi-card.pi-card--compact .pi-card__media),
     :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__media) {
@@ -717,7 +715,8 @@ export const prerender = true;
       grid-template-rows: auto;
       column-gap: .65rem;
       align-items: start;
-      padding-block: .8rem;
+      padding: .8rem .75rem;
+      background: transparent;
     }
     :global(#stay-directory .pi-card.pi-card--compact .pi-card__body) {
       grid-column: 1;

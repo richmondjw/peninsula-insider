@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "b49022dae66e6c2c6f48f9cdeb2915927087d02f",
+  "dependsOn": "Stay iteration7, PR #532, live accepted by exact public manifest and 390/1440 browser.",
+  "baseline": {
+    "renderedMobilePrimaryFindings": 33,
+    "renderedMobileAdvisories": 4,
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "note": "33 findings are an Impeccable rendered 390px detector baseline, not a 23-criterion score. The 85.25/90 review was from an earlier revision.",
+    "renderedDesktopPrimaryFindings": 56
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "The live Stay page's rendered 390px scan had 33 primary findings: 17 undersized functional labels, six repeated kicker labels, four viewport-edge body text detections, three cramped compact cards, plus tight leading, a glow and an edge-flush carousel card. First-visit cookie copy sat 12px from the screen edge; mobile footer headings/legal links and drawer labels were especially small. Independent public 1440px scan found 56 primary detector findings, dominated by 29 flush compact rows and five 10px legal links.",
+  "hypothesis": "Increasing functional and supporting text size, removing redundant labels, and giving the cookie notice, shortlist rows and comparison carousel proper inset will improve mobile legibility and rhythm without losing information or interactions.",
+  "boundedChange": "Raise mobile drawer labels and indices to 12px; raise mobile footer section headings, legal links, campaign link, acknowledgement and company text to 12px with 44px legal tap targets. Remove six redundant section kickers on the Stay page and shared footer, inset Stay compact rows, first-visit cookie notice and comparison carousel. Preserve the six featured stays, full directory and all booking actions. The desktop footer and compact Stay rows receive the same readable type and inset treatment.",
+  "metric": "At 320/390/1440, no horizontal page overflow or lost content; menu focus, close/Escape, Stay carousel and 44px primary links remain usable; independent bounded mobile review finds no blocker; same rendered detector shows a material reduction from 33 primary findings. The independent desktop detector should also fall materially from 56 primary findings.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert this bounded layout and typography commit; no content or data migration.",
+  "validation": {
+    "productionBuild": "Final npm run build:search passed on this source, including content, style, rights, schema, claim, SEO, link, media and catalogue gates. Astro built 1009 pages; responsive image integration completed; Pagefind indexed 727 pages.",
+    "renderedDetector": "Independent rendered Impeccable comparison: public 390px 33 primary to final local 5, and public 1440px 56 primary to final local 15. Four mobile advisories remain. These are detector counts, not a rubric score; the remaining offscreen carousel/hidden UI flags need manual context.",
+    "settledBrowser": "Independent Chromium at 320/390/1440 found no horizontal overflow or clipped rows, clean 12px footer wrapping and 12px card insets, 44px directory title targets and 48px save/shortlist actions. Menu opens with Close focused and Escape restores trigger focus. Local first-visit consent at 320px tested manage, reject, saved reload, footer reopen and Escape focus; buttons and 16px gutters fit. Directory stays at 26.",
+    "independentReview": "Independent bounded visual reviewer found no release blocker on final source at 320/390/1440, including carousel keyboard reachability, intact cards, footer wrap, consent gutters, navigation focus and active booking buttons. This is not a full 23-criterion score.",
+    "liveAcceptance": "pending PR, protected CI, merge, exact public manifest and public browser"
+  },
+  "hardGatesOpen": [
+    "Full independent three-reviewer 23-criterion regrade and direct assistive-technology review",
+    "Production performance and public first-visit consent verification",
+    "Inherited sitewide image-rights conflicts and CMS image overrides without complete rights-evidence slot",
+    "Balnarring Beach place taxonomy and other recorded cross-page issues",
+    "Remaining rendered detector findings need triage; offscreen carousel and hidden subscribe controls may be false positives, but require explicit review"
+  ],
+  "negativeFindings": [
+    "Rendered detector flags paragraphs in the offscreen second carousel card as viewport-edge text despite the content being reachable by horizontal scrolling.",
+    "Hidden subscribe pill glow and short display-title leading are inherited patterns; detector findings alone do not prove visible mobile defects.",
+    "Desktop detector reports a Saved places link occluded by the cookie manage button in a closed personal menu; present in both public baseline and local build, requiring contextual triage, and no navigation regression was observed."
+  ],
+  "nextAction": "Finish final build and mobile browser/independent acceptance, then publish through protected CI and verify exact public revision. Keep score null until all 23 criteria are independently evidenced."
+}
