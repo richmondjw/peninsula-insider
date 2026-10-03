@@ -139,7 +139,7 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 const venueSlug = venue.id ?? data.slug;
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
 const requireVerifiedStayHero = section === 'stay' &&
-  ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill'].includes(String(venueSlug));
+  ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate'].includes(String(venueSlug));
 const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
   requireOverrideMetadata: requireVerifiedStayHero,
 });

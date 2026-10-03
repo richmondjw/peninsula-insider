@@ -35,7 +35,7 @@
     "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg",
     "https://creativecommons.org/licenses/by-sa/2.0/"
   ],
-  "metric": "After release, 16 of 27 Stay listings will have dated checks; all eleven previously unrecorded source URLs tested ok and no unrecorded citation remains. The Orchard no longer asserts an infrared sauna or an unsourced state; Hideaways has a functioning host booking route and no unsupported price comparison.",
+  "metric": "After release, 21 of 27 Stay listings will have dated checks; all eleven previously unrecorded source URLs tested ok and no unrecorded citation remains. The Orchard no longer asserts an infrared sauna or an unsourced state; Hideaways has a functioning host booking route and no unsupported price comparison.",
   "evaluationDate": "2026-10-03",
   "rollback": "Revert this bounded content and link-ledger commit; no schema or data migration.",
   "validation": {
@@ -47,29 +47,24 @@
     "productionBuild": "Final npm run build:search passed on the rebased final source, including content, licence, media-provenance, link-health and schema gates, responsive image processing and 728 indexed search pages.",
     "independentRegrade": "Independent bounded factual/media reviewer confirmed four venue source corrections, verified the new Commons JPEG against the source SHA-1 and the WebP derivative, reviewed the scoped CMS guard and metadata paths, and found no logic regression outside the three named Stay records. This is not a full 23-criterion score.",
     "settledBrowser": "Local Chromium on final generated build: /stay/cassis/, /stay/hideaways-red-hill/ and /stay/the-orchard-red-hill/ returned 200 at 390px and 1440px; the new image loaded, author/title/modification notice and working Source/Licence hrefs were visible, illustrative disclosure appeared, social image matched the fallback, and horizontal overflow was zero.",
-    "liveAcceptance": "pending CI merge and exact public revision verification",
+    "liveAcceptance": "PR 530 merged to main at sourceSha 0ad04a525460b3a7ea2fb6bcb863e3422a9f7629; protected deployment run 37091458958 succeeded and the public release manifest returned that exact SHA. Public Chromium at 390px returned 200 for Cassis, Hideaways and The Orchard; each loaded the new image with visible author/title/modification, working Source and Licence links, illustrative disclosure and matching social image. The Stay hub returned 200 with all 27 cards and no horizontal overflow.",
     "mediaRights": "New replacement asset: original Commons source and CC BY-SA 2.0 probed and recorded; author, title, modification notice, source and licence links included in venue hero/card credits. Existing place-red-hill-01.webp rights remain unverified; 30 next/src files still reference it.",
     "parentMobileRelease": "PR 529 deployment run 37088613623 succeeded; public manifest sourceSha faf30efffa2b51c88f11f4b51a02a29c0bb46d73; live /stay/ browser at 390px and 320px returned 200, 27 cards, no clipped cards or horizontal overflow, all 27 Save controls at least 48px."
   },
   "sourceCoverage": {
     "totalStayListings": 27,
-    "withDatedCheckAfterSet": 16,
+    "withDatedCheckAfterSet": 21,
     "withoutDatedCheck": [
-      "arthurs-views",
-      "birch-creek",
       "driftaway-on-dundas",
       "happy-glamper",
       "iluka-retreat",
       "kanasta-retro-caravans",
       "mantons-creek-estate",
-      "mp-beach-club-cottages",
-      "plantation-house-whitecliffs",
-      "treetops-red-hill",
       "woodman-estate"
     ]
   },
   "hardGatesOpen": [
-    "Eleven Stay listings still lack dated operator source checks",
+    "Six Stay listings still lack dated operator source checks",
     "Current Hotel Sorrento decision imagery and full image-rights review remain open",
     "Direct assistive-technology review, production performance and full three-reviewer 23-criterion regrade remain open",
     "The shared place-red-hill-01.webp asset has unverified provenance despite its current CSIRO listing; audit remaining uses before full image-rights clearance",
@@ -85,7 +80,8 @@
     "The refreshed source ledger no longer assigns the wrong CSIRO file to place-red-hill-01.webp. Thirty remaining next/src files still reference that asset; the sitewide rights and image-subject review remains open.",
     "Rendered build inspection found all three Stay detail pages used CMS hero overrides with no visible credit, hiding the newly sourced fallback. The hero resolver now requires both override alt and credit for these three venues; otherwise it uses the verified fallback.",
     "Independent follow-up review found the Stay detail route still emitted the incomplete CMS image as its social preview despite the guarded visible hero; the route now uses the same scoped resolver option.",
-    "A rendered fallback photograph did not show Source/Licence links because the old hasPhoto predicate classifies shared place artwork as a placeholder; link rendering now follows the actually rendered non-CMS hero, not that classification."
+    "A rendered fallback photograph did not show Source/Licence links because the old hasPhoto predicate classifies shared place artwork as a placeholder; link rendering now follows the actually rendered non-CMS hero, not that classification.",
+    "A 2026-10-03 source-record recount found five records previously listed as unchecked already carried operator source reviews dated 2026-10-01. The corrected coverage at this releases end is 21 of 27 with attributable source records dated 2026-09-30 or later, leaving six without such a record. This supersedes the inherited 16-of-27 count."
   ],
-  "nextAction": "Submit this bounded set through CI, merge after required checks, verify exact public revision and three detail pages; then source-check the remaining eleven Stay listings and resolve inherited shared-image rights debt."
+  "nextAction": "Live batch accepted. Source-check the six remaining Stay listings, starting with the mobile Happy Glamper service and shared-space Woodman chalets; resolve inherited image-rights debt and complete the full 23-criterion regrade."
 }

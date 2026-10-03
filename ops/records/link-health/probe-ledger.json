@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T02:17:53.884Z",
+  "updatedAt": "2026-10-03T03:19:48.501Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -303,6 +303,22 @@
       "pageTitle": "Commonfolk Coffee - Specialty Coffee Roaster Melbourne"
     },
     {
+      "url": "https://commons.wikimedia.org/wiki/File:Balnarring_Beach",
+      "verdict": "dead",
+      "httpCode": "404",
+      "pageTitle": "File:Balnarring Beach - Wikimedia Commons",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Balnarring Beach, Victoria, Australia.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_walking_trail.jpg",
       "verdict": "ok",
       "httpCode": "200",
@@ -316,6 +332,14 @@
       "httpCode": "200",
       "pageTitle": "File:CSIRO ScienceImage 1961 Chardonnay grapes at the Main Ridge Estate.jpg - Wikimedia Commons",
       "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Devilbend lake.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -1473,6 +1497,30 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Peninsula Essence Online - peninsula essence"
+    },
+    {
+      "url": "https://peninsulagroupstays.com.au/properties/chalet-3/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Chalet Trois at Woodman Estate - Peninsula Group Stays",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://peninsulagroupstays.com.au/properties/chalet-un/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Chalet Un at Woodman Estate - Peninsula Group Stays",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://peninsulagroupstays.com.au/properties/woodman-estate-2/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Woodman Estate - Peninsula Group Stays",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions/",
@@ -2790,6 +2838,38 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "HAPPY GLAMPER"
+    },
+    {
+      "url": "https://www.happyglamper.com.au/5m-balnarring-deluxe",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Services 1 &mdash; HAPPY GLAMPER",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.happyglamper.com.au/about/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "About 1 &mdash; HAPPY GLAMPER",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.happyglamper.com.au/appointments-4",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book &mdash; HAPPY GLAMPER",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.happyglamper.com.au/campsite",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "General 4 &mdash; HAPPY GLAMPER",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.hillandridgemarket.com.au",
