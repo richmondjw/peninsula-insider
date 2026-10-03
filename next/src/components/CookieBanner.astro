@@ -190,6 +190,8 @@
     function onConsentKeydown(e) {
       if (e.key !== 'Escape' && e.key !== 'Esc') return;
       if (banner.getAttribute('data-state') !== 'visible') return;
+      // Escape belongs to the focused surface; closing navigation must not dismiss consent.
+      if (!banner.contains(document.activeElement)) return;
       // A modal promotional overlay (InsiderNotePopup sets body.inote-open)
       // owns Escape while it is open. One keystroke aimed at closing that
       // must not silently drop the consent prompt for the rest of the visit

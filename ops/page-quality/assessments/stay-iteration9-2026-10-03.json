@@ -134,15 +134,13 @@
     "productionBuild": "Final npm run build:search exited 0 on this exact source, including content, rights, claim, SEO, link, schema and style gates; Astro output 1013 HTML files and Pagefind indexed 727 pages.",
     "settledBrowser": "Final local Chromium acceptance: all 26 active Stay detail routes returned 200 with one H1 and no horizontal overflow at 390px; hub and sampled detail routes had no overflow at 320, 390 or 1440px. Related sections used truthful labels and active links. Mornington no longer offered an empty Find stays route. Sampled Stay imagery retained source-built assets, illustrative disclosures and credits; a synthetic CMS slot was intercepted six times without repainting the vetted image.",
     "independentReview": "Fresh independent release QA accepted the bounded batch after the complete build and browser checks. It verified all 26 active Stay details, responsive samples, related links, Mornington route, source-link guard, Polperro Commons licence and visible illustrative disclosure. This is a scoped release acceptance, not a full 23-criterion or 99/100 grade.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "PR #534 merged as 07c366db785faad254b71963c56ba63bc3b58c5f. Protected deployment run 37106203957 passed; the cache-busted public release manifest matched that exact source SHA and run. Public Chromium returned 200 at 320/390/1440 for the Stay hub and Iluka, Polperro and Sanctuary detail pages, with one H1 and no horizontal overflow. Detail pages showed Other stays to compare, no old Supabase hero or malformed Source link; Mornington showed Explore the town and its no-listing note. Polperro rendered the local licensed vineyard with a visible not-the-property disclosure and source/licence links. The first-visit mobile-menu Escape interaction remains a separately reproduced open gate."
   },
   "hardGatesOpen": [
-    "False Nearby/More from locality claims on Stay details until public release is verified",
-    "Mornington Find stays empty route until public release is verified",
     "Full 23-criterion score remains unknown; independent reviewers rated 67.25/87, 71.5/85, 73.5/87 on exact public base",
     "Direct screen-reader assessment, full image-rights and sources audit, and unresolved first-visit/menu Escape interaction",
     "Sitewide image-rights conflicts and other recorded cross-page defects",
-    "Newly discovered CMS runtime image override leak until exact public release verification"
+    "First-visit consent disappears when the mobile menu Escape closes on exact public revision, with no consent saved; reproduced in Chromium at 390px"
   ],
   "negativeFindings": [
     "The prior pagewide Impeccable detector counts of 5 mobile and 15 desktop primary findings are not rubric scores. Several mobile reports concern intentionally offscreen carousel content.",
@@ -154,5 +152,5 @@
     "The old Polperro source image was hosted in CMS assets and credited to the operator, but the record had no documented permission proof; it was replaced, without asserting permanent unavailability.",
     "Several Visit Victoria sourceUrl fields contain internal asset references rather than web URLs; they remain in source records for audit and are no longer visitor-facing links."
   ],
-  "nextAction": "Commit and publish the independently accepted bounded change through protected CI, verify exact public SHA and browser behavior, then continue open 23-criterion gates."
+  "nextAction": "Fix the independently reproduced first-visit consent/menu Escape gate in a bounded next batch; retain score null until all 23 criteria are evidenced and independently accepted."
 }
