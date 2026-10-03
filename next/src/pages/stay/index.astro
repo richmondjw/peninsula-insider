@@ -170,10 +170,44 @@ const restVenues = venues
   });
 // The full list is a practical text directory. Repeating small image plates
 // beside dozens of records made missing imagery feel like a broken gallery.
-const directoryItems = [...sixVenues, ...restVenues].map((v) => ({
-  ...stayItem(v),
-  image: undefined,
-}));
+// These complete scan lines come from each venue's supported signature.
+// Keep them in sync when the underlying venue record changes.
+const directoryVerdicts: Record<string, string> = {
+  jackalope: 'Art-led Merricks North hotel with Doot Doot Doot dining.',
+  'polperro-villas': 'Four Red Hill vineyard villas with indoor spas and fireplaces.',
+  'hotel-sorrento': 'Clifftop Sorrento hotel with heritage rooms and a guest pool.',
+  'flinders-hotel': 'Quiet rooms behind Flinders Hotel, close to village and coast.',
+  'peninsula-hot-springs-glamping': 'On-site Fingal glamping built around geothermal bathing.',
+  'blue-moon-cottages': 'Pet-welcoming Rye cottages; Sandpiper has a log fire.',
+  'cape-retreat': 'Twelve Cape Schanck suites suited to group retreats.',
+  'arthurs-views': 'Five couples-only suites on Arthurs Seat with bay views.',
+  'birch-creek': 'Two adjoining farm cottages for two or four guests.',
+  'crittenden-villas': 'Self-contained lakeside villas with dining and cellar door.',
+  'peninsula-hot-springs-eco-lodges': 'Eco Lodge rooms; confirm private bathing for your chosen room.',
+  'sanctuary-at-alba': 'Villas and rooms above Alba springs with daily bathing.',
+  'happy-glamper': 'Styled bell tents set up at selected Peninsula campsites.',
+  'woodman-estate': 'Country estate chalets beside a private lake.',
+  'point-nepean-discovery-tents': "Pre-pitched tents in Point Nepean's Quarantine Station.",
+  cassis: 'Adults-only vineyard villas with plunge pools or outdoor baths.',
+  'hideaways-red-hill': 'Red Hill spa cottages for two, near the village.',
+  lindenderry: 'Red Hill estate hotel with gardens, dining and a weekend cellar door.',
+  'the-orchard-red-hill': 'Rammed-earth Red Hill apartments with in-room spa baths.',
+  'treetops-red-hill': 'Two self-contained cottages on a Red Hill vineyard.',
+  'driftaway-on-dundas': 'Self-contained Rye villas with breakfast hampers and spa baths.',
+  'mp-beach-club-cottages': 'Five pet-friendly beach cottages with shared EV charging.',
+  'kanasta-retro-caravans': 'Restored retro caravans close to Rye bay beach.',
+  'plantation-house-whitecliffs': 'Rye bed and breakfast with five rooms and cooked breakfast.',
+  'iluka-retreat': 'Shoreham group glamping beside a private freshwater lake.',
+  'mantons-creek-estate': 'Shoreham vineyard suites with dining and a cellar door.',
+  'the-continental-sorrento': 'Heritage Sorrento hotel beside The Continental dining precinct.',
+};
+const directoryItems = [...sixVenues, ...restVenues].map((v) => {
+  const slug = String(v.id ?? v.data.slug);
+  return {
+    ...stayItem(v, { verdict: directoryVerdicts[slug] }),
+    image: undefined,
+  };
+});
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
@@ -359,7 +393,7 @@ export const prerender = true;
     id="stay-directory"
     eyebrow="The full list"
     heading={`All ${stayCount} places to stay`}
-    sub="Compare the actual locality and stay format. Confirm room details and availability with the operator."
+    sub="Compare the locality and stay format. Open a stay for room details and the operator link."
     surface="stay"
     noun="stays"
     items={directoryItems}
@@ -369,7 +403,11 @@ export const prerender = true;
     topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,cottage,lodge,glamping,farm-stay' }}
     emptyHeading="Nothing matches those filters"
     emptyBody="Clear a filter to see more places to stay."
-  />
+  >
+    <a slot="before-list" href="#browse-stay" class="stay-directory-refine">
+      Refine stays <span aria-hidden="true">&uarr;</span>
+    </a>
+  </DirectoryRows>
 
   <JournalModule
     heading="Make more of the night"
@@ -545,6 +583,34 @@ export const prerender = true;
   }
   .stay-guides__more nav a:hover { color: var(--accent); }
   .stay-browse { padding-top: clamp(2rem, 4vw, 3.25rem); }
+  :global(#stay-directory .stay-directory-refine) { display: none; }
+  @media (max-width: 760px) {
+    :global(#stay-directory .stay-directory-refine) {
+      position: sticky;
+      top: 118px;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: .55rem .9rem;
+      margin-bottom: .4rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-s, 4px);
+      background: var(--white, #fff);
+      color: var(--accent);
+      font-family: var(--font-ui);
+      font-size: .875rem;
+      font-weight: 650;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(12, 43, 61, .08);
+    }
+    :global(#stay-directory .stay-directory-refine:focus-visible) {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+  }
+
   :global(#stay-directory .pi-card.pi-card--compact),
   :global(#stay-shortlist .pi-card.pi-card--compact) {
     display: grid;
@@ -642,6 +708,50 @@ export const prerender = true;
   :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
   :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
     grid-column: 1;
+  }
+  /* The full directory is a comparison index on small screens. Keep the
+     title, verdict, locality and checked date readable, with Save in the
+     row. The venue detail carries the outbound operator action. */
+  @media (max-width: 560px) {
+    :global(#stay-directory .pi-card.pi-card--compact) {
+      grid-template-columns: minmax(0, 1fr) 48px;
+      grid-template-rows: auto;
+      column-gap: .65rem;
+      align-items: start;
+      padding-block: .8rem;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .pi-card__body) {
+      grid-column: 1;
+      grid-row: 1;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
+      grid-column: 2;
+      grid-row: 1;
+      width: 48px;
+      margin: 0;
+      align-self: start;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .v5-booking) {
+      display: none;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .pi-card__link) {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact:has(.pi-card__link:focus-visible)) {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .pi-card__link:focus-visible) {
+      outline: none;
+    }
+    :global(#stay-directory .pi-card.pi-card--compact .pi-card__link) {
+      text-decoration: underline;
+      text-decoration-color: rgba(12, 65, 94, .35);
+      text-decoration-thickness: 1px;
+      text-underline-offset: .17em;
+    }
   }
   @media (max-width: 380px) {
     .stay-hero__eyebrow { display: none; }

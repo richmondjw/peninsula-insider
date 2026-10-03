@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baseRevision": "acc8c37cfa887608b933781943c529bdf8f556b0",
+  "baseline": {
+    "independentVisualPoints": 85.25,
+    "assessedWeight": 90,
+    "fullScore": null,
+    "mobileDirectoryHeightAt390PxBefore": 7332,
+    "note": "Earlier independent visual baseline was on a prior live revision and cannot be used as the new 23-criterion grade."
+  },
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider task",
+  "decision": "adapt",
+  "finding": "At 390px the 27-row directory required 7,332px of scrolling. The first compact variant shortened it but clipped all 27 verdicts and left title targets 21px high. The deep list also left filter controls far out of reach.",
+  "hypothesis": "Concise, complete source-grounded scan lines, card links with 44px targets, and one sticky return to the existing filters will make all 27 stays easier to compare without hiding results or duplicating filter state.",
+  "boundedChange": "Use 27 venue-derived directory scan lines; retain the full editorial copy on detail pages. Present compact mobile rows with a 48px Save control and a 44px underlined detail link. Keep booking links on detail pages and the six-stay shortlist. Add a sticky Refine stays link back to the existing filter bar.",
+  "metric": "Final local build at 390px: directory height 5,736px (21.8% less than the 7,332px baseline); 27/27 verdicts readable; 27/27 title targets at least 44px; Save targets 48px; no horizontal overflow. At 320px directory height is 5,828px. Filters, sorting, live count, keyboard navigation and detail booking path operate in independent review of the prior compact build.",
+  "evaluationDate": "2026-10-03",
+  "rollback": "Revert the bounded Stay page commit; there is no schema or data migration.",
+  "independentReview": {
+    "visual": "Two-width browser review at 320px and 390px found 27 complete rows, no clipping, 44px title and 48px Save targets, correct sticky position and filter status. Module-level VS2 deduction remains for long repetitive list; no full-page score.",
+    "mobileAccessibility": "Independent bounded keyboard/interaction review found ordered focus, visible outlines, Escape recovery from Filters, Save persistence after reload, correct live result count after debounce, and working detail/booking navigation. Direct screen-reader operation remains open.",
+    "factualCopy": "Independent source-to-record review found all 27 keys mapped. Three phrasing refinements were made; nine records still rely on May 2026 data without dated operator checks."
+  },
+  "validation": {
+    "productionBuild": "Final npm run build:search passed, including content gates, image processing, responsive image generation and 728 indexed pages.",
+    "settledBrowser": "Final complete local build at 320px, 390px and 1440px renders 27 directory rows, zero clipped verdicts and no horizontal overflow. Mobile title links have at least 44px height and show the underlined treatment. Independent reviewers tested the prior compact build; final copy/link refinements were checked in the local browser.",
+    "independentFullRegrade": "pending",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Fifteen Stay listings still lack dated operator source checks",
+    "Current Hotel Sorrento decision imagery and full image-rights review remain open",
+    "Direct assistive-technology review, production performance, desktop and full three-reviewer 23-criterion regrade remain open"
+  ],
+  "negativeFindings": [
+    "A first compressed variant clipped 27/27 verdicts and was rejected.",
+    "Nonbreaking-space pseudo arrow still wrapped alone on the longest title; replaced with a tested underlined link treatment.",
+    "The live-region status has an intentional 350ms debounce; an early 250ms read was not a defect."
+  ],
+  "nextAction": "Complete final build, rebase on the merged source revision, submit the mobile directory PR, pass CI, verify exact live revision, then continue source and whole-page gates."
+}
