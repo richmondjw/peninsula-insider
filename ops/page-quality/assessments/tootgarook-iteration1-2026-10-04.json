@@ -69,7 +69,7 @@
     "sourceAndRightsChecks": "TZ=UTC content and rights checks passed; Commons source probe HTTP 200 is recorded in link-health ledger, and final full link-health audit passed.",
     "productionBuild": "Final exact-source TZ=UTC npm run build:search exited 0 with standard source, rights, link, schema and agent-readiness gates. Generated site contains the corrected place route.",
     "localBrowser": "Chrome at 320/390/1440px: 200, 1920px local hero image loaded, no overflow/page errors, author and CC BY-SA 4.0 credit plus source/licence visible. Independent reviewer measured zero alt/credit overlap after mobile flow fix.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "Protected build-and-deploy run 37131106233 succeeded on source 49e78cb32df23562d1bd9cf0877428dfc06c8045, whose first parent is PR #550 merge aee8a9fb4288df81f4336477809952b75a6684c5. Cache-busted public release manifest matched sourceSha and buildRunId. Live Chrome returned 200 with no overflow or page errors for /stay/, five corrected Stay details at 390px, and Tootgarook at 320/390/1440px; expected facts and licensed local hero loaded with visible source/licence. This accepts the bounded release only."
   },
   "hardGatesOpen": [
     "Full independent 23-criterion Tootgarook review and score",
@@ -81,5 +81,5 @@
     "The Shire sources support paths and access but did not establish signage; signed-path wording was removed.",
     "This bounded correction is not a 99/100 acceptance."
   ],
-  "nextAction": "Complete final build and mobile verification, publish and check public exact revision, then grade the place page fully."
+  "nextAction": "Batch1 live accepted. Improve truthful hero framing and local wayfinding, then complete full independent 23-criterion grade; keep score null."
 }

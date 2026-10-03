@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/tootgarook/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "49e78cb32df23562d1bd9cf0877428dfc06c8045",
+  "baseDeploymentRun": "37131106233",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "source": "Batch12 exact-public page at 320/390/1440 and independent built-preview visual review. Truthful local photograph and CC source/licence are live, but the dry reserve/sky occupies a giant full-bleed hero and does not convey the bay/wetland journey. Eyebrow reads Sorrento & Portsea although Tootgarook is between Capel Sound and Rye; the regional taxonomy has a broad title that is confusing on this page.",
+    "fullScore": null
+  },
+  "sources": [
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Parks-and-reserves/Tootgarook-Bushland-Reserve",
+      "supports": "Nearby reserve public paths, boardwalks and facilities."
+    },
+    {
+      "url": "https://shape.mornpen.vic.gov.au/our-coast-our-future/ocof-area-2",
+      "supports": "Shallow bay coast."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Tootgarook_Recreation_Reserve_2023-02-22.jpg",
+      "supports": "Actual local photograph and creator; CC BY-SA 4.0 conditions recorded in iteration1."
+    }
+  ],
+  "hypothesis": "A framed editorial photograph with text-first introduction, accurate local eyebrow and visible caption/credit makes the truthful image feel proportionate and improves location understanding without substituting an unverified beach photograph.",
+  "boundedChange": "Add optional heroLayout, heroEyebrow and heroDeck fields to place content; use them only for Tootgarook. The shared template retains its existing full-bleed default for every other place. Frame the current rights-recorded photo, keep its factual caption and linked credit below it, and remove inherited photo text shadow on the new light surface.",
+  "metric": "At 320/390/1440px title, deck, image, caption and licence are legible without overlap or overflow; source/licence links have 44px mobile targets, image loads, region eyebrow correctly locates Tootgarook, and other place pages preserve the default hero. Full build/CI and public manifest/browser confirm release.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Remove the optional editorial layout fields and scoped class styles if it degrades mobile reading or image attribution; retain the factual photo and source notes.",
+  "independentReview": "Independent reviewer identified the oversized dry-field hero and misleading region eyebrow. First revision received a bounded NO-GO for a clipped 320px title and inherited text shadow; both were fixed. Final preview review gave a bounded GO for 320/390/1440px title, deck, caption, source and licence, without overlap or page errors. No full rubric score was assigned; no stronger rights-clear Tootgarook beach/wetland photo was found in the Commons category.",
+  "validation": {
+    "productionBuild": "Final exact-source TZ=UTC npm run build:search passed, including content and provenance checks, 1009 generated pages and a Pagefind index of 727 pages.",
+    "localBrowser": "Final Chrome preview at 320/390/1440px: title fits, text shadow is absent, actual 1920px image loads, accurate eyebrow, caption and source/licence are visible with 44px mobile targets, and no overflow or page errors. The first scripted assertion was case-sensitive against uppercase CSS text and falsely failed; rendered content was correct. Independent final responsive QA gave a bounded GO. Rye retained the default place hero.",
+    "liveAcceptance": "pending"
+  },
+  "hardGatesOpen": [
+    "Full independent 23-criterion Tootgarook grade",
+    "Stronger rights-clear destination imagery if obtainable",
+    "Direct assistive-technology and field performance checks",
+    "Regional taxonomy audit beyond this page"
+  ],
+  "negativeFindings": [
+    "The current photo is truthful and licensed but remains a modest destination image even when framed.",
+    "The broad region page itself still uses the name Sorrento & Portsea and includes Rye and Tootgarook; this batch corrects the local hero label only.",
+    "No 99/100 score is inferred from the new layout."
+  ],
+  "nextAction": "Release through normal CI and verify the exact public revision, then continue rights-clear imagery and full rubric evidence."
+}

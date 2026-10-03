@@ -62,7 +62,7 @@
     "sourceAndRightsChecks": "TZ=UTC validate:content, lint:image-rights, assert:media-provenance, lint:licence-default passed. Five newly cited source URLs were independently probed and recorded as HTTP 200 in the link-health ledger; the final full build passed its link-health ratchet.",
     "productionBuild": "Final exact-source TZ=UTC npm run build:search exited 0. Astro built 1009 pages, Pagefind indexed 727 pages; all standard source, rights, link, schema and agent-readiness gates passed. An earlier local-Sydney build failed on current-date event data, and a first UTC build failed on five unprobed new citations; neither failed run is treated as a pass.",
     "localBrowser": "Chrome exact-built preview returned 200 with no horizontal overflow or page errors for /stay/ and five affected venue details at 390px, and Tootgarook at 320/390/1440px; expected factual strings visible. Independent reviewer confirmed Tootgarook hero image loads, credit has zero overlap on mobile, and 44px source/licence targets with correct destinations.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "Protected build-and-deploy run 37131106233 succeeded on source 49e78cb32df23562d1bd9cf0877428dfc06c8045, whose first parent is PR #550 merge aee8a9fb4288df81f4336477809952b75a6684c5. Cache-busted public release manifest matched sourceSha and buildRunId. Live Chrome returned 200 with no overflow or page errors for /stay/, five corrected Stay details at 390px, and Tootgarook at 320/390/1440px; expected facts and licensed local hero loaded with visible source/licence. This accepts the bounded release only."
   },
   "hardGatesOpen": [
     "Full factual verification across all 26 Stay listings",
@@ -75,5 +75,5 @@
     "The Tootgarook Recreation Reserve photo is accurately identified but is not a photograph of the wetland; the destination still needs stronger truthful art direction for a top score.",
     "Source checks for five records and a bounded browser pass do not constitute a full Stay regrade."
   ],
-  "nextAction": "Complete final build and browser checks, release through CI, verify public exact SHA and affected pages, then continue the remaining Stay facts and full rubric gates."
+  "nextAction": "Batch12 live accepted. Continue the independently triaged mobile filter and directory improvements, remaining 26-listing source checks and full assistive-technology/field-performance review; keep full Stay score null."
 }
