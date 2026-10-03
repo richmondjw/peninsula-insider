@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T16:07:41.135Z",
+  "updatedAt": "2026-10-03T16:52:18.402Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -302,6 +302,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://capelsoundforeshores.com.au/20232024-booking-information",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "2026/2027 Booking Information &mdash; Capel Sound Foreshores",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://cassisredhill.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -349,6 +357,14 @@
       "httpCode": "200",
       "pageTitle": "File:Cape Schanck walking trail.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Capel_Sound_aerial_panorama._April_2024.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Capel Sound aerial panorama. April 2024.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -479,6 +495,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Just a moment..."
+    },
+    {
+      "url": "https://creativecommons.org/licenses/by/4.0/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Deed - Attribution 4.0 International - Creative Commons",
+      "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://designweek.melbourne/program/",

@@ -9,13 +9,35 @@
     "lat": -38.3567,
     "lng": 144.8636
   },
-  "intro": "Capel Sound is the western half of what was, until 2017, simply called Rosebud West, and the renaming did the place a quiet favour. It is now its own town in the postcodes if not yet in everyone's mental map: a long stretch of bayside foreshore camping ground, a small but lengthening main road of cafés and surf shops, and a residential grid that runs back from the beach in long flat blocks. The Rosebud-Capel Sound foreshore camp is one of the largest beachfront camping grounds in Australia, and for two months every summer it doubles the population of the entire stretch. Outside that window Capel Sound is calm, flat, and uncomplicated  -  a town that locals use when they want a bay-side walk that isn't busy. Stay here for foreshore camping or a cheaper inland rental; for restaurants, walk or drive five minutes into Rosebud.",
-  "factualLede": "Capel Sound is a bayside town on the Mornington Peninsula's Port Phillip coast immediately west of Rosebud, 75 km from Melbourne, with a long bay beach, the Rosebud Foreshore camping ground and a developing café strip.",
+  "intro": "Capel Sound runs along Port Phillip Bay west of Rosebud and east of Tootgarook. Its long beach, foreshore campsites and flat Bay Trail make walking and camping the main reasons to stop. Cafes and shops sit across Point Nepean Road from the reserve. Summer camping rules and availability change by season, so check the foreshore operator before making plans. The locality was renamed from Rosebud West in 2016.",
+  "factualLede": "Capel Sound is a bayside town west of Rosebud, with a Port Phillip beach, foreshore campsites and a section of the Bay Trail.",
   "heroImage": {
-    "src": "/images/placeholder-capel-sound.jpg",
-    "alt": "Foreshore camping with tents set behind tea-tree dunes at Capel Sound",
-    "credit": "Peninsula Insider",
-    "license": "tmp-unsplash"
+    "src": "/images/sourced/place-capel-sound-aerial-2024-960.webp",
+    "alt": "Aerial view of Capel Sound's bay foreshore, beach and streets under a blue sky",
+    "credit": "BobTanGo / Wikimedia Commons (CC BY 4.0; cropped and converted to WebP)",
+    "license": "wikimedia-cc-by",
+    "caption": "Capel Sound foreshore from above in April 2024. Cropped from the original panorama.",
+    "depicts": "Capel Sound bay foreshore and residential area, photographed from above in April 2024",
+    "depictionStatus": "actual",
+    "creator": "BobTanGo",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Capel_Sound_aerial_panorama._April_2024.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "permission": "CC-BY-4.0",
+    "permittedUses": [
+      "website",
+      "social",
+      "print",
+      "derivative",
+      "commercial"
+    ],
+    "rightsHolder": "BobTanGo",
+    "rightsEstablishedOn": "2026-10-03",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "responsive": {
+      "srcset": "/images/sourced/place-capel-sound-aerial-2024-480.webp 480w, /images/sourced/place-capel-sound-aerial-2024-960.webp 960w, /images/sourced/place-capel-sound-aerial-2024-1440.webp 1440w",
+      "sizes": "(max-width: 760px) calc(100vw - 40px), (max-width: 1280px) 48vw, 680px"
+    }
   },
   "relatedPlaces": [
     "rosebud",
@@ -25,11 +47,11 @@
   "publishedAt": "2026-05-16",
   "driveTime": "approximately 1 hour 10 minutes",
   "tldr": [
-    "Capel Sound is the bayside town west of Rosebud - long foreshore, one of Australia's biggest beachfront camp grounds, a flat residential grid behind.",
-    "Best for: summer foreshore campers; families wanting a calm bay base outside school holidays; renters chasing lower rates than Rosebud proper.",
-    "Signature experience: a long foreshore walk between Capel Sound and Rye at sunset, summer-camp life behind the dunes.",
-    "A weekend in shoulder seasons; longer for foreshore camping.",
-    "Treat Rosebud and Capel Sound as one continuous strip for restaurants."
+    "Capel Sound is a bay-coast town between Rosebud and Tootgarook, with a long beach and foreshore camping.",
+    "Best for: a flat Bay Trail walk, beach time and a camping base close to the water.",
+    "Signature outing: follow the foreshore path toward Tootgarook, then return for a swim when conditions suit.",
+    "Allow a few hours for a walk and beach stop; check the operator for seasonal camping availability.",
+    "Rosebud and Rye offer further food stops along the bay."
   ],
   "bestFor": [
     "foreshore campers",
@@ -37,14 +59,36 @@
     "off-season walkers"
   ],
   "notFor": [
-    "anyone wanting a dense restaurant strip",
-    "people who hate caravan crowds in January"
+    "visitors relying on guaranteed campsite availability",
+    "anyone expecting a dense restaurant strip"
   ],
   "bestSeason": "shoulder spring and autumn",
-  "worstTime": "first week of January (peak camp)",
+  "worstTime": "summer holiday peak if you want an uncrowded beach",
   "stayDuration": "two nights minimum, a fortnight if camping",
-  "signature": "The Peninsula's biggest beachfront camp ground and the quieter half of the Rosebud bay strip.",
-  "skip": "Visiting in school-holiday peak expecting calm - for that, come in May.",
-  "bestDay": "Early walk along the foreshore from Capel Sound toward Rye, breakfast in Rosebud, paddleboard or swim by midday, sundown back at the campsite or rental.",
-  "insiderNote": "Beach-front tent sites on the foreshore camp ground are released by ballot months in advance - register the year before you want to camp."
+  "signature": "A broad bay foreshore where camping and a flat coast walk set the pace.",
+  "skip": "Assuming a campsite will be available without checking the operator's current booking instructions.",
+  "bestDay": "Walk the Bay Trail toward Tootgarook in the morning, pause at the bay beach, then spend sunset along the foreshore.",
+  "insiderNote": "Foreshore camping is seasonal. Check the operator's current booking instructions and cancellation waitlist before travelling.",
+  "heroLayout": "editorial",
+  "heroEyebrow": "West of Rosebud · Bay Coast",
+  "heroDeck": "A bay beach, foreshore camps and the Bay Trail on the doorstep.",
+  "visitSource": {
+    "label": "Check current foreshore bookings",
+    "url": "https://capelsoundforeshores.com.au/20232024-booking-information"
+  },
+  "relatedMediaMode": "text",
+  "relatedPlaceSummaries": [
+    {
+      "slug": "rosebud",
+      "summary": "Head east for the pier, a longer shopping strip and more places to eat."
+    },
+    {
+      "slug": "rye",
+      "summary": "Follow the bay west to a beach town with a pier and an ocean side nearby."
+    },
+    {
+      "slug": "tootgarook",
+      "summary": "Continue west for a bay beach and public reserve walks near the wetland."
+    }
+  ]
 }
