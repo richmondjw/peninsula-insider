@@ -295,17 +295,19 @@ long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) [Book](<https://greenolive.com.au/dine>)
 
-Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Photo: Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
 
-### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+Glamping  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-Peninsula-wide, based Point Leo VIC 3916
+### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
+Balnarring Foreshore Reserve, Balnarring Beach VIC
+
+A furnished bell tent at Balnarring Foreshore Reserve with the campsite fee included, subject to the operator's seasonal availability.
 
 beach  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
 
 Cottage  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -907,15 +909,15 @@ cellar door  walk
 
 Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
+### [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Moorooduc VIC 3931
+136 Graydens Road, Moorooduc VIC 3933
 
-Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
+A private chalet beside the lake on Woodman Estate's 50-acre grounds, with gardens, lake areas and tennis court shared with other guests.
 
 anniversary  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/woodman-estate/>) [View stay](<https://woodmanestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/woodman-estate/>) [View stay](<https://peninsulagroupstays.com.au/properties/chalet-un/>)
 
 Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 

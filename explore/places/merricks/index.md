@@ -101,8 +101,6 @@ What's mapped here
 
 - [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/merricks/#wine>)
 
-- [**1** stays](<https://peninsulainsider.com.au/explore/places/merricks/#stay>)
-
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/merricks/#explore>)
 
 - [**3** escape plans](<https://peninsulainsider.com.au/explore/places/merricks/#escapes>)
@@ -210,28 +208,6 @@ cellar door  slow
 [Read notes](<https://peninsulainsider.com.au/wine/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
-
-Stay
-
-## Sleep in Merricks
-
-When a place has a workable bed attached, it stops being a stop and starts becoming a base.
-
- [All stays →](<https://peninsulainsider.com.au/stay/>)
-
-Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
-
-Peninsula-wide, based Point Leo VIC 3916
-
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
-
-beach  slow
-
-[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/>)
-
-[See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Get outside
 

@@ -181,15 +181,15 @@ When a place has a workable bed attached, it stops being a stop and starts becom
 
 Villa  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
+### [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
-Moorooduc VIC 3931
+136 Graydens Road, Moorooduc VIC 3933
 
-Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
+A private chalet beside the lake on Woodman Estate's 50-acre grounds, with gardens, lake areas and tennis court shared with other guests.
 
 anniversary  waterfront
 
-[Read notes](<https://peninsulainsider.com.au/stay/woodman-estate/>) [View stay](<https://woodmanestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/stay/woodman-estate/>) [View stay](<https://peninsulagroupstays.com.au/properties/chalet-un/>)
 
 [See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 

@@ -7,35 +7,37 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Stay](<https://peninsulainsider.com.au/stay/>)    Villa    [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-# Woodman Estate
+# Chalet Un at Woodman Estate
 
-Three lakeside chalets over a private five-acre lake on a 50-acre English country estate, the Peninsula's most pastoral villa option.
+A private chalet beside the lake on Woodman Estate's 50-acre grounds, with gardens, lake areas and tennis court shared with other guests.
 
-Known for   Over-Water Lake Chalets Private Five-Acre Lake 50-Acre English Country Estate 4-Poster Mahogany Beds
+Known for   Chalet Un beside the lake Shared 50-acre estate grounds King bed and light-use kitchenette Separate whole-estate group option
 
-[Check availability](<https://woodmanestate.com.au/>)
+[Check availability](<https://peninsulagroupstays.com.au/properties/chalet-un/>)
 
-Woodman Estate · Moorooduc
+Chalet Un at Woodman Estate · Moorooduc
+
+Photo · Smartiejl · Devilbend lake · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
+
+Illustrative image  This image shows Devilbend Reservoir lake near Moorooduc. It does not depict Chalet Un at Woodman Estate.
 
 Why we’d go
 
-The only Peninsula villa where the water is directly underneath you, three private chalets built over a five-acre lake, closer to the English country-house tradition than anything else in the region.
+A quiet lake-facing chalet on a large garden estate, with a clear choice between a private chalet and a separately bookable whole-estate stay.
 
-Woodman Estate is the Peninsula's most distinctly pastoral villa option, and it is not trying to be a vineyard stay. The three standalone chalets are built directly over a private five-acre lake, 4-poster mahogany beds, marble bathrooms, double spa baths with lake views, gas open fires, private balconies. Daily housekeeping and breakfast delivery are included, which is unusual in the self-contained villa format.
+Chalet Un is one of three separately bookable lakeside chalets at Woodman Estate in Moorooduc. The current manager describes a private chalet with a king bed, a deck overlooking the lake and a kitchenette for simple food preparation. The kitchenette has a microwave, fridge, kettle and coffee machine, but no stove or oven. This booking link is for Chalet Un; check the current listing for its exact layout.
 
-The 50-acre English country estate has formal gardens, natural bushland, a rowboat, tennis court, and billiards room. No vines, no cellar door, the argument is pastoral rather than wine-country, closer to the English country-house tradition than anything else on the Peninsula.
-
-Managed by Property Mums. Restaurant status on-estate should be confirmed directly before booking.
+A chalet booking does not give exclusive use of the 50-acre estate. Guests in the Manor or Spa House may share the lake area, gardens, paths and tennis court. Wi-Fi coverage is limited and may vary by provider. The whole estate is a separate group booking option; choose that listing if exclusive use matters.
 
 Worth knowing
 
 **Best for**
 
-Anniversary weekends · Luxury stays · Couples · Weekend escapes
+Anniversary weekends · Couples · Weekend escapes
 
 If you only do one thing
 
-Request the chalet with the north-facing balcony for morning light over the lake, and take the rowboat out before breakfast.
+Check Chalet Un's exact layout and shared-ground arrangements before booking; choose the whole-estate listing for exclusive use.
 
 Works well with
 
@@ -51,11 +53,11 @@ Villa
 
 **Location**
 
-Moorooduc VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Woodman%20Estate%2C%20Moorooduc%20VIC%203931>)
+136 Graydens Road, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Chalet%20Un%20at%20Woodman%20Estate%2C%20136%20Graydens%20Road%2C%20Moorooduc%20VIC%203933>)
 
 **Website**
 
-[woodmanestate.com.au](<https://woodmanestate.com.au/>)
+[peninsulagroupstays.com.au/properties/woodman-estate-2](<https://peninsulagroupstays.com.au/properties/woodman-estate-2/>)
 
 **Directions**
 
@@ -63,11 +65,11 @@ Moorooduc VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&desti
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Woodman%20Estate%2C%20Moorooduc%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Chalet%20Un%20at%20Woodman%20Estate%2C%20136%20Graydens%20Road%2C%20Moorooduc%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://woodmanestate.com.au/>)
+ [Book now](<https://peninsulagroupstays.com.au/properties/chalet-un/>)
 
-Not sure how to build a day around Woodman Estate?
+Not sure how to build a day around Chalet Un at Woodman Estate?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
@@ -115,7 +117,7 @@ beach  fireplace
 
 Build a day around this
 
-## Planning guides that include Woodman Estate
+## Planning guides that include Chalet Un at Woodman Estate
 
 Peninsula Insider guides that put this stop into the context of a full day or weekend.
 
@@ -124,6 +126,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Moorooduc - view the destination guide](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=woodman-estate>)
 

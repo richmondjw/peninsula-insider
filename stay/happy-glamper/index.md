@@ -5,43 +5,45 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Stay](<https://peninsulainsider.com.au/stay/>)    Glamping    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[Stay](<https://peninsulainsider.com.au/stay/>)    Glamping    [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-# Happy Glamper
+# Happy Glamper Balnarring Deluxe
 
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
+A furnished bell tent at Balnarring Foreshore Reserve with the campsite fee included, subject to the operator's seasonal availability.
 
-Known for   Mobile Bell-Tent Service Styled Setup and Packdown Peninsula Hot Springs Add-On Balnarring Deluxe Option
+Known for   Balnarring Foreshore Reserve location Seasonal furnished bell tent Campsite fee included for Balnarring Deluxe Other mobile campsite setups available
 
-[Check availability](<https://www.happyglamper.com.au/>)
+[Check availability](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
 
-Happy Glamper · Merricks
+Happy Glamper Balnarring Deluxe · Balnarring
+
+Photo · Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
+
+Illustrative image  This image shows Balnarring Beach shoreline photographed in 2006. It does not depict Happy Glamper Balnarring Deluxe.
 
 Why we’d go
 
-The most flexible glamping format on the Peninsula, they pitch, style, and pack down; you arrive to a ready tent at your chosen foreshore site.
+A ready-to-use Balnarring beach campground stay with the site fee already included in this named tent option.
 
-Happy Glamper is a mobile bell-tent service rather than a fixed site: they pitch styled tents at nominated Peninsula foreshore campsites, handle setup and styling, and pack down after your stay. Multiple tent sizes are available; children are welcome; some configurations sleep up to eight guests, making it viable for larger family groups or extended weekends with friends.
+Balnarring Deluxe is Happy Glamper's named setup at Balnarring Foreshore Reserve. The five-metre bell tent has a queen bed on a raised base, linen, a bar fridge, kettle and heater. Its campsite fee is included. The operator lists a seasonal window from September to the King's Birthday long weekend, excluding 26 December to 31 January. Confirm dates and the exact setup before making a request.
 
-Balnarring Deluxe is the most documented fixed-location product, with campsite fees included. The Spa Dreaming Centre add-on at Peninsula Hot Springs is available as an optional extra, if you are pairing a glamping weekend with a thermal day, this is the configuration to ask about first. The combination of styled outdoor accommodation and Peninsula Hot Springs access in a single booking makes Happy Glamper a genuinely distinct Peninsula proposition.
-
-Rates were last verified in 2023. Get a current quote directly before committing, pricing and location availability may have changed.
+Happy Glamper also pitches and packs down tents at other locations chosen by guests. For those general campsite bookings, the campground booking and fee are separate from the tent hire. The Balnarring Deluxe arrangement is the exception, so do not assume its inclusions apply elsewhere. A Peninsula Hot Springs Bath House pass is offered as an optional extra, subject to the operator's current terms.
 
 Worth knowing
 
 **Best for**
 
-Family outings · Beach proximity · Weekend escapes · Budget stays
+Beach proximity · Couples · Weekend escapes
 
 If you only do one thing
 
-Ask for the Balnarring Deluxe configuration, campsite fee included and the most consistently available setup.
+Choose Balnarring Deluxe only if its seasonal dates and included campsite suit you; ask about other campsite setups separately.
 
 Works well with
 
-Peninsula Hot Springs · Balnarring Beach
+Balnarring Beach · Peninsula Hot Springs
 
-Filed under   Beach Slow Spring Summer Autumn Families Group
+Filed under   Beach Slow Spring Summer Autumn Couples Families
 
 At a glance
 
@@ -51,7 +53,7 @@ Glamping
 
 **Location**
 
-Peninsula-wide, based Point Leo VIC 3916 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Happy%20Glamper%2C%20Peninsula-wide%2C%20based%20Point%20Leo%20VIC%203916>)
+Balnarring Foreshore Reserve, Balnarring Beach VIC · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Happy%20Glamper%20Balnarring%20Deluxe%2C%20Balnarring%20Foreshore%20Reserve%2C%20Balnarring%20Beach%20VIC>)
 
 **Website**
 
@@ -59,21 +61,21 @@ Peninsula-wide, based Point Leo VIC 3916 · [Directions](<https://www.google.com
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.443%2C145.092>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Happy%20Glamper%20Balnarring%20Deluxe%2C%20Balnarring%20Foreshore%20Reserve%2C%20Balnarring%20Beach%20VIC>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Happy%20Glamper%2C%20Peninsula-wide%2C%20based%20Point%20Leo%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Happy%20Glamper%20Balnarring%20Deluxe%2C%20Balnarring%20Foreshore%20Reserve%2C%20Balnarring%20Beach%20VIC%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.happyglamper.com.au/>)
+ [Book now](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
 
-Not sure how to build a day around Happy Glamper?
+Not sure how to build a day around Happy Glamper Balnarring Deluxe?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
 Nearby picks
 
-## More from Merricks
+## More from Balnarring
 
  [Back to Stay →](<https://peninsulainsider.com.au/stay/>)
 
@@ -115,7 +117,7 @@ beach  fireplace
 
 Build a day around this
 
-## Planning guides that include Happy Glamper
+## Planning guides that include Happy Glamper Balnarring Deluxe
 
 Peninsula Insider guides that put this stop into the context of a full day or weekend.
 
@@ -123,7 +125,9 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Merricks - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[← Part of Balnarring - view the destination guide](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=happy-glamper>)
 

@@ -99,6 +99,8 @@ What's mapped here
 
 - [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/balnarring/#wine>)
 
+- [**1** stays](<https://peninsulainsider.com.au/explore/places/balnarring/#stay>)
+
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/balnarring/#explore>)
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/balnarring/#journal>)
@@ -202,6 +204,30 @@ cellar door  slow
 [Read notes](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) [Book](<https://quealy.com.au/pages/cellar-door>)
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
+
+Stay
+
+## Sleep in Balnarring
+
+When a place has a workable bed attached, it stops being a stop and starts becoming a base.
+
+ [All stays →](<https://peninsulainsider.com.au/stay/>)
+
+Photo: Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
+
+Glamping  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+
+### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+
+Balnarring Foreshore Reserve, Balnarring Beach VIC
+
+A furnished bell tent at Balnarring Foreshore Reserve with the campsite fee included, subject to the operator's seasonal availability.
+
+beach  slow
+
+[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
+
+[See the editorial rankings → Best Places to Stay on the Peninsula](<https://peninsulainsider.com.au/stay/best-accommodation/>)
 
 Get outside
 

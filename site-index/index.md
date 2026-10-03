@@ -267,7 +267,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
-- [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+- [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
 - [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 

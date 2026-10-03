@@ -91,7 +91,7 @@ A different format
 
 These stay options appeared alongside villas in earlier guides. They are useful alternatives, with their accommodation type made clear.
 
-[Vineyard suites  **Port Phillip Estate**  Six suites at an architectural wine estate.   Read stay notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)[Vineyard suites  **Mantons Creek Estate**  Compare the operator’s current suite and dining offer.   Read stay notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)[Lakeside chalets  **Woodman Estate**  A separate chalet format on an estate.   Read stay notes](<https://peninsulainsider.com.au/stay/woodman-estate/>)[Hilltop suites  **The Cape Retreat**  Check whether individual stays are available.   Read stay notes](<https://peninsulainsider.com.au/stay/cape-retreat/>)
+[Vineyard suites  **Port Phillip Estate**  Six suites at an architectural wine estate.   Read stay notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)[Vineyard suites  **Mantons Creek Estate**  Compare the operator’s current suite and dining offer.   Read stay notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)[Lakeside chalets  **Chalet Un at Woodman Estate**  A separate chalet format on an estate.   Read stay notes](<https://peninsulainsider.com.au/stay/woodman-estate/>)[Hilltop suites  **The Cape Retreat**  Check whether individual stays are available.   Read stay notes](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
 ## Before you reserve
 

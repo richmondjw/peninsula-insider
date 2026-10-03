@@ -73,17 +73,17 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
 
-Glamping  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
 
-Peninsula-wide, based Point Leo VIC 3916
+235 Stanleys Rd, Red Hill South VIC 3937
 
-Mobile bell-tent glamping that pitches styled tents at nominated Peninsula foreshore campsites, setup and packdown handled, children welcome.
+Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
 
-beach  slow
+cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/stay/happy-glamper/>) [View stay](<https://www.happyglamper.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
 
 Keep going
 

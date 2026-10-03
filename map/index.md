@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-207 on the map
+206 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -154,8 +154,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
 - [View : Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
-
-- [View : Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
 - [View : Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
@@ -335,7 +333,7 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 
 - [View : Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
-- [View : Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
+- [View : Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
 - [View : Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>)
 

@@ -247,6 +247,16 @@ Details checked October 2026
 
 [Visit website](<https://www.bluemooncottages.com.au/>)
 
+- ### [Happy Glamper Balnarring Deluxe](<https://peninsulainsider.com.au/stay/happy-glamper/>)
+
+Styled bell tents set up at selected Peninsula campsites.
+
+Glamping   Balnarring   Couples
+
+Details checked October 2026
+
+[Visit website](<https://www.happyglamper.com.au/5m-balnarring-deluxe>)
+
 - ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
 Twelve Cape Schanck suites suited to group retreats.
@@ -303,21 +313,15 @@ Details checked October 2026
 
 [Visit website](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
-- ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
-
-Styled bell tents set up at selected Peninsula campsites.
-
-Glamping   Merricks   Family
-
-[Visit website](<https://www.happyglamper.com.au/>)
-
-- ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
+- ### [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
 Country estate chalets beside a private lake.
 
 Villa   Moorooduc   Couples
 
-[Visit website](<https://woodmanestate.com.au/>)
+Details checked October 2026
+
+[Visit website](<https://peninsulagroupstays.com.au/properties/chalet-un/>)
 
 - ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
