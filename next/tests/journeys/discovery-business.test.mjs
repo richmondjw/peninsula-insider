@@ -121,6 +121,20 @@ test('category filters are reachable from the first screen and restore the match
         }));
         assert.equal(landed.hash,'#browse-stay');
         assert.ok(landed.top >= 0 && landed.top < 750, 'Stay jump did not reveal filters');
+      } else if (route === '/eat/') {
+        const jump = await reader.page.$('.category-browse__links a[href="#directory"]');
+        assert.ok(jump, 'Eat needs a direct first-screen path to filters');
+        const bounds = await jump.boundingBox();
+        assert.ok(bounds && bounds.y + bounds.height < 750, 'Eat browse action buried');
+        await jump.click();
+        const landed = await reader.page.evaluate(() => ({
+          hash:location.hash,
+          headingTop:document.querySelector('#directory .v5-directory__heading').getBoundingClientRect().top,
+          top:document.querySelector('[data-v5-filterbar]').getBoundingClientRect().top,
+        }));
+        assert.equal(landed.hash,'#directory');
+        assert.ok(landed.headingTop >= 0 && landed.headingTop < 750, 'Eat jump hid the directory heading');
+        assert.ok(landed.top >= 0 && landed.top < 750, 'Eat jump did not reveal filters');
       } else {
         assert.ok(geometry.top < 750,route+' filters buried');
       }
