@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T10:35:25.480Z",
+  "generatedAt": "2026-10-03T10:55:40.330Z",
   "asOf": "2026-10-03",
   "staleAfterDays": 90,
   "assertedMetrics": [
@@ -17,7 +17,7 @@
     "liveEvents": 38,
     "cancelledEvents": 1,
     "missingVerificationDate": 0,
-    "staleVerificationDate": 13,
+    "staleVerificationDate": 12,
     "duplicateTitleGroups": 0,
     "duplicateVenueDateGroups": 0,
     "unresolvableRecurrence": 0,
@@ -25,7 +25,7 @@
     "postponedEvents": 0,
     "postponedWithoutProvenance": 0,
     "occurrenceQueueEntries": 0,
-    "freeTextVerificationStatus": 5,
+    "freeTextVerificationStatus": 4,
     "unboundedOccurrence": 2
   },
   "missingVerificationDate": [],
@@ -42,11 +42,6 @@
     },
     {
       "file": "mornington-tourist-railway-santa-specials.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
-      "file": "mt-eliza-farmers-market.json",
       "lastCheckedDate": "2026-05-04",
       "ageDays": 152
     },
@@ -107,7 +102,6 @@
     "boneo-community-market.json",
     "emu-plains-market-balnarring.json",
     "hastings-thursday-street-market.json",
-    "mt-eliza-farmers-market.json",
     "peninsula-vinehop-festival-2026.json"
   ],
   "unboundedOccurrence": [
