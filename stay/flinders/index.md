@@ -11,7 +11,7 @@ Flinders is the Peninsula's quieter, sharper village answer. It is what you pick
 
 [Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>) is the obvious base because it understands the town's scale. This is not the place to hunt for a huge accommodation set. It is the place to base a quieter ocean-side Peninsula weekend correctly.
 
-Researched from published sources. Every venue listed was fact-checked September 2026 or later.
+Researched from published sources. Every venue listed was fact-checked October 2026 or later.
 
 Flinders stays
 

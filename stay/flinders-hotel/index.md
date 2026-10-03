@@ -177,6 +177,8 @@ Keep this for later
 
 [← Part of Flinders - view the destination guide](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
+Information last checked 3 Oct 2026
+
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=flinders-hotel>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.

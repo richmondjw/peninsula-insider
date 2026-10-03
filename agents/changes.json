@@ -1,28 +1,100 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T00:47:16.218Z",
+  "generatedAt": "2026-10-03T01:17:14.818Z",
   "baselineAvailable": true,
-  "fromSnapshot": "286b4610f2bb62ab5c3d331e48ed4875edddc56989bdf7685bd476bb87f6b7ec",
-  "toSnapshot": "5c4a74db6f96858d34c79c0c3fe504035dfe5bf0d667e9b925725b10ff4ad197",
-  "previousGeneratedAt": "2026-10-02T22:21:47.811Z",
+  "fromSnapshot": "5c4a74db6f96858d34c79c0c3fe504035dfe5bf0d667e9b925725b10ff4ad197",
+  "toSnapshot": "bb99505b33533245f9d920d511013026fe61d6df3ce1953db45d427c167753ec",
+  "previousGeneratedAt": "2026-10-03T00:47:16.218Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 11,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-easter-peninsula/index.md",
+      "contentSha256": "2669e99094c4259ad2856a49f13f48ce5ed491c1e39dacee09b6761f30e94afc",
+      "previousContentSha256": "d6cafa23ea482ef829167661a991003bc35973f662d1e089ce53d98fd72f6819"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/index.md",
+      "contentSha256": "360762b5340f8542e41d2ef1a31ebd705428a78f6eec3200c83f2a35f26fc982",
+      "previousContentSha256": "29f094d096eee369cfcc602b7fc0c7f232e04b96bfc5ba73f1a0a4f2d8f6441e"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "f5364dd26924ebf1db7fe116991721617ac8da89b8eefdccb6832c1d0446fcc2",
-      "previousContentSha256": "007efeaae9aec3913a70522d4a8a815606c2e1b6546d46afb4fdcf9fb9531e54"
+      "contentSha256": "4eb83d68eb53594458a20b778ed7db56f1a10d067f2b1e2c2b7930c2be72d2d0",
+      "previousContentSha256": "f5364dd26924ebf1db7fe116991721617ac8da89b8eefdccb6832c1d0446fcc2"
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "e2e50838a64d0c65989043d4d18f95a127b9cbe717a136fbaafcbb8c1d064402",
-      "previousContentSha256": "f2c7962f0503918a57131214e35d99e86c01a01794886336991b4741943da170"
+      "contentSha256": "636d5d31b9afa8dc9b0b20afddadabdc17417e575760974b7320a9067b7a7c1c",
+      "previousContentSha256": "e2e50838a64d0c65989043d4d18f95a127b9cbe717a136fbaafcbb8c1d064402"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/blue-moon-cottages/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/blue-moon-cottages/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/blue-moon-cottages/index.md",
+      "contentSha256": "5ce6fcc7ce4b7487e323884059dd873d5240c56d29381e214612480d2c237f4d",
+      "previousContentSha256": "f3e4178e50f052cb71280261bccd0815e804e0aa30e56b30b2e447733099556c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/coastal-stays/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/coastal-stays/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/coastal-stays/index.md",
+      "contentSha256": "dcfc888a9176826c1a0fd20b555bd08c04580991caa212031d962ccfb17939a4",
+      "previousContentSha256": "b1e7e46d34bdc00b055b1db470fd06d837d0d97cbe8c7bb199b0b6e8ff13d648"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/index.md",
+      "contentSha256": "614ace157c3aef5c4b32412ceb3f7db56736bcd45cf62f194d5538b5bb5353a2",
+      "previousContentSha256": "1b538f1f8a06540d26d1823dd358b75bc69bfdb702aac17f7e5ace4a3c6c6d31"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/flinders/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders/index.md",
+      "contentSha256": "a93b21a8166589ca45c6e24ad3e758c75e0468a9d8bd73f4d5ba0f2d933c1724",
+      "previousContentSha256": "c35a114817ddd28ef200a20b20a50c3db50058aad5b9b2b6ab22b71eca9c19bc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/index.md",
+      "contentSha256": "8e617a9064139bf565615c03ce9e88228be1c80dd6d48c0085a4aa315194f05e",
+      "previousContentSha256": "f1c02ed57b47869fb5eb3fa7394f75249222cf0d5c0fd395c3d97704c7c66073"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/polperro-villas/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/polperro-villas/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/polperro-villas/index.md",
+      "contentSha256": "e3786e74d2f92fd2b0c09b531caa726f10cb3b82a9887ff738e72676a9d60d30",
+      "previousContentSha256": "9af89fc97b09886546f1d3750a30a69d498fa25713bde5d41a91f1a62e712c31"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/polperro/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/polperro/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/polperro/index.md",
+      "contentSha256": "501a33c913ecbbd346e5fe4084e3f962ffb5b76ba301df7f7e0a739c4e1fe7bd",
+      "previousContentSha256": "0157a9d89d2101578ad23a3eefae34aba499c5d65bc4001d16fed201d87c62db"
     }
   ]
 }

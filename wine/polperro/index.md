@@ -141,7 +141,7 @@ Walk-in only, maximum 6 guests, no bookings required for cellar door. Tasting in
 
 ## Polperro Vineyard Villas
 
-Four vineyard villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Cooking facilities are a convection oven and microwave; there are no hotplates or outdoor baths. Book at https://www.polperrowines.com.au/escape/.
+Four vineyard villas, each sleeping two with a king-size bed, indoor spa, open fireplace and vineyard views. Confirm the kitchenette before planning meals; the spas are indoors. Book at https://www.polperrowines.com.au/escape/.
 
 ## Frequently asked questions
 

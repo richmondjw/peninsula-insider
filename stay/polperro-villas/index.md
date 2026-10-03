@@ -21,9 +21,9 @@ Why we’d go
 
 A vineyard stay for two, with a king-size bed, indoor spa and open fireplace in each of the four villas.
 
-Polperro has four villas overlooking the vineyard in Red Hill. Each villa sleeps two and has a king-size bed, an indoor spa and an open fireplace. There are no outdoor baths in the vines.
+Polperro has four villas overlooking the vineyard in Red Hill. Each villa sleeps two and has a king-size bed, an indoor spa and an open fireplace.
 
-Cooking facilities include a convection oven and microwave, both suitable for preparing meals. There are no hotplates, so plan your provisions around those appliances.
+Confirm the current kitchenette appliances directly before planning cooked meals or buying provisions.
 
 The Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays. If a tasting or meal is part of your stay, check the current service times and book the restaurant separately. Book accommodation directly through Polperro's Escape page.
 
@@ -35,7 +35,7 @@ Anniversary weekends · Weekend escapes · Couples · Wine lovers
 
 If you only do one thing
 
-Choose provisions for the convection oven and microwave, and plan restaurant and cellar door visits around their Monday and Tuesday closures.
+Confirm the villa kitchenette before buying provisions, and plan restaurant and cellar door visits around their Monday and Tuesday closures.
 
 Works well with
 
@@ -160,6 +160,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=polperro-villas>)
 

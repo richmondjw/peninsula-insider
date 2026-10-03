@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/stay/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-01
+Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -95,6 +95,8 @@ Four vineyard villas, each sleeping two with a king-size bed, indoor spa and ope
 
 Villa   Red Hill   Couples
 
+Details checked October 2026
+
 [Visit website](<https://www.polperrowines.com.au/escape/>)
 
 - Hotel Sorrento exterior, photographed in 2006 before recent renovations.   Photo: Biatch / Wikimedia Commons (public domain).
@@ -119,6 +121,8 @@ A village hotel for a Flinders base, with the southern coast as a separate outin
 
 Hotel   Flinders   Couples
 
+Details checked October 2026
+
 [Visit website](<https://flindershotel.com.au/accommodation/>)
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
@@ -127,6 +131,8 @@ Stay at the hot springs when bathing is the centre of the escape. Check which se
 
 Glamping   Fingal   Couples
 
+Details checked October 2026
+
 [Visit website](<https://www.peninsulahotsprings.com/accommodation>)
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
@@ -134,6 +140,8 @@ Glamping   Fingal   Couples
 Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage and its current dog policy before booking.
 
 Cottage   Rye   Dog-friendly
+
+Details checked October 2026
 
 [Visit website](<https://www.bluemooncottages.com.au/>)
 
@@ -193,6 +201,8 @@ Four vineyard villas, each sleeping two with a king-size bed, indoor spa and ope
 
 Villa   Red Hill   Couples
 
+Details checked October 2026
+
 [Visit website](<https://www.polperrowines.com.au/escape/>)
 
 - ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
@@ -211,6 +221,8 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 
 Hotel   Flinders   Couples
 
+Details checked October 2026
+
 [Visit website](<https://flindershotel.com.au/accommodation/>)
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
@@ -219,6 +231,8 @@ Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view,
 
 Glamping   Fingal   Couples
 
+Details checked October 2026
+
 [Visit website](<https://www.peninsulahotsprings.com/accommodation>)
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
@@ -226,6 +240,8 @@ Glamping   Fingal   Couples
 Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fire and a fully fenced courtyard.
 
 Cottage   Rye   Dog-friendly
+
+Details checked October 2026
 
 [Visit website](<https://www.bluemooncottages.com.au/>)
 

@@ -23,7 +23,7 @@ A Rye cottage base near the bay with pet-welcoming rules and a log fire in Sandp
 
 Blue Moon Cottages offers named self-catering cottages near Rye bay beach. The Sandpiper has a log fire, a kitchen and a fully fenced courtyard; other cottages have different layouts. Select the exact cottage before comparing capacity and features.
 
-The operator FAQ says all Blue Moon cottages accept pets and have secure outdoor areas. Sandpiper is best suited to small dogs because the cottage and courtyard are compact. Read the current pet terms before booking.
+The operator FAQ says all Blue Moon cottages accept pets and have secure outdoor areas. Choose the exact cottage and confirm that its layout and current pet terms suit your dog before booking.
 
 This is a beach base that can work in cooler weather, particularly if the log fire matters to your trip. Check availability and minimum stays on the operator site.
 
@@ -35,7 +35,7 @@ Dog-friendly stays · Beach proximity · Weekend escapes · Couples
 
 If you only do one thing
 
-Choose the exact cottage first; all accept pets, but Sandpiper is compact and the operator recommends small dogs there.
+Choose the exact cottage first; all accept pets, but confirm the exact cottage layout and the current pet terms with the operator.
 
 Works well with
 
@@ -124,6 +124,8 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 Keep this for later
 
 [← Part of Rye - view the destination guide](<https://peninsulainsider.com.au/explore/places/rye/>)
+
+Information last checked 3 Oct 2026
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=blue-moon-cottages>)
 

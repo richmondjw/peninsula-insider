@@ -123,7 +123,7 @@ Do not assume the nearby bay beach is a swimming beach. Parks Victoria advises t
 
 No. The Fingal thermal stays are inland experiences and are covered in the wellness stays guide. This page focuses on bay villages, the south coast and Point Nepean National Park.
 
-Researched from published sources. Every venue listed was reviewed April 2026 or later.
+Researched from published sources. Every venue listed was reviewed May 2026 or later.
 
 ## The Insider Note
 
