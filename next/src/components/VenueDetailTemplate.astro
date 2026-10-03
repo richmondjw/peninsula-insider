@@ -138,11 +138,9 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
-const requireVerifiedStayHero = section === 'stay' &&
-  ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate', 'iluka-retreat', 'kanasta-retro-caravans', 'mantons-creek-estate'].includes(String(venueSlug));
+// Stay pages keep the reviewed source image and its matching disclosure together.
 const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
-  requireOverrideMetadata: requireVerifiedStayHero,
-  ignoreOverride: section === 'stay' && venueSlug === 'driftaway-on-dundas' && data.status === 'paused',
+  ignoreOverride: section === 'stay',
 });
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
 // replaces: a decorative image's deliberately empty alt fell through the `||`
@@ -157,7 +155,7 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 const heroProvenance = hero.override ? null : data.heroImage;
 const heroCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
 const flindersCommonsHero = venueSlug === 'flinders-hotel' && !hero.override && hero.hasPhoto;
-const heroSourceUrl = !hero.override ? data.heroImage?.sourceUrl : undefined;
+const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(data.heroImage?.sourceUrl)) ? data.heroImage.sourceUrl : undefined;
 const heroLicenceUrl = !hero.override ? data.heroImage?.licenseUrl ?? (flindersCommonsHero ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
 // The photograph rule (src/lib/photo-set.ts): a stage opens the page when
 // there are three or more verified photographs, and the rest are set into
@@ -898,8 +896,9 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
     <div class="container">
       <div class="venues__header">
         <div>
-          <p class="label label--accent">Nearby picks</p>
-          <h2 class="venues__title">More from {placeLabel(data.place)}</h2>
+          <p class="label label--accent">{section === 'eat' ? 'Nearby picks' : 'More to explore'}</p>
+          <h2 class="venues__title">{section === 'eat' ? `More from ${placeLabel(data.place)}` : section === 'stay' ? 'Other stays to compare' : 'Other wine experiences to compare'}</h2>
+          {section === 'stay' && <p class="venues__sub">Compare the town, setting and stay format before deciding.</p>}
         </div>
         <a href={sectionHref} class="venues__link">Back to {sectionLabel} →</a>
       </div>

@@ -30,7 +30,7 @@
     "renderedDetector": "Independent rendered Impeccable comparison: public 390px 33 primary to final local 5, and public 1440px 56 primary to final local 15. Four mobile advisories remain. These are detector counts, not a rubric score; the remaining offscreen carousel/hidden UI flags need manual context.",
     "settledBrowser": "Independent Chromium at 320/390/1440 found no horizontal overflow or clipped rows, clean 12px footer wrapping and 12px card insets, 44px directory title targets and 48px save/shortlist actions. Menu opens with Close focused and Escape restores trigger focus. Local first-visit consent at 320px tested manage, reject, saved reload, footer reopen and Escape focus; buttons and 16px gutters fit. Directory stays at 26.",
     "independentReview": "Independent bounded visual reviewer found no release blocker on final source at 320/390/1440, including carousel keyboard reachability, intact cards, footer wrap, consent gutters, navigation focus and active booking buttons. This is not a full 23-criterion score.",
-    "liveAcceptance": "pending PR, protected CI, merge, exact public manifest and public browser"
+    "liveAcceptance": "PR #533 merged as 40533cf97e276315a2c1521a8329891b898cb79c. Protected deployment run 37101480387 passed; public release manifest matched the exact source SHA and run. Public Chromium at 320/390/1440 returned 200 for /stay/ with 26 listable stays, loaded hero, six redundant section labels absent, 12px footer/legal copy, 16px first-visit consent gutter and no horizontal overflow. Three independent exact-live 23-criterion reviews were recorded as the provisional baseline for iteration9; each full score remains unknown and material gates remain open."
   },
   "hardGatesOpen": [
     "Full independent three-reviewer 23-criterion regrade and direct assistive-technology review",
@@ -44,5 +44,5 @@
     "Hidden subscribe pill glow and short display-title leading are inherited patterns; detector findings alone do not prove visible mobile defects.",
     "Desktop detector reports a Saved places link occluded by the cookie manage button in a closed personal menu; present in both public baseline and local build, requiring contextual triage, and no navigation regression was observed."
   ],
-  "nextAction": "Finish final build and mobile browser/independent acceptance, then publish through protected CI and verify exact public revision. Keep score null until all 23 criteria are independently evidenced."
+  "nextAction": "Reconcile three independent 23-criterion scorecards on the exact live revision, triage supported deductions and hard gates, implement the next bounded Stay set, then repeat build, independent review and exact live verification."
 }

@@ -1,4 +1,13 @@
 ---
+import { getCollection } from 'astro:content';
+import { isListableVenue, isStayVenue } from '../../../lib/editorial';
+
+const activeStays = (await getCollection('venues'))
+  .filter((venue) => isListableVenue(venue) && isStayVenue(venue) && venue.data.type !== 'spa');
+const listedStaysFor = (places: string) => {
+  const ids = new Set(places.split(','));
+  return activeStays.filter((venue) => ids.has(String(venue.data.place?.id ?? venue.data.place))).length;
+};
 const bases = [
   { name: 'Red Hill & Main Ridge', places: 'red-hill,main-ridge', town: 'red-hill', go: 'Vineyard lunches and a quieter hinterland weekend.', evening: 'Make dinner part of the booking plan; properties and cellar doors are spread out.', trade: 'Arrange transport between stops. A ridge address does not mean a walkable winery route.' },
   { name: 'Sorrento & Rye', places: 'sorrento,rye', town: 'sorrento', go: 'Bay foreshore days with a coastal village base.', evening: 'Look for a property near the village if dinner on foot matters.', trade: 'Check the actual address: the bay, ocean coast and hot springs are separate outings.' },
@@ -42,7 +51,13 @@ const photos = [
           <div><h4><a href={'/explore/places/' + base.town + '/'}>{base.name}</a></h4><p>{base.go}</p></div>
           <p class="base-comparison__detail"><strong>For the evening</strong>{base.evening}</p>
           <p class="base-comparison__detail"><strong>Getting around</strong>{base.trade}</p>
-          <div class="base-comparison__other-actions"><a href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays</a><a href={'/map/?place=' + base.places} aria-label={'See ' + base.name + ' on the map'}>Area map</a></div>
+          <div class="base-comparison__other-actions">
+            {listedStaysFor(base.places) > 0
+              ? <a href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays</a>
+              : <a href={'/explore/places/' + base.town + '/'} aria-label={'Explore ' + base.name + ' before choosing accommodation'}>Explore the town</a>}
+            <a href={'/map/?place=' + base.places} aria-label={'See ' + base.name + ' on the map'}>Area map</a>
+          </div>
+          {listedStaysFor(base.places) === 0 && <p class="base-comparison__availability">No stays currently listed for {base.name}; check accommodation separately.</p>}
         </article>
       ))}
     </div>
@@ -86,6 +101,7 @@ const photos = [
   .base-comparison__other h4 { margin: 0 0 0.5rem; font: 600 1.25rem/1.25 var(--font-display); }
   .base-comparison__other div > p { margin: 0; line-height: 1.5; }
   .base-comparison__other-actions { grid-column: 1 / -1; padding-top: 0.35rem; }
+  .base-comparison__availability { grid-column: 1 / -1; max-width: 44ch; margin: 0; color: var(--soft); font-size: 0.9375rem; line-height: 1.5; }
   .base-comparison__foot { max-width: 70ch; margin: 1.75rem 0 0; padding-top: 1.2rem; border-top: 1px solid var(--border); color: var(--soft); font-size: 0.9375rem; line-height: 1.6; }
   @media (max-width: 64em) {
     .base-comparison__practical, .base-comparison__other { grid-template-columns: 1fr; }

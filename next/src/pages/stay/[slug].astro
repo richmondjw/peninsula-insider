@@ -23,9 +23,17 @@ const slug = routeSlug(venue);
 const isPaused = venue.data.status === 'paused';
 
 const allVenues = (await getCollection('venues')).filter(isListableVenue);
+const relatedPlaceId = (entry: any) => String(entry.data.place?.id ?? entry.data.place ?? '');
+const relatedRank = (entry: any) => {
+  if (relatedPlaceId(entry) === relatedPlaceId(venue)) return 0;
+  if (entry.data.zone && entry.data.zone === venue.data.zone) return 1;
+  if (entry.data.type === venue.data.type) return 2;
+  return 3;
+};
 const related = allVenues
   .filter((entry) => routeSlug(entry) !== slug)
-  .filter(isStayVenue)
+  .filter((entry) => isStayVenue(entry) && entry.data.type !== 'spa')
+  .sort((a, b) => relatedRank(a) - relatedRank(b) || a.data.name.localeCompare(b.data.name))
   .slice(0, 3);
 
 // Cross-link articles that reference this venue
@@ -58,11 +66,8 @@ const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/stay/${slug}/`;
-const requireVerifiedStayHero = ['cassis', 'hideaways-red-hill', 'the-orchard-red-hill', 'happy-glamper', 'woodman-estate', 'iluka-retreat', 'kanasta-retro-caravans', 'mantons-creek-estate'].includes(slug);
-const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
-  requireOverrideMetadata: requireVerifiedStayHero,
-  ignoreOverride: slug === 'driftaway-on-dundas' && isPaused,
-});
+// Stay CMS uploads lack a complete rights-evidence slot. Use the reviewed source hero.
+const hero = await resolveHero('venue', slug, venue.data, 'heroImage', { ignoreOverride: true });
 const ogImage = hero.src;
 
 // Mirrors the visible trail built in VenueDetailTemplate.astro exactly
