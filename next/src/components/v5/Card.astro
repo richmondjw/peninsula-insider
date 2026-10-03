@@ -450,6 +450,23 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
 <script>
   import { tripAdd, tripEntries, SAVE_KINDS, type SaveKind } from '../../lib/v5-store';
 
+  function syncTripButtons() {
+    const entries = new Set(tripEntries().filter((entry) => entry.kind && entry.slug).map((entry) => entry.kind + '/' + entry.slug));
+    document.querySelectorAll<HTMLButtonElement>('[data-card-trip]').forEach((button) => {
+      const { entitySlug: slug, entityTitle: title, saveKind } = button.dataset;
+      if (!slug || !title || !saveKind) return;
+      const included = entries.has(saveKind + '/' + slug);
+      button.textContent = included ? 'In trip' : '+ Trip';
+      button.setAttribute('aria-label', included ? title + ' is in your trip' : 'Add ' + title + ' to trip');
+    });
+  }
+
+  syncTripButtons();
+  document.addEventListener('astro:page-load', syncTripButtons);
+  window.addEventListener('pi:store-changed', (event) => {
+    if ((event as CustomEvent<{ scope?: string }>).detail?.scope === 'trip') syncTripButtons();
+  });
+
   // Delegation survives Astro navigation and also covers cards on the home/hubs.
   document.addEventListener('click', (event) => {
     const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-card-trip]');
@@ -460,18 +477,17 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
       // null means the write did not land (private mode / quota). Do not
       // paint "In trip" for a stop that is not in the trip.
       if (!tripAdd({ kind: saveKind as SaveKind, slug, title, href })) {
-        const previous = button.textContent;
         button.textContent = 'Not added';
-        setTimeout(() => { button.textContent = previous; }, 2000);
+        setTimeout(syncTripButtons, 2000);
         return;
       }
     }
-    button.textContent = 'In trip';
-    button.setAttribute('aria-label', `${title} is in your trip`);
+    syncTripButtons();
   });
 </script>
 
 <style>
+  .pi-card__actions [data-card-trip] { min-height: 44px; }
   .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
   .pi-card__image-note--separate { margin: 0; padding: .65rem var(--space-4); border-bottom: 1px solid var(--border); }

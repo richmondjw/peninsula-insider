@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/stay/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-03",
+  "baselineRevision": "d7f7bf9a1fd767e0543cf16e93d90529ba1d3ac9",
+  "workingBranch": "codex/pi-stay-quality-next",
+  "score": null,
+  "status": "in-remediation",
+  "reviewers": [
+    {
+      "role": "independent visual/mobile",
+      "points": 85.25,
+      "assessedWeight": 90,
+      "maximumPossible": 95.25,
+      "unassessed": [
+        "ET3",
+        "AT1"
+      ],
+      "deductions": {
+        "VT3": "limited comparative scan",
+        "ET4": "selection basis and sources distant from claims",
+        "VS1": "dated Hotel Sorrento photo",
+        "VS2": "long mobile directory"
+      }
+    },
+    {
+      "role": "independent factual/rights",
+      "reportedProvisionalScore": 87.25,
+      "hardGate": "three Journal image credits omitted; third photo did not match description",
+      "limitations": [
+        "27 venue freshness claims not fully rechecked",
+        "full assistive technology unassessed"
+      ]
+    },
+    {
+      "role": "independent interaction",
+      "points": 29.5,
+      "assessedWeight": 35,
+      "deductions": [
+        "trip state stale after reload",
+        "Trip target 36px",
+        "clear filter loses focus",
+        "modal background exposed in browser accessibility tree"
+      ]
+    }
+  ],
+  "hypothesis": "Repair missing image evidence and persistent interaction state before further visual restructuring; this will remove observed trust and task-friction defects.",
+  "boundedChanges": [
+    "retain adjacent Journal image credits and captions, pin curated images",
+    "correct swapped Lindenderry asset annotations and linked article/gallery imagery",
+    "label general operator pages Visit website",
+    "link selection policy beside the shortlist",
+    "hydrate trip controls on load, navigation and store change; 44px target",
+    "keep focus on a surviving filter control after clearing",
+    "isolate background while filter dialog is open and restore on close/navigation"
+  ],
+  "independentRecheck": {
+    "interaction": "Stay/Eat/Wine reload hydration and 44px targets passed; Stay duplicate click idempotent; clear focus, dialog AX isolation and Escape/Apply restoration passed at 320/390/1440. Cross-tab and settled-build check pending.",
+    "rights": "Independent reviewer identified 17/20 transposition; parent visually confirmed both files and corrected article, gallery and annotations. Independent early local check saw credits; settled static check by parent passed. Full live check pending."
+  },
+  "validation": {
+    "listenerHygiene": "7 tests passed",
+    "saveStore": "20 tests passed",
+    "visitVictoria": "792 uses / 895 catalogued works passed after caption correction",
+    "productionBuild": "npm run build:search passed, including all repository gates and 728 indexed pages",
+    "liveAcceptance": "not released",
+    "settledBrowser": "Static preview 4387 at 320, 390, 1440: all 27 stays, corrected image/caption/credits, no horizontal overflow; only two direct availability buttons"
+  },
+  "remaining": [
+    "settled production build and independent browser check",
+    "current facts for all 27 stays",
+    "more compact mobile directory and stronger comparison",
+    "current Hotel Sorrento image with documented rights",
+    "complete independent 23-criterion grade and actual assistive-technology evidence"
+  ],
+  "decision": "adapt",
+  "owner": "Codex in current James-approved Peninsula Insider task",
+  "rollback": "Revert this bounded commit; no data migrations or service changes.",
+  "nextAction": "Finish build, recheck settled static preview, publish through normal CI and verify live; retain below-target status."
+}
