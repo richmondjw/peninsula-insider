@@ -66,6 +66,8 @@
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  /* Open visibility immediately so keyboard focus can enter this modal. */
+  transition: opacity .22s cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* Suppress the native [hidden] effect - the JS keeps the attribute for
    accessibility (aria-hidden) but visibility is controlled by data-open. */

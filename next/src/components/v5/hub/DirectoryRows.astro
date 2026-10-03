@@ -265,6 +265,12 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
         const target = e.target as HTMLElement | null;
         if (target && target.closest('[data-action="clear-filters"]')) {
           commit({}, { source: 'clear', noun });
+          // The empty-state button disappears; orient focus at the restored list.
+          window.requestAnimationFrame(() => {
+            const heading = section.querySelector<HTMLElement>('.v5-directory__heading');
+            heading?.setAttribute('tabindex', '-1');
+            heading?.focus({ preventScroll: true });
+          });
         }
       });
     });

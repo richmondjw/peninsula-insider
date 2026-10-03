@@ -26,15 +26,14 @@
     "productionBuild": "Final npm run build:search exited 0 on this exact source, including the existing content, rights, claim, SEO, link, schema and style gates; Astro output 1013 HTML files and Pagefind indexed 727 pages.",
     "settledBrowser": "Local Chromium at 320 and 390px: fresh consent remained visible and unsaved through menu open and Escape, focus returned to Open navigation, and a second Escape with menu-button focus also left consent visible. Consent-focused Escape hid without storage and prompt returned on reload. Footer reopen focused Accept all; Escape returned focus to the footer trigger. Accept, Reject, and custom Save persisted the expected analytics values across reloads. No horizontal overflow.",
     "independentReview": "Independent bounded release QA repeated local browser checks at 320 and 390px, including reopened consent with mobile drawer open: first Escape closed only the drawer, next consent-focused Escape closed only consent. It accepted release of this scoped guard. This is not a full 23-criterion grade.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "PR #535 merged as 9229c1315cee8417b31e95be115144c8ef951a70. Protected deployment run 37108302982 passed and cache-busted public release manifest matched exact SHA/run. Public Chromium /stay/ returned 200 at 320/390 with no overflow: fresh consent stayed visible and unsaved after mobile menu Escape, focus returned to Open navigation; consent-focused Escape still hid without recording a choice."
   },
   "hardGatesOpen": [
-    "Exact public first-visit/menu Escape collision until published and verified",
     "Full 23-criterion score remains unknown, with image rights, direct assistive technology, design and performance gates open"
   ],
   "negativeFindings": [
     "Consent is not stored when the collision occurs, so analytics does not become opted in; the loss is the current-visit choice prompt.",
     "CookieBanner already exempts an open Insider Note popup; the reproduced collision is the mobile navigation dialog."
   ],
-  "nextAction": "Publish the independently accepted guarded listener through protected CI, verify exact public SHA and mobile browser behavior, then continue open rubric gates."
+  "nextAction": "Continue the incomplete 23-criterion Stay assessment, direct assistive-tech and image-rights evidence, then independent rescore; do not infer 99 from this bounded release."
 }

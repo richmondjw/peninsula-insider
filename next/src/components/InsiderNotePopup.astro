@@ -102,6 +102,8 @@ const endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsl
         var saved = read();
         var params = new URLSearchParams(window.location.search);
         return saved.joined || (saved.until && Date.now() < saved.until) ||
+          document.body.classList.contains('search-open') ||
+          !!document.querySelector('dialog[open]') ||
           // The homepage has the complete signup form in its own closing
           // section. A second fixed invitation obscures that section on phones.
           !!document.querySelector('[data-home-dispatch]') ||
