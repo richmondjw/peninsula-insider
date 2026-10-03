@@ -214,7 +214,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
         <p class="wo-head__credit-mobile">Photo: {hubImage.credit}.</p>
       </div>
       <figure class="wo-head__figure">
-        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" />
+        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 640px) 320px, (max-width: 1023px) 600px, 720px" />
         <figcaption>{hubImage.caption} Photo: {hubImage.credit}.</figcaption>
       </figure>
     </div>

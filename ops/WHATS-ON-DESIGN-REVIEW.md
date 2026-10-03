@@ -25,6 +25,7 @@ The benchmark screenshots taken during this work show Visit Mornington Peninsula
 | PI local redesign | 23 | 17 | 13 | 13 | 9 | 7 | **82/100** |
 | PI local loop 2 | 23 | 18 | 15 | 14 | 9 | 8 | **87/100** |
 | PI local loop 3 | 23 | 19 | 16 | 15 | 9 | 8 | **90/100** |
+| PI live loop 3 with speed evidence | 23 | 19 | 16 | 15 | 9 | 4 | **86/100** |
 | City of Melbourne observed page | 13 | 20 | 19 | 15 | 9 | 8 | **84/100** |
 | Visit Mornington Peninsula observed page | 9 | 16 | 19 | 11 | 8 | 9 | **72/100** |
 
@@ -49,3 +50,9 @@ The local preview now opens on a photographed, currently listed Peninsula Hot Sp
 Visual review caught a deeper curation fault: the prior fallback repeated Peninsula Hot Springs in two of three slots. Automatic picks now favour different venues and categories, only promote records checked in the last 30 calendar days, and show fewer than three when a safe short list cannot be filled. Editor-selected picks retain their order. In the current local preview the three choices are the MPRG exhibition, Sunday Sessions at Peninsula Hot Springs, and Family Mystery Picnic. The picnic photograph is explicitly labelled illustrative rather than shown as event documentation.
 
 The **90/100** row is a provisional local visual judgment, not an overall production score or a verified lead over the comparator sites. Full CI, a production screenshot, five-reader same-task comparison, mobile performance, accessibility review and two natural publication cycles remain open. The visual spread is stronger, but the first exhibition still lacks approved event-specific imagery and the picnic image is illustrative. The next gains must come from verified event artwork, measured page delivery and real visitor task performance.
+
+## Loop 4, 4 October 2026
+
+PR #551 was released and verified at public source SHA `49e78cb32df23562d1bd9cf0877428dfc06c8045`, run `37131106233`. The live phone screenshot reproduced the local 843px first-pick decision and three distinct choices. PR #552 added `/whats-on/` to the routine three-run Lighthouse sample; its own deploy was superseded by a newer main-branch run, but that run (`37133457835`, source `12ac8ab06192b7586900a4ceaeae06e54f13fb8e`) included the policy, passed, and reached the public deployment marker. Its retained local-build mobile Lighthouse sample gave What’s On 62/100 performance, 100/100 accessibility, 100/100 SEO, 8.56s median LCP and 0.029 CLS. These are synthetic pre-deploy measurements, not field Core Web Vitals. The hero photograph was the LCP element; its full-size transfer cost about 259 KB, with Lighthouse estimating about 249 KB avoidable through compression and responsive sizing. Other sampled pages also had slow synthetic LCP, so the exact cause of the roughly 6.25s render-delay phase remains under investigation.
+
+With speed now measured, the previous 8/10 legibility/performance estimate is too generous. The live loop 3 row is revised to **86/100**. The next change opts the What's On hero into the site's existing responsive-image pipeline. Re-run the same three-run sample and inspect the generated source set, bytes, LCP and visual crop before awarding any regained points. Reader testing and the overall acceptance gate remain open.
