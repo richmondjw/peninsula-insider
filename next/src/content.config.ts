@@ -158,6 +158,11 @@ const imageRef = z.object({
   // Absence of a recorded licence reads as `unknown`, never as a grant.
   license: imageLicense.default('unknown'),
   caption: z.string().optional(),
+  /** Optional responsive derivatives of the same verified photograph. */
+  responsive: z.object({
+    srcset: z.string(),
+    sizes: z.string(),
+  }).optional(),
 
   // Media provenance (PI-013).
   //
@@ -885,10 +890,16 @@ const places = defineCollection({
     heroLayout: z.enum(['cinematic', 'editorial']).optional(),
     heroEyebrow: z.string().optional(),
     heroDeck: z.string().optional(),
+    /** Primary visitor-planning source for time-sensitive access advice. */
+    visitSource: z.object({ label: z.string(), url: z.string().url() }).optional(),
     // Licensed galleries (ops/records/visit-victoria). Declared so the schema keeps
     // them; templates that do not render a gallery yet simply ignore it.
     gallery: z.array(imageRef).default([]),
     relatedPlaces: z.array(reference('places')).default([]),
+    /** Set text mode while a related place's photograph lacks item-level proof. */
+    relatedMediaMode: z.enum(['default', 'text']).optional(),
+    /** Short, decision-useful copy for linked places instead of full-page intros. */
+    relatedPlaceSummaries: z.array(z.object({ slug: z.string(), summary: z.string() })).optional(),
     publishedAt: z.coerce.date(),
     tldr: z.array(z.string()).optional(),
     driveTime: z.string().optional(),

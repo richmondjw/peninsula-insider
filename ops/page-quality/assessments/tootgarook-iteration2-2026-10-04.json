@@ -37,7 +37,7 @@
   "validation": {
     "productionBuild": "Final exact-source TZ=UTC npm run build:search passed, including content and provenance checks, 1009 generated pages and a Pagefind index of 727 pages.",
     "localBrowser": "Final Chrome preview at 320/390/1440px: title fits, text shadow is absent, actual 1920px image loads, accurate eyebrow, caption and source/licence are visible with 44px mobile targets, and no overflow or page errors. The first scripted assertion was case-sensitive against uppercase CSS text and falsely failed; rendered content was correct. Independent final responsive QA gave a bounded GO. Rye retained the default place hero.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "PR #553 merged as 12ac8ab06192b7586900a4ceaeae06e54f13fb8e; protected deployment run 37133457835 succeeded and the public release manifest matched both identifiers. Public Chrome at 320/390/1440px returned HTTP 200: editorial hero and full title fit, local 1920px photo loaded, accurate eyebrow and caption showed, Commons source and CC BY-SA 4.0 licence had 44px targets, and no overflow or page errors. This accepts the bounded release, not a full rubric score."
   },
   "hardGatesOpen": [
     "Full independent 23-criterion Tootgarook grade",
@@ -50,5 +50,5 @@
     "The broad region page itself still uses the name Sorrento & Portsea and includes Rye and Tootgarook; this batch corrects the local hero label only.",
     "No 99/100 score is inferred from the new layout."
   ],
-  "nextAction": "Release through normal CI and verify the exact public revision, then continue rights-clear imagery and full rubric evidence."
+  "nextAction": "Continue independent full rubric review, rights-clear destination imagery search and regional taxonomy audit."
 }

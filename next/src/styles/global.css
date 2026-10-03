@@ -1533,6 +1533,31 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   background: linear-gradient(135deg,#c9efe6 0%,#9ad9ca 55%,#478b7b 100%);
 }
 .place-card__body { padding: 1.5rem 0 3rem; }
+.place-card--text {
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--teal-text);
+  background: var(--bg-alt);
+}
+.place-card.place-card--text .place-card__body {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: none;
+  min-height: 14rem;
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  padding-bottom: 4.5rem;
+}
+.place-card--text .place-card__name a:focus-visible {
+  outline: 3px solid var(--teal-text);
+  outline-offset: 3px;
+}
+.place-card.place-card--text .place-card__intro {
+  display: block;
+  overflow: visible;
+  -webkit-line-clamp: unset;
+  line-clamp: none;
+}
+
 .place-card__zone {
   font-size: 0.62rem;
   font-weight: 600;

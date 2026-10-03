@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T14:21:40.413Z",
+  "updatedAt": "2026-10-03T16:07:41.135Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3782,6 +3782,14 @@
       "httpCode": "200",
       "pageTitle": "Markets - Mornington Peninsula Shire",
       "probedOn": "2026-09-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Parks-and-reserves/Tootgarook-Bushland-Reserve",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Tootgarook Bushland Reserve - Mornington Peninsula Shire",
+      "probedOn": "2026-10-03",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

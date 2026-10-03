@@ -12,9 +12,9 @@
   "intro": "Tootgarook sits between Capel Sound and Rye on the shallow Port Phillip bay coast. Behind the village, the Tootgarook Wetland is a significant freshwater habitat. To explore a public part of it, use the council-managed Tootgarook Bushland Reserve: its access points lead to short gravel tracks, boardwalks, bird hides and viewing platforms. Dogs are prohibited in the reserve. The bay beach offers a different outing; Rye is nearby for a longer food stop. Check current reserve and beach conditions before setting out.",
   "factualLede": "Tootgarook is a bayside village between Capel Sound and Rye, with a shallow Port Phillip beach and public wetland walks at nearby Tootgarook Bushland Reserve.",
   "heroImage": {
-    "src": "/images/sourced/place-tootgarook-recreation-2023.jpg",
+    "src": "/images/sourced/place-tootgarook-recreation-2023-960.webp",
     "alt": "Tootgarook Recreation Reserve from Marshall Street, with grass, a path, playground and trees under a blue sky",
-    "credit": "Tangerineduel / Wikimedia Commons (CC BY-SA 4.0; resized to 1920 px)",
+    "credit": "Tangerineduel / Wikimedia Commons (CC BY-SA 4.0; resized and converted to WebP)",
     "license": "wikimedia-cc-by-sa",
     "caption": "Tootgarook Recreation Reserve, photographed in February 2023. This is not the Tootgarook Wetland.",
     "depicts": "Tootgarook Recreation Reserve from Marshall Street, photographed 22 February 2023",
@@ -33,7 +33,11 @@
     "rightsHolder": "Tangerineduel",
     "rightsEstablishedOn": "2026-10-03",
     "rightsStatus": "recorded",
-    "provenanceReview": "verified"
+    "provenanceReview": "verified",
+    "responsive": {
+      "srcset": "/images/sourced/place-tootgarook-recreation-2023-480.webp 480w, /images/sourced/place-tootgarook-recreation-2023-960.webp 960w, /images/sourced/place-tootgarook-recreation-2023-1440.webp 1440w",
+      "sizes": "(max-width: 760px) calc(100vw - 40px), (max-width: 1280px) 48vw, 680px"
+    }
   },
   "relatedPlaces": [
     "rye",
@@ -61,5 +65,24 @@
   "insiderNote": "The reserve's main access is via Truemans Road Recreation Reserve; dogs are prohibited in the wetland reserve.",
   "heroLayout": "editorial",
   "heroEyebrow": "Between Capel Sound & Rye",
-  "heroDeck": "A bay beach morning, a reserve walk, and Rye nearby for dinner."
+  "heroDeck": "A bay beach morning, a reserve walk, and Rye nearby for dinner.",
+  "visitSource": {
+    "label": "Check reserve access with the Shire",
+    "url": "https://www.mornpen.vic.gov.au/Things-to-do/Parks-and-reserves/Tootgarook-Bushland-Reserve"
+  },
+  "relatedMediaMode": "text",
+  "relatedPlaceSummaries": [
+    {
+      "slug": "rye",
+      "summary": "Head east for a wider choice of places to eat and another bay beach stop."
+    },
+    {
+      "slug": "capel-sound",
+      "summary": "Continue west along the bay for foreshore camping and a quieter beach walk."
+    },
+    {
+      "slug": "boneo",
+      "summary": "Go inland for the hot springs district and rural stops."
+    }
+  ]
 }

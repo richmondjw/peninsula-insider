@@ -28,7 +28,7 @@
   "validation": {
     "productionBuild": "Final exact-source TZ=UTC npm run build:search passed, including content and provenance checks, 1009 generated pages and a Pagefind index of 727 pages.",
     "localBrowser": "Chrome preview at 320/390/1440px showed all five chips visible, no overlap or overflow; Dog-friendly yielded 4 of 26 stays and All filters opened the sheet. Independent final responsive and keyboard QA gave a bounded GO. Eat at 390px retained its default filter design and working Filters action.",
-    "liveAcceptance": "pending"
+    "liveAcceptance": "PR #553 merged as 12ac8ab06192b7586900a4ceaeae06e54f13fb8e; protected deployment run 37133457835 succeeded and the public release manifest matched both identifiers. Public Chrome at 320/390/1440px returned HTTP 200: five 48px quick chips and All filters visible, no overflow or page errors. At 390px Dog-friendly changed the live result count from 26 to 4 and opened the advanced sheet. This accepts the bounded release, not a full 99-point score."
   },
   "hardGatesOpen": [
     "Full factual verification across 26 Stay listings",
@@ -41,5 +41,5 @@
     "The original clipped row did not block the filter task; it reduced discoverability.",
     "A working local wrap is not a public release or a full score."
   ],
-  "nextAction": "Release through normal CI and verify the exact public revision at mobile and desktop widths, then improve directory comparison and complete full rubric gates."
+  "nextAction": "Continue independent full rubric review and triage the remaining directory comparison, facts, assistive-technology and field-performance gates."
 }
