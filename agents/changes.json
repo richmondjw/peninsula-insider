@@ -1,28 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-03T13:25:25.988Z",
+  "generatedAt": "2026-10-03T13:56:50.260Z",
   "baselineAvailable": true,
-  "fromSnapshot": "cba8b05cb714a5c532019fff340f1e02ab0e35af8ae9447f81fad6d89224cfa1",
-  "toSnapshot": "ef6ca81518fe89f0e0503f761ad7b1dde8b93a1dec31d50e0fa3368fd19f21a0",
-  "previousGeneratedAt": "2026-10-03T13:00:35.941Z",
+  "fromSnapshot": "ef6ca81518fe89f0e0503f761ad7b1dde8b93a1dec31d50e0fa3368fd19f21a0",
+  "toSnapshot": "e3f28cdb4c8de32cfaf6bb04afbdc1673a3b0e5171a62e00e5ed00f69a873cc3",
+  "previousGeneratedAt": "2026-10-03T13:25:25.988Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 4,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "7ca72130d17d7fb4761e61c268033d33e746808f532d838246b2631303f5fcee",
-      "previousContentSha256": "22cce615a92d2d36fe3b63e8d77d8465057b880fcc4785a537a9da20e681d102"
+      "contentSha256": "cd6e39b3e364ba80c87ec7bf8d3767ccfa07b48cb871be6ce83776447f14fab6",
+      "previousContentSha256": "7ca72130d17d7fb4761e61c268033d33e746808f532d838246b2631303f5fcee"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/",
+      "id": "https://peninsulainsider.com.au/stay/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "d65ddcdb4d434f5f3c235e4ca28f3a02db44572744959792d0d72292332a64a8",
-      "previousContentSha256": "033ef62848121ac0bd276240f6cb5b7fcfe4ed32b209d0fba6f624cdf8658dcf"
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
+      "contentSha256": "a0c357dbfb8af16833acf065a5d4536de8b5d9f38d7bb9b9abf68b48eff0f9f2",
+      "previousContentSha256": "c4df80d510dd5cf61bc5fc1708603b13e8518350258149f613ae76c65d7984ee"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/flinders-hotel/index.md",
+      "contentSha256": "94dd33fb35607c0c24df68b27c585ab7bfe94a97be1f1d02102da694a01d3d39",
+      "previousContentSha256": "f3c23f18391dd2dee5adc955dd41fc581667e5b5a9caeb17b8f4f8d593539c19"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/hotel-sorrento/index.md",
+      "contentSha256": "a99f8f7fe594272fb7c4bbe2cb738d9dc689abd1ce19e57a1b670b05edf104da",
+      "previousContentSha256": "cdaf6f909cac098d9a22711946c2129c7c34a514e8416f3947d8682a925eae4c"
     }
   ]
 }

@@ -23,9 +23,11 @@ Why we’d go
 
 A Sorrento base where restored rooms and newer accommodation offer different outlooks, with dining and a guest pool at the hotel.
 
-Hotel Sorrento offers five room families: Classic, Poolside, Coastal, Sorrento Studios and Sunset Suites. The room choice matters. Some have bay or pool views, a terrace or a bath; these are not universal features. Its accommodation and guest pool are adults only. The operator warns that Classic Suites may hear the bars or restaurant during weekends and peak periods.
+Hotel Sorrento is an adults-only stay and guest pool above Sorrento village. Its five room families are Classic, Poolside, Coastal, Sorrento Studios and Sunset Suites; views, terraces and baths vary by room. As checked 3 October 2026, the hotel warns of possible daytime midweek construction noise and changed movement around the property ahead of its 1 December expansion.
 
-The hotel has dining and wellness facilities, but check the exact room, breakfast inclusion, dinner or spa reservation and any current works for your dates before paying. Sorrento village and the foreshore are close enough to make the hotel a base for a weekend on foot.
+Source: [Hotel Sorrento's current stay notice](<https://hotelsorrento.com.au/stay/>). Checked 3 October 2026; confirm conditions for your dates.
+
+The operator also warns that Classic Suites may hear the bars or restaurant during weekends and peak periods. The hotel has dining and wellness facilities, but check its current works notice, the exact room, breakfast inclusion, dinner or spa reservation for your dates before paying. Sorrento village and the foreshore are close enough to make the hotel a base for a weekend on foot.
 
 Worth knowing
 
@@ -35,7 +37,7 @@ Weekend escapes · Couples · Sorrento village · Hotel wellness
 
 If you only do one thing
 
-Choose the exact room for outlook and noise tolerance, then check current works and inclusions directly with the hotel.
+Choose the exact room for outlook and noise tolerance, then check the hotel's current construction notice and inclusions before reserving.
 
 Works well with
 

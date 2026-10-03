@@ -17,7 +17,7 @@ Known for   Flinders Village Location Western Port Foreshore Hotel Pub Dining So
 
 Quarters at Flinders Hotel · Flinders
 
-Photo · Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)
+Photo · Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0) [Source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) [Licence](<https://creativecommons.org/licenses/by-sa/3.0/>)  Resized and converted to WebP.
 
 Why we’d go
 

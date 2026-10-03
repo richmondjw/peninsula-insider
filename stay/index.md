@@ -101,7 +101,7 @@ Details checked October 2026
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-A coastal hotel above a limestone pub, for a weekend centred on Sorrento. Check your room’s outlook before booking.
+A Sorrento base with heritage rooms and a guest pool. The hotel flags possible midweek daytime construction noise; check before booking.
 
 Hotel   Sorrento   Couples
 
@@ -111,7 +111,7 @@ Details checked October 2026
 
 See 3 more editorial choices
 
-- Flinders Hotel pub frontage, photographed in 2010; this is not a photograph of the Quarters rooms.   Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0).
+- Flinders Hotel pub frontage, photographed in 2010; this is not a photograph of the Quarters rooms.   [Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0).](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) · [CC BY-SA 3.0 licence](<https://creativecommons.org/licenses/by-sa/3.0/>) · Resized and converted to WebP.
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
@@ -203,7 +203,7 @@ Details checked October 2026
 
 - ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
-Clifftop Sorrento hotel with heritage rooms and a guest pool.
+Clifftop Sorrento hotel with heritage rooms and a guest pool. Check its midweek daytime construction notice before booking.
 
 Hotel   Sorrento   Couples
 
