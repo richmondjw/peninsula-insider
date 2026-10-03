@@ -15,8 +15,6 @@ Known for   Lakeside Pergola Dining Room Crittenden Los Hermanos Wine Range Head
 
 [Reserve a table](<https://www.crittendenwines.com.au/>)  +61 3 5981 9555
 
-Crittenden Restaurant · Dromana
-
 Why we’d go
 
 The room beside the still lake has been here longer than most of the Peninsula's celebrated cellar doors, Crittenden Restaurant earns its confidence.

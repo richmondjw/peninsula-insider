@@ -15,10 +15,6 @@ Known for   Foreshore Deck Bay Views Fish and Chips Bayside Pub Institution
 
 [Reserve a table](<https://dromanahotel.com.au/book>)  +61 3 5987 2029
 
-Dromana Hotel · Dromana
-
-Photo · Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
-
 Why we’d go
 
 The deck does most of the work before you open the menu, a proper bayside pub in the Australian coastal sense, unfussy and generous.

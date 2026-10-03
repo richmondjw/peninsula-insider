@@ -15,8 +15,6 @@ Known for   Regenerative Farm Dining Simone Watts Kitchen Weekly Changing Menu 1
 
 [Reserve a table](<https://www.barragunda.com.au/>)  +61 3 5988 6766
 
-Barragunda Dining · Cape Schanck
-
 Why we’d go
 
 When the menu is built entirely around what the farm produced that week, you're not choosing a restaurant, you're handing yourself over to the land.

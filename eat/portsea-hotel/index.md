@@ -15,8 +15,6 @@ Known for   Front-Row Port Phillip Views Portsea Front Beach Location Fish and C
 
 [Reserve a table](<https://www.portseahotel.com.au/>)  +61 3 5984 2213
 
-Portsea Hotel · Portsea
-
 Why we’d go
 
 The Portsea Hotel has one of the best views of any pub in Victoria and, more impressively, has mostly avoided ruining the experience.

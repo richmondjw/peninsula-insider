@@ -15,8 +15,6 @@ Known for   In-House Roastery Warehouse Cafe Single-Origin Filter Bar Best Egg S
 
 [Reserve a table](<https://commonfolkcoffee.com.au/>)  +61 422 195 966
 
-Commonfolk Coffee · Mornington
-
 Why we’d go
 
 Commonfolk is the Peninsula's best case for treating coffee as infrastructure rather than a product, and the egg sandwich is the quiet achievement.

@@ -21,8 +21,6 @@ PI was found here. Case 02, Took the long way to dinner. Solve it and this is wh
 
 [Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-found>)
 
-Moke Dining · Flinders
-
 Why we’d go
 
 A 20-seat room, a fixed menu, and a chef who placed fourteenth in the world at Bocuse d'Or, Moke is the most serious cooking in Flinders and it isn't close.

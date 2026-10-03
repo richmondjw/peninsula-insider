@@ -15,8 +15,6 @@ Known for   Own-Farm Produce Cookery School All-Day Breakfast to 3pm Commonfolk 
 
 [Reserve a table](<https://www.georgiebass.com.au/>)  +61 3 5989 0031
 
-Georgie Bass Cafe & Cookery · Flinders
-
 Why we’d go
 
 All-day breakfast until 3pm, own-farm produce, a cookery school on-site, the best reason to base a Flinders visit around lunch rather than dinner.

@@ -15,8 +15,6 @@ Known for   1930s Heritage Home Open Fires Large Beer Garden Winter Sunday Roast
 
 [Reserve a table](<https://www.theheritagebalnarring.com.au/visit>)  +61 3 5983 2597
 
-The Heritage Balnarring · Balnarring
-
 Why we’d go
 
 A village pub with room to move: open fires for winter, a deck and a big beer garden for the warmer months, and a kitchen that keeps the pub classics alongside a changing specials board.

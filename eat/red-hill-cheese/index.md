@@ -15,8 +15,6 @@ Known for   Small-Batch Sheep's Milk Cheese Washed Rind Styles Tasting Room Hint
 
 [Reserve a table](<https://redhillcheese.com.au/>)  +61 3 5989 2035
 
-Red Hill Cheese · Red Hill
-
 Why we’d go
 
 Red Hill Cheese is one of the Peninsula's quietest food landmarks, the tasting room where the cheesemaker talks through milk sourcing, ageing, and why Peninsula terroir matters in the fromagerie.

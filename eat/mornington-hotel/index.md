@@ -15,8 +15,6 @@ Known for   Main Street Corner Location Reliable Bistro Parma Big Dining Room Mo
 
 [Reserve a table](<https://morningtonhotel.com.au/>)  +61 3 5975 1033
 
-The Mornington Hotel · Mornington
-
 Why we’d go
 
 The Mornington Hotel is not the meal you tell visitors about. It is the meal you end up at when the plan falls through, the kids are hungry, and everyone is about to start arguing, and it delivers.

@@ -13,12 +13,6 @@ Artisan bread, pies and pastries from the bakery's sole current shop in Balnarri
 
 Known for   Wood-Fired Sourdough Balnarring Village Morning Pastries Peninsula Institution
 
-The Red Hill Baker · Balnarring
-
-Photo · Peninsula Insider
-
-Illustrative image  This image shows an illustrative arrangement of rustic loaves. It does not depict The Red Hill Baker.
-
 Why we’d go
 
 A reliable early Balnarring stop for bread, pies and pastries.

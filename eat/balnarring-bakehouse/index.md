@@ -13,8 +13,6 @@ The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, 
 
 Known for   Beef-and-Mushroom Pie Saturday Breakfast Sandwich Custard Tarts Village Bakehouse
 
-Balnarring Bakehouse · Balnarring
-
 Why we’d go
 
 The honest country bakery the Balnarring side relies on, exactly what it is, no more, and that is the whole point.

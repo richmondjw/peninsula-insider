@@ -15,8 +15,6 @@ Known for   Curated General Store Format Peninsula Wine Shelf Weekend Brunch Men
 
 [Reserve a table](<https://www.thesomersgeneral.com.au/>)  +61 3 5983 0500
 
-Somers General · Somers
-
 Why we’d go
 
 Somers General is the Peninsula's best-kept secret in retail form, a genuinely good general store in a village that has no business having one this good.

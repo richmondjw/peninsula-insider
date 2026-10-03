@@ -15,8 +15,6 @@ Known for   Sri Lankan-Influenced Menu Polperro Winery Team Natural Wine Pairing
 
 [Reserve a table](<https://www.manylittle.com.au/>)  +61 3 5989 8888
 
-Many Little · Red Hill
-
 Why we’d go
 
 The Peninsula's most unexpected fine-dining cross-pollination, and the only room on the ridge where the wine list was chosen specifically to stand up to tamarind and curry leaf.

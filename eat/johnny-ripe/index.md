@@ -15,8 +15,6 @@ Known for   Slow-Cooked Beef Pie Lamb and Rosemary Sausage Roll Seasonal Fruit T
 
 [Reserve a table](<https://johnnyripe.com.au/>)  +61 3 5989 6051
 
-Johnny Ripe · Main Ridge
-
 Why we’d go
 
 The pie stop the Peninsula has needed for years, and the one visitors end up returning to on every subsequent trip.

@@ -15,8 +15,6 @@ Known for   Low-Waste Kitchen Ten Minutes Kitchen Garden Small-Plate Format Natu
 
 [Reserve a table](<https://www.tenminutesbytractor.com.au/>)  +61 3 5989 6455
 
-Allis Wine Bar · Main Ridge
-
 Why we’d go
 
 The room that lets you eat as well as next door, for less ceremony and fewer weeks of planning ahead.

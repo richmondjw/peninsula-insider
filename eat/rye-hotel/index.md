@@ -15,8 +15,6 @@ Known for   Sprawling Foreshore Location Enormous Beer Garden Family-Friendly Pu
 
 [Reserve a table](<https://ryehotel.com.au/>)  +61 3 5985 2277
 
-Rye Hotel · Rye
-
 Why we’d go
 
 The Rye Hotel is enormous in the best possible sense, a pub that absorbs families, locals, and long-weekend crowds without anybody noticing the place has filled up.

@@ -15,8 +15,6 @@ Known for   Wood-Fired Sourdough Loaves Beach Buns Little Rebel Coffee Weekend B
 
 +61 3 5989 0088
 
-Flinders Sourdough · Flinders
-
 Why we’d go
 
 Wood-fired sourdough, Beach Buns and coffee make the bakery a simple Flinders morning stop.

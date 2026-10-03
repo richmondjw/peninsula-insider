@@ -15,8 +15,6 @@ Known for   Century-Old Pub Ocean Beach Road Classic Parma Village Institution
 
 [Reserve a table](<https://hotelsorrento.com.au/>)  +61 3 5984 8000
 
-The Sorrento Hotel · Sorrento
-
 Why we’d go
 
 The Sorrento Hotel is the proper village pub of Ocean Beach Road, the one you go to with the in-laws on a Saturday night and everybody leaves happy.

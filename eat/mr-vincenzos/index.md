@@ -15,8 +15,6 @@ Known for   Parmesan Wheel Pasta Tableside 1970s Italian Dining Room All-Italian
 
 [Reserve a table](<https://mrvincenzos.com/>)  +61 3 5976 8844
 
-Mr Vincenzo's · Mornington
-
 Why we’d go
 
 The Peninsula's most unashamed Italian room: no apology for the portion sizes, the volume, or the mirrored walls, and none needed.

@@ -15,8 +15,6 @@ Known for   Southern French Cooking French Bistro Format Prix Fixe Lunch Ocean B
 
 [Reserve a table](<https://www.bistroelba.com.au/>)  +61 3 5984 4995
 
-Bistro Elba · Sorrento
-
 Why we’d go
 
 Southern French cooking makes this a useful dinner choice when you are staying in Sorrento and keeping the evening close to your room.

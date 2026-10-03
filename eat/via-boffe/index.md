@@ -15,8 +15,6 @@ Known for   Handmade Pasta Daily Hand-Written Weekly Menu Small Hinterland Tratt
 
 +61 3 5989 6111
 
-Via Boffe · Main Ridge
-
 Why we’d go
 
 The Peninsula trattoria that deserves much more attention than it gets, a room that could hold its own in any Melbourne inner suburb and instead sits quietly on the ridge.

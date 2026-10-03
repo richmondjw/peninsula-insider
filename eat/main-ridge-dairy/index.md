@@ -15,8 +15,6 @@ Known for   Goat Cheese Goat Milk Gelato Farmgate Experience Working Dairy
 
 [Reserve a table](<https://www.mainridgedairy.com.au/>)  +61 3 5989 6433
 
-Main Ridge Dairy · Main Ridge
-
 Why we’d go
 
 The Peninsula's most legible farm-to-table stop, you see the animals, you eat the cheese, and the kids understand the whole thing in thirty seconds.

@@ -13,12 +13,6 @@ A wholefood-leaning pantry and café on the Point Nepean Road, grain bowls, good
 
 Known for   Wholefood Grain Bowls Peninsula Producer Retail Shelf Dromana Cafe Drive-In Supply Stop
 
-Small Stone Pantry · Dromana
-
-Photo · Peninsula Insider
-
-Illustrative image  This image shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It does not depict Small Stone Pantry.
-
 Why we’d go
 
 The one Dromana café that feels properly considered, wholefood without being preachy, and a retail shelf that can stock a weekend's worth of Peninsula pantry essentials.

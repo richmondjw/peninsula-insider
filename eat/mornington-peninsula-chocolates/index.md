@@ -15,8 +15,6 @@ Known for   Handmade Chocolates Hot Chocolate Bar Seasonal Gift Boxes Family Caf
 
 [Reserve a table](<https://www.mpchoc.com.au/>)  +61 3 5989 0988
 
-Mornington Peninsula Chocolates · Flinders
-
 Why we’d go
 
 The sweet stop you slot into a Flinders loop without planning to and somehow spend forty minutes in, handmade chocolates, proper mocha, seasonal gift stock.

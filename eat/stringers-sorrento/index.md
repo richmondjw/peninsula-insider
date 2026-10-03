@@ -15,8 +15,6 @@ Known for   Natural and minimal-intervention wine list as the lead focus Raw bar
 
 [Reserve a table](<https://stringerssorrento.com.au/>)
 
-Stringers Sorrento · Sorrento
-
 Why we’d go
 
 Sorrento has plenty of places to eat. Stringers is the one that feels like it belongs in a laneway in Fitzroy, which, at the Tip, is not nothing.

@@ -15,8 +15,6 @@ Known for   Heritage Bathing Pavilion Site Direct Foreshore Location Raw Bar and
 
 [Reserve a table](<https://thebaths.com.au/>)  +61 3 5984 1500
 
-The Baths Sorrento · Sorrento
-
 Why we’d go
 
 The position, directly on the sand at Sorrento, open to the bay, is the kind that anywhere else in the world would be roped off for a hotel group.

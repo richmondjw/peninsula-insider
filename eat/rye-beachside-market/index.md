@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A first-Saturday market on Rye foreshore, listed by Mornington Peninsula Shire.
 
-Rye Foreshore Market · Rye
-
 Rye Foreshore Market is listed by Mornington Peninsula Shire for the first Saturday of each month, 8.30am–2pm, on the Rye foreshore opposite the Rye Hotel. Check the Shire event page before travelling for the current date and any changes.
 
 Filed under   Slow Beach Waterfront Quick Bite Summer Spring Autumn Families Couples First Timers

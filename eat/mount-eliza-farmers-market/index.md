@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A smaller community farmers market in Mount Eliza village, producers drawn from the Mornington corridor.
 
-Mount Eliza Farmers Market · Mount Eliza
-
 Mount Eliza Farmers Market lists the fourth Sunday of each month, 9am–1pm, at Mount Eliza Village. Check the organiser for the current date and any changes before making the trip.
 
 Filed under   Slow Garden Quick Bite Spring Summer Autumn Winter Locals Families Couples

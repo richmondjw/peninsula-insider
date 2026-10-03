@@ -15,8 +15,6 @@ Known for   Mornington Pier End Location Near-360° Bay Views Seafood-First Menu
 
 [Reserve a table](<https://therocksmornington.com.au/>)  +61 3 5973 5599
 
-The Rocks Mornington · Mornington
-
 Why we’d go
 
 The window table at sunset in autumn is the single most romantic dinner seat on Mornington's waterfront, and the bay view earns the booking on its own.

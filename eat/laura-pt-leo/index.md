@@ -15,8 +15,6 @@ Known for   Seasonal Fine Dining Pt. Leo Estate Two-Hat Dining Merricks
 
 [Reserve a table](<https://www.ptleoestate.com.au/dine/laura/>)  +61 3 5989 9011
 
-Laura at Pt. Leo · Merricks
-
 Why we’d go
 
 A small dining room, a seasonal menu and time to settle into the estate: Laura suits a meal that is the reason for the trip.

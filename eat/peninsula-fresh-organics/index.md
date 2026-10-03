@@ -15,8 +15,6 @@ Known for   Certified Organic Market Garden Farm-Gate Shop Restaurant Supply Pro
 
 [Reserve a table](<https://www.peninsulafresh.com/>)
 
-Peninsula Fresh Organics · Mornington
-
 Why we’d go
 
 The producer behind a lot of what ends up on Peninsula restaurant plates, the farm-gate shop is open for anyone who wants to source the same ingredients directly.

@@ -15,8 +15,6 @@ Known for   Heritage-Listed Former Bank Building Private Vault Dining Room Live 
 
 [Reserve a table](<https://thebayhotelmornington.com.au/>)  +61 3 5975 7199
 
-The Bay Hotel Mornington · Mornington
-
 Why we’d go
 
 The old bank vault converted to a private dining room is the single most characterful booking on the Mornington bayside.

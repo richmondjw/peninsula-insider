@@ -15,8 +15,6 @@ Known for   Long-Fermented Sourdough Loaves Morning Buns Tight Pastry Line Top o
 
 +61 3 5975 7600
 
-Sourdough Kitchen · Mornington
-
 Why we’d go
 
 The Mornington baker that wine-room people quietly recommend when someone asks where the best bread is, bread-first, small room, loyal locals.

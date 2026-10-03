@@ -15,8 +15,6 @@ Known for   Dromana Foreshore Fishmonger Daily Fresh Catch Fish and Chips to the
 
 +61 3 5981 4085
 
-Pier Street Fresh Seafood · Dromana
-
 Why we’d go
 
 Pier Street Fresh Seafood is the Peninsula fish-and-chips ritual in one address, buy at the counter, eat on the Dromana foreshore with your feet in the sand.

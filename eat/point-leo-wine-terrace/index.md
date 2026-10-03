@@ -15,8 +15,6 @@ Known for   Open-Air Sculpture Park Terrace Walk-In Format (No Booking Required)
 
 [Reserve a table](<https://www.ptleoestate.com.au/terrace>)  +61 3 5989 9011
 
-Point Leo Wine Terrace · Merricks
-
 Why we’d go
 
 The best walk-in view on the Peninsula, no six-week booking window, no degustation commitment, just a deck, a glass, and the sculpture park doing its thing in the foreground.

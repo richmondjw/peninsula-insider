@@ -15,8 +15,6 @@ Known for   Farm Kitchen Courtyard All-Day Brunch Menu Canape Cellar Door Progra
 
 +61 3 5978 8049
 
-Barmah Park Farm Kitchen · Moorooduc
-
 Why we’d go
 
 A winery that runs its farm kitchen at café pace, the right call when you want vines visible and nobody pressuring you through a formal tasting.

@@ -15,8 +15,6 @@ Known for   Village General Store Format Daily Baked Loaves Picnic Outfitter Fli
 
 [Reserve a table](<https://flindersgeneralstore.com.au/>)  +61 3 5989 0111
 
-Flinders General Store · Flinders
-
 Why we’d go
 
 Flinders General Store is the reason Flinders Village still feels like a village, a working general store that earns its place on the main street.

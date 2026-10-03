@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 The northern Peninsula's midweek town market, a broad mix that folds easily into a Mornington visit.
 
-Mornington Main Street Market · Mornington
-
 Mornington Main Street Market is held each Wednesday on Main Street. Browse the stalls as part of a Mornington town day; check the organiser for this week’s hours and any changes before travelling.
 
 Filed under   Slow Quick Bite Waterfront Spring Summer Autumn Winter Locals Families First Timers Couples

@@ -15,8 +15,6 @@ Known for   Safety Beach Foreshore Location Raw Bar and Oysters Bay-Facing Deck 
 
 [Reserve a table](<https://www.marthastable.com.au/book-a-table/>)  +61 3 5981 4277
 
-Martha's Table · Safety Beach
-
 Why we’d go
 
 The easy, undersold answer to where to eat on the bayside when you have been at the beach all morning.
