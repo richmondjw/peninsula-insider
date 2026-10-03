@@ -54,6 +54,30 @@ const dayGroups = groupByDay(events, weekend, now);
 const weekendCount = dayGroups.reduce((n, g) => n + g.items.length, 0);
 
 const shelves = getShelves(events, now, pickSlugs).filter((s) => s.items.length > 0);
+const shelfVisuals = shelves.map((shelf, index) => {
+  // Prefer an actual listed venue. A vetted regional category image may set
+  // the scene, with its subject named in the caption, but never presents
+  // itself as artwork for a specific event in the shelf.
+  const source = shelf.items.find((item) => {
+    const photo = (item.event.data as Record<string, any>).heroImage;
+    return photo?.src && photo?.alt && photo?.credit && photo?.depictionStatus === 'actual';
+  });
+  const photo = source ? (source.event.data as Record<string, any>).heroImage : null;
+  const regionalKey = ({ markets: 'whats-on-hub', 'food-wine': 'wine-hub' } as Record<string, string>)[shelf.id];
+  const regional = !photo && regionalKey ? pageImage(regionalKey) : null;
+  return {
+    id: shelf.id,
+    label: shelf.label,
+    count: shelf.items.length,
+    index: String(index + 1).padStart(2, '0'),
+    photo: photo || regional ? {
+      src: String(photo?.src ?? regional!.src),
+      alt: String(photo?.alt ?? regional!.alt),
+      caption: String(photo?.caption ?? photo?.depicts ?? regional?.caption ?? source?.title),
+      credit: String(photo?.credit ?? regional!.credit),
+    } : null,
+  };
+});
 
 // ── JSON-LD: Event nodes for everything server-rendered (picks + weekend
 // rows), deduped. Deliberately no offers: pricing never ships in schema
@@ -310,9 +334,21 @@ const hubImage = pageImage('whats-on-hub');
     <section class="wo-shelves" aria-labelledby="wo-shelves-h">
       <div class="container">
         <h2 class="wo-shelves__title" id="wo-shelves-h">Browse the next two months</h2>
-        <nav class="wo-shelfnav" aria-label="Jump to a category">
-          {shelves.map((s) => (
-            <a class="wo-shelfnav__link" href={`#${s.id}`}>{s.label}</a>
+        <nav class="wo-shelfnav" aria-label="Explore event categories">
+          {shelfVisuals.map((s) => (
+            <div class="wo-shelfnav__tile">
+              <a class="wo-shelfnav__link" href={`#${s.id}`} aria-label={`Explore ${s.label}, ${s.count} featured events`}>
+                <span class="wo-shelfnav__media" aria-hidden="true">
+                  {s.photo ? (
+                    <img src={s.photo.src} alt="" loading="lazy" decoding="async" width="400" height="300" data-pi-responsive="(max-width: 767px) 55vw, 20vw" />
+                  ) : (
+                    <span class="wo-shelfnav__mark">{s.index}</span>
+                  )}
+                </span>
+                <span class="wo-shelfnav__info"><strong>{s.label}</strong><span>{s.count} featured <span aria-hidden="true">↗</span></span></span>
+              </a>
+              {s.photo && <p class="wo-shelfnav__credit">{s.photo.caption} · Photo: {s.photo.credit}.</p>}
+            </div>
           ))}
         </nav>
         {shelves.map((s) => (
@@ -1041,6 +1077,29 @@ const hubImage = pageImage('whats-on-hub');
   .wo-days__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; max-width: none; padding-bottom: .5rem; border-bottom: 2px solid #0b2e4a; }
   .wo-days__hint { margin: 0 0 .5rem; color: var(--soft); font-size: .9rem; }
   .wo-day__h { color: #0b2e4a; font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 700; letter-spacing: -.02em; text-transform: none; }
+  .wo-shelfnav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; margin-top: 1.25rem; }
+  .wo-shelfnav__tile { min-width: 0; }
+  .wo-shelfnav__link { display: block; width: 100%; height: auto; min-height: 0; padding: 0; overflow: hidden; border: 1px solid #0b2e4a; border-radius: .65rem; background: #0b2e4a; color: #fff; text-decoration: none; transition: transform 160ms ease, border-color 160ms ease; }
+  .wo-shelfnav__link:hover { transform: translateY(-2px); border-color: #a9552a; color: #fff; }
+  .wo-shelfnav__link:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 3px; }
+  .wo-shelfnav__media { display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: radial-gradient(circle at 80% 20%, #10527e, #0b2e4a 70%); }
+  .wo-shelfnav__media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 180ms ease; }
+  .wo-shelfnav__link:hover img { transform: scale(1.04); }
+  .wo-shelfnav__mark { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; color: #f5c177; font-family: var(--font-display); font-size: clamp(4rem, 7vw, 6rem); font-weight: 700; line-height: 1; }
+  .wo-shelfnav__info { display: flex; min-height: 4.75rem; flex-direction: column; justify-content: center; gap: .2rem; padding: .7rem .85rem; }
+  .wo-shelfnav__info strong { font-family: var(--font-display); font-size: 1.08rem; line-height: 1.15; }
+  .wo-shelfnav__info > span { color: #f5c177; font-size: .75rem; font-weight: 650; }
+  .wo-shelfnav__credit { margin: .35rem .2rem 0; color: var(--soft); font-size: .75rem; line-height: 1.4; }
+  @media (min-width: 1024px) {
+    .wo-day, .wo-shelf { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+    .wo-day__h, .wo-shelf__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; border-top: 3px solid #f5c177; }
+    .wo-day__list, .wo-day__empty, .wo-shelf__list { grid-column: 2; }
+  }
+  @media (max-width: 1023px) {
+    .wo-shelfnav { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: .75rem; padding: 0 .15rem .75rem; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+    .wo-shelfnav::-webkit-scrollbar { display: none; }
+    .wo-shelfnav__tile { flex: 0 0 12rem; scroll-snap-align: start; }
+  }
   @media (max-width: 640px) {
     .wo-head__inner { grid-template-columns: minmax(0, 1fr) 6.5rem; min-height: 0; gap: .5rem; }
     .wo-head__copy { padding: 1rem 0 1.1rem; }
@@ -1062,6 +1121,12 @@ const hubImage = pageImage('whats-on-hub');
   }
 </style>
 <style is:global>
+  /* Date scopes added from feed.json do not carry Astro's scoped-style marker. */
+  @media (min-width: 1024px) {
+    .wo-days .wo-day { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+    .wo-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; border-top: 3px solid #f5c177; }
+    .wo-days .wo-day__list, .wo-days .wo-day__empty { grid-column: 2; }
+  }
   @media (max-width: 640px) {
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media,
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note { display: none; }
