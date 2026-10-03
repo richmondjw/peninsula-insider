@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-03T10:07:59.513Z",
+  "generatedAt": "2026-10-03T10:20:44.785Z",
   "asOf": "2026-10-03",
   "staleAfterDays": 90,
   "assertedMetrics": [
@@ -17,7 +17,7 @@
     "liveEvents": 39,
     "cancelledEvents": 1,
     "missingVerificationDate": 0,
-    "staleVerificationDate": 18,
+    "staleVerificationDate": 15,
     "duplicateTitleGroups": 0,
     "duplicateVenueDateGroups": 0,
     "unresolvableRecurrence": 2,
@@ -25,23 +25,13 @@
     "postponedEvents": 0,
     "postponedWithoutProvenance": 0,
     "occurrenceQueueEntries": 0,
-    "freeTextVerificationStatus": 10,
+    "freeTextVerificationStatus": 7,
     "unboundedOccurrence": 2
   },
   "missingVerificationDate": [],
   "staleVerificationDate": [
     {
-      "file": "crib-point-community-market.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
       "file": "foxeys-hangout-vegetable-feast-morning-sun-vineyard.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
-      "file": "heart-of-the-community-market-rosebud.json",
       "lastCheckedDate": "2026-05-04",
       "ageDays": 152
     },
@@ -52,11 +42,6 @@
     },
     {
       "file": "mornington-tourist-railway-santa-specials.json",
-      "lastCheckedDate": "2026-05-04",
-      "ageDays": 152
-    },
-    {
-      "file": "mornington-wednesday-market-main-street-market.json",
       "lastCheckedDate": "2026-05-04",
       "ageDays": 152
     },
@@ -143,13 +128,10 @@
   "occurrenceQueueByKind": {},
   "freeTextVerificationStatus": [
     "boneo-community-market.json",
-    "crib-point-community-market.json",
     "emu-plains-market-balnarring.json",
     "emu-plains-market.json",
     "hastings-thursday-street-market.json",
-    "heart-of-the-community-market-rosebud.json",
     "mornington-racecourse-market.json",
-    "mornington-wednesday-market-main-street-market.json",
     "mt-eliza-farmers-market.json",
     "peninsula-vinehop-festival-2026.json"
   ],
