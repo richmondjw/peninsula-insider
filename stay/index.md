@@ -87,7 +87,7 @@ Hotel   Merricks North   Couples
 
 Details checked October 2026
 
-[Check availability](<https://jackalopehotels.com/stay/>)
+[Visit website](<https://jackalopehotels.com/stay/>)
 
 - ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
@@ -95,7 +95,7 @@ Four vineyard villas, each sleeping two with a king-size bed, indoor spa and ope
 
 Villa   Red Hill   Couples
 
-[Check availability](<https://www.polperrowines.com.au/escape/>)
+[Visit website](<https://www.polperrowines.com.au/escape/>)
 
 - Hotel Sorrento exterior, photographed in 2006 before recent renovations.   Photo: Biatch / Wikimedia Commons (public domain).
 
@@ -107,7 +107,7 @@ Hotel   Sorrento   Couples
 
 Details checked October 2026
 
-[Check availability](<https://hotelsorrento.com.au/stay/>)
+[Visit website](<https://hotelsorrento.com.au/stay/>)
 
 See 3 more editorial choices
 
@@ -119,7 +119,7 @@ A village hotel for a Flinders base, with the southern coast as a separate outin
 
 Hotel   Flinders   Couples
 
-[Check availability](<https://flindershotel.com.au/accommodation/>)
+[Visit website](<https://flindershotel.com.au/accommodation/>)
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
@@ -127,7 +127,7 @@ Stay at the hot springs when bathing is the centre of the escape. Check which se
 
 Glamping   Fingal   Couples
 
-[Check availability](<https://www.peninsulahotsprings.com/accommodation>)
+[Visit website](<https://www.peninsulahotsprings.com/accommodation>)
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
@@ -135,7 +135,11 @@ Cottage accommodation in Rye for a bay-side base. Ask about the specific cottage
 
 Cottage   Rye   Dog-friendly
 
-[Check availability](<https://www.bluemooncottages.com.au/>)
+[Visit website](<https://www.bluemooncottages.com.au/>)
+
+Our shortlist compares different settings and stay formats. Use each stay guide for the detail behind the choice, then confirm rooms and inclusions with the operator.
+
+ [How we choose and check our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
 Go deeper
 
@@ -181,7 +185,7 @@ Hotel   Merricks North   Couples
 
 Details checked October 2026
 
-[Check availability](<https://jackalopehotels.com/stay/>)
+[Visit website](<https://jackalopehotels.com/stay/>)
 
 - ### [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>)
 
@@ -189,7 +193,7 @@ Four vineyard villas, each sleeping two with a king-size bed, indoor spa and ope
 
 Villa   Red Hill   Couples
 
-[Check availability](<https://www.polperrowines.com.au/escape/>)
+[Visit website](<https://www.polperrowines.com.au/escape/>)
 
 - ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
@@ -199,7 +203,7 @@ Hotel   Sorrento   Couples
 
 Details checked October 2026
 
-[Check availability](<https://hotelsorrento.com.au/stay/>)
+[Visit website](<https://hotelsorrento.com.au/stay/>)
 
 - ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
@@ -207,7 +211,7 @@ Quarters is a quiet village stay behind Flinders Hotel, with pub dining and the 
 
 Hotel   Flinders   Couples
 
-[Check availability](<https://flindershotel.com.au/accommodation/>)
+[Visit website](<https://flindershotel.com.au/accommodation/>)
 
 - ### [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
 
@@ -215,7 +219,7 @@ Glamping accommodation within Peninsula Hot Springs in Fingal, with garden-view,
 
 Glamping   Fingal   Couples
 
-[Check availability](<https://www.peninsulahotsprings.com/accommodation>)
+[Visit website](<https://www.peninsulahotsprings.com/accommodation>)
 
 - ### [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>)
 
@@ -223,7 +227,7 @@ Pet-welcoming self-catering cottages near Rye bay beach. Sandpiper has a log fir
 
 Cottage   Rye   Dog-friendly
 
-[Check availability](<https://www.bluemooncottages.com.au/>)
+[Visit website](<https://www.bluemooncottages.com.au/>)
 
 - ### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
 
@@ -231,7 +235,7 @@ Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass
 
 Suite   Cape Schanck   Couples
 
-[Check availability](<https://www.thecaperetreat.com.au/book>)
+[Visit website](<https://www.thecaperetreat.com.au/book>)
 
 - ### [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
@@ -239,7 +243,7 @@ Five couples-only suites on Arthurs Seat with bay views. Breakfast provisions ar
 
 Suite   Dromana   Couples
 
-[Check availability](<https://arthursviews.com.au/>)
+[Visit website](<https://arthursviews.com.au/>)
 
 - ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
 
@@ -247,7 +251,7 @@ Two adjoining self-contained farm cottages, The Mavis for two and The June for f
 
 Cottage   Dromana   Couples
 
-[Check availability](<https://www.birchcreek.com.au/>)
+[Visit website](<https://www.birchcreek.com.au/>)
 
 - ### [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>)
 
@@ -263,7 +267,7 @@ Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option fr
 
 Lodge   Fingal   Couples
 
-[Check availability](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
+[Visit website](<https://www.peninsulahotsprings.com/accommodation/eco-lodges/>)
 
 - ### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
@@ -271,7 +275,7 @@ Five secluded villas or two premium rooms above Alba’s springs, with daily bat
 
 Villa   Fingal   Couples
 
-[Check availability](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
+[Visit website](<https://albathermalsprings.com.au/alba-experiences/the-sanctuary/>)
 
 - ### [Happy Glamper](<https://peninsulainsider.com.au/stay/happy-glamper/>)
 
@@ -279,7 +283,7 @@ Mobile bell-tent glamping that pitches styled tents at nominated Peninsula fores
 
 Glamping   Merricks   Family
 
-[Check availability](<https://www.happyglamper.com.au/>)
+[Visit website](<https://www.happyglamper.com.au/>)
 
 - ### [Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 
@@ -287,7 +291,7 @@ Three lakeside chalets over a private five-acre lake on a 50-acre English countr
 
 Villa   Moorooduc   Couples
 
-[Check availability](<https://woodmanestate.com.au/>)
+[Visit website](<https://woodmanestate.com.au/>)
 
 - ### [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>)
 
@@ -295,7 +299,7 @@ Forty-six pre-pitched canvas tents inside Point Nepean National Park, September 
 
 Glamping   Portsea   Couples
 
-[Check availability](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
+[Visit website](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
 - ### [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>)
 
@@ -319,7 +323,7 @@ A Red Hill hotel set on 34 acres of gardens and vines, with an on-site dining ro
 
 Hotel   Red Hill   Couples
 
-[Check availability](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
+[Visit website](<https://lancemore.com.au/properties-2/lancemore-lindenderry-red-hill>)
 
 - ### [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>)
 
@@ -335,7 +339,7 @@ Two self-contained Red Hill cottages, Peppercorn and Winemakers, on an artisan v
 
 Cottage   Red Hill   Couples
 
-[Check availability](<https://treetopsatredhill.com.au/>)
+[Visit website](<https://treetopsatredhill.com.au/>)
 
 - ### [Driftaway on Dundas](<https://peninsulainsider.com.au/stay/driftaway-on-dundas/>)
 
@@ -351,7 +355,7 @@ Five pet-friendly cottage units near Capel Sound bay beach, from a studio to two
 
 Cottage   Rye   Dog-friendly
 
-[Check availability](<https://mpcottages.com/>)
+[Visit website](<https://mpcottages.com/>)
 
 - ### [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
@@ -359,7 +363,7 @@ Restored 1950s–60s themed caravans 500 metres from Rye bay beach, dog-friendly
 
 Glamping   Rye   Dog-friendly
 
-[Check availability](<https://kanastacaravanpark.com.au/retro-caravans/>)
+[Visit website](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
 - ### [Plantation House at Whitecliffs](<https://peninsulainsider.com.au/stay/plantation-house-whitecliffs/>)
 
@@ -367,7 +371,7 @@ A Rye bed and breakfast with five named rooms and suites. Cooked breakfast is in
 
 Suite   Rye   Couples
 
-[Check availability](<https://www.plantationhouse.com.au/>)
+[Visit website](<https://www.plantationhouse.com.au/>)
 
 - ### [Iluka Retreat & Camp](<https://peninsulainsider.com.au/stay/iluka-retreat/>)
 
@@ -375,7 +379,7 @@ Thirty structures on 36 acres near Shoreham, the Peninsula's only fixed-site mul
 
 Glamping   Shoreham   Couples
 
-[Check availability](<https://www.ilukaretreat.com.au/>)
+[Visit website](<https://www.ilukaretreat.com.au/>)
 
 - ### [Mantons Creek Estate](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>)
 
@@ -383,7 +387,7 @@ Vineyard-view guest suites at Mantons Creek Estate in Shoreham, with a restauran
 
 Suite   Shoreham   Couples
 
-[Check availability](<https://mantonscreekestate.com.au/accommodation>)
+[Visit website](<https://mantonscreekestate.com.au/accommodation>)
 
 - ### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 
@@ -393,7 +397,7 @@ Hotel   Sorrento   Couples
 
 Details checked September 2026
 
-[Check availability](<https://sorrento.intercontinental.com/>)
+[Visit website](<https://sorrento.intercontinental.com/>)
 
 The Journal
 
@@ -401,19 +405,25 @@ The Journal
 
 [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
-- ### [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
+- Jackalope Hotel, Merricks North, Mornington Peninsula.   Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
 
 If you only have one weekend, choose your base carefully. These are the stays that shape the trip rather than merely host it.
 
 6 min read
 
-- ### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
+- Sorrento, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+
+### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
 One room, one dinner, one slow morning. Choose the right Peninsula base and a single overnight can feel like a proper break.
 
 4 min read
 
-- ### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
+- Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting.   Photo: Peter Foster, courtesy of Visit Victoria.
+
+### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
 
 The best Peninsula stay right now is not a design hotel. It is a cottage on a working farm with a fire, a kitchen, and nobody checking on you. Here is the case, and the short list.
 
