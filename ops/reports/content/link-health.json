@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-10-03T11:51:55.776Z",
+  "generatedAt": "2026-10-03T12:12:19.417Z",
   "assertedMetrics": [
     "unrecordedSourceUrl",
     "deadSourceUrlCited",
     "staleRedirectCited"
   ],
   "probeRecord": "ops/records/link-health/probe-ledger.json",
-  "citations": 1636,
+  "citations": 1637,
   "distinctUrls": 554,
   "verdictCounts": {
     "ok": 466,
