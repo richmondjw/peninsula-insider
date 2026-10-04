@@ -16,7 +16,7 @@
   "assessedAt": "2026-10-04",
   "baseRevision": "8e8fef4bf1860788cf62078980bd87215ecce215",
   "baseDeploymentRun": "37173314691",
-  "status": "bounded-local-accepted-awaiting-release",
+  "status": "live-bounded-accepted",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -141,13 +141,12 @@
     "productionBuild": "PASS: TZ=UTC npm run build:search, full project gates and Pagefind, 727 indexed pages. Initial attempt halted on unrecorded Paringa booking URL; exact SevenRooms URL probed HTTP 200 and recorded, link-health gate and clean rerun passed.",
     "localBrowser": "PASS: independent reviewer checked Dromana, Red Hill South, Shoreham, Ocean Eight, Paringa, Main Ridge guide and Red Hill region at 320/390/1440 with HTTP 200, image loads, no horizontal overflow or page errors. Final Paringa/Ocean Eight/Dromana check repeated after clean build.",
     "independentReview": "GO for bounded set19: exact Paringa OG/Twitter/schema/Pagefind/save-card and visible stage use licensed vv-143157 with seven Red Hill South captions; Dromana hero/OG/schema vv-143775 with Peter Tarasiuk credit; Ocean Eight vv-159894 and contact CTA. Disputed vv-159902/159905 have zero active placements. Full 23-criterion /100 remains null.",
-    "liveAcceptance": null
+    "liveAcceptance": "PASS: PR #562 merge ea1c32ea3c000f14a346b5c37c8459cd33cf588f, then superseding What's On merge; protected run 37176929345 completed success. Public release-manifest sourceSha d3f580f9717cab0d8464516bc8103b100e5fd391 includes set19. Independent cache-busted browser checks on all seven routes at 320/390/1440 returned 200, no overflow/page errors, credited heroes/OG, Paringa schema/save and seven Red Hill South captions, Ocean Eight contact and no disputed 159902/159905."
   },
   "hardGatesOpen": [
     "Full 23-criterion independent score for every touched page",
     "Direct assistive-technology journeys",
     "Field performance",
-    "Exact public visual/factual acceptance of set19",
     "Rights-clear Shoreham beach-specific cover before 99 visual acceptance",
     "Broader cross-page image rights and locality audit"
   ],
@@ -159,7 +158,8 @@
     "Two independent reviewers covered a 31-point subset. T1 full final scoring requires three reviewers and all 23 criteria.",
     "Dromana related Dromana Beach card in the generated place page still uses a separate uncredited CMS experience image. Cross-page image rights remains an open 99/100 gate; it is outside the three place hero replacements.",
     "Paringa mobile lead photograph starts below roughly 900px because the shared intro and cookie banner are tall; independent visual review found no new blocker, but composition remains below world-class acceptance.",
-    "Impeccable detector found four pre-existing side-tab accent border warnings across shared place/venue templates; no new warning introduced by this set."
+    "Impeccable detector found four pre-existing side-tab accent border warnings across shared place/venue templates; no new warning introduced by this set.",
+    "The Red Hill wine-region hero remains a pre-existing broad Arthurs Seat Eagle panorama; not changed in set19 and needs full-page visual regrade."
   ],
-  "nextAction": "Publish bounded set19 through normal CI, verify exact public manifest and 320/390/1440 live pages, then continue all 23 criteria, direct AT, field performance and linked-card media provenance."
+  "nextAction": "Continue rights-clear Shoreham beach and linked-card media, direct AT/field performance and independent full 23-criterion review; retain score null until all evidence and hard gates clear."
 }
