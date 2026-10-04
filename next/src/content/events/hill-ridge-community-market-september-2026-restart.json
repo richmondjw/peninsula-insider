@@ -1,8 +1,8 @@
 {
   "slug": "hill-ridge-community-market-september-2026-restart",
   "eventId": "MP-EVT-0066",
-  "title": "Hill & Ridge Community Market, 3 October 2026",
-  "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
+  "title": "Hill & Ridge Community Market, 3 October 2026 (cancelled)",
+  "summary": "The organiser marks the 3 October 2026 Hill & Ridge Community Market at Red Hill Recreation Reserve as cancelled. Do not travel for this date. Check the organiser for any future market dates.",
   "startDate": "2026-10-03",
   "endDate": "2026-10-03",
   "startTime": "09:00",
@@ -41,17 +41,17 @@
     "contact": "hello@hillandridgemarket.com.au"
   },
   "primarySourceUrl": "https://www.hillandridgemarket.com.au",
-  "verificationStatus": "3 October 2026 date, time and venue confirmed by organiser on 23 September 2026",
-  "lastCheckedDate": "2026-10-03",
+  "verificationStatus": "cancelled",
+  "lastCheckedDate": "2026-10-04",
   "editorialPriority": 1,
   "nearbyAttractions": "Stonier Wines; Polperro; Foxeys Hangout; Arthur's Seat Eagle",
   "suggestedItineraryPairing": "Pair with a winery lunch at one of the Red Hill estates",
   "status": "published",
   "publishedAt": "2026-05-04",
-  "worthTheDrive": true,
-  "firstTimer": true,
-  "editorVerdict": "A confirmed 3 October market date from the Hill & Ridge organiser, subject to unsafe-weather cancellation. This is separate from the temporarily closed original Red Hill Community Market.",
-  "editorNote": "Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. Its organiser confirms Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road. Browse local food, produce and artisan stalls, then consider a Red Hill lunch. Entry is free; the organiser says reserve parking has a charge and asks visitors to avoid roadside parking. Unsafe weather can cause cancellation without notice, so check the organiser before travelling.",
+  "worthTheDrive": false,
+  "firstTimer": false,
+  "editorVerdict": "Cancelled: the Hill & Ridge organiser now marks its 3 October 2026 market as cancelled. Check its calendar for any future date.",
+  "editorNote": "Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. The organiser's current page explicitly marks the 3 October 2026 edition as cancelled. Its older promotional copy still appears lower on the page; the cancellation notice takes precedence. Do not travel for the 3 October edition. Check the organiser for any future market date.",
   "lens": [
     "weekend-pick",
     "family-saturday",
@@ -59,10 +59,9 @@
     "walk-in"
   ],
   "place": "red-hill",
-  "nextOccurrence": "2026-11-07",
-  "lastVerifiedAt": "2026-10-03T07:10:00+11:00",
+  "lastVerifiedAt": "2026-10-03T20:29:57.379772+00:00",
   "verification": "verified",
-  "verificationNote": "The organiser currently lists Saturday 3 October 2026, 9am–2pm, at 184 Arthurs Seat Road; entry is free, reserve parking has a charge, and unsafe weather may cancel without notice. Checked 3 October 2026. The old coordinate pair lacked a source and was removed; directions use the published street address.",
+  "verificationNote": "The organiser homepage explicitly marks the 3 October 2026 edition as cancelled; checked 4 October 2026. Older promotional copy lower on that page is stale.",
   "heroImage": {
     "src": "/images/generated/red-hill-market-editorial.webp",
     "alt": "Illustrative apples, leafy produce, bread and handmade ceramics at a country market stall",
@@ -83,5 +82,9 @@
     ],
     "rightsEstablishedOn": "2026-10-03",
     "rightsStatus": "recorded"
-  }
+  },
+  "cancelled": true,
+  "cancellationNote": "The organiser marks the 3 October 2026 edition as cancelled. No replacement date is confirmed in this record.",
+  "cancellationSourceUrl": "https://www.hillandridgemarket.com.au/",
+  "cancellationSourceLabel": "Hill & Ridge Community Market organiser"
 }

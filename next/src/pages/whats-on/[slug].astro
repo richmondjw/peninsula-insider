@@ -223,8 +223,8 @@ export const prerender = true;
         })}>{event.data.summary}</p>
 
         <EventBadges
-          worthTheDrive={event.data.worthTheDrive}
-          firstTimer={event.data.firstTimer}
+          worthTheDrive={!cancelled && event.data.worthTheDrive}
+          firstTimer={!cancelled && event.data.firstTimer}
           weather={event.data.weather}
           skipThis={event.data.skipThis}
           size="md"
@@ -354,7 +354,7 @@ export const prerender = true;
                     </a>
                   </li>
                 )}
-                {directionsHref && (
+                {directionsHref && !cancelled && (
                   <li>
                     <a href={directionsHref} rel="nofollow noreferrer" target="_blank">
                       Get directions &rarr;
@@ -396,13 +396,13 @@ export const prerender = true;
                 <dt>Weather</dt>
                 <dd>{weatherCopy[event.data.weather] ?? 'Weather flexible'}</dd>
               </div>
-              {event.data.worthTheDrive && (
+              {!cancelled && event.data.worthTheDrive && (
                 <div>
                   <dt>Worth the drive</dt>
                   <dd>Yes - unprompted recommendation</dd>
                 </div>
               )}
-              {event.data.firstTimer && (
+              {!cancelled && event.data.firstTimer && (
                 <div>
                   <dt>First time on the Peninsula</dt>
                   <dd>Start here</dd>

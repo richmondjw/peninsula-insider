@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "1.0",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/places/mornington/",
+    "https://peninsulainsider.com.au/explore/places/red-hill/",
+    "https://peninsulainsider.com.au/explore/places/merricks/",
+    "https://peninsulainsider.com.au/explore/places/main-ridge/"
+  ],
+  "linkedUrls": [
+    "https://peninsulainsider.com.au/wine/bass-and-flinders/",
+    "https://peninsulainsider.com.au/stay/jackalope/",
+    "https://peninsulainsider.com.au/eat/rare-hare/",
+    "https://peninsulainsider.com.au/wine/ocean-eight/",
+    "https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington",
+    "https://peninsulainsider.com.au/explore/plans/the-market-saturday/",
+    "https://peninsulainsider.com.au/wine/main-ridge-estate/",
+    "https://peninsulainsider.com.au/wine/kooyong/",
+    "https://peninsulainsider.com.au/wine/red-hill-estate/",
+    "https://peninsulainsider.com.au/explore/places/dromana/",
+    "https://peninsulainsider.com.au/explore/places/merricks-north/",
+    "https://peninsulainsider.com.au/explore/places/red-hill-south/",
+    "https://peninsulainsider.com.au/explore/places/shoreham/",
+    "https://peninsulainsider.com.au/explore/markets/",
+    "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+    "https://peninsulainsider.com.au/eat/many-little/",
+    "https://peninsulainsider.com.au/eat/epicurean-red-hill/",
+    "https://peninsulainsider.com.au/eat/mornington-farmers-market/",
+    "https://peninsulainsider.com.au/wine/avani-wines/",
+    "https://peninsulainsider.com.au/wine/elgee-park/",
+    "https://peninsulainsider.com.au/wine/scorpo-wines/",
+    "https://peninsulainsider.com.au/wine/willow-creek-vineyard/",
+    "https://peninsulainsider.com.au/wine/phaedrus-estate/",
+    "https://peninsulainsider.com.au/wine/kerri-greens/",
+    "https://peninsulainsider.com.au/wine/garagiste/",
+    "https://peninsulainsider.com.au/explore/places/moorooduc/",
+    "https://peninsulainsider.com.au/explore/places/mount-eliza/"
+  ],
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "status": "ready-for-release",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "baseline": {
+    "publicRevision": "da58703e5e05289aefad68a310b52e1bd6de29d8 (observed before set17 deploy; these pages unchanged by set17)",
+    "observed": "Exact public 390px place pages showed Red Hill in 12 photographs with two Merricks North Jackalope photos; Mornington in 18 with two Bass & Flinders photos captioned Mornington; Merricks in 12, with four Merricks North Rare Hare images in source gallery; Main Ridge in 7, all seven Shoreham Ocean Eight photos. Mornington guide called the Wednesday Main Street artisan market a farmers market on the Esplanade, and its best day said Sunday market. Bass & Flinders venue record gave old 232 Balnarring Road, Tuerong and wrong phone. Four inspected venue Get directions links prioritised coordinates that resolved away from their official addresses; Ocean Eight also had wrong phone. Independent review also found Main Ridge Estate and Kooyong wrongly carded under Main Ridge despite Red Hill/Red Hill South operator addresses, Red Hill Estate carded under Red Hill despite its Main Ridge address, an Endota directions pin and contact details that disagreed with its operator, and a linked market article recommending 3 October Hill & Ridge even after the organiser posted a cancellation. Further independent review found the Main Ridge CMS hero had no visible attribution; all four town heroes lost their mobile text gutter; Red Hill linked a cancelled 3 October market, and the markets guide still called it confirmed. Exact town-card labels also contradicted operator/postal localities for Avani, Epicurean, Many Little, Elgee, Scorpo, Spa by Jackalope, Willow Creek and Phaedrus. Kerri Greens' public cellar door had closed; the Elgee Park estate is closed to general visitors. Many Little and Phaedrus had materially wrong visitor directions and phone details. The Merricks North receiving page still recommended an Elgee Park estate cellar-door visit and called Baillieu/Stonier Merricks North local stops, while the operators place their public tastings in Merricks. Its visible CMS cover had no usable attribution and the JSON fallback was a temporary Unsplash placeholder.",
+    "rubric": "No complete independent 23-criterion score. Baseline and current scores remain null; visitor navigation and factual freshness hard gates are open."
+  },
+  "hypothesis": "Correcting market timing/type/location, operator addresses and navigation, and gallery locality will prevent wasted trips and materially improve trust and task completion.",
+  "boundedChange": "Correct only the four T1 place galleries and their directly linked venue locality/caption/phone/directions fields. Rewrite Mornington market claims in the place record and its FAQ using current Chamber and farmers market source. Remove unsupported venue coordinates so Directions falls back to the published operator name and address until a verified pin is recorded. Keep media assets in the library and preserve unrelated content. Also move three directly linked winery cards to the localities in their operator addresses, correct Endota Mornington address/phone and remove its unverified pin, distinguish Red Hill South imagery and operators from Red Hill village, remove unsupported Main Ridge elevation/operator claims, and update the directly linked market guide for the 3 October cancellation. Correct the consolidated wellness guide's Endota market pairing; the venue record has no standalone public detail page. Remove three more unverified winery map pins after place reassignment and correct Red Hill Estate phone from its current operator contact page. Replace Rare Hare's generic Jackalope Book now link with the SevenRooms Rare Hare reservation URL linked from its official venue page, and show Endota's verified street address, phone and operator link in its canonical wellness entry. After independent review, restore a 20px mobile hero gutter, require attribution for Main Ridge CMS replacement, document the CSIRO Commons fallback and its WebP modification, retire the cancelled Hill & Ridge edition from live listings while retaining an explicit cancellation detail page, update the complete markets guide and its regression test, and hide event directions on cancelled dates. Reassign the exact-address venue cards to the correct towns; pause Garagiste, Kerri Greens and Elgee Park as public visit picks until current access is verified; correct Many Little and Phaedrus operator address/phone/booking information; remove unverified coordinates and stale source-status notes. After receiving-page review, remove Elgee/Baillieu/Stonier visit recommendations from the Merricks North guide, document Elgee's public-access restriction, and substitute a licensed Jackalope vineyard photograph for the unattributed CMS cover and temporary fallback. Record that photo's use in the Visit Victoria where-used ledger.",
+  "metric": "Content validation and full production build pass; exact local and public pages show the two distinct Mornington markets, correct operator locality/phone/address and address-based directions; off-place photos and structured images are absent from each place gallery. Chrome 320/390/1440 no page errors, horizontal overflow or blank visual gaps. Independent bounded review. Full score remains null. Verify corrected Main Ridge, Red Hill South and Red Hill card placement, Endota address-based directions and market cancellation on the local and exact public build. Check Rare Hare primary CTA reaches its own booking form and Endota canonical section exposes address, callable phone and operator source. Check receiving T1 pages for correct moved venue cards at mobile and desktop widths. Specifically check the market hub ItemList excludes the cancelled edition, its card and comparison say cancelled, the event detail emits EventCancelled and no directions CTA, and paused venue pages show no booking/directions. Check Merricks North source and visible page no longer imply an Elgee public estate cellar door or local Stonier/Baillieu tasting, and the new local hero renders with Visit Victoria credit.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the bounded set18 content commit if an operator address, market schedule or gallery subject is contradicted by fresh primary evidence or exact live checks.",
+  "sources": [
+    {
+      "url": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+      "supports": "Mornington Main Street Market is the Chamber-run Wednesday artisan market on Main Street, with weather exceptions."
+    },
+    {
+      "url": "https://mainstreetmornington.com.au/about/",
+      "supports": "Chamber distinguishes Wednesday Main Street Market from second-Saturday Mornington Farmers Market in Mornington Park."
+    },
+    {
+      "url": "https://www.bassandflindersdistillery.com/pages/contact-us",
+      "supports": "Current distillery door at 40 Collins Road, Dromana; phone 03 5987 3893."
+    },
+    {
+      "url": "https://jackalopehotels.com/contact/",
+      "supports": "Jackalope address 166 Balnarring Road, Merricks North."
+    },
+    {
+      "url": "https://rarehare.com.au/about/",
+      "supports": "Rare Hare address 166 Balnarring Road, Merricks North."
+    },
+    {
+      "url": "https://oceaneight.com.au/pages/contact",
+      "supports": "Ocean Eight address 271 Tucks Road, Shoreham; phone 03 5989 6471."
+    },
+    {
+      "url": "https://endotaspa.com.au/pages/spa/mornington",
+      "supports": "Endota Mornington lists 30 Main St and phone 03 5977 1522."
+    },
+    {
+      "url": "https://www.hillandridgemarket.com.au/",
+      "supports": "Hill & Ridge marks the 3 October 2026 event cancelled despite its general season list."
+    },
+    {
+      "url": "https://mre.com.au/contact/",
+      "supports": "Main Ridge Estate is at 80 William Road, Red Hill."
+    },
+    {
+      "url": "https://kooyongwines.com.au/our-wines/",
+      "supports": "Kooyong cellar door lists 263 Red Hill Road, Red Hill South."
+    },
+    {
+      "url": "https://www.redhillestate.com.au/pages/cellar-door",
+      "supports": "Red Hill Estate cellar door lists 1208 Mornington-Flinders Road, Main Ridge."
+    },
+    {
+      "url": "https://www.tenminutesbytractor.com.au/contact",
+      "supports": "Ten Minutes by Tractor lists 1333 Mornington-Flinders Road, Main Ridge."
+    },
+    {
+      "url": "https://paringaestate.com.au/",
+      "supports": "Paringa Estate lists 44 Paringa Road, Red Hill South."
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/arthurs-seat-state-park",
+      "supports": "Arthurs Seat is the highest Peninsula point, so Main Ridge cannot claim that superlative."
+    },
+    {
+      "url": "https://www.redhillestate.com.au/pages/contact",
+      "supports": "Red Hill Estate current phone +61 3 5989 2838 and Main Ridge address."
+    },
+    {
+      "url": "https://rarehare.com.au/about/",
+      "supports": "Rare Hare official venue page links to SevenRooms reservations/rarehare and lists its Merricks North address."
+    },
+    {
+      "url": "https://www.phaedrus.com.au/",
+      "supports": "Phaedrus operator lists 220 Mornington-Tyabb Road, Moorooduc and an active cellar door."
+    },
+    {
+      "url": "https://www.manylittle.com.au/contact",
+      "supports": "Many Little operator lists 2-5, 159 Shoreham Road, Red Hill South, phone 03 5989 2831 and a booking control."
+    },
+    {
+      "url": "https://kerrigreens.com/contact/",
+      "supports": "Kerri Greens operator says its former cellar door is closed and current in-person opportunities are markets and pop-ups."
+    },
+    {
+      "url": "https://elgeeparkwines.com.au/contact/",
+      "supports": "Elgee Park says its estate is closed to general public; wine tastings and sales are at Merricks Store."
+    },
+    {
+      "url": "https://www.theepicurean.com.au/shed-restaurant-reservations",
+      "supports": "Epicurean operator lists 165 Shoreham Road, Red Hill South."
+    },
+    {
+      "url": "https://scorpowines.com/",
+      "supports": "Scorpo operator lists 23 Old Bittern Dromana Road, Merricks North."
+    },
+    {
+      "url": "https://www.avanisyrah.com.au/contact-avani/",
+      "supports": "Avani operator lists 98 Stanleys Road, Red Hill South."
+    },
+    {
+      "url": "https://rarehare.com.au/home/willow-creek-vineyard/",
+      "supports": "Willow Creek/Rare Hare operator lists 166 Balnarring Road, Merricks North."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg",
+      "supports": "CSIRO creator and CC BY 3.0 license for the Red Hill vineyard fallback image."
+    },
+    {
+      "url": "https://www.stonier.com.au/visit/",
+      "supports": "Stonier official visit page places its public cellar door at 2 Thompsons Lane, Merricks."
+    },
+    {
+      "url": "https://elgeeparkwines.com.au/contact/",
+      "supports": "Elgee Park estate is closed to general public; wine tastings are at Merricks Store in Merricks."
+    },
+    {
+      "url": "https://rarehare.com.au/home/willow-creek-vineyard/",
+      "supports": "Willow Creek/Jackalope hospitality is at 166 Balnarring Road, Merricks North."
+    }
+  ],
+  "validation": {
+    "content": "PASS: final7 production pipeline synced Astro content; schema, media-rights, coordinate, currentness and content gates completed.",
+    "productionBuild": "PASS: TZ=UTC npm run build:search, /tmp/pi-set18-build-final7.log, exit 0; 1013 HTML files walked and Pagefind indexed 727 pages. Updated market cancellation regression and remaining release tests passed.",
+    "localBrowser": "PASS, bounded: independent read-only checks of final7 static preview at 320/390/1440 on the four T1 place pages and Merricks North receiver found no horizontal overflow, page errors or broken loaded images. Merricks North H1 x=20/20/80px with visible Visit Victoria credit; local event and paused venue routes returned 200/304.",
+    "independentReview": "Bounded GO from independent factual and visual reviewers: Hill & Ridge shows cancelled, EventCancelled, no positive badges or trip CTA; Red Hill no longer promotes the date; Merricks North no Elgee public visit or Merricks Stonier/Baillieu claims and credited local hero; paused Elgee, Kerri Greens and Garagiste pages have no booking/directions. Many Little and Phaedrus locality/address verified. No full 23-criterion score or 99 claim.",
+    "liveAcceptance": null
+  },
+  "hardGatesOpen": [
+    "Exact public deployment and page acceptance for set18",
+    "Complete independent 23-criterion review for every touched page",
+    "Direct assistive-technology journeys",
+    "Field performance",
+    "Main Ridge local photo breadth; fallback is explicitly nearby Red Hill",
+    "Remaining Baxter and cross-page locality/image mismatches",
+    "Merricks North full independent visual/rights review beyond the licensed hero"
+  ],
+  "negativeFindings": [
+    "Main Ridge gallery will lose all seven Ocean Eight images; its remaining hero requires its own subject/rights review, and a stronger verified local gallery is needed.",
+    "Removing an unverified coordinate makes the Directions link use the published operator name and address; exact map-search result still needs direct testing.",
+    "The Red Hill page serves the wider district; its hero and several gallery images show adjacent Red Hill South and are now labelled as such. A strict village-only visual set remains unavailable.",
+    "Other locality-card and article-hero mismatches found by independent review remain in the T1/T2 backlog, including Merricks North venues shown in Merricks, a Baxter listing in Mornington, and Ocean Eight imagery on a Main Ridge article.",
+    "The market guide and event detail were more stale than the place card; a previously passing regression test asserted the cancelled event as confirmed. It has been changed to assert EventCancelled and no trip action.",
+    "OpenTable blocked the automated probe with HTTP 403; the Many Little booking CTA routes to the operator contact page, whose Book a Table control links to OpenTable.",
+    "Elgee Park estate does not admit general public; its wines remain available at Merricks Store. Generic estate directions were withdrawn.",
+    "Impeccable detector found two pre-existing 3px side accent borders in the shared place template outside this bounded hero fix; review in a later visual pass.",
+    "An early set18 build failed on a CMS responsive-image fetch timeout and a later build surfaced stale/invalid source and test fixtures; final5 full pipeline passed. These earlier failed receipts are retained in /tmp/pi-set18-build-*.log.",
+    "Visit Victoria placement helper found one new required placement and 100 previously stale where-used rows. The single Merricks North photo placement was appended without rewriting unrelated historical rows; the licence gate passed 761 uses."
+  ],
+  "nextAction": "Commit and publish this bounded factual/locality set through normal PR/CI; verify exact deployment manifest and public pages. Keep score null pending complete independent rubric, assistive-technology, field performance and remaining visual/locality gates."
+}

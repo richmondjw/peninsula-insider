@@ -11,13 +11,12 @@ const jsonLd = (body) => [...body.matchAll(/<script[^>]*type="application\/ld\+j
 
 const eventRoute = 'whats-on/hill-ridge-community-market-september-2026-restart';
 
-test('market guide ItemList uses real localities for all four current entries', () => {
+test('market guide ItemList lists only the three current market guides', () => {
   const page = html('explore/markets');
   const list = jsonLd(page).find((node) => node['@type'] === 'ItemList' && node.name === 'Mornington Peninsula Markets');
   assert.ok(list, 'market guide ItemList missing');
   const rows = list.itemListElement.map(({ item }) => [item.name, item.address?.addressLocality]);
   assert.deepEqual(rows, [
-    ['Hill & Ridge Community Market', 'Red Hill'],
     ['Mornington Main Street Market', 'Mornington'],
     ['Rye Foreshore Market', 'Rye'],
     ['Mount Eliza Farmers Market', 'Mount Eliza'],
@@ -25,7 +24,7 @@ test('market guide ItemList uses real localities for all four current entries', 
   assert.ok(!page.includes('[object Object]'), 'object leaked into rendered market guide');
 });
 
-test('featured Hill & Ridge detail and Event schema agree on the verified 3 October edition', () => {
+test('cancelled Hill & Ridge edition stays public without a visit recommendation', () => {
   const page = html(eventRoute);
   const event = jsonLd(page).find((node) => node['@type'] === 'Event');
   assert.ok(event, 'Hill & Ridge Event schema missing');
@@ -34,6 +33,12 @@ test('featured Hill & Ridge detail and Event schema agree on the verified 3 Octo
   assert.match(event.startDate, /^2026-10-03T09:00/);
   assert.match(event.endDate, /^2026-10-03T14:00/);
   assert.match(page, /Hill &amp; Ridge Community Market, 3 October 2026/);
-  assert.match(page, /Unsafe weather/);
+  assert.match(page, /Do not travel for this date/);
+  assert.equal(event.eventStatus, 'https://schema.org/EventCancelled');
+  assert.doesNotMatch(page, /Get directions/);
+  assert.doesNotMatch(page, /Worth the drive|First time on the Peninsula/i);
+  assert.doesNotMatch(html('explore/places/red-hill'), /Hill &amp; Ridge Community Market, 3 October 2026/);
+  assert.match(html('explore/markets'), /3 Oct 2026 · Cancelled by organiser/);
+  assert.doesNotMatch(html('explore/markets'), /Next confirmed: 3 Oct 2026/);
   assert.doesNotMatch(event.name, /September 2026|Restart/);
 });
