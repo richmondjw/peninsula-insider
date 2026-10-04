@@ -38,7 +38,7 @@
   "tier": "T1",
   "family": "place",
   "assessedAt": "2026-10-04",
-  "status": "ready-for-release",
+  "status": "live-bounded-accepted-with-provenance-followup",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -171,16 +171,16 @@
     "productionBuild": "PASS: TZ=UTC npm run build:search, /tmp/pi-set18-build-final7.log, exit 0; 1013 HTML files walked and Pagefind indexed 727 pages. Updated market cancellation regression and remaining release tests passed.",
     "localBrowser": "PASS, bounded: independent read-only checks of final7 static preview at 320/390/1440 on the four T1 place pages and Merricks North receiver found no horizontal overflow, page errors or broken loaded images. Merricks North H1 x=20/20/80px with visible Visit Victoria credit; local event and paused venue routes returned 200/304.",
     "independentReview": "Bounded GO from independent factual and visual reviewers: Hill & Ridge shows cancelled, EventCancelled, no positive badges or trip CTA; Red Hill no longer promotes the date; Merricks North no Elgee public visit or Merricks Stonier/Baillieu claims and credited local hero; paused Elgee, Kerri Greens and Garagiste pages have no booking/directions. Many Little and Phaedrus locality/address verified. No full 23-criterion score or 99 claim.",
-    "liveAcceptance": null
+    "liveAcceptance": "PASS, bounded: public release-manifest sourceSha 482ce6ecccc0d8d18628ac9c1dcd87f3b12fb968, buildRunId 37171162408. Independent live factual and visual reviewers confirmed corrected place/gallery locality, venue directions, cancellation/no-trip actions and paused-visit handling; 320/390/1440 pages returned 200 with no overflow or broken loaded images. Merricks North visible hero is licensed, but an admin-hydrated hidden CMS background was found and is being corrected in a separate follow-up. Full score remains null."
   },
   "hardGatesOpen": [
-    "Exact public deployment and page acceptance for set18",
     "Complete independent 23-criterion review for every touched page",
     "Direct assistive-technology journeys",
     "Field performance",
     "Main Ridge local photo breadth; fallback is explicitly nearby Red Hill",
     "Remaining Baxter and cross-page locality/image mismatches",
-    "Merricks North full independent visual/rights review beyond the licensed hero"
+    "Merricks North full independent visual/rights review beyond the licensed hero",
+    "Merricks North/Main Ridge admin-hydrated hero provenance follow-up must be built, independently checked and accepted live"
   ],
   "negativeFindings": [
     "Main Ridge gallery will lose all seven Ocean Eight images; its remaining hero requires its own subject/rights review, and a stronger verified local gallery is needed.",
@@ -192,7 +192,22 @@
     "Elgee Park estate does not admit general public; its wines remain available at Merricks Store. Generic estate directions were withdrawn.",
     "Impeccable detector found two pre-existing 3px side accent borders in the shared place template outside this bounded hero fix; review in a later visual pass.",
     "An early set18 build failed on a CMS responsive-image fetch timeout and a later build surfaced stale/invalid source and test fixtures; final5 full pipeline passed. These earlier failed receipts are retained in /tmp/pi-set18-build-*.log.",
-    "Visit Victoria placement helper found one new required placement and 100 previously stale where-used rows. The single Merricks North photo placement was appended without rewriting unrelated historical rows; the licence gate passed 761 uses."
+    "Visit Victoria placement helper found one new required placement and 100 previously stale where-used rows. The single Merricks North photo placement was appended without rewriting unrelated historical rows; the licence gate passed 761 uses.",
+    "Live visual review found a hidden unattributed CMS background behind the credited Merricks North image in an admin-hydrated DOM. The public static HTML and visible image used the licensed local photo; follow-up will move the editable marker onto the image and prevent metadata-sensitive post-render swaps."
   ],
-  "nextAction": "Commit and publish this bounded factual/locality set through normal PR/CI; verify exact deployment manifest and public pages. Keep score null pending complete independent rubric, assistive-technology, field performance and remaining visual/locality gates."
+  "nextAction": "Complete the bounded hero-provenance follow-up through normal CI and exact public acceptance; then continue complete independent 23-criterion, direct AT, field performance and remaining rights/locality review. Score stays null.",
+  "heroProvenanceFollowUp": {
+    "baseline": "Live set18 browser DOM for Merricks North had a credited Visit Victoria <img> over a hidden uncredited Supabase CMS background injected into the editable <section> in an authenticated editor session. Anonymous static HTML and the visible image were licensed; the hidden fallback could become visible if the image failed. The separate social hero resolver was unguarded for Main Ridge and Merricks North.",
+    "hypothesis": "Putting the editable slot on the semantic image, blocking post-render hydration for these metadata-sensitive slots and guarding the page social resolver will prevent image/credit divergence without changing the visitor layout.",
+    "boundedChange": "Move the place hero editable marker from its section to the image; require image metadata and disable post-render hydration for Main Ridge and Merricks North; guard the page-level social hero resolver for those same two slugs.",
+    "metric": "Full production build passes; generated Main Ridge and Merricks North HTML has no section background or section edit marker, image has the editable/metadata/no-hydrate attributes, og:image uses the credited fallback; independent browser review and exact public revision acceptance.",
+    "evaluationDate": "2026-10-04",
+    "rollback": "Revert the bounded hero follow-up commit if the inline editor cannot target the hero image or the public hero/OG image diverges from its credit.",
+    "validation": {
+      "productionBuild": "PASS: TZ=UTC npm run build:search, /tmp/pi-set18-hero-guard-build.log, exit 0; 1013 HTML files walked and 727 indexed.",
+      "generatedMarkup": "PASS: both generated place hero sections have no inline background/style or editable marker; the semantic img carries edit, metadata and no-hydrate attributes; og:image matches credited content photo.",
+      "independentBrowser": "Bounded GO: independent reviewer checked Main Ridge and Merricks North preview at 320/390/1440. Both return 200 with no overflow, H1 inset 20px mobile/80px desktop, no section inline or computed background, matching loaded image/visible credit and required metadata/no-hydrate attributes. Authenticated editor session was unavailable; source client skips these attributes in explicit and basename hydration passes.",
+      "liveAcceptance": null
+    }
+  }
 }
