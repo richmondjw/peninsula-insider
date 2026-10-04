@@ -161,24 +161,12 @@ On the map
 
 ## Boneo, by location
 
-Every editorially verified pin in Boneo on one screen - toggle a category, click any marker for the editor's note.
+Explore Boneo by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Boneo
+- [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>) · village
 
-Coming up in Boneo, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Monthly
-
-### ✦ Boneo Community Market
-
-Boneo
-
-Peninsula's longest-running volunteer-run community market. Third Saturday, year-round, all weather. Make it, grow it, bake it: real homemade and homegrown.
-
- Markets](<https://peninsulainsider.com.au/whats-on/boneo-community-market/>)
+- [Eagle Ridge Golf Course](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>) · golf-course

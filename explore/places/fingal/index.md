@@ -375,9 +375,29 @@ On the map
 
 ## Fingal, by location
 
-Every editorially verified pin in Fingal on one screen - toggle a category, click any marker for the editor's note.
+Explore Fingal by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>) · village
+
+- [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) · spa
+
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) · spa
+
+- [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) · lodge
+
+- [Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) · glamping
+
+- [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>) · villa
+
+- [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>) · brewery
+
+- [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>) · golf-course
+
+- [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>) · golf-course
 
 On the calendar in this place
 
@@ -387,32 +407,12 @@ Coming up in Fingal, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Every Saturday
+- [Sat, 10 Oct
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
 
 Fingal
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry.
+Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
 
- Food & Wine](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-- [1 May – 30 April 2027
-
-### ✦ Peninsula Hot Springs Studio Yoga
-
-Fingal
-
-A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.
-
- Wellness](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
-
-- [1 May – 30 April 2027
-
-### ✦ Peninsula Hot Springs Yoga (Complimentary)
-
-Fingal
-
-Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission. Daily at 9:15am, all ages, no booking.
-
- Wellness](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

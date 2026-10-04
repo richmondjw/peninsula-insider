@@ -147,6 +147,10 @@ On the map
 
 ## Bittern, by location
 
-Every editorially verified pin in Bittern on one screen - toggle a category, click any marker for the editor's note.
+Explore Bittern by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Bittern](<https://peninsulainsider.com.au/explore/places/bittern/>) · village

@@ -147,9 +147,13 @@ On the map
 
 ## Crib Point, by location
 
-Every editorially verified pin in Crib Point on one screen - toggle a category, click any marker for the editor's note.
+Explore Crib Point by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Crib Point](<https://peninsulainsider.com.au/explore/places/crib-point/>) · village
 
 On the calendar in this place
 
@@ -159,7 +163,7 @@ Coming up in Crib Point, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Monthly
+- [Sat, 10 Oct
 
 ### Crib Point Community Market
 
@@ -167,4 +171,4 @@ Crib Point
 
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
- Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

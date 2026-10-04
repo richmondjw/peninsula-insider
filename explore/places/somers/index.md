@@ -215,6 +215,12 @@ On the map
 
 ## Somers, by location
 
-Every editorially verified pin in Somers on one screen - toggle a category, click any marker for the editor's note.
+Explore Somers by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Somers](<https://peninsulainsider.com.au/explore/places/somers/>) · village
+
+- [Somers General](<https://peninsulainsider.com.au/eat/somers-general/>) · cafe

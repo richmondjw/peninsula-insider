@@ -171,9 +171,15 @@ On the map
 
 ## Mount Eliza, by location
 
-Every editorially verified pin in Mount Eliza on one screen - toggle a category, click any marker for the editor's note.
+Explore Mount Eliza by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliza/>) · town
+
+- [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>) · market
 
 On the calendar in this place
 
@@ -183,12 +189,12 @@ Coming up in Mount Eliza, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Monthly
+- [Sun, 25 Oct
 
 ### ✦ Mt Eliza Farmers Market
 
 Mount Eliza
 
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm, with paid entry supporting local Rotary and Lions work.
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
 
- Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)

@@ -177,6 +177,10 @@ On the map
 
 ## St Andrews Beach, by location
 
-Every editorially verified pin in St Andrews Beach on one screen - toggle a category, click any marker for the editor's note.
+Explore St Andrews Beach by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [St Andrews Beach](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/>) · village

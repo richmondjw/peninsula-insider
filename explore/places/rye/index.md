@@ -313,6 +313,22 @@ On the map
 
 ## Rye, by location
 
-Every editorially verified pin in Rye on one screen - toggle a category, click any marker for the editor's note.
+Explore Rye by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Rye](<https://peninsulainsider.com.au/explore/places/rye/>) · town
+
+- [Blue Moon Cottages](<https://peninsulainsider.com.au/stay/blue-moon-cottages/>) · cottage
+
+- [Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) · glamping
+
+- [Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>) · market
+
+- [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>) · pub
+
+- [Rye Ocean Beach](<https://peninsulainsider.com.au/explore/rye-ocean-beach/>) · beach
+
+- [The Dunes Golf Links](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>) · golf-course

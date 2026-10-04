@@ -155,6 +155,10 @@ On the map
 
 ## Capel Sound, by location
 
-Every editorially verified pin in Capel Sound on one screen - toggle a category, click any marker for the editor's note.
+Explore Capel Sound by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>) · town

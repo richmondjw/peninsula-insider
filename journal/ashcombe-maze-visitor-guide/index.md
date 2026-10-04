@@ -133,14 +133,6 @@ Service   8 min
 
 Six confirmed year-round off-leash beaches, the 9am–7pm rule every dog owner gets wrong, and the two active safety alerts that apply right now - including a poison baiting program active across the National Park until October 2026.
 
-Service   2 min
-
-### [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
-
-20 September 2026
-
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
-
 Service   5 min
 
 ### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
@@ -164,6 +156,14 @@ Service   6 min
 22 April 2026
 
 Plan a winery visit with your dog: published policies at Stonier, Main Ridge Estate and Green Olive, plus venues whose pet access needs confirmation.
+
+Service   7 min
+
+### [Free Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula/>)
+
+22 April 2026
+
+Free vehicle entry to Point Nepean National Park. Coolart Wetlands open daily at no cost. Cape Schanck lighthouse grounds free from 6am. A complete guide to what costs nothing - and what almost nothing - on the Peninsula.
 
 ## The Insider Note
 

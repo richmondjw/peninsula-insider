@@ -45,14 +45,6 @@ Keep reading
 
 [All stories →](<https://peninsulainsider.com.au/journal/>)
 
-Service   2 min
-
-### [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
-
-20 September 2026
-
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
-
 Service   5 min
 
 ### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
@@ -92,6 +84,14 @@ Service   9 min
 9 April 2026
 
 If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
+
+Service   6 min
+
+### [Dog-Friendly Wineries on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/>)
+
+22 April 2026
+
+Plan a winery visit with your dog: published policies at Stonier, Main Ridge Estate and Green Olive, plus venues whose pet access needs confirmation.
 
 ## The Insider Note
 

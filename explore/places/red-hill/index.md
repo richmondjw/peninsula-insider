@@ -483,44 +483,56 @@ On the map
 
 ## Red Hill, by location
 
-Every editorially verified pin in Red Hill on one screen - toggle a category, click any marker for the editor's note.
+Explore Red Hill by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Red Hill
+- [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>) · village
 
-Coming up in Red Hill, pulled from the events registry.
+- [Cassis Red Hill](<https://peninsulainsider.com.au/stay/cassis/>) · villa
 
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · winery
 
-- [1 May – 30 April 2027
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · winery
 
-### ✦ Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)
+- [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) · restaurant
 
-Red Hill
+- [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · cottage
 
-Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyard in Main Ridge, matched to Foxeys wines. Ticketed, shared table, outdoors at a working vineyard.
+- [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · hotel
 
- Food & Wine](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · winery
 
-- [1 May – 30 April 2027
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · winery
 
-### ✦ Polperro Cellar Table, Private Dining Experience
+- [Polperro Villas](<https://peninsulainsider.com.au/stay/polperro-villas/>) · villa
 
-Red Hill
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · winery
 
-Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.
+- [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · restaurant
 
- Food & Wine](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · winery
 
-- [1 May – 30 April 2027
+- [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · restaurant
 
-### ✦ Restore & Pamper Retreat at Polperro Farmhouse
+- [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) · brewery
 
-Red Hill
+- [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>) · providore
 
-3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.
+- [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · restaurant
 
- Wellness](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+- [The Orchard Luxury Accommodation](<https://peninsulainsider.com.au/stay/the-orchard-red-hill/>) · cottage
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · winery
+
+- [Arthurs Seat Eagle](<https://peninsulainsider.com.au/explore/arthurs-seat-lookout/>) · lookout
+
+- [Montalto Sculpture Trail](<https://peninsulainsider.com.au/explore/montalto-sculpture-trail/>) · gallery
+
+- [Red Hill Hinterland Cycling](<https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/>) · tour
+
+- [Red Hill Truffles](<https://peninsulainsider.com.au/explore/red-hill-truffles/>) · attraction
+
+- [Summit Circuit Walk - Arthurs Seat](<https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/>) · walk

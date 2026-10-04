@@ -9,7 +9,7 @@ Event     Racing & Sport     25 October 2026     One-off date
 
 # The Bloody Long Walk – Mornington Peninsula 2026
 
-35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run. Limited spots.
+35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
 Worth the drive
 
@@ -17,7 +17,7 @@ Editor's verdict
 
 If you're going to walk 35km, do it where the coast pays you back.
 
-A 35km coastal charity walk from Point Nepean Quarantine Station to Martha Cove Marina, raising funds for the Mito Foundation (mitochondrial disease research). You can walk, jog or run it, and spots are capped so it sells out.
+A 35km coastal charity walk from Point Nepean Quarantine Station to Martha Cove Marina, raising funds for the Mito Foundation (mitochondrial disease research). You can walk, jog or run it.
 
 Who it's for: teams who want a hard physical day with a cause attached. The route uses some of the best stretches of southern Peninsula coast, with checkpoints and food along the way.
 
@@ -59,7 +59,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Bloody+Long+Walk+%E2%80%93+Mornington+Peninsula+2026&dates=20261025%2F20261026&details=35km+charity+walk+from+Point+Nepean+Quarantine+Station+to+Martha+Cove+Marina+for+the+Mito+Foundation.+Walk%2C+jog+or+run.+Limited+spots.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-bloody-long-walk-mornington-peninsula-2026%2F&location=Point+Nepean+National+Park+%28Quarantine+Station+start%29%2C+Point+Nepean+Road%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Bloody+Long+Walk+%E2%80%93+Mornington+Peninsula+2026&dates=20261025%2F20261026&details=35km+charity+walk+from+Point+Nepean+Quarantine+Station+to+Martha+Cove+Marina+for+the+Mito+Foundation.+Walk%2C+jog+or+run.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-bloody-long-walk-mornington-peninsula-2026%2F&location=Point+Nepean+National+Park+%28Quarantine+Station+start%29%2C+Point+Nepean+Road%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -73,21 +73,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Racing & Sport  30 Nov
+Festivals   Annual, November
 
-### ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November.
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Racing & Sport  17 Oct
+Markets   Monthly – 2nd Saturday of every month
 
-### [Breast Foot Forward Annual Community Walk & Run 2026](<https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Breast Foot Forward Annual Community Walk & Run 2026 at Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start…
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -5,9 +5,9 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend     Edition · Fri 2 – Sun 4 October
+Peninsula This Weekend     Edition · Fri 9 – Sun 11 October
 
-This edition covers Fri 2 – Sun 4 October. Check the date with each organiser before travelling, or [browse the current events index](<https://peninsulainsider.com.au/whats-on/>).
+This edition covers Fri 9 – Sun 11 October. Check the date with each organiser before travelling, or [browse the current events index](<https://peninsulainsider.com.au/whats-on/>).
 
 # A Peninsula weekend selection
 

@@ -17,7 +17,7 @@ Illustrative image  This image shows AI-generated still life of gin botanicals a
 
 Editor's verdict
 
-The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the price.
+The most hands-on spirits experience on the Peninsula, and a bottle to take home.
 
 The operator describes a two-hour guided class covering gin history, distillation and botanicals before you blend your own recipe. Its published inclusions are a cheese platter and a 500ml bottle of your gin to take home.
 
@@ -80,16 +80,6 @@ Food & Wine   Check session dates
 An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-Food & Wine   Saturday evenings (check availability)
-
-### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-Polperro's private dining room below the winery.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 
 Food & Wine   Every Saturday evening year-round from 5pm
 

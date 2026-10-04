@@ -167,24 +167,10 @@ On the map
 
 ## Tootgarook, by location
 
-Every editorially verified pin in Tootgarook on one screen - toggle a category, click any marker for the editor's note.
+Explore Tootgarook by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Tootgarook
-
-Coming up in Tootgarook, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Monthly
-
-### ✦ Tootgarook Primary School Market
-
-Tootgarook
-
-Fourth-Saturday fundraising market at Tootgarook Primary School, with produce, plants, crafts and second-hand stalls. Confirm current hours and entry with the organiser before travelling.
-
- Markets](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
+- [Tootgarook](<https://peninsulainsider.com.au/explore/places/tootgarook/>) · village

@@ -393,34 +393,34 @@ On the map
 
 ## Sorrento, by location
 
-Every editorially verified pin in Sorrento on one screen - toggle a category, click any marker for the editor's note.
+Explore Sorrento by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Sorrento
+- [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>) · town
 
-Coming up in Sorrento, pulled from the events registry.
+- [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>) · restaurant
 
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
+- [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · hotel
 
-- [30 November 2026
+- [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · pub
 
-### "Nancye Wynne Bolton" OLA Golf Day 2026
+- [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · restaurant
 
-Sorrento
+- [The Baths Sorrento](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) · restaurant
 
-The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.
+- [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) · hotel
 
- Racing & Sport](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
+- [Coppins Track](<https://peninsulainsider.com.au/explore/coppins-track/>) · walk
 
-- [15 October – 22 October 2026
+- [Sea Search Encounters](<https://peninsulainsider.com.au/explore/sea-search-encounters/>) · tour
 
-### ✦ Oktoberfest at The Continental Sorrento
+- [Sorrento Back Beach](<https://peninsulainsider.com.au/explore/sorrento-back-beach/>) · beach
 
-Sorrento
+- [Sorrento Ferry](<https://peninsulainsider.com.au/explore/sorrento-ferry/>) · tour
 
-Conti Bar becomes a German beer hall from 15 to 22 October, with Weihenstephaner on tap and a Bavarian menu. Free entry.
+- [Sorrento Golf Club](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>) · golf-course
 
- Food & Wine](<https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/>)
+- [Sorrento Ocean Baths](<https://peninsulainsider.com.au/explore/sorrento-ocean-baths/>) · beach

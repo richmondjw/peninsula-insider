@@ -277,9 +277,29 @@ On the map
 
 ## Red Hill, by location
 
-Every editorially verified pin in Red Hill on one screen - toggle a category, click any marker for the editor's note.
+Explore Red Hill by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>) · village
+
+- [Polperro](<https://peninsulainsider.com.au/wine/polperro/>) · winery
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · winery
+
+- [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>) · winery
+
+- [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · winery
+
+- [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>) · winery
+
+- [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) · winery
+
+- [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · winery
+
+- [Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>) · winery
 
 In voice
 

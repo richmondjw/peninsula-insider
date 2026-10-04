@@ -13,7 +13,7 @@ Independent local picks for where to eat, stay and explore. Every recommendation
 
  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Sunday 4 October
+Monday 5 October
 
 Cape Schanck, Mornington Peninsula.   Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
@@ -21,29 +21,27 @@ The short list
 
 ## This weekend
 
-3–4 October
+10–11 October
 
 Swipe or scroll for all three picks
 
-- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+- ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+A broad makers market with food and music at the racecourse; check the date before travelling because race days can shift it.
 
-MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
+Mornington Racecourse   Market
 
-Mornington Peninsula Regional Gallery   Exhibition
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-- ### [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+Live acoustic sets at a resort with views.
 
-Free yoga before a hot springs bathe is the move locals know about and tourists don't book.
+Peppers Moonah Links   Every Saturday
 
-Peninsula Hot Springs   Wellness
+- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-- ### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-The most exclusive table at Polperro and the room you book when an occasion has to land. Worth the spend.
-
-Polperro Winery Restaurant   Food & wine
+Crib Point Community House   Market
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 
@@ -147,13 +145,13 @@ Build the day around a booked lunch or cellar door. Arrange transport between st
 
 Use the town as your starting point for the southern Peninsula. Check conditions before choosing a coastal walk.
 
-Arthurs Seat Eagle, Mornington Peninsula. This photograph does not show the 2026 school-holiday programme. Photo courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula. Photo: Peter Foster, courtesy of Visit Victoria
 
-From the Journal  Service
+From the Journal  Hub Guide
 
-## [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
+## [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
 
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
+Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
 ## The Insider Note
 

@@ -355,6 +355,24 @@ On the map
 
 ## Flinders, by location
 
-Every editorially verified pin in Flinders on one screen - toggle a category, click any marker for the editor's note.
+Explore Flinders by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>) · town
+
+- [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>) · cafe
+
+- [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) · bakery
+
+- [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>) · cafe
+
+- [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>) · restaurant
+
+- [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>) · providore
+
+- [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · winery
+
+- [Flinders Golf Club](<https://peninsulainsider.com.au/explore/flinders-golf-club/>) · golf-course

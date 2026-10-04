@@ -167,6 +167,12 @@ On the map
 
 ## Arthurs Seat, by location
 
-Every editorially verified pin in Arthurs Seat on one screen - toggle a category, click any marker for the editor's note.
+Explore Arthurs Seat by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>) · ridge
+
+- [Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>) · suite

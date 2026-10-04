@@ -357,24 +357,32 @@ On the map
 
 ## Main Ridge, by location
 
-Every editorially verified pin in Main Ridge on one screen - toggle a category, click any marker for the editor's note.
+Explore Main Ridge by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Main Ridge
+- [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>) · village
 
-Coming up in Main Ridge, pulled from the events registry.
+- [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · restaurant
 
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
+- [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>) · bakery
 
-- [1 May – 30 April 2027
+- [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) · restaurant
 
-### ✦ Ten Minutes by Tractor, Terroir Masterclass
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · winery
 
-Main Ridge
+- [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>) · providore
 
-An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · winery
 
- Food & Wine](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · winery
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · winery
+
+- [Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>) · restaurant
+
+- [Greens Bush - Two Bays Section](<https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/>) · walk
+
+- [Sunny Ridge Strawberry Farm](<https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/>) · attraction

@@ -19,9 +19,9 @@ A retreat that takes wellness seriously without the wellness-industrial-complex 
 
 Three days, two nights at Polperro Farmhouse at 64 Donaldsons Road in Red Hill, separate from the winery and villas at 150 Red Hill Road. The format pairs yoga (outdoor in summer, studio in winter) with massage at Peninsula Hot Springs or Endota Red Hill, an optional acupressure workshop, and a Peninsula juice cleanse add-on. Run in partnership with Hut Yoga.
 
-Who it's for: couples or solo travellers who want one weekend to genuinely reset, not a buffet of generic spa treatments. Pricing depends on inclusions; confirm when you call.
+Who it's for: couples or solo travellers who want one weekend to genuinely reset, not a buffet of generic spa treatments.
 
-The practical move: dates are not fixed, so call Lauren at Polperro on (03) 5989 2471 Wednesday to Sunday, or email info@hutyoga.com.au, and build it around your calendar. Confirm the retreat dates and inclusions directly. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; plan any tasting or meal for a trading day and check service times before booking.
+The practical move: dates are not fixed, so call Lauren at Polperro Wednesday to Sunday, or email info@hutyoga.com.au, and build it around your calendar. Confirm the retreat dates and inclusions directly. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; plan any tasting or meal for a trading day and check service times before booking.
 
 Hosted at
 
@@ -75,25 +75,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-AI-assisted artwork · Peninsula Insider
+Festivals   Annual, November
 
-Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Wellness   Check session dates
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
+Markets   Monthly – 2nd Saturday of every month
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Wellness   Daily
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-### [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission.
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

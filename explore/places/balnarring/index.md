@@ -357,9 +357,27 @@ On the map
 
 ## Balnarring, by location
 
-Every editorially verified pin in Balnarring on one screen - toggle a category, click any marker for the editor's note.
+Explore Balnarring by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>) · village
+
+- [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>) · bakery
+
+- [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>) · pub
+
+- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · winery
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · winery
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · winery
+
+- [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · bakery
+
+- [Balnarring Beach](<https://peninsulainsider.com.au/explore/balnarring-beach/>) · beach
 
 On the calendar in this place
 
@@ -369,22 +387,12 @@ Coming up in Balnarring, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Monthly
-
-### ✦ Emu Plains Market, Balnarring
-
-Balnarring
-
-Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring). Showcases craft, design, vintage, music, and food. Family and community favourite under stringybark gums.
-
- Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
-
-- [Monthly
+- [Sat, 17 Oct
 
 ### ✦ Emu Plains Market
 
 Balnarring
 
-Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm; parking is paid.
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
 
- Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)

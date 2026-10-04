@@ -243,6 +243,18 @@ On the map
 
 ## Tuerong, by location
 
-Every editorially verified pin in Tuerong on one screen - toggle a category, click any marker for the editor's note.
+Explore Tuerong by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>) · village
+
+- [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>) · producer
+
+- [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>) · winery
+
+- [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · winery
+
+- [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · winery

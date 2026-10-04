@@ -273,6 +273,16 @@ On the map
 
 ## Point Nepean, by location
 
-Every editorially verified pin in Point Nepean on one screen - toggle a category, click any marker for the editor's note.
+Explore Point Nepean by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Point Nepean](<https://peninsulainsider.com.au/explore/places/point-nepean/>) · zone
+
+- [Farnsworth Track](<https://peninsulainsider.com.au/explore/farnsworth-track/>) · walk
+
+- [Point Nepean Fort Walk](<https://peninsulainsider.com.au/explore/point-nepean-fort-walk/>) · attraction
+
+- [Point Nepean National Park](<https://peninsulainsider.com.au/explore/point-nepean-national-park/>) · park

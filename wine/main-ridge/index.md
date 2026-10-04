@@ -191,9 +191,21 @@ On the map
 
 ## Main Ridge, by location
 
-Every editorially verified pin in Main Ridge on one screen - toggle a category, click any marker for the editor's note.
+Explore Main Ridge by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>) · village
+
+- [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>) · winery
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>) · winery
+
+- [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · winery
+
+- [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · winery
 
 In voice
 

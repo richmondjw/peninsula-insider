@@ -357,24 +357,30 @@ On the map
 
 ## Dromana, by location
 
-Every editorially verified pin in Dromana on one screen - toggle a category, click any marker for the editor's note.
+Explore Dromana by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Dromana
+- [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>) · town
 
-Coming up in Dromana, pulled from the events registry.
+- [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>) · winery
 
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
+- [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) · restaurant
 
-- [1 May – 30 April 2027
+- [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · villa
 
-### ✦ Bass & Flinders Gin Masterclass
+- [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>) · pub
 
-Dromana
+- [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) · brewery
 
-A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.
+- [Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>) · providore
 
- Food & Wine](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+- [Small Stone Pantry](<https://peninsulainsider.com.au/eat/small-stone-pantry/>) · cafe
+
+- [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · winery
+
+- [Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>) · brewery
+
+- [Dromana Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>) · beach

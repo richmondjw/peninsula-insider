@@ -165,6 +165,10 @@ On the map
 
 ## Hastings, by location
 
-Every editorially verified pin in Hastings on one screen - toggle a category, click any marker for the editor's note.
+Explore Hastings by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>) · town

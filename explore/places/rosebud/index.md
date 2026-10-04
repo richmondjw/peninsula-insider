@@ -165,24 +165,12 @@ On the map
 
 ## Rosebud, by location
 
-Every editorially verified pin in Rosebud on one screen - toggle a category, click any marker for the editor's note.
+Explore Rosebud by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Rosebud
+- [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>) · town
 
-Coming up in Rosebud, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Monthly
-
-### Heart of the Community Market (Rosebud)
-
-Rosebud
-
-Rosebud Primary School's community market on the foreshore, on the second Saturday of the month. Recent market notices give 8am to 1pm at 996 Point Nepean Road.
-
- Markets](<https://peninsulainsider.com.au/whats-on/heart-of-the-community-market-rosebud/>)
+- [Rosebud Country Club](<https://peninsulainsider.com.au/explore/rosebud-country-club/>) · golf-course

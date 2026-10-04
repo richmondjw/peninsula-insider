@@ -237,6 +237,14 @@ On the map
 
 ## Safety Beach, by location
 
-Every editorially verified pin in Safety Beach on one screen - toggle a category, click any marker for the editor's note.
+Explore Safety Beach by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>) · town
+
+- [Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>) · restaurant
+
+- [Safety Beach](<https://peninsulainsider.com.au/explore/safety-beach-foreshore/>) · beach

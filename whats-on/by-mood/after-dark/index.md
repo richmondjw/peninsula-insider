@@ -11,15 +11,7 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Food & Wine   Saturday evenings (check availability)
-
-### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-Polperro's private dining room below the winery.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
+No events match this filter for the upcoming window. Check back, or try [all events](<https://peninsulainsider.com.au/whats-on/>).
 
 ## The Insider Note
 

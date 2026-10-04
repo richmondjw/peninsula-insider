@@ -279,6 +279,12 @@ On the map
 
 ## Shoreham, by location
 
-Every editorially verified pin in Shoreham on one screen - toggle a category, click any marker for the editor's note.
+Explore Shoreham by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>) · village
+
+- [Ashcombe Maze & Lavender Gardens](<https://peninsulainsider.com.au/explore/ashcombe-maze/>) · attraction

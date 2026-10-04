@@ -283,6 +283,12 @@ On the map
 
 ## Red Hill South, by location
 
-Every editorially verified pin in Red Hill South on one screen - toggle a category, click any marker for the editor's note.
+Explore Red Hill South by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>) · village
+
+- [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · winery

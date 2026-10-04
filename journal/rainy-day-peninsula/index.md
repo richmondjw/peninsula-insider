@@ -155,14 +155,6 @@ Editor's Letter   8 min
 
 Short days, cheap rooms, empty dining rooms, a fire in every cellar door with a hearth, and a coast that looks like a different country in a southerly. Winter is the Peninsula's most underrated season and the one that gives the region back to the people who actually live here.
 
-Service   2 min
-
-### [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
-
-20 September 2026
-
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
-
 Service   1 min
 
 ### [A Practical Spring Visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
@@ -170,6 +162,14 @@ Service   1 min
 17 September 2026
 
 The confirmed dates, regular opening hours and location for a straightforward gallery visit in Mornington.
+
+Service   5 min
+
+### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
+
+21 August 2026
+
+Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
 
 Mentioned in this piece
 

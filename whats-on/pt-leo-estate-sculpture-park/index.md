@@ -21,9 +21,9 @@ An art-led Peninsula stop that gives both dedicated gallery visitors and casual 
 
 Sixteen and a half acres of landscaped grounds wrapped around a working winery, planted with over seventy contemporary sculptures. There is a short loop (1.9km, about thirty minutes) and a long loop (3km, an hour), both gentle, both walkable in normal shoes. The collection is serious: international and Australian work that would not look out of place at the NGV.
 
-The practical move is to arrive at 11am opening, walk the long loop while the light is good, then collapse into Pt. Leo's cellar door or Laura restaurant for lunch. Family pricing makes it the rare Peninsula cultural day that doesn't punish you for bringing kids. Bring sunscreen, hats, and proper walking shoes; the grass is the grass.
+The practical move is to arrive at 11am opening, walk the long loop while the light is good, then collapse into Pt. Leo's cellar door or Laura restaurant for lunch. Bring sunscreen, hats, and proper walking shoes; the grass is the grass.
 
-Open daily from 11am, with last entry at 4:30pm; check the estate for any changes. Ticketed entry, kids under 12 free, with a family rate for four.
+Open daily from 11am, with last entry at 4:30pm; check the estate for any changes.
 
 Hosted at
 
@@ -89,29 +89,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Arts  18 Oct
+Festivals   Annual, November
 
-### [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Dave Thornton and Lizzy Hoo perform stand-up at St Andrews Beach Brewery in Fingal on Sunday 18 October, 5:30–8pm.
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Arts  21 Nov
+Markets   Monthly – 2nd Saturday of every month
 
-### [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Arts  31 Oct
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
 
-### [Saturday Pottery Class](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-A seven-Saturday pottery course at Oak Hill Gallery for adults.
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

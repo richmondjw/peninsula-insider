@@ -17,9 +17,9 @@ Illustrative image  This image shows AI-generated yoga still life with a mat, to
 
 Editor's verdict
 
-A useful paid add-on if you're already booked in to bathe, not a reason to drive out on its own.
+A useful add-on if you're already booked in to bathe, not a reason to drive out on its own.
 
-Peninsula Hot Springs currently lists a 45-minute studio yoga class at 7:30am daily for guests aged 16 and over, as a paid add-on to bathing. Choose a dated session in the operator booking flow before planning the trip.
+Peninsula Hot Springs currently lists a 45-minute studio yoga class at 7:30am daily for guests aged 16 and over. Choose a dated session in the operator booking flow before planning the trip.
 
 Pair a confirmed class with time to bathe. The published schedule can change, so check availability directly before travelling.
 
@@ -69,23 +69,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Wellness   Dates on request
+Festivals   Annual, November
 
-### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+Markets   Monthly – 2nd Saturday of every month
 
-Wellness   Daily
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-### [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-Free 25-minute outdoor yoga by the amphitheatre pools, included with bathing admission.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -305,24 +305,20 @@ On the map
 
 ## Moorooduc, by location
 
-Every editorially verified pin in Moorooduc on one screen - toggle a category, click any marker for the editor's note.
+Explore Moorooduc by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Moorooduc
+- [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>) · village
 
-Coming up in Moorooduc, pulled from the events registry.
+- [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>) · cafe
 
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
+- [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · winery
 
-- [6 December – 20 December 2026
+- [Moorooduc Estate](<https://peninsulainsider.com.au/wine/moorooduc-estate/>) · winery
 
-### ✦ Mornington Tourist Railway, Santa Specials
+- [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>) · winery
 
-Moorooduc
-
-Heritage steam train rides with Santa on selected December Sundays. Letters to the North Pole, carols at Moorooduc Station, the full Christmas treatment. Booking essential.
-
- Kids & Family](<https://peninsulainsider.com.au/whats-on/mornington-tourist-railway-santa-specials/>)
+- [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · villa

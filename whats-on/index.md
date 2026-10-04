@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-04
+Modified: 2026-10-05
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,7 +9,7 @@ The Peninsula, in motion   spring edition
 
 # What's on this weekend
 
-Fri 2 – Sun 4 October  · Mornington Peninsula
+Fri 9 – Sun 11 October  · Mornington Peninsula
 
 A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.
 
@@ -17,27 +17,33 @@ Photo: Courtesy of Visit Victoria.
 
 Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria.
 
-The short list / Fri 2 – Sun 4 October
+The short list / Fri 9 – Sun 11 October
 
-## Two reasons to go
+## Three reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
 - The lead pick / 01
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
 
-Sun, 4 Oct   Mornington   Exhibitions
+Sat, 10 Oct   Crib Point   Markets
 
-- Illustrative family picnic; not a photograph of this event's route.   Photo: Peninsula Insider.
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+Live acoustic sets at a resort with views.
 
-Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
+Sat, 10 Oct   Fingal   Food & Wine
 
-Sun, 4 Oct   Mornington   Kids & Family
+- Photo: Peninsula Insider.
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+A broad makers market with food and music at the racecourse; check the date before travelling because race days can shift it.
+
+Sun, 11 Oct   Mornington   Markets
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -47,7 +53,7 @@ Make a day of it
 
 Browse by date and save what catches your eye.
 
-### Sunday 4 October
+### Friday 9 October
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
@@ -69,93 +75,59 @@ Experience · check available sessions · Main Ridge · Food & Wine · On during
 
 - [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the…
+The most hands-on spirits experience on the Peninsula, and a bottle to take home.
 
 Experience · check available sessions · Dromana · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 5 September to 22 November. Regular gallery hours…
-
-11am · Mornington · Exhibitions · On during your dates · runs to Sun, 22 Nov
-
 - [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
-A useful paid add-on if you're already booked in to bathe, not a reason to drive out on its own.
+A useful add-on if you're already booked in to bathe, not a reason to drive out on its own.
 
 Experience · check available sessions · 7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
-- [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
-
-Free yoga before a hot springs bathe is the move locals know about and tourists don't book.
-
-9.15am · Fingal · Included with bathing · On during your dates · runs to Fri, 30 Apr 2027
-
-- [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
-The most exclusive table at Polperro and the room you book when an occasion has to land. Worth the spend.
-
-6.30pm · Red Hill · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027
-
-- [Doggy Day Out on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/>)
-
-The Peninsula's best format for dog people. The digital trail structure keeps it interesting for the owners as much as…
-
-Mornington · Food & Wine · Recurring weekly
-
-- [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
-
-Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps…
-
-Mornington · Kids & Family · Recurring weekly
-
-- [Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
-
-A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. The value is genuinely silly.
-
-Red Hill / Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027
-
-## Browse the next two months
-
-### Markets
-
-- [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
-
-A school-run market on the southern Peninsula, with produce, plants, crafts and second-hand stalls.
-
-7.30am · Tootgarook · Markets
-
-- [Emu Plains Market, Balnarring](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula. Stringybarks, music, makers worth coming back to.
-
-9am · Balnarring · Free entry
+### Saturday 10 October
 
 - [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
 
-9am · Crib Point · Free
+9am · Crib Point · Markets · Recurring monthly
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Live acoustic sets at a resort with views.
+
+5pm · Fingal · Food & Wine · Recurring weekly
+
+### Sunday 11 October
 
 - [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 A broad makers market with food and music at the racecourse; check the date before travelling because race days can…
 
-9am · Mornington · Free
+9am · Mornington · Markets · Recurring monthly
 
-### Live music
+## Browse the next two months
 
-- [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
+### Markets
 
-Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
+- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-12pm · Fingal · Live Music
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
-- [Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
+9am · Mount Eliza · Markets
 
-Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October. Doors open at 6:30pm and the…
+- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
-Mornington · Live Music · Free
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+9am · Balnarring · Markets
+
+- [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+Forty years of Wednesdays on Main Street. Not a tourist event, just the way Mornington shops midweek.
+
+9am · Mornington · Markets
 
 ### Food & wine
 
@@ -167,21 +139,9 @@ Experience · check available sessions · Main Ridge · Food & Wine
 
 - [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the…
+The most hands-on spirits experience on the Peninsula, and a bottle to take home.
 
 Experience · check available sessions · Dromana · Food & Wine
-
-- [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
-The most exclusive table at Polperro and the room you book when an occasion has to land. Worth the spend.
-
-6.30pm · Red Hill · Food & Wine
-
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-The Peninsula's best-value Saturday evening. Free entry, happy hour drinks, and live acoustic sets at a resort with proper views.
-
-5pm · Fingal · Free
 
 ### Openings
 
@@ -190,24 +150,6 @@ The Peninsula's best-value Saturday evening. Free entry, happy hour drinks, and 
 An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
 
 Experience · check available sessions · 11am · Merricks · Arts
-
-- [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
-
-Dave Thornton and Lizzy Hoo perform stand-up at St Andrews Beach Brewery in Fingal on Sunday 18 October, 5:30–8pm. Check…
-
-5.30pm · Fingal · Arts
-
-- [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
-
-Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November.…
-
-3pm · Mornington Racecourse · Arts
-
-- [Saturday Pottery Class](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
-
-A seven-Saturday pottery course at Oak Hill Gallery for adults. The full-term booking covers wheel throwing, materials and firing, with…
-
-11am · Mornington · Arts
 
 ### Major events
 
@@ -228,12 +170,6 @@ Portsea · Racing & Sport
 The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or…
 
 8am · Sorrento · Racing & Sport
-
-- [Breast Foot Forward Annual Community Walk & Run 2026](<https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/>)
-
-Breast Foot Forward Annual Community Walk & Run 2026 at Safety Beach Sailing club (10KM Start Line) or Anthonys Nose…
-
-8.30am · Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line) · Racing & Sport
 
 ## The Insider Note
 

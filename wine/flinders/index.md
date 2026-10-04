@@ -153,9 +153,15 @@ On the map
 
 ## Flinders, by location
 
-Every editorially verified pin in Flinders on one screen - toggle a category, click any marker for the editor's note.
+Explore Flinders by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>) · town
+
+- [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · winery
 
 In voice
 

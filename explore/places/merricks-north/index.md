@@ -339,6 +339,14 @@ On the map
 
 ## Merricks North, by location
 
-Every editorially verified pin in Merricks North on one screen - toggle a category, click any marker for the editor's note.
+Explore Merricks North by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>) · village
+
+- [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) · restaurant
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · winery

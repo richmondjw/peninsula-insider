@@ -145,6 +145,10 @@ On the map
 
 ## Tyabb, by location
 
-Every editorially verified pin in Tyabb on one screen - toggle a category, click any marker for the editor's note.
+Explore Tyabb by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Tyabb](<https://peninsulainsider.com.au/explore/places/tyabb/>) · town

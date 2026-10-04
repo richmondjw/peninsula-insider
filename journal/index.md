@@ -14,29 +14,21 @@ Good places. Interesting people.
 
 **Selected 24 September 2026.** Recent practical stories sit alongside favourites from the archive. Each story keeps its original publication date; selecting it again is not a new check of every detail.
 
-With kids / 19 September to 4 October
+Art & culture
 
-## [A little room for the school holidays](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
+## [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
 
-Creative workshops, outdoor days and holiday programmes. Choose one activity, then leave the rest of the day open.
+A practical note for a gallery afternoon in Mornington.
 
-Peninsula Insider · Published 20 Sept 2026 · 2 min read
+Peninsula Insider · Published 17 Sept 2026 · 1 min read
 
- [Read the story](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
+ [Read the story](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
 
 From the editor’s desk
 
 ## Worth your time
 
 More ways into the Peninsula.
-
-mornington
-
-### [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
-
-A practical note for a gallery afternoon in Mornington.
-
-Peninsula Insider · Published 17 Sept 2026
 
 spring
 
@@ -53,6 +45,14 @@ eat
 A Saturday shopping list for anyone cooking in a rental.
 
 Peninsula Insider · Published 9 Apr 2026
+
+boating
+
+### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
+
+Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
+
+Peninsula Insider · Published 21 Aug 2026
 
 [Explore the Journal ↗](<https://peninsulainsider.com.au/journal/#archive>)
 
@@ -671,3 +671,41 @@ Publication month
  Food & wine
 
 Looking for previous [Insider Picks](<https://peninsulainsider.com.au/picks/>)? You’ll find them in their own archive.
+
+On the Peninsula
+
+## Coming up nearby
+
+Current events, experiences and offers, alongside our stories.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Wed, 7 Oct
+
+### ✦ Mornington Wednesday Market (Main Street Market)
+
+Mornington
+
+Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+- [Sat, 10 Oct
+
+### ✦ Acoustic Saturdays at Peppers Moonah Links
+
+Fingal
+
+Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 10 Oct
+
+### Crib Point Community Market
+
+Crib Point
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

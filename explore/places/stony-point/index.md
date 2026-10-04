@@ -145,6 +145,10 @@ On the map
 
 ## Stony Point, by location
 
-Every editorially verified pin in Stony Point on one screen - toggle a category, click any marker for the editor's note.
+Explore Stony Point by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Stony Point](<https://peninsulainsider.com.au/explore/places/stony-point/>) · village

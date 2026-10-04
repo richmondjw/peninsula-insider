@@ -191,14 +191,6 @@ Service   9 min
 
 You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
 
-Service   2 min
-
-### [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
-
-20 September 2026
-
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
-
 Service   1 min
 
 ### [A Practical Spring Visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
@@ -214,6 +206,14 @@ Service   5 min
 21 August 2026
 
 Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
+
+Service   5 min
+
+### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
+
+7 August 2026
+
+When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
 
 Mentioned in this piece
 

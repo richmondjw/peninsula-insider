@@ -225,13 +225,13 @@ Service   8 min
 
 Six confirmed year-round off-leash beaches, the 9am–7pm rule every dog owner gets wrong, and the two active safety alerts that apply right now - including a poison baiting program active across the National Park until October 2026.
 
-Service   2 min
+Service   1 min
 
-### [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
+### [A Practical Spring Visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
 
-20 September 2026
+17 September 2026
 
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
+The confirmed dates, regular opening hours and location for a straightforward gallery visit in Mornington.
 
 ## The Insider Note
 

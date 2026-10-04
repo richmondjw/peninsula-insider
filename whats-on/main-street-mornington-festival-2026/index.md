@@ -51,7 +51,7 @@ Annual · Annual (3rd Sunday October) when it runs. Cancelled in 2025 and 2026.
 
 **Price**
 
-Free
+Check organiser for pricing
 
 **Where**
 
@@ -83,23 +83,23 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Markets   Monthly – 4th Saturday of every month
+Markets   Monthly – 2nd Saturday of every month
 
-### [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Fourth-Saturday fundraising market at Tootgarook Primary School, with produce, plants, crafts and second-hand stalls.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Markets   Monthly (3rd Saturday approx)
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
 
-### [Emu Plains Market, Balnarring](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring).
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

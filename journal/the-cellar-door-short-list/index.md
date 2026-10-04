@@ -250,3 +250,19 @@ The Peninsula worth knowing. An occasional email. What's on, where we'd go and w
 Independent editorial. Sent when there is something worth knowing.
 
 Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)
+
+On the calendar
+
+## Coming up in these places
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 17 Oct
+
+### ✦ Emu Plains Market
+
+Balnarring
+
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)

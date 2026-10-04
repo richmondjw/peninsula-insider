@@ -153,6 +153,10 @@ On the map
 
 ## Point Leo, by location
 
-Every editorially verified pin in Point Leo on one screen - toggle a category, click any marker for the editor's note.
+Explore Point Leo by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Point Leo](<https://peninsulainsider.com.au/explore/places/point-leo/>) · village

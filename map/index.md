@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Insider Map
 
-Everything we cover, on one screen, filtered exactly like the list you came from.
+Explore the Peninsula by location. Events show the next 30 days where the event location has been verified. [See all upcoming listings](<https://peninsulainsider.com.au/whats-on/>).
 
 182 on the map
 

@@ -409,6 +409,34 @@ On the map
 
 ## Cape Schanck, by location
 
-Every editorially verified pin in Cape Schanck on one screen - toggle a category, click any marker for the editor's note.
+Explore Cape Schanck by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>) · cape
+
+- [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>) · restaurant
+
+- [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>) · suite
+
+- [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>) · spa
+
+- [Bushrangers Bay](<https://peninsulainsider.com.au/explore/bushrangers-bay/>) · beach
+
+- [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>) · walk
+
+- [Cape Schanck Boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>) · lookout
+
+- [Cape Schanck Lighthouse Walk](<https://peninsulainsider.com.au/explore/cape-schanck-lighthouse-walk/>) · walk
+
+- [Cape Schanck to London Bridge Coastal Walk](<https://peninsulainsider.com.au/explore/coastal-walk-cape-schanck/>) · walk
+
+- [Gunnamatta Ocean Beach](<https://peninsulainsider.com.au/explore/gunnamatta-ocean-beach/>) · beach
+
+- [RACV Cape Schanck Golf Course](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>) · golf-course
+
+- [The National Golf Club](<https://peninsulainsider.com.au/explore/the-national-golf-club/>) · golf-course
+
+- [Two Bays Walking Track](<https://peninsulainsider.com.au/explore/two-bays-walking-track/>) · walk

@@ -269,9 +269,21 @@ On the map
 
 ## Portsea, by location
 
-Every editorially verified pin in Portsea on one screen - toggle a category, click any marker for the editor's note.
+Explore Portsea by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>) · village
+
+- [Point Nepean Discovery Tents](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) · glamping
+
+- [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>) · pub
+
+- [Portsea Front Beach](<https://peninsulainsider.com.au/explore/portsea-front-beach/>) · beach
+
+- [Portsea Golf Club](<https://peninsulainsider.com.au/explore/portsea-golf-club/>) · golf-course
 
 On the calendar in this place
 
@@ -281,12 +293,12 @@ Coming up in Portsea, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [25 October 2026
+- [Sun, 25 Oct
 
 ### ✦ The Bloody Long Walk – Mornington Peninsula 2026
 
 Portsea
 
-35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run. Limited spots.
+35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
- Racing & Sport](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+ Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)

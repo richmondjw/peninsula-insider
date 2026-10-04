@@ -223,24 +223,12 @@ On the map
 
 ## Mount Martha, by location
 
-Every editorially verified pin in Mount Martha on one screen - toggle a category, click any marker for the editor's note.
+Explore Mount Martha by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Mount Martha
+- [Mount Martha](<https://peninsulainsider.com.au/explore/places/mount-martha/>) · village
 
-Coming up in Mount Martha, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [21 November 2026
-
-### ✦ Peninsula VineHop Festival 2026
-
-Mount Martha
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.
-
- Festivals](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+- [Mount Martha Beach](<https://peninsulainsider.com.au/explore/mount-martha-beach/>) · beach

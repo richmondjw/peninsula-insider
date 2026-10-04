@@ -9,15 +9,15 @@ Event     Food & Wine     10 October 2026     Recurs weekly
 
 # Acoustic Saturdays at Peppers Moonah Links
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm. Free entry.
+Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
 
 All weather
 
 Editor's verdict
 
-The Peninsula's best-value Saturday evening. Free entry, happy hour drinks, and live acoustic sets at a resort with proper views.
+Live acoustic sets at a resort with views.
 
-On Saturday 3 October, acoustic music is listed from 5–8pm at Moonah Links. The resort places its live music at Spike Bar, with no booking required. The Shire confirms free entry for this date.
+The resort places its live music at Spike Bar, with no booking required.
 
 This is an easy evening stop after a Fingal or Cape Schanck day. Check the organiser before travelling in case the programme changes.
 
@@ -47,7 +47,7 @@ Recurs weekly · Every Saturday evening year-round from 5pm
 
 **Price**
 
-Free
+Check organiser for pricing
 
 **Where**
 
@@ -57,7 +57,7 @@ Free
 
 All weather
 
-[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Acoustic+Saturdays+at+Peppers+Moonah+Links&dates=20261010T060000Z%2F20261010T090000Z&details=Saturday+evening+acoustic+sessions+with+local+artists+at+Peppers+Moonah+Links.+Happy+hour+5%E2%80%936pm.+Free+entry.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Facoustic-saturdays-peppers-moonah-links-2026%2F&location=Peppers+Moonah+Links%2C+55+Peter+Thomson+Drive%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Acoustic+Saturdays+at+Peppers+Moonah+Links&dates=20261010T060000Z%2F20261010T090000Z&details=Saturday+evening+acoustic+sessions+with+local+artists+at+Peppers+Moonah+Links.+Happy+hour+5%E2%80%936pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Facoustic-saturdays-peppers-moonah-links-2026%2F&location=Peppers+Moonah+Links%2C+55+Peter+Thomson+Drive%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -94,16 +94,6 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
-
-Food & Wine   Saturday evenings (check availability)
-
-### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-Polperro's private dining room below the winery.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

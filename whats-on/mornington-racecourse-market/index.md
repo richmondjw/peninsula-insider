@@ -9,7 +9,7 @@ Event     Markets     11 October 2026     Recurs monthly
 
 # Mornington Racecourse Market
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Entry is free; parking is paid. Dogs are not permitted.
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Dogs are not permitted.
 
 Worth the drive   First timer
 
@@ -17,7 +17,7 @@ Editor's verdict
 
 A broad makers market with food and music at the racecourse; check the date before travelling because race days can shift it.
 
-Entry is free and parking is paid. The operator warns that racing can shift the usual second-Sunday schedule, so check the current date before setting off.
+The operator warns that racing can shift the usual second-Sunday schedule, so check the current date before setting off.
 
 The move: browse the makers first, then have lunch on the lawn or continue into Mornington.
 
@@ -47,7 +47,7 @@ Recurs monthly · Monthly – 2nd Sunday of month (year-round; occasionally 3rd 
 
 **Price**
 
-Free
+Check organiser for pricing
 
 **Where**
 
@@ -65,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.craftmarkets.com.au/mornington>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Racecourse+Market&dates=20261010T220000Z%2F20261011T030000Z&details=Monthly+makers+market+at+Mornington+Racecourse%2C+with+handmade+and+Australian-designed+goods%2C+food+stalls+and+live+music.+Entry+is+free%3B+parking+is+paid.+Dogs+are+not+permitted.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-racecourse-market%2F&location=Mornington+Racecourse%2C+320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.craftmarkets.com.au/mornington>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Racecourse+Market&dates=20261010T220000Z%2F20261011T030000Z&details=Monthly+makers+market+at+Mornington+Racecourse%2C+with+handmade+and+Australian-designed+goods%2C+food+stalls+and+live+music.+Dogs+are+not+permitted.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-racecourse-market%2F&location=Mornington+Racecourse%2C+320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -81,24 +81,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Markets   Monthly – 4th Saturday of every month
-
-### [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
-
-Fourth-Saturday fundraising market at Tootgarook Primary School, with produce, plants, crafts and second-hand stalls.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
-
-Markets   Monthly (3rd Saturday approx)
-
-### [Emu Plains Market, Balnarring](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
-
-[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
-
-Monthly artisan market at Emu Plains Reserve (Coolart Road, Balnarring).
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
-
 Markets   Monthly – 2nd Saturday of every month
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
@@ -106,6 +88,24 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
+
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

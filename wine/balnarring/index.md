@@ -171,9 +171,19 @@ On the map
 
 ## Balnarring, by location
 
-Every editorially verified pin in Balnarring on one screen - toggle a category, click any marker for the editor's note.
+Explore Balnarring by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>) · village
+
+- [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) · winery
+
+- [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>) · winery
+
+- [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) · winery
 
 In voice
 

@@ -151,6 +151,10 @@ On the map
 
 ## McCrae, by location
 
-Every editorially verified pin in McCrae on one screen - toggle a category, click any marker for the editor's note.
+Explore McCrae by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [McCrae](<https://peninsulainsider.com.au/explore/places/mccrae/>) · town

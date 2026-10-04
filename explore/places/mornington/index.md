@@ -347,9 +347,37 @@ On the map
 
 ## Mornington, by location
 
-Every editorially verified pin in Mornington on one screen - toggle a category, click any marker for the editor's note.
+Explore Mornington by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>) · town
+
+- [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · cafe
+
+- [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>) · pub
+
+- [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · market
+
+- [Mornington Peninsula Brewery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) · brewery
+
+- [Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>) · restaurant
+
+- [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>) · providore
+
+- [Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>) · bakery
+
+- [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · pub
+
+- [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>) · restaurant
+
+- [Mornington Peninsula Foreshore Walk](<https://peninsulainsider.com.au/explore/mornington-foreshore-walk/>) · walk
+
+- [Mornington Golf Club](<https://peninsulainsider.com.au/explore/mornington-golf-club/>) · golf-course
+
+- [Mornington Peninsula Regional Gallery](<https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/>) · gallery
 
 On the calendar in this place
 
@@ -359,32 +387,22 @@ Coming up in Mornington, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Every Saturday
+- [Sun, 11 Oct
 
-### ✦ Doggy Day Out on the Mornington Peninsula
-
-Mornington
-
-Self-guided pet-friendly day following digital clues across the Peninsula. Dog cafe with pup-approved snacks, human treats, and a relaxed winery picnic lunch. Runs Thursday to Sunday weekly.
-
- Food & Wine](<https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/>)
-
-- [30 October 2026
-
-### Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington
+### ✦ Mornington Racecourse Market
 
 Mornington
 
-Free live music and mantra meditation at Peninsula Community Theatre on Friday 30 October. Doors open at 6:30pm and the session starts at 7pm; donations are appreciated.
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Dogs are not permitted.
 
- Live Music](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-- [Every Saturday
+- [Wed, 7 Oct
 
-### ✦ Family Mystery Picnic on the Mornington Peninsula
+### ✦ Mornington Wednesday Market (Main Street Market)
 
 Mornington
 
-Self-guided family scavenger journey: solve smartphone clues, collect picnic goodies from local providers, hit activity stops, and feast at a scenic picnic location. Runs Thursday to Sunday weekly.
+Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
- Kids & Family](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)

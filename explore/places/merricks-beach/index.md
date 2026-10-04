@@ -147,6 +147,10 @@ On the map
 
 ## Merricks Beach, by location
 
-Every editorially verified pin in Merricks Beach on one screen - toggle a category, click any marker for the editor's note.
+Explore Merricks Beach by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Merricks Beach](<https://peninsulainsider.com.au/explore/places/merricks-beach/>) · village

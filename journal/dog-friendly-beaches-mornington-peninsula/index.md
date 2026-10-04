@@ -201,13 +201,13 @@ Service   6 min
 
 Foreshore walks, coastal scrub, and the one fenced off-leash utility ground that justifies the drive to Briars. Where dog walks actually work on the Peninsula - and where the National Park prohibits them entirely.
 
-Service   2 min
+Service   5 min
 
-### [Spring school holidays on the Peninsula](<https://peninsulainsider.com.au/journal/spring-school-holidays-2026/>)
+### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
 
-20 September 2026
+7 August 2026
 
-Three ways to use the final days of the spring break: gondola art, outdoor play and an all-weather gallery stop, through 4 October 2026.
+When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
 
 ## The Insider Note
 

@@ -89,16 +89,6 @@ A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Food & Wine   Saturday evenings (check availability)
-
-### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-Polperro's private dining room below the winery.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
-
 Food & Wine   Every Saturday evening year-round from 5pm
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

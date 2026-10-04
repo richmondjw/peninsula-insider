@@ -375,24 +375,28 @@ On the map
 
 ## Merricks, by location
 
-Every editorially verified pin in Merricks on one screen - toggle a category, click any marker for the editor's note.
+Explore Merricks by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
 
-On the calendar in this place
+Browse locations as a list
 
-## Events in Merricks
+- [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>) · village
 
-Coming up in Merricks, pulled from the events registry.
+- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · winery
 
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
+- [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) · restaurant
 
-- [1 May – 30 April 2027
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · winery
 
-### ✦ Pt. Leo Estate Sculpture Park
+- [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) · restaurant
 
-Merricks
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · winery
 
-An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.
+- [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>) · restaurant
 
- Arts](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
+- [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) · winery
+
+- [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · winery
+
+- [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/>) · gallery

@@ -223,9 +223,25 @@ On the map
 
 ## Merricks, by location
 
-Every editorially verified pin in Merricks on one screen - toggle a category, click any marker for the editor's note.
+Explore Merricks by location. Events cover the next 30 days where their location has been verified.
 
 Loading map…
+
+Browse locations as a list
+
+- [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>) · village
+
+- [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) · winery
+
+- [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>) · winery
+
+- [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>) · winery
+
+- [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) · winery
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · winery
+
+- [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · winery
 
 In voice
 
