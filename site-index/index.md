@@ -519,6 +519,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Breast Foot Forward Annual Community Walk & Run 2026](<https://peninsulainsider.com.au/whats-on/breast-foot-forward-annual-community-walk-and-run-2026/>)
 
+- [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+
 - [Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 
 - [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)

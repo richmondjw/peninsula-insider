@@ -89,6 +89,14 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Arts  18 Oct
+
+### [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+
+Dave Thornton and Lizzy Hoo perform stand-up at St Andrews Beach Brewery in Fingal on Sunday 18 October, 5:30–8pm.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+
 Arts  21 Nov
 
 ### [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)

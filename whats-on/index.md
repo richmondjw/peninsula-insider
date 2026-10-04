@@ -191,6 +191,12 @@ An art-led Peninsula stop that gives both dedicated gallery visitors and casual 
 
 11am · Merricks · Arts
 
+- [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+
+Dave Thornton and Lizzy Hoo perform stand-up at St Andrews Beach Brewery in Fingal on Sunday 18 October, 5:30–8pm. Check…
+
+5.30pm · Fingal · Arts
+
 - [Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026](<https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/>)
 
 Glamping accommodation add-on for Horror Movie Campout at Mornington Racecourse, from 3pm on 21 November to 11am on 22 November.…

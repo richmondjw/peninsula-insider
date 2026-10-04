@@ -61,6 +61,14 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
+Arts  18 Oct
+
+### [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+
+Dave Thornton and Lizzy Hoo perform stand-up at St Andrews Beach Brewery in Fingal on Sunday 18 October, 5:30–8pm.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
+
 Arts  31 Oct
 
 ### [Saturday Pottery Class](<https://peninsulainsider.com.au/whats-on/saturday-pottery-class/>)
