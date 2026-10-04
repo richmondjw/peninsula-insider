@@ -1,7 +1,7 @@
 {
   "record": "Published CMS images held from display pending subject and rights verification",
   "project": "Peninsula Insider",
-  "checkedOn": "2026-10-03",
+  "checkedOn": "2026-10-04",
   "quarantined": [
     {
       "key": "venue/doot-doot-doot",
@@ -110,6 +110,12 @@
       "fieldPath": "heroImage",
       "storagePath": "event/peninsula-hot-springs-daily-studio-yoga/heroImage-1789644775349.jpg",
       "reason": "Published CMS upload has no per-image source or rights grant; use the commissioned illustrative yoga artwork until cleared."
+    },
+    {
+      "key": "place/fingal",
+      "fieldPath": "heroImage",
+      "storagePath": "place/fingal/heroImage-1780312208652.jpg",
+      "reason": "Published Fingal CMS upload has generic alt and no item-level credit, licence or provenance record; use the licensed and explicitly labelled Alba Thermal Springs fallback pending independent rights review."
     }
   ]
 }

@@ -38,7 +38,8 @@ const imgClass = variant === 'bay'
 // The resolver applies the published CMS override during the static build,
 // keeping cards aligned with the canonical detail-page hero.
 const textOnly = mediaMode === 'text';
-const hero = textOnly ? null : await resolveHero('place', slug, data);
+const hero = textOnly ? null : await resolveHero('place', slug, data, 'heroImage',
+  slug === 'fingal' ? { requireOverrideMetadata: true } : {});
 
 const intro = String(data.intro ?? '');
 const displayIntro = summary ?? (introMaxLength && intro.length > introMaxLength
@@ -60,6 +61,8 @@ const displayIntro = summary ?? (introMaxLength && intro.length > introMaxLength
       label: `${data.name} hero`,
       purpose: 'hero',
     })}
+    data-pi-requires-image-metadata={slug === 'fingal' ? 'true' : undefined}
+    data-pi-no-hydrate={slug === 'fingal' ? 'true' : undefined}
   ><img src={hero.src} alt="" loading="lazy" decoding="async" /></a>}
   <div class="place-card__body">
     {showDetails && showMeta && (<p class="place-card__zone">{zoneLabel} · {data.kind}</p>)}
