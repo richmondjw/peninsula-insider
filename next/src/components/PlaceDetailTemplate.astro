@@ -89,7 +89,10 @@ const heroProvenance = hero.override ? null : place.data.heroImage;
 // cover with the name laid over it, so the photographs arrive as a filmstrip
 // directly under the cover rather than replacing it, and one is set into
 // the lede.
-const photoSet = photoPlan(place.data, { paragraphs: place.data.intro ? 1 : 0 });
+const photoSetInput = placeSlug === 'fingal'
+  ? { ...place.data, heroImage: undefined, gallery: (place.data.gallery ?? []).filter((photo: { src: string }) => photo.src !== place.data.heroImage?.src) }
+  : place.data;
+const photoSet = photoPlan(photoSetInput, { paragraphs: place.data.intro ? 1 : 0 });
 const showStrip = photoSet.photos.length >= STAGE_MIN;
 // `hero.alt || place.data.name` was the old line: the third instance of the
 // refill that turns a decorative image's empty alt back into the entity's

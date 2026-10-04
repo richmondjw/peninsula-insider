@@ -8,7 +8,7 @@ https://peninsulainsider.com.au/corporate-events/,/corporate-events/,T1,hub,unsc
 https://peninsulainsider.com.au/dog-friendly/,/dog-friendly/,T1,hub,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/eat/,/eat/,T1,hub,in-remediation,,,"Exact public media inventory corrected at f1230d4f; factual freshness, keyboard/assistive-tech and full 23-criterion evidence remain open.",2026-10-03,"Regrade all 23 criteria on the current public release, including visitor task, factual freshness and accessibility; do not infer 99 from the bounded image fix."
 https://peninsulainsider.com.au/explore/,/explore/,T1,hub,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/golf/,/explore/golf/,T1,hub,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/golf/,/explore/golf/,T1,hub,in-remediation,,,"Public 8998d1a page contains National Ocean public-round, St Andrews ranking placeholder and false access/design/hole claims; scoped correction in validation",2026-10-04,"Finish expanded PR #576 build/CI/live, then full T1 23-criterion independent grade"
 https://peninsulainsider.com.au/explore/places/,/explore/places/,T1,hub,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/places/arthurs-seat/,/explore/places/arthurs-seat/,T1,place,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/places/balnarring/,/explore/places/balnarring/,T1,place,unscored,,,,,Baseline page
@@ -19,7 +19,7 @@ https://peninsulainsider.com.au/explore/places/cape-schanck/,/explore/places/cap
 https://peninsulainsider.com.au/explore/places/capel-sound/,/explore/places/capel-sound/,T1,place,in-remediation,,,"Bounded set15 live accepted; full rubric, assistive technology and field performance open",2026-10-04,"Complete full independent 23-criterion, assistive-technology and field-performance review"
 https://peninsulainsider.com.au/explore/places/crib-point/,/explore/places/crib-point/,T1,place,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/places/dromana/,/explore/places/dromana/,T1,place,in-remediation,,,"Set19 baseline: uncredited CMS hero and factual/locality errors; licensed hero/fact corrections live accepted at d3f580f/37176929345. Full rubric, direct AT, field performance and Shoreham beach-photo gate open.",2026-10-04,"Continue full 23-criterion review, direct AT, field performance and remaining media rights gates; score remains null."
-https://peninsulainsider.com.au/explore/places/fingal/,/explore/places/fingal/,T1,place,in-remediation,,,"Fingal booking correction live at d0c50b5/37182588036; licensed Alba hero live at be8002e/37185393625. Full 23-criterion T1 review, direct AT, field performance and paid-use person release open",2026-10-04,"Complete three independent full-rubric graders, direct AT and field performance; assess repeated hero filmstrip thumb. Score remains null"
+https://peninsulainsider.com.au/explore/places/fingal/,/explore/places/fingal/,T1,place,in-remediation,,,"Task-path release live at 6644339/37191301289; Moonah locality and gallery iteration in validation; full 23-criterion AT, field performance, remaining factual/image gates open",2026-10-04,Validate scoped Fingal gallery/locality iteration; protected CI/live; independently regrade all 23 criteria. Score remains null
 https://peninsulainsider.com.au/explore/places/flinders/,/explore/places/flinders/,T1,place,in-remediation,,,"Set20 safety and wayfinding correction live accepted at 3648637/37179870735; independent responsive GO. Hero rights, visible FAQ, direct AT, field performance and full rubric open.",2026-10-04,"Continue hero provenance, visible FAQ and full 23-criterion assessment; score remains null."
 https://peninsulainsider.com.au/explore/places/hastings/,/explore/places/hastings/,T1,place,in-remediation,,,"Set20 safety, wayfinding and linked-market correction live accepted at 3648637/37179870735; independent responsive GO. Hero rights, visible FAQ, direct AT, field performance and full rubric open.",2026-10-04,"Continue hero provenance, visible FAQ and full 23-criterion assessment; score remains null."
 https://peninsulainsider.com.au/explore/places/main-ridge/,/explore/places/main-ridge/,T1,place,in-remediation,,,"Set18 bounded live release accepted at 482ce6e/37171162408; full 23-criterion, direct AT, field performance and remaining rights/locality gates stay open. Admin hero hydration provenance follow-up live accepted at 8e8fef4/37173314691.",2026-10-04,Complete full independent rubric and remaining hard gates before assigning 99.
@@ -145,7 +145,7 @@ https://peninsulainsider.com.au/explore/dromana-beach/,/explore/dromana-beach/,T
 https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/,/explore/eagle-ridge-golf-course/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/family-friendly/,/explore/family-friendly/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/farnsworth-track/,/explore/farnsworth-track/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/flinders-golf-club/,/explore/flinders-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/flinders-golf-club/,/explore/flinders-golf-club/,T2,guide-utility,in-remediation,,,Golf hub calls Flinders nine holes though operator publishes 18-hole visitor rounds; correction in validation,2026-10-04,Validate hub correction through CI/live; complete independent T2 rubric
 https://peninsulainsider.com.au/explore/getting-around/,/explore/getting-around/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/getting-here/,/explore/getting-here/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/,/explore/greens-bush-two-bays-section/,T2,guide-utility,unscored,,,,,Baseline page
@@ -154,7 +154,7 @@ https://peninsulainsider.com.au/explore/hot-springs/,/explore/hot-springs/,T2,gu
 https://peninsulainsider.com.au/explore/map/,/explore/map/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/markets/,/explore/markets/,T2,guide-utility,in-remediation,,,"Set18 bounded live release accepted at 482ce6e/37171162408; full 23-criterion, direct AT, field performance and remaining rights/locality gates stay open.",2026-10-04,Verify hero provenance follow-up on exact public build where relevant; complete full independent rubric and hard gates before assigning 99.
 https://peninsulainsider.com.au/explore/montalto-sculpture-trail/,/explore/montalto-sculpture-trail/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/moonah-links/,/explore/moonah-links/,T2,guide-utility,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/moonah-links/,/explore/moonah-links/,T2,guide-utility,in-remediation,,,Public page assigns Moonah Links to Cape Schanck despite operator contact address in Fingal; factual correction in validation,2026-10-04,Validate Fingal locality and licensed captions through CI/live; then complete independent T2 baseline
 https://peninsulainsider.com.au/explore/mornington-foreshore-walk/,/explore/mornington-foreshore-walk/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/mornington-golf-club/,/explore/mornington-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/,/explore/mornington-peninsula-gallery/,T2,guide-utility,unscored,,,,,Baseline page
@@ -192,7 +192,7 @@ https://peninsulainsider.com.au/explore/plans/wellness-weekend/,/explore/plans/w
 https://peninsulainsider.com.au/explore/point-nepean-fort-walk/,/explore/point-nepean-fort-walk/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/point-nepean-national-park/,/explore/point-nepean-national-park/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/portsea-front-beach/,/explore/portsea-front-beach/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/portsea-golf-club/,/explore/portsea-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/portsea-golf-club/,/explore/portsea-golf-club/,T2,guide-utility,in-remediation,,,Public record says private-only despite operator publishing limited nonmember green-fee times; correction in validation,2026-10-04,Validate corrected access through CI/live; complete independent T2 rubric
 https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/,/explore/pt-leo-sculpture-park/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/,/explore/racv-cape-schanck-golf-course/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/rainy-day/,/explore/rainy-day/,T2,guide-utility,unscored,,,,,Baseline page
@@ -212,12 +212,12 @@ https://peninsulainsider.com.au/explore/sorrento-ferry/,/explore/sorrento-ferry/
 https://peninsulainsider.com.au/explore/sorrento-golf-club/,/explore/sorrento-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/sorrento-ocean-baths/,/explore/sorrento-ocean-baths/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/spas-and-wellness/,/explore/spas-and-wellness/,T2,guide-utility,in-remediation,,,"Set18 bounded live release accepted at 482ce6e/37171162408; full 23-criterion, direct AT, field performance and remaining rights/locality gates stay open.",2026-10-04,Verify hero provenance follow-up on exact public build where relevant; complete full independent rubric and hard gates before assigning 99.
-https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/,/explore/st-andrews-beach-golf-course/,T2,guide-utility,in-remediation,,,"Fingal place reassignment candidate; full independent rubric, rights, AT and field performance remain open",2026-10-04,Verify operator locality and related-page placement on exact live release; complete full independent rubric
+https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/,/explore/st-andrews-beach-golf-course/,T2,guide-utility,in-remediation,,,"Fingal locality candidate remains; golf record also renders an internal ranking-verification placeholder, removed in validation",2026-10-04,Validate locality and ranking-placeholder removal through CI/live; complete independent T2 rubric
 https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/,/explore/summit-circuit-arthurs-seat/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/,/explore/sunny-ridge-strawberry-farm/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/the-dunes-golf-links/,/explore/the-dunes-golf-links/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/the-national-golf-club/,/explore/the-national-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/things-to-do/,/explore/things-to-do/,T2,guide-utility,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/the-national-golf-club/,/explore/the-national-golf-club/,T2,guide-utility,in-remediation,,,Public National record address and visitor eligibility incomplete; correction in validation,2026-10-04,Validate official address/access through CI/live; complete independent T2 baseline
+https://peninsulainsider.com.au/explore/things-to-do/,/explore/things-to-do/,T2,guide-utility,in-remediation,,,Public golf paragraph wrongly says The National public-access and Moonah in Cape Schanck; factual correction in validation,2026-10-04,Validate corrected golf access/locality and schema through CI/live; then complete independent T2 baseline
 https://peninsulainsider.com.au/explore/two-bays-walking-track/,/explore/two-bays-walking-track/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/walks/,/explore/walks/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/weekend-trips/,/explore/weekend-trips/,T2,guide-utility,unscored,,,,,Baseline page
@@ -293,7 +293,7 @@ https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/,/journal/insid
 https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/,/journal/insider-picks-2026-10-01/,T2,journal,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/,/journal/insider-picks-2026-10-03/,T2,journal,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/journal/local-secrets/,/journal/local-secrets/,T2,journal,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/,/journal/luxury-hotels-mornington-peninsula/,T2,journal,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/,/journal/luxury-hotels-mornington-peninsula/,T2,journal,in-remediation,,,Public article wrongly calls RACV golf course part of Moonah Links and only hotel on a golf course; correction in validation,2026-10-04,Validate factual hotel-course separation through CI/live; complete independent T2 baseline
 https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/,/journal/mornington-peninsula-day-trip/,T2,journal,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/journal/mornington-peninsula-in-autumn/,/journal/mornington-peninsula-in-autumn/,T2,journal,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/,/journal/mornington-peninsula-in-winter/,T2,journal,unscored,,,,,Baseline page
