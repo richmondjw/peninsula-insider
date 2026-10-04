@@ -5,7 +5,7 @@
   "family": "place",
   "assessedAt": "2026-10-04",
   "baseRevision": "6644339d8ae4aa8370a223afd79772bf9b9a1487",
-  "status": "local-validated-awaiting-ci",
+  "status": "live-accepted-bounded",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -111,8 +111,8 @@
     "build": "Exact final source on 2026-10-04 passed TZ=UTC npm run build:search (exit 0): 1014 HTML files, 728 Pagefind indexed pages; rights, content, link, claim, schema, accessibility-support and responsive-image build gates completed. Build alone does not establish a 99 score.",
     "localBrowser": "Independent bounded GO on exact built preview: golf hub at 320/390/1440 and Portsea detail at 390/1440 are HTTP 200 without JS errors or horizontal overflow; both visibly show Established in 1926 and omit Founded in 1924. Two editorial links resolve to distinct generated guides. Other affected detail pages were checked at 390/1440. This is not a full AT or 23-criterion review.",
     "independentLocalQA": "Independent visual reviewer bounded GO on rebuilt local page: all eight photos at 320x900, 320x568, 390x900 and 1440x900; no caption, location or Visit Victoria credit intersects viewer arrows or leaves viewport. Moonah photo 2/8 retains 32px clearance between credit and controls at both narrow heights; longest Eco Lodge caption also clear. This is not a full 23-criterion public regrade.",
-    "ci": null,
-    "liveAcceptance": null,
+    "ci": "PR #576 exact head a4f186a30e997ddea1517751f77656bb7d393f8f passed all eight checks before merge.",
+    "liveAcceptance": "PR #576 merged as b82c68a25902dca2bfdc8479c6c61ae7bac42f82 after all eight checks passed. Protected Build and Deploy run 37196548673 completed success. Fresh cache-busted public release-manifest.json matched sourceSha b82c68a25902dca2bfdc8479c6c61ae7bac42f82 and buildRunId 37196548673 (generated 2026-10-04T10:57:11.619Z). Independent fresh public Chromium at 390/1440 checked golf hub, Portsea, National, Moonah, Fingal and Flinders: 12 HTTP 200 loads, zero page errors and horizontal overflow. Hub and Portsea show Established in 1926 and omit Founded in 1924; National private member rules and Flinders 18 holes visible; raw ranking placeholder absent; two editorial links return 200; Fingal has eight labelled thumbnails across Alba, Moonah, brewery and Eco Lodge with no broken loaded images. Bounded release accepted; 23-criterion scores remain null.",
     "independentFactualQA": "Independent read-only reviewer confirmed Moonah, Alba, brewery, RACV and National operator facts, but flagged visitor-visible National editorial note still implying all nonmembers need a member connection. Corrected note and four linked access statements to include Victorian invitation plus play-with-member requirement and direct interstate/overseas requests. Recheck pending. Independent reviewer rechecked exact National visitor-access copy and gave bounded GO against current operator policy. Full-record lastVerified dates remain older and were not restamped. Later independent T1 golf graders flagged Portsea, Flinders, National designer, ranking placeholder and self-link defects on live public release 8998d1a0b42b028ca45b6013c5aaea711f348b92; bounded corrections applied locally, recheck pending. A separate read-only release reviewer found the Portsea founding-year error from the club centenary history; corrected source and exact generated HTML. Bounded factual/navigation GO is conditional on full build and CI, not a 23-criterion or 99 score."
   },
   "hardGatesOpen": [
@@ -129,5 +129,5 @@
     "This iteration does not constitute a full rubric regrade.",
     "Linked golf guide falsely describes a National Ocean Course as public; connected source and hotel copy were corrected in this iteration. Further golf-page factual review remains a separate T1 gate."
   ],
-  "nextAction": "Push expanded source to PR #576, pass protected CI, merge and verify exact public release; continue full Fingal/golf rubric checks with score null."
+  "nextAction": "Continue the independent full-rubric T1 review and triage highest impact open defects; retain score null until all 23 criteria, hard gates and public evidence support a defensible score above 99."
 }

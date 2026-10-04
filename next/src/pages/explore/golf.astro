@@ -57,7 +57,7 @@ const capeCourses = capeOrder
   .map(s => golfCourses.find(e => (e.data.slug ?? e.id) === s))
   .filter(Boolean) as typeof golfCourses;
 
-// Bay Corridor - editorial order
+// Other Peninsula courses - editorial order
 const bayOrder = [
   'flinders-golf-club',
   'eagle-ridge-golf-course',
@@ -118,13 +118,13 @@ function hasRanking(course: (typeof golfCourses)[0]): boolean {
 // ── JSON-LD schemas ───────────────────────────────────────────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
-  description: 'All 11 Mornington Peninsula golf courses ranked. Public vs private, what to book, best value, best views.',
+  description: 'Compare 11 Mornington Peninsula golf courses by visitor access, location and playing style.',
   path: '/explore/golf/',
-  dateModified: '2026-04-30',
+  dateModified: '2026-10-04',
 });
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Golf Courses',
-  description: '11 Mornington Peninsula golf courses ranked by editorial value.',
+  description: '11 Mornington Peninsula golf courses grouped by location and visitor access.',
   listPath: '/explore/golf',
   items: [
     { name: 'Moonah Links', path: '/explore/moonah-links/', itemType: 'GolfCourse', addressLocality: 'Fingal' },
@@ -132,7 +132,7 @@ const itemListSchema = buildItemListSchema({
     { name: 'The National Golf Club', path: '/explore/the-national-golf-club/', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
     { name: 'RACV Cape Schanck Resort Golf Course', path: '/explore/racv-cape-schanck-golf-course/', itemType: 'GolfCourse', addressLocality: 'Cape Schanck' },
     { name: 'Flinders Golf Club', path: '/explore/flinders-golf-club/', itemType: 'GolfCourse', addressLocality: 'Flinders' },
-    { name: 'Eagle Ridge Golf Course', path: '/explore/eagle-ridge-golf-course/', itemType: 'GolfCourse', addressLocality: 'Merricks North' },
+    { name: 'Eagle Ridge Golf Course', path: '/explore/eagle-ridge-golf-course/', itemType: 'GolfCourse', addressLocality: 'Boneo' },
     { name: 'The Dunes Golf Links', path: '/explore/the-dunes-golf-links/', itemType: 'GolfCourse', addressLocality: 'Rye' },
     { name: 'Mornington Golf Club', path: '/explore/mornington-golf-club/', itemType: 'GolfCourse', addressLocality: 'Mornington' },
     { name: 'Rosebud Country Club', path: '/explore/rosebud-country-club/', itemType: 'GolfCourse', addressLocality: 'Rosebud' },
@@ -155,11 +155,11 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'Is there accommodation near the Peninsula golf courses?',
-    a: 'RACV Cape Schanck Resort is on-site. Moonah Links has on-property accommodation with stay-and-play packages. For the bay corridor clubs, Mornington and Sorrento both have accommodation within 15 minutes of most courses.',
+    a: 'RACV Cape Schanck Resort is on-site. Moonah Links has on-property accommodation with stay-and-play packages. For the remaining courses, choose a base close to the club you plan to play and check actual travel time.',
   },
   {
-    q: 'What is the difference between the Cape Schanck and bay corridor courses?',
-    a: 'The Cape Schanck / Fingal cluster brings together St Andrews Beach, Moonah Links, and The National. The bay corridor runs from Mornington to Portsea, with more accessible public clubs, different terrain, and generally lower green fees. Both are worth playing; they serve different trips.',
+    q: 'How do the Cape Schanck and other Peninsula courses differ?',
+    a: 'The Cape Schanck and Fingal cluster has exposed coastal courses with a mix of public and private access. Other courses span Boneo, Rye, Flinders, Mornington and southern bayside towns; check access rules and location before choosing a base.',
   },
 ]);
 const breadcrumbSchema = buildBreadcrumbSchema([
@@ -176,8 +176,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Golf - 11 Courses Ranked · Peninsula Insider"
-  description="All 11 Mornington Peninsula golf courses assessed - Cape Schanck cluster, bay corridor, public green fees, stay-and-play options, and which course suits your game."
+  title="Mornington Peninsula Golf - Compare 11 Courses · Peninsula Insider"
+  description="Compare 11 Mornington Peninsula golf courses by visitor access, location and playing style, with course guides and stay ideas."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
@@ -197,12 +197,25 @@ export const prerender = true;
     eyebrow="Explore guide"
     title="Mornington Peninsula <em>Golf</em>"
     dek="A rare mix of visitor-bookable coastal courses and private-club architecture, all within reach of a Peninsula weekend."
-    meta={[{ label: '11 courses' }, { label: '12 min read' }]}
+    meta={[{ label: '11 course guides' }, { label: 'Public and private access' }]}
+    primaryAction={{ label: 'Choose your round', href: '#choose-your-round' }}
     heroImage={pageImage('golf-hub').src}
     imageAlt={pageImage('golf-hub').alt}
     imageCredit={pageImage('golf-hub').credit}
     entitySlug="explore/golf"
   />
+
+  <nav class="golf-quick" id="choose-your-round" aria-label="Choose a golf course">
+    <div class="container golf-quick__inner">
+      <p class="golf-quick__prompt">Start with the round that fits your trip</p>
+      <div class="golf-quick__links">
+        <a href="#course-st-andrews-beach-golf-course">Public coastal links <span>St Andrews Beach</span></a>
+        <a href="#course-moonah-links">Championship and resort <span>Moonah Links</span></a>
+        <a href="#course-the-dunes-golf-links">Public dune course <span>The Dunes</span></a>
+        <a href="#course-the-national-golf-club">Private club access <span>The National</span></a>
+      </div>
+    </div>
+  </nav>
 
   {golfPhotos.length >= 3 && (
     <div class="container golf-photos">
@@ -211,12 +224,12 @@ export const prerender = true;
   )}
 
   <!-- ═══════════════════════════════════════════════════════════════
-       2. ORIENTATION: Cape Schanck vs Bay Corridor
+       2. ORIENTATION: Cape Schanck vs other Peninsula courses
        ═══════════════════════════════════════════════════════════════ -->
   <CompareBlock
-    eyebrow="Two distinct golf corridors"
-    heading="Cape Schanck or the Bay Corridor"
-    dek="Both are worth a day. They are not interchangeable. The frame that matters before you book."
+    eyebrow="Compare your options"
+    heading="Coastal cluster or a different part of the Peninsula"
+    dek="The clubs span several towns and coastlines. Start with access, terrain and travel time."
     left={{
       label: 'Cape Schanck / Fingal',
       title: 'Coastal. Exposed. Worth the drive to the tip.',
@@ -229,14 +242,14 @@ export const prerender = true;
       ],
     }}
     right={{
-      label: 'Bay Corridor - Mornington to Portsea',
-      title: 'Accessible. Views. A round without the expedition.',
+      label: 'Elsewhere across the Peninsula',
+      title: 'Different towns. Different terrain. Check the route.',
       rows: [
-        { label: 'Standout courses', value: 'Flinders Golf Club (18 coastal holes above Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Red Hill hinterland)' },
-        { label: 'Access', value: 'Mostly public or semi-private. Mornington, Eagle Ridge, The Dunes, and Rosebud all take visitor green fees without calling ahead.' },
-        { label: 'Conditions', value: 'Mixed terrain - clifftop views at Flinders, genuine links dunes at Rye, parkland at Merricks. More sheltered than the Cape.' },
-        { label: 'Best for', value: 'Day trips from Melbourne. Pairing with a Red Hill winery lunch. Social and high-handicap groups who want a good day without a premium price.' },
-        { label: 'Combine with', value: 'Red Hill and Main Ridge wineries. Flinders Hotel or the Mornington foreshore. Rosebud for affordable replay.' },
+        { label: 'Standout courses', value: 'Flinders Golf Club (18 coastal holes above Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)' },
+        { label: 'Access', value: 'Visitor access varies by club and tee time. Mornington, Eagle Ridge, The Dunes and Rosebud publish visitor information; confirm availability directly.' },
+        { label: 'Conditions', value: 'Mixed terrain: exposed Western Port headland at Flinders, dunes at Rye, parkland at Boneo and bayside courses further north and south.' },
+        { label: 'Best for', value: 'A day trip or a round near your chosen base. Pick by visitor eligibility, playing style and travel time.' },
+        { label: 'Combine with', value: 'Check your course location first: Boneo, Rye, Flinders and Mornington are separate drives.' },
       ],
     }}
   />
@@ -259,14 +272,11 @@ export const prerender = true;
           const g = d.golf ?? {};
           const slug = d.slug ?? course.id;
           const designers = Array.isArray(g.designers) ? g.designers.join(', ') : null;
-          const ranked = hasRanking(course);
           return (
-            <article class="golf-card">
+            <article class="golf-card" id={"course-" + slug}>
               <div class="golf-card__header">
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access)}</span>
-                  {g.tier && <span class={`golf-badge golf-badge--tier ${tierMod(g.tier)}`}>{tierLabel(g.tier)}</span>}
-                  {ranked && <span class="golf-badge golf-badge--ranked">✦ Ranked</span>}
                 </div>
                 <div class="golf-card__holes">{g.holes ? `${g.holes} holes` : ''}</div>
               </div>
@@ -278,27 +288,24 @@ export const prerender = true;
                   {d.address?.split(',')[1]?.trim() ?? d.place}
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
-                {ranked && g.rankings && (
-                  <p class="golf-card__ranking">{g.rankings[0]}</p>
-                )}
                 <p class="golf-card__note">{firstSentences(d.editorNote, 3)}</p>
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
               </div>
               <div class="golf-card__footer">
-                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text">Course guide →</a>
+                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Read the " + d.name + " course guide"}>Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (
                   <a
                     href={g.bookingUrl}
                     class="golf-card__book"
                     target="_blank"
                     rel="noopener"
-                    data-pi-book="booking"
                     data-pi-entity-type="golf-course"
                     data-pi-entity-slug={slug}
                     data-pi-surface="golf-card"
-                  >Book a round →</a>
+                    aria-label={"Visit " + d.name + " website, opens in a new tab"}
+                  >Visit course website ↗</a>
                 )}
               </div>
             </article>
@@ -309,15 +316,15 @@ export const prerender = true;
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       4. BAY CORRIDOR
+       4. OTHER PENINSULA COURSES
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="experience-index experience-index--plain" aria-label="Bay corridor golf courses">
+  <section class="experience-index experience-index--plain" aria-label="Golf courses across the Peninsula">
     <div class="container">
       <div class="venues__header">
         <div>
-          <p class="label label--accent">Bay corridor · Mornington to Portsea</p>
-          <h2 class="venues__title">The accessible round</h2>
-          <p class="venues__sub">Seven courses running the length of the bay side. Clifftop views at Flinders, links dunes at Rye, parkland at Merricks. Mostly public access, mostly lower green fees.</p>
+          <p class="label label--accent">Across the Peninsula</p>
+          <h2 class="venues__title">More ways to play</h2>
+          <p class="venues__sub">Seven courses across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.</p>
         </div>
       </div>
       <div class="golf-grid golf-grid--bay">
@@ -326,14 +333,11 @@ export const prerender = true;
           const g = d.golf ?? {};
           const slug = d.slug ?? course.id;
           const designers = Array.isArray(g.designers) ? g.designers.join(', ') : null;
-          const ranked = hasRanking(course);
           return (
-            <article class="golf-card golf-card--bay">
+            <article class="golf-card golf-card--bay" id={"course-" + slug}>
               <div class="golf-card__header">
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access)}</span>
-                  {g.tier && <span class={`golf-badge golf-badge--tier ${tierMod(g.tier)}`}>{tierLabel(g.tier)}</span>}
-                  {ranked && <span class="golf-badge golf-badge--ranked">✦ Ranked</span>}
                 </div>
                 <div class="golf-card__holes">{g.holes ? `${g.holes} holes` : ''}</div>
               </div>
@@ -345,27 +349,24 @@ export const prerender = true;
                   {d.address?.split(',')[1]?.trim() ?? d.place}
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
-                {ranked && g.rankings && (
-                  <p class="golf-card__ranking">{g.rankings[0]}</p>
-                )}
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
               </div>
               <div class="golf-card__footer">
-                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text">Course guide →</a>
+                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Read the " + d.name + " course guide"}>Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (
                   <a
                     href={g.bookingUrl}
                     class="golf-card__book"
                     target="_blank"
                     rel="noopener"
-                    data-pi-book="booking"
                     data-pi-entity-type="golf-course"
                     data-pi-entity-slug={slug}
                     data-pi-surface="golf-card"
-                  >Book a round →</a>
+                    aria-label={"Visit " + d.name + " website, opens in a new tab"}
+                  >Visit course website ↗</a>
                 )}
               </div>
             </article>
@@ -432,7 +433,7 @@ export const prerender = true;
             </li>
             <li>
               <strong>Eagle Ridge Golf Course</strong>
-              <span>Hinterland parkland near the Red Hill wineries. Plays differently in all four seasons. Natural and well-maintained.</span>
+              <span>Parkland in Boneo, away from exposed coastal courses. Check the drive if you plan a winery stop.</span>
             </li>
             <li>
               <strong>RACV Cape Schanck</strong>
@@ -542,7 +543,7 @@ export const prerender = true;
           </ul>
         </div>
         <div class="pairing-card">
-          <h3 class="pairing-card__heading">Bay corridor golf</h3>
+          <h3 class="pairing-card__heading">Golf beyond Cape Schanck</h3>
           <p class="pairing-card__sub">While the golfer plays Flinders, Eagle Ridge, The Dunes, or Mornington:</p>
           <ul class="pairing-card__list">
             <li><a href="/wine/">Red Hill and Main Ridge wineries</a> - A self-guided cellar door morning within 20 minutes of Eagle Ridge. Pairs perfectly for a post-round lunch rendezvous.</li>
@@ -662,15 +663,15 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">Is there accommodation near the Peninsula golf courses?</summary>
           <div class="golf-faq__a">
-            <p>RACV Cape Schanck Resort is on-site with direct access to its 18-hole course. Moonah Links has on-property accommodation with stay-and-play packages covering both the Open and Legends courses. For the bay corridor clubs, Mornington and Sorrento have accommodation within 15 minutes of most courses in that corridor. The full <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/">stay-and-play guide</a> maps each option with travel times and booking advice.</p>
+            <p>RACV Cape Schanck Resort is on-site with direct access to its 18-hole course. Moonah Links has on-property accommodation with stay-and-play packages covering both the Open and Legends courses. For other clubs, choose accommodation near the course and check travel time before booking. The full <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/">stay-and-play guide</a> maps each option with travel times and booking advice.</p>
           </div>
         </details>
 
         <details class="golf-faq__item">
-          <summary class="golf-faq__q">What is the difference between the Cape Schanck and bay corridor courses?</summary>
+          <summary class="golf-faq__q">How do the Cape Schanck and other Peninsula courses differ?</summary>
           <div class="golf-faq__a">
             <p>The Cape Schanck / Fingal cluster brings together St Andrews Beach, Moonah Links, and three of The National's four courses (Old, Moonah, Gunnamatta). The fourth National course, Long Island, sits 50 minutes north at Frankston and is the club's gateway from Melbourne. All sit in coastal duneland exposed to Bass Strait weather. The terrain is Links-adjacent and the quality of the design architecture is the highest on the Peninsula.</p>
-            <p>The bay corridor runs from Mornington to Portsea, with a mix of clifftop (Flinders), parkland (Eagle Ridge), dune-links (The Dunes), and bayside (Mornington, Sorrento, Portsea) layouts. More varied in character, generally more accessible in access and pricing, and better suited to a combined golf-and-winery day without driving to the Peninsula tip.</p>
+            <p>The other clubs are spread across Flinders, Boneo, Rye, Mornington and southern bayside towns. They vary in visitor access, terrain and travel time; check the club rules and route that suit your trip.</p>
           </div>
         </details>
 
@@ -700,6 +701,22 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  .golf-quick { background: var(--white); border-bottom: 1px solid var(--border); scroll-margin-top: 12rem; }
+  .golf-quick__inner { padding-top: 1.2rem; padding-bottom: 1.35rem; }
+  .golf-quick__prompt { margin: 0 0 0.7rem; font-family: var(--font-display); font-weight: 600; color: var(--dark); }
+  .golf-quick__links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; }
+  .golf-quick__links a { min-height: 60px; padding: 0.55rem 0.75rem; display: flex; flex-direction: column; justify-content: center; gap: 0.2rem; border: 1px solid var(--border); border-radius: 0.6rem; color: var(--dark); background: var(--bg); text-decoration: none; font-size: 0.78rem; line-height: 1.3; }
+  .golf-quick__links a span { font-weight: 700; font-size: 0.9rem; }
+  .golf-quick__links a:hover, .golf-quick__links a:focus-visible { border-color: var(--accent); color: var(--accent); }
+  .golf-card { scroll-margin-top: 12rem; }
+  @media (min-width: 768px) {
+    :global(.guide-hero .guide-hero__image) { aspect-ratio: 6 / 5; }
+  }
+  @media (max-width: 700px) { .golf-card, .golf-quick { scroll-margin-top: 9rem; } }
+  @media (max-width: 700px) {
+    .golf-quick__links { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
   .golf-photos { padding-block-start: clamp(1rem, 2vw, 1.5rem); }
   .golf-photos :global(.pstage) { margin-block-end: 0; }
   /*─────────────────────────────────────────────────────────────────
@@ -766,7 +783,7 @@ export const prerender = true;
     padding-top: 0.15rem;
   }
 
-  /* ── Access / tier / ranked badges ── */
+  /* ── Access badges ── */
   .golf-badge {
     display: inline-block;
     font-size: 0.63rem;
@@ -792,23 +809,6 @@ export const prerender = true;
     color: var(--soft);
     border: 1px solid rgba(44, 35, 28, 0.15);
   }
-  .golf-badge--tier {
-    background: transparent;
-    color: var(--soft);
-    border: 1px solid var(--border);
-    font-weight: 500;
-  }
-  .golf-tier--1.golf-badge--tier {
-    color: var(--accent);
-    border-color: rgba(11, 90, 72, 0.3);
-    background: rgba(11, 90, 72, 0.06);
-  }
-  .golf-badge--ranked {
-    background: rgba(7, 158, 165, 0.18);
-    color: #2a7a67;
-    border: 1px solid rgba(7, 158, 165, 0.35);
-  }
-
   /* ── Card body ── */
   .golf-card__body {
     padding: 1.25rem 1.4rem 0.75rem;
@@ -835,17 +835,6 @@ export const prerender = true;
   }
   .golf-card__designers {
     font-style: normal;
-  }
-  .golf-card__ranking {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #2a7a67;
-    background: rgba(7, 158, 165, 0.1);
-    border-left: 3px solid var(--gold);
-    padding: 0.35rem 0.6rem;
-    border-radius: 0 0.25rem 0.25rem 0;
-    margin-bottom: 0.75rem;
-    line-height: 1.4;
   }
   .golf-card__note {
     font-size: 0.88rem;
@@ -885,14 +874,19 @@ export const prerender = true;
     margin-top: auto;
   }
   .golf-card__book {
-    font-size: 0.78rem;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--soft);
     text-decoration: none;
     transition: color 0.18s;
   }
-  .golf-card__book:hover { color: var(--text); }
+  .golf-card__book:hover, .golf-card__book:focus-visible { color: var(--text); }
+  .golf-card__footer .pi-btn { min-height: 44px; }
+  @media (max-width: 390px) { .golf-card__footer { flex-wrap: wrap; gap: 0.2rem 1rem; } }
 
   /* ─────────────────────────────────────────────────────────────────
      FOR YOUR GAME - 3-panel guide
@@ -1165,12 +1159,14 @@ export const prerender = true;
     margin-bottom: 0.75rem;
   }
   .golf-stayplay__link {
-    color: var(--gold);
+    color: var(--sand);
     text-decoration: underline;
     text-decoration-color: rgba(7, 158, 165, 0.45);
     transition: text-decoration-color 0.2s;
   }
-  .golf-stayplay__link:hover { text-decoration-color: var(--gold); }
+  .golf-stayplay__link:hover { text-decoration-color: var(--sand); }
+  .golf-stayplay .pi-btn--text { color: var(--sand); }
+  .golf-stayplay .pi-btn--text:hover, .golf-stayplay .pi-btn--text:focus-visible { color: var(--white); }
   .golf-stayplay__aside {
     display: flex;
     flex-direction: column;

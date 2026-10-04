@@ -1,0 +1,239 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-04",
+  "sourceRevision": "b82c68a25902dca2bfdc8479c6c61ae7bac42f82",
+  "buildRunId": "37196548673",
+  "status": "provisional-live-baseline-hard-gates-open",
+  "primaryVisitorTask": "Choose a suitable round, understand access and reach a real booking or visitor-policy step.",
+  "mode": "Read with a direct course-choice task path",
+  "independentScores": [
+    {
+      "reviewer": "UX/task",
+      "score": 58.5,
+      "ratings": {
+        "VT1": 3,
+        "VT2": 2,
+        "VT3": 3,
+        "VT4": 2,
+        "FN1": 2,
+        "FN2": 3,
+        "FN3": 1,
+        "ET1": 2,
+        "ET2": 3,
+        "ET3": 2,
+        "ET4": 2,
+        "VS1": 2,
+        "VS2": 2,
+        "VS3": 3,
+        "VS4": 3,
+        "VS5": 3,
+        "MI1": 2,
+        "MI2": 3,
+        "MI3": 2,
+        "AT1": 2,
+        "AT2": 2,
+        "AT3": 2,
+        "AT4": 3
+      },
+      "viewports": [
+        390,
+        1440
+      ]
+    },
+    {
+      "reviewer": "visual/mobile",
+      "score": 70.5,
+      "ratings": {
+        "VT1": 4,
+        "VT2": 3,
+        "VT3": 3,
+        "VT4": 3,
+        "FN1": 3,
+        "FN2": 3,
+        "FN3": 2,
+        "ET1": 3,
+        "ET2": 4,
+        "ET3": 2,
+        "ET4": 2,
+        "VS1": 3,
+        "VS2": 2,
+        "VS3": 3,
+        "VS4": 2,
+        "VS5": 3,
+        "MI1": 3,
+        "MI2": 3,
+        "MI3": 3,
+        "AT1": 2,
+        "AT2": 3,
+        "AT3": 3,
+        "AT4": 3
+      },
+      "viewports": [
+        320,
+        390,
+        1440
+      ]
+    },
+    {
+      "reviewer": "access/facts",
+      "score": 67.0,
+      "ratings": {
+        "VT1": 3,
+        "VT2": 3,
+        "VT3": 2,
+        "VT4": 3,
+        "FN1": 2,
+        "FN2": 3,
+        "FN3": 2,
+        "ET1": 2,
+        "ET2": 3,
+        "ET3": 2,
+        "ET4": 2,
+        "VS1": 3,
+        "VS2": 3,
+        "VS3": 3,
+        "VS4": 3,
+        "VS5": 4,
+        "MI1": 2,
+        "MI2": 3,
+        "MI3": 3,
+        "AT1": 3,
+        "AT2": 2,
+        "AT3": 3,
+        "AT4": 3
+      },
+      "viewports": [
+        390,
+        1440
+      ]
+    }
+  ],
+  "reconciliation": {
+    "method": "Median rating per criterion, then evidence override: VT4 reduced for homepage booking destinations; VS4 reduced for measured 1.68:1 CTA contrast missed by one reviewer. This is a provisional triage score, not an accepted pass.",
+    "ratings": {
+      "VT1": 3,
+      "VT2": 3,
+      "VT3": 3,
+      "VT4": 2,
+      "FN1": 2,
+      "FN2": 3,
+      "FN3": 2,
+      "ET1": 2,
+      "ET2": 3,
+      "ET3": 2,
+      "ET4": 2,
+      "VS1": 3,
+      "VS2": 2,
+      "VS3": 3,
+      "VS4": 2,
+      "VS5": 3,
+      "MI1": 2,
+      "MI2": 3,
+      "MI3": 3,
+      "AT1": 2,
+      "AT2": 2,
+      "AT3": 3,
+      "AT4": 3
+    },
+    "weights": {
+      "VT1": 5,
+      "VT2": 4,
+      "VT3": 5,
+      "VT4": 5,
+      "FN1": 4,
+      "FN2": 4,
+      "FN3": 4,
+      "ET1": 4,
+      "ET2": 4,
+      "ET3": 5,
+      "ET4": 5,
+      "VS1": 5,
+      "VS2": 4,
+      "VS3": 4,
+      "VS4": 4,
+      "VS5": 4,
+      "MI1": 5,
+      "MI2": 4,
+      "MI3": 4,
+      "AT1": 5,
+      "AT2": 4,
+      "AT3": 4,
+      "AT4": 4
+    },
+    "evidenceByCriterion": {
+      "VT1": "Golfers and mixed groups are served, but newcomer needs are less direct.",
+      "VT2": "First screen promises coastal golf but provides no immediate choose or book action.",
+      "VT3": "Corridor and handicap guidance exists; opaque tiers and a claimed ranking do not match displayed order.",
+      "VT4": "Course links work, but eight booking links generally land on operator homepages, not a tee-time step.",
+      "FN1": "Clear headings but roughly 17,235px main content and 18,795px total page at 390px create heavy mobile scanning.",
+      "FN2": "Breadcrumbs and two distinct editorial links work; onward booking is indirect.",
+      "FN3": "No course-specific index, filter or jump route for eleven courses.",
+      "ET1": "Useful local copy is diluted by repeated superlatives and the unsupported Ranked title.",
+      "ET2": "Wind, terrain and non-golfer pairings add grounded local value.",
+      "ET3": "Selected National, Portsea and Flinders claims were corrected; full records retain April lastVerified and Flinders contact address needs reconciliation.",
+      "ET4": "Independence is explained globally, but volatile access and ranking claims lack adjacent dated primary sources.",
+      "VS1": "Ten course photos carry Visit Victoria credits and a rights ledger; a complete all-asset original-grant audit remains open.",
+      "VS2": "Strong hero, but repeated text-only cards and mobile fact columns make the page dense.",
+      "VS3": "Sora/Figtree hierarchy is coherent; some labels and links are very small on mobile.",
+      "VS4": "Measured stay-and-play CTA contrast is 1.68:1 on navy, a serious low-vision barrier despite an otherwise coherent palette.",
+      "VS5": "Hero, cards, editorial sections and footer mostly share one visual system.",
+      "MI1": "No horizontal overflow at 320/390; narrow comparison value columns and 21-29px links reduce touch usability.",
+      "MI2": "Gallery/menu and FAQ work; thumbnails have a weak scroll cue.",
+      "MI3": "Consent preferences and gallery recovery were observed; newsletter error paths were not fully tested.",
+      "AT1": "Keyboard gallery/menu/FAQ paths partly work; link-list names repeat and direct screen-reader testing is open.",
+      "AT2": "A few synthetic loads are not representative field Core Web Vitals.",
+      "AT3": "Sampled layouts and reduced-motion state showed no obvious shift; field CLS is unknown.",
+      "AT4": "H1, canonical and breadcrumbs exist; Ranked document title conflicts with grouped course content."
+    },
+    "score": 62.75
+  },
+  "score": 62.75,
+  "hardGates": [
+    "Stay-and-play CTA text contrast 1.68:1 on navy; low-vision barrier confirmed.",
+    "Direct screen-reader journey not tested.",
+    "Field Core Web Vitals and CLS for exact route unavailable.",
+    "Full-record factual freshness and all-original-grant image rights not independently complete."
+  ],
+  "triage": [
+    {
+      "priority": 0,
+      "issue": "Low-contrast dark-section CTA",
+      "boundedAction": "Use the existing sand-on-harbour text role and retest >=4.5:1 including focus."
+    },
+    {
+      "priority": 1,
+      "issue": "No direct first-screen course decision path, page is exceptionally long on mobile",
+      "boundedAction": "Add concise choose/jump path and reduce repetitive course copy without hiding essential eligibility."
+    },
+    {
+      "priority": 1,
+      "issue": "Ranked title and Tier badges have no visible method; grouping mislabels geographically dispersed courses as Bay corridor",
+      "boundedAction": "Make title/group labels truthful and either explain tier method or remove tier badges."
+    },
+    {
+      "priority": 1,
+      "issue": "Mobile comparison facts and card actions are cramped",
+      "boundedAction": "Stack definition terms and values on narrow screens, use contextual link names and 44px touch targets."
+    },
+    {
+      "priority": 1,
+      "issue": "Booking routes and volatile claims lack direct source/date context",
+      "boundedAction": "Audit official tee-time and visitor-policy destinations and add adjacent dated source links in a separate factual pass."
+    }
+  ],
+  "impeccable": {
+    "assessmentA": "Three independent full-rubric reviews, including a visual-led assessment; no findings shared between reviewers before grading.",
+    "assessmentB": "Independent detector and browser assessment completed: two low-severity style warnings; mobile CTA measured at 1.68:1, 21px course action target, no sampled overflow or JS errors.",
+    "overlay": "Native CUA unavailable due sandbox startup; direct Chromium used by reviewers.",
+    "question": "Questions skipped: James has already approved continuous score-triage-execute iteration."
+  },
+  "validation": {
+    "public": "Fresh manifest matched release b82c68a and run 37196548673; three reviewers inspected public mobile and desktop.",
+    "hardGateState": "open",
+    "scoreAccepted": false
+  },
+  "nextAction": "Implement and independently validate first bounded contrast, truthful structure, direct-jump and mobile decision pass; release through normal CI, regrade exact public revision, then tackle booking/source/freshness and remaining gates."
+}

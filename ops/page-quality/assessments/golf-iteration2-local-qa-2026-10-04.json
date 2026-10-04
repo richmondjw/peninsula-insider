@@ -1,0 +1,47 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-04",
+  "iteration": 2,
+  "state": "local-qa-pass-public-release-pending",
+  "baselineAssessment": "golf-iteration1-live-baseline-2026-10-04.json",
+  "baselinePublicRevision": "b82c68a25902dca2bfdc8479c6c61ae7bac42f82",
+  "baselineScore": 62.75,
+  "currentAcceptedScore": null,
+  "outcomeHypothesis": "A visible choose-a-round path, truthful access/geography and readable controls will improve visitor task completion without false booking signals.",
+  "changes": [
+    "Compact the desktop hero photograph so its 44px choose action is fully visible at 1440x850; add a four-route in-page chooser.",
+    "Remove unsupported Ranked title and opaque Tier/Ranked card badges; correct Eagle Ridge locality to Boneo and describe other clubs as spread across the Peninsula.",
+    "Stack comparison facts on narrow screens; raise card links to 44px and give repeated links course-specific accessible names.",
+    "Use sand text on the dark stay-and-play CTA and remove booking-intent analytics from generic operator-homepage visits."
+  ],
+  "sourceEvidence": [
+    {
+      "claim": "Eagle Ridge locality",
+      "source": "https://eagleridge.com.au/contact-us/",
+      "observed": "Official contact lists 215 Browns Road, Boneo."
+    },
+    {
+      "claim": "Booking link classification",
+      "source": "next/src/lib/analytics-events.ts",
+      "observed": "Booking event comment explicitly excludes a generic visit-website link from reservation intent."
+    }
+  ],
+  "reviewEvidence": {
+    "independent": "A separate visual grader found mobile and desktop sticky-header jump clipping; offsets were adjusted after both findings. The grader did not provide a new full post-fix 23-criterion score.",
+    "localBuild": "TZ=UTC npm run build:search exited 0 on exact source; 1014 HTML files, 728 indexed pages.",
+    "browser": "Built golf route checked at 320, 390 and 1440px: zero JS errors or horizontal overflow; 44px hero/card actions; four chooser targets resolve and land visible below sticky shell; stay CTA measured 8.50:1; zero booking-intent attributes on eight generic website links. Shared CompareBlock on /explore/beaches/ stacked correctly at 320 and 390px with zero overflow.",
+    "visual": "Desktop 1440x850 and mobile 390x844 first screens inspected; action visible. Direct assistive-tech and field performance remain untested."
+  },
+  "hardGatesStillOpen": [
+    "Direct screen-reader journey and full keyboard task path.",
+    "Field Core Web Vitals and CLS for exact public route.",
+    "Full 11-record factual freshness and original-grant image rights audit.",
+    "Full independent post-release 23-criterion regrade; cannot infer 99 from this bounded pass."
+  ],
+  "nextAction": "Publish through protected CI, verify exact live manifest and public browser, then independently regrade all 23 criteria and continue the remaining hard-gate/factual work.",
+  "decision": "adopt-bounded-fix-pending-live",
+  "rollback": "Revert the scoped golf page, optional GuideHero action, and shared mobile CompareBlock rule if live regression appears."
+}
