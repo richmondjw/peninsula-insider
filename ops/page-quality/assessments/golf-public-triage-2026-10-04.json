@@ -5,7 +5,7 @@
   "family": "hub",
   "assessedAt": "2026-10-04",
   "baseRevision": "8998d1a0b42b028ca45b6013c5aaea711f348b92",
-  "status": "local-validated-awaiting-ci",
+  "status": "live-accepted-bounded",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -73,8 +73,8 @@
     "build": "Exact final source on 2026-10-04 passed TZ=UTC npm run build:search (exit 0): 1014 HTML files, 728 Pagefind indexed pages; rights, content, link, claim, schema, accessibility-support and responsive-image build gates completed. Build alone does not establish a 99 score.",
     "localBrowser": "Independent bounded GO on exact built preview: golf hub at 320/390/1440 and Portsea detail at 390/1440 are HTTP 200 without JS errors or horizontal overflow; both visibly show Established in 1926 and omit Founded in 1924. Two editorial links resolve to distinct generated guides. Other affected detail pages were checked at 390/1440. This is not a full AT or 23-criterion review.",
     "independentPublicBaseline": "Three independent T1 reviewers were asked for the full rubric; interim findings were used as triage, with no aggregate score inferred. Reviewer also observed cookie panel about 122px above mobile first screen, unclear ranking method and Tier order, a remaining unattributed St Andrews world-ranking phrase, and April lastVerified records. No full score assigned.",
-    "ci": null,
-    "liveAcceptance": null
+    "ci": "PR #576 exact head a4f186a30e997ddea1517751f77656bb7d393f8f passed all eight checks before merge.",
+    "liveAcceptance": "PR #576 merged as b82c68a25902dca2bfdc8479c6c61ae7bac42f82 after all eight checks passed. Protected Build and Deploy run 37196548673 completed success. Fresh cache-busted public release-manifest.json matched sourceSha b82c68a25902dca2bfdc8479c6c61ae7bac42f82 and buildRunId 37196548673 (generated 2026-10-04T10:57:11.619Z). Independent fresh public Chromium at 390/1440 checked golf hub, Portsea, National, Moonah, Fingal and Flinders: 12 HTTP 200 loads, zero page errors and horizontal overflow. Hub and Portsea show Established in 1926 and omit Founded in 1924; National private member rules and Flinders 18 holes visible; raw ranking placeholder absent; two editorial links return 200; Fingal has eight labelled thumbnails across Alba, Moonah, brewery and Eco Lodge with no broken loaded images. Bounded release accepted; 23-criterion scores remain null."
   },
   "hardGatesOpen": [
     "Full 23-criterion independent score",
@@ -82,5 +82,5 @@
     "Field Core Web Vitals",
     "Complete factual and image provenance"
   ],
-  "nextAction": "Push expanded PR #576, pass protected CI and public acceptance; then independently grade full T1 golf page and triage ranking clarity, cookie-panel space, claim provenance, keyboard/AT and field performance. Score remains null."
+  "nextAction": "Continue the independent full-rubric T1 review and triage highest impact open defects; retain score null until all 23 criteria, hard gates and public evidence support a defensible score above 99."
 }

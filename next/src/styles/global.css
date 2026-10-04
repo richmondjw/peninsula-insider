@@ -5147,6 +5147,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   max-width: 52ch;
   margin: 0 0 1.6rem;
 }
+.guide-hero__action { margin-bottom: 1.2rem; }
 .guide-hero__meta {
   display: flex;
   gap: 0.5rem 1.4rem;
@@ -5210,7 +5211,8 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
     font-size: 1rem;
     line-height: 1.5;
   }
-  .guide-hero__meta {
+  .guide-hero__action { margin-bottom: 1.2rem; }
+.guide-hero__meta {
     font-size: 0.62rem;
     letter-spacing: 0.14em;
     gap: 0.45rem 1rem;
@@ -5338,6 +5340,9 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   gap: 0.9rem;
   padding: 0.7rem 0;
   border-top: 1px solid rgba(74, 90, 87, 0.1);
+}
+@media (max-width: 600px) {
+  .compare-block__row { grid-template-columns: 1fr; gap: 0.3rem; }
 }
 .compare-block__row:first-child { border-top: none; padding-top: 0.2rem; }
 .compare-block__row dt {

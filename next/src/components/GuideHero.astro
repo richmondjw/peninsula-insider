@@ -28,6 +28,8 @@ export interface Props {
   dek?: string;
   /** Optional meta items rendered as a small uppercase row beneath the dek. */
   meta?: MetaItem[];
+  /** Optional first-screen decision action for task-led guides. */
+  primaryAction?: { label: string; href: string };
   /** Path to the hero image. */
   heroImage?: string;
   /** Alt text describing the image. */
@@ -48,6 +50,7 @@ const {
   title,
   dek,
   meta,
+  primaryAction,
   heroImage,
   imageAlt = '',
   imageCredit,
@@ -88,6 +91,7 @@ const imageAttrs = editable
         {eyebrow && <p class="guide-hero__eyebrow">{eyebrow}</p>}
         <h1 class="guide-hero__title" set:html={resolvedTitle} {...titleAttrs} />
         {resolvedDek && <p class="guide-hero__dek" {...dekAttrs}>{resolvedDek}</p>}
+        {primaryAction && <a class="pi-btn pi-btn--solid guide-hero__action" href={primaryAction.href}>{primaryAction.label}</a>}
         {meta && meta.length > 0 && (
           <div class="guide-hero__meta">
             {meta.map((item) => (
