@@ -550,6 +550,8 @@ const label = `Photographs of ${subject}`;
   .pviewer__nav--prev { left: clamp(0.5rem, 2vw, 1.5rem); }
   .pviewer__nav--next { right: clamp(0.5rem, 2vw, 1.5rem); }
   @media (max-width: 767px) {
+    /* Keep photo descriptions and required credits above the fixed viewer controls. */
+    .pviewer { padding-block-end: 5.5rem; }
     .pviewer__nav { top: auto; bottom: 1rem; translate: none; }
     .pstage__caption { padding-inline-end: 0; padding-block-end: 3rem; }
     .pstage__meta { top: auto; bottom: 0; }

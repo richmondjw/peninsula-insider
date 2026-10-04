@@ -1,0 +1,102 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/fingal/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "6644339d8ae4aa8370a223afd79772bf9b9a1487",
+  "status": "implementation-in-validation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Choose a Fingal thermal, golf, food or stay experience with truthful locality, useful images and direct planning paths.",
+  "baseline": {
+    "public": "At exact public release 6644339, Fingal has new operator choice and mobile fixes, but its filmstrip repeats the Alba cover and the other 12 gallery images show only Alba and Peninsula Hot Springs Eco Lodges. Moonah Links is described as nearby on Fingal while its experience record assigns Cape Schanck, causing related discovery and caption errors. The public things-to-do guide describes Moonah and The National as adjacent public-access Cape Schanck courses; The National is a private club.",
+    "hardGates": "Moonah locality and public-access claims materially misleading. Gallery placement rights for planned additions must be recorded. Direct assistive-technology journey, field Core Web Vitals, remaining practical claim freshness and paid-use person release remain open.",
+    "scoreEvidence": "Previous three independent full-rubric baseline reviews on public be8002 release remain documented in iteration 3; no new independently reconciled full score yet. Do not extrapolate 99 from scoped fixes."
+  },
+  "triage": [
+    {
+      "priority": 1,
+      "issue": "Wrong Moonah Links locality and golf access claims",
+      "action": "Assign Moonah to Fingal from operator address, fix associated captions and golf guide/schema, distinguish The National private visitor rules."
+    },
+    {
+      "priority": 2,
+      "issue": "Fingal photo strip repeats cover and overrepresents two venues",
+      "action": "Use existing licensed Fingal Moonah Links and St Andrews Beach Brewery works alongside thermal venues; omit duplicate cover only on Fingal photo strip."
+    },
+    {
+      "priority": 2,
+      "issue": "Unsupported 90 km factual lede",
+      "action": "Use verified between-Rye-and-Cape-Schanck locality description without distance estimate."
+    },
+    {
+      "priority": 1,
+      "issue": "Linked golf guide advertises a non-existent National Ocean Course as a public round; National source record has wrong address, and hotel article wrongly attributes RACV course to Moonah Links.",
+      "action": "Correct National visitor eligibility and course naming in golf guide, use official Cups Drive address in its record, and separate RACV and Moonah resort-course claims."
+    }
+  ],
+  "hypothesis": "Correcting place relationships and showing the full range of actual Fingal experiences will improve factual trust and help visitors choose without losing the strong licensed cover.",
+  "boundedChange": "Moonah experience place/address and 18 image captions; two golf article captions and ocean-coast captions; things-to-do golf copy and two schema localities; Fingal lede and eight-image gallery; Fingal-only photo strip excludes hero; scoped Visit Victoria placement ledger. Linked golf guide National access/course references, National source record and luxury hotel article; shared mobile photo viewer caption-control spacing.",
+  "metric": "Production build, rights, content and link gates pass. At 320/390/1440, Fingal displays eight unique gallery images spanning thermal, golf, food and stay, without repeating hero. Moonah appears as Fingal in page title and discovery; things-to-do copy accurately distinguishes private National. No browser errors or overflow. CI and exact public manifest/page acceptance required. At 320px photo viewer navigation does not overlap any description, place caption or image credit.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert this bounded iteration if page relationship, image rights, render, links or layout regress; preserve live task-path release 6644339.",
+  "sources": [
+    {
+      "url": "https://www.moonahlinks.com.au/cms/contact/",
+      "supports": "Operator lists 55 Peter Thomson Drive, Fingal VIC 3939."
+    },
+    {
+      "url": "https://www.moonahlinks.com.au/cms/golf/book-golf/",
+      "supports": "Moonah Links golf booking entry."
+    },
+    {
+      "url": "https://nationalgolf.com.au/visitors/",
+      "supports": "Private club; Victorian nonmembers need member invitation; interstate/overseas visitors may request tee time; Cape Schanck address."
+    },
+    {
+      "url": "https://albathermalsprings.com.au/getting-here/",
+      "supports": "Alba locality Fingal."
+    },
+    {
+      "path": "ops/records/visit-victoria/download-2026-09-28/catalogue.json",
+      "supports": "Visit Victoria asset identity and derivative rights for the reused gallery photos."
+    },
+    {
+      "url": "https://nationalgolf.com.au/visitors/",
+      "supports": "The National has Old, Moonah, Gunnamatta and Long Island courses; private visitor eligibility; The Cups Drive address."
+    },
+    {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html",
+      "supports": "RACV Cape Schanck has its own 18-hole championship course."
+    },
+    {
+      "url": "https://standrewsbeachbrewery.com.au/contact/",
+      "supports": "St Andrews Beach Brewery's Fingal locality."
+    }
+  ],
+  "validation": {
+    "rights": "Scoped ledger records four new Fingal placements and eight historical removals. Visit Victoria licence gate passed across 758 uses, 895 catalogued works; dry-run missing count zero. 98 unrelated historical placements remain in ledger for separate upkeep.",
+    "build": "Exact final source TZ=UTC npm run build:search passed all required tests, content/rights/SEO/link/provenance gates; 1014 generated HTML files and 728 search-indexed pages. Visit Victoria licence gate passed 758 uses; ledger dry-run missing zero.",
+    "localBrowser": "Headless Chromium on exact final built static pages: Fingal, Moonah Links, The National, things-to-do, golf guide and luxury-hotels article all HTTP 200 at 390px, no horizontal overflow or page errors. Fingal has eight distinct thumbnails; Moonah title renders Fingal; The National, things-to-do and golf guide render invitation-plus-play-with-member rule; no National Ocean Course or false RACV/Moonah affiliation. Earlier all eight photo viewer captions and credits cleared controls at 320x900, 320x568, 390x900 and 1440x900.",
+    "independentLocalQA": "Independent visual reviewer bounded GO on rebuilt local page: all eight photos at 320x900, 320x568, 390x900 and 1440x900; no caption, location or Visit Victoria credit intersects viewer arrows or leaves viewport. Moonah photo 2/8 retains 32px clearance between credit and controls at both narrow heights; longest Eco Lodge caption also clear. This is not a full 23-criterion public regrade.",
+    "ci": null,
+    "liveAcceptance": null,
+    "independentFactualQA": "Independent read-only reviewer confirmed Moonah, Alba, brewery, RACV and National operator facts, but flagged visitor-visible National editorial note still implying all nonmembers need a member connection. Corrected note and four linked access statements to include Victorian invitation plus play-with-member requirement and direct interstate/overseas requests. Recheck pending. Independent reviewer rechecked exact National visitor-access copy and gave bounded GO against current operator policy. Full-record lastVerified dates remain older and were not restamped."
+  },
+  "hardGatesOpen": [
+    "Direct assistive-technology journey",
+    "Field Core Web Vitals for exact page",
+    "Remaining practical claim freshness and supporting image provenance",
+    "Paid/sponsored person release if reused beyond current editorial placement",
+    "Moonah and National full-record lastVerified dates remain April 2026; newly checked claims do not amount to full-record verification"
+  ],
+  "negativeFindings": [
+    "PageSpeed API previously returned 429; field metric is unknown.",
+    "Previous independent provisional ratings vary and do not establish 99.",
+    "This iteration does not constitute a full rubric regrade.",
+    "Linked golf guide falsely describes a National Ocean Course as public; connected source and hotel copy were corrected in this iteration. Further golf-page factual review remains a separate T1 gate."
+  ],
+  "nextAction": "Protected PR/CI, merge and exact public manifest/page acceptance; then independent full 23-criterion regrade and remaining AT, field performance and complete factual/image review. Score remains null."
+}
