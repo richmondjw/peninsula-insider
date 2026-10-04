@@ -76,7 +76,7 @@ const relatedSummary = new Map((place.data.relatedPlaceSummaries ?? []).map((ent
 // PR #162 gated it to admin-click.
 // These place CMS covers lack published attribution. Keep the credited content
 // image unless an override provides its own metadata.
-const requiresHeroMetadata = ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham'].includes(placeSlug);
+const requiresHeroMetadata = ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham', 'fingal'].includes(placeSlug);
 const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
   requiresHeroMetadata ? { requireOverrideMetadata: true } : {});
 const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);
@@ -239,7 +239,7 @@ const factual = place.data.factualLede ?? '';
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
-    {editorialHero && place.data.heroDeck ? (
+    {place.data.heroDeck && (editorialHero || !hero.override) ? (
       <p class="pdv2-hero__alt">{place.data.heroDeck}</p>
     ) : !hero.override && !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>

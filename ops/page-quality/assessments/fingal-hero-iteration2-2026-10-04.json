@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/fingal/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "4c6a22207875bc5f92a4175807e4aa0eb76bba94",
+  "status": "bounded-qa-go-pending-ci-and-live",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Recognize Fingal's thermal-wellness setting and plan a truthful local visit from a readable, credited hero.",
+  "baseline": {
+    "public": "Fingal hero and social image use published CMS upload place/fingal/heroImage-1780312208652.jpg, 1600x1200, with generic alt Fingal and no visible image credit or item-level rights receipt. The checked-in fallback is a Cape Schanck coast image and therefore does not precisely depict the hero subject.",
+    "independentSubset": "Earlier Fingal place review was 16/31 across VT2, FN1, ET3, VS1, VS2, VS3, MI1. It is not a full or normalized score.",
+    "independentVisualTriage": "A read-only independent reviewer compared the live hero and existing Visit Victoria Alba asset 172661 in browser-only swaps at 320, 390 and 1440. The candidate was stronger, kept its focal bather centered and the title legible. The reviewer required explicit Alba/Fingal labelling and adjacent Visit Victoria credit.",
+    "hardGates": "Current public CMS hero lacks attribution/rights evidence. A new hero must be explicitly Alba, with item-level Visit Victoria placement and no mismatched card/OG/admin hydration. The full 23-criterion, direct AT and field performance remain open."
+  },
+  "hypothesis": "A locality-accurate, explicitly labelled Alba photograph with a recorded licence and reliable mobile crop will improve visual orientation and eliminate the uncredited-hero rights gate.",
+  "boundedChange": "Promote existing Visit Victoria asset 172661 from Fingal gallery to place hero, retaining gallery data while photoPlan deduplicates repeated entries within the photo set; the cover also appears as a thumbnail in the existing filmstrip. Add a concise visible Alba deck and adjacent Visit Victoria credit. Quarantine only the exact uncredited CMS upload; require metadata on future Fingal hero uploads across detail, OG and place cards; record the hero placement in the existing Visit Victoria ledger.",
+  "metric": "Built and public Fingal detail, cards and OG use asset 172661; hero has descriptive Alba alt, visible Alba/Fingal label and adjacent Visit Victoria credit; exact CMS upload is absent from rendered image, card and OG references (its quarantine identifier may remain in inert script data). Browser at 320/390/1440 has good crop/readability, no horizontal overflow or page errors. Image rights lint, production build and protected CI pass. Full score stays null until remaining gates are evidenced.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the hero/placement/template changes and restore a verified local alternative if visual or rights checks fail; do not restore the uncredited CMS upload without item-level provenance.",
+  "sources": [
+    {
+      "path": "ops/records/visit-victoria/download-2026-09-28/catalogue.json",
+      "supports": "Asset 172661 is the recorded Alba Thermal Springs and Spa source download; image identifier, size and checksum documented."
+    },
+    {
+      "path": "ops/records/visit-victoria/content-hub-terms-2026-09-21.md",
+      "supports": "Victoria Content Hub permits tourism editorial website use, requires destination attribution and source credit, and leaves any additional person release to the publisher."
+    },
+    {
+      "path": "next/src/content/places/fingal.json",
+      "supports": "Asset 172661 was already a verified, licensed Fingal gallery photograph before promotion."
+    }
+  ],
+  "validation": {
+    "impeccable": "Before and after detectors found only two preexisting side-tab warnings outside the hero; no new hero/card antipattern.",
+    "productionBuild": "TZ=UTC npm run build:search passed, including Visit Victoria/image-rights linters, 1014 generated HTML files and Pagefind.",
+    "independentBrowser": "Independent reviewer bounded GO on local build at 320/390/1440: licensed Alba hero and matching OG/place card, descriptive alt, visible venue deck and Visit Victoria credit, readable crop/contrast, no overflow or page errors. Exact old CMS path was inert quarantine data only and not requested on directory checks. Full 23-criterion score remains null.",
+    "ci": null,
+    "liveAcceptance": null,
+    "builtHtml": "Fingal hero and OG image use vv-172661; hero alt names Alba in Fingal, visible deck names Alba Thermal Springs & Spa, Fingal, and visible credit says Photo · Courtesy of Visit Victoria. Places hub card uses same asset. Exact old upload appears only in inert quarantine script data, not as rendered img or OG."
+  },
+  "hardGatesOpen": [
+    "Current CMS upload remains quarantined until its own item-level source and rights are verified",
+    "Person-release evidence for any paid or sponsored reuse of the bather photo",
+    "Full independent 23-criterion score from three T1 graders",
+    "Direct assistive technology journey",
+    "Field performance"
+  ],
+  "negativeFindings": [
+    "Visit Victoria catalogue does not identify a photographer for asset 172661; credit is Courtesy of Visit Victoria.",
+    "The asset contains a rear-facing bather with some profile. Existing licence covers the editorial tourism placement under the house rule; paid or sponsored promotion would need separate release and licence clearance.",
+    "Other locally sourced Hastings hero candidates reviewed in this set were either England-misidentified or visually weak; do not treat them as replacements.",
+    "The first filmstrip thumbnail repeats the cover photo directly below it. Independent reviewer considered this mild visual redundancy, not a release blocker; revisit during full page visual grading."
+  ],
+  "nextAction": "Publish through required CI, then verify exact public manifest and Fingal detail/card/OG tags and crop. Keep full score null pending three T1 graders, direct AT, field performance and remaining visual refinements."
+}
