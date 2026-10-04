@@ -5,7 +5,7 @@
   "family": "place",
   "assessedAt": "2026-10-04",
   "baseRevision": "be8002e51d69c7f5c582d73c058142b20bdb423c",
-  "status": "implementation-in-validation",
+  "status": "live-accepted-with-hard-gates-open",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -178,8 +178,8 @@
   "validation": {
     "build": "TZ=UTC npm run build:search passed on the content/hero/card iteration (1014 generated HTML files, 728 indexed pages); exact final CSS build TZ=UTC npm run build passed all required content, rights, link, SEO and audit checks.",
     "localBrowser": "Headless Chromium on final built static page at 320/390/1440: chooser and both official links present; CTA visible on first viewport; no horizontal overflow or page errors. Nearby place-card summary/action overlap false at all widths. A perfect day anchor top ~160px versus 68px mobile/133px desktop sticky header. All five map filter targets 44px. Not-for text no longer struck through. Both official operator URLs independently returned HTTP 200.",
-    "ci": null,
-    "liveAcceptance": null,
+    "ci": "PR #573 all eight protected checks passed; merged as 6644339d8ae4aa8370a223afd79772bf9b9a1487. Production deploy run 37191301289 succeeded.",
+    "liveAcceptance": "Fresh public release-manifest.json returned sourceSha 6644339d8ae4aa8370a223afd79772bf9b9a1487 and buildRunId 37191301289. Public Fingal HTTP 200 contained both new actions. Headless Chromium on exact public page at 320/390/1440 found chooser text, no horizontal overflow or page errors, and normal not-for styling.",
     "independentLocalQA": "Independent visual reviewer bounded GO on rebuilt local page at 320/390/1440: visible hero actions; two-operator chooser reads clearly; anchor targets clear sticky header; nearby card intro/actions have 8px gap; map filters 44px and Stay toggle works after map initialization; no overflow or page errors. This is not a full public 99 regrade."
   },
   "hardGatesOpen": [
@@ -194,5 +194,5 @@
     "Fingal photo strip remains concentrated on Alba and Peninsula Hot Springs Eco Lodges, with hero repeated as first thumbnail.",
     "Full mobile page remains lengthy; this iteration fixes first task path rather than claiming complete 99."
   ],
-  "nextAction": "Finish final-source browser check, CI, merge/deploy/live acceptance; then independently regrade all 23 criteria and continue the next highest-impact iteration. Score remains null."
+  "nextAction": "Continue iteration 4: correct Moonah Links locality and related golf claims, diversify licensed Fingal gallery and remove repeated cover thumbnail. Regrade all 23 criteria and clear direct AT, field performance, factual and image hard gates. Score remains null."
 }

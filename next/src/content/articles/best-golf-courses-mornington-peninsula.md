@@ -9,7 +9,7 @@ heroImage:
   alt: "Two golfers carry their bags along a fairway at Moonah Links between deep sand bunkers towards a distant flag"
   credit: "Gary Lisbon, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Moonah Links, Cape Schanck, Mornington Peninsula."
+  caption: "Moonah Links, Fingal, Mornington Peninsula."
   depicts: "Moonah Links Golf Course - Fingal"
   depictionStatus: "illustrative"
   creator: "Gary Lisbon"
