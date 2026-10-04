@@ -5,7 +5,7 @@
   "family": "place",
   "assessedAt": "2026-10-04",
   "baseRevision": "3648637463a4f2e1c3f98236a46db2fea88b68e7",
-  "status": "bounded-qa-go-pending-ci-and-live",
+  "status": "live-bounded-accepted",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -33,8 +33,14 @@
   "validation": {
     "productionBuild": "TZ=UTC npm run build:search passed with exit code 0; 1009 pages built, safeguards and Pagefind passed.",
     "independentBrowser": "Independent reviewer bounded GO at 320/390/1440: HTTP 200, corrected advice visible, old fixed lead absent, no horizontal overflow or JS errors. Reviewed against Peninsula Hot Springs official FAQ. Full 23-criterion score remains null.",
-    "ci": null,
-    "liveAcceptance": null,
+    "ci": "PR #565 merged at 9b6ef4098822e5c16a58f55d289cf4f475a66a86 after all required checks passed.",
+    "liveAcceptance": {
+      "sourceSha": "d0c50b5ebd85f019f87d3bd0b06cc89bbf9adc64",
+      "buildRunId": 37182588036,
+      "manifest": "https://peninsulainsider.com.au/release-manifest.json",
+      "checkedAt": "2026-10-04",
+      "result": "Successor protected main deployment includes the Fingal merge. Fresh public manifest matched SHA/run; Fingal returned 200, corrected advance-booking and same-day-surcharge advice was present, and both unsupported fixed lead-time claims were absent. Initial deployment 37182496884 was canceled by CI concurrency before publication."
+    },
     "builtHtml": "Fingal built HTML contains the advance booking and same-day surcharge wording; no three-week or weeks-ahead wording."
   },
   "hardGatesOpen": [
@@ -49,5 +55,5 @@
     "The prior 16/31 subset cannot be normalized into a 100-point score.",
     "Independent browser confirmed the live-shape CMS hero still has generic alt Fingal and no visible credit/provenance; this booking-only change does not resolve the hero gate."
   ],
-  "nextAction": "Build and independently check the corrected Fingal guide, release through normal CI, verify exact live HTML and deployment manifest; separately resolve hero provenance and full grading."
+  "nextAction": "Resolve the Fingal CMS hero item-level provenance and visual suitability, then complete three independent T1 graders, direct AT and field-performance evidence before scoring."
 }
