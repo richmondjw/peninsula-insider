@@ -286,7 +286,11 @@ export const prerender = true;
         )}
         {!isCurrent && !cancelled && (
           <aside class="event-detail__ended" role="status">
-            <strong>This event has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.
+            {unconfirmedArchivedSchedule ? (
+              <><strong>This listing is archived until a future date is confirmed.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+            ) : (
+              <><strong>This event has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+            )}
           </aside>
         )}
       </div>
@@ -422,7 +426,9 @@ export const prerender = true;
                     ? 'Booking and calendar links are withdrawn until a new date is announced.'
                     : soldOut
                       ? 'Booking links are withdrawn while this event is sold out.'
-                      : expiredRecord
+                      : unconfirmedArchivedSchedule
+                        ? 'Booking and calendar links are unavailable while a future date is unconfirmed.'
+                        : expiredRecord
                         ? 'Booking and calendar links are withdrawn; this listing has expired.'
                         : occurrenceOver
                           ? 'Booking and calendar links are withdrawn; this session has finished.'
