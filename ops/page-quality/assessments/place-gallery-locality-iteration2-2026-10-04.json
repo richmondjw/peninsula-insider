@@ -38,7 +38,7 @@
   "tier": "T1",
   "family": "place",
   "assessedAt": "2026-10-04",
-  "status": "live-bounded-accepted-with-provenance-followup",
+  "status": "live-bounded-accepted",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -179,8 +179,7 @@
     "Field performance",
     "Main Ridge local photo breadth; fallback is explicitly nearby Red Hill",
     "Remaining Baxter and cross-page locality/image mismatches",
-    "Merricks North full independent visual/rights review beyond the licensed hero",
-    "Merricks North/Main Ridge admin-hydrated hero provenance follow-up must be built, independently checked and accepted live"
+    "Merricks North full independent visual/rights review beyond the licensed hero"
   ],
   "negativeFindings": [
     "Main Ridge gallery will lose all seven Ocean Eight images; its remaining hero requires its own subject/rights review, and a stronger verified local gallery is needed.",
@@ -195,7 +194,7 @@
     "Visit Victoria placement helper found one new required placement and 100 previously stale where-used rows. The single Merricks North photo placement was appended without rewriting unrelated historical rows; the licence gate passed 761 uses.",
     "Live visual review found a hidden unattributed CMS background behind the credited Merricks North image in an admin-hydrated DOM. The public static HTML and visible image used the licensed local photo; follow-up will move the editable marker onto the image and prevent metadata-sensitive post-render swaps."
   ],
-  "nextAction": "Complete the bounded hero-provenance follow-up through normal CI and exact public acceptance; then continue complete independent 23-criterion, direct AT, field performance and remaining rights/locality review. Score stays null.",
+  "nextAction": "Continue T1 place set19, then complete full independent 23-criterion, direct assistive-technology, field performance and remaining image-rights/locality reviews. Score remains null.",
   "heroProvenanceFollowUp": {
     "baseline": "Live set18 browser DOM for Merricks North had a credited Visit Victoria <img> over a hidden uncredited Supabase CMS background injected into the editable <section> in an authenticated editor session. Anonymous static HTML and the visible image were licensed; the hidden fallback could become visible if the image failed. The separate social hero resolver was unguarded for Main Ridge and Merricks North.",
     "hypothesis": "Putting the editable slot on the semantic image, blocking post-render hydration for these metadata-sensitive slots and guarding the page social resolver will prevent image/credit divergence without changing the visitor layout.",
@@ -207,7 +206,7 @@
       "productionBuild": "PASS: TZ=UTC npm run build:search, /tmp/pi-set18-hero-guard-build.log, exit 0; 1013 HTML files walked and 727 indexed.",
       "generatedMarkup": "PASS: both generated place hero sections have no inline background/style or editable marker; the semantic img carries edit, metadata and no-hydrate attributes; og:image matches credited content photo.",
       "independentBrowser": "Bounded GO: independent reviewer checked Main Ridge and Merricks North preview at 320/390/1440. Both return 200 with no overflow, H1 inset 20px mobile/80px desktop, no section inline or computed background, matching loaded image/visible credit and required metadata/no-hydrate attributes. Authenticated editor session was unavailable; source client skips these attributes in explicit and basename hydration passes.",
-      "liveAcceptance": null
+      "liveAcceptance": "PASS, bounded: PR #560 merge 8e8fef4bf1860788cf62078980bd87215ecce215; protected deploy run 37173314691 passed and public release manifest named this exact sourceSha and run. Public Main Ridge and Merricks North routes returned 200 with no hero-section background, credited local image, matching og:image and metadata/no-hydrate attributes. Independent visual review at 320/390/1440 saw no overflow, broken hero or hidden CMS background. Authenticated inline-editor flow was not directly exercised."
     }
   }
 }

@@ -64,7 +64,9 @@ const sigDesc = (venue.data.signature ?? '').trim();
 const editorLead = (venue.data.editorNote ?? '').split(/\n\s*\n/)[0].replace(/\s+/g, ' ').trim();
 const description = sigDesc.length >= 90 ? sigDesc : (editorLead || sigDesc).slice(0, 158);
 const canonical = `https://peninsulainsider.com.au/wine/${slug}/`;
-const hero = await resolveHero('venue', slug, venue.data);
+const hero = await resolveHero('venue', slug, venue.data, 'heroImage', {
+  requireOverrideMetadata: ['ocean-eight', 'paringa-estate'].includes(slug),
+});
 const ogImage = hero.src;
 
 const schemas: any[] = [

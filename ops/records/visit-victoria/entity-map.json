@@ -353,17 +353,18 @@
   {
    "entity": "venues/ocean-eight",
    "name": "Ocean Eight Vineyard",
-   "hero": "vv-159902",
+   "hero": "vv-159894",
    "gallery": [
-    "vv-159905",
     "vv-159889",
     "vv-159887",
-    "vv-159894",
     "vv-159891",
     "vv-159890"
    ],
-   "caption": "Ocean Eight Vineyard, Main Ridge, Mornington Peninsula.",
-   "previousHero": "/images/sourced/place-main-ridge-01.webp"
+   "caption": "Ocean Eight Vineyard, Shoreham, Mornington Peninsula.",
+   "previousHero": "/images/sourced/place-main-ridge-01.webp",
+   "amendedBy": "Codex, James-approved page-quality programme",
+   "amendedAt": "2026-10-04T03:35:38Z",
+   "amendmentReason": "Asset 159902 and 159905 embedded metadata names Fires Creek Botanical Winery, Central Coast NSW; Ocean Eight identity is unverified."
   },
   {
    "entity": "venues/rare-hare",
@@ -636,17 +637,16 @@
   {
    "entity": "venues/paringa-estate",
    "name": "Paringa Estate",
-   "hero": null,
+   "hero": "vv-143157",
    "gallery": [
     "vv-143149",
     "vv-143155",
     "vv-143152",
-    "vv-143157",
     "vv-143068",
     "vv-143069",
     "vv-143071"
    ],
-   "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+   "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
    "previousHero": "/images/sourced/venue-paringa-estate-01.webp"
   },
   {
@@ -5255,7 +5255,22 @@
    "shotType": "interior",
    "timeOfDay": "unclear",
    "note": null
+  },
+  "vv-143775": {
+   "file": "Sunset on the bay_143775.jpg",
+   "vvAssetId": "143775",
+   "sha256": "146511c6b04c726e468482bc75e4870a1197146e57fa74ad2b8f392d767ccac7",
+   "width": 5655,
+   "height": 3770,
+   "credit": "Photo: Peter Tarasiuk, courtesy of Visit Victoria",
+   "alt": "Dromana Pier and small boats silhouetted against a sunset over Port Phillip Bay",
+   "altBy": "independent-content-review",
+   "peopleVisible": "none",
+   "shotType": "wide",
+   "timeOfDay": "sunset",
+   "note": "Dromana/Pier/Boats in embedded keywords; original SHA verified before technical WebP resize."
   }
  },
- "rejected": []
+ "rejected": [],
+ "amendment20261004Set19": "Corrected Paringa Estate hero to reviewed Visit Victoria asset 143157, updated its locality to Red Hill South, and recorded reviewed Dromana asset 143775."
 }
