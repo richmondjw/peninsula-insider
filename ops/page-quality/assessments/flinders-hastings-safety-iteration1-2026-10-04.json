@@ -12,7 +12,7 @@
   "family": "place",
   "assessedAt": "2026-10-04",
   "baseRevision": "ea1c32ea3c000f14a346b5c37c8459cd33cf588f",
-  "status": "in-remediation",
+  "status": "live-bounded-accepted",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -72,13 +72,18 @@
     }
   ],
   "validation": {
-    "productionBuild": "Full post-rebase build passed before the independent QA notice correction; final source rebuild pending.",
-    "independentLocalBrowser": "Initial responsive review found contradictory generic ended notices on the archived market URL; bounded correction in progress.",
-    "ci": null,
-    "liveAcceptance": null
+    "productionBuild": "Full TZ=UTC npm run build:search passed on final source revision a0240a1; event safeguards and page audits passed.",
+    "independentLocalBrowser": "Independent reviewer bounded GO at 320/390/1440 for Flinders, Hastings, Shoreham and archived market detail: all 200, no overflow/page errors; safety facts, market absence and historical status/actions checked. Full /100 remains null.",
+    "ci": "PR #564 all required checks passed, including SEO audit, content admission, schema and end-to-end journeys: https://github.com/richmondjw/peninsula-insider/pull/564",
+    "liveAcceptance": {
+      "sourceSha": "3648637463a4f2e1c3f98236a46db2fea88b68e7",
+      "buildRunId": 37179870735,
+      "manifest": "https://peninsulainsider.com.au/release-manifest.json",
+      "checkedAt": "2026-10-04",
+      "result": "Exact public manifest and four 200 routes verified. Flinders low-tide/unpatrolled advice, Hastings Stony Point distinction and no market promotion, Shoreham no-lifesaving warning, and archived market noindex/no Event schema/no stale date or travel actions are live."
+    }
   },
   "hardGatesOpen": [
-    "Exact build and public acceptance of safety corrections",
     "Rights-clear hero/related-card provenance for Fingal, Flinders, Hastings and Shoreham",
     "Full independent 23-criterion score on each page",
     "Direct assistive-technology journeys",
@@ -89,8 +94,8 @@
     "Hastings local fallback is a placeholder with tmp-unsplash licence and severe mobile crop; no hero is accepted for 99.",
     "Flinders sourced fallback Wikimedia attribution lacks recorded source URL and licence verification.",
     "The independent 31-point subset is not a normalized 100-point score.",
-    "The market record retains its historical start/end fields for audit. Its direct archived route now requires independent browser proof that the visible schedule and travel actions are suppressed.",
+    "The market record retains its historical start/end fields for audit. Its direct archived route was independently checked after the final copy correction; historical fields remain for audit only.",
     "Hastings and Shoreham corrected FAQ answers are present in FAQPage JSON-LD but not rendered as visible FAQ body text by the preexisting place template; full-page rubric remains open."
   ],
-  "nextAction": "Complete build and independent responsive/browser QA, publish through normal CI, verify exact live release, then address licensed hero selection and remaining full-rubric gates."
+  "nextAction": "Triage rights-clear, locality-accurate Fingal/Flinders/Hastings hero replacements and the Fingal booking claim; retain direct AT, field-performance and full independent 23-criterion gates before any 99/100 claim."
 }
