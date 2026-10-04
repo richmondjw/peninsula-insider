@@ -5,7 +5,7 @@
   "family": "place",
   "assessedAt": "2026-10-04",
   "baseRevision": "4c6a22207875bc5f92a4175807e4aa0eb76bba94",
-  "status": "bounded-qa-go-pending-ci-and-live",
+  "status": "live-bounded-accepted",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -39,8 +39,14 @@
     "impeccable": "Before and after detectors found only two preexisting side-tab warnings outside the hero; no new hero/card antipattern.",
     "productionBuild": "TZ=UTC npm run build:search passed, including Visit Victoria/image-rights linters, 1014 generated HTML files and Pagefind.",
     "independentBrowser": "Independent reviewer bounded GO on local build at 320/390/1440: licensed Alba hero and matching OG/place card, descriptive alt, visible venue deck and Visit Victoria credit, readable crop/contrast, no overflow or page errors. Exact old CMS path was inert quarantine data only and not requested on directory checks. Full 23-criterion score remains null.",
-    "ci": null,
-    "liveAcceptance": null,
+    "ci": "PR #570 merged at be8002e51d69c7f5c582d73c058142b20bdb423c after all required checks passed, including independent audit, build, content and end-to-end journeys.",
+    "liveAcceptance": {
+      "sourceSha": "be8002e51d69c7f5c582d73c058142b20bdb423c",
+      "buildRunId": 37185393625,
+      "manifest": "https://peninsulainsider.com.au/release-manifest.json",
+      "checkedAt": "2026-10-04",
+      "result": "Protected Pages deployment succeeded. Fresh public manifest matched exact SHA/run; Fingal detail and places directory returned 200. Hero src and OG image use vv-172661, hero alt and visible deck name Alba in Fingal, adjacent credit names Visit Victoria, metadata gate is present, places-directory card uses the same asset, and the old CMS image is not rendered as the hero."
+    },
     "builtHtml": "Fingal hero and OG image use vv-172661; hero alt names Alba in Fingal, visible deck names Alba Thermal Springs & Spa, Fingal, and visible credit says Photo · Courtesy of Visit Victoria. Places hub card uses same asset. Exact old upload appears only in inert quarantine script data, not as rendered img or OG."
   },
   "hardGatesOpen": [
@@ -56,5 +62,5 @@
     "Other locally sourced Hastings hero candidates reviewed in this set were either England-misidentified or visually weak; do not treat them as replacements.",
     "The first filmstrip thumbnail repeats the cover photo directly below it. Independent reviewer considered this mild visual redundancy, not a release blocker; revisit during full page visual grading."
   ],
-  "nextAction": "Publish through required CI, then verify exact public manifest and Fingal detail/card/OG tags and crop. Keep full score null pending three T1 graders, direct AT, field performance and remaining visual refinements."
+  "nextAction": "Complete three independent T1 full-rubric graders, direct AT and field performance; triage the mild repeated filmstrip thumbnail and remaining image/person-release use limits. Full score stays null."
 }
