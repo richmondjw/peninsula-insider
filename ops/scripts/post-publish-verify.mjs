@@ -15,6 +15,7 @@
 
 import { writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
+import {metaContent,sitemapPolicy} from './lib/publication-page-policy.mjs';
 
 const args = process.argv.slice(2);
 const urls = [];
@@ -63,14 +64,7 @@ function attr(html, tag, attrName, attrValue) {
   return m[1];
 }
 
-function hasMeta(html, name, prop = false) {
-  const re = new RegExp(
-    `<meta\\s+${prop ? 'property' : 'name'}=["']${name}["']\\s+content=["']([^"']*)["']`,
-    'i'
-  );
-  const m = html.match(re);
-  return m ? m[1] : null;
-}
+const hasMeta = metaContent;
 
 async function verifyOne(url) {
   const checks = [];
@@ -156,7 +150,8 @@ async function verifyOne(url) {
     /* sitemap absent — skip */
   }
   if (inSitemap !== null) {
-    checks.push(check('sitemap', inSitemap, inSitemap ? 'present' : 'not in sitemap.xml'));
+    const policy=sitemapPolicy(inSitemap,hasMeta(html,'robots'));
+    checks.push(check('sitemap',policy.ok,policy.detail));
   }
 
   // Per-kind checks
