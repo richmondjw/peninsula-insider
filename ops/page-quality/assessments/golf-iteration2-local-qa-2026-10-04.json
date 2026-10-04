@@ -5,7 +5,7 @@
   "family": "hub",
   "assessedAt": "2026-10-04",
   "iteration": 2,
-  "state": "local-qa-pass-public-release-pending",
+  "state": "bounded-public-release-accepted-independent-regrade-pending",
   "baselineAssessment": "golf-iteration1-live-baseline-2026-10-04.json",
   "baselinePublicRevision": "b82c68a25902dca2bfdc8479c6c61ae7bac42f82",
   "baselineScore": 62.75,
@@ -41,7 +41,16 @@
     "Full 11-record factual freshness and original-grant image rights audit.",
     "Full independent post-release 23-criterion regrade; cannot infer 99 from this bounded pass."
   ],
-  "nextAction": "Publish through protected CI, verify exact live manifest and public browser, then independently regrade all 23 criteria and continue the remaining hard-gate/factual work.",
-  "decision": "adopt-bounded-fix-pending-live",
-  "rollback": "Revert the scoped golf page, optional GuideHero action, and shared mobile CompareBlock rule if live regression appears."
+  "nextAction": "Independently regrade all 23 criteria on exact public revision; audit 11 source records and official booking/visitor routes; address remaining AT, field CWV and image-rights gates. Do not infer 99.",
+  "decision": "adopt-bounded-fix-live-continue",
+  "rollback": "Revert the scoped golf page, optional GuideHero action, and shared mobile CompareBlock rule if live regression appears.",
+  "publicRelease": {
+    "pullRequest": "https://github.com/richmondjw/peninsula-insider/pull/578",
+    "mergeSha": "8f64cbc17c42c1d77e0b8f1e0e673bdf6f46bd54",
+    "buildRunId": "37209842104",
+    "manifestMatched": true,
+    "manifestObservedAt": "2026-10-04T14:49Z",
+    "liveBrowser": "At 320, 390 and 1440px: page title and four targets correct; 44px actions; no horizontal overflow or JS errors; chooser and course jumps clear sticky shell; dark CTA 8.50:1; eight generic website links emit no booking-intent attribute. Shared /explore/beaches/ comparison no mobile overflow.",
+    "scope": "Bounded live GO only. Independent full 23-criterion post-release score, direct AT, field CWV and full rights/facts remain open."
+  }
 }
