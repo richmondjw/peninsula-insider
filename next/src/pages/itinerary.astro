@@ -181,8 +181,9 @@ export const prerender = true;
 <!-- SortableJS from CDN; lazy-loaded when the user has at least one item. -->
 <script type="application/json" id="pi-itinerary-lookups" set:html={JSON.stringify({venueLookup,eventLookup,experienceLookup,eventCatalog:events}).replace(/</g,'\\u003c')}></script>
 <script>
-  import {projectSavedEvent} from '../lib/event-planning.mjs';
+  import {projectSavedEvent,installSavedEventRefresh} from '../lib/event-planning.mjs';
   const {venueLookup,eventLookup,experienceLookup,eventCatalog}=JSON.parse(document.getElementById('pi-itinerary-lookups')?.textContent||'{}');
+  installSavedEventRefresh(window,document,eventCatalog);
   /* /itinerary/ controller. Owns localStorage (pi:itinerary:v1), wires
      SortableJS for drag-and-drop, computes haversine estimates between
      consecutive stops, and supports share/import via URL params. */
@@ -299,7 +300,7 @@ export const prerender = true;
         : '<div class="itinerary-item__hero itinerary-item__hero--empty"></div>';
       var meta = [data.type, data.price,data.eventStatus].filter(Boolean).map(escapeHtml).join(' · ');
       return ''
-        + '<li class="itinerary-item" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
+        + '<li class="itinerary-item" data-planning-kind="' + escapeHtml(item.kind) + '" data-planning-slug="' + escapeHtml(item.slug) + '" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
         +   '<span class="itinerary-item__handle" aria-hidden="true">≡</span>'
         +   '<a class="itinerary-item__link" href="' + escapeHtml(data.href) + '">'
         +     hero

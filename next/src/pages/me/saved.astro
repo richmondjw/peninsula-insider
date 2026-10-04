@@ -102,8 +102,9 @@ export const prerender = true;
 </BaseLayout>
 
 <script>
-  import {projectSavedEvent} from '../../lib/event-planning.mjs';
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
   const eventCatalog=JSON.parse(document.getElementById('pi-saved-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
   import * as store from '../../lib/v5-store';
   import type { SaveKind, SavedItem } from '../../lib/v5-store';
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
@@ -154,6 +155,7 @@ export const prerender = true;
   }
 
   function imageFor(item: SavedItem): string {
+    if(item.kind==='event'&&(item as any).eventAvailable===false)return '';
     const metaImg = item.meta && typeof item.meta.image_url === 'string' ? item.meta.image_url : '';
     return item.image_url || metaImg;
   }
@@ -169,7 +171,7 @@ export const prerender = true;
     const dek = item.dek ? `<p class="me-card__dek">${esc(item.dek)}</p>` : '';
     const tripMark = inTrip ? `<span class="me-card__intrip">In My Trip</span>` : '';
     return `
-      <li class="me-card">
+      <li class="me-card" data-planning-kind="${esc(item.kind)}" data-planning-slug="${esc(item.slug)}">
         ${media}
         <div class="me-card__body">
           <p class="me-card__mark">${esc(meta.plural)}${tripMark}</p>

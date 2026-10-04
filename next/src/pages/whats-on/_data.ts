@@ -1,3 +1,4 @@
+import { hasPromotionGeography } from '../../lib/event-discovery.mjs';
 import {hasExplicitSeries,occurrenceData} from '../../lib/intelligence-series.mjs';
 /**
  * _data.ts - private data loader for /whats-on/ (v5 rebuild, T-601).
@@ -157,8 +158,7 @@ export async function loadLiveEvents(
   const out: LiveEvent[] = [];
   for (const event of entries) {
     const data = event.data as Record<string, any>;
-    if (!isPublicEventRecord(data)) continue;
-    if (/^(Frankston(?: South)?|Seaford|Carrum Downs|Skye|Langwarrin(?: South)?)$/i.test(String(data.suburb ?? '').trim())) continue;
+    if (!isPublicEventRecord(data, now) || !hasPromotionGeography(data, now)) continue;
     if (isCancelled(data) && !options.includeCancelled) continue;
     const rule = ruleFor(event, now);
     if (!rule || !isCurrentEvent(event, now)) continue;

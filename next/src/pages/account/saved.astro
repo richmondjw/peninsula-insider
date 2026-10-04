@@ -74,8 +74,9 @@ export const prerender = true;
   import * as Saves from '../../lib/saves/store';
   import { buildShareUrl } from '../../lib/saves/share-link';
   import { track } from '../../lib/saves/analytics';
-  import {projectSavedEvent} from '../../lib/event-planning.mjs';
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
   const eventCatalog=JSON.parse(document.getElementById('pi-account-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
 
   const KIND_LABELS: Record<Saves.SaveKind, { plural: string; eyebrow: string }> = {
     article:         { plural: 'Articles',     eyebrow: 'To read' },
@@ -105,12 +106,12 @@ export const prerender = true;
     // store written before that fix can still hold one.
     if (!labels) return '';
     return `
-      <a class="saved-card" href="${escapeHtml(item.href)}">
+      <a class="saved-card" href="${escapeHtml(item.href)}" data-planning-kind="${escapeHtml(item.kind)}" data-planning-slug="${escapeHtml(item.slug)}">
         ${item.image_url ? `<div class="saved-card__img" style="background-image: url('${cssUrl(item.image_url)}');"></div>` : '<div class="saved-card__img saved-card__img--blank"></div>'}
         <div class="saved-card__body">
           <p class="saved-card__eyebrow">${escapeHtml(labels.plural)}</p>
           <h3 class="saved-card__title">${escapeHtml(item.title)}</h3>
-          ${eventState?`<p role="status">${escapeHtml(eventState.eventStatus)}</p>`:''}
+          ${eventState?`<p role="status" data-planning-event-status>${escapeHtml(eventState.eventStatus)}</p>`:''}
           ${item.dek ? `<p class="saved-card__dek">${escapeHtml(item.dek)}</p>` : ''}
         </div>
         <button type="button" class="saved-card__remove" data-pi-saved-remove data-pi-kind="${item.kind}" data-pi-slug="${escapeHtml(item.slug)}" aria-label="Remove ${escapeHtml(item.title)} from your saves">

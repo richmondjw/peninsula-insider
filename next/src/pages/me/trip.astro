@@ -25,7 +25,7 @@ import {publicPlanningCatalog} from '../../lib/event-planning.mjs';
 
 const venues = (await getCollection('venues')).filter(isListableVenue);
 const events = publicPlanningCatalog(await getCollection('events'));
-const eventCatalogJson=JSON.stringify(publicPlanningCatalog(events)).replace(/</g,'\\u003c');
+const eventCatalogJson=JSON.stringify(events).replace(/</g,'\\u003c');
 const experiences = await getCollection('experiences');
 
 /**
@@ -160,8 +160,9 @@ export const prerender = true;
   import { planSharedTripImport } from '../../lib/trip-import';
   import { parseSharedTrip, sharedTripGroups } from '../../lib/shared-trip-preview';
   import { PLAN_SWAPS } from '../../lib/plan-swaps';
-  import {projectSavedEvent} from '../../lib/event-planning.mjs';
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
   const eventCatalog=JSON.parse(document.getElementById('pi-trip-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
 
   initV5Analytics();
 
@@ -415,12 +416,12 @@ export const prerender = true;
     const swaps = alternatives.length ? `<details class="trip-stop__swaps"><summary>Consider a nearby dining swap</summary><p>Keeps this stop in the same day and position. Driving estimates update; this does not transfer or cancel a booking.</p>${alternatives.map((option) => `<p><a href="${esc(GEO[`venue/${option.slug}`].h)}">${esc(GEO[`venue/${option.slug}`].t)}</a>: ${esc(option.reason)}</p><button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" data-trip-swap="${esc(option.slug)}" data-entry="${esc(stop.id)}">Swap to ${esc(GEO[`venue/${option.slug}`].t)}</button>`).join('')}</details>` : '';
 
     return `
-      <li class="trip-stop${moving ? ' trip-stop--moving' : ''}" data-trip-stop="${esc(stop.id)}">
+      <li class="trip-stop${moving ? ' trip-stop--moving' : ''}" data-trip-stop="${esc(stop.id)}" data-planning-kind="${esc(stop.kind||'')}" data-planning-slug="${esc(stop.slug||'')}">
         ${media}
         <span class="trip-stop__body">
           <span class="trip-stop__kind">${esc(h.kindLabel)}</span>
           <span class="trip-stop__title">${title}</span>
-          ${h.eventStatus?`<span class="trip-stop__note" role="status">${esc(h.eventStatus)}</span>`:''}
+          ${h.eventStatus?`<span class="trip-stop__note" role="status" data-planning-event-status>${esc(h.eventStatus)}</span>`:''}
           ${note}
           ${swaps}
         </span>
