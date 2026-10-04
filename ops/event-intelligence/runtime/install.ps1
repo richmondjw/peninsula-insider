@@ -5,7 +5,7 @@ $receiptRoot = Join-Path $repoRoot 'ops/reports/events/intelligence'
 $stateRoot = if ($StateDirectory) { [IO.Path]::GetFullPath($StateDirectory) } else { Join-Path $receiptRoot 'live-runtime' }
 $stageRoot = Join-Path $receiptRoot ('runtime-build-' + (Get-Date -Format 'yyyyMMdd-HHmmss'))
 New-Item -ItemType Directory -Force $stateRoot,$stageRoot | Out-Null
-$paths = @('ops/event-intelligence','next/node_modules/parse5','next/node_modules/entities','next/src/content/events','next/src/content/venues','next/src/lib/event-publication.mjs','next/src/lib/event-occurrence.mjs','next/src/lib/intelligence-series.mjs','next/src/lib/event-schedule.ts')
+$paths = @('ops/event-intelligence','next/node_modules/parse5','next/node_modules/entities','next/src/content/events','next/src/content/venues','next/src/lib/event-publication.mjs','next/src/lib/event-map.mjs','next/src/lib/event-occurrence.mjs','next/src/lib/intelligence-series.mjs','next/src/lib/event-schedule.ts')
 foreach ($relativePath in $paths) {
  $targetPath = Join-Path $stageRoot $relativePath
  New-Item -ItemType Directory -Force (Split-Path $targetPath) | Out-Null

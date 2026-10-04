@@ -1360,6 +1360,7 @@ const events = defineCollection({
         checkedAt: z.coerce.date(),
         coordinates: z.object({ lat: z.number(), lng: z.number() }).optional(),
         coordinateEvidenceId: z.string().min(1).optional(),
+        coordinateCheckedAt: z.coerce.date().optional(),
         coordinateSourceUrl: z.string().url().optional(),
       }).optional(),
     }).optional(),

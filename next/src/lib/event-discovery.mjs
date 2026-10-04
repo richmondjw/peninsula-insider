@@ -1,5 +1,5 @@
 import { startOfDay, addDays, isoDate, ruleFor, occursOnDay } from './event-schedule.ts';
-import { eventContentKind, isPublicEventRecord } from './event-publication.mjs';
+import { eventContentKind, isPublicEventRecord, currentVerifiedPrice } from './event-publication.mjs';
 import { recordDisposition } from './event-occurrence.mjs';
 import { resolveListingOccurrence } from './whatson-listing.mjs';
 
@@ -98,4 +98,13 @@ export function installEventPromotionRefresh(window, document) {
   window.addEventListener('pageshow', start);
   const dispose = () => {stop(); document.removeEventListener('astro:before-swap', stop); document.removeEventListener('astro:page-load', start); window.removeEventListener('pageshow', start); delete window[key];};
   window[key] = {dispose}; start(); return window[key];
+}
+
+/** Free-entry classification requires an unqualified, current source-verified label. */
+export function currentFreePrice(data, now = new Date()) {
+  const price = currentVerifiedPrice(data, now);
+  return price && /^free(?: entry| admission)?[.!]?$/i.test(price.label.trim()) ? price : null;
+}
+export function feedHasCurrentFreeEntry(entry, now = new Date()) {
+  return entry?.f === true && currentFreePrice({verifiedPrice: entry.fp}, now) !== null;
 }

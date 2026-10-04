@@ -12,7 +12,6 @@ import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
-import { eventIsUnqualifiedFree } from '../lib/event-access.mjs';
 
 export interface Props {
   event: any;
@@ -196,7 +195,6 @@ const FILTER_CATEGORY_MAP: Record<string, string> = {
 };
 const filterCategory = FILTER_CATEGORY_MAP[category] ?? category;
 const filterRegions = regionsFor(event.data.suburb ?? event.data.venueRegion);
-const isFree = eventIsUnqualifiedFree(event.data);
 const isoStart = (!event.data.dateBasis || event.data.dateBasis === 'fixed') && event.data.startDate instanceof Date ? event.data.startDate.toISOString().slice(0, 10) : '';
 const isoEnd = (!event.data.dateBasis || event.data.dateBasis === 'fixed') && event.data.endDate instanceof Date
   ? event.data.endDate.toISOString().slice(0, 10)
@@ -217,7 +215,6 @@ const recurrenceDay = recurDayMatch
   data-recurrence-day={recurrenceDay}
   data-date-start={isoStart}
   data-date-end={isoEnd}
-  data-free={isFree ? '1' : '0'}
 >
   {renderImage && <a
     href={`/whats-on/${slug}/`}

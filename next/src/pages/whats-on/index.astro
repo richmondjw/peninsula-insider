@@ -395,6 +395,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
 </BaseLayout>
 
 <script>
+  import { feedHasCurrentFreeEntry, currentFreePrice } from '../../lib/event-discovery.mjs';
   // ── /whats-on/ scope engine ──────────────────────────────────────────
   // Default (this weekend) is fully server-rendered. Every other scope
   // fetches /whats-on/feed.json once and renders compact rows from it:
@@ -436,6 +437,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     c: string;
     p: string;
     f: boolean;
+    fp?: {label:string;sourceUrl:string;checkedAt:string;validUntil:string};
     g: boolean;
     k: 'range' | 'weekly' | 'monthly' | 'explicit';
     dates?: string[];
@@ -527,12 +529,24 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       const value = filters();
       if (value.town && entry.p !== value.town) return false;
       if (value.category && entry.c !== value.category) return false;
-      if (value.free && !entry.f) return false;
+      if (value.free && !feedHasCurrentFreeEntry(entry, new Date())) return false;
       if (value.kids && !entry.g) return false;
       return !value.q || [entry.t, entry.d, entry.p, ...entry.m].join(' ').toLocaleLowerCase('en-AU').includes(value.q);
     };
 
     // ── feed island (fetched once, on first non-default scope) ─────────
+    let freeExpiryTimer: ReturnType<typeof setTimeout> | null = null;
+    function scheduleFreeExpiry(entries: FeedEntry[]) {
+      if (freeExpiryTimer !== null) clearTimeout(freeExpiryTimer);
+      const expiries = entries.map(entry => currentFreePrice({verifiedPrice:entry.fp}, new Date())?.expiresAt).filter(Boolean).map(value => Date.parse(value!));
+      if (!expiries.length) {freeExpiryTimer = null; return;}
+      const delay = Math.min(...expiries) - Date.now() + 1;
+      freeExpiryTimer = setTimeout(() => {
+        if (!daysEl?.isConnected) return;
+        if (filters().free) applyScope(activeScope, activeCustomRange?.from, activeCustomRange?.to);
+        scheduleFreeExpiry(entries);
+      }, Math.max(1, Math.min(delay, 2147483647)));
+    }
     let feedPromise: Promise<FeedEntry[]> | null = null;
     const loadFeed = () => {
       feedPromise ??= fetch('/whats-on/feed.json')
@@ -540,7 +554,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
           if (!r.ok) throw new Error(String(r.status));
           return r.json();
         })
-        .then((j) => j.events as FeedEntry[])
+        .then((j) => {const entries = j.events as FeedEntry[]; scheduleFreeExpiry(entries); return entries;})
         .catch((error) => { feedPromise = null; throw error; });
       return feedPromise;
     };
@@ -847,7 +861,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       applyFromUrl();
     };
     scopeHistoryHandler = onScopeHistory;
-    disposeScope = () => { requestVersion += 1; };
+    disposeScope = () => { requestVersion += 1; if (freeExpiryTimer !== null) clearTimeout(freeExpiryTimer); if (searchTimer !== null) clearTimeout(searchTimer); };
     if ([...new URLSearchParams(window.location.search).keys()].some((key) => ['date', 'q', 'town', 'category', 'free', 'kids'].includes(key))) applyFromUrl();
   }
   }

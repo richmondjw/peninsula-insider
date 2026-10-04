@@ -19,7 +19,6 @@
  * indexes '1'..'4' plus 'free'; labels use band glyphs only).
  */
 
-import { eventIsUnqualifiedFree } from './event-access.mjs';
 import { getAustralianSeasonLower, melbourneCalendarParts } from './season';
 
 export type FacetKey = 'place' | 'cat' | 'mood' | 'price' | 'party' | 'date';
@@ -690,11 +689,8 @@ function facetsForEvent(data: Record<string, any>, out: Facets) {
   if (data.familyFriendly === true) emit(out, 'party', 'family');
   if (data.petFriendly === true) emit(out, 'party', 'dog-friendly');
 
-  if (eventIsUnqualifiedFree(data)) {
-    emit(out, 'price', 'free');
-  } else if (typeof data.priceTier === 'string') {
-    emit(out, 'price', ...(PRICE_TIER_TO_VALUES[data.priceTier] ?? []));
-  }
+  // Event price facets are omitted from static projections. The calendar's
+  // Free filter independently verifies price freshness at the reader clock.
 
   const start = toDate(data.nextOccurrence) ?? toDate(data.startDate);
   const end = toDate(data.endDate);

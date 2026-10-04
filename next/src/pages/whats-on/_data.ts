@@ -1,4 +1,4 @@
-import { hasPromotionGeography } from '../../lib/event-discovery.mjs';
+import { hasPromotionGeography, currentFreePrice } from '../../lib/event-discovery.mjs';
 import {hasExplicitSeries,occurrenceData} from '../../lib/intelligence-series.mjs';
 /**
  * _data.ts - private data loader for /whats-on/ (v5 rebuild, T-601).
@@ -27,7 +27,6 @@ import { fillDistinctPicks, recentlyChecked } from '../../lib/pick-diversity.mjs
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
 import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
-import { eventAccessLabel, eventIsUnqualifiedFree } from '../../lib/event-access.mjs';
 import { USE_OCCURRENCE_MODEL } from '../../lib/features';
 import {
   isCancelledRecord,
@@ -64,6 +63,7 @@ export interface LiveEvent {
   categoryLabel: string;
   placeLabel: string;
   free: boolean;
+  freePrice: ReturnType<typeof currentFreePrice>;
   accessLabel: string | null;
   appeal: number;
   /**
@@ -93,7 +93,7 @@ export interface LiveEvent {
  * previous three-line test exactly.
  */
 export function isCurrentEvent(event: EventEntry, now: Date): boolean {
-  if (event.data.status !== 'published') return false;
+  if (event.data.status !== 'published' || !isPublicEventRecord(event.data, now) || !hasPromotionGeography(event.data, now)) return false;
   if ((USE_OCCURRENCE_MODEL || hasExplicitSeries(event.data)) && !recordDisposition(event.data as Record<string, any>, now).listable) {
     return false;
   }
@@ -173,13 +173,11 @@ export async function loadLiveEvents(
     const categoryLabel = eventCategoryLabel[data.category] ?? '';
     const placeLabel = data.suburb || data.venueName || '';
     const timeLabel = timeLabelFor(data.startTime);
-    const free = eventIsUnqualifiedFree(data);
-    const accessLabel = eventAccessLabel(data);
+    const freePrice = currentFreePrice(data, now);
+    const free = freePrice !== null;
+    // Static calendar chips do not make price claims; Free filtering rechecks the source price at reader time.
+    const accessLabel = null;
     const meta = [timeLabel, placeLabel, categoryLabel].filter(Boolean).slice(0, 3);
-    if (accessLabel) {
-      if (meta.length === 3) meta[2] = accessLabel;
-      else meta.push(accessLabel);
-    }
     const kind = eventContentKind(data);
     if (kind !== 'event') meta.unshift(kind === 'offer' ? 'Offer · validity dates' : 'Experience · check available sessions');
     const appeal =
@@ -200,6 +198,7 @@ export async function loadLiveEvents(
       categoryLabel,
       placeLabel,
       free,
+      freePrice,
       accessLabel,
       appeal,
       statusLabel: disposition.label,
@@ -504,7 +503,8 @@ export interface FeedEntry {
   m: string[]; // meta chips
   c: string; // canonical event category
   p: string; // town, when explicitly supplied
-  f: boolean; // unqualified free entry
+  f: boolean; // current verified free entry at build
+  fp?: NonNullable<ReturnType<typeof currentFreePrice>>;
   g: boolean; // explicitly marked family friendly
   k: 'range' | 'weekly' | 'monthly' | 'explicit';
   dates?: string[];
@@ -535,6 +535,7 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       c: String(live.event.data.category ?? ''),
       p: String(live.event.data.suburb ?? ''),
       f: live.free,
+      ...(live.freePrice ? {fp: live.freePrice} : {}),
       g: live.event.data.familyFriendly === true,
       k: live.rule.kind,
       dates: live.rule.dates,

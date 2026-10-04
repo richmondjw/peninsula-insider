@@ -8,7 +8,6 @@ import {hasExplicitSeries,nextSeriesData} from './intelligence-series.mjs';
  */
 
 import type { CollectionEntry } from 'astro:content';
-import { eventAccessLabel } from './event-access.mjs';
 import { currentVerifiedPrice } from './event-publication.mjs';
 import { USE_OCCURRENCE_MODEL } from './features';
 import {
@@ -408,13 +407,13 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
 /** Verified, current prices are explicitly authorised for What's On.
  * Legacy paid tiers remain organiser-only; free-access distinctions survive.
  */
-export function eventPriceLabel(data: Event['data']): string {
-  return currentVerifiedPrice(data)?.label ?? eventAccessLabel(data) ?? 'Check organiser for pricing';
+export function eventPriceLabel(data: Event['data'], now: Date = new Date()): string {
+  return currentVerifiedPrice(data, now)?.label ?? 'Check organiser for pricing';
 }
 
 /** Whether the price row has a verified price or qualified access label. */
-export function eventHasKnownPrice(data: Event['data']): boolean {
-  return currentVerifiedPrice(data) !== null || eventAccessLabel(data) !== null;
+export function eventHasKnownPrice(data: Event['data'], now: Date = new Date()): boolean {
+  return currentVerifiedPrice(data, now) !== null;
 }
 
 /**
