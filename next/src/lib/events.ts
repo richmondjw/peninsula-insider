@@ -15,7 +15,7 @@ import {
   isoOffsetFor,
   occurrenceBounds,
   recordDisposition,
-  schemaEventStatus,
+  staticEventSchemaStatus,
   spanBounds,
 } from './event-occurrence.mjs';
 
@@ -312,11 +312,9 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     description: data.description ?? data.summary,
     startDate: startISO,
     endDate: endISO,
-    // A cancelled event keeps EventCancelled forever - that cancellation is a
-    // fact Google still wants after the date passes. An event that simply ran
-    // its course must NOT keep advertising EventScheduled: endDate already
-    // marks it historical, and a stale "scheduled" status is what
-    // lint-seo-architecture's stale-event-scheduled assertion catches.
+    // A cancelled event keeps EventCancelled forever. A static page cannot
+    // keep EventScheduled accurate once its end time passes, so omit that
+    // optional status even when the event is upcoming at build time.
     //
     // PI-008 adds the two states the pair could not express. A postponed event
     // is not cancelled and is not going ahead on the date shown; a rescheduled
@@ -324,16 +322,13 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     // declared as previousStartDate so an assistant holding the stale date can
     // reconcile it.
     ...(() => {
-      const past = new Date(endISO) < new Date();
       if (!USE_OCCURRENCE_MODEL) {
         return (data as Record<string, unknown>).cancelled === true
           ? { eventStatus: 'https://schema.org/EventCancelled' }
-          : past
-            ? {}
-            : { eventStatus: 'https://schema.org/EventScheduled' };
+          : {};
       }
       const disposition = recordDisposition(data as Record<string, unknown>);
-      const eventStatus = schemaEventStatus(disposition.status, { past });
+      const eventStatus = staticEventSchemaStatus(disposition.status);
       const previous = (data as Record<string, unknown>).postponedFrom ?? data.startDate;
       return {
         ...(eventStatus ? { eventStatus } : {}),
