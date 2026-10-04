@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-03T11:14:10.000Z",
+  "updatedAt": "2026-10-04T06:49:47.000Z",
   "staleAfterDays": 90,
   "assertedMetrics": [
     "missingVerificationDate",
@@ -16,7 +16,7 @@
   "ceilings": {
     "liveEvents": 51,
     "cancelledEvents": 1,
-    "missingVerificationDate": 12,
+    "missingVerificationDate": 0,
     "staleVerificationDate": 31,
     "duplicateTitleGroups": 0,
     "duplicateVenueDateGroups": 0,

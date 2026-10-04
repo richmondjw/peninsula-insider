@@ -27,6 +27,7 @@ The benchmark screenshots taken during this work show Visit Mornington Peninsula
 | PI local loop 3 | 23 | 19 | 16 | 15 | 9 | 8 | **90/100** |
 | PI live loop 3 with speed evidence | 23 | 19 | 16 | 15 | 9 | 4 | **86/100** |
 | PI live loop 5, after Sunday session expiry | 22 | 20 | 16 | 13 | 9 | 6 | **86/100** |
+| PI live loop 6, first-screen spacing restored | 23 | 20 | 16 | 13 | 9 | 6 | **87/100** |
 | City of Melbourne observed page | 13 | 20 | 19 | 15 | 9 | 8 | **84/100** |
 | Visit Mornington Peninsula observed page | 9 | 16 | 19 | 11 | 8 | 9 | **72/100** |
 
@@ -73,3 +74,5 @@ The full-width image improves the opening composition, but the first event decis
 ## Loop 6 candidate, 4 October 2026
 
 The phone hero and short-list spacing are tightened without changing the credited image, text or event selection. In a fresh built-site browser at 390×844 with the initial cookie note visible in the document flow, the lead pick's title ends at 736px and its date/place/category line ends at 827px; the previous live metadata ended at 876px. At 320px the title ends at 801px and metadata at 892px. The hero image loads, and 320, 390, 768 and 1440px checks find no document overflow. The built-site discovery journeys pass 26/26. This is local candidate evidence only; visual score and reader-task comparison remain unchanged pending live verification.
+
+PR #566 merged as `d0c50b5ebd85f019f87d3bd0b06cc89bbf9adc64`. Production run `37182588036` succeeded, and the public `/deployment.json` returned that SHA and run. A fresh public browser reproduced the 390px first-pick title at 736px and date/place/category at 827px with the cookie note open. The credited hero loaded without horizontal overflow at 320, 390, 768 and 1440px. The immediate-decision row gains one point, yielding a **provisional live visual score of 87/100**. The card's explicit save and trip actions still begin below the 844px first screen, the short list has only two current picks, and the same-task reader comparison is untested, so this is not a design pass or an overall 95/100 result.
