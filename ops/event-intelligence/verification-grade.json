@@ -1,0 +1,54 @@
+{
+  "stage": "verification",
+  "checks": {
+    "essential-fields": {
+      "passed": true,
+      "evidence": "verify.test.mjs extraction alone cannot pass; required fields demand located official quotes and named human verification."
+    },
+    "year": {
+      "passed": true,
+      "evidence": "verify.test.mjs previous-year records rejected and field value mismatch exposed."
+    },
+    "timezone": {
+      "passed": true,
+      "evidence": "event-publication.test.mjs actual AEDT structured data plus 43 event-occurrence DST/exception regressions."
+    },
+    "conflicts": {
+      "passed": true,
+      "evidence": "verify.test.mjs unresolved conflicts prevent approval."
+    },
+    "status": {
+      "passed": true,
+      "evidence": "verify.test.mjs cancellation blocked; existing occurrence tests distinguish sold out, postponed and cancelled."
+    },
+    "booking": {
+      "passed": false,
+      "evidence": "Unsafe booking link tested; broader live booking inventory reconciliation not yet verified."
+    },
+    "pricing": {
+      "passed": true,
+      "evidence": "event-publication tests reject stale/future/unsafe timestamps; verifyCandidate requires permissioned official field proof."
+    },
+    "source-lineage": {
+      "passed": true,
+      "evidence": "verify.test.mjs syndicated copies count as one source lineage."
+    },
+    "freshness": {
+      "passed": true,
+      "evidence": "verify.test.mjs future evidence rejected; public price validity capped seven days."
+    },
+    "negative-tests": {
+      "passed": true,
+      "evidence": "68 combined tests passed, including essential-field and unknown ticket regressions."
+    },
+    "manually-verified-sample": {
+      "passed": false,
+      "evidence": "No independently manually verified representative sample or measured false-approval/missed-error results yet."
+    }
+  },
+  "scope": "Complete major stage: reopened after independent grading audit.",
+  "limitations": [
+    "No independently manually verified representative sample or measured false-approval/missed-error results yet."
+  ],
+  "rubricVersion": 2
+}

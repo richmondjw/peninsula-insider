@@ -1,3 +1,4 @@
+import {hasExplicitSeries,occurrenceData} from '../../lib/intelligence-series.mjs';
 import type { APIRoute } from 'astro';
 import {
   addDays,
@@ -10,6 +11,7 @@ import {
   weekendWindow,
   type ScopeWindow,
 } from './_data';
+import { eventContentKind } from '../../lib/event-publication.mjs';
 import { listingEventStatus } from '../../lib/event-occurrence.mjs';
 
 // Machine-readable "what's on" feed for AI assistants and agents. The site
@@ -37,6 +39,7 @@ export const GET: APIRoute = async () => {
     .filter((live) => occursInWindow(live.rule, window))
     .map((live) => {
       const e = live.event;
+      const contentKind = eventContentKind(e.data);
       let nextOccurrence: Date | null = null;
       for (let day = window.start; day <= window.end; day = addDays(day, 1)) {
         if (!occursOnDay(live.rule, day)) continue;
@@ -56,7 +59,8 @@ export const GET: APIRoute = async () => {
       // as normal. The same resolver the pages render from answers it here, over
       // the whole run for a range rather than over its opening day, and returns
       // nothing at all when there is nothing true to say.
-      const eventStatus = listingEventStatus(
+      const actualData = occurrenceData(e.data, startIso) ?? e.data;
+      const eventStatus = hasExplicitSeries(e.data) ? occurrenceStateFor(live, startIso, now).schemaStatus : listingEventStatus(
         e.data as Record<string, any>,
         startIso,
         now,
@@ -71,27 +75,30 @@ export const GET: APIRoute = async () => {
         const date = isoDate(day);
         const state = occurrenceStateFor(live, date, now);
         if (state.phase === 'past') continue;
-        weekendOccurrences.push({ date, eventStatus: state.schemaStatus });
+        weekendOccurrences.push({ date, ...(contentKind === 'event' ? { eventStatus: state.schemaStatus } : {}) });
         // A range is one continuous occurrence, even when it spans days.
         if (live.rule.kind === 'range') break;
       }
       return {
         title: e.data.title,
+        contentKind,
+        dateMeaning: contentKind === 'event' ? 'occurrence' : contentKind === 'offer' ? 'validity' : 'availability',
         url: `${SITE}${live.href}`,
         startDate: startIso,
         endDate: endIso,
         id: `${SITE}${live.href}`,
-        sourceUrl: e.data.officialEventUrl || e.data.organiser?.website || null,
+        sourceUrl: actualData.officialEventUrl || actualData.organiser?.website || null,
         factCheckedOn: e.data.editorialProvenance?.checkedOn ? isoDate(new Date(e.data.editorialProvenance.checkedOn)) : null,
         recurrence: e.data.recurrence ?? 'one-off',
         category: e.data.category ?? null,
-        place: (e.data.place as { id?: string } | undefined)?.id ?? null,
-        venue: (e.data.venue as { id?: string } | undefined)?.id ?? null,
+        place: (actualData.place as { id?: string } | undefined)?.id ?? null,
+        venue: (actualData.venue as { id?: string } | undefined)?.id ?? null,
         freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
+        ...(hasExplicitSeries(e.data) ? {venueName: actualData.venueName, startTime: actualData.startTime, endTime: actualData.endTime} : {}),
         // undefined rather than null: JSON.stringify drops the key, so a
         // finished occurrence says nothing instead of saying nothing loudly.
-        eventStatus: eventStatus ?? undefined,
+        eventStatus: contentKind === 'event' ? eventStatus ?? undefined : undefined,
         weekendOccurrences,
         thisWeekend: weekendOccurrences.length > 0,
       };
@@ -109,9 +116,9 @@ export const GET: APIRoute = async () => {
       `${SITE}/llms.txt for the full site map.`,
     generated: isoDate(now),
     generatedAt: now.toISOString(),
-    schemaVersion: '1.1',
-    timezone: 'Australia/Sydney',
-    dateSemantics: 'Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.',
+    schemaVersion: '1.2',
+    timezone: 'Australia/Melbourne',
+    dateSemantics: 'Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.',
     window: { start: isoDate(window.start), end: isoDate(window.end) },
     documentation: `${SITE}/agents/#trust`,
     site: SITE,
@@ -127,11 +134,10 @@ export const GET: APIRoute = async () => {
       '@type': 'ListItem',
       position: index + 1,
       item: {
-        '@type': 'Event',
+        '@type': event.contentKind === 'event' ? 'Event' : event.contentKind === 'offer' ? 'Offer' : 'Service',
         name: event.title,
         url: event.url,
-        startDate: event.startDate,
-        endDate: event.endDate,
+        ...(event.contentKind === 'event' ? { startDate: event.startDate, endDate: event.endDate } : event.contentKind === 'offer' ? { validFrom: event.startDate, validThrough: event.endDate } : {}),
         description: event.summary,
         ...(event.eventStatus ? { eventStatus: event.eventStatus } : {}),
       },

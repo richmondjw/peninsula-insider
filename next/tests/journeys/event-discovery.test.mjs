@@ -101,9 +101,9 @@ test('built default Event ItemList and AI feed agree on weekend event identities
   // comparison to its published live destinations, including recurring series.
   const feedUrls = new Set(feed.events.map(e => e.url));
   const pageUrls = schema.itemListElement.map(x => x.item.url).filter(url => feedUrls.has(url)).sort();
-  const weekendUrls = feed.events.filter(e => e.thisWeekend).map(e => e.url).sort();
+  const weekendUrls = feed.events.filter(e => e.thisWeekend && e.contentKind === 'event').map(e => e.url).sort();
   assert.deepEqual(pageUrls, weekendUrls);
-  for (const event of feed.events) assert.equal(event.thisWeekend, event.weekendOccurrences.length > 0);
+  for (const event of feed.events) { assert.equal(event.thisWeekend, event.weekendOccurrences.length > 0); assert.ok(['event','experience','offer'].includes(event.contentKind)); if(event.contentKind !== 'event') { assert.equal(event.eventStatus, undefined); assert.notEqual(event.dateMeaning, 'occurrence'); } }
 });
 
 test('date controls still work after leaving and returning through client navigation', async () => {

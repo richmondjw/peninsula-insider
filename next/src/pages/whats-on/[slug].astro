@@ -1,4 +1,5 @@
 ---
+import {hasExplicitSeries,nextSeriesData} from '../../lib/intelligence-series.mjs';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
@@ -26,21 +27,26 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
+import { currentVerifiedPrice, eventContentKind, isPublicEventRecord } from '../../lib/event-publication.mjs';
 import { USE_OCCURRENCE_MODEL } from '../../lib/features';
 import { dayIsoOf, recordDisposition, resolveOccurrence } from '../../lib/event-occurrence.mjs';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events');
+  const events = await getCollection('events', ({ data }) => isPublicEventRecord(data));
   return events.map((event) => ({
     params: { slug: routeSlug(event) },
     props: { event },
   }));
 }
 
-const { event } = Astro.props;
+const { event: originalEvent } = Astro.props;
 const now = new Date();
+const explicitSeries = hasExplicitSeries(originalEvent.data);
+const event = explicitSeries ? {...originalEvent, data: nextSeriesData(originalEvent.data, now)} : originalEvent;
+const contentKind = eventContentKind(event.data);
+const kindLabel = contentKind === 'offer' ? 'Offer' : contentKind === 'experience' ? 'Experience' : 'Event';
 const isCurrent = isCurrentEvent(event, now);
 // A cancelled event keeps its URL and stays indexable: readers arriving from
 // search or an old link need to be told it is off, not redirected into a hub
@@ -52,7 +58,7 @@ const cancelled = isCancelledEvent(event);
 // for exactly one of them. The three flags below carry the others into the
 // notices and into bookingClosed; with the occurrence model flagged off,
 // disposition is null and the page renders precisely as it did before.
-const disposition = USE_OCCURRENCE_MODEL
+const disposition = (USE_OCCURRENCE_MODEL || explicitSeries)
   ? recordDisposition(event.data as Record<string, any>, now)
   : null;
 const postponed = disposition?.status === 'postponed';
@@ -63,16 +69,16 @@ const expiredRecord = disposition?.expired === true;
 // Everything that takes the booking affordance away. Cancellation already did;
 // these are the cases that used to leave a live "Book now" on a page for an
 // event nobody could attend.
-const bookingWithdrawn = cancelled || postponed || soldOut || expiredRecord;
-const place = event.data.place ? await getEntry(event.data.place).catch(() => null) : null;
-const venue = event.data.venue ? await getEntry(event.data.venue).catch(() => null) : null;
+const bookingWithdrawn = cancelled || postponed || soldOut || expiredRecord || (explicitSeries && disposition?.unverified === true);
+const place = event.data.place ? await Promise.resolve(getEntry('places', event.data.place.id)).catch(() => null) : null;
+const venue = event.data.venue ? await Promise.resolve(getEntry('venues', event.data.venue.id)).catch(() => null) : null;
 
 // Expired pages stay available for direct/backlink visits, but never link to
 // each other. That closes the stale-event crawl path while current series keep
 // their normal related-event discovery.
 const allEvents = (await loadLiveEvents(now))
   .map(({ event: entry }) => entry)
-  .filter((e) => routeSlug(e) !== routeSlug(event));
+  .filter((e) => e.data.status === 'published' && isPublicEventRecord(e.data) && routeSlug(e) !== routeSlug(event));
 const related = allEvents
   .filter((e) => e.data.category === event.data.category)
   .slice(0, 3);
@@ -95,7 +101,7 @@ const lensList: Array<{ key: string; label: string }> = ((event.data.lens ?? [])
 
 const slug = routeSlug(event);
 const placeName = place?.data?.name ?? 'Mornington Peninsula';
-const addressForDirections = [event.data.streetAddress, event.data.suburb, 'VIC']
+const addressForDirections = [event.data.venueName, event.data.streetAddress, event.data.suburb, 'VIC']
   .filter(Boolean)
   .join(', ');
 const directionsHref = event.data.coordinates
@@ -117,6 +123,7 @@ const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-
 // page always renders price, time (when known), recurrence, and family grade
 // in the at-a-glance block, plus an add-to-calendar action.
 const priceLabel = eventPriceLabel(event.data);
+const verifiedPrice = currentVerifiedPrice(event.data, now);
 const priceKnown = eventHasKnownPrice(event.data);
 // Archived records can retain old scheduling fields for the audit trail. When
 // the record says its next date is unverified, never present that range as a
@@ -150,17 +157,17 @@ const whenLabel = unconfirmedArchivedSchedule ? 'No future date confirmed' : fle
 // page actually displays and ask whether it is over. For a recurring series
 // whenStart is the next occurrence, so this is false until that one passes.
 const displayedRun =
-  USE_OCCURRENCE_MODEL && !flexibleDate && whenStart
+  (USE_OCCURRENCE_MODEL || explicitSeries) && !flexibleDate && whenStart
     ? resolveOccurrence(event.data as Record<string, any>, dayIsoOf(whenStart), now, {
         endDayIso: dayIsoOf(whenEnd ?? whenStart),
       })
     : null;
-const occurrenceOver = displayedRun?.phase === 'past';
+const occurrenceOver = event.data.status === 'archived' || displayedRun?.phase === 'past';
 // A page that already tells the reader "This event has ended" must not also
 // offer them a booking and an add-to-calendar button. Seventy event pages were
 // doing exactly that: the notice and the actions block were computed from
 // different things and nobody had ever put them side by side.
-const bookingClosed = bookingWithdrawn || occurrenceOver || unconfirmedArchivedSchedule || (USE_OCCURRENCE_MODEL && !isCurrent);
+const bookingClosed = bookingWithdrawn || occurrenceOver || unconfirmedArchivedSchedule || ((USE_OCCURRENCE_MODEL || explicitSeries) && !isCurrent);
 
 // Rich Event JSON-LD: includes geo coordinates, organiser, attendance mode,
 // offers with currency, and image. Falls through gracefully when fields are
@@ -168,7 +175,7 @@ const bookingClosed = bookingWithdrawn || occurrenceOver || unconfirmedArchivedS
 // Keep the retained cancellation URL richly described for search and old
 // inbound links. A cancelled event is deliberately not "current", but its
 // Event JSON-LD must still declare EventCancelled rather than disappearing.
-const eventSchema = !flexibleDate && (isCurrent || cancelled)
+const eventSchema = contentKind === 'event' && !flexibleDate && (isCurrent || cancelled)
   ? eventJsonLd(event, 'https://peninsulainsider.com.au')
   : null;
 
@@ -211,6 +218,8 @@ export const prerender = true;
     <div class="container">
       <div class="event-detail__header">
         <div class="event-detail__meta">
+          <span class="label label--accent">{kindLabel}</span>
+          <span class="event-detail__dot" aria-hidden="true"></span>
           <span class="label label--accent">{eventCategoryLabel[event.data.category] ?? event.data.category}</span>
           <span class="event-detail__dot" aria-hidden="true"></span>
           <span class="event-detail__meta-item">{whenLabel}</span>
@@ -289,8 +298,9 @@ export const prerender = true;
             {unconfirmedArchivedSchedule ? (
               <><strong>This listing is archived until a future date is confirmed.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
             ) : (
-              <><strong>This event has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+              <><strong>This {contentKind} has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
             )}
+
           </aside>
         )}
       </div>
@@ -378,7 +388,7 @@ export const prerender = true;
             <p class="event-detail__box-label">At a glance</p>
             <dl class="event-detail__box-list">
               <div>
-                <dt>When</dt>
+                <dt>{contentKind === 'offer' ? 'Valid dates' : 'When'}</dt>
                 <dd>{whenLabel}</dd>
               </div>
               {timeLabel && (
@@ -393,7 +403,18 @@ export const prerender = true;
               </div>
               <div>
                 <dt>Price</dt>
-                <dd class={priceKnown ? '' : 'event-detail__box-soft'}>{priceLabel}</dd>
+                <dd class={priceKnown ? '' : 'event-detail__box-soft'}>
+                  {verifiedPrice ? (
+                    <span data-verified-price data-price-checked={new Date(verifiedPrice.checkedAt).toISOString()} data-price-expiry={verifiedPrice.expiresAt}>
+                      <span data-price-current hidden>
+                        {verifiedPrice.label}{' '}
+                        <a href={verifiedPrice.sourceUrl} rel="nofollow noreferrer" target="_blank">Price source</a>
+                        <small class="event-detail__price-check">Checked {new Date(verifiedPrice.checkedAt).toLocaleDateString('en-AU', { timeZone: 'Australia/Melbourne', day: 'numeric', month: 'short', year: 'numeric' })}. Conditions may apply.</small>
+                      </span>
+                      <span data-price-fallback>Check organiser for pricing</span>
+                    </span>
+                  ) : priceLabel}
+                </dd>
               </div>
               {place && (
                 <div>
@@ -450,7 +471,7 @@ export const prerender = true;
                     {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
                   </a>
                 )}
-                {!flexibleDate && <a
+                {contentKind === 'event' && !flexibleDate && (!event.data.startTime || event.data.endTime) && <a
                   href={calendarUrl}
                   class="event-detail__action event-detail__action--secondary"
                   rel="noreferrer"
@@ -502,7 +523,22 @@ export const prerender = true;
   <NewsletterBlock />
 </BaseLayout>
 
+<script>
+  import { refreshVerifiedPriceElements } from '../../lib/event-publication.mjs';
+  let priceTimer: ReturnType<typeof setTimeout> | undefined;
+  const refreshPrices = () => {
+    if (priceTimer) clearTimeout(priceTimer);
+    const expiry = refreshVerifiedPriceElements(document);
+    if (expiry) priceTimer = setTimeout(refreshPrices, Math.max(1, Math.min(60_000, expiry - Date.now() + 1)));
+  };
+  refreshPrices();
+  document.addEventListener('astro:page-load', refreshPrices);
+  document.addEventListener('visibilitychange', refreshPrices);
+</script>
+
 <style>
+  .event-detail__price-check { display: block; margin-top: 0.35rem; color: var(--soft); }
+  [data-price-current][hidden], [data-price-fallback][hidden] { display: none; }
   .event-detail__image { margin: 0 0 2.5rem; }
   .event-detail__image img { display: block; width: 100%; max-height: 420px; aspect-ratio: 16 / 7; object-fit: cover; border-radius: var(--radius-m); }
   .event-detail__image figcaption { padding: 0 0.2rem; }

@@ -1,3 +1,4 @@
+import {hasExplicitSeries,occurrenceData} from '../../lib/intelligence-series.mjs';
 /**
  * _data.ts - private data loader for /whats-on/ (v5 rebuild, T-601).
  *
@@ -20,6 +21,7 @@
  */
 import { listingDateLabel, resolveListingOccurrence } from '../../lib/whatson-listing.mjs';
 import { rotateDaily } from '../../lib/daily-rotation';
+import { eventContentKind, isPublicEventRecord } from '../../lib/event-publication.mjs';
 import { fillDistinctPicks, recentlyChecked } from '../../lib/pick-diversity.mjs';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import { routeSlug, eventCategoryLabel } from '../../lib/editorial';
@@ -89,7 +91,7 @@ export interface LiveEvent {
  */
 export function isCurrentEvent(event: EventEntry, now: Date): boolean {
   if (event.data.status !== 'published') return false;
-  if (USE_OCCURRENCE_MODEL && !recordDisposition(event.data as Record<string, any>, now).listable) {
+  if ((USE_OCCURRENCE_MODEL || hasExplicitSeries(event.data)) && !recordDisposition(event.data as Record<string, any>, now).listable) {
     return false;
   }
   const rule = ruleFor(event, now);
@@ -153,13 +155,15 @@ export async function loadLiveEvents(
   const out: LiveEvent[] = [];
   for (const event of entries) {
     const data = event.data as Record<string, any>;
+    if (!isPublicEventRecord(data)) continue;
+    if (/^(Frankston(?: South)?|Seaford|Carrum Downs|Skye|Langwarrin(?: South)?)$/i.test(String(data.suburb ?? '').trim())) continue;
     if (isCancelled(data) && !options.includeCancelled) continue;
     const rule = ruleFor(event, now);
     if (!rule || !isCurrentEvent(event, now)) continue;
     // Expiry and postponement are record-level facts, so they are resolved
     // once here rather than per day. isCurrentEvent has already refused the
     // non-listable ones; this is the same answer, kept for display.
-    const disposition = USE_OCCURRENCE_MODEL
+    const disposition = (USE_OCCURRENCE_MODEL || hasExplicitSeries(data))
       ? recordDisposition(data, now)
       : { label: null, promotable: true };
 
@@ -174,6 +178,8 @@ export async function loadLiveEvents(
       if (meta.length === 3) meta[2] = accessLabel;
       else meta.push(accessLabel);
     }
+    const kind = eventContentKind(data);
+    if (kind !== 'event') meta.unshift(kind === 'offer' ? 'Offer · validity dates' : 'Experience · check available sessions');
     const appeal =
       (data.visitorAppealScore ?? 0) +
       (data.editorialPriority ?? 0) * 0.5 +
@@ -261,9 +267,9 @@ export interface DayItem extends OccurrenceState {
 export function occurrenceStateFor(live: LiveEvent, dayIso: string, now: Date): OccurrenceState {
   const occurrence = resolveListingOccurrence(live.event.data, live.rule, dayIso, now);
   const schemaStatus = occurrenceSchemaStatus(
-    USE_OCCURRENCE_MODEL ? occurrence : { ...occurrence, phase: 'upcoming' }
+    (USE_OCCURRENCE_MODEL || hasExplicitSeries(live.event.data)) ? occurrence : { ...occurrence, phase: 'upcoming' }
   );
-  if (!USE_OCCURRENCE_MODEL) {
+  if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(live.event.data)) {
     return {
       phase: 'upcoming',
       bookable: true,
@@ -318,7 +324,9 @@ export function groupByDay(events: LiveEvent[], win: ScopeWindow, now: Date = ne
         const spanLabel = listingDateLabel(live.rule, win);
         items.push({ live, spanLabel, ...state });
       } else {
-        items.push({ live, spanLabel: listingDateLabel(live.rule, win), ...state });
+        const actual = occurrenceData(live.event.data, dayIso);
+        const resolvedLive = actual && hasExplicitSeries(live.event.data) ? {...live, event: {...live.event, data: actual}, meta: [actual.venueName, actual.startTime].filter(Boolean)} : live;
+        items.push({ live: resolvedLive, spanLabel: listingDateLabel(live.rule, win), ...state });
       }
     }
     items.sort((a, b) => b.live.appeal - a.live.appeal || a.live.title.localeCompare(b.live.title));
@@ -496,7 +504,8 @@ export interface FeedEntry {
   p: string; // town, when explicitly supplied
   f: boolean; // unqualified free entry
   g: boolean; // explicitly marked family friendly
-  k: 'range' | 'weekly' | 'monthly';
+  k: 'range' | 'weekly' | 'monthly' | 'explicit';
+  dates?: string[];
   s: string; // rule start ISO date
   e: string; // rule end ISO date
   wd?: number; // weekday
@@ -526,11 +535,12 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       f: live.free,
       g: live.event.data.familyFriendly === true,
       k: live.rule.kind,
+      dates: live.rule.dates,
       s: isoDate(live.rule.start),
       e: isoDate(live.rule.end),
       statusData: Object.fromEntries([
         'startTime', 'endTime', 'endsNextDay', 'timezone', 'cancelled', 'postponed',
-        'rescheduledTo', 'bookingStatus', 'expiresAt', 'occurrenceExceptions',
+        'rescheduledTo', 'bookingStatus', 'expiresAt', 'occurrenceExceptions', 'intelligence', 'seriesOccurrences', 'venueName', 'sourceUpdatedAt', 'lastVerifiedAt', 'lastCheckedDate', 'verificationStatus', 'skipThis',
       ].filter((key) => (live.event.data as any)[key] !== undefined)
         .map((key) => [key, (live.event.data as any)[key]])),
     };

@@ -1,0 +1,3 @@
+import puppeteer from '../../next/node_modules/puppeteer/lib/esm/puppeteer/puppeteer.js';
+const browser=await puppeteer.launch({headless:true,executablePath:process.env.PI_BROWSER_EXECUTABLE});
+try{const page=await browser.newPage();const response=await page.goto('https://library.mornpen.vic.gov.au/Whats-On/Events',{waitUntil:'domcontentloaded',timeout:30000});console.log(JSON.stringify({status:response.status(),url:page.url(),controls:await page.$$eval('input[type="submit"],button',nodes=>nodes.map(node=>({id:node.id,name:node.name,type:node.type,text:node.value??node.textContent?.trim(),disabled:node.disabled})).filter(node=>/next|previous|page/i.test(node.text??'')).slice(0,20))},null,2));}finally{await browser.close();}

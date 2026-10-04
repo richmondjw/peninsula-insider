@@ -1,3 +1,4 @@
+import {hasExplicitSeries,nextSeriesData} from './intelligence-series.mjs';
 /**
  * Events helpers - chip filters, weekend bucketing, JSON-LD shapers.
  *
@@ -8,6 +9,7 @@
 
 import type { CollectionEntry } from 'astro:content';
 import { eventAccessLabel } from './event-access.mjs';
+import { currentVerifiedPrice } from './event-publication.mjs';
 import { USE_OCCURRENCE_MODEL } from './features';
 import {
   bookingAvailability,
@@ -81,6 +83,7 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
  * on a Tuesday).
  */
 export function eventInWindow(event: Event, start: Date, end: Date): boolean {
+  if(hasExplicitSeries(event.data)) return event.data.seriesOccurrences!.some(s=>new Date(s.date)>=start && new Date(s.date)<=end);
   const recurrence = event.data.recurrence as string;
   const eStart = event.data.startDate;
   const eEnd = event.data.endDate ?? event.data.startDate;
@@ -223,7 +226,7 @@ export function eventsForChip(chip: ChipDefinition, allEvents: Event[]): Event[]
  * Pass the canonical site URL so the @id is absolute.
  */
 export function eventJsonLd(event: Event, siteUrl: string): Record<string, unknown> {
-  const data = event.data;
+  const data = nextSeriesData(event.data) as Event['data'];
   const slug = data.slug;
   const url = `${siteUrl}/whats-on/${slug}/`;
   const nextOccurrence = (data as any).nextOccurrence
@@ -248,8 +251,8 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     `${dayIso}T${clock}:00${isoOffsetFor(instant)}`;
 
   const startISO = (() => {
-    if (!data.startTime) return eventStartDate.toISOString();
-    if (!USE_OCCURRENCE_MODEL) return `${startDayIso}T${data.startTime}:00+10:00`;
+    if (!data.startTime) return startDayIso;
+    if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) return `${startDayIso}T${data.startTime}:00+10:00`;
     const bounds = occurrenceBounds(data as Record<string, unknown>, startDayIso, {
       isFinalDay: startDayIso === endDayIso,
     });
@@ -257,7 +260,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   })();
   const endISO = (() => {
     if (data.endTime) {
-      if (!USE_OCCURRENCE_MODEL) return `${endDayIso}T${data.endTime}:00+10:00`;
+      if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) return `${endDayIso}T${data.endTime}:00+10:00`;
       // spanBounds, not occurrenceBounds: a multi-day run finishes on its own
       // calendar day, which can sit on the other side of a daylight-saving
       // transition from the day it opened. Resolving the end clock against
@@ -274,13 +277,9 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
       const spanEndDay = endDayIso > startDayIso ? endDayIso : realEndDay;
       return stampedISO(bounds.endsAt, spanEndDay, data.endTime);
     }
-    // A same-day record with a start time but no explicit end time is a
-    // point-in-time event. Midnight on that date would precede startISO and
-    // emit invalid Event schema, so use the known instant for both bounds.
-    if (data.startTime && endDayIso === startDayIso) {
-      return startISO;
-    }
-    return eventEndDate.toISOString();
+    // Missing end times are unknown, even for a date range. Do not invent
+    // midnight or reuse the start instant as an asserted finishing time.
+    return !data.startTime && data.endDate ? endDayIso : undefined;
   })();
 
   const location: Record<string, unknown> = {
@@ -311,10 +310,8 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     name: data.title,
     description: data.description ?? data.summary,
     startDate: startISO,
-    endDate: endISO,
-    // A cancelled event keeps EventCancelled forever. A static page cannot
-    // keep EventScheduled accurate once its end time passes, so omit that
-    // optional status even when the event is upcoming at build time.
+    ...(endISO ? { endDate: endISO } : {}),
+    // Static pages retain exceptional statuses but omit Scheduled after build.
     //
     // PI-008 adds the two states the pair could not express. A postponed event
     // is not cancelled and is not going ahead on the date shown; a rescheduled
@@ -322,7 +319,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     // declared as previousStartDate so an assistant holding the stale date can
     // reconcile it.
     ...(() => {
-      if (!USE_OCCURRENCE_MODEL) {
+      if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) {
         return (data as Record<string, unknown>).cancelled === true
           ? { eventStatus: 'https://schema.org/EventCancelled' }
           : {};
@@ -337,10 +334,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
           : {}),
       };
     })(),
-    eventAttendanceMode:
-      data.indoorOutdoor === 'Indoor' || data.indoorOutdoor === 'Indoor / Outdoor'
-        ? 'https://schema.org/MixedEventAttendanceMode'
-        : 'https://schema.org/OfflineEventAttendanceMode',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
     location,
     url,
   };
@@ -359,32 +353,15 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
       : `${siteUrl}${data.heroImage.src}`;
   }
 
-  // Offer block intentionally omitted (BRAND-PI 2026-05-15: no pricing on
-  // site, including JSON-LD). Free-event marker stays in the data layer
-  // (priceTier === 'free') so the visible "Free" label below can still
-  // render, but the structured Offer with priceCurrency/price is dropped.
-  // PI-008: availability was the literal InStock on every event that had a
-  // booking link, including the cancelled ones. It now reads the bookingStatus
-  // axis, which is what that axis exists for. Still no price, no currency and
-  // no validFrom (BRAND-PI 2026-05-15).
-  //
-  // A record that says nothing keeps InStock. bookingAvailability() returns
-  // null for `unknown` because that is the honest answer inside the model, but
-  // silently dropping the field from 26 live records would be a publishing
-  // change smuggled in on the back of a status change. Records opt in to a
-  // different answer by stating one; the default stays exactly where it was.
+  // A booking URL establishes where to book, not inventory. Only an
+  // explicit booking status supports an availability assertion.
   if (data.ticketingUrl || data.bookingUrl) {
-    const cancelled = (data as Record<string, unknown>).cancelled === true;
-    const stated = bookingAvailability(
-      String((data as Record<string, unknown>).bookingStatus ?? 'unknown')
-    );
-    const availability = USE_OCCURRENCE_MODEL
-      ? (cancelled ? 'https://schema.org/SoldOut' : (stated ?? 'https://schema.org/InStock'))
-      : 'https://schema.org/InStock';
+    const availability = bookingAvailability(String(data.bookingStatus ?? 'unknown'));
+    const withdrawn = data.cancelled || data.postponed || ['expired', 'past', 'archived'].includes(data.status);
     ld.offers = {
       '@type': 'Offer',
       url: data.ticketingUrl ?? data.bookingUrl,
-      availability,
+      ...(!withdrawn && availability ? { availability } : {}),
     };
   }
 
@@ -428,26 +405,16 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
 
 // ─── Display helpers ─────────────────────────────────────────────────────────
 
-/**
- * Human-readable price label for the event sidebar.
- *
- * Per BRAND-PI rule adopted 2026-05-15 ("No pricing on site. Ever."), the
- * dollar-figure tier labels were removed. The only price-adjacent value we
- * still emit is "Free", because that's an editorial signal of access rather
- * than a fee that goes stale. For paid events, we direct the reader to the
- * organiser where the live price lives.
+/** Verified, current prices are explicitly authorised for What's On.
+ * Legacy paid tiers remain organiser-only; free-access distinctions survive.
  */
 export function eventPriceLabel(data: Event['data']): string {
-  return eventAccessLabel(data) ?? 'Check organiser for pricing';
+  return currentVerifiedPrice(data)?.label ?? eventAccessLabel(data) ?? 'Check organiser for pricing';
 }
 
-/**
- * Returns true when we have enough confidence to label the event as free.
- * Everything else routes through "Check organiser" rather than emitting a
- * stale dollar figure.
- */
+/** Whether the price row has a verified price or qualified access label. */
 export function eventHasKnownPrice(data: Event['data']): boolean {
-  return eventAccessLabel(data) !== null;
+  return currentVerifiedPrice(data) !== null || eventAccessLabel(data) !== null;
 }
 
 /**
@@ -473,6 +440,8 @@ export function eventTimeLabel(data: Event['data']): string | null {
  * events and YYYYMMDD/YYYYMMDD for all-day events.
  */
 export function eventCalendarUrl(data: Event['data'], canonical: string): string {
+  data = nextSeriesData(data) as Event['data'];
+  if(hasExplicitSeries(data) && data.startTime && !data.endTime) return '';
   const pad = (n: number) => String(n).padStart(2, '0');
   const fmtDate = (d: Date) => `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}`;
   const fmtDateTime = (d: Date) =>
@@ -499,7 +468,7 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     // nothing left to be slightly off about.
     let startLocal: Date;
     let endLocal: Date;
-    if (USE_OCCURRENCE_MODEL) {
+    if (USE_OCCURRENCE_MODEL || hasExplicitSeries(data)) {
       const dayIso = dayIsoOf(start) ?? start.toISOString().slice(0, 10);
       const endDayIso = dayIsoOf(end) ?? dayIso;
       const bounds = occurrenceBounds(data as Record<string, unknown>, dayIso, {
@@ -540,7 +509,7 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     text: data.title,
     dates,
     details: `${data.summary}\n\nDetails: ${canonical}`,
-    location: [data.streetAddress, data.suburb, 'Mornington Peninsula, VIC, Australia']
+    location: [data.venueName, data.streetAddress, data.suburb, 'Mornington Peninsula, VIC, Australia']
       .filter(Boolean)
       .join(', '),
   });

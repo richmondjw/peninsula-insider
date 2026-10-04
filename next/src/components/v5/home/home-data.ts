@@ -1,3 +1,6 @@
+import {isPublicEventRecord} from '../../../lib/event-publication.mjs';
+import {hasExplicitSeries,occurrenceData} from '../../../lib/intelligence-series.mjs';
+import {resolveListingOccurrence} from '../../../lib/whatson-listing.mjs';
 /**
  * home-data - build-time selection helpers for the v5 homepage (T-401).
  *
@@ -16,7 +19,7 @@ import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
 import { eventIsUnqualifiedFree } from '../../../lib/event-access.mjs';
 import { USE_OCCURRENCE_MODEL } from '../../../lib/features';
 import { ruleFor, occursOnDay, addDays, isoDate } from '../../../lib/event-schedule';
-import { resolveOccurrence, recordDisposition } from '../../../lib/event-occurrence.mjs';
+import { recordDisposition } from '../../../lib/event-occurrence.mjs';
 export interface WeekendWindow {
   /** ISO date (YYYY-MM-DD) of the weekend's Saturday, Melbourne calendar. */
   satISO: string;
@@ -88,6 +91,7 @@ const LIVE_STATUSES = new Set(['published', 'scheduled']);
 /** Renderable on the homepage: live, not archived, not editor-skipped. */
 export function isLiveEvent(e: any, now: Date = new Date()): boolean {
   if (!e?.data) return false;
+  if(e.data.intelligence && !isPublicEventRecord(e.data)) return false;
   if (String(e.id ?? '').includes('archive')) return false;
   if (!LIVE_STATUSES.has(e.data.status ?? 'published')) return false;
   if (e.data.skipThis) return false;
@@ -100,7 +104,7 @@ export function isLiveEvent(e: any, now: Date = new Date()): boolean {
   // with no new date, an expired listing, a sold-out night, or a record whose
   // source changed after we last verified it all stay on the hub and off the
   // front page. Inert when the occurrence model is flagged off.
-  if (USE_OCCURRENCE_MODEL && !recordDisposition(e.data, now).promotable) return false;
+  if ((USE_OCCURRENCE_MODEL || hasExplicitSeries(e.data)) && !recordDisposition(e.data, now).promotable) return false;
   return Boolean(e.data.title);
 }
 
@@ -117,7 +121,7 @@ export function occursOnWeekend(e: any, win: WeekendWindow, now: Date = new Date
   if (!rule) return false;
   return [start, addDays(start, 1)].some((day) => {
     if (!occursOnDay(rule, day)) return false;
-    const state = resolveOccurrence(e.data, isoDate(day), now);
+    const state = resolveListingOccurrence(e.data, rule, isoDate(day), now);
     return state.bookable;
   });
 }
@@ -226,7 +230,7 @@ export function selectWeekendPicks(
     }
   }
 
-  return { picks: out, window: win };
+  return { picks: out.map(pick => {const date=pickDateISO(pick.event,now);return date && hasExplicitSeries(pick.event.data) ? {...pick,event:{...pick.event,data:occurrenceData(pick.event.data,date)}} : pick;}), window: win };
 }
 
 /** Pretty label for an event category slug. */
@@ -271,7 +275,7 @@ export function pickDateISO(e: any, now: Date = new Date()): string | undefined 
   const rule = ruleFor(e, now);
   if (!rule) return undefined;
   const day = [start, addDays(start, 1)].find((date) => {
-    const state = resolveOccurrence(e.data, isoDate(date), now);
+    const state = resolveListingOccurrence(e.data, rule, isoDate(date), now);
     return occursOnDay(rule, date) && state.bookable;
   });
   return day ? isoDate(day) : undefined;
