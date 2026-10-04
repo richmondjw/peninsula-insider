@@ -41,9 +41,9 @@ wellness weekends, golf
 
 **Avoid**
 
-peak summer weekends - hot springs are crowded and book out weeks ahead
+peak summer weekends - reserve a preferred bathing time in advance and check current availability
 
-Insider  Book Peninsula Hot Springs at least three weeks ahead for weekend sessions. Weekday thermal visits are calmer and cheaper.
+Insider  Peninsula Hot Springs recommends booking ahead, especially for weekends and peak holiday periods. Check its current calendar and prices before travelling; same-day bathing bookings carry a surcharge.
 
 The Peninsula's thermal heart - where the weekend slows all the way down.
 
@@ -87,7 +87,7 @@ A perfect day here
 
 Hot springs at 7am before the crowds, late breakfast at the resort, afternoon round at Moonah Links, dinner in-house.
 
-Book Peninsula Hot Springs at least three weeks ahead for weekend sessions. Weekday thermal visits are calmer and cheaper.
+Peninsula Hot Springs recommends booking ahead, especially for weekends and peak holiday periods. Check its current calendar and prices before travelling; same-day bathing bookings carry a surcharge.
 
   - Editor's note
 
