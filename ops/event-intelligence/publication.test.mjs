@@ -18,3 +18,24 @@ test('synthetic approved bounded series exports explicit review sessions and any
  const record=astroRecord(candidate,[evidence],{now});assert.equal(record.status,'review');assert.equal(record.recurrence,'weekly');assert.equal(record.seriesOccurrences.length,4);assert.equal(record.seriesOccurrences[1].date,'2026-10-17');assert.equal(record.seriesOccurrences[1].startTime,'14:00');assert.equal(record.seriesOccurrences[1].venueName,'Other gallery');
  candidate.series.exceptions[0].startTime='15:00';assert.throws(()=>astroRecord(candidate,[evidence],{now}),/James approval/);
 });
+
+test('synthetic approved coordinate proof survives draft export with its Shire witness',()=>{
+ const now=new Date('2026-10-04T04:00:00Z');const fields={title:'Synthetic coordinate session',venueName:'Gallery',officialEventUrl:'https://example.com/art',status:'scheduled',startDate:'2026-10-10',coordinates:{lat:-38.22,lng:145.04}};
+ const body=Object.values(fields).map(v=>typeof v==='object'?JSON.stringify(v):v).join(' ');const evidence={id:'coordinate-fixture',url:fields.officialEventUrl,body,authority:'official',retrievedAt:now.toISOString()};
+ const candidate={id:'synthetic-map-export',kind:'event',fields,summary:'Synthetic test only.',category:'Arts & Culture',geography:{shireConfirmed:true,evidenceId:evidence.id,quote:'Gallery',verified:true,verifiedBy:'James'},proofs:Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,{value,quote:typeof value==='object'?JSON.stringify(value):value,evidenceId:evidence.id,verified:true,verifiedBy:'James'}]))};candidate.approval={by:'James',revision:candidateRevision(candidate),at:now.toISOString()};
+ const result=astroRecord(candidate,[evidence],{now});assert.equal(result.status,'review');assert.deepEqual(result.coordinates,fields.coordinates);assert.deepEqual(result.intelligence.geography,{shireConfirmed:true,verifiedBy:'James',evidenceId:evidence.id,checkedAt:evidence.retrievedAt,coordinates:fields.coordinates,coordinateEvidenceId:evidence.id,coordinateCheckedAt:evidence.retrievedAt,coordinateSourceUrl:evidence.url});
+ candidate.fields.coordinates.lng=145.05;assert.throws(()=>astroRecord(candidate,[evidence],{now}),/James approval/);
+});
+
+import {eventMapItems} from '../../next/src/lib/event-map.mjs';
+import {approvedEventContent} from '../../next/src/lib/event-publication.mjs';
+test('distinct older coordinate capture bounds exported pins independently and survives Astro date coercion',()=>{
+ const now=new Date('2026-10-04T04:00:00Z');const fields={title:'Synthetic older point',venueName:'Gallery',officialEventUrl:'https://example.com/art',status:'scheduled',startDate:'2026-10-10',coordinates:{lat:-38.22,lng:145.04}};
+ const geo={id:'fresh-geo',url:fields.officialEventUrl,body:Object.values(fields).filter(v=>typeof v==='string').join(' '),authority:'official',retrievedAt:now.toISOString()};
+ const point={id:'older-point',url:'https://example.com/venue',body:JSON.stringify(fields.coordinates),authority:'official',retrievedAt:'2026-09-28T04:00:00Z'};
+ const candidate={id:'older-coordinate-export',kind:'event',fields,summary:'Synthetic test only.',category:'Arts & Culture',geography:{shireConfirmed:true,evidenceId:geo.id,quote:'Gallery',verified:true,verifiedBy:'James'},proofs:Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,{value,quote:typeof value==='object'?JSON.stringify(value):value,evidenceId:key==='coordinates'?point.id:geo.id,verified:true,verifiedBy:'James'}]))};candidate.approval={by:'James',revision:candidateRevision(candidate),at:now.toISOString()};
+ const record=astroRecord(candidate,[geo,point],{now});assert.equal(record.intelligence.geography.checkedAt,geo.retrievedAt);assert.equal(record.intelligence.geography.coordinateCheckedAt,point.retrievedAt);
+ const promotion={event:{data:record},originalEvent:{data:record},slug:record.slug,href:'/whats-on/'+record.slug+'/',kind:'event',day:'2026-10-10',dateLabel:'10 October',occurrence:{endsAt:'2026-10-10T12:00:00Z'}};
+ assert.equal(eventMapItems([promotion],{now})[0].expiresAt,'2026-10-05T04:00:00.000Z');assert.deepEqual(eventMapItems([promotion],{now:new Date('2026-10-05T04:00:00Z')}),[]);
+ const snapshot=record.intelligence.approvedContent;for(const key of ['checkedAt','coordinateCheckedAt'])record.intelligence.geography[key]=new Date(record.intelligence.geography[key]);for(const key of ['startDate','lastCheckedDate','lastVerifiedAt'])record[key]=new Date(record[key]);assert.equal(approvedEventContent(record),snapshot);record.intelligence.geography.coordinateCheckedAt=new Date('2026-09-29T04:00:00Z');assert.notEqual(approvedEventContent(record),snapshot);
+});

@@ -5,6 +5,9 @@
  * filed-under tags. Designed as a magazine column, not a chatbot.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
+import {getCollection} from 'astro:content';
+import {publicPlanningCatalog} from '../lib/event-planning.mjs';
+const eventCatalogJson=JSON.stringify(publicPlanningCatalog(await getCollection('events'))).replace(/</g,'\\u003c');
 
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 export const prerender = true;
@@ -149,7 +152,18 @@ export const prerender = true;
 
   </div>
 
+  <script type="application/json" id="pi-ask-event-catalog" set:html={eventCatalogJson}></script>
 </BaseLayout>
+
+<script>
+  import {gateRemoteRecommendations} from '../lib/event-planning.mjs';
+  import {refreshVerifiedPriceElements} from '../lib/event-publication.mjs';
+  const catalog=JSON.parse(document.getElementById('pi-ask-event-catalog')?.textContent||'[]');
+  (window as any).piGateEventRecommendations=(recommendations:unknown)=>gateRemoteRecommendations(recommendations,catalog);
+  let priceTimer:ReturnType<typeof setTimeout>|undefined;function refreshPrices(){clearTimeout(priceTimer);const next=refreshVerifiedPriceElements(document);if(next)priceTimer=setTimeout(refreshPrices,Math.min(2147483647,Math.max(1,next-Date.now())));}
+  (window as any).piRefreshRecommendationPrices=refreshPrices;
+  document.addEventListener('visibilitychange',refreshPrices);window.addEventListener('pageshow',refreshPrices);
+</script>
 
 
 <script define:vars={{ API_URL }}>
@@ -241,6 +255,7 @@ export const prerender = true;
   }
 
   function appendPiMessage(data) {
+    data={...data,recommendations:window.piGateEventRecommendations?window.piGateEventRecommendations(data.recommendations):[]};
     const el = document.createElement('article');
     el.className = 'ask-msg ask-msg--pi';
 
@@ -288,6 +303,7 @@ export const prerender = true;
     `;
     thread.appendChild(el);
     // Land the reader at the TOP of PI's response, not the bottom (chips/recs).
+    if(window.piRefreshRecommendationPrices)window.piRefreshRecommendationPrices();
     scrollMsgToTop(el);
   }
 
@@ -295,7 +311,7 @@ export const prerender = true;
     const heroSrc = rec.hero_image ? escapeHtml(rec.hero_image) : null;
     const heroStyle = heroSrc ? `background-image: url('${heroSrc}')` : '';
     const heroClass = heroSrc ? 'ask-tile__hero' : 'ask-tile__hero ask-tile__hero--placeholder';
-    const priceHtml = rec.price_band ? `<span class="ask-tile__price">${escapeHtml(rec.price_band)}</span>` : '';
+    const priceHtml = rec.kind==='event'&&rec.price_band?`<span data-verified-price data-price-checked="${escapeHtml(rec.price_checked_at||'')}" data-price-expiry="${escapeHtml(rec.price_expires_at||'')}"><span class="ask-tile__price" data-price-current hidden>${escapeHtml(rec.price_band)}</span><span data-price-fallback>Check organiser for pricing</span></span>`:rec.price_band ? `<span class="ask-tile__price">${escapeHtml(rec.price_band)}</span>` : '';
     const typeLabel = VENUE_TYPE_LABEL[rec.venue_type] || titleCase(rec.venue_type || rec.category || 'Pick');
     const region = rec.region ? titleCase(rec.region) : '';
     const href = escapeHtml(rec.href || rec.slug || '#');

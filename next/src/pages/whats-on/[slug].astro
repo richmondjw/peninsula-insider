@@ -204,11 +204,12 @@ export const prerender = true;
 
 <BaseLayout
   title={`${event.data.title}, ${placeName} · Peninsula Insider`}
-  description={event.data.summary}
+  description={unconfirmedArchivedSchedule ? (event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.') : event.data.summary}
   section="whats-on"
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
+  searchExclude={unconfirmedArchivedSchedule}
   noindex={!isCurrent}
 >
   {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
@@ -218,7 +219,7 @@ export const prerender = true;
     <div class="container">
       <div class="event-detail__header">
         <div class="event-detail__meta">
-          <span class="label label--accent">{kindLabel}</span>
+          <span class="label label--accent">{unconfirmedArchivedSchedule ? 'Listing under review' : kindLabel}</span>
           <span class="event-detail__dot" aria-hidden="true"></span>
           <span class="label label--accent">{eventCategoryLabel[event.data.category] ?? event.data.category}</span>
           <span class="event-detail__dot" aria-hidden="true"></span>
@@ -231,14 +232,14 @@ export const prerender = true;
           entityType: 'event', entitySlug: slug, fieldPath: 'title',
           label: `${event.data.title} - title`,
         })}>{event.data.title}</h1>
-        <p class="event-detail__summary" {...editableText({
+        {unconfirmedArchivedSchedule ? (<p class="event-detail__summary">{event.data.archivedReason ?? 'This listing is under review. No future event date is confirmed.'}</p>) : (<p class="event-detail__summary" {...editableText({
           entityType: 'event', entitySlug: slug, fieldPath: 'summary',
           label: `${event.data.title} - summary`,
-        })}>{event.data.summary}</p>
+        })}>{event.data.summary}</p>)}
 
         <EventBadges
-          worthTheDrive={!cancelled && event.data.worthTheDrive}
-          firstTimer={!cancelled && event.data.firstTimer}
+          worthTheDrive={!cancelled && !unconfirmedArchivedSchedule && event.data.worthTheDrive}
+          firstTimer={!cancelled && !unconfirmedArchivedSchedule && event.data.firstTimer}
           weather={event.data.weather}
           skipThis={event.data.skipThis}
           size="md"
@@ -319,14 +320,14 @@ export const prerender = true;
         <div class="event-detail__main">
           {event.data.editorVerdict && (
             <aside class="event-verdict">
-              <p class="event-verdict__label">Editor's verdict</p>
+              <p class="event-verdict__label">{unconfirmedArchivedSchedule ? 'Historical editorial notes' : "Editor's verdict"}</p>
               <p class="event-verdict__body">{event.data.editorVerdict}</p>
             </aside>
           )}
 
           {event.data.editorNote && (
             <div class="prose">
-              {event.data.editorNote.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
+              {unconfirmedArchivedSchedule && <h2>Historical listing notes</h2>}{event.data.editorNote.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
             </div>
           )}
 
@@ -404,7 +405,7 @@ export const prerender = true;
               <div>
                 <dt>Price</dt>
                 <dd class={priceKnown ? '' : 'event-detail__box-soft'}>
-                  {verifiedPrice ? (
+                  {unconfirmedArchivedSchedule ? 'Under review' : verifiedPrice ? (
                     <span data-verified-price data-price-checked={new Date(verifiedPrice.checkedAt).toISOString()} data-price-expiry={verifiedPrice.expiresAt}>
                       <span data-price-current hidden>
                         {verifiedPrice.label}{' '}
@@ -426,13 +427,13 @@ export const prerender = true;
                 <dt>Weather</dt>
                 <dd>{weatherCopy[event.data.weather] ?? 'Weather flexible'}</dd>
               </div>
-              {!cancelled && event.data.worthTheDrive && (
+              {!cancelled && !unconfirmedArchivedSchedule && event.data.worthTheDrive && (
                 <div>
                   <dt>Worth the drive</dt>
                   <dd>Yes - unprompted recommendation</dd>
                 </div>
               )}
-              {!cancelled && event.data.firstTimer && (
+              {!cancelled && !unconfirmedArchivedSchedule && event.data.firstTimer && (
                 <div>
                   <dt>First time on the Peninsula</dt>
                   <dd>Start here</dd>

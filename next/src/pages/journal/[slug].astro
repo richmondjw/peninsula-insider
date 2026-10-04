@@ -1,4 +1,6 @@
 ---
+import EventStrip from '../../components/EventStrip.astro';
+import { selectEventPromotions } from '../../lib/event-discovery.mjs';
 import { getCollection, render } from 'astro:content';
 import '../../styles/journal-article.css';
 import { existsSync } from 'node:fs';
@@ -129,6 +131,12 @@ const relatedExperiences = resolveRefs(article.data.relatedExperiences, allExper
 
 const allPlaces = await getCollection('places');
 const relatedPlaces = resolveRefs(article.data.relatedPlaces, allPlaces).slice(0, 3);
+
+const contextPlaceIds = new Set((article.data.relatedPlaces ?? []).map((value:any)=>String(value?.id ?? value)));
+const contextVenueIds = new Set((article.data.relatedVenues ?? []).map((value:any)=>String(value?.id ?? value)));
+const relatedEvents = selectEventPromotions(await getCollection('events'), {now:new Date()})
+  .filter(({event}) => contextPlaceIds.has(String(event.data.place?.id ?? event.data.place ?? '')) || contextVenueIds.has(String(event.data.venue?.id ?? event.data.venue ?? '')))
+  .slice(0,3).map(({event})=>event);
 
 const allItineraries = await getCollection('itineraries');
 const relatedItineraries = resolveRefs(article.data.relatedItineraries, allItineraries).slice(0, 3);
@@ -594,6 +602,7 @@ export const prerender = true;
   )}
 
   <NewsletterBlock />
+<EventStrip events={relatedEvents} eyebrow="On the calendar" heading="Coming up in these places" />
 </BaseLayout>
 )}
 

@@ -1,3 +1,32 @@
+/** Canonical approved public content. This detects drift; authenticated approval remains external. */
+const approvedFields = ('slug eventId contentKind title summary description category subcategory startDate endDate nextOccurrence sourceUpdatedAt sourceReview retiredSourceLinks startTime endTime endsNextDay timezone venue venueName place venueRegion suburb streetAddress coordinates indoorOutdoor bookingUrl ticketingUrl officialEventUrl primarySourceUrl secondarySourceUrl bookingRequired bookingStatus bookingStatusNote bookingStatusSourceUrl bookingStatusCheckedAt freePaid priceTier recurrence recurrenceNote dateBasis occurrenceExceptions seriesOccurrences verifiedPrice suitableFor audienceTags familyFriendly petFriendly accessibilityNotes weather weatherDependency weatherShape organiser verification verificationStatus verificationNote lastVerifiedAt lastCheckedDate visitorAppealScore editorialPriority nearbyAttractions suggestedItineraryPairing nearestVenues worthTheDrive firstTimer skipThis skipReason skipInstead editorVerdict whyWeCare standoutOfMonth pairingProse editorVisited featuredInDispatch relatedArticles lens editorNote heroImage cancelled cancelledOn cancellationNote cancellationSourceUrl cancellationSourceLabel postponed postponedOn postponedFrom rescheduledTo postponementNote postponementSourceUrl postponementSourceLabel expiresAt').split(' ');
+const approvalDefaults = {timezone:'Australia/Melbourne',bookingStatus:'unknown',recurrence:'one-off',occurrenceExceptions:[],audienceTags:[],weather:'mixed',nearestVenues:[],worthTheDrive:false,firstTimer:false,skipThis:false,standoutOfMonth:false,editorVisited:false,relatedArticles:[],lens:[],cancelled:false,postponed:false};
+const dayFields = new Set(['startDate','endDate','nextOccurrence','postponedFrom','rescheduledTo']);
+const instantFields = new Set(['sourceUpdatedAt','checkedAt','coordinateCheckedAt','validUntil','lastVerifiedAt','lastCheckedDate','bookingStatusCheckedAt','cancelledOn','postponedOn','expiresAt']);
+function approvedValue(value,key='') {
+  if (value == null) return value;
+  if (dayFields.has(key) || instantFields.has(key)) {const date = new Date(value);if (!Number.isFinite(date.getTime())) return String(value);return dayFields.has(key)?date.toISOString().slice(0,10):date.toISOString();}
+  if (['place','venue'].includes(key)) return typeof value === 'string' ? value : value.id;
+  if (Array.isArray(value)) return value.map(item => approvedValue(item));
+  if (typeof value === 'object') return Object.fromEntries(Object.keys(value).sort().filter(k=>value[k]!==undefined).map(k=>[k,approvedValue(value[k],k)]));
+  return value;
+}
+export function approvedEventContent(data) {
+  const content={};
+  for (const key of approvedFields) {const value=data?.[key] ?? approvalDefaults[key];if(value!==undefined)content[key]=approvedValue(value,key);}
+  if(data?.intelligence?.geography)content.geography=approvedValue(data.intelligence.geography);
+  return JSON.stringify(content);
+}
+
+/** Explicit public payload; never serialize whole CMS records into browser attributes. */
+export function publicEventData(data) {
+  const content=JSON.parse(approvedEventContent(data));
+  delete content.geography;
+  for(const key of ['status','publishedAt','archivedAt','archivedReason'])if(data?.[key]!=null)content[key]=data[key];
+  if(data?.intelligence){const receipt=data.intelligence;content.intelligence=Object.fromEntries(['revision','approvedContent','approvedBy','approvedAt','reviewedAt','factScore','evidenceIds','geography'].filter(key=>receipt[key]!==undefined).map(key=>[key,receipt[key]]));}
+  return content;
+}
+
 /** Reader-facing safeguards for event intelligence records. */
 export function isVerifiedPriceRecord(price) {
   if (!price || typeof price.label !== 'string' || !price.label.trim() || price.label.length > 300) return false;
@@ -35,7 +64,7 @@ export function isPublicEventRecord(data, now = new Date()) {
   // an explicit approval receipt; incomplete receipts cannot expose a URL.
   if (!data.intelligence) return true;
   const receipt = data.intelligence;
-  return Boolean(receipt.revision && receipt.approvedBy === 'James' && receipt.approvedAt != null && receipt.reviewedAt != null &&
+  return Boolean(typeof receipt.approvedContent === 'string' && receipt.approvedContent === approvedEventContent(data) && receipt.revision && receipt.approvedBy === 'James' && receipt.approvedAt != null && receipt.reviewedAt != null &&
     Number.isFinite(new Date(receipt.approvedAt).getTime()) &&
     Number.isFinite(new Date(receipt.reviewedAt).getTime()) &&
     new Date(receipt.approvedAt) <= new Date(now) &&

@@ -2,6 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AuthModal from '../../components/v2/AuthModal.astro';
 import '../../styles/account.css';
+import {getCollection} from 'astro:content';
+import {publicPlanningCatalog} from '../../lib/event-planning.mjs';
+const eventCatalogJson=JSON.stringify(publicPlanningCatalog(await getCollection('events'))).replace(/</g,'\\u003c');
 export const prerender = true;
 ---
 
@@ -64,12 +67,16 @@ export const prerender = true;
     </div>
   </div>
   <AuthModal />
+  <script type="application/json" id="pi-account-event-catalog" set:html={eventCatalogJson}></script>
 </BaseLayout>
 
 <script>
   import * as Saves from '../../lib/saves/store';
   import { buildShareUrl } from '../../lib/saves/share-link';
   import { track } from '../../lib/saves/analytics';
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
+  const eventCatalog=JSON.parse(document.getElementById('pi-account-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
 
   const KIND_LABELS: Record<Saves.SaveKind, { plural: string; eyebrow: string }> = {
     article:         { plural: 'Articles',     eyebrow: 'To read' },
@@ -92,17 +99,19 @@ export const prerender = true;
   }
 
   function renderItem(item: Saves.SavedItem): string {
+    const eventState=item.kind==='event'?projectSavedEvent(item,eventCatalog):null;if(eventState)item=eventState;
     const labels = KIND_LABELS[item.kind];
     // A kind we do not recognise skips its card rather than throwing and
     // blanking the page. Unknown kinds are blocked at decodePlan now, but a
     // store written before that fix can still hold one.
     if (!labels) return '';
     return `
-      <a class="saved-card" href="${escapeHtml(item.href)}">
+      <a class="saved-card" href="${escapeHtml(item.href)}" data-planning-kind="${escapeHtml(item.kind)}" data-planning-slug="${escapeHtml(item.slug)}">
         ${item.image_url ? `<div class="saved-card__img" style="background-image: url('${cssUrl(item.image_url)}');"></div>` : '<div class="saved-card__img saved-card__img--blank"></div>'}
         <div class="saved-card__body">
           <p class="saved-card__eyebrow">${escapeHtml(labels.plural)}</p>
           <h3 class="saved-card__title">${escapeHtml(item.title)}</h3>
+          ${eventState?`<p role="status" data-planning-event-status>${escapeHtml(eventState.eventStatus)}</p>`:''}
           ${item.dek ? `<p class="saved-card__dek">${escapeHtml(item.dek)}</p>` : ''}
         </div>
         <button type="button" class="saved-card__remove" data-pi-saved-remove data-pi-kind="${item.kind}" data-pi-slug="${escapeHtml(item.slug)}" aria-label="Remove ${escapeHtml(item.title)} from your saves">

@@ -9,7 +9,7 @@ async function bundle(relative) {
 const schedule = await bundle('../src/lib/event-schedule.ts');
 const home = await bundle('../src/components/v5/home/home-data.ts');
 const now = new Date('2026-09-16T04:00:00Z');
-const event = (overrides = {}) => ({ id: 'fixture', data: { title: 'Fixture', status: 'published', startDate: new Date('2026-01-01'), recurrence: 'weekly', recurrenceNote: 'Every Thursday', ...overrides } });
+const event = (overrides = {}) => ({ id: 'fixture', data: { title: 'Fixture', status: 'published', venueName: 'Synthetic Mornington venue', suburb: 'Mornington', place: { id: 'mornington' }, startDate: new Date('2026-01-01'), recurrence: 'weekly', recurrenceNote: 'Every Thursday', ...overrides } });
 test('Thursday excluded from editorial and fallback homepage picks', () => {
   const thursday = event();
   const saturday = event({ slug: 'saturday', recurrenceNote: 'Every Saturday' });

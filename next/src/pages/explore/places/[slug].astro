@@ -1,7 +1,7 @@
 ---
 import { schemaImage } from '../../../lib/photo-set';
 import { getCollection } from 'astro:content';
-import { isCancelledEvent } from '../../whats-on/_data';
+import { eventPromotionEntries } from '../../../lib/event-discovery.mjs';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../../components/PlaceDetailTemplate.astro';
 import PlaceMap from '../../../components/PlaceMap.astro';
@@ -26,8 +26,7 @@ const allArticles = await getCollection('articles', ({ data }) => data.status ==
 // Place hubs previously read the raw collection and filtered on date alone,
 // so an unpublished, archived or cancelled event still surfaced on the town
 // page. Match the gate loadLiveEvents applies everywhere else.
-const allEvents = (await getCollection('events', ({ data }) => data.status === 'published'))
-  .filter((event) => !isCancelledEvent(event));
+const allEvents = await getCollection('events');
 
 const placeSlug = routeSlug(place);
 const placeNameLower = place.data.name.toLowerCase();
@@ -41,16 +40,7 @@ const venuesForPlace = allVenues
 // `eventsForMap` keeps the full upcoming list (PlaceMap applies its own
 // 30-day window per locked decision Q2). `eventsForPlace` is the curated
 // top-3 used by the EventStrip below.
-const eventsForMap = allEvents
-  .filter((event) => {
-    const eventPlace = String(event.data.place?.id ?? event.data.place ?? '');
-    if (eventPlace === placeSlug) return true;
-    return event.data.suburb?.toLowerCase() === placeNameLower;
-  })
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    return isUpcoming(event.data.endDate ?? event.data.startDate);
-  });
+const eventsForMap = eventPromotionEntries(allEvents, {now: new Date(), placeId: placeSlug});
 const eventsForPlace = [...eventsForMap]
   .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
   .slice(0, 3);

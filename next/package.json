@@ -142,7 +142,7 @@
     "test:corrections-queue": "node --test scripts/corrections-queue-contract.test.mjs",
     "lint:corrections-queue": "node --test scripts/corrections-queue-contract.test.mjs",
     "test:stale-pages-seasonal-navigation": "node --test scripts/stale-pages-seasonal-navigation.test.mjs",
-    "test:event-intelligence": "node --test ../ops/event-intelligence/*.test.mjs src/lib/event-publication.test.mjs src/lib/event-occurrence.test.mjs scripts/event-detail-publication.test.mjs scripts/lint-no-pricing.test.mjs scripts/upcoming-feed-kinds.test.mjs scripts/test-agent-readiness.mjs"
+    "test:event-intelligence": "node --test scripts/event-access.test.mjs scripts/event-price-freshness.test.mjs scripts/place-map-expiry.test.mjs scripts/event-loader-geography.test.mjs src/lib/event-planning-clock.test.mjs ../ops/event-intelligence/*.test.mjs src/lib/event-publication.test.mjs src/lib/event-occurrence.test.mjs scripts/event-detail-publication.test.mjs scripts/lint-no-pricing.test.mjs scripts/upcoming-feed-kinds.test.mjs scripts/test-agent-readiness.mjs src/lib/event-map.test.mjs src/lib/event-discovery.test.mjs src/lib/event-planning.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

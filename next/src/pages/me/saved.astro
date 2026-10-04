@@ -20,6 +20,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import MeShell from '../../components/v5/me/MeShell.astro';
 import NotePathway from '../../components/v5/me/NotePathway.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
+import {getCollection} from 'astro:content';
+import {publicPlanningCatalog} from '../../lib/event-planning.mjs';
+const eventCatalogJson=JSON.stringify(publicPlanningCatalog(await getCollection('events'))).replace(/</g,'\\u003c');
 export const prerender = true;
 ---
 
@@ -95,9 +98,13 @@ export const prerender = true;
       <NotePathway surface="me-saved" />
     </div>
   </div>
+  <script type="application/json" id="pi-saved-event-catalog" set:html={eventCatalogJson}></script>
 </BaseLayout>
 
 <script>
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
+  const eventCatalog=JSON.parse(document.getElementById('pi-saved-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
   import * as store from '../../lib/v5-store';
   import type { SaveKind, SavedItem } from '../../lib/v5-store';
   import { trackEvent, initV5Analytics } from '../../lib/v5-analytics';
@@ -148,11 +155,14 @@ export const prerender = true;
   }
 
   function imageFor(item: SavedItem): string {
+    if(item.kind==='event'&&(item as any).eventAvailable===false)return '';
     const metaImg = item.meta && typeof item.meta.image_url === 'string' ? item.meta.image_url : '';
     return item.image_url || metaImg;
   }
 
   function renderCard(item: SavedItem, inTrip: boolean): string {
+    const eventState=item.kind==='event'?projectSavedEvent(item,eventCatalog):null;
+    if(eventState)item=eventState;
     const meta = KIND_META[item.kind];
     const img = imageFor(item);
     const media = img
@@ -161,7 +171,7 @@ export const prerender = true;
     const dek = item.dek ? `<p class="me-card__dek">${esc(item.dek)}</p>` : '';
     const tripMark = inTrip ? `<span class="me-card__intrip">In My Trip</span>` : '';
     return `
-      <li class="me-card">
+      <li class="me-card" data-planning-kind="${esc(item.kind)}" data-planning-slug="${esc(item.slug)}">
         ${media}
         <div class="me-card__body">
           <p class="me-card__mark">${esc(meta.plural)}${tripMark}</p>
@@ -171,7 +181,7 @@ export const prerender = true;
           ${dek}
         </div>
         <div class="me-card__actions">
-          <button type="button" class="me-card__trip" data-me-trip data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Add ${esc(item.title)} to My Trip">+ Trip</button>
+          ${eventState&&!eventState.eventAvailable?`<span role="status">${esc(eventState.eventStatus)}</span>`:`<button type="button" class="me-card__trip" data-me-trip data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Add ${esc(item.title)} to My Trip">+ Trip</button>`}
           <button type="button" class="me-card__remove" data-me-remove data-kind="${esc(item.kind)}" data-slug="${esc(item.slug)}" aria-label="Remove ${esc(item.title)} from your saves">Remove</button>
         </div>
       </li>`;
@@ -310,6 +320,7 @@ export const prerender = true;
         const slug = tripBtn.dataset.slug || '';
         const item = store.listSaves().find((it) => it.kind === kind && it.slug === slug);
         if (!item) return;
+        if(item.kind==='event'&&!projectSavedEvent(item,eventCatalog).eventAvailable){showToast('This event needs a current check before adding it to a trip');return;}
         if (!store.tripAdd({ kind: item.kind, slug: item.slug, title: item.title, href: item.href, meta: item.meta })) {
           showToast('Could not add to My Trip');
           return;

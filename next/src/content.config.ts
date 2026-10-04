@@ -1347,11 +1347,22 @@ const events = defineCollection({
     }).optional(),
     intelligence: z.object({
       revision: z.string().min(1),
+      approvedContent: z.string().min(1).optional(),
       approvedBy: z.string().min(1),
       approvedAt: z.coerce.date(),
       factScore: z.number().min(0).max(100),
       evidenceIds: z.array(z.string().min(1)).min(1),
       reviewedAt: z.coerce.date(),
+      geography: z.object({
+        shireConfirmed: z.literal(true),
+        verifiedBy: z.literal('James'),
+        evidenceId: z.string().min(1),
+        checkedAt: z.coerce.date(),
+        coordinates: z.object({ lat: z.number(), lng: z.number() }).optional(),
+        coordinateEvidenceId: z.string().min(1).optional(),
+        coordinateCheckedAt: z.coerce.date().optional(),
+        coordinateSourceUrl: z.string().url().optional(),
+      }).optional(),
     }).optional(),
 
     // ─── When ──────────────────────────────────────────────────────────────

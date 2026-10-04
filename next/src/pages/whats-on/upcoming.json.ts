@@ -93,7 +93,6 @@ export const GET: APIRoute = async () => {
         category: e.data.category ?? null,
         place: (actualData.place as { id?: string } | undefined)?.id ?? null,
         venue: (actualData.venue as { id?: string } | undefined)?.id ?? null,
-        freePaid: e.data.freePaid ?? null,
         summary: e.data.summary ?? '',
         ...(hasExplicitSeries(e.data) ? {venueName: actualData.venueName, startTime: actualData.startTime, endTime: actualData.endTime} : {}),
         // undefined rather than null: JSON.stringify drops the key, so a

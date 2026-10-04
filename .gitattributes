@@ -3,5 +3,5 @@
 .githooks/** text eol=lf
 *.sh text eol=lf
 
-# journal index is CRLF-native; carriage returns are line endings, not whitespace.
-next/src/pages/journal/index.astro whitespace=cr-at-eol
+# Existing Astro templates use CRLF; carriage returns are line endings, not trailing spaces.
+*.astro whitespace=cr-at-eol

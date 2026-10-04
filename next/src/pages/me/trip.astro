@@ -21,9 +21,11 @@ import MeShell from '../../components/v5/me/MeShell.astro';
 import NotePathway from '../../components/v5/me/NotePathway.astro';
 import EmptyState from '../../components/v5/EmptyState.astro';
 import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
+import {publicPlanningCatalog} from '../../lib/event-planning.mjs';
 
 const venues = (await getCollection('venues')).filter(isListableVenue);
-const events = await getCollection('events');
+const events = publicPlanningCatalog(await getCollection('events'));
+const eventCatalogJson=JSON.stringify(events).replace(/</g,'\\u003c');
 const experiences = await getCollection('experiences');
 
 /**
@@ -147,6 +149,7 @@ export const prerender = true;
   </div>
 
   <script type="application/json" id="pi-trip-lookup" set:html={lookupJson}></script>
+  <script type="application/json" id="pi-trip-event-catalog" set:html={eventCatalogJson}></script>
 </BaseLayout>
 
 <script>
@@ -157,6 +160,9 @@ export const prerender = true;
   import { planSharedTripImport } from '../../lib/trip-import';
   import { parseSharedTrip, sharedTripGroups } from '../../lib/shared-trip-preview';
   import { PLAN_SWAPS } from '../../lib/plan-swaps';
+  import {projectSavedEvent,installSavedEventRefresh} from '../../lib/event-planning.mjs';
+  const eventCatalog=JSON.parse(document.getElementById('pi-trip-event-catalog')?.textContent||'[]');
+  installSavedEventRefresh(window,document,eventCatalog);
 
   initV5Analytics();
 
@@ -196,9 +202,11 @@ export const prerender = true;
     lat: number | null;
     lng: number | null;
     kindLabel: string;
+    eventStatus?:string;
   }
 
   function hydrate(stop: Stop): HydratedStop {
+    if(stop.kind==='event'){const current=projectSavedEvent({...stop,title:stop.title||stop.save?.title||stop.slug},eventCatalog);return {title:current.title,href:current.href,img:current.image_url||'',lat:current.lat,lng:current.lng,kindLabel:current.eventKind||'Event',eventStatus:current.eventStatus};}
     const geo = stop.kind && stop.slug ? GEO[`${stop.kind}/${stop.slug}`] : undefined;
     const metaImg = stop.meta && typeof stop.meta.image_url === 'string' ? stop.meta.image_url : '';
     const saveMetaImg = stop.save?.meta && typeof stop.save.meta.image_url === 'string' ? (stop.save.meta.image_url as string) : '';
@@ -408,11 +416,12 @@ export const prerender = true;
     const swaps = alternatives.length ? `<details class="trip-stop__swaps"><summary>Consider a nearby dining swap</summary><p>Keeps this stop in the same day and position. Driving estimates update; this does not transfer or cancel a booking.</p>${alternatives.map((option) => `<p><a href="${esc(GEO[`venue/${option.slug}`].h)}">${esc(GEO[`venue/${option.slug}`].t)}</a>: ${esc(option.reason)}</p><button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" data-trip-swap="${esc(option.slug)}" data-entry="${esc(stop.id)}">Swap to ${esc(GEO[`venue/${option.slug}`].t)}</button>`).join('')}</details>` : '';
 
     return `
-      <li class="trip-stop${moving ? ' trip-stop--moving' : ''}" data-trip-stop="${esc(stop.id)}">
+      <li class="trip-stop${moving ? ' trip-stop--moving' : ''}" data-trip-stop="${esc(stop.id)}" data-planning-kind="${esc(stop.kind||'')}" data-planning-slug="${esc(stop.slug||'')}">
         ${media}
         <span class="trip-stop__body">
           <span class="trip-stop__kind">${esc(h.kindLabel)}</span>
           <span class="trip-stop__title">${title}</span>
+          ${h.eventStatus?`<span class="trip-stop__note" role="status" data-planning-event-status>${esc(h.eventStatus)}</span>`:''}
           ${note}
           ${swaps}
         </span>
@@ -521,7 +530,7 @@ export const prerender = true;
     for (const e of store.tripEntries()) {
       if (e.kind && e.slug) inTrip.add(`${e.kind}/${e.slug}`);
     }
-    const candidates = store.listSaves().filter((it) => !inTrip.has(`${it.kind}/${it.slug}`));
+    const candidates = store.listSaves().filter((it) => !inTrip.has(`${it.kind}/${it.slug}`)&&(it.kind!=='event'||projectSavedEvent(it,eventCatalog).eventAvailable));
 
     const days = store.tripDays();
     if (pickerEl && selectEl) {
@@ -542,7 +551,7 @@ export const prerender = true;
       const hasSaves = store.listSaves().length > 0;
       noneEl.hidden = false;
       noneEl.innerHTML = hasSaves
-        ? `Everything you have saved is already in the trip. <a href="/me/saved/">Open Saved</a>`
+        ? `No additional current items are ready for this trip. <a href="/me/saved/">Check your saved listings</a>`
         : `Nothing saved yet. Tap the bookmark on any place, plan, or story and it turns up here. <a href="/me/saved/">Open Saved</a>`;
       return;
     }
@@ -718,6 +727,7 @@ export const prerender = true;
         const slug = addBtn.dataset.slug || '';
         const item = store.listSaves().find((it) => it.kind === kind && it.slug === slug);
         if (!item) return;
+        if(item.kind==='event'&&!projectSavedEvent(item,eventCatalog).eventAvailable){showToast('This event needs a current check before adding it to a trip');return;}
         const select = document.querySelector<HTMLSelectElement>('[data-trip-day-select]');
         const dayId = select && !select.closest('[hidden]') ? select.value : '';
         const added = store.tripAdd(

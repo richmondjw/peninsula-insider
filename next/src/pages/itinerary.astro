@@ -27,9 +27,10 @@ import SectionHero from '../components/SectionHero.astro';
 import NewsletterBlock from '../components/NewsletterBlock.astro';
 import CloudSyncIndicatorScript from '../components/CloudSyncIndicatorScript.astro';
 import { routeSlug, venueHref, isListableVenue } from '../lib/editorial';
+import {publicPlanningCatalog} from '../lib/event-planning.mjs';
 
 const venues = (await getCollection('venues')).filter(isListableVenue);
-const events = await getCollection('events');
+const events = publicPlanningCatalog(await getCollection('events'));
 const experiences = await getCollection('experiences');
 
 /**
@@ -178,10 +179,11 @@ export const prerender = true;
 </BaseLayout>
 
 <!-- SortableJS from CDN; lazy-loaded when the user has at least one item. -->
-<script
-  is:inline
-  define:vars={{ venueLookup, eventLookup, experienceLookup }}
->
+<script type="application/json" id="pi-itinerary-lookups" set:html={JSON.stringify({venueLookup,eventLookup,experienceLookup,eventCatalog:events}).replace(/</g,'\\u003c')}></script>
+<script>
+  import {projectSavedEvent,installSavedEventRefresh} from '../lib/event-planning.mjs';
+  const {venueLookup,eventLookup,experienceLookup,eventCatalog}=JSON.parse(document.getElementById('pi-itinerary-lookups')?.textContent||'{}');
+  installSavedEventRefresh(window,document,eventCatalog);
   /* /itinerary/ controller. Owns localStorage (pi:itinerary:v1), wires
      SortableJS for drag-and-drop, computes haversine estimates between
      consecutive stops, and supports share/import via URL params. */
@@ -219,6 +221,7 @@ export const prerender = true;
     }
 
     function hydrate(item) {
+      if(item.kind==='event'){const current=projectSavedEvent(item,eventCatalog);return {slug:item.slug,kind:item.kind,title:current.title||item.slug,href:current.href,hero:current.image_url||'',lat:current.lat,lng:current.lng,type:current.eventKind||'Event',price:'',eventStatus:current.eventStatus};}
       var lookup;
       if (item.kind === 'event') lookup = eventLookup;
       else if (item.kind === 'experience') lookup = experienceLookup;
@@ -295,9 +298,9 @@ export const prerender = true;
       var hero = data.hero
         ? '<div class="itinerary-item__hero" style="background-image:url(' + escapeHtml(data.hero) + ')"></div>'
         : '<div class="itinerary-item__hero itinerary-item__hero--empty"></div>';
-      var meta = [data.type, data.price].filter(Boolean).map(escapeHtml).join(' · ');
+      var meta = [data.type, data.price,data.eventStatus].filter(Boolean).map(escapeHtml).join(' · ');
       return ''
-        + '<li class="itinerary-item" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
+        + '<li class="itinerary-item" data-planning-kind="' + escapeHtml(item.kind) + '" data-planning-slug="' + escapeHtml(item.slug) + '" data-itinerary-id="' + escapeHtml(item.kind + ':' + item.slug) + '">'
         +   '<span class="itinerary-item__handle" aria-hidden="true">≡</span>'
         +   '<a class="itinerary-item__link" href="' + escapeHtml(data.href) + '">'
         +     hero
@@ -536,7 +539,7 @@ export const prerender = true;
               dayId: String(it.dayId || ''),
               note: String(it.note || ''),
             };
-          }).filter(function (it) { return it.slug; });
+          }).filter(function (it) { return it.slug&&(it.kind!=='event'||projectSavedEvent(it,eventCatalog).eventAvailable); });
           var aiDays = Array.isArray(decoded.days) ? decoded.days.map(function (d) {
             return { id: String(d.id || ''), label: String(d.label || d.id || '') };
           }).filter(function (d) { return d.id; }) : [];
@@ -620,6 +623,7 @@ export const prerender = true;
           added++;
         });
         (saved.events || []).forEach(function (e) {
+          if(!projectSavedEvent(e,eventCatalog).eventAvailable)return;
           if (state.items.some(function (it) { return it.kind === 'event' && it.slug === e.slug; })) return;
           state.items.push({ kind: 'event', slug: e.slug, dayId: '', note: '' });
           added++;

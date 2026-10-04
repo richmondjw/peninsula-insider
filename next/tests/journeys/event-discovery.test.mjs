@@ -149,8 +149,12 @@ test('today and discovery filters can be combined, shared, cleared and revisited
     await reader.page.evaluate(() => {
       const nativeFetch = window.fetch.bind(window);
       const today = new Intl.DateTimeFormat('en-CA', { timeZone: 'Australia/Melbourne', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+      const verifiedFreePrice = {label:'Free',sourceUrl:'https://example.com/synthetic-family-market',checkedAt:new Date(Date.now()-60000).toISOString(),validUntil:new Date(Date.now()+3600000).toISOString()};
+      const expiredFreePrice = {...verifiedFreePrice,checkedAt:new Date(Date.now()-7200000).toISOString(),validUntil:new Date(Date.now()-3600000).toISOString()};
       const events = [
-        { slug: 'free-family-market', href: '/whats-on/free-family-market/', t: 'Family market fixture', d: 'Local makers', m: ['Mornington'], c: 'market', p: 'Mornington', f: true, g: true, k: 'range', s: today, e: today },
+        { slug: 'free-family-market', href: '/whats-on/free-family-market/', t: 'Family market fixture', d: 'Local makers', m: ['Mornington'], c: 'market', p: 'Mornington', f: true, fp: verifiedFreePrice, g: true, k: 'range', s: today, e: today },
+        { slug: 'unverified-family-market', href: '/whats-on/unverified-family-market/', t: 'Unverified family market fixture', d: 'Same town and family, without verified price', m: ['Mornington'], c: 'market', p: 'Mornington', f: true, g: true, k: 'range', s: today, e: today },
+        { slug: 'expired-free-family-market', href: '/whats-on/expired-free-family-market/', t: 'Expired free family market fixture', d: 'Same town and family, expired verified price', m: ['Mornington'], c: 'market', p: 'Mornington', f: true, fp: expiredFreePrice, g: true, k: 'range', s: today, e: today },
         { slug: 'paid-adult-market', href: '/whats-on/paid-adult-market/', t: 'Adult market fixture', d: 'Local makers', m: ['Mornington'], c: 'market', p: 'Mornington', f: false, g: false, k: 'range', s: today, e: today },
       ];
       window.fetch = (input, init) => String(input).includes('/whats-on/feed.json')
@@ -168,7 +172,7 @@ test('today and discovery filters can be combined, shared, cleared and revisited
         form.elements.namedItem(name).dispatchEvent(new Event('change', { bubbles: true }));
       }
     });
-    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('Family market fixture') && !document.querySelector('[data-wo-days]')?.textContent.includes('Adult market fixture'), 'combined filters did not isolate the event');
+    await reader.waitFor(() => document.querySelector('[data-wo-days]')?.textContent.includes('Family market fixture') && !document.querySelector('[data-wo-days]')?.textContent.includes('Adult market fixture') && !document.querySelector('[data-wo-days]')?.textContent.includes('Unverified family market fixture') && !document.querySelector('[data-wo-days]')?.textContent.includes('Expired free family market fixture'), 'combined filters did not isolate the event');
     const filtered = await reader.page.evaluate(() => ({
       url: location.search,
       text: document.querySelector('[data-wo-days]').textContent,
@@ -179,6 +183,7 @@ test('today and discovery filters can be combined, shared, cleared and revisited
     assert.match(filtered.url, /free=1/);
     assert.match(filtered.url, /kids=1/);
     assert.equal(filtered.schema, null);
+    assert.doesNotMatch(filtered.text, /Unverified family market fixture|Expired free family market fixture/);
     await reader.page.evaluate(() => {
       const form = document.querySelector('[data-wo-filters]');
       form.elements.namedItem('q').value = 'no-such-event';
