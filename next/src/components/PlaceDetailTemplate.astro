@@ -244,6 +244,12 @@ const factual = place.data.factualLede ?? '';
     ) : !hero.override && !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>
     )}
+    {placeSlug === 'fingal' && (
+      <div class="pdv2-hero__actions" aria-label="Plan a Fingal visit">
+        <a class="pdv2-hero__action" href="#fingal-choose">Choose a thermal visit <span aria-hidden="true">↓</span></a>
+        <a class="pdv2-hero__action pdv2-hero__action--quiet" href="#escapes">Build a weekend <span aria-hidden="true">↓</span></a>
+      </div>
+    )}
     {editorialHero && place.data.visitSource && (
       <a class="pdv2-hero__visit-source" href={place.data.visitSource.url} target="_blank" rel="noopener noreferrer">
         {place.data.visitSource.label} <span aria-hidden="true">↗</span>
@@ -262,6 +268,29 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      2. EDITORIAL LEDE - factual prose + at-a-glance sidebar card
      ═══════════════════════════════════════════════════════════════════════ -->
+{placeSlug === 'fingal' && (
+  <section class="fingal-choose" id="fingal-choose" aria-labelledby="fingal-choose-title">
+    <div class="container">
+      <div class="fingal-choose__heading">
+        <p class="label label--accent">Plan the bathe</p>
+        <h2 id="fingal-choose-title">Two thermal venues in Fingal</h2>
+        <p>Alba and Peninsula Hot Springs are separate places. Check the live session and booking details with your chosen operator before you travel.</p>
+      </div>
+      <div class="fingal-choose__grid">
+        <div class="fingal-choose__option">
+          <h3>Alba Thermal Springs & Spa</h3>
+          <p>Contemporary pools, spa treatments and dining at 282 Browns Road. This is the place pictured above.</p>
+          <a href="https://albathermalsprings.com.au/book/">See Alba bathing and bookings <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="fingal-choose__option">
+          <h3>Peninsula Hot Springs</h3>
+          <p>Bath House and Spa Dreaming Centre bathing, with accommodation at 140 Springs Lane.</p>
+          <a href="https://www.peninsulahotsprings.com/bathe/">See Peninsula Hot Springs bathing <span aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+)}
 <div class="container">
   <PlayRibbon kind="place" slug={placeSlug} />
 </div>
@@ -506,9 +535,9 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Eat & drink</p>
           <h2 class="venues__title">Where to eat and drink in {place.data.name}</h2>
-          <p class="venues__sub">Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.</p>
+          <p class="venues__sub">Our selected food and drink stops here, each with an editor note rather than a star rating.</p>
         </div>
-        <a href="/eat/" class="venues__link">More to eat in {place.data.name} →</a>
+        <a href="/eat/" class="venues__link">Browse Peninsula food & drink →</a>
       </div>
       <div class="venues__grid">
         {eatVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
@@ -569,9 +598,9 @@ const factual = place.data.factualLede ?? '';
         <div>
           <p class="label label--accent">Get outside</p>
           <h2 class="venues__title">Explore moves anchored to {place.data.name}</h2>
-          <p class="venues__sub">Walks, beaches, lookouts, and markets worth scheduling around the meals.</p>
+          <p class="venues__sub">The local experiences currently mapped in our guide, with detail to help you plan.</p>
         </div>
-        <a href="/explore/" class="venues__link">Explore near {place.data.name} →</a>
+        <a href="/explore/" class="venues__link">Browse all experiences →</a>
       </div>
       <div class="experience-grid">
         {experiences.map((experience) => <ExperienceCard experience={experience} />)}
@@ -907,6 +936,47 @@ const factual = place.data.factualLede ?? '';
     max-width: 48ch;
     font-style: normal;
     font-family: var(--font-ui);
+  }
+  .pdv2-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 1.4rem;
+  }
+  .pdv2-hero__action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 44px;
+    padding: 0.68rem 1rem;
+    border: 1px solid var(--white);
+    border-radius: 0.35rem;
+    background: var(--white);
+    color: var(--dark);
+    font-family: var(--font-ui);
+    font-size: var(--fs-200);
+    font-weight: 700;
+    text-decoration: none;
+  }
+  .pdv2-hero__action--quiet { background: rgba(11, 46, 74, 0.35); color: var(--white); }
+  .pdv2-hero__action:hover { background: var(--mint); border-color: var(--mint); color: var(--dark); }
+  .pdv2-hero__action:focus-visible { outline: 3px solid var(--mint); outline-offset: 3px; }
+  .fingal-choose { padding: clamp(2rem, 4vw, 3.5rem) 0; background: var(--bg-alt); scroll-margin-top: 10rem; }
+  .fingal-choose__heading { max-width: 53rem; margin-bottom: 1.5rem; }
+  .fingal-choose__heading h2 { margin: 0.4rem 0 0.7rem; color: var(--dark); }
+  .fingal-choose__heading p:last-child { max-width: 65ch; line-height: 1.6; }
+  .fingal-choose__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .fingal-choose__option { padding: clamp(1.25rem, 2.5vw, 1.8rem); border: 1px solid var(--border); border-radius: 0.55rem; background: var(--white); }
+  .fingal-choose__option h3 { margin: 0 0 0.65rem; color: var(--dark); }
+  .fingal-choose__option p { line-height: 1.55; }
+  .fingal-choose__option a { display: inline-flex; align-items: center; min-height: 44px; margin-top: 0.6rem; color: var(--teal-text); font-weight: 700; text-underline-offset: 0.2em; }
+  .fingal-choose__option a:focus-visible { outline: 3px solid var(--teal-text); outline-offset: 3px; }
+  #perfect-day, #eat-drink, #wine, #stay, #explore, #escapes, #journal { scroll-margin-top: 10rem; }
+  @media (max-width: 600px) {
+    .pdv2-hero__actions { gap: 0.5rem; margin-top: 1rem; }
+    .pdv2-hero__action { font-size: 0.86rem; padding-inline: 0.8rem; }
+    .fingal-choose__grid { grid-template-columns: 1fr; }
   }
   .pdv2-hero__credit {
     position: absolute;
@@ -1290,9 +1360,6 @@ const factual = place.data.factualLede ?? '';
   }
   .place-fit__list--not li {
     color: var(--soft);
-    text-decoration: line-through;
-    text-decoration-color: var(--border-strong);
-    text-decoration-thickness: 1px;
   }
   .place-fit__list--not li::before { background: var(--soft); }
   .place-fit__skip {

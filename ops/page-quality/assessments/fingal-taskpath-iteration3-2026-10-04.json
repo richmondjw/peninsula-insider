@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/fingal/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "be8002e51d69c7f5c582d73c058142b20bdb423c",
+  "status": "implementation-in-validation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Distinguish Fingal's two thermal venues, choose a visit, and use accurate local planning links.",
+  "baseline": {
+    "public": "Credited Alba hero is visually strong, but the first screen has no planning action. The long mobile page repeats bathing advice. Alba is pictured while copy centres Peninsula Hot Springs, without a direct choice or direct bathing link. Single-card food and golf sections promise categories they do not show. Mobile place-card Save/Share overlaps nearby-place summaries; the A perfect day anchor lands behind the sticky header; map filters measure about 33px high.",
+    "independentReview": "Three independent reviewers graded all 23 criteria on exact public release at 320/390/1440. Provisional arithmetic differs materially (visual 68/100, access/performance 78/100; UX has 59.75/87 known and a maximum of 72.75 if untested criteria were perfect). Ratings are preserved below and are not accepted full scores. Direct screen-reader and field CWV evidence are absent.",
+    "hardGates": "No new editorial hero rights failure or blocked task confirmed. Direct assistive-technology, field performance, remaining practical claim sources, and supporting-card image provenance remain open. Paid/sponsored reuse of the bather photograph needs separate person-release clearance."
+  },
+  "independentRatings": [
+    {
+      "reviewer": "visitor UX/editorial",
+      "viewports": [
+        390,
+        1440
+      ],
+      "ratings": {
+        "VT1": 3,
+        "VT2": 2,
+        "VT3": 3,
+        "VT4": 3,
+        "FN1": 2,
+        "FN2": 3,
+        "FN3": 3,
+        "ET1": 2,
+        "ET2": 3,
+        "ET3": 2,
+        "ET4": 2,
+        "VS1": 3,
+        "VS2": 3,
+        "VS3": 3,
+        "VS4": 3,
+        "VS5": 3,
+        "MI1": 3,
+        "MI2": 3,
+        "MI3": 3,
+        "AT1": null,
+        "AT2": null,
+        "AT3": null,
+        "AT4": 3
+      },
+      "knownPoints": 59.75,
+      "knownWeight": 87,
+      "upperBound": 72.75,
+      "score": null,
+      "reason": "Three AT/performance/stability checks unverified; hard gates provisional."
+    },
+    {
+      "reviewer": "visual/mobile",
+      "viewports": [
+        320,
+        390,
+        1440
+      ],
+      "ratings": {
+        "VT1": 3,
+        "VT2": 2,
+        "VT3": 3,
+        "VT4": 3,
+        "FN1": 3,
+        "FN2": 3,
+        "FN3": 3,
+        "ET1": 3,
+        "ET2": 3,
+        "ET3": 2,
+        "ET4": 2,
+        "VS1": 3,
+        "VS2": 3,
+        "VS3": 3,
+        "VS4": 3,
+        "VS5": 3,
+        "MI1": 2,
+        "MI2": 3,
+        "MI3": 3,
+        "AT1": 2,
+        "AT2": 2,
+        "AT3": 3,
+        "AT4": 3
+      },
+      "arithmetic": 68,
+      "score": null,
+      "reason": "Provisional arithmetic only; direct AT and field CWV missing."
+    },
+    {
+      "reviewer": "access/performance",
+      "viewports": [
+        390,
+        1440
+      ],
+      "ratings": {
+        "VT1": 3,
+        "VT2": 2,
+        "VT3": 3,
+        "VT4": 3,
+        "FN1": 3,
+        "FN2": 4,
+        "FN3": 3,
+        "ET1": 3,
+        "ET2": 4,
+        "ET3": 3,
+        "ET4": 3,
+        "VS1": 3,
+        "VS2": 3,
+        "VS3": 3,
+        "VS4": 4,
+        "VS5": 4,
+        "MI1": 3,
+        "MI2": 3,
+        "MI3": 3,
+        "AT1": 3,
+        "AT2": 3,
+        "AT3": 3,
+        "AT4": 3
+      },
+      "arithmetic": 78,
+      "score": null,
+      "reason": "Lab and keyboard observations do not clear direct screen reader or field performance."
+    }
+  ],
+  "triage": [
+    {
+      "priority": 1,
+      "issue": "No useful first-screen action; Alba and Peninsula Hot Springs conflated",
+      "action": "Fingal hero actions plus a neutral two-operator chooser with direct official links."
+    },
+    {
+      "priority": 1,
+      "issue": "Nearby place-card controls overlap two-line summaries on mobile",
+      "action": "Remove legacy mobile line clamp from card body; keep intro clamped and reserve action footer."
+    },
+    {
+      "priority": 1,
+      "issue": "Anchor target hidden by sticky header",
+      "action": "Add measured scroll margin to place-page targets."
+    },
+    {
+      "priority": 2,
+      "issue": "Section and map snapshot text promises categories absent from actual cards",
+      "action": "Use inventory-accurate generic copy and honest destination links."
+    },
+    {
+      "priority": 2,
+      "issue": "Struck-through not-for copy and undersized map filter targets",
+      "action": "Remove strike and set 44px minimum target."
+    }
+  ],
+  "hypothesis": "A near-top choice between accurately named operators, direct official paths, and repaired mobile navigation will improve task completion and clarity without weakening the credited hero.",
+  "boundedChange": "Fingal-specific hero actions and operator chooser; shorter, more balanced Fingal lede/summary/day plan; shared place-card mobile clamp, anchor offsets, inventory-accurate section text, not-for styling and map filter touch size. No new image or paid use.",
+  "metric": "At 320/390/1440, first-screen action is visible, links resolve to official operators, anchor heading clears sticky header, nearby-card actions do not overlap text, map controls are at least 44px, no overflow/page errors; full production build and protected CI pass. Public manifest and exact page must match deployed SHA.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert this bounded branch if task links, source claims, layout or controls regress; retain the previously verified licensed hero.",
+  "sources": [
+    {
+      "url": "https://albathermalsprings.com.au/book/",
+      "supports": "Alba bathing/spa/dining and current booking entry."
+    },
+    {
+      "url": "https://albathermalsprings.com.au/getting-here/",
+      "supports": "Alba at 282 Browns Road, Fingal."
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathe/",
+      "supports": "Bath House and Spa Dreaming Centre bathing; current official entry."
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/plan-your-visit",
+      "supports": "Peninsula Hot Springs at 140 Springs Lane, Fingal and booking guidance."
+    }
+  ],
+  "validation": {
+    "build": "TZ=UTC npm run build:search passed on the content/hero/card iteration (1014 generated HTML files, 728 indexed pages); exact final CSS build TZ=UTC npm run build passed all required content, rights, link, SEO and audit checks.",
+    "localBrowser": "Headless Chromium on final built static page at 320/390/1440: chooser and both official links present; CTA visible on first viewport; no horizontal overflow or page errors. Nearby place-card summary/action overlap false at all widths. A perfect day anchor top ~160px versus 68px mobile/133px desktop sticky header. All five map filter targets 44px. Not-for text no longer struck through. Both official operator URLs independently returned HTTP 200.",
+    "ci": null,
+    "liveAcceptance": null,
+    "independentLocalQA": "Independent visual reviewer bounded GO on rebuilt local page at 320/390/1440: visible hero actions; two-operator chooser reads clearly; anchor targets clear sticky header; nearby card intro/actions have 8px gap; map filters 44px and Stay toggle works after map initialization; no overflow or page errors. This is not a full public 99 regrade."
+  },
+  "hardGatesOpen": [
+    "Direct assistive-technology journey",
+    "Field Core Web Vitals for exact page",
+    "Remaining practical claim freshness and supporting image provenance",
+    "Paid/sponsored person release if reused beyond current editorial placement"
+  ],
+  "negativeFindings": [
+    "Public PageSpeed API returned 429 daily quota; no field metric inferred.",
+    "Independent score range is wide; do not average or infer acceptance.",
+    "Fingal photo strip remains concentrated on Alba and Peninsula Hot Springs Eco Lodges, with hero repeated as first thumbnail.",
+    "Full mobile page remains lengthy; this iteration fixes first task path rather than claiming complete 99."
+  ],
+  "nextAction": "Finish final-source browser check, CI, merge/deploy/live acceptance; then independently regrade all 23 criteria and continue the next highest-impact iteration. Score remains null."
+}

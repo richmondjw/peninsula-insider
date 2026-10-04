@@ -106,7 +106,7 @@ const snapshotCards = [
         ? `${venuesForPlace.filter((venue) => !isStayVenue(venue) && !wineTypes.includes(venue.data.type) && venue.data.type !== 'spa').length} dining picks mapped`
         : 'Dining coverage coming',
     body: eatVenues.length > 0
-      ? 'Restaurants, cafés, bakeries, and pubs already connected to the place layer - each with its own editor note.'
+      ? 'Food and drink stops currently mapped to this place, each with its own editor note.'
       : 'This hub will add dining picks as the rebuild continues filling in the venue layer.',
     ...(eatVenues.length > 0 ? { href: '#eat-drink' } : {}),
   },
@@ -139,7 +139,7 @@ const snapshotCards = [
         ? `${experiences.length} nearby experience${experiences.length === 1 ? '' : 's'}`
         : 'Explore coverage coming',
     body: experiences.length > 0
-      ? 'Walks, lookouts, beaches, and market moves are connected into the place layer rather than floating off on their own.'
+      ? 'Local experiences currently mapped to this place, with links to the full visitor guides.'
       : 'Explore entries will connect into this hub as the experiences layer is expanded.',
     ...(experiences.length > 0 ? { href: '#explore' } : {}),
   },
