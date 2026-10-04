@@ -209,6 +209,7 @@ export const prerender = true;
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
+  searchExclude={unconfirmedArchivedSchedule}
   noindex={!isCurrent}
 >
   {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
