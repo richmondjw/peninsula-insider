@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { mkdtempSync, mkdirSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, rmSync, writeFileSync, readFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -84,4 +84,67 @@ test('rejects a previous-day feed and expired occurrence', () => {
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
+});
+
+function writeTypedFixture(root) {
+  writeFixture(root);
+  const path = join(root, 'whats-on', 'upcoming.json');
+  const feed = JSON.parse(readFileSync(path, 'utf8'));
+  feed.schemaVersion = '1.2';
+  feed.events = ['event', 'experience', 'offer'].map(kind => ({
+    title: `${kind} fixture`, contentKind: kind,
+    dateMeaning: { event: 'occurrence', experience: 'availability', offer: 'validity' }[kind],
+    url: `https://peninsulainsider.com.au/whats-on/${kind}/`,
+    startDate: '2026-08-15', endDate: '2026-08-16', thisWeekend: true,
+    ...(kind === 'event' ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
+  }));
+  feed.count = feed.numberOfItems = feed.thisWeekend.count = 3;
+  feed.itemListElement = feed.events.map((event, index) => ({
+    '@type': 'ListItem', position: index + 1,
+    item: {
+      '@type': { event: 'Event', experience: 'Service', offer: 'Offer' }[event.contentKind],
+      name: event.title, url: event.url,
+      ...(event.contentKind === 'event' ? { startDate: event.startDate, endDate: event.endDate, eventStatus: event.eventStatus } :
+        event.contentKind === 'offer' ? { validFrom: event.startDate, validThrough: event.endDate } : {}),
+    },
+  }));
+  writeFileSync(path, JSON.stringify(feed));
+  return { path, feed };
+}
+test('accepts 1.2 Event/Service/Offer ItemLists and preserves legacy 1.1 fixtures', () => {
+  const root = mkdtempSync(join(tmpdir(), 'pi-agent-audit-'));
+  try {
+    writeTypedFixture(root);
+    let result = runAudit(root);
+    assert.equal(result.status, 0, result.stderr);
+    writeFixture(root);
+    const path = join(root, 'whats-on', 'upcoming.json');
+    const legacy = JSON.parse(readFileSync(path, 'utf8'));
+    legacy.schemaVersion = '1.1';
+    writeFileSync(path, JSON.stringify(legacy));
+    result = runAudit(root);
+    assert.equal(result.status, 0, result.stderr);
+  } finally { rmSync(root, { recursive: true, force: true }); }
+});
+const feedMutations = [
+  ['type', feed => { feed.itemListElement[1].item['@type'] = 'Event'; }],
+  ['URL', feed => { feed.itemListElement[2].item.url = 'https://example.com/wrong'; }],
+  ['event date', feed => { feed.itemListElement[0].item.startDate = '2026-08-16'; }],
+  ['offer validity', feed => { feed.itemListElement[2].item.validThrough = '2026-08-20'; }],
+  ['experience occurrence date', feed => { feed.itemListElement[1].item.startDate = '2026-08-15'; }],
+  ['offer occurrence date', feed => { feed.itemListElement[2].item.endDate = '2026-08-16'; }],
+  ['missing kind', feed => { delete feed.events[1].contentKind; }],
+  ['incorrect date meaning', feed => { feed.events[2].dateMeaning = 'occurrence'; }],
+  ['non-event status', feed => { feed.events[1].eventStatus = 'https://schema.org/EventScheduled'; }],
+];
+for (const [name, mutate] of feedMutations) test(`rejects tampered 1.2 ${name}`, () => {
+  const root = mkdtempSync(join(tmpdir(), 'pi-agent-audit-'));
+  try {
+    const { path, feed } = writeTypedFixture(root);
+    mutate(feed);
+    writeFileSync(path, JSON.stringify(feed));
+    const result = runAudit(root);
+    assert.equal(result.status, 1, result.stdout);
+    assert.match(result.stderr, /ItemList entry|contentKind\/dateMeaning|Event status/);
+  } finally { rmSync(root, { recursive: true, force: true }); }
 });

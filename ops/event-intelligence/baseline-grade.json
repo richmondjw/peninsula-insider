@@ -1,0 +1,50 @@
+{
+  "stage": "baseline",
+  "revision": "482ce6ecccc0d8d18628ac9c1dcd87f3b12fb968",
+  "checkedAt": "2026-10-04",
+  "checks": {
+    "requirements": {
+      "passed": true,
+      "evidence": "Human decisions in current chat: Shire only, labelled events/experiences/offers, verified prices, James approval, branded/text fallback; full implementation without pilot."
+    },
+    "scope": {
+      "passed": true,
+      "evidence": "Core Shire scope enforced in candidate admission; adjacent-area discovery is excluded by requirement."
+    },
+    "current-revision": {
+      "passed": true,
+      "evidence": "gh api main SHA matched 482ce6ecccc0d8d18628ac9c1dcd87f3b12fb968; isolated branch fast-forwarded to it."
+    },
+    "writer": {
+      "passed": true,
+      "evidence": "docs/ARCHITECTURE.md sections 1-3 and next/src/content.config.ts: Astro file collection is canonical; next/scripts/import-events.py is legacy importer."
+    },
+    "overrides": {
+      "passed": true,
+      "evidence": "next/src/lib/cms/api.ts and server.ts confirm Supabase editorial overrides; not a replacement canonical event writer."
+    },
+    "occurrences": {
+      "passed": true,
+      "evidence": "next/src/lib/event-occurrence.mjs and whatson-listing.mjs: existing Melbourne timezone, exception, status and expiry helpers."
+    },
+    "deployment": {
+      "passed": true,
+      "evidence": "build-and-deploy.yml publishes next/dist to gh-pages; successful run https://github.com/richmondjw/peninsula-insider/actions/runs/37171162408 at matching main SHA."
+    },
+    "maintenance": {
+      "passed": true,
+      "evidence": "content-freshness.yml inspected: recompute, archive, lenses, expiry heartbeat, source freshness reports and failure alert. Configured, not claimed live-executed this turn."
+    },
+    "isolation": {
+      "passed": true,
+      "evidence": "Attached managed worktree events-intelligence with clean new branch codex/events-intelligence; original checkout dirty work preserved."
+    },
+    "runtime": {
+      "passed": true,
+      "evidence": "Docker desktop-linux and default contexts now respond; container inventory observed. Agency dispatcher and builder are Hermes-based. Existing legacy cron activation is not assumed."
+    }
+  },
+  "limitations": [
+    "Baseline gate assesses verified implementation boundaries, not production health. Runtime activation remains unresolved; release cannot pass without it."
+  ]
+}

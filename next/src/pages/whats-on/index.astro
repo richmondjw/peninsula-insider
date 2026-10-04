@@ -1,5 +1,7 @@
 ---
+import {occurrenceData} from '../../lib/intelligence-series.mjs';
 import { pageImage } from '../../lib/page-images';
+import { eventContentKind } from '../../lib/event-publication.mjs';
 /**
  * /whats-on/ - the canonical When front door (v5 rebuild, T-601).
  *
@@ -112,7 +114,8 @@ const pushLd = (
 ) => {
   if (ldSeen.has(live.slug)) return;
   ldSeen.add(live.slug);
-  const data = live.event.data as Record<string, any>;
+  const data = (occurrenceData(live.event.data, occursISO) ?? live.event.data) as Record<string, any>;
+  if (eventContentKind(data) !== 'event') return;
   const heroSrc = data.heroImage?.src;
   const imageUrl = heroSrc
     ? heroSrc.startsWith('http')
@@ -434,7 +437,8 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     p: string;
     f: boolean;
     g: boolean;
-    k: 'range' | 'weekly' | 'monthly';
+    k: 'range' | 'weekly' | 'monthly' | 'explicit';
+    dates?: string[];
     s: string;
     e: string;
     wd?: number;
@@ -485,7 +489,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDateString('en-AU', { ...opts, timeZone: 'UTC' });
     const occursOn = (e: FeedEntry, d: Date) => occursOnDay({
       kind: e.k, start: parseISO(e.s), end: parseISO(e.e), day: e.wd,
-      days: e.wds, nth: e.nth, months: e.months,
+      days: e.wds, nth: e.nth, months: e.months, dates: e.dates,
     }, d);
 
     // This editorial shortlist and its Event schema belong to the default
@@ -556,7 +560,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       link.dataset.entitySlug = e.slug;
       row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
       row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
-        e.m.join(' · '),
+        (e.k === 'explicit' && occurrence?.data ? [occurrence.data.venueName, occurrence.data.startTime].filter(Boolean) : e.m).join(' · '),
         spanLabel,
         occurrence ? (occurrence.label ?? '') : (e.x ?? ''),
       ]

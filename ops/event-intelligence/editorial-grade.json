@@ -1,0 +1,61 @@
+{
+  "stage": "editorial",
+  "checks": {
+    "audience-scores": {
+      "passed": true,
+      "evidence": "editorial.mjs uses separate segment assessments with explicit reasons and missing evidence."
+    },
+    "reasons": {
+      "passed": true,
+      "evidence": "weighted assessment requires reason for each supplied score and displays Unknown otherwise."
+    },
+    "priority": {
+      "passed": true,
+      "evidence": "Independent editorial weights including coverageGap; distinct from factual confidence."
+    },
+    "readiness": {
+      "passed": true,
+      "evidence": "productionDecision requires original summary/category and factual verification."
+    },
+    "commercial-separation": {
+      "passed": true,
+      "evidence": "editorial.test.mjs sponsorship cannot change priority or audience scores."
+    },
+    "pathways": {
+      "passed": false,
+      "evidence": "Only standard/enhanced/feature decision enums exist; collection, roundup, itinerary, article, prominent, newsletter and social pathways not operational."
+    },
+    "briefs": {
+      "passed": true,
+      "evidence": "editorial.test.mjs high score yields feature brief requiring reporting, not automatic feature."
+    },
+    "capacity": {
+      "passed": false,
+      "evidence": "Capacity limits not yet operationally wired; withheld point."
+    },
+    "coverage-gaps": {
+      "passed": false,
+      "evidence": "A coverage-gap input exists; measured geographic/category/audience coverage gaps do not."
+    },
+    "human-approval": {
+      "passed": true,
+      "evidence": "productionDecision always requiresHumanApproval; no production decision publishes."
+    },
+    "all-pathways": {
+      "passed": false,
+      "evidence": "Complete requested production pathways and destination propagation not demonstrated."
+    },
+    "coverage-dashboard": {
+      "passed": false,
+      "evidence": "Coverage dashboard and feedback calibration not implemented."
+    }
+  },
+  "scope": "Complete major stage: reopened after independent grading audit.",
+  "limitations": [
+    "Only standard/enhanced/feature decision enums exist; collection, roundup, itinerary, article, prominent, newsletter and social pathways not operational.",
+    "A coverage-gap input exists; measured geographic/category/audience coverage gaps do not.",
+    "Complete requested production pathways and destination propagation not demonstrated.",
+    "Coverage dashboard and feedback calibration not implemented."
+  ],
+  "rubricVersion": 2
+}

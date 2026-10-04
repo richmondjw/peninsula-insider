@@ -1,0 +1,396 @@
+{
+  "version": 2,
+  "sources": [
+    {
+      "id": "mpt",
+      "url": "https://www.visitmorningtonpeninsula.org/whats-on",
+      "authority": "aggregator",
+      "categories": [
+        "all"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "regional-aggregator",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Regional lead source; every listing requires Mornington Peninsula Shire evidence.",
+      "priority": 2,
+      "uniqueContribution": "Regional lead discovery; organiser evidence and Shire geography are required independently.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "shire",
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Explore-Mornington-Peninsula/Upcoming-events",
+      "authority": "official",
+      "categories": [
+        "community"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "government-institution",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "libraries",
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events",
+      "authority": "official",
+      "categories": [
+        "community",
+        "family-programs"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "government-institution",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Official library sessions and community learning across branch venues; rendered calendar pagination captured.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "mprg",
+      "url": "https://mprg.mornpen.vic.gov.au/Home",
+      "authority": "official",
+      "categories": [
+        "exhibition",
+        "arts"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "government-institution",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Official current gallery exhibitions and programme links.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "westernport-writes",
+      "url": "https://westernportwrites.com.au/program-2026/",
+      "authority": "official",
+      "categories": [
+        "writers-ideas"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Official festival programme and ticketing leads; source PDF needs page-based verification.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "mt-eliza-art",
+      "url": "https://mtelizaart.com/",
+      "authority": "official",
+      "categories": [
+        "arts"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "dromana-market",
+      "url": "https://dromanamarket.org.au/",
+      "authority": "official",
+      "categories": [
+        "market"
+      ],
+      "cadenceHours": 168,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "studio-trail",
+      "url": "https://www.peninsulastudiotrailinc.org/events",
+      "authority": "official",
+      "categories": [
+        "arts"
+      ],
+      "cadenceHours": 168,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "craft-markets",
+      "url": "https://www.craftmarkets.com.au/",
+      "authority": "official",
+      "categories": [
+        "market"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "hot-springs",
+      "url": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au",
+      "authority": "official",
+      "categories": [
+        "live-music",
+        "wellness"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "alba",
+      "url": "https://albathermalsprings.com.au/jazz/",
+      "authority": "official",
+      "categories": [
+        "live-music"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "shire-active",
+      "url": "https://www.active.mornpen.vic.gov.au/event/seniors-festival-2026-get-active-expo/",
+      "authority": "official",
+      "categories": [
+        "community",
+        "wellness"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "sourceType": "government-institution",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Official recreation/community programmes; direct collection currently receives HTTP 403 and remains review-only.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "shire-arts-culture",
+      "url": "https://artsandculture.mornpen.vic.gov.au/Home",
+      "authority": "official",
+      "categories": [
+        "arts",
+        "community"
+      ],
+      "cadenceHours": 24,
+      "manualReview": true,
+      "discoveryEvidence": {
+        "url": "https://www.mornpen.vic.gov.au/The-Shire/About-our-region/Mapping-GIS",
+        "method": "council-listed external community/service website",
+        "checkedOn": "2026-10-04",
+        "limits": "Backlink verifies source association; individual listing geography, facts and permission still require evidence."
+      },
+      "sourceType": "government-institution",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "redirectReview": {
+        "from": "https://artsandculture.mornpen.vic.gov.au/",
+        "to": "https://artsandculture.mornpen.vic.gov.au/Home",
+        "checkedOn": "2026-10-04",
+        "sameHost": true
+      },
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "mornington-community-house",
+      "url": "https://morningtoncommunityhouse.com.au/",
+      "authority": "official",
+      "categories": [
+        "community",
+        "workshop"
+      ],
+      "cadenceHours": 168,
+      "manualReview": true,
+      "discoveryEvidence": {
+        "url": "https://www.mornpen.vic.gov.au/The-Shire/About-our-region/Mapping-GIS",
+        "method": "council-listed external community/service website",
+        "checkedOn": "2026-10-04",
+        "limits": "Backlink verifies source association; individual listing geography, facts and permission still require evidence."
+      },
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Source-specific official programme or organiser leads in the registered categories; contribution and coverage need continued assessment.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    },
+    {
+      "id": "mount-martha-house",
+      "url": "https://mountmarthahouse.com.au/",
+      "authority": "official",
+      "categories": [
+        "community",
+        "workshop"
+      ],
+      "cadenceHours": 168,
+      "manualReview": true,
+      "discoveryEvidence": {
+        "url": "https://www.mornpen.vic.gov.au/The-Shire/About-our-region/Mapping-GIS",
+        "method": "council-listed external community/service website",
+        "checkedOn": "2026-10-04",
+        "limits": "Backlink verifies source association; individual listing geography, facts and permission still require evidence."
+      },
+      "sourceType": "organiser-venue",
+      "retrievalMethods": [
+        "html",
+        "structured-data-if-present",
+        "manual-review"
+      ],
+      "cadenceMeaning": "planned retrieval interval, not a measured publishing frequency",
+      "accessConstraints": "Public pages only; no authentication, CAPTCHA or 403 bypass; new hosts/redirects require review.",
+      "geographicCoverage": "Event location must be verified individually.",
+      "priority": 1,
+      "uniqueContribution": "Official community-house term programme; empty public events API does not imply an empty programme.",
+      "updateFrequencyObserved": "Not measured; cadenceHours is the planned retrieval interval.",
+      "extractionDifficulty": "Source-specific review required; supported extraction paths and layout warnings are recorded in captured receipts.",
+      "publicationAuthority": "Source retrieval never approves a listing; current field evidence and James approval are required."
+    }
+  ]
+}

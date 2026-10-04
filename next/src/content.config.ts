@@ -1337,6 +1337,22 @@ const events = defineCollection({
     summary: z.string(),
     description: z.string().optional(),
     eventId: z.string().optional(), // e.g. MP-EVT-0001, for spreadsheet sync
+    /** Explicit labels separate scheduled events from experiences and offers. */
+    contentKind: z.enum(['event', 'experience', 'offer']).optional(),
+    verifiedPrice: z.object({
+      label: z.string().trim().min(1).max(300),
+      sourceUrl: z.string().url().refine((url) => /^https?:\/\//i.test(url), 'HTTP(S) source required'),
+      checkedAt: z.coerce.date(),
+      validUntil: z.coerce.date(),
+    }).optional(),
+    intelligence: z.object({
+      revision: z.string().min(1),
+      approvedBy: z.string().min(1),
+      approvedAt: z.coerce.date(),
+      factScore: z.number().min(0).max(100),
+      evidenceIds: z.array(z.string().min(1)).min(1),
+      reviewedAt: z.coerce.date(),
+    }).optional(),
 
     // ─── When ──────────────────────────────────────────────────────────────
     startDate: z.coerce.date(),
@@ -1567,6 +1583,13 @@ const events = defineCollection({
 
     // ─── Derived occurrence fields (cron-recomputed for recurring) ────────
     nextOccurrence: z.coerce.date().optional(),
+    seriesOccurrences: z.array(z.object({
+      id: z.string().min(1), originalDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+      date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/),
+      status: z.enum(['scheduled','as-scheduled','cancelled','postponed','rescheduled','sold-out','moved']),
+      startTime: z.string().nullable(), endTime: z.string().nullable(),
+      venueName: z.string(), sourceUrl: z.string().url(), note: z.string().optional(),
+    })).max(366).optional(),
 
     // ─── Editorial overlay (human-written, never overwritten) ─────────────
     worthTheDrive: z.boolean().default(false),

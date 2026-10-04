@@ -1,0 +1,59 @@
+{
+  "stage": "visuals",
+  "checks": {
+    "rights": {
+      "passed": true,
+      "evidence": "visuals.test.mjs publicly available image without licence rejected."
+    },
+    "edition": {
+      "passed": true,
+      "evidence": "visuals.test.mjs wrong edition fails separately from quality."
+    },
+    "attribution": {
+      "passed": true,
+      "evidence": "visuals.test.mjs missing required credit blocks use."
+    },
+    "expiry": {
+      "passed": true,
+      "evidence": "gradeAsset checks licence expiry independently."
+    },
+    "relevance": {
+      "passed": true,
+      "evidence": "gradeAsset separates event/edition/subject/embedded-date warnings."
+    },
+    "quality": {
+      "passed": true,
+      "evidence": "gradeAsset dimensions and reviewed crop produce separate quality grade."
+    },
+    "ocr-limits": {
+      "passed": false,
+      "evidence": "OCR warnings supported but OCR engine not integrated; withheld point."
+    },
+    "fallback": {
+      "passed": true,
+      "evidence": "visuals.test.mjs deterministic labelled original graphic, safely escaped metadata; text-only remains supported."
+    },
+    "accessibility": {
+      "passed": true,
+      "evidence": "SVG accessible title, non-image metadata, no colour-only distinctions."
+    },
+    "channel-permissions": {
+      "passed": true,
+      "evidence": "visuals.test.mjs web permission does not permit social use."
+    },
+    "asset-discovery": {
+      "passed": false,
+      "evidence": "No actual visual discovery/retrieval workflow implemented."
+    },
+    "inspected-sample": {
+      "passed": false,
+      "evidence": "No real permissioned assets inspected and graded for subject, current artwork and crop."
+    }
+  },
+  "scope": "Complete major stage: reopened after independent grading audit.",
+  "limitations": [
+    "No actual visual discovery/retrieval workflow implemented.",
+    "No real permissioned assets inspected and graded for subject, current artwork and crop."
+  ],
+  "rubricVersion": 2
+}

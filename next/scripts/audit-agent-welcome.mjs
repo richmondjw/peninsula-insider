@@ -68,7 +68,10 @@ await pool(manifest.sections,async section=>{
  check(shard.snapshotId===snapshot&&shard.count===section.count&&JSON.stringify(shard.records)===JSON.stringify(catalog.records.filter(r=>r.section===section.section)),`Section catalogue mismatch: ${section.section}`);
 });
 const feed=JSON.parse(await read('/whats-on/upcoming.json'));
-check(feed.timezone==='Australia/Sydney'&&feed.schemaVersion==='1.1','Event timezone/schema missing');
+check(feed.timezone==='Australia/Melbourne'&&feed.schemaVersion==='1.2','Listing timezone/schema missing');
+check(feed.events.every(e=>['event','experience','offer'].includes(e.contentKind)&&e.dateMeaning===({event:'occurrence',experience:'availability',offer:'validity'})[e.contentKind]),'Listing kind/date meaning missing');
+check(feed.events.every(e=>e.contentKind==='event'||(!Object.hasOwn(e,'eventStatus')&&e.weekendOccurrences.every(o=>!Object.hasOwn(o,'eventStatus')))),'Non-event listings carry event status');
+check(feed.itemListElement.every(x=>x.item['@type']!=='Event'||feed.events.some(e=>e.url===x.item.url&&e.contentKind==='event')),'Non-event listing represented as Event');
 check(feed.window?.start&&feed.window?.end&&feed.generatedAt,'Event date contract missing');
 check(feed.events.every(e=>Object.hasOwn(e,'factCheckedOn')&&Object.hasOwn(e,'sourceUrl')),'Event source/unknown check fields missing');
 const conditional=[];

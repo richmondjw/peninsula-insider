@@ -106,7 +106,8 @@ export function schoolHolidayWindow(now: Date): (ScopeWindow & { name: string })
 // ---------------------------------------------------------------------------
 
 export interface OccurrenceRule {
-  kind: 'range' | 'weekly' | 'monthly';
+  kind: 'range' | 'weekly' | 'monthly' | 'explicit';
+  dates?: string[];
   /** Inclusive bounds (for weekly/monthly these bound the series). */
   start: Date;
   end: Date;
@@ -187,6 +188,10 @@ const FAR_HORIZON_DAYS = 370;
 /** Derive the single occurrence rule for an event, or null when undated. */
 export function ruleFor(event: { data: Record<string, any> }, now: Date): OccurrenceRule | null {
   const data = event.data as Record<string, any>;
+  if (data.intelligence && Array.isArray(data.seriesOccurrences) && data.seriesOccurrences.length) {
+    const dates: string[] = data.seriesOccurrences.map((session: any) => session.date).sort();
+    return {kind: 'explicit', start: parseIsoLocal(dates[0]), end: parseIsoLocal(dates.at(-1)!), dates};
+  }
   const today = startOfDay(now);
   const start: Date | undefined = data.startDate ? startOfDay(data.startDate) : undefined;
   const endRaw: Date | undefined = data.endDate ? startOfDay(data.endDate) : start;
@@ -249,6 +254,7 @@ function nthWeekdayIndex(d: Date): { nth: number; isLast: boolean } {
 
 export function occursOnDay(rule: OccurrenceRule, day: Date): boolean {
   const d = startOfDay(day);
+  if (rule.kind === 'explicit') return !!rule.dates?.includes(d.toISOString().slice(0, 10));
   if (d < startOfDay(rule.start) || d > startOfDay(rule.end)) return false;
   if (rule.months && !rule.months.includes(d.getUTCMonth() + 1)) return false;
   if (rule.kind === 'range') return true;

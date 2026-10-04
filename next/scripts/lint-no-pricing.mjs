@@ -1,6 +1,7 @@
 // lint-no-pricing.mjs
 //
-// Enforces the BRAND-PI rule "No pricing on site. Ever." adopted 2026-05-15.
+// Enforces the legacy no-pricing rule, with the explicitly authorised
+// verifiedPrice label exception for event records.
 // James approved one time-bound exception on 2026-09-16 for the verified
 // VIRAL Food Festival entry terms. The exception below is exact-file only.
 // Scans rendered surfaces (.astro templates) and JSON-LD emission sites for
@@ -27,6 +28,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { isVerifiedPriceRecord } from '../src/lib/event-publication.mjs';
 
 const ROOT = path.resolve('src');
 
@@ -116,7 +118,22 @@ walk(ROOT, (file) => {
   // Prose scan: content and data files plus page templates.
   if (['.md', '.mdx', '.json', '.astro'].includes(ext)) {
     const isProse = ext === '.md' || ext === '.mdx';
-    const lines = fs.readFileSync(file, 'utf8').split('\n');
+    let prose = fs.readFileSync(file, 'utf8');
+    // James explicitly authorised verified prices for What's On. The sole
+    // content exception is the label inside a valid verifiedPrice object;
+    // all surrounding event prose, legacy price fields and other collections
+    // remain subject to the existing policy. Stale records can remain stored:
+    // the publication helper suppresses them instead of erasing evidence.
+    if (ext === '.json' && rel.startsWith('content/events/')) {
+      try {
+        const record = JSON.parse(prose);
+        if (isVerifiedPriceRecord(record.verifiedPrice)) {
+          record.verifiedPrice.label = '';
+          prose = JSON.stringify(record, null, 2);
+        }
+      } catch { /* Invalid records receive the ordinary scan. */ }
+    }
+    const lines = prose.split('\n');
     lines.forEach((line, i) => {
       // In markdown, a leading * is a list item or **bold**, not a comment —
       // only skip HTML comments there. Code files also skip // and JSDoc *.
