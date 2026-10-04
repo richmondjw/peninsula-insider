@@ -81,9 +81,9 @@ Flinders in brief
 
 - 01   Flinders is the Peninsula's most complete ocean-coast village - a bakery, a pub, a world-class golf course, and a marine sanctuary immediately offshore.
 
-- 02   Best for: serious golfers; divers after the Flinders Blowhole; anyone who wants a southern-edge village base without driving to the tip.
+- 02   Best for: serious golfers; divers interested in the marine life beneath Flinders Pier; anyone who wants a southern-edge village base without driving to the tip.
 
-- 03   Signature experience: walk the coastal reserve past the blowhole at high tide, then a long lunch in the village.
+- 03   Signature experience: check Parks Victoria conditions, view Flinders Blowhole from the lookout and explore the rockpools only at low tide when safe, then have lunch in the village. The rocky shore is unpatrolled and swimming is not recommended.
 
 - 04   Full day; Flinders rewards staying rather than passing through.
 

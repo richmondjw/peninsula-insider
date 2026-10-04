@@ -457,8 +457,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 ## What's On
 
-- [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
 - [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)

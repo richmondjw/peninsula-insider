@@ -219,7 +219,7 @@ Open the town index
 
 - [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)  The village that the Peninsula keeps to itself.
 
-- [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)  The Peninsula's working port, where the seafood is better than the streetscape.
+- [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)  A working Western Port town with a pier and wide foreshore outlook.
 
 - [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)  A high, quiet part of the Peninsula wine country, where the pinot is best…
 

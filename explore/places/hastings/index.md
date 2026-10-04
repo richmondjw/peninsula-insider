@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Hastings
 
-Hastings is a port town on the Mornington Peninsula's Western Port shoreline, 75 km from Melbourne, with a Thursday street market and a working commercial harbour on the eastern bay.
+Hastings is a port town on the Mornington Peninsula's Western Port shoreline, about 75 km from Melbourne, with a public pier, foreshore and working commercial harbour.
 
-Hastings sits on the eastern, working side of the Peninsula - the Western Port side, with its mangroves, mudflats, and fishing fleet. It is not a tourist town and never has tried to be, which is exactly what makes it useful. The fishermen's co-op here supplies some of the best seafood in Melbourne, the mussel farms offshore are among the largest sustainable producers in Australia, and if you are driving back from French Island or heading down to Flinders the long way round, Hastings is the place to stop for fish and chips eaten on the pier. The town itself is unvarnished in a way the western Peninsula no longer is, and that counts for something.
+Hastings sits on the Western Port side of the Peninsula, with a working harbour, mangrove-fringed foreshore and a pier for a slow waterfront walk. It is a practical town rather than a polished resort. Come for the Western Port outlook and a stop on the way south; check current local seafood sellers before making seafood the reason for a special trip. The ferry to French Island and Phillip Island boards at Stony Point, a separate trip south of Hastings, not at Hastings Pier.
 
 At a glance
 
@@ -21,7 +21,7 @@ approximately 1 hour 5 minutes
 
 **Best season**
 
-Winter For Mussels And Clear Air
+Milder Days For A Western Port Foreshore Walk
 
 **Stay**
 
@@ -29,15 +29,15 @@ a few hours
 
 **Best for**
 
-seafood buyers, Western Port detours
+Western Port foreshore walks, pier visits
 
 **Avoid**
 
 windy wet afternoons
 
-Insider  The fish co-op is the real reason to come; locals buy there long before visitors realise they should.
+Insider  Peninsula Fresh Seafood lists a weather-dependent Friday Hastings Foreshore truck. Check its current location and trading before travelling for seafood.
 
-The Peninsula's working port, where the seafood is better than the streetscape.
+A working Western Port town with a pier and wide foreshore outlook.
 
 Peninsula Insider - editor's note
 
@@ -47,11 +47,11 @@ Is Hastings the right base?
 
 ### It's for
 
-- seafood buyers
+- Western Port foreshore walks
 
-- Western Port detours
+- pier visits
 
-- ferry connections
+- onward trips via Stony Point
 
 ### It's not for
 
@@ -59,25 +59,25 @@ Is Hastings the right base?
 
 - people chasing wineries or surf
 
-Looking for charm in the town centre - stop for seafood and the pier, then move on.
+Assuming the Phillip Island ferry leaves from Hastings Pier; the operator lists Stony Point as its mainland terminal.
 
 Hastings in brief
 
 ## Hastings in 3 points
 
-- 01   Hastings is the Peninsula's working port town - a fishermen's co-op, mussel farms offshore, and a Stony Point ferry to Phillip Island that most visitors don't know exists.
+- 01   Hastings is a working Western Port town with a foreshore, commercial harbour and public pier. The French Island and Phillip Island ferry boards at Stony Point in Crib Point, not at Hastings Pier.
 
-- 02   Best for: seafood lovers; anyone travelling to French Island or Phillip Island by ferry; travellers arriving by train from Melbourne.
+- 02   Best for: a Western Port foreshore walk, a pier stop and travellers planning a separate connection from Stony Point.
 
-- 03   Half a day; stop for fish and chips on the pier, then continue south.
+- 03   Allow a few hours; check current seafood trading and ferry times before setting out.
 
 A perfect day here
 
 ## A day in Hastings
 
-Late-morning co-op stop, fish and chips on the foreshore, walk the pier, then ferry onward or drive south.
+Walk the Hastings foreshore and pier, check current seafood trading before buying lunch, then drive separately to Stony Point only if your onward ferry is booked.
 
-The fish co-op is the real reason to come; locals buy there long before visitors realise they should.
+Peninsula Fresh Seafood lists a weather-dependent Friday Hastings Foreshore truck. Check its current location and trading before travelling for seafood.
 
   - Editor's note
 
@@ -168,21 +168,3 @@ On the map
 Every editorially verified pin in Hastings on one screen - toggle a category, click any marker for the editor's note.
 
 Loading map…
-
-On the calendar in this place
-
-## Events in Hastings
-
-Coming up in Hastings, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Every Thursday
-
-### ✦ Hastings Thursday Street Market
-
-Hastings
-
-Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.
-
- Markets](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)

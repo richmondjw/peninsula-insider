@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-04",
-  "generatedAt": "2026-10-04T04:29:05.658Z",
+  "generatedAt": "2026-10-04T05:28:51.510Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 2 – Sun 4 October",
     "count": 11
   },
-  "numberOfItems": 36,
+  "numberOfItems": 35,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -184,19 +184,6 @@
       "position": 13,
       "item": {
         "@type": "Event",
-        "name": "Hastings Thursday Street Market",
-        "url": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-        "startDate": "2026-10-08",
-        "endDate": "2026-10-08",
-        "description": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 14,
-      "item": {
-        "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
         "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
         "startDate": "2026-10-10",
@@ -207,7 +194,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -220,7 +207,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -233,7 +220,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
@@ -246,7 +233,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Sunday Sessions at Peninsula Hot Springs",
@@ -259,7 +246,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Oktoberfest at The Continental Sorrento",
@@ -272,7 +259,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Boneo Community Market",
@@ -285,7 +272,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "Breast Foot Forward Annual Community Walk & Run 2026",
@@ -298,7 +285,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -311,7 +298,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market, Balnarring",
@@ -324,7 +311,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Pearcedale Community Market",
@@ -337,7 +324,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "High Tea at Mornington Botanical Rose Gardens",
@@ -350,7 +337,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Tootgarook Primary School Market",
@@ -363,7 +350,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -376,7 +363,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -389,7 +376,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington",
@@ -402,7 +389,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Saturday Pottery Class",
@@ -415,7 +402,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
@@ -428,7 +415,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -441,7 +428,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -454,7 +441,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "Mornington Tourist Railway, Santa Specials",
@@ -467,7 +454,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "Mornington Christmas Festival & Main Street Christmas Parade",
@@ -480,7 +467,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Peninsula Summer Music Festival 2027",
@@ -492,7 +479,7 @@
       }
     }
   ],
-  "count": 36,
+  "count": 35,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -761,24 +748,6 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
-    },
-    {
-      "title": "Hastings Thursday Street Market",
-      "url": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-      "startDate": "2026-10-08",
-      "endDate": "2026-10-08",
-      "id": "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/",
-      "sourceUrl": "https://www.onlymelbourne.com.au/hastings-s-t-reet-market",
-      "factCheckedOn": null,
-      "recurrence": "weekly",
-      "category": "market",
-      "place": "hastings",
-      "venue": null,
-      "freePaid": "Free",
-      "summary": "Weekly outdoor street market on High Street Hastings every Thursday. 40+ stalls featuring homemade, homegrown and craft goods. Fresh produce, handmade goods, plants. Local food options available on the street.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

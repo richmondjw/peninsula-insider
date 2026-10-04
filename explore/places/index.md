@@ -137,7 +137,7 @@ Crib Point sits halfway between Hastings and Stony Point on the Western Port sho
 
 ### [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
 
-Hastings sits on the eastern, working side of the Peninsula - the Western Port side, with its mangroves, mudflats, and fishing fleet. It is not a tourist…
+Hastings sits on the Western Port side of the Peninsula, with a working harbour, mangrove-fringed foreshore and a pier for a slow waterfront walk. It is a…
 
 ### [McCrae](<https://peninsulainsider.com.au/explore/places/mccrae/>)
 

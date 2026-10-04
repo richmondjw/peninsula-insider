@@ -65,16 +65,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Markets   Weekly – every Thursday year-round
-
-### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
-[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
-
-Weekly outdoor street market on High Street Hastings every Thursday.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
 Markets   Monthly (3rd Saturday approx)
 
 ### [Emu Plains Market, Balnarring](<https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/>)
@@ -92,6 +82,16 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

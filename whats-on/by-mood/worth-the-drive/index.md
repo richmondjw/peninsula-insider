@@ -11,16 +11,6 @@ Worth the trip from Melbourne
 
 Most regional event sites pretend the drive is free. We do not. These are the events worth booking accommodation for, or the day trip from Melbourne that earns its travel time.
 
-Markets   Weekly – every Thursday year-round
-
-### [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
-[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
-
-Weekly outdoor street market on High Street Hastings every Thursday.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
 Markets   Monthly – 4th Saturday of every month
 
 ### [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)

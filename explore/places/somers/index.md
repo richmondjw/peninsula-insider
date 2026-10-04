@@ -185,7 +185,7 @@ Western Port · town
 
 ### [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
 
-Hastings sits on the eastern, working side of the Peninsula - the Western Port side, with its mangroves, mudflats, and fishing fleet. It is not a tourist town and never has tried to be, which is exactly what makes it useful. The fishermen's co-op here supplies some of the best seafood in Melbourne, the mussel farms offshore are among the largest sustainable producers in Australia, and if you are driving back from French Island or heading down to Flinders the long way round, Hastings is the place to stop for fish and chips eaten on the pier. The town itself is unvarnished in a way the western Peninsula no longer is, and that counts for something.
+Hastings sits on the Western Port side of the Peninsula, with a working harbour, mangrove-fringed foreshore and a pier for a slow waterfront walk. It is a practical town rather than a polished resort. Come for the Western Port outlook and a stop on the way south; check current local seafood sellers before making seafood the reason for a special trip. The ferry to French Island and Phillip Island boards at Stony Point, a separate trip south of Hastings, not at Hastings Pier.
 
 Western Port · village
 

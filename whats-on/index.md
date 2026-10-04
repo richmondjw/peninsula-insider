@@ -119,12 +119,6 @@ Red Hill / Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 
 
 ### Markets
 
-- [Hastings Thursday Street Market](<https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/>)
-
-A useful local market when running; confirm a future date with the organiser before travelling.
-
-9am · Hastings · Free
-
 - [Tootgarook Primary School Market](<https://peninsulainsider.com.au/whats-on/tootgarook-primary-school-market/>)
 
 A school-run market on the southern Peninsula, with produce, plants, crafts and second-hand stalls.
@@ -142,6 +136,12 @@ Emu Plains is the artisan market that actually feels like the Peninsula. Stringy
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
 
 9am · Crib Point · Free
+
+- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+A broad makers market with food and music at the racecourse; check the date before travelling because race days can…
+
+9am · Mornington · Free
 
 ### Live music
 
