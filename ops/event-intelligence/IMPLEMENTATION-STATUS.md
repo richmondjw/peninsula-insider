@@ -1,6 +1,6 @@
 # Event intelligence implementation checkpoint
 
-Recorded 4 October 2026. Full implementation remains open; nothing in this branch has been deployed. James has approved no new listing.
+Updated 4 October 2026 after James authorised publication. The verified website changes are live through PR #572 and release e4dc0ec97de73e232917a39da1691e18c5c6858f, deployment run 37189393977. Full implementation remains open; James has approved no new research listing.
 
 The current website passed the full Docker build and required build audits. Current event intelligence regressions passed 164 tests; the final built artifact passed 10 browser discovery journeys. Desktop/mobile checks verify no horizontal overflow, experiences without Event schema/calendar actions, historical detail withdrawal, and private review filters without external requests. Private hash-bound receipts record the build, test and browser artifacts. Website code matches the built snapshot after normalising line endings; subsequent retrieval corrections passed the current focused suite.
 
@@ -11,3 +11,5 @@ The packet contains 914 quarantined candidate occurrences and 146 retained evide
 Next required work is comprehensive independent organiser/source coverage, remaining PDF/API/source adapters and a manually verified representative factual sample. Asset discovery/rights inspection, full editorial pathways and capacity, authenticated approval integration, active scheduling/alerts and release acceptance remain open. Public-site deployment, current listing approval and spending are separate authorisation boundaries.
 
 All raw bodies, PDFs, review packets, images and runtime/build artifacts remain ignored private evidence. The original working checkout is preserved; this is an isolated implementation branch.
+
+Live acceptance passed: public deployment and manifest agree with the merged revision; all five artifact hashes match. Mobile/desktop layout, actual search index, calendar filtering, kind semantics, archive withdrawal and private-route exclusion were checked. A general verifier falsely truncated an apostrophe-bearing description and required a noindex archive in the sitemap; the verification tool was corrected with regression tests, and all three representative routes then passed.

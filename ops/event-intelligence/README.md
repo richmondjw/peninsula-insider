@@ -1,6 +1,6 @@
 # Peninsula Insider event intelligence
 
-Status: implementation in progress; not deployed. This is a full implementation branch, not a pilot.
+Status: the verified website improvements were published on 4 October through PR #572. Comprehensive event intelligence remains in progress. This is a full implementation project, not a pilot.
 
 ## Human requirements
 Mornington Peninsula Shire only. Events, experiences and offers must be labelled. Prices require current verification. James approves each new listing. Use original PI metadata graphics, then text-only, when licensed imagery is unavailable. Every major stage must pass 9/10; critical failures veto the score.
