@@ -1,0 +1,86 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "8998d1a0b42b028ca45b6013c5aaea711f348b92",
+  "status": "local-validated-awaiting-ci",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Compare course access, choose a suitable round and follow a real booking or planning path.",
+  "baseline": {
+    "public": "Fresh public manifest sourceSha 8998d1a0b42b028ca45b6013c5aaea711f348b92, buildRunId 37193127627. Public golf page HTTP 200 visibly contains an internal St Andrews ranking-verification placeholder, a National Ocean Course public-round claim, and Flinders nine-hole copy; two further-reading cards link back to this hub. Independent reviewers also found Portsea visitor-access and National designer errors.",
+    "hardGates": "Materially misleading visitor access, non-existent current course name and live editorial placeholder. Direct AT, field performance and complete image/claim provenance remain unverified.",
+    "scoreEvidence": "Independent T1 reviewers supplied concrete interim factual/navigation/visual findings. A reconciled 23-criterion public score is not yet available; score remains null."
+  },
+  "triage": [
+    {
+      "priority": 1,
+      "issue": "National public Ocean course, Portsea private-only and Flinders nine-hole claims contradict current clubs",
+      "action": "Correct access, current course names and 18-hole count from primary operators."
+    },
+    {
+      "priority": 1,
+      "issue": "National designer attributions conflict with official course history",
+      "action": "Correct Moonah/Greg Norman and Bob Harrison, Gunnamatta/Tom Doak, Old/Robert Trent Jones Jr and Long Island/Gordon Oliver."
+    },
+    {
+      "priority": 1,
+      "issue": "Internal St Andrews ranking placeholder is rendered as public ranking badge",
+      "action": "Remove unverified ranking text and unsupported badges."
+    },
+    {
+      "priority": 2,
+      "issue": "Two further-reading cards loop to current page",
+      "action": "Remove self-links and retain two distinct useful guides."
+    },
+    {
+      "priority": 1,
+      "issue": "Independent release QA found the Portsea record called the club founded in 1924, confusing the first visitor course with formal club establishment.",
+      "action": "Correct the club date to 1926 from its centenary history and verify both hub and detail output."
+    }
+  ],
+  "hypothesis": "Truthful course facts and useful onward routes will reduce planning dead ends and restore visitor trust.",
+  "boundedChange": "Linked corrections within PR #576; full golf page design and 23-criterion review continue separately.",
+  "metric": "Exact source build/search/rights and protected CI pass; browser confirms no raw placeholder, false National Ocean, nine-hole Flinders or Portsea private-only claims, and no editorial self-links; exact live manifest and page accepted.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert bounded golf fact changes if operator claims, page build or navigational routes regress.",
+  "sources": [
+    {
+      "url": "https://nationalgolf.com.au/visitors/",
+      "supports": "Private visitor eligibility."
+    },
+    {
+      "url": "https://nationalgolf.com.au/our-courses/",
+      "supports": "Four current courses and designers."
+    },
+    {
+      "url": "https://portseagolf.com.au/accommodation/",
+      "supports": "Nonmember green-fee times."
+    },
+    {
+      "url": "https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/",
+      "supports": "18-hole visitor rounds seven days."
+    },
+    {
+      "url": "https://portseagolf.com.au/centenary/the-early-years/",
+      "supports": "The early visitor course opened in December 1924; Portsea Golf Club commenced on 1 January 1926."
+    }
+  ],
+  "validation": {
+    "build": "Exact final source on 2026-10-04 passed TZ=UTC npm run build:search (exit 0): 1014 HTML files, 728 Pagefind indexed pages; rights, content, link, claim, schema, accessibility-support and responsive-image build gates completed. Build alone does not establish a 99 score.",
+    "localBrowser": "Independent bounded GO on exact built preview: golf hub at 320/390/1440 and Portsea detail at 390/1440 are HTTP 200 without JS errors or horizontal overflow; both visibly show Established in 1926 and omit Founded in 1924. Two editorial links resolve to distinct generated guides. Other affected detail pages were checked at 390/1440. This is not a full AT or 23-criterion review.",
+    "independentPublicBaseline": "Three independent T1 reviewers were asked for the full rubric; interim findings were used as triage, with no aggregate score inferred. Reviewer also observed cookie panel about 122px above mobile first screen, unclear ranking method and Tier order, a remaining unattributed St Andrews world-ranking phrase, and April lastVerified records. No full score assigned.",
+    "ci": null,
+    "liveAcceptance": null
+  },
+  "hardGatesOpen": [
+    "Full 23-criterion independent score",
+    "Direct assistive-technology journey",
+    "Field Core Web Vitals",
+    "Complete factual and image provenance"
+  ],
+  "nextAction": "Push expanded PR #576, pass protected CI and public acceptance; then independently grade full T1 golf page and triage ranking clarity, cookie-panel space, claim provenance, keyboard/AT and field performance. Score remains null."
+}

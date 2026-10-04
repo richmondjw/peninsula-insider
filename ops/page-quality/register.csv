@@ -8,7 +8,7 @@ https://peninsulainsider.com.au/corporate-events/,/corporate-events/,T1,hub,unsc
 https://peninsulainsider.com.au/dog-friendly/,/dog-friendly/,T1,hub,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/eat/,/eat/,T1,hub,in-remediation,,,"Exact public media inventory corrected at f1230d4f; factual freshness, keyboard/assistive-tech and full 23-criterion evidence remain open.",2026-10-03,"Regrade all 23 criteria on the current public release, including visitor task, factual freshness and accessibility; do not infer 99 from the bounded image fix."
 https://peninsulainsider.com.au/explore/,/explore/,T1,hub,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/golf/,/explore/golf/,T1,hub,in-remediation,,,Public page wrongly describes a National Ocean Course as a public round; correction in validation; full T1 rubric and other golf claims remain open,2026-10-04,Validate National course/access correction through CI/live; complete independent 23-criterion T1 baseline
+https://peninsulainsider.com.au/explore/golf/,/explore/golf/,T1,hub,in-remediation,,,"Public 8998d1a page contains National Ocean public-round, St Andrews ranking placeholder and false access/design/hole claims; scoped correction in validation",2026-10-04,"Finish expanded PR #576 build/CI/live, then full T1 23-criterion independent grade"
 https://peninsulainsider.com.au/explore/places/,/explore/places/,T1,hub,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/places/arthurs-seat/,/explore/places/arthurs-seat/,T1,place,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/places/balnarring/,/explore/places/balnarring/,T1,place,unscored,,,,,Baseline page
@@ -145,7 +145,7 @@ https://peninsulainsider.com.au/explore/dromana-beach/,/explore/dromana-beach/,T
 https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/,/explore/eagle-ridge-golf-course/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/family-friendly/,/explore/family-friendly/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/farnsworth-track/,/explore/farnsworth-track/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/flinders-golf-club/,/explore/flinders-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/flinders-golf-club/,/explore/flinders-golf-club/,T2,guide-utility,in-remediation,,,Golf hub calls Flinders nine holes though operator publishes 18-hole visitor rounds; correction in validation,2026-10-04,Validate hub correction through CI/live; complete independent T2 rubric
 https://peninsulainsider.com.au/explore/getting-around/,/explore/getting-around/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/getting-here/,/explore/getting-here/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/,/explore/greens-bush-two-bays-section/,T2,guide-utility,unscored,,,,,Baseline page
@@ -192,7 +192,7 @@ https://peninsulainsider.com.au/explore/plans/wellness-weekend/,/explore/plans/w
 https://peninsulainsider.com.au/explore/point-nepean-fort-walk/,/explore/point-nepean-fort-walk/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/point-nepean-national-park/,/explore/point-nepean-national-park/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/portsea-front-beach/,/explore/portsea-front-beach/,T2,guide-utility,unscored,,,,,Baseline page
-https://peninsulainsider.com.au/explore/portsea-golf-club/,/explore/portsea-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
+https://peninsulainsider.com.au/explore/portsea-golf-club/,/explore/portsea-golf-club/,T2,guide-utility,in-remediation,,,Public record says private-only despite operator publishing limited nonmember green-fee times; correction in validation,2026-10-04,Validate corrected access through CI/live; complete independent T2 rubric
 https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/,/explore/pt-leo-sculpture-park/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/,/explore/racv-cape-schanck-golf-course/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/rainy-day/,/explore/rainy-day/,T2,guide-utility,unscored,,,,,Baseline page
@@ -212,7 +212,7 @@ https://peninsulainsider.com.au/explore/sorrento-ferry/,/explore/sorrento-ferry/
 https://peninsulainsider.com.au/explore/sorrento-golf-club/,/explore/sorrento-golf-club/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/sorrento-ocean-baths/,/explore/sorrento-ocean-baths/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/spas-and-wellness/,/explore/spas-and-wellness/,T2,guide-utility,in-remediation,,,"Set18 bounded live release accepted at 482ce6e/37171162408; full 23-criterion, direct AT, field performance and remaining rights/locality gates stay open.",2026-10-04,Verify hero provenance follow-up on exact public build where relevant; complete full independent rubric and hard gates before assigning 99.
-https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/,/explore/st-andrews-beach-golf-course/,T2,guide-utility,in-remediation,,,"Fingal place reassignment candidate; full independent rubric, rights, AT and field performance remain open",2026-10-04,Verify operator locality and related-page placement on exact live release; complete full independent rubric
+https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/,/explore/st-andrews-beach-golf-course/,T2,guide-utility,in-remediation,,,"Fingal locality candidate remains; golf record also renders an internal ranking-verification placeholder, removed in validation",2026-10-04,Validate locality and ranking-placeholder removal through CI/live; complete independent T2 rubric
 https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/,/explore/summit-circuit-arthurs-seat/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/,/explore/sunny-ridge-strawberry-farm/,T2,guide-utility,unscored,,,,,Baseline page
 https://peninsulainsider.com.au/explore/the-dunes-golf-links/,/explore/the-dunes-golf-links/,T2,guide-utility,unscored,,,,,Baseline page
