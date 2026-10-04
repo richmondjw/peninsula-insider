@@ -1,0 +1,95 @@
+{
+  "schemaVersion": "1.0",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/places/flinders/",
+    "https://peninsulainsider.com.au/explore/places/hastings/"
+  ],
+  "linkedUrls": [
+    "https://peninsulainsider.com.au/explore/places/shoreham/",
+    "https://peninsulainsider.com.au/whats-on/hastings-thursday-street-market/"
+  ],
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "ea1c32ea3c000f14a346b5c37c8459cd33cf588f",
+  "status": "in-remediation",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Plan a safe Flinders coastal visit and reach the actual ferry terminal or current seafood seller when visiting Hastings.",
+  "baseline": {
+    "source": "Independent read-only reviewer inspected current public and source at 320/390/1440; full 23-criterion score unavailable.",
+    "independentAssessedSubset": {
+      "criteria": [
+        "VT2",
+        "FN1",
+        "ET3",
+        "VS1",
+        "VS2",
+        "VS3",
+        "MI1"
+      ],
+      "possibleWeightedPoints": 31,
+      "fingal": 16,
+      "flinders": 13.5,
+      "hastings": 12.5
+    },
+    "hardGates": "Flinders tells divers to visit the Blowhole and recommends a high-tide coastal walk despite Parks Victoria's low-tide viewing advice, unpatrolled rocky shore, currents and no-swimming warning. Hastings presents an unverified fishermen's co-op as the key stop, implies the ferry boards at Hastings Pier, and repeats these claims in FAQ schema; the operator boards at Stony Point in Crib Point. A recurring Thursday market claim lacks current source. Shoreham's hardcoded family FAQ omits absence of surf lifesaving even after its content guide was corrected. All three next T1 town heroes (Fingal, Flinders, Hastings) still have uncredited CMS overrides and no item-level rights receipt."
+  },
+  "hypothesis": "Correcting the safety and terminal advice at the same public and structured-data surfaces will reduce dangerous tide decisions and missed ferry trips.",
+  "boundedChange": "Change Flinders place advice to Parks Victoria low-tide and unpatrolled-rocky-shore guidance, moving diving interest to Flinders Pier. Remove unverified Hastings co-op, mussel and market promises, distinguish Hastings Pier from the Stony Point ferry terminal, and make the FAQ schema consistent. Bring Shoreham's family FAQ in line with its unpatrolled beach advice. Leave unverified heroes for a separately bounded provenance review. Reconcile the Hastings Thursday market record: its own verification note says the next date is unverified and listing archived, so set the existing editorial status to archived, remove its fabricated next occurrence, and make historical summary/recurrence wording explicit. On the archived detail route, suppress the stale historical date/time/weekly schedule, booking/calendar actions and directions when no future date is confirmed.",
+  "metric": "Exact built and public Flinders/Hastings HTML and FAQ schema contain no high-tide blowhole, Blowhole diving, co-op-as-destination, Thursday market or Hastings Pier ferry boarding promise; they clearly state low-tide/safety and Stony Point terminal. Shoreham FAQ states no surf lifesaving. Build and 320/390/1440 browser task checks pass. Full score remains null. The unverified Hastings Thursday market is absent from the town event strip and map, while its direct historical URL clearly says no future date is confirmed. The direct archived URL offers no stale weekly date/time, booking, calendar or directions link.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the bounded content/template change if Parks Victoria or ferry operator evidence contradicts it or build/live task checks regress; retain source receipts.",
+  "sources": [
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/sites/flinders-blowhole",
+      "supports": "Parks Victoria recommends low-tide rockpool and blowhole viewing and warns of unpatrolled rocky shore, unpredictable rips, currents and waves; swimming not recommended."
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/projects/greater-melbourne/flinders-pier-project",
+      "supports": "Full Flinders Pier reopened; swimming, snorkelling and diving under the pier are described."
+    },
+    {
+      "url": "https://www.westernportferries.com.au/Location-Maps",
+      "supports": "Operator lists Stony Point as mainland boarding point, with French Island and Cowes destinations."
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/sites/hastings-pier",
+      "supports": "Hastings Pier is a waterfront pier visit, not the ferry terminal."
+    },
+    {
+      "url": "https://peninsulafreshseafood.com.au/our-locations/",
+      "supports": "Operator lists a weather-dependent Friday Hastings Foreshore seafood truck; no current co-op claim."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline/View/5b42f83caf2d017d4be7291c/Shoreham-Beach",
+      "supports": "Shoreham beaches have tidal flats and no surf lifesaving."
+    },
+    {
+      "url": "next/src/content/events/hastings-thursday-street-market.json",
+      "supports": "The record itself says next date unverified and listing archived pending organiser confirmation, while status was still published and nextOccurrence was future-dated."
+    }
+  ],
+  "validation": {
+    "productionBuild": "Prior full build passed before the linked market status correction; final rebuild pending.",
+    "independentLocalBrowser": null,
+    "ci": null,
+    "liveAcceptance": null
+  },
+  "hardGatesOpen": [
+    "Exact build and public acceptance of safety corrections",
+    "Rights-clear hero/related-card provenance for Fingal, Flinders, Hastings and Shoreham",
+    "Full independent 23-criterion score on each page",
+    "Direct assistive-technology journeys",
+    "Field performance"
+  ],
+  "negativeFindings": [
+    "Fingal's three-week Hot Springs booking lead is unsupported by current operator evidence; reserved for linked provenance/facts set.",
+    "Hastings local fallback is a placeholder with tmp-unsplash licence and severe mobile crop; no hero is accepted for 99.",
+    "Flinders sourced fallback Wikimedia attribution lacks recorded source URL and licence verification.",
+    "The independent 31-point subset is not a normalized 100-point score.",
+    "The market record retains its historical start/end fields for audit. Its direct archived route now requires independent browser proof that the visible schedule and travel actions are suppressed."
+  ],
+  "nextAction": "Complete build and independent responsive/browser QA, publish through normal CI, verify exact live release, then address licensed hero selection and remaining full-rubric gates."
+}
