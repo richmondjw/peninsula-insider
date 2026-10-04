@@ -13,13 +13,13 @@ Fri 2 – Sun 4 October  · Mornington Peninsula
 
 A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.
 
-Photo: Two Palms Australia, courtesy of Visit Victoria.
+Photo: Courtesy of Visit Victoria.
 
-Peninsula Hot Springs, Cape Schanck, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria.
+Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria.
 
 The short list / Fri 2 – Sun 4 October
 
-## Three reasons to go
+## Two reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -38,14 +38,6 @@ Sun, 4 Oct   Mornington   Exhibitions
 Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
 
 Sun, 4 Oct   Mornington   Kids & Family
-
-- Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
-
-Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
-
-Sun, 4 Oct   Fingal   Live Music
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -123,12 +115,6 @@ A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. 
 
 Red Hill / Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027
 
-- [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
-
-Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
-
-12pm · Fingal · Live Music · Recurring weekly
-
 ## Browse the next two months
 
 ### Markets
@@ -158,6 +144,12 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 9am · Crib Point · Free
 
 ### Live music
+
+- [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
+
+Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
+
+12pm · Fingal · Live Music
 
 - [Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington](<https://peninsulainsider.com.au/whats-on/enchanting-kirtan-sacred-music-meditation-experience-mornington/>)
 

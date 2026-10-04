@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)    Red Hill South
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)    Red Hill South
 
 # Paringa Estate
 
@@ -13,13 +13,13 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 
 Known for   'LJM' Pinot Noir Halliday 98-Point Winery Lindsay McCall Single-Vineyard Program One-Hat Restaurant Terrace
 
-[Book a tasting](<https://paringaestate.com.au/>)  +61 3 5989 2669
-
-- Photo · Courtesy of Visit Victoria
-
-- Photo · Courtesy of Visit Victoria
+[Book a tasting](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)  +61 3 5989 2669
 
 - Photo · Robert Blackburn, courtesy of Visit Victoria
+
+- Photo · Courtesy of Visit Victoria
+
+- Photo · Courtesy of Visit Victoria
 
 - Photo · Robert Blackburn, courtesy of Visit Victoria
 
@@ -33,7 +33,7 @@ Known for   'LJM' Pinot Noir Halliday 98-Point Winery Lindsay McCall Single-Vine
 
 1  / 7
 
-A staff member preparing small dishes of butter beside trays of bread rolls at a restaurant service counter  Paringa Estate, Red Hill, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+A waiter carrying wine through the Paringa Estate dining room, with tall windows over autumn-gold vineyard rows  Paringa Estate, Red Hill South, Mornington Peninsula.  Photo · Robert Blackburn, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -41,7 +41,7 @@ Lindsay McCall's pinot noir and shiraz have been Peninsula benchmarks for decade
 
 Paringa Estate has the kind of confidence that comes from having done the work for decades. Lindsay McCall's pinot noir and shiraz have long been among the Peninsula's benchmark bottles, and the restaurant understands the assignment: sharp produce, proper service, and a terrace that makes lunch feel like it should continue into the evening.
 
-Photo · Robert Blackburn, courtesy of Visit Victoria
+Photo · Courtesy of Visit Victoria
 
 The cellar door is compact but smart, with staff who know the wines in the glass rather than in a script. Come here when you want less theatre than Montalto and more focus on what's happening in the bottle.
 
@@ -101,7 +101,7 @@ Halliday Winery of the Year 2024 Finalist
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3863%2C145.0528>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Paringa%20Estate%2C%2044%20Paringa%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Opening hours**
 
@@ -123,7 +123,7 @@ Jamie McCall
 
 [Halliday listing](<https://winecompanion.com.au/wineries/victoria/mornington-peninsula/paringa-estate>)
 
- [Book now](<https://paringaestate.com.au/>)
+ [Book now](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
 Editor's verdict
 
@@ -131,7 +131,7 @@ Editor's verdict
 
 ## Visiting
 
-Open daily 11am–5pm; bookings recommended. Dogs permitted on a lead in outdoor areas.
+Open daily 11am–5pm; cellar door bookings recommended. Confirm current arrangements with the estate.
 
 ## The wines
 
@@ -147,7 +147,7 @@ Open daily 11am–5pm; bookings recommended. Dogs permitted on a lead in outdoor
 
 **Cuisine:** Modern Australian.
 
-[Reserve a table →](<https://paringaestate.com.au/>)
+[Reserve a table →](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
 ## Frequently asked questions
 
@@ -161,7 +161,7 @@ Yes. Paringa Estate Restaurant holds 1 Chef's Hat consistently in The Age Good F
 
 ### Are dogs allowed at Paringa Estate?
 
-Confirmed yes, on a lead in outdoor areas according to third-party visitor guides. The official site does not address this directly - verify before visiting.
+The estate does not currently publish a dog policy on its official visitor pages. Contact the team before bringing a dog.
 
 Not sure how to build a day around Paringa Estate?
 
@@ -251,7 +251,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Red Hill South - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=paringa-estate>)
 

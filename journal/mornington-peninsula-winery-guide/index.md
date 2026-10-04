@@ -423,7 +423,7 @@ Hub Guide   8 min
 
 2 May 2026
 
-Main Ridge is the Peninsula's highest, coolest and most wine-serious pocket - less a village than a plateau of good decisions. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country - less a village than a landscape of cellar doors and ridge roads. Come when you want the Peninsula stripped back to vineyards, fog, lunch and roads lined with trees rather than distractions.
 
 Hub Guide   8 min
 

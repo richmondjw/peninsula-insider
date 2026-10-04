@@ -121,7 +121,7 @@ Bay Coast · town
 
 ### [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Dromana is the town at the foot of Arthurs Seat, and the practical hinge between the bay road and the hinterland behind it. Look one way and the long shallow beach runs uninterrupted toward Safety Beach; look the other and the land climbs fast into pinot country. Because of that geography, Dromana has always carried more than its weight - it is where many of the Peninsula's founding wineries planted their first vines in the 1970s, where Crittenden and the Dromana Estate groundstock still sit, and where the ferry from the ocean side of the ridge puts locals back on the bay in fifteen minutes. The town itself is unpretentious: a foreshore, a pier, a post-war main drag quietly modernising. Use it as a base for Red Hill without paying Red Hill prices, swim in the morning, drive up for lunch, and come back down in time for a sunset on the beach.
+Dromana sits between the shallow Port Phillip foreshore and the road up to Arthurs Seat. The pier and beach make an easy morning by the water, while cellar doors and lunch spots lie inland. Crittenden Estate planted its Dromana vines in 1982, part of the Peninsula's early modern wine story. Treat the town as a base for the bay and the ridge: choose a beach window around the weather, then allow time for the winding drive uphill. Dromana has its own practical main street, rather than the polished village feel of Red Hill.
 
 Bay Coast · town
 

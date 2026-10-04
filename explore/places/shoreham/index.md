@@ -9,9 +9,13 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Shoreham
 
-Shoreham is a small coastal village on the Mornington Peninsula's Western Port shoreline, 95 km from Melbourne, with a foreshore reserve, a beach swimming pool at low tide, and Pier 10 vineyard nearby.
+Four visitors taste red wine outdoors at Ocean Eight Vineyard among gum trees in Shoreham
 
-Shoreham barely qualifies as a village, and that is exactly its charm. A store, a hall, a tangle of narrow roads threading down to one of the loveliest small beaches on the Peninsula, and a handful of vineyards and olive groves that quietly produce some of the region's best fruit. The beach is family-scaled and protected enough for children, the bush behind it runs into Point Leo, and the drive up onto the ridge puts you in cellar door country within ten minutes. This is where locals go when the southern beaches start to feel loud and the long weekend crowd has swallowed Sorrento. Park once, walk to the beach, and stay until the light goes.
+Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Shoreham is a Western Port coastal village with two beaches, tidal flats at low tide and no surf lifesaving patrol at Shoreham Beach.
+
+Shoreham is a small Western Port settlement where narrow roads run down to a quiet foreshore and inland to vineyards. Shoreham Beach and Honeysuckle Beach change with the tide: tidal flats appear at low water, while deeper swimming water is available around mid to high tide. There is no surf lifesaving patrol at Shoreham Beach, so check conditions and supervise children near the water. Ocean Eight is a local winery on Tucks Road; confirm current tasting access with the operator before travelling. Come for the coast and the slower pace, with a few planned stops rather than a full-service village.
 
 At a glance
 
@@ -29,13 +33,13 @@ half a day
 
 **Best for**
 
-quiet beach days, artists and walkers
+quiet beach days, artists and coastal walkers
 
 **Avoid**
 
 stormy winter surf
 
-Insider  Low tide makes the beach feel twice the size and worth the drive; high tide makes it feel cramped.
+Insider  Shoreham Beach is unpatrolled. Check tides and conditions before entering the water and supervise children closely.
 
 A tiny coastal settlement where bush, vineyard and beach sit almost on top of each other.
 
@@ -49,7 +53,7 @@ Is Shoreham the right base?
 
 - quiet beach days
 
-- artists and walkers
+- artists and coastal walkers
 
 - people escaping the Sorrento circuit
 
@@ -65,21 +69,21 @@ Shoreham in brief
 
 ## Shoreham in 4 points
 
-- 01   Shoreham is the most quietly beautiful small beach on the Western Port coast - a family-scaled foreshore backed by bush, with cellar doors ten minutes up the ridge.
+- 01   Shoreham is a small Western Port coast stop with tidal beaches and rural wine-country roads nearby.
 
-- 02   Best for: artists; walkers linking to Point Leo or the Two Bays trail; anyone who needs to recalibrate after a day on the Sorrento side.
+- 02   Best for: quiet foreshore walks and visitors who want a slower coastal stop.
 
-- 03   Signature experience: Honeysuckle Beach at low tide, then drive up to one of the ridge cellar doors for a quiet afternoon.
+- 03   Signature experience: a shore walk after checking the tide, then a winery visit confirmed with its operator.
 
-- 04   Half a day; best as a deliberate detour rather than a destination.
+- 04   Allow half a day, with supplies packed before you arrive.
 
 A perfect day here
 
 ## A day in Shoreham
 
-Coffee packed from elsewhere, Honeysuckle Beach in the morning, ridge cellar door after lunch, back for the evening light.
+Pack what you need, walk the Shoreham foreshore after checking the tide, then visit a winery only after confirming its current access.
 
-Low tide makes the beach feel twice the size and worth the drive; high tide makes it feel cramped.
+Shoreham Beach is unpatrolled. Check tides and conditions before entering the water and supervise children closely.
 
   - Editor's note
 

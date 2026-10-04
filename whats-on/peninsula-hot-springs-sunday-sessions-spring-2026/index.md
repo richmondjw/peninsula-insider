@@ -61,7 +61,7 @@ Check organiser for pricing
 
 All weather
 
-[Book or check details](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-the-springs>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sunday+Sessions+at+Peninsula+Hot+Springs&dates=20261004T010000Z%2F20261004T040000Z&details=Live+music+every+Sunday+from+midday+at+Peninsula+Hot+Springs%2C+played+to+the+pools+and+included+with+bathing.+Brad+Kennedy+on+20+September%2C+The+Calmer+Miles+on+27+September.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-hot-springs-sunday-sessions-spring-2026%2F&location=140+Springs+Lane%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

@@ -75,7 +75,7 @@ Red Hill · village
 
 ### [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-Red Hill South is the lower, quieter half of the Red Hill plateau, and for visitors who already know the headline village it is often the better stay. The roads drop down off the ridge into a softer landscape - a community shop, a small handful of cellar doors, a popular country pub, and a long catalogue of bed-and-breakfasts in renovated farmhouses. The cellar doors here - Foxeys Hangout, Quealy, Lindenderry - pull a different crowd to the ridge-top names, and the lunch options below Red Hill village proper are some of the most rewarding on the Peninsula. The original Red Hill Community Market is temporarily closed; the separate Hill and Ridge Community Market runs first Saturdays from September to May at Red Hill Recreation Reserve. Stay here when the upper village is full or when you want a cellar-door weekend that is slightly off the obvious circuit.
+Red Hill South is a rural wine-country locality just beyond Red Hill village. Paringa Estate and Many Little both list Red Hill South addresses, giving visitors a cellar-door-and-lunch route with a clear local anchor. The roads are quieter than a shopping strip, so plan the places you want to visit before setting out. Red Hill village, Balnarring and Main Ridge add further options, but they are separate localities with travel time between them. Come for a slow meal, a tasting and the landscape rather than a packed checklist.
 
 Hinterland · village
 
@@ -549,9 +549,9 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/paradigm-hill/>) [Book](<https://www.paradigmhill.com.au/>)
 
-Photo: Paringa Estate
+Photo: Robert Blackburn, courtesy of Visit Victoria
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
@@ -561,7 +561,7 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
@@ -1031,9 +1031,9 @@ Not the biggest estates, not the flashiest rooms. The four Peninsula cellar door
 
 [Mornington & the Bay   The Peninsula's urban edge: the main street dining strip, the bay beaches, and the easy weekend gateway.](<https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/>)[Flinders & the Ocean Coast   Wild surf beaches, the best pub on the Peninsula, and a rural quiet that feels hard-won.](<https://peninsulainsider.com.au/explore/regions/ocean-coast/>)
 
-Red Hill & Merricks in 12 photographs
+Red Hill & Merricks in 11 photographs
 
-1  / 12
+1  / 11
 
 View from Arthurs Seat over bushland and bayside suburbs curving around Port Phillip Bay under broken cloud  Arthurs Seat Eagle, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 

@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Everything we cover, on one screen, filtered exactly like the list you came from.
 
-183 on the map
+182 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -198,8 +198,6 @@ Everything we cover, on one screen, filtered exactly like the list you came from
 - [View : One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
 - [View : Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
-
-- [View : Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
 - [View : Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
 

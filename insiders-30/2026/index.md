@@ -85,7 +85,7 @@ Red Hill cellar door + restaurant whose pinot is the benchmark and whose room is
 
 ## Paringa Estate
 
-$$$ · Red Hill
+$$$ · Red Hill South
 
 The estate that taught the Peninsula how to do long lunches well. Still does.](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 

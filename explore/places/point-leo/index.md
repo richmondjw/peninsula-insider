@@ -129,7 +129,7 @@ Ocean Coast · village
 
 ### [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-Shoreham barely qualifies as a village, and that is exactly its charm. A store, a hall, a tangle of narrow roads threading down to one of the loveliest small beaches on the Peninsula, and a handful of vineyards and olive groves that quietly produce some of the region's best fruit. The beach is family-scaled and protected enough for children, the bush behind it runs into Point Leo, and the drive up onto the ridge puts you in cellar door country within ten minutes. This is where locals go when the southern beaches start to feel loud and the long weekend crowd has swallowed Sorrento. Park once, walk to the beach, and stay until the light goes.
+Shoreham is a small Western Port settlement where narrow roads run down to a quiet foreshore and inland to vineyards. Shoreham Beach and Honeysuckle Beach change with the tide: tidal flats appear at low water, while deeper swimming water is available around mid to high tide. There is no surf lifesaving patrol at Shoreham Beach, so check conditions and supervise children near the water. Ocean Eight is a local winery on Tucks Road; confirm current tasting access with the operator before travelling. Come for the coast and the slower pace, with a few planned stops rather than a full-service village.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

@@ -45,7 +45,7 @@ Fingal sits quietly between Rye and Cape Schanck on the Peninsula's ocean-coast 
 
 ### [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Dromana is the town at the foot of Arthurs Seat, and the practical hinge between the bay road and the hinterland behind it. Look one way and the long shallow beach runs uninterrupted toward Safety…
+Dromana sits between the shallow Port Phillip foreshore and the road up to Arthurs Seat. The pier and beach make an easy morning by the water, while cellar doors and lunch spots lie inland.…
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -173,7 +173,7 @@ Point Nepean is the Peninsula at its most exposed and historically strange: quar
 
 ### [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-Red Hill South is the lower, quieter half of the Red Hill plateau, and for visitors who already know the headline village it is often the better stay. The…
+Red Hill South is a rural wine-country locality just beyond Red Hill village. Paringa Estate and Many Little both list Red Hill South addresses, giving…
 
 ### [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
 
@@ -185,7 +185,7 @@ Safety Beach is the long shallow crescent between Mount Martha and Dromana - the
 
 ### [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
-Shoreham barely qualifies as a village, and that is exactly its charm. A store, a hall, a tangle of narrow roads threading down to one of the loveliest small…
+Shoreham is a small Western Port settlement where narrow roads run down to a quiet foreshore and inland to vineyards. Shoreham Beach and Honeysuckle Beach…
 
 ### [Somers](<https://peninsulainsider.com.au/explore/places/somers/>)
 

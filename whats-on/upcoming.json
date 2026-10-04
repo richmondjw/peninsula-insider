@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-04",
-  "generatedAt": "2026-10-04T03:13:34.135Z",
+  "generatedAt": "2026-10-04T04:29:05.658Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -19,7 +19,7 @@
     "start": "2026-10-02",
     "end": "2026-10-04",
     "label": "Fri 2 – Sun 4 October",
-    "count": 12
+    "count": 11
   },
   "numberOfItems": 36,
   "itemListElement": [
@@ -158,19 +158,6 @@
       "position": 11,
       "item": {
         "@type": "Event",
-        "name": "Sunday Sessions at Peninsula Hot Springs",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
-        "startDate": "2026-10-04",
-        "endDate": "2026-10-04",
-        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 12,
-      "item": {
-        "@type": "Event",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
         "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
         "startDate": "2026-10-04",
@@ -181,7 +168,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -194,7 +181,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Hastings Thursday Street Market",
@@ -207,7 +194,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -220,7 +207,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -233,7 +220,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Heart of the Community Market (Rosebud)",
@@ -246,7 +233,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
@@ -254,6 +241,19 @@
         "startDate": "2026-10-11",
         "endDate": "2026-10-11",
         "description": "Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Entry is free; parking is paid. Dogs are not permitted.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@type": "Event",
+        "name": "Sunday Sessions at Peninsula Hot Springs",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+        "startDate": "2026-10-11",
+        "endDate": "2026-10-11",
+        "description": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -725,29 +725,6 @@
       "thisWeekend": true
     },
     {
-      "title": "Sunday Sessions at Peninsula Hot Springs",
-      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
-      "startDate": "2026-10-04",
-      "endDate": "2026-10-04",
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
-      "sourceUrl": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-the-springs",
-      "factCheckedOn": null,
-      "recurrence": "weekly",
-      "category": "live-music",
-      "place": "fingal",
-      "venue": null,
-      "freePaid": "Paid",
-      "summary": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-04",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
       "title": "Ten Minutes by Tractor, Terroir Masterclass",
       "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "startDate": "2026-10-04",
@@ -874,6 +851,24 @@
       "venue": null,
       "freePaid": "Free",
       "summary": "Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Entry is free; parking is paid. Dogs are not permitted.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Sunday Sessions at Peninsula Hot Springs",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-11",
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/",
+      "sourceUrl": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-the-springs",
+      "factCheckedOn": null,
+      "recurrence": "weekly",
+      "category": "live-music",
+      "place": "fingal",
+      "venue": null,
+      "freePaid": "Paid",
+      "summary": "Live music every Sunday from midday at Peninsula Hot Springs, played to the pools and included with bathing. Brad Kennedy on 20 September, The Calmer Miles on 27 September.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

@@ -9,15 +9,19 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Dromana
 
-Dromana in 12 photographs
+Dromana Pier reaches into Port Phillip Bay beside moored boats at sunset
 
-1  / 12
+Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
-A gravel drive leads between lawns and a row of vines to a cottage shaded by trees in yellow autumn leaf  Crittenden Estate, Dromana, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Dromana in 13 photographs
+
+1  / 13
+
+Dromana Pier reaches into Port Phillip Bay beside moored boats at sunset  Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula.  Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 Dromana is a bayside town on the Mornington Peninsula's eastern Port Phillip shoreline, 75 km from Melbourne, at the foot of Arthurs Seat State Park.
 
-Dromana is the town at the foot of Arthurs Seat, and the practical hinge between the bay road and the hinterland behind it. Look one way and the long shallow beach runs uninterrupted toward Safety Beach; look the other and the land climbs fast into pinot country. Because of that geography, Dromana has always carried more than its weight - it is where many of the Peninsula's founding wineries planted their first vines in the 1970s, where Crittenden and the Dromana Estate groundstock still sit, and where the ferry from the ocean side of the ridge puts locals back on the bay in fifteen minutes. The town itself is unpretentious: a foreshore, a pier, a post-war main drag quietly modernising. Use it as a base for Red Hill without paying Red Hill prices, swim in the morning, drive up for lunch, and come back down in time for a sunset on the beach.
+Dromana sits between the shallow Port Phillip foreshore and the road up to Arthurs Seat. The pier and beach make an easy morning by the water, while cellar doors and lunch spots lie inland. Crittenden Estate planted its Dromana vines in 1982, part of the Peninsula's early modern wine story. Treat the town as a base for the bay and the ridge: choose a beach window around the weather, then allow time for the winding drive uphill. Dromana has its own practical main street, rather than the polished village feel of Red Hill.
 
 Photo · Courtesy of Visit Victoria
 

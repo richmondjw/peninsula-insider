@@ -77,9 +77,9 @@ long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/eat/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
 
-Photo: Paringa Estate
+Photo: Robert Blackburn, courtesy of Visit Victoria
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Paringa Estate](<https://peninsulainsider.com.au/eat/paringa-estate/>)
 
@@ -89,7 +89,7 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

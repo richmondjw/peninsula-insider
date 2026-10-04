@@ -65,7 +65,7 @@ An editorial shortlist. Individual check dates describe the recorded research; c
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
-Red Hill   Walk-in welcome   Kitchen on site
+Red Hill South   Walk-in welcome   Kitchen on site
 
 - ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
@@ -77,7 +77,7 @@ Red Hill   Walk-in welcome   Kitchen on site
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
-Shoreham   Walk-in welcome
+Shoreham   Check ahead
 
 See 3 more editorial choices
 
@@ -129,7 +129,7 @@ Merricks North   Tasting + restaurant
 
 A Red Hill cellar door and restaurant terrace suited to a long lunch.
 
-Red Hill   Tasting + restaurant
+Red Hill South   Tasting + restaurant
 
 - ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -193,7 +193,7 @@ Find cellar doors, breweries and distilleries by location and the visit you want
 
 A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
 
-Red Hill   Walk-in welcome   Kitchen on site
+Red Hill South   Walk-in welcome   Kitchen on site
 
 - ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
@@ -205,7 +205,7 @@ Red Hill   Walk-in welcome   Kitchen on site
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
-Shoreham   Walk-in welcome
+Shoreham   Check ahead
 
 - ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 

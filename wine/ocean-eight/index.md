@@ -11,11 +11,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
-Known for   Halliday Top 100 Winery Verve Pinot Noir Mike Aylward Single-Vineyard Program Mornington Peninsula Pinot Trophy
+Known for   Halliday Top 100 Winery Verve Chardonnay Mike Aylward Single-Vineyard Program Mornington Peninsula Pinot Trophy
 
-[Book a tasting](<https://oceaneight.com.au/pages/contact>)  +61 3 5989 6471
-
-- Photo · Two Palms Australia, courtesy of Visit Victoria
+[Contact Ocean Eight](<https://oceaneight.com.au/pages/contact>)  +61 3 5989 6471
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -27,13 +25,11 @@ Known for   Halliday Top 100 Winery Verve Pinot Noir Mike Aylward Single-Vineyar
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
-- Photo · Two Palms Australia, courtesy of Visit Victoria
+1   of 5
 
-1   of 7
+1  / 5
 
-1  / 7
-
-Red-leaved autumn trees frame a gravel path leading to the timber cellar door building at Ocean Eight Vineyard  Ocean Eight Vineyard, Shoreham, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Two people sit on stools at a barrel table raising glasses of wine among gum trees and green hills  Visitors tasting outdoors at Ocean Eight Vineyard, Shoreham, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -43,9 +39,9 @@ Ocean Eight is the kind of cellar door that wine people send other wine people t
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
-The Verve and Aylward Pinot Noirs are among the most structured and ageable wines being made on the Peninsula. The chardonnay holds its own against the region's benchmarks. The tasting room is minimal and unpretentious: you sit down, the wines come out, and Mike or one of the family walks you through them without any of the theatre that creeps into larger cellar doors.
+The current range includes Verve Chardonnay and Aylward Reserve Pinot Noir. Ask the team what is open for tasting on the day. The tasting room is minimal and unpretentious: the focus is on the wines rather than a large hospitality production.
 
-Book ahead, they keep numbers deliberately small. This is a tasting for people who want to understand why the Peninsula matters.
+Check current tasting days and access directly with Ocean Eight before travelling. This is a tasting for people who want to understand why the Peninsula matters.
 
 Worth knowing
 
@@ -55,7 +51,7 @@ Cellar door visits · Wine lovers · Couples
 
 If you only do one thing
 
-Book ahead and ask to taste the Aylward Pinot Noir alongside the Verve, the two together explain the whole program.
+Ask which Aylward Pinot Noir and Verve Chardonnay releases are currently available to taste.
 
 Works well with
 
@@ -99,14 +95,6 @@ Halliday Top 100 Wineries · Mornington Peninsula Wine Show Pinot Trophy
 
 [Get directions](<https://www.google.com/maps/dir/?api=1&destination=Ocean%20Eight%20Vineyard%2C%20271%20Tucks%20Road%2C%20Shoreham%20VIC%203916>)
 
-**Opening hours**
-
-- Fri, Sat   12pm–5pm
-
-- Sun   12pm–3pm
-
-- Mon to Thu   Closed
-
 **Live status**
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Ocean%20Eight%20Vineyard%2C%20271%20Tucks%20Road%2C%20Shoreham%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
@@ -119,15 +107,15 @@ Mike Aylward
 
 [Halliday listing](<https://winecompanion.com.au/wineries/victoria/mornington-peninsula/ocean-eight-vineyard-winery>)
 
- [Book now](<https://oceaneight.com.au/pages/contact>)
+ [Contact Ocean Eight](<https://oceaneight.com.au/pages/contact>)
 
 Editor's verdict
 
- Ocean Eight is the kind of place the Peninsula used to be full of: a small family estate run by the people who planted the vines, making wine that prioritises food-pairing honesty over points-chasing spectacle. The Verve Chardonnay and Aylward Reserve Pinot Noir are better than most visitors expect. No restaurant, but dogs are welcome and the garden is set up for picnics.
+ Ocean Eight is the kind of place the Peninsula used to be full of: a small family estate run by the people who planted the vines, making wine that prioritises food-pairing honesty over points-chasing spectacle. The Verve Chardonnay and Aylward Reserve Pinot Noir are useful starting points for understanding the range. Ask the team about current tasting arrangements before making the trip.
 
 ## Visiting
 
-Walk-ins welcome Fri–Sat 12pm–5pm, Sun 12pm–3pm. Barrel tastings available by appointment. BYO picnic food welcome in the garden. Dogs welcome on leash.
+The operator's public pages differ on current opening days. Contact Ocean Eight before travelling to confirm tasting access, hours and whether a booking is needed.
 
 ## The wines
 
@@ -139,15 +127,15 @@ Walk-ins welcome Fri–Sat 12pm–5pm, Sun 12pm–3pm. Barrel tastings available
 
 ### Does Ocean Eight take walk-ins or do you need to book?
 
-Walk-ins welcome Friday–Saturday 12pm–5pm, Sunday 12pm–3pm. Barrel tastings available by appointment.
+Contact Ocean Eight directly to confirm current tasting days, hours and whether a booking is needed. Its public pages differ on opening days.
 
 ### Does Ocean Eight have a restaurant?
 
-No restaurant on-site. Visitors are welcome to bring their own picnic food to enjoy in the gardens.
+The operator's current public pages do not list a restaurant. Contact Ocean Eight to confirm food and picnic arrangements before travelling.
 
 ### Are dogs allowed at Ocean Eight?
 
-Confirmed yes - dogs are welcome on a leash in the outdoor garden areas.
+The operator's current public pages do not confirm a dog policy. Ask Ocean Eight before bringing a dog.
 
 Not sure how to build a day around Ocean Eight Vineyard?
 

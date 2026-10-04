@@ -247,7 +247,7 @@ Open the town index
 
 - [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)  The most concentrated food and wine precinct on the Peninsula, on the plateau…
 
-- [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)  The quieter, lower-elevation half of the Peninsula's wine country - better B&Bs, fewer crowds…
+- [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)  A rural Red Hill South base for a measured cellar-door and lunch day.
 
 - [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)  The practical bay town where the beach is better than the reputation suggests.
 

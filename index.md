@@ -33,17 +33,17 @@ MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and S
 
 Mornington Peninsula Regional Gallery   Exhibition
 
-- ### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
-
-Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
-
-Peninsula Hot Springs   Every Sunday from 12pm; performer changes weekly
-
 - ### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 
 The most exclusive table at Polperro and the room you book when an occasion has to land. Worth the spend.
 
 Polperro Winery Restaurant   Food & wine
+
+- ### [Doggy Day Out on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/>)
+
+The Peninsula's best format for dog people. The digital trail structure keeps it interesting for the owners as much as the dogs.
+
+Multiple venues across Mornington Peninsula   Thursday to Sunday weekly
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 
