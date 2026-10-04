@@ -35,7 +35,7 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 - Name: Peninsula Insider (site), "The Insider Note" (the newsletter itself, masthead name locked per the standing brief, renamed from "Field Notes" 2026-08-03).
 - Voice: direct, locally verified, corrects itself in public, never a press-release voice.
 - Locked by James's standing brief and not to change without his sign-off: the masthead name, module order, palette, sign-off line, and reply prompt.
-- No em-dashes anywhere on any PI surface. No prices, ever.
+- No em-dashes anywhere on any PI surface. Event listings may display prices only with current verified source evidence and a bounded expiry; all other surfaces retain the no-price rule.
 
 ## Evidence on Hand
 

@@ -168,6 +168,7 @@ export const FACET_OPTIONS: Record<FacetKey, FacetOption[]> = {
     { value: 'tour', label: 'Tours' },
     { value: 'garden', label: 'Gardens' },
     // What's On / cross-surface
+    { value: 'event', label: 'Events' },
     { value: 'food-wine', label: 'Food & wine' },
     { value: 'festival', label: 'Festivals' },
     { value: 'live-music', label: 'Live music' },

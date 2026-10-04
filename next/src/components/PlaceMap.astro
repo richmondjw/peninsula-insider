@@ -14,6 +14,8 @@
  *   Map height - fixed 380px desktop, 4:3 aspect on mobile.
  */
 import { routeSlug, venueHref } from '../lib/editorial';
+import { selectEventPromotions } from '../lib/event-discovery.mjs';
+import { eventMapItems } from '../lib/event-map.mjs';
 
 export interface Props {
   place: any;
@@ -34,6 +36,7 @@ type MapPin = {
   lng: number;
   hero: string;
   blurb: string;
+  expiresAt?: string;
 };
 
 function venueCategory(t: string): MapPin['category'] {
@@ -45,7 +48,7 @@ function venueCategory(t: string): MapPin['category'] {
 const pins: MapPin[] = [];
 
 // Anchor pin: the place itself.
-if (place.data.coordinates && Number.isFinite(place.data.coordinates.lat)) {
+if (place.data.coordinates && Number.isFinite(place.data.coordinates.lat) && Number.isFinite(place.data.coordinates.lng)) {
   pins.push({
     id: `place:${place.id ?? place.data.slug}`,
     category: 'place',
@@ -61,7 +64,7 @@ if (place.data.coordinates && Number.isFinite(place.data.coordinates.lat)) {
 
 // Venues anchored to this place.
 venues.forEach((v) => {
-  if (!v.data.coordinates || !Number.isFinite(v.data.coordinates.lat)) return;
+  if (!v.data.coordinates || !Number.isFinite(v.data.coordinates.lat) || !Number.isFinite(v.data.coordinates.lng)) return;
   const slug = routeSlug(v);
   pins.push({
     id: `venue:${slug}`,
@@ -78,7 +81,7 @@ venues.forEach((v) => {
 
 // Experiences anchored to this place.
 experiences.forEach((e) => {
-  if (!e.data.coordinates || !Number.isFinite(e.data.coordinates.lat)) return;
+  if (!e.data.coordinates || !Number.isFinite(e.data.coordinates.lat) || !Number.isFinite(e.data.coordinates.lng)) return;
   if (e.data.sitemapExclude) return;
   const slug = routeSlug(e);
   pins.push({
@@ -94,29 +97,13 @@ experiences.forEach((e) => {
   });
 });
 
-// Events in the next 30-day window (locked decision Q2).
-const now = Date.now();
-const horizon = now + 30 * 24 * 60 * 60 * 1000;
-events.forEach((ev) => {
-  if (!ev.data.coordinates || !Number.isFinite(ev.data.coordinates.lat)) return;
-  const startMs = ev.data.startDate ? new Date(ev.data.startDate).getTime() : 0;
-  const endMs = ev.data.endDate ? new Date(ev.data.endDate).getTime() : startMs;
-  const recurring = ['weekly', 'monthly', 'ongoing'].includes(ev.data.recurrence);
-  // Pass through if recurring; otherwise require overlap with the next 30 days.
-  const inWindow = recurring || (endMs >= now && startMs <= horizon);
-  if (!inWindow) return;
-  const slug = routeSlug(ev);
-  pins.push({
-    id: `event:${slug}`,
-    category: 'event',
-    type: ev.data.category,
-    name: ev.data.title,
-    href: `/whats-on/${slug}/`,
-    lat: ev.data.coordinates.lat,
-    lng: ev.data.coordinates.lng,
-    hero: ev.data.heroImage?.src ?? '',
-    blurb: (ev.data.summary ?? '').slice(0, 140),
-  });
+// Event locations require current, explicit coordinate evidence. Missing or
+// moved locations remain available on their event page without an unsafe pin.
+const eventNow = new Date();
+const eventPins = eventMapItems(selectEventPromotions(events, { now: eventNow, windowDays: 30 }), { now: eventNow });
+for (const item of eventPins) pins.push({
+  id: item.id, category: 'event', type: item.meta.join(' · '), name: item.title,
+  href: item.href, lat: item.lat, lng: item.lng, hero: '', blurb: item.verdict, expiresAt: item.expiresAt,
 });
 
 // Counts for the legend / category toggles.
@@ -147,7 +134,7 @@ const mapId = `placeMap-${placeSlug}`;
       <div class="place-map__header">
         <p class="label label--accent">On the map</p>
         <h2 class="place-map__title">{place.data.name}, by location</h2>
-        <p class="place-map__sub">Every editorially verified pin in {place.data.name} on one screen - toggle a category, click any marker for the editor's note.</p>
+        <p class="place-map__sub">Explore {place.data.name} by location. Events cover the next 30 days where their location has been verified.</p>
       </div>
 
       <div class="place-map__filters">
@@ -176,6 +163,10 @@ const mapId = `placeMap-${placeSlug}`;
           <p class="place-map__placeholder-text">Loading map…</p>
         </div>
       </div>
+      <details class="place-map__list">
+        <summary>Browse locations as a list</summary>
+        <ul>{pins.map(pin => <li data-place-pin-id={pin.id} data-event-expiry={pin.expiresAt}><a href={pin.href}>{pin.name}</a>{pin.type && <span> · {pin.type}</span>}</li>)}</ul>
+      </details>
     </div>
   </section>
 )}
@@ -202,6 +193,28 @@ const mapId = `placeMap-${placeSlug}`;
 
       var root = canvas.closest('[data-place-map-root]');
       if (!root) return;
+
+      // Accessible fallback freshness must not depend on Leaflet/CDN or viewport entry.
+      var refreshMarkerVisibility = null;
+      function refreshExpiredPins() {
+        if (refreshMarkerVisibility) refreshMarkerVisibility();
+        root.querySelectorAll('[data-event-expiry]').forEach(function (row) {
+          var expires = Date.parse(row.getAttribute('data-event-expiry'));
+          row.hidden = !Number.isFinite(expires) || expires <= Date.now();
+        });
+        var eventToggle = root.querySelector('[data-place-map-toggle=event]');
+        if (eventToggle) {
+          var count = pins.filter(function (pin) { return pin.category === 'event' && Number.isFinite(Date.parse(pin.expiresAt)) && Date.parse(pin.expiresAt) > Date.now(); }).length;
+          var countLabel = eventToggle.querySelector('.map-pin-toggle__count');
+          if (countLabel) countLabel.textContent = String(count);
+          eventToggle.hidden = count === 0;
+        }
+      }
+      refreshExpiredPins();
+      var expiryTimer = setInterval(function () {
+        if (!canvas.isConnected) { clearInterval(expiryTimer); return; }
+        refreshExpiredPins();
+      }, 60000);
 
       var initialised = false;
 
@@ -329,11 +342,13 @@ const mapId = `placeMap-${placeSlug}`;
         function applyVisibility() {
           clusterGroup.clearLayers();
           pins.forEach(function (p) {
-            if (!enabled[p.category]) return;
+            if (!enabled[p.category] || (p.expiresAt && Date.parse(p.expiresAt) <= Date.now())) return;
             var m = markersById[p.id];
             if (m) clusterGroup.addLayer(m);
           });
         }
+        refreshMarkerVisibility = applyVisibility;
+        refreshExpiredPins();
         root.querySelectorAll('[data-place-map-toggle]').forEach(function (btn) {
           btn.addEventListener('click', function () {
             var cat = btn.getAttribute('data-place-map-toggle');

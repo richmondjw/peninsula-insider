@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 import { stripTypeScriptTypes } from 'node:module';
-import { currentVerifiedPrice, isVerifiedPriceRecord, isPublicEventRecord, eventContentKind, refreshVerifiedPriceElements } from './event-publication.mjs';
+import { approvedEventContent, currentVerifiedPrice, isVerifiedPriceRecord, isPublicEventRecord, eventContentKind, refreshVerifiedPriceElements } from './event-publication.mjs';
 
 const now = new Date('2026-10-04T00:00:00Z');
 const price = { label: 'Adults AUD 25; children AUD 10', sourceUrl: 'https://organiser.example/tickets', checkedAt: '2026-10-03T00:00:00Z', validUntil: '2026-10-07T00:00:00Z' };
@@ -22,6 +22,7 @@ test('drafts and unapproved intelligence records have no public URL', () => {
   assert.equal(isPublicEventRecord({ status: 'published' }), true);
   assert.equal(isPublicEventRecord({ status: 'published', intelligence: {} }), false);
   const intelligence = { revision: 'rev-1', approvedBy: 'James', approvedAt: now, reviewedAt: now, factScore: 96, evidenceIds: ['evidence-1'] };
+  intelligence.approvedContent = approvedEventContent({ status: 'published', intelligence });
   assert.equal(isPublicEventRecord({ status: 'published', intelligence }), true);
   assert.equal(isPublicEventRecord({ status: 'published', intelligence: { ...intelligence, factScore: 89 } }), false);
 });
@@ -86,9 +87,18 @@ test('formerly published archives remain addressable; never-published archives s
 
  test('public intelligence receipts require James and completed approval and review', () => {
   const intelligence = { revision: 'synthetic', approvedBy: 'James', approvedAt: '2026-10-03T00:00:00Z', reviewedAt: '2026-10-02T00:00:00Z', factScore: 96, evidenceIds: ['synthetic'] };
+  intelligence.approvedContent = approvedEventContent({ status: 'published', intelligence });
   assert.equal(isPublicEventRecord({ status: 'published', intelligence }, now), true);
   assert.equal(isPublicEventRecord({status:'published', intelligence:{...intelligence, reviewedAt:'2026-10-03T01:00:00Z'}}, now), true);
   for (const change of [{approvedBy: 'Someone else'}, {approvedAt: '2026-10-05T00:00:00Z'}, {reviewedAt: '2026-10-05T00:00:00Z'}]) {
     assert.equal(isPublicEventRecord({status: 'published', intelligence: {...intelligence, ...change}}, now), false);
   }
  });
+
+test('public edits withdraw stale approval while Astro date normalisation remains stable',()=>{
+ const data={status:'published',slug:'synthetic-bound',title:'Approved title',startDate:'2026-10-10',venueName:'Gallery',place:'mornington',verifiedPrice:{...price},intelligence:{revision:'synthetic',approvedBy:'James',approvedAt:'2026-10-03',reviewedAt:'2026-10-03',factScore:100,evidenceIds:['synthetic'],geography:{shireConfirmed:true,verifiedBy:'James',evidenceId:'geo',checkedAt:'2026-10-03'}}};
+ data.intelligence.approvedContent=approvedEventContent(data);assert.equal(isPublicEventRecord(data,now),true);
+ assert.equal(isPublicEventRecord({...data,startDate:new Date(data.startDate),place:{id:'mornington',collection:'places'},verifiedPrice:{...price,checkedAt:new Date(price.checkedAt),validUntil:new Date(price.validUntil)},intelligence:{...data.intelligence,geography:{...data.intelligence.geography,checkedAt:new Date('2026-10-03')}}},now),true);
+ for(const edit of [{title:'Changed title'},{startDate:'2026-10-11'},{place:'frankston'},{coordinates:{lat:-38.2,lng:145}},{editorNote:'New unapproved claim'},{verifiedPrice:{...price,label:'New price'}}])assert.equal(isPublicEventRecord({...data,...edit},now),false);
+ assert.equal(isPublicEventRecord({...data,intelligence:{...data.intelligence,geography:{...data.intelligence.geography,shireConfirmed:false}}},now),false);
+});

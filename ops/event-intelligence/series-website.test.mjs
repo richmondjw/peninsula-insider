@@ -119,15 +119,17 @@ test('explicit monthly session uses exact target date across a changed weekday',
  const record=explicitRecord(candidate),{ruleFor,occursOnDay}=await realSchedule();const rule=ruleFor({data:record},now);assert.equal(occursOnDay(rule,new Date('2026-10-30')),false);assert.equal(occursOnDay(rule,new Date('2026-10-31')),true);assert.equal(occursOnDay(rule,new Date('2027-02-26')),false);
 });
 
-test('actual homepage selects the effective moved weekend session and refuses unchecked intelligence',async()=>{
+test('actual homepage selects approved rescheduled sessions, omits unknown moved locations and refuses unchecked intelligence',async()=>{
  let source=stripTypeScriptTypes(await readFile(new URL('../../next/src/components/v5/home/home-data.ts',import.meta.url),'utf8'));
  source=source.replace(/import \{ USE_OCCURRENCE_MODEL \} from ['"]\.\.\/\.\.\/\.\.\/lib\/features['"];?/, 'const USE_OCCURRENCE_MODEL=false;');
  for(const name of ['event-schedule','daily-rotation']){const raw=stripTypeScriptTypes(await readFile(new URL(name+'.ts',libraryBase),'utf8'));source=source.replaceAll('../../../lib/'+name,'data:text/javascript;base64,'+Buffer.from(raw).toString('base64'));}
  source=source.replace(/from ['"](\.\.\/\.\.\/\.\.\/lib\/[^'"]+)['"]/g,(_,specifier)=>"from '"+new URL(specifier,new URL('../../next/src/components/v5/home/',import.meta.url)).href+"'");
  const home=await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'));
- const candidate=fixture();candidate.series.exceptions=[{date:'2026-10-09',status:'rescheduled',rescheduledTo:'2026-10-10',venueName:'New venue',startTime:'14:00',endTime:'15:00'}];const record=explicitRecord(candidate);
- record.intelligence={revision:'synthetic-test-only',approvedBy:'James',approvedAt:'2026-10-04T00:00:00Z',reviewedAt:'2026-10-04T00:00:00Z',factScore:100,evidenceIds:['synthetic']};
- const selected=home.selectWeekendPicks([],[{id:'synthetic',data:record}],now);assert.equal(selected.picks.length,1);assert.equal(selected.picks[0].event.data.venueName,'New venue');assert.equal(selected.picks[0].event.data.startTime,'14:00');assert.equal(selected.picks[0].event.data.streetAddress,undefined);assert.equal(home.pickDateISO(selected.picks[0].event,now),'2026-10-10');
+ const candidate=fixture();candidate.series.exceptions=[{date:'2026-10-09',status:'rescheduled',rescheduledTo:'2026-10-10',startTime:'14:00',endTime:'15:00'}];const record=explicitRecord(candidate);
+ record.intelligence={revision:'synthetic-test-only',approvedBy:'James',approvedAt:'2026-10-04T00:00:00Z',reviewedAt:'2026-10-04T00:00:00Z',factScore:100,evidenceIds:['synthetic'],geography:{shireConfirmed:true,verifiedBy:'James',evidenceId:'synthetic-location',checkedAt:'2026-10-04T00:00:00Z'}};
+ const {approvedEventContent}=await import('../../next/src/lib/event-publication.mjs');record.intelligence.approvedContent=approvedEventContent(record);
+ const selected=home.selectWeekendPicks([],[{id:'synthetic',data:record}],now);assert.equal(selected.picks.length,1);assert.equal(selected.picks[0].event.data.venueName,'Original venue');assert.equal(selected.picks[0].event.data.startTime,'14:00');assert.equal(selected.picks[0].event.data.streetAddress,'Original address');assert.equal(home.pickDateISO(selected.picks[0].event,now),'2026-10-10');
+ record.seriesOccurrences.find(session=>session.date==='2026-10-10').venueName='New venue';record.intelligence.approvedContent=approvedEventContent(record);assert.equal(home.selectWeekendPicks([],[{id:'synthetic',data:record}],now).picks.length,0);
  record.sourceUpdatedAt='2026-10-04T23:00:00Z';record.lastVerifiedAt='2026-10-04T00:00:00Z';assert.equal(home.selectWeekendPicks([],[{id:'synthetic',data:record}],now).picks.length,0);
 });
 

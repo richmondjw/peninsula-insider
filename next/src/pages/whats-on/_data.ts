@@ -34,6 +34,8 @@ import {
   recordDisposition,
 } from '../../lib/event-occurrence.mjs';
 
+export { selectEventPromotions, eventPromotionEntries } from '../../lib/event-discovery.mjs';
+
 export type EventEntry = CollectionEntry<'events'>;
 
 // ---------------------------------------------------------------------------

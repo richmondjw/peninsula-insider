@@ -45,9 +45,10 @@ export interface MapViewItem {
   /** Up to 3 short meta chips (type label, town, price band glyph). */
   meta?: string[];
   /** Pin colour group. */
-  group?: 'eat' | 'wine' | 'stay' | 'do' | 'place';
+  group?: 'eat' | 'wine' | 'stay' | 'do' | 'place' | 'event';
   /** Shared facet vocabulary values from getFacets(kind, data). */
   facets: Partial<Record<FacetKey, string[]>>;
+  expiresAt?: string;
 }
 
 export interface Props {
@@ -87,7 +88,7 @@ const validItems = items.filter((it) => Number.isFinite(it.lat) && Number.isFini
 // Standalone chip bar: the five regions plus high-signal categories, values
 // and labels straight from FACET_OPTIONS (no private taxonomy terms).
 const REGION_VALUES = new Set(Object.values(PLACE_TO_REGION));
-const CAT_PICKS = ['restaurant', 'cafe', 'winery', 'brewery', 'beach', 'walk', 'market', 'hotel'];
+const CAT_PICKS = ['event', 'restaurant', 'cafe', 'winery', 'brewery', 'beach', 'walk', 'market', 'hotel'];
 const chips: { key: FacetKey; value: string; label: string }[] = standalone
   ? [
       ...FACET_OPTIONS.cat
@@ -173,6 +174,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
                 data-href={it.href}
                 data-lat={it.lat}
                 data-lng={it.lng}
+                data-event-expiry={it.expiresAt}
                 data-group={it.group ?? 'do'}
                 data-verdict={it.verdict ?? ''}
                 data-metaline={metaLine}
@@ -442,6 +444,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   .v5-mapview__dot--stay {
     background: var(--sage-text);
   }
+  .v5-mapview__dot--event,
   .v5-mapview__dot--do {
     background: var(--gold-text);
   }
@@ -847,6 +850,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
   .v5-map-pin--stay .v5-map-pin__dot {
     background: var(--sage-text);
   }
+  .v5-map-pin--event .v5-map-pin__dot,
   .v5-map-pin--do .v5-map-pin__dot {
     background: var(--gold-text);
   }
@@ -911,6 +915,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     facets: FilterState;
     row: HTMLElement;
     visible: boolean;
+    expiresAt: number;
     marker: any | null;
   }
 
@@ -961,6 +966,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
         facets: parseItemFacets(facetRaw),
         row,
         visible: true,
+        expiresAt: row.dataset.eventExpiry ? Date.parse(row.dataset.eventExpiry) : Infinity,
         marker: null,
       });
     });
@@ -988,7 +994,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     function applyFilters(filters: FilterState) {
       let shown = 0;
       for (const it of items) {
-        const ok = itemMatches(it.facets, filters);
+        const ok = it.expiresAt > Date.now() && itemMatches(it.facets, filters);
         it.visible = ok;
         if (ok) shown += 1;
         // Standalone rows carry data-facets and were already toggled by
@@ -1002,7 +1008,7 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
       }
       if (panelCount) {
         panelCount.textContent = isEmptyState(filters)
-          ? `${items.length} on the map`
+          ? `${shown} on the map`
           : `${shown} of ${items.length} on the map`;
       }
       if (emptyEl) emptyEl.toggleAttribute('hidden', shown !== 0);
@@ -1384,6 +1390,11 @@ const chips: { key: FacetKey; value: string; label: string }[] = standalone
     // Initial filter pass from the URL (initFilterState already emitted its
     // event before we subscribed, so run once by hand).
     applyFilters(getState());
+    const expiryTimer = window.setInterval(() => {
+      if (!root.isConnected || signal.aborted) { window.clearInterval(expiryTimer); return; }
+      applyFilters(getState());
+    }, 60000);
+    signal.addEventListener('abort', () => window.clearInterval(expiryTimer), { once: true });
   }
 
   /**

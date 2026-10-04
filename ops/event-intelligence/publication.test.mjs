@@ -18,3 +18,11 @@ test('synthetic approved bounded series exports explicit review sessions and any
  const record=astroRecord(candidate,[evidence],{now});assert.equal(record.status,'review');assert.equal(record.recurrence,'weekly');assert.equal(record.seriesOccurrences.length,4);assert.equal(record.seriesOccurrences[1].date,'2026-10-17');assert.equal(record.seriesOccurrences[1].startTime,'14:00');assert.equal(record.seriesOccurrences[1].venueName,'Other gallery');
  candidate.series.exceptions[0].startTime='15:00';assert.throws(()=>astroRecord(candidate,[evidence],{now}),/James approval/);
 });
+
+test('synthetic approved coordinate proof survives draft export with its Shire witness',()=>{
+ const now=new Date('2026-10-04T04:00:00Z');const fields={title:'Synthetic coordinate session',venueName:'Gallery',officialEventUrl:'https://example.com/art',status:'scheduled',startDate:'2026-10-10',coordinates:{lat:-38.22,lng:145.04}};
+ const body=Object.values(fields).map(v=>typeof v==='object'?JSON.stringify(v):v).join(' ');const evidence={id:'coordinate-fixture',url:fields.officialEventUrl,body,authority:'official',retrievedAt:now.toISOString()};
+ const candidate={id:'synthetic-map-export',kind:'event',fields,summary:'Synthetic test only.',category:'Arts & Culture',geography:{shireConfirmed:true,evidenceId:evidence.id,quote:'Gallery',verified:true,verifiedBy:'James'},proofs:Object.fromEntries(Object.entries(fields).map(([key,value])=>[key,{value,quote:typeof value==='object'?JSON.stringify(value):value,evidenceId:evidence.id,verified:true,verifiedBy:'James'}]))};candidate.approval={by:'James',revision:candidateRevision(candidate),at:now.toISOString()};
+ const result=astroRecord(candidate,[evidence],{now});assert.equal(result.status,'review');assert.deepEqual(result.coordinates,fields.coordinates);assert.deepEqual(result.intelligence.geography,{shireConfirmed:true,verifiedBy:'James',evidenceId:evidence.id,checkedAt:evidence.retrievedAt,coordinates:fields.coordinates,coordinateEvidenceId:evidence.id,coordinateSourceUrl:evidence.url});
+ candidate.fields.coordinates.lng=145.05;assert.throws(()=>astroRecord(candidate,[evidence],{now}),/James approval/);
+});

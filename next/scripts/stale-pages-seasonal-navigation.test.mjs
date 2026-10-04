@@ -2,8 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const NEXT = new URL('..', import.meta.url).pathname;
+const NEXT = fileURLToPath(new URL('..', import.meta.url));
 const read = (path) => readFileSync(join(NEXT, path), 'utf8');
 
 test('retired routes emit noindex redirects to their retained destinations', () => {

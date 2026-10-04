@@ -1,4 +1,5 @@
 ---
+import { publicEventData } from '../lib/event-publication.mjs';
 /**
  * EventStrip - embedded events surface for hubs and detail pages.
  *
@@ -14,6 +15,7 @@
  * always names the section so readers know they're looking at a
  * curated slice.
  */
+import { selectEventPromotions } from '../lib/event-discovery.mjs';
 import type { CollectionEntry } from 'astro:content';
 import { eventCategoryLabel, eventDateLabel, routeSlug } from '../lib/editorial';
 
@@ -21,6 +23,7 @@ type Event = CollectionEntry<'events'>;
 
 export interface Props {
   events: Event[];
+  now?: Date;
   /** Eyebrow above the heading (small caps, accent colour). */
   eyebrow?: string;
   /** The section heading (Cormorant). */
@@ -38,6 +41,7 @@ export interface Props {
 
 const {
   events,
+  now = new Date(),
   eyebrow = 'On the calendar',
   heading = 'Events coming up',
   intro,
@@ -47,11 +51,11 @@ const {
   variant = 'paper',
 } = Astro.props;
 
-const visible = events.slice(0, limit);
+const visible = selectEventPromotions(events, {now, limit});
 ---
 
 {visible.length > 0 && (
-  <section class={`event-strip event-strip--${variant}`} aria-label={heading}>
+  <section class={`event-strip event-strip--${variant}`} aria-label={heading} data-event-promotions-section>
     <div class="container">
       <div class="event-strip__head">
         <div>
@@ -63,25 +67,15 @@ const visible = events.slice(0, limit);
       </div>
 
       <ul class="event-strip__grid" role="list">
-        {visible.map((event) => {
-          const slug = routeSlug(event);
+        {visible.map(({event, originalEvent, day, dateLabel, kind, href}) => {
           const placeId = typeof event.data.place === 'string' ? event.data.place : event.data.place?.id;
           const placeLabel = placeId
             ? String(placeId).replace(/-/g, ' ').replace(/\b\w/g, (l) => l.toUpperCase())
             : event.data.suburb;
-          const dateLabel = (() => {
-            if (event.data.recurrence === 'weekly') {
-              return `Every ${event.data.startDate.toLocaleDateString('en-AU', { weekday: 'long' })}`;
-            }
-            if (event.data.recurrence === 'monthly') {
-              return `Monthly`;
-            }
-            return eventDateLabel(event.data.startDate, event.data.endDate);
-          })();
           const hasOverlay = Boolean(event.data.editorVerdict);
           return (
-            <li class="event-strip__item">
-              <a href={`/whats-on/${slug}/`} class="event-strip__card">
+            <li class="event-strip__item" data-event-promotion={JSON.stringify({id:originalEvent.id,data:publicEventData(originalEvent.data)})} data-event-promotion-day={day}>
+              <a href={href} class="event-strip__card">
                 <span class="event-strip__date">{dateLabel}</span>
                 <h3 class="event-strip__title">
                   {hasOverlay && <span class="event-strip__pick" aria-label="Editor's pick">✦</span>}
@@ -92,7 +86,7 @@ const visible = events.slice(0, limit);
                   {event.data.whyWeCare || event.data.summary}
                 </p>
                 <span class="event-strip__category">
-                  {eventCategoryLabel[event.data.category] ?? event.data.category}
+                  {kind === 'event' ? 'Event' : kind === 'offer' ? 'Offer' : 'Experience'} · {eventCategoryLabel[event.data.category] ?? event.data.category}
                 </span>
               </a>
             </li>
@@ -102,6 +96,12 @@ const visible = events.slice(0, limit);
     </div>
   </section>
 )}
+
+
+<script>
+  import { installEventPromotionRefresh } from '../lib/event-discovery.mjs';
+  installEventPromotionRefresh(window, document);
+</script>
 
 <style>
   .event-strip {

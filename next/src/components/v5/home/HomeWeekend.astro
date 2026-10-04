@@ -1,4 +1,5 @@
 ---
+import { publicEventData } from '../../../lib/event-publication.mjs';
 /**
  * HomeWeekend - block 3, the homepage's ONLY temporal module
  * (page-redesigns.md 1.9 item 3; wireframes.html #home note 2).
@@ -16,6 +17,7 @@
  * scroller with a visible peek (mobile-strategy: swipe, no carousel, no
  * auto-motion). All server-rendered.
  */
+import { eventContentKind } from '../../../lib/event-publication.mjs';
 import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import CardGrid from '../CardGrid.astro';
@@ -28,7 +30,6 @@ import {
   placeLabel,
   pickDateISO,
   recurrenceChip,
-  isFreeEvent,
 } from './home-data';
 
 const events = await getCollection('events');
@@ -64,10 +65,11 @@ const cards = await Promise.all(
       event.data.venueName || placeLabel(event.data.place) || event.data.suburb || '';
     const recurrence = recurrenceChip(event);
     const cadence = recurrence?.startsWith('Every Saturday evening year-round') ? 'Every Saturday' : recurrence;
+    const kind = eventContentKind(event.data);
     const meta = [
+      kind === 'event' ? '' : kind === 'offer' ? 'Offer · validity dates' : 'Experience session',
       place,
       cadence ?? categoryLabel(event.data.category),
-      isFreeEvent(event) ? 'Free' : '',
     ].filter(Boolean);
     const recorded = event.data.heroImage;
     const status = depictionStatusOf(recorded);
@@ -103,6 +105,7 @@ const cards = await Promise.all(
       : fullTitle;
     return {
       slug,
+      promotion: event.data._promotionOriginal ?? event,
       title,
       href: `/whats-on/${slug}/`,
       image,
@@ -118,7 +121,7 @@ const cards = await Promise.all(
 ---
 
 {cards.length > 0 && (
-  <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title">
+  <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title" data-event-promotions-section>
     <div class="container">
       <div class="home-weekend__head">
         <div class="home-weekend__heading">
@@ -133,7 +136,8 @@ const cards = await Promise.all(
       <div class="home-weekend__scroller">
         <CardGrid label="This weekend's picks">
           {cards.map((card, i) => (
-            <Card
+            <li data-event-promotion={JSON.stringify({id:card.promotion.id,data:publicEventData(card.promotion.data)})} data-event-promotion-day={card.dateISO}>
+            <Card as="article"
               variant="event"
               title={card.title}
               href={card.href}
@@ -154,6 +158,7 @@ const cards = await Promise.all(
             >
               {card.image?.badge && <span slot="badges" class="home-weekend__media-badge">{card.image.badge}</span>}
             </Card>
+            </li>
           ))}
         </CardGrid>
       </div>
@@ -166,6 +171,12 @@ const cards = await Promise.all(
     </div>
   </section>
 )}
+
+
+<script>
+  import { installEventPromotionRefresh } from '../../../lib/event-discovery.mjs';
+  installEventPromotionRefresh(window, document);
+</script>
 
 <style>
   :global(.home-weekend__media-badge) {

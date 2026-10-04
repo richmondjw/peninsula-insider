@@ -1,4 +1,5 @@
 ---
+import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
 import { schemaImage } from '../../lib/photo-set';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -51,14 +52,9 @@ const itineraries = (await getCollection('itineraries'))
   .slice(0, 2);
 
 // Events at this venue, gated on a clean venue ref.
-const venueEvents = (await getCollection('events'))
-  .filter((event) => String(event.data.venue?.id ?? event.data.venue ?? '') === slug)
-  .filter((event) => {
-    if (['weekly', 'monthly', 'ongoing'].includes(event.data.recurrence)) return true;
-    return isUpcoming(event.data.endDate ?? event.data.startDate);
-  })
-  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0))
-  .slice(0, 3);
+const venueEvents = eventPromotionEntries((await getCollection('events'))
+  .sort((a, b) => (b.data.visitorAppealScore ?? 0) - (a.data.visitorAppealScore ?? 0)),
+  {now: new Date(), venueId: slug, limit: 3});
 
 const venuePlaceName = titleize(String(venue.data.place?.id ?? venue.data.place ?? ''));
 const venueTypeLabel = typeLabel[venue.data.type] ?? titleize(venue.data.type);
@@ -96,8 +92,8 @@ const venueSchema = isPaused ? null : {
   ...(Number.isFinite(venue.data.coordinates?.lat) && Number.isFinite(venue.data.coordinates?.lng)
     ? { geo: {
         '@type': 'GeoCoordinates',
-        latitude: venue.data.coordinates.lat,
-        longitude: venue.data.coordinates.lng,
+        latitude: venue.data.coordinates?.lat,
+        longitude: venue.data.coordinates?.lng,
       } }
     : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),

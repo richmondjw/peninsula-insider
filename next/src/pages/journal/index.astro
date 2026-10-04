@@ -1,4 +1,6 @@
 ---
+import EventStrip from '../../components/EventStrip.astro';
+import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalStory from '../../components/journal/JournalStory.astro';
@@ -8,6 +10,7 @@ import { themeDefs } from '../../lib/journal-themes';
 import curation from '../../data/journal-front.json';
 import '../../styles/journal-editorial.css';
 const articles=(await getCollection('articles',({data})=>isJournalEditorial(data))).sort((a,b)=>b.data.publishedAt.getTime()-a.data.publishedAt.getTime());
+const journalEvents = eventPromotionEntries((await getCollection('events')).sort((a,b)=>(b.data.visitorAppealScore??0)-(a.data.visitorAppealScore??0)), {now:new Date(),limit:3});
 const authors=await getCollection('authors');
 const byline=(a:typeof articles[number])=>a.data.houseByline?'Peninsula Insider':authors.find(x=>x.id===a.data.author.id)?.data.name??'Peninsula Insider';
 const themes=themeDefs.map(t=>({...t,articles:articles.filter(a=>a.data.tags.some(tag=>t.tags.includes(tag)) || t.formats?.includes(a.data.format))})).filter(t=>t.articles.length);
@@ -50,6 +53,7 @@ const topicsFor=(a:typeof articles[number])=>themes.filter(t=>t.articles.include
  <p id="empty-state" hidden>No stories match those filters. Try another theme or clear your search.</p><button id="load-more" class="load-more" hidden>Show more stories ↓</button><p class="picks-note">Looking for previous <a href="/picks/">Insider Picks</a>? You’ll find them in their own archive.</p>
  </section>
 </div>
+<EventStrip events={journalEvents} eyebrow="On the Peninsula" heading="Coming up nearby" intro="Current events, experiences and offers, alongside our stories." />
 </BaseLayout>
 <script>
 import '../../scripts/journal-index';

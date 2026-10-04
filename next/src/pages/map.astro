@@ -21,11 +21,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import MapView, { type MapViewItem } from '../components/v5/MapView.astro';
 import { getFacets } from '../lib/facets';
+import { selectEventPromotions } from '../lib/event-discovery.mjs';
+import { eventMapItems } from '../lib/event-map.mjs';
 import { routeSlug, venueHref, isListableVenue } from '../lib/editorial';
 
 const venuesAll = await getCollection('venues');
 const experiencesAll = await getCollection('experiences');
 const placesAll = await getCollection('places');
+const eventsAll = await getCollection('events');
+const eventNow = new Date();
+const eventItems: MapViewItem[] = eventMapItems(selectEventPromotions(eventsAll, { now: eventNow, windowDays: 30 }), { now: eventNow }).map(({eventData, day, ...item}) => ({ ...item, facets: { ...getFacets('event', eventData), cat: ['event', ...(getFacets('event', eventData).cat ?? [])] } }));
 
 const placeNameBySlug = new Map<string, string>(
   placesAll.map((p) => [p.id ?? p.data.slug, p.data.name]),
@@ -119,7 +124,7 @@ const placeItems: MapViewItem[] = placesAll
     };
   });
 
-const allItems: MapViewItem[] = [...placeItems, ...venueItems, ...experienceItems];
+const allItems: MapViewItem[] = [...placeItems, ...venueItems, ...experienceItems, ...eventItems];
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'The Insider Map' }];
 export const prerender = true;
@@ -137,7 +142,7 @@ export const prerender = true;
     <div class="container">
       <header class="v5-map-page__intro">
         <h1 class="v5-map-page__title">The Insider Map</h1>
-        <p class="v5-map-page__sub">Everything we cover, on one screen, filtered exactly like the list you came from.</p>
+        <p class="v5-map-page__sub">Explore the Peninsula by location. Events show the next 30 days where the event location has been verified. <a href="/whats-on/">See all upcoming listings</a>.</p>
       </header>
     </div>
 

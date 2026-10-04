@@ -62,7 +62,7 @@ The site runs without credentials. Reader features that need Supabase degrade ra
 Two of these fail the build, not just review.
 
 - **No em-dashes.** Anywhere, on any surface.
-- **No prices.** Ever, including in JSON-LD.
+- **Verified event prices only.** Event listings may show current source-backed prices with a bounded expiry. Other content and the newsletter retain the no-price rule.
 - **No invented venues.** Recommendations come from the published corpus.
 - **Never key a CMS override on a filename.** Declare entity identity instead.
 

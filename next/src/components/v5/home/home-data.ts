@@ -1,3 +1,4 @@
+import { eventPromotionEntries } from '../../../lib/event-discovery.mjs';
 import {isPublicEventRecord} from '../../../lib/event-publication.mjs';
 import {hasExplicitSeries,occurrenceData} from '../../../lib/intelligence-series.mjs';
 import {resolveListingOccurrence} from '../../../lib/whatson-listing.mjs';
@@ -90,22 +91,7 @@ const LIVE_STATUSES = new Set(['published', 'scheduled']);
 
 /** Renderable on the homepage: live, not archived, not editor-skipped. */
 export function isLiveEvent(e: any, now: Date = new Date()): boolean {
-  if (!e?.data) return false;
-  if(e.data.intelligence && !isPublicEventRecord(e.data)) return false;
-  if (String(e.id ?? '').includes('archive')) return false;
-  if (!LIVE_STATUSES.has(e.data.status ?? 'published')) return false;
-  if (e.data.skipThis) return false;
-  // A cancelled record can still be published and future-dated, and this
-  // event carries the weekend-pick lens (+20 in fallbackScore). Without this
-  // test the homepage rail would promote an event that is not happening.
-  if (e.data.cancelled) return false;
-  // PI-008. The homepage rail is the site's strongest recommendation, so it
-  // holds to the promotable bar rather than the listable one: a postponement
-  // with no new date, an expired listing, a sold-out night, or a record whose
-  // source changed after we last verified it all stay on the hub and off the
-  // front page. Inert when the occurrence model is flagged off.
-  if ((USE_OCCURRENCE_MODEL || hasExplicitSeries(e.data)) && !recordDisposition(e.data, now).promotable) return false;
-  return Boolean(e.data.title);
+  return eventPromotionEntries([e], {now}).length > 0;
 }
 
 function endOfDay(d: Date): Date {
@@ -174,6 +160,7 @@ export function selectWeekendPicks(
   now: Date = new Date(),
 ): { picks: WeekendPick[]; window: WeekendWindow } {
   const win = weekendWindow(now);
+  events = eventPromotionEntries(events, {now, windowStart: new Date(win.satISO + 'T00:00:00Z'), windowDays: 2});
   const out: WeekendPick[] = [];
   const used = new Set<string>();
   const slugOf = (e: any) => e.data.slug ?? e.id;
@@ -230,7 +217,7 @@ export function selectWeekendPicks(
     }
   }
 
-  return { picks: out.map(pick => {const date=pickDateISO(pick.event,now);return date && hasExplicitSeries(pick.event.data) ? {...pick,event:{...pick.event,data:occurrenceData(pick.event.data,date)}} : pick;}), window: win };
+  return { picks: out, window: win };
 }
 
 /** Pretty label for an event category slug. */
@@ -270,6 +257,7 @@ export function placeLabel(place: unknown): string {
  * The first actual occurrence within the same Saturday–Sunday window as the card.
  */
 export function pickDateISO(e: any, now: Date = new Date()): string | undefined {
+  if (e.data._promotionDay) return e.data._promotionDay;
   const win = weekendWindow(now);
   const start = new Date(`${win.satISO}T00:00:00Z`);
   const rule = ruleFor(e, now);
