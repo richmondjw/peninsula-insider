@@ -107,7 +107,7 @@ What's mapped here
 
 - [**1** stays](<https://peninsulainsider.com.au/explore/places/cape-schanck/#stay>)
 
-- [**10** ways to explore](<https://peninsulainsider.com.au/explore/places/cape-schanck/#explore>)
+- [**9** ways to explore](<https://peninsulainsider.com.au/explore/places/cape-schanck/#explore>)
 
 - [**3** escape plans](<https://peninsulainsider.com.au/explore/places/cape-schanck/#escapes>)
 
@@ -225,16 +225,6 @@ Gunnamatta is long, wild, and remote-feeling despite being accessible from the m
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/gunnamatta-ocean-beach/>)
 
-[Golf Course](<https://peninsulainsider.com.au/explore/moonah-links/>)
-
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  4.5 h
-
-### [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>)
-
-Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather. The resort angle matters here. Unlike St Andrews Beach (which is just a course), Moonah Links lets you stay on property, play twice in 24 hours, eat without getting back in the car, and treat the weekend as a destination in itself. Book the Open Course if you are a serious golfer; book the Legends if the group is mixed. Package deals with accommodation are often the best value. Midweek pricing is significantly better than weekends. Non-golfers have less to do on-property than at St Andrews Beach - the surrounding area is quiet. Plan for drives if anyone in the group isn't playing.
-
- [Open the guide →](<https://peninsulainsider.com.au/explore/moonah-links/>)
-
 [Golf Course](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
 
 [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)  4.5 h
@@ -251,7 +241,7 @@ RACV Cape Schanck is the scenic one. The course plays along the clifftops and th
 
 ### [The National Golf Club](<https://peninsulainsider.com.au/explore/the-national-golf-club/>)
 
-The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Peter Thomson), and the Gunnamatta (Greg Norman). The fourth, the Long Island course, sits 50 minutes north at Frankston. Together they form arguably the strongest four-course private golf address in Australia. The caveat is access. The National is a private members' club. Non-member play is possible through reciprocal rights, corporate days, and occasional open days - but it is not a walk-up booking in the way St Andrews Beach or Moonah Links are. For Peninsula Insider readers, that changes the editorial framing. The National matters as context - Peninsula golf would be less serious without it - but it is not the course to build a visitor's weekend around unless you have a member connection. If you do have access, the Moonah is the most architecturally interesting, the Old is the grandest, and the Gunnamatta is the wildest. The views across the Southern Ocean from the clifftop holes are the best on any Australian course. The clubhouse is strong. The conditioning is meticulous. Everything you would expect from one of the country's top private clubs is delivered.
+The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak). The fourth, the Long Island course, sits 50 minutes north at Frankston. Together they form arguably the strongest four-course private golf address in Australia. The caveat is access. The National is a private members' club. Victorian residents who are not members need an invitation and must play with a club member; interstate and overseas visitors may request a tee time directly. It is not a walk-up booking in the way St Andrews Beach or Moonah Links are. Check eligibility and secure a tee time with the club before building a trip around a round here. If you do have access, the Moonah is the most architecturally interesting, the Old is the grandest, and the Gunnamatta is the wildest. The views across the Southern Ocean from the clifftop holes are the best on any Australian course. The clubhouse is strong. The conditioning is meticulous. Everything you would expect from one of the country's top private clubs is delivered.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/the-national-golf-club/>)
 

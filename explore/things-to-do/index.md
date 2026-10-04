@@ -53,11 +53,11 @@ Best for: Food-and-wine visitors, birthdays, long lunches.
 
 Best for: Families, first-timers, anyone who wants the orientating aerial view.
 
-### 6. Golf at Moonah Links or The National
+### 6. Golf at Moonah Links
 
-Moonah Links and The National are the Peninsula's two marquee public-access courses, side by side at Cape Schanck. Moonah Links (Open and Legends courses) has the better ocean views and is more accessible for mid-handicap players. The National ranks among Australia's top courses but is expensive and exposed. Full ranking at [the Peninsula's golf courses](<https://peninsulainsider.com.au/explore/golf/>).
+[Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>) in Fingal has two bookable resort courses, the Open and Legends. The National is a separate private club at Cape Schanck: Victorian nonmembers need an invitation and must play with a member, while interstate and overseas visitors may request a tee time. Check the [Moonah Links bookings](<https://www.moonahlinks.com.au/cms/golf/book-golf/>) and [The National visitor rules](<https://nationalgolf.com.au/visitors/>) before planning a round. Compare courses in [the Peninsula's golf courses](<https://peninsulainsider.com.au/explore/golf/>).
 
-Best for: Golfers with a mid-to-low handicap; anyone wanting a bucket-list round.
+Best for: Golfers planning a bookable resort round or a stay-and-play weekend.
 
 ### 7. Cape Schanck boardwalk
 

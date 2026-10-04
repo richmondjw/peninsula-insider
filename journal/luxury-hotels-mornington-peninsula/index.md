@@ -61,9 +61,9 @@ Note: completely separate from Hotel Sorrento at 5–15 Hotham Road.
 
 ### RACV Cape Schanck Resort, Cape Schanck
 
-The Peninsula’s largest resort, 184 rooms. Five-star RACV property adjacent to the Cape Schanck lighthouse. Championship golf course on-site (one of two courses at Moonah Links). One Spa (massage, facials, hammam). Four dining venues: Cape, Samphire, Mantellina, and Cape Bar & Terrace. RACV member benefits apply.
+The Peninsula’s largest resort, 184 rooms. Five-star RACV property adjacent to the Cape Schanck lighthouse. Championship golf course on-site, separate from Moonah Links in Fingal. One Spa (massage, facials, hammam). Four dining venues: Cape, Samphire, Mantellina, and Cape Bar & Terrace. RACV member benefits apply.
 
-A strong fit for families and groups who want full resort facilities. The only hotel with golf course on-site.
+A strong fit for families and groups who want full resort facilities. Golfers can stay on-site; Moonah Links also has resort accommodation in Fingal.
 
 [racv.com.au](<https://racv.com.au/>)
 

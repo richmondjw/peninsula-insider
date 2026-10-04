@@ -187,7 +187,7 @@ Flinders   3.5 hr
 
 Make golf the centre of the stay, with two courses at the resort. Compare course choice and tee-time availability directly.
 
-Cape Schanck   4.5 hr
+Fingal   4.5 hr
 
 ## Find your part of the Peninsula
 
@@ -407,7 +407,7 @@ Gallery   Red Hill   1 hr
 
 Make golf the centre of the stay, with two courses at the resort. Compare course choice and tee-time availability directly.
 
-Golf course   Cape Schanck   4.5 hr
+Golf course   Fingal   4.5 hr
 
 - ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 

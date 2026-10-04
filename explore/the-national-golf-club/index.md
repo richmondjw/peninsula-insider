@@ -33,7 +33,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A golfer chips toward the green at The National Golf Club as a partner watches, with a large bunker and the sea beyond  The National Golf Club, Cape Schanck, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
 
-The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Peter Thomson), and the Gunnamatta (Greg Norman). The fourth, the Long Island course, sits 50 minutes north at Frankston. Together they form arguably the strongest four-course private golf address in Australia. The caveat is access. The National is a private members' club. Non-member play is possible through reciprocal rights, corporate days, and occasional open days - but it is not a walk-up booking in the way St Andrews Beach or Moonah Links are. For Peninsula Insider readers, that changes the editorial framing. The National matters as context - Peninsula golf would be less serious without it - but it is not the course to build a visitor's weekend around unless you have a member connection. If you do have access, the Moonah is the most architecturally interesting, the Old is the grandest, and the Gunnamatta is the wildest. The views across the Southern Ocean from the clifftop holes are the best on any Australian course. The clubhouse is strong. The conditioning is meticulous. Everything you would expect from one of the country's top private clubs is delivered.
+The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak). The fourth, the Long Island course, sits 50 minutes north at Frankston. Together they form arguably the strongest four-course private golf address in Australia. The caveat is access. The National is a private members' club. Victorian residents who are not members need an invitation and must play with a club member; interstate and overseas visitors may request a tee time directly. It is not a walk-up booking in the way St Andrews Beach or Moonah Links are. Check eligibility and secure a tee time with the club before building a trip around a round here. If you do have access, the Moonah is the most architecturally interesting, the Old is the grandest, and the Gunnamatta is the wildest. The views across the Southern Ocean from the clifftop holes are the best on any Australian course. The clubhouse is strong. The conditioning is meticulous. Everything you would expect from one of the country's top private clubs is delivered.
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -57,7 +57,7 @@ Autumn · Spring
 
 **Access**
 
-Foresters Rd, Cape Schanck VIC 3939
+The Cups Drive, Cape Schanck VIC 3939
 
 **Website**
 

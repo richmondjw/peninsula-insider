@@ -33,13 +33,13 @@ Bath House and Spa Dreaming Centre bathing, with accommodation at 140 Springs La
 
  [See Peninsula Hot Springs bathing](<https://www.peninsulahotsprings.com/bathe/>)
 
-Fingal in 12 photographs
+Fingal in 8 photographs
 
-1  / 12
+1  / 8
 
-A bather in a turquoise pool beneath curved concrete canopies at Alba Thermal Springs & Spa in Fingal  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+A single bather in a round outdoor hot pool framed by tall shrubs and yellow wildflowers at Alba Thermal Springs  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
-Fingal is a Mornington Peninsula locality about 90 km from Melbourne, home to Peninsula Hot Springs and Alba Thermal Springs & Spa, with Moonah Links golf resort nearby.
+Fingal is a Mornington Peninsula locality between Rye and Cape Schanck, home to Peninsula Hot Springs, Alba Thermal Springs & Spa and Moonah Links golf resort.
 
 Fingal sits between Rye and Cape Schanck on the Peninsula's ocean-coast flank. It has two separate thermal destinations: Peninsula Hot Springs and Alba Thermal Springs & Spa. Book a bathe, add a round at Moonah Links if golf is your thing, then give the rest of the day some breathing room. The venues are spread out, so Fingal works best as a planned stop or a quiet overnight base.
 
@@ -121,7 +121,7 @@ What's mapped here
 
 - [**3** stays](<https://peninsulainsider.com.au/explore/places/fingal/#stay>)
 
-- [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/fingal/#explore>)
+- [**2** ways to explore](<https://peninsulainsider.com.au/explore/places/fingal/#explore>)
 
 - [**2** escape plans](<https://peninsulainsider.com.au/explore/places/fingal/#escapes>)
 
@@ -210,6 +210,16 @@ Get outside
 The local experiences currently mapped in our guide, with detail to help you plan.
 
  [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
+
+[Golf Course](<https://peninsulainsider.com.au/explore/moonah-links/>)
+
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)  4.5 h
+
+### [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>)
+
+Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather. The resort angle matters here. Unlike St Andrews Beach (which is just a course), Moonah Links lets you stay on property, play twice in 24 hours, eat without getting back in the car, and treat the weekend as a destination in itself. Book the Open Course if you are a serious golfer; book the Legends if the group is mixed. Package deals with accommodation are often the best value. Midweek pricing is significantly better than weekends. Non-golfers have less to do on-property than at St Andrews Beach - the surrounding area is quiet. Plan for drives if anyone in the group isn't playing.
+
+ [Open the guide →](<https://peninsulainsider.com.au/explore/moonah-links/>)
 
 [Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

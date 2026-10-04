@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Golf Course](<https://peninsulainsider.com.au/explore/>)   [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)    4.5 h
+[Golf Course](<https://peninsulainsider.com.au/explore/>)   [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)    4.5 h
 
 # Moonah Links
 
@@ -49,7 +49,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 18
 
-Two golfers carry their bags along a fairway at Moonah Links between deep sand bunkers towards a distant flag  Moonah Links, Cape Schanck, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+Two golfers carry their bags along a fairway at Moonah Links between deep sand bunkers towards a distant flag  Moonah Links, Fingal, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather. The resort angle matters here. Unlike St Andrews Beach (which is just a course), Moonah Links lets you stay on property, play twice in 24 hours, eat without getting back in the car, and treat the weekend as a destination in itself. Book the Open Course if you are a serious golfer; book the Legends if the group is mixed. Package deals with accommodation are often the best value. Midweek pricing is significantly better than weekends. Non-golfers have less to do on-property than at St Andrews Beach - the surrounding area is quiet. Plan for drives if anyone in the group isn't playing.
 
@@ -59,7 +59,7 @@ At a glance
 
 **Place**
 
-[Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 **Type**
 
@@ -75,13 +75,13 @@ Autumn · Spring · Summer
 
 **Access**
 
-Peter Thomson Dr, Fingal VIC 3939
+55 Peter Thomson Drive, Fingal VIC 3939
 
 **Website**
 
 [www.moonahlinks.com.au/](<https://www.moonahlinks.com.au/>)
 
- [Open place hub](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+ [Open place hub](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 Pair it with a booking
 
@@ -89,43 +89,47 @@ Pair it with a booking
 
 The best explore pages should lead somewhere next.
 
- [See Cape Schanck →](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+ [See Fingal →](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
+### [Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
-165 Boneo Rd, Cape Schanck VIC 3939
+282 Browns Road, Fingal VIC 3939
 
-Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
+Contemporary geothermal bathing and spa treatments in a landscaped Fingal setting.
 
-anniversary  long lunch
+wellness  rainy day
 
-[Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>) [View stay](<https://albathermalsprings.com.au/book>)
 
-Suite  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+Photo: Peninsula Hot Springs
 
-### [The Cape Retreat](<https://peninsulainsider.com.au/stay/cape-retreat/>)
+Spa  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-41 Trent Jones Drive, Cape Schanck VIC 3939
+### [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
-Twelve guest suites and shared living spaces at a Cape Schanck retreat with Bass Strait and nearby golf-course outlooks.
+140 Springs Ln, Fingal VIC 3939
 
-view  wellness
+The original Peninsula thermal springs, still the biggest, still the most complete wellness circuit for people who want the full ritual.
 
-[Read notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [View stay](<https://www.thecaperetreat.com.au/book>)
+wellness  rainy day
 
-Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
+[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>) [View stay](<https://www.peninsulahotsprings.com/bathe>)
 
-### [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
+Photo: Courtesy of Visit Victoria
 
-Trent Jones Dr, Cape Schanck VIC 3939
+Lodge  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-The Peninsula's best resort-style day spa, proper scale, serious treatment menu, and a cliff-edge location that nobody else on the Peninsula can match.
+### [Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
-wellness  slow
+140 Springs Lane, Fingal VIC 3939
 
-[Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>) [View stay](<https://www.racv.com.au/travel-leisure/racv-resorts/our-destinations/cape-schanck-resort.html>)
+Eco lodge accommodation at Peninsula Hot Springs in Fingal, a separate option from glamping for a stay centred on geothermal bathing.
+
+wellness  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [View stay](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
 Keep going
 
@@ -169,14 +173,6 @@ Further reading
 
  [Journal →](<https://peninsulainsider.com.au/journal/>)
 
-Trail Guide   6 min
-
-### [Cape Schanck - The Complete Guide](<https://peninsulainsider.com.au/journal/cape-schanck-guide/>)
-
-22 April 2026
-
-The 1859 limestone lighthouse, the boardwalk to Pulpit Rock and Pebble Beach, and the 5.4km return walk to Bushrangers Bay. Cape Schanck lighthouse grounds are free from 6am - lighthouse tours are ticketed. Here is everything.
-
 Service   9 min
 
 ### [Mornington Peninsula Golf: Stay and Play](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
@@ -184,6 +180,14 @@ Service   9 min
 14 April 2026
 
 Peninsula golf courses, nearby stays, and the booking checks that make a trip work.
+
+Service   5 min
+
+### [Mornington Peninsula Springs Weekend](<https://peninsulainsider.com.au/explore/plans/the-thermal-springs-weekend/>)
+
+9 April 2026
+
+One Fingal bathhouse, two nights and an unhurried Sunday.
 
 ## The Insider Note
 

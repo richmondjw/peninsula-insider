@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/golf/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-04-30
+Modified: 2026-10-04
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,9 +9,9 @@ Explore guide
 
 # Mornington Peninsula Golf
 
-Australia's most concentrated cluster of serious public-access golf. Three world-ranked courses within 10 minutes of each other, all within 90 minutes of Melbourne.
+A rare mix of visitor-bookable coastal courses and private-club architecture, all within reach of a Peninsula weekend.
 
-3 world-ranked  12 min read
+11 courses  12 min read
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -29,15 +29,15 @@ Both are worth a day. They are not interchangeable. The frame that matters befor
 
 Cape Schanck / Fingal
 
-### World-ranked. Exposed. Worth the drive to the tip.
+### Coastal. Exposed. Worth the drive to the tip.
 
 **Flagship courses**
 
-St Andrews Beach (Tom Doak), Moonah Links (Peter Thomson), The National (Trent Jones Jr, Thomson, Greg Norman) - three of The National's four courses sit here; the fourth, Long Island, is at Frankston.
+St Andrews Beach (Tom Doak), Moonah Links (Peter Thomson and Ross Perrett), The National (Robert Trent Jones Jr, Greg Norman and Tom Doak) - three of The National's four courses sit here; the fourth, Long Island, is at Frankston.
 
 **Access**
 
-St Andrews Beach and Moonah Links are fully public. The National's four courses are private members-only across both the Cape Schanck and Long Island sites.
+St Andrews Beach and Moonah Links are fully public. The National is private: Victorian nonmembers need an invitation and must play with a member; interstate and overseas visitors can request tee times directly.
 
 **Conditions**
 
@@ -57,7 +57,7 @@ Bay Corridor - Mornington to Portsea
 
 **Standout courses**
 
-Flinders Golf Club (clifftop nine over Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Red Hill hinterland)
+Flinders Golf Club (18 coastal holes above Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Red Hill hinterland)
 
 **Access**
 
@@ -79,9 +79,9 @@ Cape Schanck / Fingal cluster
 
 ## The world-class courses
 
-Four courses within 15 minutes of each other at the Peninsula's southern tip. Two of the four are world-ranked. Three accept public green fees.
+Four southern Peninsula courses with different access rules: three offer visitor tee times, while The National has private-club eligibility.
 
-Public green fees   Tier 2   ✦ Ranked
+Public green fees   Tier 2
 
 36 holes
 
@@ -89,13 +89,11 @@ Public green fees   Tier 2   ✦ Ranked
 
 Fingal VIC 3939  · Peter Thomson, Ross Perrett
 
-Open Course hosted Australian Open 2003, 2005
-
 Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather.
 
 [Course guide →](<https://peninsulainsider.com.au/explore/moonah-links/>) [Book a round →](<https://www.moonahlinks.com.au/>)
 
-Public green fees   Tier 1   ✦ Ranked
+Public green fees   Tier 1
 
 18 holes
 
@@ -103,27 +101,23 @@ Public green fees   Tier 1   ✦ Ranked
 
 Fingal VIC 3941  · Tom Doak
 
-World top 100 in recent global rankings - verify year and currency before publishing specific ranking claims
-
 St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up.
 
-Insider read Rated by locals as one of the two best bang-for-buck rounds on the Peninsula. World-ranked architecture at a public green fee is the pitch - and it lands.
+Insider read Rated by locals as one of the two best bang-for-buck rounds on the Peninsula. Tom Doak architecture at a public green fee is the pitch.
 
 [Course guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>) [Book a round →](<https://www.standrewsbeachgolf.com.au/>)
 
-Private - members   Tier 1   ✦ Ranked
+Private - members   Tier 1
 
 72 holes
 
 ### [The National Golf Club](<https://peninsulainsider.com.au/explore/the-national-golf-club/>)
 
-Cape Schanck VIC 3939  · Robert Trent Jones Jr, Peter Thomson, Greg Norman
+Cape Schanck VIC 3939  · Robert Trent Jones Jr, Greg Norman, Tom Doak, Gordon Oliver
 
-Widely regarded as Australia's strongest four-course private golf property
+The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak). The fourth, the Long Island course, sits 50 minutes north at Frankston.
 
-The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Peter Thomson), and the Gunnamatta (Greg Norman). The fourth, the Long Island course, sits 50 minutes north at Frankston.
-
-Insider read The Gunnamatta course is known affectionately by locals as 'doesn't matter' - a forgiving Greg Norman layout where you can spray it off the tee and still score well. The reputation is as the fun course; the uplifter when your form has gone.
+Insider read The Moonah Course was designed by Greg Norman and Bob Harrison; Tom Doak redesigned the former Ocean Course as Gunnamatta in 2019. Check the club's current visitor rules before planning a round.
 
 [Course guide →](<https://peninsulainsider.com.au/explore/the-national-golf-club/>)
 
@@ -173,15 +167,13 @@ Insider read Tight off the tee - locals rate it the lesser of the Peninsula cour
 
 [Course guide →](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>) [Book a round →](<https://www.eagleridge.com.au/>)
 
-Public green fees   Tier 2   ✦ Ranked
+Public green fees   Tier 2
 
 27 holes
 
 ### [The Dunes Golf Links](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
 
 Rye VIC 3941  · Tony Cashmore
-
-Consistently ranked in Australian top-50 public courses
 
 The Dunes is the Peninsula's other world-class public-access course - Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee.
 
@@ -227,7 +219,7 @@ Sorrento Golf Club is a parkland course on the Peninsula's tip, more traditional
 
 [Course guide →](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>) [Book a round →](<https://www.sorrentogolf.com.au/>)
 
-Private - members   Tier 3
+Semi-private   Tier 3
 
 18 holes
 
@@ -235,7 +227,7 @@ Private - members   Tier 3
 
 Portsea VIC 3944
 
-Portsea Golf Club is the classic Peninsula member's club at the tip. Founded in 1924, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane.
+Portsea Golf Club is the classic Peninsula member's club at the tip. Established in 1926, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane.
 
 [Course guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 
@@ -251,13 +243,13 @@ Single figures
 
 Golfers who want architectural challenge, exposure, and a course that holds up on replay.
 
-- **St Andrews Beach**  Tom Doak design. World-ranked. Best architecture on the Peninsula at a public green fee.
+- **St Andrews Beach**  Tom Doak design with public green fees and a strategic links-style layout.
 
 - **Moonah Links - Open Course**  Peter Thomson's championship layout. Hosted the Australian Open. Rewards intelligent play over power.
 
-- **The National - Ocean Course**  The most prestigious public round on the Peninsula. Exposed clifftop holes over Bass Strait. Book well ahead.
+- **The National Golf Club**  Private club at Cape Schanck. Check visitor eligibility and request a tee time directly before making plans.
 
-- **Flinders Golf Club**  9 holes with some of the most dramatic views from any Australian tee box. Wildly underrated. Pairs with a Flinders lunch.
+- **Flinders Golf Club**  18 holes with some of the most dramatic views from a Peninsula tee box. Wildly underrated. Pairs with a Flinders lunch.
 
 Mid-handicap
 
@@ -295,27 +287,27 @@ The Peninsula's concentration of serious course architecture is not accidental. 
 
 Tom Doak
 
-St Andrews Beach Golf Course
+St Andrews Beach Golf Course; The National Gunnamatta Course
 
-Regarded by most serious course architecture critics as one of the three or four best designers working today. Doak's philosophy - restore the land, resist the ornamental, reward strategic play - is fully present at St Andrews Beach. His only Australian design. The course improves on every visit because the design rewards you for understanding it.
+Regarded by most serious course architecture critics as one of the three or four best designers working today. Doak's philosophy - restore the land, resist the ornamental, reward strategic play - is fully present at St Andrews Beach. His Peninsula work also includes the private Gunnamatta Course at The National, a 2019 redesign of its former Ocean Course.
 
 Peter Thomson
 
-Moonah Links (Open + Legends Courses); The National Moonah Course
+Moonah Links Open Course
 
-Five-time Open Champion and arguably the most important figure in Australian golf. Thomson's course design philosophy followed his playing philosophy: intelligence over power, precision over length. The Moonah Links Open Course is his most publicly accessible Peninsula work. His National Moonah Course is private, and by most accounts the more architecturally interesting of his two Peninsula commissions.
+Five-time Open Champion and arguably the most important figure in Australian golf. Thomson's course design philosophy followed his playing philosophy: intelligence over power, precision over length. The Moonah Links Open Course is his most publicly accessible Peninsula work. Moonah Links is the visitor-bookable Peninsula destination for his course design.
 
 Greg Norman
 
-The National Gunnamatta Course
+The National Moonah Course
 
-The Shark's only Peninsula course. Dramatically exposed, with clifftop stretches above Bass Strait that have no equivalent in Australian public golf. Private access only - members and reciprocal guests. If you have the access, it is the most visually theatrical round on the Peninsula.
+Greg Norman and Bob Harrison designed The National's private Moonah Course. Victorian nonmembers must be invited and play with a member; interstate and overseas visitors can request tee times directly.
 
 Robert Trent Jones Jr
 
-The National Old Course; The National Long Island; RACV Cape Schanck Resort
+The National Old Course; RACV Cape Schanck Resort
 
-The global modernist. RTJ Jr's Peninsula footprint runs from the Cape Schanck headland north to Frankston, covering two of The National's four courses (the Old at Cape Schanck and the Long Island course at Frankston) plus the RACV resort layout. His Old Course at The National is the grandest of the four National layouts, designed for a club that was always intended to rival the best in the world. The RACV design is more accessible and suits the resort context it was built for.
+Robert Trent Jones Jr designed The National's Old Course at Cape Schanck and the separate RACV Cape Schanck Resort course. His Old Course at The National is the grandest of the four National layouts, designed for a club that was always intended to rival the best in the world. The RACV design is more accessible and suits the resort context it was built for.
 
 Tony Cashmore
 
@@ -353,21 +345,9 @@ Further reading
 
 ## Golf editorial
 
-Four pieces from the PI archive - each one answering a question this page can't fully resolve in a single hub.
+Two guides to help turn a course choice into a bookable weekend.
 
-[Editor's perspective
-
-### Why the Peninsula is Australia's best golf region
-
-World-ranked public access, serious course architecture, hot springs within fifteen minutes, and a weekend shape that works even if only one person in the group plays.
-
-  Read →](<https://peninsulainsider.com.au/explore/golf/>) [Tier guide
-
-### The best golf courses ranked - honest tier guide
-
-Not all Peninsula golf is equally useful to visitors. This guide separates the destination rounds from the club names and the public-access standouts from private mythology.
-
-  Read the tier guide →](<https://peninsulainsider.com.au/explore/golf/>) [Stay and play
+[Stay and play
 
 ### Stay and play - accommodation near every course
 
@@ -375,9 +355,9 @@ The accommodation that makes each Peninsula golf course walkable, driveable, or 
 
   Read the guide →](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>) [Course deep-dive
 
-### St Andrews Beach - the world-ranked course anyone can book
+### St Andrews Beach - a Tom Doak course visitors can book
 
-Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend. The one golf story that explains the Peninsula.
+Tom Doak architecture and public bookings that turn a course choice into a real weekend. The one golf story that explains the Peninsula.
 
   Read the deep-dive →](<https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/>)
 
@@ -405,17 +385,17 @@ Common questions
 
 What is the best golf course on the Mornington Peninsula?
 
-Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture and world-ranking credentials at a public green fee. The National Ocean Course for prestige - the most cited, most photographed, and most expensive option, accepting public green fees on the Ocean Course only.
+Moonah Links Open Course for championship pedigree and full public access. St Andrews Beach for Tom Doak architecture at a public green fee. The National is a private club at Cape Schanck; eligible visitors should confirm access with the club before making plans.
 
 For a mid-handicapper who wants the best round rather than the most famous address: Moonah Links Open Course is the correct answer. The challenge is real, the conditioning is excellent, and the round does not end with the score card as the main memory.
 
 Can you play golf on the Mornington Peninsula without a club membership?
 
-Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington Golf Club, and Rosebud Country Club all accept visitor green fees without calling ahead. Flinders Golf Club and Sorrento Golf Club accept visitors on non-competition days - call ahead to confirm availability. Portsea Golf Club and The National's Moonah and Gunnamatta courses are private.
+Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, Mornington Golf Club, and Rosebud Country Club list visitor green fees; check current tee times with each club. Flinders welcomes visitors seven days in published time windows, and Portsea offers limited visitor green-fee times. The National is private: Victorian nonmembers need an invitation and must play with a member, while interstate and overseas visitors can request tee times directly.
 
 How much does golf cost on the Mornington Peninsula?
 
-Green fees vary significantly by course and season - always verify current rates directly before booking. Broadly: The National Ocean Course and St Andrews Beach are at the premium end. Moonah Links is premium but offers better value for what you get. Eagle Ridge, The Dunes, Mornington, and Rosebud are the most accessible options. Midweek rates at most courses are substantially lower than weekend rates.
+Green fees vary significantly by course and season - always verify current rates directly before booking. Broadly: St Andrews Beach is at the premium end; The National publishes separate fees for eligible visitors. Moonah Links is premium but offers better value for what you get. Eagle Ridge, The Dunes, Mornington, and Rosebud are the most accessible options. Midweek rates at most courses are substantially lower than weekend rates.
 
 Is there accommodation near the Peninsula golf courses?
 
@@ -423,7 +403,7 @@ RACV Cape Schanck Resort is on-site with direct access to its 18-hole course. Mo
 
 What is the difference between the Cape Schanck and bay corridor courses?
 
-The Cape Schanck / Fingal cluster contains the Peninsula's world-ranked courses: St Andrews Beach, Moonah Links, and three of The National's four courses (Old, Moonah, Gunnamatta). The fourth National course, Long Island, sits 50 minutes north at Frankston and is the club's gateway from Melbourne. All sit in coastal duneland exposed to Bass Strait weather. The terrain is Links-adjacent and the quality of the design architecture is the highest on the Peninsula.
+The Cape Schanck / Fingal cluster brings together St Andrews Beach, Moonah Links, and three of The National's four courses (Old, Moonah, Gunnamatta). The fourth National course, Long Island, sits 50 minutes north at Frankston and is the club's gateway from Melbourne. All sit in coastal duneland exposed to Bass Strait weather. The terrain is Links-adjacent and the quality of the design architecture is the highest on the Peninsula.
 
 The bay corridor runs from Mornington to Portsea, with a mix of clifftop (Flinders), parkland (Eagle Ridge), dune-links (The Dunes), and bayside (Mornington, Sorrento, Portsea) layouts. More varied in character, generally more accessible in access and pricing, and better suited to a combined golf-and-winery day without driving to the Peninsula tip.
 
