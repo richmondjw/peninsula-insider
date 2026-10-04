@@ -146,7 +146,10 @@ const snapshotCards = [
 ];
 
 const canonical = `https://peninsulainsider.com.au/explore/places/${placeSlug}/`;
-const hero = await resolveHero('place', placeSlug, place.data);
+// Keep social/search imagery on the same credited source as the visible hero.
+// These CMS slots contain published uploads without image metadata.
+const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
+  ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham', 'fingal'].includes(placeSlug) ? { requireOverrideMetadata: true } : {});
 const ogImage = hero.src || `/images/sourced/place-${placeSlug}-01.webp`;
 
 // --- SEO: Per-town title overrides and meta descriptions ---
@@ -291,13 +294,13 @@ const townFaqs: Record<string, Array<{q: string; a: string}>> = {
   ],
   'shoreham': [
     { q: 'What is Shoreham known for?', a: 'Shoreham is the Peninsula\'s least-known beach - Honeysuckle Beach is a quiet, pine-backed foreshore on Western Port with rock platforms at low tide, a handful of studios and galleries nearby, and almost no commercial development. Locals use it when the Southern Peninsula beaches start to feel crowded.' },
-    { q: 'Is Shoreham good for families?', a: 'Yes - the beach is protected, shallow, and family-scaled, with rock platform exploration at low tide. The walking track south toward Point Leo suits older children. The absence of crowds is the main appeal over more-visited Peninsula beaches.' },
+    { q: 'Is Shoreham good for families?', a: 'Shoreham has sheltered sand and tidal flats that can suit a family beach walk or rockpool visit at low tide. There is no surf lifesaving patrol, so check conditions and supervise children closely around the water and rock platforms.' },
     { q: 'How do I get to Shoreham from Melbourne?', a: 'About 70 minutes via the Mornington Peninsula Freeway to Mornington, then south through Red Hill. Shoreham is on the eastern (Western Port) side of the ridge. Keep heading south past Red Hill - the roads narrow quickly and that\'s a sign you\'re close.' },
   ],
   'hastings': [
-    { q: 'What is Hastings known for on the Mornington Peninsula?', a: 'Hastings is the Peninsula\'s working port town - home to a fishermen\'s co-op, offshore mussel farms that supply much of Melbourne\'s restaurant trade, and the Stony Point ferry terminal for connections to French Island and Phillip Island. It is genuinely unvarnished, which is exactly its value.' },
-    { q: 'Can you get to Phillip Island from Hastings?', a: 'Yes - the Western Port ferry runs from Stony Point (5 minutes from Hastings town centre) to Cowes on Phillip Island and to French Island. It is the scenic, uncrowded alternative to the Bass Highway bridge. Day trips combining Hastings and Phillip Island are feasible from Melbourne.' },
-    { q: 'Is Hastings worth visiting on the Mornington Peninsula?', a: 'For fresh seafood, yes - the fishermen\'s co-op is one of the best places to buy fish and shellfish on the Peninsula, and the mussel farms offshore produce some of Australia\'s best. Otherwise Hastings is a practical stop on the way south rather than a destination in its own right.' },
+    { q: 'What is Hastings known for on the Mornington Peninsula?', a: 'Hastings is a working Western Port town with a public pier, waterfront reserve and commercial harbour. The ferry to French Island and Phillip Island uses Stony Point in Crib Point, not Hastings Pier.' },
+    { q: 'Can you get to Phillip Island from Hastings?', a: 'Yes, with a separate trip to the Western Port Ferries terminal at Stony Point in Crib Point. Check the operator\'s current timetable and allow time to reach the terminal; the ferry does not board at Hastings Pier.' },
+    { q: 'Is Hastings worth visiting on the Mornington Peninsula?', a: 'Hastings is useful for a Western Port foreshore and pier stop. Peninsula Fresh Seafood lists a weather-dependent Friday truck on the foreshore, so check current trading before travelling specifically for seafood.' },
   ],
 };
 const currentFaqs = townFaqs[placeSlug];

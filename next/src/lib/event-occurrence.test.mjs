@@ -42,6 +42,7 @@ import {
   recordDisposition,
   resolveOccurrence,
   schemaEventStatus,
+  staticEventSchemaStatus,
   wallClockToInstant,
   zonedInstant,
 } from './event-occurrence.mjs';
@@ -184,6 +185,13 @@ test('cancellation: withdrawn and unbookable, and the structured data says so fo
   // A plain finished event emits no status at all, which is what keeps
   // lint-seo-architecture.mjs's stale-event-scheduled assertion green.
   assert.equal(schemaEventStatus('scheduled', { past: true }), null);
+});
+
+test('static detail schema never ages into a false scheduled status', () => {
+  assert.equal(staticEventSchemaStatus('scheduled'), null);
+  assert.equal(staticEventSchemaStatus('cancelled'), 'https://schema.org/EventCancelled');
+  assert.equal(staticEventSchemaStatus('postponed'), 'https://schema.org/EventPostponed');
+  assert.equal(staticEventSchemaStatus('rescheduled'), 'https://schema.org/EventRescheduled');
 });
 
 test('cancellation and postponement are different answers, not one flag', () => {

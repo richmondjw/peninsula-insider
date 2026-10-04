@@ -74,10 +74,11 @@ const relatedSummary = new Map((place.data.relatedPlaceSummaries ?? []).map((ent
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
-// Main Ridge and Merricks North have CMS covers without published attribution.
-// Require metadata before either can replace the licensed content image.
+// These place CMS covers lack published attribution. Keep the credited content
+// image unless an override provides its own metadata.
+const requiresHeroMetadata = ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham', 'fingal'].includes(placeSlug);
 const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
-  ['main-ridge', 'merricks-north'].includes(placeSlug) ? { requireOverrideMetadata: true } : {});
+  requiresHeroMetadata ? { requireOverrideMetadata: true } : {});
 const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);
 const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(place.data.heroImage?.sourceUrl)) ? place.data.heroImage.sourceUrl : undefined;
 const heroLicenceUrl = !hero.override ? place.data.heroImage?.licenseUrl : undefined;
@@ -211,12 +212,14 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      1. FULL-BLEED CINEMATIC HERO
      ═══════════════════════════════════════════════════════════════════════ -->
-<section class:list={['pdv2-hero', { 'pdv2-hero--editorial': editorialHero }]}
-  {...editableImage({
-    entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
-    label: `${place.data.name} hero`, purpose: 'hero',
-  })}>
-  <img class="pdv2-hero__image" src={hero.src} srcset={editorialHero && !hero.override ? place.data.heroImage?.responsive?.srcset : undefined} sizes={editorialHero && !hero.override ? place.data.heroImage?.responsive?.sizes : undefined} width={editorialHero && !hero.override ? 1920 : undefined} height={editorialHero && !hero.override ? 1280 : undefined} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" />
+<section class:list={['pdv2-hero', { 'pdv2-hero--editorial': editorialHero }]}>
+  <img class="pdv2-hero__image" src={hero.src} srcset={editorialHero && !hero.override ? place.data.heroImage?.responsive?.srcset : undefined} sizes={editorialHero && !hero.override ? place.data.heroImage?.responsive?.sizes : undefined} width={editorialHero && !hero.override ? 1920 : undefined} height={editorialHero && !hero.override ? 1280 : undefined} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async"
+    {...editableImage({
+      entityType: 'place', entitySlug: placeSlug, fieldPath: 'heroImage',
+      label: `${place.data.name} hero`, purpose: 'hero',
+    })}
+    data-pi-requires-image-metadata={requiresHeroMetadata ? 'true' : undefined}
+    data-pi-no-hydrate={requiresHeroMetadata ? 'true' : undefined} />
   <div class="pdv2-hero__scrim"></div>
   <div class="pdv2-hero__inner container">
     {/* ONE eyebrow (2026-07-24, per James - the old zone · kind line doubled
@@ -236,7 +239,7 @@ const factual = place.data.factualLede ?? '';
     <h1 class="pdv2-hero__title"
       {...editableText({ entityType: 'place', entitySlug: placeSlug, fieldPath: 'name', label: `${place.data.name} - name` })}
     >{place.data.name}</h1>
-    {editorialHero && place.data.heroDeck ? (
+    {place.data.heroDeck && (editorialHero || !hero.override) ? (
       <p class="pdv2-hero__alt">{place.data.heroDeck}</p>
     ) : !hero.override && !place.data.heroImage?.decorative && place.data.heroImage?.alt && (
       <p class="pdv2-hero__alt">{place.data.heroImage.alt}</p>

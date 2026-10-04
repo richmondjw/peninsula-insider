@@ -1,0 +1,165 @@
+{
+  "schemaVersion": "1.0",
+  "urls": [
+    "https://peninsulainsider.com.au/explore/places/dromana/",
+    "https://peninsulainsider.com.au/explore/places/red-hill-south/",
+    "https://peninsulainsider.com.au/explore/places/shoreham/"
+  ],
+  "linkedUrls": [
+    "https://peninsulainsider.com.au/wine/ocean-eight/",
+    "https://peninsulainsider.com.au/wine/paringa-estate/",
+    "https://peninsulainsider.com.au/journal/area-guide-main-ridge/",
+    "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/"
+  ],
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "8e8fef4bf1860788cf62078980bd87215ecce215",
+  "baseDeploymentRun": "37173314691",
+  "status": "live-bounded-accepted",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Choose a truthful town, beach or wine-country plan and reach the right local operator or conditions source before travelling.",
+  "baseline": {
+    "source": "Two independent read-only reviewers inspected current public at 320/390/1440 plus content and primary operator sources. No full 23-criterion score was possible.",
+    "independentAssessedSubset": {
+      "criteria": [
+        "VT2",
+        "FN1",
+        "ET3",
+        "VS1",
+        "VS2",
+        "VS3",
+        "MI1"
+      ],
+      "possibleWeightedPoints": 31,
+      "dromana": {
+        "ratings": {
+          "VT2": 2,
+          "FN1": 3,
+          "ET3": 1,
+          "VS1": 0,
+          "VS2": 3,
+          "VS3": 3,
+          "MI1": 3
+        },
+        "weightedPoints": 16
+      },
+      "redHillSouth": {
+        "ratings": {
+          "VT2": 2,
+          "FN1": 3,
+          "ET3": 1,
+          "VS1": 0,
+          "VS2": 3,
+          "VS3": 3,
+          "MI1": 3
+        },
+        "weightedPoints": 16
+      },
+      "shoreham": {
+        "ratings": {
+          "VT2": 2,
+          "FN1": 3,
+          "ET3": 1,
+          "VS1": 0,
+          "VS2": 2,
+          "VS3": 3,
+          "MI1": 3
+        },
+        "weightedPoints": 15
+      }
+    },
+    "hardGates": "All three visible CMS heroes had generic place-name alt, no visible credit and no item-level rights receipt; Shoreham CMS cover was only 540x312 on desktop. Dromana intro put first Crittenden vines in the 1970s and invented a fifteen-minute ferry; Red Hill South called Foxeys, Quealy and Lindenderry local despite addresses in Red Hill/Balnarring; Shoreham claimed a low-tide swimming pool and a Two Bays Trail connection, and omitted the lack of surf lifesaving. Ocean Eight venue asserted inconsistent hours, walk-ins, dog/BYO policy and a Verve Pinot Noir, while its contact page was labelled a reservation flow. Asset 159902/159905 file names say Ocean Eight but embedded title/city say Fires Creek Botanical Winery, Central Coast NSW; exact subject cannot be certified."
+  },
+  "hypothesis": "Replacing the three uncredited CMS covers with rights-recorded, correctly located images and correcting travel/locality/access claims will restore visual trust and reduce wrong-place and wasted-trip outcomes.",
+  "boundedChange": "Use Visit Victoria asset 143775 (Dromana Pier), 143152 (Paringa Estate, Red Hill South) and 159891 (Ocean Eight, Shoreham) as credited place covers; guard their CMS hero slots and OG resolver against metadata-free overrides. Correct the three place guides, move Paringa to its published locality and remove an unverified map pin. Replace Ocean Eight disputed 159902/159905 images with region-consistent 159894 and retained gallery, correct its product/access/contact advice, and withdraw those two disputed files from current placements and the image map. Remove 159902 from the regional gallery, fix Paringa caption, and replace the linked Main Ridge article hero with a credited illustrative nearby photo while correcting its direct superlative/locality errors. Preserve original media library and unrelated pages. Replace Paringa Estate unreviewed sourced hero (including OG/schema/save card) with reviewed Visit Victoria asset 143157, correct all seven captions to Red Hill South, direct bookings to its operator-linked SevenRooms page and remove unsupported dog policy. Record reviewed Dromana asset 143775 in the image map.",
+  "metric": "Full production build and Visit Victoria licence gate pass; generated town HTML/og:image uses exact credited local image with descriptive alt, no uncredited hero background or post-hydration swap; no false ferry/Quealy/Two Bays/Verve claims; Ocean Eight contact link is labelled as contact and current hours are not asserted. Independent local and exact public 320/390/1440 visual/factual review with no overflow or broken media. Full /100 score remains null until all criteria and hard gates are evidenced. Paringa visible hero, OG, schema and save-card images resolve to 143157, with Red Hill South captions and no unsupported dog promise.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert this bounded set19 commit if primary operator/media evidence contradicts a replacement, the new image harms task completion, or CI/live rendering regresses; retain source and negative provenance receipts.",
+  "sources": [
+    {
+      "url": "https://www.crittendenwines.com.au/pages/vineyard",
+      "supports": "Crittenden dates Dromana planting to 1982."
+    },
+    {
+      "url": "https://www.searoad.com.au/ferry/faqs",
+      "supports": "Ferry is Sorrento to Queenscliff, approximately 40-45 minutes; no Dromana ferry."
+    },
+    {
+      "url": "https://paringaestate.com.au/",
+      "supports": "Paringa lists 44 Paringa Road, Red Hill South."
+    },
+    {
+      "url": "https://www.theepicurean.com.au/shed-restaurant-reservations",
+      "supports": "Epicurean Red Hill lists a Red Hill South address."
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/about/opening-hours/",
+      "supports": "Foxeys is in Red Hill."
+    },
+    {
+      "url": "https://quealy.com.au/pages/cellar-door",
+      "supports": "Quealy is in Balnarring."
+    },
+    {
+      "url": "https://lancemore.com.au/about-us/",
+      "supports": "Lindenderry is in Red Hill."
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Places-To-See/Beaches-Coastline/View/5b42f83caf2d017d4be7291c/Shoreham-Beach",
+      "supports": "Tidal flats and no surf lifesaving patrol at Shoreham Beach."
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/walking",
+      "supports": "Two Bays trail follows Dromana to Cape Schanck, not Shoreham."
+    },
+    {
+      "url": "https://oceaneight.com.au/pages/contact",
+      "supports": "Ocean Eight address/phone and contact path in Shoreham."
+    },
+    {
+      "url": "https://oceaneight.com.au/collections/wines",
+      "supports": "Verve Chardonnay and Aylward Reserve Pinot Noir range."
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Cloudy_Dromana_beach_pier_(Unsplash).jpg",
+      "supports": "Prior Dromana fallback source matched local WebP at pixel correlation 0.9989, with CC0 and photographer Arnaud Mesureur; set19 upgrades to an exact-local licensed Visit Victoria sunset."
+    },
+    {
+      "url": "ops/records/visit-victoria/download-2026-09-28/catalogue.json",
+      "supports": "143775 exact Dromana source and 159902/159905 conflicting embedded NSW metadata; local source record."
+    },
+    {
+      "url": "https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant",
+      "supports": "Operator-linked Paringa cellar door and restaurant reservation endpoint."
+    }
+  ],
+  "validation": {
+    "licenceGate": "PASS: npm run lint:visit-victoria, 761 licensed uses, 895 catalogued Works.",
+    "productionBuild": "PASS: TZ=UTC npm run build:search, full project gates and Pagefind, 727 indexed pages. Initial attempt halted on unrecorded Paringa booking URL; exact SevenRooms URL probed HTTP 200 and recorded, link-health gate and clean rerun passed.",
+    "localBrowser": "PASS: independent reviewer checked Dromana, Red Hill South, Shoreham, Ocean Eight, Paringa, Main Ridge guide and Red Hill region at 320/390/1440 with HTTP 200, image loads, no horizontal overflow or page errors. Final Paringa/Ocean Eight/Dromana check repeated after clean build.",
+    "independentReview": "GO for bounded set19: exact Paringa OG/Twitter/schema/Pagefind/save-card and visible stage use licensed vv-143157 with seven Red Hill South captions; Dromana hero/OG/schema vv-143775 with Peter Tarasiuk credit; Ocean Eight vv-159894 and contact CTA. Disputed vv-159902/159905 have zero active placements. Full 23-criterion /100 remains null.",
+    "liveAcceptance": "PASS: PR #562 merge ea1c32ea3c000f14a346b5c37c8459cd33cf588f, then superseding What's On merge; protected run 37176929345 completed success. Public release-manifest sourceSha d3f580f9717cab0d8464516bc8103b100e5fd391 includes set19. Independent cache-busted browser checks on all seven routes at 320/390/1440 returned 200, no overflow/page errors, credited heroes/OG, Paringa schema/save and seven Red Hill South captions, Ocean Eight contact and no disputed 159902/159905."
+  },
+  "hardGatesOpen": [
+    "Full 23-criterion independent score for every touched page",
+    "Direct assistive-technology journeys",
+    "Field performance",
+    "Rights-clear Shoreham beach-specific cover before 99 visual acceptance",
+    "Broader cross-page image rights and locality audit"
+  ],
+  "negativeFindings": [
+    "The Shoreham Ocean Eight cover is a truthful local scene but is vineyard-led rather than a view of the town beach; visual ideal still open.",
+    "Two Ocean Eight assets carry conflicting embedded NSW metadata despite catalogue status available; they are removed from active mapped placements pending source clarification.",
+    "Other catalogue regionTagConflict rows exist and require separate review; the set19 decision applies only to 159902/159905.",
+    "Impeccable detect found two pre-existing 3px side accents in the shared place template; outside this bounded content/media correction.",
+    "Two independent reviewers covered a 31-point subset. T1 full final scoring requires three reviewers and all 23 criteria.",
+    "Dromana related Dromana Beach card in the generated place page still uses a separate uncredited CMS experience image. Cross-page image rights remains an open 99/100 gate; it is outside the three place hero replacements.",
+    "Paringa mobile lead photograph starts below roughly 900px because the shared intro and cookie banner are tall; independent visual review found no new blocker, but composition remains below world-class acceptance.",
+    "Impeccable detector found four pre-existing side-tab accent border warnings across shared place/venue templates; no new warning introduced by this set.",
+    "The Red Hill wine-region hero remains a pre-existing broad Arthurs Seat Eagle panorama; not changed in set19 and needs full-page visual regrade."
+  ],
+  "nextAction": "Continue rights-clear Shoreham beach and linked-card media, direct AT/field performance and independent full 23-criterion review; retain score null until all evidence and hard gates clear."
+}

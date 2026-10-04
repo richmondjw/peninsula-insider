@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-03T20:41:56.448Z",
+  "updatedAt": "2026-10-04T06:28:55.571Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2921,6 +2921,14 @@
       "pageTitle": "Sound Circle – Full Moon Sound Journey at Peninsula Hot Springs Tickets, Friday, December 5, 2025 • 10 AM - 3 PM | Eventbrite"
     },
     {
+      "url": "https://www.eventbrite.com.au/e/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo-tickets-1999248329572",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "St Andrews Beach Brewery Presents Dave Thornton &amp; Lizzy Hoo Tickets, Sunday, October 18 • 5:30 PM - 8 PM | Eventbrite",
+      "probedOn": "2026-10-04",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.eventbrite.com.au/e/the-wellness-experience-celebrating-womens-health-week-tickets-1998522990062",
       "verdict": "ok",
       "httpCode": "200",
@@ -4875,6 +4883,14 @@
       "pageTitle": "SevenRooms",
       "effectiveUrl": "https://www.sevenrooms.com/explore/jackalope/reservations/create/search?venues=rarehare%2Cjackalope",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Paringa Estate Winery &amp; Restaurant Reservations",
+      "probedOn": "2026-10-04",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

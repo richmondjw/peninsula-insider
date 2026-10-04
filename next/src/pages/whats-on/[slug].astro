@@ -125,7 +125,12 @@ const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-
 const priceLabel = eventPriceLabel(event.data);
 const verifiedPrice = currentVerifiedPrice(event.data, now);
 const priceKnown = eventHasKnownPrice(event.data);
-const timeLabel = eventTimeLabel(event.data);
+// Archived records can retain old scheduling fields for the audit trail. When
+// the record says its next date is unverified, never present that range as a
+// current weekly promise to a visitor arriving at its direct URL.
+const unconfirmedArchivedSchedule = event.data.status === 'archived'
+  && /unverified|no future date confirmed/i.test(String(event.data.verificationStatus ?? ''));
+const timeLabel = unconfirmedArchivedSchedule ? '' : eventTimeLabel(event.data);
 const calendarUrl = eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
 const dateBasis = event.data.dateBasis ?? 'fixed';
@@ -135,7 +140,7 @@ const flexibleRecurrenceLabel: Record<string, string> = {
   'on-request': 'By arrangement',
   'opening-hours': 'Visit during published opening hours',
 };
-const recurrenceLabel = flexibleDate ? flexibleRecurrenceLabel[dateBasis] : eventRecurrenceLabel(event.data);
+const recurrenceLabel = unconfirmedArchivedSchedule ? 'Historical listing' : flexibleDate ? flexibleRecurrenceLabel[dateBasis] : eventRecurrenceLabel(event.data);
 const flexibleWhenLabel: Record<string, string> = {
   'operator-calendar': 'Choose a date on the organiser calendar',
   'on-request': 'Arrange a date with the organiser',
@@ -145,7 +150,7 @@ const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
 const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
-const whenLabel = flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);
+const whenLabel = unconfirmedArchivedSchedule ? 'No future date confirmed' : flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);
 
 // PI-008. isCurrentEvent is day-granular, so a session that finished at 2pm
 // still offered a booking link at 6pm on the same day. Resolve the run this
@@ -162,7 +167,7 @@ const occurrenceOver = event.data.status === 'archived' || displayedRun?.phase =
 // offer them a booking and an add-to-calendar button. Seventy event pages were
 // doing exactly that: the notice and the actions block were computed from
 // different things and nobody had ever put them side by side.
-const bookingClosed = bookingWithdrawn || occurrenceOver || ((USE_OCCURRENCE_MODEL || explicitSeries) && !isCurrent);
+const bookingClosed = bookingWithdrawn || occurrenceOver || unconfirmedArchivedSchedule || ((USE_OCCURRENCE_MODEL || explicitSeries) && !isCurrent);
 
 // Rich Event JSON-LD: includes geo coordinates, organiser, attendance mode,
 // offers with currency, and image. Falls through gracefully when fields are
@@ -290,7 +295,12 @@ export const prerender = true;
         )}
         {!isCurrent && !cancelled && (
           <aside class="event-detail__ended" role="status">
-            <strong>This {contentKind} has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.
+            {unconfirmedArchivedSchedule ? (
+              <><strong>This listing is archived until a future date is confirmed.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+            ) : (
+              <><strong>This {contentKind} has ended.</strong> For current Peninsula plans, see <a href="/whats-on/">What’s On</a>.</>
+            )}
+
           </aside>
         )}
       </div>
@@ -363,7 +373,7 @@ export const prerender = true;
                     </a>
                   </li>
                 )}
-                {directionsHref && !cancelled && (
+                {directionsHref && !cancelled && !unconfirmedArchivedSchedule && (
                   <li>
                     <a href={directionsHref} rel="nofollow noreferrer" target="_blank">
                       Get directions &rarr;
@@ -389,7 +399,7 @@ export const prerender = true;
               )}
               <div>
                 <dt>Recurrence</dt>
-                <dd>{recurrenceLabel}{event.data.recurrenceNote ? ` · ${event.data.recurrenceNote}` : ''}</dd>
+                <dd>{recurrenceLabel}{!unconfirmedArchivedSchedule && event.data.recurrenceNote ? ` · ${event.data.recurrenceNote}` : ''}</dd>
               </div>
               <div>
                 <dt>Price</dt>
@@ -437,7 +447,9 @@ export const prerender = true;
                     ? 'Booking and calendar links are withdrawn until a new date is announced.'
                     : soldOut
                       ? 'Booking links are withdrawn while this event is sold out.'
-                      : expiredRecord
+                      : unconfirmedArchivedSchedule
+                        ? 'Booking and calendar links are unavailable while a future date is unconfirmed.'
+                        : expiredRecord
                         ? 'Booking and calendar links are withdrawn; this listing has expired.'
                         : occurrenceOver
                           ? 'Booking and calendar links are withdrawn; this session has finished.'

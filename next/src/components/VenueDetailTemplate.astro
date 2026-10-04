@@ -138,9 +138,14 @@ const heroLabel = `${data.name} · ${placeLabel(data.place)}`;
 // hero via the inline editor, it wins over the content-JSON default.
 const venueSlug = venue.id ?? data.slug;
 const isPortPhillipEstate = section === 'wine' && venueSlug === 'port-phillip-estate';
+// Ocean Eight's public contact page is an enquiry, not a reservation flow.
+const isOceanEightContact = section === 'wine' && venueSlug === 'ocean-eight';
+// Only a metadata-complete CMS image may replace a reviewed local venue photograph.
+const preserveReviewedVenueHero = section === 'wine' && ['ocean-eight', 'paringa-estate'].includes(venueSlug);
 // Stay pages keep the reviewed source image and its matching disclosure together.
 const hero = await resolveHero('venue', venueSlug, data, 'heroImage', {
   ignoreOverride: section === 'stay' || section === 'eat',
+  requireOverrideMetadata: preserveReviewedVenueHero,
 });
 // `hero.alt || heroLabel` was the old line, and it is exactly the bug this
 // replaces: a decorative image's deliberately empty alt fell through the `||`
@@ -330,7 +335,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
             target="_blank"
             rel="noopener noreferrer"
             class="pi-btn pi-btn--solid pi-btn--lg"
-            data-pi-book="booking"
+            data-pi-book={isOceanEightContact ? undefined : 'booking'}
             data-pi-entity-type={data.type}
             data-pi-entity-slug={venueSlug}
             data-pi-surface="venue-booking-bar"
@@ -339,7 +344,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
             {data.type === 'hotel' || data.type === 'villa' || data.type === 'suite' || data.type === 'accommodation' || data.type === 'cottage' || data.type === 'lodge' || data.type === 'glamping' || data.type === 'farm-stay'
               ? 'Check availability'
               : data.type === 'winery'
-                ? (isPortPhillipEstate ? 'Check suite availability' : 'Book a tasting')
+                ? (isPortPhillipEstate ? 'Check suite availability' : isOceanEightContact ? 'Contact Ocean Eight' : 'Book a tasting')
                 : data.type === 'spa'
                   ? 'Book a treatment'
                   : 'Reserve a table'}
@@ -380,7 +385,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
     <PlayRibbon kind="venue" slug={venueSlug} />
 
     {photoSet.stage ? (
-      <div {...(section === 'eat' ? {} : editableImage({ entityType: 'venue', entitySlug: venueSlug, fieldPath: 'heroImage', label: `${data.name} hero`, purpose: 'hero' }))}>
+      <div data-pi-no-hydrate={preserveReviewedVenueHero ? 'true' : undefined} {...(section === 'eat' ? {} : editableImage({ entityType: 'venue', entitySlug: venueSlug, fieldPath: 'heroImage', label: `${data.name} hero`, purpose: 'hero' }))}>
         <PhotoStage photos={photoSet.photos} subject={data.name} id="photos" />
       </div>
     ) : eatHeroApproved ? (
@@ -720,12 +725,12 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
           <a
             class="facts__cta pi-btn pi-btn--ghost pi-btn--block"
             href={data.bookingUrl}
-            data-pi-book="booking"
+            data-pi-book={isOceanEightContact ? undefined : 'booking'}
             data-pi-entity-type={data.type}
             data-pi-entity-slug={venueSlug}
             data-pi-surface="venue-facts-rail"
             data-pi-provider={data.bookingProvider}
-          >{data.type === 'suite' || data.type === 'accommodation' ? 'Check availability' : isPortPhillipEstate ? 'Check suite availability' : 'Book now'}</a>
+          >{data.type === 'suite' || data.type === 'accommodation' ? 'Check availability' : isPortPhillipEstate ? 'Check suite availability' : isOceanEightContact ? 'Contact Ocean Eight' : 'Book now'}</a>
         )}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
       </aside>

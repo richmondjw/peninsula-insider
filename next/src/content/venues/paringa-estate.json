@@ -3,17 +3,13 @@
   "name": "Paringa Estate",
   "type": "winery",
   "subregion": "red-hill-south",
-  "place": "red-hill",
+  "place": "red-hill-south",
   "zone": "red-hill",
-  "coordinates": {
-    "lat": -38.3863,
-    "lng": 145.0528
-  },
   "address": "44 Paringa Rd, Red Hill South VIC 3937",
   "phone": "+61 3 5989 2669",
   "website": "https://paringaestate.com.au",
-  "bookingUrl": "https://paringaestate.com.au",
-  "bookingProvider": "direct",
+  "bookingUrl": "https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant",
+  "bookingProvider": "sevenrooms",
   "priceBand": "$$$",
   "authority": {
     "hats": 1,
@@ -42,7 +38,7 @@
     ],
     "tastingFee": null,
     "bookingRequired": false,
-    "tastingNote": "Open daily 11am–5pm; bookings recommended. Dogs permitted on a lead in outdoor areas."
+    "tastingNote": "Open daily 11am–5pm; cellar door bookings recommended. Confirm current arrangements with the estate."
   },
   "wines": {
     "winemaker": "Jamie McCall",
@@ -84,7 +80,7 @@
     },
     {
       "q": "Are dogs allowed at Paringa Estate?",
-      "a": "Confirmed yes, on a lead in outdoor areas according to third-party visitor guides. The official site does not address this directly - verify before visiting."
+      "a": "The estate does not currently publish a dog policy on its official visitor pages. Contact the team before bringing a dog."
     }
   ],
   "sameAs": {
@@ -114,10 +110,25 @@
     ]
   },
   "heroImage": {
-    "src": "/images/sourced/venue-paringa-estate-01.webp",
-    "alt": "Paringa Estate sign and cellar door entrance at Red Hill South, Mornington Peninsula",
-    "credit": "Paringa Estate",
-    "license": "venue-media-kit"
+    "src": "/images/visit-victoria/vv-143157-paringa-estate-mornington-peninsula.webp",
+    "alt": "A waiter carrying wine through the Paringa Estate dining room, with tall windows over autumn-gold vineyard rows",
+    "credit": "Robert Blackburn, courtesy of Visit Victoria",
+    "license": "visit-victoria",
+    "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
+    "depicts": "Paringa Estate, Mornington Peninsula",
+    "depictionStatus": "actual",
+    "creator": "Robert Blackburn",
+    "sourceUrl": "Victoria Content Hub asset 143157, downloaded 2026-09-28",
+    "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"This image can only be used for the positive promotion of tourism in Victoria\"",
+    "permittedUses": [
+      "website",
+      "social"
+    ],
+    "rightsHolder": "Visit Victoria",
+    "rightsEstablishedOn": "2026-09-29",
+    "rightsStatus": "recorded",
+    "decorative": false,
+    "provenanceReview": "verified"
   },
   "gallery": [
     {
@@ -125,7 +136,7 @@
       "alt": "A staff member preparing small dishes of butter beside trays of bread rolls at a restaurant service counter",
       "credit": "Courtesy of Visit Victoria",
       "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+      "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
       "depicts": "Paringa Estate, Mornington Peninsula",
       "depictionStatus": "actual",
       "sourceUrl": "Victoria Content Hub asset 143149, downloaded 2026-09-28",
@@ -145,7 +156,7 @@
       "alt": "Diners and staff in the Paringa Estate restaurant, tall windows looking out over rows of vines and forested hills",
       "credit": "Courtesy of Visit Victoria",
       "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+      "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
       "depicts": "Paringa Estate, Mornington Peninsula",
       "depictionStatus": "actual",
       "sourceUrl": "Victoria Content Hub asset 143155, downloaded 2026-09-28",
@@ -165,7 +176,7 @@
       "alt": "A view through a restaurant window over rows of vines and wooded hills at Paringa Estate, a wine glass blurred in front",
       "credit": "Robert Blackburn, courtesy of Visit Victoria",
       "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+      "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
       "depicts": "Paringa Estate, Mornington Peninsula",
       "depictionStatus": "actual",
       "creator": "Robert Blackburn",
@@ -182,32 +193,11 @@
       "provenanceReview": "verified"
     },
     {
-      "src": "/images/visit-victoria/vv-143157-paringa-estate-mornington-peninsula.webp",
-      "alt": "A waiter carrying wine through the Paringa Estate dining room, with tall windows over autumn-gold vineyard rows",
-      "credit": "Robert Blackburn, courtesy of Visit Victoria",
-      "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
-      "depicts": "Paringa Estate, Mornington Peninsula",
-      "depictionStatus": "actual",
-      "creator": "Robert Blackburn",
-      "sourceUrl": "Victoria Content Hub asset 143157, downloaded 2026-09-28",
-      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"This image can only be used for the positive promotion of tourism in Victoria\"",
-      "permittedUses": [
-        "website",
-        "social"
-      ],
-      "rightsHolder": "Visit Victoria",
-      "rightsEstablishedOn": "2026-09-29",
-      "rightsStatus": "recorded",
-      "decorative": false,
-      "provenanceReview": "verified"
-    },
-    {
       "src": "/images/visit-victoria/vv-143068-paringa-estate-mornington-peninsula.webp",
       "alt": "A winemaker plunging the cap of red grapes in open-topped oak fermenters in a corrugated-iron winery shed",
       "credit": "Courtesy of Visit Victoria",
       "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+      "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
       "depicts": "Paringa Estate, Mornington Peninsula",
       "depictionStatus": "actual",
       "sourceUrl": "Victoria Content Hub asset 143068, downloaded 2026-09-28",
@@ -227,7 +217,7 @@
       "alt": "A staff member setting out small dishes of butter beside trays of bread rolls along a timber service counter",
       "credit": "Courtesy of Visit Victoria",
       "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+      "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
       "depicts": "Paringa Estate, Mornington Peninsula",
       "depictionStatus": "actual",
       "sourceUrl": "Victoria Content Hub asset 143069, downloaded 2026-09-28",
@@ -247,7 +237,7 @@
       "alt": "A glass of red wine etched with the Paringa Estate name on a white tablecloth, vineyard slopes blurred behind",
       "credit": "Robert Blackburn, courtesy of Visit Victoria",
       "license": "visit-victoria",
-      "caption": "Paringa Estate, Red Hill, Mornington Peninsula.",
+      "caption": "Paringa Estate, Red Hill South, Mornington Peninsula.",
       "depicts": "Paringa Estate, Mornington Peninsula",
       "depictionStatus": "actual",
       "creator": "Robert Blackburn",
