@@ -74,9 +74,9 @@ const relatedSummary = new Map((place.data.relatedPlaceSummaries ?? []).map((ent
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
-// Main Ridge and Merricks North have CMS covers without published attribution.
-// Require metadata before either can replace the licensed content image.
-const requiresHeroMetadata = ['main-ridge', 'merricks-north'].includes(placeSlug);
+// These place CMS covers lack published attribution. Keep the credited content
+// image unless an override provides its own metadata.
+const requiresHeroMetadata = ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham'].includes(placeSlug);
 const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
   requiresHeroMetadata ? { requireOverrideMetadata: true } : {});
 const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);

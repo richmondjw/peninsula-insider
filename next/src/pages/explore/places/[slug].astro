@@ -147,9 +147,9 @@ const snapshotCards = [
 
 const canonical = `https://peninsulainsider.com.au/explore/places/${placeSlug}/`;
 // Keep social/search imagery on the same credited source as the visible hero.
-// These two CMS slots contain published uploads without image metadata.
+// These CMS slots contain published uploads without image metadata.
 const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
-  ['main-ridge', 'merricks-north'].includes(placeSlug) ? { requireOverrideMetadata: true } : {});
+  ['main-ridge', 'merricks-north', 'dromana', 'red-hill-south', 'shoreham'].includes(placeSlug) ? { requireOverrideMetadata: true } : {});
 const ogImage = hero.src || `/images/sourced/place-${placeSlug}-01.webp`;
 
 // --- SEO: Per-town title overrides and meta descriptions ---
