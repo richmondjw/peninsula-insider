@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/places/fingal/",
+  "tier": "T1",
+  "family": "place",
+  "assessedAt": "2026-10-04",
+  "baseRevision": "3648637463a4f2e1c3f98236a46db2fea88b68e7",
+  "status": "bounded-qa-go-pending-ci-and-live",
+  "score": null,
+  "owner": "Codex in James-approved Peninsula Insider page-quality programme",
+  "decision": "adapt",
+  "primaryVisitorTask": "Plan a Fingal thermal visit with accurate booking guidance and a truthful, rights-clear place image.",
+  "baseline": {
+    "public": "Current live Fingal content asserts that hot springs book out weeks ahead in summer and instructs visitors to reserve at least three weeks ahead for weekends. The current published hero is an uncredited CMS upload that labels the image only as Fingal.",
+    "independentSubset": "Prior independent place reviewer scored Fingal 16/31 across VT2, FN1, ET3, VS1, VS2, VS3, MI1; this is neither a complete 23-criterion grade nor a 100-point score.",
+    "hardGates": "The fixed three-week booking claim lacks operator support. The CMS hero lacks item-level attribution and rights evidence. Full 23-criterion visual, accessibility, field performance, mobile and factual checks remain open."
+  },
+  "hypothesis": "Replacing the arbitrary lead time with the operator's current booking advice reduces false urgency and lets visitors plan around real availability.",
+  "boundedChange": "Correct only Fingal's worstTime and insiderNote fields. Retain the hero pending a separately reviewed locality-accurate, rights-clear, visually suitable replacement.",
+  "metric": "Built and public Fingal guide contains no three-week or weeks-ahead booking assertion, communicates the operator's ahead-of-time and same-day surcharge advice, and retains an honest null full score. Build, browser and exact live checks must pass.",
+  "evaluationDate": "2026-10-04",
+  "rollback": "Revert the two content-field edits if current operator guidance or a browser/live journey contradicts them.",
+  "sources": [
+    {
+      "url": "https://www.peninsulahotsprings.com/faqs",
+      "supports": "Operator says reservations are needed, especially weekends and peak holiday periods, and recommends booking in advance; no fixed three-week requirement."
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/bathe/bath-house/revitalise",
+      "supports": "Operator recommends advance booking and states same-day bathing bookings incur a 10 percent premium."
+    }
+  ],
+  "validation": {
+    "productionBuild": "TZ=UTC npm run build:search passed with exit code 0; 1009 pages built, safeguards and Pagefind passed.",
+    "independentBrowser": "Independent reviewer bounded GO at 320/390/1440: HTTP 200, corrected advice visible, old fixed lead absent, no horizontal overflow or JS errors. Reviewed against Peninsula Hot Springs official FAQ. Full 23-criterion score remains null.",
+    "ci": null,
+    "liveAcceptance": null,
+    "builtHtml": "Fingal built HTML contains the advance booking and same-day surcharge wording; no three-week or weeks-ahead wording."
+  },
+  "hardGatesOpen": [
+    "Fingal hero locality and item-level rights provenance, including the published CMS override",
+    "Full 23-criterion score from the required independent T1 graders",
+    "Direct assistive technology journey",
+    "Field performance"
+  ],
+  "negativeFindings": [
+    "An existing Visit Victoria Alba gallery asset is Fingal-local and licence-recorded, but promoting a venue photograph to the town hero and its crop have not been independently accepted.",
+    "No operator source found for a mandatory three-week booking lead.",
+    "The prior 16/31 subset cannot be normalized into a 100-point score.",
+    "Independent browser confirmed the live-shape CMS hero still has generic alt Fingal and no visible credit/provenance; this booking-only change does not resolve the hero gate."
+  ],
+  "nextAction": "Build and independently check the corrected Fingal guide, release through normal CI, verify exact live HTML and deployment manifest; separately resolve hero provenance and full grading."
+}
