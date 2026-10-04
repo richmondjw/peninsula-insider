@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     17 October 2026     Recurs monthly
+Event     Markets     17 October 2026     Recurs monthly
 
 # Boneo Community Market
 
@@ -51,7 +51,7 @@ Free
 
 Weather flexible
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boneo+Community+Market&dates=20261016T210000Z%2F20261017T020000Z&details=Peninsula%27s+longest-running+volunteer-run+community+market.+Third+Saturday%2C+year-round%2C+all+weather.+Make+it%2C+grow+it%2C+bake+it%3A+real+homemade+and+homegrown.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fboneo-community-market%2F&location=570+Boneo+Road+%28entry+via+Limestone+Road%29%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boneo+Community+Market&dates=20261016T210000Z%2F20261017T020000Z&details=Peninsula%27s+longest-running+volunteer-run+community+market.+Third+Saturday%2C+year-round%2C+all+weather.+Make+it%2C+grow+it%2C+bake+it%3A+real+homemade+and+homegrown.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fboneo-community-market%2F&location=Boneo+Recreation+Reserve%2C+570+Boneo+Road+%28entry+via+Limestone+Road%29%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

@@ -53,25 +53,25 @@ Browse by date and save what catches your eye.
 
 An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
 
-11am · Merricks · Arts · On during your dates · runs to Fri, 30 Apr 2027 · Check opening hours
+Experience · check available sessions · 11am · Merricks · Arts · On during your dates · runs to Fri, 30 Apr 2027 · Check opening hours
 
 - [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
 A retreat that takes wellness seriously without the wellness-industrial-complex theatrics.
 
-Red Hill · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Dates on request
+Experience · check available sessions · Red Hill · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Dates on request
 
 - [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
 A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
 
-Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
+Experience · check available sessions · Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the…
 
-Dromana · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
+Experience · check available sessions · Dromana · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -83,7 +83,7 @@ National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 
 
 A useful paid add-on if you're already booked in to bathe, not a reason to drive out on its own.
 
-7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
+Experience · check available sessions · 7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
 
@@ -163,13 +163,13 @@ Mornington · Live Music · Free
 
 A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
 
-Main Ridge · Food & Wine
+Experience · check available sessions · Main Ridge · Food & Wine
 
 - [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 The most hands-on spirits experience on the Peninsula, and the bottle you take home is the reason it's worth the…
 
-Dromana · Food & Wine
+Experience · check available sessions · Dromana · Food & Wine
 
 - [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 
@@ -189,7 +189,7 @@ The Peninsula's best-value Saturday evening. Free entry, happy hour drinks, and 
 
 An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
 
-11am · Merricks · Arts
+Experience · check available sessions · 11am · Merricks · Arts
 
 - [Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery](<https://peninsulainsider.com.au/whats-on/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo/>)
 

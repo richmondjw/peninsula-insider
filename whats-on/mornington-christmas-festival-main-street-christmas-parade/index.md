@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Community     20 December 2026     Annual
+Event     Community     20 December 2026     Annual
 
 # Mornington Christmas Festival & Main Street Christmas Parade
 
@@ -63,7 +63,7 @@ Weather flexible
 
 Start here
 
-[Visit organiser](<https://www.mornpen.vic.gov.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Christmas+Festival+%26+Main+Street+Christmas+Parade&dates=20261220T020000Z%2F20261220T080000Z&details=Annual+Mornington+Christmas+Parade+at+1pm+on+Main+Street+%28brass+band%2C+dancers%2C+elves%2C+Mr+%26+Mrs+Claus%29%2C+Santa+meet-and-greet+1%3A30+to+4pm+same+day%2C+Santa+on+Main+Street+4+to+7pm+across+21+to+23+December.+Free%2C+2026+dates+pattern-based+pending+council+confirmation.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-christmas-festival-main-street-christmas-parade%2F&location=Main+Street+%28Barkly+Street+to+Esplanade%29%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.mornpen.vic.gov.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Christmas+Festival+%26+Main+Street+Christmas+Parade&dates=20261220T020000Z%2F20261220T080000Z&details=Annual+Mornington+Christmas+Parade+at+1pm+on+Main+Street+%28brass+band%2C+dancers%2C+elves%2C+Mr+%26+Mrs+Claus%29%2C+Santa+meet-and-greet+1%3A30+to+4pm+same+day%2C+Santa+on+Main+Street+4+to+7pm+across+21+to+23+December.+Free%2C+2026+dates+pattern-based+pending+council+confirmation.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-christmas-festival-main-street-christmas-parade%2F&location=Main+Street+Mornington%2C+Main+Street+%28Barkly+Street+to+Esplanade%29%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Wellness     Choose a date on the organiser calendar     Sessions on the organiser calendar
+Experience     Wellness     Choose a date on the organiser calendar     Sessions on the organiser calendar
 
 # Peninsula Hot Springs Studio Yoga
 

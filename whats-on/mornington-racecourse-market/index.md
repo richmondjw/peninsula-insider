@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     11 October 2026     Recurs monthly
+Event     Markets     11 October 2026     Recurs monthly
 
 # Mornington Racecourse Market
 
@@ -65,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.craftmarkets.com.au/mornington>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Racecourse+Market&dates=20261010T220000Z%2F20261011T030000Z&details=Monthly+makers+market+at+Mornington+Racecourse%2C+with+handmade+and+Australian-designed+goods%2C+food+stalls+and+live+music.+Entry+is+free%3B+parking+is+paid.+Dogs+are+not+permitted.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-racecourse-market%2F&location=320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.craftmarkets.com.au/mornington>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Racecourse+Market&dates=20261010T220000Z%2F20261011T030000Z&details=Monthly+makers+market+at+Mornington+Racecourse%2C+with+handmade+and+Australian-designed+goods%2C+food+stalls+and+live+music.+Entry+is+free%3B+parking+is+paid.+Dogs+are+not+permitted.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-racecourse-market%2F&location=Mornington+Racecourse%2C+320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

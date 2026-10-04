@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     10 October 2026     Recurs monthly
+Event     Markets     10 October 2026     Recurs monthly
 
 # Heart of the Community Market (Rosebud)
 
@@ -47,7 +47,7 @@ Free
 
 Weather flexible
 
-[Visit organiser](<https://rosebudps.vic.edu.au/community/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Heart+of+the+Community+Market+%28Rosebud%29&dates=20261009T210000Z%2F20261010T020000Z&details=Rosebud+Primary+School%27s+community+market+on+the+foreshore%2C+on+the+second+Saturday+of+the+month.+Recent+market+notices+give+8am+to+1pm+at+996+Point+Nepean+Road.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fheart-of-the-community-market-rosebud%2F&location=996+Point+Nepean+Road%2C+Rosebud%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://rosebudps.vic.edu.au/community/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Heart+of+the+Community+Market+%28Rosebud%29&dates=20261009T210000Z%2F20261010T020000Z&details=Rosebud+Primary+School%27s+community+market+on+the+foreshore%2C+on+the+second+Saturday+of+the+month.+Recent+market+notices+give+8am+to+1pm+at+996+Point+Nepean+Road.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fheart-of-the-community-market-rosebud%2F&location=Rosebud+Foreshore+Reserve%2C+996+Point+Nepean+Road%2C+Rosebud%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

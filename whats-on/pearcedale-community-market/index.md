@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     17 October 2026     Recurs monthly
+Event     Markets     17 October 2026     Recurs monthly
 
 # Pearcedale Community Market
 
@@ -51,7 +51,7 @@ Free
 
 Weather flexible
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pearcedale+Community+Market&dates=20261016T210000Z%2F20261017T010000Z&details=Monthly+third-Saturday+community+market+under+the+eucalypts+at+Pearcedale%3A+fresh+bread%2C+honey%2C+jam%2C+craft%2C+plants%2C+coffee.+Dogs+on+lead+welcome.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpearcedale-community-market%2F&location=710+Baxter-Tooradin+Road%2C+Pearcedale%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pearcedale+Community+Market&dates=20261016T210000Z%2F20261017T010000Z&details=Monthly+third-Saturday+community+market+under+the+eucalypts+at+Pearcedale%3A+fresh+bread%2C+honey%2C+jam%2C+craft%2C+plants%2C+coffee.+Dogs+on+lead+welcome.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpearcedale-community-market%2F&location=Pearcedale+Community+Centre%2C+710+Baxter-Tooradin+Road%2C+Pearcedale%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

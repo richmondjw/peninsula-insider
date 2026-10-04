@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Arts     21 November – 22 November 2026     One-off date
+Event     Arts     21 November – 22 November 2026     One-off date
 
 # Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026
 
@@ -17,7 +17,7 @@ Hosted at
 
 Mornington Racecourse
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Racecourse%2C%20VIC>)
 
 At a glance
 

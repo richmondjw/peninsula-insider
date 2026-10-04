@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Community     18 October 2026     Annual
+Event     Community     18 October 2026     Annual
 
 # Main Street Mornington Festival 2026
 

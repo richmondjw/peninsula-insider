@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Festivals     21 November 2026     Annual
+Event     Festivals     21 November 2026     Annual
 
 # Peninsula VineHop Festival 2026
 
@@ -65,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Get tickets](<https://events.humanitix.com/peninsula-vinehop-festival-2026/tickets>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+VineHop+Festival+2026&dates=20261121T000000Z%2F20261121T080000Z&details=A+one-day+craft+drinks+festival+across+seven+Mornington+Peninsula+venues+on+Saturday+21+November+2026%2C+with+tastings%2C+food+and+live+music.+The+event+runs+from+11am+to+7pm+and+is+strictly+18%2B%2C+with+shuttle%2C+general+admission+and+private+bus+options.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-vinehop-festival-2026%2F&location=450+Nepean+Highway%2C+Mount+Martha+VIC+3934%2C+Mount+Martha%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Get tickets](<https://events.humanitix.com/peninsula-vinehop-festival-2026/tickets>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+VineHop+Festival+2026&dates=20261121T000000Z%2F20261121T080000Z&details=A+one-day+craft+drinks+festival+across+seven+Mornington+Peninsula+venues+on+Saturday+21+November+2026%2C+with+tastings%2C+food+and+live+music.+The+event+runs+from+11am+to+7pm+and+is+strictly+18%2B%2C+with+shuttle%2C+general+admission+and+private+bus+options.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-vinehop-festival-2026%2F&location=Festival+Hub+at+The+Briars+and+six+linked+venues%2C+450+Nepean+Highway%2C+Mount+Martha+VIC+3934%2C+Mount+Martha%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

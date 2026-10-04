@@ -25,23 +25,25 @@ The short list
 
 Swipe or scroll for all three picks
 
+- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and Sunday, 11am–4pm, for an all-weather art stop.
+
+Mornington Peninsula Regional Gallery   Exhibition
+
+- ### [Peninsula Hot Springs Yoga (Complimentary)](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-hot-springs-yoga-complimentary/>)
+
+Free yoga before a hot springs bathe is the move locals know about and tourists don't book.
+
+Peninsula Hot Springs   Wellness
+
 - ### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
 
 The most exclusive table at Polperro and the room you book when an occasion has to land. Worth the spend.
 
 Polperro Winery Restaurant   Food & wine
-
-- ### [Doggy Day Out on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/>)
-
-The Peninsula's best format for dog people. The digital trail structure keeps it interesting for the owners as much as the dogs.
-
-Multiple venues across Mornington Peninsula   Thursday to Sunday weekly
-
-- ### [Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
-
-A ticketed vegetable-led feast with matched Foxeys wines at a working vineyard. The value is genuinely silly.
-
-Foxeys Hangout / Morning Sun Vineyard   Food & wine
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 

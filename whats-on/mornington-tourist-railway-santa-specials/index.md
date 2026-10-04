@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Kids & Family     6 December 2026     Annual
+Event     Kids & Family     6 December 2026     Annual
 
 # Mornington Tourist Railway, Santa Specials
 
@@ -63,7 +63,7 @@ Weather flexible
 
 Start here
 
-[Get tickets](<https://morningtonrailway.org.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Tourist+Railway%2C+Santa+Specials&dates=20261205T230000Z%2F20261206T040000Z&details=Heritage+steam+train+rides+with+Santa+on+selected+December+Sundays.+Letters+to+the+North+Pole%2C+carols+at+Moorooduc+Station%2C+the+full+Christmas+treatment.+Booking+essential.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-tourist-railway-santa-specials%2F&location=460+Moorooduc+Highway%2C+Moorooduc%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Get tickets](<https://morningtonrailway.org.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Tourist+Railway%2C+Santa+Specials&dates=20261205T230000Z%2F20261206T040000Z&details=Heritage+steam+train+rides+with+Santa+on+selected+December+Sundays.+Letters+to+the+North+Pole%2C+carols+at+Moorooduc+Station%2C+the+full+Christmas+treatment.+Booking+essential.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-tourist-railway-santa-specials%2F&location=Moorooduc+Railway+Station%2C+460+Moorooduc+Highway%2C+Moorooduc%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

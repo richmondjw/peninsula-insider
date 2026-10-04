@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     15 October – 22 October 2026     One-off date
+Event     Food & Wine     15 October – 22 October 2026     One-off date
 
 # Oktoberfest at The Continental Sorrento
 
@@ -59,7 +59,7 @@ Free
 
 All weather
 
-[Visit organiser](<https://thecontinentalsorrento.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Oktoberfest+at+The+Continental+Sorrento&dates=20261015T010000Z%2F20261022T110000Z&details=Conti+Bar+becomes+a+German+beer+hall+from+15+to+22+October%2C+with+Weihenstephaner+on+tap+and+a+Bavarian+menu.+Free+entry.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Foktoberfest-continental-sorrento-2026%2F&location=1-21+Ocean+Beach+Road%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://thecontinentalsorrento.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Oktoberfest+at+The+Continental+Sorrento&dates=20261015T010000Z%2F20261022T110000Z&details=Conti+Bar+becomes+a+German+beer+hall+from+15+to+22+October%2C+with+Weihenstephaner+on+tap+and+a+Bavarian+menu.+Free+entry.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Foktoberfest-continental-sorrento-2026%2F&location=The+Continental+Sorrento%2C+1-21+Ocean+Beach+Road%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

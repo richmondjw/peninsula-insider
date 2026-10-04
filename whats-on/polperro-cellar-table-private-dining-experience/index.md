@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     1 May – 30 April 2027     One-off date
+Event     Food & Wine     1 May – 30 April 2027     One-off date
 
 # Polperro Cellar Table, Private Dining Experience
 
@@ -57,7 +57,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Visit organiser](<https://www.polperrowines.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Polperro+Cellar+Table%2C+Private+Dining+Experience&dates=20260501T083000Z%2F20260501T103000Z&details=Polperro%27s+private+dining+room+below+the+winery.+Six+to+eight+guests%2C+five+courses%2C+the+latest+Polperro+and+Even+Keel+cuvees+poured+by+the+people+who+made+them.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpolperro-cellar-table-private-dining-experience%2F&location=150+Red+Hill+Road%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.polperrowines.com.au/>)
 
 Filed under
 

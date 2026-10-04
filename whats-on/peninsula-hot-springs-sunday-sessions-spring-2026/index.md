@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Live Music     4 October 2026     Recurs weekly
+Event     Live Music     4 October 2026     Recurs weekly
 
 # Sunday Sessions at Peninsula Hot Springs
 

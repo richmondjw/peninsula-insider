@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     Choose a date on the organiser calendar     Sessions on the organiser calendar
+Experience     Food & Wine     Choose a date on the organiser calendar     Sessions on the organiser calendar
 
 # Ten Minutes by Tractor, Terroir Masterclass
 

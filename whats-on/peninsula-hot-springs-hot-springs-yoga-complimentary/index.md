@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Wellness     1 May – 30 April 2027     One-off date
+Event     Wellness     1 May – 30 April 2027     One-off date
 
 # Peninsula Hot Springs Yoga (Complimentary)
 
@@ -57,7 +57,7 @@ Weather flexible
 
 Start here
 
-[Visit organiser](<https://www.peninsulahotsprings.com/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Hot+Springs+Yoga+%28Complimentary%29&dates=20260430T231500Z%2F20270429T234000Z&details=Free+25-minute+outdoor+yoga+by+the+amphitheatre+pools%2C+included+with+bathing+admission.+Daily+at+9%3A15am%2C+all+ages%2C+no+booking.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-hot-springs-hot-springs-yoga-complimentary%2F&location=140+Springs+Lane%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.peninsulahotsprings.com/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Hot+Springs+Yoga+%28Complimentary%29&dates=20260430T231500Z%2F20270429T234000Z&details=Free+25-minute+outdoor+yoga+by+the+amphitheatre+pools%2C+included+with+bathing+admission.+Daily+at+9%3A15am%2C+all+ages%2C+no+booking.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-hot-springs-hot-springs-yoga-complimentary%2F&location=Peninsula+Hot+Springs%2C+140+Springs+Lane%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

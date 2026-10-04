@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Live Music     2 January – 10 January 2027     One-off date
+Event     Live Music     2 January – 10 January 2027     One-off date
 
 # Peninsula Summer Music Festival 2027
 
@@ -27,7 +27,7 @@ Mornington Peninsula VIC
 
 - [Visit venue website →](<https://www.peninsulafestival.com.au/>)
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Peninsula%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Peninsula%20venues%20to%20be%20announced%2C%20Mornington%20Peninsula%2C%20VIC>)
 
 At a glance
 
@@ -47,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Visit organiser](<https://www.peninsulafestival.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Summer+Music+Festival+2027&dates=20270102%2F20270111&details=The+organiser+confirms+Peninsula+Summer+Music+Festival+for+2+to+10+January+2027.+The+programme%2C+artists%2C+venues+and+ticket+details+are+still+to+be+announced.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-summer-music-festival-2027%2F&location=Mornington+Peninsula%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.peninsulafestival.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Summer+Music+Festival+2027&dates=20270102%2F20270111&details=The+organiser+confirms+Peninsula+Summer+Music+Festival+for+2+to+10+January+2027.+The+programme%2C+artists%2C+venues+and+ticket+details+are+still+to+be+announced.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-summer-music-festival-2027%2F&location=Mornington+Peninsula+venues+to+be+announced%2C+Mornington+Peninsula%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

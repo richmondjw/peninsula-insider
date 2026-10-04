@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Exhibitions     5 September – 22 November 2026     One-off date
+Event     Exhibitions     5 September – 22 November 2026     One-off date
 
 # National Works on Paper 2026 (NWOP)
 
@@ -19,7 +19,7 @@ Civic Reserve, Dunns Road   ,   Mornington VIC
 
 - [Visit venue website →](<https://mprg.mornpen.vic.gov.au/>)
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Civic%20Reserve%2C%20Dunns%20Road%2C%20Mornington%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Peninsula%20Regional%20Gallery%2C%20Civic%20Reserve%2C%20Dunns%20Road%2C%20Mornington%2C%20VIC>)
 
 At a glance
 
@@ -47,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Visit organiser](<https://mprg.mornpen.vic.gov.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=National+Works+on+Paper+2026+%28NWOP%29&dates=20260905T010000Z%2F20261122T050000Z&details=National+Works+on+Paper+2026+runs+at+Mornington+Peninsula+Regional+Gallery+from+5+September+to+22+November.+Regular+gallery+hours+are+Tuesday+to+Sunday%2C+11am+to+4pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnational-works-on-paper-2026-nwop%2F&location=Civic+Reserve%2C+Dunns+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://mprg.mornpen.vic.gov.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=National+Works+on+Paper+2026+%28NWOP%29&dates=20260905T010000Z%2F20261122T050000Z&details=National+Works+on+Paper+2026+runs+at+Mornington+Peninsula+Regional+Gallery+from+5+September+to+22+November.+Regular+gallery+hours+are+Tuesday+to+Sunday%2C+11am+to+4pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnational-works-on-paper-2026-nwop%2F&location=Mornington+Peninsula+Regional+Gallery%2C+Civic+Reserve%2C+Dunns+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

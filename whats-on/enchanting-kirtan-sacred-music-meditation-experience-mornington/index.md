@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Live Music     30 October 2026     One-off date
+Event     Live Music     30 October 2026     One-off date
 
 # Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington
 
@@ -17,7 +17,7 @@ Peninsula Community Theatre
 
 Mornington VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Community%20Theatre%2C%20Mornington%2C%20VIC>)
 
 At a glance
 
@@ -37,7 +37,7 @@ Free
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com/e/enchanting-kirtan-sacred-music-meditation-experience-mornington-tickets-1998394282093>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Enchanting+Kirtan%3A+Sacred+Music+%26+Meditation+Experience+-+Mornington&dates=20261030%2F20261031&details=Free+live+music+and+mantra+meditation+at+Peninsula+Community+Theatre+on+Friday+30+October.+Doors+open+at+6%3A30pm+and+the+session+starts+at+7pm%3B+donations+are+appreciated.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fenchanting-kirtan-sacred-music-meditation-experience-mornington%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.eventbrite.com/e/enchanting-kirtan-sacred-music-meditation-experience-mornington-tickets-1998394282093>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Enchanting+Kirtan%3A+Sacred+Music+%26+Meditation+Experience+-+Mornington&dates=20261030%2F20261031&details=Free+live+music+and+mantra+meditation+at+Peninsula+Community+Theatre+on+Friday+30+October.+Doors+open+at+6%3A30pm+and+the+session+starts+at+7pm%3B+donations+are+appreciated.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fenchanting-kirtan-sacred-music-meditation-experience-mornington%2F&location=Peninsula+Community+Theatre%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

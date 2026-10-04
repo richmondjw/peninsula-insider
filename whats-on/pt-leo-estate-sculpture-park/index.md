@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Arts     Check current opening hours     Visit during published opening hours
+Experience     Arts     Check current opening hours     Visit during published opening hours
 
 # Pt. Leo Estate Sculpture Park
 

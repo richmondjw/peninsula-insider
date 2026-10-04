@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     25 October 2026     Recurs monthly
+Event     Markets     25 October 2026     Recurs monthly
 
 # Mt Eliza Farmers Market
 
@@ -61,7 +61,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.mtelizafarmersmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mt+Eliza+Farmers+Market&dates=20261024T220000Z%2F20261025T020000Z&details=VFMA-accredited+farmers+market+on+the+Mount+Eliza+Village+Green+and+Mt+Eliza+Way+service+road.+The+organiser+lists+25+October+and+22+November+2026%2C+9am%E2%80%931pm%2C+with+paid+entry+supporting+local+Rotary+and+Lions+work.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmt-eliza-farmers-market%2F&location=Corner+Mt+Eliza+Way+and+Canadian+Bay+Road%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.mtelizafarmersmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mt+Eliza+Farmers+Market&dates=20261024T220000Z%2F20261025T020000Z&details=VFMA-accredited+farmers+market+on+the+Mount+Eliza+Village+Green+and+Mt+Eliza+Way+service+road.+The+organiser+lists+25+October+and+22+November+2026%2C+9am%E2%80%931pm%2C+with+paid+entry+supporting+local+Rotary+and+Lions+work.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmt-eliza-farmers-market%2F&location=Mt+Eliza+Village+Precinct%2C+Corner+Mt+Eliza+Way+and+Canadian+Bay+Road%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     18 October 2026     One-off date
+Event     Food & Wine     18 October 2026     One-off date
 
 # High Tea at Mornington Botanical Rose Gardens
 
@@ -15,7 +15,7 @@ Hosted at
 
 Mornington Botanical Rose Gardens Main Building
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Botanical%20Rose%20Gardens%20Main%20Building%2C%20VIC>)
 
 At a glance
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=High+Tea+at+Mornington+Botanical+Rose+Gardens&dates=20261018T033000Z%2F20261018T050000Z&details=A+high+tea+in+the+Mornington+Botanical+Rose+Gardens+Main+Building.+The+organiser+lists+a+2%3A30%E2%80%934pm+session+on+18+October+and+further+dates+on+its+booking+page.+Tickets+are+paid%3B+check+the+organiser+for+availability.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhigh-tea-at-mornington-botanical-rose-gardens%2F&location=Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/high-tea-at-mornington-botanical-rose-gardens-jhxvu8lx>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=High+Tea+at+Mornington+Botanical+Rose+Gardens&dates=20261018T033000Z%2F20261018T050000Z&details=A+high+tea+in+the+Mornington+Botanical+Rose+Gardens+Main+Building.+The+organiser+lists+a+2%3A30%E2%80%934pm+session+on+18+October+and+further+dates+on+its+booking+page.+Tickets+are+paid%3B+check+the+organiser+for+availability.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fhigh-tea-at-mornington-botanical-rose-gardens%2F&location=Mornington+Botanical+Rose+Gardens+Main+Building%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

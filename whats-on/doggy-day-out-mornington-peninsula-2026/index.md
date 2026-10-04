@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     10 October 2026     Recurs weekly
+Event     Food & Wine     10 October 2026     Recurs weekly
 
 # Doggy Day Out on the Mornington Peninsula
 
@@ -53,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Doggy+Day+Out+on+the+Mornington+Peninsula&dates=20261010%2F20261011&details=Self-guided+pet-friendly+day+following+digital+clues+across+the+Peninsula.+Dog+cafe+with+pup-approved+snacks%2C+human+treats%2C+and+a+relaxed+winery+picnic+lunch.+Runs+Thursday+to+Sunday+weekly.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdoggy-day-out-mornington-peninsula-2026%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Doggy-Day-Out-1>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Doggy+Day+Out+on+the+Mornington+Peninsula&dates=20261010%2F20261011&details=Self-guided+pet-friendly+day+following+digital+clues+across+the+Peninsula.+Dog+cafe+with+pup-approved+snacks%2C+human+treats%2C+and+a+relaxed+winery+picnic+lunch.+Runs+Thursday+to+Sunday+weekly.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdoggy-day-out-mornington-peninsula-2026%2F&location=Multiple+venues+across+Mornington+Peninsula%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Wellness     Arrange a date with the organiser     By arrangement
+Experience     Wellness     Arrange a date with the organiser     By arrangement
 
 # Restore & Pamper Retreat at Polperro Farmhouse
 
@@ -31,7 +31,7 @@ Polperro Farmhouse
 
 - [Visit venue website →](<https://www.polperrowines.com.au/>)
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=64%20Donaldsons%20Road%2C%20Red%20Hill%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Polperro%20Farmhouse%2C%2064%20Donaldsons%20Road%2C%20Red%20Hill%2C%20VIC>)
 
 At a glance
 

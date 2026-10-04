@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Arts     18 October 2026     One-off date
+Event     Arts     18 October 2026     One-off date
 
 # Dave Thornton & Lizzy Hoo at St Andrews Beach Brewery
 
@@ -17,7 +17,7 @@ St Andrews Beach Brewery
 
 160 Sandy Road   ,   Fingal VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=160%20Sandy%20Road%2C%20Fingal%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=St%20Andrews%20Beach%20Brewery%2C%20160%20Sandy%20Road%2C%20Fingal%2C%20VIC>)
 
 At a glance
 
@@ -41,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo-tickets-1999248329572>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dave+Thornton+%26+Lizzy+Hoo+at+St+Andrews+Beach+Brewery&dates=20261018T063000Z%2F20261018T090000Z&details=Dave+Thornton+and+Lizzy+Hoo+perform+stand-up+at+St+Andrews+Beach+Brewery+in+Fingal+on+Sunday+18+October%2C+5%3A30%E2%80%938pm.+Check+the+event+page+for+tickets+and+current+details.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fst-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo%2F&location=160+Sandy+Road%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.eventbrite.com.au/e/st-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo-tickets-1999248329572>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dave+Thornton+%26+Lizzy+Hoo+at+St+Andrews+Beach+Brewery&dates=20261018T063000Z%2F20261018T090000Z&details=Dave+Thornton+and+Lizzy+Hoo+perform+stand-up+at+St+Andrews+Beach+Brewery+in+Fingal+on+Sunday+18+October%2C+5%3A30%E2%80%938pm.+Check+the+event+page+for+tickets+and+current+details.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fst-andrews-beach-brewery-presents-dave-thornton-lizzy-hoo%2F&location=St+Andrews+Beach+Brewery%2C+160+Sandy+Road%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

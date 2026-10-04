@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Racing & Sport     17 October 2026     One-off date
+Event     Racing & Sport     17 October 2026     One-off date
 
 # Breast Foot Forward Annual Community Walk & Run 2026
 
@@ -19,7 +19,7 @@ Hosted at
 
 Safety Beach Sailing club (10KM Start Line) or Anthonys Nose (5KM Start line) to Village Green (Finish Line)
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Safety%20Beach%20Sailing%20club%20(10KM%20Start%20Line)%20or%20Anthonys%20Nose%20(5KM%20Start%20line)%20to%20Village%20Green%20(Finish%20Line)%2C%20VIC>)
 
 At a glance
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Breast+Foot+Forward+Annual+Community+Walk+%26+Run+2026&dates=20261016T213000Z%2F20261017T010000Z&details=Breast+Foot+Forward+Annual+Community+Walk+%26+Run+2026+at+Safety+Beach+Sailing+club+%2810KM+Start+Line%29+or+Anthonys+Nose+%285KM+Start+line%29+to+Village+Green+%28Finish+Line%29.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbreast-foot-forward-annual-community-walk-and-run-2026%2F&location=Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Breast+Foot+Forward+Annual+Community+Walk+%26+Run+2026&dates=20261016T213000Z%2F20261017T010000Z&details=Breast+Foot+Forward+Annual+Community+Walk+%26+Run+2026+at+Safety+Beach+Sailing+club+%2810KM+Start+Line%29+or+Anthonys+Nose+%285KM+Start+line%29+to+Village+Green+%28Finish+Line%29.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbreast-foot-forward-annual-community-walk-and-run-2026%2F&location=Safety+Beach+Sailing+club+%2810KM+Start+Line%29+or+Anthonys+Nose+%285KM+Start+line%29+to+Village+Green+%28Finish+Line%29%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

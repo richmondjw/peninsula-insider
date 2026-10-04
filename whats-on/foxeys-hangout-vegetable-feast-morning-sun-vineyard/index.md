@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     1 May – 30 April 2027     Ongoing programme
+Event     Food & Wine     1 May – 30 April 2027     Ongoing programme
 
 # Foxeys Hangout Vegetable Feast (Morning Sun Vineyard)
 
@@ -53,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Visit organiser](<https://www.foxeys-hangout.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Foxeys+Hangout+Vegetable+Feast+%28Morning+Sun+Vineyard%29&dates=20260501%2F20270501&details=Chef+Bernard+McCarthy%27s+all-vegetable%2C+multi-course+feast+at+Morning+Sun+Vineyard+in+Main+Ridge%2C+matched+to+Foxeys+wines.+Ticketed%2C+shared+table%2C+outdoors+at+a+working+vineyard.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffoxeys-hangout-vegetable-feast-morning-sun-vineyard%2F&location=795+White+Hill+Road+%28Foxeys%29%3B+Morning+Sun+Vineyard+Main+Ridge%2C+Red+Hill+%2F+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.foxeys-hangout.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Foxeys+Hangout+Vegetable+Feast+%28Morning+Sun+Vineyard%29&dates=20260501%2F20270501&details=Chef+Bernard+McCarthy%27s+all-vegetable%2C+multi-course+feast+at+Morning+Sun+Vineyard+in+Main+Ridge%2C+matched+to+Foxeys+wines.+Ticketed%2C+shared+table%2C+outdoors+at+a+working+vineyard.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffoxeys-hangout-vegetable-feast-morning-sun-vineyard%2F&location=Foxeys+Hangout+%2F+Morning+Sun+Vineyard%2C+795+White+Hill+Road+%28Foxeys%29%3B+Morning+Sun+Vineyard+Main+Ridge%2C+Red+Hill+%2F+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

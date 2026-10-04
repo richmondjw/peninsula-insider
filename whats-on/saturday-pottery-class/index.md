@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Arts     31 October 2026     One-off date
+Event     Arts     31 October 2026     One-off date
 
 # Saturday Pottery Class
 
@@ -17,7 +17,7 @@ Oak Hill Gallery
 
 Mornington VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Mornington%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Oak%20Hill%20Gallery%2C%20Mornington%2C%20VIC>)
 
 At a glance
 
@@ -41,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Saturday+Pottery+Class&dates=20261031T000000Z%2F20261031T020000Z&details=A+seven-Saturday+pottery+course+at+Oak+Hill+Gallery+for+adults.+The+full-term+booking+covers+wheel+throwing%2C+materials+and+firing%2C+with+sessions+from+11am+to+1pm%2C+31+October+to+12+December.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsaturday-pottery-class%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.eventbrite.com.au/e/saturday-pottery-class-tickets-1998469367676>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Saturday+Pottery+Class&dates=20261031T000000Z%2F20261031T020000Z&details=A+seven-Saturday+pottery+course+at+Oak+Hill+Gallery+for+adults.+The+full-term+booking+covers+wheel+throwing%2C+materials+and+firing%2C+with+sessions+from+11am+to+1pm%2C+31+October+to+12+December.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsaturday-pottery-class%2F&location=Oak+Hill+Gallery%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

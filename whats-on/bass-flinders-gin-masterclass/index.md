@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Food & Wine     Choose a date on the organiser calendar     Sessions on the organiser calendar
+Experience     Food & Wine     Choose a date on the organiser calendar     Sessions on the organiser calendar
 
 # Bass & Flinders Gin Masterclass
 
@@ -31,7 +31,7 @@ Bass & Flinders Distillery
 
 - [Visit venue website →](<https://www.bassandflindersdistillery.com/>)
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=40%20Collins%20Road%2C%20Dromana%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Bass%20%26%20Flinders%20Distillery%2C%2040%20Collins%20Road%2C%20Dromana%2C%20VIC>)
 
 At a glance
 

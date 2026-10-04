@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     24 October 2026     Recurs monthly
+Event     Markets     24 October 2026     Recurs monthly
 
 # Tootgarook Primary School Market
 
@@ -49,7 +49,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Visit organiser](<https://tootps.vic.edu.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tootgarook+Primary+School+Market&dates=20261023T203000Z%2F20261024T013000Z&details=Fourth-Saturday+fundraising+market+at+Tootgarook+Primary+School%2C+with+produce%2C+plants%2C+crafts+and+second-hand+stalls.+Confirm+current+hours+and+entry+with+the+organiser+before+travelling.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftootgarook-primary-school-market%2F&location=7+Carmichael+Street%2C+Tootgarook%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://tootps.vic.edu.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tootgarook+Primary+School+Market&dates=20261023T203000Z%2F20261024T013000Z&details=Fourth-Saturday+fundraising+market+at+Tootgarook+Primary+School%2C+with+produce%2C+plants%2C+crafts+and+second-hand+stalls.+Confirm+current+hours+and+entry+with+the+organiser+before+travelling.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftootgarook-primary-school-market%2F&location=Tootgarook+Primary+School%2C+7+Carmichael+Street%2C+Tootgarook%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

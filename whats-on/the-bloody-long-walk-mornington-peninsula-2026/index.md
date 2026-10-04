@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Racing & Sport     25 October 2026     One-off date
+Event     Racing & Sport     25 October 2026     One-off date
 
 # The Bloody Long Walk – Mornington Peninsula 2026
 
@@ -59,7 +59,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Bloody+Long+Walk+%E2%80%93+Mornington+Peninsula+2026&dates=20261025%2F20261026&details=35km+charity+walk+from+Point+Nepean+Quarantine+Station+to+Martha+Cove+Marina+for+the+Mito+Foundation.+Walk%2C+jog+or+run.+Limited+spots.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-bloody-long-walk-mornington-peninsula-2026%2F&location=Point+Nepean+Road%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Bloody+Long+Walk+%E2%80%93+Mornington+Peninsula+2026&dates=20261025%2F20261026&details=35km+charity+walk+from+Point+Nepean+Quarantine+Station+to+Martha+Cove+Marina+for+the+Mito+Foundation.+Walk%2C+jog+or+run.+Limited+spots.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-bloody-long-walk-mornington-peninsula-2026%2F&location=Point+Nepean+National+Park+%28Quarantine+Station+start%29%2C+Point+Nepean+Road%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

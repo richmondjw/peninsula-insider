@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Markets     17 October 2026     Recurs monthly
+Event     Markets     17 October 2026     Recurs monthly
 
 # Emu Plains Market, Balnarring
 
@@ -65,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.mornpen.vic.gov.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emu+Plains+Market%2C+Balnarring&dates=20261016T220000Z%2F20261017T030000Z&details=Monthly+artisan+market+at+Emu+Plains+Reserve+%28Coolart+Road%2C+Balnarring%29.+Showcases+craft%2C+design%2C+vintage%2C+music%2C+and+food.+Family+and+community+favourite+under+stringybark+gums.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Femu-plains-market-balnarring%2F&location=Coolart+Road%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Visit organiser](<https://www.mornpen.vic.gov.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emu+Plains+Market%2C+Balnarring&dates=20261016T220000Z%2F20261017T030000Z&details=Monthly+artisan+market+at+Emu+Plains+Reserve+%28Coolart+Road%2C+Balnarring%29.+Showcases+craft%2C+design%2C+vintage%2C+music%2C+and+food.+Family+and+community+favourite+under+stringybark+gums.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Femu-plains-market-balnarring%2F&location=Emu+Plains+Reserve%2C+Coolart+Road%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
