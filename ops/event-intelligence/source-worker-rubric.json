@@ -1,0 +1,20 @@
+{
+  "stage": "production-source-adapters",
+  "minimumScore": 9,
+  "scoring": "Ten equally weighted checks; every critical check must pass. Isolated worker success does not establish production integration.",
+  "scope": "Explicit optional reviewed redirects, supervised library pagination and hash-bound PDF programme review inside the private event collection service.",
+  "checks": [
+    {"id":"default-preservation","critical":true,"required":"Absent optional configuration preserves existing collection behavior. Missing, expired, malformed or unsafe configuration disables only the affected adapter and raises an actionable alert; unaffected sources continue."},
+    {"id":"source-and-network-admission","critical":true,"required":"Exact registered source identity, HTTPS origin/path/port, public DNS and actual browser destination binding. No credentials, private-network access, generic redirects or unrelated POST actions."},
+    {"id":"bounded-process-supervision","critical":true,"required":"Immutable dependency versions; non-root read-only runtime; bounded bytes/pages/time/memory; fresh per-run identity. Actual hung browser termination proves process ownership and no surviving owned browser group. Failed launch cannot reuse old success."},
+    {"id":"evidence-and-census-binding","critical":true,"required":"Actual retained source bytes, hashes, capture times and source identity bind every page/URL/PDF claim. Changed PDF hashes invalidate prior manual census; ambiguous times, status and repeated timetable rows remain explicit review-only uncertainty."},
+    {"id":"incremental-staging-and-preservation","critical":true,"required":"Complete captures merge through existing staging and compare-before-write safeguards. Preserve previous leads, original identities, source history, all human review/approval fields and pending edits. Partial or failed worker results cannot replace complete prior state."},
+    {"id":"actual-cadence","critical":true,"required":"Observe actual integrated collection receipts from the exact installed image and durable mount. Show due fetch, not-due/cache distinctions and bounded retry. Configuration is not proof of refresh."},
+    {"id":"failure-and-recovery-alerts","critical":true,"required":"Actual integrated failure creates a deduplicated actionable dashboard episode; unaffected collection continues. A later actual successful capture resolves that episode. Dashboard delivery, Codex delivery and human acknowledgement remain separate."},
+    {"id":"privacy-and-publication-boundary","critical":true,"required":"Private captures/config/packets do not enter public artifacts. No new approval, public listing, status/price/media claim or credentials can be created by source collection."},
+    {"id":"rollback-and-reviewability","critical":true,"required":"Preserve the prior image/container and durable before-state. Disable optional configuration or restore prior image without overwriting later human edits. Dashboard shows source-specific outcomes and review links clearly."},
+    {"id":"independent-exact-release-review","critical":true,"required":"Independent rubric review of source, meaningful regression tests, exact-image observation, preserved-state evidence and final deployed runtime cycle. Require at least9/10 and all critical checks before accepting this stage."}
+  ],
+  "state": "prepared-not-graded",
+  "limitations": "Acceptance does not establish comprehensive Shire coverage or approve any listing. Those require their own evidence and James's current approval."
+}
