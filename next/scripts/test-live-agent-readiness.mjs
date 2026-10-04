@@ -166,3 +166,46 @@ test('explicit weekend occurrence contracts reject out-of-window dates and misma
     assert.ok(validateLivePayloads(payloads, { expectedDate: '2026-08-15', expectedSha }).some(x => /weekend/.test(x)));
   }
 });
+
+function typedFixture() {
+  const payloads = fixture();
+  payloads.feed.schemaVersion = '1.2';
+  payloads.feed.events = ['event', 'experience', 'offer'].map(contentKind => ({
+    title: contentKind, contentKind,
+    dateMeaning: { event: 'occurrence', experience: 'availability', offer: 'validity' }[contentKind],
+    url: `https://peninsulainsider.com.au/whats-on/${contentKind}/`,
+    startDate: '2026-08-15', endDate: '2026-08-16', thisWeekend: true,
+    ...(contentKind === 'event' ? { eventStatus: 'https://schema.org/EventScheduled' } : {}),
+  }));
+  payloads.feed.count = payloads.feed.numberOfItems = payloads.feed.thisWeekend.count = 3;
+  payloads.feed.itemListElement = payloads.feed.events.map((event, index) => ({
+    '@type': 'ListItem', position: index + 1,
+    item: {
+      '@type': { event: 'Event', experience: 'Service', offer: 'Offer' }[event.contentKind],
+      name: event.title, url: event.url,
+      ...(event.contentKind === 'event' ? { startDate: event.startDate, endDate: event.endDate, eventStatus: event.eventStatus } :
+        event.contentKind === 'offer' ? { validFrom: event.startDate, validThrough: event.endDate } : {}),
+    },
+  }));
+  return payloads;
+}
+test('live audit accepts typed occurrences, experience availability and offer validity', () => {
+  assert.deepEqual(validateLivePayloads(typedFixture(), { expectedDate: '2026-08-15', expectedSha }), []);
+});
+const typedMutations = [
+  ['unknown kind', p => { p.feed.events[1].contentKind = 'unknown'; }],
+  ['wrong meaning', p => { p.feed.events[1].dateMeaning = 'occurrence'; }],
+  ['false Event type', p => { p.feed.itemListElement[1].item['@type'] = 'Event'; }],
+  ['false experience occurrence date', p => { p.feed.itemListElement[1].item.startDate = '2026-08-15'; }],
+  ['false experience validity', p => { p.feed.itemListElement[1].item.validFrom = '2026-08-15'; }],
+  ['wrong offer validity', p => { p.feed.itemListElement[2].item.validThrough = '2026-08-17'; }],
+  ['false offer occurrence date', p => { p.feed.itemListElement[2].item.endDate = '2026-08-16'; }],
+  ['unsupported non-event status', p => { p.feed.events[1].eventStatus = 'https://schema.org/EventScheduled'; }],
+  ['unsupported weekend status', p => { p.feed.events[1].weekendOccurrences = [{date:'2026-08-15',eventStatus:'https://schema.org/EventScheduled'}]; }],
+  ['disagreeing event status', p => { p.feed.itemListElement[0].item.eventStatus = 'https://schema.org/EventCancelled'; }],
+  ['wrong title', p => { p.feed.itemListElement[1].item.name = 'Different experience'; }],
+];
+for (const [name, mutate] of typedMutations) test(`live audit rejects typed ${name}`, () => {
+  const payloads = typedFixture(); mutate(payloads);
+  assert.ok(validateLivePayloads(payloads, { expectedDate:'2026-08-15',expectedSha }).length > 0);
+});
