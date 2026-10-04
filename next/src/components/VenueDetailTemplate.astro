@@ -212,11 +212,12 @@ function dedupeTags(tags: unknown[]): string[] {
   return out;
 }
 
-const allTags = dedupeTags([...moodTags, ...seasonTags, ...audienceTags]);
+const allTags = dedupeTags([...moodTags, ...seasonTags, ...audienceTags])
+  .filter((tag) => data.status !== 'paused' || !/cellar[\s_-]*door/i.test(tag));
 
 const isWinery = section === 'wine';
 const hasFaq = isWinery && data.faq?.length > 0;
-const hasVisiting = isWinery && data.visiting;
+const hasVisiting = isWinery && data.visiting && data.status !== 'paused';
 const hasWines = isWinery && data.wines;
 const hasRestaurant = isWinery && data.restaurant;
 const hasAccommodation = isWinery && data.accommodation;
@@ -255,7 +256,7 @@ const wineBestSeason: string | null = isWinery && seasonTags.length > 0 && !seas
 // gap, and only on the venue's own canonical surface, so a venue is never
 // described by two competing hours nodes.
 const isCanonicalSurface = venueHrefPrefix(data.type).endsWith(`/${section}`);
-const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface && section !== 'wine'
+const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && section !== 'wine'
   ? {
       '@context': 'https://schema.org',
       '@type': 'LocalBusiness',
@@ -362,7 +363,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
     {/* Appointment-only planning signal - wine venues only.
         Positioned before the hero so it's seen before the reader
         commits to the page. Not a warning, a planning note. */}
-    {isAppointmentOnly && !isUnverifiedPaused && (
+    {isAppointmentOnly && !isPaused && (
       <div class="venue-appointment-note" role="note">
         <span class="venue-appointment-note__icon" aria-hidden="true"> - </span>
         <span class="venue-appointment-note__text">
@@ -631,7 +632,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             </>
           )}
 
-          {data.hoursNote && !isUnverifiedPaused && (
+          {data.hoursNote && !isPaused && (
             <>
               <dt>Hours</dt>
               <dd>{data.hoursNote}</dd>
@@ -646,7 +647,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           {visitorInformation?.socialLinks.map((link) => <><dt>{link.label}</dt><dd><a href={link.url} rel="noopener noreferrer" target="_blank">Official profile</a></dd></>)}
           {visitorInformation?.video && <><dt>Video</dt><dd><a href={visitorInformation.video.url} rel="noopener noreferrer" target="_blank">Watch the venue video</a><small> Credit: {visitorInformation.video.credit}</small></dd></>}
 
-          {hasOpeningHours && !isUnverifiedPaused && (
+          {hasOpeningHours && !isPaused && (
             <>
               <dt>Opening hours</dt>
               <dd>
@@ -663,7 +664,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
           )}
 
           {/* Cassis is a stay with no public operating hours; its official website is linked above. */}
-          {!isNonPublicProducer && !isUnverifiedPaused && venueSlug !== 'cassis' && <>
+          {!isNonPublicProducer && !isPaused && venueSlug !== 'cassis' && <>
             <dt>Live status</dt>
             <dd>
               <a href={liveStatusUrl} target="_blank" rel="noopener noreferrer">
@@ -679,14 +680,14 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
             </>
           )}
 
-          {hasVisiting && !isUnverifiedPaused && data.visiting.tastingFee && (
+          {hasVisiting && !isPaused && data.visiting.tastingFee && (
             <>
               <dt>Tasting fee</dt>
               <dd>{data.visiting.tastingFee}</dd>
             </>
           )}
 
-          {hasVisiting && !isUnverifiedPaused && data.visiting.bookingRequired && (
+          {hasVisiting && !isPaused && data.visiting.bookingRequired && (
             <>
               <dt>Booking</dt>
               <dd>Required</dd>
@@ -739,7 +740,7 @@ const hoursSchema = hasOpeningHours && !isUnverifiedPaused && isCanonicalSurface
   </div>
 </section>
 
-{hasVisiting && !isUnverifiedPaused && (
+{hasVisiting && !isPaused && (
   <section class="venue-detail-section">
     <div class="container">
       <h2 class="venue-detail-section__title">Visiting</h2>

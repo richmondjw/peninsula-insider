@@ -74,7 +74,10 @@ const relatedSummary = new Map((place.data.relatedPlaceSummaries ?? []).map((ent
 // ships in the static HTML. No client-side swap, no flicker. Restores the
 // override propagation the client-side patcher used to provide before
 // PR #162 gated it to admin-click.
-const hero = await resolveHero('place', placeSlug, place.data);
+// Main Ridge and Merricks North have CMS covers without published attribution.
+// Require metadata before either can replace the licensed content image.
+const hero = await resolveHero('place', placeSlug, place.data, 'heroImage',
+  ['main-ridge', 'merricks-north'].includes(placeSlug) ? { requireOverrideMetadata: true } : {});
 const heroCredit = formatHeroCredit(hero.override ? hero.override.credit : place.data.heroImage?.credit);
 const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(place.data.heroImage?.sourceUrl)) ? place.data.heroImage.sourceUrl : undefined;
 const heroLicenceUrl = !hero.override ? place.data.heroImage?.licenseUrl : undefined;
@@ -101,7 +104,7 @@ const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
     { label: 'Red Hill Stays',     href: '/stay/red-hill/',         desc: 'Vineyard villas, design hotels and hinterland bases' },
   ],
   'main-ridge': [
-    { label: 'Main Ridge Wine',    href: '/wine/main-ridge/',       desc: 'Highest-altitude sub-region, small producers and appointment tastings' },
+    { label: 'Main Ridge Wine',    href: '/wine/main-ridge/',       desc: 'Elevated wine country, local cellar doors and book-ahead tastings' },
   ],
   'flinders': [
     { label: 'Flinders Wine',      href: '/wine/flinders/',         desc: 'Southern-tip producers, cool climate and coastal cellar doors' },
@@ -117,7 +120,7 @@ const PLACE_SUBPAGES: Record<string, SubpageLink[]> = {
     { label: 'Sorrento Stays',     href: '/stay/sorrento/',         desc: 'Tip-of-the-Peninsula accommodation, coastal and heritage' },
   ],
   'mornington': [
-    { label: 'Mornington Stays',   href: '/explore/places/mornington/',       desc: 'Bay-side bases, walkable and good for first-timers' },
+    { label: 'Mornington Stays',   href: '/stay/mornington/',       desc: 'Bay-side bases, walkable and good for first-timers' },
   ],
   'cape-schanck': [
     { label: 'Cape Schanck Stays', href: '/stay/cape-schanck/',     desc: 'Southern-tip accommodation with lighthouse and surf access' },
@@ -182,7 +185,7 @@ const categoryGuides: Record<string, Array<{ label: string; href: string; desc: 
     { label: 'Red Hill Wine', href: '/wine/red-hill/', desc: 'Cellar doors, terroir, tasting routes and producers on the plateau.' },
   ],
   'main-ridge': [
-    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'The highest, coolest sub-region - small producers, serious pinot.' },
+    { label: 'Main Ridge Wine', href: '/wine/main-ridge/', desc: 'Small producers and cool-climate wines around Main Ridge.' },
   ],
   'merricks': [
     { label: 'Merricks Wine', href: '/wine/merricks/', desc: 'Pt. Leo Estate, Stonier, Scorpo and the eastern slope producers.' },
@@ -857,6 +860,21 @@ const factual = place.data.factualLede ?? '';
     padding-bottom: clamp(2.5rem, 6vh, 4.5rem);
     width: 100%;
   }
+  /* An illustrative disclosure must not become a flex item that squeezes
+     the hero copy against the viewport edge. Keep it separate from the
+     bottom-right credit and readable over the photograph. */
+  .pdv2-hero :global(.pdv2-hero__provenance) {
+    position: absolute;
+    z-index: 2;
+    top: 1.25rem;
+    right: 1.25rem;
+    max-width: min(24rem, calc(100% - 2.5rem));
+    margin: 0;
+    padding: 0.65rem 0.85rem;
+    border-radius: var(--radius-s);
+    background: rgba(11, 46, 74, 0.92);
+    color: var(--white);
+  }
   .pdv2-hero__eyebrow {
     font-family: var(--font-ui);
     font-size: var(--fs-100);
@@ -904,7 +922,10 @@ const factual = place.data.factualLede ?? '';
       align-items: stretch;
     }
     .pdv2-hero__title { font-size: clamp(3rem, 14vw, 5rem); }
-    .pdv2-hero__inner { padding-bottom: 0.75rem; }
+    .pdv2-hero__inner {
+      padding-inline: max(1.25rem, env(safe-area-inset-left)) max(1.25rem, env(safe-area-inset-right));
+      padding-bottom: 0.75rem;
+    }
     .pdv2-hero__credit {
       position: relative;
       right: auto;

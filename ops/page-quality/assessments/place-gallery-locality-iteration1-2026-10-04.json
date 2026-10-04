@@ -8,7 +8,7 @@
   "tier": "T1",
   "family": "place",
   "assessedAt": "2026-10-04",
-  "status": "release-ready-bounded",
+  "status": "live-accepted-bounded",
   "score": null,
   "owner": "Codex in James-approved Peninsula Insider page-quality programme",
   "decision": "adapt",
@@ -61,7 +61,7 @@
     "productionBuild": "TZ=UTC npm run build:search passed all repository build, lint, content, schema, media, link and agent-format gates; Pagefind indexed 727 pages. Generated reports excluded from source commit.",
     "localBrowser": "Exact final static preview checked in Chrome at 320/390/1440: Rye six Rye Dunes photos, Cape 12 Cape lighthouse/boardwalk photos, St Andrews no off-locality golf strip or blank gap; Rye/Cape no Fingal operator cards, Fingal has both. St Andrews safety/dog copy visible; operator detail titles and 160/209 Sandy Road Fingal addresses correct at 390. All checked pages rendered with no script errors or horizontal overflow; one local 304 cache response rendered correctly.",
     "independentReview": "Independent reviewer compared public 390 baseline, primary sources and final preview at 320/390/1440. Bounded factual/locality/safety GO: no errors, overflow or blank gap. Rye gallery now repeats only The Dunes; St Andrews is image-light. CMS hero subject/rights, full AT and field performance remain open; full 23-criterion score null.",
-    "liveAcceptance": null
+    "liveAcceptance": "Protected deployment 37147779530 succeeded. Public release manifest returned exact source SHA e062db59ecc69d8d979133d5b55bf71ad69935ac and run 37147779530. Fresh public Chrome at 320/390/1440 found Rye 6 photographs, Cape Schanck 12, St Andrews Beach no off-locality golf gallery, Fingal 12 and its Fingal brewery/golf cards. All four pages had expected H1, no page errors or horizontal overflow. St Andrews Beach dangerous-unpatrolled-swimming copy visible. Related journal links may still mention named operators and are not gallery evidence. Full score remains null."
   },
   "hardGatesOpen": [
     "Rye and St Andrews Beach CMS hero item-level subject and rights proof, descriptive alt and visible attribution",
@@ -73,7 +73,7 @@
     "The golf operator contact page has both St Andrews Beach and Fingal labels for the same street address. Until its physical locality is settled, avoid asserting it depicts the beach township.",
     "Rye retains six licensed actual Rye photographs, all of The Dunes Golf Links; breadth of town imagery remains limited."
   ],
-  "nextAction": "Publish through normal CI and verify exact public release manifest, gallery counts, structured images, operator placements and mobile/desktop render. Then obtain rights-cleared local imagery and full independent 23-criterion/AT/performance evidence; scores remain null.",
+  "nextAction": "Complete hero subject/rights, direct AT, field performance and three independent 23-criterion reviews; score remains null. Continue next T1 place batch.",
   "linkedUrls": [
     "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
     "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/"
