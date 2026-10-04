@@ -9,11 +9,15 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Fingal
 
+Alba Thermal Springs & Spa, Fingal
+
+Photo · Courtesy of Visit Victoria
+
 Fingal in 12 photographs
 
 1  / 12
 
-A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+A bather in a turquoise pool beneath curved concrete canopies at Alba Thermal Springs & Spa in Fingal  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
 Fingal is a coastal village on the Mornington Peninsula's ocean-coast edge, 90 km from Melbourne, home to Peninsula Hot Springs and adjacent to Moonah Links golf resort and Cape Schanck.
 
