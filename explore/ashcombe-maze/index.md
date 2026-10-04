@@ -75,6 +75,20 @@ anniversary  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/stay/mantons-creek-estate/>) [View stay](<https://mantonscreekestate.com.au/accommodation>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
+
+271 Tucks Road, Shoreham VIC 3916
+
+Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
+
 Keep going
 
 ## More ways to use this side of the Peninsula

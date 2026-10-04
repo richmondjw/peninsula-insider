@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 # Rare Hare at Willow Creek
 
@@ -13,7 +13,7 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 
 Known for   Jackalope's Relaxed Lunch Room Wood-Fired Grill Menu Willow Creek Estate Wines Pinot Row Terrace
 
-[Reserve a table](<https://jackalopehotels.com/mornington-peninsula>)  +61 3 5931 2500
+[Reserve a table](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)  +61 3 5931 2500
 
 - Photo · Courtesy of Visit Victoria
 
@@ -37,7 +37,7 @@ Known for   Jackalope's Relaxed Lunch Room Wood-Fired Grill Menu Willow Creek Es
 
 1  / 9
 
-Plates of roast duck, charred meat, a beetroot salad and a leafy dish with a glass of rose on a timber table  Rare Hare at Willow Creek, Merricks, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Plates of roast duck, charred meat, a beetroot salad and a leafy dish with a glass of rose on a timber table  Rare Hare at Willow Creek, Merricks North, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 
@@ -87,17 +87,17 @@ Restaurant
 
 **Website**
 
-[jackalopehotels.com/mornington-peninsula](<https://jackalopehotels.com/mornington-peninsula>)
+[rarehare.com.au/about](<https://rarehare.com.au/about/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3936%2C145.0592>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Rare%20Hare%20at%20Willow%20Creek%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926>)
 
 **Live status**
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Rare%20Hare%20at%20Willow%20Creek%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://jackalopehotels.com/mornington-peninsula>)
+ [Book now](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
 
 Not sure how to build a day around Rare Hare at Willow Creek?
 
@@ -141,45 +141,47 @@ Two-night escape · Best for couple · Peninsula
 
 Nearby picks
 
-## More from Merricks
+## More from Merricks North
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Photo: Peter Foster, courtesy of Visit Victoria
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-51 Stanleys Rd, Merricks VIC 3916
+### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
+166 Balnarring Rd, Merricks North VIC 3926
 
-cellar door  slow
+A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
 
-[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+anniversary  first date
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
 
-### [Elgee Park](<https://peninsulainsider.com.au/eat/elgee-park/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-89 Junction Rd, Merricks North VIC 3926
+### [Scorpo Wines](<https://peninsulainsider.com.au/eat/scorpo-wines/>)
 
-The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
+23 Old Bittern-Dromana Rd, Merricks North VIC 3926
 
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
-
-235 Stanleys Rd, Red Hill South VIC 3937
-
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
+Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaimed Pinot Gris alongside elegant Chardonnay and Pinot Noir.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
+[Read notes](<https://peninsulainsider.com.au/eat/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
+
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+The vineyard at the heart of Jackalope Hotel, a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot.
+
+cellar door  walk
+
+[Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
 
 Build a day around this
 
@@ -191,7 +193,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Merricks - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[← Part of Merricks North - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=rare-hare>)
 

@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 # Scorpo Wines
 
@@ -15,7 +15,7 @@ Known for   Paul Scorpo Landscape Architect Founder Benchmark Pinot Gris Bestia 
 
 [Book a tasting](<https://www.scorpowines.com.au/>)  +61 3 5989 7697
 
-Scorpo Wines · Merricks
+Scorpo Wines · Merricks North
 
 Why we’d go
 
@@ -109,7 +109,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -155,7 +155,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Merricks - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[← Part of Merricks North - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=scorpo-wines>)
 

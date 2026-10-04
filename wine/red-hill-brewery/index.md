@@ -151,7 +151,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 

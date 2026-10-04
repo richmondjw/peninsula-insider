@@ -67,6 +67,20 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+
+40 Collins Rd, Dromana VIC 3936
+
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+
+rainy day  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+
 Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
@@ -92,20 +106,6 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
-
-Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
-
-Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
-
-121 Point Nepean Rd, Dromana VIC 3936
-
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
-
-waterfront  family
-
-[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
 
 Build a day around this
 

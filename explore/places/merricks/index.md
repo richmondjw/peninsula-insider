@@ -13,9 +13,9 @@ A visitor walks past the weatherboard facade of Merricks General Store, its pain
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-Merricks in 12 photographs
+Merricks in 8 photographs
 
-1  / 12
+1  / 8
 
 A visitor walks past the weatherboard facade of Merricks General Store, its painted sign framed by a red flowering vine  Merricks General Wine Store, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -23,7 +23,7 @@ Merricks is a hinterland village on the Mornington Peninsula's southern wine cou
 
 Merricks is where the Peninsula's wine country starts to feel private. There is almost no main street to speak of, just a low-slung hall, winding vineyard roads, and a cluster of estates and restaurants that reward people who know where to turn off. The light is softer here than in Red Hill proper and the bay feels unexpectedly close. It is one of the Peninsula's best places to stay if your idea of a weekend away means vines outside the window, lunch that goes too long, and very little noise.
 
-Photo · Courtesy of Visit Victoria
+Photo · Peter Foster, courtesy of Visit Victoria
 
 At a glance
 
@@ -185,27 +185,27 @@ cellar door  slow
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
+### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
-89 Junction Rd, Merricks North VIC 3926
+1 Merricks-Frankston Rd, Merricks VIC 3916
 
-The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
+A small, long-standing Merricks estate making one of the Peninsula's rare serious Shiraz programs alongside Chardonnay and Pinot Noir.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/wine/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
+### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
-235 Stanleys Rd, Red Hill South VIC 3937
+26 Merricks Rd, Merricks VIC 3916
 
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
+George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-only tastings, often led by George himself.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/wine/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/paradigm-hill/>) [Book](<https://www.paradigmhill.com.au/>)
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
@@ -295,14 +295,6 @@ Hub Guide   8 min
 
 Merricks is the understated corridor between bay and ridge where the Peninsula's wine country starts to feel private. Come for the general store, the estates, the pub and the rare pleasure of a district that seems to know exactly how little fuss it needs.
 
-Insider Edit   10 min
-
-### [Best Spas on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-spas-mornington-peninsula/>)
-
-14 April 2026
-
-The Mornington Peninsula is Australia's most serious wellness destination. This is the tier-ranked guide to hot springs, resort spas, and day spas - which to book, and for which kind of day.
-
 Service   9 min
 
 ### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
@@ -310,6 +302,14 @@ Service   9 min
 10 April 2026
 
 You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
+
+Service   8 min
+
+### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
+
+10 April 2026
+
+Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
 Planning guides
 
@@ -345,7 +345,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 Peninsula Tip · town
 

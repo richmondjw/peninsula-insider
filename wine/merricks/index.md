@@ -23,7 +23,7 @@ Photo · Peter Foster, courtesy of Visit Victoria
 
 **Producers mapped**
 
-9
+7
 
 **Hatted producers**
 
@@ -75,7 +75,7 @@ Paul and Caroline Scorpo work with restraint and conviction - single-vineyard Pi
 
 What's mapped here
 
-- [**9** cellar doors & producers](<https://peninsulainsider.com.au/wine/merricks/#producers>)
+- [**7** cellar doors & producers](<https://peninsulainsider.com.au/wine/merricks/#producers>)
 
 - [**3** editor's anchors](<https://peninsulainsider.com.au/wine/merricks/#anchors>)
 
@@ -89,7 +89,7 @@ What's mapped here
 
 Every producer · 2026
 
-## 9 cellar doors and producers in Merricks
+## 7 cellar doors and producers in Merricks
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
@@ -106,30 +106,6 @@ A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir 
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
-
-89 Junction Rd, Merricks North VIC 3926
-
-The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
-
-235 Stanleys Rd, Red Hill South VIC 3937
-
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -169,7 +145,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
@@ -193,7 +169,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/stonier-wines/>) [Book](<https://www.stonier.com.au/visit>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 

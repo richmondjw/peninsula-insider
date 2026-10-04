@@ -143,7 +143,7 @@ The pub-with-rooms model done right. A counter meal and a window seat is the ent
 
 ## Bass & Flinders Distillery
 
-$$ · Mornington
+$$ · Dromana
 
 Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson.](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
@@ -151,7 +151,7 @@ Distillery whose gin botanical walks and tasting flights doubled as a Peninsula 
 
 ## Garagiste
 
-$$$ · Mornington
+$$$ · Mount Eliza
 
 Small-producer cellar door that's quietly become the Saturday afternoon people compare other Saturday afternoons to.](<https://peninsulainsider.com.au/wine/garagiste/>)
 
@@ -175,7 +175,7 @@ Lakeside winery dining that punches above its postcode and stays bookable on a n
 
 ## Willow Creek Vineyard
 
-$$$$ · Merricks
+$$$$ · Merricks North
 
 Rare Hare's casual energy plus a cellar door doing the work - the Peninsula's quiet all-rounder.](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
@@ -199,7 +199,7 @@ Single-block expressions of pinot and chardonnay; a tasting that makes the rest 
 
 ## Main Ridge Estate
 
-$$ · Main Ridge
+$$ · Red Hill
 
 The Peninsula's foundational pinot grower; appointment-only, family-run, and unimpeachable.](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
@@ -207,7 +207,7 @@ The Peninsula's foundational pinot grower; appointment-only, family-run, and uni
 
 ## Red Hill Estate
 
-$$$ · Red Hill
+$$$ · Main Ridge
 
 The all-weather Red Hill anchor whose deck is the photograph everyone's family shared in 2026.](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 

@@ -37,17 +37,17 @@ slow  solo
 
 [Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937
+159 Shoreham Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
 first date  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
 
 Restaurant  [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>)
 

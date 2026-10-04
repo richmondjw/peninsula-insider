@@ -23,7 +23,7 @@ Ordered by editorial authority and Halliday score.
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 

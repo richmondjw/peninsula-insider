@@ -41,9 +41,13 @@ The Peninsula's most architecturally considered spa experience, integrated into 
 
 - Easy to book
 
-The Mornington outpost of the Endota chain - the Peninsula's strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Combines naturally with a Mornington town day or a morning at the farmers market.
+The Mornington outpost of the Endota chain - the Peninsula's strongest mid-market spa option. Good treatment menu, reliable quality, easy to book compared with Jackalope. Combines naturally with a Mornington town day or a Wednesday visit to the Main Street Market.
 
 **Best for** Northern Peninsula stays; mid-range spa days; uncomplicated booking.
+
+**Visit** 30 Main St, Mornington VIC 3931 · +61 3 5977 1522
+
+[View the operator's treatment menu →](<https://endotaspa.com.au/pages/spa/mornington>)
 
 [Fingal](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 

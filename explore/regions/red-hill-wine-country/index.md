@@ -33,7 +33,7 @@ Red Hill · village
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 Red Hill · village
 
@@ -51,7 +51,7 @@ Red Hill · village
 
 ### [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-Merricks North is wine country with a quieter accent than Red Hill and a longer pedigree than the Merricks village down the road. The roads here run between vineyards that were planted in the 1970s and 1980s - Elgee Park, Baillieu, Stonier - back when the Peninsula's cool-climate Pinot was an experiment most people did not believe in. The result is a small dense pocket of cellar doors with serious wines and almost no signage, hedged in by polo fields, horse studs, and one of the prettier country halls on the Peninsula. There is no town centre, no general store, and that is part of the point. Drive in for a slow cellar-door morning, lunch held at a vineyard restaurant, and an afternoon detour to the Merricks beach side if the weather allows. Stay nearby in Merricks or Red Hill; come here to drink.
+Merricks North is a rural pocket of vineyards and hospitality above Merricks village. Jackalope Hotel and Rare Hare sit on the Willow Creek estate here; Scorpo Wines also lists a Merricks North address. Elgee Park is part of the area's wine history, but its estate is closed to general visitors, with its wines available for tasting at Merricks Store in Merricks. There is no main-street village to browse. Choose a current public venue, confirm its booking and access details, and let the country roads set the pace.
 
 Hinterland · village
 
@@ -69,7 +69,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 Red Hill · village
 
@@ -109,7 +109,7 @@ view  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/arthurs-views/>) [View stay](<https://arthursviews.com.au/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -257,21 +257,9 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
-
-89 Junction Rd, Merricks North VIC 3926
-
-The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
-
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
@@ -375,19 +363,7 @@ slow  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
-
-235 Stanleys Rd, Red Hill South VIC 3937
-
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
-
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -461,7 +437,7 @@ family  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
@@ -473,17 +449,17 @@ cellar door  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937
+159 Shoreham Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
 first date  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -549,20 +525,6 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
-
-271 Tucks Road, Shoreham VIC 3916
-
-Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
-
 Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
@@ -600,6 +562,18 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
+
+Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+
+### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
+
+220 Mornington-Tyabb Rd, Moorooduc VIC 3933
+
+A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -703,7 +677,7 @@ cellar door  slow
 
 Photo: Courtesy of Visit Victoria
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
@@ -713,7 +687,7 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 
 long lunch  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -767,7 +741,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 
@@ -779,7 +753,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/red-hill-estate/>) [Book](<https://www.redhillestate.com.au/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
@@ -791,7 +765,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
 
-Spa  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Spa  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Spa by Jackalope](<https://peninsulainsider.com.au/explore/spas-and-wellness/#spa-by-jackalope>)
 
@@ -915,7 +889,7 @@ first date  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/via-boffe/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 

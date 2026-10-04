@@ -85,6 +85,124 @@ Stay at a Red Hill South farmhouse B&B and walk to a cellar door for the wine-co
 
   - Editor's note
 
+What's mapped here
+
+- [**2** places to eat](<https://peninsulainsider.com.au/explore/places/red-hill-south/#eat-drink>)
+
+- [**2** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/red-hill-south/#wine>)
+
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/red-hill-south/#journal>)
+
+Eat & drink
+
+## Where to eat and drink in Red Hill South
+
+Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+
+ [More to eat in Red Hill South →](<https://peninsulainsider.com.au/eat/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
+
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+
+165 Shoreham Road, Red Hill South VIC 3937
+
+A long table in Red Hill’s historic coolstore and packing shed.
+
+long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
+
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
+
+159 Shoreham Rd, Red Hill South VIC 3937
+
+Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
+
+first date  anniversary
+
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
+
+[See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
+
+Wine & producers
+
+## Cellar doors and makers around Red Hill South
+
+The producers worth the appointment - and the ones already shaping the region's vintage conversation.
+
+ [All cellar doors →](<https://peninsulainsider.com.au/wine/>)
+
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
+
+98 Stanleys Road, Red Hill South VIC 3937
+
+Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
+
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
+
+263 Red Hill Rd, Red Hill South VIC 3937
+
+Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
+
+[See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
+
+Read this place properly
+
+## Journal pieces connected to Red Hill South
+
+Long-form editorial that builds the picture of a place beyond any single visit.
+
+ [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Editor's Letter   8 min
+
+### [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
+
+9 April 2026
+
+Cool mornings, warm lunches, empty terraces, and the kind of light that makes every terrace look serious. This is the month the region stops performing and starts meaning something.
+
+Insider Edit   7 min
+
+### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+
+9 April 2026
+
+The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+
+Cellar Door Dispatch   6 min
+
+### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+
+6 April 2026
+
+Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+
+Cellar Door Dispatch   8 min
+
+### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+
+9 April 2026
+
+Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+
 Planning guides
 
 ## Service guides for your Red Hill South trip
@@ -111,7 +229,7 @@ Red Hill · village
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 Red Hill · village
 
@@ -123,7 +241,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

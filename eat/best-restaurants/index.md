@@ -23,7 +23,7 @@ Editorial ranking · 2026
 
 Ordered by editorial weight. Rooms with a hat rating first, then the places doing the strongest quiet work.
 
- [All 69 venues →](<https://peninsulainsider.com.au/eat/>)
+ [All 66 venues →](<https://peninsulainsider.com.au/eat/>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -65,7 +65,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
 
@@ -177,7 +177,7 @@ first date  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 

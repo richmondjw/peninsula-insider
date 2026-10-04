@@ -95,7 +95,7 @@ What's mapped here
 
 - [**3** places to eat](<https://peninsulainsider.com.au/explore/places/dromana/#eat-drink>)
 
-- [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/dromana/#wine>)
+- [**2** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/dromana/#wine>)
 
 - [**2** stays](<https://peninsulainsider.com.au/explore/places/dromana/#stay>)
 
@@ -110,6 +110,20 @@ Eat & drink
 Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
 
  [More to eat in Dromana →](<https://peninsulainsider.com.au/eat/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+
+40 Collins Rd, Dromana VIC 3936
+
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+
+rainy day  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -137,18 +151,6 @@ waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
 
-Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
-
-12-14 Brasser Ave, Dromana VIC 3936
-
-A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
-
-big group  family
-
-[Read notes](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/>)
-
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
 Wine & producers
@@ -172,18 +174,6 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 cellar door  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
-
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
-
-220 Mornington-Flinders Rd, Red Hill VIC 3937
-
-A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -327,7 +317,7 @@ Red Hill · village
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 Mornington · village
 
@@ -339,7 +329,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

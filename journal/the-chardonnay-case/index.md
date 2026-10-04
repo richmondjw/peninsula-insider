@@ -179,7 +179,7 @@ Mentioned in this piece
 
 Every venue referenced has its own page with editor notes, booking links, and nearby picks.
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -193,7 +193,7 @@ cellar door  slow
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 

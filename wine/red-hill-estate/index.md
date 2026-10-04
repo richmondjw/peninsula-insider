@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)    Main Ridge
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)    Main Ridge
 
 # Red Hill Estate
 
@@ -13,9 +13,9 @@ One of the Peninsula's most photographed cellar-door positions, sweeping Western
 
 Known for   Panoramic Western Port Vineyard Views Traditional-Method Sparkling Program Blanc de Blancs and Rosé French Island Sightline
 
-[Book a tasting](<https://www.redhillestate.com.au/>)  +61 3 5931 0177
+[Book a tasting](<https://www.redhillestate.com.au/>)  +61 3 5989 2838
 
-Red Hill Estate · Red Hill
+Red Hill Estate · Main Ridge
 
 Photo · CSIRO
 
@@ -67,7 +67,7 @@ Winery
 
 **Call**
 
-+61 3 5931 0177
++61 3 5989 2838
 
 **Awards**
 
@@ -79,7 +79,7 @@ Peninsula's Most Photographed Cellar Door View · Traditional-Method Sparkling S
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3913%2C145.0391>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Red%20Hill%20Estate%2C%201208%20Mornington-Flinders%20Road%2C%20Main%20Ridge%20VIC%203928>)
 
 **Opening hours**
 
@@ -151,7 +151,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -197,7 +197,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Main Ridge - view the destination guide](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=red-hill-estate>)
 

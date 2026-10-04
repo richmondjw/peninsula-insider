@@ -137,13 +137,13 @@ Red Hill · village
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

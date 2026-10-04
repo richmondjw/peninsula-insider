@@ -117,20 +117,6 @@ Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vi
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
-AI-assisted artwork · Peninsula Insider
-
-Illustrative image  This image shows AI-generated country market still life with produce, bread and handmade ceramics. It does not depict Hill & Ridge Community Market, 3 October 2026.
-
-Markets   Monthly (first Saturday Sep–May)
-
-### [Hill & Ridge Community Market, 3 October 2026](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
-
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
-
 ## The Insider Note
 
 Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.

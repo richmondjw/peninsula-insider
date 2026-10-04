@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)    Merricks North
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)    Merricks North
 
 # Willow Creek Vineyard
 
@@ -15,7 +15,7 @@ Known for   Jackalope Hotel Vineyard Rare Hare Cellar Door LL Vineyard Pinot Noi
 
 [Book a tasting](<https://rarehare.com.au/>)  +61 3 5931 2500
 
-Willow Creek Vineyard · Merricks
+Willow Creek Vineyard · Merricks North
 
 Why we’d go
 
@@ -77,7 +77,7 @@ AGFG 2 Hat Doot Doot Doot · AGFG 1 Hat Rare Hare
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3758%2C145.0764>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Willow%20Creek%20Vineyard%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926>)
 
 **Opening hours**
 
@@ -153,7 +153,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -199,7 +199,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Merricks - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[← Part of Merricks North - view the destination guide](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=willow-creek-vineyard>)
 

@@ -169,29 +169,29 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
+Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+### [Laura at Pt. Leo](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)
+
+3649 Frankston-Flinders Rd, Merricks VIC 3916
+
+An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.
+
+anniversary  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) [Book](<https://www.ptleoestate.com.au/dine/laura/>)
+
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Elgee Park](<https://peninsulainsider.com.au/eat/elgee-park/>)
+### [Merricks Estate](<https://peninsulainsider.com.au/eat/merricks-estate/>)
 
-89 Junction Rd, Merricks North VIC 3926
+1 Merricks-Frankston Rd, Merricks VIC 3916
 
-The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
+A small, long-standing Merricks estate making one of the Peninsula's rare serious Shiraz programs alongside Chardonnay and Pinot Noir.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
-
-235 Stanleys Rd, Red Hill South VIC 3937
-
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
 Build a day around this
 

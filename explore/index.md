@@ -221,7 +221,7 @@ Open the town index
 
 - [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)  The Peninsula's working port, where the seafood is better than the streetscape.
 
-- [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)  The highest point on the Peninsula, where the pinot is best and the road…
+- [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)  A high, quiet part of the Peninsula wine country, where the pinot is best…
 
 - [McCrae](<https://peninsulainsider.com.au/explore/places/mccrae/>)  Bayside swimming, a lighthouse, and the Peninsula's oldest homestead - the bay's quiet middle.
 
@@ -411,7 +411,7 @@ Golf course   Cape Schanck   4.5 hr
 
 - ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
 Market   Mornington
 
@@ -569,7 +569,7 @@ Beach   Sorrento   45 min
 
 The Peninsula's most design-led boutique spa, small, precise, and the natural pairing with a Jackalope stay or a Doot Doot Doot dinner.
 
-Springs & spa   Merricks
+Springs & spa   Merricks North
 
 - ### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

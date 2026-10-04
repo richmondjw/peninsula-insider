@@ -141,7 +141,7 @@ anniversary  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/book-accommodation/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/eat/red-hill-estate/>)
 

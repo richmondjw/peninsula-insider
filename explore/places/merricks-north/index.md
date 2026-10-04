@@ -9,9 +9,13 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Merricks North
 
-Merricks North is a small wine-country locality on the Mornington Peninsula's red-hill plateau, 80 km from Melbourne, home to Elgee Park, Baillieu, Stonier and other established cool-climate cellar doors.
+Two silhouetted guests raise glasses above vineyard rows at Jackalope Hotel in Merricks North
 
-Merricks North is wine country with a quieter accent than Red Hill and a longer pedigree than the Merricks village down the road. The roads here run between vineyards that were planted in the 1970s and 1980s - Elgee Park, Baillieu, Stonier - back when the Peninsula's cool-climate Pinot was an experiment most people did not believe in. The result is a small dense pocket of cellar doors with serious wines and almost no signage, hedged in by polo fields, horse studs, and one of the prettier country halls on the Peninsula. There is no town centre, no general store, and that is part of the point. Drive in for a slow cellar-door morning, lunch held at a vineyard restaurant, and an afternoon detour to the Merricks beach side if the weather allows. Stay nearby in Merricks or Red Hill; come here to drink.
+Photo · Peter Foster, courtesy of Visit Victoria
+
+Merricks North is a rural wine-country locality with Jackalope, Rare Hare and Scorpo among its visitor destinations. Elgee Park is here too, but its estate is closed to the general public.
+
+Merricks North is a rural pocket of vineyards and hospitality above Merricks village. Jackalope Hotel and Rare Hare sit on the Willow Creek estate here; Scorpo Wines also lists a Merricks North address. Elgee Park is part of the area's wine history, but its estate is closed to general visitors, with its wines available for tasting at Merricks Store in Merricks. There is no main-street village to browse. Choose a current public venue, confirm its booking and access details, and let the country roads set the pace.
 
 At a glance
 
@@ -35,7 +39,7 @@ wine lovers, couples on a long lunch weekend
 
 fog-bound midwinter weekdays
 
-Insider  Many Merricks North cellar doors are weekend-only or by appointment - call ahead, especially if you are visiting outside school holidays.
+Insider  Elgee Park's estate is closed to general visitors. Community groups can arrange a tour, while its wines are tasted and sold at Merricks Store in Merricks.
 
 The older, quieter half of the Peninsula's wine country - pioneer vineyards on quiet country lanes.
 
@@ -63,33 +67,35 @@ Merricks North in brief
 
 ## Merricks North in 5 points
 
-- 01   Merricks North is the older, quieter wine pocket above Merricks village - Elgee Park, Baillieu, Stonier and a polo field on a country road.
+- 01   Merricks North is a quiet rural locality with vineyard hospitality rather than a village centre.
 
-- 02   Best for: serious wine visitors; people who already know Red Hill and want something quieter.
+- 02   Best for: wine visitors who check each venue's current access; couples planning a long lunch or stay.
 
-- 03   Signature experience: three cellar doors and a long lunch over a Sunday, finished with a drive down to Point Leo for sunset.
+- 03   Signature experience: book lunch at Rare Hare on the Willow Creek estate, or plan a tasting directly with a current public cellar door.
 
-- 04   Half a day for the wines; an overnight in Merricks or Red Hill rounds it out.
+- 04   Allow half a day for a booked visit; nearby Merricks and Red Hill offer more options.
 
-- 05   There is no village centre - choose your day around the cellar doors, not a main street.
+- 05   Elgee Park estate is closed to general visitors; its wines are tasted at Merricks Store in Merricks.
 
 A perfect day here
 
 ## A day in Merricks North
 
-Late-morning cellar door at Elgee Park, lunch at a vineyard restaurant, afternoon flight at Baillieu or Stonier, drive to Point Leo for sundown.
+Book lunch at Rare Hare and confirm any winery tasting directly with its operator; leave time for a rural drive and nearby Merricks.
 
-Many Merricks North cellar doors are weekend-only or by appointment - call ahead, especially if you are visiting outside school holidays.
+Elgee Park's estate is closed to general visitors. Community groups can arrange a tour, while its wines are tasted and sold at Merricks Store in Merricks.
 
   - Editor's note
 
 What's mapped here
 
-- [**1** places to eat](<https://peninsulainsider.com.au/explore/places/merricks-north/#eat-drink>)
+- [**2** places to eat](<https://peninsulainsider.com.au/explore/places/merricks-north/#eat-drink>)
+
+- [**2** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/merricks-north/#wine>)
 
 - [**1** stays](<https://peninsulainsider.com.au/explore/places/merricks-north/#stay>)
 
-- [**2** escape plans](<https://peninsulainsider.com.au/explore/places/merricks-north/#escapes>)
+- [**3** escape plans](<https://peninsulainsider.com.au/explore/places/merricks-north/#escapes>)
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/merricks-north/#journal>)
 
@@ -115,7 +121,55 @@ anniversary  first date
 
 [Read notes](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) [Book](<https://www.sevenrooms.com/reservations/jackalope?venues=rarehare%2Cjackalope>)
 
+Photo: Courtesy of Visit Victoria
+
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
+
+long lunch  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
+
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
+
+Wine & producers
+
+## Cellar doors and makers around Merricks North
+
+The producers worth the appointment - and the ones already shaping the region's vintage conversation.
+
+ [All cellar doors →](<https://peninsulainsider.com.au/wine/>)
+
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
+
+23 Old Bittern-Dromana Rd, Merricks North VIC 3926
+
+Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaimed Pinot Gris alongside elegant Chardonnay and Pinot Noir.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
+
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+The vineyard at the heart of Jackalope Hotel, a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot.
+
+cellar door  walk
+
+[Read notes](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
+
+[See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
 Stay
 
@@ -171,6 +225,18 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+
+Plan
+
+### [A Peninsula Wellness Weekend](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
+
+Thermal pools, a coastal walk and vineyard meals, with two nights to slow down at the same Red Hill stay.
+
+Two-night escape · Best for couple · Peninsula
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/wellness-weekend/>)
+
 Read this place properly
 
 ## Journal pieces connected to Merricks North
@@ -178,6 +244,14 @@ Read this place properly
 Long-form editorial that builds the picture of a place beyond any single visit.
 
  [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Insider Edit   10 min
+
+### [Best Spas on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-spas-mornington-peninsula/>)
+
+14 April 2026
+
+The Mornington Peninsula is Australia's most serious wellness destination. This is the tier-ranked guide to hot springs, resort spas, and day spas - which to book, and for which kind of day.
 
 Service   9 min
 
@@ -195,21 +269,13 @@ Service   8 min
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
 
-Service   7 min
+Service   5 min
 
-### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
+### [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
 
-16 April 2026
+14 April 2026
 
-A milestone birthday deserves more than a booking at the usual restaurant. Here is the two-night Peninsula plan that lands the celebration properly: one memorable dinner, one surprising morning, and a stay that makes the whole thing feel earned.
-
-Slow Peninsula   8 min
-
-### [A Two-Night Peninsula Weekend for Two](<https://peninsulainsider.com.au/explore/plans/the-couples-weekend/>)
-
-10 April 2026
-
-One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
+Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination.
 
 Planning guides
 
@@ -237,7 +303,7 @@ Red Hill · village
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 Red Hill · village
 
@@ -249,7 +315,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

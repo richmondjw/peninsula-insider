@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)    Shoreham
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)    Shoreham
 
 # Ocean Eight Vineyard
 
@@ -13,7 +13,7 @@ Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's 
 
 Known for   Halliday Top 100 Winery Verve Pinot Noir Mike Aylward Single-Vineyard Program Mornington Peninsula Pinot Trophy
 
-[Book a tasting](<https://oceaneight.com.au/pages/contact>)  +61 3 5989 8862
+[Book a tasting](<https://oceaneight.com.au/pages/contact>)  +61 3 5989 6471
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -33,7 +33,7 @@ Known for   Halliday Top 100 Winery Verve Pinot Noir Mike Aylward Single-Vineyar
 
 1  / 7
 
-Red-leaved autumn trees frame a gravel path leading to the timber cellar door building at Ocean Eight Vineyard  Ocean Eight Vineyard, Main Ridge, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Red-leaved autumn trees frame a gravel path leading to the timber cellar door building at Ocean Eight Vineyard  Ocean Eight Vineyard, Shoreham, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -81,7 +81,7 @@ Winery
 
 **Call**
 
-+61 3 5989 8862
++61 3 5989 6471
 
 **Halliday**
 
@@ -97,7 +97,7 @@ Halliday Top 100 Wineries · Mornington Peninsula Wine Show Pinot Trophy
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3911%2C144.9723>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Ocean%20Eight%20Vineyard%2C%20271%20Tucks%20Road%2C%20Shoreham%20VIC%203916>)
 
 **Opening hours**
 
@@ -191,7 +191,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -237,7 +237,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Main Ridge - view the destination guide](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+[← Part of Shoreham - view the destination guide](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=ocean-eight>)
 

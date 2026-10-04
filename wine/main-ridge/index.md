@@ -9,7 +9,7 @@ Sub-region · Main Ridge
 
 # Main Ridge Wineries
 
-"The highest point on the Peninsula, where the pinot is best and the road narrows."
+"A high, quiet part of the Peninsula wine country, where the pinot is best and the road narrows."
 
 Main Ridge sits at the highest point of the Mornington Peninsula - up to 400m elevation - making it the coolest and most challenging sub-region to farm. The short growing season demands discipline: yields are low, ripening requires patience, and the wines that emerge carry a distinctive intensity that marks them immediately.
 
@@ -19,19 +19,15 @@ The roads here are narrow and the properties smaller than the Red Hill plateau. 
 
  [← Main Ridge destination guide](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Photo · CSIRO / Wikimedia Commons (CC-BY-3.0)
+Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider
 
 **Producers mapped**
 
-8
+5
 
 **Hatted producers**
 
 1
-
-**Top Halliday**
-
-98
 
 **From Melbourne**
 
@@ -67,21 +63,13 @@ The names we send people to first when they have one afternoon in Main Ridge.
 
 ### Ten Minutes by Tractor
 
-Three single-vineyard sites, three restaurants on one estate, and a Wallis Pinot Noir that is the Peninsula's most quietly serious wine. Book lunch at the cellar door bistro for the best entry point; book the main restaurant for the full statement.](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)[Halliday 98
-
-### Kooyong
-
-The Halliday top-rated estate on the plateau. Sandro Mosele's single-vineyard Pinot Noirs - Ferrous, Haven and Meres - are textbook expressions of how Main Ridge changes when you move 200m along the ridge.](<https://peninsulainsider.com.au/wine/kooyong/>)[Cellar door
-
-### Main Ridge Estate
-
-The original. Nat and Rosalie White planted in 1975 and the estate still farms the same blocks. Tiny production, small cellar door, almost no theatre - the wine is the whole point.](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
+Three single-vineyard sites, three restaurants on one estate, and a Wallis Pinot Noir that is the Peninsula's most quietly serious wine. Book lunch at the cellar door bistro for the best entry point; book the main restaurant for the full statement.](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
 
 What's mapped here
 
-- [**8** cellar doors & producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
+- [**5** cellar doors & producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
 
-- [**3** editor's anchors](<https://peninsulainsider.com.au/wine/main-ridge/#anchors>)
+- [**1** editor's anchors](<https://peninsulainsider.com.au/wine/main-ridge/#anchors>)
 
 - [**1** hatted producers](<https://peninsulainsider.com.au/wine/main-ridge/#producers>)
 
@@ -93,37 +81,11 @@ What's mapped here
 
 Every producer · 2026
 
-## 8 cellar doors and producers in Main Ridge
+## 5 cellar doors and producers in Main Ridge
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
-
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
-
-263 Red Hill Rd, Red Hill South VIC 3937
-
-Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
-
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
-
-271 Tucks Road, Shoreham VIC 3916
-
-Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -139,18 +101,6 @@ cellar door  slow
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
-
-80 William Rd, Red Hill VIC 3937
-
-Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
-
-cellar door  fireplace
-
-[Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
-
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
 ### [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>)
 
 337 Main Creek Rd, Main Ridge VIC 3928
@@ -161,7 +111,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 

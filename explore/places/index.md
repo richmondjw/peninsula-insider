@@ -21,7 +21,7 @@ Sorrento is where the Peninsula narrows to a point and the social temperature ri
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict…
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill;…
 
 ### [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
@@ -49,7 +49,7 @@ Dromana is the town at the foot of Arthurs Seat, and the practical hinge between
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if…
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both…
 
 ### [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -149,7 +149,7 @@ Merricks Beach is a hamlet, not a town, and is largely the work of one generatio
 
 ### [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-Merricks North is wine country with a quieter accent than Red Hill and a longer pedigree than the Merricks village down the road. The roads here run between…
+Merricks North is a rural pocket of vineyards and hospitality above Merricks village. Jackalope Hotel and Rare Hare sit on the Willow Creek estate here; Scorpo…
 
 ### [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 

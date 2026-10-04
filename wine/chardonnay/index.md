@@ -37,7 +37,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -89,7 +89,7 @@ long lunch  cellar door
 
 [Read notes](<https://peninsulainsider.com.au/wine/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
@@ -127,7 +127,7 @@ cellar door  slow
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 
@@ -139,7 +139,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
@@ -151,7 +151,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 

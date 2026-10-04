@@ -121,9 +121,9 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931
+Mornington Park, Mornington VIC 3931
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
 slow  quick bite
 
@@ -131,11 +131,11 @@ slow  quick bite
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915
+40 Collins Rd, Dromana VIC 3936
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 

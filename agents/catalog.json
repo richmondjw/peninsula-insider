@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-03T19:33:18.651Z",
-  "snapshotId": "2aad5bd633732c5cfc08da8a7f49d729eaa497175c3a61692027d9900c4876bb",
+  "generatedAt": "2026-10-04T02:36:54.956Z",
+  "snapshotId": "b9c185a89862399d6a0a6e25f246b1c2fb9d86173ad9cd8109c98e3be1e9c313",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 615,
+  "count": 613,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "18f05c775cecfc29e5f4d955869f97f0208d0c04cc86ac8bd21fed1167e68ebe",
+      "contentSha256": "65ee41de58445548ceef63f8cffa4ec4ae960b666a337b3ce9c68eececa4d212",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 195211,
-      "markdownBytes": 7076
+      "htmlBytes": 195366,
+      "markdownBytes": 7121
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -557,7 +557,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
-      "contentSha256": "b001d706ae31a7e659bb46eae10346e962328800dcab201ea7f52dededf60006",
+      "contentSha256": "491b572f6b0d2c18b6d22c9801f09235163de32c64974366d63d9563f04a0ddc",
       "citation": {
         "title": "Where to eat on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -565,8 +565,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-07-30"
       },
-      "htmlBytes": 334014,
-      "markdownBytes": 18674
+      "htmlBytes": 334044,
+      "markdownBytes": 18689
     },
     {
       "id": "https://peninsulainsider.com.au/eat/allis-wine-bar/",
@@ -574,7 +574,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/allis-wine-bar/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/allis-wine-bar/index.md",
-      "contentSha256": "0b5edab717c2027125cbf35eff6ff5a27158b22ecb5f4baaf7a37a1dab7f73d6",
+      "contentSha256": "46810dcf0dd9c1bd665d78d753997db50a17253ed74cd7592f653688935dea84",
       "citation": {
         "title": "Allis Wine Bar",
         "publisher": "Peninsula Insider",
@@ -582,8 +582,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179160,
-      "markdownBytes": 6967
+      "htmlBytes": 179293,
+      "markdownBytes": 7010
     },
     {
       "id": "https://peninsulainsider.com.au/eat/bakeries/",
@@ -642,7 +642,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/barmah-park/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/barmah-park/index.md",
-      "contentSha256": "04981777fc6c6229efa29f2fc32e4b2134e3a87fd07ccc809b64dee0731914a2",
+      "contentSha256": "b083820810fec8a0520c762dc20638b27f25faf32f5c186c29922f81302691a8",
       "citation": {
         "title": "Barmah Park Farm Kitchen",
         "publisher": "Peninsula Insider",
@@ -650,8 +650,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171862,
-      "markdownBytes": 5781
+      "htmlBytes": 171438,
+      "markdownBytes": 5695
     },
     {
       "id": "https://peninsulainsider.com.au/eat/barragunda-dining/",
@@ -676,7 +676,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/best-restaurants/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/best-restaurants/index.md",
-      "contentSha256": "5530c7dd07d52a3f70e5ce2f038ce538a4f7a0496a3efa7006d76d928a6b2b6f",
+      "contentSha256": "2f858a25dd34652ae87edc1c7eea141ea07d851a914d4f6811a887c927e7fe59",
       "citation": {
         "title": "The Best Restaurants on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -684,8 +684,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 203371,
-      "markdownBytes": 10784
+      "htmlBytes": 203395,
+      "markdownBytes": 10808
     },
     {
       "id": "https://peninsulainsider.com.au/eat/bistro-elba/",
@@ -727,7 +727,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/brunch/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/brunch/index.md",
-      "contentSha256": "93ed80acc93209f2b2586eaa1229724a900217d31d48503ade13418df92ff131",
+      "contentSha256": "539d2885cc497e06371c22212b41e3a97bc0952790ad592e01097a7f8374c74d",
       "citation": {
         "title": "Best Brunch on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -735,8 +735,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 170796,
-      "markdownBytes": 6198
+      "htmlBytes": 170815,
+      "markdownBytes": 6217
     },
     {
       "id": "https://peninsulainsider.com.au/eat/cafes/",
@@ -744,7 +744,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/cafes/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/cafes/index.md",
-      "contentSha256": "331048e24618333202fbe96df41df4b0f6e1d56532a4cff7b1ac2ea35a3b3290",
+      "contentSha256": "e75906eeb4795ace9bcc3fc63457afe2f2ac0e6c76ae8fcedb8efdc915118920",
       "citation": {
         "title": "Best Cafes on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -752,8 +752,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 167438,
-      "markdownBytes": 5621
+      "htmlBytes": 167457,
+      "markdownBytes": 5640
     },
     {
       "id": "https://peninsulainsider.com.au/eat/cellar-door-lunch/",
@@ -761,7 +761,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/cellar-door-lunch/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/cellar-door-lunch/index.md",
-      "contentSha256": "dc218aa6e3160e58b0edfc27023840dba3a66485fc15895e86cfc1c0d155f480",
+      "contentSha256": "ed8c76932e948170fa4d40e4182ab1e2cd786360dd5afbc5505e2e52a17e4080",
       "citation": {
         "title": "Cellar Door Lunch on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -769,8 +769,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 189936,
-      "markdownBytes": 9036
+      "htmlBytes": 189984,
+      "markdownBytes": 9080
     },
     {
       "id": "https://peninsulainsider.com.au/eat/commonfolk-coffee/",
@@ -778,7 +778,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/commonfolk-coffee/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/commonfolk-coffee/index.md",
-      "contentSha256": "01ed7cc75aa90051570d85f03e1613ae0728884f77488b360a0757aeec27b97c",
+      "contentSha256": "faadb72c92436ce999ec0ae912e6c60e1e43dcfbe66878bfec8d44817253bcd4",
       "citation": {
         "title": "Commonfolk Coffee",
         "publisher": "Peninsula Insider",
@@ -786,8 +786,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 187431,
-      "markdownBytes": 8101
+      "htmlBytes": 186893,
+      "markdownBytes": 8003
     },
     {
       "id": "https://peninsulainsider.com.au/eat/crittenden-restaurant/",
@@ -795,7 +795,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/crittenden-restaurant/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/crittenden-restaurant/index.md",
-      "contentSha256": "9fd31ecd2be42493d08a3fe4481ee3baad6ddaf1765fd2ac39a6f1d803e1f3dc",
+      "contentSha256": "b4d82d5ca3aa85303a3a488b2928582bcac9350b0a0754125080e01b08c0c070",
       "citation": {
         "title": "Crittenden Restaurant",
         "publisher": "Peninsula Insider",
@@ -803,8 +803,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176964,
-      "markdownBytes": 6811
+      "htmlBytes": 177329,
+      "markdownBytes": 6865
     },
     {
       "id": "https://peninsulainsider.com.au/eat/date-night/",
@@ -829,7 +829,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/distilleries/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/distilleries/index.md",
-      "contentSha256": "b0a3efafbaafe4e70dba45b4abe2a1152cd6112ce17631baefdf7ed24b79c31e",
+      "contentSha256": "8cfdd229e126f08627f154759d664f06beb6e018699abd6009cfcdc497e1a00b",
       "citation": {
         "title": "Distilleries on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -837,8 +837,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 146905,
-      "markdownBytes": 1512
+      "htmlBytes": 146895,
+      "markdownBytes": 1502
     },
     {
       "id": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
@@ -846,7 +846,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/index.md",
-      "contentSha256": "1dae5e1cfa4b871df2832e92902a31ddb39b769d1be78d9d2db5f5f8e6fd0ed6",
+      "contentSha256": "808cd175adba68af133233beaa1e57eb069adc366f0586c7f12caf26c98dddec",
       "citation": {
         "title": "Doot Doot Doot",
         "publisher": "Peninsula Insider",
@@ -854,8 +854,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178957,
-      "markdownBytes": 7262
+      "htmlBytes": 189591,
+      "markdownBytes": 8895
     },
     {
       "id": "https://peninsulainsider.com.au/eat/dromana-hotel/",
@@ -863,7 +863,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/dromana-hotel/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/dromana-hotel/index.md",
-      "contentSha256": "70d36a665e2f768e8ae373b51fc3cf22f8e541e63846cb79ddedb3ea844b3e7d",
+      "contentSha256": "04039e23f16d0e384a83c4eefb79679e229eebc9add1d54d4653419ccc5b8b9c",
       "citation": {
         "title": "Dromana Hotel",
         "publisher": "Peninsula Insider",
@@ -871,8 +871,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181021,
-      "markdownBytes": 7267
+      "htmlBytes": 181386,
+      "markdownBytes": 7321
     },
     {
       "id": "https://peninsulainsider.com.au/eat/epicurean-red-hill/",
@@ -880,7 +880,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/epicurean-red-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/epicurean-red-hill/index.md",
-      "contentSha256": "dfac19749d544f004b64e282b9ad438d3e9c1ec5fe2cc06a9404b3432674d756",
+      "contentSha256": "9485c51fe248360d08d323edd89c5b9a3166dd2fbc9b3d6a609d8af8160be3f7",
       "citation": {
         "title": "The Epicurean",
         "publisher": "Peninsula Insider",
@@ -888,8 +888,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 201083,
-      "markdownBytes": 7361
+      "htmlBytes": 200737,
+      "markdownBytes": 7318
     },
     {
       "id": "https://peninsulainsider.com.au/eat/family-friendly/",
@@ -982,7 +982,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/green-olive-red-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/green-olive-red-hill/index.md",
-      "contentSha256": "52a7d66799aadf9e540d77243db626309457b8f28feecc0745ae96c18dddeeab",
+      "contentSha256": "c0273eafe00ecb61a509959e4d2aab02beb22cd1739e7453fc84bbb07db810a8",
       "citation": {
         "title": "Green Olive at Red Hill",
         "publisher": "Peninsula Insider",
@@ -990,8 +990,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 212851,
-      "markdownBytes": 8208
+      "htmlBytes": 213027,
+      "markdownBytes": 8248
     },
     {
       "id": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
@@ -999,7 +999,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/hatted-restaurants/index.md",
-      "contentSha256": "9315debd96be67c0b2f9f7ddcfb237c341c7f47d39ec4c93340ff470bc80966f",
+      "contentSha256": "63007957eef240f8b2b3063767e9d6e836ed44162979fd6cc4c40887d618218d",
       "citation": {
         "title": "Hatted Restaurants on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1007,8 +1007,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 205054,
-      "markdownBytes": 11584
+      "htmlBytes": 205141,
+      "markdownBytes": 11667
     },
     {
       "id": "https://peninsulainsider.com.au/eat/johnny-ripe/",
@@ -1016,7 +1016,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/johnny-ripe/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/johnny-ripe/index.md",
-      "contentSha256": "87f5e652ac7d1f1321b007223ec7e74981931b07f314e4cc39a231602df0a057",
+      "contentSha256": "4599d70eb2a0c520c134497a5c38f77bbb45ce67027dda251f6d276435f33356",
       "citation": {
         "title": "Johnny Ripe",
         "publisher": "Peninsula Insider",
@@ -1024,8 +1024,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179989,
-      "markdownBytes": 7183
+      "htmlBytes": 180122,
+      "markdownBytes": 7226
     },
     {
       "id": "https://peninsulainsider.com.au/eat/laura-pt-leo/",
@@ -1033,7 +1033,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/laura-pt-leo/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/laura-pt-leo/index.md",
-      "contentSha256": "d827ec1cf2de614d4355f78911718ace93659d1dee418e5532dcaedc378946ab",
+      "contentSha256": "4d7de21da83816d67bfcd4d8e410c3bda1c40587251fe94e61979d9cd45a11b0",
       "citation": {
         "title": "Laura at Pt. Leo",
         "publisher": "Peninsula Insider",
@@ -1041,8 +1041,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 182275,
-      "markdownBytes": 7511
+      "htmlBytes": 182686,
+      "markdownBytes": 7547
     },
     {
       "id": "https://peninsulainsider.com.au/eat/long-lunch/",
@@ -1050,7 +1050,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/long-lunch/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/long-lunch/index.md",
-      "contentSha256": "2913411843ae220649baab4d84ff57b18c68320958714fadfb8f791c6c97426a",
+      "contentSha256": "91251d69b0816ba917ac0bfb2da5534c7104efd5723fadcf454385786b7c38ed",
       "citation": {
         "title": "The Long Lunch on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1058,8 +1058,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 186909,
-      "markdownBytes": 8862
+      "htmlBytes": 186913,
+      "markdownBytes": 8866
     },
     {
       "id": "https://peninsulainsider.com.au/eat/main-ridge-dairy/",
@@ -1067,7 +1067,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/main-ridge-dairy/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/main-ridge-dairy/index.md",
-      "contentSha256": "58fff43e107cdd595c2521d82cdaca72643a4bc0fb71c765f658d1c833a4a032",
+      "contentSha256": "41c25e7d02d96a93da096298541c79d935872f7d328eaf19aa66a809961a5fe7",
       "citation": {
         "title": "Main Ridge Dairy",
         "publisher": "Peninsula Insider",
@@ -1075,8 +1075,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 182598,
-      "markdownBytes": 8269
+      "htmlBytes": 183154,
+      "markdownBytes": 8411
     },
     {
       "id": "https://peninsulainsider.com.au/eat/many-little/",
@@ -1084,7 +1084,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/many-little/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/many-little/index.md",
-      "contentSha256": "1364fed6d6cd5a635176b56ad707f342cf5758aa0f140408ec0397b5653208be",
+      "contentSha256": "b34a42da5d5f4659b6e77818283ebff783ba514c9aae22ca021d7ee6207ff271",
       "citation": {
         "title": "Many Little",
         "publisher": "Peninsula Insider",
@@ -1092,8 +1092,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 177921,
-      "markdownBytes": 6923
+      "htmlBytes": 177689,
+      "markdownBytes": 7002
     },
     {
       "id": "https://peninsulainsider.com.au/eat/markets/",
@@ -1101,7 +1101,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/markets/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/markets/index.md",
-      "contentSha256": "2957171b04b1ffd562608cf5d2faf3a86ae1a44ceb4e66e1430a92ceebec60b2",
+      "contentSha256": "e42212c59fcdd7f52dcefd70c87b2d743a028c719259b12fb8087d2db8a4fe0d",
       "citation": {
         "title": "Best Markets on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1109,8 +1109,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-09-23"
       },
-      "htmlBytes": 160539,
-      "markdownBytes": 3666
+      "htmlBytes": 160567,
+      "markdownBytes": 3681
     },
     {
       "id": "https://peninsulainsider.com.au/eat/martha-s-table/",
@@ -1135,7 +1135,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/merricks-general-wine-store/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/merricks-general-wine-store/index.md",
-      "contentSha256": "19c3d917212e28b2094461f0d16ab453fa0ae2e3f9ba2de9fde22452c1d9cfb6",
+      "contentSha256": "be9cb5009dc7620a16c7fce65605ceb4288176ee5c093ece2d9a7b1d6f7812a5",
       "citation": {
         "title": "Merricks General Wine Store",
         "publisher": "Peninsula Insider",
@@ -1143,8 +1143,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 217231,
-      "markdownBytes": 8945
+      "htmlBytes": 217202,
+      "markdownBytes": 8925
     },
     {
       "id": "https://peninsulainsider.com.au/eat/moke-dining/",
@@ -1169,7 +1169,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/mornington-farmers-market/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/mornington-farmers-market/index.md",
-      "contentSha256": "2de6a10dbf42127ac2e03995caf353d5dc57681fa3bb4c578b94f8364824ce5c",
+      "contentSha256": "f39bced8b60a50a5a877c2666ce62b1ec864f6af34c8bc5c23480fa3ba3d20bf",
       "citation": {
         "title": "Mornington Farmers' Market",
         "publisher": "Peninsula Insider",
@@ -1177,8 +1177,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 210814,
-      "markdownBytes": 7508
+      "htmlBytes": 208975,
+      "markdownBytes": 6885
     },
     {
       "id": "https://peninsulainsider.com.au/eat/mornington-hotel/",
@@ -1186,7 +1186,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/mornington-hotel/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/mornington-hotel/index.md",
-      "contentSha256": "d5136bff1e0af18e859debc053212341b7c29686be6222df3ed4167e787ec538",
+      "contentSha256": "89f591a27161218c6fd656cf817cf96427f67919f7ed87f42e69b5456d19f17e",
       "citation": {
         "title": "The Mornington Hotel",
         "publisher": "Peninsula Insider",
@@ -1194,8 +1194,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 180245,
-      "markdownBytes": 7091
+      "htmlBytes": 179759,
+      "markdownBytes": 6994
     },
     {
       "id": "https://peninsulainsider.com.au/eat/mornington-main-street-market/",
@@ -1203,7 +1203,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/mornington-main-street-market/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/mornington-main-street-market/index.md",
-      "contentSha256": "ed21e3c9c7ef493b41c23e4b06b5d7a319a3292a252dcebab77ab34423f81dde",
+      "contentSha256": "37e0699312ac2b872dd91b790f1b16f2502cf0feab8bebed77c2c7e1b58fe2ea",
       "citation": {
         "title": "Mornington Main Street Market",
         "publisher": "Peninsula Insider",
@@ -1211,8 +1211,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 168994,
-      "markdownBytes": 4703
+      "htmlBytes": 168722,
+      "markdownBytes": 4640
     },
     {
       "id": "https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/",
@@ -1254,7 +1254,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/mr-vincenzos/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/mr-vincenzos/index.md",
-      "contentSha256": "c06ecac8407e325a0b219307c567794a4b1f89db560bd02376b42c2161303b29",
+      "contentSha256": "cfdd8b4bbef586f75da55e7a844cf6914643154180f62fb1bf347ac71ce0a451",
       "citation": {
         "title": "Mr Vincenzo's",
         "publisher": "Peninsula Insider",
@@ -1262,8 +1262,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178114,
-      "markdownBytes": 6770
+      "htmlBytes": 177842,
+      "markdownBytes": 6707
     },
     {
       "id": "https://peninsulainsider.com.au/eat/no-booking/",
@@ -1271,7 +1271,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/no-booking/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/no-booking/index.md",
-      "contentSha256": "d66bffd1af594555f752f0c4b5a77f60227c5641b36153b485712008bda4743a",
+      "contentSha256": "ee73b27e7651d2010200489f7e9be863d527eaf1784d05a7572efc0556c08c6d",
       "citation": {
         "title": "Walk-In Restaurants on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1279,8 +1279,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 176609,
-      "markdownBytes": 6099
+      "htmlBytes": 176672,
+      "markdownBytes": 6158
     },
     {
       "id": "https://peninsulainsider.com.au/eat/paddock-to-plate/",
@@ -1288,7 +1288,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/paddock-to-plate/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/paddock-to-plate/index.md",
-      "contentSha256": "d2cc81c18e47cf658466e8d7a77333651b29ce12b1c0600a2c251229938c77f5",
+      "contentSha256": "c3441934a54abe4c22eaab38f7f3a9ed4a4a2cc0568e2e4b597a9d9e72ef303a",
       "citation": {
         "title": "Paddock to Plate on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1296,8 +1296,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 189225,
-      "markdownBytes": 8513
+      "htmlBytes": 185983,
+      "markdownBytes": 8045
     },
     {
       "id": "https://peninsulainsider.com.au/eat/peninsula-fresh-organics/",
@@ -1305,7 +1305,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/peninsula-fresh-organics/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/peninsula-fresh-organics/index.md",
-      "contentSha256": "7c8ae9fbd8559e13dd5ced659deae1355a0382f31c63988b7b8433344acf5490",
+      "contentSha256": "01af6037a38b0d236d37770e050b170827c2bfc0b0792a2e4fd73756287b1749",
       "citation": {
         "title": "Peninsula Fresh Organics",
         "publisher": "Peninsula Insider",
@@ -1313,8 +1313,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 180814,
-      "markdownBytes": 7308
+      "htmlBytes": 180542,
+      "markdownBytes": 7245
     },
     {
       "id": "https://peninsulainsider.com.au/eat/pier-street-seafood/",
@@ -1322,7 +1322,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/pier-street-seafood/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/pier-street-seafood/index.md",
-      "contentSha256": "bb9d492e2767c2033685ed5d70e3c7402e27d1dd5a68bd7344ab17a1dd7a9aa0",
+      "contentSha256": "b8fbb5b9b9c1d8bbc7eb1e6fc5ae0cdf33d7716ea8daf41cb13468a82f819ac2",
       "citation": {
         "title": "Pier Street Fresh Seafood",
         "publisher": "Peninsula Insider",
@@ -1330,8 +1330,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178134,
-      "markdownBytes": 6816
+      "htmlBytes": 178344,
+      "markdownBytes": 6860
     },
     {
       "id": "https://peninsulainsider.com.au/eat/point-leo-wine-terrace/",
@@ -1339,7 +1339,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/point-leo-wine-terrace/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/point-leo-wine-terrace/index.md",
-      "contentSha256": "09767379ea3460b648c7f3584d39da504e272ba6cddf6f840cbb4dac59222923",
+      "contentSha256": "af3a1e74921e2ce78848b91d615e1af806b12f76d5dff6c5d208cf5d38688679",
       "citation": {
         "title": "Point Leo Wine Terrace",
         "publisher": "Peninsula Insider",
@@ -1347,8 +1347,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181189,
-      "markdownBytes": 7457
+      "htmlBytes": 181160,
+      "markdownBytes": 7437
     },
     {
       "id": "https://peninsulainsider.com.au/eat/portsea-hotel/",
@@ -1407,7 +1407,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/rare-hare/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/rare-hare/index.md",
-      "contentSha256": "2e3626bca12e1396f298f66c5ac4e456276437f374212f3e14e0e8fabf26a24c",
+      "contentSha256": "27a9f5131d8b44f19dfddab6710beb1089f3cfebce657c465700e282b4ac3070",
       "citation": {
         "title": "Rare Hare at Willow Creek",
         "publisher": "Peninsula Insider",
@@ -1415,8 +1415,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 214400,
-      "markdownBytes": 8566
+      "htmlBytes": 215245,
+      "markdownBytes": 8815
     },
     {
       "id": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
@@ -1424,7 +1424,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/index.md",
-      "contentSha256": "1e5d45c5d6da4dadfb94142891ac3744ce4c0857e9380c60d47ff5e04e03f396",
+      "contentSha256": "2dd4e0ea4e6a2e267c4103a6b0878d5da2a132e334c0ce7465ca433b263f13b5",
       "citation": {
         "title": "Red Gum BBQ",
         "publisher": "Peninsula Insider",
@@ -1432,8 +1432,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 206244,
-      "markdownBytes": 7742
+      "htmlBytes": 206813,
+      "markdownBytes": 7867
     },
     {
       "id": "https://peninsulainsider.com.au/eat/red-hill-bakery/",
@@ -1458,7 +1458,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/red-hill-cheese/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/red-hill-cheese/index.md",
-      "contentSha256": "af141c9d00834136975a33699b9dbe56ddb158a24f5ae642dee59f9dcce0d82e",
+      "contentSha256": "2d7e4f4e78ad5719f7406a54b9d52956f43f8937c10f4e96d452abe4b7f132a6",
       "citation": {
         "title": "Red Hill Cheese",
         "publisher": "Peninsula Insider",
@@ -1466,8 +1466,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179869,
-      "markdownBytes": 7097
+      "htmlBytes": 180438,
+      "markdownBytes": 7222
     },
     {
       "id": "https://peninsulainsider.com.au/eat/rye-beachside-market/",
@@ -1509,7 +1509,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/seafood/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/seafood/index.md",
-      "contentSha256": "c9525c8336611ad19f248012ace8ea33cc8eaf31a1aaf6ef077ad1c5ad7469bf",
+      "contentSha256": "2717b57b19ebaeca157d4e51dcf47036d1d2146cbecf94294cbd9cf46a2678eb",
       "citation": {
         "title": "Best Seafood on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1517,8 +1517,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-24"
       },
-      "htmlBytes": 163341,
-      "markdownBytes": 4626
+      "htmlBytes": 163337,
+      "markdownBytes": 4622
     },
     {
       "id": "https://peninsulainsider.com.au/eat/small-stone-pantry/",
@@ -1526,7 +1526,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/small-stone-pantry/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/small-stone-pantry/index.md",
-      "contentSha256": "4897ea9d6c0487152146ed9ddca184518462a23ff62d5eabc2b07c9aff57502c",
+      "contentSha256": "171e7df86104ceac703f7a3f5411d07b65226199d1869541cc0edf605dd53c13",
       "citation": {
         "title": "Small Stone Pantry",
         "publisher": "Peninsula Insider",
@@ -1534,8 +1534,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 172182,
-      "markdownBytes": 5762
+      "htmlBytes": 172392,
+      "markdownBytes": 5806
     },
     {
       "id": "https://peninsulainsider.com.au/eat/somers-general/",
@@ -1577,7 +1577,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/sourdough-kitchen/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/sourdough-kitchen/index.md",
-      "contentSha256": "cf2b043ddea4af6790d16bbb9bc783d8f5a368076cd4959c9a79bb8749bf38f3",
+      "contentSha256": "e0c1bba24aebc998c396d34fdb43396b6a98ff2e61545d39d03fc00755407056",
       "citation": {
         "title": "Sourdough Kitchen",
         "publisher": "Peninsula Insider",
@@ -1585,8 +1585,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179549,
-      "markdownBytes": 6954
+      "htmlBytes": 179277,
+      "markdownBytes": 6891
     },
     {
       "id": "https://peninsulainsider.com.au/eat/stringers-sorrento/",
@@ -1611,7 +1611,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/tedesca-osteria/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/tedesca-osteria/index.md",
-      "contentSha256": "e4c98a54bc6b4a0ddf5c6c1c0ecbba9d6d49ba6a79cdd0dc81eae23712858890",
+      "contentSha256": "5882d43ca4555a0d9c198fce3e115ffa63381fe30368fc395518dd97b1ec3e44",
       "citation": {
         "title": "Tedesca Osteria",
         "publisher": "Peninsula Insider",
@@ -1619,8 +1619,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179990,
-      "markdownBytes": 7063
+      "htmlBytes": 180559,
+      "markdownBytes": 7188
     },
     {
       "id": "https://peninsulainsider.com.au/eat/the-baths-sorrento/",
@@ -1645,7 +1645,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/index.md",
-      "contentSha256": "44d5dc0aaece1f21a5b87a6f4c2c7cd7020e7a4fefcdf3029b302797e4dabae7",
+      "contentSha256": "4dabc6f5e8e02949c83a6857c963cefb9f27f7c695f9e33f7ccd4b28c53f8395",
       "citation": {
         "title": "The Bay Hotel Mornington",
         "publisher": "Peninsula Insider",
@@ -1653,8 +1653,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181171,
-      "markdownBytes": 7410
+      "htmlBytes": 180899,
+      "markdownBytes": 7347
     },
     {
       "id": "https://peninsulainsider.com.au/eat/the-rocks-mornington/",
@@ -1662,7 +1662,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/the-rocks-mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/the-rocks-mornington/index.md",
-      "contentSha256": "e18cfc3b4aaa818e45efa736f8b4241b7f771ba6b6e799fdf13443e8f7ff0f38",
+      "contentSha256": "e9b76e2983b416f10431dab7d7e3fb0985e2c7bb88434c5d6970eb785d66189a",
       "citation": {
         "title": "The Rocks Mornington",
         "publisher": "Peninsula Insider",
@@ -1670,8 +1670,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178666,
-      "markdownBytes": 6989
+      "htmlBytes": 178394,
+      "markdownBytes": 6926
     },
     {
       "id": "https://peninsulainsider.com.au/eat/via-boffe/",
@@ -1679,7 +1679,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/via-boffe/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/via-boffe/index.md",
-      "contentSha256": "249a0b0a17049dfdd22c58b0a00675f921ebfa898aabb95dc6582e0bd1a97afb",
+      "contentSha256": "98371ecbf4cb50267f7ac1e55e937c22f904ace287c7bb6e4c275db71daee02d",
       "citation": {
         "title": "Via Boffe",
         "publisher": "Peninsula Insider",
@@ -1687,8 +1687,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178856,
-      "markdownBytes": 7124
+      "htmlBytes": 179412,
+      "markdownBytes": 7266
     },
     {
       "id": "https://peninsulainsider.com.au/eat/waterfront/",
@@ -1713,7 +1713,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
-      "contentSha256": "bb6749c5f51bdbf66b7e8192d4099f834772dded7367fc41522e1c4dd8f0bebe",
+      "contentSha256": "82568b4b32a5509a70d83afa811194adc865544e191fccd802e080f3e0edb810",
       "citation": {
         "title": "Things to do on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -1721,8 +1721,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 375455,
-      "markdownBytes": 30663
+      "htmlBytes": 375494,
+      "markdownBytes": 30683
     },
     {
       "id": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
@@ -1730,7 +1730,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/arthurs-seat-lookout/index.md",
-      "contentSha256": "286c2746c9ee7dcc41ccc9a16b9999f0dd993ee1e39b57277a3a5b34d563278a",
+      "contentSha256": "2e50ff037c0f906c75ef5f8ba1e76a414ee4ef1ef733857d6f6c5c5b13b3871e",
       "citation": {
         "title": "Arthurs Seat Eagle",
         "publisher": "Peninsula Insider",
@@ -1738,8 +1738,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 182575,
-      "markdownBytes": 8659
+      "htmlBytes": 182872,
+      "markdownBytes": 8702
     },
     {
       "id": "https://peninsulainsider.com.au/explore/ashcombe-maze/",
@@ -1747,7 +1747,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/ashcombe-maze/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/ashcombe-maze/index.md",
-      "contentSha256": "8bd06d7dbd0b4a24fa2b4bedd35205c649d273ec3b2dc9970dc4e31d56befba7",
+      "contentSha256": "de4fb9a26dd7c3bd52e97c06691a0a3cc9e1e353a25df2c0eae9d4eeb10bbc57",
       "citation": {
         "title": "Ashcombe Maze & Lavender Gardens",
         "publisher": "Peninsula Insider",
@@ -1755,8 +1755,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174059,
-      "markdownBytes": 7423
+      "htmlBytes": 177544,
+      "markdownBytes": 7927
     },
     {
       "id": "https://peninsulainsider.com.au/explore/balnarring-beach/",
@@ -1900,7 +1900,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/dromana-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/dromana-beach/index.md",
-      "contentSha256": "30ee5fe8295a1472bd903219d64cac1bd0b1cd26f6e36b652c9db0659edcb9a3",
+      "contentSha256": "c5d9f92bc8fdc419cba0a4f24f346b9797c78a25a3302d853901fb42e13a054c",
       "citation": {
         "title": "Dromana Beach",
         "publisher": "Peninsula Insider",
@@ -1908,8 +1908,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178871,
-      "markdownBytes": 8033
+      "htmlBytes": 179022,
+      "markdownBytes": 8077
     },
     {
       "id": "https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/",
@@ -2036,7 +2036,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/index.md",
-      "contentSha256": "2ea924763428e9de466613cfe1172c3d8b89d3bd5bbd31054b4f1db6f430ea7a",
+      "contentSha256": "163a3da65b3b85b0405f5ad29df7f862629a283b36ffcbb08e5dfd9d63cf95df",
       "citation": {
         "title": "Greens Bush - Two Bays Section",
         "publisher": "Peninsula Insider",
@@ -2044,8 +2044,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178564,
-      "markdownBytes": 8156
+      "htmlBytes": 179116,
+      "markdownBytes": 8296
     },
     {
       "id": "https://peninsulainsider.com.au/explore/gunnamatta-ocean-beach/",
@@ -2104,16 +2104,16 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/markets/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/markets/index.md",
-      "contentSha256": "36536b813bda560b6e6113b61be27c986a23700ca8d01d5283219fd1ef943f9f",
+      "contentSha256": "c9629e5a508caec2ce4d4dc96470514e87193b0fb53953c3386e45e4f53d1e52",
       "citation": {
         "title": "Mornington Peninsula Markets",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/explore/markets/",
         "publishedAt": null,
-        "modifiedAt": "2026-09-23"
+        "modifiedAt": "2026-10-04"
       },
-      "htmlBytes": 163182,
-      "markdownBytes": 7500
+      "htmlBytes": 162724,
+      "markdownBytes": 7565
     },
     {
       "id": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/",
@@ -2121,7 +2121,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/montalto-sculpture-trail/index.md",
-      "contentSha256": "76de5d7f13a351b08261b3ef0477234ffbdf09d1ff95b219b9b3965c0c7a9fec",
+      "contentSha256": "9f6b8f55d617e60df5528ff4c7cd1035e8236f12ac1e36569377d2a3909453f6",
       "citation": {
         "title": "Montalto Sculpture Trail",
         "publisher": "Peninsula Insider",
@@ -2129,8 +2129,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178708,
-      "markdownBytes": 8131
+      "htmlBytes": 179005,
+      "markdownBytes": 8174
     },
     {
       "id": "https://peninsulainsider.com.au/explore/moonah-links/",
@@ -2155,7 +2155,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-foreshore-walk/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-foreshore-walk/index.md",
-      "contentSha256": "a01c140b6063f8412a5b176f79e82e1640967716301944444d8c7b17e7944858",
+      "contentSha256": "df4826446bd773f50aace533077294ead619bf038c8c3da1dc6ca54f8db08c46",
       "citation": {
         "title": "Mornington Peninsula Foreshore Walk",
         "publisher": "Peninsula Insider",
@@ -2163,8 +2163,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 198540,
-      "markdownBytes": 8680
+      "htmlBytes": 198189,
+      "markdownBytes": 8605
     },
     {
       "id": "https://peninsulainsider.com.au/explore/mornington-golf-club/",
@@ -2172,7 +2172,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-golf-club/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-golf-club/index.md",
-      "contentSha256": "c6b01da0574646da0d1e50f3ba1e8edd27367cbbc5429f6bc219451422218ab7",
+      "contentSha256": "db0335b2341a4806d73ef3ac30bfbba29e1f24b74fd5f5e25d96c649f513bc82",
       "citation": {
         "title": "Mornington Golf Club",
         "publisher": "Peninsula Insider",
@@ -2180,8 +2180,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179779,
-      "markdownBytes": 8395
+      "htmlBytes": 179428,
+      "markdownBytes": 8320
     },
     {
       "id": "https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/",
@@ -2189,7 +2189,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/index.md",
-      "contentSha256": "193ae54f000c29e75657fe10f3f9142dd8f5da5e197ad7670992fd8e0824fb51",
+      "contentSha256": "7b63c9819b4ebb7db6e7c5263f4e9a994271e9e0a9a8e69447cccb0fd9ea5cfb",
       "citation": {
         "title": "Mornington Peninsula Regional Gallery",
         "publisher": "Peninsula Insider",
@@ -2197,8 +2197,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 184015,
-      "markdownBytes": 8999
+      "htmlBytes": 183664,
+      "markdownBytes": 8924
     },
     {
       "id": "https://peninsulainsider.com.au/explore/mount-martha-beach/",
@@ -2223,7 +2223,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/index.md",
-      "contentSha256": "ea6b44d7523a67e7b7979f1fe9c1f70cab8895231127eecab9973cb07a08f2bd",
+      "contentSha256": "0a24bdd8558c49db3c6784ccff7bba3ad8a0ab5cfa945010d8c76888ee352bcd",
       "citation": {
         "title": "Peninsula destinations",
         "publisher": "Peninsula Insider",
@@ -2231,8 +2231,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-04-30"
       },
-      "htmlBytes": 179759,
-      "markdownBytes": 14940
+      "htmlBytes": 179761,
+      "markdownBytes": 14944
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
@@ -2240,7 +2240,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
-      "contentSha256": "bd4a6807903a97b72dcaf1601dded375eb9737903879503bf96c9d5077aac3af",
+      "contentSha256": "51a6fbde36e0134f2e61850f2ee54be044b293f7e10f4e552d1a139e4bf3ec1d",
       "citation": {
         "title": "Arthurs Seat",
         "publisher": "Peninsula Insider",
@@ -2248,8 +2248,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 206696,
-      "markdownBytes": 9127
+      "htmlBytes": 205690,
+      "markdownBytes": 8626
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
@@ -2257,7 +2257,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "ad9b208157fd4dbef2b9d249b348d752ae44da69640cb9f12468e39b6f179db1",
+      "contentSha256": "ca3783f34e0e9846333a4bc58502da535d3bfc870053dfa07155cfe4822ab33a",
       "citation": {
         "title": "Balnarring",
         "publisher": "Peninsula Insider",
@@ -2265,8 +2265,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 231385,
-      "markdownBytes": 17057
+      "htmlBytes": 231287,
+      "markdownBytes": 17006
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/bittern/",
@@ -2325,7 +2325,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/index.md",
-      "contentSha256": "e1652578286f892767d2b063624c64bce3ab532cef5e90d03eb380f39fcb69c1",
+      "contentSha256": "e9125b6186e4fe839046fc3dabf40a5fda658fe8d538acd1b114e1d14f6f72a9",
       "citation": {
         "title": "Cape Schanck",
         "publisher": "Peninsula Insider",
@@ -2333,8 +2333,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 286084,
-      "markdownBytes": 26194
+      "htmlBytes": 285986,
+      "markdownBytes": 26143
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/capel-sound/",
@@ -2376,7 +2376,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
-      "contentSha256": "ef85eabfea88804fed5a66d8cada52c95c84cfac1d1e6fec501c69e5f887ec95",
+      "contentSha256": "c06a5bc327931d736e2687e4f4d55d6be2566638bc19401791911e6b9a1c472a",
       "citation": {
         "title": "Dromana",
         "publisher": "Peninsula Insider",
@@ -2384,8 +2384,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 256111,
-      "markdownBytes": 17177
+      "htmlBytes": 252112,
+      "markdownBytes": 16303
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/fingal/",
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
-      "contentSha256": "d3d81381bf346eb1c155019b3671e1e34b33feaca658ba12b2ca00f9eeb04084",
+      "contentSha256": "b02e25a62e49a525c49d4ce8151511dd8da4593472087ab6dc426a15ccb4a55d",
       "citation": {
         "title": "Flinders",
         "publisher": "Peninsula Insider",
@@ -2418,8 +2418,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 242778,
-      "markdownBytes": 15487
+      "htmlBytes": 242680,
+      "markdownBytes": 15436
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/hastings/",
@@ -2444,7 +2444,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
-      "contentSha256": "db77edaec3ef653f7f9f90dabc66c5cdf7a9ec59f43cf6e2d132f3e0600a14a9",
+      "contentSha256": "8f3fe07fb295c17f95a1f5beefae442957f3d3bd9ec3d08655731b765879157d",
       "citation": {
         "title": "Main Ridge",
         "publisher": "Peninsula Insider",
@@ -2452,8 +2452,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 251408,
-      "markdownBytes": 17299
+      "htmlBytes": 233807,
+      "markdownBytes": 17069
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mccrae/",
@@ -2495,7 +2495,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/index.md",
-      "contentSha256": "8fdf17385b8ff171ff3514487b389af10c776099928a59855263432d0fc3dfe3",
+      "contentSha256": "a7283c1b9bd477b2f68c12a439429110f92b97d7e12089cbf5ca095d3995e3f8",
       "citation": {
         "title": "Merricks North",
         "publisher": "Peninsula Insider",
@@ -2503,8 +2503,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 207011,
-      "markdownBytes": 12583
+      "htmlBytes": 220486,
+      "markdownBytes": 14287
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/merricks/",
@@ -2512,7 +2512,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
-      "contentSha256": "3567d59454983d1160e0e5bce1f97d6b9dfa51d43df69872ad0f626b80093ed9",
+      "contentSha256": "e7022e33c1afb312400b14269ea043a3f620db86f57b914e2f24e87724504237",
       "citation": {
         "title": "Merricks",
         "publisher": "Peninsula Insider",
@@ -2520,8 +2520,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 259886,
-      "markdownBytes": 16598
+      "htmlBytes": 251720,
+      "markdownBytes": 16493
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
@@ -2529,7 +2529,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "42af74097c2ce670a0900e6e1b86e2e35102bf8390f5e3fd96fad7af5d203bcf",
+      "contentSha256": "a9c44532c2ca4fd317241c260867ef0c7c1de611c834040c06cdefa4a2874002",
       "citation": {
         "title": "Moorooduc",
         "publisher": "Peninsula Insider",
@@ -2537,8 +2537,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 216220,
-      "markdownBytes": 13926
+      "htmlBytes": 214788,
+      "markdownBytes": 13340
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mornington/",
@@ -2546,7 +2546,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "b6253da2d9168432ba6ec62fc821f58872b07d2382db6c630bede13344746318",
+      "contentSha256": "b64e2320d1a246ecce9236bc6d28186e2589637ced52a582b773f2c8b2dd444c",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2554,8 +2554,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 278251,
-      "markdownBytes": 20021
+      "htmlBytes": 268610,
+      "markdownBytes": 19158
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -2563,7 +2563,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/index.md",
-      "contentSha256": "bf32d34bc03941b73abc472e835928172657aa18ad6922f4dd985baecc1ea365",
+      "contentSha256": "cecf925ce30acd58c16dab93e265610aef7fd5c883a9c6ed1c543e9f3651183e",
       "citation": {
         "title": "Mount Eliza",
         "publisher": "Peninsula Insider",
@@ -2571,8 +2571,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 183109,
-      "markdownBytes": 8878
+      "htmlBytes": 183107,
+      "markdownBytes": 8879
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
@@ -2580,7 +2580,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
-      "contentSha256": "ed6c97c0327c27b673f520041cb564265ca56c5d52f81b944f5cc66d0d87c8bc",
+      "contentSha256": "f6d9b71486a9a8acc16574769361984eaefa35a94a3dc43ebefae1d98972a047",
       "citation": {
         "title": "Mount Martha",
         "publisher": "Peninsula Insider",
@@ -2588,8 +2588,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 197635,
-      "markdownBytes": 11070
+      "htmlBytes": 197535,
+      "markdownBytes": 11020
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/point-leo/",
@@ -2648,7 +2648,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/index.md",
-      "contentSha256": "58e5177646ddd8072a1e6447f30216566be74cdea1eaa4a2ce7c00abe3c3366c",
+      "contentSha256": "de994861cec2db1bf9229af38b36cd75c62594693ef7845841bd5d2e7c4b41a3",
       "citation": {
         "title": "Red Hill South",
         "publisher": "Peninsula Insider",
@@ -2656,8 +2656,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178267,
-      "markdownBytes": 7820
+      "htmlBytes": 203522,
+      "markdownBytes": 11960
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
@@ -2665,7 +2665,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
-      "contentSha256": "cc8568be4a76a102260dfd3b0e409de277d4b355295ba5970869b99aa54bccba",
+      "contentSha256": "19ff94a0d59c9c8a19f6ac923b6a78b27d68baeaa23fc32f2eb6e6a98e389864",
       "citation": {
         "title": "Red Hill",
         "publisher": "Peninsula Insider",
@@ -2673,8 +2673,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 303137,
-      "markdownBytes": 25736
+      "htmlBytes": 300427,
+      "markdownBytes": 25896
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
@@ -2716,7 +2716,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/safety-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/safety-beach/index.md",
-      "contentSha256": "10465e6eb98eed583decdfc093a6940fd04283ae1d15ddce4aa0456dd5ea909f",
+      "contentSha256": "d451e310547c88bc8801a9804225493a58c77f026cd3ca282a1dc5f5e1684424",
       "citation": {
         "title": "Safety Beach",
         "publisher": "Peninsula Insider",
@@ -2724,8 +2724,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 201387,
-      "markdownBytes": 11975
+      "htmlBytes": 201289,
+      "markdownBytes": 11924
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/shoreham/",
@@ -2733,7 +2733,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/shoreham/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/shoreham/index.md",
-      "contentSha256": "c61565306267fef1e83b77a76c180cbf37eab16469fe5d3da30e06e37dab45bc",
+      "contentSha256": "596c4a1fdb96a7e7c0585dd07edc429c8d43f9bfc3b7930aceddcb1e8cc820bc",
       "citation": {
         "title": "Shoreham",
         "publisher": "Peninsula Insider",
@@ -2741,8 +2741,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 196803,
-      "markdownBytes": 10983
+      "htmlBytes": 208637,
+      "markdownBytes": 13075
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/somers/",
@@ -2767,7 +2767,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/sorrento/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/sorrento/index.md",
-      "contentSha256": "2e5f93562c71d438717115d276ca40264683bf80e7e2c5b358511aa9c78b4276",
+      "contentSha256": "046a598f596c483e1c1fd118814acda1786d0fa7d6be904d08bd1ddde92dfc8c",
       "citation": {
         "title": "Sorrento",
         "publisher": "Peninsula Insider",
@@ -2775,8 +2775,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 278574,
-      "markdownBytes": 21163
+      "htmlBytes": 278476,
+      "markdownBytes": 21112
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
@@ -2835,7 +2835,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tuerong/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/tuerong/index.md",
-      "contentSha256": "4f20c30614f7424babe3acdb36d69f8ee78c3733127fe59e91fb77a072ac534f",
+      "contentSha256": "70a9728b70b02e9cec6f87b5937c49086a2d96ade4ffc4f3ff17a5221494aaf3",
       "citation": {
         "title": "Tuerong",
         "publisher": "Peninsula Insider",
@@ -2843,8 +2843,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 200030,
-      "markdownBytes": 10184
+      "htmlBytes": 199930,
+      "markdownBytes": 10134
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/tyabb/",
@@ -2869,7 +2869,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/plans/index.md",
-      "contentSha256": "d72901127794530abdc0a5578597993de0f21ca4fe72c33f385a5706408a0768",
+      "contentSha256": "5fa79e83c7330e6a6512aea7d0046e5140ebf56d0d19fb518438e3ccc107d668",
       "citation": {
         "title": "Don’t plan. Pick one of ours.",
         "publisher": "Peninsula Insider",
@@ -2877,8 +2877,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 215988,
-      "markdownBytes": 15348
+      "htmlBytes": 216000,
+      "markdownBytes": 15354
     },
     {
       "id": "https://peninsulainsider.com.au/explore/plans/corporate-events-how-to-plan-peninsula-retreat/",
@@ -2954,7 +2954,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/mornington-day-guide/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/plans/mornington-day-guide/index.md",
-      "contentSha256": "51e9d8ac48b446b7b3d7099cc1f9d851fac99c7ff8cfbf7dbee5cd47e400133e",
+      "contentSha256": "3f83e87cf4ed7752982d2e5c37ccfe22c55110165766c71e91b197e2f55d5255",
       "citation": {
         "title": "The Mornington Day: How to Treat the Gateway Town as the Destination",
         "publisher": "Peninsula Insider",
@@ -2962,8 +2962,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159989,
-      "markdownBytes": 9941
+      "htmlBytes": 160007,
+      "markdownBytes": 9946
     },
     {
       "id": "https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/",
@@ -3141,7 +3141,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/index.md",
-      "contentSha256": "819a062f01971e9d6088227a673fdb3b3b02ce552cf3fab93b5dc44042a0944e",
+      "contentSha256": "c5f93e4f9d1abd157d0a8da585f95a7cf622740e64aed62828d6c06882d141ec",
       "citation": {
         "title": "The Friday Night Arrival",
         "publisher": "Peninsula Insider",
@@ -3149,8 +3149,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 160864,
-      "markdownBytes": 10976
+      "htmlBytes": 160876,
+      "markdownBytes": 10988
     },
     {
       "id": "https://peninsulainsider.com.au/explore/plans/the-market-saturday/",
@@ -3158,7 +3158,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-market-saturday/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-market-saturday/index.md",
-      "contentSha256": "1ef59849eea7e469b11edc263cb90c9a3d61ca46b0e110e906ba2b6ba91c522a",
+      "contentSha256": "713df7dfb7f1f3dbc5f12eb44c8a6caa4c3059ed57148d9d30ef45dbfb78f098",
       "citation": {
         "title": "The Market Saturday: Two Peninsula Weekends Built Around the Right Hour at the Right Stall",
         "publisher": "Peninsula Insider",
@@ -3166,8 +3166,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 163568,
-      "markdownBytes": 12171
+      "htmlBytes": 163835,
+      "markdownBytes": 12370
     },
     {
       "id": "https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/",
@@ -3464,7 +3464,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/index.md",
-      "contentSha256": "db9b222fb2a80497d97c23b54da8dce8313a3dd5885c8e4486a18fa621083a63",
+      "contentSha256": "746c94b79372cd45a0c5f738a60baad5a2769a80a59fb0a840f450b0e1189a3f",
       "citation": {
         "title": "Pt. Leo Estate Sculpture Park",
         "publisher": "Peninsula Insider",
@@ -3472,8 +3472,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178236,
-      "markdownBytes": 7905
+      "htmlBytes": 178203,
+      "markdownBytes": 7883
     },
     {
       "id": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
@@ -3515,7 +3515,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/red-hill-hinterland-cycling/index.md",
-      "contentSha256": "c71e9ca042901bce33e439c613e6dff8aea9810a05c4c016a461cea60e43ed92",
+      "contentSha256": "891abe79d2ad626f46db304498caef4bffa07f184b84b2367b6115f924323f88",
       "citation": {
         "title": "Red Hill Hinterland Cycling",
         "publisher": "Peninsula Insider",
@@ -3523,8 +3523,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178672,
-      "markdownBytes": 8156
+      "htmlBytes": 178969,
+      "markdownBytes": 8199
     },
     {
       "id": "https://peninsulainsider.com.au/explore/red-hill-truffles/",
@@ -3532,7 +3532,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/red-hill-truffles/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/red-hill-truffles/index.md",
-      "contentSha256": "e50b03705c73e6a2c543a66d112bb05f1c43c2c3384f3614bded60b960bfeef1",
+      "contentSha256": "bbf1d3e1844c1e8fdcbf4796d40ba367300ff066ce3e02c609ca2b8dd53f3ac1",
       "citation": {
         "title": "Red Hill Truffles",
         "publisher": "Peninsula Insider",
@@ -3540,8 +3540,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179250,
-      "markdownBytes": 8461
+      "htmlBytes": 179547,
+      "markdownBytes": 8504
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/",
@@ -3566,7 +3566,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
-      "contentSha256": "74c5df2648d21e6ef8a111f690c679a3c98a6525423e17ed7c7aaebeb214d3a1",
+      "contentSha256": "443fc7e0f3d1bd112ac551f75a6bfc6b73f0c56701743fca11db4d9e1b13d4d6",
       "citation": {
         "title": "Mornington & the Bay",
         "publisher": "Peninsula Insider",
@@ -3574,8 +3574,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 312955,
-      "markdownBytes": 28977
+      "htmlBytes": 306888,
+      "markdownBytes": 28105
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
@@ -3583,7 +3583,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
-      "contentSha256": "d23bbb9af7054909accdc0acf3a8878910c888b2e993e8eeb659345199291baa",
+      "contentSha256": "53eaeddaabd7c98cb129f2cdc5626e7e66620d364c084e3cf673731403ffc3bd",
       "citation": {
         "title": "Flinders & the Ocean Coast",
         "publisher": "Peninsula Insider",
@@ -3591,8 +3591,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 314649,
-      "markdownBytes": 32953
+      "htmlBytes": 318216,
+      "markdownBytes": 33457
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
@@ -3617,7 +3617,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
-      "contentSha256": "76e8aae9ea4d499506090328e709c6ece7638b195d38cc169e90e58eec17ad7c",
+      "contentSha256": "f6eba2be3529efc093aa8f636046c63caec945ba5cb73d8bfd22ed3c9cd93081",
       "citation": {
         "title": "Red Hill & Merricks",
         "publisher": "Peninsula Insider",
@@ -3625,8 +3625,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 479324,
-      "markdownBytes": 55994
+      "htmlBytes": 470731,
+      "markdownBytes": 54272
     },
     {
       "id": "https://peninsulainsider.com.au/explore/regions/western-port/",
@@ -3787,7 +3787,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/spas-and-wellness/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/spas-and-wellness/index.md",
-      "contentSha256": "4e03c24c6435ae6f73ca3120ca9437615df2b143db69f25e02f77fc769b83bd6",
+      "contentSha256": "e796a37444acab423038ed1d28a7aec399647698da813dbdcc3368223828caf0",
       "citation": {
         "title": "Day spas and wellness on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -3795,8 +3795,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 224306,
-      "markdownBytes": 8988
+      "htmlBytes": 224752,
+      "markdownBytes": 9153
     },
     {
       "id": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
@@ -3821,7 +3821,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/index.md",
-      "contentSha256": "bcc6c2445692f8048976990c7f50e562c43857327e2d4cbfb18c714953ade79a",
+      "contentSha256": "81662b471a38309e10458c774fd6c092f1801eefe547076709a7697ea1b2036f",
       "citation": {
         "title": "Summit Circuit Walk - Arthurs Seat",
         "publisher": "Peninsula Insider",
@@ -3829,8 +3829,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179839,
-      "markdownBytes": 8595
+      "htmlBytes": 180136,
+      "markdownBytes": 8638
     },
     {
       "id": "https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/",
@@ -3838,7 +3838,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/index.md",
-      "contentSha256": "79ac2295153720756250cc7a5e0a57f02ef389480f4ff056660189569f54f7a2",
+      "contentSha256": "27d9a9ff1eb06a711c244e03daec7b874a8ac0ef0bbe10279e447e5db045833e",
       "citation": {
         "title": "Sunny Ridge Strawberry Farm",
         "publisher": "Peninsula Insider",
@@ -3846,8 +3846,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 177945,
-      "markdownBytes": 7959
+      "htmlBytes": 178497,
+      "markdownBytes": 8099
     },
     {
       "id": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
@@ -4552,7 +4552,7 @@
       "section": "insiders-30",
       "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/",
       "markdownUrl": "https://peninsulainsider.com.au/insiders-30/index.md",
-      "contentSha256": "cd1a142a411d3d95f2edc3d3b4a4e6888881a55a755bf1901cce0d7994e7c862",
+      "contentSha256": "e1991da0ce994da079bb3254f95bb92201dcefa9feb6a5de46573d8826c78157",
       "citation": {
         "title": "Thirty places that defined the Peninsula this year.",
         "publisher": "Peninsula Insider",
@@ -4560,8 +4560,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174943,
-      "markdownBytes": 8441
+      "htmlBytes": 174947,
+      "markdownBytes": 8445
     },
     {
       "id": "https://peninsulainsider.com.au/insiders-30/2026/",
@@ -4569,7 +4569,7 @@
       "section": "insiders-30",
       "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/2026/",
       "markdownUrl": "https://peninsulainsider.com.au/insiders-30/2026/index.md",
-      "contentSha256": "ba72bba08687d755bdb8495af3cd0f37db3f2cf06a5f6030d82d3bf72c11bf38",
+      "contentSha256": "f84ec28e43a9394bb1257503b3f1f3ea076959d0bc1ae9d9ca27c83fd781a1e7",
       "citation": {
         "title": "Thirty places that defined 2026.",
         "publisher": "Peninsula Insider",
@@ -4577,8 +4577,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 177943,
-      "markdownBytes": 8210
+      "htmlBytes": 177947,
+      "markdownBytes": 8214
     },
     {
       "id": "https://peninsulainsider.com.au/insiders-30/map/",
@@ -4586,7 +4586,7 @@
       "section": "insiders-30",
       "canonicalUrl": "https://peninsulainsider.com.au/insiders-30/map/",
       "markdownUrl": "https://peninsulainsider.com.au/insiders-30/map/index.md",
-      "contentSha256": "32ccbd19d9aa6fef56575e2612d4b7f53a686e886a2ef61159e135b74c1bc5b7",
+      "contentSha256": "dd3ee90ec7256baf9b04a92e39fa736e394a8c81127d34e6f9a05c534f502d07",
       "citation": {
         "title": "The list, on one screen.",
         "publisher": "Peninsula Insider",
@@ -4594,7 +4594,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 150733,
+      "htmlBytes": 148170,
       "markdownBytes": 579
     },
     {
@@ -5822,6 +5822,23 @@
       "markdownBytes": 8993
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/",
+      "title": "The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/index.md",
+      "contentSha256": "bbe0e97dcedaba606b2cc6e58b39c99bde79867ac0b0b832bda40247187c9978",
+      "citation": {
+        "title": "The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/",
+        "publishedAt": "2026-10-04T00:00:00.000Z",
+        "modifiedAt": "2026-10-04T00:00:00.000Z"
+      },
+      "htmlBytes": 187326,
+      "markdownBytes": 8772
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6133,7 +6150,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
-      "contentSha256": "a992553d92341c7241ff520714db6df7472adbf6b1dbdf2f8bb6c5fbfb2792e8",
+      "contentSha256": "cfc2d85c5f2b83672ab673c3fc22e1d3628dfd26577eb011504d7da4738c2d66",
       "citation": {
         "title": "The Cellar Door Short List: Four Producers Worth the Stop",
         "publisher": "Peninsula Insider",
@@ -6141,8 +6158,8 @@
         "publishedAt": "2026-04-06T00:00:00.000Z",
         "modifiedAt": "2026-04-06T00:00:00.000Z"
       },
-      "htmlBytes": 220069,
-      "markdownBytes": 16255
+      "htmlBytes": 219067,
+      "markdownBytes": 15758
     },
     {
       "id": "https://peninsulainsider.com.au/journal/the-chardonnay-case/",
@@ -6150,7 +6167,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/the-chardonnay-case/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/the-chardonnay-case/index.md",
-      "contentSha256": "d7e657fd58846fec67d482f4a913f624dba3ff59027b49156e6647064873d9f4",
+      "contentSha256": "e69d443af8015cfba5f06241da9bf6cab233ea9a0c73019b523bc2b67b739d9a",
       "citation": {
         "title": "The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing",
         "publisher": "Peninsula Insider",
@@ -6158,8 +6175,8 @@
         "publishedAt": "2026-04-09T00:00:00.000Z",
         "modifiedAt": "2026-04-09T00:00:00.000Z"
       },
-      "htmlBytes": 205944,
-      "markdownBytes": 16271
+      "htmlBytes": 205948,
+      "markdownBytes": 16275
     },
     {
       "id": "https://peninsulainsider.com.au/journal/the-long-lunch/",
@@ -6184,7 +6201,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/the-peninsula-pantry/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/the-peninsula-pantry/index.md",
-      "contentSha256": "99f1eec67c6c3cdd52143d6d776064aaf4460f6acec838a3b1d2975f92c41cba",
+      "contentSha256": "a167d6e31fc0bb08b8d6bda163f39bbae75bad6d30f524d467daf70757606ab8",
       "citation": {
         "title": "The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental",
         "publisher": "Peninsula Insider",
@@ -6192,8 +6209,8 @@
         "publishedAt": "2026-04-09T00:00:00.000Z",
         "modifiedAt": "2026-04-09T00:00:00.000Z"
       },
-      "htmlBytes": 207636,
-      "markdownBytes": 16205
+      "htmlBytes": 207664,
+      "markdownBytes": 16220
     },
     {
       "id": "https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/",
@@ -6541,7 +6558,7 @@
       "section": "map",
       "canonicalUrl": "https://peninsulainsider.com.au/map/",
       "markdownUrl": "https://peninsulainsider.com.au/map/index.md",
-      "contentSha256": "de3845bc894cf576d1837dea8a222104f7b4c7c6185bafafffb3309a996b7715",
+      "contentSha256": "90a64e8fdef3ba204ea6a3489a015715ffdcea776713ba06140185ba88f72524",
       "citation": {
         "title": "The Insider Map",
         "publisher": "Peninsula Insider",
@@ -6549,8 +6566,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 493406,
-      "markdownBytes": 18667
+      "htmlBytes": 465974,
+      "markdownBytes": 17258
     },
     {
       "id": "https://peninsulainsider.com.au/partners/",
@@ -6617,7 +6634,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 148970,
+      "htmlBytes": 148719,
       "markdownBytes": 593
     },
     {
@@ -6626,7 +6643,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "c3229584100f2c7d7ac35625dc54779d3207632ef34fa23b84eba93b22ffa031",
+      "contentSha256": "21e943cd7f88775dac967b39fd4bbbb4e565b199d131f89f3d865472f9fe9c15",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6634,8 +6651,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142263,
-      "markdownBytes": 5701
+      "htmlBytes": 142334,
+      "markdownBytes": 5764
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6660,7 +6677,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "823bd4b28bc2b20cfaf4a0706417ea4fd6bb829c3242a342ef200fa80c055855",
+      "contentSha256": "a01db7e459c01a435f3e7efccb775e8095d1e1460a4fcad0b0e0172e3daba8ce",
       "citation": {
         "title": "Sunday 4 October 2026",
         "publisher": "Peninsula Insider",
@@ -6677,7 +6694,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "a82cf06eaf84e7f995a411e1a8cf98917faa27c23e4a39b35bae23c10db83a3e",
+      "contentSha256": "fd697896b741e28790144e5caab7ac000d2c256861c973c62780a5cfe76e2104",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6685,8 +6702,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 155557,
-      "markdownBytes": 29451
+      "htmlBytes": 155501,
+      "markdownBytes": 29378
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -7051,7 +7068,7 @@
       "section": "stay",
       "canonicalUrl": "https://peninsulainsider.com.au/stay/jackalope/",
       "markdownUrl": "https://peninsulainsider.com.au/stay/jackalope/index.md",
-      "contentSha256": "3e1771fc541e38d986d1e4bd97b902100d2ad10baf81fde01f051b3e56c191d3",
+      "contentSha256": "1998ca294f4651f42f74b3924995897b8bd910cd7ca1f8b32e0601bbcc5dcc22",
       "citation": {
         "title": "Jackalope Hotel",
         "publisher": "Peninsula Insider",
@@ -7059,8 +7076,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 240277,
-      "markdownBytes": 10355
+      "htmlBytes": 240263,
+      "markdownBytes": 10415
     },
     {
       "id": "https://peninsulainsider.com.au/stay/kanasta-retro-caravans/",
@@ -8496,7 +8513,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "7e40f17f8717994f6cc36e16409945956e8ba2ca7c3bfa4cb6669de3e58832b2",
+      "contentSha256": "fe87a8aae742932d8b5ce01250c06cc306652b6fb7f64ca60cea86564011ffd4",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8504,7 +8521,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-04"
       },
-      "htmlBytes": 237086,
+      "htmlBytes": 237085,
       "markdownBytes": 11077
     },
     {
@@ -8513,7 +8530,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "b9f055f501b71c454d3be69fd8865583cb0cde7c9f1b5ba4ccc0b7c0d9ddd465",
+      "contentSha256": "b60c8946690875477cfc2ef74214e262a1920beba714186fc00190dd35126b16",
       "citation": {
         "title": "Acoustic Saturdays at Peppers Moonah Links",
         "publisher": "Peninsula Insider",
@@ -8521,8 +8538,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159684,
-      "markdownBytes": 3708
+      "htmlBytes": 160812,
+      "markdownBytes": 4276
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -8632,7 +8649,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "8272602ee76f5bce804ee2e527d89be3fcf9f3555909b87764850808c8f48e34",
+      "contentSha256": "72ae94e74a5be9e407e69370f412b69fe8898db1ec73e0c8861a516e6adbea81",
       "citation": {
         "title": "Events that justify the ninety-minute drive",
         "publisher": "Peninsula Insider",
@@ -8640,8 +8657,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186842,
-      "markdownBytes": 6447
+      "htmlBytes": 182657,
+      "markdownBytes": 5699
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -8666,7 +8683,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/doggy-day-out-mornington-peninsula-2026/index.md",
-      "contentSha256": "5b7aae2e1c04373680ff61e85b660d05eba8e0328e857d124a4b39372a1ba45e",
+      "contentSha256": "6db3bd2f1d3e90525d116f29879fb3867d279c156fa48a262e3a5feaae776079",
       "citation": {
         "title": "Doggy Day Out on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -8674,8 +8691,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 160104,
-      "markdownBytes": 3967
+      "htmlBytes": 161225,
+      "markdownBytes": 4534
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market-balnarring/",
@@ -8734,7 +8751,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/index.md",
-      "contentSha256": "bee55b46f0ad4cefd1671f5c3b06ac7a1f707bbbcbc22416b6af5fdd1c80df4f",
+      "contentSha256": "e1ad5f61b7987d2ebf4abda14486bb816a4a6b53a32abc7d1759963a52424476",
       "citation": {
         "title": "Family Mystery Picnic on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -8742,8 +8759,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158957,
-      "markdownBytes": 3656
+      "htmlBytes": 160130,
+      "markdownBytes": 4259
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/",
@@ -8832,20 +8849,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "title": "Hill & Ridge Community Market, 3 October 2026",
+      "title": "Hill & Ridge Community Market, 3 October 2026 (cancelled)",
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
-      "contentSha256": "9a4f90f51c22a5a633ac4afa4a1a38a06ea5c261b0361d9ef61f40918dbaf650",
+      "contentSha256": "06fa918b7389b51c56f37459235e5cc76e2f4ad6b6b5af42570926504066af30",
       "citation": {
-        "title": "Hill & Ridge Community Market, 3 October 2026",
+        "title": "Hill & Ridge Community Market, 3 October 2026 (cancelled)",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 161156,
-      "markdownBytes": 4300
+      "htmlBytes": 160345,
+      "markdownBytes": 4052
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
@@ -8853,7 +8870,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "3b8dccf3100559c230e006a02223887b3d94006c2db9947c535aba93c57a434f",
+      "contentSha256": "a7ed0a2bd48e39c83c4dc6171d00844e53686558e4b8a20bc16685e0aaae816a",
       "citation": {
         "title": "Main Street Mornington Festival 2026",
         "publisher": "Peninsula Insider",
@@ -8861,8 +8878,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 160555,
-      "markdownBytes": 4876
+      "htmlBytes": 160369,
+      "markdownBytes": 4801
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-festival-main-street-christmas-parade/",
@@ -9218,7 +9235,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 162698,
+      "htmlBytes": 159429,
       "markdownBytes": 3608
     },
     {
@@ -9465,7 +9482,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/index.md",
-      "contentSha256": "6a48305daf6d71216c6b921cbf3a81042f5c013c29c07d1f210461690b1f1cdd",
+      "contentSha256": "64f92d4f365836db06d372a4a1e38a29e56a2af6a409621aeb2451a7a411ea13",
       "citation": {
         "title": "Mornington Peninsula wine country",
         "publisher": "Peninsula Insider",
@@ -9473,8 +9490,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 386354,
-      "markdownBytes": 20823
+      "htmlBytes": 376432,
+      "markdownBytes": 20106
     },
     {
       "id": "https://peninsulainsider.com.au/wine/appointment-producers/",
@@ -9482,7 +9499,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/appointment-producers/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/appointment-producers/index.md",
-      "contentSha256": "ff1b183110261e77ebf4eda1ad8537f4625f32f6b5204bc60b82fc7591481a2a",
+      "contentSha256": "9f2bb94b5122a27980c0c770eb11bf95db72896d93ff8d4ecf9f8af42fbc9db7",
       "citation": {
         "title": "Appointment-Only Producers",
         "publisher": "Peninsula Insider",
@@ -9490,8 +9507,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 175310,
-      "markdownBytes": 6446
+      "htmlBytes": 172000,
+      "markdownBytes": 5976
     },
     {
       "id": "https://peninsulainsider.com.au/wine/avani-wines/",
@@ -9499,7 +9516,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/avani-wines/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/avani-wines/index.md",
-      "contentSha256": "c56336aa8f64b3e44c02e8dda38d52e1c78b69e12fb00b38d64dbf46d232f52f",
+      "contentSha256": "fa8b838468786e4a96eafd5d088f8f3e5a723cd8fa2ef1ea3fe6825f5acb9293",
       "citation": {
         "title": "Avani Wines",
         "publisher": "Peninsula Insider",
@@ -9507,8 +9524,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 190685,
-      "markdownBytes": 6966
+      "htmlBytes": 190741,
+      "markdownBytes": 6986
     },
     {
       "id": "https://peninsulainsider.com.au/wine/baillieu-vineyard/",
@@ -9516,7 +9533,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/baillieu-vineyard/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/baillieu-vineyard/index.md",
-      "contentSha256": "9069051cae9d56180230db3cb8611c3787cf84bfe1d21d749d3e7dc455b4d7e6",
+      "contentSha256": "e4c050c2ce5652ac07c5b7b1f2c3c186896f0c3dab79ce43777bad4a30ee78e6",
       "citation": {
         "title": "Baillieu Vineyard",
         "publisher": "Peninsula Insider",
@@ -9524,8 +9541,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173003,
-      "markdownBytes": 5837
+      "htmlBytes": 173005,
+      "markdownBytes": 5839
     },
     {
       "id": "https://peninsulainsider.com.au/wine/balnarring/",
@@ -9550,7 +9567,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/barmah-park-vineyard/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/barmah-park-vineyard/index.md",
-      "contentSha256": "062170e4126334cf8bcd92940491edf9491cef9eabd6b04135bcebba16b679d5",
+      "contentSha256": "cfa5899dbff2fe0973fe4feb54b1f4d8f108c89dabaf3b35b09bfc06a6628d82",
       "citation": {
         "title": "Barmah Park Vineyard",
         "publisher": "Peninsula Insider",
@@ -9558,8 +9575,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173457,
-      "markdownBytes": 6009
+      "htmlBytes": 173459,
+      "markdownBytes": 6011
     },
     {
       "id": "https://peninsulainsider.com.au/wine/bass-and-flinders/",
@@ -9567,7 +9584,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/bass-and-flinders/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/bass-and-flinders/index.md",
-      "contentSha256": "c34f12ed6b1b8db01d1ab0d123b26879e1e177c3ec3dc18a53dd4f8e13062063",
+      "contentSha256": "a5168f7c5d6915c84ae60baec5aaf8d41dbd0cbd2da63fbfe73b1e53788aa919",
       "citation": {
         "title": "Bass & Flinders Distillery",
         "publisher": "Peninsula Insider",
@@ -9575,8 +9592,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 207462,
-      "markdownBytes": 8112
+      "htmlBytes": 207394,
+      "markdownBytes": 8161
     },
     {
       "id": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
@@ -9584,7 +9601,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/best-cellar-doors/index.md",
-      "contentSha256": "ea0afa8fb849ddcce36f38d0e0fa38b3f39ad777f54267757d40d22195ecfeff",
+      "contentSha256": "79991c07822c81a4303efc4eededd209872d1620baa9f557f1ce94a821054524",
       "citation": {
         "title": "The Best Cellar Doors on the Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -9592,8 +9609,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 184352,
-      "markdownBytes": 8542
+      "htmlBytes": 184368,
+      "markdownBytes": 8558
     },
     {
       "id": "https://peninsulainsider.com.au/wine/chardonnay/",
@@ -9601,7 +9618,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/chardonnay/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/chardonnay/index.md",
-      "contentSha256": "209c74ef9b9cbaf07d728dbf3aab2fcb8f667bf156157e4cfa73e05f46ebe5b9",
+      "contentSha256": "f310135029e54ffc272c3a7884b30c486300161cada31b1faa9a34d9d57c78a9",
       "citation": {
         "title": "Mornington Peninsula Chardonnay",
         "publisher": "Peninsula Insider",
@@ -9609,8 +9626,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 187879,
-      "markdownBytes": 8142
+      "htmlBytes": 187895,
+      "markdownBytes": 8158
     },
     {
       "id": "https://peninsulainsider.com.au/wine/crittenden-estate/",
@@ -9618,7 +9635,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/crittenden-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/crittenden-estate/index.md",
-      "contentSha256": "6c6aef6c739dcc06c4aa738e5fd45fc6cd62899170fde9413ce16609f4d986f1",
+      "contentSha256": "91f01eb59dbae7d3122673074ed756f43a86647bed0c821eaa19ce76c1fcf824",
       "citation": {
         "title": "Crittenden Estate",
         "publisher": "Peninsula Insider",
@@ -9626,8 +9643,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 237118,
-      "markdownBytes": 10608
+      "htmlBytes": 237130,
+      "markdownBytes": 10620
     },
     {
       "id": "https://peninsulainsider.com.au/wine/dexter-wines/",
@@ -9635,7 +9652,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/dexter-wines/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/dexter-wines/index.md",
-      "contentSha256": "47c31179093667c611bf2cde9586e528f7129db7a102da8a44368d0bd032bdd4",
+      "contentSha256": "11dc48970c4485308d256133e7d61605e94bc6f999ccf1151dba1614eb136998",
       "citation": {
         "title": "Dexter Wines",
         "publisher": "Peninsula Insider",
@@ -9643,8 +9660,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173531,
-      "markdownBytes": 5352
+      "htmlBytes": 173543,
+      "markdownBytes": 5364
     },
     {
       "id": "https://peninsulainsider.com.au/wine/dromana-estate/",
@@ -9652,7 +9669,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/dromana-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/dromana-estate/index.md",
-      "contentSha256": "ed0d7ebfdd1fcd2ac247b2a732da2317395d67b908862c6d1c2c5f731aa6fdfe",
+      "contentSha256": "c8ce3432c4b595a1954e49c91efd1d22529ad6a727d15ba3d210fc7c6454cb0d",
       "citation": {
         "title": "Dromana Estate",
         "publisher": "Peninsula Insider",
@@ -9660,8 +9677,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173249,
-      "markdownBytes": 5976
+      "htmlBytes": 173261,
+      "markdownBytes": 5988
     },
     {
       "id": "https://peninsulainsider.com.au/wine/elan-vineyard/",
@@ -9669,7 +9686,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/elan-vineyard/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/elan-vineyard/index.md",
-      "contentSha256": "304126c20f35424a654259fc399b5045d4aa57ad463b38b6ed0333050227d28b",
+      "contentSha256": "90cd6c4358575a906c8d1350cd7fdc8a8cab0573b5f7651715f64aff6221de8f",
       "citation": {
         "title": "Elan Vineyard & Gallery",
         "publisher": "Peninsula Insider",
@@ -9677,8 +9694,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173185,
-      "markdownBytes": 5872
+      "htmlBytes": 173197,
+      "markdownBytes": 5884
     },
     {
       "id": "https://peninsulainsider.com.au/wine/eldridge-estate/",
@@ -9686,7 +9703,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/eldridge-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/eldridge-estate/index.md",
-      "contentSha256": "28e668e3be0ed325b1d137fba7b1ec8c82dab8cb91a465bb89ac2c7b0ec841e5",
+      "contentSha256": "75c571b4a49e562c5308fd4f2697371eda9a1763760f66055bc0449c533ea2c7",
       "citation": {
         "title": "Eldridge Estate",
         "publisher": "Peninsula Insider",
@@ -9694,25 +9711,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 182645,
-      "markdownBytes": 8301
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/elgee-park/",
-      "title": "Elgee Park",
-      "section": "wine",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/elgee-park/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/elgee-park/index.md",
-      "contentSha256": "3bf00be68b408e30ddbb4ec52830eb9bc99429f347cb1eaae04f51538602fe37",
-      "citation": {
-        "title": "Elgee Park",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/wine/elgee-park/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 173315,
-      "markdownBytes": 6040
+      "htmlBytes": 182657,
+      "markdownBytes": 8313
     },
     {
       "id": "https://peninsulainsider.com.au/wine/flinders/",
@@ -9720,7 +9720,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/flinders/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/flinders/index.md",
-      "contentSha256": "273a26ec75f73a4b17c062665c70e9f886240dde2e4818374801fc6166964207",
+      "contentSha256": "3a8657d01ff2019f3c18ba72f08ea0315903fc8dbd3ce24f09fed90cae661ef5",
       "citation": {
         "title": "Flinders Wineries",
         "publisher": "Peninsula Insider",
@@ -9728,8 +9728,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174118,
-      "markdownBytes": 9483
+      "htmlBytes": 177967,
+      "markdownBytes": 10013
     },
     {
       "id": "https://peninsulainsider.com.au/wine/foxeys-hangout/",
@@ -9737,7 +9737,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/foxeys-hangout/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/foxeys-hangout/index.md",
-      "contentSha256": "d300bf722bba98fa491f5342c0bcd14e5be7f390cfebf760022b762d87275aa2",
+      "contentSha256": "459800bc4c055d9d09a9e738d2df2695d27d20336fa914ae059572f908992a41",
       "citation": {
         "title": "Foxeys Hangout",
         "publisher": "Peninsula Insider",
@@ -9745,25 +9745,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186059,
-      "markdownBytes": 8833
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/garagiste/",
-      "title": "Garagiste",
-      "section": "wine",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/garagiste/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/garagiste/index.md",
-      "contentSha256": "fd9bd1a75abfd51ce26ac111624aaeef46c6c353299e8314c0ed2e38a070f1f9",
-      "citation": {
-        "title": "Garagiste",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/wine/garagiste/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 177338,
-      "markdownBytes": 6872
+      "htmlBytes": 186071,
+      "markdownBytes": 8845
     },
     {
       "id": "https://peninsulainsider.com.au/wine/hurley-vineyard/",
@@ -9771,7 +9754,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/hurley-vineyard/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/hurley-vineyard/index.md",
-      "contentSha256": "26347d7799a9458890a4b388a91d6605293e10bb652408a0e4d3837214dd07f1",
+      "contentSha256": "97bde5893615edaa8c2df6fdfa0ee21f69fb661ce20bfb24d614822b5e72341e",
       "citation": {
         "title": "Hurley Vineyard",
         "publisher": "Peninsula Insider",
@@ -9779,8 +9762,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181116,
-      "markdownBytes": 7761
+      "htmlBytes": 181128,
+      "markdownBytes": 7773
     },
     {
       "id": "https://peninsulainsider.com.au/wine/jetty-road-brewery/",
@@ -9788,7 +9771,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/jetty-road-brewery/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/jetty-road-brewery/index.md",
-      "contentSha256": "ce7ed2423c8b35c30156aa6306637d96a94e7b5d8c78864196b4de8fd8875798",
+      "contentSha256": "8207a1269dfdaa6ff1fb8f29a0be0b45a6dd278ef8c734cf065705d46c1357f0",
       "citation": {
         "title": "Jetty Road Brewery",
         "publisher": "Peninsula Insider",
@@ -9796,25 +9779,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 180265,
-      "markdownBytes": 7017
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/kerri-greens/",
-      "title": "Kerri Greens",
-      "section": "wine",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/kerri-greens/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/kerri-greens/index.md",
-      "contentSha256": "f772aeaf306ceaad92e4d81ff5a57f0ae6f873f30b5d1710c26d2015ea1f37df",
-      "citation": {
-        "title": "Kerri Greens",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/wine/kerri-greens/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 173580,
-      "markdownBytes": 6005
+      "htmlBytes": 180277,
+      "markdownBytes": 7029
     },
     {
       "id": "https://peninsulainsider.com.au/wine/kooyong/",
@@ -9822,7 +9788,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/kooyong/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/kooyong/index.md",
-      "contentSha256": "31a43554ab453ce7668cd1bfcc732d0ee0527b9172a31dd5b178aa1ab45b46cb",
+      "contentSha256": "ee1077af6463822b6bf7a54b6479ce50a59454cd4b062692796b3c55894c8d93",
       "citation": {
         "title": "Kooyong",
         "publisher": "Peninsula Insider",
@@ -9830,8 +9796,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186404,
-      "markdownBytes": 8916
+      "htmlBytes": 186438,
+      "markdownBytes": 9000
     },
     {
       "id": "https://peninsulainsider.com.au/wine/lightfoot-wines/",
@@ -9839,7 +9805,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/lightfoot-wines/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/lightfoot-wines/index.md",
-      "contentSha256": "6e75d8658a57fa7408e6f318ed72b4b6870cdd61351df030d2f155bfc8028548",
+      "contentSha256": "7cbce05374150d9f0413828ffead6669fbb175d49c41be9601d73b09ae69854c",
       "citation": {
         "title": "Lightfoot Wines",
         "publisher": "Peninsula Insider",
@@ -9847,8 +9813,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171597,
-      "markdownBytes": 5605
+      "htmlBytes": 171609,
+      "markdownBytes": 5617
     },
     {
       "id": "https://peninsulainsider.com.au/wine/main-ridge-estate/",
@@ -9856,7 +9822,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/main-ridge-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/main-ridge-estate/index.md",
-      "contentSha256": "d70330f6a432661be8c25174b56549d9b6bdeab91d0f7afd9ad89738d938454f",
+      "contentSha256": "b3d751ceb0bddc51513580ec391bded04380e43a851f290e3ea6ae2a6d9681a7",
       "citation": {
         "title": "Main Ridge Estate",
         "publisher": "Peninsula Insider",
@@ -9864,8 +9830,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186802,
-      "markdownBytes": 9073
+      "htmlBytes": 186772,
+      "markdownBytes": 9129
     },
     {
       "id": "https://peninsulainsider.com.au/wine/main-ridge/",
@@ -9873,7 +9839,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/main-ridge/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/main-ridge/index.md",
-      "contentSha256": "bb568e40dc5d33cdfc23132e6ba77072a207fa0a735bb37d89f4fccca6667e56",
+      "contentSha256": "b74a9e01a0c9649800341b95679458cea4dc094f6323f539c4bb9b92fda1d753",
       "citation": {
         "title": "Main Ridge Wineries",
         "publisher": "Peninsula Insider",
@@ -9881,8 +9847,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 203201,
-      "markdownBytes": 13707
+      "htmlBytes": 190106,
+      "markdownBytes": 11824
     },
     {
       "id": "https://peninsulainsider.com.au/wine/merricks-estate/",
@@ -9890,7 +9856,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/merricks-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/merricks-estate/index.md",
-      "contentSha256": "715133860a5888634f84a235c643b78ff1f955ba5d25f2bf2cfb0c4a2a4eb779",
+      "contentSha256": "fb3e81309e13539999407b11bfa230962c965118de9bb20efe635038c1167629",
       "citation": {
         "title": "Merricks Estate",
         "publisher": "Peninsula Insider",
@@ -9898,8 +9864,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173658,
-      "markdownBytes": 6064
+      "htmlBytes": 173670,
+      "markdownBytes": 6076
     },
     {
       "id": "https://peninsulainsider.com.au/wine/merricks/",
@@ -9907,7 +9873,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/merricks/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/merricks/index.md",
-      "contentSha256": "d5ccb17b8ca7c820eaa7e94e5feabf4fcf0776fd4a8fd79b64aefbc48dc55cef",
+      "contentSha256": "e286345898820cfa0f5dffb124b37ca32646f3362d586a8b5d064eeb989e13c1",
       "citation": {
         "title": "Merricks Wineries",
         "publisher": "Peninsula Insider",
@@ -9915,8 +9881,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 206783,
-      "markdownBytes": 13563
+      "htmlBytes": 198568,
+      "markdownBytes": 12630
     },
     {
       "id": "https://peninsulainsider.com.au/wine/montalto/",
@@ -9924,7 +9890,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/montalto/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/montalto/index.md",
-      "contentSha256": "ad6994eb22b3ab99ab324a5e14d3cc7f14f220edf41db21c90625dd7ddf32b21",
+      "contentSha256": "31f6562455a45cf296ed2548e6cb3c5a570723d45a7f061642c3c1319b3a8a7a",
       "citation": {
         "title": "Montalto Vineyard & Olive Grove",
         "publisher": "Peninsula Insider",
@@ -9932,8 +9898,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 245086,
-      "markdownBytes": 12070
+      "htmlBytes": 245098,
+      "markdownBytes": 12082
     },
     {
       "id": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
@@ -9941,7 +9907,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/moorooduc-estate/index.md",
-      "contentSha256": "328727275cd5245c68824d358e4a19536936371167a7a155750d2df0d7f673a9",
+      "contentSha256": "31f4b5d142b80acdbe42263d4cab998600f9ac1dc1d38b543b2bef7cf076999a",
       "citation": {
         "title": "Moorooduc Estate",
         "publisher": "Peninsula Insider",
@@ -9949,8 +9915,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 184021,
-      "markdownBytes": 8568
+      "htmlBytes": 184033,
+      "markdownBytes": 8580
     },
     {
       "id": "https://peninsulainsider.com.au/wine/moorooduc-tuerong/",
@@ -9958,7 +9924,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/moorooduc-tuerong/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/moorooduc-tuerong/index.md",
-      "contentSha256": "c8ce4dcd436eca1afb0698a63937e28094c2dab16a2f52515d4b36973454ffd3",
+      "contentSha256": "61197f7592d1acdabaf267326d1b717d531e9d7ddbd39f0a9ba169be852faee1",
       "citation": {
         "title": "Moorooduc & Tuerong Wineries",
         "publisher": "Peninsula Insider",
@@ -9966,8 +9932,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 154991,
-      "markdownBytes": 3256
+      "htmlBytes": 154999,
+      "markdownBytes": 3264
     },
     {
       "id": "https://peninsulainsider.com.au/wine/morning-sun/",
@@ -9975,7 +9941,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/morning-sun/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/morning-sun/index.md",
-      "contentSha256": "f5e5414849d542c3013ad63240343e0169b5c027d6d90f5e2b16270e037a8476",
+      "contentSha256": "fff3b0d492d677def2d17765fbd2e458173167743fd9395c7677f9d2ee22da03",
       "citation": {
         "title": "Morning Sun Vineyard",
         "publisher": "Peninsula Insider",
@@ -9983,8 +9949,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 179491,
-      "markdownBytes": 7202
+      "htmlBytes": 179503,
+      "markdownBytes": 7214
     },
     {
       "id": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/",
@@ -9992,7 +9958,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/index.md",
-      "contentSha256": "efd02ab75fed20f6a80300efda0880227108f5da9e5f8be426c77e3518ed989d",
+      "contentSha256": "5095e6692d51e4b2284fa368f835b8a51c2cdca21e3cc4a90d145ba07c214b7a",
       "citation": {
         "title": "Mornington Peninsula Brewery",
         "publisher": "Peninsula Insider",
@@ -10000,8 +9966,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176901,
-      "markdownBytes": 6682
+      "htmlBytes": 176913,
+      "markdownBytes": 6694
     },
     {
       "id": "https://peninsulainsider.com.au/wine/nazaaray-estate/",
@@ -10009,7 +9975,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/nazaaray-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/nazaaray-estate/index.md",
-      "contentSha256": "86b87cfe616e04805d64a9a23a3a50e0bf7c3efb3d59b33b522a5c3e54758316",
+      "contentSha256": "a0d137801a38cb3030b5be4c79526cf968c9e527e66c653d9af4211b188fda71",
       "citation": {
         "title": "Nazaaray Estate",
         "publisher": "Peninsula Insider",
@@ -10017,8 +9983,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176004,
-      "markdownBytes": 6450
+      "htmlBytes": 176016,
+      "markdownBytes": 6462
     },
     {
       "id": "https://peninsulainsider.com.au/wine/ocean-eight/",
@@ -10026,7 +9992,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/ocean-eight/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/ocean-eight/index.md",
-      "contentSha256": "6fd192a8815e604920e6a876c513b02e4eab4289a189344bd3a6342934c1238f",
+      "contentSha256": "fa2f5b4a7447f0d91ba1d9df46505faff1e545bf9bb7d7bff6278a71260894e8",
       "citation": {
         "title": "Ocean Eight Vineyard",
         "publisher": "Peninsula Insider",
@@ -10034,8 +10000,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 213154,
-      "markdownBytes": 9584
+      "htmlBytes": 213112,
+      "markdownBytes": 9642
     },
     {
       "id": "https://peninsulainsider.com.au/wine/onannon/",
@@ -10043,7 +10009,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/onannon/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/onannon/index.md",
-      "contentSha256": "b24eaf6f3b2cfb138ca6458ef73746faad9251f1992cd93850bab66fc3ff2093",
+      "contentSha256": "3b43ec288875fca41da553c29c50ac99e5c6034e2394643b50ec07fe7c28b2c3",
       "citation": {
         "title": "Onannon",
         "publisher": "Peninsula Insider",
@@ -10051,8 +10017,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173942,
-      "markdownBytes": 6180
+      "htmlBytes": 173954,
+      "markdownBytes": 6192
     },
     {
       "id": "https://peninsulainsider.com.au/wine/paradigm-hill/",
@@ -10060,7 +10026,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/paradigm-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/paradigm-hill/index.md",
-      "contentSha256": "933c36750e86386769b73823d884baf42855bee482d51cc148945b8d30e5728d",
+      "contentSha256": "bcc6083cba5a057dc49dcc72f342d1e4d03ccebf22e1e13f9a7fc932f9b2f00a",
       "citation": {
         "title": "Paradigm Hill",
         "publisher": "Peninsula Insider",
@@ -10068,8 +10034,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 183121,
-      "markdownBytes": 8559
+      "htmlBytes": 183133,
+      "markdownBytes": 8571
     },
     {
       "id": "https://peninsulainsider.com.au/wine/paringa-estate/",
@@ -10077,7 +10043,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/paringa-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/paringa-estate/index.md",
-      "contentSha256": "503a08e13f25d2a9526cc1380a119af082ad2a9c46a8b3699f5ac091f787f7be",
+      "contentSha256": "e6ee9ef922aecb74daebb87714485bdbad4339c715e88466f2b3d8366dce1217",
       "citation": {
         "title": "Paringa Estate",
         "publisher": "Peninsula Insider",
@@ -10085,8 +10051,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 214149,
-      "markdownBytes": 9656
+      "htmlBytes": 214161,
+      "markdownBytes": 9668
     },
     {
       "id": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
@@ -10094,7 +10060,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/phaedrus-estate/index.md",
-      "contentSha256": "9dd38f51afa9a0099d40b925950f8c65810faf11d8829a95ee395cbd3fc7d959",
+      "contentSha256": "8561c0b5252552cbe04559da1aac468366f9c7d8eae9864b3a5f7bdecd6aacd5",
       "citation": {
         "title": "Phaedrus Estate",
         "publisher": "Peninsula Insider",
@@ -10102,8 +10068,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171815,
-      "markdownBytes": 5747
+      "htmlBytes": 170275,
+      "markdownBytes": 5023
     },
     {
       "id": "https://peninsulainsider.com.au/wine/pinot-noir/",
@@ -10111,7 +10077,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/pinot-noir/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/pinot-noir/index.md",
-      "contentSha256": "d890a2014e8e6d8694eedcbba2c546b673ba13d8f481325e2242c79992a22740",
+      "contentSha256": "8b26828f1b5f51916f56f0a9230d879f8be58fd10a99409845a23e919dba37de",
       "citation": {
         "title": "Mornington Peninsula Pinot Noir",
         "publisher": "Peninsula Insider",
@@ -10119,8 +10085,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 201041,
-      "markdownBytes": 10205
+      "htmlBytes": 197788,
+      "markdownBytes": 9771
     },
     {
       "id": "https://peninsulainsider.com.au/wine/polperro/",
@@ -10128,7 +10094,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/polperro/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/polperro/index.md",
-      "contentSha256": "dcc4f56730c5dbe6c69f3a86173bd881c6933172fc04b255beeeb4062b6a2816",
+      "contentSha256": "f48dfdd3cb8e0928d840bc1a15822a3f6485f77f3046bd05eda912b12cc94965",
       "citation": {
         "title": "Polperro",
         "publisher": "Peninsula Insider",
@@ -10136,8 +10102,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 205773,
-      "markdownBytes": 10412
+      "htmlBytes": 205785,
+      "markdownBytes": 10424
     },
     {
       "id": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
@@ -10145,7 +10111,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/index.md",
-      "contentSha256": "0c9dc1264ce742f22b887f2e294bc0b2e45e733a733ba3218d9c99ef275780f5",
+      "contentSha256": "7a09c54bf40dde9b83428ff8ce35e7357332ff0c72433146bab2c830b5837fa0",
       "citation": {
         "title": "Port Phillip Estate",
         "publisher": "Peninsula Insider",
@@ -10153,8 +10119,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 191182,
-      "markdownBytes": 9561
+      "htmlBytes": 191194,
+      "markdownBytes": 9573
     },
     {
       "id": "https://peninsulainsider.com.au/wine/prancing-horse-estate/",
@@ -10162,7 +10128,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/prancing-horse-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/prancing-horse-estate/index.md",
-      "contentSha256": "e54559315d31b99994004c5edcc252bd337e1c81725c10394b573c1157787e64",
+      "contentSha256": "2f11b5724eb229baa3ceb9bf14ff1fe885332565655fc4ef3e87a952a702971d",
       "citation": {
         "title": "Prancing Horse Estate",
         "publisher": "Peninsula Insider",
@@ -10170,8 +10136,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174003,
-      "markdownBytes": 6307
+      "htmlBytes": 174015,
+      "markdownBytes": 6319
     },
     {
       "id": "https://peninsulainsider.com.au/wine/pt-leo-estate/",
@@ -10179,7 +10145,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/pt-leo-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/pt-leo-estate/index.md",
-      "contentSha256": "af8aec9f9c71bda9db59e1024e515c81ea0a7143cf0e6dd7c374e510c97a3450",
+      "contentSha256": "b4ded6f5e7edf8912f6560aa0fe6d732b60ea8792345d21c8e05853294733362",
       "citation": {
         "title": "Pt. Leo Estate",
         "publisher": "Peninsula Insider",
@@ -10187,8 +10153,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 245616,
-      "markdownBytes": 11937
+      "htmlBytes": 245628,
+      "markdownBytes": 11949
     },
     {
       "id": "https://peninsulainsider.com.au/wine/quealy-winemakers/",
@@ -10196,7 +10162,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/quealy-winemakers/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/quealy-winemakers/index.md",
-      "contentSha256": "2042ef906459a3ccc3485f3aa3ba2b8eabda93a17159069450e4420474a5f77f",
+      "contentSha256": "0b13a44cd049eee16ff2e6f5d1ac88e322452637dc4cb90a9b1b5b944b9f1a17",
       "citation": {
         "title": "Quealy Winemakers",
         "publisher": "Peninsula Insider",
@@ -10204,8 +10170,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186602,
-      "markdownBytes": 8751
+      "htmlBytes": 186614,
+      "markdownBytes": 8763
     },
     {
       "id": "https://peninsulainsider.com.au/wine/red-hill-brewery/",
@@ -10213,7 +10179,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill-brewery/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill-brewery/index.md",
-      "contentSha256": "e70a1fa9354027b568a2d6b1c68f731000a721e3ca4c8cb171d36679e7686cc5",
+      "contentSha256": "dcdd01d7df16dce79bdc75d7ad769634b7225884c9882c8eb8f11df7605036f1",
       "citation": {
         "title": "Red Hill Brewery",
         "publisher": "Peninsula Insider",
@@ -10221,8 +10187,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 208435,
-      "markdownBytes": 8752
+      "htmlBytes": 208447,
+      "markdownBytes": 8764
     },
     {
       "id": "https://peninsulainsider.com.au/wine/red-hill-estate/",
@@ -10230,7 +10196,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill-estate/index.md",
-      "contentSha256": "2213ff4b5fdd26a9b9e2d31ff51caeebec4cd9a2f0d397a6ee0b34a4eda149fa",
+      "contentSha256": "a569d744a92f2a1b84d8c2ac3ac72b86fbe6987118cda77d4a81ebd030e41446",
       "citation": {
         "title": "Red Hill Estate",
         "publisher": "Peninsula Insider",
@@ -10238,8 +10204,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181803,
-      "markdownBytes": 8209
+      "htmlBytes": 181833,
+      "markdownBytes": 8301
     },
     {
       "id": "https://peninsulainsider.com.au/wine/red-hill/",
@@ -10247,7 +10213,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill/index.md",
-      "contentSha256": "c9ba5077e174eb147c2c025c4a87e4baa4ff632f1994f008a813ce34ebf282e9",
+      "contentSha256": "b2bc9efa0624c6a57fc79fca70a7c4f88a42c98198af0e0bb2d963fa2e9730d8",
       "citation": {
         "title": "Red Hill Wineries",
         "publisher": "Peninsula Insider",
@@ -10255,8 +10221,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 215580,
-      "markdownBytes": 15438
+      "htmlBytes": 214053,
+      "markdownBytes": 15324
     },
     {
       "id": "https://peninsulainsider.com.au/wine/scorpo-wines/",
@@ -10264,7 +10230,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/scorpo-wines/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/scorpo-wines/index.md",
-      "contentSha256": "262ae6aaab65f9b97acef695f81bc406663f2253ff2b0db5fe7baba5bd850d33",
+      "contentSha256": "81154a1e073ddd56892bef05e556c1a2ddad40a357e599083c5fd31ed707f44b",
       "citation": {
         "title": "Scorpo Wines",
         "publisher": "Peninsula Insider",
@@ -10272,8 +10238,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178626,
-      "markdownBytes": 7057
+      "htmlBytes": 178704,
+      "markdownBytes": 7099
     },
     {
       "id": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
@@ -10281,7 +10247,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/index.md",
-      "contentSha256": "37b784b3e8033cbe64c000e5884321fa2a6ea2c851f59dcb64446a772b5e0d0a",
+      "contentSha256": "44dc4e589c2c1bf413e29dbd51fdd5418d871f7643828a281347db95b2e1815b",
       "citation": {
         "title": "St Andrews Beach Brewery",
         "publisher": "Peninsula Insider",
@@ -10289,8 +10255,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 212509,
-      "markdownBytes": 8242
+      "htmlBytes": 212521,
+      "markdownBytes": 8254
     },
     {
       "id": "https://peninsulainsider.com.au/wine/stonier-wines/",
@@ -10298,7 +10264,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/stonier-wines/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/stonier-wines/index.md",
-      "contentSha256": "2e257d74043507b74e2f1dd8ba3cbb6e3ed5458110c09a6df6ec7bef899bc096",
+      "contentSha256": "7b4a0d38dda0cab85f7bbff992dc7920dbe31274eb86121edded28d0b3049b63",
       "citation": {
         "title": "Stonier Wines",
         "publisher": "Peninsula Insider",
@@ -10306,8 +10272,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186944,
-      "markdownBytes": 9156
+      "htmlBytes": 186956,
+      "markdownBytes": 9168
     },
     {
       "id": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/",
@@ -10315,7 +10281,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/index.md",
-      "contentSha256": "ee5d162cdc3cfad79f5273d31fdc7f93f7520d84ec6da3ad61e3b7e7c5f3e726",
+      "contentSha256": "2c83e1f9d3c30edc808f8c855cbb8b7c874658b7d42c4600ac27eaa85af6dc68",
       "citation": {
         "title": "Stumpy Gully Vineyard",
         "publisher": "Peninsula Insider",
@@ -10323,8 +10289,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174292,
-      "markdownBytes": 6359
+      "htmlBytes": 174304,
+      "markdownBytes": 6371
     },
     {
       "id": "https://peninsulainsider.com.au/wine/t-gallant/",
@@ -10332,7 +10298,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/t-gallant/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/t-gallant/index.md",
-      "contentSha256": "33b6325f9b9aed64d510e7db680a263e99b0cb3c85e9ff7752b7c003eeea2660",
+      "contentSha256": "f01588290028ff0d0af1e2c307f38c235ceca345703321986fa72cb6ffda2551",
       "citation": {
         "title": "T'Gallant",
         "publisher": "Peninsula Insider",
@@ -10340,8 +10306,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181145,
-      "markdownBytes": 8097
+      "htmlBytes": 181157,
+      "markdownBytes": 8109
     },
     {
       "id": "https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/",
@@ -10349,7 +10315,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/index.md",
-      "contentSha256": "eb166b426a79e16da20a3c7b7f469f7aeae43a11819126c2217d828d396a067f",
+      "contentSha256": "d248a1c5c78243b5746315f907c07b59977ccf369f9833aee45f2ceb81a66785",
       "citation": {
         "title": "Ten Minutes by Tractor",
         "publisher": "Peninsula Insider",
@@ -10357,8 +10323,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 193449,
-      "markdownBytes": 10175
+      "htmlBytes": 193461,
+      "markdownBytes": 10187
     },
     {
       "id": "https://peninsulainsider.com.au/wine/trofeo-estate/",
@@ -10366,7 +10332,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/trofeo-estate/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/trofeo-estate/index.md",
-      "contentSha256": "e7779019d33dfe1fd234fee3a14651d4b521a60d549fba66156ff5ab612cdda9",
+      "contentSha256": "811be0a8126d4d998e86bf36d68edeb903158ecbb290e2721b8f8777396bed34",
       "citation": {
         "title": "Trofeo Estate",
         "publisher": "Peninsula Insider",
@@ -10374,8 +10340,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 221918,
-      "markdownBytes": 7492
+      "htmlBytes": 221930,
+      "markdownBytes": 7504
     },
     {
       "id": "https://peninsulainsider.com.au/wine/tucks-ridge/",
@@ -10383,7 +10349,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/tucks-ridge/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/tucks-ridge/index.md",
-      "contentSha256": "e5b50fe40115b67d2665c1db1747de5699896ab0e7bfed270e224c2a5896bc0c",
+      "contentSha256": "25fe1062c84de7c0cf31f39dc19276f6d28a7cf8f13bcc09eae9df52d4de31b8",
       "citation": {
         "title": "Tuck's Ridge",
         "publisher": "Peninsula Insider",
@@ -10391,8 +10357,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 173102,
-      "markdownBytes": 6142
+      "htmlBytes": 173114,
+      "markdownBytes": 6154
     },
     {
       "id": "https://peninsulainsider.com.au/wine/two-bays-brewing/",
@@ -10400,7 +10366,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/two-bays-brewing/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/two-bays-brewing/index.md",
-      "contentSha256": "d7e240ae11c4afc54d24c1284279e3c91a57556af0f4c4359a293c134960f976",
+      "contentSha256": "6777da7c9cb49285a66c6c6cf4e189ab4040a90c616cdcf46212473a477f5ded",
       "citation": {
         "title": "Two Bays Brewing Co",
         "publisher": "Peninsula Insider",
@@ -10408,8 +10374,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181085,
-      "markdownBytes": 7402
+      "htmlBytes": 181097,
+      "markdownBytes": 7414
     },
     {
       "id": "https://peninsulainsider.com.au/wine/willow-creek-vineyard/",
@@ -10417,7 +10383,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/willow-creek-vineyard/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/willow-creek-vineyard/index.md",
-      "contentSha256": "40169dd6e2d222ff15ecb70b2e47bfe818516872681c2b8d242c97838f6720e9",
+      "contentSha256": "e30cd6fda4b0a8142a69bce0e4977a412823e5633904fbdc828a75a9876d0499",
       "citation": {
         "title": "Willow Creek Vineyard",
         "publisher": "Peninsula Insider",
@@ -10425,8 +10391,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181922,
-      "markdownBytes": 8328
+      "htmlBytes": 181994,
+      "markdownBytes": 8438
     },
     {
       "id": "https://peninsulainsider.com.au/wine/wine-region/",
@@ -10434,7 +10400,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/wine-region/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/wine-region/index.md",
-      "contentSha256": "a25dd61f64c47e3b5db6ba6e5641a3e7b33bd18665a80b5f63e12155e404fa1d",
+      "contentSha256": "1b95a01840bab485a13eb70ba0d92534c90ea7ac84fc9a9a23e2d43e8699e8e5",
       "citation": {
         "title": "The Mornington Peninsula Wine Region",
         "publisher": "Peninsula Insider",
@@ -10442,8 +10408,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174705,
-      "markdownBytes": 7215
+      "htmlBytes": 174709,
+      "markdownBytes": 7219
     },
     {
       "id": "https://peninsulainsider.com.au/wine/yabby-lake/",
@@ -10451,7 +10417,7 @@
       "section": "wine",
       "canonicalUrl": "https://peninsulainsider.com.au/wine/yabby-lake/",
       "markdownUrl": "https://peninsulainsider.com.au/wine/yabby-lake/index.md",
-      "contentSha256": "6ae838a97923de79fb3455ee904770b50a6c32588d186c74dd19044d282be644",
+      "contentSha256": "f4333572ca221f977b2d270bef17ac1af5a7fb8b6e235c8653bbc9f0d447046a",
       "citation": {
         "title": "Yabby Lake Vineyard",
         "publisher": "Peninsula Insider",
@@ -10459,8 +10425,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 186103,
-      "markdownBytes": 8948
+      "htmlBytes": 186115,
+      "markdownBytes": 8960
     }
   ]
 }

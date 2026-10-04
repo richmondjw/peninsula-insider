@@ -25,7 +25,7 @@ Hatted walk-in-only venues first, then casual options by format.
 
 Photo: Courtesy of Visit Victoria
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
@@ -35,7 +35,7 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 
 long lunch  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -49,17 +49,17 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937
+159 Shoreham Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
 first date  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 

@@ -203,8 +203,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
 
-- [Elgee Park](<https://peninsulainsider.com.au/eat/elgee-park/>)
-
 - [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
 - [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
@@ -213,8 +211,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
 
-- [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
-
 - [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
 
 - [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
@@ -222,8 +218,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Hurley Vineyard](<https://peninsulainsider.com.au/eat/hurley-vineyard/>)
 
 - [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-- [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
 
 - [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
@@ -248,6 +242,12 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
 
 - [Moorooduc Estate](<https://peninsulainsider.com.au/eat/moorooduc-estate/>)
+
+- [Morning Sun Vineyard](<https://peninsulainsider.com.au/eat/morning-sun/>)
+
+- [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
+
+- [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
 ## Selected Stay pages
 
@@ -307,15 +307,9 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-- [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
-
 - [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
-- [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
-
 - [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
-
-- [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
 
 - [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -352,6 +346,12 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
 - [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
+
+- [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
+
+- [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
+
+- [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>)
 
 ## Experiences
 
@@ -514,8 +514,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Oktoberfest at The Continental Sorrento](<https://peninsulainsider.com.au/whats-on/oktoberfest-continental-sorrento-2026/>)
 
 - [Pearcedale Community Market](<https://peninsulainsider.com.au/whats-on/pearcedale-community-market/>)
-
-- [Hill & Ridge Community Market, 3 October 2026](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
 
 - [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
 

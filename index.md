@@ -33,17 +33,17 @@ MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and S
 
 Mornington Peninsula Regional Gallery   Exhibition
 
-- ### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
-
-Makes a proper day of it for families in a way that a single activity doesn't.
-
-Multiple venues across Mornington Peninsula   Thursday to Sunday weekly
-
 - ### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
 
 Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
 
 Peninsula Hot Springs   Every Sunday from 12pm; performer changes weekly
+
+- ### [Polperro Cellar Table, Private Dining Experience](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
+
+The most exclusive table at Polperro and the room you book when an occasion has to land. Worth the spend.
+
+Polperro Winery Restaurant   Food & wine
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 
@@ -65,14 +65,6 @@ Plan it
 
 Featured plan
 
-Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
-
-### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
-
-A gondola, brewery lunch and a bay beach.
-
-One day   Red Hill & Merricks   Family
-
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -89,21 +81,29 @@ Coastal walks and one excellent meal.
 
 2 days   Flinders & the Ocean Coast   Couples
 
-Inside the featured plan **The family day out**
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+
+### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+
+A gondola, brewery lunch and a bay beach.
+
+One day   Red Hill & Merricks   Family
+
+Inside the featured plan **Ridge to sea**
 
 Why we'd take it
 
-One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
+Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
 
 The route, at a glance
 
-- Arthurs Seat Eagle
+- Day 1 Montalto Vineyard & Olive Grove
 
-- Red Hill Brewery
+- Day 2 Polperro
 
-- Mount Martha Beach
+- Day 3 Point Nepean Fort Walk
 
-[See every stop](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+[See every stop](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
 Build your own
 

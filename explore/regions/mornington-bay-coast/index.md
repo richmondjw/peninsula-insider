@@ -39,7 +39,7 @@ Mornington · town
 
 ### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday farmers' market on the Esplanade worth getting up for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
+Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday artisan market along Main Street worth making time for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
 
 Mornington · town
 
@@ -69,11 +69,11 @@ Safety Beach is the long shallow crescent between Mount Martha and Dromana - the
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915
+40 Collins Rd, Dromana VIC 3936
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -161,25 +161,13 @@ Spa  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Endota Spa Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
 
-Main Street, Mornington VIC 3931
+30 Main St, Mornington VIC 3931
 
 The Mornington town-centre day spa, reliable treatments, sensible pricing, and the sixty-minute option that fits before lunch on Main Street.
 
 wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>) [View stay](<https://endota.com.au/>)
-
-Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
-
-20 Longview Crescent, Mount Eliza VIC 3930
-
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/garagiste/>) [Book](<https://garagiste.com.au/>)
 
 Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -211,9 +199,9 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931
+Mornington Park, Mornington VIC 3931
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
 slow  quick bite
 
@@ -290,18 +278,6 @@ A working certified-organic market garden with a farm-gate shop, straight-out-of
 slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
-
-220 Mornington-Flinders Rd, Red Hill VIC 3937
-
-A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 providore  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

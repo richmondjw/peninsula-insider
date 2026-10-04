@@ -139,45 +139,43 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
-
-232 Balnarring Rd, Tuerong VIC 3915
-
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
-
-rainy day  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
-
-Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
-
-20 Longview Crescent, Mount Eliza VIC 3930
-
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/garagiste/>) [Book](<https://garagiste.com.au/>)
-
 Photo: Robert Blackburn, courtesy of Visit Victoria
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931
+Mornington Park, Mornington VIC 3931
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
 slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
+
+Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+
+1 Main St, Mornington VIC 3931
+
+The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+
+Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+### [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
+
+Main St, Mornington VIC 3931
+
+The northern Peninsula's midweek town market, a broad mix that folds easily into a Mornington visit.
+
+slow  quick bite
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
 Build a day around this
 

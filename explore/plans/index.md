@@ -180,7 +180,7 @@ Book the stay and both dinners. Allow for the Pt. Leo return drive and check par
 
 Two nights in the same place, a thermal session and a gallery on the way home. Keep the coastal walk optional.
 
-Day 1: Merricks → Red Hill · Day 2: Fingal → Merricks → Cape Schanck → Red Hill · Day 3: Mornington
+Day 1: Merricks → Red Hill · Day 2: Fingal → Merricks North → Cape Schanck → Red Hill · Day 3: Mornington
 
 Book the stay and thermal session first, then check meal service times and cancellation terms.
 

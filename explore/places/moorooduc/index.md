@@ -159,15 +159,15 @@ cellar door  slow
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>)
+### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
-1247 Stumpy Gully Rd, Moorooduc VIC 3933
+220 Mornington-Tyabb Rd, Moorooduc VIC 3933
 
-A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
+A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>) [Book](<https://stumpygully.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
@@ -269,19 +269,19 @@ Red Hill · village
 
 ### [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 Mornington · town
 
 ### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday farmers' market on the Esplanade worth getting up for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
+Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday artisan market along Main Street worth making time for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
 
 Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

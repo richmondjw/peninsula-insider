@@ -35,8 +35,6 @@ Main Street   ,   Mornington VIC
 
 - Visit venue website →
 
-- [Get directions →](<https://www.google.com/maps?q=-38.2193,145.0367>)
-
 At a glance
 
 **When**

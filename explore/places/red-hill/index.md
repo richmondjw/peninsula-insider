@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Red Hill
 
-A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees
+A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto in nearby Red Hill South, beneath tall pine trees
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -19,15 +19,15 @@ PI passed through here. Case 02, Took the long way to dinner. Twenty minutes ahe
 
 [Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
 
-Red Hill in 12 photographs
+Red Hill in 10 photographs
 
-1  / 12
+1  / 10
 
-A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees  Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto in nearby Red Hill South, beneath tall pine trees  Montalto, Red Hill South, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Red Hill is the central hinterland village of the Mornington Peninsula's wine country, 85 km from Melbourne, on a cool-climate basalt plateau between Western Port and Port Phillip.
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -47,13 +47,13 @@ two nights minimum
 
 **Best for**
 
-wine lovers, Saturday market visitors
+wine lovers, visitors with a confirmed Hill & Ridge market date
 
 **Avoid**
 
 summer Saturdays after 11am
 
-Insider  The plateau is best early, before the market traffic and lunch bookings turn every short drive into a slow crawl.
+Insider  Book lunch first, then choose a small number of cellar doors; check any market date and weather notice directly with its organiser.
 
 The most concentrated food and wine precinct on the Peninsula, on the plateau above the bay.
 
@@ -67,7 +67,7 @@ Is Red Hill the right base?
 
 - wine lovers
 
-- Saturday market visitors
+- visitors with a confirmed Hill & Ridge market date
 
 - couples who cook
 
@@ -99,7 +99,7 @@ A perfect day here
 
 A producer trail through the morning, long lunch at one of the ridge restaurants, one cellar door in the afternoon.
 
-The plateau is best early, before the market traffic and lunch bookings turn every short drive into a slow crawl.
+Book lunch first, then choose a small number of cellar doors; check any market date and weather notice directly with its organiser.
 
   - Editor's note
 
@@ -133,20 +133,6 @@ Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star r
 
  [More to eat in Red Hill →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
-
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
-
-165 Shoreham Road, Red Hill South VIC 3937
-
-A long table in Red Hill’s historic coolstore and packing shed.
-
-long lunch
-
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
-
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
@@ -163,15 +149,29 @@ long lunch  garden
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
+### [Port Phillip Estate Restaurant](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937
+263 Red Hill Rd, Red Hill South VIC 3937
 
-Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
+The dining room inside Wood Marsh's rammed-earth building at Port Phillip Estate, architecturally serious, one-hat kitchen, six estate suites.
 
-first date  anniversary
+long lunch  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/dining-room/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
+
+51 Shoreham Rd, Red Hill South VIC 3937
+
+Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
+
+long lunch  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) [Book](<https://redgumbbq.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -182,18 +182,6 @@ Wine & producers
 The producers worth the appointment - and the ones already shaping the region's vintage conversation.
 
  [Red Hill wine guide →](<https://peninsulainsider.com.au/wine/red-hill/>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
-
-98 Stanleys Road, Red Hill South VIC 3937
-
-Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -218,6 +206,18 @@ Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a spark
 cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
+
+80 William Rd, Red Hill VIC 3937
+
+Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
+
+cellar door  fireplace
+
+[Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
@@ -505,16 +505,6 @@ Chef Bernard McCarthy's all-vegetable, multi-course feast at Morning Sun Vineyar
 
  Food & Wine](<https://peninsulainsider.com.au/whats-on/foxeys-hangout-vegetable-feast-morning-sun-vineyard/>)
 
-- [Monthly
-
-### ✦ Hill & Ridge Community Market, 3 October 2026
-
-Red Hill
-
-The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.
-
- Markets](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
-
 - [1 May – 30 April 2027
 
 ### ✦ Polperro Cellar Table, Private Dining Experience
@@ -524,3 +514,13 @@ Red Hill
 Polperro's private dining room below the winery. Six to eight guests, five courses, the latest Polperro and Even Keel cuvees poured by the people who made them.
 
  Food & Wine](<https://peninsulainsider.com.au/whats-on/polperro-cellar-table-private-dining-experience/>)
+
+- [1 May – 30 April 2027
+
+### ✦ Restore & Pamper Retreat at Polperro Farmhouse
+
+Red Hill
+
+3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.
+
+ Wellness](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)

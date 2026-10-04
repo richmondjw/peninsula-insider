@@ -53,7 +53,7 @@ Bring a bag for produce and follow the current parking and access signs at Morni
 
 ### Hill & Ridge Community Market, Red Hill
 
-The original **Red Hill Community Market** says it is temporarily closed. **Hill & Ridge Community Market** is a separate organiser at **Red Hill Recreation Reserve**. Its published calendar includes **Saturday 3 October 2026, 9am–2pm**. Check [Hill & Ridge’s current dates](<https://www.hillandridgemarket.com.au/>) and stallholders before building a trip around it.
+The original **Red Hill Community Market** says it is temporarily closed. **Hill & Ridge Community Market** is a separate organiser at **Red Hill Recreation Reserve**. Its **3 October 2026 market was cancelled** according to the organiser, despite the date still appearing in its seasonal calendar. Check [Hill & Ridge’s current dates](<https://www.hillandridgemarket.com.au/>) and stallholders before building a trip around it.
 
 Leave time to browse without assuming the original market’s scale, parking pattern or stall mix applies to Hill & Ridge.
 
@@ -67,7 +67,7 @@ We could not verify a current organiser calendar for a recurring Somers Makers M
 
 ## Weekend one: the market-and-vineyards Saturday
 
-Use this plan on a confirmed Hill & Ridge date, including Saturday 3 October 2026 if the organiser still lists it when you travel. The logic is simple: begin at the market, then use the rest of the day for the slower ridge experience.
+Use this plan only on a confirmed Hill & Ridge date. The organiser cancelled 3 October 2026, even though its general seasonal calendar still displays that date. The logic is simple: begin at the market, then use the rest of the day for the slower ridge experience.
 
 **9am: Arrive at Hill & Ridge Community Market.** Allow an hour to browse and buy from the stallholders present that day. Bring a cooler bag if you plan to buy produce. Check the organiser’s current date and opening time before leaving home.
 
@@ -107,11 +107,11 @@ The quiet gift is that the market itself often becomes the most memorable hour o
 
 - **Original Red Hill Community Market**: temporarily closed; check its organiser for reopening news
 
-- **Hill & Ridge Community Market**: separate organiser, Red Hill Recreation Reserve; 3 October 2026 listed for 9am–2pm; confirm before travelling
+- **Hill & Ridge Community Market**: separate organiser, Red Hill Recreation Reserve; 3 October 2026 cancelled; confirm the next operating date before travelling
 
 - **Emu Plains Market**: no current date confirmed; the organiser marks its listed 2026–27 dates cancelled. Check before travelling.
 
-- **Somers Makers Market**: first Sunday of alternate months, Somers village precinct
+- **Somers Makers Market**: no verified current recurring calendar; do not plan travel around an assumed cadence
 
 Check each market’s website the week before you come. Schedules shift around long weekends and holidays, and the outdoor markets occasionally move for weather. Bring cash, a cooler bag, and an appetite you have not spent on a service-station breakfast.
 
@@ -121,7 +121,7 @@ Questions readers actually ask
 
 **When do the Mornington Peninsula markets run?**
 
-Market calendars change. Check each organiser before travelling. The original Red Hill Community Market is temporarily closed; the separate Hill & Ridge Community Market lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve.
+Market calendars change. Check each organiser before travelling. The original Red Hill Community Market is temporarily closed; the separate Hill & Ridge Community Market lists dates at Red Hill Recreation Reserve; its 3 October 2026 market was cancelled. Check its current notice before travelling.
 
 **What is the best Peninsula market for food and produce?**
 
@@ -149,9 +149,9 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931
+Mornington Park, Mornington VIC 3931
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
 slow  quick bite
 

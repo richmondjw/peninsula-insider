@@ -141,7 +141,7 @@ Mornington · town
 
 ### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday farmers' market on the Esplanade worth getting up for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
+Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday artisan market along Main Street worth making time for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
 
 Mornington · village
 

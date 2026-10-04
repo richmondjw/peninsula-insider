@@ -193,13 +193,13 @@ Mornington · town
 
 ### [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday farmers' market on the Esplanade worth getting up for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
+Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday artisan market along Main Street worth making time for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
 
 Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

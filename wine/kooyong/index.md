@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)    Tuerong
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)    Tuerong
 
 # Kooyong
 
@@ -15,7 +15,7 @@ Known for   Halliday Top Winery Australia Named Single-Block Vineyard Program Ha
 
 +61 3 5989 4444
 
-Kooyong · Main Ridge
+Kooyong · Red Hill South
 
 Why we’d go
 
@@ -77,7 +77,7 @@ Halliday 5 Red Stars · James Halliday Top Winery Australia
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3767%2C144.9981>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Kooyong%2C%20263%20Red%20Hill%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Opening hours**
 
@@ -177,7 +177,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -223,7 +223,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Main Ridge - view the destination guide](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+[← Part of Red Hill South - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=kooyong>)
 

@@ -49,7 +49,7 @@ waterfront  anniversary
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/eat/ocean-eight/>)
 

@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Kids & Family     3 October 2026     Recurs weekly
+Kids & Family     10 October 2026     Recurs weekly
 
 # Family Mystery Picnic on the Mornington Peninsula
 
@@ -35,7 +35,7 @@ At a glance
 
 **When**
 
-3 October 2026
+10 October 2026
 
 **Recurrence**
 
@@ -53,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-Booking and calendar links are withdrawn; this session has finished.
+[Book or check details](<https://www.amazingco.me/aus/experiences/mystery-picnics/family/mornington-peninsula>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Family+Mystery+Picnic+on+the+Mornington+Peninsula&dates=20261010%2F20261011&details=Self-guided+family+scavenger+journey%3A+solve+smartphone+clues%2C+collect+picnic+goodies+from+local+providers%2C+hit+activity+stops%2C+and+feast+at+a+scenic+picnic+location.+Runs+Thursday+to+Sunday+weekly.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffamily-mystery-picnic-mornington-peninsula-2026%2F&location=Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 

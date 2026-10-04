@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Distillery    [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Distillery    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 # Bass & Flinders Distillery
 
@@ -13,7 +13,7 @@ A Peninsula gin distillery with a gin-school blending session that has quietly b
 
 Known for   Peninsula Gin Distillery Gin School Blending Sessions Angry Ant Botanical Gin Operating Since 2009
 
-[Reserve a table](<https://bassandflindersdistillery.com/>)  +61 3 5989 7022
+[Reserve a table](<https://bassandflindersdistillery.com/>)  +61 3 5987 3893
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -33,7 +33,7 @@ Known for   Peninsula Gin Distillery Gin School Blending Sessions Angry Ant Bota
 
 1  / 7
 
-Guests play chess and share drinks at tables in the Bass and Flinders Distillery bar, beside a wall of bottle-filled barrels  Bass & Flinders Distillery, Mornington, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Guests play chess and share drinks at tables in the Bass and Flinders Distillery bar, beside a wall of bottle-filled barrels  Bass & Flinders Distillery, Dromana, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -71,11 +71,11 @@ Distillery
 
 **Location**
 
-232 Balnarring Rd, Tuerong VIC 3915 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Bass%20%26%20Flinders%20Distillery%2C%20232%20Balnarring%20Rd%2C%20Tuerong%20VIC%203915>)
+40 Collins Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Bass%20%26%20Flinders%20Distillery%2C%2040%20Collins%20Rd%2C%20Dromana%20VIC%203936>)
 
 **Call**
 
-+61 3 5989 7022
++61 3 5987 3893
 
 **Website**
 
@@ -83,11 +83,11 @@ Distillery
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2493%2C145.0342>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Bass%20%26%20Flinders%20Distillery%2C%2040%20Collins%20Rd%2C%20Dromana%20VIC%203936>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Bass%20%26%20Flinders%20Distillery%2C%20232%20Balnarring%20Rd%2C%20Tuerong%20VIC%203915%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Bass%20%26%20Flinders%20Distillery%2C%2040%20Collins%20Rd%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://bassandflindersdistillery.com/>)
 
@@ -133,7 +133,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -179,7 +179,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Mornington - view the destination guide](<https://peninsulainsider.com.au/explore/places/mornington/>)
+[← Part of Dromana - view the destination guide](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=bass-and-flinders>)
 

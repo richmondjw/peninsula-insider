@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-04",
-  "generatedAt": "2026-10-03T19:27:41.511Z",
+  "generatedAt": "2026-10-04T02:31:19.647Z",
   "schemaVersion": "1.1",
   "timezone": "Australia/Sydney",
   "dateSemantics": "Occurrence dates are local calendar dates, not midnight timestamps. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 2 – Sun 4 October",
     "count": 12
   },
-  "numberOfItems": 37,
+  "numberOfItems": 36,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -418,19 +418,6 @@
       "position": 31,
       "item": {
         "@type": "Event",
-        "name": "Hill & Ridge Community Market, 3 October 2026",
-        "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-        "startDate": "2026-11-07",
-        "endDate": "2026-11-07",
-        "description": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 32,
-      "item": {
-        "@type": "Event",
         "name": "Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026",
         "url": "https://peninsulainsider.com.au/whats-on/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026/",
         "startDate": "2026-11-21",
@@ -441,7 +428,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -454,7 +441,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -467,7 +454,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "Mornington Tourist Railway, Santa Specials",
@@ -480,7 +467,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Mornington Christmas Festival & Main Street Christmas Parade",
@@ -493,7 +480,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "Peninsula Summer Music Festival 2027",
@@ -505,7 +492,7 @@
       }
     }
   ],
-  "count": 37,
+  "count": 36,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -1103,24 +1090,6 @@
       "venue": null,
       "freePaid": "Paid",
       "summary": "A seven-Saturday pottery course at Oak Hill Gallery for adults. The full-term booking covers wheel throwing, materials and firing, with sessions from 11am to 1pm, 31 October to 12 December.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
-    },
-    {
-      "title": "Hill & Ridge Community Market, 3 October 2026",
-      "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "startDate": "2026-11-07",
-      "endDate": "2026-11-07",
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "sourceUrl": "https://www.hillandridgemarket.com.au",
-      "factCheckedOn": null,
-      "recurrence": "monthly",
-      "category": "market",
-      "place": "red-hill",
-      "venue": null,
-      "freePaid": "Free (entry)",
-      "summary": "The separate Hill & Ridge Community Market is confirmed by its organiser for Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve, 184 Arthurs Seat Road. Entry is free but parking has a charge. Unsafe weather can cancel the event without notice; check the organiser before travelling.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

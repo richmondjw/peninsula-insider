@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/markets/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-09-23
+Modified: 2026-10-04
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,9 +9,9 @@ Explore guide
 
 # Mornington Peninsula Markets
 
-Choose a market by day and place, then confirm the latest details with its organiser. The original Red Hill Community Market is temporarily closed; Hill & Ridge is a separate market at the reserve.
+Choose a market by day and place, then confirm the latest details with its organiser. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate market, but its 3 October edition was cancelled.
 
-Updated 23 Sep 2026
+Updated 4 Oct 2026
 
 Photo · Peninsula Insider
 
@@ -19,9 +19,9 @@ Month at a glance
 
 ## The market rhythm
 
-These are the organisers' usual days, not a guarantee of operation. Hill & Ridge is confirmed for 3 October 2026; check every organiser for changes before travelling.
+These are the organisers' usual days, not a guarantee of operation. Hill & Ridge cancelled its 3 October edition; check each organiser's current notice before travelling.
 
-- Wk 1   First Saturday   Hill & Ridge Community Market  Rye Foreshore Market
+- Wk 1   First Saturday   Rye Foreshore Market
 
 - Weekly   Wednesday   Mornington Main Street Market
 
@@ -31,29 +31,29 @@ Farmers market  Community / town  Foreshore
 
 First Saturday choices
 
-## Red Hill or Rye
+## Red Hill update or Rye market
 
-Two distinct first-Saturday settings. Check the organiser before setting out, particularly when weather is uncertain.
+The 3 October Hill & Ridge edition was cancelled. Rye has a separate first-Saturday schedule; check its organiser before travelling.
 
 Hill & Ridge · Red Hill
 
 ### A community market at Red Hill Recreation Reserve.
 
-**Next confirmed**
+**3 October edition**
 
-Saturday 3 October 2026, 9am–2pm.
+Cancelled by the organiser. Do not travel for this date.
 
 **Place**
 
 Red Hill Recreation Reserve, 184 Arthurs Seat Road.
 
-**Plan around**
+**Future dates**
 
-A hinterland morning and a Red Hill lunch.
+No replacement date is confirmed in this guide.
 
 **Check**
 
-Unsafe weather can cancel the market without notice. Check the Hill & Ridge organiser.
+Consult the Hill & Ridge organiser for any future edition.
 
 Rye Foreshore · Rye
 
@@ -77,7 +77,7 @@ Confirm the current date on the Shire event page.
 
 Current market guides
 
-## Four ways to build a market day
+## Three market guides and a cancellation notice
 
 Choose by location and organiser schedule. Each card links to details and a primary source.
 
@@ -85,15 +85,15 @@ Choose by location and organiser schedule. Each card links to details and a prim
 
 01
 
-Community market
+3 October cancelled
 
 ### [Hill & Ridge Community Market](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)
 
-Next confirmed: 3 Oct 2026 · 9am–2pm · Red Hill
+3 Oct 2026 · Cancelled by organiser · Red Hill
 
-A separate market from the temporarily closed original Red Hill Community Market.
+This edition will not run. Hill & Ridge is separate from the temporarily closed original Red Hill Community Market.
 
-Before you go Unsafe weather can cancel the event without notice.
+Future dates No replacement date is confirmed here; check the organiser.
 
 [Event guide →](<https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/>)[Official site →](<https://www.hillandridgemarket.com.au/>)
 
@@ -145,9 +145,9 @@ Build the day around it
 
 Keep the rest of the day near the market you choose.
 
-### Red Hill Saturday
+### Red Hill update
 
-Hill & Ridge, then a hinterland lunch.
+Hill & Ridge's 3 October edition was cancelled.
 
 - [Red Hill place guide](<https://peninsulainsider.com.au/explore/places/red-hill/>) for nearby stops.
 
@@ -175,13 +175,13 @@ Check before you travel
 
 ## One calendar, different organisers
 
-The first Saturday offers two different markets: Hill & Ridge in Red Hill and Rye Foreshore on the bay. Mornington gives you a Wednesday option, while Mount Eliza lists the fourth Sunday. Follow each organiser's current notice before planning a drive.
+Rye Foreshore lists a first-Saturday market, Mornington gives you a Wednesday option, and Mount Eliza lists the fourth Sunday. Hill & Ridge cancelled its 3 October edition; follow each organiser's current notice before planning a drive.
 
-The original Red Hill Community Market is temporarily closed while its organiser looks for a new location. Hill & Ridge is a separate event. The former Balnarring Village Green listing is paused because its schedule could not be confirmed. Emu Plains Market is a separate Balnarring market; check its organiser for current dates.
+The original Red Hill Community Market is temporarily closed while its organiser looks for a new location. Hill & Ridge is a separate event whose 3 October edition was cancelled. The former Balnarring Village Green listing is paused because its schedule could not be confirmed. Emu Plains Market is a separate Balnarring market; check its organiser for current dates.
 
-4  current market guides
+3  current market guides
 
-3 Oct  next confirmed Hill & Ridge date
+3 Oct  Hill & Ridge cancelled edition
 
 Common questions
 
@@ -189,11 +189,11 @@ Common questions
 
 Is the original Red Hill Community Market open?
 
-No. Its organiser says it is temporarily closed while looking for a new location. Hill & Ridge Community Market is a separate event at Red Hill Recreation Reserve.
+No. Its organiser says it is temporarily closed while looking for a new location. Hill & Ridge is a separate market, but its 3 October 2026 edition was cancelled.
 
 When is Hill & Ridge Community Market?
 
-The organiser confirms Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve. Check the organiser before travelling: unsafe weather can cause cancellation without notice.
+The organiser marks the 3 October 2026 edition cancelled. No replacement date is confirmed here; check the organiser for any future date.
 
 When are the other markets?
 

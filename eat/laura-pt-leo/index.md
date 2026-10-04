@@ -129,27 +129,29 @@ cellar door  slow
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Elgee Park](<https://peninsulainsider.com.au/eat/elgee-park/>)
+### [Merricks Estate](<https://peninsulainsider.com.au/eat/merricks-estate/>)
 
-89 Junction Rd, Merricks North VIC 3926
+1 Merricks-Frankston Rd, Merricks VIC 3916
 
-The Baillieu family's 1972 vineyard, the planting that started the modern Peninsula wine region, still in family hands, still making restrained Chardonnay and Viognier.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/elgee-park/>) [Book](<https://elgeeparkwines.com.au/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
-
-235 Stanleys Rd, Red Hill South VIC 3937
-
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
+A small, long-standing Merricks estate making one of the Peninsula's rare serious Shiraz programs alongside Chardonnay and Pinot Noir.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
+
+Photo: Peter Foster, courtesy of Visit Victoria
+
+Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+
+### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
+
+3460 Frankston-Flinders Rd, Merricks VIC 3916
+
+The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
+
+slow  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
 
 Build a day around this
 

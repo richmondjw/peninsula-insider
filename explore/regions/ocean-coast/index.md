@@ -205,6 +205,20 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) [Book](<https://nazaaray.com.au/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
+
+271 Tucks Road, Shoreham VIC 3916
+
+Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
+
 Spa  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>)
 
 ### [One Spa at RACV Cape Schanck Resort](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)

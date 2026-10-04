@@ -101,7 +101,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://paringaestate.com.au/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -115,7 +115,7 @@ cellar door  slow
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 

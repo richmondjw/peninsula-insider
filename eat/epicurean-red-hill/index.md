@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 # The Epicurean
 
@@ -121,11 +121,11 @@ If you've booked a villa with a kitchen, you've booked one of the great food sou
 
 Nearby picks
 
-## More from Red Hill
+## More from Red Hill South
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
@@ -137,29 +137,29 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
+### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-120 Arthurs Seat Rd, Red Hill VIC 3937
+263 Red Hill Rd, Red Hill South VIC 3937
 
-David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
+Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+[Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
+### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-795 White Hill Rd, Red Hill VIC 3937
+159 Shoreham Rd, Red Hill South VIC 3937
 
-Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
+Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
-cellar door  long lunch
+first date  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
 
 Build a day around this
 
@@ -171,7 +171,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Red Hill South - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=epicurean-red-hill>)
 

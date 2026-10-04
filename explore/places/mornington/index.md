@@ -19,15 +19,15 @@ PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of 
 
 [Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
 
-Mornington in 18 photographs
+Mornington in 16 photographs
 
-1  / 18
+1  / 16
 
 Two people walk along the sand past a row of brightly painted bathing boxes, reflected in the shallows at Mornington  Mornington, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
-Mornington is the gateway town to the Mornington Peninsula on the Port Phillip Bay shore, 60 km from Melbourne, with a Wednesday foreshore farmers' market and the Esplanade bathing-box stretch.
+Mornington is the gateway town to the Mornington Peninsula on the Port Phillip Bay shore, 60 km from Melbourne, with the Wednesday Main Street Market and the Esplanade bathing-box stretch.
 
-Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday farmers' market on the Esplanade worth getting up for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
+Mornington was the gateway town for a long time - the first real stop on the road south, somewhere to buy petrol before pressing on to beaches and vineyards. That undersells it now. A genuinely good main street, a Wednesday artisan market along Main Street worth making time for, a foreshore with bathing boxes and a saltwater pool - Mornington has quietly become a whole-day destination rather than a waypoint. It's also the most practical Peninsula base: north to Mount Martha's beaches, south to Red Hill's vineyards, fifteen minutes from coast in either direction.
 
 Photo · Courtesy of Visit Victoria
 
@@ -47,7 +47,7 @@ full day to two nights
 
 **Best for**
 
-first visit to the Peninsula, the Sunday market
+first visit to the Peninsula, the Wednesday Main Street Market
 
 **Avoid**
 
@@ -67,7 +67,7 @@ Is Mornington the right base?
 
 - first visit to the Peninsula
 
-- the Sunday market
+- the Wednesday Main Street Market
 
 - urban Peninsula
 
@@ -77,17 +77,17 @@ Is Mornington the right base?
 
 - travellers who only care about wineries
 
-Main Street on a summer Saturday - go to the market instead.
+Do not mistake the Wednesday Main Street Market for the separate monthly Farmers Market in Mornington Park; check the organiser before planning around either.
 
 Mornington in brief
 
 ## Mornington in 4 points
 
-- 01   Mornington is the Peninsula's most complete town - a real main street, a Wednesday farmers' market, bathing boxes, and serious restaurants all within reach of each other.
+- 01   Mornington is the Peninsula's most complete town - a real main street, the Wednesday Main Street Market, bathing boxes, and serious restaurants all within reach of each other.
 
 - 02   Best for: couples and families wanting a full-day town experience; anyone who wants a practical base with easy access north and south.
 
-- 03   Signature experience: Wednesday Esplanade market followed by a walk along the foreshore to Schnapper Point.
+- 03   Signature experience: Wednesday Main Street Market followed by a walk along the foreshore to Schnapper Point.
 
 - 04   Half a day easily; a full day with the market and a long lunch.
 
@@ -95,7 +95,7 @@ A perfect day here
 
 ## A day in Mornington
 
-Mornington Market on Sunday morning, Mothers Beach after, lunch on Main Street.
+Wednesday Main Street Market, then a foreshore walk to Mothers Beach and lunch in town; check the market schedule before travelling.
 
 The stretch from Schnapper Point to Mothers Beach is the part worth walking; most day-trippers never go far enough.
 
@@ -104,8 +104,6 @@ The stretch from Schnapper Point to Mothers Beach is the part worth walking; mos
 What's mapped here
 
 - [**3** places to eat](<https://peninsulainsider.com.au/explore/places/mornington/#eat-drink>)
-
-- [**1** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/mornington/#wine>)
 
 - [**3** ways to explore](<https://peninsulainsider.com.au/explore/places/mornington/#explore>)
 
@@ -120,20 +118,6 @@ Eat & drink
 Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
 
  [More to eat in Mornington →](<https://peninsulainsider.com.au/eat/>)
-
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
-
-232 Balnarring Rd, Tuerong VIC 3915
-
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
-
-rainy day  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
 
 Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -153,37 +137,27 @@ Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/
 
 ### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-The Esplanade, Mornington VIC 3931
+Mornington Park, Mornington VIC 3931
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
 slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
+Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+
+1 Main St, Mornington VIC 3931
+
+The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
-
-Wine & producers
-
-## Cellar doors and makers around Mornington
-
-The producers worth the appointment - and the ones already shaping the region's vintage conversation.
-
- [All cellar doors →](<https://peninsulainsider.com.au/wine/>)
-
-Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
-
-20 Longview Crescent, Mount Eliza VIC 3930
-
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/garagiste/>) [Book](<https://garagiste.com.au/>)
-
-[See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
 Get outside
 
@@ -325,7 +299,7 @@ Go deeper
 
 Each guide focuses on one experience category - useful when you already know what you’re here for.
 
-- [Mornington Stays   Bay-side bases, walkable and good for first-timers](<https://peninsulainsider.com.au/explore/places/mornington/>)
+- [Mornington Stays   Bay-side bases, walkable and good for first-timers](<https://peninsulainsider.com.au/stay/mornington/>)
 
 Keep going
 
@@ -343,7 +317,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 Peninsula Tip · town
 

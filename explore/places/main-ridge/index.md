@@ -9,23 +9,21 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Main Ridge
 
+Chardonnay grapes at Main Ridge Estate in nearby Red Hill, Mornington Peninsula
+
+Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider [Source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)   [Licence](<https://creativecommons.org/licenses/by/3.0/>)
+
+Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate, Red Hill. It does not depict Main Ridge.
+
 Where in the Peninsula is PI?
 
 PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of you, as usual.
 
 [Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
 
-Main Ridge in 7 photographs
+Main Ridge is a rural locality on the Mornington Peninsula's elevated wine-country plateau, with cellar doors and farm-gate stops along its winding roads.
 
-1  / 7
-
-Red-leaved autumn trees frame a gravel path leading to the timber cellar door building at Ocean Eight Vineyard  Ocean Eight Vineyard, Main Ridge, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Main Ridge is a hinterland village on the Mornington Peninsula's central wine plateau, 90 km from Melbourne, the highest part of the cool-climate pinot noir country.
-
-Main Ridge is the highest part of the Peninsula wine country, and the most forgiving to pinot noir. A few degrees cooler than Red Hill proper, wetter in winter, and foggy on the right mornings - if you drew the perfect place to grow cool-climate grapes in Victoria, it would look something like this. There is no real village centre, just a crossroads, a hall, and a handful of the most serious cellar doors on the Peninsula scattered through ferny side roads. Main Ridge rewards people who want to understand wine country rather than just photograph it: the single-vineyard bottles from this sub-region are consistently among the region's best, the estates are small and run by the people who own them, and nobody is trying to sell you a wedding venue. Come for a morning tasting at one of the serious producers, then drive ten minutes in any direction for lunch.
-
-Photo · Two Palms Australia, courtesy of Visit Victoria
+Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.
 
 At a glance
 
@@ -51,7 +49,7 @@ rainy winter weekdays when venues shut early
 
 Insider  Book lunch first and build the wine stops around it - that is how locals avoid wasting the day in the car.
 
-The highest point on the Peninsula, where the pinot is best and the road narrows.
+A high, quiet part of the Peninsula wine country, where the pinot is best and the road narrows.
 
 Peninsula Insider - editor's note
 
@@ -79,7 +77,7 @@ Main Ridge in brief
 
 ## Main Ridge in 4 points
 
-- 01   Main Ridge is the most rural locality in the Mornington Peninsula hinterland - no cafés, no boutiques, just farmland, bush, and cellar doors.
+- 01   Main Ridge is a rural wine-country locality with cellar doors and farm-gate stops, rather than a compact shopping village.
 
 - 02   Best for: wine tourists who want something unhurried; walkers with an eye for wildlife; anyone overdoing Sorrento and needing to recalibrate.
 
@@ -115,7 +113,7 @@ Explore Main Ridge by experience
 
 Deeper editorial guides focused on one experience category within Main Ridge.
 
-- [Main Ridge Wine   The highest, coolest sub-region - small producers, serious pinot.](<https://peninsulainsider.com.au/wine/main-ridge/>)
+- [Main Ridge Wine   Small producers and cool-climate wines around Main Ridge.](<https://peninsulainsider.com.au/wine/main-ridge/>)
 
 Eat & drink
 
@@ -173,18 +171,6 @@ The producers worth the appointment - and the ones already shaping the region's 
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
-
-263 Red Hill Rd, Red Hill South VIC 3937
-
-Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
-
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
 ### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
 110 Myers Rd, Main Ridge VIC 3928
@@ -197,15 +183,27 @@ cellar door  slow
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
+### [Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>)
 
-80 William Rd, Red Hill VIC 3937
+337 Main Creek Rd, Main Ridge VIC 3928
 
-Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
+Foxeys' second, quieter Main Ridge site, Italian-feeling long lunches, valley views, and a Pinot Gris program that rewards attention.
 
-cellar door  fireplace
+cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
+[Read notes](<https://peninsulainsider.com.au/wine/morning-sun/>) [Book](<https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun>)
+
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
+
+1208 Mornington-Flinders Road, Main Ridge VIC 3928
+
+One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
+
+cellar door  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/wine/red-hill-estate/>) [Book](<https://www.redhillestate.com.au/>)
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
@@ -317,7 +315,7 @@ Go deeper
 
 Each guide focuses on one experience category - useful when you already know what you’re here for.
 
-- [Main Ridge Wine   Highest-altitude sub-region, small producers and appointment tastings](<https://peninsulainsider.com.au/wine/main-ridge/>)
+- [Main Ridge Wine   Elevated wine country, local cellar doors and book-ahead tastings](<https://peninsulainsider.com.au/wine/main-ridge/>)
 
 Keep going
 
@@ -335,7 +333,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

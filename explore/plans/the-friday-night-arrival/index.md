@@ -133,7 +133,7 @@ slow  quick bite
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 

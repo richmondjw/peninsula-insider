@@ -19,9 +19,9 @@ Cellar-door shortlist
 
 Ordered by recorded Halliday score where available. Check the individual venue for tasting and booking details.
 
- [All 41 producers →](<https://peninsulainsider.com.au/wine/>)
+ [All 38 producers →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -49,7 +49,7 @@ cellar door  long lunch
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 
@@ -97,7 +97,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) [Book](<https://quealy.com.au/pages/cellar-door>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 

@@ -17,7 +17,7 @@ What separates the best Peninsula Pinot from the rest of Victoria isn't power - 
 
 Editorial ranking · 2026
 
-## 16 producers
+## 15 producers
 
 Ordered by editorial authority and Halliday score.
 
@@ -77,7 +77,7 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
 
@@ -89,7 +89,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
@@ -103,7 +103,7 @@ cellar door  fireplace
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
 
 ### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
 
@@ -127,7 +127,7 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/stonier-wines/>) [Book](<https://www.stonier.com.au/visit>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
@@ -177,7 +177,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 
@@ -200,18 +200,6 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
-
-Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
-
-20 Longview Crescent, Mount Eliza VIC 3930
-
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/garagiste/>) [Book](<https://garagiste.com.au/>)
 
 Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 

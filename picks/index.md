@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/>) - The Bay Hotel Mornington's vault dining room for a group occasion, the Balnarring to Coolart Wetlands trail in peak spring flower, and the National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
+
 - [Georgie Bass, the Olivers Hill loop, and Commonfolk's Sunday roast ritual](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/>) - Flinders' all-day breakfast kitchen at spring pace, the Olivers Hill clifftop loop above Port Phillip, and Commonfolk Coffee's single-origin filter bar before the weekend crowd arrives.
 
 - [Moke Dining in Flinders, the Bushrangers Bay boardwalk, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/>) - Michael Cole's five-course set menu in Flinders, the Bushrangers Bay boardwalk track at spring peak, and the Hill & Ridge Community Market at Red Hill Recreation Reserve on Saturday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Portsea Hotel's beer garden, the Point Nepean orchid flush, and Red Hill Truffles' last hunts](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-19/>) - The Portsea Hotel deck in first-spring warmth, the native orchids peaking along Point Nepean's Number 2 Rifle Range track, and the final truffle hunts of the season at Red Hill Truffles in Main Ridge.
 
 - [Kerri Greens in spring, the Olivers Hill bluff walk, and VIRAL Food Festival this weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-17/>) - Kerri Greens' single-vineyard Pinot at the Merricks cellar door, the Olivers Hill coastal bluff at peak wildflower, and VIRAL Food Festival at Mornington Racecourse from Friday.
-
-- [Insider Picks: 16 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-16/>) - Barragunda Dining's spring farm menu at Cape Schanck, the clifftop wildflower walk from Bushrangers Bay to Cape Schanck, and the National Works on Paper 2026 exhibition at Mornington Peninsula Regional Gallery.
 
 ## Planning a particular weekend?
 

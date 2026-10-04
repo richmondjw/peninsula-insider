@@ -11,7 +11,7 @@ The local wine edit
 
 Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. Find your kind of visit, then confirm current hours.
 
-[Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 47 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
+[Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 44 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photograph: Two Palms Australia, courtesy of Visit Victoria.
 
@@ -77,7 +77,7 @@ Red Hill   Walk-in welcome   Kitchen on site
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
-Main Ridge   Walk-in welcome
+Shoreham   Walk-in welcome
 
 See 3 more editorial choices
 
@@ -97,7 +97,7 @@ Red Hill   Walk-in welcome   Kitchen on site
 
 The single-block tasting is a practical education in why micro-terroir matters, side-by-side pinot noirs from adjacent slopes that actually taste different from each other.
 
-Main Ridge   Walk-in welcome   Kitchen on site
+Red Hill South   Walk-in welcome   Kitchen on site
 
 Winery dining
 
@@ -123,7 +123,7 @@ Main Ridge   Tasting + restaurant
 
 Two dining styles at the vineyard, from a relaxed lunch to a longer evening.
 
-Merricks   Tasting + restaurant
+Merricks North   Tasting + restaurant
 
 - ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
@@ -135,7 +135,7 @@ Red Hill   Tasting + restaurant
 
 A tasting at Kooyong pairs with the shared Port Phillip Estate dining room.
 
-Main Ridge   Tasting + restaurant
+Red Hill South   Tasting + restaurant
 
 - ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
@@ -183,7 +183,7 @@ You can start as a guest on this device. Saving or adding a stop does not reserv
 
 The full list
 
-## All 47 wine-country places
+## All 44 wine-country places
 
 Find cellar doors, breweries and distilleries by location and the visit you want.
 
@@ -205,7 +205,7 @@ Red Hill   Walk-in welcome   Kitchen on site
 
 Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
 
-Main Ridge   Walk-in welcome
+Shoreham   Walk-in welcome
 
 - ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
@@ -223,7 +223,7 @@ Red Hill   Walk-in welcome   Kitchen on site
 
 The single-block tasting is a practical education in why micro-terroir matters, side-by-side pinot noirs from adjacent slopes that actually taste different from each other.
 
-Main Ridge   Walk-in welcome   Kitchen on site
+Red Hill South   Walk-in welcome   Kitchen on site
 
 - ### [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>)
 
@@ -247,7 +247,7 @@ Main Ridge   Walk-in welcome   Kitchen on site
 
 The vineyard at the heart of Jackalope Hotel, a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot.
 
-Merricks   Walk-in welcome   Kitchen on site
+Merricks North   Walk-in welcome   Kitchen on site
 
 - ### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
@@ -265,7 +265,7 @@ Tuerong   Walk-in welcome   Kitchen on site
 
 Avani is the Peninsula's quiet Syrah specialist, and that alone is reason enough to drive here.
 
-Red Hill   Walk-in welcome
+Red Hill South   Walk-in welcome
 
 - ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
@@ -283,7 +283,7 @@ Moorooduc   Check ahead
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
-Mornington   Distillery
+Dromana   Distillery
 
 - ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
@@ -309,23 +309,11 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 
 Red Hill   Walk-in welcome
 
-- ### [Elgee Park](<https://peninsulainsider.com.au/wine/elgee-park/>)
-
-Elgee Park is where the modern Mornington Peninsula wine industry actually began, 1972, three years before anyone else had the nerve to try.
-
-Merricks   Check ahead
-
 - ### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
 
 Foxeys is one of the Peninsula's most consistently pleasant cellar doors, sunny, unpretentious, and serious about the wine without making you work for it.
 
 Red Hill   Walk-in welcome   Kitchen on site
-
-- ### [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
-
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
-
-Mornington   By appointment
 
 - ### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
@@ -339,12 +327,6 @@ The most polished of the bayside breweries, deliberate fit-out, generous deck, a
 
 Dromana   Brewery
 
-- ### [Kerri Greens](<https://peninsulainsider.com.au/wine/kerri-greens/>)
-
-Kerri Greens is the Peninsula's new-school face, the cellar door to recommend to friends who find the ridge estates a little too serious.
-
-Merricks   Check ahead
-
 - ### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
 Lightfoot rewards a quiet weekday visit rather than a peak-season Saturday, small, focused, and the counterpoint the ridge's bigger names need.
@@ -355,7 +337,7 @@ Main Ridge   Check ahead
 
 Main Ridge Estate is the vineyard that started it all, planted in 1975 when nobody in Victoria quite believed cool-climate Pinot could be taken seriously.
 
-Main Ridge   By appointment   Kitchen on site
+Red Hill   By appointment   Kitchen on site
 
 - ### [Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
@@ -401,9 +383,9 @@ Merricks   By appointment
 
 - ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
-A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
+A Moorooduc family estate with a broad range of wines beyond the usual Pinot and Chardonnay.
 
-Dromana   Check ahead
+Moorooduc   Check ahead
 
 - ### [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>)
 
@@ -421,13 +403,13 @@ Red Hill   Brewery
 
 One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
 
-Red Hill   Walk-in welcome   Kitchen on site
+Main Ridge   Walk-in welcome   Kitchen on site
 
 - ### [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
 Scorpo is the vineyard other Peninsula winemakers drink at home, the Pinot Gris alone warrants the appointment.
 
-Merricks   Check ahead
+Merricks North   Check ahead
 
 - ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 

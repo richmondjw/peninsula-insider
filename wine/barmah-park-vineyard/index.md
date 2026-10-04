@@ -79,7 +79,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -105,11 +105,11 @@ cellar door  slow
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915
+40 Collins Rd, Dromana VIC 3936
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 

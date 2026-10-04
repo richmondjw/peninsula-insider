@@ -135,6 +135,50 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
+Nearby picks
+
+## More from Merricks North
+
+ [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
+
+Photo: Courtesy of Visit Victoria
+
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
+
+long lunch  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
+
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Scorpo Wines](<https://peninsulainsider.com.au/eat/scorpo-wines/>)
+
+23 Old Bittern-Dromana Rd, Merricks North VIC 3926
+
+Paul Scorpo's tightly focused family estate, one of the Peninsula's most acclaimed Pinot Gris alongside elegant Chardonnay and Pinot Noir.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/scorpo-wines/>) [Book](<https://www.scorpowines.com.au/>)
+
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
+
+### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
+
+166 Balnarring Rd, Merricks North VIC 3926
+
+The vineyard at the heart of Jackalope Hotel, a showpiece single-site program and the home of both Rare Hare and Doot Doot Doot.
+
+cellar door  walk
+
+[Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
+
 Build a day around this
 
 ## Planning guides that include Doot Doot Doot

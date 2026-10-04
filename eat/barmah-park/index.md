@@ -99,15 +99,15 @@ cellar door  slow
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/eat/stumpy-gully-vineyard/>)
+### [Phaedrus Estate](<https://peninsulainsider.com.au/eat/phaedrus-estate/>)
 
-1247 Stumpy Gully Rd, Moorooduc VIC 3933
+220 Mornington-Tyabb Rd, Moorooduc VIC 3933
 
-A family-run estate with one of the Peninsula's broadest varietal ranges, Sangiovese, Marzemino, and Picolit alongside cool-climate classics.
+A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/stumpy-gully-vineyard/>) [Book](<https://stumpygully.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/phaedrus-estate/>)
 
 Build a day around this
 

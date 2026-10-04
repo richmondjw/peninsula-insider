@@ -133,17 +133,17 @@ slow  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
+### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937
+1385 Mornington-Flinders Rd, Main Ridge VIC 3928
 
-Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
+The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pasta, and T'Gallant's Pinot Grigio by the carafe.
 
-cellar door  slow
+long lunch  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
+[Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
 
 Build a day around this
 

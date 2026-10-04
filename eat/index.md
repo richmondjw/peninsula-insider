@@ -125,7 +125,7 @@ Cape Schanck   Restaurant
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
-Mornington   Distillery
+Dromana   Distillery
 
 - ### [Bistro Elba](<https://peninsulainsider.com.au/eat/bistro-elba/>)
 
@@ -159,7 +159,7 @@ Dromana   Pub
 
 A long table in Red Hill’s historic coolstore and packing shed.
 
-Red Hill   Restaurant
+Red Hill South   Restaurant
 
 - ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
@@ -221,7 +221,7 @@ Main Ridge   Providore
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
-Red Hill   Restaurant
+Red Hill South   Restaurant
 
 - ### [Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>)
 
@@ -297,7 +297,7 @@ Portsea   Pub
 
 Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
 
-Merricks   Restaurant
+Merricks North   Restaurant
 
 - Photo: Two Palms Australia, courtesy of Visit Victoria.
 

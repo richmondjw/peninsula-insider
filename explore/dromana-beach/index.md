@@ -43,6 +43,20 @@ The best explore pages should lead somewhere next.
 
  [See Dromana →](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+
+40 Collins Rd, Dromana VIC 3936
+
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+
+rainy day  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+
 Cottage  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Birch Creek](<https://peninsulainsider.com.au/stay/birch-creek/>)
@@ -68,18 +82,6 @@ The Peninsula's pioneering estate, four decades of Crittenden family winemaking,
 cellar door  waterfront
 
 [Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
-
-Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Crittenden Restaurant](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>)
-
-25 Harrisons Rd, Dromana VIC 3936
-
-Lakeside dining under a vine-strung pergola at one of the Peninsula's founding wineries, now Crittenden Restaurant under Head Chef Brunno Melo.
-
-long lunch  garden
-
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
 
 Keep going
 

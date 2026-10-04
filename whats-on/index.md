@@ -31,14 +31,6 @@ MPRG hosts National Works on Paper 2026 through 22 November. Open Saturday and S
 
 Sun, 4 Oct   Mornington   Exhibitions
 
-- Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
-
-Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
-
-Sun, 4 Oct   Fingal   Live Music
-
 - Illustrative family picnic; not a photograph of this event's route.   Photo: Peninsula Insider.
 
 ### [Family Mystery Picnic on the Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/family-mystery-picnic-mornington-peninsula-2026/>)
@@ -46,6 +38,14 @@ Sun, 4 Oct   Fingal   Live Music
 Makes a proper day of it for families in a way that a single activity doesn't. The scavenger structure keeps kids engaged across the whole…
 
 Sun, 4 Oct   Mornington   Kids & Family
+
+- Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Sunday Sessions at Peninsula Hot Springs](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-sunday-sessions-spring-2026/>)
+
+Book the bathe and the music comes with it. The easiest good Sunday on this end of the Peninsula.
+
+Sun, 4 Oct   Fingal   Live Music
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 

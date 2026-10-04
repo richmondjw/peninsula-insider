@@ -5,25 +5,21 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 # Phaedrus Estate
 
-A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
+A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
 
-Known for   Italian and Rhône Varietals Family-Run Dromana Estate Off-Ridge Cellar Door Viognier and Sangiovese
+Known for   Family-Run Moorooduc Estate Fiano and Pinot Gris Cellar Door in Moorooduc
 
-Phaedrus Estate · Dromana
+Phaedrus Estate · Moorooduc
 
 Why we’d go
 
-Phaedrus is one of the Peninsula's unsung cellar doors, small, family-run, and deliberately off the main ridge itinerary, with a varietal range that gives the flight real range.
+A Moorooduc family estate with a broad range of wines beyond the usual Pinot and Chardonnay.
 
-Phaedrus is one of the Peninsula's unsung cellar doors, small, family-run, and deliberately off the main ridge itinerary. The focus is broader than the Peninsula average: alongside the mandatory Pinot and Chardonnay, the estate works with Viognier, Sangiovese and a handful of other varieties that give the tasting flight some genuine range and a reason to pay attention beyond the usual cool-climate benchmarks.
-
-The cellar door is unpretentious and the wines are honest. This is the kind of stop you add when you want to finish a cellar-door day with something different, at a quieter address, before heading back down to the bayside for dinner. The Dromana position makes it easier to reach from the bayside than from the ridge, which is an advantage if you are not driving all the way up to Main Ridge.
-
-Check current hours, Phaedrus runs a smaller tasting schedule than the headline estates. Worth confirming before you make the drive.
+Phaedrus Estate's official site places its cellar door at 220 Mornington-Tyabb Road, Moorooduc. The family estate produces a range including Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz. Check the operator for current visit details before travelling.
 
 Worth knowing
 
@@ -33,7 +29,7 @@ Cellar door visits · Wine lovers · Couples
 
 If you only do one thing
 
-Ask to taste the Viognier or the Sangiovese, whichever is available, as your starting point before working through the rest of the flight.
+Confirm current cellar-door hours and directions on the operator's site before travelling.
 
 Works well with
 
@@ -49,15 +45,19 @@ Winery
 
 **Location**
 
-220 Mornington-Flinders Rd, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Phaedrus%20Estate%2C%20220%20Mornington-Flinders%20Rd%2C%20Red%20Hill%20VIC%203937>)
+220 Mornington-Tyabb Rd, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Phaedrus%20Estate%2C%20220%20Mornington-Tyabb%20Rd%2C%20Moorooduc%20VIC%203933>)
+
+**Website**
+
+[www.phaedrus.com.au](<https://www.phaedrus.com.au/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3437%2C144.981>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Phaedrus%20Estate%2C%20220%20Mornington-Tyabb%20Rd%2C%20Moorooduc%20VIC%203933>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Phaedrus%20Estate%2C%20220%20Mornington-Flinders%20Rd%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Phaedrus%20Estate%2C%20220%20Mornington-Tyabb%20Rd%2C%20Moorooduc%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
 Not sure how to build a day around Phaedrus Estate?
 
@@ -69,7 +69,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -115,7 +115,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Dromana - view the destination guide](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[← Part of Moorooduc - view the destination guide](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=phaedrus-estate>)
 

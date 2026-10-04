@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)    Red Hill
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)    Red Hill
 
 # Main Ridge Estate
 
@@ -17,7 +17,7 @@ Known for   Planted 1975 by Nat White Peninsula's First Vineyard Half Acre Pinot
 
 **By appointment.** This producer doesn't take walk-ins. Call +61 3 5989 2686 to arrange a visit.
 
-Main Ridge Estate · Main Ridge
+Main Ridge Estate · Red Hill
 
 Why we’d go
 
@@ -75,7 +75,7 @@ Planted 1975 - The Peninsula's Original Vineyard · James Halliday 5-Red-Star Wi
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3806%2C144.9838>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Main%20Ridge%20Estate%2C%2080%20William%20Rd%2C%20Red%20Hill%20VIC%203937>)
 
 **Opening hours**
 
@@ -175,7 +175,7 @@ More to explore
 
  [Back to Wine Country →](<https://peninsulainsider.com.au/wine/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -221,7 +221,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Main Ridge - view the destination guide](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=main-ridge-estate>)
 

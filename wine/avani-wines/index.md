@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Winery    [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 # Avani Wines
 
@@ -15,7 +15,7 @@ Known for   Biodynamic Syrah Amrit Single-Vineyard Range Skin-Contact Whites Fam
 
 +61 435 997 007
 
-Avani Wines · Red Hill
+Avani Wines · Red Hill South
 
 Avani Wines in 5 photographs
 
@@ -143,11 +143,11 @@ cellar door  long lunch
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/wine/bass-and-flinders/>)
 
-232 Balnarring Rd, Tuerong VIC 3915
+40 Collins Rd, Dromana VIC 3936
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -165,7 +165,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Red Hill South - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=avani-wines>)
 

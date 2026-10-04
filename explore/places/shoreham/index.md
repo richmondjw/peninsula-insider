@@ -85,11 +85,37 @@ Low tide makes the beach feel twice the size and worth the drive; high tide make
 
 What's mapped here
 
+- [**1** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/shoreham/#wine>)
+
 - [**2** stays](<https://peninsulainsider.com.au/explore/places/shoreham/#stay>)
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/shoreham/#explore>)
 
-- [**1** journal pieces](<https://peninsulainsider.com.au/explore/places/shoreham/#journal>)
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/shoreham/#journal>)
+
+Wine & producers
+
+## Cellar doors and makers around Shoreham
+
+The producers worth the appointment - and the ones already shaping the region's vintage conversation.
+
+ [All cellar doors →](<https://peninsulainsider.com.au/wine/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
+
+271 Tucks Road, Shoreham VIC 3916
+
+Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
+
+[See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
 Stay
 
@@ -163,6 +189,30 @@ Venue Guide   5 min
 
 Multiple travel websites still list Ashcombe as closed. It is not. The café re-opened January 2025, the maze is fully operating Thursday to Monday, and the lavender labyrinth uses 4,000 plants across 40+ varieties. Here is the accurate guide.
 
+Cellar Door Dispatch   6 min
+
+### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+
+6 April 2026
+
+Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
+
+Cellar Door Dispatch   8 min
+
+### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
+
+9 April 2026
+
+Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
+
+Service   9 min
+
+### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
+
+9 April 2026
+
+If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
+
 Planning guides
 
 ## Service guides for your Shoreham trip
@@ -201,7 +251,7 @@ Red Hill · village
 
 ### [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-On a misty basalt plateau above the Peninsula's central ridge, Red Hill has arranged some of the strongest food and wine in Victoria into a circuit that rewards the unhurried. A village by strict measure - a general store, a monthly market, vineyard restaurants that don't advertise from the highway - it nonetheless organises the whole upper Peninsula around itself. The winery restaurant cluster here - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - has no serious peer in the state. Come on Saturday; plan lunch first.
+Red Hill is a village and wine-country base on the Peninsula's central ridge, where produce stops, cellar doors and long lunches reward a slower day. Polperro and Foxeys Hangout are in Red Hill; neighboring Red Hill South adds Montalto, Paringa Estate and more to the wider ridge circuit. The original Red Hill Community Market is temporarily closed. Hill & Ridge is a separate seasonal market at the recreation reserve, so check its current dates before building a Saturday around it.
 
 [← Explore more Peninsula destinations](<https://peninsulainsider.com.au/explore/places/>)
 

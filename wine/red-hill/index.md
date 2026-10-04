@@ -99,6 +99,18 @@ Ordered by editorial authority and Halliday score. Each card opens the full edit
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
 
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
+
+263 Red Hill Rd, Red Hill South VIC 3937
+
+Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
+
 Photo: Paringa Estate
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
@@ -125,7 +137,7 @@ cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
@@ -161,7 +173,7 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
 ### [Main Ridge Estate](<https://peninsulainsider.com.au/wine/main-ridge-estate/>)
 
@@ -210,18 +222,6 @@ Organic and biodynamic estate pouring its own Pinot alongside imported Chablis a
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) [Book](<https://www.prancinghorseestate.com/>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
-
-1208 Mornington-Flinders Road, Main Ridge VIC 3928
-
-One of the Peninsula's most photographed cellar-door positions, sweeping Western Port views and a serious traditional-method sparkling program.
-
-cellar door  long lunch
-
-[Read notes](<https://peninsulainsider.com.au/wine/red-hill-estate/>) [Book](<https://www.redhillestate.com.au/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 

@@ -119,7 +119,7 @@ cellar door  long lunch
 
 Photo: Courtesy of Visit Victoria
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
@@ -129,9 +129,9 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 
 long lunch  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Red Hill Estate](<https://peninsulainsider.com.au/eat/red-hill-estate/>)
 

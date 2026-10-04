@@ -23,7 +23,11 @@ Photo · Daniel Kabel / Wikimedia Commons (CC-BY-SA-4.0)
 
 **Producers mapped**
 
-1
+2
+
+**Top Halliday**
+
+97
 
 **From Melbourne**
 
@@ -63,7 +67,7 @@ A small, family-run estate making cool-climate Chardonnay, Pinot Noir and Cabern
 
 What's mapped here
 
-- [**1** cellar doors & producers](<https://peninsulainsider.com.au/wine/flinders/#producers>)
+- [**2** cellar doors & producers](<https://peninsulainsider.com.au/wine/flinders/#producers>)
 
 - [**1** editor's anchors](<https://peninsulainsider.com.au/wine/flinders/#anchors>)
 
@@ -75,11 +79,25 @@ What's mapped here
 
 Every producer · 2026
 
-## 1 cellar door / producer in Flinders
+## 2 cellar doors and producers in Flinders
 
 Ordered by editorial authority and Halliday score. Each card opens the full editor's note.
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
+
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+
+### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
+
+271 Tucks Road, Shoreham VIC 3916
+
+Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
 
 Winery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 

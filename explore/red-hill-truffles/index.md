@@ -51,18 +51,6 @@ The best explore pages should lead somewhere next.
 
  [See Red Hill →](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
-
-98 Stanleys Road, Red Hill South VIC 3937
-
-Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
-
 Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
 Villa  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
@@ -88,6 +76,18 @@ David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, p
 cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
+
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
+
+795 White Hill Rd, Red Hill VIC 3937
+
+Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
+
+cellar door  long lunch
+
+[Read notes](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
 Keep going
 

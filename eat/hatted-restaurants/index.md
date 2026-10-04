@@ -65,7 +65,7 @@ long lunch  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
 
@@ -169,7 +169,7 @@ anniversary  first date
 
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
@@ -195,7 +195,7 @@ anniversary  long lunch
 
 Photo: Courtesy of Visit Victoria
 
-Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+Restaurant  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
 ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
@@ -205,19 +205,19 @@ Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for 
 
 long lunch  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://jackalopehotels.com/mornington-peninsula>)
+[Read notes](<https://peninsulainsider.com.au/eat/rare-hare/>) [Book](<https://www.sevenrooms.com/reservations/rarehare?venues=rarehare%2Cjackalope>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Many Little](<https://peninsulainsider.com.au/eat/many-little/>)
 
-166 Red Hill Rd, Red Hill South VIC 3937
+159 Shoreham Rd, Red Hill South VIC 3937
 
 Sri Lankan flavours in a European wine-bar setting, from the Polperro team, paired with natural wines and small Peninsula producers.
 
 first date  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
 
 ## Frequently asked questions
 

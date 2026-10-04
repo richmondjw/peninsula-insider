@@ -139,18 +139,6 @@ Nearby picks
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
-
-98 Stanleys Road, Red Hill South VIC 3937
-
-Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
-
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
 ### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
 
 120 Arthurs Seat Rd, Red Hill VIC 3937
@@ -161,19 +149,29 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
 
-Photo: Peter Foster, courtesy of Visit Victoria
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+### [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
 
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+795 White Hill Rd, Red Hill VIC 3937
 
-165 Shoreham Road, Red Hill South VIC 3937
+Biodynamic Red Hill estate with an all-day deck, sunny long lunches, and a sparkling program that holds its own against anything French.
 
-A long table in Red Hill’s historic coolstore and packing shed.
+cellar door  long lunch
 
-long lunch
+[Read notes](<https://peninsulainsider.com.au/eat/foxeys-hangout/>) [Book](<https://foxeys-hangout.com.au/>)
 
-[Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
+Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+### [Main Ridge Estate](<https://peninsulainsider.com.au/eat/main-ridge-estate/>)
+
+80 William Rd, Red Hill VIC 3937
+
+Planted in 1975 by Nat and Rosalie White, the Peninsula's founding vineyard, still making restrained Pinot and Chardonnay from the original blocks.
+
+cellar door  fireplace
+
+[Read notes](<https://peninsulainsider.com.au/eat/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
 
 Build a day around this
 

@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 # Many Little
 
@@ -13,7 +13,7 @@ Sri Lankan flavours in a European wine-bar setting, from the Polperro team, pair
 
 Known for   Sri Lankan-Influenced Menu Polperro Winery Team Natural Wine Pairing Program Hoppers and Sambols
 
-[Reserve a table](<https://www.manylittle.com.au/>)  +61 3 5989 8888
+[Reserve a table](<https://www.manylittle.com.au/contact>)  +61 3 5989 2831
 
 Why we’d go
 
@@ -49,11 +49,11 @@ Restaurant
 
 **Location**
 
-166 Red Hill Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Many%20Little%2C%20166%20Red%20Hill%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
+2–5, 159 Shoreham Rd, Red Hill South VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Many%20Little%2C%202%E2%80%935%2C%20159%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Call**
 
-+61 3 5989 8888
++61 3 5989 2831
 
 **Website**
 
@@ -61,13 +61,13 @@ Restaurant
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3922%2C145.0288>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Many%20Little%2C%202%E2%80%935%2C%20159%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Many%20Little%2C%20166%20Red%20Hill%20Rd%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Many%20Little%2C%202%E2%80%935%2C%20159%20Shoreham%20Rd%2C%20Red%20Hill%20South%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.manylittle.com.au/>)
+ [Book now](<https://www.manylittle.com.au/contact>)
 
 Not sure how to build a day around Many Little?
 
@@ -99,11 +99,11 @@ For the midweek visit, the work trip with a free morning, or the Melbourne frien
 
 Nearby picks
 
-## More from Red Hill
+## More from Red Hill South
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
@@ -115,21 +115,9 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Eldridge Estate](<https://peninsulainsider.com.au/eat/eldridge-estate/>)
-
-120 Arthurs Seat Rd, Red Hill VIC 3937
-
-David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
-
 Photo: Peter Foster, courtesy of Visit Victoria
 
-Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Restaurant  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
@@ -141,6 +129,18 @@ long lunch
 
 [Read notes](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>) [Book](<https://www.theepicurean.com.au/shed-restaurant-reservations>)
 
+Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
+
+263 Red Hill Rd, Red Hill South VIC 3937
+
+Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
+
 Build a day around this
 
 ## Planning guides that include Many Little
@@ -151,7 +151,7 @@ Peninsula Insider guides that put this stop into the context of a full day or we
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Red Hill South - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=many-little>)
 

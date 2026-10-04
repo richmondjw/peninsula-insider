@@ -9,9 +9,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Mornington Farmers' Market
 
-A monthly bayfront produce market that knows what it is and stays close to its growers.
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
 
-Known for   Second Saturday Monthly Mornington Park Bayfront Setting Grower-Direct Produce Peninsula Cheese and Eggs
+Known for   Second Saturday Monthly Mornington Park Setting Peninsula Produce
 
 - Photo · Robert Blackburn, courtesy of Visit Victoria
 
@@ -37,13 +37,9 @@ Known for   Second Saturday Monthly Mornington Park Bayfront Setting Grower-Dire
 
 Shoppers stroll past white and red marquees and a butcher's chalkboard sign at Mornington Farmers Market  Mornington Farmers' Market, Mornington Peninsula.  Photo · Robert Blackburn, courtesy of Visit Victoria
 
-The Mornington Farmers' Market runs on the second Saturday of each month and is the best functioning produce market on the Peninsula, focused on growers, and set on the bayfront at Mornington Park where the walk in is already half the appeal.
+The Mornington Chamber lists Mornington Farmers Market in Mornington Park on the second Saturday of each month, 8am–1pm. This is separate from the weekly Wednesday Main Street Market. Check the Chamber's current calendar before travelling.
 
 Photo · Courtesy of Visit Victoria
-
-Come for the stone fruit in summer, the apples and pears in autumn, and the steady year-round presence of Peninsula cheese, eggs, oils, and preserves. A handful of the Peninsula's best small producers sell here without venturing further, this is where to buy from them directly, before they sell out to the regular crowd. The grower-direct format means better prices and better conversations than a retail shop.
-
-Arrive by nine. Bring bags. Combine it with coffee at Commonfolk on the way out and you have one of the cleanest Saturday mornings the Peninsula offers.
 
 Worth knowing
 
@@ -53,7 +49,7 @@ Weekend markets · Local produce · Morning stop · Family outings
 
 If you only do one thing
 
-Arrive by nine, do one full lap before buying anything, and head to Commonfolk on the way out.
+Check the Chamber's current market calendar, then head to Mornington Park.
 
 Works well with
 
@@ -69,15 +65,19 @@ Market
 
 **Location**
 
-Mornington Park, The Esplanade, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Farmers%27%20Market%2C%20Mornington%20Park%2C%20The%20Esplanade%2C%20Mornington%20VIC%203931>)
+Mornington Park, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Farmers%27%20Market%2C%20Mornington%20Park%2C%20Mornington%20VIC%203931>)
+
+**Website**
+
+[mainstreetmornington.com.au/about](<https://mainstreetmornington.com.au/about/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2187%2C145.0372>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Farmers%27%20Market%2C%20Mornington%20Park%2C%20Mornington%20VIC%203931>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Farmers%27%20Market%2C%20Mornington%20Park%2C%20The%20Esplanade%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Farmers%27%20Market%2C%20Mornington%20Park%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
 Not sure how to build a day around Mornington Farmers' Market?
 
@@ -121,20 +121,6 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
-
-232 Balnarring Rd, Tuerong VIC 3915
-
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
-
-rainy day  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
-
 Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
@@ -147,17 +133,29 @@ slow  solo
 
 [Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
 
-Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [Garagiste](<https://peninsulainsider.com.au/eat/garagiste/>)
+### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-20 Longview Crescent, Mount Eliza VIC 3930
+1 Main St, Mornington VIC 3931
 
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
+The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
 
-cellar door  slow
+family  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/garagiste/>) [Book](<https://garagiste.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+
+Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+### [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
+
+Main St, Mornington VIC 3931
+
+The northern Peninsula's midweek town market, a broad mix that folds easily into a Mornington visit.
+
+slow  quick bite
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
 Build a day around this
 

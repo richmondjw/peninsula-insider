@@ -103,7 +103,7 @@ Hotel
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4055%2C145.0182>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Jackalope%20Hotel%2C%20166%20Balnarring%20Rd%2C%20Merricks%20North%20VIC%203926>)
 
 **Live status**
 

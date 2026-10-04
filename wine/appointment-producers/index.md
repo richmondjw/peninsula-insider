@@ -17,23 +17,11 @@ Contact each producer directly. Booking windows vary; some open seasonally. Most
 
 Editorial ranking · 2026
 
-## 9 producers
+## 8 producers
 
 Ordered by editorial authority and Halliday score.
 
  [All producers →](<https://peninsulainsider.com.au/wine/>)
-
-Winery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Garagiste](<https://peninsulainsider.com.au/wine/garagiste/>)
-
-20 Longview Crescent, Mount Eliza VIC 3930
-
-Barnaby Flanders' micro-production Chardonnay and Pinot project, rigour, restraint, and regular appearances in the Halliday Top 100.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/garagiste/>) [Book](<https://garagiste.com.au/>)
 
 Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
@@ -107,13 +95,13 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
 
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
 
-220 Mornington-Flinders Rd, Red Hill VIC 3937
+220 Mornington-Tyabb Rd, Moorooduc VIC 3933
 
-A quieter Dromana-side estate making honest, characterful wines, Viognier, Sangiovese, and Pinot alongside the Peninsula classics.
+A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
 
 cellar door  slow
 

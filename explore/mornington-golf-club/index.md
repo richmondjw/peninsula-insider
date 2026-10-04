@@ -47,20 +47,6 @@ The best explore pages should lead somewhere next.
 
  [See Mornington →](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
-
-Distillery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
-
-232 Balnarring Rd, Tuerong VIC 3915
-
-A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
-
-rainy day  cellar door
-
-[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
-
 Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
@@ -77,13 +63,27 @@ Spa  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [Endota Spa Mornington](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>)
 
-Main Street, Mornington VIC 3931
+30 Main St, Mornington VIC 3931
 
 The Mornington town-centre day spa, reliable treatments, sensible pricing, and the sixty-minute option that fits before lunch on Main Street.
 
 wellness  slow
 
 [Read notes](<https://peninsulainsider.com.au/explore/spas-and-wellness/#endota-spa-mornington>) [View stay](<https://endota.com.au/>)
+
+Photo: Robert Blackburn, courtesy of Visit Victoria
+
+Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+### [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
+
+Mornington Park, Mornington VIC 3931
+
+A second-Saturday farmers market in Mornington Park, separate from the Wednesday Main Street Market.
+
+slow  quick bite
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
 Keep going
 

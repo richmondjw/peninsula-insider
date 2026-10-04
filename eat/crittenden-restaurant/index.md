@@ -91,6 +91,20 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
+Photo: Two Palms Australia, courtesy of Visit Victoria
+
+Distillery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+
+40 Collins Rd, Dromana VIC 3936
+
+A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
+
+rainy day  cellar door
+
+[Read notes](<https://peninsulainsider.com.au/eat/bass-and-flinders/>) [Book](<https://bassandflindersdistillery.com/>)
+
 Photo: Courtesy of Visit Victoria
 
 Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
@@ -118,18 +132,6 @@ Sprawling beachfront pub with an enormous deck and bay views, the straightforwar
 waterfront  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
-
-Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
-
-12-14 Brasser Ave, Dromana VIC 3936
-
-A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
-
-big group  family
-
-[Read notes](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/>)
 
 Build a day around this
 

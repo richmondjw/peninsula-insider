@@ -17,7 +17,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 Farm-to-table shortlist
 
-## 11 kitchens cooking with what the Peninsula actually grows
+## 10 kitchens cooking with what the Peninsula actually grows
 
 Hatted farm restaurants first, then the venues where the supply chain is visibly short.
 
@@ -88,18 +88,6 @@ A working olive grove and produce kitchen on the Red Hill ridge, grazing boards,
 long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) [Book](<https://greenolive.com.au/dine>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Kerri Greens](<https://peninsulainsider.com.au/eat/kerri-greens/>)
-
-235 Stanleys Rd, Red Hill South VIC 3937
-
-Tom McCarthy and Lucas Blanck's new-school Peninsula label, lighter-style Pinot, approachable Chardonnay, and a cellar door that feels like a bar.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/kerri-greens/>) [Book](<https://www.kerrigreens.com/>)
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 

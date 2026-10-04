@@ -123,18 +123,6 @@ first date  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
-Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
-
-263 Red Hill Rd, Red Hill South VIC 3937
-
-Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
-
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
@@ -146,6 +134,18 @@ The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pas
 long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
+
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+### [Lightfoot Wines](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
+
+110 Myers Rd, Main Ridge VIC 3928
+
+A small Main Ridge estate with a focused Pinot and Chardonnay range and one of the ridge's most peaceful tasting rooms.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
 
 Build a day around this
 
