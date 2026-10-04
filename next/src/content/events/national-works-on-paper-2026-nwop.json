@@ -18,7 +18,10 @@
   "category": "exhibition",
   "subcategory": "Gallery Exhibition / Art Award",
   "recurrence": "one-off",
-  "audienceTags": ["art-lovers", "cultural-visitors"],
+  "audienceTags": [
+    "art-lovers",
+    "cultural-visitors"
+  ],
   "weather": "mixed",
   "weatherDependency": "Weather independent",
   "weatherShape": "all-weather",
@@ -32,9 +35,11 @@
   "verificationNote": "5 September–22 November 2026 exhibition and regular Tuesday–Sunday 11am–4pm gallery hours confirmed by MPRG on 30 September 2026",
   "lastCheckedDate": "2026-09-30",
   "editorialPriority": 4,
-  "status": "published",
+  "status": "archived",
   "publishedAt": "2026-05-04",
-  "lens": ["rainy-day"],
+  "lens": [
+    "rainy-day"
+  ],
   "place": "mornington",
   "retiredSourceLinks": [
     {
@@ -55,5 +60,7 @@
       "checkedOn": "2026-09-13",
       "note": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200."
     }
-  ]
+  ],
+  "verificationStatus": "unverified - no future date confirmed",
+  "archivedReason": "Listing under review: official gallery hours are Tuesday–Sunday, 11am–4pm, closed Mondays. The existing continuous occurrence rule can promote a closed Monday; exhibition dates are retained pending safe opening-day handling."
 }
