@@ -1,6 +1,6 @@
 ---
 import EventStrip from '../../components/EventStrip.astro';
-import { eventPromotionEntries } from '../../lib/event-discovery.mjs';
+import { selectEventPromotions } from '../../lib/event-discovery.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalStory from '../../components/journal/JournalStory.astro';
@@ -10,7 +10,7 @@ import { themeDefs } from '../../lib/journal-themes';
 import curation from '../../data/journal-front.json';
 import '../../styles/journal-editorial.css';
 const articles=(await getCollection('articles',({data})=>isJournalEditorial(data))).sort((a,b)=>b.data.publishedAt.getTime()-a.data.publishedAt.getTime());
-const journalEvents = eventPromotionEntries((await getCollection('events')).sort((a,b)=>(b.data.visitorAppealScore??0)-(a.data.visitorAppealScore??0)), {now:new Date(),limit:3});
+const journalEvents = selectEventPromotions(await getCollection('events'), {now:new Date()}).sort((a,b)=>a.day.localeCompare(b.day)).slice(0,3).map(item=>item.event);
 const authors=await getCollection('authors');
 const byline=(a:typeof articles[number])=>a.data.houseByline?'Peninsula Insider':authors.find(x=>x.id===a.data.author.id)?.data.name??'Peninsula Insider';
 const themes=themeDefs.map(t=>({...t,articles:articles.filter(a=>a.data.tags.some(tag=>t.tags.includes(tag)) || t.formats?.includes(a.data.format))})).filter(t=>t.articles.length);
