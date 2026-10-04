@@ -109,9 +109,9 @@ Eat & drink
 
 ## Where to eat and drink in Sorrento
 
-Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+Our selected food and drink stops here, each with an editor note rather than a star rating.
 
- [More to eat in Sorrento →](<https://peninsulainsider.com.au/eat/>)
+ [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
 Restaurant  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
@@ -193,9 +193,9 @@ Get outside
 
 ## Explore moves anchored to Sorrento
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Sorrento →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Walk](<https://peninsulainsider.com.au/explore/coppins-track/>)
 

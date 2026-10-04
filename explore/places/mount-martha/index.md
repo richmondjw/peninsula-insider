@@ -95,9 +95,9 @@ Get outside
 
 ## Explore moves anchored to Mount Martha
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Mount Martha →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Beach](<https://peninsulainsider.com.au/explore/mount-martha-beach/>)
 

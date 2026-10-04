@@ -310,13 +310,8 @@ table {
     font-size: 1.2rem;
   }
 
-  .place-card__body {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
-    overflow: hidden;
-    font-size: 0.88rem;
-  }
+  /* Clamp the summary, never the body: it reserves space for Save/Share. */
+  .place-card__intro { font-size: 0.88rem; }
 
 }
 

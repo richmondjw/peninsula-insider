@@ -93,9 +93,9 @@ Eat & drink
 
 ## Where to eat and drink in Tuerong
 
-Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+Our selected food and drink stops here, each with an editor note rather than a star rating.
 
- [More to eat in Tuerong →](<https://peninsulainsider.com.au/eat/>)
+ [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
 Producer  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 

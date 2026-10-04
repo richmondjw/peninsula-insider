@@ -41,7 +41,7 @@ Cape Schanck is where the Peninsula finally runs out of land, dropping off the p
 
 ### [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Fingal sits quietly between Rye and Cape Schanck on the Peninsula's ocean-coast flank, and it is the kind of place that earns its reputation through what happens there rather than through what it…
+Fingal sits between Rye and Cape Schanck on the Peninsula's ocean-coast flank. It has two separate thermal destinations: Peninsula Hot Springs and Alba Thermal Springs & Spa. Book a bathe, add a…
 
 ### [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 

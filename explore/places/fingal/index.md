@@ -11,7 +11,27 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Alba Thermal Springs & Spa, Fingal
 
+[Choose a thermal visit](<https://peninsulainsider.com.au/explore/places/fingal/#fingal-choose>) [Build a weekend](<https://peninsulainsider.com.au/explore/places/fingal/#escapes>)
+
 Photo · Courtesy of Visit Victoria
+
+Plan the bathe
+
+## Two thermal venues in Fingal
+
+Alba and Peninsula Hot Springs are separate places. Check the live session and booking details with your chosen operator before you travel.
+
+### Alba Thermal Springs & Spa
+
+Contemporary pools, spa treatments and dining at 282 Browns Road. This is the place pictured above.
+
+ [See Alba bathing and bookings](<https://albathermalsprings.com.au/book/>)
+
+### Peninsula Hot Springs
+
+Bath House and Spa Dreaming Centre bathing, with accommodation at 140 Springs Lane.
+
+ [See Peninsula Hot Springs bathing](<https://www.peninsulahotsprings.com/bathe/>)
 
 Fingal in 12 photographs
 
@@ -19,9 +39,9 @@ Fingal in 12 photographs
 
 A bather in a turquoise pool beneath curved concrete canopies at Alba Thermal Springs & Spa in Fingal  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
 
-Fingal is a coastal village on the Mornington Peninsula's ocean-coast edge, 90 km from Melbourne, home to Peninsula Hot Springs and adjacent to Moonah Links golf resort and Cape Schanck.
+Fingal is a Mornington Peninsula locality about 90 km from Melbourne, home to Peninsula Hot Springs and Alba Thermal Springs & Spa, with Moonah Links golf resort nearby.
 
-Fingal sits quietly between Rye and Cape Schanck on the Peninsula's ocean-coast flank, and it is the kind of place that earns its reputation through what happens there rather than through what it calls itself. Peninsula Hot Springs has made it a pilgrimage destination for a particular kind of weekend - thermal pools, early morning mist off the coast, a round at Moonah Links, and nothing much else demanding your attention. The Cape Schanck lighthouse is fifteen minutes south. The back beaches are wild and within reach. Fingal rewards the visitor who wants comfort rather than activity.
+Fingal sits between Rye and Cape Schanck on the Peninsula's ocean-coast flank. It has two separate thermal destinations: Peninsula Hot Springs and Alba Thermal Springs & Spa. Book a bathe, add a round at Moonah Links if golf is your thing, then give the rest of the day some breathing room. The venues are spread out, so Fingal works best as a planned stop or a quiet overnight base.
 
 Photo · Courtesy of Visit Victoria
 
@@ -71,17 +91,17 @@ Is Fingal the right base?
 
 - anyone who wants to walk to dinner
 
-Expecting a village. Fingal is a destination, not a town.
+Expecting a walkable town centre. Fingal's venues are spread out.
 
 Fingal in brief
 
 ## Fingal in 4 points
 
-- 01   Fingal is the Peninsula's wellness and golf destination - Peninsula Hot Springs is here, Moonah Links is here, and Cape Schanck is a short drive south.
+- 01   Fingal has two distinct thermal venues - Peninsula Hot Springs and Alba Thermal Springs & Spa - plus Moonah Links golf resort nearby.
 
 - 02   Best for: thermal wellness weekends, golf stays, couples who want luxury without Sorrento's crowds.
 
-- 03   Signature experience: a morning thermal soak at Peninsula Hot Springs, then a round at Moonah Links, then nothing.
+- 03   Choose and book a thermal visit, then leave room for a round at Moonah Links or a quiet meal.
 
 - 04   Two nights minimum - Fingal is about slowing down, not covering ground.
 
@@ -89,7 +109,7 @@ A perfect day here
 
 ## A day in Fingal
 
-Hot springs at 7am before the crowds, late breakfast at the resort, afternoon round at Moonah Links, dinner in-house.
+Book a morning bathe at Alba or Peninsula Hot Springs, make time for lunch, then settle into a quiet afternoon or a round at Moonah Links.
 
 Peninsula Hot Springs recommends booking ahead, especially for weekends and peak holiday periods. Check its current calendar and prices before travelling; same-day bathing bookings carry a surcharge.
 
@@ -111,9 +131,9 @@ Eat & drink
 
 ## Where to eat and drink in Fingal
 
-Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+Our selected food and drink stops here, each with an editor note rather than a star rating.
 
- [More to eat in Fingal →](<https://peninsulainsider.com.au/eat/>)
+ [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -187,9 +207,9 @@ Get outside
 
 ## Explore moves anchored to Fingal
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Fingal →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

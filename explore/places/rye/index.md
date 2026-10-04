@@ -105,9 +105,9 @@ Eat & drink
 
 ## Where to eat and drink in Rye
 
-Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+Our selected food and drink stops here, each with an editor note rather than a star rating.
 
- [More to eat in Rye →](<https://peninsulainsider.com.au/eat/>)
+ [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
 Market  [Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
 
@@ -187,9 +187,9 @@ Get outside
 
 ## Explore moves anchored to Rye
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Rye →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Beach](<https://peninsulainsider.com.au/explore/rye-ocean-beach/>)
 

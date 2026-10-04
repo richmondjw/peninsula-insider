@@ -119,9 +119,9 @@ Eat & drink
 
 ## Where to eat and drink in Merricks
 
-Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+Our selected food and drink stops here, each with an editor note rather than a star rating.
 
- [More to eat in Merricks →](<https://peninsulainsider.com.au/eat/>)
+ [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -213,9 +213,9 @@ Get outside
 
 ## Explore moves anchored to Merricks
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Merricks →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Gallery](<https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/>)
 

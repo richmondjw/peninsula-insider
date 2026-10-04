@@ -89,9 +89,9 @@ Get outside
 
 ## Explore moves anchored to Rosebud
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Rosebud →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Golf Course](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 

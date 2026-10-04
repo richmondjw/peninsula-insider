@@ -105,9 +105,9 @@ Get outside
 
 ## Explore moves anchored to Point Nepean
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Point Nepean →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Walk](<https://peninsulainsider.com.au/explore/farnsworth-track/>)
 

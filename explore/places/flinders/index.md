@@ -123,9 +123,9 @@ Eat & drink
 
 ## Where to eat and drink in Flinders
 
-Restaurants, cafés, bakeries, and pubs - each with an editor note, not a star rating.
+Our selected food and drink stops here, each with an editor note rather than a star rating.
 
- [More to eat in Flinders →](<https://peninsulainsider.com.au/eat/>)
+ [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
 Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
@@ -215,9 +215,9 @@ Get outside
 
 ## Explore moves anchored to Flinders
 
-Walks, beaches, lookouts, and markets worth scheduling around the meals.
+The local experiences currently mapped in our guide, with detail to help you plan.
 
- [Explore near Flinders →](<https://peninsulainsider.com.au/explore/>)
+ [Browse all experiences →](<https://peninsulainsider.com.au/explore/>)
 
 [Golf Course](<https://peninsulainsider.com.au/explore/flinders-golf-club/>)
 

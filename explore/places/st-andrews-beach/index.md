@@ -147,7 +147,7 @@ Ocean Coast · village
 
 ### [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Fingal sits quietly between Rye and Cape Schanck on the Peninsula's ocean-coast flank, and it is the kind of place that earns its reputation through what happens there rather than through what it calls itself. Peninsula Hot Springs has made it a pilgrimage destination for a particular kind of weekend - thermal pools, early morning mist off the coast, a round at Moonah Links, and nothing much else demanding your attention. The Cape Schanck lighthouse is fifteen minutes south. The back beaches are wild and within reach. Fingal rewards the visitor who wants comfort rather than activity.
+Fingal sits between Rye and Cape Schanck on the Peninsula's ocean-coast flank. It has two separate thermal destinations: Peninsula Hot Springs and Alba Thermal Springs & Spa. Book a bathe, add a round at Moonah Links if golf is your thing, then give the rest of the day some breathing room. The venues are spread out, so Fingal works best as a planned stop or a quiet overnight base.
 
 Bay Coast · town
 
