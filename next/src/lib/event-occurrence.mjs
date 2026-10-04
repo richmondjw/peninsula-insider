@@ -522,6 +522,17 @@ export function schemaEventStatus(status, { past = false } = {}) {
 }
 
 /**
+ * A static event detail page remains published after its build instant. A
+ * scheduled status can therefore become false before the next rebuild, even
+ * when the event was still in progress during rendering. Omit that optional
+ * status on static pages; retain cancellation and date-change corrections.
+ */
+export function staticEventSchemaStatus(status) {
+  const value = schemaEventStatus(status);
+  return value === 'https://schema.org/EventScheduled' ? null : value;
+}
+
+/**
  * The schema.org eventStatus for an occurrence a caller has already resolved.
  *
  * The badge a reader sees and the markup a crawler reads must not be able to
