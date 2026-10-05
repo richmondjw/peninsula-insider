@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-05",
+  "status": "built-independent-local-regression-passed-pending-protected-release",
+  "baseline": {
+    "exactLiveSourceRevision": "fac992554f5d1bf51c8df7f1e5f1eb1635ff75dc",
+    "independentMedianScore": 82.5,
+    "hardGates": "open",
+    "visitorCardDate": "Checked 5 Oct 2026",
+    "pageProvenance": "data-provenance=none; every course reviewed April 2026 or later"
+  },
+  "hypothesis": "Explicitly scoping each dated club check to visitor access will prevent readers from inferring an unsupported full-record fact check and make eligibility guidance more reliable.",
+  "boundedChange": [
+    "Relabel the date on all 11 club-linked card notes as visitor-access checks.",
+    "Explain beside the existing page-level provenance line that those dated links cover visitor access only; preserve data-provenance=none and April review status.",
+    "Remove unsupported RACV/Rosebud registration steps from card and source copy; surface Portsea Sunday Golf ID condition."
+  ],
+  "metric": "All 11 card dates clearly scope visitor access; page-level provenance remains honest; 11 club links and cards remain; no 320/390/1440 overflow or page errors.",
+  "evaluationDate": "2026-10-05",
+  "rollback": "Revert only this golf-page/access-copy commit if source wording or layout regresses.",
+  "independentReview": "Existing access/facts reviewer checked all 11 adjacent operator links against the visitor-access scope and identified two unsupported registration details plus Portsea Sunday Golf ID; bounded copy now follows that review. Existing visual reviewer also passed 320/390/1440 wrapping and hierarchy on the final built preview; lone final desktop card and inline-link spacing remain nonblocking pre-existing polish items.",
+  "localEvidence": {
+    "build": "TZ=UTC npm run build:search passed; 1015 HTML files and 711 indexed pages.",
+    "browser": "Built local HTTP 200 at 320/390/1440, 11 cards, all 11 visitor-access date labels, data-provenance=none and April-or-later disclosure retained, no horizontal overflow or JS errors.",
+    "sourceChecks": "RACV operator page supports standard green fees and online booking; Rosebud operator page links public bookings and confirms North/South courses; Portsea official visitor calendar carries Sunday Golf ID condition."
+  },
+  "openGates": [
+    "Exact public release and independent regrade pending.",
+    "Broader record facts and original Visit Victoria grant receipts still need independent source evidence.",
+    "Normal-user MiClub booking acceptance, direct screen-reader journey and exact-route field CWV/CLS remain open."
+  ],
+  "decision": "adapt-continue"
+}

@@ -100,7 +100,7 @@ const visitorInfo: Record<string, { url: string; summary: string; teeTimes?: boo
   },
   'racv-cape-schanck-golf-course': {
     url: 'https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html',
-    summary: 'Member and standard green fees; register to book an available tee time.',
+    summary: 'Member and standard green fees; check current tee times and book online.',
     teeTimes: true,
   },
   'eagle-ridge-golf-course': {
@@ -115,12 +115,12 @@ const visitorInfo: Record<string, { url: string; summary: string; teeTimes?: boo
   },
   'rosebud-country-club': {
     url: 'https://rosebudcountryclub.com.au/web/pages/play-golf',
-    summary: 'Register as a public golfer to view current North and South tee times.',
+    summary: 'Public bookings for North and South; check current tee times with the club.',
     teeTimes: true,
   },
   'portsea-golf-club': {
     url: 'https://portsea.miclub.com.au/cms/public-bookings/',
-    summary: 'Mon, Tue/Wed afternoons; limited Fri/Sun. Access narrows mid-Dec to early Feb.',
+    summary: 'Monday and Tuesday/Wednesday afternoons; limited Friday and Sunday. Sunday requires a Golf ID; summer access narrows.',
     linkLabel: 'Visitor times and booking',
   },
 };
@@ -351,7 +351,7 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked 5 Oct 2026</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
@@ -414,7 +414,7 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked 5 Oct 2026</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
@@ -758,7 +758,7 @@ export const prerender = true;
 
       </div>
 
-      <ProvenanceLine class="golf-verified" records={golfCourses} type="experiences" noun="course" emphasis> Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.</ProvenanceLine>
+      <ProvenanceLine class="golf-verified" records={golfCourses} type="experiences" noun="course" emphasis> The dated club links cover visitor access only. Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.</ProvenanceLine>
     </div>
   </section>
 
