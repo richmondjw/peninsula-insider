@@ -77,7 +77,7 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 
 cellar door  view
 
-[Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/dine/>)
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 

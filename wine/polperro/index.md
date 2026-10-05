@@ -13,7 +13,7 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 
 Known for   Halliday Top 100 Winery Polperro and Even Keel Wines One-Hat Cool-Climate Pinot Red Hill South Ridge Views
 
-[Book a tasting](<https://www.polperrowines.com.au/book>)  +61 3 5989 2471
+[View dining options](<https://www.polperrowines.com.au/dine/>)  +61 3 5989 2471
 
 Polperro · Red Hill
 
@@ -113,7 +113,7 @@ Charged
 
 [Halliday listing](<https://winecompanion.com.au/wineries/victoria/mornington-peninsula/polperro>)
 
- [Book now](<https://www.polperrowines.com.au/book>)
+ [View dining options](<https://www.polperrowines.com.au/dine/>)
 
 Editor's verdict
 
@@ -137,7 +137,7 @@ Walk-in only, maximum 6 guests, no bookings required for cellar door. Tasting in
 
 **Cuisine:** Modern Australian.
 
-[Reserve a table →](<https://www.polperrowines.com.au/book>)
+[Reserve a table →](<https://www.polperrowines.com.au/dine/>)
 
 ## Polperro Vineyard Villas
 

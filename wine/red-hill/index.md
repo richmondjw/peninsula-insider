@@ -135,7 +135,7 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 
 cellar door  view
 
-[Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/dine/>)
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 

@@ -1,60 +1,148 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-05T07:01:45.160Z",
+  "generatedAt": "2026-10-05T07:26:40.742Z",
   "baselineAvailable": true,
-  "fromSnapshot": "28076a95f1bb7a689774a2852ff374fc14b33fb30c877f0efef1e8c0c2c99e4d",
-  "toSnapshot": "d4b77dd84ea7f969d05a0437ec855579f374aca81e0197c0f3d76e4579846480",
-  "previousGeneratedAt": "2026-10-05T05:58:25.610Z",
+  "fromSnapshot": "d4b77dd84ea7f969d05a0437ec855579f374aca81e0197c0f3d76e4579846480",
+  "toSnapshot": "0d7c9f4efad7f923d3ddfc930a59bd65411ecfb2fd4f81209557831209355268",
+  "previousGeneratedAt": "2026-10-05T07:01:45.160Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 17,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/rye/",
+      "id": "https://peninsulainsider.com.au/eat/best-restaurants/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "df5f6649c3a14d23fe0a35a31b63d502f46b2f731fe4373c607f1bf3e7ed0a1d",
-      "previousContentSha256": "976852df55489f4697ca103ee607631a2be8301b3b4dbfff3130a428468f7ff8"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/best-restaurants/index.md",
+      "contentSha256": "75cef2445dc5d70dea95762723f216a99bae0c8c66917f5b32af2677d0c9f5ed",
+      "previousContentSha256": "bd2235639336159b00f3fbffae255721a5c44f2a6efe62c8933de26a1a3c8c4c"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "id": "https://peninsulainsider.com.au/eat/cellar-door-lunch/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
-      "contentSha256": "3a8e9ef8e1aecfa29eb0f26d118c6f8f9d84a8998b6f046a1b26f6e5d3dc12a5",
-      "previousContentSha256": "8e64bc35538200886ba5d789272271099b22577c61f7c8c25f220c7f9cd5e9ae"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/cellar-door-lunch/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/cellar-door-lunch/index.md",
+      "contentSha256": "7fe0ade7d676f95649b834d027227f34be8873c34486205bd4e68feb3502dcb5",
+      "previousContentSha256": "5a31584283ad2a7ae6251368963285c1f0f77512ed7d473f620051862e6e76ef"
     },
     {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/eat/date-night/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "93595e223d61c1751896dbd59eb7daa3effd379ae9182fb479fdd7156d9396be",
-      "previousContentSha256": "5185b881e39453886e50596d41414d03135e9afd111708a123125342244043e4"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/date-night/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/date-night/index.md",
+      "contentSha256": "1d252fda6583f6d64a6866db1145871e04782d9d64cafdbbbb06205f5ad54b31",
+      "previousContentSha256": "3a1ffde5fdcd9804fb720d723ad64cc2bb7f8f32fc667839dc596d8c29e4a4a7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/fine-dining/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/fine-dining/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/fine-dining/index.md",
+      "contentSha256": "47a7e994a90bf89cbe8832fee615938d2912e5e0488fcb4c23ccd302fe473ed2",
+      "previousContentSha256": "220f672da76d7d08df429490f8975ce08f87c8f3ae954a04182fb94035753bf7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/hatted-restaurants/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/hatted-restaurants/index.md",
+      "contentSha256": "e547268552d8d1464bf2ff286c416b0537e079a69159d4486fb4f6a1f6907802",
+      "previousContentSha256": "631490e7c389840aee2f5470719fa80fcbd1912ba20e63d164e30ebe623c188d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/long-lunch/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/long-lunch/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/long-lunch/index.md",
+      "contentSha256": "a83751340cbdb55e438bfeb635debd83052a3590b30fd2a26e2e8ca75b0d6296",
+      "previousContentSha256": "92ae3e1c42f5194f08af51389f0d38d62af0d581edcf7c72828314ef134448fc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/index.md",
+      "contentSha256": "28c3df6ecd05ae680b2576afa53e4b229377d428773171048c5d8f12d056f31b",
+      "previousContentSha256": "620419663fe0cbe0a6e0db12b05212f7cf9167fa9b72dfd79a9fa8353097e002"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-one-booking-peninsula-day/index.md",
+      "contentSha256": "ad86cd687fcb95284a2e2bad50af5af31dd4e1f7c52dbeeb3bfbf3e21080a2d7",
+      "previousContentSha256": "acc40441b952683aeb7da46478abb5113288c9451db3c09c32fe544d7f0e314d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "1fb26760efde5d7fe12e5160df7afb55c46da06b2e3549767989f25e0eeea01e",
+      "previousContentSha256": "e0fe7404e303d65a4ad9416d6d09cac2d089d805df5a3f8a10afeefdbec16b0a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
+      "contentSha256": "3e2a185b64e352d380b7a8d646b358eaacef48c967d031809b82867c2cc0189f",
+      "previousContentSha256": "d4c492a715eaf16d9df7391c768a362813cea4b12ef3933c9a0bb767a50628a6"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "529638e539eaf8567e67b8d3d4fb08cf4cd26738379edccfec5d0eb542740364",
-      "previousContentSha256": "ec256fd384d01933039d483284441b39b242e79deee8d63fe399e2a6c3606a27"
+      "contentSha256": "0514dd2916a7d9f2dda6a8915654751bbe34c6e2e243caac22249007e66452c0",
+      "previousContentSha256": "529638e539eaf8567e67b8d3d4fb08cf4cd26738379edccfec5d0eb542740364"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "id": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
-      "contentSha256": "44077f2865382032853eabea57b4330435b874a8861ebd53a914f7f5d49f86b5",
-      "previousContentSha256": "4789a85bdcecc26524222e9750f4a95a18771b2d9ea3b25e8bfcc833117da5da"
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/best-cellar-doors/index.md",
+      "contentSha256": "ca000f8cf75e04dc983d77a246027fb808d7184800919bb22bf93bac07ace565",
+      "previousContentSha256": "2ee81d4ce752b3aac5636bc884a5d2473f631c42922de3e9f3136f5210303cd4"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "id": "https://peninsulainsider.com.au/wine/chardonnay/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "6dc76be0e916309b19b3e5dda18117a8a7a60575a57a632c89067fb22b3ad38d",
-      "previousContentSha256": "a054aa00e2baef05959310a0ff6988daf538b29599f69e3f0b5b3fff0168cec8"
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/chardonnay/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/chardonnay/index.md",
+      "contentSha256": "3d1fdfcea8199da12abad3d64b4b6ffa886dd6b63a332ff54a0547a0af7f015a",
+      "previousContentSha256": "75a8b37dbc1f0d935bea97951055a2869159f4f8b9f5773aa355f916332afef0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/pinot-noir/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/pinot-noir/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/pinot-noir/index.md",
+      "contentSha256": "3728da85709445b9bd62ff077df475d322b0595ff13ad6df6f4276c05b838789",
+      "previousContentSha256": "61f8e9ef539a177dcee34f1697bc2111cb59997ebcfc8b2cf3f434346e3a48af"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/polperro/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/polperro/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/polperro/index.md",
+      "contentSha256": "9abe5b2940122967ed0208519bd0a26247947f47fc4a3668ffea202f90e52d9b",
+      "previousContentSha256": "f48dfdd3cb8e0928d840bc1a15822a3f6485f77f3046bd05eda912b12cc94965"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill/index.md",
+      "contentSha256": "84179e9ba7f1eca83ef4a4a8a049aa3eb7019356e1b175af8f8f0643315862bf",
+      "previousContentSha256": "f1df4092ab4e98a000415896cd6162291f8b74efbc320c6e8336fb27baf7139f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/wine-region/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/wine-region/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/wine-region/index.md",
+      "contentSha256": "dc240c4046ad6b9027a0309a1f0ac9339bcc6ee4b9ebf0b091e8f3d46a21a2b9",
+      "previousContentSha256": "0f3056021bd6ac15a950289ae43b9f2c15b17f5d1d4a1c341285a59526523a07"
     }
   ]
 }
