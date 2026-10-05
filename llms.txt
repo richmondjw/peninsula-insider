@@ -8,7 +8,7 @@ A publication date, sitemap date or new build does not mean every fact has been 
 
 ## Start with your task
 
-- [Events and dates](https://peninsulainsider.com.au/whats-on/upcoming.json): Upcoming events, recurrence, event status and explicit weekend occurrences. Read the date window before answering. (JSON)
+- [Events and dates](https://peninsulainsider.com.au/whats-on/upcoming.json): Dated events, flexible experiences and offers. Read each item's date meaning, the feed window and any event status before answering. (JSON)
 - [Somewhere to eat](https://peninsulainsider.com.au/eat/): Find a place by the kind of visit, then follow its own page for the recommendation and practical details. (HTML)
 - [Wine and cellar doors](https://peninsulainsider.com.au/wine/): Keep estates, cellar doors and restaurants distinct, even when they share an address. (HTML)
 - [Somewhere to stay](https://peninsulainsider.com.au/stay/): Choose the setting and style of stay. Confirm availability and live prices with the operator. (HTML)
@@ -33,7 +33,7 @@ A publication date, sitemap date or new build does not mean every fact has been 
 
 ## Reading this information
 
-Event dates use Australia/Sydney. Date-only values do not imply a time. Use the feed window, explicit weekend occurrences and cancellation or rescheduling status. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.
+Use the timezone declared by the feed: Australia/Melbourne for Mornington Peninsula listings. Date-only values do not imply midnight. Read dateMeaning: occurrence is a dated event, availability is a flexible experience window, and validity is an offer window. A weekend availability date does not confirm a booked session. Read explicit weekend dates and any event status, then confirm current sessions, cancellations or changes with the organiser. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.
 
 Our access and reuse terms expressly permit assistants, including paid services, to retrieve public text as needed to answer a person's question and provide relevant summaries with canonical citations. Follow those terms and our crawler guidance together. This limited permission covers only rights Peninsula Insider controls. It does not cover bulk collection, full-article republication, model training, derivative destination or directory products, photographs, other third-party material or private account data. Other uses require separate permission or an applicable independent right.
 
