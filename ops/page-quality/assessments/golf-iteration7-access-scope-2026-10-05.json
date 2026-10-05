@@ -4,7 +4,7 @@
   "tier": "T1",
   "family": "hub",
   "assessedAt": "2026-10-05",
-  "status": "built-independent-local-regression-passed-pending-protected-release",
+  "status": "released-public-verified-independent-regrade-recorded",
   "baseline": {
     "exactLiveSourceRevision": "fac992554f5d1bf51c8df7f1e5f1eb1635ff75dc",
     "independentMedianScore": 82.5,
@@ -28,9 +28,15 @@
     "sourceChecks": "RACV operator page supports standard green fees and online booking; Rosebud operator page links public bookings and confirms North/South courses; Portsea official visitor calendar carries Sunday Golf ID condition."
   },
   "openGates": [
-    "Exact public release and independent regrade pending.",
     "Broader record facts and original Visit Victoria grant receipts still need independent source evidence.",
-    "Normal-user MiClub booking acceptance, direct screen-reader journey and exact-route field CWV/CLS remain open."
+    "Normal-user MiClub booking acceptance, direct screen-reader journey and exact-route field CWV/CLS remain open.",
+    "Sydney-midnight build/audit rollover requires a recurrence guard; repair is staged separately."
   ],
-  "decision": "adapt-continue"
+  "decision": "adapt-continue",
+  "publicEvidence": {
+    "sourceSha": "d2052f1f5c2da3fae5d5ecb05bb4188145da972c",
+    "buildRunId": "37312638279",
+    "pagesRunId": "37315474643",
+    "result": "Exact public revision verified at 320/390/1440. Protected PR checks passed; first build failed at Sydney midnight; second attempt and Pages passed. Independent reconciled score remains provisional 82.5/100 with hard gates open."
+  }
 }
