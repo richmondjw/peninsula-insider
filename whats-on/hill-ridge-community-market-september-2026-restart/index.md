@@ -19,9 +19,9 @@ Illustrative image  This image shows AI-generated country market still life with
 
 Editor's verdict
 
-Cancelled: the Hill & Ridge organiser now marks its 3 October 2026 market as cancelled. Check its calendar for any future date.
+Cancelled: the organiser's homepage marked the 3 October 2026 market as cancelled when checked on 4 October 2026. Check the organiser for any future market date.
 
-Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. The organiser's current page explicitly marks the 3 October 2026 edition as cancelled. Its older promotional copy still appears lower on the page; the cancellation notice takes precedence. Do not travel for the 3 October edition. Check the organiser for any future market date.
+Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. When checked on 4 October 2026, the organiser's homepage explicitly marked the 3 October 2026 edition as cancelled. Promotional copy and the seasonal calendar still listed that date at the time; the explicit cancellation notice took precedence. Do not travel for the 3 October edition. Check the organiser for any future market date.
 
 Hosted at
 

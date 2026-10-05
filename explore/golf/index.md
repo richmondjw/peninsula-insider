@@ -25,63 +25,31 @@ Two golfers carrying bags across a fairway at Flinders Golf Course towards the s
 
 Compare your options
 
-## Coastal cluster or a different part of the Peninsula
+## Start with where you want to play
 
-The clubs span several towns and coastlines. Start with access, terrain and travel time.
+Choose a part of the Peninsula, then compare access and playing style in the course cards.
 
-Cape Schanck / Fingal
+Southern coast  4 courses
 
-### Coastal. Exposed. Worth the drive to the tip.
+### Fingal and Cape Schanck
 
-**Flagship courses**
+Exposed coastal golf. St Andrews Beach, Moonah Links and RACV offer visitor play; The National has private-club rules.
 
-St Andrews Beach (Tom Doak), Moonah Links (Peter Thomson and Ross Perrett), The National (Robert Trent Jones Jr, Greg Norman and Tom Doak) - three of The National's four courses sit here; the fourth, Long Island, is at Frankston.
+ [Compare four courses](<https://peninsulainsider.com.au/explore/golf/#cape-courses>)
 
-**Access**
+Across the Peninsula  7 courses
 
-St Andrews Beach and Moonah Links are fully public. The National is private: Victorian nonmembers need an invitation and must play with a member; interstate and overseas visitors can request tee times directly.
+### Seven towns and settings
 
-**Conditions**
+From Flinders headland and Rye dunes to Boneo parkland and bayside towns. Check club access and the drive from your base.
 
-Coastal duneland. Exposed to Bass Strait wind. The same course plays differently on every visit.
-
-**Best for**
-
-Serious golfers. Destination weekends. Groups who want the bucket-list round. Stay-and-play packages.
-
-**Combine with**
-
-Peninsula Hot Springs (15 min). Cape Schanck boardwalk. Fingal or Flinders for lunch.
-
-Elsewhere across the Peninsula
-
-### Different towns. Different terrain. Check the route.
-
-**Standout courses**
-
-Flinders Golf Club (18 coastal holes above Bass Strait), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)
-
-**Access**
-
-Visitor access varies by club and tee time. Mornington, Eagle Ridge, The Dunes and Rosebud publish visitor information; confirm availability directly.
-
-**Conditions**
-
-Mixed terrain: exposed Western Port headland at Flinders, dunes at Rye, parkland at Boneo and bayside courses further north and south.
-
-**Best for**
-
-A day trip or a round near your chosen base. Pick by visitor eligibility, playing style and travel time.
-
-**Combine with**
-
-Check your course location first: Boneo, Rye, Flinders and Mornington are separate drives.
+ [Compare seven courses](<https://peninsulainsider.com.au/explore/golf/#across-courses>)
 
 Cape Schanck / Fingal cluster
 
 ## Cape Schanck and Fingal courses
 
-Four southern Peninsula courses with different access rules: three offer visitor tee times, while The National has private-club eligibility.
+Four southern Peninsula courses with different access rules and playing styles.
 
 Public green fees
 
