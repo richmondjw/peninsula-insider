@@ -1,3 +1,4 @@
+import { zonedInstant } from './event-occurrence.mjs';
 import { editorialManifest } from './event-editorial-manifest.mjs';
 /** Canonical approved public content. This detects drift; authenticated approval remains external. */
 const approvedFields = ('slug eventId contentKind title summary description category subcategory startDate endDate nextOccurrence sourceUpdatedAt sourceReview retiredSourceLinks startTime endTime endsNextDay timezone venue venueName place venueRegion suburb streetAddress coordinates indoorOutdoor bookingUrl ticketingUrl officialEventUrl primarySourceUrl secondarySourceUrl bookingRequired bookingStatus bookingStatusNote bookingStatusSourceUrl bookingStatusCheckedAt freePaid priceTier recurrence recurrenceNote dateBasis occurrenceExceptions seriesOccurrences verifiedPrice suitableFor audienceTags familyFriendly petFriendly accessibilityNotes weather weatherDependency weatherShape organiser verification verificationStatus verificationNote lastVerifiedAt lastCheckedDate visitorAppealScore editorialPriority nearbyAttractions suggestedItineraryPairing nearestVenues worthTheDrive firstTimer skipThis skipReason skipInstead editorVerdict whyWeCare standoutOfMonth pairingProse editorVisited featuredInDispatch relatedArticles lens editorNote heroImage cancelled cancelledOn cancellationNote cancellationSourceUrl cancellationSourceLabel postponed postponedOn postponedFrom rescheduledTo postponementNote postponementSourceUrl postponementSourceLabel expiresAt').split(' ');
@@ -49,6 +50,11 @@ export function hasAutomatedEditorialApproval(data, now = new Date(), manifest =
   for(const key of ['decisionHash','proofBundleHash','contentHash'])if(!/^[a-f0-9]{64}$/.test(entry[key]??''))return false;
   const checked=new Date(auto.checkedAt).getTime(), expiry=new Date(auto.expiresAt).getTime();
   if(!Number.isFinite(checked)||!Number.isFinite(expiry)||checked>instant||expiry<=instant||expiry<=checked||expiry-checked>72*3600000)return false;
+  const day=approvedValue(data.nextOccurrence??data.startDate,'startDate');
+  const eventStart=+zonedInstant(day,data.startTime??'00:00',data.timezone??'Australia/Melbourne');
+  const maxAge=(!Number.isFinite(eventStart)||eventStart-instant<=7*86400000)?24*3600000:72*3600000;
+  if(auto.evidenceBindings.length!==3||!['primary','registration','boundary'].every(role=>auto.evidenceBindings.filter(b=>b.role===role).length===1))return false;
+  for(const binding of auto.evidenceBindings){const captured=new Date(binding.retrievedAt).getTime();if(!Number.isFinite(captured)||captured>instant||instant-captured>=maxAge)return false;}
   if(checked!==new Date(entry.checkedAt).getTime()||expiry!==new Date(entry.expiresAt).getTime())return false;
   if(new Date(receipt.approvedAt).getTime()!==checked||new Date(receipt.reviewedAt).getTime()!==checked||new Date(data.expiresAt).getTime()!==expiry)return false;
   if(approvedValue(auto.evidenceBindings)===undefined || JSON.stringify(approvedValue(auto.evidenceBindings))!==JSON.stringify(approvedValue(entry.evidenceBindings)))return false;
