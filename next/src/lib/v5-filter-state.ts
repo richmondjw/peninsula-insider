@@ -212,8 +212,36 @@ export function writeUrl(state: FilterState, opts: { push?: boolean } = {}): voi
   if (!hasDom()) return;
   const qs = serializeFilters(state, window.location.search);
   const url = window.location.pathname + (qs ? '?' + qs : '') + window.location.hash;
-  if (opts.push) window.history.pushState(null, '', url);
-  else window.history.replaceState(null, '', url);
+  if (opts.push && document.querySelector('[name="astro-view-transitions-enabled"]')) {
+    // The router owns both its private history index and original location.
+    // Copying its index into pushState produces duplicate traversal indices;
+    // dropping it makes Astro ignore Back. Let the router create this entry.
+    // Chips, sort and view remain shallow replacements below.
+    if (url === window.location.pathname + window.location.search + window.location.hash) return;
+    const { scrollX, scrollY } = window;
+    void import('astro:transitions/client').then(({ navigate }) =>
+      navigate(url, { history: 'push' }),
+    ).then(() => {
+      if (window.location.pathname + window.location.search + window.location.hash !== url) return;
+      window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
+      document.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus({ preventScroll: true });
+    }).catch(() => {
+      // Keep the URL authoritative if the client import/navigation fails.
+      // Never fabricate a router index or retry navigation behind the reader.
+      if (window.location.pathname !== new URL(url, window.location.href).pathname) return;
+      readUrl();
+      const noun = document.querySelector<HTMLElement>('[data-v5-filterbar]')?.dataset.noun || 'results';
+      const counts = applyToDom(current, document, noun);
+      applySort(getSort());
+      emitChange({ filters: getState(), ...counts, source: 'url' });
+      announce('Filters could not be applied. Please try again.');
+      document.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus({ preventScroll: true });
+    });
+  } else if (opts.push) {
+    window.history.pushState(window.history.state, '', url);
+  } else {
+    window.history.replaceState(window.history.state, '', url);
+  }
 }
 
 interface FacetedItem {
@@ -427,7 +455,7 @@ export function setSort(value: SortValue): void {
   if (value === SORT_DEFAULT) params.delete(SORT_PARAM);
   else params.set(SORT_PARAM, value);
   const qs = params.toString();
-  window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+  window.history.replaceState(window.history.state, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
   applySort(value);
 }
 
@@ -481,7 +509,7 @@ export function setView(view: ViewValue): void {
   if (view === 'list') params.delete(VIEW_PARAM);
   else params.set(VIEW_PARAM, view);
   const qs = params.toString();
-  window.history.replaceState(null, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
+  window.history.replaceState(window.history.state, '', window.location.pathname + (qs ? '?' + qs : '') + window.location.hash);
   document.dispatchEvent(new CustomEvent('pi:view-toggle', { detail: { view, filters: getState() } }));
 }
 
@@ -571,8 +599,14 @@ let throttleTimer: ReturnType<typeof setTimeout> | undefined;
  * page is already intact.
  */
 export function initFilterState(opts: { noun?: string } = {}): void {
-  if (!hasDom() || initialised) {
-    if (hasDom() && initialised) applyToDom(current, document, opts.noun || 'results');
+  if (!hasDom()) return;
+  if (initialised) {
+    // ClientRouter replaces the page DOM without re-evaluating this module.
+    // Rehydrate from this entry's URL, without registering another listener.
+    readUrl();
+    const counts = applyToDom(current, document, opts.noun || 'results');
+    applySort(getSort());
+    emitChange({ filters: getState(), ...counts, source: 'url' });
     return;
   }
   initialised = true;
