@@ -1,4 +1,4 @@
-import {hasExplicitSeries,occurrenceData} from '../../lib/intelligence-series.mjs';
+import {hasExplicitSeries,occurrenceData,hasLegacyExceptions} from '../../lib/intelligence-series.mjs';
 import type { APIRoute } from 'astro';
 import {
   addDays,
@@ -59,8 +59,8 @@ export const GET: APIRoute = async () => {
       // as normal. The same resolver the pages render from answers it here, over
       // the whole run for a range rather than over its opening day, and returns
       // nothing at all when there is nothing true to say.
-      const actualData = occurrenceData(e.data, startIso) ?? e.data;
-      const eventStatus = hasExplicitSeries(e.data) ? occurrenceStateFor(live, startIso, now).schemaStatus : listingEventStatus(
+      const actualData = occurrenceData(e.data, startIso, now) ?? e.data;
+      const eventStatus = (hasExplicitSeries(e.data) || hasLegacyExceptions(e.data)) ? occurrenceStateFor(live, startIso, now).schemaStatus : listingEventStatus(
         e.data as Record<string, any>,
         startIso,
         now,
@@ -89,12 +89,13 @@ export const GET: APIRoute = async () => {
         id: `${SITE}${live.href}`,
         sourceUrl: actualData.officialEventUrl || actualData.organiser?.website || null,
         factCheckedOn: e.data.editorialProvenance?.checkedOn ? isoDate(new Date(e.data.editorialProvenance.checkedOn)) : null,
+        ...(actualData.postponedFrom ? {previousStartDate: (actualData as any)._occurrencePreviousStartDate ?? actualData.postponedFrom} : {}),
         recurrence: e.data.recurrence ?? 'one-off',
         category: e.data.category ?? null,
         place: (actualData.place as { id?: string } | undefined)?.id ?? null,
         venue: (actualData.venue as { id?: string } | undefined)?.id ?? null,
         summary: e.data.summary ?? '',
-        ...(hasExplicitSeries(e.data) ? {venueName: actualData.venueName, startTime: actualData.startTime, endTime: actualData.endTime} : {}),
+        ...((hasExplicitSeries(e.data) || hasLegacyExceptions(e.data)) ? {venueName: actualData.venueName, startTime: actualData.startTime, endTime: actualData.endTime} : {}),
         // undefined rather than null: JSON.stringify drops the key, so a
         // finished occurrence says nothing instead of saying nothing loudly.
         eventStatus: contentKind === 'event' ? eventStatus ?? undefined : undefined,

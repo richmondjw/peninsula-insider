@@ -108,6 +108,8 @@ export function schoolHolidayWindow(now: Date): (ScopeWindow & { name: string })
 export interface OccurrenceRule {
   kind: 'range' | 'weekly' | 'monthly' | 'explicit';
   dates?: string[];
+  /** Valid original-to-effective legacy replacements; unresolved targets never add dates. */
+  reschedules?: Record<string, string>;
   /** Inclusive bounds (for weekly/monthly these bound the series). */
   start: Date;
   end: Date;
@@ -186,7 +188,7 @@ function parseNth(text: string): number | undefined {
 const FAR_HORIZON_DAYS = 370;
 
 /** Derive the single occurrence rule for an event, or null when undated. */
-export function ruleFor(event: { data: Record<string, any> }, now: Date): OccurrenceRule | null {
+function baseRuleFor(event: { data: Record<string, any> }, now: Date): OccurrenceRule | null {
   const data = event.data as Record<string, any>;
   if (data.intelligence && Array.isArray(data.seriesOccurrences) && data.seriesOccurrences.length) {
     const dates: string[] = data.seriesOccurrences.map((session: any) => session.date).sort();
@@ -246,13 +248,38 @@ export function ruleFor(event: { data: Record<string, any> }, now: Date): Occurr
   return { kind: 'range', start, end: endRaw };
 }
 
+/** Apply declared legacy replacements to the shared server/browser cadence. */
+export function ruleFor(event: { data: Record<string, any> }, now: Date): OccurrenceRule | null {
+  const rule = baseRuleFor(event, now);
+  if (!rule || rule.kind === 'explicit') return rule;
+  const exceptions = Array.isArray(event.data.occurrenceExceptions) ? event.data.occurrenceExceptions : [];
+  const validDay = (value: unknown): value is string => typeof value === 'string' &&
+    /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value)) &&
+    new Date(value).toISOString().slice(0, 10) === value;
+  const reschedules: Record<string, string> = {};
+  for (const exception of exceptions) {
+    if (!['rescheduled', 'postponed'].includes(exception.status)) continue;
+    const from = exception.date, to = exception.rescheduledTo;
+    if (!validDay(from) || !validDay(to) || from === to) continue;
+    if (exceptions.filter((x: any) => x.date === from).length !== 1 ||
+        exceptions.filter((x: any) => x.rescheduledTo === to).length !== 1) continue;
+    if (!baseOccursOnDay(rule, parseIsoLocal(from))) continue;
+    const target = parseIsoLocal(to);
+    // Do not merge a replacement into another regular occurrence or invent a
+    // session beyond the declared rule bounds. Ambiguity remains unbookable.
+    if (target < rule.start || target > rule.end || baseOccursOnDay(rule, target)) continue;
+    reschedules[from] = to;
+  }
+  return Object.keys(reschedules).length ? { ...rule, reschedules } : rule;
+}
+
 function nthWeekdayIndex(d: Date): { nth: number; isLast: boolean } {
   const nth = Math.floor((d.getUTCDate() - 1) / 7) + 1;
   const isLast = d.getUTCDate() + 7 > new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 0)).getUTCDate();
   return { nth, isLast };
 }
 
-export function occursOnDay(rule: OccurrenceRule, day: Date): boolean {
+function baseOccursOnDay(rule: OccurrenceRule, day: Date): boolean {
   const d = startOfDay(day);
   if (rule.kind === 'explicit') return !!rule.dates?.includes(d.toISOString().slice(0, 10));
   if (d < startOfDay(rule.start) || d > startOfDay(rule.end)) return false;
@@ -262,6 +289,13 @@ export function occursOnDay(rule: OccurrenceRule, day: Date): boolean {
   if (rule.kind === 'weekly') return true;
   const { nth, isLast } = nthWeekdayIndex(d);
   return rule.nth === -1 ? isLast : nth === rule.nth;
+}
+
+export function occursOnDay(rule: OccurrenceRule, day: Date): boolean {
+  const key = startOfDay(day).toISOString().slice(0, 10);
+  if (rule.reschedules && Object.hasOwn(rule.reschedules, key)) return false;
+  if (rule.reschedules && Object.values(rule.reschedules).includes(key)) return true;
+  return baseOccursOnDay(rule, day);
 }
 
 export function occursInWindow(rule: OccurrenceRule, win: ScopeWindow): boolean {

@@ -1,4 +1,4 @@
-import {hasExplicitSeries,explicitOccurrence} from './intelligence-series.mjs';
+import {hasExplicitSeries,explicitOccurrence,hasLegacyExceptions,legacyOccurrence} from './intelligence-series.mjs';
 import { resolveOccurrence } from './event-occurrence.mjs';
 
 /** Calendar selection is not an event closing date. Dates here are UTC date-only values. */
@@ -18,6 +18,7 @@ export function listingDateLabel(rule, window) {
 /** A range row represents its entire published run, even when selection shows only part. */
 export function resolveListingOccurrence(data, rule, dayIso, now = new Date()) {
   if(hasExplicitSeries(data)) return explicitOccurrence(data,dayIso,now) ?? {phase:/** @type {'upcoming'|'running'|'past'} */('past'),bookable:false,status:'cancelled',label:'No scheduled session',data:null};
+  if(hasLegacyExceptions(data) && rule.kind!=='range') return legacyOccurrence(data,dayIso,now) ?? {phase:/** @type {'upcoming'|'running'|'past'} */('past'),bookable:false,status:'postponed',label:'No confirmed session',data:null};
   const iso = date => date.toISOString().slice(0, 10);
   const occurrence = resolveOccurrence(data, rule.kind === 'range' ? iso(rule.start) : dayIso, now,
     rule.kind === 'range' ? { endDayIso: iso(rule.end) } : {});
