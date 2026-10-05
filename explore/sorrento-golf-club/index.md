@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Golf Course](<https://peninsulainsider.com.au/explore/>)   [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)    4.5 h
+[Compare golf courses](<https://peninsulainsider.com.au/explore/golf/>)   [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)    4.5 h
 
 # Sorrento Golf Club
 

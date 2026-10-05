@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Golf Course](<https://peninsulainsider.com.au/explore/>)   [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)    4.5 h
+[Compare golf courses](<https://peninsulainsider.com.au/explore/golf/>)   [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)    4.5 h
 
 # Rosebud Country Club
 

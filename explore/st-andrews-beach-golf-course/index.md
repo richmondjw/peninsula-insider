@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Golf Course](<https://peninsulainsider.com.au/explore/>)   [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)    4.5 h
+[Compare golf courses](<https://peninsulainsider.com.au/explore/golf/>)   [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)    4.5 h
 
 # St Andrews Beach Golf Course
 

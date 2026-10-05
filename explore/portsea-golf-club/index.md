@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Golf Course](<https://peninsulainsider.com.au/explore/>)   [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)    4.5 h
+[Compare golf courses](<https://peninsulainsider.com.au/explore/golf/>)   [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)    4.5 h
 
 # Portsea Golf Club
 
