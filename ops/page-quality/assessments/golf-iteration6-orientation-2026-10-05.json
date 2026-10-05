@@ -4,7 +4,7 @@
   "tier": "T1",
   "family": "hub",
   "assessedAt": "2026-10-05",
-  "status": "built-independent-local-regression-passed-pending-protected-release",
+  "status": "released-public-verified-independent-regrade-recorded",
   "baseline": {
     "exactLiveSourceRevision": "13da0dfc0881cfde7a4ddddf50fcb24a3a5dbf74",
     "independentMedianScore": 81.5,
@@ -55,5 +55,10 @@
     "Public protected CI/release and exact-live independent score pending.",
     "Booking destination, direct screen-reader, field CWV/CLS, provenance and original image grants remain open."
   ],
-  "decision": "adapt-continue"
+  "decision": "adapt-continue",
+  "publicEvidence": {
+    "sourceSha": "fac992554f5d1bf51c8df7f1e5f1eb1635ff75dc",
+    "buildRunId": "37305822823",
+    "result": "Exact public page reproduced final local 320/390/1440 layout and both keyboard anchor journeys; independent provisional median 82.5/100. Hard gates remain open."
+  }
 }
