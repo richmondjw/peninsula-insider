@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-06",
+  "status": "built-independent-local-visual-passed-pending-protected-release",
+  "baseline": {
+    "exactLiveSourceRevision": "d2052f1f5c2da3fae5d5ecb05bb4188145da972c",
+    "independentReconciledScore": 82.5,
+    "hardGates": "open",
+    "defect": "Seven Across the Peninsula cards used three columns on desktop, leaving Portsea alone on the left of the final row; source links created uneven line spacing inside the access paragraph."
+  },
+  "hypothesis": "An intentional 3+2+2 layout on wide screens and separate 44px source actions will remove the orphaned card and improve scanning without changing course or booking information.",
+  "boundedChange": [
+    "Arrange the seven Across cards in rows of three, two and two from 1000px upward, pairing Sorrento and Portsea.",
+    "Center the final card at 901-999px; retain the single-column mobile flow.",
+    "Give the adjacent club-source link a consistent separate line and 44px minimum hit area."
+  ],
+  "metric": "Eleven course cards and eleven club-source actions retained; Sorrento and Portsea share the last row at 1000/1024/1440; no clipping, page errors or horizontal overflow at 320/390/950/1000/1024/1440; source targets at least 44px high.",
+  "evaluationDate": "2026-10-06",
+  "rollback": "Revert only the golf grid and source-link CSS commit if the intended composition or smaller breakpoint degrades.",
+  "independentReview": "Existing independent visual reviewer passed the built local preview at 320/390/950/1000/1024/1440: balanced Sorrento/Portsea final row at wide widths, centered 950px fallback, distinct 44px source actions, no clipping or overflow. Reviewer observed a nonblocking first-row width/height jump at 1000px; text remains readable. This is a preview regression check, not a live score.",
+  "localEvidence": {
+    "build": "TZ=Australia/Sydney npm run build:search passed; 1015 HTML files and 711 indexed pages; agent readiness audit passed for 2026-10-06.",
+    "browser": "Built local route HTTP 200 at 320/390/950/1000/1024/1440: 11 cards, 11 source links, minimum source-link height 44px, zero JS errors or horizontal overflow. At 1000/1024/1440, Sorrento and Portsea share the last row; 950 has a centered final card.",
+    "visual": "Root inspected full-grid screenshots at 1024 and 1440 and compared the 1024 alternate 3+2+2 composition before setting the final breakpoint."
+  },
+  "openGates": [
+    "Exact public release and independent 23-criterion regrade pending.",
+    "Broader record facts, original Visit Victoria grant receipts and written clarification reply unresolved.",
+    "Normal-user booking acceptance, direct screen-reader journey and exact-route field CWV/CLS unresolved."
+  ],
+  "decision": "adapt-continue"
+}

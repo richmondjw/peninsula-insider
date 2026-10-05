@@ -855,14 +855,25 @@ export const prerender = true;
     gap: 1.5rem;
   }
   .golf-grid--bay {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  /* Seven courses compose as 3 + 2 + 2 instead of stranding Portsea alone. */
+  @media (min-width: 1000px) {
+    .golf-grid--bay { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+    .golf-grid--bay > .golf-card { grid-column: span 2; }
+    .golf-grid--bay > .golf-card:nth-child(n+4) { grid-column: span 3; }
   }
   @media (max-width: 900px) {
     .golf-grid,
     .golf-grid--bay { grid-template-columns: 1fr; }
   }
-  @media (min-width: 901px) and (max-width: 1100px) {
-    .golf-grid--bay { grid-template-columns: repeat(2, 1fr); }
+  @media (min-width: 901px) and (max-width: 999px) {
+    .golf-grid--bay { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .golf-grid--bay > .golf-card:last-child {
+      grid-column: 1 / -1;
+      width: min(100%, 34rem);
+      justify-self: center;
+    }
   }
 
   /* ─────────────────────────────────────────────────────────────────
@@ -970,7 +981,7 @@ export const prerender = true;
     margin: 0;
   }
   .golf-card__access-note { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.84rem; line-height: 1.5; color: var(--text); }
-  .golf-card__access-note a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; }
+  .golf-card__access-note a { display: flex; align-items: center; width: fit-content; min-height: 44px; margin-top: 0.1rem; color: var(--accent); font-weight: 700; }
   .golf-card__access-note span { display: block; font-size: 0.76rem; color: var(--soft); }
   .golf-card__local {
     font-size: 0.82rem;
