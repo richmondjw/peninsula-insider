@@ -235,6 +235,11 @@ def main() -> int:
         if recurrence not in RECURRING:
             continue
 
+        # A cancelled edition is a historical record, not a recurring series
+        # to advance. A future date needs its own organiser verification.
+        if data.get('cancelled') or data.get('verificationStatus') == 'cancelled':
+            continue
+
         archived = data.get('status') in ('archived', 'expired')
         if archived:
             reason = data.get('archiveReason') or data.get('archivedReason')
