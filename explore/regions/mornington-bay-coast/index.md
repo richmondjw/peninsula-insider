@@ -421,7 +421,7 @@ Mount Martha is the gentlest swim on the Peninsula. The beach curves south in a 
 
 ### [Rosebud Country Club](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 
-Rosebud Country Club runs three nine-hole courses (North, South, and East) that mix-and-match into 18-hole rounds. Not a prestige destination, but one of the most played Peninsula courses for a reason - public access, good value, reasonable conditioning, and a central location that sits between Mornington and the southern tip. For the casual Peninsula golfer, or a mixed-skill group, it is probably the most forgiving way to get a round in without driving to Cape Schanck. The parkland/light-dune mix means holes play differently to the coastal links courses. Less spectacular, less punishing, and generally more enjoyable for mid-handicappers. Facilities are adequate rather than polished. Pricing is genuinely competitive - one of the few Peninsula courses where green fees sit at the affordable end of the local range on most days. Good for walking (carts available) and good for beginners. Book online or walk up on quiet weekdays.
+Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud. Public golfers register before viewing and booking live tee times.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 

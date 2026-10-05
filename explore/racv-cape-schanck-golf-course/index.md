@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # RACV Cape Schanck Golf Course
 
-RACV Cape Schanck is the scenic one. The course plays along the clifftops and through the coastal scrub around the Cape Schanck lighthouse precinct, and the ocean is in play - visually and occasionally physically - on most of the back nine. It is not the Peninsula's most architecturally celebrated course (that's St Andrews Beach or The National), but it is probably its most dramatic setting. For the right round on the right day, few Australian courses match it. The resort integration matters. RACV members get preferential access and packages; non-members can book public tee times and use the clubhouse and facilities. On-site accommodation at RACV Cape Schanck Resort makes it the easiest 'stay and play' option on the Peninsula - walk from your room to the first tee. Conditioning is consistent, service is resort-standard, and the pro shop is well-run. Pair with the Cape Schanck boardwalk and lighthouse precinct for a weekend that feels like a destination rather than just a round.
+RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses. Resort accommodation and practice areas are on site. RACV lists both member and standard green fees; online tee-time booking requires registration.
 
 At a glance
 

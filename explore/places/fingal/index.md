@@ -217,7 +217,7 @@ The local experiences currently mapped in our guide, with detail to help you pla
 
 ### [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>)
 
-Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather. The resort angle matters here. Unlike St Andrews Beach (which is just a course), Moonah Links lets you stay on property, play twice in 24 hours, eat without getting back in the car, and treat the weekend as a destination in itself. Book the Open Course if you are a serious golfer; book the Legends if the group is mixed. Package deals with accommodation are often the best value. Midweek pricing is significantly better than weekends. Non-golfers have less to do on-property than at St Andrews Beach - the surrounding area is quiet. Plan for drives if anyone in the group isn't playing.
+Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal. The Open Course hosted the Australian Open in 2003 and 2005; Legends gives the group a second course to compare on the same trip. Public players register online before viewing live tee times for either course.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/moonah-links/>)
 
@@ -227,7 +227,7 @@ Moonah Links is the Peninsula's most complete golf property - two championship c
 
 ### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 
-St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up. Go in autumn when the light flattens and the crowds thin. Book well ahead for weekends. Pair it with the hot springs or a southern Peninsula lunch and the whole day holds together as a proper trip rather than an isolated round.
+Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation. Use the live club calendar to check tee times and current green fees.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

@@ -169,7 +169,7 @@ Portsea Front Beach is slightly less busy than Sorrento's equivalent and, on a c
 
 ### [Portsea Golf Club](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 
-Portsea Golf Club is the classic Peninsula member's club at the tip. Established in 1926, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane. The par-3 holes along the Bass Strait edge are the signature - visually, they are hard to beat. Portsea is a members' club that also lists limited nonmember green-fee times, including stay-and-play options. Check current visitor windows and arrange a tee time with the club before planning around a round here. Complementary courses to consider for public-access play in the same area: The Dunes (20 minutes) or St Andrews Beach (20 minutes).
+Portsea Golf Club is a members' club with an 18-hole course through coastal dunes and Moonah forest. Eligible visitors can book during published windows, subject to seasonal restrictions. The club currently lists Monday, Tuesday and Wednesday afternoons, and limited Friday and Sunday access; Sunday visitors need a valid Golf ID. Visitor access narrows from mid-December until early February, and availability can change.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 

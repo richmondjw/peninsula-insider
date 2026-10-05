@@ -39,7 +39,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A golfer plays a fairway shot at The Dunes Golf Links as a partner stands by the bags, long shadows under a bright cloudy sky  The Dunes Golf Links, Rye, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
 
-The Dunes is the Peninsula's other world-class public-access course - Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.
+The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes. The separate Cups Course is a shorter nine-hole links layout suited to a quick round or a mixed-experience group. The club also has a driving range and on-site Links Lodge accommodation. Check the club's current course conditions, green fees and live tee times before you travel.
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -139,7 +139,7 @@ Dromana Beach is a long, gentle arc of sand near the midpoint of the Peninsula -
 
 ### [Rosebud Country Club](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 
-Rosebud Country Club runs three nine-hole courses (North, South, and East) that mix-and-match into 18-hole rounds. Not a prestige destination, but one of the most played Peninsula courses for a reason - public access, good value, reasonable conditioning, and a central location that sits between Mornington and the southern tip. For the casual Peninsula golfer, or a mixed-skill group, it is probably the most forgiving way to get a round in without driving to Cape Schanck. The parkland/light-dune mix means holes play differently to the coastal links courses. Less spectacular, less punishing, and generally more enjoyable for mid-handicappers. Facilities are adequate rather than polished. Pricing is genuinely competitive - one of the few Peninsula courses where green fees sit at the affordable end of the local range on most days. Good for walking (carts available) and good for beginners. Book online or walk up on quiet weekdays.
+Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud. Public golfers register before viewing and booking live tee times.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 

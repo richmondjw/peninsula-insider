@@ -367,7 +367,7 @@ The clifftop traverse from Cape Schanck to London Bridge is the Peninsula's long
 
 ### [Eagle Ridge Golf Course](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>)
 
-Eagle Ridge is the Peninsula's hinterland option - a parkland-feel 18-hole course set among gum trees and dams in the Boneo valley, away from the coastal exposure of the Cape Schanck courses. That makes it the better choice on windy days and in mid-winter when the links courses are playing hard. It is also consistently one of the better-value rounds on the Peninsula. The course is public-access, bookings are easy, and the pricing sits well below St Andrews Beach, Moonah Links, and The Dunes. Architecturally less celebrated than the top public courses, but the conditioning is good, the layout is varied, and for a casual or mixed-skill round it punches above its price. Practice facilities are solid. The clubhouse restaurant is decent - worth a post-round lunch if you're not planning to drive up to Red Hill. Best used as the second round on a 36-hole weekend, or as the round you book when the wind forecast is over 30 knots.
+Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking. Compare the live times and variable prices with your preferred travel day; the club is a separate drive from the coastal courses.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>)
 
@@ -397,7 +397,7 @@ Gunnamatta is long, wild, and remote-feeling despite being accessible from the m
 
 ### [Moonah Links](<https://peninsulainsider.com.au/explore/moonah-links/>)
 
-Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather. The resort angle matters here. Unlike St Andrews Beach (which is just a course), Moonah Links lets you stay on property, play twice in 24 hours, eat without getting back in the car, and treat the weekend as a destination in itself. Book the Open Course if you are a serious golfer; book the Legends if the group is mixed. Package deals with accommodation are often the best value. Midweek pricing is significantly better than weekends. Non-golfers have less to do on-property than at St Andrews Beach - the surrounding area is quiet. Plan for drives if anyone in the group isn't playing.
+Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal. The Open Course hosted the Australian Open in 2003 and 2005; Legends gives the group a second course to compare on the same trip. Public players register online before viewing live tee times for either course.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/moonah-links/>)
 
@@ -407,7 +407,7 @@ Moonah Links is the Peninsula's most complete golf property - two championship c
 
 ### [RACV Cape Schanck Golf Course](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
 
-RACV Cape Schanck is the scenic one. The course plays along the clifftops and through the coastal scrub around the Cape Schanck lighthouse precinct, and the ocean is in play - visually and occasionally physically - on most of the back nine. It is not the Peninsula's most architecturally celebrated course (that's St Andrews Beach or The National), but it is probably its most dramatic setting. For the right round on the right day, few Australian courses match it. The resort integration matters. RACV members get preferential access and packages; non-members can book public tee times and use the clubhouse and facilities. On-site accommodation at RACV Cape Schanck Resort makes it the easiest 'stay and play' option on the Peninsula - walk from your room to the first tee. Conditioning is consistent, service is resort-standard, and the pro shop is well-run. Pair with the Cape Schanck boardwalk and lighthouse precinct for a weekend that feels like a destination rather than just a round.
+RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses. Resort accommodation and practice areas are on site. RACV lists both member and standard green fees; online tee-time booking requires registration.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
 
@@ -417,7 +417,7 @@ RACV Cape Schanck is the scenic one. The course plays along the clifftops and th
 
 ### [St Andrews Beach Golf Course](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 
-St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up. Go in autumn when the light flattens and the crowds thin. Book well ahead for weekends. Pair it with the hot springs or a southern Peninsula lunch and the whole day holds together as a proper trip rather than an isolated round.
+Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation. Use the live club calendar to check tee times and current green fees.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>)
 

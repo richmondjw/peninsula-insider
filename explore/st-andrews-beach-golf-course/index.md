@@ -33,7 +33,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 A golfer tees off at St Andrews Beach Golf Course as a second player waits beside two golf bags, with dunes and scrub behind  St Andrews Beach Golf Course, Fingal, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
 
-St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up. Go in autumn when the light flattens and the crowds thin. Book well ahead for weekends. Pair it with the hot springs or a southern Peninsula lunch and the whole day holds together as a proper trip rather than an isolated round.
+Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation. Use the live club calendar to check tee times and current green fees.
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 

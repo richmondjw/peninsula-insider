@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/golf/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-04
+Modified: 2026-10-05
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -59,7 +59,7 @@ Elsewhere across the Peninsula
 
 **Standout courses**
 
-Flinders Golf Club (18 coastal holes above Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)
+Flinders Golf Club (18 coastal holes above Bass Strait), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)
 
 **Access**
 
@@ -91,9 +91,11 @@ Public green fees
 
 Fingal VIC 3939  · Peter Thomson, Ross Perrett
 
-Moonah Links is the Peninsula's most complete golf property - two championship courses (Open and Legends), on-site accommodation, and the integrated infrastructure a small group needs. The Open Course hosted the Australian Open in 2003 and 2005; the Legends Course is the more forgiving sibling, better for mixed groups. Both are firm, links-style, and exposed to Bass Strait weather.
+Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal. The Open Course hosted the Australian Open in 2003 and 2005; Legends gives the group a second course to compare on the same trip.
 
-[Course guide →](<https://peninsulainsider.com.au/explore/moonah-links/>) [Visit course website ↗](<https://www.moonahlinks.com.au/>)
+Public players register online before viewing tee times for Open and Legends. [Club details ↗](<https://www.moonahlinks.com.au/cms/golf/book-golf/>)  Checked 5 Oct 2026
+
+[Course guide →](<https://peninsulainsider.com.au/explore/moonah-links/>) [Check tee times ↗](<https://moonahlinks.com.au/guests/bookings/ViewPublicCalendar.msp>)
 
 Public green fees
 
@@ -103,11 +105,11 @@ Public green fees
 
 Fingal VIC 3941  · Tom Doak
 
-St Andrews Beach is the Peninsula's strongest public-access golf story. Tom Doak architecture, world-ranking credibility, and an address anyone can book - that combination is rarer in Australian golf than the prestige market would have you believe. The course sits in coastal duneland near Fingal, with enough exposure to the Bass Strait weather to make the same round play differently depending on when you show up.
+Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation.
 
-Insider read Rated by locals as one of the two best bang-for-buck rounds on the Peninsula. Tom Doak architecture at a public green fee is the pitch.
+Fully public, seven days; tee times and current fees are published by the club. [Club details ↗](<https://standrewsbeachgolf.com.au/>)  Checked 5 Oct 2026
 
-[Course guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>) [Visit course website ↗](<https://www.standrewsbeachgolf.com.au/>)
+[Course guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>) [Check tee times ↗](<https://standrews.miclub.com.au/cms/public-bookings/>)
 
 Private · visitor requests
 
@@ -117,9 +119,9 @@ Private · visitor requests
 
 Cape Schanck VIC 3939  · Robert Trent Jones Jr, Greg Norman, Tom Doak, Gordon Oliver
 
-The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak). The fourth, the Long Island course, sits 50 minutes north at Frankston.
+The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak).
 
-Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times. [Club visitor rules ↗](<https://nationalgolf.com.au/visitors/>)  Checked 5 Oct 2026
+Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times. [Club details ↗](<https://nationalgolf.com.au/visitors/>)  Checked 5 Oct 2026
 
 Insider read The Moonah Course was designed by Greg Norman and Bob Harrison; Tom Doak redesigned the former Ocean Course as Gunnamatta in 2019. Check the club's current visitor rules before planning a round.
 
@@ -133,9 +135,11 @@ Public green fees
 
 Cape Schanck VIC 3939  · Robert Trent Jones Jr
 
-RACV Cape Schanck is the scenic one. The course plays along the clifftops and through the coastal scrub around the Cape Schanck lighthouse precinct, and the ocean is in play - visually and occasionally physically - on most of the back nine. It is not the Peninsula's most architecturally celebrated course (that's St Andrews Beach or The National), but it is probably its most dramatic setting.
+RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses.
 
-[Course guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
+Member and standard green fees; register to book an available tee time. [Club details ↗](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html>)  Checked 5 Oct 2026
+
+[Course guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>) [Check tee times ↗](<https://capeschanck.miclub.com.au/cms/public-bookings/>)
 
 Across the Peninsula
 
@@ -153,7 +157,7 @@ Flinders VIC 3929
 
 Flinders Golf Club sits above West Head at the southern edge of the Peninsula - an 18-hole course with some of the best views any Australian golfer can see from a tee box. The layout is short, scenic, and genuinely fun.
 
-Visitor competition windows and green-fee options are published by the club. [Club visitor rules ↗](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)  Checked 5 Oct 2026
+Visitor competition windows and green-fee options are published by the club. [Club details ↗](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)  Checked 5 Oct 2026
 
 Insider read Word of mouth from Peninsula club golfers: more a friendly drinkers' club than an architectural pilgrimage. The views are still world-class - go for the cliffs and the post-round beer, not the design conversation.
 
@@ -167,23 +171,27 @@ Public green fees
 
 Boneo VIC 3939
 
-Eagle Ridge is the Peninsula's hinterland option - a parkland-feel 18-hole course set among gum trees and dams in the Boneo valley, away from the coastal exposure of the Cape Schanck courses. That makes it the better choice on windy days and in mid-winter when the links courses are playing hard.
+Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking.
 
-Insider read Tight off the tee - locals rate it the lesser of the Peninsula courses for that reason. The flip side: during daylight savings, the after-3pm twilight deals on cart and green fees are some of the best on the Peninsula.
+Public online booking through the club-linked tee-time service. [Club details ↗](<https://eagleridge.com.au/>)  Checked 5 Oct 2026
 
-[Course guide →](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>) [Visit course website ↗](<https://www.eagleridge.com.au/>)
+Insider read An inland Boneo option for groups comparing the Peninsula public courses.
+
+[Course guide →](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>) [Check tee times ↗](<https://www.chronogolf.com/club/eagle-ridge-golf-club-victoria>)
 
 Public green fees
 
-27 holes
+18 + 9 holes
 
 ### [The Dunes Golf Links](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
 
 Rye VIC 3941  · Tony Cashmore
 
-The Dunes is the Peninsula's other world-class public-access course - Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee.
+The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes. The separate Cups Course is a shorter nine-hole links layout suited to a quick round or a mixed-experience group.
 
-[Course guide →](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>) [Visit course website ↗](<https://www.thedunes.com.au/>)
+Compare the club's separate main-course and Cups rates before booking. [Club details ↗](<https://thedunes.com.au/golf/prices-and-information-golf-rye/>)  Checked 5 Oct 2026
+
+[Course guide →](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>) [Check tee times ↗](<https://dunes.miclub.com.au/guests/bookings/ViewPublicCalendar.msp?booking_resource_id=3000000>)
 
 Semi-private
 
@@ -195,7 +203,7 @@ Mornington VIC 3931
 
 Mornington Golf Club is the closest Peninsula course to Melbourne - about 60 minutes from the CBD via the freeway. That proximity makes it the obvious choice for a day-trip round or an after-work nine, and the reason casual Melbourne golfers know it well.
 
-Green-fee visitors are welcome; tee-time bookings are essential. [Club visitor rules ↗](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)  Checked 5 Oct 2026
+Green-fee visitors are welcome; tee-time bookings are essential. [Club details ↗](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)  Checked 5 Oct 2026
 
 Insider read Word of mouth from Peninsula club golfers: a sociable, accessible local club rather than a tournament destination. Pairs well with a Mornington foreshore lunch and a relaxed afternoon.
 
@@ -203,17 +211,17 @@ Insider read Word of mouth from Peninsula club golfers: a sociable, accessible l
 
 Public green fees
 
-27 holes
+2 x 18 holes
 
 ### [Rosebud Country Club](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 
 Rosebud VIC 3939
 
-Rosebud Country Club runs three nine-hole courses (North, South, and East) that mix-and-match into 18-hole rounds. Not a prestige destination, but one of the most played Peninsula courses for a reason - public access, good value, reasonable conditioning, and a central location that sits between Mornington and the southern tip.
+Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud.
 
-Insider read Rated by locals as one of the two best bang-for-buck rounds on the Peninsula, alongside St Andrews Beach. The 27-hole mix-and-match format is the practical advantage.
+Register as a public golfer to view current North and South tee times. [Club details ↗](<https://rosebudcountryclub.com.au/web/pages/play-golf>)  Checked 5 Oct 2026
 
-[Course guide →](<https://peninsulainsider.com.au/explore/rosebud-country-club/>) [Visit course website ↗](<https://www.rosebudcountryclub.com.au/>)
+[Course guide →](<https://peninsulainsider.com.au/explore/rosebud-country-club/>) [Check tee times ↗](<https://rosebud.miclub.com.au/cms/public-bookings/>)
 
 Limited visitor times
 
@@ -225,7 +233,7 @@ Sorrento VIC 3943
 
 Sorrento Golf Club is a private members' parkland course near the Peninsula's tip. Limited tee times are available to visitors and members' guests, subject to availability and change.
 
-Limited visitor times; no visitor play from Boxing Day to the end of January. [Club visitor rules ↗](<https://sorrentogolf.com.au/visitors/>)  Checked 5 Oct 2026
+Limited visitor times; no visitor play from Boxing Day to the end of January. [Club details ↗](<https://sorrentogolf.com.au/visitors/>)  Checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
 
@@ -237,7 +245,9 @@ Semi-private
 
 Portsea VIC 3944
 
-Portsea Golf Club is the classic Peninsula member's club at the tip. Established in 1926, it carries genuine Australian golf heritage and plays through some of the most spectacular clifftop terrain any Melbourne golfer will see without boarding a plane.
+Portsea Golf Club is a members' club with an 18-hole course through coastal dunes and Moonah forest. Eligible visitors can book during published windows, subject to seasonal restrictions.
+
+Mon, Tue/Wed afternoons; limited Fri/Sun. Access narrows mid-Dec to early Feb. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 
@@ -269,11 +279,11 @@ Courses that deliver real quality without punishing the round. Good enough that 
 
 - **Moonah Links - Legends Course**  The Open Course's more forgiving sibling. Still championship quality; much more enjoyable for the 14–22 handicap range.
 
-- **The Dunes Golf Links**  Tony Cashmore's links design near Rye. Genuine dune terrain, genuine links feel, and public access at accessible pricing.
+- **The Dunes Golf Links**  An 18-hole public links course through rolling Rye dunes, with the shorter nine-hole Cups Course on site.
 
 - **Eagle Ridge Golf Course**  Parkland in Boneo, away from exposed coastal courses. Check the drive if you plan a winery stop.
 
-- **RACV Cape Schanck**  Ocean views, accessible layout, on-site accommodation. The resort package that lets the non-golfer have an equally good day.
+- **RACV Cape Schanck**  Tree-lined fairways, elevated ocean views and resort accommodation. Check both member and standard tee-time rates.
 
 Social / casual
 
@@ -281,13 +291,13 @@ Social / casual
 
 High handicappers, occasional players, groups where golf is part of the day rather than the whole day.
 
-- **Mornington Golf Club**  Closest Peninsula course to Melbourne. Bay-side position. Relaxed club atmosphere. The easiest Peninsula round to organise on short notice.
+- **Mornington Golf Club**  Bay-side golf at Mornington, with visitor green fees and advance tee-time booking through the club.
 
-- **Rosebud Country Club**  27-hole mix-and-match format. Three nine-hole courses you can combine however suits the group. Most-played Peninsula course for a reason.
+- **Rosebud Country Club**  Two 18-hole courses, North and South. Check which has visitor tee times before choosing your round.
 
-- **The Dunes - midweek**  Midweek pricing makes this one of the best-value rounds on the Peninsula. The links feel is genuine even if you're not attacking it.
+- **The Cups at The Dunes**  The nine-hole Cups Course is a shorter option for mixed-experience groups; compare current green fees with the main 18.
 
-- **Sorrento Golf Club**  Parkland at the Peninsula's tip. Call ahead for availability. Best for those staying in Sorrento or Portsea who want a morning round within walking distance.
+- **Sorrento Golf Club**  Limited visitor times at the Peninsula tip; no visitor play from Boxing Day through January.
 
 The architects
 
@@ -405,7 +415,7 @@ Yes. Moonah Links, St Andrews Beach, RACV Cape Schanck, Eagle Ridge, The Dunes, 
 
 How much does golf cost on the Mornington Peninsula?
 
-Green fees vary significantly by course and season - always verify current rates directly before booking. Broadly: St Andrews Beach is at the premium end; The National publishes separate fees for eligible visitors. Moonah Links is premium but offers better value for what you get. Eagle Ridge, The Dunes, Mornington, and Rosebud are the most accessible options. Midweek rates at most courses are substantially lower than weekend rates.
+Green fees change with season, day and tee time. RACV, Moonah Links and The Dunes publish rates; other clubs may show a live price in their booking calendar. Check visitor eligibility and the current amount directly with each club before committing to a round.
 
 Is there accommodation near the Peninsula golf courses?
 

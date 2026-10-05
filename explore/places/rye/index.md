@@ -207,7 +207,7 @@ Rye Ocean Beach is the back-beach counterpart to Rye's calmer bay side - a wide,
 
 ### [The Dunes Golf Links](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
 
-The Dunes is the Peninsula's other world-class public-access course - Tony Cashmore's links design carved through genuine dunes near Rye. Where St Andrews Beach feels restrained and strategic, The Dunes feels more dramatic: bigger elevation changes, more visible wind cues, more heroic lines off the tee. Both belong on any serious shortlist. Public bookings are straightforward through the course website. Weekends fill 3-4 weeks ahead in peak season. The course drains well and plays through most conditions the Peninsula offers, which makes it one of the better winter rounds in Australia. The Cups Course is the main 18; the Cottage Course is a 9-hole par-3 layout that works surprisingly well as a warm-up or a mixed-group option. Pair The Dunes with St Andrews Beach for a 36-hole weekend that shows off the full range of Peninsula public golf. Accommodation in Rye is 5 minutes away; Sorrento is 10 minutes for better dining options. Pro shop is well-stocked. Practice facilities are solid.
+The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes. The separate Cups Course is a shorter nine-hole links layout suited to a quick round or a mixed-experience group. The club also has a driving range and on-site Links Lodge accommodation. Check the club's current course conditions, green fees and live tee times before you travel.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>)
 

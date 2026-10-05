@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Eagle Ridge Golf Course
 
-Eagle Ridge is the Peninsula's hinterland option - a parkland-feel 18-hole course set among gum trees and dams in the Boneo valley, away from the coastal exposure of the Cape Schanck courses. That makes it the better choice on windy days and in mid-winter when the links courses are playing hard. It is also consistently one of the better-value rounds on the Peninsula. The course is public-access, bookings are easy, and the pricing sits well below St Andrews Beach, Moonah Links, and The Dunes. Architecturally less celebrated than the top public courses, but the conditioning is good, the layout is varied, and for a casual or mixed-skill round it punches above its price. Practice facilities are solid. The clubhouse restaurant is decent - worth a post-round lunch if you're not planning to drive up to Red Hill. Best used as the second round on a 36-hole weekend, or as the round you book when the wind forecast is over 30 knots.
+Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking. Compare the live times and variable prices with your preferred travel day; the club is a separate drive from the coastal courses.
 
 At a glance
 
