@@ -123,11 +123,11 @@ Semi-private
 
 Flinders VIC 3929
 
-Flinders Golf Club sits above West Head at the southern edge of the Peninsula - an 18-hole course with some of the best views any Australian golfer can see from a tee box. The layout is short, scenic, and genuinely fun.
+Flinders Golf Club sits above West Head at the southern edge of the Peninsula. Its 18-hole course offers a coastal outlook, making it a scenic option for a Flinders-based stay.
 
 Visitor competition windows and green-fee options are published by the club. [Club details ↗](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)  Visitor access checked 5 Oct 2026
 
-Insider read Word of mouth from Peninsula club golfers: more a friendly drinkers' club than an architectural pilgrimage. The views are still world-class - go for the cliffs and the post-round beer, not the design conversation.
+Insider read A scenic round to pair with time in Flinders. Check the club's current visitor windows before setting your itinerary.
 
 [Course guide →](<https://peninsulainsider.com.au/explore/flinders-golf-club/>)
 
@@ -169,11 +169,11 @@ Semi-private
 
 Mornington VIC 3931
 
-Mornington Golf Club is the closest Peninsula course to Melbourne - about 60 minutes from the CBD via the freeway. That proximity makes it the obvious choice for a day-trip round or an after-work nine, and the reason casual Melbourne golfers know it well.
+Mornington Golf Club offers public green-fee bookings at its Mornington course, with views across Port Phillip Bay. It is an option for a round while visiting or staying in Mornington.
 
 Green-fee visitors are welcome; tee-time bookings are essential. [Club details ↗](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)  Visitor access checked 5 Oct 2026
 
-Insider read Word of mouth from Peninsula club golfers: a sociable, accessible local club rather than a tournament destination. Pairs well with a Mornington foreshore lunch and a relaxed afternoon.
+Insider read A Mornington-based round with public booking options and bay views. Compare current tee times with the club before arranging the rest of your day.
 
 [Course guide →](<https://peninsulainsider.com.au/explore/mornington-golf-club/>)
 
@@ -213,9 +213,9 @@ Semi-private
 
 Portsea VIC 3944
 
-Portsea Golf Club is a members' club with an 18-hole course through coastal dunes and Moonah forest. Eligible visitors can book during published windows, subject to seasonal restrictions.
+Portsea Golf Club's course winds through coastal dunes and Moonah forest. Visitor tee times depend on member play and the season.
 
-Monday and Tuesday/Wednesday afternoons; limited Friday and Sunday. Sunday requires a Golf ID; summer access narrows. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Visitor access checked 5 Oct 2026
+Visitor windows vary with member play. Check the live booking calendar or call the pro shop for the date and any eligibility rules. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 

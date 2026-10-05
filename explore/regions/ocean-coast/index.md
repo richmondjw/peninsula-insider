@@ -377,7 +377,7 @@ Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and
 
 ### [Flinders Golf Club](<https://peninsulainsider.com.au/explore/flinders-golf-club/>)
 
-Flinders Golf Club sits above West Head at the southern edge of the Peninsula - an 18-hole course with some of the best views any Australian golfer can see from a tee box. The layout is short, scenic, and genuinely fun. Not a course to cross the state for, but exactly the right course to play on a weekend in Flinders when the point is the view and the pace rather than championship architecture. The membership is small and welcoming. Visitor play is generally accepted for green fees, though it pays to ring ahead. The clubhouse is relaxed. The whole thing feels more like a country club from a kinder era than a modern facility - which is exactly its appeal. Plan a round around your Flinders stay, and check visitor tee times with the club. One of the more underrated Peninsula golf experiences, and a strong addition to a Flinders-based weekend.
+Flinders Golf Club sits above West Head at the southern edge of the Peninsula. Its 18-hole course offers a coastal outlook, making it a scenic option for a Flinders-based stay. The club publishes visitor playing windows and asks golfers to contact the golf shop for bookings; check current availability before planning your round.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/flinders-golf-club/>)
 

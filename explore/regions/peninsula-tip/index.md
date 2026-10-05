@@ -285,7 +285,7 @@ Portsea Front Beach is slightly less busy than Sorrento's equivalent and, on a c
 
 ### [Portsea Golf Club](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 
-Portsea Golf Club is a members' club with an 18-hole course through coastal dunes and Moonah forest. Eligible visitors can book during published windows, subject to seasonal restrictions. The club currently lists Monday, Tuesday and Wednesday afternoons, and limited Friday and Sunday access; Sunday visitors need a valid Golf ID. Visitor access narrows from mid-December until early February, and availability can change.
+Portsea Golf Club's course winds through coastal dunes and Moonah forest. Visitor tee times depend on member play and the season. The club's public pages list different visitor days, so check the live booking calendar or call the pro shop for the date and any eligibility requirements before arranging a round.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 

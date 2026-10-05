@@ -1,20 +1,140 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-05T14:44:49.337Z",
+  "generatedAt": "2026-10-05T15:25:22.698Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b6904dad42896c900783df9895b09ceecdea6c0af7399118865b4ea2e630d663",
-  "toSnapshot": "8116a80a4c48ffb0dfb8175a489d0a3e7b9802a63e3d118f2c3b09cf936a8270",
-  "previousGeneratedAt": "2026-10-05T13:55:38.557Z",
+  "fromSnapshot": "8116a80a4c48ffb0dfb8175a489d0a3e7b9802a63e3d118f2c3b09cf936a8270",
+  "toSnapshot": "5f1c434c67c81b4dfde6f295e6843fd79bb31479ecfae255ab89bd2b2007b357",
+  "previousGeneratedAt": "2026-10-05T14:44:49.337Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 16,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/flinders-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/flinders-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/flinders-golf-club/index.md",
+      "contentSha256": "e75b3d4391bd433436e38cbac3b14a8c458dbbb2901efd33253478d7b783bf9b",
+      "previousContentSha256": "c3b966fcd7ebbf9c227edcb17476029345551d87ac24bfdd3c3296eb9858fa12"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "46156a93016a3f5e8c5a1eb0b0f92b83108b805e5adeaab7d83a7b7bd2e8a8f2",
+      "previousContentSha256": "75263cbedaf43ec430d747815f92cdaffd0c41e64802995cb42d69d1310bfa20"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/mornington-foreshore-walk/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-foreshore-walk/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-foreshore-walk/index.md",
+      "contentSha256": "51b8f187e192066d92dc917edc75951fd49e5f5c64af7bdff6123c5415d97ca7",
+      "previousContentSha256": "df4826446bd773f50aace533077294ead619bf038c8c3da1dc6ca54f8db08c46"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/mornington-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-golf-club/index.md",
+      "contentSha256": "ac8e705546f429efac58ab427fa7f0dee262e9f7eaa949668c4b3caf3b0ed188",
+      "previousContentSha256": "db0335b2341a4806d73ef3ac30bfbba29e1f24b74fd5f5e25d96c649f513bc82"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-peninsula-gallery/index.md",
+      "contentSha256": "a33c4556a6029b38137863026106a431e0ca119916651e3feb7f7ed4cec57f41",
+      "previousContentSha256": "7b63c9819b4ebb7db6e7c5263f4e9a994271e9e0a9a8e69447cccb0fd9ea5cfb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/mount-martha-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/mount-martha-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/mount-martha-beach/index.md",
+      "contentSha256": "12a5623fb66129531ac1a76f4378d22a2ba32e71ce60fea15ce32852600c8712",
+      "previousContentSha256": "2a1f86837b7639e6bd2ae188597bf5730cbabd3e7c3242801de46ca9f110a2b4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
+      "contentSha256": "f5e297f4e2e3f298c04e3e6ec280e5fff88d53d65008edb1a31b5ec3d8cc2712",
+      "previousContentSha256": "f8c6b7ce57e03d6604de3073523e90d48695370a9b4e31a3fab2a1bf9dcd8a49"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "25e66a9cd842f12de70abf7531f2546f927f8eea8674da74529e3c9355a34126",
+      "previousContentSha256": "da3144208c2a1d0e20c3214aabbeb642f5f6d38b16eba465ea976d32421ab9b0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/portsea/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
+      "contentSha256": "bfd476f15a0ca7f0c6e85dace89d9da250240a189e34c947032772d4daac8096",
+      "previousContentSha256": "0b58759f07e03e0ad2dbc4fea386339efc6836073b771de6fca8e2c2dffb7b5b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/portsea-front-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/portsea-front-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/portsea-front-beach/index.md",
+      "contentSha256": "10924358d03292f63a60d5d616d22795921dc25faa8c7921980ec23dd49eb795",
+      "previousContentSha256": "c0ed0ad9f1a9772a8060f19708cc5ad946c46874bbe21bde735bfa0a7744c598"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/portsea-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/portsea-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/portsea-golf-club/index.md",
+      "contentSha256": "5fb5d3c113d186e5b9ab4a165a4c0fab82da7a1eaace236c41e1f1df6f290049",
+      "previousContentSha256": "939456e3182f118edb647107959696f7665baa7716a7a64beceb5111155d3e81"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
+      "contentSha256": "ac2080393f5e1f798bcba0178f3cdcfa039ce1955b799bf0937ca4b515f1e175",
+      "previousContentSha256": "ed70e3a75d988107953eca717397bb0ee1fadde7999364d4addfce8e9ecc8ec5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
+      "contentSha256": "eab9d760adc6d820069bd6186dfb30e997279e7a1c427bc63fb48a543450598e",
+      "previousContentSha256": "b75fabf68b131ac00bcb59dde1de021d198374deac183b00a2829fd5915d422d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
+      "contentSha256": "983f5efce272c280fe1cfd5c43362651b304a122f9b05dde96bbb94828702afb",
+      "previousContentSha256": "46f29ed88b2525a6ae822ecaa3b6595525b9fe28531bc521144464d4d59e2d97"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sorrento-ferry/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-ferry/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-ferry/index.md",
+      "contentSha256": "3989fb76195ee3c354898978372b816c04d134ceb1cc776bec2978fac8add666",
+      "previousContentSha256": "3e00bd510644a9f7dcb1cbb88dfb24996466b61d3e4a26baff397085618c5b48"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "1365f0753cf7318eef1dfb869ac2446677f489251c9e96282d56fc3e7a05f561",
-      "previousContentSha256": "8bacc5eff230a4988d6e188aca36a757c4393660a444623fd43212998f0124de"
+      "contentSha256": "96518f32e13d327c57f0c7c1de1b34385d995a3e9bed6dfe05fbc9fb9b76d77f",
+      "previousContentSha256": "1365f0753cf7318eef1dfb869ac2446677f489251c9e96282d56fc3e7a05f561"
     }
   ]
 }

@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Portsea Golf Club
 
-Portsea Golf Club is a members' club with an 18-hole course through coastal dunes and Moonah forest. Eligible visitors can book during published windows, subject to seasonal restrictions. The club currently lists Monday, Tuesday and Wednesday afternoons, and limited Friday and Sunday access; Sunday visitors need a valid Golf ID. Visitor access narrows from mid-December until early February, and availability can change.
+Portsea Golf Club's course winds through coastal dunes and Moonah forest. Visitor tee times depend on member play and the season. The club's public pages list different visitor days, so check the live booking calendar or call the pro shop for the date and any eligibility requirements before arranging a round.
 
 At a glance
 
@@ -31,7 +31,7 @@ Autumn · Spring · Summer
 
 **Access**
 
-Relph Ave, Portsea VIC 3944
+46 London Bridge Road, Portsea VIC 3944
 
 **Website**
 
