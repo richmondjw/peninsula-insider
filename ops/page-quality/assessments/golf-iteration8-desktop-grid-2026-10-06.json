@@ -4,7 +4,7 @@
   "tier": "T1",
   "family": "hub",
   "assessedAt": "2026-10-06",
-  "status": "built-independent-local-visual-passed-pending-protected-release",
+  "status": "exact-live-released-provisional-independent-score-83.5-hard-gates-open",
   "baseline": {
     "exactLiveSourceRevision": "d2052f1f5c2da3fae5d5ecb05bb4188145da972c",
     "independentReconciledScore": 82.5,
@@ -27,9 +27,19 @@
     "visual": "Root inspected full-grid screenshots at 1024 and 1440 and compared the 1024 alternate 3+2+2 composition before setting the final breakpoint."
   },
   "openGates": [
-    "Exact public release and independent 23-criterion regrade pending.",
+    "99 not achieved: factual/provenance, original image rights, booking, direct screen reader and field performance gates remain open.",
     "Broader record facts, original Visit Victoria grant receipts and written clarification reply unresolved.",
     "Normal-user booking acceptance, direct screen-reader journey and exact-route field CWV/CLS unresolved."
   ],
-  "decision": "adapt-continue"
+  "decision": "adapt-continue",
+  "releaseEvidence": {
+    "pullRequest": "https://github.com/richmondjw/peninsula-insider/pull/592",
+    "golfMergeSha": "686d69ff63eca7b6a876f25edd62da78081db288",
+    "deployedSourceSha": "f0692dce8a2217845e6adf838c5eb679e6472ad5",
+    "buildRunId": "37325869455",
+    "pagesRunId": "37327712339",
+    "publicManifests": "deployment.json and release-manifest.json match source SHA and build run",
+    "exactLiveBrowser": "HTTP 200 at 320/390/950/1000/1024/1440, 11 cards, 11 source links >=44px, paired final row at 1000+px, zero JS errors or horizontal overflow",
+    "independentScore": "83.5/100 provisional; see golf-iteration8-live-regrade-2026-10-06.json"
+  }
 }
