@@ -1,52 +1,60 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-05T05:58:25.610Z",
+  "generatedAt": "2026-10-05T07:01:45.160Z",
   "baselineAvailable": true,
-  "fromSnapshot": "d7a5feba7b682398fb075200dd2e47dc915a0c4144859a80c4d37b06d1435c6c",
-  "toSnapshot": "28076a95f1bb7a689774a2852ff374fc14b33fb30c877f0efef1e8c0c2c99e4d",
-  "previousGeneratedAt": "2026-10-05T05:41:19.759Z",
+  "fromSnapshot": "28076a95f1bb7a689774a2852ff374fc14b33fb30c877f0efef1e8c0c2c99e4d",
+  "toSnapshot": "d4b77dd84ea7f969d05a0437ec855579f374aca81e0197c0f3d76e4579846480",
+  "previousGeneratedAt": "2026-10-05T05:58:25.610Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 5,
+  "count": 6,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "id": "https://peninsulainsider.com.au/explore/places/rye/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "0aa60197b787c3719b04142d98913b970e359e63626dd3bf4571dd4907e8a070",
-      "previousContentSha256": "20054399cfa5226313b48ef64a5e5b25515b84ffe261fda3c530cc55e338800c"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
+      "contentSha256": "df5f6649c3a14d23fe0a35a31b63d502f46b2f731fe4373c607f1bf3e7ed0a1d",
+      "previousContentSha256": "976852df55489f4697ca103ee607631a2be8301b3b4dbfff3130a428468f7ff8"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/sorrento/",
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/sorrento/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/sorrento/index.md",
-      "contentSha256": "566a6247a7fe06df1fca8a8242a3678c476de032ccfabfe18ba8fcccae85f0c5",
-      "previousContentSha256": "54c50884535d043415ea17e1467e5d8dcef7e0d3777617dbb360f5d07488a896"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
+      "contentSha256": "3a8e9ef8e1aecfa29eb0f26d118c6f8f9d84a8998b6f046a1b26f6e5d3dc12a5",
+      "previousContentSha256": "8e64bc35538200886ba5d789272271099b22577c61f7c8c25f220c7f9cd5e9ae"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "id": "https://peninsulainsider.com.au/picks/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
-      "contentSha256": "06c21b6b530aee97829213b1ee46fd9af5f99f7a8556a6a673dd270adcfdd725",
-      "previousContentSha256": "8870824c6a30d417035e7eae30bbffe9b94e548d2355dd9be0217547d526eae6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/index.md",
-      "contentSha256": "fa08b0190dcaa3aae75410e2adf5377f5d2eefae8c52b635b5e0ffbf8a0e1e70",
-      "previousContentSha256": "12583d1735ff2ca22a0991c5a611a31c872e1245d3277c79293d942fb5d83587"
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "93595e223d61c1751896dbd59eb7daa3effd379ae9182fb479fdd7156d9396be",
+      "previousContentSha256": "5185b881e39453886e50596d41414d03135e9afd111708a123125342244043e4"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "ec256fd384d01933039d483284441b39b242e79deee8d63fe399e2a6c3606a27",
-      "previousContentSha256": "f9cad0122d104f748dc5df6e3c57920804d0505a7c558417ebcaaa94ce1c324c"
+      "contentSha256": "529638e539eaf8567e67b8d3d4fb08cf4cd26738379edccfec5d0eb542740364",
+      "previousContentSha256": "ec256fd384d01933039d483284441b39b242e79deee8d63fe399e2a6c3606a27"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
+      "contentSha256": "44077f2865382032853eabea57b4330435b874a8861ebd53a914f7f5d49f86b5",
+      "previousContentSha256": "4789a85bdcecc26524222e9750f4a95a18771b2d9ea3b25e8bfcc833117da5da"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
+      "contentSha256": "6dc76be0e916309b19b3e5dda18117a8a7a60575a57a632c89067fb22b3ad38d",
+      "previousContentSha256": "a054aa00e2baef05959310a0ff6988daf538b29599f69e3f0b5b3fff0168cec8"
     }
   ]
 }

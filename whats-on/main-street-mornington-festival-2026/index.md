@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Community     18 October 2026     Annual
+Event     Community     18 October 2026     Cancelled edition. Check the organiser for future dates.
 
 # Main Street Mornington Festival 2026
 
@@ -47,7 +47,7 @@ At a glance
 
 **Recurrence**
 
-Annual · Annual (3rd Sunday October) when it runs. Cancelled in 2025 and 2026.
+Cancelled edition. Check the organiser for future dates.
 
 **Price**
 
@@ -62,12 +62,6 @@ Check organiser for pricing
 Weather flexible
 
 Booking and calendar links are withdrawn while this event is cancelled.
-
-Filed under
-
-- Free
-
-- Walk-In
 
 Keep planning
 

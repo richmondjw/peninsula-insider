@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Markets     3 October 2026     Recurs monthly
+Event     Markets     3 October 2026     Cancelled edition. Check the organiser for future dates.
 
 # Hill & Ridge Community Market, 3 October 2026 (cancelled)
 
@@ -43,7 +43,7 @@ At a glance
 
 **Recurrence**
 
-Recurs monthly · Monthly (first Saturday Sep–May)
+Cancelled edition. Check the organiser for future dates.
 
 **Price**
 
@@ -58,16 +58,6 @@ Check organiser for pricing
 Weather flexible
 
 Booking and calendar links are withdrawn while this event is cancelled.
-
-Filed under
-
-- Weekend Pick
-
-- Family Saturday
-
-- Free
-
-- Walk-In
 
 Keep planning
 

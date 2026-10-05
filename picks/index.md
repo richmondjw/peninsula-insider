@@ -15,7 +15,7 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
-- [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>) - Blend your own gin at Bass & Flinders in Dromana, walk the Cape Schanck boardwalk while coastal heath is in full flower, and browse the Rye Foreshore Market before the summer crowds land.
+- [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>) - Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
 
 - [The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/>) - The Bay Hotel Mornington's vault dining room for a group occasion, the Balnarring to Coolart Wetlands trail in peak spring flower, and the National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
 

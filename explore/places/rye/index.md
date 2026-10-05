@@ -227,13 +227,13 @@ Insider Edit   4 min
 
 A sprawling foreshore pub hits its spring stride, Cape Schanck's clifftop track opens up in the wildflower window, and Mornington Peninsula Regional Gallery's National Works on Paper runs until 22 November.
 
-Insider Edit   4 min
+Insider Edit   3 min
 
 ### [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>)
 
 5 October 2026
 
-Blend your own gin at Bass & Flinders in Dromana, walk the Cape Schanck boardwalk while coastal heath is in full flower, and browse the Rye Foreshore Market before the summer crowds land.
+Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
 
 Service   9 min
 
