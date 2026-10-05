@@ -243,7 +243,7 @@ The Sorrento ferry is the Peninsula's single most iconic water experience and on
 
 ### [Sorrento Golf Club](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
 
-Sorrento Golf Club is a parkland course on the Peninsula's tip, more traditional and less dramatic than the nearby links courses. The layout is pleasant rather than celebrated - long-time members love it, and it has a friendly social reputation that Portsea (its more exclusive neighbour) does not. Visitor access is more relaxed than Portsea - the club takes public bookings at most times subject to member priority. For visitors staying in Sorrento who want an easy, walkable, good-conditioning round without driving to Cape Schanck or Fingal, it's the obvious choice. Not the course to cross the city for, but a genuinely pleasant round if you are already on the tip. The clubhouse has good bay views. Practice facilities are solid. A reasonable mix of difficulty - not easy, not punishing. Suits mid-handicappers and casual weekenders particularly well.
+Sorrento Golf Club is a private members' parkland course near the Peninsula's tip. Limited tee times are available to visitors and members' guests, subject to availability and change. The club currently lists Mondays, Tuesday afternoons and Thursdays for visitors, but closes visitor play from Boxing Day until the end of January. Contact its pro shop and confirm a tee time before planning a round here. The course offers a traditional change from the exposed dune layouts farther east. Its Sorrento location can suit travellers already staying near the Peninsula tip. Check current visitor rules, dress standards and availability with the club.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
 
