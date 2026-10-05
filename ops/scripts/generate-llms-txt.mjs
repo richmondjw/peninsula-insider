@@ -29,7 +29,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, isAbsolute, resolve } from 'node:path';
 
-import { agentRoutes, agentResources, agentCaveat } from '../../next/src/lib/agent-guide.mjs';
+import { agentRoutes, agentResources, agentCaveat, agentDateGuidance } from '../../next/src/lib/agent-guide.mjs';
 import { retrievalPermission } from '../../next/src/lib/retrieval-permission.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -168,7 +168,7 @@ function renderCurated() {
   for (const route of agentRoutes) out += `- [${route.title}](${SITE}${route.href}): ${route.description} (${route.format})\n`;
   out += '\n## Formats, updates and trust\n\n';
   for (const route of agentResources) out += `- [${route.title}](${SITE}${route.href}): ${route.description}\n`;
-  out += '\n## Reading this information\n\nEvent dates use Australia/Sydney. Date-only values do not imply a time. Use the feed window, explicit weekend occurrences and cancellation or rescheduling status. A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.\n\n';
+  out += `\n## Reading this information\n\n${agentDateGuidance} A generated date is a build date, not a fact check. Missing source checks and practical details remain unknown.\n\n`;
   out += retrievalPermission.guideSummary + `\n\nTerms updated: ${retrievalPermission.updatedOn}. See ${SITE}/terms/#automated-access and ${SITE}/robots.txt. Fetch only what the task needs, respect cache instructions and honour retry instructions.\n`;
   return out;
 }

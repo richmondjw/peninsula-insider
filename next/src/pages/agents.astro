@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { agentRoutes, agentResources, agentCaveat } from '../lib/agent-guide.mjs';
+import { agentRoutes, agentResources, agentCaveat, agentDateGuidance } from '../lib/agent-guide.mjs';
 import { retrievalPermission, permissionGuideParts } from '../lib/retrieval-permission.mjs';
 export const prerender = true;
 ---
@@ -28,7 +28,7 @@ export const prerender = true;
     </section>
     <section id="trust" aria-labelledby="trust-title" class="agent-guide__split">
       <div><h2 id="trust-title">Useful answers leave room for uncertainty.</h2><p>{agentCaveat}</p><p>Keep who a place suits, material caveats, editorial judgement and source links alongside your recommendation. Missing accessibility, dietary or dog-access information means it is unknown.</p><p>Use the specific page's title and canonical address in citations. Please do not describe an opinion as an operator-confirmed fact.</p></div>
-      <div><h3>Know what the dates mean</h3><dl class="agent-guide__dates"><dt>Generated</dt><dd>When the feed or compact catalogue was built. It is not a verification date.</dd><dt>Fact checked</dt><dd>An explicitly recorded editorial fact check. A missing date means no check date is supplied.</dd><dt>Event dates</dt><dd>Local calendar dates in Australia/Sydney. A date without a time does not imply midnight. Use explicit weekend occurrences and event status.</dd><dt>Published or modified</dt><dd>A page's publication or content change, where supplied. Neither proves all details were rechecked.</dd></dl></div>
+      <div><h3>Know what the dates mean</h3><dl class="agent-guide__dates"><dt>Generated</dt><dd>When the feed or compact catalogue was built. It is not a verification date.</dd><dt>Fact checked</dt><dd>An explicitly recorded editorial fact check. A missing date means no check date is supplied.</dd><dt>Event dates</dt><dd>{agentDateGuidance}</dd><dt>Published or modified</dt><dd>A page's publication or content change, where supplied. Neither proves all details were rechecked.</dd></dl></div>
     </section>
     <section class="agent-guide__closing" aria-labelledby="access-title">
       <h2 id="access-title">A considerate visitor is always appreciated.</h2>

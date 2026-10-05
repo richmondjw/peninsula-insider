@@ -102,3 +102,17 @@ test('public edits withdraw stale approval while Astro date normalisation remain
  for(const edit of [{title:'Changed title'},{startDate:'2026-10-11'},{place:'frankston'},{coordinates:{lat:-38.2,lng:145}},{editorNote:'New unapproved claim'},{verifiedPrice:{...price,label:'New price'}}])assert.equal(isPublicEventRecord({...data,...edit},now),false);
  assert.equal(isPublicEventRecord({...data,intelligence:{...data.intelligence,geography:{...data.intelligence.geography,shireConfirmed:false}}},now),false);
 });
+
+for (const enabled of [true, false]) {
+  test(`cancelled edition retains its own date despite a future recurrence hint (model ${enabled})`, async () => {
+    const { eventJsonLd } = await eventsModule(enabled);
+    const data = { slug: 'cancelled-edition', title: '3 October edition', summary: 'Cancelled',
+      startDate: new Date('2026-10-03'), endDate: new Date('2026-10-03'),
+      nextOccurrence: new Date('2026-11-07'), recurrence: 'monthly', cancelled: true,
+      status: 'published' };
+    const ld = eventJsonLd({ data }, 'https://example.com');
+    assert.equal(ld.startDate, '2026-10-03');
+    assert.equal(ld.endDate, '2026-10-03');
+    assert.equal(ld.eventStatus, 'https://schema.org/EventCancelled');
+  });
+}
