@@ -421,7 +421,7 @@ Mount Martha is the gentlest swim on the Peninsula. The beach curves south in a 
 
 ### [Rosebud Country Club](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 
-Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud. Public golfers register before viewing and booking live tee times.
+Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud. Check the club public-bookings page for current North and South tee times.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
 

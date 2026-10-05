@@ -61,7 +61,7 @@ Fingal VIC 3939  · Peter Thomson, Ross Perrett
 
 Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal. The Open Course hosted the Australian Open in 2003 and 2005; Legends gives the group a second course to compare on the same trip.
 
-Public players register online before viewing tee times for Open and Legends. [Club details ↗](<https://www.moonahlinks.com.au/cms/golf/book-golf/>)  Checked 5 Oct 2026
+Public players register online before viewing tee times for Open and Legends. [Club details ↗](<https://www.moonahlinks.com.au/cms/golf/book-golf/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/moonah-links/>) [Check tee times ↗](<https://moonahlinks.com.au/guests/bookings/ViewPublicCalendar.msp>)
 
@@ -75,7 +75,7 @@ Fingal VIC 3941  · Tom Doak
 
 Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation.
 
-Fully public, seven days; tee times and current fees are published by the club. [Club details ↗](<https://standrewsbeachgolf.com.au/>)  Checked 5 Oct 2026
+Fully public, seven days; tee times and current fees are published by the club. [Club details ↗](<https://standrewsbeachgolf.com.au/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/>) [Check tee times ↗](<https://standrews.miclub.com.au/cms/public-bookings/>)
 
@@ -89,7 +89,7 @@ Cape Schanck VIC 3939  · Robert Trent Jones Jr, Greg Norman, Tom Doak, Gordon O
 
 The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak).
 
-Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times. [Club details ↗](<https://nationalgolf.com.au/visitors/>)  Checked 5 Oct 2026
+Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times. [Club details ↗](<https://nationalgolf.com.au/visitors/>)  Visitor access checked 5 Oct 2026
 
 Insider read The Moonah Course was designed by Greg Norman and Bob Harrison; Tom Doak redesigned the former Ocean Course as Gunnamatta in 2019. Check the club's current visitor rules before planning a round.
 
@@ -105,7 +105,7 @@ Cape Schanck VIC 3939  · Robert Trent Jones Jr
 
 RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses.
 
-Member and standard green fees; register to book an available tee time. [Club details ↗](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html>)  Checked 5 Oct 2026
+Member and standard green fees; check current tee times and book online. [Club details ↗](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>) [Check tee times ↗](<https://capeschanck.miclub.com.au/cms/public-bookings/>)
 
@@ -125,7 +125,7 @@ Flinders VIC 3929
 
 Flinders Golf Club sits above West Head at the southern edge of the Peninsula - an 18-hole course with some of the best views any Australian golfer can see from a tee box. The layout is short, scenic, and genuinely fun.
 
-Visitor competition windows and green-fee options are published by the club. [Club details ↗](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)  Checked 5 Oct 2026
+Visitor competition windows and green-fee options are published by the club. [Club details ↗](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)  Visitor access checked 5 Oct 2026
 
 Insider read Word of mouth from Peninsula club golfers: more a friendly drinkers' club than an architectural pilgrimage. The views are still world-class - go for the cliffs and the post-round beer, not the design conversation.
 
@@ -141,7 +141,7 @@ Boneo VIC 3939
 
 Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking.
 
-Public online booking through the club-linked tee-time service. [Club details ↗](<https://eagleridge.com.au/>)  Checked 5 Oct 2026
+Public online booking through the club-linked tee-time service. [Club details ↗](<https://eagleridge.com.au/>)  Visitor access checked 5 Oct 2026
 
 Insider read An inland Boneo option for groups comparing the Peninsula public courses.
 
@@ -157,7 +157,7 @@ Rye VIC 3941  · Tony Cashmore
 
 The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes. The separate Cups Course is a shorter nine-hole links layout suited to a quick round or a mixed-experience group.
 
-Compare the club's separate main-course and Cups rates before booking. [Club details ↗](<https://thedunes.com.au/golf/prices-and-information-golf-rye/>)  Checked 5 Oct 2026
+Compare the club's separate main-course and Cups rates before booking. [Club details ↗](<https://thedunes.com.au/golf/prices-and-information-golf-rye/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/the-dunes-golf-links/>) [Check tee times ↗](<https://dunes.miclub.com.au/guests/bookings/ViewPublicCalendar.msp?booking_resource_id=3000000>)
 
@@ -171,7 +171,7 @@ Mornington VIC 3931
 
 Mornington Golf Club is the closest Peninsula course to Melbourne - about 60 minutes from the CBD via the freeway. That proximity makes it the obvious choice for a day-trip round or an after-work nine, and the reason casual Melbourne golfers know it well.
 
-Green-fee visitors are welcome; tee-time bookings are essential. [Club details ↗](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)  Checked 5 Oct 2026
+Green-fee visitors are welcome; tee-time bookings are essential. [Club details ↗](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)  Visitor access checked 5 Oct 2026
 
 Insider read Word of mouth from Peninsula club golfers: a sociable, accessible local club rather than a tournament destination. Pairs well with a Mornington foreshore lunch and a relaxed afternoon.
 
@@ -187,7 +187,7 @@ Rosebud VIC 3939
 
 Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud.
 
-Register as a public golfer to view current North and South tee times. [Club details ↗](<https://rosebudcountryclub.com.au/web/pages/play-golf>)  Checked 5 Oct 2026
+Public bookings for North and South; check current tee times with the club. [Club details ↗](<https://rosebudcountryclub.com.au/web/pages/play-golf>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/rosebud-country-club/>) [Check tee times ↗](<https://rosebud.miclub.com.au/cms/public-bookings/>)
 
@@ -201,7 +201,7 @@ Sorrento VIC 3943
 
 Sorrento Golf Club is a private members' parkland course near the Peninsula's tip. Limited tee times are available to visitors and members' guests, subject to availability and change.
 
-Limited visitor times; no visitor play from Boxing Day to the end of January. [Club details ↗](<https://sorrentogolf.com.au/visitors/>)  Checked 5 Oct 2026
+Limited visitor times; no visitor play from Boxing Day to the end of January. [Club details ↗](<https://sorrentogolf.com.au/visitors/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>)
 
@@ -215,7 +215,7 @@ Portsea VIC 3944
 
 Portsea Golf Club is a members' club with an 18-hole course through coastal dunes and Moonah forest. Eligible visitors can book during published windows, subject to seasonal restrictions.
 
-Mon, Tue/Wed afternoons; limited Fri/Sun. Access narrows mid-Dec to early Feb. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Checked 5 Oct 2026
+Monday and Tuesday/Wednesday afternoons; limited Friday and Sunday. Sunday requires a Golf ID; summer access narrows. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 
@@ -407,7 +407,7 @@ Autumn (March–May) and spring (September–November) are the strongest seasons
 
 Summer (December–February) is busy and can be windy at coastal courses. Winter is playable on dry days but expect some course closures after heavy rain. Links-style courses like St Andrews Beach and The Dunes drain faster than parkland courses and often stay open when inland layouts close.
 
-Researched from published sources. Every course listed was reviewed April 2026 or later. Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.
+Researched from published sources. Every course listed was reviewed April 2026 or later. The dated club links cover visitor access only. Green fees, opening hours, and visitor access policies change - verify directly with each course before booking.
 
 ## The Insider Note
 

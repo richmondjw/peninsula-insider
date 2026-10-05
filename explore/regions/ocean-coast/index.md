@@ -407,7 +407,7 @@ Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers acc
 
 ### [RACV Cape Schanck Golf Course](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
 
-RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses. Resort accommodation and practice areas are on site. RACV lists both member and standard green fees; online tee-time booking requires registration.
+RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses. Resort accommodation and practice areas are on site. RACV lists both member and standard green fees; check current tee times and book online.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>)
 

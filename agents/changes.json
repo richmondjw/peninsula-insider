@@ -1,36 +1,124 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-05T12:02:53.890Z",
+  "generatedAt": "2026-10-05T13:12:17.006Z",
   "baselineAvailable": true,
-  "fromSnapshot": "9f5512041d16b9f613a15708156af8f8a26017dc2b5265a3ae258c5af4036bfa",
-  "toSnapshot": "825da657311255f47af2347d4e876f73a8675dfe1099f1b30d4b47539abd60ec",
-  "previousGeneratedAt": "2026-10-05T11:00:08.047Z",
+  "fromSnapshot": "825da657311255f47af2347d4e876f73a8675dfe1099f1b30d4b47539abd60ec",
+  "toSnapshot": "b6d7cf6ac09c5e0253a85ada276e2e06d0fc81abdabc94af49c9fa1dabf49214",
+  "previousGeneratedAt": "2026-10-05T12:02:53.890Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 14,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "6eca3ea8a9e96250c6cb0d081ff783418f9941d89bd6d9dcfd35a859120bdba7",
+      "previousContentSha256": "2806608aacbbca839054e2a401730112b8ac7e9b8f56603a353ab84b1db63be3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/dromana-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/dromana-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/dromana-beach/index.md",
+      "contentSha256": "e09383a5eefc8c7af8734383d8c207d3d735d2b069b1115855ed24cc273e3a17",
+      "previousContentSha256": "47de3cc3b9f28f675f269ae84af8330bb1ee06cfe154e198c80c9bd67504fdba"
+    },
     {
       "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "1b4451bd632323fc54278072bf30d0be475a96f4f94e4dfa9e85bd7bfd53c3f9",
-      "previousContentSha256": "547bf80ed0f16688f72d409dcdb0cc7a798651a0ecede72d1aec01d6a7b46a63"
+      "contentSha256": "75263cbedaf43ec430d747815f92cdaffd0c41e64802995cb42d69d1310bfa20",
+      "previousContentSha256": "1b4451bd632323fc54278072bf30d0be475a96f4f94e4dfa9e85bd7bfd53c3f9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/cape-schanck/index.md",
+      "contentSha256": "7618f75cc24a226cdd8484920217d0df1b19d4e90297ca801732d49c59e78e34",
+      "previousContentSha256": "3dd1c2ccc17ead9c6bd9d938ad1bdbf2fe8ff2f622fdb976292a5d8fb7b63535"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
+      "contentSha256": "b8fb456a0d2d193205304cc3ddb27bb6252cfd95c72b03c0c8b473b2894e126c",
+      "previousContentSha256": "920d425e36cc8314319443d8f0bae14fd05a0cfe6c631ee822b24da1acb1a3c9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/index.md",
+      "contentSha256": "4d6093a6ef0f5233c2f7d2bfce17413534bf47381fda582ea98644164133f15a",
+      "previousContentSha256": "5d59c53c47039ab107017d7ac3409c529a05511395ec208f7cbb92727e75c6b3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
+      "contentSha256": "ed70e3a75d988107953eca717397bb0ee1fadde7999364d4addfce8e9ecc8ec5",
+      "previousContentSha256": "0ab558c1dec7d8e9f684a1f39446a88f62deb3593f842497034bce88244696cb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
+      "contentSha256": "b75fabf68b131ac00bcb59dde1de021d198374deac183b00a2829fd5915d422d",
+      "previousContentSha256": "654b6aca7db22b23ccd0b4e8cca27aa5eb6cb8825fa2d823140b859257c9f817"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/rosebud-country-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/rosebud-country-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/rosebud-country-club/index.md",
+      "contentSha256": "84ed6b278d6515e8e3e0b75ffa495fa58505f36b2d957025983f51a7f27b89f5",
+      "previousContentSha256": "d0243899e1c9285f2228c04d34a33b094b146002014376f21f22fee79e4bc215"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/rye-ocean-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/rye-ocean-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/rye-ocean-beach/index.md",
+      "contentSha256": "85a8c505bcc34791c6b6fc5ebfbac99040125f329b9d41e2300182de17fb8573",
+      "previousContentSha256": "1b82c0c780bdeaf09312226298108f7564ac755a0a3095026d4d55c751dcc5e6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/index.md",
+      "contentSha256": "f26a4578f40c615b38bc6502babe93dcec2fd7764b4ed5898276ea3efc8fb6fa",
+      "previousContentSha256": "bc55b0747ac520d8a6c22faadd10208c25c65481b6f5eab20bc3657a0caec83e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/index.md",
+      "contentSha256": "27e487c2c7204ba23f74ae6f13ac9fed78eda2c4582d6622ec28868310e95aa9",
+      "previousContentSha256": "d79194b0711a2fde9e40ef98710118039100cf1a053db0b458c18fb7cb3e0bea"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6fc2485d0a4260246a56c82b7f414bc552be1db61a9ec9ff5335dc57cffb5342",
-      "previousContentSha256": "b07895c68fd9e87116c50da045e09c1eda06411f86ff7caf9dbdaca9590a957d"
+      "contentSha256": "c14ad7f8ea47a025480058dc5a1e7aad107c07d85ae36891e99229fe68ebd749",
+      "previousContentSha256": "6fc2485d0a4260246a56c82b7f414bc552be1db61a9ec9ff5335dc57cffb5342"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
-      "contentSha256": "ef4e0d90e890520a242bb41b17b4df6e3eed3a61fe207505d23ea86a9608e60d",
-      "previousContentSha256": "44077f2865382032853eabea57b4330435b874a8861ebd53a914f7f5d49f86b5"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "84754251ee824ddd70027a657818193b35a12c25b9e39fe3e8d46526a1eea130",
+      "previousContentSha256": "75ca4751862b18b88fd5da50ae55f31b222327dd69e028c73ce75831802a20c0"
     }
   ]
 }

@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # RACV Cape Schanck Golf Course
 
-RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses. Resort accommodation and practice areas are on site. RACV lists both member and standard green fees; online tee-time booking requires registration.
+RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses. Resort accommodation and practice areas are on site. RACV lists both member and standard green fees; check current tee times and book online.
 
 At a glance
 
