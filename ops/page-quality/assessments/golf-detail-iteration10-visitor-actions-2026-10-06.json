@@ -16,7 +16,7 @@
     "https://peninsulainsider.com.au/explore/portsea-golf-club/"
   ],
   "assessedAt": "2026-10-06",
-  "status": "built-and-independent-preview-reviewed-pending-protected-release",
+  "status": "exact-live-bounded-acceptance-full-23-criterion-score-unestablished",
   "baseline": {
     "exactLiveSourceRevision": "453dbcbf521f1bd8810ab2612d551f221cdef825",
     "hubScore": "83.5/100 provisional; detail pages have no complete independent 23-criterion score",
@@ -39,10 +39,20 @@
     "browser": "Built local first-screen actions appeared on all 11 course details at 390px with 45px primary targets, no overflow or page errors. National uses eligibility, Flinders fees/availability, Mornington public golf, Sorrento visitor rules, Portsea visitor times; six public courses use club-linked tee-time routes. Dunes secondary rate link is 44px at 320/390/1440 and the primary action is 45px. Golf hub stayed at 11 cards and 11 source notes at 320/390/1440 with no overflow or page errors."
   },
   "openGates": [
-    "Protected CI, Pages publication, exact live revision and independent post-release scoring pending.",
-    "Full T2 page scores for all 11 golf details remain unestablished; this bounded iteration addresses the booking/visitor action only.",
-    "Normal-user booking completion and direct screen-reader journeys remain unverified; some operator booking sites reject headless checks.",
-    "Original image-rights written grant, whole-record facts and exact-route field CWV/CLS remain unresolved."
+    "Full independent 23-criterion score for each of 11 T2 detail pages remains null; no 99 certification.",
+    "All 11 broader records retain 14 Apr 2026 lastVerified dates; visitor-access-only check does not reverify full records.",
+    "Original image-rights written grant/download receipts, direct screen-reader assessment, normal-user booking completion and exact-route field CWV/CLS remain unresolved.",
+    "Observed comparison recovery: golf detail breadcrumb and category link lead to generic Explore, not the 11-course golf hub. Iteration11 triage addresses this."
   ],
-  "decision": "adapt-continue"
+  "decision": "adapt-continue",
+  "liveEvidence": {
+    "mergeCommit": "f89f8bc4006c2e8b0e8d8546d24920caedd29137",
+    "buildRunId": "37339921698",
+    "buildAndDeploy": "success",
+    "pagesRunId": "37341538388",
+    "pagesPublication": "success",
+    "publicManifests": "deployment.json and release-manifest.json both matched source SHA and build run",
+    "browser": "All 11 detail routes HTTP 200 at 320, 390 and 1440px; intended first-screen operator actions 44.8px high, no horizontal overflow or page errors, golf address label present. Hub HTTP 200 with 11 cards and 11 dated source notes at 390px."
+  },
+  "independentLiveReview": "Three independent read-only reviewers accepted the bounded exact-live release: access/facts verified all 11 first-screen links, labels, dated visitor-access scope and basic semantics; UX verified all 11 mobile/desktop routes, keyboard focus and representative Enter/new-tab behavior; visual verified first-screen hierarchy and actions across all 11, with representative screenshot review. All withheld full 23-criterion numeric scores because per-page whole-record facts, image-rights grants, direct screen-reader and normal-user offsite booking journeys, field performance/CLS and other criteria lack evidence."
 }

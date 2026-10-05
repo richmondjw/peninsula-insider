@@ -86,6 +86,7 @@ const relatedArticles = articles
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Explore', href: '/explore/' },
+  ...(experience.data.type === 'golf-course' ? [{ label: 'Golf', href: '/explore/golf/' }] : []),
   { label: experience.data.name },
 ];
 
@@ -204,13 +205,13 @@ export const prerender = true;
   <section class="experience-detail">
     <div class="container">
       <div class="experience-detail__meta">
-        <a href="/explore/" class="experience-detail__type">{typeLabel[experience.data.type] ?? titleize(experience.data.type)}</a>
+        <a href={experience.data.type === 'golf-course' ? '/explore/golf/' : '/explore/'} class="experience-detail__type">{experience.data.type === 'golf-course' ? 'Compare golf courses' : (typeLabel[experience.data.type] ?? titleize(experience.data.type))}</a>
         <span class="experience-detail__dot" aria-hidden="true"></span>
         <a href={`/explore/places/${placeSlug}/`} class="experience-detail__place">{experiencePlace}</a>
         {duration && (
           <>
-            <span class="experience-detail__dot" aria-hidden="true"></span>
-            <span class="experience-detail__place">{duration}</span>
+            <span class:list={['experience-detail__dot', { 'experience-detail__golf-duration': experience.data.type === 'golf-course' }]} aria-hidden="true"></span>
+            <span class:list={['experience-detail__place', { 'experience-detail__golf-duration': experience.data.type === 'golf-course' }]}>{duration}</span>
           </>
         )}
       </div>
@@ -435,6 +436,9 @@ export const prerender = true;
   @media (max-width: 700px) {
     .experience-detail__golf-visit { flex-direction: column; align-items: stretch; padding: 1rem; }
     .experience-detail__golf-visit-action { width: 100%; }
+  }
+  @media (max-width: 360px) {
+    .experience-detail__golf-duration { display: none; }
   }
   /* Photo credit under the hero, sitting in the hero's bottom margin, as the
      venue template does. Required beside licensed photographs. */
