@@ -130,18 +130,18 @@ for (const enabled of [true, false]) {
 }
 
 for (const enabled of [true, false]) {
-  test(`noncancelled recurrence retains its schedule (model ${enabled})`, async () => {
+  test(`recurring occurrence does not infer an unchecked series rule (model ${enabled})`, async () => {
     const { eventJsonLd } = await eventsModule(enabled);
-    for (const [recurrence, frequency] of [['weekly', 'P1W'], ['monthly', 'P1M']]) {
+    for (const recurrence of ['weekly', 'monthly', 'ongoing']) {
       const data = { slug: 'live-series', title: 'Synthetic Saturday programme', summary: 'Fixture',
         startDate: new Date('2099-01-03'), recurrence, cancelled: false, status: 'published' };
       const ld = eventJsonLd({ data }, 'https://example.com');
-      assert.equal(ld.eventSchedule.repeatFrequency, frequency);
-      assert.equal(ld.eventSchedule.byDay, 'https://schema.org/Saturday');
+      assert.equal(ld.startDate, '2099-01-03');
+      assert.equal('eventSchedule' in ld, false);
       assert.notEqual(ld.eventStatus, 'https://schema.org/EventCancelled');
     }
   });
-  test(`a cancelled past session does not remove a distinct future series schedule (model ${enabled})`, async () => {
+  test(`a cancelled past session does not remove a distinct future occurrence (model ${enabled})`, async () => {
     const { eventJsonLd, eventCalendarUrl } = await eventsModule(enabled);
     const data = { slug: 'separate-series', title: 'Synthetic series', summary: 'Fixture',
       startDate: new Date('2020-01-01'), recurrence: 'monthly', status: 'published',
@@ -151,10 +151,24 @@ for (const enabled of [true, false]) {
       ] };
     const ld = eventJsonLd({ data }, 'https://example.com');
     assert.equal(ld.startDate, '2099-01-03');
-    assert.equal(ld.eventSchedule.repeatFrequency, 'P1M');
+    assert.equal('eventSchedule' in ld, false);
     assert.notEqual(ld.eventStatus, 'https://schema.org/EventCancelled');
     assert.equal(data.seriesOccurrences[0].status, 'cancelled');
     assert.equal(new URL(eventCalendarUrl(data, 'https://example.com/series/')).searchParams.get('dates'), '20990103/20990104');
+  });
+  test(`bounded Emu Plains content keeps its occurrence and January qualification (model ${enabled})`, async () => {
+    const { eventJsonLd } = await eventsModule(enabled);
+    const record = JSON.parse(await readFile(new URL('../content/events/emu-plains-market.json', import.meta.url), 'utf8'));
+    const data = { ...record, startDate: new Date(record.startDate), endDate: new Date(record.endDate),
+      nextOccurrence: record.nextOccurrence ? new Date(record.nextOccurrence) : undefined };
+    const before = JSON.stringify(data);
+    const ld = eventJsonLd({ data }, 'https://peninsulainsider.com.au');
+    const occurrenceDay = record.nextOccurrence ?? record.startDate;
+    assert.ok(ld.startDate.startsWith(`${occurrenceDay}T${record.startTime}:`));
+    assert.ok(ld.endDate.startsWith(`${occurrenceDay}T${record.endTime}:`));
+    assert.equal('eventSchedule' in ld, false);
+    assert.equal(JSON.stringify(data), before);
+    assert.match(data.recurrenceNote, /January.*separately timed twilight/);
   });
 }
 
