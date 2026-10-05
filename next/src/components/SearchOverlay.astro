@@ -538,6 +538,7 @@
         if (e.key === 'Escape' && overlay && overlay.dataset.open === 'true') {
           // An open Insider Note is above search and owns this keypress.
           if (document.body.classList.contains('inote-open')) return;
+          e.preventDefault();
           closeOverlay();
           return;
         }
