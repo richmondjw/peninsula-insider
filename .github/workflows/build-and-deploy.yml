@@ -109,7 +109,18 @@ jobs:
       - name: Build
         run: |
           cd next
-          npm run build:search
+          build_day=$(TZ=Australia/Sydney date +%F)
+          if npm run build:search; then
+            build_ok=true
+          else
+            build_ok=false
+          fi
+          if [ "$build_day" != "$(TZ=Australia/Sydney date +%F)" ]; then
+            echo "::warning::Build crossed Sydney midnight; rerunning once so dated feeds match the new day."
+            npm run build:search
+          elif [ "$build_ok" != true ]; then
+            exit 1
+          fi
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}
@@ -210,6 +221,10 @@ jobs:
           include-hidden-files: true
           retention-days: 90
           if-no-files-found: warn
+
+      - name: Verify dated feeds at publish boundary
+        working-directory: next
+        run: npm run audit:agent-readiness
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
