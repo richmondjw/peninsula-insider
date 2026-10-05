@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Moonah Links
 
+## Plan your round
+
+Public players register online before viewing tee times for Open and Legends.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Check tee times](<https://moonahlinks.com.au/guests/bookings/ViewPublicCalendar.msp>)
+
 - Photo · Gary Lisbon, courtesy of Visit Victoria
 
 - Photo · Gary Lisbon, courtesy of Visit Victoria
@@ -73,7 +81,7 @@ Golf Course
 
 Autumn · Spring · Summer
 
-**Access**
+**Address**
 
 55 Peter Thomson Drive, Fingal VIC 3939
 

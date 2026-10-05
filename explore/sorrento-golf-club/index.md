@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Sorrento Golf Club
 
+## Plan your round
+
+Limited visitor times; no visitor play from Boxing Day to the end of January.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Read visitor rules](<https://sorrentogolf.com.au/visitors/>)
+
 Sorrento Golf Club is a private members' parkland course near the Peninsula's tip. Limited tee times are available to visitors and members' guests, subject to availability and change. The club currently lists Mondays, Tuesday afternoons and Thursdays for visitors, but closes visitor play from Boxing Day until the end of January. Contact its pro shop and confirm a tee time before planning a round here. The course offers a traditional change from the exposed dune layouts farther east. Its Sorrento location can suit travellers already staying near the Peninsula tip. Check current visitor rules, dress standards and availability with the club.
 
 At a glance
@@ -29,7 +37,7 @@ Golf Course
 
 Autumn · Spring · Summer
 
-**Access**
+**Address**
 
 3 Hotham Rd, Sorrento VIC 3943
 

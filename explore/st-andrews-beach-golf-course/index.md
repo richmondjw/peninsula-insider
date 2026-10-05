@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # St Andrews Beach Golf Course
 
+## Plan your round
+
+Fully public, seven days; tee times and current fees are published by the club.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Check tee times](<https://standrews.miclub.com.au/cms/public-bookings/>)
+
 - Photo · Gary Lisbon, courtesy of Visit Victoria
 
 - Photo · Gary Lisbon, courtesy of Visit Victoria
@@ -55,7 +63,7 @@ Golf Course
 
 Autumn · Spring · Winter
 
-**Access**
+**Address**
 
 209 Sandy Rd, Fingal VIC 3941
 

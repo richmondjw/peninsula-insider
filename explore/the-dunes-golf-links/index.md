@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Dunes Golf Links
 
+## Plan your round
+
+Compare the club's separate main-course and Cups rates before booking.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.  [Compare course rates](<https://thedunes.com.au/golf/prices-and-information-golf-rye/>)
+
+ [Check tee times](<https://dunes.miclub.com.au/guests/bookings/ViewPublicCalendar.msp?booking_resource_id=3000000>)
+
 - Photo · Gary Lisbon, courtesy of Visit Victoria
 
 - Photo · Gary Lisbon, courtesy of Visit Victoria
@@ -61,7 +69,7 @@ Golf Course
 
 Autumn · Spring · Winter
 
-**Access**
+**Address**
 
 Browns Rd, Rye VIC 3941
 

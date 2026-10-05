@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Flinders Golf Club
 
+## Plan your round
+
+Visitor competition windows and green-fee options are published by the club.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Visitor fees and availability](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)
+
 - Photo · Gary Lisbon, courtesy of Visit Victoria
 
 - Photo · Gary Lisbon, courtesy of Visit Victoria
@@ -79,7 +87,7 @@ Golf Course
 
 Autumn · Spring · Summer
 
-**Access**
+**Address**
 
 Bass Street, Flinders VIC 3929
 

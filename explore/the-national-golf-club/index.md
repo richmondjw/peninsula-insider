@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The National Golf Club
 
+## Plan your round
+
+Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Read visitor eligibility](<https://nationalgolf.com.au/visitors/>)
+
 - Photo · Gary Lisbon, courtesy of Visit Victoria
 
 - Photo · Gary Lisbon, courtesy of Visit Victoria
@@ -55,7 +63,7 @@ Golf Course
 
 Autumn · Spring
 
-**Access**
+**Address**
 
 The Cups Drive, Cape Schanck VIC 3939
 

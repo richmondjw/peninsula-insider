@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Mornington Golf Club
 
+## Plan your round
+
+Green-fee visitors are welcome; tee-time bookings are essential.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Public golf and bookings](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)
+
 Mornington Golf Club offers public green-fee bookings at its Mornington course, with views across Port Phillip Bay. It is an option for a round while visiting or staying in Mornington. Check current tee times, fees and playing conditions directly with the club before planning the rest of your day.
 
 At a glance
@@ -29,7 +37,7 @@ Golf Course
 
 Autumn · Spring · Summer · Winter
 
-**Access**
+**Address**
 
 Tallis Dr, Mornington VIC 3931
 

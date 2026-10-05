@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Rosebud Country Club
 
+## Plan your round
+
+Public bookings for North and South; check current tee times with the club.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Check tee times](<https://rosebud.miclub.com.au/cms/public-bookings/>)
+
 Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud. Check the club public-bookings page for current North and South tee times.
 
 At a glance
@@ -29,7 +37,7 @@ Golf Course
 
 Autumn · Spring · Summer · Winter
 
-**Access**
+**Address**
 
 207 Boneo Rd, Rosebud VIC 3939
 

@@ -1,20 +1,108 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-05T15:47:13.841Z",
+  "generatedAt": "2026-10-05T16:28:04.413Z",
   "baselineAvailable": true,
-  "fromSnapshot": "5f1c434c67c81b4dfde6f295e6843fd79bb31479ecfae255ab89bd2b2007b357",
-  "toSnapshot": "cb3c50cac61f81c37489f57a0890ba1a900d0c212a795b116b01b3a67271268d",
-  "previousGeneratedAt": "2026-10-05T15:25:22.698Z",
+  "fromSnapshot": "cb3c50cac61f81c37489f57a0890ba1a900d0c212a795b116b01b3a67271268d",
+  "toSnapshot": "95ab658b3dccbb9c5517dae61e61c629c27cf4478401b580515b6b4b0d039676",
+  "previousGeneratedAt": "2026-10-05T15:47:13.841Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 12,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/index.md",
+      "contentSha256": "91659c4868ae67b5fa6a89593793c73d6cfd890b1026b36b1e1145fb91d3da46",
+      "previousContentSha256": "4d7632188dcc4837bd4889d87921150141e5939678063ff74f2bfdc1591f8f50"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/flinders-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/flinders-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/flinders-golf-club/index.md",
+      "contentSha256": "9161549ef08aabad294113eb1780bd4ff1ce3d1084e5c29c603e450498611994",
+      "previousContentSha256": "e75b3d4391bd433436e38cbac3b14a8c458dbbb2901efd33253478d7b783bf9b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/moonah-links/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/moonah-links/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/moonah-links/index.md",
+      "contentSha256": "13c0bdf766968c89e97ea9d7fa0be043ab1c4ea4ac6813226009681f167f856a",
+      "previousContentSha256": "65233720f0751c222524caa667f80bd37f3d5208dec55049fec638c7a0f3091a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/mornington-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/mornington-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/mornington-golf-club/index.md",
+      "contentSha256": "17a57b0776434dc8f5b2c015673722bc7afe4f6211309a64f4e07396c6fd7be2",
+      "previousContentSha256": "ac8e705546f429efac58ab427fa7f0dee262e9f7eaa949668c4b3caf3b0ed188"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/portsea-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/portsea-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/portsea-golf-club/index.md",
+      "contentSha256": "e8c5c98dd6cfff2257c1500637f6b5d8106f57dfd939e8e030454f42dd9291d0",
+      "previousContentSha256": "5fb5d3c113d186e5b9ab4a165a4c0fab82da7a1eaace236c41e1f1df6f290049"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/index.md",
+      "contentSha256": "3061c6c8f9044c5f98a91f9a0bf0de130f1bd6cb1bb0bfb8908a4cb3ba78f531",
+      "previousContentSha256": "4d6093a6ef0f5233c2f7d2bfce17413534bf47381fda582ea98644164133f15a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/rosebud-country-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/rosebud-country-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/rosebud-country-club/index.md",
+      "contentSha256": "976a699c4d7c7aa1b2033803c206d51669b35f7077cbd6d446604d3de9e3a941",
+      "previousContentSha256": "84ed6b278d6515e8e3e0b75ffa495fa58505f36b2d957025983f51a7f27b89f5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/index.md",
+      "contentSha256": "02502e51095949e88162081eca6537e67877079280a5fd49c21ac6947980ae33",
+      "previousContentSha256": "fa08b0190dcaa3aae75410e2adf5377f5d2eefae8c52b635b5e0ffbf8a0e1e70"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/st-andrews-beach-golf-course/index.md",
+      "contentSha256": "4a5c734bb29a915a09fbc9caa0694437a9e1c3af5b63535ff29c2009e955fbd6",
+      "previousContentSha256": "161f1aabce619e1c4f4b6ec28598f2da5bc49e2e7689f177a6d5c12fc5800d27"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/the-dunes-golf-links/index.md",
+      "contentSha256": "b8bcd8b245d15ae701bf183e51453bf69f93173602d7ce1648747820fd00c23b",
+      "previousContentSha256": "27e487c2c7204ba23f74ae6f13ac9fed78eda2c4582d6622ec28868310e95aa9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/the-national-golf-club/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/the-national-golf-club/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/the-national-golf-club/index.md",
+      "contentSha256": "38afe23b821e956a13ce883240662ef909cc63dc23e38f917087bf1288b2df57",
+      "previousContentSha256": "1026920f48f0f5a7b5b61806aae9e4824a7a9fd6aff2d5fc749e3ff195eb96bf"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "d0893f3e0deb58359f83e5929612fc5024ce6789c7f495562a5a32f6b292b8ff",
-      "previousContentSha256": "96518f32e13d327c57f0c7c1de1b34385d995a3e9bed6dfe05fbc9fb9b76d77f"
+      "contentSha256": "f1b86cd9fc1dcffa3d9d13d6b806b7a6527e554417dc13f047a990460f44764a",
+      "previousContentSha256": "d0893f3e0deb58359f83e5929612fc5024ce6789c7f495562a5a32f6b292b8ff"
     }
   ]
 }

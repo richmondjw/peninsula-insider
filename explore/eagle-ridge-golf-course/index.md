@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Eagle Ridge Golf Course
 
+## Plan your round
+
+Public online booking through the club-linked tee-time service.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Check tee times](<https://www.chronogolf.com/club/eagle-ridge-golf-club-victoria>)
+
 Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking. Compare the live times and variable prices with your preferred travel day; the club is a separate drive from the coastal courses.
 
 At a glance
@@ -29,7 +37,7 @@ Golf Course
 
 Autumn · Spring · Summer
 
-**Access**
+**Address**
 
 215 Browns Rd, Boneo VIC 3939
 

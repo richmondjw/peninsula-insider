@@ -9,6 +9,14 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Portsea Golf Club
 
+## Plan your round
+
+Visitor windows vary with member play. Check the live booking calendar or call the pro shop for the date and any eligibility rules.
+
+  Visitor access checked 5 Oct 2026; confirm current conditions with the club.
+
+ [Visitor times and booking](<https://portsea.miclub.com.au/cms/public-bookings/>)
+
 Portsea Golf Club's course winds through coastal dunes and Moonah forest. Visitor tee times depend on member play and the season. The club's public pages list different visitor days, so check the live booking calendar or call the pro shop for the date and any eligibility requirements before arranging a round.
 
 At a glance
@@ -29,7 +37,7 @@ Golf Course
 
 Autumn · Spring · Summer
 
-**Access**
+**Address**
 
 46 London Bridge Road, Portsea VIC 3944
 
