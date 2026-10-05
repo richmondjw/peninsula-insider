@@ -405,6 +405,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
   import { startOfDay, addDays, rangeLabel, weekendWindow, occursOnDay, isoDate } from '../../lib/event-schedule';
   import { resolveListingOccurrence, listingDateLabel } from '../../lib/whatson-listing.mjs';
   import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
+  import { hasLegacyExceptions } from '../../lib/intelligence-series.mjs';
 
   initV5Analytics();
 
@@ -491,7 +492,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     const fmt = (d: Date, opts: Intl.DateTimeFormatOptions) => d.toLocaleDateString('en-AU', { ...opts, timeZone: 'UTC' });
     const occursOn = (e: FeedEntry, d: Date) => occursOnDay({
       kind: e.k, start: parseISO(e.s), end: parseISO(e.e), day: e.wd,
-      days: e.wds, nth: e.nth, months: e.months, dates: e.dates,
+      days: e.wds, nth: e.nth, months: e.months, dates: e.dates, reschedules: e.reschedules,
     }, d);
 
     // This editorial shortlist and its Event schema belong to the default
@@ -525,13 +526,16 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       const value = filters();
       return Boolean(value.q || value.town || value.category || value.free || value.kids);
     };
-    const matchesFilters = (entry: FeedEntry) => {
+    const matchesFilters = (entry: FeedEntry, occurrence: ReturnType<typeof resolveListingOccurrence> | null) => {
       const value = filters();
-      if (value.town && entry.p !== value.town) return false;
+      const effective = hasLegacyExceptions(entry.statusData) ? occurrence?.data : null;
+      const town = effective ? effective.suburb ?? '' : entry.p;
+      const meta = effective ? [effective.venueName, effective.startTime].filter(Boolean) : entry.m;
+      if (value.town && town !== value.town) return false;
       if (value.category && entry.c !== value.category) return false;
       if (value.free && !feedHasCurrentFreeEntry(entry, new Date())) return false;
       if (value.kids && !entry.g) return false;
-      return !value.q || [entry.t, entry.d, entry.p, ...entry.m].join(' ').toLocaleLowerCase('en-AU').includes(value.q);
+      return !value.q || [entry.t, entry.d, town, ...meta].join(' ').toLocaleLowerCase('en-AU').includes(value.q);
     };
 
     // ── feed island (fetched once, on first non-default scope) ─────────
@@ -574,7 +578,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       link.dataset.entitySlug = e.slug;
       row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
       row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
-        (e.k === 'explicit' && occurrence?.data ? [occurrence.data.venueName, occurrence.data.startTime].filter(Boolean) : e.m).join(' · '),
+        (occurrence?.data ? [occurrence.data.venueName, occurrence.data.startTime].filter(Boolean) : e.m).join(' · '),
         spanLabel,
         occurrence ? (occurrence.label ?? '') : (e.x ?? ''),
       ]
@@ -614,11 +618,11 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
         const matches: { e: FeedEntry; span: string }[] = [];
         let continuingCount = 0;
         for (const e of entries) {
-          if (!matchesFilters(e)) continue;
           if (!occursOn(e, day)) continue;
           const occurrence = e.statusData ? resolveListingOccurrence(e.statusData,
             { kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, isoDate(day)) : null;
           if (occurrence?.phase === 'past') continue;
+          if (!matchesFilters(e, occurrence)) continue;
           if (e.k === 'range') {
             if (seenRanges.has(e.slug)) {
               continuingCount += 1;

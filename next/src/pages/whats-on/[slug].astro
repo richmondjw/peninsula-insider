@@ -1,5 +1,5 @@
 ---
-import {hasExplicitSeries,nextSeriesData} from '../../lib/intelligence-series.mjs';
+import {hasExplicitSeries,nextSeriesData,hasLegacyExceptions} from '../../lib/intelligence-series.mjs';
 import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import {
@@ -43,7 +43,7 @@ export async function getStaticPaths() {
 
 const { event: originalEvent } = Astro.props;
 const now = new Date();
-const explicitSeries = hasExplicitSeries(originalEvent.data);
+const explicitSeries = hasExplicitSeries(originalEvent.data) || hasLegacyExceptions(originalEvent.data);
 const event = explicitSeries ? {...originalEvent, data: nextSeriesData(originalEvent.data, now)} : originalEvent;
 const contentKind = eventContentKind(event.data);
 const kindLabel = contentKind === 'offer' ? 'Offer' : contentKind === 'experience' ? 'Experience' : 'Event';

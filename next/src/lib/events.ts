@@ -1,4 +1,5 @@
-import {hasExplicitSeries,nextSeriesData} from './intelligence-series.mjs';
+import {hasExplicitSeries,nextSeriesData,hasLegacyExceptions} from './intelligence-series.mjs';
+import {ruleFor,occursInWindow} from './event-schedule.ts';
 /**
  * Events helpers - chip filters, weekend bucketing, JSON-LD shapers.
  *
@@ -83,6 +84,10 @@ function formatWeekendLabel(sat: Date, sun: Date): string {
  * on a Tuesday).
  */
 export function eventInWindow(event: Event, start: Date, end: Date): boolean {
+  if(hasLegacyExceptions(event.data)){
+    const rule=ruleFor(event as any,start);
+    return !!rule && occursInWindow(rule,{start,end,label:''});
+  }
   if(hasExplicitSeries(event.data)) return event.data.seriesOccurrences!.some(s=>new Date(s.date)>=start && new Date(s.date)<=end);
   const recurrence = event.data.recurrence as string;
   const eStart = event.data.startDate;
@@ -254,7 +259,6 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
 
   const startISO = (() => {
     if (!data.startTime) return startDayIso;
-    if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) return `${startDayIso}T${data.startTime}:00+10:00`;
     const bounds = occurrenceBounds(data as Record<string, unknown>, startDayIso, {
       isFinalDay: startDayIso === endDayIso,
     });
@@ -262,7 +266,6 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   })();
   const endISO = (() => {
     if (data.endTime) {
-      if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) return `${endDayIso}T${data.endTime}:00+10:00`;
       // spanBounds, not occurrenceBounds: a multi-day run finishes on its own
       // calendar day, which can sit on the other side of a daylight-saving
       // transition from the day it opened. Resolving the end clock against
@@ -321,7 +324,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     // declared as previousStartDate so an assistant holding the stale date can
     // reconcile it.
     ...(() => {
-      if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) {
+      if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data) && !hasLegacyExceptions(data)) {
         return cancelled
           ? { eventStatus: 'https://schema.org/EventCancelled' }
           : {};
@@ -329,10 +332,11 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
       const disposition = recordDisposition(data as Record<string, unknown>);
       const eventStatus = staticEventSchemaStatus(disposition.status);
       const previous = (data as Record<string, unknown>).postponedFrom ?? data.startDate;
+      const previousStartDate = (data as any)._occurrencePreviousStartDate ?? dayIsoOf(previous);
       return {
         ...(eventStatus ? { eventStatus } : {}),
         ...(disposition.status === 'rescheduled' && previous
-          ? { previousStartDate: `${dayIsoOf(previous)}` }
+          ? { previousStartDate }
           : {}),
       };
     })(),
@@ -412,7 +416,8 @@ export function eventTimeLabel(data: Event['data']): string | null {
 export function eventCalendarUrl(data: Event['data'], canonical: string): string {
   data = nextSeriesData(data) as Event['data'];
   const cancelled = isCancelledRecord(data);
-  if(hasExplicitSeries(data) && data.startTime && !data.endTime) return '';
+  if ((data as any)._occurrenceEffectiveDate && data.postponed && !data.rescheduledTo) return '';
+  if((hasExplicitSeries(data)||hasLegacyExceptions(data)) && data.startTime && !data.endTime) return '';
   const pad = (n: number) => String(n).padStart(2, '0');
   const fmtDate = (d: Date) => `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}`;
   const fmtDateTime = (d: Date) =>
@@ -432,7 +437,6 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
 
   let dates: string;
   if (data.startTime) {
-    const [sh, sm] = data.startTime.split(':').map((n) => parseInt(n, 10) || 0);
     // PI-008: this used to subtract a hardcoded ten hours ("better to be
     // slightly off than to misrender DST"), which put every event between
     // October and April into a reader's calendar an hour late. The Melbourne
@@ -440,33 +444,22 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     // nothing left to be slightly off about.
     let startLocal: Date;
     let endLocal: Date;
-    if (USE_OCCURRENCE_MODEL || hasExplicitSeries(data)) {
-      const dayIso = dayIsoOf(start) ?? start.toISOString().slice(0, 10);
-      const endDayIso = dayIsoOf(end) ?? dayIso;
-      const bounds = occurrenceBounds(data as Record<string, unknown>, dayIso, {
-        isFinalDay: dayIso === endDayIso,
-      });
-      startLocal = bounds.startsAt;
-      if (data.endTime && endDayIso > dayIso) {
-        endLocal = occurrenceBounds(data as Record<string, unknown>, endDayIso, {
-          isFirstDay: false,
-          isFinalDay: true,
-        }).endsAt;
-      } else if (data.endTime) {
-        endLocal = bounds.endsAt;
-      } else {
-        // Default to a 2-hour block when no end time is given, unchanged.
-        endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
-      }
+    const dayIso = dayIsoOf(start) ?? start.toISOString().slice(0, 10);
+    const endDayIso = dayIsoOf(end) ?? dayIso;
+    const bounds = occurrenceBounds(data as Record<string, unknown>, dayIso, {
+      isFinalDay: dayIso === endDayIso,
+    });
+    startLocal = bounds.startsAt;
+    if (data.endTime && endDayIso > dayIso) {
+      endLocal = occurrenceBounds(data as Record<string, unknown>, endDayIso, {
+        isFirstDay: false,
+        isFinalDay: true,
+      }).endsAt;
+    } else if (data.endTime) {
+      endLocal = bounds.endsAt;
     } else {
-      startLocal = new Date(Date.UTC(start.getFullYear(), start.getMonth(), start.getDate(), sh - 10, sm));
-      if (data.endTime) {
-        const [eh, em] = data.endTime.split(':').map((n) => parseInt(n, 10) || 0);
-        const endDate = end;
-        endLocal = new Date(Date.UTC(endDate.getFullYear(), endDate.getMonth(), endDate.getDate(), eh - 10, em));
-      } else {
-        endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
-      }
+      // Default to a 2-hour block when no end time is given, unchanged.
+      endLocal = new Date(startLocal.getTime() + 2 * 60 * 60 * 1000);
     }
     dates = `${fmtDateTime(startLocal)}/${fmtDateTime(endLocal)}`;
   } else {
