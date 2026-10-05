@@ -4,7 +4,7 @@
   "tier": "T1",
   "family": "hub",
   "assessedAt": "2026-10-05",
-  "state": "local-qa-passed-public-review-pending",
+  "state": "bounded-public-release-accepted-independent-regrade-pending",
   "priorPublicAssessment": "golf-iteration2-live-regrade-2026-10-05.json",
   "priorPublicScore": 72.0,
   "currentAcceptedScore": null,
@@ -49,5 +49,17 @@
     "Direct assistive-technology journey, field CWV/CLS and all original image grant receipts remain open."
   ],
   "decision": "reviewable-for-normal-CI-release",
-  "rollback": "Revert scoped golf page, Sorrento content record and linked source receipt if public regression is found."
+  "rollback": "Revert scoped golf page, Sorrento content record and linked source receipt if public regression is found.",
+  "publicRelease": {
+    "pullRequest": "https://github.com/richmondjw/peninsula-insider/pull/582",
+    "mergeSha": "66b70de7bdf0e82e8ce426816620dc9948683611",
+    "buildRunId": "37269484041",
+    "protectedChecks": "All PR checks passed; Build and Deploy completed successfully with pre-deploy SiteOne and Lighthouse gates.",
+    "manifestMatched": true,
+    "manifestSourceSha": "66b70de7bdf0e82e8ce426816620dc9948683611",
+    "manifestBuildRunId": "37269484041",
+    "liveBrowser": "At 320, 390 and 1440px, zero page errors or horizontal overflow; four official visitor links render; native disclosure exposes 11 course jumps; Sorrento jump lands 144px below top on mobile and 192px on desktop. Sorrento guide displays private-club and Boxing Day to end-January exclusion.",
+    "scope": "Bounded live GO; no post-release independent score or 99-point acceptance yet."
+  },
+  "nextAction": "Independently regrade this exact public source across all 23 criteria, audit the remaining seven records and outbound routes, then resolve direct AT, field CWV/CLS and original image-grant gates."
 }
