@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-04T15:51:34.818Z",
-  "snapshotId": "2f284e61e75a192cb6e19c592df7a7ec6a0f06e434b53c4cef01af6891a00b46",
+  "generatedAt": "2026-10-05T05:41:19.759Z",
+  "snapshotId": "d7a5feba7b682398fb075200dd2e47dc915a0c4144859a80c4d37b06d1435c6c",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 591,
+  "count": 592,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -47,7 +47,7 @@
       "section": "agents",
       "canonicalUrl": "https://peninsulainsider.com.au/agents/",
       "markdownUrl": "https://peninsulainsider.com.au/agents/index.md",
-      "contentSha256": "0ebbe1f4c0aa875e5f77a4286f8d08ad521c675a8ed5efeba3de4a5bee56aa14",
+      "contentSha256": "db10e87c6159b13fb45dda380904ae37ccf614c60e4eb7d208a8e85fbe1983f7",
       "citation": {
         "title": "A good Peninsula day starts with good information.",
         "publisher": "Peninsula Insider",
@@ -55,8 +55,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 132807,
-      "markdownBytes": 6662
+      "htmlBytes": 133138,
+      "markdownBytes": 6989
     },
     {
       "id": "https://peninsulainsider.com.au/ask/",
@@ -2699,7 +2699,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "e1716437b803706cca972d0a4db7113113c13a9a2b72996ab47d8a7461271f7e",
+      "contentSha256": "976852df55489f4697ca103ee607631a2be8301b3b4dbfff3130a428468f7ff8",
       "citation": {
         "title": "Rye",
         "publisher": "Peninsula Insider",
@@ -2707,8 +2707,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 244522,
-      "markdownBytes": 16181
+      "htmlBytes": 244395,
+      "markdownBytes": 16105
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/safety-beach/",
@@ -5839,6 +5839,23 @@
       "markdownBytes": 8772
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "title": "Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
+      "contentSha256": "8e64bc35538200886ba5d789272271099b22577c61f7c8c25f220c7f9cd5e9ae",
+      "citation": {
+        "title": "Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+        "publishedAt": "2026-10-05T00:00:00.000Z",
+        "modifiedAt": "2026-10-05T00:00:00.000Z"
+      },
+      "htmlBytes": 185750,
+      "markdownBytes": 8120
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6643,7 +6660,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "21e943cd7f88775dac967b39fd4bbbb4e565b199d131f89f3d865472f9fe9c15",
+      "contentSha256": "5185b881e39453886e50596d41414d03135e9afd111708a123125342244043e4",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6651,8 +6668,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142438,
-      "markdownBytes": 5764
+      "htmlBytes": 142453,
+      "markdownBytes": 5775
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6677,7 +6694,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "3a841e5f31ef07e9021ac34427f26e77b83a50497c47fa1c41227bc3d07dae84",
+      "contentSha256": "f9cad0122d104f748dc5df6e3c57920804d0505a7c558417ebcaaa94ce1c324c",
       "citation": {
         "title": "Monday 5 October 2026",
         "publisher": "Peninsula Insider",

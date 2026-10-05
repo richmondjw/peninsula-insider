@@ -18,7 +18,7 @@ Start with the task, then follow through to the place or story that supports you
 
 **[Events and dates](<https://peninsulainsider.com.au/whats-on/upcoming.json>) JSON**
 
-Upcoming events, recurrence, event status and explicit weekend occurrences. Read the date window before answering.[Browse What's On](<https://peninsulainsider.com.au/whats-on/>)
+Dated events, flexible experiences and offers. Read each item's date meaning, the feed window and any event status before answering.[Browse What's On](<https://peninsulainsider.com.au/whats-on/>)
 
 **[Somewhere to eat](<https://peninsulainsider.com.au/eat/>) HTML**
 
@@ -111,7 +111,7 @@ An explicitly recorded editorial fact check. A missing date means no check date 
 
 **Event dates**
 
-Local calendar dates in Australia/Sydney. A date without a time does not imply midnight. Use explicit weekend occurrences and event status.
+Use the timezone declared by the feed: Australia/Melbourne for Mornington Peninsula listings. Date-only values do not imply midnight. Read dateMeaning: occurrence is a dated event, availability is a flexible experience window, and validity is an offer window. A weekend availability date does not confirm a booked session. Read explicit weekend dates and any event status, then confirm current sessions, cancellations or changes with the organiser.
 
 **Published or modified**
 

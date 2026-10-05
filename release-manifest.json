@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "8f64cbc17c42-37214031779",
-  "sourceSha": "8f64cbc17c42c1d77e0b8f1e0e673bdf6f46bd54",
-  "buildRunId": "37214031779",
-  "generatedAt": "2026-10-04T15:51:36.983Z",
-  "trigger": "schedule",
+  "releaseId": "1c07d9c6fc21-37268407591",
+  "sourceSha": "1c07d9c6fc21c75abac8ca48916e2eab8c02cf2e",
+  "buildRunId": "37268407591",
+  "generatedAt": "2026-10-05T05:41:21.182Z",
+  "trigger": "push",
   "authority": {
     "mode": "github-protected-release",
     "actor": "richmondjw",
@@ -13,32 +13,32 @@
   "artifacts": [
     {
       "path": "/feed.xml",
-      "bytes": 23249,
-      "sha256": "c10f578fbdae930cc4108ef2a5dc70b8aa33cfe509d2af51c6d53302ca8073af"
+      "bytes": 23321,
+      "sha256": "c9113f59b4fdb079995cd261a5252a213951a49212380c8c8204b004aad90a14"
     },
     {
       "path": "/index.html",
       "bytes": 205793,
-      "sha256": "9fbb2eceeae102375dc3fa9d7bb78c68abc9a54618b5028ae4971f1df41e32ba"
+      "sha256": "d5ae5c2ebdfb9a5cba11802c2413a1256449dab5f2b91b088685dd9bf472a0ac"
     },
     {
       "path": "/llms.txt",
-      "bytes": 4626,
-      "sha256": "281bdff4f1e32e3b42712e32595dd082a7ab4471ce1e1b6d883e4c28a23d98e4"
+      "bytes": 4930,
+      "sha256": "3ce1da5f8698e4feedcb1e0d0200266a520c874c4d62b27311d8217e27f17981"
     },
     {
       "path": "/sitemap.xml",
-      "bytes": 113841,
-      "sha256": "de6fe62ad382c932da8e2be7b2586bef9d9d81460a03d2fd2f71224a00905f0a"
+      "bytes": 114038,
+      "sha256": "d65b15b9b7cb29f7cc0c8011e485fb16136d5ed12e592f19e7bc60065bd7ae1e"
     },
     {
       "path": "/whats-on/upcoming.json",
       "bytes": 21840,
-      "sha256": "adb04387aaa36cb1f3dace8298fded27467c2102a14eee05a217fa2c2cbc1ff3"
+      "sha256": "f164970094b0a9dd2f92d7c05708230b3d6f7f8aca88ea9fb60bd69380a08fae"
     }
   ],
   "verification": {
     "state": "awaiting_external_verification",
-    "expectedDeploymentSha": "8f64cbc17c42c1d77e0b8f1e0e673bdf6f46bd54"
+    "expectedDeploymentSha": "1c07d9c6fc21c75abac8ca48916e2eab8c02cf2e"
   }
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 292,
+  "pages": 293,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -9543,6 +9543,30 @@
       ]
     },
     {
+      "source": "/images/visit-victoria/vv-159170-bass-and-flinders-distillery.webp",
+      "originalBytes": 46814,
+      "variants": [
+        {
+          "src": "/_media/6ba5dad9751d7f546b3d-480.webp",
+          "width": 480,
+          "height": 719,
+          "bytes": 24598
+        },
+        {
+          "src": "/_media/6ba5dad9751d7f546b3d-800.webp",
+          "width": 800,
+          "height": 1199,
+          "bytes": 43284
+        },
+        {
+          "src": "/_media/6ba5dad9751d7f546b3d-854.webp",
+          "width": 854,
+          "height": 1280,
+          "bytes": 47354
+        }
+      ]
+    },
+    {
       "source": "/images/visit-victoria/vv-26070113-jackalope-hotel.webp",
       "originalBytes": 117282,
       "variants": [
@@ -11483,30 +11507,6 @@
           "width": 1280,
           "height": 854,
           "bytes": 65312
-        }
-      ]
-    },
-    {
-      "source": "/images/visit-victoria/vv-159170-bass-and-flinders-distillery.webp",
-      "originalBytes": 46814,
-      "variants": [
-        {
-          "src": "/_media/6ba5dad9751d7f546b3d-480.webp",
-          "width": 480,
-          "height": 719,
-          "bytes": 24598
-        },
-        {
-          "src": "/_media/6ba5dad9751d7f546b3d-800.webp",
-          "width": 800,
-          "height": 1199,
-          "bytes": 43284
-        },
-        {
-          "src": "/_media/6ba5dad9751d7f546b3d-854.webp",
-          "width": 854,
-          "height": 1280,
-          "bytes": 47354
         }
       ]
     },

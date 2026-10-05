@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>) - Blend your own gin at Bass & Flinders in Dromana, walk the Cape Schanck boardwalk while coastal heath is in full flower, and browse the Rye Foreshore Market before the summer crowds land.
+
 - [The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/>) - The Bay Hotel Mornington's vault dining room for a group occasion, the Balnarring to Coolart Wetlands trail in peak spring flower, and the National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
 
 - [Georgie Bass, the Olivers Hill loop, and Commonfolk's Sunday roast ritual](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/>) - Flinders' all-day breakfast kitchen at spring pace, the Olivers Hill clifftop loop above Port Phillip, and Commonfolk Coffee's single-origin filter bar before the weekend crowd arrives.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Jetty Road's spring seasonals, the Western Port wildflower heathlands, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/>) - Jetty Road Brewery's rotating spring taps in Dromana, the heathland wildflower bloom along the Coolart Wetlands boardwalk, and National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
 
 - [Portsea Hotel's beer garden, the Point Nepean orchid flush, and Red Hill Truffles' last hunts](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-19/>) - The Portsea Hotel deck in first-spring warmth, the native orchids peaking along Point Nepean's Number 2 Rifle Range track, and the final truffle hunts of the season at Red Hill Truffles in Main Ridge.
-
-- [Kerri Greens in spring, the Olivers Hill bluff walk, and VIRAL Food Festival this weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-17/>) - Kerri Greens' single-vineyard Pinot at the Merricks cellar door, the Olivers Hill coastal bluff at peak wildflower, and VIRAL Food Festival at Mornington Racecourse from Friday.
 
 ## Planning a particular weekend?
 

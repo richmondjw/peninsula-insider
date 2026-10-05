@@ -227,6 +227,14 @@ Insider Edit   4 min
 
 A sprawling foreshore pub hits its spring stride, Cape Schanck's clifftop track opens up in the wildflower window, and Mornington Peninsula Regional Gallery's National Works on Paper runs until 22 November.
 
+Insider Edit   4 min
+
+### [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>)
+
+5 October 2026
+
+Blend your own gin at Bass & Flinders in Dromana, walk the Cape Schanck boardwalk while coastal heath is in full flower, and browse the Rye Foreshore Market before the summer crowds land.
+
 Service   9 min
 
 ### [Mornington Peninsula Golf: Stay and Play](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
@@ -242,14 +250,6 @@ Weekend Picker   3 min
 22 June 2026
 
 The solstice crowd has gone home. This is the quiet winter weekend of truffle hunts, local markets, and the final Sunday Sessions at the springs.
-
-Service   8 min
-
-### [The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach](<https://peninsulainsider.com.au/journal/the-peninsula-beach-swimming-guide/>)
-
-14 April 2026
-
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
 Planning guides
 
