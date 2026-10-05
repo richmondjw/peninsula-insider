@@ -35,6 +35,12 @@ test('cancelled Hill & Ridge edition stays public without a visit recommendation
   assert.match(page, /Hill &amp; Ridge Community Market, 3 October 2026/);
   assert.match(page, /Do not travel for this date/);
   assert.equal(event.eventStatus, 'https://schema.org/EventCancelled');
+  assert.equal('eventSchedule' in event, false);
+  const edition = page.match(/<article\b[\s\S]*?<\/article>/)?.[0];
+  assert.ok(edition, 'Cancelled edition article missing');
+  assert.match(edition, /Cancelled edition\. Check the organiser for future dates\./);
+  assert.doesNotMatch(edition, /Recurs monthly|Monthly \(first Saturday Sep-May\)|Weekend Pick|Family Saturday|Walk-In/);
+  assert.doesNotMatch(edition, />Free</);
   assert.doesNotMatch(page, /Get directions/);
   assert.doesNotMatch(page, /Worth the drive|First time on the Peninsula/i);
   assert.doesNotMatch(html('explore/places/red-hill'), /Hill &amp; Ridge Community Market, 3 October 2026/);
