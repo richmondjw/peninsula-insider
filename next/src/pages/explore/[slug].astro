@@ -16,6 +16,7 @@ import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import { primarySchemaType } from '../../lib/schema';
+import { golfVisitorInfo, golfVisitorAccessChecked } from '../../lib/golf-visitor-info';
 
 const difficultyLabel: Record<string, string> = {
   easy: 'Easy',
@@ -113,6 +114,11 @@ const heroCredit = heroProvenance?.credit ? formatHeroCredit(heroProvenance.cred
 // The photograph rule (src/lib/photo-set.ts).
 const editorParagraphs = paragraphsOf(experience.data.editorNote);
 const photoSet = photoPlan(experience.data, { override: Boolean(hero.override), paragraphs: editorParagraphs.length });
+const golfVisitor = experience.data.type === 'golf-course' ? golfVisitorInfo[slug] : null;
+const golfBookingUrl = experience.data.type === 'golf-course' ? (experience.data as any).golf?.bookingUrl : null;
+const golfActionUrl = golfVisitor?.teeTimes && golfBookingUrl ? golfBookingUrl : golfVisitor?.url;
+const golfActionLabel = golfVisitor?.detailActionLabel ?? (golfVisitor?.teeTimes && golfBookingUrl ? 'Check tee times' : 'Club visitor information');
+
 
 const canonical = `https://peninsulainsider.com.au/explore/${slug}/`;
 const ogImage = hero.src;
@@ -214,6 +220,29 @@ export const prerender = true;
         label: `${experience.data.name} - name`,
       })}>{experience.data.name}</h1>
 
+      {golfVisitor && golfActionUrl && (
+        <div class="experience-detail__golf-visit">
+          <div class="experience-detail__golf-visit-copy">
+            <h2>Plan your round</h2>
+            <p>{golfVisitor.summary}</p>
+            <span>Visitor access checked {golfVisitorAccessChecked}; confirm current conditions with the club.</span>
+            {golfVisitor.detailSourceActionLabel && (
+              <a class="experience-detail__golf-visit-source" href={golfVisitor.url} target="_blank" rel="noopener" aria-label={golfVisitor.detailSourceActionLabel + ' for ' + experience.data.name + ', opens in a new tab'}>{golfVisitor.detailSourceActionLabel} <span aria-hidden="true">↗</span></a>
+            )}
+          </div>
+          <a
+            class="experience-detail__golf-visit-action"
+            href={golfActionUrl}
+            target="_blank"
+            rel="noopener"
+            aria-label={golfActionLabel + ' for ' + experience.data.name + ', opens in a new tab'}
+            data-pi-entity-type="golf-course"
+            data-pi-entity-slug={slug}
+            data-pi-surface="golf-detail"
+          >{golfActionLabel} <span aria-hidden="true">↗</span></a>
+        </div>
+      )}
+
       {photoSet.stage ? (
         <div {...editableImage({ entityType: 'experience', entitySlug: slug, fieldPath: 'heroImage', label: `${experience.data.name} hero`, purpose: 'hero' })}>
           <PhotoStage photos={photoSet.photos} subject={experience.data.name} id="photos" />
@@ -284,7 +313,7 @@ export const prerender = true;
 
             {experience.data.address && (
               <>
-                <dt>Access</dt>
+                <dt>{experience.data.type === 'golf-course' ? 'Address' : 'Access'}</dt>
                 <dd>{experience.data.address}</dd>
               </>
             )}
@@ -376,6 +405,37 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  .experience-detail__golf-visit {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem 1.5rem; margin: -1rem 0 1.5rem; padding: 1rem 1.2rem;
+    border: 1px solid var(--border); border-left: 3px solid var(--accent);
+    border-radius: var(--radius-m); background: var(--bg-alt);
+  }
+  .experience-detail__golf-visit-copy { min-width: 0; }
+  .experience-detail__golf-visit h2 {
+    margin: 0 0 0.25rem; color: var(--dark); font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2vw, 1.22rem); line-height: 1.2;
+  }
+  .experience-detail__golf-visit p { margin: 0; color: var(--text); font-size: 0.9rem; line-height: 1.45; }
+  .experience-detail__golf-visit-copy > span { display: block; margin-top: 0.4rem; color: var(--soft); font-size: 0.76rem; line-height: 1.4; }
+  .experience-detail__golf-visit-source {
+    display: inline-flex; align-items: center; gap: 0.3rem; min-height: 44px;
+    color: var(--accent); font-size: 0.82rem; font-weight: 700;
+    text-decoration: underline; text-underline-offset: 0.18em;
+  }
+  .experience-detail__golf-visit-source:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .experience-detail__golf-visit-action {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
+    flex-shrink: 0; min-height: 44px; padding: 0.7rem 1rem;
+    border-radius: var(--radius-s); background: var(--dark); color: #fff;
+    font-family: var(--font-ui); font-size: 0.85rem; font-weight: 700; text-align: center;
+  }
+  .experience-detail__golf-visit-action:hover { background: var(--accent); color: #fff; }
+  .experience-detail__golf-visit-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 700px) {
+    .experience-detail__golf-visit { flex-direction: column; align-items: stretch; padding: 1rem; }
+    .experience-detail__golf-visit-action { width: 100%; }
+  }
   /* Photo credit under the hero, sitting in the hero's bottom margin, as the
      venue template does. Required beside licensed photographs. */
   .experience-detail__hero-credit {

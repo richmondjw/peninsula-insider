@@ -15,6 +15,7 @@ import {
 } from '../../lib/schema';
 import { routeSlug } from '../../lib/editorial';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
+import { golfVisitorInfo, golfVisitorAccessChecked } from '../../lib/golf-visitor-info';
 
 // ── Editorial-card hero lookup ────────────────────────────────────────────────
 // Cards in section 8 ("Golf editorial") all link to journal articles. Their
@@ -71,59 +72,7 @@ const bayCourses = bayOrder
   .filter(Boolean) as typeof golfCourses;
 
 // Visitor rules change. Keep dated, direct club sources beside these claims.
-const visitorInfo: Record<string, { url: string; summary: string; teeTimes?: boolean; linkLabel?: string }> = {
-  'the-national-golf-club': {
-    url: 'https://nationalgolf.com.au/visitors/',
-    summary: 'Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times.',
-  },
-  'flinders-golf-club': {
-    url: 'https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/',
-    summary: 'Visitor competition windows and green-fee options are published by the club.',
-  },
-  'mornington-golf-club': {
-    url: 'https://www.morningtongolf.com.au/cms/golf/public-golf/',
-    summary: 'Green-fee visitors are welcome; tee-time bookings are essential.',
-  },
-  'sorrento-golf-club': {
-    url: 'https://sorrentogolf.com.au/visitors/',
-    summary: 'Limited visitor times; no visitor play from Boxing Day to the end of January.',
-  },
-  'moonah-links': {
-    url: 'https://www.moonahlinks.com.au/cms/golf/book-golf/',
-    summary: 'Public players register online before viewing tee times for Open and Legends.',
-    teeTimes: true,
-  },
-  'st-andrews-beach-golf-course': {
-    url: 'https://standrewsbeachgolf.com.au/',
-    summary: 'Fully public, seven days; tee times and current fees are published by the club.',
-    teeTimes: true,
-  },
-  'racv-cape-schanck-golf-course': {
-    url: 'https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html',
-    summary: 'Member and standard green fees; check current tee times and book online.',
-    teeTimes: true,
-  },
-  'eagle-ridge-golf-course': {
-    url: 'https://eagleridge.com.au/',
-    summary: 'Public online booking through the club-linked tee-time service.',
-    teeTimes: true,
-  },
-  'the-dunes-golf-links': {
-    url: 'https://thedunes.com.au/golf/prices-and-information-golf-rye/',
-    summary: "Compare the club's separate main-course and Cups rates before booking.",
-    teeTimes: true,
-  },
-  'rosebud-country-club': {
-    url: 'https://rosebudcountryclub.com.au/web/pages/play-golf',
-    summary: 'Public bookings for North and South; check current tee times with the club.',
-    teeTimes: true,
-  },
-  'portsea-golf-club': {
-    url: 'https://portsea.miclub.com.au/cms/public-bookings/',
-    summary: 'Visitor windows vary with member play. Check the live booking calendar or call the pro shop for the date and any eligibility rules.',
-    linkLabel: 'Visitor times and booking',
-  },
-};
+const visitorInfo = golfVisitorInfo;
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function accessLabel(access: string, slug: string) {
@@ -351,7 +300,7 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked {golfVisitorAccessChecked}</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
@@ -414,7 +363,7 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked {golfVisitorAccessChecked}</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
