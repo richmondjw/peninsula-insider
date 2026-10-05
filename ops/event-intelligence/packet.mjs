@@ -4,7 +4,7 @@ import {readJson,atomicJson} from './collect.mjs';
 import {candidateRevision} from './data.mjs';
 export async function buildPacket(directory,output=path.join(directory,'review-packet.json')){
  const evidence=new Map(),fresh=new Map();
- for(const file of (await readdir(directory)).filter(f=>f.endsWith('.json'))){const result=await readJson(path.join(directory,file));if(!result.evidence?.id||Array.isArray(result.evidence)||!Array.isArray(result.candidates))continue;evidence.set(result.evidence.id,result.evidence);for(const candidate of result.candidates)fresh.set(candidate.id,candidate);}
+ for(const file of (await readdir(directory)).filter(f=>f.endsWith('.json')&&path.resolve(path.join(directory,f))!==path.resolve(output))){const result=await readJson(path.join(directory,file));if(!result.evidence?.id||Array.isArray(result.evidence)||!Array.isArray(result.candidates))continue;evidence.set(result.evidence.id,result.evidence);for(const candidate of result.candidates)fresh.set(candidate.id,candidate);}
  for(const file of (await readdir(path.join(directory,'details'))).filter(f=>f.endsWith('.json'))){const result=await readJson(path.join(directory,'details',file));if(!result.evidence)continue;evidence.set(result.evidence.id,result.evidence);for(const candidate of result.candidates??[])fresh.set(candidate.id,candidate);}
  let previous;try{previous=await readJson(output);}catch(e){if(e.code!=='ENOENT')throw e;}
  // Retain old evidence because human proofs may still refer to that snapshot.
