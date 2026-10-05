@@ -505,7 +505,8 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
   } else {
     // All-day. Google's date format is exclusive of the end day, so add a day.
     const endPlusOne = new Date(end);
-    endPlusOne.setDate(endPlusOne.getDate() + 1);
+    // Date-only content is UTC-normalised; a local DST shift must not shorten the day.
+    endPlusOne.setUTCDate(endPlusOne.getUTCDate() + 1);
     dates = `${fmtDate(start)}/${fmtDate(endPlusOne)}`;
   }
 

@@ -157,3 +157,19 @@ for (const enabled of [true, false]) {
     assert.equal(new URL(eventCalendarUrl(data, 'https://example.com/series/')).searchParams.get('dates'), '20990103/20990104');
   });
 }
+
+for (const enabled of [true, false]) {
+  test(`all-day calendar keeps an exclusive next date across DST boundaries (model ${enabled})`, async () => {
+    const { eventCalendarUrl } = await eventsModule(enabled);
+    for (const [start, end, expected] of [
+      ['2026-10-03', '2026-10-03', '20261003/20261004'],
+      ['2026-10-03', '2026-10-04', '20261003/20261005'],
+      ['2026-04-04', '2026-04-04', '20260404/20260405'],
+      ['2026-04-04', '2026-04-05', '20260404/20260406'],
+    ]) {
+      const data = { slug: 'all-day-dst', title: 'Synthetic all-day edition', summary: 'Fixture',
+        startDate: new Date(start), endDate: new Date(end), recurrence: 'one-off', status: 'published' };
+      assert.equal(new URL(eventCalendarUrl(data, 'https://example.com/edition/')).searchParams.get('dates'), expected);
+    }
+  });
+}
