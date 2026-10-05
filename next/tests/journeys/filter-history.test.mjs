@@ -47,6 +47,8 @@ const snapshot = page => page.evaluate(() => ({
   canonical: document.querySelector('link[rel="canonical"]')?.href,
   count: document.querySelector('[data-filter-count]')?.textContent,
   status: document.getElementById('pi-results-status')?.textContent,
+  errorHidden: document.querySelector('[data-filter-error]')?.hidden,
+  errorText: document.querySelector('[data-filter-error]')?.textContent,
   focus: document.activeElement?.hasAttribute('data-sheet-open'),
   sort: document.querySelector('[data-sort-select]')?.value,
   visible: [...document.querySelectorAll('[data-filter-countable]:not([hidden])')].map(x => x.dataset.title),
@@ -59,12 +61,12 @@ for (const width of [1440, 390]) test(`real filter history, restoration and list
   page.on('request', r => { if (r.resourceType() === 'fetch') requests.push(r.url()); });
   try {
     await page.setViewport({ width, height: 1000 }); await reader.load('/wine/');
-    const initial = await snapshot(page); assert.equal(typeof initial.state.index, 'number');
+    const initial = await snapshot(page); assert.equal(typeof initial.state.index, 'number'); assert.equal(initial.errorHidden, true); assert.equal(initial.errorText, '');
     await click(page, '[data-filter-chip][data-value="tasting-first"]'); await listing(reader, '?mood=tasting-first');
     const chip = await snapshot(page); assert.equal(chip.state.index, initial.state.index); assert.equal(chip.length, initial.length);
     await click(page, '[data-sheet-open]'); await click(page, '[data-sheet-option][data-key="place"][data-value="red-hill"]');
     const beforeApplyRequests = requests.length; await click(page, '[data-sheet-apply]'); await listing(reader, '?place=red-hill&mood=tasting-first');
-    const applied = await snapshot(page); assert.equal(applied.state.index, initial.state.index + 1); assert.equal(applied.length, initial.length + 1); assert.equal(applied.focus, true);
+    const applied = await snapshot(page); assert.equal(applied.state.index, initial.state.index + 1); assert.equal(applied.length, initial.length + 1); assert.equal(applied.focus, true); assert.equal(applied.errorHidden, true); assert.equal(applied.errorText, '');
     assert.equal(requests.slice(beforeApplyRequests).filter(x => new URL(x).pathname === '/wine/').length, 1, 'One router query fetch for sheet Apply');
     await click(page, 'a[href="/wine/polperro/"]'); await reader.waitFor(() => location.pathname === '/wine/polperro/' && document.querySelector('h1')?.textContent.trim() === 'Polperro', 'Detail page');
     assert.equal((await snapshot(page)).state.index, initial.state.index + 2);

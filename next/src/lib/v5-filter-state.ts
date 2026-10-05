@@ -223,6 +223,7 @@ export function writeUrl(state: FilterState, opts: { push?: boolean } = {}): voi
       navigate(url, { history: 'push' }),
     ).then(() => {
       if (window.location.pathname + window.location.search + window.location.hash !== url) return;
+      clearFilterError();
       window.scrollTo({ left: scrollX, top: scrollY, behavior: 'instant' });
       document.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus({ preventScroll: true });
     }).catch(() => {
@@ -234,7 +235,14 @@ export function writeUrl(state: FilterState, opts: { push?: boolean } = {}): voi
       const counts = applyToDom(current, document, noun);
       applySort(getSort());
       emitChange({ filters: getState(), ...counts, source: 'url' });
-      announce('Filters could not be applied. Please try again.');
+      const message = 'Filters could not be applied. Please try again.';
+      document.querySelectorAll<HTMLElement>('[data-filter-error]').forEach((el) => {
+        el.textContent = message;
+        el.hidden = false;
+      });
+      // One live announcement retains the restored count and explains the failure.
+      const countText = document.querySelector('[data-filter-count]')?.textContent || '';
+      announce(`${countText}. ${message}`);
       document.querySelector<HTMLButtonElement>('[data-sheet-open]')?.focus({ preventScroll: true });
     });
   } else if (opts.push) {
@@ -365,6 +373,15 @@ export function emitChange(detail: FiltersChangedDetail): void {
   document.dispatchEvent(new CustomEvent<FiltersChangedDetail>('pi:filters-changed', { detail }));
 }
 
+/** Visible feedback has no second live region; the existing announcer owns speech. */
+function clearFilterError(): void {
+  if (!hasDom()) return;
+  document.querySelectorAll<HTMLElement>('[data-filter-error]').forEach((el) => {
+    el.hidden = true;
+    el.textContent = '';
+  });
+}
+
 /**
  * The one write path: set state, sync URL, repaint DOM, broadcast.
  * push=true creates a history entry (sheet Apply per mobile-strategy s5).
@@ -373,6 +390,7 @@ export function commit(
   state: FilterState,
   opts: { push?: boolean; source?: string; noun?: string } = {},
 ): { shown: number; total: number } {
+  clearFilterError();
   current = { ...state };
   writeUrl(current, { push: opts.push });
   const counts = applyToDom(current, document, opts.noun || 'results');

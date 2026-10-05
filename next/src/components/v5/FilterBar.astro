@@ -108,6 +108,7 @@ const presets = CHIP_PRESETS[surface] ?? [];
       Clear filters
     </button>
   </p>
+  <p class="v5-filterbar__error" data-filter-error hidden></p>
   <p id="pi-results-status" class="v5-vh" role="status" aria-live="polite"></p>
 </div>
 
@@ -233,6 +234,13 @@ const presets = CHIP_PRESETS[surface] ?? [];
     font-family: var(--font-ui);
     font-size: 0.8rem;
     color: var(--soft);
+  }
+  .v5-filterbar__error {
+    margin: 0.35rem 0;
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text);
   }
   .v5-filterbar__clear {
     background: none;
