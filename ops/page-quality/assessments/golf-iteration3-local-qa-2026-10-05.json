@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-05",
+  "state": "local-qa-passed-public-review-pending",
+  "priorPublicAssessment": "golf-iteration2-live-regrade-2026-10-05.json",
+  "priorPublicScore": 72.0,
+  "currentAcceptedScore": null,
+  "hypothesis": "A named route to all 11 guides and adjacent current club visitor rules will improve decision speed and factual trust without implying a reservation occurred.",
+  "boundedChanges": [
+    "Add a native expandable 11-course index below the four quick choices.",
+    "Name the Cape Schanck/Fingal group by geography, not an unsupported quality tier.",
+    "Show dated club visitor access notes and direct official pages for National, Flinders, Mornington and Sorrento; give repeated links distinct screen-reader names.",
+    "Replace Sorrento's inaccurate broad-access guide copy and homepage destination with its official visitor page; remove a thick side-border card decoration."
+  ],
+  "primarySources": [
+    {
+      "url": "https://nationalgolf.com.au/visitors/",
+      "finding": "Victorian nonmembers require member invitation and accompaniment; interstate and overseas visitors can request tee times.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/",
+      "finding": "Publishes visitor competition windows and green-fee options, subject to club events.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://www.morningtongolf.com.au/cms/golf/public-golf/",
+      "finding": "Green-fee visitors welcome; bookings essential.",
+      "checkedOn": "2026-10-05"
+    },
+    {
+      "url": "https://sorrentogolf.com.au/visitors/",
+      "finding": "Limited visitor days; club closed to visitors from Boxing Day through end January.",
+      "checkedOn": "2026-10-05",
+      "linkProbe": "HTTP 200, recorded in ops/records/link-health/probe-ledger.json"
+    }
+  ],
+  "verification": {
+    "build": "TZ=UTC npm run build:search passed after link-health receipt added; 1014 HTML files found, 710 indexed pages.",
+    "browser": "Built local route at 320, 390 and 1440px had zero page errors or horizontal overflow. Native disclosure opened and contained 11 links; Sorrento jump landed 144px below viewport top on mobile and 192px on desktop. Four official visitor URLs and dated notes present. Built Sorrento detail showed corrected private-club and closed-season wording.",
+    "visual": "Closed and open chooser inspected at 390 and 1440px; Sorrento card inspected at 390px. Native disclosure marker visible and cards remain readable."
+  },
+  "remainingGates": [
+    "No full independent grade on this new revision until public deployment.",
+    "Other seven course access records and outbound routes are not fully current or source-checked.",
+    "Direct assistive-technology journey, field CWV/CLS and all original image grant receipts remain open."
+  ],
+  "decision": "reviewable-for-normal-CI-release",
+  "rollback": "Revert scoped golf page, Sorrento content record and linked source receipt if public regression is found."
+}
