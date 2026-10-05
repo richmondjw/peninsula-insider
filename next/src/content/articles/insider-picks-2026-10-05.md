@@ -1,6 +1,6 @@
 ---
 title: "Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market"
-dek: Blend your own gin at Bass & Flinders in Dromana, walk the Cape Schanck boardwalk while coastal heath is in full flower, and browse the Rye Foreshore Market before the summer crowds land.
+dek: Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-10-05
@@ -24,7 +24,7 @@ format: "insider-edit"
 tags: [insider-picks, spring]
 relatedVenues: []
 relatedExperiences: []
-readingTimeMinutes: 4
+readingTimeMinutes: 3
 featured: false
 status: "published"
 lastVerified: 2026-10-05
@@ -38,28 +38,34 @@ clusterLinks:
     href: "/explore/best-walks/"
 faq:
   - question: "How do I book the Bass & Flinders Gin Masterclass?"
-    answer: "Book directly through the Bass & Flinders Distillery website at bassandflindersdistillery.com/pages/gin-masterclass. The distillery is at 37 Shoreham Road, Dromana. Sessions book out, so don't leave it to the day."
-  - question: "Where is the Cape Schanck boardwalk and how long does it take?"
-    answer: "The boardwalk starts from the Cape Schanck Lighthouse car park off Cape Schanck Road. The loop to the headland platform and back takes around 45 minutes at a relaxed pace. Parks Victoria charges a vehicle entry fee - check the Parks Victoria website."
-  - question: "When is the Rye Foreshore Market held?"
-    answer: "Check the market's current schedule before heading down, as dates vary. The market is held on the Rye foreshore. Allow 45–60 minutes to cover it properly."
+    answer: "Book through the Bass & Flinders Distillery website and confirm your session with the operator. The distillery is at 40 Collins Road, Dromana."
+  - question: "Is the Cape Schanck boardwalk wheelchair accessible?"
+    answer: "The descending boardwalk includes a wooden staircase. Parks Victoria identifies a wheelchair accessible path into the lighthouse reserve from the adjacent car park, with accessible toilets and picnic areas. Check the current Parks Victoria access information before visiting."
+  - question: "When and where is the Rye Foreshore Market held?"
+    answer: "The Rotary organiser lists the first Saturday of each month, opening at 8:30am, at the carnival site on Point Nepean Road opposite the Rye Hotel. Holiday locations can change; check the organiser's current advice before travelling."
 ---
 
 **Bass & Flinders Distillery - Gin School, Dromana**
 
-Bass & Flinders has been distilling on the Peninsula since 2009, and the Angry Ant Botanical Gin alone justifies the drive to Dromana. The gin school is the reason to go right now. You work through the botanical palette - coriander, juniper, lemon myrtle, native pepper - then blend a 500ml bottle to your own spec. Spring is worth naming here: the distillery's garden botanicals are actively in growth, and the team references what's coming off the property when they walk you through the session. It is a genuinely instructive two hours, not a novelty photo opportunity. The masterclass runs regularly but fills up - book ahead through the distillery website before Thursday if you want this weekend. Bass & Flinders is at 37 Shoreham Road, Dromana; allow a full afternoon. Pair it with lunch at Dromana's foreshore before you arrive.
+Make a bottle with your own blend at Bass & Flinders' Gin Masterclass. The operator describes a two-hour session exploring gin production and traditional and native botanicals, followed by hands-on blending. A 500ml bottle of your recipe goes home with you. It is a practical way to spend an afternoon getting to know the flavours behind the spirit.
+
+The distillery is at **40 Collins Road, Dromana**. [Check the operator's masterclass page and book your chosen session](https://www.bassandflindersdistillery.com/pages/gin-masterclass); availability needs confirmation. The [distillery contact page](https://www.bassandflindersdistillery.com/pages/contact-us) has the current visitor details.
 
 ---
 
 **Cape Schanck Boardwalk - Ocean Coast**
 
-The boardwalk from Cape Schanck Lighthouse to the headland platform is at its best in October, when the coastal heath along the path is carrying pink and yellow flower. Allocate 45 minutes for the out-and-back. The basalt platform at the end frames the Southern Ocean in a way that justifies the Parks Victoria entry fee by itself. Go in the morning before the wind picks up from the southwest - by midday in spring the gusts off Bass Strait are real. The track itself is fully boarded and accessible. Wear shoes with grip; spray reaches the lower platform after any ocean swell. The lighthouse precinct has a café if you want coffee before the walk. Cape Schanck Road runs south from Boneo Road; the car park is at the road's end. Pair the morning with a late lunch at St Andrews Beach Brewery, a short drive north.
+Cape Schanck's lookouts frame Pulpit Rock and the volcanic coastline. Follow the walking track from the car park towards the Cape; the descending boardwalk includes a wooden staircase. This is not a step-free route to the beach and rock platform.
+
+For wheelchair access, Parks Victoria identifies a path from the adjacent car park into the lighthouse reserve, plus accessible toilets and picnic areas. Choose the route that suits your access needs and [check Parks Victoria's current conditions and accessibility advice](https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck-lighthouse-reserve) before travelling. Stay on the tracks and follow signs. Large unexpected waves can wash across the rock platform; swimming is not recommended. There is no drinking water at the day visitor area, so bring your own.
 
 ---
 
 **Rye Foreshore Market - Rye**
 
-The Rye Foreshore Market operates on the bay side of the Peninsula, and October is the last window before summer crowd levels make it a different experience entirely. The producer stalls are the reason to come: local honey, Peninsula-grown cut flowers now that spring is running, handmade preserves, and a rotating cast of food trucks working the foreshore strip. The market runs at a pace that suits an hour's browse without commitment. The location itself earns marks - the foreshore backdrop, the water directly adjacent, the lack of a carpark queue that the larger markets attract. Check the current schedule on the market's website before making it a firm plan. Rye is on the Back Beach Road corridor; the foreshore is a ten-minute walk from the main Rye shops. Pair a market visit with coffee at one of the Rye strip cafés on the way back to the car.
+The Rotary Club of Rosebud-Rye runs this community market with a focus on homemade and home-grown goods. Stall income supports community service projects. Make time for a browse when a market date fits your visit, rather than assuming it will be open any weekend.
+
+The organiser lists the **first Saturday of each month, opening at 8:30am**, at the carnival site on **Point Nepean Road opposite the Rye Hotel**. Holiday arrangements can move the market to another foreshore site. [Check the Rotary organiser's current location and schedule](https://www.rosebudryerotary.org.au/rye-foreshore-market/) before setting out.
 
 ---
 
@@ -67,6 +73,8 @@ The Rye Foreshore Market operates on the bay side of the Peninsula, and October 
 
 | Pick | Where | Practical |
 |---|---|---|
-| Bass & Flinders Gin School | 37 Shoreham Road, Dromana | Book ahead at bassandflindersdistillery.com; sessions fill fast |
-| Cape Schanck Boardwalk | Cape Schanck Road, Cape Schanck | Parks Victoria vehicle entry applies; 45 min return walk |
-| Rye Foreshore Market | Rye Foreshore, Rye | Check current dates before going; allow 45–60 min |
+| Bass & Flinders Gin School | 40 Collins Road, Dromana | Confirm and book your session directly with the operator |
+| Cape Schanck coastal viewpoints | Cape Schanck Road, Cape Schanck | Descending boardwalk has stairs; check Parks Victoria access and conditions |
+| Rye Foreshore Market | Point Nepean Road, opposite Rye Hotel | First Saturday schedule; confirm any holiday location change |
+
+*Visitor details checked against the linked operator and Parks Victoria sources on 5 October 2026. This article's address and access information have been corrected.*
