@@ -104,15 +104,56 @@ test('public edits withdraw stale approval while Astro date normalisation remain
 });
 
 for (const enabled of [true, false]) {
-  test(`cancelled edition retains its own date despite a future recurrence hint (model ${enabled})`, async () => {
+  for (const [signal, cancellation] of [
+    ['flag', { cancelled: true }],
+    ['verification status', { verificationStatus: 'Updated after organiser cancellation notice' }],
+    ['summary prefix', { summary: 'Cancelled: this edition will not go ahead' }],
+    ['editor withdrawal', { skipThis: true }],
+  ]) {
+    test(`cancelled edition preserves dates/status and omits schedule using ${signal} (model ${enabled})`, async () => {
+      const { eventJsonLd, eventCalendarUrl } = await eventsModule(enabled);
+      const data = { slug: 'cancelled-edition', title: '3 October edition', summary: 'Fixture',
+        startDate: new Date('2026-10-03'), endDate: new Date('2026-10-03'),
+        nextOccurrence: new Date('2026-11-07'), recurrence: 'monthly', status: 'published',
+        bookingUrl: 'https://example.com/book', bookingStatus: 'open', ...cancellation };
+      const ld = eventJsonLd({ data }, 'https://example.com');
+      assert.equal(ld.startDate, '2026-10-03');
+      assert.equal(ld.endDate, '2026-10-03');
+      assert.equal(ld.eventStatus, 'https://schema.org/EventCancelled');
+      assert.equal('eventSchedule' in ld, false);
+      assert.equal('availability' in ld.offers, false);
+      const calendar = new URL(eventCalendarUrl(data, 'https://example.com/edition/'));
+      assert.equal(calendar.searchParams.get('dates'), '20261003/20261004');
+      assert.equal(data.nextOccurrence.toISOString(), '2026-11-07T00:00:00.000Z');
+    });
+  }
+}
+
+for (const enabled of [true, false]) {
+  test(`noncancelled recurrence retains its schedule (model ${enabled})`, async () => {
     const { eventJsonLd } = await eventsModule(enabled);
-    const data = { slug: 'cancelled-edition', title: '3 October edition', summary: 'Cancelled',
-      startDate: new Date('2026-10-03'), endDate: new Date('2026-10-03'),
-      nextOccurrence: new Date('2026-11-07'), recurrence: 'monthly', cancelled: true,
-      status: 'published' };
+    for (const [recurrence, frequency] of [['weekly', 'P1W'], ['monthly', 'P1M']]) {
+      const data = { slug: 'live-series', title: 'Synthetic Saturday programme', summary: 'Fixture',
+        startDate: new Date('2099-01-03'), recurrence, cancelled: false, status: 'published' };
+      const ld = eventJsonLd({ data }, 'https://example.com');
+      assert.equal(ld.eventSchedule.repeatFrequency, frequency);
+      assert.equal(ld.eventSchedule.byDay, 'https://schema.org/Saturday');
+      assert.notEqual(ld.eventStatus, 'https://schema.org/EventCancelled');
+    }
+  });
+  test(`a cancelled past session does not remove a distinct future series schedule (model ${enabled})`, async () => {
+    const { eventJsonLd, eventCalendarUrl } = await eventsModule(enabled);
+    const data = { slug: 'separate-series', title: 'Synthetic series', summary: 'Fixture',
+      startDate: new Date('2020-01-01'), recurrence: 'monthly', status: 'published',
+      venueName: 'Fixture venue', intelligence: {}, seriesOccurrences: [
+        { id: 'past', originalDate: '2020-01-01', date: '2020-01-01', status: 'cancelled', venueName: 'Fixture venue' },
+        { id: 'future', originalDate: '2099-01-03', date: '2099-01-03', status: 'scheduled', venueName: 'Fixture venue' },
+      ] };
     const ld = eventJsonLd({ data }, 'https://example.com');
-    assert.equal(ld.startDate, '2026-10-03');
-    assert.equal(ld.endDate, '2026-10-03');
-    assert.equal(ld.eventStatus, 'https://schema.org/EventCancelled');
+    assert.equal(ld.startDate, '2099-01-03');
+    assert.equal(ld.eventSchedule.repeatFrequency, 'P1M');
+    assert.notEqual(ld.eventStatus, 'https://schema.org/EventCancelled');
+    assert.equal(data.seriesOccurrences[0].status, 'cancelled');
+    assert.equal(new URL(eventCalendarUrl(data, 'https://example.com/series/')).searchParams.get('dates'), '20990103/20990104');
   });
 }

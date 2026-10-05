@@ -91,6 +91,7 @@ const sidebar = related.length >= 2 ? related : relatedFallback;
 const lensSeen = new Set<string>();
 const lensList: Array<{ key: string; label: string }> = ((event.data.lens ?? []) as unknown[])
   .filter((key): key is string => typeof key === 'string' && key.trim() !== '')
+  .filter((key) => !cancelled || !['free', 'walk-in', 'weekend-pick', 'family-saturday'].includes(key))
   .map((key: string) => ({ key, label: eventLensLabel[key] ?? key }))
   .filter(({ label }) => {
     const dedupeKey = label.trim().toLowerCase().replace(/[\s_-]+/g, ' ');
@@ -140,7 +141,7 @@ const flexibleRecurrenceLabel: Record<string, string> = {
   'on-request': 'By arrangement',
   'opening-hours': 'Visit during published opening hours',
 };
-const recurrenceLabel = unconfirmedArchivedSchedule ? 'Historical listing' : flexibleDate ? flexibleRecurrenceLabel[dateBasis] : eventRecurrenceLabel(event.data);
+const recurrenceLabel = cancelled ? 'Cancelled edition. Check the organiser for future dates.' : unconfirmedArchivedSchedule ? 'Historical listing' : flexibleDate ? flexibleRecurrenceLabel[dateBasis] : eventRecurrenceLabel(event.data);
 const flexibleWhenLabel: Record<string, string> = {
   'operator-calendar': 'Choose a date on the organiser calendar',
   'on-request': 'Arrange a date with the organiser',
@@ -400,7 +401,7 @@ export const prerender = true;
               )}
               <div>
                 <dt>Recurrence</dt>
-                <dd>{recurrenceLabel}{!unconfirmedArchivedSchedule && event.data.recurrenceNote ? ` · ${event.data.recurrenceNote}` : ''}</dd>
+                <dd>{recurrenceLabel}{!cancelled && !unconfirmedArchivedSchedule && event.data.recurrenceNote ? ` · ${event.data.recurrenceNote}` : ''}</dd>
               </div>
               <div>
                 <dt>Price</dt>

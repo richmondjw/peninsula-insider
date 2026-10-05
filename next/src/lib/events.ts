@@ -14,6 +14,7 @@ import {
   bookingAvailability,
   dayIsoOf,
   isoOffsetFor,
+  isCancelledRecord,
   occurrenceBounds,
   recordDisposition,
   staticEventSchemaStatus,
@@ -226,13 +227,14 @@ export function eventsForChip(chip: ChipDefinition, allEvents: Event[]): Event[]
  */
 export function eventJsonLd(event: Event, siteUrl: string): Record<string, unknown> {
   const data = nextSeriesData(event.data) as Event['data'];
+  const cancelled = isCancelledRecord(data);
   const slug = data.slug;
   const url = `${siteUrl}/whats-on/${slug}/`;
   const nextOccurrence = (data as any).nextOccurrence
     ? new Date((data as any).nextOccurrence)
     : undefined;
   const usesNextOccurrence =
-    data.cancelled !== true &&
+    !cancelled &&
     ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
     nextOccurrence;
   const eventStartDate = usesNextOccurrence ? nextOccurrence : data.startDate;
@@ -320,7 +322,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     // reconcile it.
     ...(() => {
       if (!USE_OCCURRENCE_MODEL && !hasExplicitSeries(data)) {
-        return (data as Record<string, unknown>).cancelled === true
+        return cancelled
           ? { eventStatus: 'https://schema.org/EventCancelled' }
           : {};
       }
@@ -357,7 +359,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   // explicit booking status supports an availability assertion.
   if (data.ticketingUrl || data.bookingUrl) {
     const availability = bookingAvailability(String(data.bookingStatus ?? 'unknown'));
-    const withdrawn = data.cancelled || data.postponed || ['expired', 'past', 'archived'].includes(data.status);
+    const withdrawn = cancelled || data.postponed || ['expired', 'past', 'archived'].includes(data.status);
     ld.offers = {
       '@type': 'Offer',
       url: data.ticketingUrl ?? data.bookingUrl,
@@ -370,7 +372,8 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
   // Per Operational Definitions v1.2 (What's On layer): recurring programmes
   // need stable Event schema with recurrence rules so they're discoverable
   // independently of any specific date.
-  if (['weekly', 'monthly', 'ongoing'].includes(String((data as any).recurrence ?? ''))) {
+  // This transformed edition can be cancelled without cancelling its wider series.
+  if (!cancelled && ['weekly', 'monthly', 'ongoing'].includes(String((data as any).recurrence ?? ''))) {
     const schedule: Record<string, unknown> = {
       '@type': 'Schedule',
       startDate: startISO,
@@ -441,6 +444,7 @@ export function eventTimeLabel(data: Event['data']): string | null {
  */
 export function eventCalendarUrl(data: Event['data'], canonical: string): string {
   data = nextSeriesData(data) as Event['data'];
+  const cancelled = isCancelledRecord(data);
   if(hasExplicitSeries(data) && data.startTime && !data.endTime) return '';
   const pad = (n: number) => String(n).padStart(2, '0');
   const fmtDate = (d: Date) => `${d.getUTCFullYear()}${pad(d.getUTCMonth() + 1)}${pad(d.getUTCDate())}`;
@@ -451,7 +455,7 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     ? new Date((data as any).nextOccurrence)
     : undefined;
   const usesNextOccurrence =
-    data.cancelled !== true &&
+    !cancelled &&
     ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
     nextOccurrence;
   const start = usesNextOccurrence ? new Date(nextOccurrence) : new Date(data.startDate);
