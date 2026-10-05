@@ -232,6 +232,7 @@ export function eventJsonLd(event: Event, siteUrl: string): Record<string, unkno
     ? new Date((data as any).nextOccurrence)
     : undefined;
   const usesNextOccurrence =
+    data.cancelled !== true &&
     ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
     nextOccurrence;
   const eventStartDate = usesNextOccurrence ? nextOccurrence : data.startDate;
@@ -450,6 +451,7 @@ export function eventCalendarUrl(data: Event['data'], canonical: string): string
     ? new Date((data as any).nextOccurrence)
     : undefined;
   const usesNextOccurrence =
+    data.cancelled !== true &&
     ['weekly', 'monthly', 'annual'].includes(String((data as any).recurrence ?? '')) &&
     nextOccurrence;
   const start = usesNextOccurrence ? new Date(nextOccurrence) : new Date(data.startDate);

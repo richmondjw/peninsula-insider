@@ -1,6 +1,6 @@
 export const SITE = 'https://peninsulainsider.com.au';
 export const agentRoutes = [
-  { title: 'Events and dates', href: '/whats-on/upcoming.json', format: 'JSON', description: 'Upcoming events, recurrence, event status and explicit weekend occurrences. Read the date window before answering.', companion: '/whats-on/', companionLabel: 'Browse What\'s On' },
+  { title: 'Events and dates', href: '/whats-on/upcoming.json', format: 'JSON', description: "Dated events, flexible experiences and offers. Read each item's date meaning, the feed window and any event status before answering.", companion: '/whats-on/', companionLabel: 'Browse What\'s On' },
   { title: 'Somewhere to eat', href: '/eat/', format: 'HTML', description: 'Find a place by the kind of visit, then follow its own page for the recommendation and practical details.' },
   { title: 'Wine and cellar doors', href: '/wine/', format: 'HTML', description: 'Keep estates, cellar doors and restaurants distinct, even when they share an address.' },
   { title: 'Somewhere to stay', href: '/stay/', format: 'HTML', description: 'Choose the setting and style of stay. Confirm availability and live prices with the operator.' },
@@ -23,3 +23,5 @@ export const agentResources = [
   { title: 'Access and reuse terms', href: '/terms/', description: 'Read the permitted uses before collecting or reusing content.' },
 ];
 export const agentCaveat = 'A publication date, sitemap date or new build does not mean every fact has been rechecked. If a source does not settle a detail, leave it unknown. Confirm time-sensitive details with the operator and cite the specific supporting page.';
+
+export const agentDateGuidance = 'Use the timezone declared by the feed: Australia/Melbourne for Mornington Peninsula listings. Date-only values do not imply midnight. Read dateMeaning: occurrence is a dated event, availability is a flexible experience window, and validity is an offer window. A weekend availability date does not confirm a booked session. Read explicit weekend dates and any event status, then confirm current sessions, cancellations or changes with the organiser.';

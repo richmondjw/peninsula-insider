@@ -231,6 +231,11 @@ def main() -> int:
             print(f"SKIP (parse error) {path.relative_to(EVENT_DIR)}: {e}")
             continue
 
+        # A cancelled edition retains its historical date. Recurrence maths
+        # cannot confirm a replacement date or revive a withdrawn series.
+        if data.get('cancelled') is True:
+            continue
+
         recurrence = data.get('recurrence', 'one-off')
         if recurrence not in RECURRING:
             continue

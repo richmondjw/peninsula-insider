@@ -147,7 +147,7 @@ const flexibleWhenLabel: Record<string, string> = {
   'opening-hours': 'Check current opening hours',
 };
 const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
-const usesNextOccurrence = ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
+const usesNextOccurrence = !cancelled && ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
 const whenLabel = unconfirmedArchivedSchedule ? 'No future date confirmed' : flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);

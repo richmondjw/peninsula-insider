@@ -70,6 +70,9 @@ jobs:
       # nextOccurrence to decide whether an annual event is waiting on next
       # year's date, so recompute-occurrence must run first.
 
+      - name: Verify cancelled-edition recurrence protection
+        run: python -m unittest discover -s next/scripts -p test_recompute_occurrence.py
+
       - name: Recompute event nextOccurrence
         run: python next/scripts/recompute-occurrence.py
 
