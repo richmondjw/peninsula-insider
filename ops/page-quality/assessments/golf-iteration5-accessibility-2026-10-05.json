@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-05",
+  "status": "built-local-pending-protected-release-and-independent-live-regrade",
+  "baseline": {
+    "exactLiveSourceRevision": "6e6f9d4d55c56cb36ef5148abd239030e8642e5b",
+    "independentMedianScore": 80.25,
+    "hardGates": "open"
+  },
+  "hypothesis": "Accessible names that begin with visible action text will clear the confirmed label-in-name defect; modestly larger access badges and verification notes will improve mobile readability.",
+  "boundedChange": [
+    "Fix label-in-name for all repeated club source, course guide and tee-time actions.",
+    "Increase access badge and dated-source text sizing without changing editorial facts or booking destinations."
+  ],
+  "metric": "All 28 course action links must have an accessible name starting with their visible text; no 320/390/1440 horizontal overflow or page errors.",
+  "evaluationDate": "2026-10-05",
+  "rollback": "Revert only this golf page commit if label, layout or task checks regress.",
+  "independentReview": "Reuse existing access/facts, UX/task and visual/mobile graders after exact public deployment.",
+  "localEvidence": {
+    "build": "TZ=UTC npm run build:search passed; 1015 HTML files and 711 indexed pages.",
+    "browser": "Built local /explore/golf/ returned HTTP 200 at 320, 390 and 1440 px; 11 cards, 28 action links, zero label-in-name failures, zero JS errors, no horizontal or card overflow.",
+    "badgeComputedFont": "11.2px at tested sizes"
+  },
+  "openGates": [
+    "Exact public release and independent regrade pending.",
+    "Direct screen-reader journey, human booking acceptance, exact-route field Core Web Vitals, original image rights receipts and page-level provenance reconciliation remain open."
+  ],
+  "decision": "adapt-continue"
+}

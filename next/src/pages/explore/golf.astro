@@ -356,13 +356,13 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={"Read current club information for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
               </div>
               <div class="golf-card__footer">
-                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Read the " + d.name + " course guide"}>Course guide →</a>
+                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Course guide \u2192 for " + d.name}>Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (!visitor || visitor.teeTimes) && (
                   <a
                     href={g.bookingUrl}
@@ -372,7 +372,7 @@ export const prerender = true;
                     data-pi-entity-type="golf-course"
                     data-pi-entity-slug={slug}
                     data-pi-surface="golf-card"
-                    aria-label={"Check " + d.name + " tee times, opens in a new tab"}
+                    aria-label={"Check tee times \u2197 for " + d.name + ", opens in a new tab"}
                   >Check tee times ↗</a>
                 )}
               </div>
@@ -419,13 +419,13 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={"Read current club information for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
               </div>
               <div class="golf-card__footer">
-                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Read the " + d.name + " course guide"}>Course guide →</a>
+                <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Course guide \u2192 for " + d.name}>Course guide →</a>
                 {g.bookingUrl && g.access !== 'private' && (!visitor || visitor.teeTimes) && (
                   <a
                     href={g.bookingUrl}
@@ -435,7 +435,7 @@ export const prerender = true;
                     data-pi-entity-type="golf-course"
                     data-pi-entity-slug={slug}
                     data-pi-surface="golf-card"
-                    aria-label={"Check " + d.name + " tee times, opens in a new tab"}
+                    aria-label={"Check tee times \u2197 for " + d.name + ", opens in a new tab"}
                   >Check tee times ↗</a>
                 )}
               </div>
@@ -861,9 +861,9 @@ export const prerender = true;
   /* ── Access badges ── */
   .golf-badge {
     display: inline-block;
-    font-size: 0.63rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     padding: 0.2rem 0.55rem;
     border-radius: 2rem;
@@ -917,9 +917,9 @@ export const prerender = true;
     line-height: 1.65;
     margin: 0;
   }
-  .golf-card__access-note { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.78rem; line-height: 1.5; color: var(--text); }
+  .golf-card__access-note { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.84rem; line-height: 1.5; color: var(--text); }
   .golf-card__access-note a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 700; }
-  .golf-card__access-note span { display: block; font-size: 0.7rem; color: var(--soft); }
+  .golf-card__access-note span { display: block; font-size: 0.76rem; color: var(--soft); }
   .golf-card__local {
     font-size: 0.82rem;
     color: #385a52;

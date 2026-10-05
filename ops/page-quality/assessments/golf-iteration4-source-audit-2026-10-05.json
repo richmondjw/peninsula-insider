@@ -4,7 +4,7 @@
   "tier": "T1",
   "family": "hub",
   "assessedAt": "2026-10-05",
-  "status": "bounded-source-correction-local-qa-passed-public-release-pending",
+  "status": "bounded-source-correction-public-release-accepted-independent-regrade-complete",
   "baseline": {
     "score": 74.5,
     "kind": "provisional independently reconciled public golf score",
@@ -95,8 +95,8 @@
   "verification": {
     "build": "TZ=UTC npm run build:search passed, including content, rights, provenance, link-health, SEO and site quality gates; 1015 HTML files found, 711 indexed pages.",
     "browser": "Final built page in headless Chrome at 320, 390 and 1440px: HTTP 200, zero page errors, zero horizontal overflow, 11 course cards, 11 source links, six distinct tee-time links and an 11-link native index. Dunes label 18 + 9; Rosebud 2 x 18; Portsea points to its official visitor calendar. The three updated cards were visually inspected at 390px.",
-    "public": "pending protected CI and live route verification",
-    "independentRegrade": "pending exact live revision"
+    "public": "PR #585 merged as 6e6f9d4; Build and Deploy 37293577782 succeeded. Public deployment.json and release-manifest.json matched. Chrome at 320, 390 and 1440px showed 11 cards/sources/index links, six distinct tee-time links, corrected course labels, zero errors or overflow.",
+    "independentRegrade": "Three independent exact-live rubric reviewers reconciled to provisional 80.25/100; accepted score remains null with hard gates open. See golf-iteration4-live-regrade-2026-10-05.json."
   },
   "remainingHardGates": [
     "Direct assistive-technology journey",
@@ -106,5 +106,5 @@
   ],
   "decision": "adapt-continue",
   "rollback": "Revert the scoped golf content, hub and article changes plus the associated link-probe and assessment records if public regression is observed.",
-  "nextAction": "Release bounded source correction through protected CI, verify exact public build and route, then request independent 23-criterion regrade."
+  "nextAction": "Correct confirmed label-in-name defect and small decision-label text, then continue normal-user booking, AT, rights and field metric acceptance."
 }
