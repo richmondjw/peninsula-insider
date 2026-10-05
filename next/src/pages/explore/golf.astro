@@ -72,7 +72,7 @@ const bayCourses = bayOrder
   .filter(Boolean) as typeof golfCourses;
 
 // Visitor rules change. Keep dated, direct club sources beside these claims.
-const visitorInfo: Record<string, { url: string; summary: string }> = {
+const visitorInfo: Record<string, { url: string; summary: string; teeTimes?: boolean; linkLabel?: string }> = {
   'the-national-golf-club': {
     url: 'https://nationalgolf.com.au/visitors/',
     summary: 'Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times.',
@@ -88,6 +88,41 @@ const visitorInfo: Record<string, { url: string; summary: string }> = {
   'sorrento-golf-club': {
     url: 'https://sorrentogolf.com.au/visitors/',
     summary: 'Limited visitor times; no visitor play from Boxing Day to the end of January.',
+  },
+  'moonah-links': {
+    url: 'https://www.moonahlinks.com.au/cms/golf/book-golf/',
+    summary: 'Public players register online before viewing tee times for Open and Legends.',
+    teeTimes: true,
+  },
+  'st-andrews-beach-golf-course': {
+    url: 'https://standrewsbeachgolf.com.au/',
+    summary: 'Fully public, seven days; tee times and current fees are published by the club.',
+    teeTimes: true,
+  },
+  'racv-cape-schanck-golf-course': {
+    url: 'https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html',
+    summary: 'Member and standard green fees; register to book an available tee time.',
+    teeTimes: true,
+  },
+  'eagle-ridge-golf-course': {
+    url: 'https://eagleridge.com.au/',
+    summary: 'Public online booking through the club-linked tee-time service.',
+    teeTimes: true,
+  },
+  'the-dunes-golf-links': {
+    url: 'https://thedunes.com.au/golf/prices-and-information-golf-rye/',
+    summary: "Compare the club's separate main-course and Cups rates before booking.",
+    teeTimes: true,
+  },
+  'rosebud-country-club': {
+    url: 'https://rosebudcountryclub.com.au/web/pages/play-golf',
+    summary: 'Register as a public golfer to view current North and South tee times.',
+    teeTimes: true,
+  },
+  'portsea-golf-club': {
+    url: 'https://portsea.miclub.com.au/cms/public-bookings/',
+    summary: 'Mon, Tue/Wed afternoons; limited Fri/Sun. Access narrows mid-Dec to early Feb.',
+    linkLabel: 'Visitor times and booking',
   },
 };
 
@@ -142,7 +177,7 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
   description: 'Compare 11 Mornington Peninsula golf courses by visitor access, location and playing style.',
   path: '/explore/golf/',
-  dateModified: '2026-10-04',
+  dateModified: '2026-10-05',
 });
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Golf Courses',
@@ -173,7 +208,7 @@ const faqSchema = buildFaqSchema([
   },
   {
     q: 'How much does golf cost on the Mornington Peninsula?',
-    a: 'Green fees vary significantly by course and season. The National and St Andrews Beach are at the premium end. Mornington Golf Club, Rosebud Country Club, and The Dunes are the most accessible options for budget-conscious visitors.',
+    a: "Green fees vary by course, season and tee time. Check each club's current rate and visitor eligibility before booking; several courses publish separate midweek and weekend prices.",
   },
   {
     q: 'Is there accommodation near the Peninsula golf courses?',
@@ -203,7 +238,7 @@ export const prerender = true;
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
-  modifiedTime="2026-10-04"
+  modifiedTime="2026-10-05"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -276,7 +311,7 @@ export const prerender = true;
       label: 'Elsewhere across the Peninsula',
       title: 'Different towns. Different terrain. Check the route.',
       rows: [
-        { label: 'Standout courses', value: 'Flinders Golf Club (18 coastal holes above Bass Strait, still under-visited), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)' },
+        { label: 'Standout courses', value: 'Flinders Golf Club (18 coastal holes above Bass Strait), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)' },
         { label: 'Access', value: 'Visitor access varies by club and tee time. Mornington, Eagle Ridge, The Dunes and Rosebud publish visitor information; confirm availability directly.' },
         { label: 'Conditions', value: 'Mixed terrain: exposed Western Port headland at Flinders, dunes at Rye, parkland at Boneo and bayside courses further north and south.' },
         { label: 'Best for', value: 'A day trip or a round near your chosen base. Pick by visitor eligibility, playing style and travel time.' },
@@ -310,7 +345,7 @@ export const prerender = true;
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access, slug)}</span>
                 </div>
-                <div class="golf-card__holes">{g.holes ? `${g.holes} holes` : ''}</div>
+                <div class="golf-card__holes">{slug === 'the-dunes-golf-links' ? '18 + 9 holes' : slug === 'rosebud-country-club' ? '2 x 18 holes' : g.holes ? `${g.holes} holes` : ''}</div>
               </div>
               <div class="golf-card__body">
                 <h3 class="golf-card__name">
@@ -320,15 +355,15 @@ export const prerender = true;
                   {d.address?.split(',')[1]?.trim() ?? d.place}
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
-                <p class="golf-card__note">{firstSentences(d.editorNote, 3)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={"Read " + d.name + " visitor rules, opens in a new tab"}>Club visitor rules ↗</a> <span>Checked 5 Oct 2026</span></p>}
+                <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={"Read current club information for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
               </div>
               <div class="golf-card__footer">
                 <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Read the " + d.name + " course guide"}>Course guide →</a>
-                {g.bookingUrl && g.access !== 'private' && !visitor && (
+                {g.bookingUrl && g.access !== 'private' && (!visitor || visitor.teeTimes) && (
                   <a
                     href={g.bookingUrl}
                     class="golf-card__book"
@@ -337,8 +372,8 @@ export const prerender = true;
                     data-pi-entity-type="golf-course"
                     data-pi-entity-slug={slug}
                     data-pi-surface="golf-card"
-                    aria-label={"Visit " + d.name + " website, opens in a new tab"}
-                  >Visit course website ↗</a>
+                    aria-label={"Check " + d.name + " tee times, opens in a new tab"}
+                  >Check tee times ↗</a>
                 )}
               </div>
             </article>
@@ -373,7 +408,7 @@ export const prerender = true;
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access, slug)}</span>
                 </div>
-                <div class="golf-card__holes">{g.holes ? `${g.holes} holes` : ''}</div>
+                <div class="golf-card__holes">{slug === 'the-dunes-golf-links' ? '18 + 9 holes' : slug === 'rosebud-country-club' ? '2 x 18 holes' : g.holes ? `${g.holes} holes` : ''}</div>
               </div>
               <div class="golf-card__body">
                 <h3 class="golf-card__name">
@@ -384,14 +419,14 @@ export const prerender = true;
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
                 <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={"Read " + d.name + " visitor rules, opens in a new tab"}>Club visitor rules ↗</a> <span>Checked 5 Oct 2026</span></p>}
+                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={"Read current club information for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Checked 5 Oct 2026</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
                 )}
               </div>
               <div class="golf-card__footer">
                 <a href={`/explore/${slug}/`} class="pi-btn pi-btn--text" aria-label={"Read the " + d.name + " course guide"}>Course guide →</a>
-                {g.bookingUrl && g.access !== 'private' && !visitor && (
+                {g.bookingUrl && g.access !== 'private' && (!visitor || visitor.teeTimes) && (
                   <a
                     href={g.bookingUrl}
                     class="golf-card__book"
@@ -400,8 +435,8 @@ export const prerender = true;
                     data-pi-entity-type="golf-course"
                     data-pi-entity-slug={slug}
                     data-pi-surface="golf-card"
-                    aria-label={"Visit " + d.name + " website, opens in a new tab"}
-                  >Visit course website ↗</a>
+                    aria-label={"Check " + d.name + " tee times, opens in a new tab"}
+                  >Check tee times ↗</a>
                 )}
               </div>
             </article>
@@ -464,7 +499,7 @@ export const prerender = true;
             </li>
             <li>
               <strong>The Dunes Golf Links</strong>
-              <span>Tony Cashmore's links design near Rye. Genuine dune terrain, genuine links feel, and public access at accessible pricing.</span>
+              <span>An 18-hole public links course through rolling Rye dunes, with the shorter nine-hole Cups Course on site.</span>
             </li>
             <li>
               <strong>Eagle Ridge Golf Course</strong>
@@ -472,7 +507,7 @@ export const prerender = true;
             </li>
             <li>
               <strong>RACV Cape Schanck</strong>
-              <span>Ocean views, accessible layout, on-site accommodation. The resort package that lets the non-golfer have an equally good day.</span>
+              <span>Tree-lined fairways, elevated ocean views and resort accommodation. Check both member and standard tee-time rates.</span>
             </li>
           </ul>
         </div>
@@ -486,19 +521,19 @@ export const prerender = true;
           <ul class="game-panel__list">
             <li>
               <strong>Mornington Golf Club</strong>
-              <span>Closest Peninsula course to Melbourne. Bay-side position. Relaxed club atmosphere. The easiest Peninsula round to organise on short notice.</span>
+              <span>Bay-side golf at Mornington, with visitor green fees and advance tee-time booking through the club.</span>
             </li>
             <li>
               <strong>Rosebud Country Club</strong>
-              <span>27-hole mix-and-match format. Three nine-hole courses you can combine however suits the group. Most-played Peninsula course for a reason.</span>
+              <span>Two 18-hole courses, North and South. Check which has visitor tee times before choosing your round.</span>
             </li>
             <li>
-              <strong>The Dunes - midweek</strong>
-              <span>Midweek pricing makes this one of the best-value rounds on the Peninsula. The links feel is genuine even if you're not attacking it.</span>
+              <strong>The Cups at The Dunes</strong>
+              <span>The nine-hole Cups Course is a shorter option for mixed-experience groups; compare current green fees with the main 18.</span>
             </li>
             <li>
               <strong>Sorrento Golf Club</strong>
-              <span>Parkland at the Peninsula's tip. Call ahead for availability. Best for those staying in Sorrento or Portsea who want a morning round within walking distance.</span>
+              <span>Limited visitor times at the Peninsula tip; no visitor play from Boxing Day through January.</span>
             </li>
           </ul>
         </div>
@@ -691,7 +726,7 @@ export const prerender = true;
         <details class="golf-faq__item">
           <summary class="golf-faq__q">How much does golf cost on the Mornington Peninsula?</summary>
           <div class="golf-faq__a">
-            <p>Green fees vary significantly by course and season - always verify current rates directly before booking. Broadly: St Andrews Beach is at the premium end; The National publishes separate fees for eligible visitors. Moonah Links is premium but offers better value for what you get. Eagle Ridge, The Dunes, Mornington, and Rosebud are the most accessible options. Midweek rates at most courses are substantially lower than weekend rates.</p>
+            <p>Green fees change with season, day and tee time. RACV, Moonah Links and The Dunes publish rates; other clubs may show a live price in their booking calendar. Check visitor eligibility and the current amount directly with each club before committing to a round.</p>
           </div>
         </details>
 
@@ -923,8 +958,10 @@ export const prerender = true;
     font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: var(--soft);
-    text-decoration: none;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
     transition: color 0.18s;
   }
   .golf-card__book:hover, .golf-card__book:focus-visible { color: var(--text); }

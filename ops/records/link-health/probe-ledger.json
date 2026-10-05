@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-05T05:28:07.338Z",
+  "updatedAt": "2026-10-05T09:29:17.719Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -310,6 +310,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://capeschanck.miclub.com.au/cms/public-bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "RACV Cape Schanck Resort - Cape Schanck Golf Club",
+      "probedOn": "2026-10-05",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://cassisredhill.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -542,6 +550,14 @@
       "pageTitle": "Policies and Procedures - Dromana Community Market",
       "effectiveUrl": "https://dromanamarket.org.au/policies-and-procedures/",
       "probedOn": "2026-09-24",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://dunes.miclub.com.au/guests/bookings/ViewPublicCalendar.msp?booking_resource_id=3000000",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "MiClub Online Tee Times",
+      "probedOn": "2026-10-05",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -1316,6 +1332,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://moonahlinks.com.au/guests/bookings/ViewPublicCalendar.msp",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "MiClub Online Tee Times",
+      "probedOn": "2026-10-05",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://moonlitsanctuary.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -1727,6 +1751,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://portsea.miclub.com.au/cms/public-bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Public Bookings - Portsea Golf Club",
+      "probedOn": "2026-10-05",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://ptleoestate.com.au",
       "verdict": "blocked",
       "httpCode": "202",
@@ -1830,6 +1862,14 @@
       "pageTitle": "Mornington Peninsula"
     },
     {
+      "url": "https://rosebud.miclub.com.au/cms/public-bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Public Bookings - Rosebud Country Club",
+      "probedOn": "2026-10-05",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://rosebudps.vic.edu.au/community/",
       "verdict": "ok",
       "httpCode": "200",
@@ -1928,6 +1968,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://standrews.miclub.com.au/cms/public-bookings/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Public Bookings - St Andrew Beach Golf",
+      "probedOn": "2026-10-05",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://stringerssorrento.com.au",
@@ -2739,6 +2787,14 @@
       "httpCode": "200",
       "pageTitle": "The Terrace | Cassis Red Hill",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.chronogolf.com/club/eagle-ridge-golf-club-victoria",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book Eagle Ridge Golf Course Tee Times in Boneo, Victoria",
+      "probedOn": "2026-10-05",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

@@ -37,11 +37,11 @@ clusterLinks:
     href: "/explore/plans/mornington-peninsula-golf-stay-and-play/"
 faq:
   - question: "What is the best public golf course on the Mornington Peninsula?"
-    answer: "St Andrews Beach - world-ranked Tom Doak design, public access, bookable online. If it's full, The Dunes and Moonah Links are the next tier. All three are in the Cape Schanck–Fingal corridor at the southern end of the Peninsula."
+    answer: "St Andrews Beach is a fully public Tom Doak design in Fingal. Moonah Links is also in Fingal, while The Dunes is in Rye; all offer public tee times through their own booking sites."
   - question: "Is The National Golf Club on the Mornington Peninsula open to the public?"
-    answer: "No - The National is a private member club. Three courses (Old, Moonah, Gunnamatta), arguably the strongest overall property in the region, but access requires member invitation or reciprocal rights. Important to know about, not bookable directly."
+    answer: "The National is private. Victorian nonmembers need a member invitation and accompaniment; interstate and overseas visitors may request a tee time directly under the club's visitor policy. Three courses are at Cape Schanck and Long Island is at Frankston."
   - question: "When is the best time to play golf on the Mornington Peninsula?"
-    answer: "Autumn (March–May) and spring (September–November) for the best combination of weather, availability, and pricing. Summer weekends are busiest and most expensive. Midweek rounds are 30–40% cheaper than weekend rates and the courses are significantly quieter."
+    answer: "Autumn and spring can be comfortable times to play, but weather and availability vary. Green fees change by course, season and tee time; compare live club calendars before choosing a date."
 gallery:
   - src: "/images/visit-victoria/vv-146894-national-golf-course-7th-hole-putting-green.webp"
     alt: "Aerial view of a green and bunker cut into dense coastal scrub at The National Golf Club, with the open sea behind"
@@ -215,7 +215,7 @@ One of the Peninsula's most respected public-access experiences and still centra
 
 ### Rosebud Country Club
 
-Less architectural mythology than the top pair, but highly relevant because it is practical, playable, and widely used. Three 9-hole courses mix-and-match into 18. Good value for a casual round.
+Less architectural mythology than the top pair, but highly relevant because it is practical, playable, and widely used. The club has two 18-hole courses, North and South, and publishes public booking options. Compare current tee times before choosing a round.
 
 ## Tier 3: Strong rounds, narrower fit
 
@@ -226,7 +226,7 @@ Short, scenic, close to town. Good for a relaxed round between other Peninsula a
 Part of the Cape Schanck Resort. Scenic coastal holes and full resort integration for members and guests.
 
 ### Portsea Golf Club
-Classic Peninsula member's club on the tip. Beautiful setting. Access depends on membership or reciprocal rights.
+Classic Peninsula members' club on the tip. Limited visitor tee times are available on published days, with tighter access from mid-December to early February.
 
 ### Flinders Golf Club
 Compact but scenic. Sits above the southern coast in <a href="/explore/places/flinders/">Flinders</a>. More a local favourite than a destination round.
