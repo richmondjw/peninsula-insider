@@ -4,8 +4,8 @@
  *
  * Triggered by any element with [data-open-search] (the masthead pill,
  * mobile-nav search row, etc). Opens a centered modal with a Pagefind-
- * powered live search. Hitting Enter or clicking "See all results" navigates
- * to /search?q=<query> for the full results page experience.
+ * powered live search. Hitting Enter or opening full search navigates to /search/,
+ * preserving a populated query for the full results page experience.
  *
  * Pagefind is dynamically imported on first open so the overlay carries no
  * JS cost on pages where it's never shown. Index file lives at
@@ -60,7 +60,7 @@
     </form>
 
     <div class="site-search-overlay__hint">
-      <p>Press <kbd>Enter</kbd> to see all results, or pick a suggestion.</p>
+      <p>Press <kbd>Enter</kbd> to open full search, or choose a suggestion.</p>
     </div>
 
     <div class="site-search-overlay__body" id="siteSearchOverlayBody">
@@ -79,8 +79,8 @@
       <p class="site-search-overlay__status" id="siteSearchOverlayStatus" role="status" aria-live="polite" hidden></p>
       <ul class="site-search-overlay__results" id="siteSearchOverlayResults" aria-label="Search suggestions" hidden></ul>
 
-      <a class="pi-btn pi-btn--ghost" id="siteSearchOverlayCTA" href="/search/" hidden>
-        <span>See all results</span>
+      <a class="pi-btn pi-btn--ghost" id="siteSearchOverlayCTA" href="/search/">
+        <span>Open full search</span>
         <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M5 10h10M11 5l5 5-5 5" />
         </svg>
@@ -222,6 +222,7 @@
       const { overlay, input } = els;
       if (overlay.dataset.open === 'true') return;
       state.lastFocus = document.activeElement;
+      if (!input?.value.trim()) showSuggestions(els);
       overlay.dataset.open = 'true';
       overlay.setAttribute('aria-hidden', 'false');
       document.body.classList.add('search-open');
@@ -267,10 +268,17 @@
     }
 
     function showSuggestions(els) {
+      // Cleared or reopened search must not receive an older query's results.
+      state.searchToken += 1;
       if (els.suggestions) els.suggestions.hidden = false;
       if (els.status) { els.status.hidden = true; els.status.textContent = ''; }
       if (els.list) els.list.hidden = true;
-      if (els.cta) els.cta.hidden = true;
+      if (els.cta) {
+        els.cta.hidden = false;
+        els.cta.href = '/search/';
+        const span = els.cta.querySelector('span');
+        if (span) span.textContent = 'Open full search';
+      }
     }
 
     function showResults(els, results, query) {
@@ -470,7 +478,17 @@
           clearTimeout(inputDebounce);
           const els2 = getEls();
           if (!els2) return;
-          inputDebounce = setTimeout(() => runSearch(els2, input.value), 80);
+          const inputToken = ++state.searchToken;
+          if (!input.value.trim()) { showSuggestions(els2); return; }
+          if (els2.cta) {
+            els2.cta.hidden = false;
+            els2.cta.href = '/search/?q=' + encodeURIComponent(input.value.trim());
+            const span = els2.cta.querySelector('span');
+            if (span) span.textContent = 'Open full search';
+          }
+          inputDebounce = setTimeout(() => {
+            if (inputToken === state.searchToken) runSearch(els2, input.value);
+          }, 80);
         });
       }
 
@@ -480,8 +498,7 @@
           e.preventDefault();
           const els2 = getEls();
           const q = (els2 && els2.input && els2.input.value || '').trim();
-          if (!q) return;
-          window.location.href = '/search/?q=' + encodeURIComponent(q);
+          window.location.href = q ? '/search/?q=' + encodeURIComponent(q) : '/search/';
         });
       }
     }
