@@ -4,7 +4,7 @@
   "tier": "T1",
   "family": "hub",
   "assessedAt": "2026-10-05",
-  "status": "built-local-pending-protected-release-and-independent-live-regrade",
+  "status": "released-public-verified-independent-regrade-recorded",
   "baseline": {
     "exactLiveSourceRevision": "6e6f9d4d55c56cb36ef5148abd239030e8642e5b",
     "independentMedianScore": 80.25,
@@ -28,5 +28,11 @@
     "Exact public release and independent regrade pending.",
     "Direct screen-reader journey, human booking acceptance, exact-route field Core Web Vitals, original image rights receipts and page-level provenance reconciliation remain open."
   ],
-  "decision": "adapt-continue"
+  "decision": "adapt-continue",
+  "publicEvidence": {
+    "sourceSha": "13da0dfc0881cfde7a4ddddf50fcb24a3a5dbf74",
+    "buildRunId": "37299129926",
+    "labelChecks": "28/28 public action accessible names begin with exact visible label at 320/390/1440; no overflow or page errors.",
+    "score": "Independent provisional median 81.5/100; 99 not accepted."
+  }
 }

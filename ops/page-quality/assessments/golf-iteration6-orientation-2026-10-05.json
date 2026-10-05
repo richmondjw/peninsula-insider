@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-05",
+  "status": "built-independent-local-regression-passed-pending-protected-release",
+  "baseline": {
+    "exactLiveSourceRevision": "13da0dfc0881cfde7a4ddddf50fcb24a3a5dbf74",
+    "independentMedianScore": 81.5,
+    "hardGates": "open",
+    "mobile320": {
+      "pageHeightPx": 21714,
+      "comparisonHeightPx": 2263.1,
+      "firstCourseTopPx": 3957.5
+    },
+    "mobile390": {
+      "pageHeightPx": 19190,
+      "comparisonHeightPx": 1925.0,
+      "firstCourseTopPx": 3543.9
+    }
+  },
+  "hypothesis": "A concise regional choice with direct section links will get mobile visitors to relevant course cards faster while retaining access distinctions in those cards.",
+  "boundedChange": [
+    "Replace only the golf hub comparison with two concise region cards.",
+    "Link each region choice to its existing course section and keep all 11 course cards and official visitor notes.",
+    "Add Flinders/Rye/Boneo terrain contrast after visual review and remove repeated section-intro access copy."
+  ],
+  "metric": "Reduce 320px pre-card scroll by at least 1000px; keep both region links functional and accessible, all 11 course cards, no horizontal overflow or page errors at 320/390/1440.",
+  "evaluationDate": "2026-10-05",
+  "rollback": "Revert only this golf hub iteration if access nuance, navigation or responsive layout regresses.",
+  "independentReview": "Three existing reviewers assessed the built local preview read-only: access/facts PASS, UX/task GO, visual/mobile PASS with terrain-contrast copy incorporated. No live score inferred.",
+  "localEvidence": {
+    "build": "TZ=UTC npm run build:search passed; 1015 HTML files, 711 indexed pages.",
+    "mobile320": {
+      "pageHeightPx": 20251,
+      "comparisonHeightPx": 848.1,
+      "firstCourseTopPx": 2495.0,
+      "firstCourseReductionPx": 1462.5
+    },
+    "mobile390": {
+      "pageHeightPx": 17969,
+      "comparisonHeightPx": 728.1,
+      "firstCourseTopPx": 2323.2,
+      "firstCourseReductionPx": 1220.7
+    },
+    "desktop1440": {
+      "pageHeightPx": 10452,
+      "comparisonHeightPx": 495.1,
+      "firstCourseTopPx": 2001.8
+    },
+    "browser": "Final built local route HTTP 200 at 320/390/1440, 11 cards, both region targets present, zero page errors and horizontal overflow; independent UX verified mouse/keyboard Enter, 44px links and anchor landing below sticky header."
+  },
+  "openGates": [
+    "Public protected CI/release and exact-live independent score pending.",
+    "Booking destination, direct screen-reader, field CWV/CLS, provenance and original image grants remain open."
+  ],
+  "decision": "adapt-continue"
+}

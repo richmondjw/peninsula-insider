@@ -6,7 +6,6 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import GuideHero from '../../components/GuideHero.astro';
 import PhotoStage from '../../components/PhotoStage.astro';
 import { verifiedPhotos } from '../../lib/photo-set';
-import CompareBlock from '../../components/CompareBlock.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   buildCollectionPageSchema,
@@ -292,44 +291,40 @@ export const prerender = true;
   <!-- ═══════════════════════════════════════════════════════════════
        2. ORIENTATION: Cape Schanck vs other Peninsula courses
        ═══════════════════════════════════════════════════════════════ -->
-  <CompareBlock
-    eyebrow="Compare your options"
-    heading="Coastal cluster or a different part of the Peninsula"
-    dek="The clubs span several towns and coastlines. Start with access, terrain and travel time."
-    left={{
-      label: 'Cape Schanck / Fingal',
-      title: 'Coastal. Exposed. Worth the drive to the tip.',
-      rows: [
-        { label: 'Flagship courses', value: 'St Andrews Beach (Tom Doak), Moonah Links (Peter Thomson and Ross Perrett), The National (Robert Trent Jones Jr, Greg Norman and Tom Doak) - three of The National\'s four courses sit here; the fourth, Long Island, is at Frankston.' },
-        { label: 'Access', value: 'St Andrews Beach and Moonah Links are fully public. The National is private: Victorian nonmembers need an invitation and must play with a member; interstate and overseas visitors can request tee times directly.' },
-        { label: 'Conditions', value: 'Coastal duneland. Exposed to Bass Strait wind. The same course plays differently on every visit.' },
-        { label: 'Best for', value: 'Serious golfers. Destination weekends. Groups who want the bucket-list round. Stay-and-play packages.' },
-        { label: 'Combine with', value: 'Peninsula Hot Springs (15 min). Cape Schanck boardwalk. Fingal or Flinders for lunch.' },
-      ],
-    }}
-    right={{
-      label: 'Elsewhere across the Peninsula',
-      title: 'Different towns. Different terrain. Check the route.',
-      rows: [
-        { label: 'Standout courses', value: 'Flinders Golf Club (18 coastal holes above Bass Strait), The Dunes (Tony Cashmore links design), Eagle Ridge (Boneo parkland)' },
-        { label: 'Access', value: 'Visitor access varies by club and tee time. Mornington, Eagle Ridge, The Dunes and Rosebud publish visitor information; confirm availability directly.' },
-        { label: 'Conditions', value: 'Mixed terrain: exposed Western Port headland at Flinders, dunes at Rye, parkland at Boneo and bayside courses further north and south.' },
-        { label: 'Best for', value: 'A day trip or a round near your chosen base. Pick by visitor eligibility, playing style and travel time.' },
-        { label: 'Combine with', value: 'Check your course location first: Boneo, Rye, Flinders and Mornington are separate drives.' },
-      ],
-    }}
-  />
+  <section class="golf-orientation" aria-labelledby="golf-orientation-title">
+    <div class="container">
+      <div class="golf-orientation__intro">
+        <p class="label label--accent">Compare your options</p>
+        <h2 id="golf-orientation-title">Start with where you want to play</h2>
+        <p>Choose a part of the Peninsula, then compare access and playing style in the course cards.</p>
+      </div>
+      <div class="golf-orientation__grid">
+        <article class="golf-orientation__card">
+          <div class="golf-orientation__meta"><span>Southern coast</span><span>4 courses</span></div>
+          <h3>Fingal and Cape Schanck</h3>
+          <p>Exposed coastal golf. St Andrews Beach, Moonah Links and RACV offer visitor play; The National has private-club rules.</p>
+          <a href="#cape-courses">Compare four courses <span aria-hidden="true">→</span></a>
+        </article>
+        <article class="golf-orientation__card">
+          <div class="golf-orientation__meta"><span>Across the Peninsula</span><span>7 courses</span></div>
+          <h3>Seven towns and settings</h3>
+          <p>From Flinders headland and Rye dunes to Boneo parkland and bayside towns. Check club access and the drive from your base.</p>
+          <a href="#across-courses">Compare seven courses <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
        3. CAPE SCHANCK / FINGAL CLUSTER
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="experience-index" aria-label="Cape Schanck golf courses">
+  <section class="experience-index" id="cape-courses" aria-label="Cape Schanck golf courses">
     <div class="container">
       <div class="venues__header">
         <div>
           <p class="label label--accent">Cape Schanck / Fingal cluster</p>
           <h2 class="venues__title">Cape Schanck and Fingal courses</h2>
-          <p class="venues__sub">Four southern Peninsula courses with different access rules: three offer visitor tee times, while The National has private-club eligibility.</p>
+          <p class="venues__sub">Four southern Peninsula courses with different access rules and playing styles.</p>
         </div>
       </div>
       <div class="golf-grid golf-grid--cape">
@@ -386,7 +381,7 @@ export const prerender = true;
   <!-- ═══════════════════════════════════════════════════════════════
        4. OTHER PENINSULA COURSES
        ═══════════════════════════════════════════════════════════════ -->
-  <section class="experience-index experience-index--plain" aria-label="Golf courses across the Peninsula">
+  <section class="experience-index experience-index--plain" id="across-courses" aria-label="Golf courses across the Peninsula">
     <div class="container">
       <div class="venues__header">
         <div>
@@ -771,6 +766,63 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  .golf-orientation {
+    padding: clamp(2.6rem, 5vw, 4.2rem) 0;
+    background: var(--bg-alt);
+  }
+  .golf-orientation__intro { max-width: 45rem; margin-bottom: 1.5rem; }
+  .golf-orientation__intro h2 {
+    margin: 0.35rem 0 0.55rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    line-height: 1.15;
+    color: var(--dark);
+  }
+  .golf-orientation__intro > p:last-child { margin: 0; color: var(--soft); line-height: 1.55; }
+  .golf-orientation__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .golf-orientation__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    padding: clamp(1.15rem, 2vw, 1.7rem);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    background: var(--white);
+  }
+  .golf-orientation__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.35rem 1rem;
+    color: var(--accent);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .golf-orientation__card h3 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2vw, 1.65rem);
+    line-height: 1.2;
+    color: var(--dark);
+  }
+  .golf-orientation__card p { margin: 0; color: var(--text); font-size: 0.92rem; line-height: 1.55; }
+  .golf-orientation__card a {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    min-height: 44px;
+    margin-top: auto;
+    color: var(--accent);
+    font-weight: 700;
+    text-underline-offset: 3px;
+  }
+  .golf-orientation__card a span { margin-left: 0.25rem; }
+  #cape-courses, #across-courses { scroll-margin-top: 9rem; }
+  @media (max-width: 700px) {
+    .golf-orientation__grid { grid-template-columns: 1fr; }
+  }
   .golf-quick { background: var(--white); border-bottom: 1px solid var(--border); scroll-margin-top: 12rem; }
   .golf-quick__inner { padding-top: 1.2rem; padding-bottom: 1.35rem; }
   .golf-quick__prompt { margin: 0 0 0.7rem; font-family: var(--font-display); font-weight: 600; color: var(--dark); }
