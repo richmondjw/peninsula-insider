@@ -1,0 +1,110 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub",
+  "assessedAt": "2026-10-05",
+  "status": "bounded-source-correction-local-qa-passed-public-release-pending",
+  "baseline": {
+    "score": 74.5,
+    "kind": "provisional independently reconciled public golf score",
+    "assessment": "golf-iteration3-live-regrade-2026-10-05.json"
+  },
+  "hypothesis": "Correcting course topology, volatile access claims and tee-time paths will improve factual trust and decision completion without claiming a completed reservation.",
+  "defects": [
+    {
+      "slug": "the-dunes-golf-links",
+      "observed": "Record reversed main and secondary courses and invented a Cottage par-three course.",
+      "correction": "The Dunes is the public championship 18; The Cups is a separate nine-hole links course."
+    },
+    {
+      "slug": "rosebud-country-club",
+      "observed": "Record and linked article claimed 27 holes across three nine-hole courses.",
+      "correction": "Club publishes 36 holes across two 18-hole courses, North and South."
+    },
+    {
+      "slug": "portsea-golf-club",
+      "observed": "Visitor day and summer limitations absent from record.",
+      "correction": "Club publishes limited visitor windows, including weekday and qualified Sunday times, with reduced access mid-December to early February."
+    },
+    {
+      "slug": "racv-cape-schanck-golf-course",
+      "observed": "Unsupported claim that ocean is physically in play on most of back nine.",
+      "correction": "RACV describes tree-lined fairways and ocean views from elevated tees."
+    },
+    {
+      "slug": "moonah-links",
+      "observed": "Record incorrectly described St Andrews as only a course and made unsupported pricing and non-golfer claims.",
+      "correction": "Moonah Links and St Andrews each publish accommodation and visitor booking options."
+    }
+  ],
+  "boundedChanges": [
+    "Rewrite seven course notes to remove incorrect topology, unsourced price comparisons and unsupported superlatives.",
+    "Replace generic homepage or absent golf bookingUrl fields with seven club-linked public tee-time or visitor-booking routes.",
+    "Add dated club source links and clear tee-time actions to the hub course cards.",
+    "Correct conflicting Rosebud, Portsea and price statements in the linked tier article and hub FAQ/game selector."
+  ],
+  "primarySources": [
+    {
+      "url": "https://www.moonahlinks.com.au/cms/golf/book-golf/",
+      "finding": "Public online registration precedes tee-time selection; Open and Legends courses, accommodation and dining listed."
+    },
+    {
+      "url": "https://standrewsbeachgolf.com.au/",
+      "finding": "Tom Doak course fully public seven days; The Glasshouse cafe and on-site accommodation are now listed."
+    },
+    {
+      "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html",
+      "finding": "18-hole par-70 Robert Trent Jones Jr course; tree-lined fairways, elevated ocean views and member/standard rates."
+    },
+    {
+      "url": "https://capeschanck.miclub.com.au/cms/public-bookings/",
+      "finding": "Registration is required before booking online."
+    },
+    {
+      "url": "https://eagleridge.com.au/",
+      "finding": "Club links directly to Chronogolf booking; Boneo address confirmed."
+    },
+    {
+      "url": "https://www.chronogolf.com/club/eagle-ridge-golf-club-victoria",
+      "finding": "Club-linked public 18-hole online booking destination."
+    },
+    {
+      "url": "https://thedunes.com.au/",
+      "finding": "The Dunes main course is 18 holes and The Cups is a separate nine-hole links layout."
+    },
+    {
+      "url": "https://thedunes.com.au/golf/prices-and-information-golf-rye/",
+      "finding": "Publishes separate current main and Cups green-fee rates."
+    },
+    {
+      "url": "https://rosebudcountryclub.com.au/web/pages/play-golf",
+      "finding": "Club describes 36 holes in North and South 18-hole courses."
+    },
+    {
+      "url": "https://rosebud.miclub.com.au/cms/public-bookings/",
+      "finding": "Public players register before viewing and booking tee times."
+    },
+    {
+      "url": "https://portsea.miclub.com.au/cms/public-bookings/",
+      "finding": "Limited visitor times Monday, Tuesday/Wednesday afternoons, Friday and qualified Sunday; tighter access mid-December to early February."
+    }
+  ],
+  "sourceCheckedOn": "2026-10-05",
+  "linkProbe": "Seven new golf.bookingUrl entries were probed individually through the repository probe writer; all seven returned ok and were recorded in ops/records/link-health/probe-ledger.json.",
+  "verification": {
+    "build": "TZ=UTC npm run build:search passed, including content, rights, provenance, link-health, SEO and site quality gates; 1015 HTML files found, 711 indexed pages.",
+    "browser": "Final built page in headless Chrome at 320, 390 and 1440px: HTTP 200, zero page errors, zero horizontal overflow, 11 course cards, 11 source links, six distinct tee-time links and an 11-link native index. Dunes label 18 + 9; Rosebud 2 x 18; Portsea points to its official visitor calendar. The three updated cards were visually inspected at 390px.",
+    "public": "pending protected CI and live route verification",
+    "independentRegrade": "pending exact live revision"
+  },
+  "remainingHardGates": [
+    "Direct assistive-technology journey",
+    "Field Core Web Vitals and CLS for this route",
+    "Original grant receipts for all Visit Victoria images",
+    "Complete record-level freshness and post-release independent 23-criterion grading"
+  ],
+  "decision": "adapt-continue",
+  "rollback": "Revert the scoped golf content, hub and article changes plus the associated link-probe and assessment records if public regression is observed.",
+  "nextAction": "Release bounded source correction through protected CI, verify exact public build and route, then request independent 23-criterion regrade."
+}
