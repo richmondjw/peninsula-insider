@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "family": "hub-and-three-course-details",
+  "assessedAt": "2026-10-06",
+  "status": "built-independent-source-reviewed-pending-protected-release",
+  "baseline": {
+    "exactLiveSourceRevision": "f0692dce8a2217845e6adf838c5eb679e6472ad5",
+    "buildRunId": "37325869455",
+    "provisionalReconciledScore": 83.5,
+    "hardGates": "open",
+    "defects": [
+      "Flinders and Mornington records attributed subjective assessments to unnamed Peninsula club golfers without a field-reporting receipt; Mornington also asserted unsupported nearest-course, drive-time and value comparisons.",
+      "Portsea hub and record supplied a fixed visitor day list while current pages of the same operator list different days.",
+      "Flinders and Portsea records contained street addresses differing from the operators' current directions pages; these surfaced on detail pages and in structured data."
+    ]
+  },
+  "hypothesis": "Removing unattributed editorial claims and conflicting booking-day guidance while correcting operator-published addresses will improve factual trust and usable course wayfinding without changing the visual system.",
+  "boundedChange": [
+    "Replace Flinders and Mornington editor notes, local reads and green-fee notes with sourceable descriptions and current-booking guidance.",
+    "Replace Portsea's fixed visitor-day summary and record note with date-specific calendar and pro-shop guidance.",
+    "Correct Flinders address to Bass Street, Flinders VIC 3929 and Portsea address to 46 London Bridge Road, Portsea VIC 3944."
+  ],
+  "sources": [
+    {
+      "claim": "Flinders visitor windows, fees and shop contact",
+      "url": "https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/"
+    },
+    {
+      "claim": "Flinders address",
+      "url": "https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/location-and-directions/"
+    },
+    {
+      "claim": "Mornington public green-fee booking and bay views",
+      "url": "https://www.morningtongolf.com.au/cms/golf/public-golf/"
+    },
+    {
+      "claim": "Portsea golf enquiry days and course setting",
+      "url": "https://portseagolf.com.au/golf/"
+    },
+    {
+      "claim": "Portsea accommodation FAQ lists different visitor days",
+      "url": "https://portseagolf.com.au/accommodation/"
+    },
+    {
+      "claim": "Portsea address and pro-shop contact",
+      "url": "https://portseagolf.com.au/contact/"
+    }
+  ],
+  "metric": "No disputed hearsay, nearest-course, fixed Portsea day or obsolete address survives in the built hub/detail pages; correct addresses render visibly and in structured data; mobile/desktop have no overflow or page errors.",
+  "evaluationDate": "2026-10-06",
+  "rollback": "Revert only the four content/source files if an operator correction or visitor-task regression is evidenced; retain the original source snapshots in Git.",
+  "independentReview": "Existing independent access/facts reviewer checked the scoped edits against official club pages, found no new unsupported claim, and discovered the two address defects. Its review is source-level, not a live score or all-gates certification.",
+  "localEvidence": {
+    "build": "TZ=Australia/Sydney npm run build:search passed on the rebased final source; 1015 HTML files and 711 indexed pages.",
+    "browser": "Built local Flinders, Mornington and Portsea detail pages returned HTTP 200 at 390 and 1440; zero horizontal overflow and JS page errors. Flinders/Portsea visible and schema addresses corrected; disputed hearsay, old addresses and fixed Portsea day statement absent. Built hub carries current-calendar guidance.",
+    "unchangedMetadata": "All three record lastVerified dates remain 2026-04-14; this partial source review does not assert whole-record verification."
+  },
+  "openGates": [
+    "Protected CI, Pages publication, exact live revision and independent 23-criterion regrade of this iteration pending.",
+    "Normal-user booking acceptance, direct screen-reader journey and exact-route field CWV/CLS unresolved.",
+    "Broader golf-record facts and original Visit Victoria written rights clarification remain unresolved."
+  ],
+  "decision": "adapt-continue"
+}
