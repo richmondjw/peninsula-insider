@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-04T06:28:55.571Z",
+  "updatedAt": "2026-10-05T05:28:07.338Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1871,6 +1871,14 @@
       "httpCode": "200",
       "pageTitle": "Hotels Sorrento, Mornington Peninsula | InterContinental Sorrento",
       "probedOn": "2026-09-30",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://sorrentogolf.com.au/visitors/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Visitors &#8211; Sorrento Golf Club",
+      "probedOn": "2026-10-05",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
