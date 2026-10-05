@@ -1,16 +1,19 @@
+import {verifyAutomatedCandidate,automatedAstroRecord} from './editorial-automation.mjs';
 import {approvedEventContent} from '../../next/src/lib/event-publication.mjs';
 import {materializeSeries} from './series.mjs';
 import {candidateRevision,htmlEscape} from './data.mjs';
 import {verifyCandidate} from './verify.mjs';
 import {productionDecision} from './editorial.mjs';
-export function approvalReady(candidate,evidence,now=new Date()) {
+export function approvalReady(candidate,evidence,now=new Date(),{automation}={}) {
+ if(automation!==undefined){const verification=verifyAutomatedCandidate(candidate,evidence,{...automation,now});return {ready:verification.ready,verification,decision:{path:verification.ready?'standard-listing':'review',requiresHumanApproval:false,authority:verification.actor,visualTreatment:'text-only',featureRequiresReporting:true}};}
  const verification=verifyCandidate(candidate,evidence,{now});
  const decision=productionDecision(candidate,verification);
  const approval=candidate.approval;
  const ready=verification.ready&&decision.path!=='review'&&approval?.by==='James'&&approval.revision===candidateRevision(candidate)&&new Date(approval.at)<=now;
  return {ready,verification,decision};
 }
-export function astroRecord(candidate,evidence,{now=new Date()}={}) {
+export function astroRecord(candidate,evidence,{now=new Date(),automation}={}) {
+ if(automation!==undefined)return automatedAstroRecord(candidate,evidence,{now,automation});
  const series = candidate.series ? materializeSeries(candidate) : null;
  const checked=approvalReady(candidate,evidence,now);
  if(!checked.ready)throw new Error('Current revision requires James approval and verified essential evidence');

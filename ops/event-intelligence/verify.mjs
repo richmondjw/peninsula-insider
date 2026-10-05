@@ -1,3 +1,4 @@
+import {verifyAutomatedCandidate} from './editorial-automation.mjs';
 import {seriesContract,materializeSeries} from './series.mjs';
 import {assessShireLocation} from './geography.mjs';
 import {validateCandidate,candidateRevision,safeUrl} from './data.mjs';
@@ -8,7 +9,8 @@ function validDate(value){
  return day.getUTCFullYear()===Number(match[1])&&day.getUTCMonth()+1===Number(match[2])&&day.getUTCDate()===Number(match[3])&&Number.isFinite(new Date(value).getTime());
 }
 const essential=['title','venueName','officialEventUrl','status'];
-export function verifyCandidate(candidate,evidence,{now=new Date(),maxAgeHours=24*7}={}) {
+export function verifyCandidate(candidate,evidence,{now=new Date(),maxAgeHours=24*7,automation}={}) {
+ if(automation!==undefined){const checked=verifyAutomatedCandidate(candidate,evidence,{...automation,now});return {...checked,revision:checked.originalRevision??candidateRevision(candidate),factScore:checked.ready?checked.score*10:0,fields:checked.assessment?.decision.checks??{},checkedAt:now.toISOString(),authority:checked.actor};}
  const errors=validateCandidate(candidate);if(candidate.sourceReview?.required===true)errors.push('source-change-needs-review');const fields={};const byId=new Map(evidence.map(e=>[e.id,e]));
  const required=[...essential,...(candidate.kind==='event'?['startDate']:candidate.kind==='offer'?['endDate','terms']:['availability']),...['endDate','startTime','endTime','organiser','accessibility','coordinates'].filter(key=>candidate.fields?.[key]!=null),...(candidate.series?['series']:[])].filter((key,index,all)=>all.indexOf(key)===index);
  if(candidate.series){try{seriesContract(candidate.series);materializeSeries(candidate);}catch(error){errors.push('series-invalid: '+error.message);}}

@@ -1,0 +1,14 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {mkdtemp,writeFile,readFile,rm} from 'node:fs/promises';import os from 'node:os';import path from 'node:path';import {generateEditorialManifest} from './generate-event-editorial-manifest.mjs';
+test('every build clears stale enablement; malformed opt-in fails disabled',async t=>{const root=await mkdtemp(path.join(os.tmpdir(),'pi-manifest-'));t.after(()=>rm(root,{recursive:true,force:true}));const target=path.join(root,'manifest.mjs');await writeFile(target,'stale enabled manifest');assert.equal((await generateEditorialManifest({target})).enabled,false);assert.match(await readFile(target,'utf8'),/"enabled":false/);await writeFile(target,'stale enabled manifest');await assert.rejects(generateEditorialManifest({target,configPath:'missing'}),/pin/);assert.match(await readFile(target,'utf8'),/"enabled":false/);});
+
+import {registerHooks,stripTypeScriptTypes} from 'node:module';
+import {fileURLToPath} from 'node:url';
+import {editorialFixture} from '../../ops/event-intelligence/editorial-fixtures.mjs';
+import {buildEditorialManifest} from '../../ops/event-intelligence/editorial-automation.mjs';
+test('actual Astro event schema accepts machine export and rejects malformed receipt',async()=>{
+ const configURL=new URL('../src/content.config.ts',import.meta.url).href;
+ const hooks=registerHooks({load(url,context,next){if(url!==configURL)return next(url,context);let source=next(url,context).source.toString();source=source.replace("import { defineCollection, reference, z } from 'astro:content';","import {z} from 'zod';const defineCollection=x=>x;const reference=()=>z.union([z.string(),z.object({id:z.string(),collection:z.string()})]);").replace("import { glob } from 'astro/loaders';","const glob=x=>x;");return {format:'module',source:stripTypeScriptTypes(source),shortCircuit:true};}});
+ try{const {collections}=await import(configURL);const f=editorialFixture(),record=buildEditorialManifest([{candidate:f.candidate,evidence:f.evidence,bundle:f.bundle}],f.context).records[0];const parsed=collections.events.schema.safeParse(record);assert.equal(parsed.success,true,JSON.stringify(parsed.error?.issues));record.intelligence.automation.score=8;assert.equal(collections.events.schema.safeParse(record).success,false);}finally{hooks.deregister();}
+});
+
+test('effective package hook has one key and preserves reset plus cache cleanup',async()=>{const raw=await readFile(new URL('../package.json',import.meta.url),'utf8');assert.equal((raw.match(/"prebuild"\s*:/g)??[]).length,1);const script=JSON.parse(raw).scripts.prebuild;assert.equal(script,'node scripts/generate-event-editorial-manifest.mjs && node scripts/clear-content-cache.mjs');assert.match(JSON.parse(raw).scripts['test:event-intelligence'],/event-editorial-approval.test/);});

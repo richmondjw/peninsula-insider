@@ -49,7 +49,7 @@
     "bf:lint:strict": "node ../scripts/bf-import/verify-lint.mjs --strict",
     "pdfs": "node scripts/render-pdfs.mjs",
     "pdfs:rebuild": "npm run build && node scripts/render-pdfs.mjs",
-    "prebuild": "node scripts/clear-content-cache.mjs",
+    "prebuild": "node scripts/generate-event-editorial-manifest.mjs && node scripts/clear-content-cache.mjs",
     "lint:house-style": "node scripts/lint-house-style.mjs",
     "lint:content-caps": "node scripts/lint-content-caps.mjs",
     "lint:content-caps:strict": "node scripts/lint-content-caps.mjs --strict",
@@ -142,7 +142,7 @@
     "test:corrections-queue": "node --test scripts/corrections-queue-contract.test.mjs",
     "lint:corrections-queue": "node --test scripts/corrections-queue-contract.test.mjs",
     "test:stale-pages-seasonal-navigation": "node --test scripts/stale-pages-seasonal-navigation.test.mjs",
-    "test:event-intelligence": "node --test scripts/event-access.test.mjs scripts/event-price-freshness.test.mjs scripts/place-map-expiry.test.mjs scripts/event-loader-geography.test.mjs src/lib/event-planning-clock.test.mjs ../ops/event-intelligence/*.test.mjs src/lib/event-publication.test.mjs src/lib/event-occurrence.test.mjs scripts/event-detail-publication.test.mjs scripts/lint-no-pricing.test.mjs scripts/upcoming-feed-kinds.test.mjs scripts/test-agent-readiness.mjs src/lib/event-map.test.mjs src/lib/event-discovery.test.mjs src/lib/event-planning.test.mjs"
+    "test:event-intelligence": "node --test scripts/generate-event-editorial-manifest.test.mjs scripts/event-editorial-inventory.test.mjs src/lib/event-editorial-approval.test.mjs scripts/event-access.test.mjs scripts/event-price-freshness.test.mjs scripts/place-map-expiry.test.mjs scripts/event-loader-geography.test.mjs src/lib/event-planning-clock.test.mjs ../ops/event-intelligence/*.test.mjs src/lib/event-publication.test.mjs src/lib/event-occurrence.test.mjs scripts/event-detail-publication.test.mjs scripts/lint-no-pricing.test.mjs scripts/upcoming-feed-kinds.test.mjs scripts/test-agent-readiness.mjs src/lib/event-map.test.mjs src/lib/event-discovery.test.mjs src/lib/event-planning.test.mjs"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.0",

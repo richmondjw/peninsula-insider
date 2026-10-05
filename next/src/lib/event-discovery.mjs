@@ -1,5 +1,5 @@
 import { startOfDay, addDays, isoDate, ruleFor, occursOnDay } from './event-schedule.ts';
-import { eventContentKind, isPublicEventRecord, currentVerifiedPrice } from './event-publication.mjs';
+import { eventContentKind, isPublicEventRecord, currentVerifiedPrice, hasAutomatedEditorialApproval } from './event-publication.mjs';
 import { recordDisposition } from './event-occurrence.mjs';
 import { resolveListingOccurrence } from './whatson-listing.mjs';
 
@@ -11,7 +11,7 @@ const identity = value => String(ref(value)).trim().toLowerCase().replace(/[.'â€
 function reviewedGeography(data, now) {
   const geo = data?.intelligence?.geography;
   const checked = Date.parse(geo?.checkedAt);
-  return geo?.shireConfirmed === true && geo.verifiedBy === 'James' && typeof geo.evidenceId === 'string' && geo.evidenceId.trim() && Number.isFinite(checked) && checked <= now.getTime() && now.getTime() - checked < 7 * 86400000;
+  return geo?.shireConfirmed === true && (geo.verifiedBy === 'James' || (geo.verifiedBy === 'PI editorial policy' && hasAutomatedEditorialApproval(data,now))) && typeof geo.evidenceId === 'string' && geo.evidenceId.trim() && Number.isFinite(checked) && checked <= now.getTime() && now.getTime() - checked < 7 * 86400000;
 }
 export function hasPromotionGeography(data, now = new Date()) {
   const places = [identity(data?.place), identity(data?.suburb)].filter(Boolean);
