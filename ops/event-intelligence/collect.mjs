@@ -8,7 +8,7 @@ export async function atomicJson(file,value) {
  await mkdir(path.dirname(file),{recursive:true});const temp=`${file}.${process.pid}.tmp`;
  await writeFile(temp,JSON.stringify(value,null,2)+'\n',{flag:'wx'});await rename(temp,file);
 }
-export async function collect(registry,directory,{now=new Date(),fetcher,force=false}={}) {
+export async function collect(registry,directory,{now=new Date(),fetcher,evidenceFetcher=fetchEvidence,force=false}={}) {
  await mkdir(directory,{recursive:true});
  const lockPath=path.join(directory,'collection.lock');const lock=await open(lockPath,'wx');
  const receipts=[];
@@ -22,7 +22,7 @@ export async function collect(registry,directory,{now=new Date(),fetcher,force=f
    if(!force&&!due){receipts.push({sourceId:source.id,status:'not-due',lastStatus:previous.status,lastSuccessAt:previous.lastSuccessAt??null,checkedAt:previous.checkedAt});continue;}
    let evidence,error;
    for(let attempt=0;attempt<3;attempt++){
-    try{evidence=await fetchEvidence({...source,hosts:source.hosts??[new URL(source.url).hostname]},{now,fetcher});break;}
+    try{evidence=await evidenceFetcher({...source,hosts:source.hosts??[new URL(source.url).hostname]},{now,fetcher});break;}
     catch(e){error=e;if(!/HTTP (429|5\d\d)|fetch failed|timeout/i.test(e.message))break;if(attempt<2)await new Promise(r=>setTimeout(r,1000*2**attempt));}
    }
    if(!evidence){const receipt={sourceId:source.id,requestedUrl:source.url,status:'failed',error:error.message,checkedAt:now.toISOString(),lastSuccessAt:previous?.lastSuccessAt??null};await atomicJson(file,{...previous,...receipt});receipts.push(receipt);continue;}

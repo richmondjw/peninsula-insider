@@ -1346,6 +1346,13 @@ const events = defineCollection({
       validUntil: z.coerce.date(),
     }).optional(),
     intelligence: z.object({
+      approvalMode: z.enum(['human','automated']).optional(),
+      automation: z.object({
+        actor:z.literal('PI editorial policy'), policyVersion:z.literal('pi-editorial-1.0'), adapterVersion:z.literal('pi-library-html-proof-1.0'),
+        decisionHash:z.string().regex(/^[a-f0-9]{64}$/), proofBundleHash:z.string().regex(/^[a-f0-9]{64}$/), sourceRevision:z.string().min(1),
+        checkedAt:z.coerce.date(), expiresAt:z.coerce.date(), score:z.number().min(9).max(10), criticalChecks:z.record(z.unknown()),
+        evidenceBindings:z.array(z.object({role:z.enum(['primary','registration','boundary']),id:z.string().min(1),sourceId:z.string().min(1),url:z.string().url(),hash:z.string().regex(/^[a-f0-9]{64}$/),retrievedAt:z.coerce.date()})).min(3).max(3),
+      }).optional(),
       revision: z.string().min(1),
       approvedContent: z.string().min(1).optional(),
       approvedBy: z.string().min(1),
@@ -1355,7 +1362,9 @@ const events = defineCollection({
       reviewedAt: z.coerce.date(),
       geography: z.object({
         shireConfirmed: z.literal(true),
-        verifiedBy: z.literal('James'),
+        verifiedBy: z.enum(['James','PI editorial policy']),
+        boundaryEvidenceId:z.string().min(1).optional(),
+        boundaryHash:z.string().regex(/^[a-f0-9]{64}$/).optional(),
         evidenceId: z.string().min(1),
         checkedAt: z.coerce.date(),
         coordinates: z.object({ lat: z.number(), lng: z.number() }).optional(),

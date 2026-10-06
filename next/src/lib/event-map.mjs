@@ -1,3 +1,4 @@
+import { hasAutomatedEditorialApproval } from './event-publication.mjs';
 /** Build event pins only from shared, eligible promotions and explicit location proof. */
 export function eventMapItems(promotions, { now = new Date() } = {}) {
   const instant = new Date(now).getTime();
@@ -6,7 +7,7 @@ export function eventMapItems(promotions, { now = new Date() } = {}) {
     const data = promotion.event?.data;
     const proof = data?.intelligence?.geography;
     const coordinates = data?.coordinates;
-    if (proof?.shireConfirmed !== true || proof?.verifiedBy !== 'James' || !proof.evidenceId || !proof.coordinateEvidenceId) return [];
+    if (proof?.shireConfirmed !== true || !(proof?.verifiedBy === 'James' || (proof?.verifiedBy === 'PI editorial policy' && hasAutomatedEditorialApproval(data,now))) || !proof.evidenceId || !proof.coordinateEvidenceId) return [];
     const checked = new Date(proof.checkedAt).getTime();
     const coordinateChecked = new Date(proof.coordinateCheckedAt).getTime();
     if (!Number.isFinite(coordinateChecked) || coordinateChecked > instant || instant - coordinateChecked >= 7 * 86400000) return [];
