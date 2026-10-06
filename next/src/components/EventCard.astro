@@ -135,7 +135,10 @@ const heroImageSrc = eventHero.override?.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
 const recordedOwnHero = !eventHero.override && eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
-const renderImage = imagePolicy !== 'recorded-only' || recordedOwnHero;
+// Automated editorial approval currently omits media. Category and CMS
+// fallbacks have no event-specific rights/subject receipt for that decision.
+const automatedEditorial = event.data.intelligence?.approvalMode === 'automated';
+const renderImage = !automatedEditorial && (imagePolicy !== 'recorded-only' || recordedOwnHero);
 
 // Filter data-attributes - consumed by the hub's client-side filter engine.
 // Each event encodes its location region(s), category bucket, recurrence,

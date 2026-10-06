@@ -80,7 +80,8 @@ const cards = await Promise.all(
     // The CMS slot remains authoritative when its published replacement has
     // the minimum descriptive and credit fields. CMS has no depiction-status
     // field yet, so disclose the uncertainty rather than claim event coverage.
-    const image = overrideReady ? {
+    const automatedEditorial = event.data.intelligence?.approvalMode === 'automated';
+    const image = automatedEditorial ? undefined : overrideReady ? {
       src: hero.src,
       alt: hero.override!.alt!,
       caption: [hero.override!.caption, 'Event depiction not verified.'].filter(Boolean).join(' '),
