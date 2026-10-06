@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "enabled": false,
+  "root": "<private-canonical-editorial-service-root>",
+  "registryPath": "<reviewed-registry-file>",
+  "registryHash": "<sha256-exact-registry-file-bytes>",
+  "packetPath": "<canonical-review-packet-file>",
+  "producer": {
+    "schemaVersion": 1,
+    "cadenceHours": 12,
+    "registryHash": "<hash-of-reviewed-sources-array>",
+    "items": []
+  },
+  "storage": {
+    "maxBytes": 536870912,
+    "reserveBytes": 201326592,
+    "maxRuns": 100
+  }
+}
