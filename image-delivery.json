@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 294,
+  "pages": 295,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -9567,6 +9567,30 @@
       ]
     },
     {
+      "source": "/images/visit-victoria/vv-26070136-avani-winery.webp",
+      "originalBytes": 92762,
+      "variants": [
+        {
+          "src": "/_media/9053ed38cd18a7758572-480.webp",
+          "width": 480,
+          "height": 720,
+          "bytes": 38976
+        },
+        {
+          "src": "/_media/9053ed38cd18a7758572-800.webp",
+          "width": 800,
+          "height": 1200,
+          "bytes": 74760
+        },
+        {
+          "src": "/_media/9053ed38cd18a7758572-853.webp",
+          "width": 853,
+          "height": 1280,
+          "bytes": 88662
+        }
+      ]
+    },
+    {
       "source": "/images/visit-victoria/vv-26070113-jackalope-hotel.webp",
       "originalBytes": 117282,
       "variants": [
@@ -12377,30 +12401,6 @@
           "width": 1280,
           "height": 853,
           "bytes": 100580
-        }
-      ]
-    },
-    {
-      "source": "/images/visit-victoria/vv-26070136-avani-winery.webp",
-      "originalBytes": 92762,
-      "variants": [
-        {
-          "src": "/_media/9053ed38cd18a7758572-480.webp",
-          "width": 480,
-          "height": 720,
-          "bytes": 38976
-        },
-        {
-          "src": "/_media/9053ed38cd18a7758572-800.webp",
-          "width": 800,
-          "height": 1200,
-          "bytes": 74760
-        },
-        {
-          "src": "/_media/9053ed38cd18a7758572-853.webp",
-          "width": 853,
-          "height": 1280,
-          "bytes": 88662
         }
       ]
     },

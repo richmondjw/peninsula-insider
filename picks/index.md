@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Avani Syrah in Red Hill South, the Bushrangers Bay clifftop loop, and Peppers Moonah Links live music this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/>) - Avani Wines' skin-contact whites and Syrah at Red Hill South, Bushrangers Bay coastal loop in peak spring flower, and Acoustic Saturdays at Peppers Moonah Links from 5pm this Saturday.
+
 - [Many Little in spring, the Mornington Peninsula Rail Trail, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/>) - Sri Lankan-inflected fine dining at Polperro, the Rail Trail in full wildflower season, and live music on the lawn at Fingal this Saturday from 5pm.
 
 - [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>) - Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Dromana Hotel deck, wildflower heathland at Greens Bush, and the Dromana Community Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-24/>) - The Dromana Hotel's bay-view deck in first-spring warmth, the spider orchids peaking along Greens Bush, and Saturday's Dromana Community Market before the crowds.
 
 - [Main Ridge Dairy, Seawinds Gardens, and Pt. Leo's sculpture park](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/>) - Build a spring day around Main Ridge Dairy's goat cheeses, the short paths at Seawinds Gardens, and sculpture at Pt. Leo Estate.
-
-- [Jetty Road's spring seasonals, the Western Port wildflower heathlands, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/>) - Jetty Road Brewery's rotating spring taps in Dromana, the heathland wildflower bloom along the Coolart Wetlands boardwalk, and National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
 
 ## Planning a particular weekend?
 
