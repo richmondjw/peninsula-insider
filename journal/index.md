@@ -690,6 +690,16 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
+- [Fri, 9 Oct
+
+### Dominion Wrestling for Big Group Hug at Commonfolk
+
+Mornington
+
+Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check Humanitix for tickets and current details.
+
+ Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+
 - [Sat, 10 Oct
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
@@ -699,13 +709,3 @@ Fingal
 Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-- [Sat, 10 Oct
-
-### Crib Point Community Market
-
-Crib Point
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

@@ -387,6 +387,16 @@ Coming up in Mornington, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Fri, 9 Oct
+
+### Dominion Wrestling for Big Group Hug at Commonfolk
+
+Mornington
+
+Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check Humanitix for tickets and current details.
+
+ Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+
 - [Sun, 11 Oct
 
 ### ✦ Mornington Racecourse Market

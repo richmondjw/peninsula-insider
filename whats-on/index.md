@@ -85,6 +85,12 @@ A useful add-on if you're already booked in to bathe, not a reason to drive out 
 
 Experience · check available sessions · 7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
+- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+
+Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check…
+
+7pm · Mornington · Racing & Sport · One-day event
+
 ### Saturday 10 October
 
 - [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
@@ -170,6 +176,12 @@ Portsea · Racing & Sport
 The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or…
 
 8am · Sorrento · Racing & Sport
+
+- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+
+Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check…
+
+7pm · Mornington · Racing & Sport
 
 ## The Insider Note
 

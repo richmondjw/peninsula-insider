@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-06T20:17:33.870Z",
-  "snapshotId": "75a320fc3a8eb08163bfd029e9fe6205c6aecf687759b3bb8f3d148ef4a23ffd",
+  "generatedAt": "2026-10-06T20:42:19.305Z",
+  "snapshotId": "be69b606b42d30f319a49c2b653f72be5e4332ca6dc32d1a819bedda1788ec2e",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 594,
+  "count": 595,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 205424,
+      "htmlBytes": 207223,
       "markdownBytes": 811
     },
     {
@@ -2546,7 +2546,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "25e66a9cd842f12de70abf7531f2546f927f8eea8674da74529e3c9355a34126",
+      "contentSha256": "3ecbd2df7f9bc25cd7c1d6fd0ff6346a79d675180af78a1aa4a6d655d22fb5df",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2554,8 +2554,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 281222,
-      "markdownBytes": 19405
+      "htmlBytes": 284524,
+      "markdownBytes": 19785
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -4603,7 +4603,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "521629fcf3ca2440c4d847cc065646827b2b0164642eedab891faa4809723021",
+      "contentSha256": "779902db49309d2a8fa245af615a367f826ed3a0a47baf0b66274cd83fab66f2",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4611,8 +4611,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 233862,
-      "markdownBytes": 19956
+      "htmlBytes": 233035,
+      "markdownBytes": 20005
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -6728,7 +6728,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4f150d8d8e46625959b81157d8461166b294db49f90c2398d894f376deeee360",
+      "contentSha256": "77977b980a6e24e64b4375f266517c528d0d7b56763a375dbbd81b4b12c06ba6",
       "citation": {
         "title": "Wednesday 7 October 2026",
         "publisher": "Peninsula Insider",
@@ -6745,7 +6745,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "ec68e754e5e52dde20cf14cec2e610a3d10ed2c8b9104313f54be59dcfe1300a",
+      "contentSha256": "0bbe99c0093f0ce3e0d4f3b5b491b137b6c2c64d49416777106d3de683d7750c",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6753,8 +6753,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 153795,
-      "markdownBytes": 26400
+      "htmlBytes": 153928,
+      "markdownBytes": 26550
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8564,7 +8564,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "4f181dba89c4b4f57fe2709e384b0677dec2fc3a4786e383634f595453a0826a",
+      "contentSha256": "9ac372329a50adff67195be4262bc194c53c261e2a79f4b53de176aed35fba0e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8572,8 +8572,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-07"
       },
-      "htmlBytes": 202187,
-      "markdownBytes": 7303
+      "htmlBytes": 207532,
+      "markdownBytes": 7966
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8615,7 +8615,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "f7a7c30b832a4dce0f53f723333ac6722218dc4486093ab3daf979f6767aee4f",
+      "contentSha256": "4d8ac294649fe4b7fc6e3af0edea598239b6c4c05a2ba9f78232c2e184552044",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -8623,8 +8623,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 147537,
-      "markdownBytes": 1019
+      "htmlBytes": 150763,
+      "markdownBytes": 1300
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -8693,6 +8693,23 @@
       },
       "htmlBytes": 159151,
       "markdownBytes": 3517
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "title": "Dominion Wrestling for Big Group Hug at Commonfolk",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/index.md",
+      "contentSha256": "a52b0bae58f68a218abb55d6440ecdd2c5b8a88928a871d5d4ff30e2985193d0",
+      "citation": {
+        "title": "Dominion Wrestling for Big Group Hug at Commonfolk",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 157325,
+      "markdownBytes": 3172
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
@@ -8802,7 +8819,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
-      "contentSha256": "1c48db5cb39f1ea1e78ea69eb89792aa423afc323b032c4072ee5b41564406ff",
+      "contentSha256": "bf8618efed51288050932ec872ae5ab6874acef000e0e6dcf926ad51acd4aa34",
       "citation": {
         "title": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
         "publisher": "Peninsula Insider",
@@ -8810,8 +8827,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159106,
-      "markdownBytes": 3420
+      "htmlBytes": 156947,
+      "markdownBytes": 3043
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
@@ -8904,7 +8921,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "7e19dcd082c70bbe8fa63f88fdf8fa6891eef0adacc1a4bd2e43d6c5c46f2b5e",
+      "contentSha256": "866fea024223f2c700a639440abf8bf4df3b9b5971e0406274d0258f0279b9a7",
       "citation": {
         "title": "The Bloody Long Walk – Mornington Peninsula 2026",
         "publisher": "Peninsula Insider",
@@ -8912,8 +8929,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 161266,
-      "markdownBytes": 4426
+      "htmlBytes": 159000,
+      "markdownBytes": 3925
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
@@ -8929,7 +8946,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 163337,
+      "htmlBytes": 166276,
       "markdownBytes": 3610
     },
     {

@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-06T20:17:33.870Z",
-  "snapshotId": "75a320fc3a8eb08163bfd029e9fe6205c6aecf687759b3bb8f3d148ef4a23ffd",
+  "generatedAt": "2026-10-06T20:42:19.305Z",
+  "snapshotId": "be69b606b42d30f319a49c2b653f72be5e4332ca6dc32d1a819bedda1788ec2e",
   "section": "whats-on",
-  "count": 35,
+  "count": 36,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,7 +11,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "4f181dba89c4b4f57fe2709e384b0677dec2fc3a4786e383634f595453a0826a",
+      "contentSha256": "9ac372329a50adff67195be4262bc194c53c261e2a79f4b53de176aed35fba0e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-07"
       },
-      "htmlBytes": 202187,
-      "markdownBytes": 7303
+      "htmlBytes": 207532,
+      "markdownBytes": 7966
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -62,7 +62,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "f7a7c30b832a4dce0f53f723333ac6722218dc4486093ab3daf979f6767aee4f",
+      "contentSha256": "4d8ac294649fe4b7fc6e3af0edea598239b6c4c05a2ba9f78232c2e184552044",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -70,8 +70,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 147537,
-      "markdownBytes": 1019
+      "htmlBytes": 150763,
+      "markdownBytes": 1300
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -140,6 +140,23 @@
       },
       "htmlBytes": 159151,
       "markdownBytes": 3517
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "title": "Dominion Wrestling for Big Group Hug at Commonfolk",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/index.md",
+      "contentSha256": "a52b0bae58f68a218abb55d6440ecdd2c5b8a88928a871d5d4ff30e2985193d0",
+      "citation": {
+        "title": "Dominion Wrestling for Big Group Hug at Commonfolk",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 157325,
+      "markdownBytes": 3172
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
@@ -249,7 +266,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
-      "contentSha256": "1c48db5cb39f1ea1e78ea69eb89792aa423afc323b032c4072ee5b41564406ff",
+      "contentSha256": "bf8618efed51288050932ec872ae5ab6874acef000e0e6dcf926ad51acd4aa34",
       "citation": {
         "title": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
         "publisher": "Peninsula Insider",
@@ -257,8 +274,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 159106,
-      "markdownBytes": 3420
+      "htmlBytes": 156947,
+      "markdownBytes": 3043
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
@@ -351,7 +368,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "7e19dcd082c70bbe8fa63f88fdf8fa6891eef0adacc1a4bd2e43d6c5c46f2b5e",
+      "contentSha256": "866fea024223f2c700a639440abf8bf4df3b9b5971e0406274d0258f0279b9a7",
       "citation": {
         "title": "The Bloody Long Walk – Mornington Peninsula 2026",
         "publisher": "Peninsula Insider",
@@ -359,8 +376,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 161266,
-      "markdownBytes": 4426
+      "htmlBytes": 159000,
+      "markdownBytes": 3925
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
@@ -376,7 +393,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 163337,
+      "htmlBytes": 166276,
       "markdownBytes": 3610
     },
     {
