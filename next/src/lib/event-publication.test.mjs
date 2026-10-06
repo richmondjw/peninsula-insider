@@ -26,6 +26,16 @@ test('drafts and unapproved intelligence records have no public URL', () => {
   assert.equal(isPublicEventRecord({ status: 'published', intelligence }), true);
   assert.equal(isPublicEventRecord({ status: 'published', intelligence: { ...intelligence, factScore: 89 } }), false);
 });
+test('Astro empty retired-link default preserves existing content receipts; actual retired links remain bound', () => {
+  const raw = {eventId: 'fixture', title: 'Official event', status: 'published'};
+  const normalized = {...raw, retiredSourceLinks: []};
+  const approvedContent = approvedEventContent(raw);
+  assert.equal(approvedEventContent(normalized), approvedContent);
+  const receipt = {revision: 'rev-1', approvedBy: 'James', approvedAt: now, reviewedAt: now, factScore: 96, evidenceIds: ['evidence-1'], approvedContent};
+  assert.equal(isPublicEventRecord({...normalized, intelligence: receipt}, now), true);
+  assert.notEqual(approvedEventContent({...normalized, retiredSourceLinks: [{url: 'https://official.example/old'}]}), approvedContent);
+  assert.equal(isPublicEventRecord({...normalized, retiredSourceLinks: [{url: 'https://official.example/old'}], intelligence: receipt}, now), false);
+});
 test('content kinds preserve explicit labels and recognise flexible legacy experiences', () => {
   assert.equal(eventContentKind({ contentKind: 'offer' }), 'offer');
   assert.equal(eventContentKind({ dateBasis: 'on-request' }), 'experience');

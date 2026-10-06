@@ -15,7 +15,7 @@ function approvedValue(value,key='') {
 }
 export function approvedEventContent(data) {
   const content={};
-  for (const key of approvedFields) {const value=data?.[key] ?? approvalDefaults[key];if(value!==undefined)content[key]=approvedValue(value,key);}
+  for (const key of approvedFields) {const value=data?.[key] ?? approvalDefaults[key];if(key==='retiredSourceLinks'&&Array.isArray(value)&&value.length===0)continue;if(value!==undefined)content[key]=approvedValue(value,key);}
   if(data?.intelligence?.geography)content.geography=approvedValue(data.intelligence.geography);
   if(data?.intelligence?.approvalMode === 'automated'){content.approvalMode='automated';content.automation=approvedValue(data.intelligence.automation);}
   return JSON.stringify(content);
