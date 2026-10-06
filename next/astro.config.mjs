@@ -6,6 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 import remarkBlockIds from './src/lib/inline-edit/remark-block-ids.mjs';
 import cacheBustImages from './src/lib/cache-bust-integration.mjs';
 import responsiveImages from './src/lib/responsive-images-integration.mjs';
+import { eventEditorialBuildIntegration } from './scripts/event-editorial-build-integration.mjs';
 
 // Peninsula Insider — Astro config.
 // Decisions locked in roadmap-2026-04-09.md § 4 and § 9:
@@ -55,6 +56,7 @@ export default defineConfig({
     remarkPlugins: [remarkBlockIds],
   },
   integrations: [
+    eventEditorialBuildIntegration(), // Enforce factual admission even for direct Astro builds.
     mdx({
       // MDX uses the same remark pipeline as plain markdown, but plugins
       // declared at the top level don't carry through — they have to be
