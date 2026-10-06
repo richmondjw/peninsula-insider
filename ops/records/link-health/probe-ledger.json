@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-04T06:28:55.571Z",
+  "updatedAt": "2026-10-06T12:21:53.106Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1074,6 +1074,16 @@
       "reviewedOn": "2026-09-13"
     },
     {
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Tech-Class-Travel-with-Technology-Rosebud-Library",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Tech Class: Travel with Technology - Rosebud Library - Mornington Peninsula Libraries",
+      "probedOn": "2026-10-06",
+      "probedBy": "PI editorial policy: bounded fetchEvidence source probe",
+      "evidenceHash": "253a6e62935471559f3a6a5da43e39d546f647eab76a59365506d916ee81e3df",
+      "retrievedAt": "2026-10-06T12:21:52.054Z"
+    },
+    {
       "url": "https://lightfootwines.com.au",
       "verdict": "dead",
       "httpCode": "000",
@@ -1617,6 +1627,15 @@
       "httpCode": "403",
       "probedOn": "2026-10-02",
       "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://opendata.maps.vic.gov.au/geoserver/wfs?service=WFS&version=2.0.0&request=GetFeature&typeNames=open-data-platform%3Alga_polygon&outputFormat=application%2Fjson&srsName=EPSG%3A4326&count=100&CQL_FILTER=lga_name+ILIKE+%27%25MORNING%25%27",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-10-06",
+      "probedBy": "PI editorial policy: bounded fetchEvidence source probe",
+      "evidenceHash": "f88e702de00e14c33a117444b52825aa24c3d93cd419c141993b9b8b3b24c37a",
+      "retrievedAt": "2026-10-06T12:21:52.643Z"
     },
     {
       "url": "https://paringaestate.com.au",
@@ -2927,6 +2946,16 @@
       "pageTitle": "St Andrews Beach Brewery Presents Dave Thornton &amp; Lizzy Hoo Tickets, Sunday, October 18 • 5:30 PM - 8 PM | Eventbrite",
       "probedOn": "2026-10-04",
       "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/tech-class-travel-with-technology-rosebud-library-tickets-2000538313950?aff=oddtdtcreator",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Tech Class: Travel with Technology - Rosebud Library Tickets, Tuesday 13 October • 2:30 PM - 3:30 PM | Eventbrite",
+      "probedOn": "2026-10-06",
+      "probedBy": "PI editorial policy: bounded fetchEvidence source probe",
+      "evidenceHash": "df7cb8c73720f5072935e2448689aebf3af26fc37d1f54522784495b40bfddd7",
+      "retrievedAt": "2026-10-06T12:21:52.489Z"
     },
     {
       "url": "https://www.eventbrite.com.au/e/the-wellness-experience-celebrating-womens-health-week-tickets-1998522990062",
