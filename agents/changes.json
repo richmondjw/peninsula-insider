@@ -1,36 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-06T14:35:16.253Z",
+  "generatedAt": "2026-10-06T19:23:53.481Z",
   "baselineAvailable": true,
-  "fromSnapshot": "632662d233d4a093570bd400e88a5af3b0e46b4288050ef3abe3a2d614ac43cb",
-  "toSnapshot": "0464261757f43c566e9abad5eed33b53864c815c474124b2ad45675fbf39d9cc",
-  "previousGeneratedAt": "2026-10-05T23:53:17.926Z",
+  "fromSnapshot": "0464261757f43c566e9abad5eed33b53864c815c474124b2ad45675fbf39d9cc",
+  "toSnapshot": "57e683d883a31988fe2b4ed95fb79a3bed6b433f8213930cd91f5c9173105d85",
+  "previousGeneratedAt": "2026-10-06T14:35:16.253Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "189f20d82255fa262773c7551abcff3f47857948873619e10a70272f33b7a9e0",
-      "previousContentSha256": "6eca3ea8a9e96250c6cb0d081ff783418f9941d89bd6d9dcfd35a859120bdba7"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4580359cbd9674f4ff0d9dc8252786ca9a70e92d96021e7b4e698ed970f45fcb",
-      "previousContentSha256": "f7e7d954e07763e039bf2aefa9c799ff2658e27dc8316a8c5ddb8bdb71bbfde3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "4f181dba89c4b4f57fe2709e384b0677dec2fc3a4786e383634f595453a0826a",
-      "previousContentSha256": "84754251ee824ddd70027a657818193b35a12c25b9e39fe3e8d46526a1eea130"
+      "contentSha256": "7ad22dea5f2f7c8278f77c97565ddcf26e6af1fda4dd9976886dcaddac6b5058",
+      "previousContentSha256": "4580359cbd9674f4ff0d9dc8252786ca9a70e92d96021e7b4e698ed970f45fcb"
     }
   ]
 }
