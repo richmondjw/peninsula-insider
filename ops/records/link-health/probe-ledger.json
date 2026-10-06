@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-05T09:29:17.719Z",
+  "updatedAt": "2026-10-06T20:18:45.570Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -627,6 +627,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Arj Barker Live at Barlow"
+    },
+    {
+      "url": "https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "pageTitle": "Dominion Wrestling x Big Group Hug - LIVE PRO WRESTLING FOR CHARITY",
+      "probedOn": "2026-10-06",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity/tickets",
+      "verdict": "blocked",
+      "httpCode": "200",
+      "pageTitle": "Tickets for Dominion Wrestling x Big Group Hug - LIVE PRO WRESTLING FOR CHARITY",
+      "probedOn": "2026-10-06",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
