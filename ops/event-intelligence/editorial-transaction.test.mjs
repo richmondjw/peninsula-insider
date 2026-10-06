@@ -10,3 +10,28 @@ async function repin(f,{time,unsafe=false}={}){const producerFile=path.join(f.ro
 test('held traversal ID, invalid/future timestamps and overlapping content/output roots are refused before patches',async t=>{for(const time of ['invalid',null,'2099-01-01T00:00:00Z']){const f=await fixture(t);await repin(f,{time});await assert.rejects(prepareEditorialTransaction(f.ctx),/receipt required|clock binding/);}const unsafe=await fixture(t);await repin(unsafe,{unsafe:true});await assert.rejects(prepareEditorialTransaction(unsafe.ctx),/Unsafe proposal/);for(const nested of [false,true]){const f=await fixture(t),out=nested?path.join(f.contentRoot,'private'):f.contentRoot;if(nested)await mkdir(out);await assert.rejects(prepareEditorialTransaction({...f.ctx,outputRoot:out,expectedOutputRoot:out}),/disjoint/);}});
 
 test('committed episode ledger mutation at final checkpoint refuses prepared plan',async t=>{const f=await fixture(t);await assert.rejects(prepareEditorialTransaction({...f.ctx,checkpoint:async()=>writeFile(path.join(f.root,f.receipt.runId,'episode-ledger.json'),JSON.stringify({schemaVersion:1,episodes:[{humanAcknowledged:true}]}))}),/ledger changed/);});
+test('frozen service packet tolerates unrelated collector additions but protects target decisions at both checkpoints',async t=>{
+ const f=await fixture(t),currentPacketPath=f.ctx.packetPath,packetPath=path.join(f.root,f.receipt.runId,'review-packet.snapshot.json'),configBytes=JSON.stringify({packetPath:currentPacketPath});
+ await writeFile(path.join(f.root,'config.json'),configBytes);f.receipt.configHash=hash(configBytes);await repin(f);
+ await writeFile(packetPath,await readFile(currentPacketPath));
+ const args={...f.ctx,packetPath,currentPacketPath};
+ await assert.rejects(prepareEditorialTransaction({...args,currentPacketPath:undefined}),/Trusted current packet/);
+ const sameBytes=path.join(f.root,'same-bytes-other-name.json');await writeFile(sameBytes,await readFile(packetPath));await assert.rejects(prepareEditorialTransaction({...args,packetPath:sameBytes,currentPacketPath:sameBytes}),/Trusted current packet/);
+ const forged=path.join(f.root,'forged-current.json');await writeFile(forged,await readFile(currentPacketPath));await assert.rejects(prepareEditorialTransaction({...args,currentPacketPath:forged}),/Trusted current packet/);
+ const original=JSON.parse(await readFile(currentPacketPath,'utf8'));
+ await writeFile(currentPacketPath,JSON.stringify({candidates:[...original.candidates,{id:'unrelated-new-candidate',title:'Unreviewed'}]}));
+ const accepted=await prepareEditorialTransaction(args);assert.equal(accepted.patches.length,1);
+ for(const mutation of [{title:'Changed target'},{reviewHold:{actor:'human',reason:'Explicit hold'}},{approval:{actor:'human',decision:'hold'}},{grades:{actor:'human',score:0}}]){
+  await writeFile(currentPacketPath,JSON.stringify({candidates:[{...original.candidates[0],...mutation}]}));
+  await assert.rejects(prepareEditorialTransaction(args),/revision or human decision changed/);
+ }
+ await writeFile(currentPacketPath,JSON.stringify({candidates:original.candidates}));
+ await assert.rejects(prepareEditorialTransaction({...args,checkpoint:async()=>writeFile(currentPacketPath,JSON.stringify({candidates:[{...original.candidates[0],reviewHold:{actor:'human',reason:'Late hold'}}]}))}),/revision or human decision changed/);
+ const duplicate={...structuredClone(original.candidates[0]),id:'new-duplicate-occurrence'};
+ await writeFile(currentPacketPath,JSON.stringify({candidates:[...original.candidates,duplicate]}));
+ await assert.rejects(prepareEditorialTransaction(args),/factual revalidation failed/);
+ await writeFile(currentPacketPath,JSON.stringify(original));
+ await assert.rejects(prepareEditorialTransaction({...args,checkpoint:async()=>writeFile(currentPacketPath,JSON.stringify({candidates:[...original.candidates,duplicate]}))}),/catalogue changed factual projection/);
+ await writeFile(currentPacketPath,JSON.stringify(original));
+ await assert.rejects(prepareEditorialTransaction({...args,checkpoint:async()=>writeFile(path.join(f.root,'config.json'),JSON.stringify({packetPath:packetPath}))}),/configuration changed during preparation/);
+});
