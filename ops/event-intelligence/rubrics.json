@@ -1,6 +1,7 @@
 {
-  "version": 2,
+  "version": 3,
   "minimumScore": 9,
+  "authorityContract": "Routine decisions may be attributed to the versioned PI editorial policy only after its independent acceptance and exact release. Genuine human holds veto publication; historical James receipts are never rewritten. Installed legacy James-only gates remain until the replacement passes every critical integration and live release check.",
   "stages": [
     {
       "id": "baseline",
@@ -106,13 +107,13 @@
         "briefs",
         "capacity",
         "coverage-gaps",
-        "human-approval",
+        "editorial-decision",
         "all-pathways",
         "coverage-dashboard"
       ],
       "critical": [
         "commercial-separation",
-        "human-approval",
+        "editorial-decision",
         "capacity",
         "all-pathways",
         "coverage-dashboard"
@@ -162,7 +163,7 @@
       "id": "release",
       "checks": [
         "prior-gates",
-        "human-content-approval",
+        "release-authority",
         "build",
         "deploy-receipt",
         "live-desktop",
@@ -174,7 +175,7 @@
       ],
       "critical": [
         "prior-gates",
-        "human-content-approval",
+        "release-authority",
         "deploy-receipt",
         "live-feed"
       ]

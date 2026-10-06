@@ -2,6 +2,8 @@
 
 Version pi-image-1.0. Discovery and bounded evaluation only; not installed in collection, editorial grading, publishing or public pages. No image downloaded, no vision or OCR executed, no new rights/James approval asserted.
 
+The separately accepted `image-byte-inspection.mjs` decodes caller-supplied private JPEG, PNG, WebP and AVIF bytes under 15 MiB/20 megapixel limits, verifies actual raster dimensions and SHA-256, and returns explicit unreviewed subject/OCR/privacy/rights states. It does not fetch assets, inspect their meaning, grant reuse, or connect to publication. Automated editorial listings currently render text-only on event cards until a later accepted image receipt and public integration exist.
+
 ## Choice priority
 1. Current event-specific organiser or press asset, with proven channel reuse rights and actual current-edition relevance inspection.
 2. PI local licensed asset showing the exact subject. A venue photograph may serve as context only with an explicit “Venue context” caption and matching verified venue; never imply it depicts the event or attendees.
