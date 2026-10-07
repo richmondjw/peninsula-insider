@@ -27,7 +27,7 @@ Swipe or scroll for all three picks
 
 - ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-A broad makers market with food and music at the racecourse; check the date before travelling because race days can shift it.
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
 
 Mornington Racecourse   Market
 

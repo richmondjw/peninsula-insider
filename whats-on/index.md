@@ -23,13 +23,15 @@ The short list / Fri 9 – Sun 11 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-- The lead pick / 01
+- AI-assisted editorial illustration. This is a conceptual market scene, not a photograph of Mornington Racecourse Market.   Photo: Peninsula Insider.
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+The lead pick / 01
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-Sat, 10 Oct   Crib Point   Markets
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because…
+
+Sun, 11 Oct   Mornington   Markets
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
@@ -37,13 +39,11 @@ Live acoustic sets at a resort with views.
 
 Sat, 10 Oct   Fingal   Food & Wine
 
-- Photo: Peninsula Insider.
+- ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check…
 
-A broad makers market with food and music at the racecourse; check the date before travelling because race days can shift it.
-
-Sun, 11 Oct   Mornington   Markets
+Fri, 9 Oct   Mornington   Racing & Sport
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -109,13 +109,19 @@ Live acoustic sets at a resort with views.
 
 - [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-A broad makers market with food and music at the racecourse; check the date before travelling because race days can…
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact…
 
-9am · Mornington · Markets · Recurring monthly
+9am · Mornington · Markets · One-day event
 
 ## Browse the next two months
 
 ### Markets
+
+- [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
+
+9am · Crib Point · Markets
 
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
@@ -176,12 +182,6 @@ Portsea · Racing & Sport
 The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or…
 
 8am · Sorrento · Racing & Sport
-
-- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
-
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check…
-
-7pm · Mornington · Racing & Sport
 
 ## The Insider Note
 

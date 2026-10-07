@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-07",
-  "generatedAt": "2026-10-06T20:36:28.988Z",
+  "generatedAt": "2026-10-07T06:28:34.626Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -37,19 +37,6 @@
       "@type": "ListItem",
       "position": 2,
       "item": {
-        "@type": "Event",
-        "name": "Mornington Wednesday Market (Main Street Market)",
-        "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-        "startDate": "2026-10-07",
-        "endDate": "2026-10-07",
-        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
         "@type": "Service",
         "name": "Peninsula Hot Springs Studio Yoga",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
@@ -58,7 +45,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 3,
       "item": {
         "@type": "Service",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -68,7 +55,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -78,7 +65,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -88,7 +75,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Event",
         "name": "Dominion Wrestling for Big Group Hug at Commonfolk",
@@ -101,7 +88,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -114,7 +101,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -127,14 +114,27 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
         "url": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
         "startDate": "2026-10-11",
         "endDate": "2026-10-11",
-        "description": "Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Dogs are not permitted.",
+        "description": "A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Event",
+        "name": "Mornington Wednesday Market (Main Street Market)",
+        "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+        "startDate": "2026-10-14",
+        "endDate": "2026-10-14",
+        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -227,25 +227,6 @@
         }
       ],
       "thisWeekend": true
-    },
-    {
-      "title": "Mornington Wednesday Market (Main Street Market)",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "startDate": "2026-10-07",
-      "endDate": "2026-10-07",
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "sourceUrl": "https://mainstreetmornington.com.au/mornington-main-street-market/",
-      "factCheckedOn": null,
-      "recurrence": "weekly",
-      "category": "market",
-      "place": "mornington",
-      "venue": null,
-      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
     },
     {
       "title": "Peninsula Hot Springs Studio Yoga",
@@ -421,7 +402,7 @@
       "category": "market",
       "place": "mornington",
       "venue": null,
-      "summary": "Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Dogs are not permitted.",
+      "summary": "A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -430,6 +411,25 @@
         }
       ],
       "thisWeekend": true
+    },
+    {
+      "title": "Mornington Wednesday Market (Main Street Market)",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "startDate": "2026-10-14",
+      "endDate": "2026-10-14",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "sourceUrl": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+      "factCheckedOn": null,
+      "recurrence": "weekly",
+      "category": "market",
+      "place": "mornington",
+      "venue": null,
+      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
     },
     {
       "title": "Emu Plains Market",

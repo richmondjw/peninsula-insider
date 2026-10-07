@@ -23,6 +23,8 @@ Who it's for: couples or solo travellers who want one weekend to genuinely reset
 
 The practical move: dates are not fixed, so call Lauren at Polperro Wednesday to Sunday, or email info@hutyoga.com.au, and build it around your calendar. Confirm the retreat dates and inclusions directly. Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays; plan any tasting or meal for a trading day and check service times before booking.
 
+[Check the latest details at the source →](<https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/>)
+
 Hosted at
 
 Polperro Farmhouse
@@ -91,13 +93,13 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 

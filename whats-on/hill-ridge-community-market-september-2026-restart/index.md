@@ -23,6 +23,8 @@ Cancelled: the organiser's homepage marked the 3 October 2026 market as cancelle
 
 Hill & Ridge is a separate community market at Red Hill Recreation Reserve, run by the Red Hill Agricultural & Horticultural Society. When checked on 4 October 2026, the organiser's homepage explicitly marked the 3 October 2026 edition as cancelled. Promotional copy and the seasonal calendar still listed that date at the time; the explicit cancellation notice took precedence. Do not travel for the 3 October edition. Check the organiser for any future market date.
 
+[Check the latest details at the source →](<https://www.hillandridgemarket.com.au/>)
+
 Hosted at
 
 Red Hill Recreation Reserve
@@ -73,13 +75,13 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 

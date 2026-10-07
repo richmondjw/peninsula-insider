@@ -403,11 +403,11 @@ Dominion Wrestling presents a charity wrestling show for Big Group Hug at Common
 
 Mornington
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music. Dogs are not permitted.
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-- [Wed, 7 Oct
+- [Wed, 14 Oct
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
 

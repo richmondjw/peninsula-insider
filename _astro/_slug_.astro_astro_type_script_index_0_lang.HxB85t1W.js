@@ -1,1 +1,0 @@
-import{r}from"./event-publication.BrksW-uM.js";let t;const e=()=>{t&&clearTimeout(t);const i=r(document);i&&(t=setTimeout(e,Math.max(1,Math.min(6e4,i-Date.now()+1))))};e();document.addEventListener("astro:page-load",e);document.addEventListener("visibilitychange",e);

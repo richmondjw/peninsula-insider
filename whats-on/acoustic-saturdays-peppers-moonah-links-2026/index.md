@@ -21,6 +21,8 @@ The resort places its live music at Spike Bar, with no booking required.
 
 This is an easy evening stop after a Fingal or Cape Schanck day. Check the organiser before travelling in case the programme changes.
 
+[Check the latest details at the source →](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
+
 Hosted at
 
 Peppers Moonah Links

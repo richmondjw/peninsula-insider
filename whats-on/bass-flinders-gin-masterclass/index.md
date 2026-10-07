@@ -23,6 +23,8 @@ The operator describes a two-hour guided class covering gin history, distillatio
 
 Choose a specific session on the operator calendar before planning the drive. Adults only; arrange a designated driver if you will be tasting spirits. Pair a confirmed class with a Dromana lunch or another nearby stop, allowing time for travel.
 
+[Check the latest details at the source →](<https://www.bassandflindersdistillery.com/pages/gin-masterclass>)
+
 Hosted at
 
 Bass & Flinders Distillery

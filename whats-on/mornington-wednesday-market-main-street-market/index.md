@@ -21,6 +21,8 @@ An artisan street market on Main Street each Wednesday, 9am to 3pm. The organise
 
 The move: combine the market with a Main Street cafe and a foreshore walk.
 
+[Check the latest details at the source →](<https://mainstreetmornington.com.au/mornington-main-street-market/>)
+
 Hosted at
 
 Main Street Mornington
@@ -61,7 +63,7 @@ Weather flexible
 
 Start here
 
-[Visit organiser](<https://mainstreetmornington.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Wednesday+Market+%28Main+Street+Market%29&dates=20261006T220000Z%2F20261007T040000Z&details=Mornington%27s+long-running+artisan+market+fills+Main+Street+every+Wednesday%2C+9am+to+3pm.+Expect+local+makers%2C+produce+and+food%3B+severe+weather+can+cancel+the+market+or+limit+stalls.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-wednesday-market-main-street-market%2F&location=Main+Street+Mornington%2C+Main+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 
@@ -83,13 +85,13 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 

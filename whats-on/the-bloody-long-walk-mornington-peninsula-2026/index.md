@@ -23,6 +23,8 @@ Who it's for: teams who want a hard physical day with a cause attached. The rout
 
 The practical move: register early, build a fundraising page from the day you sign up, and train on the actual Portsea-to-Sorrento section in the months before. Stay overnight in Portsea the night before so you're at the start without a 5am drive. Dinner in Sorrento or Mornington at the finish.
 
+[Check the latest details at the source →](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>)
+
 Hosted at
 
 Point Nepean National Park (Quarantine Station start)

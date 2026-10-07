@@ -25,6 +25,8 @@ General admission covers all seven venues but not transport. It suits a group wi
 
 Ticket tiers and availability can change, so check Humanitix before booking. The practical choice for a first visit is a shuttle ticket, unless the Festival Hub's music and parking are the main draw.
 
+[Check the latest details at the source →](<https://vinehopfestival.com.au/>)
+
 Hosted at
 
 Festival Hub at The Briars and six linked venues
@@ -91,13 +93,13 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 

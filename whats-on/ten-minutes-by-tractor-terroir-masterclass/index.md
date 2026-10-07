@@ -21,6 +21,8 @@ The operator lists an 11am daily Terroir Masterclass in its private tasting room
 
 Book an available dated session directly with the operator before building an itinerary around it. A Main Ridge lunch can follow a confirmed class.
 
+[Check the latest details at the source →](<https://www.tenminutesbytractor.com.au/visit-us>)
+
 Hosted at
 
 Ten Minutes by Tractor Cellar Door

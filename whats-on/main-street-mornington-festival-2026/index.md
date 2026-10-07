@@ -27,6 +27,8 @@ The organisers said they will continue to review opportunities for the future an
 
 Main Street itself is unaffected. The shops, the galleries and the walk down to the pier are unchanged.
 
+[Check the latest details at the source →](<https://mainstreetfestival.com.au/>)
+
 Hosted at
 
 Main Street Mornington
@@ -85,13 +87,13 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Markets   Monthly – 2nd Sunday of month (year-round; occasionally 3rd Sunday due to racing events)
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-Monthly makers market at Mornington Racecourse, with handmade and Australian-designed goods, food stalls and live music.
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
