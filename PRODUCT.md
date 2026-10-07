@@ -51,6 +51,10 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 - Independent: no pay-for-coverage, ever.
 - Design is the final gate on factual/image claims for the email; it comes back rather than shipping unsourced.
 
+## Reader and Agent Boundary
+
+Reader pages must contain reader-facing editorial content only. Agent retrieval instructions and machine directory links belong in `/agents/`, JSON, Markdown, `llms.txt`, or HTML head metadata. Do not add them to page bodies, shared navigation, footers, hidden elements, or accessibility labels. `next/scripts/assert-reader-boundary.mjs` scans every built reader HTML page and blocks the build and publish when this boundary is crossed.
+
 ## Accessibility & Inclusion
 
 No project-specific accessibility requirement established beyond standard web/email practice (alt text on every image, sufficient contrast in both light and dark mode).
