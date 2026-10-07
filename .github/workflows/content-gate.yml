@@ -69,6 +69,7 @@ jobs:
           npm run test:how-we-check
           npm run test:event-safeguards
           npm run test:event-occurrence
+          node --test ../ops/scripts/post-publish-verify.test.mjs
           npm run test:media-provenance
           npm run lint:visit-victoria
           npm run test:commercial-firewall
