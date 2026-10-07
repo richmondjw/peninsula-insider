@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { createHash } from 'node:crypto';
 import { createAuditTransport, forEachAuditItem } from './agent-audit-transport.mjs';
-import { agentRoutes, agentResources, SITE } from '../src/lib/agent-guide.mjs';
+import { agentRoutes, agentResources, agentDirectories, SITE } from '../src/lib/agent-guide.mjs';
 const args = process.argv.slice(2);
 const base = args.includes('--base') ? args[args.indexOf('--base')+1].replace(/\/$/,'') : null;
 const dist = resolve(args.includes('--dist') ? args[args.indexOf('--dist')+1] : 'dist');
@@ -66,6 +66,25 @@ await pool(catalog.records,async record=>{
 await pool(manifest.sections,async section=>{
  const shard=JSON.parse(await read(new URL(section.url).pathname));
  check(shard.snapshotId===snapshot&&shard.count===section.count&&JSON.stringify(shard.records)===JSON.stringify(catalog.records.filter(r=>r.section===section.section)),`Section catalogue mismatch: ${section.section}`);
+});
+check(Array.isArray(manifest.directories)&&manifest.directories.length===agentDirectories.length,'Name directory manifest coverage mismatch');
+const guideMarkdown=await read('/agents/index.md');
+const homeMarkdown=await read('/index.md');
+await pool(agentDirectories,async directory=>{
+ const advertised=(manifest.directories||[]).find(entry=>entry.section===directory.section);
+ for(const [format,href,urlKey,bytesKey,urlsKey] of [['markdown',directory.href,'url','bytes','distinctUrls'],['html',directory.htmlHref,'htmlUrl','htmlBytes','htmlDistinctUrls']]){
+  const expectedUrl=`${SITE}${href}`;
+  check(advertised?.[urlKey]===expectedUrl,`Name directory ${format} URL missing or incorrect: ${directory.section}`);
+  check(llms.includes(expectedUrl)&&guideMarkdown.includes(expectedUrl)&&homeMarkdown.includes(expectedUrl),`Name directory ${format} absent from text entry points: ${directory.section}`);
+  const body=await read(href);const shard=JSON.parse(body);
+  const expected=catalog.records.filter(record=>record.section===directory.section).map(record=>format==='markdown'?{title:record.title,markdownUrl:record.markdownUrl}:{title:record.title,canonicalUrl:record.canonicalUrl});
+  check(shard.schemaVersion==='1.0'&&shard.snapshotId===snapshot&&shard.generatedAt===catalog.generatedAt&&shard.section===directory.section&&shard.destinationFormat===format,`Name directory ${format} source/snapshot mismatch: ${directory.section}`);
+  check(shard.count===expected.length&&JSON.stringify(shard.records)===JSON.stringify(expected),`Name directory ${format} membership or projection mismatch: ${directory.section}`);
+  const bytes=Buffer.byteLength(body,'utf8');const urls=new Set(body.match(/https?:\/\/[^\s"<>]+/g)||[]).size;
+  check(bytes<=80000&&urls<=200&&advertised?.[bytesKey]===bytes&&advertised?.[urlsKey]===urls&&advertised?.count===expected.length,`Name directory ${format} exceeds native observation limits or manifest counts: ${directory.section}`);
+  check(shard.semantics?.includes('not facts or recommendations')&&shard.semantics?.includes('not a fact check')&&shard.semantics?.includes('Missing details remain unknown'),`Name directory ${format} uncertainty/citation contract missing: ${directory.section}`);
+  if(base)check(http.find(response=>response.path===href)?.contentType?.includes('application/json'),`Name directory ${format} MIME incorrect: ${directory.section}`);
+ }
 });
 const feed=JSON.parse(await read('/whats-on/upcoming.json'));
 check(feed.timezone==='Australia/Melbourne'&&feed.schemaVersion==='1.2','Listing timezone/schema missing');

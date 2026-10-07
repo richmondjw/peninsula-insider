@@ -45,7 +45,7 @@ test('named anchors without href never invent destination URLs', () => {
   assert.match(result.markdown, /Sources/);
 });
 
-import { publicPath, validateCatalog, compareCatalogs, generateFormats, citationDate } from './generate-agent-formats.mjs';
+import { publicPath, validateCatalog, compareCatalogs, generateFormats, citationDate, buildNameDirectories } from './generate-agent-formats.mjs';
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 import { tmpdir } from 'node:os';
@@ -94,4 +94,79 @@ test('invalid calendar dates stay unknown and mixed-case noindex cannot enter ex
  assert.throws(()=>extractPage(page('<h1>Hidden</h1>','<meta name="Robots" content="NOINDEX">'),url),/non-public/);
  const bad=extractPage(page('<h1>Example</h1>','<meta property="article:modified_time" content="2026-02-30">'),url);assert.equal(bad.citation.modifiedAt,null);
  assert.throws(()=>validateCatalog({...catalog([makeRecord('ok')]),snapshotId:'0'.repeat(64)}),/snapshot hash mismatch/);
+});
+
+
+const namedRecord = (slug, section = 'eat', title = 'Example') => ({ ...makeRecord(slug), title, section, id: `https://peninsulainsider.com.au/${section}/${slug}/`, canonicalUrl: `https://peninsulainsider.com.au/${section}/${slug}/`, markdownUrl: `https://peninsulainsider.com.au/${section}/${slug}/index.md` });
+test('lean directories retain every section member and exact names/Markdown links without changing rich records', () => {
+ const rich = catalog([namedRecord('one'), namedRecord('two'), namedRecord('one', 'wine')]);
+ const before = JSON.stringify(rich); const directories = buildNameDirectories(rich);
+ assert.deepEqual(directories.map(x => x.section), ['eat','wine','stay','explore','journal','whats-on']);
+ for (const directory of directories) {
+  const result = JSON.parse(directory.body); const selected = rich.records.filter(x => x.section === directory.section);
+  assert.deepEqual(result.records, selected.map(({title, markdownUrl}) => ({title, markdownUrl})));
+  assert.equal(result.count, selected.length); assert.equal(result.snapshotId, rich.snapshotId); assert.equal(result.generatedAt, rich.generatedAt);
+  assert.match(result.scope, /Every canonical indexable page/); assert.match(result.semantics, /not a fact check/); assert.match(result.semantics, /Canonical citation/);
+  assert(result.records.every(x => Object.keys(x).join(',') === 'title,markdownUrl'));
+  assert.equal(directory.distinctUrls, selected.length); assert.equal(directory.bytes, Buffer.byteLength(directory.body));
+  const html = JSON.parse(directory.htmlBody);
+  assert.equal(result.destinationFormat, 'markdown'); assert.equal(html.destinationFormat, 'html');
+  assert.deepEqual(html.records, selected.map(({title, canonicalUrl}) => ({title, canonicalUrl})));
+  for (const key of ['generatedAt','snapshotId','section','count','scope']) assert.equal(html[key], result[key]);
+  assert(html.records.every(x => Object.keys(x).join(',') === 'title,canonicalUrl'));
+  assert.match(html.semantics, /facts, context and citation/); assert.match(html.semantics, /not a fact check/);
+  assert.equal(directory.htmlDistinctUrls, selected.length); assert.equal(directory.htmlBytes, Buffer.byteLength(directory.htmlBody));
+ }
+ assert.equal(JSON.stringify(rich), before);
+});
+test('lean directory refuses foreign/private/misassigned or noncanonical membership, duplicate IDs and altered Markdown targets', () => {
+ const original = namedRecord('one');
+ for (const record of [
+  {...original, section:'wine'},
+  {...original, canonicalUrl:'https://evil.test/eat/one/'},
+  {...original, id:'https://peninsulainsider.com.au/account/',canonicalUrl:'https://peninsulainsider.com.au/account/',markdownUrl:'https://peninsulainsider.com.au/account/index.md',section:'account'},
+  {...original, id:'https://user@peninsulainsider.com.au/eat/one/',canonicalUrl:'https://user@peninsulainsider.com.au/eat/one/',markdownUrl:'https://user@peninsulainsider.com.au/eat/one/index.md'},
+  {...original, markdownUrl:'https://peninsulainsider.com.au/eat/another/index.md'},
+  {...original, title:'Look at https://example.com/'},
+ ]) assert.throws(() => buildNameDirectories(catalog([record])));
+ assert.throws(() => buildNameDirectories(catalog([original,original])));
+});
+test('directory limits apply to complete UTF-8 output and distinct URLs without truncation', () => {
+ const atLimit = buildNameDirectories(catalog(Array.from({length:200},(_,i)=>namedRecord(`entry-${i}`)))).find(x=>x.section==='eat');
+ assert.equal(atLimit.count,200); assert.equal(atLimit.distinctUrls,200); assert(atLimit.bytes<=80000);
+ assert.equal(atLimit.htmlDistinctUrls,200); assert(atLimit.htmlBytes<=80000);
+ assert.throws(()=>buildNameDirectories(catalog(Array.from({length:201},(_,i)=>namedRecord(`entry-${i}`)))),/201\/200 distinct absolute URLs/);
+ assert.throws(()=>buildNameDirectories(catalog([namedRecord('long','eat','🌿'.repeat(21000))])),/80000 UTF-8 bytes/);
+});
+test('real export publishes additive manifest directory refs and fails build on an oversized directory', () => {
+ const dir=mkdtempSync(join(tmpdir(),'pi-agent-name-directories-'));
+ try {
+  const paths=['/agents/',...Array.from({length:201},(_,i)=>`/eat/name-${i}/`)];
+  const writeSitemap = selected => writeFileSync(join(dir,'sitemap.xml'),`<urlset>${selected.map(p=>`<url><loc>https://peninsulainsider.com.au${p}</loc></url>`).join('')}</urlset>`);
+  for(const path of paths){mkdirSync(join(dir,path),{recursive:true});writeFileSync(join(dir,path,'index.html'),page('<h1>Example</h1><p>Access unknown.</p>').replace(url,`https://peninsulainsider.com.au${path}`));}
+  writeSitemap(paths.slice(0,21));const rich=generateFormats(dir);const manifest=JSON.parse(readFileSync(join(dir,'agents/manifest.json')));
+  assert.equal(rich.schemaVersion,'2.0');assert.equal(manifest.schemaVersion,'2.0');assert.equal(manifest.directories.length,6);
+  const directory=manifest.directories.find(x=>x.section==='eat');const body=readFileSync(join(dir,'agents/directories/eat.json'));
+  const htmlBody=readFileSync(join(dir,'agents/directories/eat-html.json'));
+  assert.equal(directory.htmlUrl,'https://peninsulainsider.com.au/agents/directories/eat-html.json'); assert.equal(directory.htmlBytes,htmlBody.length); assert.equal(directory.htmlDistinctUrls,20);
+  assert.deepEqual(JSON.parse(htmlBody).records,rich.records.filter(x=>x.section==='eat').map(({title,canonicalUrl})=>({title,canonicalUrl})));
+  assert.equal(directory.url,'https://peninsulainsider.com.au/agents/directories/eat.json');assert.equal(directory.bytes,body.length);assert.equal(directory.count,20);
+  assert.deepEqual(JSON.parse(readFileSync(join(dir,'agents/sections/eat.json'))).records,rich.records.filter(x=>x.section==='eat'));
+  const md=readFileSync(join(dir,'eat/name-0/index.md'),'utf8');assert.match(md,/Canonical: https:\/\/peninsulainsider.com.au\/eat\/name-0\//);assert.match(md,/Access unknown/);
+  assert.match(readFileSync(join(dir,'eat/name-0/index.html'),'utf8'),/Text of this same page \(Markdown\)/);
+  writeSitemap(paths);assert.throws(()=>generateFormats(dir),/201\/200 distinct absolute URLs/);
+  assert.equal(readFileSync(join(dir,'agents/directories/eat.json')).toString(),body.toString(),'Oversized replacement is not silently truncated or written');
+  assert.equal(readFileSync(join(dir,'agents/directories/eat-html.json')).toString(),htmlBody.toString(),'HTML companion remains intact on over-limit failure');
+ } finally {rmSync(dir,{recursive:true,force:true});}
+});
+
+test('companion directories expose one destination per record and preserve duplicate names in canonical order', () => {
+ const rich=catalog([namedRecord('first','explore','Shared name'),namedRecord('second','explore','Shared name')]);
+ const d=buildNameDirectories(rich).find(x=>x.section==='explore');
+ const md=JSON.parse(d.body),html=JSON.parse(d.htmlBody);
+ assert.deepEqual(md.records.map(x=>x.title),html.records.map(x=>x.title));
+ assert.deepEqual(html.records.map(x=>x.canonicalUrl),rich.records.map(x=>x.canonicalUrl));
+ assert.equal(md.records.length,2);assert.equal(html.records.length,2);
+ assert.equal((d.body.match(/https?:\/\//g)||[]).length,2);assert.equal((d.htmlBody.match(/https?:\/\//g)||[]).length,2);
+ assert(!d.body.includes('canonicalUrl'));assert(!d.htmlBody.includes('markdownUrl'));
 });

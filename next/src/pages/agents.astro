@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { agentRoutes, agentResources, agentCaveat, agentDateGuidance } from '../lib/agent-guide.mjs';
+import { agentRoutes, agentResources, agentDirectories, agentCaveat, agentDateGuidance } from '../lib/agent-guide.mjs';
 import { retrievalPermission, permissionGuideParts } from '../lib/retrieval-permission.mjs';
 export const prerender = true;
 ---
@@ -15,6 +15,7 @@ export const prerender = true;
         <a href="#formats">Choose a format</a>
         <a href="#trust">Use it with confidence</a>
       </nav>
+      <div class="agent-guide__lookup"><p>Already have a name in mind? Each JSON directory lists published pages by name. Choose text-page links or HTML-page links, then open the matching page for facts, caveats and the canonical citation.</p><ul aria-label="Page name directories">{agentDirectories.map((directory) => <li><span>{directory.title}:</span><a href={directory.href} aria-label={`${directory.title}: JSON directory of text page links`}>Text</a><a href={directory.htmlHref} aria-label={`${directory.title}: JSON directory of HTML page links`}>HTML</a></li>)}</ul></div>
     </header>
     <section id="start" aria-labelledby="start-title">
       <div class="agent-guide__section-heading"><h2 id="start-title">What are you helping with?</h2><p>Start with the task, then follow through to the place or story that supports your answer.</p></div>
@@ -23,7 +24,7 @@ export const prerender = true;
       </dl>
     </section>
     <section id="formats" aria-labelledby="formats-title" class="agent-guide__split">
-      <div><h2 id="formats-title">A little less to fetch.<br />The same context to keep.</h2><p>Our compact catalogue links to text versions of every canonical page in the public sitemap. Each is generated from the published page's main content, with its links and caveats retained. Cite the canonical page.</p><p>Start with the format manifest to choose a smaller section catalogue. Fetch the page's explicit index.md link for its text; asking an HTML URL for Markdown does not change its format. On a return visit, compare content hashes or use the changes feed when its starting snapshot matches yours. A changed page needs rereading. A removed page is not proof that a venue closed.</p></div>
+      <div><h2 id="formats-title">A little less to fetch.<br />The same context to keep.</h2><p>Our compact catalogue links to text versions of every canonical page in the public sitemap. Each is generated from the published page's main content, with its links and caveats retained. Cite the canonical page.</p><p>To find a named page, choose a directory above and follow the link for your preferred page format. For citation metadata, content hashes and representation sizes, choose a richer section catalogue from the format manifest. A page's index.md alternate contains that same page's main text; it does not search for another place or story. Asking an HTML URL for Markdown does not change its format. On a return visit, compare content hashes or use the changes feed when its starting snapshot matches yours. A changed page needs rereading. A removed page is not proof that a venue closed.</p></div>
       <div class="agent-guide__resources">{agentResources.filter((r) => !['/agents/', '/terms/'].includes(r.href)).map((resource) => <div><h3><a href={resource.href}>{resource.title}</a></h3><p>{resource.description}</p></div>)}</div>
     </section>
     <section id="trust" aria-labelledby="trust-title" class="agent-guide__split">
@@ -50,6 +51,11 @@ export const prerender = true;
   .agent-guide a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
   .agent-guide a:hover { text-decoration-thickness: 2px; }
   .agent-guide a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  .agent-guide__lookup { margin-top: 1.5rem; }
+  .agent-guide__lookup ul { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; padding: 0; margin: 0; }
+  .agent-guide__lookup li { display: flex; align-items: baseline; flex-wrap: wrap; gap: .6rem; }
+  .agent-guide__lookup li span { font-weight: 600; }
+  .agent-guide__lookup a { padding-block: .6rem; }
   .agent-guide__nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1.5rem; }
   .agent-guide__nav a { padding-block: .65rem; }
   .agent-guide section { border-top: 1px solid var(--border); padding-block: 3rem; scroll-margin-top: 8rem; }

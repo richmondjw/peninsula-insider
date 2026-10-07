@@ -31,6 +31,7 @@
  * lives in git history at this path; its components remain under
  * src/components/edition/ untouched.
  */
+import { agentDirectories } from '../lib/agent-guide.mjs';
 import HomeCover from '../components/v5/home/HomeCover.astro';
 import HomeWeekend from '../components/v5/home/HomeWeekend.astro';
 import HomeDoors from '../components/v5/home/HomeDoors.astro';
@@ -51,6 +52,7 @@ export const prerender = true;
   canonical="https://peninsulainsider.com.au"
 >
   <HomeCover />
+  <section class="home-name-directory container" aria-label="Find a published page by name"><p>Looking for a particular place or story? <a href="/site-index/">Browse selected places and stories</a>. For agents, choose a JSON name directory with text or HTML page links, then read the matching page.</p><ul>{agentDirectories.map((directory) => <li><span>{directory.title}:</span><a href={directory.href} aria-label={`${directory.title}: JSON directory of text page links`}>Text</a><a href={directory.htmlHref} aria-label={`${directory.title}: JSON directory of HTML page links`}>HTML</a></li>)}</ul></section>
   <HomeWeekend />
   <HomePlan />
   <HomeDoors />
@@ -62,3 +64,14 @@ export const prerender = true;
   {/* <HomeAsk /> */}
   <HomeDispatch />
 </BaseLayout>
+
+<style>
+  .home-name-directory { padding-block: 1.5rem; color: var(--text); }
+  .home-name-directory p { max-width: 70ch; margin: 0 0 .5rem; line-height: 1.65; }
+  .home-name-directory ul { display: flex; flex-wrap: wrap; gap: .25rem 1.5rem; list-style: none; padding: 0; margin: 0; }
+  .home-name-directory li { display: flex; align-items: baseline; flex-wrap: wrap; gap: .6rem; }
+  .home-name-directory li span { font-weight: 600; }
+  .home-name-directory a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; padding-block: .5rem; }
+  .home-name-directory a:hover { text-decoration-thickness: 2px; }
+  .home-name-directory a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+</style>

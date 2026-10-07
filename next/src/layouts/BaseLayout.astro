@@ -1,4 +1,5 @@
 ---
+import { agentDirectories } from '../lib/agent-guide.mjs';
 import { CONCIERGE_API_URL } from '../lib/concierge-config';
 /**
  * Peninsula Insider  -  BaseLayout
@@ -171,6 +172,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <meta name="description" content={description} />
   <link rel="canonical" href={canonicalUrl} />
   {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
+  {!noindex && Astro.url.pathname === "/" && agentDirectories.map((directory) => <><link rel="index" type="application/json" href={directory.href} title={`${directory.title} name directory: text page links`} /><link rel="index" type="application/json" href={directory.htmlHref} title={`${directory.title} name directory: HTML page links`} /></>)}
   <link rel="alternate" type="application/rss+xml" title="Peninsula Insider stories" href="/feed.xml" />
   <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
