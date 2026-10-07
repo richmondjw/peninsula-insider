@@ -272,6 +272,32 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
+      - name: Verify weekend page on the public site
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          for attempt in {1..30}; do
+            if node ops/scripts/post-publish-verify.mjs \
+              --kind=page \
+              "--expect-sha=$SOURCE_SHA" \
+              "--report=$RUNNER_TEMP/weekend-page-live.md" \
+              https://peninsulainsider.com.au/whats-on/this-weekend/; then
+              exit 0
+            fi
+            echo "Weekend page not yet verified on public release (attempt $attempt/30)"
+            sleep 20
+          done
+          exit 1
+
+      - name: Retain weekend page live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekend-page-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/weekend-page-live.md
+          retention-days: 90
+          if-no-files-found: warn
+
       - name: Alert on failure (non-silent)
         # Red main must surface immediately. Uses the repo's existing alert path
         # (engine/alert.py — structured file under ops/alerts/ plus a deduplicated
