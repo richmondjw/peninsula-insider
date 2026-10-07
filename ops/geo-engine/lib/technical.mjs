@@ -80,7 +80,7 @@ export function auditPage(page, ctx) {
     out.push(finding(urlPath, 'thin_content', `${page.wordCount} words (below the ${floor}-word floor for ${page.pageType})`));
   }
 
-  if (page.orphan && indexableSurface) {
+  if (page.orphan && indexableSurface && !page.eventCancelled) {
     out.push(finding(urlPath, 'orphan_page', 'no internal links point at this page'));
   }
 

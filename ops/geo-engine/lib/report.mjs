@@ -17,7 +17,9 @@ export function renderReport(run) {
   p('');
 
   if (run.noMaterialAction) {
-    p('SEO/GEO: No material action required today.');
+    const attention = operationalAttention(run);
+    p(attention.length ? 'SEO/GEO: No source change applied; operational attention required.' : 'SEO/GEO: No material action required today.');
+    for (const note of attention) p(`Operator attention — Remy: ${note}`);
     if(run.discovery?.error)p(`Discovery unavailable: ${run.discovery.error}; no AI visibility result claimed.`);
     if(run.liveCrawl?.state==='unavailable'||run.liveCrawl?.summary?.status==='failed')p('Live crawler evidence unavailable or failed; inspect retained diagnostics.');
     p('');
@@ -60,7 +62,7 @@ export function renderReport(run) {
   if (!run.changes.applied.length) {
     p(`None. The engine is in ${run.mode} mode.`);
     const wouldApply = run.changes.planned.filter((c) => c.wouldApply).length;
-    p(`${run.changes.planned.length} change(s) planned, ${wouldApply} would pass the safety gate if autonomous action were enabled.`);
+    p(`${run.changes.planned.length} change(s) planned, ${wouldApply} pass the opportunity gate; this is not proof of an available or approved source patch.`);
   } else if (run.changes.applied.length > 8) {
     p(`${run.changes.applied.length} changes applied. See ${run.paths.changeManifest}.`);
   } else {
@@ -130,6 +132,11 @@ export function renderReport(run) {
   }
   p('');
 
+  p('OPERATOR ATTENTION — Remy');
+  const attention = operationalAttention(run);
+  if (!attention.length) p('No operational blockers recorded.');
+  for (const note of attention) p(`- ${note}`);
+  p('');
   p('NEEDS JAMES');
   if (!run.needsJames.length) p('Nothing requiring a human decision this cycle.');
   for (const n of run.needsJames) {
@@ -144,6 +151,22 @@ export function renderReport(run) {
   p(run.next);
 
   return L.join('\n');
+}
+
+export function operationalAttention(run) {
+  const notes=[];
+  if (run.liveCrawl?.matchesCurrentDeployment === false)
+    notes.push('Crawler receipt does not match the current deployment; refresh matching live evidence.');
+  if (run.liveCrawl?.state === 'unavailable' || run.liveCrawl?.summary?.status === 'failed' || run.liveCrawl?.freshness === 'stale')
+    notes.push('Live crawl evidence is unavailable, failed or stale; inspect the retained collector diagnostics.');
+  if (run.discovery?.error) notes.push(`Discovery collector unavailable: ${run.discovery.error}.`);
+  const deferred=run.changes?.deferred ?? [];
+  const reasons=new Map();
+  for (const item of deferred) reasons.set(item.reason,(reasons.get(item.reason)??0)+1);
+  for (const [reason,count] of reasons) notes.push(`${count} source candidate(s) deferred: ${reason}.`);
+  const blocked=(run.changes?.planned??[]).filter(c=>!c.wouldApply);
+  if (blocked.length) notes.push(`${blocked.length} opportunity candidate(s) blocked; safety thresholds unchanged. See changes.json for reasons.`);
+  return notes;
 }
 
 function systemBlock(run) {
@@ -163,7 +186,7 @@ function systemBlock(run) {
     L.push('Errors requiring attention:');
     for (const e of run.system.errors) L.push(`  - ${e}`);
   } else {
-    L.push('Errors requiring attention: none');
+    L.push('Execution errors: none. Operational blockers are reported separately; this is not live-site acceptance.');
   }
   return L.join('\n');
 }

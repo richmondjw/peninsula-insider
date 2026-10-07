@@ -1,4 +1,5 @@
 ---
+import { publicImageSourceUrl } from '../lib/image-source-url.mjs';
 /** Attribution for an event image with recorded provenance. */
 export interface Props {
   image?: any;
@@ -6,6 +7,7 @@ export interface Props {
 }
 
 const { image, compact = false } = Astro.props;
+const sourceUrl = publicImageSourceUrl(image?.sourceUrl);
 const recorded = image?.rightsStatus === 'recorded';
 const generated = String(image?.src ?? '').startsWith('/images/generated/');
 const licence = String(image?.permission ?? '');
@@ -29,7 +31,7 @@ const licenceUrl = licenceLabel === 'CC BY-SA 4.0'
       <>
         <span>Image · {image.creator ?? image.credit}</span>
         {licenceLabel && licenceUrl && <a href={licenceUrl} target="_blank" rel="noopener noreferrer">{licenceLabel}</a>}
-        {image.sourceUrl && <a href={image.sourceUrl} target="_blank" rel="noopener noreferrer">Image source</a>}
+        {sourceUrl && <a href={sourceUrl} target="_blank" rel="noopener noreferrer">Image source</a>}
       </>
     )}
   </p>

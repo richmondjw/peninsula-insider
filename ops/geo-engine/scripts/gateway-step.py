@@ -91,7 +91,7 @@ def ensure_dependencies(env, log):
     modules = REPO / 'next/node_modules'
     if modules.is_symlink():
         modules.unlink()
-    execute(['npm', 'ci', '--no-audit', '--no-fund'], env, log, timeout=600, cwd=REPO / 'next')
+    execute(['npm', 'ci', '--include=dev', '--no-audit', '--no-fund'], env, log, timeout=600, cwd=REPO / 'next')
     if not all((modules / path).exists() for path in
                ('.bin/astro', 'astro/package.json', 'piccolore/package.json')):
         raise RuntimeError('Locked dependency install incomplete')
@@ -158,7 +158,12 @@ def main():
                     execute(['node', str(REPO.parent / 'peninsula-seo-geo/analytics-read.cjs')], env, output, timeout=240)
                 data = read(temporary)
                 if data.get('gsc', {}).get('status') != 'observed':
-                    raise RuntimeError('Fresh GSC evidence unavailable')
+                    # Preserve the failed collection separately; never replace accepted analytics.
+                    save(RUNS / 'analytics-failed.json', data)
+                    code = data.get('gsc', {}).get('error')
+                    allowed = {'authentication_failed', 'permission_denied', 'timeout', 'connector_failed'}
+                    detail = code if code in allowed else 'unavailable'
+                    raise RuntimeError(f'Fresh GSC evidence unavailable ({detail}); see analytics-failed.json')
                 temporary.replace(analytics)
                 p['analytics'] = {'gsc': data['gsc']['status'], 'ga4': data.get('ga4', {}).get('status')}
                 run(['node', '--test', *map(str, (ENGINE / 'test').glob('*.test.mjs'))], timeout=90)
