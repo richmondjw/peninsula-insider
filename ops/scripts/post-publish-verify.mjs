@@ -215,8 +215,8 @@ async function verifyOne(url) {
           const imageOk = imageResponse.ok && (isSvg
             ? imageResponse.headers.get('content-type')?.includes('image/svg+xml')
               && payload.byteLength >= 2_000
-              && /<svg\\b/i.test(vectorMarkup)
-              && !/<script\\b/i.test(vectorMarkup)
+              && /<svg\b/i.test(vectorMarkup)
+              && !/<script\b/i.test(vectorMarkup)
             : payload.byteLength >= 10_000);
           checks.push(check('event-image-loads', imageOk,
             'status ' + imageResponse.status + ', ' + payload.byteLength + ' bytes, ' +
