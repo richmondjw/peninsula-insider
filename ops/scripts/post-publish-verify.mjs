@@ -219,7 +219,7 @@ async function verifyOne(url) {
         'current Shire source link'));
       if (expectIllustration) {
         checks.push(check('event-illustration-disclosure',
-          /AI-assisted editorial illustration/i.test(figure),
+          /AI-assisted artwork/i.test(figure) && /data-pi-media-disclosure=["']illustrative["']/i.test(figure),
           'illustration disclosure in image caption'));
       }
     }
