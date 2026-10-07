@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {normalizeSearch,discoveryRecord} from '../lib/discovery.mjs';
+import {normalizeSearch,discoveryRecord,lacksCitationMetadata} from '../lib/discovery.mjs';
 import {mergeBenchmark} from '../lib/benchmark.mjs';
 import {visibilitySummary} from '../lib/visibility.mjs';
 test('retired benchmark questions preserve receipts and restore them on reintroduction',()=>{
@@ -27,4 +27,13 @@ test('only typed grounded answers become AI observations; source lists remain se
   assert.throws(()=>discoveryRecord(q,{...answer,query:'different'},'fixture','now'),/different query/);
   assert.equal(normalizeSearch({content:[{type:'text',text:JSON.stringify(answer)}]}).kind,'answer');
   assert.equal(normalizeSearch({content:[{type:'text',text:'Invented prose'}]}).kind,'error');
+});
+
+test('provider prose without citation metadata is explicitly unmeasurable, never an AI observation',()=>{
+ const q={query:'Local question'};
+ const r={kind:'answer',query:q.query,content:'Unmeasured provider prose'};
+ assert.equal(lacksCitationMetadata(q,r),true);
+ assert.equal(lacksCitationMetadata(q,{...r,citations:[]}),false);
+ assert.equal(lacksCitationMetadata(q,{...r,query:'wrong'}),false);
+ assert.throws(()=>discoveryRecord(q,r,'fixture','now'),/citation metadata/);
 });

@@ -216,6 +216,7 @@ function schemaHasCancelledEvent(value) {
   if (Array.isArray(value)) return value.some(schemaHasCancelledEvent);
   if (!value || typeof value !== 'object') return false;
   const types = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
-  return (types.includes('Event') && value.eventStatus === 'https://schema.org/EventCancelled')
+  return (types.some(type => ['Event','https://schema.org/Event','http://schema.org/Event'].includes(type))
+      && ['https://schema.org/EventCancelled','http://schema.org/EventCancelled'].includes(value.eventStatus))
     || (Array.isArray(value['@graph']) && value['@graph'].some(schemaHasCancelledEvent));
 }

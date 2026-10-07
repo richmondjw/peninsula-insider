@@ -21,6 +21,8 @@ import {auditPage} from '../lib/technical.mjs';
 test('cancelled Event schema suppresses only orphan promotion, not broken-link auditing',()=>{
   const html='<script type="application/ld+json">{"@graph":[{"@type":"Event","eventStatus":"https://schema.org/EventCancelled"}]}</script>';
   assert.equal(parsePage(html).eventCancelled,true);
+  for (const type of ['https://schema.org/Event','http://schema.org/Event'])
+    assert.equal(parsePage(html.replace('\"@type\":\"Event\"',`\"@type\":\"${type}\"`)).eventCancelled,true);
   assert.equal(parsePage(html.replace('EventCancelled','EventScheduled')).eventCancelled,false);
   const page={urlPath:'/whats-on/cancelled/',pageType:'event',indexable:true,orphan:true,eventCancelled:true,outgoingInternal:[{to:'/missing/'}]};
   const ctx={knownPaths:new Set(),assetLike:()=>false};
