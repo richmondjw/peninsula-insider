@@ -132,7 +132,11 @@ export function generateFormats(dist, { previous = null } = {}) {
     const file = join(dist, pathname, 'index.html');
     const html = readFileSync(file, 'utf8');
     const canonical = `${SITE}${pathname}`;
-    const record = extractPage(html, canonical);
+    const extracted = extractPage(html, canonical);
+    // Keep lookup links in the machine-readable homepage, not in its human-facing main content.
+    const directoryAppendix = pathname === '/' ? `\n## Machine-readable name directories\n\nThese lookup links are provided for automated clients in this Markdown format only. They do not appear in the visual homepage. Follow a linked page for facts and its canonical citation.\n\n${agentDirectories.map((directory) => `- ${directory.title}: [Text directory](<${SITE}${directory.href}>) · [HTML directory](<${SITE}${directory.htmlHref}>)`).join('\n')}\n` : '';
+    const markdown = extracted.markdown + directoryAppendix;
+    const record = { ...extracted, markdown, contentSha256: digest(markdown) };
     const markdownUrl = `${canonical}index.md`;
     writeFileSync(join(dist, pathname, 'index.md'), record.markdown);
     const alternate = `<link rel="alternate" type="text/markdown" href="${markdownUrl}" title="Text of this same page (Markdown)">`;
