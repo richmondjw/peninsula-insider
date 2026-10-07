@@ -230,6 +230,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
     ethicsPolicy: `${SITE_URL}/about/`,
   })} />
 
+  <slot name="head" />
+
   {isHome && (
     <script type="application/ld+json" set:html={JSON.stringify({
       '@context': 'https://schema.org',
