@@ -1,13 +1,16 @@
 {
   "sitemapUrl": "https://peninsulainsider.com.au/sitemap.xml",
-  "snapshotFile": "2026-10-03-batch4-sitemap.xml",
-  "sha256": "094a17af7c09118ee68f46a86b5d1d41b7f92124147f96b624aa67092300cba3",
-  "processedAtUtc": "2026-10-03T12:20:04+00:00",
-  "urlCount": 615,
+  "snapshotFile": "2026-10-08-sitemap.xml",
+  "sha256": "ff590c2daf7edbfba21c42fe96f742db0e0e3bcd066e3aedf9bf720b245deb57",
+  "processedAtUtc": "2026-10-07T14:39:00+00:00",
+  "urlCount": 595,
   "tierCounts": {
     "T1": 60,
-    "T2": 386,
-    "T3": 169
+    "T2": 387,
+    "T3": 148
   },
-  "removedCount": 4
+  "removedCount": 29,
+  "snapshotSource": "https://raw.githubusercontent.com/richmondjw/peninsula-insider/6b975579ec017d1f3d55fbd45b70d1f438a1d893/sitemap.xml",
+  "deploymentSourceSha": "b6e81bcee5add51c77db25b7840ae15dbcbc86c7",
+  "limitation": "Snapshot retrieved from the immutable deployed gh-pages commit; direct public sitemap HTTP fetch was unavailable in this session."
 }
