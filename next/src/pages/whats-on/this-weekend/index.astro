@@ -128,6 +128,7 @@ const eligibleWeekendRows = liveEvents
   .filter((live) => occursInWindow(live.rule, activeWindow))
   .filter((live) => (live.event.data.dateBasis ?? 'fixed') === 'fixed')
   .filter((live) => live.event.data.verification === 'verified')
+  .filter((live) => live.promotable)
   .filter((live) => {
     const checked = live.event.data.lastCheckedDate;
     return checked instanceof Date && now.getTime() - checked.getTime() <= 30 * 86400000;
@@ -403,7 +404,7 @@ export const prerender = true;
           </div>
           {liveThisWeekend.length > 0 ? (
             <div class="event-grid">
-              {liveThisWeekend.map((event) => <WeekendVerifiedCard event={event} choiceCue={weekendChoiceCues[routeSlug(event)]} />)}
+              {visibleWeekendRows.map((live) => <WeekendVerifiedCard event={live.event} occurrenceDate={live.rule.kind === 'range' && live.rule.start.getTime() !== live.rule.end.getTime() ? undefined : firstDayInWindow(live.rule, activeWindow) ?? undefined} choiceCue={weekendChoiceCues[live.slug]} />)}
             </div>
           ) : (
             <p class="ptw-current__empty">
@@ -452,7 +453,7 @@ export const prerender = true;
             </p>
           </div>
           <div class="event-grid">
-            {liveThisWeekend.map((e) => <WeekendVerifiedCard event={e} choiceCue={weekendChoiceCues[routeSlug(e)]} />)}
+            {visibleWeekendRows.map((live) => <WeekendVerifiedCard event={live.event} occurrenceDate={live.rule.kind === 'range' && live.rule.start.getTime() !== live.rule.end.getTime() ? undefined : firstDayInWindow(live.rule, activeWindow) ?? undefined} choiceCue={weekendChoiceCues[live.slug]} />)}
           </div>
           <p class="ptw-also__more">
             <a href="/whats-on/">See the full What's On index →</a>
