@@ -166,8 +166,8 @@ const weekendQuickLabels: Record<string, string> = {
   'mornington-racecourse-market': 'Mornington Racecourse Market',
 };
 const weekendChoiceCues: Record<string, string> = {
-  'national-works-on-paper-2026-nwop': 'Choose this for an indoor art stop. The gallery is open 11am-4pm on Sunday.',
-  'acoustic-saturdays-peppers-moonah-links-2026': 'After a Fingal or Cape Schanck day, this is the free Saturday evening option.',
+  'national-works-on-paper-2026-nwop': 'Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am–4pm.',
+  'acoustic-saturdays-peppers-moonah-links-2026': 'After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.',
   'hill-ridge-community-market-september-2026-restart': 'Produce, makers and live music in Red Hill before a wine-country lunch. Check weather with the organiser.',
 };
 const flexibleIdeaCopy: Record<string, { label: string; reason: string }> = {
@@ -220,12 +220,12 @@ export const prerender = true;
           <div class="ptw-hero__head">
             <div class="ptw-hero__meta">
               <span class="ptw-hero__pill" aria-label="Section">Peninsula This Weekend</span>
-              <span class="ptw-hero__pill ptw-hero__pill--accent" data-weekend-current hidden>{weekendLabel}</span>
-              <span class="ptw-hero__pill ptw-hero__pill--accent" data-weekend-expired>Edition · {weekendLabel}</span>
+              <span class="ptw-hero__pill ptw-hero__pill--accent" data-weekend-current>{weekendLabel}</span>
+              <span class="ptw-hero__pill ptw-hero__pill--accent" data-weekend-expired hidden>Edition · {weekendLabel}</span>
             </div>
 
             {/* A static weekend page must stop presenting dated cards as current after Sunday night. */}
-            <p class="ptw-hero__stale" data-weekend-expired>
+            <p class="ptw-hero__stale" data-weekend-expired hidden>
               This edition covers {weekendLabel}. Check the date with each organiser before travelling, or <a href="/whats-on/">browse the current events index</a>.
             </p>
             <script is:inline>
@@ -233,8 +233,13 @@ export const prerender = true;
                 var article = document.querySelector('.ptw[data-weekend-end]');
                 if (!article) return;
                 var end = new Date(article.getAttribute('data-weekend-end'));
+                if (!isNaN(end) && Date.now() > end.getTime()) {
+                  article.classList.add('ptw--expired');
+                  article.querySelectorAll('[data-weekend-expired]').forEach(function (el) { el.hidden = false; });
+                }
                 var refresh = function () {
                   var current = !isNaN(end) && Date.now() <= end.getTime();
+                  article.classList.toggle('ptw--expired', !current);
                   document.querySelectorAll('[data-weekend-current], [data-weekend-dated]').forEach(function (el) { el.hidden = !current; });
                   document.querySelectorAll('[data-weekend-expired]').forEach(function (el) { el.hidden = current; });
                 };
@@ -247,17 +252,17 @@ export const prerender = true;
                 else start();
               })();
             </script>
-            <h1 class="ptw-hero__title" data-weekend-current hidden>
+            <h1 class="ptw-hero__title" data-weekend-current>
               {hasCurrentDispatch ? latest.data.title : 'What’s on this weekend'}
             </h1>
-            <h1 class="ptw-hero__title" data-weekend-expired>A Peninsula weekend selection</h1>
-            <p class="ptw-hero__dek" data-weekend-current hidden>
+            <h1 class="ptw-hero__title" data-weekend-expired hidden>A Peninsula weekend selection</h1>
+            <p class="ptw-hero__dek" data-weekend-current>
               {hasCurrentDispatch
                 ? latest.data.dek
                 : `${liveThisWeekend.length} source-checked events for ${weekendLabel}. Confirm details with the organiser before travelling.`}
             </p>
             {!hasCurrentDispatch && liveThisWeekend.length > 0 && (
-              <nav class="ptw-hero__quick" aria-label="Confirmed weekend events" data-weekend-current hidden>
+              <nav class="ptw-hero__quick" aria-label="Confirmed weekend events" data-weekend-current>
                 {weekendQuickRows.map((live) => (
                   <a href={live.href}>
                     <span>
@@ -275,7 +280,7 @@ export const prerender = true;
             )}
 
             {dispatch?.weather && (
-              <div class="ptw-hero__weather" data-weekend-current hidden>
+              <div class="ptw-hero__weather" data-weekend-current>
                 <span class="ptw-hero__weather-label">Weekend forecast</span>
                 <span class="ptw-hero__weather-body">{dispatch.weather}</span>
               </div>
@@ -283,7 +288,7 @@ export const prerender = true;
 
             {hasCurrentDispatch ? (
               <>
-                <div data-weekend-current hidden><PiArticleActions
+                <div data-weekend-current><PiArticleActions
                   slug={latest.id}
                   section="whats-on"
                   title={latest.data.title}
@@ -292,7 +297,7 @@ export const prerender = true;
                   href="/whats-on/this-weekend/"
                 /></div>
 
-                <p class="ptw-hero__cadence" data-weekend-current hidden>
+                <p class="ptw-hero__cadence" data-weekend-current>
                   <strong>Refreshed {publishedFmt}</strong> for the weekend of <strong>{weekendLabel}</strong>.
                   A new dispatch appears when an edited weekend selection is ready.
                 </p>
@@ -326,12 +331,12 @@ export const prerender = true;
 
       {/* ─── Editor's line ──────────────────────────────────────────── */}
       {dispatch?.editorLine && (
-        <p class="ptw-editor-line" data-weekend-dated hidden>{dispatch.editorLine}</p>
+        <p class="ptw-editor-line" data-weekend-dated>{dispatch.editorLine}</p>
       )}
 
       {/* ─── At a glance ────────────────────────────────────────────── */}
       {dispatch && (
-        <div data-weekend-dated hidden><DispatchAtAGlance
+        <div data-weekend-dated><DispatchAtAGlance
           tiles={[
             { eyebrow: 'The lead', title: dispatch.lead.title, anchorId: 'lead' },
             ...(dispatch.saturday ? [{ eyebrow: 'Saturday', title: dispatch.saturday.title, anchorId: 'saturday' }] : []),
@@ -342,7 +347,7 @@ export const prerender = true;
 
       {/* ─── Pick cards ─────────────────────────────────────────────── */}
       {dispatch && (
-        <section class="ptw-picks" aria-label="Weekend picks" data-weekend-dated hidden>
+        <section class="ptw-picks" aria-label="Weekend picks" data-weekend-dated>
           <div id="lead">
             <DispatchPickCard
               eyebrow="The lead booking"
@@ -394,7 +399,7 @@ export const prerender = true;
       )}
 
       {!hasCurrentDispatch && (
-        <section class="ptw-current" aria-labelledby="ptw-current-title" data-weekend-dated hidden>
+        <section class="ptw-current" aria-labelledby="ptw-current-title" data-weekend-dated>
           <div class="ptw-also__head">
             <p class="ptw-also__eyebrow">Dates we could verify</p>
             <h2 id="ptw-current-title" class="ptw-also__title">Confirmed for this weekend</h2>
@@ -437,14 +442,14 @@ export const prerender = true;
 
       {/* ─── Editor's long-form body (existing markdown) ────────────── */}
       {hasCurrentDispatch && (
-        <div class="prose ptw-body" data-weekend-dated hidden>
+        <div class="prose ptw-body" data-weekend-dated>
           <Content />
         </div>
       )}
 
       {/* ─── Also on this weekend (live events) ─────────────────────── */}
       {hasCurrentDispatch && liveThisWeekend.length > 0 && (
-        <section class="ptw-also" aria-labelledby="ptw-also-title" data-weekend-dated hidden>
+        <section class="ptw-also" aria-labelledby="ptw-also-title" data-weekend-dated>
           <div class="ptw-also__head">
             <p class="ptw-also__eyebrow">Also running</p>
             <h2 id="ptw-also-title" class="ptw-also__title">Other things on this weekend</h2>
@@ -466,7 +471,7 @@ export const prerender = true;
       )}
 
       {hasCurrentDispatch && latest.data.faq && latest.data.faq.length > 0 && (
-        <section class="article-faq" aria-labelledby="ptw-faq-title" data-weekend-dated hidden>
+        <section class="article-faq" aria-labelledby="ptw-faq-title" data-weekend-dated>
           <div class="article-faq__header">
             <p class="article-faq__eyebrow">Questions readers actually ask</p>
             <h2 id="ptw-faq-title" class="article-faq__title">FAQ</h2>
@@ -517,6 +522,8 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  .ptw--expired [data-weekend-current],
+  .ptw--expired [data-weekend-dated] { display: none !important; }
   /* ── Hero ──────────────────────────────────────────────────────── */
   .ptw-hero {
     padding: 1.25rem 0 1.75rem;

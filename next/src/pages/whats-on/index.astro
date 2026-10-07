@@ -28,6 +28,7 @@ import WhatsOnRow from '../../components/v5/whatson/WhatsOnRow.astro';
 import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import {
   loadLiveEvents,
+  isDatedCalendarEvent,
   weekendWindow,
   schoolHolidayWindow,
   groupByDay,
@@ -44,19 +45,21 @@ export const prerender = true;
 
 const now = new Date();
 const events = await loadLiveEvents(now);
+const calendarEvents = events.filter(isDatedCalendarEvent);
+const flexibleExperiences = events.filter((live) => eventContentKind(live.event.data) === 'experience').slice(0, 4);
 
 const weekend = weekendWindow(now);
 const nextWeekend = weekendWindow(now, 1);
 const holidays = schoolHolidayWindow(now);
 
-const picks = await getPicks(events, weekend, now);
+const picks = await getPicks(calendarEvents, weekend, now);
 const pickHeading = ['A reason to go', 'A reason to go', 'Two reasons to go', 'Three reasons to go'][Math.min(picks.length, 3)];
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
-const dayGroups = groupByDay(events, weekend, now);
+const dayGroups = groupByDay(calendarEvents, weekend, now);
 const weekendCount = dayGroups.reduce((n, g) => n + g.items.length, 0);
 
-const shelves = getShelves(events, now, pickSlugs).filter((s) => s.items.length > 0);
+const shelves = getShelves(calendarEvents, now, pickSlugs).filter((s) => s.items.length > 0);
 const shelfVisuals = shelves.map((shelf, index) => {
   // Prefer an actual listed venue. A vetted regional category image may set
   // the scene, with its subject named in the caption, but never presents
@@ -183,8 +186,8 @@ const pickCards = picks.map((p, i) => {
 
 const season = getAustralianSeasonLower(now);
 const todayISO = isoDate(startOfDay(now));
-const townOptions = [...new Set(events.map((entry) => entry.event.data.suburb).filter((town): town is string => typeof town === 'string' && town.trim().length > 0))].sort((a, b) => a.localeCompare(b));
-const categoryOptions = [...new Set(events.map((entry) => entry.event.data.category))]
+const townOptions = [...new Set(calendarEvents.map((entry) => entry.event.data.suburb).filter((town): town is string => typeof town === 'string' && town.trim().length > 0))].sort((a, b) => a.localeCompare(b));
+const categoryOptions = [...new Set(calendarEvents.map((entry) => entry.event.data.category))]
   .map((category) => ({ value: category, label: eventCategoryLabel[category] ?? category }))
   .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
@@ -344,6 +347,21 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       </p>
     </div>
   </section>
+
+  {flexibleExperiences.length > 0 && (
+    <section class="wo-flexible" aria-labelledby="wo-flexible-h">
+      <div class="container">
+        <p class="wo-section-kicker">Choose your own timing</p>
+        <h2 class="wo-shelves__title" id="wo-flexible-h">Experiences to check</h2>
+        <p class="wo-flexible__intro">These are not confirmed sessions for the dates above. Check the operator's dates or opening hours before making a plan.</p>
+        <ul class="wo-shelf__list" role="list">
+          {flexibleExperiences.map((live) => (
+            <WhatsOnRow title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={['Check dates and hours', live.placeLabel, live.categoryLabel].filter(Boolean)} />
+          ))}
+        </ul>
+      </div>
+    </section>
+  )}
 
   {shelves.length > 0 && (
     <section class="wo-shelves" aria-labelledby="wo-shelves-h">
@@ -1032,6 +1050,17 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     color: var(--soft);
     font-size: var(--fs-300, 0.9rem);
     font-style: normal;
+  }
+
+  .wo-flexible {
+    padding: clamp(1.75rem, 3vw, 2.75rem) 0;
+    background: #f4f0e9;
+  }
+  .wo-flexible__intro {
+    max-width: 54ch;
+    margin: 0 0 1.25rem;
+    color: var(--soft);
+    line-height: 1.55;
   }
 
   /* ── Shelves ── */

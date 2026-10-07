@@ -10,7 +10,7 @@
  * Prerendered at build time, same freshness cadence as the page.
  */
 import type { APIRoute } from 'astro';
-import { loadLiveEvents, feedFor } from './_data';
+import { loadLiveEvents, feedFor, isDatedCalendarEvent } from './_data';
 
 export const prerender = true;
 
@@ -19,7 +19,7 @@ export const GET: APIRoute = async () => {
   const events = await loadLiveEvents(now);
   const body = JSON.stringify({
     generated: now.toISOString().slice(0, 10),
-    events: feedFor(events),
+    events: feedFor(events.filter(isDatedCalendarEvent)),
   });
   return new Response(body, {
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
