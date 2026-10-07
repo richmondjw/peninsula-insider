@@ -205,10 +205,22 @@ async function verifyOne(url) {
       checks.push(check('event-editorial-image', !!heroSrc, heroSrc || 'missing reviewed hero'));
       if (heroSrc) {
         try {
-          const imageResponse = await fetchWithTimeout(new URL(heroSrc, res.url));
-          const bytes = imageResponse.ok ? (await imageResponse.arrayBuffer()).byteLength : 0;
-          checks.push(check('event-image-loads', imageResponse.ok && bytes >= 10_000,
-            'status ' + imageResponse.status + ', ' + bytes + ' bytes'));
+          const imageUrl = new URL(heroSrc, res.url);
+          const imageResponse = await fetchWithTimeout(imageUrl);
+          const payload = imageResponse.ok
+            ? Buffer.from(await imageResponse.arrayBuffer())
+            : Buffer.alloc(0);
+          const isSvg = imageUrl.pathname.toLowerCase().endsWith('.svg');
+          const vectorMarkup = isSvg ? payload.toString('utf8') : '';
+          const imageOk = imageResponse.ok && (isSvg
+            ? imageResponse.headers.get('content-type')?.includes('image/svg+xml')
+              && payload.byteLength >= 2_000
+              && /<svg\b/i.test(vectorMarkup)
+              && !/<script\b/i.test(vectorMarkup)
+            : payload.byteLength >= 10_000);
+          checks.push(check('event-image-loads', imageOk,
+            'status ' + imageResponse.status + ', ' + payload.byteLength + ' bytes, ' +
+            (imageResponse.headers.get('content-type') || 'unknown type')));
         } catch (error) {
           checks.push(check('event-image-loads', false, error.message));
         }
