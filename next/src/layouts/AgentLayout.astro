@@ -1,0 +1,119 @@
+---
+// Static shell for the public agent guide. Reader pages keep BaseLayout.
+import '../styles/global.css';
+interface Props { title: string; description: string; }
+const { title, description } = Astro.props;
+const SITE_URL = 'https://peninsulainsider.com.au';
+const canonicalUrl = `${SITE_URL}/agents/`;
+const ogImageAbsolute = `${SITE_URL}/images/sourced/explore-hub-hero-01.webp`;
+const ogType = 'website';
+const noindex = false;
+const suppressImageMeta = false;
+---
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="content-language" content="en-AU" />
+  <!-- v6: fonts are self-hosted via @font-face in v6-tokens.css (no external
+       Google Fonts request). Preload the two hero-critical faces. -->
+  <link rel="preload" href="/fonts/sora-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/figtree-400.woff2" as="font" type="font/woff2" crossorigin />
+  <title>{title}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalUrl} />
+  {!noindex && <link rel="describedby" href="/llms.txt" type="text/plain" title="Peninsula Insider agent guide" />}
+  <link rel="alternate" type="application/rss+xml" title="Peninsula Insider stories" href="/feed.xml" />
+  <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  {!suppressImageMeta && <meta property="og:image" content={ogImageAbsolute} />}
+  <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:type" content={ogType} />
+  <meta property="og:site_name" content="Peninsula Insider" />
+  <meta property="og:locale" content="en_AU" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content={suppressImageMeta ? "summary" : "summary_large_image"} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  {!suppressImageMeta && <meta name="twitter:image" content={ogImageAbsolute} />}
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'NewsMediaOrganization',
+    '@id': `${SITE_URL}/#organization`,
+    name: 'Peninsula Insider',
+    legalName: 'Peninsula Insider',
+    url: SITE_URL,
+    description:
+      'The independent editorial guide to the Mornington Peninsula: honest, opinionated coverage of eating, drinking, staying, and exploring. Every pick is independently researched and earns its place.',
+    foundingDate: '2024',
+    areaServed: {
+      '@type': 'Place',
+      name: 'Mornington Peninsula, Victoria, Australia',
+    },
+    sameAs: [
+      'https://www.instagram.com/peninsula_insider/',
+      'https://www.facebook.com/profile.php?id=61568754749670',
+      'https://www.linkedin.com/company/peninsula-insider',
+    ],
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        contactType: 'editorial',
+        email: 'hello@peninsulainsider.com.au',
+      },
+      {
+        '@type': 'ContactPoint',
+        contactType: 'corrections',
+        email: 'corrections@peninsulainsider.com.au',
+      },
+    ],
+    publishingPrinciples: `${SITE_URL}/about/`,
+    correctionsPolicy: `${SITE_URL}/corrections/`,
+    diversityPolicy: `${SITE_URL}/about/`,
+    ethicsPolicy: `${SITE_URL}/about/`,
+  })} />
+  <script is:inline>
+    (function () {
+      try {
+        var s = localStorage.getItem('pi-text-scale');
+        if (s === '2' || s === '3') document.documentElement.dataset.textScale = s;
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body data-page="home" data-path="/agents/" data-v4="true">
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header class="agent-shell__header container" data-pagefind-ignore>
+    <a class="agent-shell__brand" href="/" aria-label="Peninsula Insider home">Peninsula<span>Insider</span></a>
+    <a class="agent-shell__home" href="/">Visit the Peninsula</a>
+  </header>
+  <main id="main-content" data-pagefind-body data-pagefind-filter="kind:Home" data-pagefind-meta="kind:Home">
+    <span data-pagefind-meta={`image:${ogImageAbsolute}`}></span>
+    <slot />
+  </main>
+  <footer class="agent-shell__footer container" data-pagefind-ignore>
+    <p>Independent local knowledge. A better Peninsula day.</p>
+    <nav aria-label="Publication information">
+      <a href="/about/">About</a><a href="/terms/">Terms</a><a href="/privacy/">Privacy</a><a href="/corrections/">Corrections</a>
+    </nav>
+  </footer>
+</body>
+</html>
+<style>
+  .agent-shell__header { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.5rem; padding-block: 1.4rem; border-bottom: 1px solid var(--border); }
+  .agent-shell__brand { font-family: var(--font-display); font-size: 1.6rem; font-weight: 700; line-height: 1.05; letter-spacing: -.035em; color: var(--text); text-decoration: none; }
+  .agent-shell__brand span { display: block; color: var(--accent); }
+  .agent-shell__home, .agent-shell__footer a { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; padding-block: .65rem; }
+  .agent-shell__footer { border-top: 1px solid var(--border); padding-block: 2rem; color: var(--muted); font-size: .95rem; }
+  .agent-shell__footer p { margin: 0 0 .75rem; }
+  .agent-shell__footer nav { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  .agent-shell__header a:focus-visible, .agent-shell__footer a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+  @media (max-width: 700px) { .agent-shell__header { padding-block: 1rem; } .agent-shell__brand { font-size: 1.3rem; } .agent-shell__home { font-size: .9rem; } }
+</style>

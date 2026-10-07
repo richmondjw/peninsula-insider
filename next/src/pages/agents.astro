@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import AgentLayout from '../layouts/AgentLayout.astro';
 import { agentRoutes, agentResources, agentDirectories, agentCaveat, agentDateGuidance } from '../lib/agent-guide.mjs';
 import { retrievalPermission, permissionGuideParts } from '../lib/retrieval-permission.mjs';
 export const prerender = true;
 ---
-<BaseLayout title="A welcome for agents · Peninsula Insider" description="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions.">
+<AgentLayout title="A welcome for agents · Peninsula Insider" description="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions.">
   <article class="agent-guide container">
     <header class="agent-guide__opening">
       <h1>A good Peninsula day<br />starts with good information.</h1>
@@ -39,11 +39,11 @@ export const prerender = true;
       <p>Spotted a problem? <a href="/contact/?type=correction">Send a correction</a> with the page and the detail. Good information gets better when errors are easy to fix.</p>
     </section>
   </article>
-</BaseLayout>
+</AgentLayout>
 <style>
   .agent-guide { padding-block: var(--sp-8, 4rem); color: var(--text); }
   .agent-guide__opening { max-width: 58rem; padding-bottom: 3rem; }
-  .agent-guide h1 { font-family: var(--font-display); font-size: clamp(2.25rem, 4.5vw, 4rem); line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; margin: 0 0 1.5rem; }
+  .agent-guide h1 { overflow-wrap: anywhere; font-family: var(--font-display); font-size: clamp(2.25rem, 4.5vw, 4rem); line-height: 1.12; letter-spacing: -.025em; text-wrap: balance; margin: 0 0 1.5rem; }
   .agent-guide h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 2.5vw, 2.3rem); line-height: 1.2; text-wrap: balance; margin: 0 0 1.25rem; }
   .agent-guide h3 { font-size: 1.1rem; margin: 0 0 .35rem; }
   .agent-guide p, .agent-guide dd { max-width: 70ch; font-size: 1.0625rem; line-height: 1.65; margin: 0 0 1rem; }
