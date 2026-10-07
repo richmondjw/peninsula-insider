@@ -198,8 +198,8 @@ async function verifyOne(url) {
     checks.push(check('event-booking-state', bookingState));
 
     if (eventQuality) {
-      const figure = html.match(/<figure\\b[^>]*class=["'][^"']*\\bevent-detail__image\\b[^"']*["'][^>]*>[\\s\\S]*?<\\/figure>/i)?.[0] ?? '';
-      const heroSrc = figure.match(/<img\\b[^>]*\\bsrc=["']([^"']+)["']/i)?.[1];
+      const figure = html.match(/<figure\b[^>]*class=["'][^"']*\bevent-detail__image\b[^"']*["'][^>]*>[\s\S]*?<\/figure>/i)?.[0] ?? '';
+      const heroSrc = figure.match(/<img\b[^>]*\bsrc=["']([^"']+)["']/i)?.[1];
       checks.push(check('event-editorial-image', !!heroSrc, heroSrc || 'missing reviewed hero'));
       if (heroSrc) {
         try {
@@ -211,11 +211,11 @@ async function verifyOne(url) {
           checks.push(check('event-image-loads', false, error.message));
         }
       }
-      const proseHtml = html.match(/<div\\b[^>]*class=["'][^"']*\\bprose\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/div>/i)?.[1] ?? '';
+      const proseHtml = html.match(/<div\b[^>]*class=["'][^"']*\bprose\b[^"']*["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] ?? '';
       const proseWords = proseHtml.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ')
-        .split(/\\s+/).filter(Boolean).length;
+        .split(/\s+/).filter(Boolean).length;
       checks.push(check('event-useful-copy', proseWords >= 130, proseWords + ' words'));
-      checks.push(check('event-source-link', /href=["']https:\/\/www\\.mornpen\\.vic\\.gov\\.au\//i.test(html),
+      checks.push(check('event-source-link', /href=["']https:\/\/www\.mornpen\.vic\.gov\.au\//i.test(html),
         'current Shire source link'));
       if (expectIllustration) {
         checks.push(check('event-illustration-disclosure',
