@@ -38,7 +38,7 @@
     "FN3": "Global search affordance appears; operation not tested and on-page event filtering is not applicable without an agreed replacement check.",
     "ET1": "Copy names the place, date, time, cause and unknown seating/accessibility arrangements.",
     "ET2": "Commonfolk setting, local wrestling and charity purpose provide a reason to choose.",
-    "ET3": "Shire and Humanitix support core facts; ticket availability unverified and donation wording correction #615 awaits live release.",
+    "ET3": "Shire and Humanitix support core facts; ticket availability unverified and donation wording correction #615 is in the deployed 34ed9e2b artifact; public page fetch remains unverified.",
     "ET4": "Organiser link, correction route and illustration disclosure render; organiser/Shire donation wording conflict triaged.",
     "VS1": "Original SVG rights record and source commits inspected; public image load and disclosure passed exact-SHA verifier; visual impression/crop unobserved.",
     "VS2": "Responsive layout source and crop geometry reviewed; rendered composition unobserved.",
@@ -87,5 +87,5 @@
   ],
   "score": null,
   "status": "provisional",
-  "nextAction": "Complete rendered viewport, keyboard/AT, task-handoff and page-speed checks; independently score all 23 criteria after the proceeds correction is live."
+  "nextAction": "Complete rendered viewport, keyboard/AT, task-handoff and page-speed checks; independently score all 23 criteria with the proceeds correction deployed."
 }
