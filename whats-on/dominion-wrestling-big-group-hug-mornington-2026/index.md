@@ -21,7 +21,7 @@ Editor's verdict
 
 Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
 
-Dominion Wrestling is staging a two-hour charity show at Commonfolk Mornington on Friday 9 October. The Mornington Peninsula Shire listing describes local professional wrestlers, a relaxed cafe setting and a raffle. Big Group Hug supplies essential items to children and families in need, and the published event notice says all ticket and raffle sales go to the charity.
+Dominion Wrestling is staging a two-hour charity show at Commonfolk Mornington on Friday 9 October. The Mornington Peninsula Shire listing describes local professional wrestlers, a relaxed cafe setting and a raffle. Big Group Hug supplies essential items to children and families in need. The organiser says proceeds from ticket sales and raffle tickets will be donated to the charity.
 
 The Shire describes this as a ticketed, all-ages event. Check Humanitix for current admission terms and availability, and ask the organiser about seating, accessibility or other arrangements the listing does not specify.
 
