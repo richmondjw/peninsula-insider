@@ -18,8 +18,8 @@
  *    `pi:save-changed`; both stores emit `pi:saves-changed`, so clicking
  *    Remove produced no visible change at all.
  *
- * Source-structure assertions, not behaviour: these are inline `.astro`
- * scripts, so there is nothing importable to exercise. They are still the
+ * Source-structure assertions, not behaviour: these inspect `.astro` and
+ * extracted browser script sources without executing them. They are still the
  * cheapest thing that would have caught both defects.
  */
 
@@ -125,8 +125,8 @@ function tornDownIn(src) {
   return torn;
 }
 
-const ASTRO_FILES = walk(SRC_DIR, ['.astro']);
-const SCRIPT_FILES = walk(SRC_DIR, ['.astro', '.ts', '.tsx', '.mjs']);
+const PAGE_LOAD_FILES = walk(SRC_DIR, ['.astro', '.js']);
+const SCRIPT_FILES = walk(SRC_DIR, ['.astro', '.ts', '.tsx', '.mjs', '.js']);
 
 /**
  * Sites that still have this defect.
@@ -165,10 +165,10 @@ const SCRIPT_FILES = walk(SRC_DIR, ['.astro', '.ts', '.tsx', '.mjs']);
  */
 const KNOWN_UNFIXED = [].sort();
 
-test('no astro:page-load handler registers a document- or window-level listener', () => {
+function pageLoadOffences(files, readSource = (file) => fs.readFileSync(file, 'utf8')) {
   const offences = [];
-  for (const file of ASTRO_FILES) {
-    const src = fs.readFileSync(file, 'utf8');
+  for (const file of files) {
+    const src = readSource(file);
     const handlers = [
       ...src.matchAll(/addEventListener\s*\(\s*['"]astro:page-load['"]\s*,\s*([A-Za-z_$][\w$]*)\s*\)/g),
     ].map((m) => m[1]);
@@ -189,7 +189,11 @@ test('no astro:page-load handler registers a document- or window-level listener'
       }
     }
   }
-  offences.sort();
+  return offences.sort();
+}
+
+test('no astro:page-load handler registers a document- or window-level listener', () => {
+  const offences = pageLoadOffences(PAGE_LOAD_FILES);
 
   const added = offences.filter((o) => !KNOWN_UNFIXED.includes(o));
   assert.deepEqual(
@@ -205,6 +209,29 @@ test('no astro:page-load handler registers a document- or window-level listener'
   // anything and quietly re-admits the defect.
   const fixed = KNOWN_UNFIXED.filter((o) => !offences.includes(o));
   assert.deepEqual(fixed, [], `Fixed; delete from KNOWN_UNFIXED:\n${fixed.join('\n')}`);
+});
+
+test('extracted SearchOverlay JS remains scanned and an unsafe page-load binding is detected', () => {
+  const file = path.join(SRC_DIR, 'scripts/search-overlay-boot.js');
+  assert.ok(SCRIPT_FILES.includes(file), 'pi: event discovery must include extracted JS');
+  assert.ok(PAGE_LOAD_FILES.includes(file), 'page-load accumulation scan must include extracted JS');
+  assert.deepEqual(pageLoadOffences([file]), [], 'the unchanged extracted boot must remain safe in this scanner');
+  // In-memory mutation at the real new location: never write an unsafe source file.
+  const unsafe = fs.readFileSync(file, 'utf8') + `
+function bindUnsafeExtractionControl() {
+  document.addEventListener('click', function unsafeExtractionClick() {});
+}
+function initUnsafeExtractionControl() {
+  bindUnsafeExtractionControl();
+}
+document.addEventListener('astro:page-load', initUnsafeExtractionControl);
+`;
+  const offences = pageLoadOffences(PAGE_LOAD_FILES, (entry) => (
+    entry === file ? unsafe : fs.readFileSync(entry, 'utf8')
+  ));
+  assert.ok(offences.includes(
+    'src/scripts/search-overlay-boot.js: initUnsafeExtractionControl() -> bindUnsafeExtractionControl() binds "click" on document/window',
+  ), 'the same production scanner must catch the deliberately unsafe extracted-file mutation');
 });
 
 test('the four surfaces PI-012 fixed stay fixed', () => {
