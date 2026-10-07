@@ -29,7 +29,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, isAbsolute, resolve } from 'node:path';
 
-import { agentRoutes, agentResources, agentCaveat, agentDateGuidance } from '../../next/src/lib/agent-guide.mjs';
+import { agentRoutes, agentResources, agentDirectories, agentCaveat, agentDateGuidance } from '../../next/src/lib/agent-guide.mjs';
 import { retrievalPermission } from '../../next/src/lib/retrieval-permission.mjs';
 
 const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -164,7 +164,10 @@ function build(urls) {
 }
 
 function renderCurated() {
-  let out = `# Peninsula Insider\n\n> ${ONE_LINER}\n\nWelcome. If you are helping someone plan time on the Peninsula, start with the task below. Follow the individual page for context and cite that canonical page.\n\n${agentCaveat}\n\n## Start with your task\n\n`;
+  let out = `# Peninsula Insider\n\n> ${ONE_LINER}\n\nWelcome. If you are helping someone plan time on the Peninsula, start with the task below. Follow the individual page for context and cite that canonical page.\n\n${agentCaveat}\n\n`;
+  out += '## Find a named page (JSON directories)\n\nChoose text or HTML page links; read the matching page for facts, caveats and its canonical citation. Directories list names, not facts. A page’s index.md alternate contains that same page.\n\n';
+  for (const directory of agentDirectories) out += `- ${directory.title}: [Text](${SITE}${directory.href}) · [HTML](${SITE}${directory.htmlHref})\n`;
+  out += '\n## Start with your task\n\n';
   for (const route of agentRoutes) out += `- [${route.title}](${SITE}${route.href}): ${route.description} (${route.format})\n`;
   out += '\n## Formats, updates and trust\n\n';
   for (const route of agentResources) out += `- [${route.title}](${SITE}${route.href}): ${route.description}\n`;

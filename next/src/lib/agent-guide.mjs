@@ -1,4 +1,12 @@
 export const SITE = 'https://peninsulainsider.com.au';
+export const agentDirectories = [
+  { title: 'Eat', section: 'eat' },
+  { title: 'Wine', section: 'wine' },
+  { title: 'Stay', section: 'stay' },
+  { title: 'Explore and plans', section: 'explore' },
+  { title: 'Journal', section: 'journal' },
+  { title: 'Events', section: 'whats-on' },
+].map((directory) => ({ ...directory, href: `/agents/directories/${directory.section}.json`, htmlHref: `/agents/directories/${directory.section}-html.json` }));
 export const agentRoutes = [
   { title: 'Events and dates', href: '/whats-on/upcoming.json', format: 'JSON', description: "Dated events, flexible experiences and offers. Read each item's date meaning, the feed window and any event status before answering.", companion: '/whats-on/', companionLabel: 'Browse What\'s On' },
   { title: 'Somewhere to eat', href: '/eat/', format: 'HTML', description: 'Find a place by the kind of visit, then follow its own page for the recommendation and practical details.' },
@@ -14,7 +22,7 @@ export const agentResources = [
   { title: 'Latest representation changes', href: '/agents/changes.json', description: 'Added, changed and removed representations since the named prior snapshot. A removal alone does not establish a closure.' },
   { title: 'Compact page catalogue', href: '/agents/catalog.json', description: 'All sitemap pages, with canonical citations, Markdown links and content hashes.' },
   { title: 'Latest stories (RSS)', href: '/feed.xml', description: 'Recent published stories. Publication is not a new fact check.' },
-  { title: 'All places and stories', href: '/site-index/', description: 'Browse the publication by section.' },
+  { title: 'Browse selected places and stories', href: '/site-index/', description: 'Editorial starting points by section; selected venue and story lists are not exhaustive.' },
   { title: 'Full URL directory', href: '/llms-full.txt', description: 'Sitemap-derived URLs, not full page content. Sitemap dates are not fact-check dates.' },
   { title: 'Sitemap', href: '/sitemap.xml', description: 'Canonical indexable pages for discovery.' },
   { title: 'About and editorial approach', href: '/about/', description: 'How the publication approaches recommendations and independence.' },

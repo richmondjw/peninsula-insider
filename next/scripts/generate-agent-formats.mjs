@@ -3,6 +3,7 @@ import { createHash } from 'node:crypto';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { agentDirectories } from '../src/lib/agent-guide.mjs';
 
 export const SITE = 'https://peninsulainsider.com.au';
 export const FORMAT_VERSION = '2.0';
@@ -74,6 +75,36 @@ export function validateCatalog(catalog) {
   if (catalog.schemaVersion === FORMAT_VERSION && catalog.snapshotId !== digest(JSON.stringify(catalog.records.map(r=>[r.id,r.contentSha256])))) throw new Error('Previous catalogue snapshot hash mismatch');
   return catalog;
 }
+// Lookup-only projections keep one representation URL per name. Rich catalogues stay intact.
+export function buildNameDirectories(catalogue) {
+  validateCatalog(catalogue);
+  for (const record of catalogue.records) {
+    const canonical = new URL(record.canonicalUrl);
+    if (record.canonicalUrl !== `${SITE}${canonical.pathname}` || record.section !== (canonical.pathname.split('/')[1] || 'home')) throw new Error('Name directory record is outside its canonical sitemap section');
+  }
+  return agentDirectories.map(({ section, href, htmlHref }) => {
+    if (!/^[a-z0-9-]+$/.test(section) || href !== `/agents/directories/${section}.json` || htmlHref !== `/agents/directories/${section}-html.json`) throw new Error('Unsafe name directory destination');
+    const selected = catalogue.records.filter(record => record.section === section);
+    for (const { title } of selected) {
+      if (typeof title !== 'string' || !title.trim() || /https?:\/\//i.test(title)) throw new Error(`Name directory ${section}: title must be a name without a URL`);
+    }
+    const project = (destinationFormat, urlField) => {
+      const records = selected.map(record => ({ title: record.title, [urlField]: record[urlField] }));
+      const document = { schemaVersion: '1.0', generatedAt: catalogue.generatedAt, snapshotId: catalogue.snapshotId, section, destinationFormat, count: records.length,
+        scope: 'Every canonical indexable page in this published sitemap section. Names and links only.',
+        semantics: `This is a lookup directory, not facts or recommendations. ${destinationFormat === 'markdown' ? 'Follow a Markdown link for page content and its Canonical citation.' : 'Follow a canonical HTML link for facts, context and citation.'} generatedAt is conversion time, not a fact check. Missing details remain unknown.`, records };
+      const body = JSON.stringify(document, null, 2) + '\n';
+      const bytes = Buffer.byteLength(body, 'utf8');
+      const distinctUrls = new Set(body.match(/https?:\/\/[^\s"<>\\]+/g) || []).size;
+      if (bytes > 80000 || distinctUrls > 200) throw new Error(`Name directory ${section} (${destinationFormat}) exceeds lookup limits: ${bytes}/80000 UTF-8 bytes, ${distinctUrls}/200 distinct absolute URLs`);
+      return { body, bytes, distinctUrls };
+    };
+    const markdown = project('markdown', 'markdownUrl');
+    const html = project('html', 'canonicalUrl');
+    return { section, href, htmlHref, count: selected.length, ...markdown, htmlBody: html.body, htmlBytes: html.bytes, htmlDistinctUrls: html.distinctUrls };
+  });
+}
+
 export function compareCatalogs(previous, current) {
   if (previous) validateCatalog(previous);
   const before = new Map((previous?.records || []).map(r => [r.id, r]));
@@ -104,7 +135,7 @@ export function generateFormats(dist, { previous = null } = {}) {
     const record = extractPage(html, canonical);
     const markdownUrl = `${canonical}index.md`;
     writeFileSync(join(dist, pathname, 'index.md'), record.markdown);
-    const alternate = `<link rel="alternate" type="text/markdown" href="${markdownUrl}" title="Plain text version">`;
+    const alternate = `<link rel="alternate" type="text/markdown" href="${markdownUrl}" title="Text of this same page (Markdown)">`;
     const cleaned = html.replace(/<link rel="alternate" type="text\/markdown"[^>]*>/g, '');
     writeFileSync(file, cleaned.replace('</head>', `${alternate}</head>`));
     records.push({id:canonical,title:record.title,section:pathname.split('/')[1] || 'home',canonicalUrl:canonical,markdownUrl,contentSha256:record.contentSha256,citation:record.citation,htmlBytes:Buffer.byteLength(cleaned),markdownBytes:Buffer.byteLength(record.markdown)});
@@ -112,12 +143,19 @@ export function generateFormats(dist, { previous = null } = {}) {
   const generatedAt = new Date().toISOString();
   const snapshotId = digest(JSON.stringify(records.map(r=>[r.id,r.contentSha256])));
   const catalogue = {schemaVersion:FORMAT_VERSION,generatedAt,snapshotId,scope:'All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.',documentation:`${SITE}/agents/`,dateSemantics:'generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.',count:records.length,records};
+  const nameDirectories = buildNameDirectories(catalogue);
+  mkdirSync(join(dist,'agents/directories'),{recursive:true});
+  for (const directory of nameDirectories) {
+    writeFileSync(join(dist, directory.href), directory.body);
+    writeFileSync(join(dist, directory.htmlHref), directory.htmlBody);
+  }
+  const directories = nameDirectories.map(({ section, href, htmlHref, count, bytes, distinctUrls, htmlBytes, htmlDistinctUrls }) => ({ section, url: `${SITE}${href}`, htmlUrl: `${SITE}${htmlHref}`, count, bytes, distinctUrls, htmlBytes, htmlDistinctUrls }));
   mkdirSync(join(dist,'agents/sections'),{recursive:true});
   const sections = [...new Set(records.map(r=>r.section))].map(section=>({section,count:records.filter(r=>r.section===section).length,url:`${SITE}/agents/sections/${section}.json`}));
   for (const section of sections) writeFileSync(join(dist,`agents/sections/${section.section}.json`),JSON.stringify({schemaVersion:FORMAT_VERSION,generatedAt,snapshotId,section:section.section,count:section.count,records:records.filter(r=>r.section===section.section)},null,2)+'\n');
   writeFileSync(join(dist,'agents/catalog.json'),JSON.stringify(catalogue,null,2)+'\n');
   writeFileSync(join(dist,'agents/changes.json'),JSON.stringify(compareCatalogs(previous,catalogue),null,2)+'\n');
-  writeFileSync(join(dist,'agents/manifest.json'),JSON.stringify({schemaVersion:FORMAT_VERSION,generatedAt,snapshotId,count:records.length,catalogUrl:`${SITE}/agents/catalog.json`,changesUrl:`${SITE}/agents/changes.json`,guideUrl:`${SITE}/agents/`,termsUrl:`${SITE}/terms/`,sections,retrieval:{method:'GET',negotiation:'Use explicit index.md URLs; Accept: text/markdown does not negotiate HTML URLs.',cache:'Respect Cache-Control. Send If-None-Match with the last ETag; a 304 means reuse your cached body.',retries:'On 429 or 503, honour Retry-After when provided; otherwise use bounded exponential backoff. Do not repeatedly retry 404.',concurrency:'Prefer sequential requests and fetch only the pages needed. This is client guidance, not a guaranteed service limit.'},unknowns:'Missing or null factual fields and check dates are unknown. Generated timestamps never verify facts.'},null,2)+'\n');
+  writeFileSync(join(dist,'agents/manifest.json'),JSON.stringify({schemaVersion:FORMAT_VERSION,generatedAt,snapshotId,count:records.length,catalogUrl:`${SITE}/agents/catalog.json`,changesUrl:`${SITE}/agents/changes.json`,guideUrl:`${SITE}/agents/`,termsUrl:`${SITE}/terms/`,sections,directories,retrieval:{method:'GET',nameLookup:'Use /agents/directories/{section}.json for Markdown destinations or /agents/directories/{section}-html.json for canonical HTML destinations. Both directories contain the same names and order, with only title and the destination URL per record. Follow a destination for facts, context and citation. Rich section records remain at /agents/sections/{section}.json.',negotiation:'Use explicit index.md URLs; Accept: text/markdown does not negotiate HTML URLs.',cache:'Respect Cache-Control. Send If-None-Match with the last ETag; a 304 means reuse your cached body.',retries:'On 429 or 503, honour Retry-After when provided; otherwise use bounded exponential backoff. Do not repeatedly retry 404.',concurrency:'Prefer sequential requests and fetch only the pages needed. This is client guidance, not a guaranteed service limit.'},unknowns:'Missing or null factual fields and check dates are unknown. Generated timestamps never verify facts.'},null,2)+'\n');
   return catalogue;
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
