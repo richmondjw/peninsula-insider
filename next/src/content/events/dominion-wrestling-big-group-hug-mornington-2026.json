@@ -2,7 +2,7 @@
   "slug": "dominion-wrestling-big-group-hug-mornington-2026",
   "eventId": "MP-EVT-0108",
   "title": "Dominion Wrestling for Big Group Hug at Commonfolk",
-  "summary": "Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check Humanitix for tickets and current details.",
+  "summary": "A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug. Dominion Wrestling's Friday-night fundraiser includes a raffle; check Humanitix for current ticket availability.",
   "startDate": "2026-10-09",
   "endDate": "2026-10-09",
   "startTime": "19:00",
@@ -25,5 +25,31 @@
   "lastCheckedDate": "2026-10-07",
   "verification": "verified",
   "verificationNote": "The event-specific Humanitix page returned HTTP 200 on 7 October 2026. Its structured Event data confirms Friday 9 October, 7–9pm AEDT, Commonfolk Mornington at 16 Progress Street, scheduled status and paid general admission. Ticket availability and terms may change.",
-  "status": "published"
+  "status": "published",
+  "secondarySourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Live-Pro-Wrestling-for-charity",
+  "familyFriendly": true,
+  "suitableFor": "All ages; families; local wrestling fans",
+  "editorVerdict": "Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle proceeds will support Big Group Hug; confirm availability before travelling.",
+  "editorNote": "Dominion Wrestling is staging a two-hour charity show at Commonfolk Mornington on Friday 9 October. The Mornington Peninsula Shire listing describes local professional wrestlers, a relaxed cafe setting and a raffle. Big Group Hug supplies essential items to children and families in need, and the published event notice says all ticket and raffle proceeds go to the charity.\\n\\nThe Shire lists tickets at $15 and admission for children under 12 as free. These are the published terms, not a guarantee of current availability or door sales. Check Humanitix for the latest booking conditions and ask the organiser about seating, accessibility or other arrangements the listing does not specify.\\n\\nThe venue is Commonfolk Mornington, 16 Progress Street. The published show time is 7–9pm. Allow time to find the venue and check the organiser's event page again on the day, especially if you are travelling from elsewhere on the Peninsula.",
+  "heroImage": {
+    "src": "/images/editorial/dominion-charity-wrestling-illustration.svg",
+    "alt": "Original editorial illustration of an empty wrestling ring under spotlights; not a photograph of the Dominion Wrestling event",
+    "credit": "Peninsula Insider original editorial illustration",
+    "license": "other-licensed",
+    "caption": "Original Peninsula Insider editorial artwork. It does not depict the Dominion Wrestling event or its participants.",
+    "depicts": "Stylised empty wrestling ring under theatrical spotlights with event title typography",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider",
+    "sourceUrl": "https://github.com/richmondjw/peninsula-insider/blob/main/next/public/images/editorial/dominion-charity-wrestling-illustration.svg",
+    "permission": "Original vector artwork authored for Peninsula Insider in the project source repository on 7 October 2026.",
+    "permittedUses": [
+      "website",
+      "social",
+      "print",
+      "derivative",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-07",
+    "rightsStatus": "recorded"
+  }
 }
