@@ -303,17 +303,17 @@ jobs:
           SOURCE_SHA: ${{ github.sha }}
         run: |
           if [ "$(date -u +%s)" -ge "$(date -u -d '2026-10-09T10:00:00Z' +%s)" ]; then
-            printf '# Dominion live verification\\nSkipped: one-off event has ended.\\n' > "$RUNNER_TEMP/dominion-event-live.md"
+            printf '# Dominion live verification\nSkipped: one-off event has ended.\n' > "$RUNNER_TEMP/dominion-event-live.md"
             exit 0
           fi
           for attempt in {1..75}; do
-            if node ops/scripts/post-publish-verify.mjs \\
-              --kind=event \\
-              --event-quality \\
-              --expect-illustration \\
-              --expect-source-host=events.humanitix.com \\
-              "--expect-sha=$SOURCE_SHA" \\
-              "--report=$RUNNER_TEMP/dominion-event-live.md" \\
+            if node ops/scripts/post-publish-verify.mjs \
+              --kind=event \
+              --event-quality \
+              --expect-illustration \
+              --expect-source-host=events.humanitix.com \
+              "--expect-sha=$SOURCE_SHA" \
+              "--report=$RUNNER_TEMP/dominion-event-live.md" \
               https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/; then
               exit 0
             fi
