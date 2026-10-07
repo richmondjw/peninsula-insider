@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import csv
+import hashlib
+import json
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -81,6 +84,35 @@ class RegisterReconciliationTest(unittest.TestCase):
             removed = read_rows(root / "removed.csv")
             self.assertEqual(active[HOST + "/stay/older-retired/"]["state"], "unscored")
             self.assertEqual(set(removed), {HOST + "/wine/old-producer/"})
+
+
+    def test_checked_in_snapshot_matches_register(self) -> None:
+        root = SCRIPT.parent
+        source = json.loads((root / "source.json").read_text(encoding="utf-8"))
+        snapshot = root / "sources" / source["snapshotFile"]
+        self.assertEqual(
+            hashlib.sha256(snapshot.read_bytes()).hexdigest(), source["sha256"]
+        )
+        with tempfile.TemporaryDirectory() as temp:
+            out = Path(temp)
+            shutil.copyfile(root / "register.csv", out / "register.csv")
+            shutil.copyfile(root / "removed.csv", out / "removed.csv")
+            subprocess.run(
+                [sys.executable, str(SCRIPT), "--sitemap", str(snapshot),
+                 "--out-dir", str(out)],
+                check=True, capture_output=True, text=True,
+            )
+            self.assertEqual(read_rows(out / "register.csv"),
+                             read_rows(root / "register.csv"))
+            self.assertEqual(read_rows(out / "removed.csv"),
+                             read_rows(root / "removed.csv"))
+            active = read_rows(root / "register.csv")
+            self.assertEqual(len(active), source["urlCount"])
+            self.assertEqual(len(read_rows(root / "removed.csv")),
+                             source["removedCount"])
+            for tier, count in source["tierCounts"].items():
+                self.assertEqual(sum(row["tier"] == tier for row in active.values()),
+                                 count)
 
 
 if __name__ == "__main__":
