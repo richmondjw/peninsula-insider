@@ -247,6 +247,7 @@ jobs:
               --kind=event \
               --event-quality \
               --expect-illustration \
+              --expect-source-host=www.mornpen.vic.gov.au \
               "--expect-sha=$SOURCE_SHA" \
               "--report=$RUNNER_TEMP/mornington-market-live.md" \
               https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/; then
