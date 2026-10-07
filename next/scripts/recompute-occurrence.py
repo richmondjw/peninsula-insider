@@ -236,6 +236,12 @@ def main() -> int:
         if data.get('cancelled') is True:
             continue
 
+        # A confirmed-only listing may describe a regular series, but only its
+        # sourced nextOccurrence is publishable. Never infer or restore a new
+        # date from cadence arithmetic after that occurrence passes.
+        if data.get('occurrencePolicy') == 'confirmed-only':
+            continue
+
         recurrence = data.get('recurrence', 'one-off')
         if recurrence not in RECURRING:
             continue
