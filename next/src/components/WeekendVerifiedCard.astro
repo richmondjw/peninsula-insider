@@ -2,13 +2,12 @@
 import PiSaveActions from './PiSaveActions.astro';
 import { eventCategoryLabel, eventDateLabel, routeSlug } from '../lib/editorial';
 
-export interface Props { event: any; choiceCue?: string; }
-const { event, choiceCue } = Astro.props;
+export interface Props { event: any; choiceCue?: string; occurrenceDate?: Date; }
+const { event, choiceCue, occurrenceDate } = Astro.props;
 const slug = routeSlug(event);
 const href = '/whats-on/' + slug + '/';
-const next = event.data.nextOccurrence;
-const date = next instanceof Date
-  ? next.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'Australia/Melbourne' })
+const date = occurrenceDate instanceof Date
+  ? occurrenceDate.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', timeZone: 'UTC' })
   : eventDateLabel(event.data.startDate, event.data.endDate);
 const formatClock = (value: string) => {
   const match = value.match(/^(\d{1,2}):(\d{2})/);

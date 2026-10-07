@@ -40,6 +40,7 @@ import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import {
   loadLiveEvents,
   occursInWindow,
+  firstDayInWindow,
   startOfDay,
   weekendWindow,
   type ScopeWindow,
@@ -123,32 +124,46 @@ const dispatchPickEventSlugs = new Set(
     .filter(Boolean),
 );
 const liveEvents = await loadLiveEvents(now);
-const weekendQuickOrder: Record<string, number> = {
-  'hill-ridge-community-market-september-2026-restart': 0,
-  'acoustic-saturdays-peppers-moonah-links-2026': 1,
-  'national-works-on-paper-2026-nwop': 2,
-};
-const liveThisWeekend = liveEvents
+const eligibleWeekendRows = liveEvents
   .filter((live) => occursInWindow(live.rule, activeWindow))
   .filter((live) => (live.event.data.dateBasis ?? 'fixed') === 'fixed')
   .filter((live) => live.event.data.verification === 'verified')
+  .filter((live) => live.promotable)
   .filter((live) => {
     const checked = live.event.data.lastCheckedDate;
     return checked instanceof Date && now.getTime() - checked.getTime() <= 30 * 86400000;
   })
   .filter((live) => !dispatchPickEventSlugs.has(live.slug))
-  .sort((a, b) => (weekendQuickOrder[a.slug] ?? 9) - (weekendQuickOrder[b.slug] ?? 9) || b.appeal - a.appeal || a.title.localeCompare(b.title))
-  .map((live) => live.event)
-  .slice(0, 6);
+  .map((live) => ({
+    live,
+    sortDate: firstDayInWindow(live.rule, activeWindow)?.getTime() ?? Number.MAX_SAFE_INTEGER,
+    time: live.event.data.startTime || '99:99',
+    title: live.title,
+  }))
+  .sort((a, b) => a.sortDate - b.sortDate || a.time.localeCompare(b.time) || a.title.localeCompare(b.title))
+  .map(({ live }) => live);
+// A weekend choice needs a route through each day before extra events repeat a day.
+const bestWeekendRowByDay = new Map<string, (typeof eligibleWeekendRows)[number]>();
+for (const live of eligibleWeekendRows) {
+  const day = firstDayInWindow(live.rule, activeWindow)?.toISOString().slice(0, 10);
+  if (!day) continue;
+  const existing = bestWeekendRowByDay.get(day);
+  if (!existing || live.appeal > existing.appeal) bestWeekendRowByDay.set(day, live);
+}
+const dayRepresentatives = [...bestWeekendRowByDay.values()];
+const visibleWeekendRows = [...dayRepresentatives, ...eligibleWeekendRows.filter((live) => !dayRepresentatives.includes(live))]
+  .slice(0, 6)
+  .sort((a, b) => eligibleWeekendRows.indexOf(a) - eligibleWeekendRows.indexOf(b));
+const liveThisWeekend = visibleWeekendRows.map((live) => live.event);
+const weekendQuickRows = [...dayRepresentatives, ...visibleWeekendRows.filter((live) => !dayRepresentatives.includes(live))]
+  .slice(0, 3);
 const weekendQuickLabels: Record<string, string> = {
   'national-works-on-paper-2026-nwop': 'National Works on Paper',
   'acoustic-saturdays-peppers-moonah-links-2026': 'Acoustic Saturdays',
   'hill-ridge-community-market-september-2026-restart': 'Hill & Ridge Market',
-};
-const weekendQuickFacts: Record<string, string> = {
-  'national-works-on-paper-2026-nwop': 'Sunday · 11am–4pm · Mornington',
-  'acoustic-saturdays-peppers-moonah-links-2026': 'Saturday · 5–8pm · Fingal · Free',
-  'hill-ridge-community-market-september-2026-restart': 'Saturday · 9am–2pm · Red Hill',
+  'dominion-wrestling-big-group-hug-mornington-2026': 'Dominion Wrestling for Big Group Hug',
+  'crib-point-community-market': 'Crib Point Market',
+  'mornington-racecourse-market': 'Mornington Racecourse Market',
 };
 const weekendChoiceCues: Record<string, string> = {
   'national-works-on-paper-2026-nwop': 'Choose this for an indoor art stop. The gallery is open 11am-4pm on Sunday.',
@@ -243,9 +258,17 @@ export const prerender = true;
             </p>
             {!hasCurrentDispatch && liveThisWeekend.length > 0 && (
               <nav class="ptw-hero__quick" aria-label="Confirmed weekend events" data-weekend-current hidden>
-                {liveThisWeekend.slice(0, 3).map((event) => (
-                  <a href={`/whats-on/${routeSlug(event)}/`}>
-                    <span><strong>{weekendQuickLabels[routeSlug(event)] ?? event.data.title}</strong><small>{weekendQuickFacts[routeSlug(event)] ?? event.data.suburb}</small></span><span aria-hidden="true">↗</span>
+                {weekendQuickRows.map((live) => (
+                  <a href={live.href}>
+                    <span>
+                      <strong>{weekendQuickLabels[live.slug] ?? live.title}</strong>
+                      <small>{[
+                        firstDayInWindow(live.rule, activeWindow)?.toLocaleDateString('en-AU', { weekday: 'long', timeZone: 'UTC' }),
+                        live.timeLabel ? `from ${live.timeLabel}` : null,
+                        live.placeLabel,
+                      ].filter(Boolean).join(' · ')}</small>
+                    </span>
+                    <span aria-hidden="true">↗</span>
                   </a>
                 ))}
               </nav>
@@ -381,11 +404,11 @@ export const prerender = true;
           </div>
           {liveThisWeekend.length > 0 ? (
             <div class="event-grid">
-              {liveThisWeekend.map((event) => <WeekendVerifiedCard event={event} choiceCue={weekendChoiceCues[routeSlug(event)]} />)}
+              {visibleWeekendRows.map((live) => <WeekendVerifiedCard event={live.event} occurrenceDate={live.rule.kind === 'range' && live.rule.start.getTime() !== live.rule.end.getTime() ? undefined : firstDayInWindow(live.rule, activeWindow) ?? undefined} choiceCue={weekendChoiceCues[live.slug]} />)}
             </div>
           ) : (
             <p class="ptw-current__empty">
-              We have no dated listing with a recent source check for this weekend. <a href="/whats-on/">Browse the full events index</a>.
+              We have no confirmed, actionable pick for this weekend. <a href="/whats-on/">Browse the full events index</a> and check dates with organisers.
             </p>
           )}
         </section>
@@ -430,7 +453,7 @@ export const prerender = true;
             </p>
           </div>
           <div class="event-grid">
-            {liveThisWeekend.map((e) => <WeekendVerifiedCard event={e} choiceCue={weekendChoiceCues[routeSlug(e)]} />)}
+            {visibleWeekendRows.map((live) => <WeekendVerifiedCard event={live.event} occurrenceDate={live.rule.kind === 'range' && live.rule.start.getTime() !== live.rule.end.getTime() ? undefined : firstDayInWindow(live.rule, activeWindow) ?? undefined} choiceCue={weekendChoiceCues[live.slug]} />)}
           </div>
           <p class="ptw-also__more">
             <a href="/whats-on/">See the full What's On index →</a>
