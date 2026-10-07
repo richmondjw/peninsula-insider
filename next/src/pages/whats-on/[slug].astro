@@ -115,8 +115,14 @@ const canonical = `https://peninsulainsider.com.au/whats-on/${slug}/`;
 
 // Social/search-card image must honour the same CMS-aware hero resolver as
 // event cards, otherwise the detail page and listing/search cards drift.
-const eventHero = await resolveHero('event', slug, event.data);
-const showReviewedImage = !eventHero.override && eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
+const resolvedHero = await resolveHero('event', slug, event.data);
+// A CMS upload is a different asset with separate rights. The content hero's
+// rights record cannot clear that upload, but it can still support its own
+// reviewed image. Fall back to that image instead of hiding the hero entirely.
+const eventHero = resolvedHero.override
+  ? await resolveHero('event', slug, event.data, 'heroImage', { ignoreOverride: true })
+  : resolvedHero;
+const showReviewedImage = eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
 // A text-only detail must not redistribute a fallback place photograph without its on-page credit.
 const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-og-card.png';
 
