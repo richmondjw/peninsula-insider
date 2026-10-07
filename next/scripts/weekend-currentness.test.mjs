@@ -19,7 +19,9 @@ test('current weekend details remain readable without JavaScript', () => {
 });
 
 
-test('no-JavaScript visitors get the edition date and an index route', () => {
-  assert.match(html, /<noscript><p\b[^>]*class="ptw-hero__stale"[^>]*>\s*Edition dates:/);
+test('no-JavaScript visitors get a dated edition heading and an index route', () => {
+  assert.match(html, /<noscript>[\s\S]*?Edition dates:[^<]*20\d{2}\. If these dates have passed/);
   assert.match(html, /If these dates have passed, <a href="\/whats-on\/"[^>]*>browse the events index<\/a>/);
+  assert.match(html, /Peninsula weekend guide:[^<]*20\d{2}<\/h1>/);
+  assert.match(html, /\.ptw-hero__title\[data-weekend-current\] \{ display: none !important; \}/);
 });
