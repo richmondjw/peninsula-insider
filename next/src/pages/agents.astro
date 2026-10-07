@@ -1,10 +1,10 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import AgentLayout from '../layouts/AgentLayout.astro';
 import { agentRoutes, agentResources, agentDirectories, agentCaveat, agentDateGuidance } from '../lib/agent-guide.mjs';
 import { retrievalPermission, permissionGuideParts } from '../lib/retrieval-permission.mjs';
 export const prerender = true;
 ---
-<BaseLayout title="A welcome for agents · Peninsula Insider" description="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions.">
+<AgentLayout title="A welcome for agents · Peninsula Insider" description="The shortest routes to Peninsula Insider's public guides, events, stories and compact page formats, with clear dates, sources and permissions.">
   <article class="agent-guide container">
     <header class="agent-guide__opening">
       <h1>A good Peninsula day<br />starts with good information.</h1>
@@ -39,7 +39,7 @@ export const prerender = true;
       <p>Spotted a problem? <a href="/contact/?type=correction">Send a correction</a> with the page and the detail. Good information gets better when errors are easy to fix.</p>
     </section>
   </article>
-</BaseLayout>
+</AgentLayout>
 <style>
   .agent-guide { padding-block: var(--sp-8, 4rem); color: var(--text); }
   .agent-guide__opening { max-width: 58rem; padding-bottom: 3rem; }
