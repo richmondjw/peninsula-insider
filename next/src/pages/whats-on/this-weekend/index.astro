@@ -40,6 +40,7 @@ import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import {
   loadLiveEvents,
   occursInWindow,
+  firstDayInWindow,
   startOfDay,
   weekendWindow,
   type ScopeWindow,
@@ -123,12 +124,7 @@ const dispatchPickEventSlugs = new Set(
     .filter(Boolean),
 );
 const liveEvents = await loadLiveEvents(now);
-const weekendQuickOrder: Record<string, number> = {
-  'hill-ridge-community-market-september-2026-restart': 0,
-  'acoustic-saturdays-peppers-moonah-links-2026': 1,
-  'national-works-on-paper-2026-nwop': 2,
-};
-const liveThisWeekend = liveEvents
+const eligibleWeekendRows = liveEvents
   .filter((live) => occursInWindow(live.rule, activeWindow))
   .filter((live) => (live.event.data.dateBasis ?? 'fixed') === 'fixed')
   .filter((live) => live.event.data.verification === 'verified')
@@ -137,18 +133,35 @@ const liveThisWeekend = liveEvents
     return checked instanceof Date && now.getTime() - checked.getTime() <= 30 * 86400000;
   })
   .filter((live) => !dispatchPickEventSlugs.has(live.slug))
-  .sort((a, b) => (weekendQuickOrder[a.slug] ?? 9) - (weekendQuickOrder[b.slug] ?? 9) || b.appeal - a.appeal || a.title.localeCompare(b.title))
-  .map((live) => live.event)
-  .slice(0, 6);
+  .sort((a, b) => {
+    const aDay = firstDayInWindow(a.rule, activeWindow)?.getTime() ?? Number.MAX_SAFE_INTEGER;
+    const bDay = firstDayInWindow(b.rule, activeWindow)?.getTime() ?? Number.MAX_SAFE_INTEGER;
+    const aTime = a.event.data.startTime || '99:99';
+    const bTime = b.event.data.startTime || '99:99';
+    return aDay - bDay || aTime.localeCompare(bTime) || b.appeal - a.appeal || a.title.localeCompare(b.title);
+  });
+// A weekend choice needs a route through each day before extra events repeat a day.
+const bestWeekendRowByDay = new Map<string, (typeof eligibleWeekendRows)[number]>();
+for (const live of eligibleWeekendRows) {
+  const day = firstDayInWindow(live.rule, activeWindow)?.toISOString().slice(0, 10);
+  if (!day) continue;
+  const existing = bestWeekendRowByDay.get(day);
+  if (!existing || live.appeal > existing.appeal) bestWeekendRowByDay.set(day, live);
+}
+const dayRepresentatives = [...bestWeekendRowByDay.values()];
+const visibleWeekendRows = [...dayRepresentatives, ...eligibleWeekendRows.filter((live) => !dayRepresentatives.includes(live))]
+  .slice(0, 6)
+  .sort((a, b) => eligibleWeekendRows.indexOf(a) - eligibleWeekendRows.indexOf(b));
+const liveThisWeekend = visibleWeekendRows.map((live) => live.event);
+const weekendQuickRows = [...dayRepresentatives, ...visibleWeekendRows.filter((live) => !dayRepresentatives.includes(live))]
+  .slice(0, 3);
 const weekendQuickLabels: Record<string, string> = {
   'national-works-on-paper-2026-nwop': 'National Works on Paper',
   'acoustic-saturdays-peppers-moonah-links-2026': 'Acoustic Saturdays',
   'hill-ridge-community-market-september-2026-restart': 'Hill & Ridge Market',
-};
-const weekendQuickFacts: Record<string, string> = {
-  'national-works-on-paper-2026-nwop': 'Sunday · 11am–4pm · Mornington',
-  'acoustic-saturdays-peppers-moonah-links-2026': 'Saturday · 5–8pm · Fingal · Free',
-  'hill-ridge-community-market-september-2026-restart': 'Saturday · 9am–2pm · Red Hill',
+  'dominion-wrestling-big-group-hug-mornington-2026': 'Dominion Wrestling for Big Group Hug',
+  'crib-point-community-market': 'Crib Point Market',
+  'mornington-racecourse-market': 'Mornington Racecourse Market',
 };
 const weekendChoiceCues: Record<string, string> = {
   'national-works-on-paper-2026-nwop': 'Choose this for an indoor art stop. The gallery is open 11am-4pm on Sunday.',
@@ -243,9 +256,17 @@ export const prerender = true;
             </p>
             {!hasCurrentDispatch && liveThisWeekend.length > 0 && (
               <nav class="ptw-hero__quick" aria-label="Confirmed weekend events" data-weekend-current hidden>
-                {liveThisWeekend.slice(0, 3).map((event) => (
-                  <a href={`/whats-on/${routeSlug(event)}/`}>
-                    <span><strong>{weekendQuickLabels[routeSlug(event)] ?? event.data.title}</strong><small>{weekendQuickFacts[routeSlug(event)] ?? event.data.suburb}</small></span><span aria-hidden="true">↗</span>
+                {weekendQuickRows.map((live) => (
+                  <a href={live.href}>
+                    <span>
+                      <strong>{weekendQuickLabels[live.slug] ?? live.title}</strong>
+                      <small>{[
+                        firstDayInWindow(live.rule, activeWindow)?.toLocaleDateString('en-AU', { weekday: 'long', timeZone: 'UTC' }),
+                        live.timeLabel ? `from ${live.timeLabel}` : null,
+                        live.placeLabel,
+                      ].filter(Boolean).join(' · ')}</small>
+                    </span>
+                    <span aria-hidden="true">↗</span>
                   </a>
                 ))}
               </nav>
