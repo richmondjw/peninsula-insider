@@ -37,7 +37,8 @@
         4
       ],
       "observedImprovement": "Fixed-date events alone appear under calendar days; flexible experiences have a separate cautionary section, with date and hours checks. Today/search controls and mobile reflow passed in Chrome preview.",
-      "remaining": "Mobile first screen withholds useful dek; large feature cards delay calendar; teaser truncation and full keyboard, screen-reader and field performance evidence remain."
+      "remaining": "Mobile first screen withholds useful dek; large feature cards delay calendar; teaser truncation and full keyboard, screen-reader and field performance evidence remain.",
+      "independentVisualLive": 88.0
     },
     {
       "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
@@ -70,7 +71,8 @@
         4
       ],
       "observedImprovement": "Corrected gallery hours and acoustic wording. Current dated content is server-rendered without JavaScript; expired state is applied after the edition ends. 390px preview with and without JavaScript passed.",
-      "remaining": "Long mobile card stack and limited date discovery; full keyboard, screen-reader and field performance evidence remain."
+      "remaining": "Long mobile card stack and limited date discovery; full keyboard, screen-reader and field performance evidence remain.",
+      "independentVisualLive": 91.25
     }
   ],
   "reviewEvidence": [
@@ -108,22 +110,55 @@
       "limits": [
         "self-check does not replace independent review"
       ]
+    },
+    {
+      "role": "independent visual and mobile",
+      "surface": "public release 820be291 at 390 and 1440px",
+      "result": "Full 23-rating provisional live scores 88.0 and 91.25; no confirmed hard-gate breach in bounded review",
+      "limits": [
+        "direct AT, field performance and full rights evidence not certified"
+      ]
+    },
+    {
+      "role": "independent factual and rights",
+      "surface": "deployed artifact and official organiser sources",
+      "result": "No confirmed factual or image-rights blocker; event dates, separated flexible experiences and visible photo credits checked",
+      "limits": [
+        "direct public browser unavailable to this reviewer; Visit Victoria licence text not independently reopened"
+      ]
+    },
+    {
+      "role": "independent UX and accessibility",
+      "surface": "deployed artifact",
+      "result": "Current-weekend no-JS content is present in deployed HTML; no interaction score",
+      "limits": [
+        "browser runner crashed; keyboard, mobile and JS transition checks unavailable independently",
+        "stale no-JS content possible after cutoff if a future rebuild misses"
+      ]
     }
   ],
   "hardGates": {
     "confirmedCandidateFailures": [],
     "notFullyCleared": [
       "direct assistive-technology audit",
-      "independent image-rights source reopening",
-      "production speed/stability",
-      "exact live release and post-release visitor checks"
+      "complete independent image-rights source reopening",
+      "production field speed and stability",
+      "future no-JavaScript edition expiry if the next rebuild misses its cutoff"
     ]
   },
   "buildEvidence": "npm run build passed twice on 2026-10-08 with reader-boundary, event safeguards, media provenance, link health and new weekend currentness test. Final wording was confirmed in emitted HTML and browser.",
-  "decision": "adapt and release bounded corrections through normal CI; continue iteration; do not report 99/100",
+  "decision": "adapt: live corrections verified at exact SHA; scores remain provisional and below 99; next bounded iteration addresses mobile decision path and no-JS stale-edition warning",
   "nextActions": [
-    "Verify exact public deployment SHA and live reader behavior after merge",
-    "Shorten mobile decision path and clarify long teasers",
-    "Complete three independent T1 scorecards including direct accessibility and measured performance"
-  ]
+    "Browser-check and release the mobile decision-path and no-JS date-warning iteration through normal CI",
+    "Measure field performance and complete independent keyboard and screen-reader checks",
+    "Regrade all 23 criteria after exact live release; do not infer 99 from this bounded correction"
+  ],
+  "releasedSourceRevision": "820be291d9c38b403d199a753275bfde9546d404",
+  "releaseEvidence": {
+    "pullRequest": "https://github.com/richmondjw/peninsula-insider/pull/625",
+    "deployRun": "https://github.com/richmondjw/peninsula-insider/actions/runs/37700577538",
+    "publicDeploymentJsonMatched": true,
+    "selfBrowserCheck": "Fresh public Chrome at 390px and 1440px with JavaScript on and off: no overflow, fixed-date calendar separated from flexible experiences, no-JS current weekend visible, corrected NWOP hours and artwork credit visible.",
+    "limits": "Self-check does not establish field performance, direct assistive technology or complete independent acceptance."
+  }
 }

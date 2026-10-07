@@ -228,6 +228,9 @@ export const prerender = true;
             <p class="ptw-hero__stale" data-weekend-expired hidden>
               This edition covers {weekendLabel}. Check the date with each organiser before travelling, or <a href="/whats-on/">browse the current events index</a>.
             </p>
+            <noscript><p class="ptw-hero__stale">
+              Edition dates: {weekendLabel}. If these dates have passed, <a href="/whats-on/">browse the events index</a> and check current details with the organiser.
+            </p></noscript>
             <script is:inline>
               (function () {
                 var article = document.querySelector('.ptw[data-weekend-end]');
