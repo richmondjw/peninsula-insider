@@ -101,6 +101,11 @@ jobs:
           npm run test:event-safeguards
           npm run test:event-occurrence
           node --test ../ops/scripts/post-publish-verify.test.mjs
+          python3 scripts/recompute-occurrence.py --dry-run --today 2026-10-12 > /tmp/pi-market-occurrence-check.txt
+          if grep -F 'mornington-racecourse-market.json ->' /tmp/pi-market-occurrence-check.txt; then
+            echo "::error::Confirmed-only market was advanced to an unverified date"
+            exit 1
+          fi
           npm run test:material-change
           npm run validate:content
           node scripts/assert-event-listing-quality.mjs mornington-racecourse-market
