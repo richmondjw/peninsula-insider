@@ -13,11 +13,15 @@ const licenceLabel = licence.includes('Attribution-ShareAlike 4.0')
   ? 'CC BY-SA 4.0'
   : licence.includes('Attribution 3.0')
     ? 'CC BY 3.0'
-    : null;
+    : licence.includes('Attribution 2.0')
+      ? 'CC BY 2.0'
+      : null;
 const licenceUrl = licenceLabel === 'CC BY-SA 4.0'
   ? 'https://creativecommons.org/licenses/by-sa/4.0/'
   : licenceLabel === 'CC BY 3.0'
     ? 'https://creativecommons.org/licenses/by/3.0/'
+    : licenceLabel === 'CC BY 2.0'
+    ? 'https://creativecommons.org/licenses/by/2.0/'
     : null;
 ---
 
