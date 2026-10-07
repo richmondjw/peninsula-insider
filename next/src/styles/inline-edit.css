@@ -109,6 +109,9 @@ body[data-pi-edit-mode="on"] [data-pi-edit] {
 
 body[data-pi-edit-mode="on"] [data-pi-edit="image"] { cursor: context-menu; }
 
+/* Keep a card stretched navigation link from intercepting image editing. */
+body[data-pi-edit-mode="on"] .pi-card__link::after { pointer-events: none; }
+
 body[data-pi-edit-mode="on"] [data-pi-edit]:hover {
   outline-color: rgba(11, 90, 72, 0.55);
   background-color: rgba(11, 90, 72, 0.04);

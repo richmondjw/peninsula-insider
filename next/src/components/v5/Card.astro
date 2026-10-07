@@ -285,7 +285,18 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
   )}
 
   {showPlate && (
-    <div class="pi-card__media pi-card__media--plate">
+    <div
+      class="pi-card__media pi-card__media--plate"
+      data-pi-no-hydrate={suppressImageHydration ? 'true' : undefined}
+      data-pi-requires-image-metadata={requireImageMetadata ? 'true' : undefined}
+      {...(lockImageEditing ? {} : editableImage({
+        entityType: imageEdit?.entityType ?? entityType,
+        entitySlug: imageEdit?.entitySlug ?? entitySlug,
+        fieldPath: imageEdit?.fieldPath ?? fieldPath,
+        label: `${title} image`,
+        purpose: 'card',
+      }))}
+    >
       <span class="pi-card__plate" aria-hidden="true">
         <span class="pi-card__plate-rule"></span>
         {variant === "compact-row" ? <span class="pi-card__plate-monogram">PI</span> : mediaFallbackLabel ? (

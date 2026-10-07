@@ -586,6 +586,8 @@ function srcBasename(src: string | null | undefined): string {
 /** Current displayed src for either an <img> or a background-image div. */
 function currentImageSrc(el: HTMLElement): string {
   if (el instanceof HTMLImageElement) return el.dataset.piImageOriginalSrc || el.currentSrc || el.src;
+  const cardImage = el.classList.contains('pi-card__media') ? el.querySelector('img') : null;
+  if (cardImage) return currentImageSrc(cardImage);
   const bg = window.getComputedStyle(el).backgroundImage;
   const match = bg.match(/url\((['"]?)(.*?)\1\)/);
   return match?.[2] ?? '';
@@ -598,6 +600,21 @@ function setImageSrc(el: HTMLElement, src: string) {
     el.removeAttribute('sizes');
     delete el.dataset.piImageOriginalSrc;
     el.src = src;
+    return;
+  }
+  // Empty card slots keep their CMS identity on the wrapper. Replace only
+  // the decorative plate, preserving date badges and the editor target.
+  if (el.classList.contains('pi-card__media')) {
+    let img = el.querySelector('img');
+    if (!img) {
+      img = document.createElement('img');
+      img.alt = el.getAttribute('aria-label') || el.dataset.piLabel || '';
+      img.decoding = 'async';
+      el.prepend(img);
+    }
+    setImageSrc(img, src);
+    el.querySelector('.pi-card__plate')?.remove();
+    el.classList.remove('pi-card__media--plate');
     return;
   }
   // For bg-image divs, preserve any non-url() parts of the existing inline

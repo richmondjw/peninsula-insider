@@ -65,3 +65,35 @@ test('CMS replacement discards derivatives of the old photograph immediately', a
   assert.equal(el.attrs.size, 0);
   assert.equal(el.dataset.piImageOriginalSrc, undefined);
 });
+
+test('CMS replacement turns an empty card into a photo while preserving its date and slot', async () => {
+  const source = await readFile(new URL('../src/lib/inline-edit/client.ts', import.meta.url), 'utf8');
+  const fn = source.slice(source.indexOf('function setImageSrc('), source.indexOf('function readImageDescriptor('))
+    .replace('el: HTMLElement, src: string', 'el, src');
+  class HTMLImageElement {
+    dataset = {};
+    removeAttribute() {}
+  }
+  const classes = new Set(['pi-card__media', 'pi-card__media--plate']);
+  const date = { textContent: '11 Oct' };
+  let plate = { remove: () => { plate = null; } };
+  const images = [];
+  const el = {
+    dataset: { piLabel: 'Market image', piEntitySlug: 'market', piFieldPath: 'heroImage' },
+    classList: { contains: name => classes.has(name), remove: name => classes.delete(name) },
+    getAttribute: () => null,
+    querySelector: selector => selector === 'img' ? images[0] : selector === '.pi-card__plate' ? plate : date,
+    prepend: img => images.unshift(img),
+  };
+  vm.runInNewContext(fn + '\nsetImageSrc(el, "/first.jpg"); setImageSrc(el, "/second.jpg");', {
+    HTMLImageElement, el, document: { createElement: () => new HTMLImageElement() },
+  });
+  assert.equal(images.length, 1);
+  assert.equal(images[0].src, '/second.jpg');
+  assert.equal(images[0].alt, 'Market image');
+  assert.equal(plate, null);
+  assert.equal(classes.has('pi-card__media--plate'), false);
+  assert.equal(date.textContent, '11 Oct');
+  assert.equal(el.dataset.piEntitySlug, 'market');
+  assert.equal(el.dataset.piFieldPath, 'heroImage');
+});
