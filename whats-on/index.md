@@ -29,9 +29,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 Live acoustic sets at a resort with views.
 
-Sat, 10 Oct   Fingal   Food & Wine
+Sat, 10 Oct   Fingal   Live Music
 
-- Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Photo: Peninsula Insider / AI-assisted original vector artwork.
+- Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Illustration: Peninsula Insider / AI-assisted original vector artwork.
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
@@ -55,41 +55,11 @@ Browse by date and save what catches your eye.
 
 ### Friday 9 October
 
-- [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
-
-An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
-
-Experience · check available sessions · 11am · Merricks · Arts · On during your dates · runs to Fri, 30 Apr 2027 · Check opening hours
-
-- [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
-
-A retreat that takes wellness seriously without the wellness-industrial-complex theatrics.
-
-Experience · check available sessions · Red Hill · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Dates on request
-
-- [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
-
-Experience · check available sessions · Main Ridge · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
-
-- [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
-
-The most hands-on spirits experience on the Peninsula, and a bottle to take home.
-
-Experience · check available sessions · Dromana · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
-
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 11am · Mornington · Exhibitions · Recurring weekly
-
-- [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
-
-A useful add-on if you're already booked in to bathe, not a reason to drive out on its own.
-
-Experience · check available sessions · 7.30am · Fingal · Wellness · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
 - [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
@@ -115,7 +85,7 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 Live acoustic sets at a resort with views.
 
-5pm · Fingal · Food & Wine · Recurring weekly
+5pm · Fingal · Live Music · Recurring weekly
 
 ### Sunday 11 October
 
@@ -130,6 +100,36 @@ A useful Sunday stop for makers, food and music, with room to extend the trip in
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 11am · Mornington · Exhibitions · Recurring weekly
+
+Choose your own timing
+
+## Experiences to check
+
+These are not confirmed sessions for the dates above. Check the operator's dates or opening hours before making a plan.
+
+- [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
+
+An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
+
+Check dates and hours · Merricks · Arts
+
+- [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+
+A retreat that takes wellness seriously without the wellness-industrial-complex theatrics.
+
+Check dates and hours · Red Hill · Wellness
+
+- [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
+
+A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
+
+Check dates and hours · Main Ridge · Food & Wine
+
+- [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+The most hands-on spirits experience on the Peninsula, and a bottle to take home.
+
+Check dates and hours · Dromana · Food & Wine
 
 ## Browse the next two months
 
@@ -159,27 +159,7 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 9am · Mornington · Markets
 
-### Food & wine
-
-- [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.
-
-Experience · check available sessions · Main Ridge · Food & Wine
-
-- [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
-
-The most hands-on spirits experience on the Peninsula, and a bottle to take home.
-
-Experience · check available sessions · Dromana · Food & Wine
-
 ### Openings
-
-- [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
-
-An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
-
-Experience · check available sessions · 11am · Merricks · Arts
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 

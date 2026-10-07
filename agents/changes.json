@@ -1,20 +1,92 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-07T22:51:00.103Z",
+  "generatedAt": "2026-10-07T23:15:47.856Z",
   "baselineAvailable": true,
-  "fromSnapshot": "47a94ccf145b9f8f5204be4691beda9e97ff6c43e2360cebe13dd0878511744e",
-  "toSnapshot": "ed1db60abfd5fa051763cf14d06931c180ec6d78bb6cfee6069326361dd957eb",
-  "previousGeneratedAt": "2026-10-07T22:36:32.173Z",
+  "fromSnapshot": "ed1db60abfd5fa051763cf14d06931c180ec6d78bb6cfee6069326361dd957eb",
+  "toSnapshot": "6ba98d150c3299a9afd9d5dff7427534fb777a9779c3b23cf5640441ceba0f68",
+  "previousGeneratedAt": "2026-10-07T22:51:00.103Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 10,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "5a4aaebb753933e45eb74c26fa49e16f28f1c988f2309b8a56c31bd03231e63e",
+      "previousContentSha256": "7a3876d42734d6b96f0ccc9a5f9b55fe8cb724391bed3652ededd83475a04894"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "0082c9a245cc570a2ec52b5e5d5fcddc5c42e12451efdd694dfa2369ea431de3",
+      "previousContentSha256": "af1c38386902a18fa02ee4eb8a8e15ccc56a8041150e7da5af8fd3a0ccdbd679"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0d8f050719944e93fb0207cb7b4478325baa3abe207d88bf500fcb762afac6a5",
-      "previousContentSha256": "190afad0c0884551d83e58b7e3aa823e114bcd62cd8004a5bde7c690bb50f050"
+      "contentSha256": "781f80c35e41a3738b490f80c60798439b4b5c1a748bc359e0015e6b4be09ed0",
+      "previousContentSha256": "0d8f050719944e93fb0207cb7b4478325baa3abe207d88bf500fcb762afac6a5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "89b21f7cbdc763e42d075678bb5c32e4d127709c2a6bf96d100c5af9d2f6b77c",
+      "previousContentSha256": "41b9a0fa3c873c3f3e7ef315c084c21289ee756eec9228b22ea33cd5c775b87b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
+      "contentSha256": "7d6c86088378647a8712e9f88f367035a2159b5d41e596cef13926a8108a9ce0",
+      "previousContentSha256": "2870b4e116a2dc1a48dd5ef238f37aa9e75a7d5c6c14b73003e8f051034d3255"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
+      "contentSha256": "1b9c0318e832f45d4a4e543ab1d2d50b0301b336f5891f139dc5744d5cf4f87e",
+      "previousContentSha256": "eddc81893e204b861aec05726e81ac1e09de10bcb9ceb827c611c78c95716315"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
+      "contentSha256": "8e1d3be0bbc8cf145eb68518ac37284029214215580a5376b5bb3541bdd47f5d",
+      "previousContentSha256": "f6c808335da4c87eed34c5bce9bf0919e9511ff8e491867df52accfed22760ef"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
+      "contentSha256": "e93069687540062b52a657675108c4c846e74b17a6b01bcfec9a1b19e13c83a3",
+      "previousContentSha256": "21c56b40328ccad5e365f4ef0d424e720b071a232daceee3c8bed33a10724b55"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
+      "contentSha256": "0b014fbc1adb980087442578f1fc331de71033f5770b0656aac9aefb801563db",
+      "previousContentSha256": "7a65a5bcf6814bf1563d5334045d38a09c29f320c806e875b173dbeb35863d9e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
+      "contentSha256": "681f0f8cd769431b1574899fc671b6bb9566ca2ec6a928a8cc2855d6a9225246",
+      "previousContentSha256": "7f3aa99ad70a2d51bca451b31b4e0238b7e6adbe28807f501d9a0ceb6e78b152"
     }
   ]
 }

@@ -83,29 +83,31 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-AI-assisted artwork · Peninsula Insider
+Festivals   Annual, November
 
-Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Food & Wine   Check session dates
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-[Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Markets   Monthly – 2nd Saturday of every month
 
-A two-hour guided gin masterclass in Dromana.
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-Food & Wine   Every Saturday evening year-round from 5pm
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
-[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links.
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

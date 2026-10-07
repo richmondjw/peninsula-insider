@@ -97,7 +97,7 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
-Food & Wine   Every Saturday evening year-round from 5pm
+Live Music   Every Saturday evening year-round from 5pm
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 

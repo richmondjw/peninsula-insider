@@ -415,4 +415,4 @@ Fingal
 
 Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
 
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
