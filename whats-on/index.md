@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-07
+Modified: 2026-10-08
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -23,27 +23,27 @@ The short list / Fri 9 – Sun 11 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-- AI-assisted editorial illustration. This is a conceptual market scene, not a photograph of Mornington Racecourse Market.   Photo: Peninsula Insider.
+- The lead pick / 01
 
-The lead pick / 01
-
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because…
-
-Sun, 11 Oct   Mornington   Markets
-
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Live acoustic sets at a resort with views.
 
 Sat, 10 Oct   Fingal   Food & Wine
 
-- ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+- Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Photo: Peninsula Insider / AI-assisted original vector artwork.
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check…
+### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big…
 
 Fri, 9 Oct   Mornington   Racing & Sport
+
+- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
+
+Sat, 10 Oct   Crib Point   Markets
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -87,7 +87,7 @@ Experience · check available sessions · 7.30am · Fingal · Wellness · On dur
 
 - [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check…
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and…
 
 7pm · Mornington · Racing & Sport · One-day event
 
@@ -117,11 +117,11 @@ A useful Sunday stop for makers, food and music, with room to extend the trip in
 
 ### Markets
 
-- [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact…
 
-9am · Crib Point · Markets
+9am · Mornington · Markets
 
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 

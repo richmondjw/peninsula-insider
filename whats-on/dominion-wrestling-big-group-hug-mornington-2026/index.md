@@ -9,7 +9,25 @@ Event     Racing & Sport     9 October 2026     One-off date
 
 # Dominion Wrestling for Big Group Hug at Commonfolk
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check Humanitix for tickets and current details.
+A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug. Dominion Wrestling's Friday-night fundraiser includes a raffle; check Humanitix for current ticket availability.
+
+[Book or check details](<https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity/tickets>)
+
+Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+
+Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+
+Editor's verdict
+
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
+
+Dominion Wrestling is staging a two-hour charity show at Commonfolk Mornington on Friday 9 October. The Mornington Peninsula Shire listing describes local professional wrestlers, a relaxed cafe setting and a raffle. Big Group Hug supplies essential items to children and families in need, and the published event notice says all ticket and raffle sales go to the charity.
+
+The Shire describes this as a ticketed, all-ages event. Check Humanitix for current admission terms and availability, and ask the organiser about seating, accessibility or other arrangements the listing does not specify.
+
+The venue is Commonfolk Mornington, 16 Progress Street. The published show time is 7–9pm. Allow time to find the venue and check the organiser's event page again on the day, especially if you are travelling from elsewhere on the Peninsula. The published notices do not give a bout schedule or interval, so use the 7–9pm window for planning rather than counting on a particular match time.
+
+[Check the latest details at the source →](<https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity>)
 
 Hosted at
 
@@ -41,7 +59,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity/tickets>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dominion+Wrestling+for+Big+Group+Hug+at+Commonfolk&dates=20261009T080000Z%2F20261009T100000Z&details=Dominion+Wrestling+presents+a+charity+wrestling+show+for+Big+Group+Hug+at+Commonfolk+Mornington+on+Friday+9+October%2C+7%E2%80%939pm.+Check+Humanitix+for+tickets+and+current+details.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdominion-wrestling-big-group-hug-mornington-2026%2F&location=Commonfolk+Mornington%2C+16+Progress+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity/tickets>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dominion+Wrestling+for+Big+Group+Hug+at+Commonfolk&dates=20261009T080000Z%2F20261009T100000Z&details=A+two-hour%2C+all-ages+professional+wrestling+show+at+Commonfolk+Mornington+supports+Big+Group+Hug.+Dominion+Wrestling%27s+Friday-night+fundraiser+includes+a+raffle%3B+check+Humanitix+for+current+ticket+availability.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdominion-wrestling-big-group-hug-mornington-2026%2F&location=Commonfolk+Mornington%2C+16+Progress+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

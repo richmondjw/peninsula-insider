@@ -11,6 +11,8 @@ Event     Markets     11 October 2026     Recurs monthly
 
 A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.
 
+[Visit organiser](<https://www.craftmarkets.com.au/mornington>)
+
 Worth the drive   First timer
 
 AI-assisted artwork · Peninsula Insider

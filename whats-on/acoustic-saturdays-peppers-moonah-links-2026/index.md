@@ -11,6 +11,8 @@ Event     Food & Wine     10 October 2026     Recurs weekly
 
 Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
 
+[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
+
 All weather
 
 Editor's verdict

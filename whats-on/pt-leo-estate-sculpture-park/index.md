@@ -11,6 +11,8 @@ Experience     Arts     Check current opening hours     Visit during published o
 
 An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.
 
+[Check dates with organiser](<https://www.ptleoestate.com.au/experience/sculpture-park/>)
+
 Worth the drive   First timer
 
 Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)

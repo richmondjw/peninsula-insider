@@ -11,6 +11,8 @@ Experience     Food & Wine     Choose a date on the organiser calendar     Sessi
 
 An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.
 
+[Check dates with organiser](<https://www.tenminutesbytractor.com.au/visit-us>)
+
 Worth the drive
 
 Editor's verdict

@@ -11,6 +11,8 @@ Experience     Wellness     Choose a date on the organiser calendar     Sessions
 
 A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.
 
+[Check dates with organiser](<https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga>)
+
 AI-assisted artwork · Peninsula Insider
 
 Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.

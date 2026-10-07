@@ -11,6 +11,8 @@ Event     Racing & Sport     30 November 2026     One-off date
 
 The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.
 
+[Book or check details](<https://events.humanitix.com/olagolf2026>)
+
 Hosted at
 
 Sorrento Golf Club
@@ -59,11 +61,15 @@ Racing & Sport  25 Oct
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
+Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+
+Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+
 Racing & Sport  9 Oct
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm.
+A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 

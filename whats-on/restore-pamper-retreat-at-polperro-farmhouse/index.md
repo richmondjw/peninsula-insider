@@ -11,6 +11,8 @@ Experience     Wellness     Arrange a date with the organiser     By arrangement
 
 3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.
 
+[Check dates with organiser](<https://www.polperrowines.com.au/>)
+
 Worth the drive
 
 Editor's verdict

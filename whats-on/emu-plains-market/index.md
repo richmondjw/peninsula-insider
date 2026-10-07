@@ -11,6 +11,8 @@ Event     Markets     17 October 2026     Recurs monthly
 
 Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
 
+[Visit organiser](<https://www.emuplainsmarket.com.au/>)
+
 Worth the drive   First timer
 
 Editor's verdict

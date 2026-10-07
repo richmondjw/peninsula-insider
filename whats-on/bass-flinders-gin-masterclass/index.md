@@ -11,6 +11,8 @@ Experience     Food & Wine     Choose a date on the organiser calendar     Sessi
 
 A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.
 
+[Check dates with organiser](<https://www.bassandflindersdistillery.com/pages/gin-masterclass>)
+
 AI-assisted artwork · Peninsula Insider
 
 Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.

@@ -11,6 +11,8 @@ Event     Racing & Sport     25 October 2026     One-off date
 
 35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
+[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>)
+
 Worth the drive
 
 Editor's verdict
@@ -83,11 +85,15 @@ The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
+Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+
+Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+
 Racing & Sport  9 Oct
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm.
+A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 

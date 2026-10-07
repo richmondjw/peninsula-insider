@@ -682,11 +682,11 @@ Current events, experiences and offers, alongside our stories.
 
 - [Fri, 9 Oct
 
-### Dominion Wrestling for Big Group Hug at Commonfolk
+### ✦ Dominion Wrestling for Big Group Hug at Commonfolk
 
 Mornington
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm. Check Humanitix for tickets and current details.
+A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug. Dominion Wrestling's Friday-night fundraiser includes a raffle; check Humanitix for current ticket availability.
 
  Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 

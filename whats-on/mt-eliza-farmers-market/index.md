@@ -11,6 +11,8 @@ Event     Markets     25 October 2026     Recurs monthly
 
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
 
+[Visit organiser](<https://www.mtelizafarmersmarket.com.au/>)
+
 Worth the drive   First timer
 
 Editor's verdict

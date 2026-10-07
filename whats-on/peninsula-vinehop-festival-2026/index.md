@@ -11,6 +11,8 @@ Event     Festivals     21 November 2026     Annual
 
 A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.
 
+[Get tickets](<https://events.humanitix.com/peninsula-vinehop-festival-2026/tickets>)
+
 Worth the drive   First timer
 
 Editor's verdict

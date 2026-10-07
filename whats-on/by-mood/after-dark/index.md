@@ -11,11 +11,15 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
+Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+
+Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+
 Racing & Sport  9 Oct
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Dominion Wrestling presents a charity wrestling show for Big Group Hug at Commonfolk Mornington on Friday 9 October, 7–9pm.
+A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
