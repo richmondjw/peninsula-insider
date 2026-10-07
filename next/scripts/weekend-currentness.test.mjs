@@ -17,3 +17,9 @@ test('current weekend details remain readable without JavaScript', () => {
     assert.match(tag, /\bhidden(?:\s|=|>)/, 'expired messaging must wait until the edition ends');
   }
 });
+
+
+test('no-JavaScript visitors get the edition date and an index route', () => {
+  assert.match(html, /<noscript><p\b[^>]*class="ptw-hero__stale"[^>]*>\s*Edition dates:/);
+  assert.match(html, /If these dates have passed, <a href="\/whats-on\/"[^>]*>browse the events index<\/a>/);
+});
