@@ -53,7 +53,7 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
         '<body data-page="event"><h1>Mornington Racecourse Market</h1>' +
         '<p>Next date; No booking required.</p>' + figure +
         '<div class="prose"><p>' + prose + '</p><p><a href="' + source +
-        '">Check source</a></p></div></body></html>');
+        '">Check the latest details at the source</a></p></div></body></html>');
       return;
     }
     response.writeHead(404);
@@ -62,7 +62,7 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   origin = 'http://127.0.0.1:' + server.address().port;
   const args = ['--kind=event', '--event-quality', '--expect-illustration',
-    '--expect-sha=abc123', origin + '/market/'];
+    '--expect-source-host=www.mornpen.vic.gov.au', '--expect-sha=abc123', origin + '/market/'];
   try {
     const good = await run(process.execPath, [script, ...args]);
     assert.match(good.stdout, /PASS/);
@@ -76,7 +76,7 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
 
     mode = 'good';
     await assert.rejects(
-      run(process.execPath, [script, ...args.slice(0, 3), '--expect-sha=wrong', args[4]]),
+      run(process.execPath, [script, ...args.slice(0, 4), '--expect-sha=wrong', args[5]]),
       (error) => {
         assert.match(error.stdout, /release-sha/);
         return true;
