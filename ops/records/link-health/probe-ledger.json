@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-06T20:18:45.570Z",
+  "updatedAt": "2026-10-07T19:35:20.027Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -421,6 +421,14 @@
       "httpCode": "200",
       "pageTitle": "File:Looking out towards the waves near Cheviot Hill at Point Nepean in Portsea, Victoria.jpg - Wikimedia Commons",
       "probedOn": "2026-09-29",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "File:Mornington Peninsula Regional Gallery.jpg - Wikimedia Commons",
+      "probedOn": "2026-10-07",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
