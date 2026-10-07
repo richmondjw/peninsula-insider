@@ -11,7 +11,7 @@ const day = (iso) => new Date(iso + 'T12:00:00Z');
 
 test('National Works on Paper appears only on actual gallery opening days inside its exhibition run', () => {
   assert.equal(record.status, 'published');
-  const data = { ...record, startDate: day(record.startDate), endDate: day(record.endDate) };
+  const data = { ...record, startDate: day(record.startDate), endDate: day(record.endDate), nextOccurrence: record.nextOccurrence ? new Date(record.nextOccurrence) : undefined };
   const rule = ruleFor({ data }, day('2026-10-08'));
   assert.equal(rule?.kind, 'weekly');
   assert.deepEqual(rule?.days, [2, 3, 4, 5, 6, 0]);
