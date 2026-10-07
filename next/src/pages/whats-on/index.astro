@@ -172,6 +172,7 @@ const pickCards = picks.map((p, i) => {
           caption: data.heroImage.caption as string | undefined, credit: data.heroImage.credit as string | undefined }
       : undefined,
     verdict: p.verdict,
+    categoryLabel: p.live.categoryLabel,
     meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
       .filter(Boolean)
       .slice(0, 3),
@@ -283,6 +284,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
               showEyebrow={c.position === 1}
               typeMark="The lead pick / 01"
               mediaFallback={c.position !== 1}
+              mediaFallbackLabel={c.categoryLabel}
               trip={true}
               surface="whatson"
               position={c.position}
@@ -1168,6 +1170,27 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
   .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip] { background: #f5c177; border-color: #f5c177; color: #0b2e4a; font-weight: 700; }
   .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip]:hover { background: #fff1d1; border-color: #fff1d1; color: #0b2e4a; }
   .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip]:focus-visible { outline: 2px solid #f5c177; outline-offset: 3px; }
+  /* An event without a rights-cleared photo gets a compact category cover.
+     The shorter, varied plates retain visual rhythm without implying a photo
+     of the event or delaying the title behind a large house-brand block. */
+  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate {
+    aspect-ratio: auto;
+    min-height: 9rem;
+    background: radial-gradient(circle at 92% 14%, #f5c17733 0 3.5rem, transparent 3.6rem), linear-gradient(135deg, #0b2e4a, #17637a);
+  }
+  .wo-picks .v5-card-grid > .pi-card:nth-of-type(3) .pi-card__media--plate {
+    background: radial-gradient(circle at 92% 14%, #f5c17733 0 3.5rem, transparent 3.6rem), linear-gradient(135deg, #713a24, #a9552a);
+  }
+  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate {
+    padding: 1rem 1.1rem 1rem 6rem;
+  }
+  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-rule {
+    background: #f5c177;
+  }
+  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic {
+    max-width: none;
+    font-size: clamp(1.4rem, 3vw, 1.85rem);
+  }
   @media (min-width: 1024px) {
     .wo-picks .v5-card-grid { grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); }
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title { font-size: clamp(1.9rem, 2.7vw, 2.65rem); line-height: 1.06; }
