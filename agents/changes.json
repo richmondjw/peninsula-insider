@@ -1,20 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-07T06:58:18.926Z",
+  "generatedAt": "2026-10-07T07:17:42.094Z",
   "baselineAvailable": true,
-  "fromSnapshot": "297d8ac622574dd7556f201a0984bb554d5336021ded965ae99a7ef54886e4e5",
-  "toSnapshot": "4dfc7e9b3c15ee2a09d247d26dfb50f2fbb12bce4a959a2f1143a4271171cec0",
-  "previousGeneratedAt": "2026-10-07T06:34:18.193Z",
+  "fromSnapshot": "4dfc7e9b3c15ee2a09d247d26dfb50f2fbb12bce4a959a2f1143a4271171cec0",
+  "toSnapshot": "6df3d154f71881134df6f1b2a76829423247b8618c20d31b5e4f028fc6271443",
+  "previousGeneratedAt": "2026-10-07T06:58:18.926Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 2,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "f05175fe9c1cc37a2fdff11af62b70ff6a4747c29b23b248e5cf96a44ea5b3ed",
-      "previousContentSha256": "001db7971290a5fe9b9fd18317560d25a389e1afd791f85b8d7b8a48810b6bfe"
+      "contentSha256": "9e4e94efb0e7d9d4783465e4b66e0fad79f1e1db90125bcfa95e4f4f6a0eadf4",
+      "previousContentSha256": "f05175fe9c1cc37a2fdff11af62b70ff6a4747c29b23b248e5cf96a44ea5b3ed"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/index.md",
+      "contentSha256": "141b587185e700c900f335edeaeb01f2b4d8f1ca8889ecda76197a7474b51d4c",
+      "previousContentSha256": "df07ebf6cc8f343ef443057b4dcfd25bfc864d495ef7aeab4ab246a1e6247c77"
     }
   ]
 }

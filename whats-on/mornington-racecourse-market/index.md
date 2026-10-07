@@ -13,6 +13,10 @@ A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Brows
 
 Worth the drive   First timer
 
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
+
 Editor's verdict
 
 A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
