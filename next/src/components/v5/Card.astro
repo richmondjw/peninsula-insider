@@ -238,7 +238,9 @@ const creditLine = (credit: string) => {
   const clean = credit.trim().replace(/\.$/, '');
   return /^Courtesy of /i.test(clean)
     ? `Photo courtesy of ${clean.slice('Courtesy of '.length)}.`
-    : /^Photo /i.test(clean) ? `${clean}.` : `Photo: ${clean}.`;
+    : /^(Photo|Illustration|Artwork)(?::|\s)/i.test(clean)
+      ? `${clean}.`
+      : `${/\b(?:illustration|artwork|drawing)\b/i.test(clean) ? 'Illustration' : 'Photo'}: ${clean}.`;
 };
 const imageCaption = image?.caption ?? '';
 const imageCredit = image?.credit ? creditLine(image.credit) : '';
