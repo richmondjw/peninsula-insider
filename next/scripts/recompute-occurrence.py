@@ -204,9 +204,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true',
                          help='Report what would change without writing files')
+    parser.add_argument('--today', type=date.fromisoformat,
+                         help='Override the editorial day for deterministic dry-run checks')
     args = parser.parse_args()
 
-    today = date.today()
+    today = args.today or date.today()
     updated = []
     restored = []
     skipped_horizon = []
