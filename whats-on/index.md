@@ -79,6 +79,12 @@ The most hands-on spirits experience on the Peninsula, and a bottle to take home
 
 Experience · check available sessions · Dromana · Food & Wine · On during your dates · runs to Fri, 30 Apr 2027 · Check session dates
 
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
 - [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
 A useful add-on if you're already booked in to bathe, not a reason to drive out on its own.
@@ -99,6 +105,12 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 9am · Crib Point · Markets · Recurring monthly
 
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
 - [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Live acoustic sets at a resort with views.
@@ -112,6 +124,12 @@ Live acoustic sets at a resort with views.
 A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact…
 
 9am · Mornington · Markets · One-day event
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
 
 ## Browse the next two months
 
@@ -162,6 +180,12 @@ Experience · check available sessions · Dromana · Food & Wine
 An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
 
 Experience · check available sessions · 11am · Merricks · Arts
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions
 
 ### Major events
 

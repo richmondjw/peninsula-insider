@@ -15,6 +15,10 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 Worth the drive
 
+Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
+
+Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+
 Editor's verdict
 
 A deeper hosted tasting for people interested in how the Peninsula's vineyards shape Pinot Noir and Chardonnay.

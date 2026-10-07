@@ -479,6 +479,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
 - [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
 - [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

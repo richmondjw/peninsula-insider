@@ -61,6 +61,10 @@ Weather flexible
 
 [Book or check details](<https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity/tickets>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Dominion+Wrestling+for+Big+Group+Hug+at+Commonfolk&dates=20261009T080000Z%2F20261009T100000Z&details=A+two-hour%2C+all-ages+professional+wrestling+show+at+Commonfolk+Mornington+supports+Big+Group+Hug.+Dominion+Wrestling%27s+Friday-night+fundraiser+includes+a+raffle%3B+check+Humanitix+for+current+ticket+availability.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fdominion-wrestling-big-group-hug-mornington-2026%2F&location=Commonfolk+Mornington%2C+16+Progress+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
+Filed under
+
+- Family Saturday
+
 Keep planning
 
 ## More from What's On

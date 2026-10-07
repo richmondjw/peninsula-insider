@@ -75,6 +75,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
+
+Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+
 Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)

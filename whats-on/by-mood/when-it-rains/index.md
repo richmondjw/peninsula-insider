@@ -31,6 +31,10 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
+Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
+
+Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+
 Food & Wine   Check session dates
 
 ### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
@@ -54,6 +58,20 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
+
+Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict National Works on Paper 2026 (NWOP).
+
+Exhibitions   Tuesday to Sunday, 11am to 4pm
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 AI-assisted artwork · Peninsula Insider
 
