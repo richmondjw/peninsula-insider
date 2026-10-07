@@ -22,11 +22,17 @@ const urls = [];
 let reportPath = null;
 let kind = 'page';
 let verbose = false;
+let eventQuality = false;
+let expectIllustration = false;
+let expectSha = null;
 
 for (const a of args) {
   if (a.startsWith('--report=')) reportPath = a.slice('--report='.length);
   else if (a.startsWith('--kind=')) kind = a.slice('--kind='.length);
   else if (a === '--verbose' || a === '-v') verbose = true;
+  else if (a === '--event-quality') eventQuality = true;
+  else if (a === '--expect-illustration') expectIllustration = true;
+  else if (a.startsWith('--expect-sha=')) expectSha = a.slice('--expect-sha='.length);
   else if (a.startsWith('http')) urls.push(a);
 }
 
@@ -82,6 +88,18 @@ async function verifyOne(url) {
   if (res.status !== 200) return { url, checks, ok: false };
 
   html = await res.text();
+
+  if (expectSha) {
+    try {
+      const provenanceUrl = new URL('/deployment.json', res.url);
+      const provenanceResponse = await fetchWithTimeout(provenanceUrl);
+      const provenance = provenanceResponse.ok ? await provenanceResponse.json() : null;
+      checks.push(check('release-sha', provenance?.sourceSha === expectSha,
+        provenance?.sourceSha || 'deployment provenance unavailable'));
+    } catch (error) {
+      checks.push(check('release-sha', false, error.message));
+    }
+  }
 
   // 2. canonical
   const canonical = attr(html, 'link', 'href', '') && attr(html, 'link', 'rel') === 'canonical'
@@ -178,6 +196,33 @@ async function verifyOne(url) {
 
     const bookingState = /Book now|Book direct|No booking|Walk in|Tickets/i.test(html);
     checks.push(check('event-booking-state', bookingState));
+
+    if (eventQuality) {
+      const figure = html.match(/<figure\\b[^>]*class=["'][^"']*\\bevent-detail__image\\b[^"']*["'][^>]*>[\\s\\S]*?<\\/figure>/i)?.[0] ?? '';
+      const heroSrc = figure.match(/<img\\b[^>]*\\bsrc=["']([^"']+)["']/i)?.[1];
+      checks.push(check('event-editorial-image', !!heroSrc, heroSrc || 'missing reviewed hero'));
+      if (heroSrc) {
+        try {
+          const imageResponse = await fetchWithTimeout(new URL(heroSrc, res.url));
+          const bytes = imageResponse.ok ? (await imageResponse.arrayBuffer()).byteLength : 0;
+          checks.push(check('event-image-loads', imageResponse.ok && bytes >= 10_000,
+            'status ' + imageResponse.status + ', ' + bytes + ' bytes'));
+        } catch (error) {
+          checks.push(check('event-image-loads', false, error.message));
+        }
+      }
+      const proseHtml = html.match(/<div\\b[^>]*class=["'][^"']*\\bprose\\b[^"']*["'][^>]*>([\\s\\S]*?)<\\/div>/i)?.[1] ?? '';
+      const proseWords = proseHtml.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ')
+        .split(/\\s+/).filter(Boolean).length;
+      checks.push(check('event-useful-copy', proseWords >= 130, proseWords + ' words'));
+      checks.push(check('event-source-link', /href=["']https:\/\/www\\.mornpen\\.vic\\.gov\\.au\//i.test(html),
+        'current Shire source link'));
+      if (expectIllustration) {
+        checks.push(check('event-illustration-disclosure',
+          /AI-assisted editorial illustration/i.test(figure),
+          'illustration disclosure in image caption'));
+      }
+    }
   }
 
   const ok = checks.every((c) => c.ok || c.name === 'body-hook');  // body-hook is soft
