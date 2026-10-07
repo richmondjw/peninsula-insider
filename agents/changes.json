@@ -1,20 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-07T11:21:06.367Z",
+  "generatedAt": "2026-10-07T12:20:14.552Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0d880c01c40ca3f466f2332d99b5e13f9264d3af6447c5ebb946e69c2f47475f",
-  "toSnapshot": "f1537d93f695ccbd44fc8ecdb2ed3693a8630d989000a938694d14516f040352",
-  "previousGeneratedAt": "2026-10-07T10:45:55.186Z",
+  "fromSnapshot": "f1537d93f695ccbd44fc8ecdb2ed3693a8630d989000a938694d14516f040352",
+  "toSnapshot": "26750ea31be6b172fbc128caa0420ef2ae3cf7766dc0ed06afae871ef2abe412",
+  "previousGeneratedAt": "2026-10-07T11:21:06.367Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 3,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "22f1c7e1ee5741e94024fc2af0b847919f08848fe6dc657a2dbdff95469d0f4a",
+      "previousContentSha256": "699f3d4fcf84b60cc2c4ca49d8ce3718811aa8509f3c5fc03634f591c0497d41"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/about/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/about/",
+      "markdownUrl": "https://peninsulainsider.com.au/about/index.md",
+      "contentSha256": "717883a33e4a98f82c324db6bc92c880116a4e55f820712825d49464c023ade2",
+      "previousContentSha256": "5f16df41415b34ef47cb4d6084749816368b1f121d26d29aaa396bcc8e593c68"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "e780e56034406c505ffb4aa05c964007d5dd120fc3f4cb6816bdac6181f62193",
-      "previousContentSha256": "5ebde35f53002605b8ed8d67d1e2892ad760528a042ee1071bfbfde6113631c1"
+      "contentSha256": "94166329ff34450137ef34133cf2c8c247920e8bc79ed103d5f779d64e2c5f0f",
+      "previousContentSha256": "e780e56034406c505ffb4aa05c964007d5dd120fc3f4cb6816bdac6181f62193"
     }
   ]
 }

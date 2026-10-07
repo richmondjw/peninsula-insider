@@ -70,8 +70,6 @@ Keeping things current
 
 We recheck details on a rolling basis and correct errors in public. If something is inaccurate or out of date, tell us what needs fixing.
 
-Reading with an assistant or building one? Our [agent guide](<https://peninsulainsider.com.au/agents/>) explains compact text formats, caching, citations and reuse permissions.
-
  [Report a correction](<https://peninsulainsider.com.au/contact/?type=correction#correction>)
 
 The Peninsula worth knowing
