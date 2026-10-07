@@ -51,10 +51,13 @@ permissions:
   contents: write
   issues: write
 
-# Cancel any in-progress deploy on new push
+# Keep the running publish intact when an editorial push arrives. A push cancelled
+# the naturally scheduled 7 October build mid-flight, so no scheduled
+# discovery-to-publication evidence survived that cycle. GitHub still keeps
+# only the newest pending run in this group while the running run completes.
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build-and-deploy:
