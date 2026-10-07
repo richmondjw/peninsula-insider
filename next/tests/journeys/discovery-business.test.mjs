@@ -204,7 +204,7 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
   } finally { await reader.close(); }
 });
 
-test('homepage alternate plan actions only copy usable itineraries and cover targets are comfortable', async () => {
+test('homepage alternate plan actions copy usable itineraries and the cover plays without a video button', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
@@ -212,13 +212,8 @@ test('homepage alternate plan actions only copy usable itineraries and cover tar
     assert.ok(copiedKinds.length>=1);
     assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
     await reader.waitFor(() => document.querySelector('[data-cover-motion]')?.currentTime > 0, 'cover video did not start');
-    const targets = await reader.page.$$eval('.cover-motion-toggle',els=>els.map(el=>({w:el.getBoundingClientRect().width,h:el.getBoundingClientRect().height})));
-    assert.ok(targets.length>0);
-    assert.ok(targets.every(t=>t.w>=44 && t.h>=44));
-    await reader.page.click('.cover-motion-toggle');
-    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
-    await reader.page.click('.cover-motion-toggle');
-    await reader.waitFor(() => !document.querySelector('[data-cover-motion]').paused, 'cover video did not resume');
+    assert.equal(await reader.page.$$eval('.cover-motion-toggle', els => els.length), 0);
+    assert.equal(await reader.page.$eval('[data-cover-motion]', v => v.paused), false);
     await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
     await reader.waitFor(() => document.querySelector('[data-cover-motion]').hidden, 'reduced-motion did not show the still fallback');
     assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
