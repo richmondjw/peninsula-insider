@@ -208,6 +208,16 @@ export async function loadLiveEvents(
   return out.sort((a, b) => b.appeal - a.appeal || a.title.localeCompare(b.title));
 }
 
+/**
+ * Only events with a supported fixed date belong under a calendar day.
+ * Experiences describe potential availability and offers have validity
+ * windows; neither is a confirmed occurrence for a reader's selected day.
+ */
+export function isDatedCalendarEvent(live: LiveEvent): boolean {
+  const data = live.event.data as Record<string, any>;
+  return eventContentKind(data) === 'event' && (data.dateBasis ?? 'fixed') === 'fixed';
+}
+
 // ---------------------------------------------------------------------------
 // Day grouping (server side, default weekend view)
 // ---------------------------------------------------------------------------
