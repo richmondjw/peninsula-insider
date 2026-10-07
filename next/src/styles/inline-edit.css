@@ -109,7 +109,7 @@ body[data-pi-edit-mode="on"] [data-pi-edit] {
 
 body[data-pi-edit-mode="on"] [data-pi-edit="image"] { cursor: context-menu; }
 
-/* Keep a card's stretched navigation link from intercepting image editing. */
+/* Keep a card stretched navigation link from intercepting image editing. */
 body[data-pi-edit-mode="on"] .pi-card__link::after { pointer-events: none; }
 
 body[data-pi-edit-mode="on"] [data-pi-edit]:hover {
