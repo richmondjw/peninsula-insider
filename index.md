@@ -17,6 +17,20 @@ Wednesday 7 October
 
 Cape Schanck, Mornington Peninsula.   Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
+Looking for a particular place or story? [Browse selected places and stories](<https://peninsulainsider.com.au/site-index/>). For agents, choose a JSON name directory with text or HTML page links, then read the matching page.
+
+- Eat: [Text](<https://peninsulainsider.com.au/agents/directories/eat.json>)[HTML](<https://peninsulainsider.com.au/agents/directories/eat-html.json>)
+
+- Wine: [Text](<https://peninsulainsider.com.au/agents/directories/wine.json>)[HTML](<https://peninsulainsider.com.au/agents/directories/wine-html.json>)
+
+- Stay: [Text](<https://peninsulainsider.com.au/agents/directories/stay.json>)[HTML](<https://peninsulainsider.com.au/agents/directories/stay-html.json>)
+
+- Explore and plans: [Text](<https://peninsulainsider.com.au/agents/directories/explore.json>)[HTML](<https://peninsulainsider.com.au/agents/directories/explore-html.json>)
+
+- Journal: [Text](<https://peninsulainsider.com.au/agents/directories/journal.json>)[HTML](<https://peninsulainsider.com.au/agents/directories/journal-html.json>)
+
+- Events: [Text](<https://peninsulainsider.com.au/agents/directories/whats-on.json>)[HTML](<https://peninsulainsider.com.au/agents/directories/whats-on-html.json>)
+
 The short list
 
 ## This weekend

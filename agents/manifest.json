@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-07T09:49:13.322Z",
-  "snapshotId": "e8337bb4c10ca91ef6a4386dc7bf7e76e20bd2d5c524786c0a6faa27fbb4adb5",
+  "generatedAt": "2026-10-07T10:45:55.186Z",
+  "snapshotId": "0d880c01c40ca3f466f2332d99b5e13f9264d3af6447c5ebb946e69c2f47475f",
   "count": 595,
   "catalogUrl": "https://peninsulainsider.com.au/agents/catalog.json",
   "changesUrl": "https://peninsulainsider.com.au/agents/changes.json",
@@ -164,8 +164,71 @@
       "url": "https://peninsulainsider.com.au/agents/sections/wine.json"
     }
   ],
+  "directories": [
+    {
+      "section": "eat",
+      "url": "https://peninsulainsider.com.au/agents/directories/eat.json",
+      "htmlUrl": "https://peninsulainsider.com.au/agents/directories/eat-html.json",
+      "count": 68,
+      "bytes": 10170,
+      "distinctUrls": 68,
+      "htmlBytes": 9684,
+      "htmlDistinctUrls": 68
+    },
+    {
+      "section": "wine",
+      "url": "https://peninsulainsider.com.au/agents/directories/wine.json",
+      "htmlUrl": "https://peninsulainsider.com.au/agents/directories/wine-html.json",
+      "count": 56,
+      "bytes": 8126,
+      "distinctUrls": 56,
+      "htmlBytes": 7724,
+      "htmlDistinctUrls": 56
+    },
+    {
+      "section": "stay",
+      "url": "https://peninsulainsider.com.au/agents/directories/stay.json",
+      "htmlUrl": "https://peninsulainsider.com.au/agents/directories/stay-html.json",
+      "count": 44,
+      "bytes": 6870,
+      "distinctUrls": 44,
+      "htmlBytes": 6552,
+      "htmlDistinctUrls": 44
+    },
+    {
+      "section": "explore",
+      "url": "https://peninsulainsider.com.au/agents/directories/explore.json",
+      "htmlUrl": "https://peninsulainsider.com.au/agents/directories/explore-html.json",
+      "count": 132,
+      "bytes": 20646,
+      "distinctUrls": 132,
+      "htmlBytes": 19712,
+      "htmlDistinctUrls": 132
+    },
+    {
+      "section": "journal",
+      "url": "https://peninsulainsider.com.au/agents/directories/journal.json",
+      "htmlUrl": "https://peninsulainsider.com.au/agents/directories/journal-html.json",
+      "count": 118,
+      "bytes": 22649,
+      "distinctUrls": 118,
+      "htmlBytes": 21813,
+      "htmlDistinctUrls": 118
+    },
+    {
+      "section": "whats-on",
+      "url": "https://peninsulainsider.com.au/agents/directories/whats-on.json",
+      "htmlUrl": "https://peninsulainsider.com.au/agents/directories/whats-on-html.json",
+      "count": 36,
+      "bytes": 6838,
+      "distinctUrls": 36,
+      "htmlBytes": 6576,
+      "htmlDistinctUrls": 36
+    }
+  ],
   "retrieval": {
     "method": "GET",
+    "nameLookup": "Use /agents/directories/{section}.json for Markdown destinations or /agents/directories/{section}-html.json for canonical HTML destinations. Both directories contain the same names and order, with only title and the destination URL per record. Follow a destination for facts, context and citation. Rich section records remain at /agents/sections/{section}.json.",
     "negotiation": "Use explicit index.md URLs; Accept: text/markdown does not negotiate HTML URLs.",
     "cache": "Respect Cache-Control. Send If-None-Match with the last ETag; a 304 means reuse your cached body.",
     "retries": "On 429 or 503, honour Retry-After when provided; otherwise use bounded exponential backoff. Do not repeatedly retry 404.",

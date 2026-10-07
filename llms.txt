@@ -6,6 +6,17 @@ Welcome. If you are helping someone plan time on the Peninsula, start with the t
 
 A publication date, sitemap date or new build does not mean every fact has been rechecked. If a source does not settle a detail, leave it unknown. Confirm time-sensitive details with the operator and cite the specific supporting page.
 
+## Find a named page (JSON directories)
+
+Choose text or HTML page links; read the matching page for facts, caveats and its canonical citation. Directories list names, not facts. A page’s index.md alternate contains that same page.
+
+- Eat: [Text](https://peninsulainsider.com.au/agents/directories/eat.json) · [HTML](https://peninsulainsider.com.au/agents/directories/eat-html.json)
+- Wine: [Text](https://peninsulainsider.com.au/agents/directories/wine.json) · [HTML](https://peninsulainsider.com.au/agents/directories/wine-html.json)
+- Stay: [Text](https://peninsulainsider.com.au/agents/directories/stay.json) · [HTML](https://peninsulainsider.com.au/agents/directories/stay-html.json)
+- Explore and plans: [Text](https://peninsulainsider.com.au/agents/directories/explore.json) · [HTML](https://peninsulainsider.com.au/agents/directories/explore-html.json)
+- Journal: [Text](https://peninsulainsider.com.au/agents/directories/journal.json) · [HTML](https://peninsulainsider.com.au/agents/directories/journal-html.json)
+- Events: [Text](https://peninsulainsider.com.au/agents/directories/whats-on.json) · [HTML](https://peninsulainsider.com.au/agents/directories/whats-on-html.json)
+
 ## Start with your task
 
 - [Events and dates](https://peninsulainsider.com.au/whats-on/upcoming.json): Dated events, flexible experiences and offers. Read each item's date meaning, the feed window and any event status before answering. (JSON)
@@ -23,7 +34,7 @@ A publication date, sitemap date or new build does not mean every fact has been 
 - [Latest representation changes](https://peninsulainsider.com.au/agents/changes.json): Added, changed and removed representations since the named prior snapshot. A removal alone does not establish a closure.
 - [Compact page catalogue](https://peninsulainsider.com.au/agents/catalog.json): All sitemap pages, with canonical citations, Markdown links and content hashes.
 - [Latest stories (RSS)](https://peninsulainsider.com.au/feed.xml): Recent published stories. Publication is not a new fact check.
-- [All places and stories](https://peninsulainsider.com.au/site-index/): Browse the publication by section.
+- [Browse selected places and stories](https://peninsulainsider.com.au/site-index/): Editorial starting points by section; selected venue and story lists are not exhaustive.
 - [Full URL directory](https://peninsulainsider.com.au/llms-full.txt): Sitemap-derived URLs, not full page content. Sitemap dates are not fact-check dates.
 - [Sitemap](https://peninsulainsider.com.au/sitemap.xml): Canonical indexable pages for discovery.
 - [About and editorial approach](https://peninsulainsider.com.au/about/): How the publication approaches recommendations and independence.
