@@ -2,7 +2,7 @@
   "slug": "national-works-on-paper-2026-nwop",
   "eventId": "MP-EVT-0065",
   "title": "National Works on Paper 2026 (NWOP)",
-  "summary": "National Works on Paper 2026 runs at Mornington Peninsula Regional Gallery from 5 September to 22 November. Regular gallery hours are Tuesday to Sunday, 11am to 4pm.",
+  "summary": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
   "startDate": "2026-09-05",
   "endDate": "2026-11-22",
   "startTime": "11:00",
@@ -17,7 +17,7 @@
   "officialEventUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
   "category": "exhibition",
   "subcategory": "Gallery Exhibition / Art Award",
-  "recurrence": "one-off",
+  "recurrence": "weekly",
   "audienceTags": [
     "art-lovers",
     "cultural-visitors"
@@ -32,10 +32,10 @@
   "primarySourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
   "secondarySourceUrl": "https://mprg.mornpen.vic.gov.au/Home",
   "verification": "verified",
-  "verificationNote": "5 September–22 November 2026 exhibition and regular Tuesday–Sunday 11am–4pm gallery hours confirmed by MPRG on 30 September 2026",
-  "lastCheckedDate": "2026-09-30",
+  "verificationNote": "Exhibition dates and regular Tuesday-to-Sunday 11am-to-4pm hours checked against current MPRG exhibition pages on 8 October 2026 via indexed official results. Direct site fetch was unavailable; check the gallery before travelling for date-specific changes.",
+  "lastCheckedDate": "2026-10-08",
   "editorialPriority": 4,
-  "status": "archived",
+  "status": "published",
   "publishedAt": "2026-05-04",
   "lens": [
     "rainy-day"
@@ -61,6 +61,26 @@
       "note": "The council retired /Arts-Culture/; its own 404 page renders at this URL. The gallery's current home is the mprg subdomain, fetched 200."
     }
   ],
-  "verificationStatus": "unverified - no future date confirmed",
-  "archivedReason": "Listing under review: official gallery hours are Tuesday–Sunday, 11am–4pm, closed Mondays. The existing continuous occurrence rule can promote a closed Monday; exhibition dates are retained pending safe opening-day handling."
+  "recurrenceNote": "Tuesday to Sunday, 11am to 4pm",
+  "editorVerdict": "Start with the award-winning works, then take time with the wider survey of contemporary art on paper.",
+  "editorNote": "National Works on Paper 2026 is Mornington Peninsula Regional Gallery's survey of contemporary Australian art made on and with paper. The gallery names Adam Lee as winner of the major acquisitive award for You are the wind, I am the song, and Emma Bingham as Emerging Artist Award winner for Holding pattern. Their works are useful starting points before you explore the wider exhibition.\n\nThe exhibition runs from 5 September to 22 November 2026 at Civic Reserve, Dunns Road, Mornington. Visit during the gallery's regular Tuesday-to-Sunday hours, 11am to 4pm. The gallery is closed on Mondays. These are opening days within an exhibition run, not a daily appointment from the first date to the last.\n\nUse the official exhibition page to check for a change to normal hours before travelling. The published pages used for this listing do not establish current admission terms or individual accessibility arrangements, so confirm those with the gallery if they matter to your visit. This is an indoor option when the Peninsula weather turns, with time to look closely rather than rush through a single performance.",
+  "heroImage": {
+    "src": "/images/sourced/explore-mprg-01.webp",
+    "alt": "Entrance to Mornington Peninsula Regional Gallery at Civic Reserve, Mornington",
+    "credit": "pru_mitchell / Wikimedia Commons, CC BY 2.0",
+    "license": "other-licensed",
+    "caption": "Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.",
+    "depicts": "entrance to Mornington Peninsula Regional Gallery",
+    "depictionStatus": "illustrative",
+    "creator": "pru_mitchell",
+    "rightsHolder": "pru_mitchell",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg",
+    "permission": "Creative Commons Attribution 2.0 Generic (CC BY 2.0). Photographer pru_mitchell; existing repository WebP is a transformed copy of the source image.",
+    "permittedUses": [
+      "website",
+      "commercial"
+    ],
+    "rightsEstablishedOn": "2026-10-08",
+    "rightsStatus": "recorded"
+  }
 }
