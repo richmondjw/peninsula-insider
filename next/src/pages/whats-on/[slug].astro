@@ -244,6 +244,23 @@ export const prerender = true;
           label: `${event.data.title} - summary`,
         })}>{event.data.summary}</p>)}
 
+        {!bookingClosed && bookingTarget && (
+          <div class="event-detail__intro-action">
+            <a
+              href={bookingTarget.href}
+              class="event-detail__action event-detail__action--primary"
+              rel="nofollow noreferrer"
+              target="_blank"
+              data-pi-book={bookingTarget.kind === 'organiser' ? undefined : bookingTarget.kind}
+              data-pi-entity-type="event"
+              data-pi-entity-slug={slug}
+              data-pi-surface="event-detail"
+            >
+              {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
+            </a>
+          </div>
+        )}
+
         <EventBadges
           worthTheDrive={!cancelled && !unconfirmedArchivedSchedule && event.data.worthTheDrive}
           firstTimer={!cancelled && !unconfirmedArchivedSchedule && event.data.firstTimer}
@@ -546,6 +563,7 @@ export const prerender = true;
 </script>
 
 <style>
+  .event-detail__intro-action { margin: 1rem 0 0; }
   .event-detail__price-check { display: block; margin-top: 0.35rem; color: var(--soft); }
   [data-price-current][hidden], [data-price-fallback][hidden] { display: none; }
   .event-detail__image { margin: 0 0 2.5rem; }
