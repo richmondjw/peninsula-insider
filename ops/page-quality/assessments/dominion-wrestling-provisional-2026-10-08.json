@@ -1,0 +1,91 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+  "tier": "T3",
+  "family": "event",
+  "primaryVisitorTask": "Decide whether the Friday 9 October Dominion Wrestling charity show suits the visit, then confirm current admission and reach the organiser's booking page.",
+  "assessedAt": "2026-10-08T01:38:08+11:00",
+  "reviewer": "Two independent Codex reviewers, factual and UX",
+  "sourceRevision": "b6e81bcee5add51c77db25b7840ae15dbcbc86c7",
+  "viewports": [],
+  "plannedViewports": [
+    390,
+    1440
+  ],
+  "evidence": {
+    "mobileCapture": "Unavailable: browser runner failed before viewport capture.",
+    "desktopCapture": "Unavailable: browser runner failed before viewport capture.",
+    "keyboardNotes": "Not observed; browser runner unavailable.",
+    "assistiveTechnologyNotes": "Not observed.",
+    "factualSources": [
+      "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Live-Pro-Wrestling-for-charity",
+      "https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity"
+    ],
+    "imageRightsSources": [
+      "https://github.com/richmondjw/peninsula-insider/commit/377889bfa120189e2e7cbede57946ccfc398a9e9",
+      "https://github.com/richmondjw/peninsula-insider/commit/684ce19c4eca6b0638a2058136faa0b2f6016738"
+    ],
+    "technicalReport": "https://github.com/richmondjw/peninsula-insider/actions/runs/37634000533",
+    "liveDeploymentReceipt": "Public exact-SHA Dominion verifier passed at 2026-10-07T14:20:45Z; https://github.com/richmondjw/peninsula-insider/actions/runs/37634000533"
+  },
+  "criterionEvidence": {
+    "VT1": "Source and deployed HTML identify an all-ages local Friday charity show, venue and cause.",
+    "VT2": "Title, date, summary and booking link precede the hero in deployed HTML; first-screen viewport unobserved.",
+    "VT3": "Verdict, timing, venue and planning unknowns help choice; age-specific admission terms are withheld under the no-static-pricing rule.",
+    "VT4": "Event-specific Humanitix, directions and calendar links render; the booking destination presented a queue and task completion is unverified.",
+    "FN1": "One H1, summary, three practical paragraphs and an at-a-glance definition list render.",
+    "FN2": "Breadcrumbs, all-events and related-event links, organiser source and correction route render.",
+    "FN3": "Global search affordance appears; operation not tested and on-page event filtering is not applicable without an agreed replacement check.",
+    "ET1": "Copy names the place, date, time, cause and unknown seating/accessibility arrangements.",
+    "ET2": "Commonfolk setting, local wrestling and charity purpose provide a reason to choose.",
+    "ET3": "Shire and Humanitix support core facts; ticket availability unverified and donation wording correction #615 is in the deployed 34ed9e2b artifact; public page fetch remains unverified.",
+    "ET4": "Organiser link, correction route and illustration disclosure render; organiser/Shire donation wording conflict triaged.",
+    "VS1": "Original SVG rights record and source commits inspected; public image load and disclosure passed exact-SHA verifier; visual impression/crop unobserved.",
+    "VS2": "Responsive layout source and crop geometry reviewed; rendered composition unobserved.",
+    "VS3": "Type hierarchy coded; legibility unobserved.",
+    "VS4": "Rendered colour contrast unobserved.",
+    "VS5": "Shared event components used; rendered consistency unobserved.",
+    "MI1": "Responsive CSS exists; 390px reflow and touch targets unobserved.",
+    "MI2": "Button and link feedback unobserved.",
+    "MI3": "Global forms, dialogs and recovery unobserved.",
+    "AT1": "Skip link, main landmark, breadcrumb and alt coded; keyboard and assistive technology untested.",
+    "AT2": "Predeploy SiteOne/Lighthouse gate passed; event-page browser/field speed unmeasured.",
+    "AT3": "Image aspect ratio and reduced-motion CSS coded; stability and motion behavior unobserved.",
+    "AT4": "Title, self-canonical, Event/Breadcrumb structured data and valid linked destinations present; public verifier checked metadata and CSS."
+  },
+  "ratings": {},
+  "hardGates": [],
+  "unverifiedGates": [
+    "Humanitix booking completion",
+    "Rendered keyboard and assistive-technology operation"
+  ],
+  "issues": [
+    {
+      "criterion": "ET4",
+      "severity": "medium",
+      "finding": "Shire says all sales donated; organiser says proceeds. PR #615 narrows the page wording; public recheck pending.",
+      "acceptance": "Public detail uses organiser-attributed proceeds wording."
+    },
+    {
+      "criterion": "VT3",
+      "severity": "medium",
+      "finding": "Family admission distinction is absent from editorial copy; no-static-pricing rule blocked a fixed amount.",
+      "acceptance": "If governance permits, show source-linked, expiring verified admission data; otherwise retain current organiser handoff and score deduction."
+    },
+    {
+      "criterion": "VS2-MI1-AT1",
+      "severity": "high",
+      "finding": "Rendered desktop/mobile crop, keyboard, touch and assistive technology could not be observed.",
+      "acceptance": "Capture 1440px and 390px, traverse keyboard path, check focus/AT and interaction behavior."
+    },
+    {
+      "criterion": "AT2",
+      "severity": "medium",
+      "finding": "Event-page browser and field performance unmeasured.",
+      "acceptance": "Measure representative event detail at mobile and desktop."
+    }
+  ],
+  "score": null,
+  "status": "provisional",
+  "nextAction": "Complete rendered viewport, keyboard/AT, task-handoff and page-speed checks; independently score all 23 criteria with the proceeds correction deployed."
+}

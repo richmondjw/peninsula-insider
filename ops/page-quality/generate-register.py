@@ -118,10 +118,20 @@ def main() -> None:
             "next_action": old.get("next_action") or "Baseline page",
         }
         rows.append(row)
-    removed = [dict(row) for url, row in previous.items() if url not in urls]
-    for row in removed:
+    # Retain earlier scope-review history across repeated sitemap snapshots.
+    # A URL that re-enters the live sitemap leaves the removed ledger.
+    historical_removed = read_csv(out_dir / "removed.csv")
+    removed_by_url = {
+        url: dict(row) for url, row in historical_removed.items() if url not in urls
+    }
+    for url, old in previous.items():
+        if url in urls:
+            continue
+        row = dict(old)
         row["state"] = "scope-review"
-        row["next_action"] = "Check redirect and canonical before removal"
+        row["next_action"] = "Check live status, redirect and canonical before removal"
+        removed_by_url[url] = row
+    removed = sorted(removed_by_url.values(), key=lambda row: (row["tier"], row["url"]))
     write_csv(out_dir / "register.csv", rows)
     write_csv(out_dir / "removed.csv", removed)
     metadata = {
