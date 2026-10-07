@@ -12,6 +12,7 @@ import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import { ruleFor } from '../lib/event-schedule';
 
 export interface Props {
   event: any;
@@ -109,7 +110,10 @@ function recurrenceBadge(): string | null {
   }
   return recur === 'monthly' ? 'MONTHLY' : null;
 }
-const weekdayBadge = recurrenceBadge();
+const openingDays = event.data.recurrence === 'weekly' ? ruleFor(event as any, new Date())?.days : undefined;
+const multipleOpeningDays = (openingDays?.length ?? 0) > 1;
+const dayNames = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+const weekdayBadge = multipleOpeningDays ? `${dayNames[openingDays![0]]}–${dayNames[openingDays!.at(-1)!]}` : recurrenceBadge();
 
 const fallbackHeroByCategory: Record<string, string> = {
   'food-wine': '/images/sourced/category-winery-01.webp',
@@ -134,7 +138,7 @@ const heroImageSrc = eventHero.override?.src
   ?? eventHero.src
   ?? fallbackHeroByCategory[category]
   ?? '/images/sourced/category-market-02.webp';
-const recordedOwnHero = !eventHero.override && eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
+const recordedOwnHero = !eventHero.override && Boolean(event.data.heroImage?.src) && event.data.heroImage?.rightsStatus === 'recorded';
 const renderImage = imagePolicy !== 'recorded-only' || recordedOwnHero;
 
 // Filter data-attributes - consumed by the hub's client-side filter engine.
@@ -201,7 +205,9 @@ const isoEnd = (!event.data.dateBasis || event.data.dateBasis === 'fixed') && ev
   : isoStart;
 const recurDayMatch = String(event.data.recurrenceNote ?? '').toLowerCase()
   .match(/\b(mon|tues?|wed(?:nes)?|thur?s?|fri|sat(?:ur)?|sun)(?:day)?\b/);
-const recurrenceDay = recurDayMatch
+const recurrenceDay = multipleOpeningDays
+  ? openingDays!.map((day: number) => dayNames[day].toLowerCase()).join(' ')
+  : recurDayMatch
   ? ({ mon: 'mon', tue: 'tue', tues: 'tue', wed: 'wed', wednes: 'wed', thu: 'thu', thur: 'thu', thurs: 'thu', fri: 'fri', sat: 'sat', satur: 'sat', sun: 'sun' } as Record<string, string>)[recurDayMatch[1]] ?? ''
   : '';
 ---
@@ -231,7 +237,7 @@ const recurrenceDay = recurDayMatch
     })}
   >
     {weekdayBadge && (
-      <span class="event-card__hero-badge" aria-label={`Runs every ${weekdayBadge}`}>{weekdayBadge}</span>
+      <span class="event-card__hero-badge" aria-label={multipleOpeningDays ? `Open ${event.data.recurrenceNote}` : `Runs every ${weekdayBadge}`}>{weekdayBadge}</span>
     )}
   </a>}
   {renderImage && recordedOwnHero && (

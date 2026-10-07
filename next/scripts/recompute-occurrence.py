@@ -36,13 +36,15 @@ def parse_date(s: str | None) -> date | None:
         return None
 
 
-def next_weekly(start: date, today: date) -> date:
-    """Next future date matching start's day-of-week."""
-    target_weekday = start.weekday()
-    delta = (target_weekday - today.weekday()) % 7
-    if delta == 0 and today >= start:
-        delta = 7
-    return today + timedelta(days=delta)
+def next_weekly(start: date, today: date, weekdays: set[int] | None = None) -> date:
+    """Next future opening day, using the stated range when one exists."""
+    allowed = weekdays or {start.weekday()}
+    candidate = max(today + timedelta(days=1), start)
+    for offset in range(7):
+        day = candidate + timedelta(days=offset)
+        if day.weekday() in allowed:
+            return day
+    raise ValueError('weekly rule has no permitted weekday')
 
 
 # Most "monthly" records on this site are nth-weekday markets - "3rd Saturday
@@ -58,6 +60,22 @@ NTH_WORDS = {'first': 1, '1st': 1, 'second': 2, '2nd': 2, 'third': 3, '3rd': 3,
              'fourth': 4, '4th': 4, 'fifth': 5, '5th': 5, 'last': -1}
 _WEEKDAY_RE = re.compile(r'\b(' + '|'.join(WEEKDAYS) + r')\b', re.IGNORECASE)
 _NTH_RE = re.compile(r'\b(' + '|'.join(NTH_WORDS) + r')\b', re.IGNORECASE)
+
+
+def weekly_open_days(data: dict) -> set[int] | None:
+    """Read an explicit weekday range such as 'Tuesday to Sunday'."""
+    note = str(data.get('recurrenceNote') or '')
+    matches = list(_WEEKDAY_RE.finditer(note))
+    if len(matches) != 2 or not re.search(r'\b(?:to|through)\b|[–-]',
+                                           note[matches[0].end():matches[1].start()], re.I):
+        return None
+    first = WEEKDAYS[matches[0].group(1).lower()]
+    last = WEEKDAYS[matches[1].group(1).lower()]
+    days = {first}
+    while first != last:
+        first = (first + 1) % 7
+        days.add(first)
+    return days
 
 
 def cadence_text(data: dict) -> str:
@@ -274,7 +292,17 @@ def main() -> int:
             continue
 
         if recurrence == 'weekly':
-            next_occ = next_weekly(start, today)
+            next_occ = next_weekly(start, today, weekly_open_days(data))
+            end = parse_date(data.get('endDate'))
+            if end and end > start and next_occ > end:
+                # A bounded exhibition run has no future opening day. Never
+                # write a synthetic appointment after its closing date.
+                if 'nextOccurrence' in data:
+                    data.pop('nextOccurrence')
+                    if not args.dry_run:
+                        path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+                    updated.append(f"{path.relative_to(EVENT_DIR)} -> no future opening day")
+                continue
         elif recurrence == 'monthly':
             # Prefer the stated nth-weekday cadence; day-of-month arithmetic is
             # only right for the handful of fixed-date monthly records.

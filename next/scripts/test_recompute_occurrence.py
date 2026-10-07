@@ -26,5 +26,35 @@ class CancelledEditionTest(unittest.TestCase):
             self.assertGreater(json.loads(live.read_text())["nextOccurrence"], module.date.today().isoformat())
 
 
+class MultiDayWeeklyExhibitionTest(unittest.TestCase):
+    def test_freshness_uses_each_open_day_and_stops_at_exhibition_end(self):
+        exhibition = {
+            "slug": "national-works-on-paper-2026-nwop",
+            "status": "published", "recurrence": "weekly",
+            "recurrenceNote": "Tuesday to Sunday, 11am to 4pm",
+            "startDate": "2026-09-05", "endDate": "2026-11-22",
+            "nextOccurrence": "2026-10-10",
+        }
+        with TemporaryDirectory() as directory:
+            root = Path(directory)
+            file = root / 'national-works-on-paper-2026-nwop.json'
+            file.write_text(json.dumps(exhibition))
+            with patch.object(module, 'EVENT_DIR', root), patch('sys.argv', [
+                'recompute-occurrence.py', '--today', '2026-10-07'
+            ]):
+                self.assertEqual(module.main(), 0)
+            self.assertEqual(json.loads(file.read_text())['nextOccurrence'], '2026-10-08')
+            with patch.object(module, 'EVENT_DIR', root), patch('sys.argv', [
+                'recompute-occurrence.py', '--today', '2026-11-22'
+            ]):
+                self.assertEqual(module.main(), 0)
+            self.assertNotIn('nextOccurrence', json.loads(file.read_text()))
+
+    def test_single_weekday_cadence_keeps_its_original_anchor(self):
+        start = module.date.fromisoformat('2026-10-03')
+        today = module.date.fromisoformat('2026-10-07')
+        self.assertEqual(module.next_weekly(start, today), module.date.fromisoformat('2026-10-10'))
+
+
 if __name__ == "__main__":
     unittest.main()
