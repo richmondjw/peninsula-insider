@@ -102,6 +102,7 @@ jobs:
           npm run assert:claim-support
           npm run assert:link-health
           npm run validate:content
+          node scripts/assert-event-listing-quality.mjs mornington-racecourse-market
 
       - name: Pre-build lints
         # Every lint the build runs BEFORE `astro build`. None of them reads
