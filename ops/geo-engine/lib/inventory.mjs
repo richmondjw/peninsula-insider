@@ -163,6 +163,7 @@ export function buildInventory({ root = REPO_ROOT, previous = {}, vocab = loadVo
       imageCount: parsed.images.length,
       missingAltCount: parsed.images.filter((i) => i.alt === null || i.alt.trim() === '').length,
       schemaTypes: parsed.schemaTypes,
+      eventCancelled: parsed.eventCancelled,
       jsonLdBlockCount: parsed.jsonLd.length,
       jsonLdInvalidCount: parsed.jsonLdInvalid.length,
       jsonLdInvalid: parsed.jsonLdInvalid.slice(0, 3),

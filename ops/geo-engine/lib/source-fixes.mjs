@@ -102,7 +102,7 @@ export function proposePatch(finding, {pages, root = REPO_ROOT}) {
   if (finding.rule==='orphan_page') {
     const target=pages[finding.urlPath];
     const anchor=target?.h1;
-    if(!target?.indexable || target.redirectTarget || !anchor || anchor.length<8 || anchor.length>80 || /[<>&{}]/.test(anchor))return null;
+    if(target?.eventCancelled || !target?.indexable || target.redirectTarget || !anchor || anchor.length<8 || anchor.length>80 || /[<>&{}]/.test(anchor))return null;
     for(const source of Object.values(pages)) {
       if(isSensitivePage(source.urlPath,source))continue;
       if(!source.indexable || source.urlPath===target.urlPath || !source.venues?.some(v=>target.venues?.includes(v)))continue;
@@ -195,7 +195,15 @@ export async function applySourceFixes({findings,pages,service,policy,runId,root
     throw Error('Release circuit breaker: three failed batches in seven days; investigate before further publication');
   }
   try {
-    const candidates=findings.map(finding=>({finding,patch:proposePatch(finding,{pages,root})})).filter(c=>c.patch);
+    const candidates=[];
+    for (const finding of findings) {
+      const patch=proposePatch(finding,{pages,root});
+      if (patch) candidates.push({finding,patch});
+      else if (['broken_internal_link','orphan_page','duplicate_title'].includes(finding.rule)) {
+        deferred.push({urlPath:finding.urlPath,rule:finding.rule,
+          reason:'no supported evidence-qualified source patch; operator source review required'});
+      }
+    }
     candidates.sort((a,b)=>candidatePriority(b.finding,b.patch,pages,ledger)-candidatePriority(a.finding,a.patch,pages,ledger));
     for (const {finding,patch} of candidates) {
       if (changes.length >= batchLimit) break;

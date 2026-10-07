@@ -162,3 +162,13 @@ test('meta repair never selects a later statistic when the lead has no suitable 
   fs.writeFileSync(f.file,`<BaseLayout title="Brunch Mornington Peninsula" description="${'Intro '.repeat(40)}"><p>${'This opening paragraph is deliberately long and must not be replaced by an unrelated statistic '.repeat(4)}</p><p>This later paragraph provides an unrelated statistic that should never become the page summary.</p></BaseLayout>`);
   assert.equal(proposePatch({...f.finding,rule:'meta_description_length'},f),null);
 });
+
+test('unsupported dynamic source findings are retained for operator repair',async t=>{
+  const f=fixture(t);
+  const result=await applySourceFixes({...f,findings:[{rule:'broken_internal_link',urlPath:'/whats-on/event/',target:'/asset-note/'}],
+    policy:{enabled:true,maxChangesPerRun:5,allowedActions:['fix_broken_internal_link']},runId:'unsupported',
+    service:{decide:()=>{throw Error('must not judge a missing patch');}},fetchImpl:()=>{throw Error('must not fetch a missing patch');}});
+  assert.equal(result.changes.length,0);
+  assert.equal(result.deferred[0].rule,'broken_internal_link');
+  assert.match(result.deferred[0].reason,/operator source review/);
+});

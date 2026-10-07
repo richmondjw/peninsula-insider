@@ -23,3 +23,10 @@ export function discoveryRecord(question,response,receipt,observedAt) {
     limitation:'Observed search results only; no AI citation inference.'};
   throw Error('Provider did not return observable answers or search results');
 }
+
+// A successful prose answer is not a transport failure or a citation measurement.
+export function lacksCitationMetadata(question,response) {
+  return response?.kind==='answer' && response.query===question.query
+    && typeof response.content==='string' && Boolean(response.content.trim())
+    && response.citations===undefined;
+}

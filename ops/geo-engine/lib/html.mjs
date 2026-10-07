@@ -201,6 +201,7 @@ export function parsePage(html) {
     images: images(main),
     anchors: anchors(body),
     mainAnchors: anchors(main),
+    eventCancelled: blocks.some(block => schemaHasCancelledEvent(block)),
     jsonLd: blocks,
     jsonLdInvalid: invalid,
     schemaTypes: schemaTypes(blocks),
@@ -208,4 +209,14 @@ export function parsePage(html) {
     wordCount: wordCount(mainText),
     sentences: sentences(mainText),
   };
+}
+
+// Only explicit Event cancellation metadata exempts withdrawn listings from promotion.
+function schemaHasCancelledEvent(value) {
+  if (Array.isArray(value)) return value.some(schemaHasCancelledEvent);
+  if (!value || typeof value !== 'object') return false;
+  const types = Array.isArray(value['@type']) ? value['@type'] : [value['@type']];
+  return (types.some(type => ['Event','https://schema.org/Event','http://schema.org/Event'].includes(type))
+      && ['https://schema.org/EventCancelled','http://schema.org/EventCancelled'].includes(value.eventStatus))
+    || (Array.isArray(value['@graph']) && value['@graph'].some(schemaHasCancelledEvent));
 }

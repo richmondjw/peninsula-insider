@@ -2,12 +2,13 @@
 // No new credentials, account fallback, model choice or tool exposure changes.
 import path from 'node:path';
 import {STATE_DIR,readJson,writeJson,sha256} from '../lib/util.mjs';
-import {normalizeSearch,discoveryRecord} from '../lib/discovery.mjs';
+import {gatewaySearch} from '../lib/gateway-search.mjs';
+import {normalizeSearch,discoveryRecord,lacksCitationMetadata} from '../lib/discovery.mjs';
 import {importObservations,visibilitySummary} from '../lib/visibility.mjs';
 const file=path.join(STATE_DIR,'geo-benchmark.json');
 let benchmark=readJson(file);
 const statusFile=path.join(STATE_DIR,'discovery-status.json');
-const status={observedAt:new Date().toISOString(),state:'unavailable',attempted:0,answers:0,searchResults:0,
+const status={observedAt:new Date().toISOString(),state:'unavailable',attempted:0,answers:0,searchResults:0,unmeasuredAnswers:0,
   limitation:'Small rotating sample of the configured OpenClaw search provider; not all consumer AI platforms.'};
 try {
   if(!benchmark?.questions?.length)throw Error('No benchmark');
@@ -20,14 +21,10 @@ try {
     status.attempted++;
     const at=new Date().toISOString();
     benchmark={...benchmark,questions:benchmark.questions.map(x=>x.id===q.id?{...x,lastDiscoveryAttemptAt:at}:x)};
-    const response=await fetch(`http://127.0.0.1:${cfg.gateway?.port??18789}/tools/invoke`,{
-      method:'POST',headers:{'Content-Type':'application/json',Authorization:`Bearer ${credential}`},
-      body:JSON.stringify({tool:'web_search',agentId:'main',args:{query:q.query}}),signal:AbortSignal.timeout(120000)});
-    const envelope=await response.json();
-    if(!response.ok||envelope.ok!==true)throw Error(`Configured search unavailable (HTTP ${response.status})`);
-    const result=normalizeSearch(envelope.result);
+    const result=normalizeSearch(await gatewaySearch({port:cfg.gateway?.port??18789,credential,query:q.query}));
     const relative=path.join('discovery-receipts',sha256(at+q.id)+'.json');
     writeJson(path.join(STATE_DIR,relative),{question:q.query,observedAt:at,result});
+    if(lacksCitationMetadata(q,result)) {status.unmeasuredAnswers++;continue;}
     const record=discoveryRecord(q,result,relative,at);
     if(record.kind==='ai_answer') {
       benchmark=importObservations(benchmark,[record]);status.answers++;
@@ -37,7 +34,8 @@ try {
       writeJson(path.join(STATE_DIR,'competitor-search.json'),history);status.searchResults++;
     }
   }
-  status.state='observed';
+  status.state=status.answers || status.searchResults ? 'observed' : 'not_yet_measurable';
+  if(status.unmeasuredAnswers) status.reason='Provider returned answers without explicit citation metadata; receipts retained, no AI citation observations imported.';
 }catch(error){status.error=error.message.startsWith('Configured search')?error.message:error.name;}
 if(benchmark?.questions)writeJson(file,benchmark);
 status.visibility=visibilitySummary(benchmark);
