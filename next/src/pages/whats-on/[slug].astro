@@ -32,6 +32,7 @@ import { USE_OCCURRENCE_MODEL } from '../../lib/features';
 import { dayIsoOf, recordDisposition, resolveOccurrence } from '../../lib/event-occurrence.mjs';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { ruleFor } from '../../lib/event-schedule';
 
 export async function getStaticPaths() {
   const events = await getCollection('events', ({ data }) => isPublicEventRecord(data));
@@ -122,7 +123,9 @@ const resolvedHero = await resolveHero('event', slug, event.data);
 const eventHero = resolvedHero.override
   ? await resolveHero('event', slug, event.data, 'heroImage', { ignoreOverride: true })
   : resolvedHero;
-const showReviewedImage = eventHero.hasPhoto && event.data.heroImage?.rightsStatus === 'recorded';
+// A recorded, explicitly marked illustrative venue photo is eligible even
+// when its filename matches the generic-location fallback pattern.
+const showReviewedImage = Boolean(eventHero.src && event.data.heroImage?.src) && event.data.heroImage?.rightsStatus === 'recorded';
 // A text-only detail must not redistribute a fallback place photograph without its on-page credit.
 const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-og-card.png';
 
@@ -138,7 +141,10 @@ const priceKnown = eventHasKnownPrice(event.data);
 const unconfirmedArchivedSchedule = event.data.status === 'archived'
   && /unverified|no future date confirmed/i.test(String(event.data.verificationStatus ?? ''));
 const timeLabel = unconfirmedArchivedSchedule ? '' : eventTimeLabel(event.data);
-const calendarUrl = eventCalendarUrl(event.data, canonical);
+// A weekly exhibition with several opening days is not one continuous appointment.
+// Do not publish a calendar range or Event JSON-LD that includes closed days.
+const weeklyOpeningDays = event.data.recurrence === 'weekly' && (ruleFor(event as any, now)?.days?.length ?? 0) > 1;
+const calendarUrl = weeklyOpeningDays ? '' : eventCalendarUrl(event.data, canonical);
 const bookingTarget = eventBookingTarget(event.data);
 const dateBasis = event.data.dateBasis ?? 'fixed';
 const flexibleDate = dateBasis !== 'fixed';
@@ -154,7 +160,7 @@ const flexibleWhenLabel: Record<string, string> = {
   'opening-hours': 'Check current opening hours',
 };
 const nextOccurrence = (event.data as any).nextOccurrence as Date | undefined;
-const usesNextOccurrence = !cancelled && ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
+const usesNextOccurrence = !cancelled && !weeklyOpeningDays && ['weekly', 'monthly', 'annual'].includes(event.data.recurrence) && nextOccurrence;
 const whenStart = usesNextOccurrence ? nextOccurrence : event.data.startDate;
 const whenEnd = usesNextOccurrence ? nextOccurrence : event.data.endDate;
 const whenLabel = unconfirmedArchivedSchedule ? 'No future date confirmed' : flexibleDate ? flexibleWhenLabel[dateBasis] : eventDateLabel(whenStart, whenEnd);
@@ -182,7 +188,7 @@ const bookingClosed = bookingWithdrawn || occurrenceOver || unconfirmedArchivedS
 // Keep the retained cancellation URL richly described for search and old
 // inbound links. A cancelled event is deliberately not "current", but its
 // Event JSON-LD must still declare EventCancelled rather than disappearing.
-const eventSchema = contentKind === 'event' && !flexibleDate && (isCurrent || cancelled)
+const eventSchema = contentKind === 'event' && !flexibleDate && !weeklyOpeningDays && (isCurrent || cancelled)
   ? eventJsonLd(event, 'https://peninsulainsider.com.au')
   : null;
 
@@ -497,7 +503,7 @@ export const prerender = true;
                     {flexibleDate ? 'Check dates with organiser' : bookingTarget.label}
                   </a>
                 )}
-                {contentKind === 'event' && !flexibleDate && (!event.data.startTime || event.data.endTime) && <a
+                {calendarUrl && contentKind === 'event' && !flexibleDate && (!event.data.startTime || event.data.endTime) && <a
                   href={calendarUrl}
                   class="event-detail__action event-detail__action--secondary"
                   rel="noreferrer"
