@@ -25,6 +25,7 @@ let verbose = false;
 let eventQuality = false;
 let expectIllustration = false;
 let expectSha = null;
+let expectSourceHost = null;
 
 for (const a of args) {
   if (a.startsWith('--report=')) reportPath = a.slice('--report='.length);
@@ -33,6 +34,7 @@ for (const a of args) {
   else if (a === '--event-quality') eventQuality = true;
   else if (a === '--expect-illustration') expectIllustration = true;
   else if (a.startsWith('--expect-sha=')) expectSha = a.slice('--expect-sha='.length);
+  else if (a.startsWith('--expect-source-host=')) expectSourceHost = a.slice('--expect-source-host='.length);
   else if (a.startsWith('http')) urls.push(a);
 }
 
@@ -215,8 +217,12 @@ async function verifyOne(url) {
       const proseWords = proseHtml.replace(/<[^>]+>/g, ' ').replace(/&[a-z#0-9]+;/gi, ' ')
         .split(/\s+/).filter(Boolean).length;
       checks.push(check('event-useful-copy', proseWords >= 130, proseWords + ' words'));
-      checks.push(check('event-source-link', /href=["']https:\/\/www\.mornpen\.vic\.gov\.au\//i.test(html),
-        'current Shire source link'));
+      const sourceAnchor = html.match(/<a\b[^>]*href=["'](https?:\/\/[^"']+)["'][^>]*>\s*Check the latest details at the source[\s\S]*?<\/a>/i);
+      let sourceHost = null;
+      try { sourceHost = sourceAnchor ? new URL(sourceAnchor[1]).hostname : null; } catch {}
+      checks.push(check('event-source-link', !!sourceHost &&
+        (!expectSourceHost || sourceHost === expectSourceHost),
+        sourceHost || 'visible primary-source link missing'));
       if (expectIllustration) {
         checks.push(check('event-illustration-disclosure',
           /AI-assisted artwork/i.test(figure) && /data-pi-media-disclosure=["']illustrative["']/i.test(figure),
