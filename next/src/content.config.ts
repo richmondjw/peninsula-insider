@@ -190,6 +190,8 @@ const imageRef = z.object({
   licenseUrl: z.string().url().optional(),
   /** The permission as recorded at that source, verbatim. Never inferred. */
   permission: z.string().optional(),
+  /** Visible description of a known edit to a licensed source image. */
+  adaptationNote: z.string().optional(),
   /** Channels that permission actually covers. Empty means unrecorded. */
   permittedUses: z.array(imageUse).default([]),
   /**
