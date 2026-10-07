@@ -8,6 +8,8 @@ Every page in the public sitemap enters the register. Tiers set work order, not 
 
 The first live sitemap snapshot has 618 URLs. The checked-in root sitemap has 408 and is stale relative to the public sitemap. The public sitemap is the inventory source. Source retrieval time and hash appear in source.json. A second public snapshot after Eat detail batch 4 has 615 URLs: four previous URLs moved to `removed.csv` for scope review, and one new Journal URL entered unscored. The linked `/eat/la-baracca-tgallant/` page is marked `sitemapExclude` and is tracked in the Eat assessment as a scope question rather than silently added to this sitemap-based register.
 
+The 8 October deployed Pages artifact snapshot has 595 canonical URLs (60 T1, 387 T2, 148 T3). Five new URLs entered the register without a full score; 25 URLs absent since the 615-URL snapshot moved to `removed.csv` for status, redirect and canonical review. The ledger retains the four earlier removals. `source.json` identifies the immutable deployed artifact and notes that a direct public sitemap HTTP fetch was unavailable. An absent URL is not assumed closed or deleted.
+
 ## Continuous page loop
 
 1. **Baseline:** state the visitor task. Capture desktop (1440px) and mobile (390px), keyboard path, factual and image provenance, primary action, technical diagnostics and revision. Grade all 23 checks. Missing evidence remains unverified.
