@@ -70,6 +70,8 @@ await pool(manifest.sections,async section=>{
 check(Array.isArray(manifest.directories)&&manifest.directories.length===agentDirectories.length,'Name directory manifest coverage mismatch');
 const guideMarkdown=await read('/agents/index.md');
 const homeMarkdown=await read('/index.md');
+const homeHtml=await read('/');
+check(!/home-name-directory|For agents, choose a JSON name directory/i.test(homeHtml),'Agent directory copy leaked into the public HTML homepage');
 await pool(agentDirectories,async directory=>{
  const advertised=(manifest.directories||[]).find(entry=>entry.section===directory.section);
  for(const [format,href,urlKey,bytesKey,urlsKey] of [['markdown',directory.href,'url','bytes','distinctUrls'],['html',directory.htmlHref,'htmlUrl','htmlBytes','htmlDistinctUrls']]){

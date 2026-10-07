@@ -233,6 +233,9 @@ jobs:
         working-directory: next
         run: npm run audit:agent-readiness
 
+      - name: Enforce reader and agent boundary at publish
+        run: node next/scripts/assert-reader-boundary.mjs --dist next/dist
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
