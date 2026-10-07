@@ -42,6 +42,16 @@ Resolution rule: when fixed, **move** the entry to the Resolved section, prepend
 
 ## Active
 
+### EXC-2026-10-07-018 — Market listing failed live acceptance
+- **Severity:** P0
+- **Source:** post-publish-verify
+- **Surface:** `https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/`
+- **Detail:** Release `3fcb58a` passed pre-deploy gates and the Pages job, but the public verifier still received prior SHA `4839803` and the thin, imageless page after twelve attempts. The new built HTML also suppressed its reviewed illustration because a CMS override was present. Keep live acceptance failed until the public route serves the expected SHA and the image and copy checks pass.
+- **First seen:** 2026-10-07
+- **Owner:** PI site/release
+- **Target resolution:** 2026-10-07
+- **Linked artifact:** [Build and Deploy run #667](https://github.com/richmondjw/peninsula-insider/actions/runs/37581399217); [live verification report](https://github.com/richmondjw/peninsula-insider/actions/runs/37581399217/artifacts/11465019100)
+
 ### EXC-2026-08-16-017 — Monday quick-note deployment not externally resolvable
 - **Severity:** P1
 - **Source:** post-publish-verify

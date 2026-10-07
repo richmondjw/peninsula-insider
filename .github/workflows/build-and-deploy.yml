@@ -247,7 +247,7 @@ jobs:
         env:
           SOURCE_SHA: ${{ github.sha }}
         run: |
-          for attempt in {1..12}; do
+          for attempt in {1..30}; do
             if node ops/scripts/post-publish-verify.mjs \
               --kind=event \
               --event-quality \
@@ -258,7 +258,7 @@ jobs:
               https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/; then
               exit 0
             fi
-            echo "Public release not yet verified (attempt $attempt/12)"
+            echo "Public release not yet verified (attempt $attempt/30)"
             sleep 20
           done
           exit 1
@@ -290,7 +290,7 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           BODY=$(printf '%s\n' \
-            "Build and Deploy failed - the live site is no longer being updated from main." \
+            "Build, deploy, or live acceptance failed; inspect the failed step before claiming this release is live." \
             "" \
             "Commit: ${COMMIT_URL}" \
             "Message: ${COMMIT_MESSAGE}" \
