@@ -204,9 +204,11 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true',
                          help='Report what would change without writing files')
+    parser.add_argument('--today', type=date.fromisoformat,
+                         help='Override the editorial day for deterministic dry-run checks')
     args = parser.parse_args()
 
-    today = date.today()
+    today = args.today or date.today()
     updated = []
     restored = []
     skipped_horizon = []
@@ -234,6 +236,12 @@ def main() -> int:
         # A cancelled edition retains its historical date. Recurrence maths
         # cannot confirm a replacement date or revive a withdrawn series.
         if data.get('cancelled') is True:
+            continue
+
+        # A confirmed-only listing may describe a regular series, but only its
+        # sourced nextOccurrence is publishable. Never infer or restore a new
+        # date from cadence arithmetic after that occurrence passes.
+        if data.get('occurrencePolicy') == 'confirmed-only':
             continue
 
         recurrence = data.get('recurrence', 'one-off')

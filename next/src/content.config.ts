@@ -1455,6 +1455,8 @@ const events = defineCollection({
       .enum(['one-off', 'weekly', 'monthly', 'annual', 'seasonal', 'ongoing'])
       .default('one-off'),
     recurrenceNote: z.string().optional(),
+    /** A confirmed-only series publishes dated evidence, never a guessed cadence. */
+    occurrencePolicy: z.enum(['cadence', 'confirmed-only']).default('cadence'),
     dateBasis: z.enum(['fixed', 'operator-calendar', 'on-request', 'opening-hours']).optional(),
     /**
      * Exceptions to the cadence, one entry per affected occurrence.

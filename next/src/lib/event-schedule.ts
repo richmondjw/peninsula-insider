@@ -201,6 +201,13 @@ function baseRuleFor(event: { data: Record<string, any> }, now: Date): Occurrenc
   // A computed occurrence before a future series start contradicts the
   // record's own bounds. Ignore it instead of publishing the impossible date.
   const validNext = next && (!start || next >= start) ? next : undefined;
+  // An operator-confirmed date is the only date this policy may expose.
+  // A monthly description alone must never generate an unannounced edition.
+  if (data.occurrencePolicy === 'confirmed-only') {
+    return validNext && validNext >= today
+      ? { kind: 'range', start: validNext, end: validNext }
+      : null;
+  }
   const recur: string = data.recurrence ?? 'one-off';
   const noteText = [data.recurrenceNote, data.title, data.summary].filter(Boolean).join(' ');
   const months = applicableMonths(data.recurrenceNote ?? '');
