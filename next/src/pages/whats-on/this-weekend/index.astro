@@ -133,13 +133,14 @@ const eligibleWeekendRows = liveEvents
     return checked instanceof Date && now.getTime() - checked.getTime() <= 30 * 86400000;
   })
   .filter((live) => !dispatchPickEventSlugs.has(live.slug))
-  .sort((a, b) => {
-    const aDay = firstDayInWindow(a.rule, activeWindow)?.getTime() ?? Number.MAX_SAFE_INTEGER;
-    const bDay = firstDayInWindow(b.rule, activeWindow)?.getTime() ?? Number.MAX_SAFE_INTEGER;
-    const aTime = a.event.data.startTime || '99:99';
-    const bTime = b.event.data.startTime || '99:99';
-    return aDay - bDay || aTime.localeCompare(bTime) || b.appeal - a.appeal || a.title.localeCompare(b.title);
-  });
+  .map((live) => ({
+    live,
+    sortDate: firstDayInWindow(live.rule, activeWindow)?.getTime() ?? Number.MAX_SAFE_INTEGER,
+    time: live.event.data.startTime || '99:99',
+    title: live.title,
+  }))
+  .sort((a, b) => a.sortDate - b.sortDate || a.time.localeCompare(b.time) || a.title.localeCompare(b.title))
+  .map(({ live }) => live);
 // A weekend choice needs a route through each day before extra events repeat a day.
 const bestWeekendRowByDay = new Map<string, (typeof eligibleWeekendRows)[number]>();
 for (const live of eligibleWeekendRows) {
