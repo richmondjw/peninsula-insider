@@ -11,7 +11,7 @@ const day = (iso) => new Date(iso + 'T12:00:00Z');
 
 test('National Works on Paper appears only on actual gallery opening days inside its exhibition run', () => {
   assert.equal(record.status, 'published');
-  const data = { ...record, startDate: day(record.startDate), endDate: day(record.endDate) };
+  const data = { ...record, startDate: day(record.startDate), endDate: day(record.endDate), nextOccurrence: day(record.nextOccurrence) };
   const rule = ruleFor({ data }, day('2026-10-08'));
   assert.equal(rule?.kind, 'weekly');
   assert.deepEqual(rule?.days, [2, 3, 4, 5, 6, 0]);
@@ -30,5 +30,7 @@ test('restored listing has substantial visitor guidance and credited illustrativ
   assert.equal(record.heroImage.depictionStatus, 'illustrative');
   assert.equal(record.heroImage.rightsStatus, 'recorded');
   assert.match(record.heroImage.permission, /Attribution 2\.0/);
+  assert.equal(record.heroImage.license, 'wikimedia-cc-by');
+  assert.match(record.heroImage.adaptationNote, /Converted from JPEG to WebP/);
   assert.match(record.heroImage.caption, /does not depict the National Works on Paper 2026 exhibition/i);
 });

@@ -92,22 +92,9 @@ export function eventInWindow(event: Event, start: Date, end: Date): boolean {
   const recurrence = event.data.recurrence as string;
   const eStart = event.data.startDate;
   const eEnd = event.data.endDate ?? event.data.startDate;
-  const dayMs = 24 * 60 * 60 * 1000;
-
   if (recurrence === 'weekly') {
-    // Window of 7 days or more always contains every weekday once.
-    if (end.getTime() - start.getTime() >= 6 * dayMs) return true;
-    const eventWeekday = eStart.getDay();
-    // Walk the window day by day looking for a match. Cheap because the
-    // typical window here is 1–7 days.
-    for (
-      let cursor = new Date(start.getFullYear(), start.getMonth(), start.getDate());
-      cursor <= end;
-      cursor = new Date(cursor.getTime() + dayMs)
-    ) {
-      if (cursor.getDay() === eventWeekday) return true;
-    }
-    return false;
+    const rule = ruleFor(event as any, start);
+    return !!rule && occursInWindow(rule, { start, end, label: '' });
   }
 
   if (recurrence === 'monthly') {
@@ -499,6 +486,7 @@ export function eventBookingTarget(
 ): { href: string; label: string; kind: 'tickets' | 'booking' | 'organiser' } | null {
   if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets', kind: 'tickets' };
   if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details', kind: 'booking' };
+  if (data.category === 'exhibition' && data.officialEventUrl) return { href: data.officialEventUrl, label: 'Check exhibition details', kind: 'organiser' };
   if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser', kind: 'organiser' };
   return null;
 }
