@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Live pro wrestling for Big Group Hug</title>
+<desc id="desc">Peninsula Insider editorial illustration of an empty wrestling ring under theatre lights. It does not depict the Dominion Wrestling event.</desc>
+<defs>
+  <linearGradient id="night" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081e30"/><stop offset=".54" stop-color="#183349"/><stop offset="1" stop-color="#452e39"/></linearGradient>
+  <linearGradient id="mat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e8ddcc"/><stop offset="1" stop-color="#9fb2ba"/></linearGradient>
+  <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f6d89d" stop-opacity=".28"/><stop offset="1" stop-color="#f6d89d" stop-opacity="0"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#f5c97c" stop-opacity=".35"/><stop offset="1" stop-color="#f5c97c" stop-opacity="0"/></radialGradient>
+  <pattern id="grain" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="2" cy="6" r="1" fill="#fff" opacity=".045"/><circle cx="15" cy="17" r=".8" fill="#fff" opacity=".04"/></pattern>
+</defs>
+<rect width="1200" height="675" fill="url(#night)"/>
+<rect width="1200" height="675" fill="url(#grain)"/>
+<path d="M692 37L576 570h570L1003 37Z" fill="url(#beam)"/>
+<path d="M898 0L748 586h452L1106 0Z" fill="url(#beam)" opacity=".65"/>
+<ellipse cx="885" cy="447" rx="350" ry="250" fill="url(#glow)"/>
+<path d="M0 0h1200" stroke="#f2d49a" stroke-width="7" opacity=".75"/>
+<circle cx="690" cy="37" r="13" fill="#f4d79e"/><circle cx="1002" cy="37" r="13" fill="#f4d79e"/>
+<g opacity=".94">
+  <ellipse cx="910" cy="555" rx="270" ry="39" fill="#061521" opacity=".7"/>
+  <path d="M665 465 954 384 1178 452 886 554Z" fill="#172b39" stroke="#efc27d" stroke-width="6"/>
+  <path d="M679 463 951 395 1163 453 887 541Z" fill="url(#mat)" stroke="#e8d1a9" stroke-width="3"/>
+  <path d="M665 465v47l221 85v-43M1178 452v48l-292 97" fill="none" stroke="#dba75e" stroke-width="8"/>
+  <g fill="#d8a65e" stroke="#f6daa8" stroke-width="3"><rect x="652" y="348" width="16" height="169" rx="4"/><rect x="944" y="306" width="16" height="87" rx="4"/><rect x="1168" y="341" width="16" height="165" rx="4"/><rect x="879" y="447" width="16" height="155" rx="4"/></g>
+  <g fill="none" stroke="#f5e9d4" stroke-width="5" stroke-linecap="round" opacity=".88">
+    <path d="M662 367 952 321 1176 355 886 465Z"/>
+    <path d="M662 398 952 346 1176 385 886 497Z"/>
+    <path d="M662 432 952 371 1176 416 886 528Z"/>
+  </g>
+</g>
+<path d="M70 77h420" stroke="#d8a65e" stroke-width="2" opacity=".78"/>
+<text x="72" y="112" fill="#f0cf91" font-family="Arial,sans-serif" font-size="19" font-weight="700" letter-spacing="5">FRIDAY 9 OCTOBER 2026</text>
+<text x="66" y="227" fill="#f7f3ea" font-family="Arial,sans-serif" font-size="91" font-weight="800" letter-spacing="-4">LIVE PRO</text>
+<text x="66" y="322" fill="#f7f3ea" font-family="Arial,sans-serif" font-size="91" font-weight="800" letter-spacing="-4">WRESTLING</text>
+<rect x="72" y="360" width="403" height="53" rx="2" fill="#e7ad60"/>
+<text x="91" y="395" fill="#102b3c" font-family="Arial,sans-serif" font-size="24" font-weight="800" letter-spacing="2">FOR BIG GROUP HUG</text>
+<text x="72" y="463" fill="#e6e2d9" font-family="Arial,sans-serif" font-size="23" font-weight="600" letter-spacing="1">COMMONFOLK · MORNINGTON</text>
+<text x="72" y="500" fill="#bfc9cc" font-family="Arial,sans-serif" font-size="17" letter-spacing="1">A CHARITY SHOW BY DOMINION WRESTLING</text>
+<path d="M70 586h444" stroke="#ebc887" stroke-width="1" opacity=".6"/>
+<text x="72" y="621" fill="#c5ced0" font-family="Arial,sans-serif" font-size="14" letter-spacing="2.4">PENINSULA INSIDER · EDITORIAL ILLUSTRATION</text>
+</svg>
