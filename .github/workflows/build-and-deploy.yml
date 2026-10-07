@@ -100,6 +100,7 @@ jobs:
           node --test scripts/agent-formats.test.mjs scripts/agent-scorecard.test.mjs
           npm run test:event-safeguards
           npm run test:event-occurrence
+          node --test ../ops/scripts/post-publish-verify.test.mjs
           npm run test:material-change
           npm run validate:content
           node scripts/assert-event-listing-quality.mjs mornington-racecourse-market
