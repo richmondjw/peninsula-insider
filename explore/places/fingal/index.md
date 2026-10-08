@@ -143,7 +143,7 @@ Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 160 Sandy Rd, Fingal VIC 3939
 
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
 
 big group  family
 

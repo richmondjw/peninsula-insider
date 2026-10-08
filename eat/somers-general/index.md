@@ -105,11 +105,11 @@ Service   8 min
 
 Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Somers General
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

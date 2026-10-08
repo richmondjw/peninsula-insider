@@ -159,11 +159,11 @@ beach  slow
 
 [Read notes](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>) [Book](<https://kanastacaravanpark.com.au/retro-caravans/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Crittenden Estate Villas
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The one-night escape →](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Weekend plans →](<https://peninsulainsider.com.au/explore/plans/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

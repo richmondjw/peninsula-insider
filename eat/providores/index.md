@@ -11,7 +11,7 @@ The farmgate shops, cheesemongers, fishmongers, and produce stores selling direc
 
 Peninsula providores
 
-## 5 providores on the Peninsula
+## 2 providores on the Peninsula
 
 Cheesemongers, fishmongers, and farmgate stores, by what they sell.
 
@@ -31,51 +31,15 @@ family  garden
 
 providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
+### [The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-50 Cook St, Flinders VIC 3929
+45 Cook St, Flinders VIC 3929
 
-Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
 
 family  rainy day
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
-
-providore  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
-170 Baxter-Tooradin Rd, Baxter VIC 3911
-
-A working certified-organic market garden with a farm-gate shop, straight-out-of-the-ground vegetables and the best salad of your week.
-
-slow  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
-providore  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
-
-34 Pier St, Dromana VIC 3936
-
-A proper old-school fishmonger and takeaway on the Dromana foreshore, point, pay, and walk the parcel across to the sand.
-
-waterfront  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
-
-providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
-
-81 William Rd, Red Hill VIC 3937
-
-Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
 ## The Insider Note
 

@@ -49,27 +49,15 @@ The best explore pages should lead somewhere next.
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+### [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
 first date  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
-
-Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
+[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/contact>)
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -82,6 +70,18 @@ The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pas
 long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
+
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+### [Lightfoot Wines](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
+
+110 Myers Rd, Main Ridge VIC 3928
+
+A small Main Ridge estate with a focused Pinot and Chardonnay range and one of the ridge's most peaceful tasting rooms.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/wine/lightfoot-wines/>)
 
 Keep going
 

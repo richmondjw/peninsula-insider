@@ -23,7 +23,7 @@ Editorial ranking · 2026
 
 Ordered by editorial weight. Rooms with a hat rating first, then the places doing the strongest quiet work.
 
- [All 66 venues →](<https://peninsulainsider.com.au/eat/>)
+ [All 63 venues →](<https://peninsulainsider.com.au/eat/>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -87,7 +87,7 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 long lunch  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/pages/restaurant>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -167,15 +167,15 @@ cellar door  long lunch
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+### [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
 first date  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/contact>)
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
@@ -201,17 +201,17 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
-Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+Restaurant  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Hwy, Moorooduc VIC 3933
 
-All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+A Moorooduc winery restaurant and cellar door for a meal alongside the estate wines.
 
 slow  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>)
+[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>) [Book](<https://www.barmahparkwines.com.au/>)
 
 ## Frequently asked questions
 

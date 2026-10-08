@@ -127,11 +127,11 @@ anniversary  fireplace
 
 Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
+### [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
 5-15 Hotham Rd, Sorrento VIC 3943
 
-The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
+A historic hotel on Hotham Road above Port Phillip Bay, with restaurants and bars for a coastal meal.
 
 family  big group
 
@@ -405,7 +405,7 @@ Browse locations as a list
 
 - [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) · hotel
 
-- [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · pub
+- [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) · pub
 
 - [Stringers Sorrento](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) · restaurant
 

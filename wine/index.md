@@ -357,12 +357,6 @@ The quieter, more Italian-feeling sibling of Foxeys Hangout, a few minutes away 
 
 Main Ridge   Check ahead
 
-- ### [Mornington Peninsula Brewery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
-
-The in-town craft brewery bar, a working brewhouse, the full core range on tap, and live music on Friday nights in a warehouse taproom.
-
-Mornington   Brewery
-
 - ### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
 Nazaaray is one of the true eccentrics of the Peninsula wine scene, the one that cannot be replicated, and that is precisely the point.
@@ -395,9 +389,9 @@ Red Hill   Check ahead
 
 - ### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+Brewery beer beside the on-site hop yard in Red Hill South.
 
-Red Hill   Brewery
+Red Hill South   Brewery
 
 - ### [Red Hill Estate](<https://peninsulainsider.com.au/wine/red-hill-estate/>)
 
@@ -413,7 +407,7 @@ Merricks North   Check ahead
 
 - ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
 
 Fingal   Brewery
 
@@ -434,6 +428,12 @@ Moorooduc   Check ahead
 The Peninsula's Pinot Grigio pioneer, a family-friendly cellar door on Main Ridge with Italian-inspired food and the estate's Prosecco by the glass.
 
 Main Ridge   Walk-in welcome   Kitchen on site
+
+- ### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
+
+Beer, spirits and pizza offer a casual Mornington stop away from the bayside pub circuit.
+
+Mornington   Brewery
 
 - ### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
 

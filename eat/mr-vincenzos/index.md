@@ -9,21 +9,19 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Mr Vincenzo's
 
-Big-room Italian on Mornington's main street, with a lively dining room suited to groups and a long lunch.
+A Mornington restaurant and wine bar on the Esplanade, with seasonal shareable dishes and handmade pasta.
 
-Known for   Parmesan Wheel Pasta Tableside 1970s Italian Dining Room All-Italian Wine List Mornington Main Street Location
+Known for   Esplanade Restaurant Seasonal Shareable Dishes Handmade Pasta Wine Bar
 
-[Reserve a table](<https://mrvincenzos.com/>)  +61 3 5976 8844
+[Reserve a table](<https://mrvincenzos.com/>)  +61 3 4327 9392
 
 Why we’d go
 
-The Peninsula's most unashamed Italian room: no apology for the portion sizes, the volume, or the mirrored walls, and none needed.
+Seasonal shareable food and a wine-bar setting make a useful Esplanade dining choice.
 
-Mr Vincenzo's is the Peninsula dining room that knows exactly what it is and leans in. The space is big, loud, and deliberately theatrical, 1970s Italian vibes throughout, mirrored walls, dim lighting, waiters who know what they are doing and are not precious about it. The kitchen does classic southern Italian generously: gnocchi finished tableside in a wheel of parmesan, pasta portions built for sharing, osso buco, a proper tiramisu.
+Mr Vincenzo’s is a restaurant and wine bar on Mornington’s Esplanade, just off Main Street, with views towards Mornington Park and the bay. The operator’s seasonal menu features shareable dishes, handmade pasta and house-made focaccia.
 
-It is not subtle cooking, and the room is not trying to be quiet. Come with friends, order too much, drink too much, walk home along the Mornington foreshore before you regret any of it. The wine list is all-Italian, well-priced, and runs deep enough to reward a second bottle ordered on impulse rather than deliberation.
-
-Book a week ahead for weekends. Ask for the corner table if you want to feel like you own the room. This is the best argument for a Friday night in Mornington.
+Use it for a meal centred on food and wine near the bay. The posted schedule is mainly dinner, with Sunday lunch; check current opening days and book through the operator rather than planning on an everyday long lunch.
 
 Worth knowing
 
@@ -33,11 +31,11 @@ Long lunches · Big groups · Couples · Food lovers
 
 If you only do one thing
 
-Book a week ahead for a Saturday night, ask for the corner table, order the parmesan-wheel gnocchi, and do not refuse the tiramisu.
+Check the current menu and reserve a sitting that fits your day.
 
 Works well with
 
-Garagiste · Mornington Farmers' Market
+Mornington Farmers' Market
 
 Filed under   Long Lunch Big Group Slow All Year Couples Group Families
 
@@ -49,11 +47,11 @@ Restaurant
 
 **Location**
 
-60 Main St, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mr%20Vincenzo%27s%2C%2060%20Main%20St%2C%20Mornington%20VIC%203931>)
+784 Esplanade, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mr%20Vincenzo%27s%2C%20784%20Esplanade%2C%20Mornington%20VIC%203931>)
 
 **Call**
 
-+61 3 5976 8844
++61 3 4327 9392
 
 **Awards**
 
@@ -65,11 +63,11 @@ Time Out Best Regional Italian
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2148%2C145.0378>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Mr%20Vincenzo%27s%2C%20784%20Esplanade%2C%20Mornington%20VIC%203931>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mr%20Vincenzo%27s%2C%2060%20Main%20St%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mr%20Vincenzo%27s%2C%20784%20Esplanade%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://mrvincenzos.com/>)
 
@@ -113,11 +111,11 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 16 Progress St, Mornington VIC 3931
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
 slow  solo
 
-[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 
@@ -135,21 +133,21 @@ slow  quick bite
 
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-1 Main St, Mornington VIC 3931
+917 Nepean Highway, Mornington VIC 3931
 
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 family  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://www.morningtonhotel.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Mr Vincenzo's
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

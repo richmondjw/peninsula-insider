@@ -27,7 +27,7 @@ Laura is not suitable for children under eight. It does not offer a children's m
 
 Part of Pt. Leo Estate
 
-[Point Leo Wine Terrace  Restaurant  The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)[Pt. Leo Estate  Winery  A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
+[Point Leo Wine Terrace  Restaurant  Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park. Check the current Wine Terrace service days before visiting.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)[Pt. Leo Estate  Winery  A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
 Worth knowing
 
@@ -151,13 +151,13 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 
 slow  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/reservations/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Laura at Pt. Leo
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

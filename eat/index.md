@@ -15,7 +15,7 @@ Trofeo Estate, Dromana, Mornington Peninsula. Courtesy of Visit Victoria.
 
 ## Find your kind of place
 
-52 places. Your choice of town, table or coffee stop.
+44 places. Your choice of town, table or coffee stop.
 
 The editorial shortlist
 
@@ -31,17 +31,29 @@ Breakfast or lunch in Merricks, with local wines and fireside or deck tables. A 
 
 Merricks   Restaurant
 
+Breakfast and lunch; reserve online
+
+[Planning & availability](<https://merricksstore.com.au/reservations/>)
+
 - ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
 A Mornington cafe beside its roastery, with a full menu and dog-friendly courtyard. Useful for coffee, brunch or a casual family stop.
 
 Mornington   Cafe
 
+Walk-ins or limited reservations
+
+[Planning & availability](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
+
 - ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
-A fixed-menu osteria in Red Hill, with produce from its own farm. Choose this for a meal to plan your day around.
+A fixed-menu farm lunch in Red Hill. Plan a long sitting and tell the kitchen about dietary needs when booking.
 
 Red Hill   Restaurant
+
+Allow 3½–4 hours; no vegan menu
+
+[Planning & availability](<https://www.tedesca.com.au/book-tedesca>)
 
 See 3 more editorial choices
 
@@ -53,17 +65,29 @@ Jackalope’s dining room offers a multi-course tasting menu to guests and visit
 
 Merricks North   Restaurant
 
+Evening dining; check availability
+
+[Planning & availability](<https://jackalopehotels.com/drink-dine/>)
+
 - ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
 A four-course farm menu in Cape Schanck, built around estate produce. Choose this for a planned farm-to-table meal; reserve ahead.
 
 Cape Schanck   Restaurant
 
+Four-course set menu; reserve ahead
+
+[Planning & availability](<https://www.barragunda.com.au/dining/>)
+
 - ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
 A seaside pub with dining areas overlooking Port Phillip Bay. Choose it for a coastal meal, then check the calendar for live music.
 
 Portsea   Pub
+
+Pub dining; check table availability
+
+[Planning & availability](<https://portseahotel.com.au/>)
 
 Chosen for a reason, with no pay-for-coverage. [How we choose our picks →](<https://peninsulainsider.com.au/about/>) [Tell us what has changed →](<https://peninsulainsider.com.au/corrections/>)
 
@@ -75,7 +99,7 @@ You can start as a guest on this device. Saving or adding a stop does not reserv
 
 The full list
 
-## All 52 places to eat
+## All 44 places to eat
 
 Compare the full list, then narrow it by occasion or town.
 
@@ -101,9 +125,9 @@ The dining room inside Wood Marsh's rammed-earth building at Port Phillip Estate
 
 Red Hill   Restaurant
 
-- ### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+- ### [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
 Main Ridge   Restaurant
 
@@ -121,11 +145,11 @@ Balnarring   Pub
 
 Details checked September 2026
 
-- ### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+- ### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+A Moorooduc winery restaurant and cellar door for a meal alongside the estate wines.
 
-Moorooduc   Cafe
+Moorooduc   Restaurant
 
 - ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
@@ -147,7 +171,7 @@ Sorrento   Restaurant
 
 - ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
 Mornington   Cafe
 
@@ -157,9 +181,9 @@ A multi-course dining experience at Jackalope Hotel, with a dramatic room and a 
 
 Merricks North   Restaurant
 
-- ### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+- ### [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
 Dromana   Pub
 
@@ -181,12 +205,6 @@ A small Flinders bakery using its original wood-fired oven for naturally ferment
 
 Flinders   Bakery
 
-- ### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
-
-All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
-
-Flinders   Cafe
-
 - ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
@@ -195,15 +213,9 @@ Red Hill   Restaurant
 
 - ### [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
 
-A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
+A Dromana brewery with a beer hall, food menu and core and seasonal beers.
 
 Dromana   Brewery
-
-- ### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-Main Ridge   Bakery
 
 - ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
 
@@ -231,7 +243,7 @@ Red Hill South   Restaurant
 
 - ### [Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>)
 
-Bayside all-day bistro across from Safety Beach, modern Australian plates, a bay-facing deck, and one of the best post-swim lunches on the Peninsula.
+A marina-side restaurant in Safety Beach with a Mediterranean menu and seasonal produce.
 
 Safety Beach   Restaurant
 
@@ -247,45 +259,33 @@ Family-run fine dining on Cook Street, a weekly-changing set menu built on Penin
 
 Flinders   Restaurant
 
-- ### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+- ### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 Mornington   Pub
 
-- ### [Mornington Peninsula Brewery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
+- ### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
 
-The in-town craft brewery bar, a working brewhouse, the full core range on tap, and live music on Friday nights in a warehouse taproom.
+The brewery and distillery at 72 Watt Road, with beer and spirit paddles and wood-fired pizza.
 
 Mornington   Brewery
 
-- ### [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
+- ### [The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
 
 Flinders   Providore
 
 - ### [Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>)
 
-Big-room Italian on Mornington's main street, with a lively dining room suited to groups and a long lunch.
+A Mornington restaurant and wine bar on the Esplanade, with seasonal shareable dishes and handmade pasta.
 
 Mornington   Restaurant
 
-- ### [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
-A working certified-organic market garden with a farm-gate shop, straight-out-of-the-ground vegetables and the best salad of your week.
-
-Mornington   Providore
-
-- ### [Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
-
-A proper old-school fishmonger and takeaway on the Dromana foreshore, point, pay, and walk the parcel across to the sand.
-
-Dromana   Providore
-
 - ### [Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
-The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.
+Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park.
 
 Merricks   Restaurant
 
@@ -315,15 +315,9 @@ Balnarring   Bakery
 
 - ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
-Red Hill   Brewery
-
-- ### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
-
-Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
-
-Red Hill   Providore
+Red Hill South   Brewery
 
 - ### [Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
 
@@ -331,33 +325,21 @@ An enormous foreshore pub a short walk from Rye's front beach, family-friendly, 
 
 Rye   Pub
 
-- ### [Small Stone Pantry](<https://peninsulainsider.com.au/eat/small-stone-pantry/>)
-
-A wholefood-leaning pantry and café on the Point Nepean Road, grain bowls, good eggs, and a retail shelf stocked with Peninsula producers.
-
-Dromana   Cafe
-
 - ### [Somers General](<https://peninsulainsider.com.au/eat/somers-general/>)
 
 A tiny, perfectly curated general store and café in sleepy Somers, sourdough, pastries, cheese, Peninsula wines, and a weekend brunch menu.
 
 Somers   Cafe
 
-- ### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
+- ### [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
+A historic hotel on Hotham Road above Port Phillip Bay, with restaurants and bars for a coastal meal.
 
 Sorrento   Pub
 
-- ### [Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
-
-A small-batch sourdough baker at the top of Mornington's Main Street, long-fermented loaves, a tight pastry line, and the best bread in town.
-
-Mornington   Bakery
-
 - ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
 
 Fingal   Brewery
 
@@ -381,7 +363,7 @@ Mornington   Pub
 
 - ### [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>)
 
-Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
+A seaside restaurant and cocktail bar on Schnapper Point Drive in Mornington.
 
 Mornington   Restaurant
 
@@ -390,12 +372,6 @@ Mornington   Restaurant
 Australia's first dedicated gluten-free brewery, unexpectedly good beer, a small unfussy taproom, and worth the drive to Dromana.
 
 Dromana   Brewery
-
-- ### [Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>)
-
-A small, warm Italian room tucked into the hinterland, handmade pasta, a hand-written weekly menu, and the Peninsula's best neighbourhood trattoria.
-
-Main Ridge   Restaurant
 
 Food and wine events coming up on the Peninsula: [see What’s On →](<https://peninsulainsider.com.au/whats-on/>)
 
@@ -417,7 +393,7 @@ New leaf, quieter cellar doors, and the case for a slow Spring weekend before th
 
 ### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
 
-Three hatted restaurants, a bay view, and the case for letting Sunday lunch run long.
+A lunch on the ridge, a bay view, and the case for leaving the afternoon open.
 
 8 min read
 

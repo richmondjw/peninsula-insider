@@ -159,13 +159,13 @@ slow  quick bite
 
 Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
-Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
 cellar door  garden
 

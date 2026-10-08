@@ -173,13 +173,13 @@ Places in this plan
 
 Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
-Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
 cellar door  garden
 
@@ -187,11 +187,11 @@ cellar door  garden
 
 providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
+### [The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-50 Cook St, Flinders VIC 3929
+45 Cook St, Flinders VIC 3929
 
-Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
 
 family  rainy day
 
@@ -205,7 +205,7 @@ Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 160 Sandy Rd, Fingal VIC 3939
 
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
 
 big group  family
 

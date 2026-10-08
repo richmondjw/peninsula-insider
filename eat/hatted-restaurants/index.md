@@ -185,13 +185,13 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939
+113 Cape Schanck Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/dining/>)
 
 Photo: Courtesy of Visit Victoria
 

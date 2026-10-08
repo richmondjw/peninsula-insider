@@ -11,9 +11,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
-Known for   Original Merricks Village Store Barragunda Wines Cellar Door Wood-Fired Pizza and Sunday Roast Peninsula Produce Retail
+Known for   Village Bistro Elgee Park and Baillieu Wines Breakfast and Lunch Peninsula Produce Retail
 
-[Reserve a table](<https://merricksstore.com.au/>)  +61 3 5989 8088
+[Reserve a table](<https://merricksstore.com.au/reservations/>)  +61 3 5989 8088
 
 - Photo · Peter Foster, courtesy of Visit Victoria
 
@@ -43,13 +43,11 @@ Why we’d go
 
 The room that makes the Peninsula feel like it still belongs to itself, unhurried, unfussy, and entirely of where it is.
 
-Merricks General Wine Store occupies what used to be the village's original general store, and it has turned those bones into one of the most likeable rooms on the Peninsula. The front of the building is part cellar door for the Baillieu family's Barragunda wines, part retail for Peninsula producers, chutneys, oils, cheeses, and the back is a long, daylit dining room looking out over paddocks and eucalypts. The building has been changed and not changed at the same time, which is harder to pull off than it sounds.
+Merricks Store is a village bistro, wine store and produce stop. The operator serves breakfast and lunch daily, with tables by the fire or on the decks. Its wine list centres on Elgee Park and Baillieu vineyards, alongside other local producers.
 
 Photo · Peter Foster, courtesy of Visit Victoria
 
-The food is deliberately unfussy: a short menu that leans on pizza from a wood oven, a day's-catch fish, a lamb roast on Sundays, and pastries from the bakery that are worth arriving early for. The wine list is smartly priced and reflects the fact that the owners make wine themselves.
-
-Good for a lunch that is not trying to be an event. Good for breakfast after a Merricks cottage stay. Very good for anyone who wants to know what a Peninsula village still can feel like.
+Choose it for a village meal before exploring the ridge. The menu is seasonal and indicative, so check the current dishes rather than travelling for a promised pizza or Sunday roast. Friday dinner bookings are also offered by the operator; confirm the current service before making plans.
 
 Worth knowing
 
@@ -59,7 +57,7 @@ Long lunches · Local produce · Cellar door visits · First-time visitors
 
 If you only do one thing
 
-Arrive in time for a bakery pastry, sit in the back dining room with a glass of Barragunda, and order the Sunday lamb roast if you are there for it.
+Book breakfast or lunch through the operator, then choose from the current seasonal menu and local wine list.
 
 Works well with
 
@@ -93,7 +91,7 @@ Restaurant
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Merricks%20General%20Wine%20Store%2C%203460%20Frankston-Flinders%20Rd%2C%20Merricks%20VIC%203916%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://merricksstore.com.au/>)
+ [Book now](<https://merricksstore.com.au/reservations/>)
 
 Not sure how to build a day around Merricks General Wine Store?
 
@@ -193,11 +191,11 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Merricks General Wine Store
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

@@ -9,11 +9,11 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Jetty Road Brewery
 
-A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
+A Dromana brewery with a beer hall, food menu and core and seasonal beers.
 
 Known for   Polished Industrial Taproom Seasonal Rotating Taps Next to Dromana Drive-In Bayside Brewery Default
 
-[Reserve a table](<https://www.jettyroad.com.au/>)  +61 3 5981 8080
+[Reserve a table](<https://www.jettyroad.com.au/dromana>)  +61 3 5987 2754
 
 Jetty Road Brewery · Dromana
 
@@ -39,7 +39,7 @@ Ask what is on the rotating taps, the seasonals are where the head brewer takes 
 
 Works well with
 
-Dromana Hotel · Small Stone Pantry
+Dromana Hotel
 
 Filed under   Big Group Family Waterfront All Year Families Group Locals
 
@@ -55,7 +55,7 @@ Brewery
 
 **Call**
 
-+61 3 5981 8080
++61 3 5987 2754
 
 **Awards**
 
@@ -83,7 +83,7 @@ Bayside Craft Brewery
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Jetty%20Road%20Brewery%2C%2012-14%20Brasser%20Ave%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.jettyroad.com.au/>)
+ [Book now](<https://www.jettyroad.com.au/dromana>)
 
 ## Visiting
 
@@ -157,11 +157,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Jetty Road Brewery
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 

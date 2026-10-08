@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # St Andrews Beach Brewery
 
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
 
 Known for   Former racehorse training stables converted to a working brewery Acres of lawn to the old exercise track Wood-fired pizzas and rotating Sunday roast Core range: pale ale, lager, red ale, session sour One of the most complete brewery-day-out destinations on the Peninsula
 
@@ -89,7 +89,7 @@ Peninsula's Signature Brewery Day-Out
 
 **Website**
 
-[www.standrewsbeachbrewery.com.au](<https://www.standrewsbeachbrewery.com.au/>)
+[standrewsbeachbrewery.com.au](<https://standrewsbeachbrewery.com.au/>)
 
 **Directions**
 
@@ -179,11 +179,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include St Andrews Beach Brewery
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 

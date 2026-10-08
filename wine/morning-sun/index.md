@@ -39,7 +39,7 @@ Book Thursday through Sunday, order the Pinot Gris with the antipasti, and stay 
 
 Works well with
 
-Allis Wine Bar · Johnny Ripe
+Allis Wine Bar
 
 Filed under   Cellar Door Long Lunch View Slow Autumn Winter Spring Couples Group
 
@@ -147,11 +147,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Morning Sun Vineyard
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

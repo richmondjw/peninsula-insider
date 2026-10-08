@@ -7,23 +7,19 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Pub    [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-# The Sorrento Hotel
+# Hotel Sorrento
 
-The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
+A historic hotel on Hotham Road above Port Phillip Bay, with restaurants and bars for a coastal meal.
 
-Known for   Century-Old Pub Ocean Beach Road Classic Parma Village Institution
+Known for   Hotham Road location Historic hotel since 1872 Restaurants and bars Port Phillip Bay setting
 
 [Reserve a table](<https://hotelsorrento.com.au/>)  +61 3 5984 8000
 
 Why we’d go
 
-The Sorrento Hotel is the proper village pub of Ocean Beach Road, the one you go to with the in-laws on a Saturday night and everybody leaves happy.
+A historic Hotham Road hotel with coastal dining and drinking spaces.
 
-The Sorrento Hotel is the proper village pub of Ocean Beach Road, big, unfussy, full of people, and unapologetic about doing the pub basics well. The bistro menu is the familiar Peninsula country-pub list: a good parma, a reliable steak, a fish and chips that uses real flake, a burger that does the job. The dining room is big enough to absorb the summer crush without losing its local feel, and the bar runs straight through the afternoon into the evening.
-
-This is not the Sorrento meal you tell your Melbourne friends about. It is the one you go to with the in-laws on a Saturday night and everybody leaves happy. That is a real service, and the hotel has been providing it for more than a century. There is a particular skill in doing the unremarkable well and without apology, the Sorrento Hotel has it.
-
-Reliable, central, and absolutely unpretentious.
+Hotel Sorrento has been part of the town since 1872. The hotel is at 5–15 Hotham Road, above Port Phillip Bay. Its current operator offers restaurants and bars alongside accommodation, with separate dining spaces for different kinds of visit. Check the current dining options and book the space that suits your group.
 
 Worth knowing
 
@@ -33,7 +29,7 @@ Family outings · Big groups · Long lunches · First-time visitors
 
 If you only do one thing
 
-Book or arrive early for lunch and keep the order classic, the parma is the reason most people are here.
+Choose a dining space from the hotel’s current restaurant and bar information before booking.
 
 Works well with
 
@@ -49,7 +45,7 @@ Pub
 
 **Location**
 
-5-15 Hotham Rd, Sorrento VIC 3943 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Sorrento%20Hotel%2C%205-15%20Hotham%20Rd%2C%20Sorrento%20VIC%203943>)
+5-15 Hotham Rd, Sorrento VIC 3943 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Hotel%20Sorrento%2C%205-15%20Hotham%20Rd%2C%20Sorrento%20VIC%203943>)
 
 **Call**
 
@@ -65,17 +61,17 @@ Pub
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Sorrento%20Hotel%2C%205-15%20Hotham%20Rd%2C%20Sorrento%20VIC%203943%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Hotel%20Sorrento%2C%205-15%20Hotham%20Rd%2C%20Sorrento%20VIC%203943%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://hotelsorrento.com.au/>)
 
-Not sure how to build a day around The Sorrento Hotel?
+Not sure how to build a day around Hotel Sorrento?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
 In the journal
 
-## Stories that mention The Sorrento Hotel
+## Stories that mention Hotel Sorrento
 
 These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
 
@@ -147,11 +143,11 @@ waterfront  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/the-baths-sorrento/>) [Book](<https://thebaths.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include The Sorrento Hotel
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

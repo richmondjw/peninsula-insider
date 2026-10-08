@@ -125,11 +125,11 @@ anniversary  fireplace
 
 Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
+### [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
 5-15 Hotham Rd, Sorrento VIC 3943
 
-The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
+A historic hotel on Hotham Road above Port Phillip Bay, with restaurants and bars for a coastal meal.
 
 family  big group
 
@@ -147,11 +147,11 @@ slow  romance
 
 [Read notes](<https://peninsulainsider.com.au/eat/stringers-sorrento/>) [Book](<https://stringerssorrento.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include The Baths Sorrento
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

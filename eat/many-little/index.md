@@ -37,7 +37,7 @@ Book for dinner, order the full sharing menu, and ask the floor team to pair the
 
 Works well with
 
-Red Hill Estate · Red Hill Cheese
+Red Hill Estate
 
 Filed under   First Date Anniversary Slow All Year Couples Solo Group
 
@@ -141,11 +141,11 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/kooyong/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Many Little
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

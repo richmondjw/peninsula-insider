@@ -169,7 +169,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 ## Selected Eat & Drink pages
 
-- [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 - [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
 
@@ -179,7 +179,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
 
-- [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+- [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
 - [Barmah Park Vineyard](<https://peninsulainsider.com.au/eat/barmah-park-vineyard/>)
 
@@ -197,7 +197,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Dromana Estate](<https://peninsulainsider.com.au/eat/dromana-estate/>)
 
-- [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+- [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
 - [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/eat/elan-vineyard/>)
 
@@ -211,13 +211,9 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Foxeys Hangout](<https://peninsulainsider.com.au/eat/foxeys-hangout/>)
 
-- [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
-
 - [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
 - [Hurley Vineyard](<https://peninsulainsider.com.au/eat/hurley-vineyard/>)
-
-- [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
 - [Kooyong](<https://peninsulainsider.com.au/eat/kooyong/>)
 
@@ -247,7 +243,11 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Mornington Farmers' Market](<https://peninsulainsider.com.au/eat/mornington-farmers-market/>)
 
-- [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+- [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+
+- [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
+
+- [Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
 
 ## Selected Stay pages
 

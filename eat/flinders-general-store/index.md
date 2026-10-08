@@ -13,7 +13,7 @@ The village general store on Flinders' main street, slow-drip coffee, fresh brea
 
 Known for   Village General Store Format Daily Baked Loaves Picnic Outfitter Flinders Village Anchor
 
-[Reserve a table](<https://flindersgeneralstore.com.au/>)  +61 3 5989 0111
+[Reserve a table](<https://flindersgeneralstore.com.au/>)  +61 3 5989 0207
 
 Why we’d go
 
@@ -49,11 +49,11 @@ Café
 
 **Location**
 
-45 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20General%20Store%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929>)
+48 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20General%20Store%2C%2048%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 **Call**
 
-+61 3 5989 0111
++61 3 5989 0207
 
 **Website**
 
@@ -61,11 +61,11 @@ Café
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4724%2C145.0234>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Flinders%20General%20Store%2C%2048%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Flinders%20General%20Store%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Flinders%20General%20Store%2C%2048%20Cook%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://flindersgeneralstore.com.au/>)
 
@@ -123,18 +123,6 @@ quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
-
-30 Cook St, Flinders VIC 3929
-
-All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/georgie-bass/>) [Book](<https://www.georgiebass.com.au/>)
-
 Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
@@ -147,11 +135,23 @@ anniversary  romance
 
 [Read notes](<https://peninsulainsider.com.au/eat/moke-dining/>) [Book](<https://mokedining.com.au/>)
 
-Build a day around this
+providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-## Planning guides that include Flinders General Store
+### [The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+45 Cook St, Flinders VIC 3929
+
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
+
+family  rainy day
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
+
+Plan your Peninsula day
+
+## More ways to plan your Peninsula visit
+
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

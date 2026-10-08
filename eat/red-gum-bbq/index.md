@@ -59,7 +59,7 @@ Book for a crowd, go casual, and come hungry, the brisket is what the smoker was
 
 Works well with
 
-Red Hill Estate · Red Hill Cheese
+Red Hill Estate
 
 Filed under   Long Lunch Big Group Family All Year Families Group First Timers
 
@@ -167,7 +167,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -175,11 +175,11 @@ long lunch  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) [Book](<https://greenolive.com.au/dine>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Red Gum BBQ
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

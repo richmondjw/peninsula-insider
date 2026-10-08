@@ -111,17 +111,17 @@ Our selected food and drink stops here, each with an editor note rather than a s
 
  [Browse Peninsula food & drink →](<https://peninsulainsider.com.au/eat/>)
 
-Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+Restaurant  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Hwy, Moorooduc VIC 3933
 
-All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+A Moorooduc winery restaurant and cellar door for a meal alongside the estate wines.
 
 slow  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>)
+[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>) [Book](<https://www.barmahparkwines.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -312,8 +312,6 @@ Loading map…
 Browse locations as a list
 
 - [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>) · village
-
-- [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>) · cafe
 
 - [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) · winery
 

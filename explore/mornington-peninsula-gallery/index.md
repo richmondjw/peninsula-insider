@@ -63,11 +63,11 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 16 Progress St, Mornington VIC 3931
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
 slow  solo
 
-[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
 Spa  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

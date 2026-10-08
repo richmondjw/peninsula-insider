@@ -99,11 +99,11 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 16 Progress St, Mornington VIC 3931
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
 slow  solo
 
-[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
 Photo: Courtesy of Visit Victoria
 
@@ -129,7 +129,7 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 long lunch  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/pages/restaurant>)
 
 Villa  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -147,15 +147,15 @@ Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+### [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936
+151 Point Nepean Rd, Dromana VIC 3936
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
 waterfront  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
 
 Spa  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -175,23 +175,23 @@ Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 12-14 Brasser Ave, Dromana VIC 3936
 
-A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
+A Dromana brewery with a beer hall, food menu and core and seasonal beers.
 
 big group  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/dromana>)
 
 Restaurant  [Safety Beach](<https://peninsulainsider.com.au/explore/places/safety-beach/>)
 
 ### [Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>)
 
-15 Marine Dr, Safety Beach VIC 3936
+5 Waterfront Place, Safety Beach VIC 3936
 
-Bayside all-day bistro across from Safety Beach, modern Australian plates, a bay-facing deck, and one of the best post-swim lunches on the Peninsula.
+A marina-side restaurant in Safety Beach with a Mediterranean menu and seasonal produce.
 
 waterfront  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/martha-s-table/>) [Book](<https://www.marthastable.com.au/book-a-table/>)
+[Read notes](<https://peninsulainsider.com.au/eat/martha-s-table/>) [Book](<https://www.marthastable.com.au/restaurant>)
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 
@@ -209,15 +209,15 @@ slow  quick bite
 
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-1 Main St, Mornington VIC 3931
+917 Nepean Highway, Mornington VIC 3931
 
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 family  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://www.morningtonhotel.com.au/>)
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -233,15 +233,15 @@ slow  quick bite
 
 Brewery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [Mornington Peninsula Brewery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
+### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
 
 72 Watt Rd, Mornington VIC 3931
 
-The in-town craft brewery bar, a working brewhouse, the full core range on tap, and live music on Friday nights in a warehouse taproom.
+The brewery and distillery at 72 Watt Road, with beer and spirit paddles and wood-fired pizza.
 
 big group  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) [Book](<https://mpbrew.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) [Book](<https://tarbarrel.com.au/>)
 
 Market  [Mount Eliza](<https://peninsulainsider.com.au/explore/places/mount-eliza/>)
 
@@ -259,61 +259,13 @@ Restaurant  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 ### [Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>)
 
-60 Main St, Mornington VIC 3931
+784 Esplanade, Mornington VIC 3931
 
-Big-room Italian on Mornington's main street, with a lively dining room suited to groups and a long lunch.
+A Mornington restaurant and wine bar on the Esplanade, with seasonal shareable dishes and handmade pasta.
 
 long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/mr-vincenzos/>) [Book](<https://mrvincenzos.com/>)
-
-providore  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
-170 Baxter-Tooradin Rd, Baxter VIC 3911
-
-A working certified-organic market garden with a farm-gate shop, straight-out-of-the-ground vegetables and the best salad of your week.
-
-slow  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
-providore  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
-
-34 Pier St, Dromana VIC 3936
-
-A proper old-school fishmonger and takeaway on the Dromana foreshore, point, pay, and walk the parcel across to the sand.
-
-waterfront  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
-
-Café  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
-
-### [Small Stone Pantry](<https://peninsulainsider.com.au/eat/small-stone-pantry/>)
-
-180 Point Nepean Rd, Dromana VIC 3936
-
-A wholefood-leaning pantry and café on the Point Nepean Road, grain bowls, good eggs, and a retail shelf stocked with Peninsula producers.
-
-slow  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/small-stone-pantry/>)
-
-Bakery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
-
-231 Main St, Mornington VIC 3931
-
-A small-batch sourdough baker at the top of Mornington's Main Street, long-fermented loaves, a tight pastry line, and the best bread in town.
-
-slow  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
 
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -333,7 +285,7 @@ Restaurant  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 1 Schnapper Point Dr, Mornington VIC 3931
 
-Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
+A seaside restaurant and cocktail bar on Schnapper Point Drive in Mornington.
 
 waterfront  anniversary
 

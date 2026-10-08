@@ -98,7 +98,7 @@ One gondola ride, one lunch and a bay beach. The final coffee stop can go if the
 
 One day · Red Hill & Merricks · Family · 4 stops in one day
 
-Day 1: Red Hill → Mount Martha → Mornington
+Day 1: Red Hill → Red Hill South → Mount Martha → Mornington
 
 Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
 
@@ -156,7 +156,7 @@ Check the stay and restaurant service times first, then fit the walks around you
 
 One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
 
-Day 1: Red Hill → Mount Martha → Mornington
+Day 1: Red Hill → Red Hill South → Mount Martha → Mornington
 
 Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
 

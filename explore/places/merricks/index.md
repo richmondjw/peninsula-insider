@@ -147,7 +147,7 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 
 slow  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/reservations/>)
 
 Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
@@ -155,7 +155,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 3649 Frankston-Flinders Rd, Merricks VIC 3916
 
-The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.
+Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park. Check the current Wine Terrace service days before visiting.
 
 cellar door  view
 

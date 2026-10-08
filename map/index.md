@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Explore the Peninsula by location. Events show the next 30 days where the event location has been verified. [See all upcoming listings](<https://peninsulainsider.com.au/whats-on/>).
 
-182 on the map
+166 on the map
 
 - [View : Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -87,7 +87,7 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/explore/spas-and-wellness/#alba-thermal-springs>)
 
-- [View : Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+- [View : Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 - [View : Arthurs Views](<https://peninsulainsider.com.au/stay/arthurs-views/>)
 
@@ -98,8 +98,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 - [View : Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
 - [View : The Heritage Balnarring](<https://peninsulainsider.com.au/eat/balnarring-pub/>)
-
-- [View : Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
 - [View : Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
@@ -127,21 +125,13 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-- [View : Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
-
 - [View : Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
 - [View : Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-- [View : Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
-
 - [View : Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
 - [View : Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>)
-
-- [View : Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
-
-- [View : Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
 - [View : Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>)
 
@@ -150,8 +140,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 - [View : Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
 - [View : Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>)
-
-- [View : Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
 - [View : Mornington Peninsula Retro Caravans](<https://peninsulainsider.com.au/stay/kanasta-retro-caravans/>)
 
@@ -165,8 +153,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-- [View : Martha's Table](<https://peninsulainsider.com.au/eat/martha-s-table/>)
-
 - [View : Merricks Estate](<https://peninsulainsider.com.au/wine/merricks-estate/>)
 
 - [View : Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
@@ -179,17 +165,11 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Morning Sun Vineyard](<https://peninsulainsider.com.au/wine/morning-sun/>)
 
-- [View : The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
-
 - [View : Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
-- [View : Mornington Peninsula Brewery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
-
-- [View : Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
+- [View : Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>)
 
 - [View : Mount Eliza Farmers Market](<https://peninsulainsider.com.au/eat/mount-eliza-farmers-market/>)
-
-- [View : Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>)
 
 - [View : Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
@@ -199,15 +179,11 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
-- [View : Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
-
 - [View : Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/spas-and-wellness/#peninsula-hot-springs>)
 
 - [View : Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>)
 
 - [View : Peninsula Hot Springs Glamping](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>)
-
-- [View : Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>)
 
 - [View : Point Leo Wine Terrace](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
@@ -235,8 +211,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-- [View : Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
-
 - [View : Rye Foreshore Market](<https://peninsulainsider.com.au/eat/rye-beachside-market/>)
 
 - [View : Rye Hotel](<https://peninsulainsider.com.au/eat/rye-hotel/>)
@@ -245,13 +219,9 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 
 - [View : Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>)
 
-- [View : Small Stone Pantry](<https://peninsulainsider.com.au/eat/small-stone-pantry/>)
-
 - [View : Somers General](<https://peninsulainsider.com.au/eat/somers-general/>)
 
-- [View : The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
-
-- [View : Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
+- [View : Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
 - [View : St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
@@ -282,8 +252,6 @@ Explore the Peninsula by location. Events show the next 30 days where the event 
 - [View : Tuck's Ridge](<https://peninsulainsider.com.au/wine/tucks-ridge/>)
 
 - [View : Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>)
-
-- [View : Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>)
 
 - [View : Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>)
 

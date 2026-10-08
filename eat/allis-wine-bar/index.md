@@ -7,23 +7,21 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-# Allis Wine Bar
+# Ten Minutes by Tractor Cellar Door Dining
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
-Known for   Low-Waste Kitchen Ten Minutes Kitchen Garden Small-Plate Format Natural Wine List
+Known for   Cellar Door Dining Seasonal Shared Dishes Estate Wines
 
-[Reserve a table](<https://www.tenminutesbytractor.com.au/>)  +61 3 5989 6455
+[Reserve a table](<https://www.tenminutesbytractor.com.au/contact>)  +61 3 5989 6455
 
 Why we’d go
 
-The room that lets you eat as well as next door, for less ceremony and fewer weeks of planning ahead.
+A casual wine-led meal gives a different way to visit the estate from its formal restaurant.
 
-Allis operates on a low-waste, small-plate format: vegetables straight out of the Ten Minutes kitchen garden, offcuts from the main restaurant deliberately integrated into the menu, and a wine list built to drink rather than to study. For many people who know the Peninsula well, it is quietly the better meal of the two, and it takes a booking a fraction as hard to secure.
+The current Ten Minutes by Tractor operator describes this casual offer as Cellar Door Dining. Its menu centres on seasonal small plates and shared dishes to enjoy with the estate wines, in a space also available for private gatherings.
 
-The room is deliberately relaxed, a wine bar rather than a dining room, and the point is the honest exchange between the kitchen and what the garden is producing that week. Go in solo for a glass and two plates at the counter. Go as a couple for a slow dinner on a quiet weeknight. Either way, the cooking rewards attention without demanding it.
-
-An underrated Peninsula room. If Ten Minutes is fully booked, do not treat Allis as consolation, treat it as the real find.
+This is distinct from the estate’s formal restaurant set-menu service. Follow the Cellar Door Dining booking link on the current operator page and check the menu for your visit. The former Allis Wine Bar URL is retained for existing Peninsula Insider links; it is not a promise of unchanged Allis branding or a regular weeknight dinner service.
 
 Worth knowing
 
@@ -33,7 +31,7 @@ Long lunches · Couples · Wine lovers · Food lovers
 
 If you only do one thing
 
-Book the earlier sitting, let the kitchen feed you at its own pace, and ask the floor team what they are drinking that week, the by-the-glass list rewards the question.
+Open the current Cellar Door Dining menu and booking option, then choose a sitting suited to your day.
 
 Works well with
 
@@ -49,7 +47,7 @@ Restaurant
 
 **Location**
 
-1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Allis%20Wine%20Bar%2C%201333%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
+1333 Mornington-Flinders Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Ten%20Minutes%20by%20Tractor%20Cellar%20Door%20Dining%2C%201333%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
 
 **Call**
 
@@ -57,7 +55,7 @@ Restaurant
 
 **Website**
 
-[www.tenminutesbytractor.com.au](<https://www.tenminutesbytractor.com.au/>)
+[www.tenminutesbytractor.com.au/contact](<https://www.tenminutesbytractor.com.au/contact>)
 
 **Directions**
 
@@ -65,17 +63,17 @@ Restaurant
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Allis%20Wine%20Bar%2C%201333%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Ten%20Minutes%20by%20Tractor%20Cellar%20Door%20Dining%2C%201333%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.tenminutesbytractor.com.au/>)
+ [Book now](<https://www.tenminutesbytractor.com.au/contact>)
 
-Not sure how to build a day around Allis Wine Bar?
+Not sure how to build a day around Ten Minutes by Tractor Cellar Door Dining?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
 In the journal
 
-## Stories that mention Allis Wine Bar
+## Stories that mention Ten Minutes by Tractor Cellar Door Dining
 
 These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
 
@@ -111,18 +109,6 @@ Nearby picks
 
  [Back to Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
 
-Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>)
@@ -147,11 +133,23 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
 
-Build a day around this
+providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-## Planning guides that include Allis Wine Bar
+### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+295 Main Creek Rd, Main Ridge VIC 3928
+
+A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+
+family  garden
+
+[Read notes](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
+
+Plan your Peninsula day
+
+## More ways to plan your Peninsula visit
+
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

@@ -5,39 +5,37 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Café    [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+[Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Restaurant    [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-# Barmah Park Farm Kitchen
+# Barmah Park Restaurant & Cellar Door
 
-All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+A Moorooduc winery restaurant and cellar door for a meal alongside the estate wines.
 
-Known for   Farm Kitchen Courtyard All-Day Brunch Menu Canape Cellar Door Program Hinterland Setting
+Known for   Moorooduc Winery Restaurant Cellar Door Estate Wines
 
-+61 3 5978 8049
+[Reserve a table](<https://www.barmahparkwines.com.au/>)  +61 3 5978 8049
 
 Why we’d go
 
-A winery that runs its farm kitchen at café pace, the right call when you want vines visible and nobody pressuring you through a formal tasting.
+A restaurant and cellar door make a convenient single stop for food and wine in Moorooduc.
 
-Barmah Park runs a beautifully relaxed farm kitchen and courtyard alongside its more formal canapé-paired cellar-door program. The kitchen opens for brunch and runs an all-day menu that is closer to a village café than a winery restaurant, house-baked pastries, good eggs, cheese and charcuterie boards, a short pasta list at lunch, and a glass of estate Pinot on the side if the mood is right.
+Barmah Park combines a restaurant and cellar door in Moorooduc. The operator provides reservations and posts service from Wednesday to Sunday, with later opening on Friday and Saturday.
 
-The courtyard is the reason to come. Vines visible through the planting, slow country birds on the fence, and the kind of pace that makes a Monday feel like a holiday. For anyone who wants a winery day without the formal long-lunch commitment, this is one of the Peninsula's better options, the hinterland position keeps it off the main cellar-door circuit, which means it rarely feels crowded.
-
-Go on a weekday if you can. Take the kids, check the dog policy in advance, and stay for a cheese plate after the eggs.
+Choose it for a winery meal rather than assuming an all-day cafe or Monday brunch service. Check the operator’s current menu, opening times and reservation availability before travelling.
 
 Worth knowing
 
 **Best for**
 
-Brunch · Long lunches · Farmgate experiences · Couples
+Winery meals · Wine lovers · Couples
 
 If you only do one thing
 
-Go on a weekday, take the courtyard table with the vine view, and stay for a cheese plate after the eggs.
+Check the current restaurant menu and reserve your preferred sitting directly with Barmah Park.
 
 Works well with
 
-Barmah Park Vineyard · Peninsula Fresh Organics
+Barmah Park Vineyard
 
 Filed under   Slow Garden Spring Summer Autumn Couples Families Locals
 
@@ -45,25 +43,31 @@ At a glance
 
 **Type**
 
-Café
+Restaurant
 
 **Location**
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Farm%20Kitchen%2C%203007%20Frankston-Flinders%20Rd%2C%20Moorooduc%20VIC%203933>)
+945 Moorooduc Hwy, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Restaurant%20%26%20Cellar%20Door%2C%20945%20Moorooduc%20Hwy%2C%20Moorooduc%20VIC%203933>)
 
 **Call**
 
 +61 3 5978 8049
 
+**Website**
+
+[www.barmahparkwines.com.au](<https://www.barmahparkwines.com.au/>)
+
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2786%2C145.1198>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Restaurant%20%26%20Cellar%20Door%2C%20945%20Moorooduc%20Hwy%2C%20Moorooduc%20VIC%203933>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Barmah%20Park%20Farm%20Kitchen%2C%203007%20Frankston-Flinders%20Rd%2C%20Moorooduc%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Barmah%20Park%20Restaurant%20%26%20Cellar%20Door%2C%20945%20Moorooduc%20Hwy%2C%20Moorooduc%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
-Not sure how to build a day around Barmah Park Farm Kitchen?
+ [Book now](<https://www.barmahparkwines.com.au/>)
+
+Not sure how to build a day around Barmah Park Restaurant & Cellar Door?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
@@ -109,11 +113,11 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/phaedrus-estate/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Barmah Park Farm Kitchen
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

@@ -7,23 +7,21 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Pub    [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-# Dromana Hotel
+# Stella’s Hotel Dromana
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
-Known for   Foreshore Deck Bay Views Fish and Chips Bayside Pub Institution
+Known for   Dromana Foreshore Hotel Restaurant and Bistro Indoor and Outdoor Bars
 
-[Reserve a table](<https://dromanahotel.com.au/book>)  +61 3 5987 2029
+[Reserve a table](<https://stellasdromanahotel.com.au/contact/>)  +61 3 5987 1922
 
 Why we’d go
 
-The deck does most of the work before you open the menu, a proper bayside pub in the Australian coastal sense, unfussy and generous.
+The foreshore setting offers a choice of restaurant, bistro and bar spaces for a casual Dromana meal.
 
-Dromana Hotel is a pub in the proper Australian coastal sense, huge, slightly informal, with a deck that runs the width of the foreshore and an enormous bay view that does most of the work before you even open the menu. The kitchen does the straightforward things well, parma, schnitzel, steak, fish and chips, a passable pizza, and the bar rotates through reliable Peninsula taps.
+Stella’s Hotel Dromana is the current operator of this foreshore hotel. It offers a restaurant with ocean views, a bistro with open fireplaces and indoor and outdoor bars, including a deck facing the water.
 
-You do not come here for the food to surprise you. You come for the deck, the bay view, a cold glass of something, and the afternoon that follows. Families are welcome, groups are absorbed without trouble, and on a warm Sunday the place turns into the best cheap long lunch on the bayside. The Dromana foreshore position is one of the best on the bay, Jetty Road Brewery is two minutes away if you want to extend the afternoon.
-
-Get a deck table. Order the fish and chips. Stay for a second round.
+Use the operator’s dining page for the current menu and contact the hotel about a table or group visit. It currently posts lunch and dinner service and weekend breakfast; check changed hours through its current channels before travelling. The old dromanahotel.com.au domain is parked and is not its current operator website.
 
 Worth knowing
 
@@ -33,11 +31,11 @@ Long lunches · Family outings · Scenic views · Craft beer
 
 If you only do one thing
 
-Get a deck table and stay long enough for a second round.
+Check the current menu and ask the operator about a table with the setting you want.
 
 Works well with
 
-Two Bays Brewing Co · Small Stone Pantry
+Two Bays Brewing Co
 
 Filed under   Waterfront Family Big Group Spring Summer Autumn Families Group Locals
 
@@ -49,33 +47,33 @@ Pub
 
 **Location**
 
-121 Point Nepean Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Dromana%20Hotel%2C%20121%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936>)
+151 Point Nepean Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Stella%E2%80%99s%20Hotel%20Dromana%2C%20151%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936>)
 
 **Call**
 
-+61 3 5987 2029
++61 3 5987 1922
 
 **Website**
 
-[dromanahotel.com.au](<https://dromanahotel.com.au/>)
+[stellasdromanahotel.com.au](<https://stellasdromanahotel.com.au/>)
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3362%2C144.9684>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Stella%E2%80%99s%20Hotel%20Dromana%2C%20151%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Dromana%20Hotel%2C%20121%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Stella%E2%80%99s%20Hotel%20Dromana%2C%20151%20Point%20Nepean%20Rd%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://dromanahotel.com.au/book>)
+ [Book now](<https://stellasdromanahotel.com.au/contact/>)
 
-Not sure how to build a day around Dromana Hotel?
+Not sure how to build a day around Stella’s Hotel Dromana?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
 In the journal
 
-## Stories that mention Dromana Hotel
+## Stories that mention Stella’s Hotel Dromana
 
 These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
 
@@ -149,13 +147,13 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 long lunch  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/pages/restaurant>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Dromana Hotel
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

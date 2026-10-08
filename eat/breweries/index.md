@@ -23,33 +23,33 @@ Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 12-14 Brasser Ave, Dromana VIC 3936
 
-A polished industrial taproom next door to the Dromana drive-in, core beers, rolling seasonals, and the easiest bayside brewery stop on the Peninsula.
+A Dromana brewery with a beer hall, food menu and core and seasonal beers.
 
 big group  family
 
-[Read notes](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/dromana>)
 
 Brewery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [Mornington Peninsula Brewery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
+### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
 
 72 Watt Rd, Mornington VIC 3931
 
-The in-town craft brewery bar, a working brewhouse, the full core range on tap, and live music on Friday nights in a warehouse taproom.
+The brewery and distillery at 72 Watt Road, with beer and spirit paddles and wood-fired pizza.
 
 big group  garden
 
-[Read notes](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) [Book](<https://mpbrew.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) [Book](<https://tarbarrel.com.au/>)
 
 Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
-Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
 cellar door  garden
 
@@ -63,7 +63,7 @@ Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
 160 Sandy Rd, Fingal VIC 3939
 
-Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
+A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
 
 big group  family
 

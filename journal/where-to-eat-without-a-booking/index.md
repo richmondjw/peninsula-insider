@@ -223,13 +223,13 @@ Every venue referenced has its own page with editor notes, booking links, and ne
 
 Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
-Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
 cellar door  garden
 
@@ -253,15 +253,15 @@ Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+### [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936
+151 Point Nepean Rd, Dromana VIC 3936
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
 waterfront  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
 
 Experiences in this piece
 

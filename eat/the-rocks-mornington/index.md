@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # The Rocks Mornington
 
-Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
+A seaside restaurant and cocktail bar on Schnapper Point Drive in Mornington.
 
 Known for   Mornington Pier End Location Near-360° Bay Views Seafood-First Menu Sunset Window Tables
 
@@ -37,7 +37,7 @@ Book the window table for a weekday autumn evening, order the oysters, and stay 
 
 Works well with
 
-Garagiste · Mornington Farmers' Market
+Mornington Farmers' Market
 
 Filed under   Waterfront Anniversary Sunset First Date All Year Couples Group
 
@@ -109,11 +109,11 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 16 Progress St, Mornington VIC 3931
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
 slow  solo
 
-[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 
@@ -131,21 +131,21 @@ slow  quick bite
 
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-1 Main St, Mornington VIC 3931
+917 Nepean Highway, Mornington VIC 3931
 
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 family  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://www.morningtonhotel.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include The Rocks Mornington
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

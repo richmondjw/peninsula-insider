@@ -41,10 +41,6 @@ If you only do one thing
 
 Book a cellar-door tasting, work through the full sparkling flight starting with the Blanc de Blancs, and spend at least twenty minutes on the terrace with the Western Port view before you leave.
 
-Works well with
-
-Red Hill Cheese
-
 Filed under   Cellar Door Long Lunch View Sunset Big Group Spring Summer Autumn Couples Families Group First Timers
 
 Winemaker   Donna Stephens
@@ -187,11 +183,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Red Hill Estate
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 

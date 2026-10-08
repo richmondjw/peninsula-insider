@@ -87,15 +87,15 @@ Tuerong is where some of the Peninsula's best bottles come from roads most visit
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+### [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
 first date  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/contact>)
 
 Suite  [Arthurs Seat](<https://peninsulainsider.com.au/explore/places/arthurs-seat/>)
 
@@ -157,17 +157,17 @@ fireplace  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/balnarring-pub/>) [Book](<https://www.theheritagebalnarring.com.au/visit>)
 
-Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+Restaurant  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Hwy, Moorooduc VIC 3933
 
-All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+A Moorooduc winery restaurant and cellar door for a meal alongside the estate wines.
 
 slow  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>)
+[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>) [Book](<https://www.barmahparkwines.com.au/>)
 
 Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
@@ -289,7 +289,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -350,18 +350,6 @@ An art-led vineyard hotel in Merricks North, with Doot Doot Doot dining and room
 anniversary  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/stay/jackalope/>) [View stay](<https://jackalopehotels.com/stay/>)
-
-Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
@@ -485,7 +473,7 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 
 slow  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/reservations/>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -581,7 +569,7 @@ Restaurant  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/
 
 3649 Frankston-Flinders Rd, Merricks VIC 3916
 
-The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.
+Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park. Check the current Wine Terrace service days before visiting.
 
 cellar door  view
 
@@ -717,29 +705,17 @@ slow  quick bite
 
 Photo: Peter Tarasiuk, courtesy of Visit Victoria
 
-Brewery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
 88 Shoreham Rd, Red Hill South VIC 3937
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
 cellar door  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
-
-providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
-
-81 William Rd, Red Hill VIC 3937
-
-Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -876,18 +852,6 @@ A founding Red Hill estate, mid-1980s, renewed focus on single-vineyard Pinot No
 cellar door  view
 
 [Read notes](<https://peninsulainsider.com.au/wine/tucks-ridge/>)
-
-Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>)
-
-200 Main Ridge Rd, Main Ridge VIC 3928
-
-A small, warm Italian room tucked into the hinterland, handmade pasta, a hand-written weekly menu, and the Peninsula's best neighbourhood trattoria.
-
-first date  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/via-boffe/>)
 
 Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 

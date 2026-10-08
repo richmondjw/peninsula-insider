@@ -105,11 +105,11 @@ Service   8 min
 
 Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Portsea Hotel
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

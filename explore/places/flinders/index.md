@@ -131,7 +131,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929
+48 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -151,17 +151,17 @@ quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
+### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
 
-30 Cook St, Flinders VIC 3929
+60 Cook St, Flinders VIC 3929
 
-All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
+Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.
 
-slow  walk
+anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/eat/georgie-bass/>) [Book](<https://www.georgiebass.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/moke-dining/>) [Book](<https://mokedining.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -363,15 +363,9 @@ Browse locations as a list
 
 - [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>) · town
 
-- [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>) · cafe
-
 - [Flinders Sourdough](<https://peninsulainsider.com.au/eat/flinders-sourdough/>) · bakery
 
-- [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>) · cafe
-
 - [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>) · restaurant
-
-- [Mornington Peninsula Chocolates](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>) · providore
 
 - [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · winery
 

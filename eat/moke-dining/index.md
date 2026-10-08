@@ -43,7 +43,7 @@ Book Saturday lunch and walk the cliff path to West Head in the morning, Moke is
 
 Works well with
 
-Flinders Hotel · Georgie Bass Cafe & Cookery
+Flinders Hotel
 
 Filed under   Anniversary Romance Slow First Date All Year Couples Group
 
@@ -117,7 +117,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929
+48 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -137,23 +137,23 @@ quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
+### [The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-30 Cook St, Flinders VIC 3929
+45 Cook St, Flinders VIC 3929
 
-All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
 
-slow  walk
+family  rainy day
 
-[Read notes](<https://peninsulainsider.com.au/eat/georgie-bass/>) [Book](<https://www.georgiebass.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Moke Dining
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

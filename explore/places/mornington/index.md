@@ -125,11 +125,11 @@ Café  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>
 
 16 Progress St, Mornington VIC 3931
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
 slow  solo
 
-[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://commonfolkcoffee.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) [Book](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 
@@ -147,15 +147,15 @@ slow  quick bite
 
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-1 Main St, Mornington VIC 3931
+917 Nepean Highway, Mornington VIC 3931
 
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 family  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://www.morningtonhotel.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -357,17 +357,9 @@ Browse locations as a list
 
 - [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>) · cafe
 
-- [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>) · pub
-
 - [Mornington Main Street Market](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>) · market
 
-- [Mornington Peninsula Brewery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) · brewery
-
-- [Mr Vincenzo's](<https://peninsulainsider.com.au/eat/mr-vincenzos/>) · restaurant
-
-- [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>) · providore
-
-- [Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>) · bakery
+- [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/eat/mornington-peninsula-brewery/>) · brewery
 
 - [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>) · pub
 

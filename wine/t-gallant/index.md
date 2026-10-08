@@ -37,10 +37,6 @@ If you only do one thing
 
 Order the Prosecco by the glass and a pizza, claim a shaded outdoor table, and let the afternoon run.
 
-Works well with
-
-Johnny Ripe
-
 Filed under   Cellar Door Long Lunch Garden Big Group Spring Summer Autumn Families Group First Timers
 
 Winemaker   Tom Shanahan
@@ -179,11 +175,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include T'Gallant
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 

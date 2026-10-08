@@ -11,19 +11,17 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
-Known for   Regenerative Farm Dining Simone Watts Kitchen Weekly Changing Menu 1000-Acre Cape Schanck Estate
+Known for   Estate-Led Set Menu Simone Watts Kitchen Market Garden Setting 1000-Acre Cape Schanck Estate
 
-[Reserve a table](<https://www.barragunda.com.au/>)  +61 3 5988 6766
+[Reserve a table](<https://www.barragunda.com.au/dining/>)  +61 3 8644 4050
 
 Why we’d go
 
-When the menu is built entirely around what the farm produced that week, you're not choosing a restaurant, you're handing yourself over to the land.
+A seasonal set-menu meal beside the market garden connects the dining room with the estate and its local producers.
 
-Barragunda is the Peninsula's most genuinely farm-to-table dining experience. Simone Watts's kitchen sits on a 1000-acre regenerative farm property at Cape Schanck, the menu is built almost entirely around what the farm produces that week, and the room is quiet, intimate, and deliberately under-publicised in a way that feels almost rare in the modern Peninsula food scene.
+Barragunda Dining is a 40-seat restaurant on the 1000-acre Cape Schanck estate, overlooking its market garden. Executive Chef and Farmer Simone Watts builds a seasonal four-course set menu around estate produce, working with local producers and winemakers. The operator also identifies seafood from Wildlife Fisheries, so this is estate-led dining rather than a promise that every ingredient comes from the farm.
 
-The cooking is confident and seasonal in the most literal sense, most courses are pulled from within walking distance of the dining room, and the format rewards the kind of guest willing to hand themselves over to the chef for the duration. The wines lean into lower-intervention producers, and the pace is slow.
-
-Book well in advance. This is not a walk-in option and the seats are limited. One of the essential Peninsula dinners for anyone serious about where the food actually comes from.
+Make the meal the centre of the day. The operator posts daytime service from Friday to Monday, with a later closing time on Saturday; check the current reservation calendar and service times before travelling. Seasonal bookings are released online, and a dining waiting list is available.
 
 Worth knowing
 
@@ -33,7 +31,7 @@ Long lunches · Anniversary weekends · Couples · Food lovers
 
 If you only do one thing
 
-Book at least four weeks ahead, arrive with no agenda beyond the meal, and let Simone decide what the farm has given up that week.
+Check the current online reservation calendar and allow time for the meal; use the operator’s dining waiting list if your preferred sitting is unavailable.
 
 Works well with
 
@@ -49,11 +47,11 @@ Restaurant
 
 **Location**
 
-165 Boneo Rd, Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barragunda%20Dining%2C%20165%20Boneo%20Rd%2C%20Cape%20Schanck%20VIC%203939>)
+113 Cape Schanck Rd, Cape Schanck VIC 3939 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barragunda%20Dining%2C%20113%20Cape%20Schanck%20Rd%2C%20Cape%20Schanck%20VIC%203939>)
 
 **Call**
 
-+61 3 5988 6766
++61 3 8644 4050
 
 **Website**
 
@@ -61,13 +59,13 @@ Restaurant
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4736%2C144.8791>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.46803496820978%2C144.89851034298496>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Barragunda%20Dining%2C%20165%20Boneo%20Rd%2C%20Cape%20Schanck%20VIC%203939%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Barragunda%20Dining%2C%20113%20Cape%20Schanck%20Rd%2C%20Cape%20Schanck%20VIC%203939%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.barragunda.com.au/>)
+ [Book now](<https://www.barragunda.com.au/dining/>)
 
 Not sure how to build a day around Barragunda Dining?
 
@@ -105,11 +103,11 @@ Insider Edit   7 min
 
 The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one - and the best of it is very, very good.
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Barragunda Dining
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

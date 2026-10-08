@@ -23,19 +23,29 @@ Sorted alphabetically. Location usually determines which one you visit.
 
 [All dining venues →](<https://peninsulainsider.com.au/eat/>)
 
-Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
+Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
 
-Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+### [Hotel Sorrento](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
 
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+5-15 Hotham Rd, Sorrento VIC 3943
 
-121 Point Nepean Rd, Dromana VIC 3936
+A historic hotel on Hotham Road above Port Phillip Bay, with restaurants and bars for a coastal meal.
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+family  big group
 
-waterfront  family
+[Read notes](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) [Book](<https://hotelsorrento.com.au/>)
 
-[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
+Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+
+917 Nepean Highway, Mornington VIC 3931
+
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
+
+family  big group
+
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://www.morningtonhotel.com.au/>)
 
 Pub  [Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
 
@@ -61,6 +71,20 @@ family  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/rye-hotel/>) [Book](<https://ryehotel.com.au/>)
 
+Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
+
+Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+### [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+
+151 Point Nepean Rd, Dromana VIC 3936
+
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
+
+waterfront  family
+
+[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
+
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
 ### [The Bay Hotel Mornington](<https://peninsulainsider.com.au/eat/the-bay-hotel-mornington/>)
@@ -84,30 +108,6 @@ Balnarring's village pub, in a 1930s heritage home on a two-acre block, with ope
 fireplace  family
 
 [Read notes](<https://peninsulainsider.com.au/eat/balnarring-pub/>) [Book](<https://www.theheritagebalnarring.com.au/visit>)
-
-Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
-
-1 Main St, Mornington VIC 3931
-
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
-
-family  big group
-
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
-
-Pub  [Sorrento](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-### [The Sorrento Hotel](<https://peninsulainsider.com.au/eat/sorrento-hotel/>)
-
-5-15 Hotham Rd, Sorrento VIC 3943
-
-The centre-of-the-village trading post on Ocean Beach Road, reliable parmas, a big dining room, and the default Sorrento pub for a reason.
-
-family  big group
-
-[Read notes](<https://peninsulainsider.com.au/eat/sorrento-hotel/>) [Book](<https://hotelsorrento.com.au/>)
 
 ## Frequently asked questions
 

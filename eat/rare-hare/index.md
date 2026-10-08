@@ -183,11 +183,11 @@ cellar door  walk
 
 [Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Rare Hare at Willow Creek
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

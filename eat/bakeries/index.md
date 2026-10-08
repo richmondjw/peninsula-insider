@@ -19,7 +19,7 @@ Researched from published sources. Every venue listed was reviewed April 2026 or
 
 All Peninsula bakeries
 
-## All 5 Peninsula bakeries, by location
+## All 3 Peninsula bakeries, by location
 
 Sorted alphabetically. The Peninsula is small enough that location determines which one you visit - find yours by where you're staying.
 
@@ -49,30 +49,6 @@ quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-Bakery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Sourdough Kitchen](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
-
-231 Main St, Mornington VIC 3931
-
-A small-batch sourdough baker at the top of Mornington's Main Street, long-fermented loaves, a tight pastry line, and the best bread in town.
-
-slow  quick bite
-
-[Read notes](<https://peninsulainsider.com.au/eat/sourdough-kitchen/>)
-
 Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
@@ -89,7 +65,7 @@ slow  quick bite
 
 ### What is the best bakery on the Mornington Peninsula?
 
-Flinders Sourdough - closed Monday and Tuesday, sells out by early afternoon on weekends. Arrive before 9am for the best selection. Johnny Ripe in Mornington is the best option on the main strip. Sourdough Kitchen and The Red Hill Baker in Balnarring are eastern-side alternatives. The Red Hill Baker no longer operates in Red Hill.
+Flinders Sourdough - closed Monday and Tuesday, sells out by early afternoon on weekends. Arrive before 9am for the best selection. Check current operator opening days before travelling. The Red Hill Baker in Balnarring is another option. The Red Hill Baker no longer operates in Red Hill.
 
 ### When do Peninsula bakeries open?
 
@@ -97,7 +73,7 @@ Most open between 7am and 8am. Weekend sell-outs are common. Arriving before 10a
 
 ### Where is the best sourdough on the Peninsula?
 
-Flinders Sourdough is the benchmark. The miche and seeded rye are the loaves to buy. Sourdough Kitchen and The Red Hill Baker in Balnarring are alternatives with slightly different styles.
+Flinders Sourdough is the benchmark. The miche and seeded rye are the loaves to buy. The Red Hill Baker in Balnarring offers another bakery stop.
 
 Related guides
 

@@ -13,7 +13,7 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 Known for   Lakeside Pergola Dining Room Crittenden Los Hermanos Wine Range Head Chef Brunno Melo One of the Peninsula's Founding Wineries
 
-[Reserve a table](<https://www.crittendenwines.com.au/>)  +61 3 5981 9555
+[Reserve a table](<https://www.crittendenwines.com.au/pages/restaurant>)  +61 3 5987 3800
 
 Why we’d go
 
@@ -41,7 +41,7 @@ Book the earlier sitting for lunch, order the fish and a glass of the Los Herman
 
 Works well with
 
-Crittenden Estate · Pier Street Fresh Seafood
+Crittenden Estate
 
 Filed under   Long Lunch Garden View Spring Summer Autumn All Year Couples Families
 
@@ -57,7 +57,7 @@ Restaurant
 
 **Call**
 
-+61 3 5981 9555
++61 3 5987 3800
 
 **Guide**
 
@@ -79,7 +79,7 @@ Good Food Guide 2024
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Crittenden%20Restaurant%2C%2025%20Harrisons%20Rd%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://www.crittendenwines.com.au/>)
+ [Book now](<https://www.crittendenwines.com.au/pages/restaurant>)
 
 Not sure how to build a day around Crittenden Restaurant?
 
@@ -123,21 +123,21 @@ Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+### [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936
+151 Point Nepean Rd, Dromana VIC 3936
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
 waterfront  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Crittenden Restaurant
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

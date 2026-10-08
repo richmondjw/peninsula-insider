@@ -255,7 +255,7 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 
 slow  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/reservations/>)
 
 Experiences in this piece
 

@@ -13,7 +13,7 @@ A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk g
 
 Known for   Goat Cheese Goat Milk Gelato Farmgate Experience Working Dairy
 
-[Reserve a table](<https://www.mainridgedairy.com.au/>)  +61 3 5989 6433
+[Reserve a table](<https://www.mainridgedairy.com.au/>)  +61 3 5989 6622
 
 Why we’d go
 
@@ -61,7 +61,7 @@ Order the cheese board first and finish with a scoop of goat-milk gelato.
 
 Works well with
 
-Red Hill Cheese · Main Ridge Estate · Allies Wine Bar
+Main Ridge Estate · Allies Wine Bar
 
 Filed under   Family Garden Slow Rainy Day Spring Summer Autumn Winter Families Couples
 
@@ -77,7 +77,7 @@ Providore
 
 **Call**
 
-+61 3 5989 6433
++61 3 5989 6622
 
 **Awards**
 
@@ -161,27 +161,15 @@ Nearby picks
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+### [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
 first date  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
-
-Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
+[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/contact>)
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -195,11 +183,23 @@ long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
 
-Build a day around this
+Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-## Planning guides that include Main Ridge Dairy
+### [Lightfoot Wines](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+110 Myers Rd, Main Ridge VIC 3928
+
+A small Main Ridge estate with a focused Pinot and Chardonnay range and one of the ridge's most peaceful tasting rooms.
+
+cellar door  slow
+
+[Read notes](<https://peninsulainsider.com.au/eat/lightfoot-wines/>)
+
+Plan your Peninsula day
+
+## More ways to plan your Peninsula visit
+
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

@@ -13,7 +13,7 @@ A working olive grove and produce kitchen on the Red Hill ridge, grazing boards,
 
 Known for   Working Olive Grove Estate Olive Oils Wood Oven Cooking Mediterranean Smallholding Setting
 
-[Reserve a table](<https://greenolive.com.au/dine>)  +61 3 5989 2992
+[Reserve a table](<https://greenolive.com.au/dine>)  +61 409 997 400
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
@@ -75,11 +75,11 @@ Restaurant
 
 **Location**
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Green%20Olive%20at%20Red%20Hill%2C%201180%20Mornington-Flinders%20Rd%2C%20Red%20Hill%20VIC%203937>)
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Green%20Olive%20at%20Red%20Hill%2C%201180%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
 
 **Call**
 
-+61 3 5989 2992
++61 409 997 400
 
 **Website**
 
@@ -87,11 +87,11 @@ Restaurant
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3712%2C145.0568>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=Green%20Olive%20at%20Red%20Hill%2C%201180%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Green%20Olive%20at%20Red%20Hill%2C%201180%20Mornington-Flinders%20Rd%2C%20Red%20Hill%20VIC%203937%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Green%20Olive%20at%20Red%20Hill%2C%201180%20Mornington-Flinders%20Rd%2C%20Main%20Ridge%20VIC%203928%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://greenolive.com.au/dine>)
 
@@ -173,11 +173,11 @@ cellar door  fireplace
 
 [Read notes](<https://peninsulainsider.com.au/eat/main-ridge-estate/>) [Book](<https://mre.com.au/visit>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Green Olive at Red Hill
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

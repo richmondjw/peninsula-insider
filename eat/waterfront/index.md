@@ -43,7 +43,7 @@ Restaurant  [Mornington](<https://peninsulainsider.com.au/explore/places/morning
 
 1 Schnapper Point Dr, Mornington VIC 3931
 
-Seafood and bay views at the end of Mornington Pier, well suited to a sunset dinner.
+A seaside restaurant and cocktail bar on Schnapper Point Drive in Mornington.
 
 waterfront  anniversary
 

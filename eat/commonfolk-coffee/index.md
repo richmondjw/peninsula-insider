@@ -9,21 +9,21 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Commonfolk Coffee
 
-The Peninsula's most serious roaster, hidden in a Mornington warehouse with a cafe out the front.
+A Mornington cafe beside its roastery, with a brunch-focused menu and a courtyard for a relaxed coffee stop.
 
-Known for   In-House Roastery Warehouse Cafe Single-Origin Filter Bar Best Egg Sandwich on the Peninsula
+Known for   Mornington Roastery Brunch-Focused Cafe Dog-Friendly Courtyard Retail Coffee and Brew Room
 
-[Reserve a table](<https://commonfolkcoffee.com.au/>)  +61 422 195 966
+[Reserve a table](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)  +61 422 195 966
 
 Why we’d go
 
-Commonfolk is the Peninsula's best case for treating coffee as infrastructure rather than a product, and the egg sandwich is the quiet achievement.
+A local roastery, brunch-focused cafe and dog-friendly courtyard make an easy Mornington stop.
 
-Commonfolk is the Peninsula's best case for treating coffee as infrastructure rather than a product. The roastery occupies a converted warehouse in Mornington's industrial backstreets; the cafe out the front is where locals start their day, freelancers park for the morning, and visitors suddenly understand why people keep describing Mornington as a real town rather than a tourist stop.
+Commonfolk Mornington combines a cafe with its roastery on Progress Street. The operator describes a brunch-focused menu built around regional produce and offers retail coffee beans, a Brew Room for home coffee advice and a courtyard.
 
-The coffee is the headline, single-origin rotations that change often, a filter bar that is actually used, and a retail wall worth taking home. The food is the quiet achievement: a tight brunch menu that stays on the right side of pretentious, good pastries from a Melbourne baker, and the best egg sandwich south of the bridge.
+It is a useful casual stop for coffee or a meal. The courtyard welcomes dogs, and the operator lists a kids menu, highchairs and baby-change facilities. Ask the team about current dietary or allergen needs.
 
-Come before ten. The back room gets busy, and it is worth watching the roaster work.
+Book online or call the cafe if you want a reserved table. Commonfolk keeps many tables available for walk-ins, so a full online calendar does not mean every table is unavailable. Check the operator’s current menu before choosing a particular dish.
 
 Worth knowing
 
@@ -33,11 +33,7 @@ Morning stop · Brunch · Solo travellers · Food lovers
 
 If you only do one thing
 
-Come before ten, order the egg sandwich, and check the retail wall for whatever single-origin is currently running.
-
-Works well with
-
-Garagiste · Sourdough Kitchen
+Choose coffee or brunch from the current menu, then explore the retail beans or Brew Room if you want to take something home.
 
 Filed under   Slow Solo Quick Bite All Year Locals Families First Timers
 
@@ -67,7 +63,7 @@ Café
 
 [Check current hours →](<https://www.google.com/maps/search/?api=1&query=Commonfolk%20Coffee%2C%2016%20Progress%20St%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://commonfolkcoffee.com.au/>)
+ [Book now](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
 
 Not sure how to build a day around Commonfolk Coffee?
 
@@ -155,15 +151,15 @@ slow  quick bite
 
 Pub  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-### [The Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
+### [Mornington Hotel](<https://peninsulainsider.com.au/eat/mornington-hotel/>)
 
-1 Main St, Mornington VIC 3931
+917 Nepean Highway, Mornington VIC 3931
 
-The big Main Street corner pub, reliable bistro, lively bar, and the default unfussy meeting point in the middle of Mornington.
+A Mornington pub on Nepean Highway, with a bistro and sports bar.
 
 family  big group
 
-[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://morningtonhotel.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-hotel/>) [Book](<https://www.morningtonhotel.com.au/>)
 
 Market  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -177,11 +173,11 @@ slow  quick bite
 
 [Read notes](<https://peninsulainsider.com.au/eat/mornington-main-street-market/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Commonfolk Coffee
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

@@ -125,27 +125,15 @@ Our selected food and drink stops here, each with an editor note rather than a s
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
+### [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>)
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
-The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining room, small plates, garden-harvested produce, and a thoughtful wine list.
+A relaxed wine-led dining option in Ten Minutes by Tractor’s cellar door, with seasonal small plates and shared dishes.
 
 first date  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/>)
-
-Bakery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-### [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
-
-1180 Mornington-Flinders Rd, Main Ridge VIC 3928
-
-The Peninsula's hinterland pie stop, proper beef pies, a sweets cabinet worth detouring for, and a garden café out the back.
-
-slow  walk
-
-[Read notes](<https://peninsulainsider.com.au/eat/johnny-ripe/>)
+[Read notes](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) [Book](<https://www.tenminutesbytractor.com.au/contact>)
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -158,6 +146,18 @@ The Peninsula's original winery pizza barn, wood-fired margheritas, handmade pas
 long lunch  big group
 
 [Read notes](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) [Book](<https://tgallantvineyard.com.au/bookings/>)
+
+providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
+
+295 Main Creek Rd, Main Ridge VIC 3928
+
+A working farmhouse goat dairy on the Main Ridge, farm-made cheeses, goat-milk gelato, and a café with views across the paddocks to the herd.
+
+family  garden
+
+[Read notes](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -365,9 +365,7 @@ Browse locations as a list
 
 - [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>) · village
 
-- [Allis Wine Bar](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · restaurant
-
-- [Johnny Ripe](<https://peninsulainsider.com.au/eat/johnny-ripe/>) · bakery
+- [Ten Minutes by Tractor Cellar Door Dining](<https://peninsulainsider.com.au/eat/allis-wine-bar/>) · restaurant
 
 - [La Baracca at T'Gallant](<https://peninsulainsider.com.au/eat/la-baracca-tgallant/>) · restaurant
 
@@ -380,8 +378,6 @@ Browse locations as a list
 - [T'Gallant](<https://peninsulainsider.com.au/wine/t-gallant/>) · winery
 
 - [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) · winery
-
-- [Via Boffe](<https://peninsulainsider.com.au/eat/via-boffe/>) · restaurant
 
 - [Greens Bush - Two Bays Section](<https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/>) · walk
 

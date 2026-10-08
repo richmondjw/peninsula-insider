@@ -139,21 +139,21 @@ Lakeside dining under a vine-strung pergola at one of the Peninsula's founding w
 
 long lunch  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/crittenden-restaurant/>) [Book](<https://www.crittendenwines.com.au/pages/restaurant>)
 
 Photo: Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
 
 Pub  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-### [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
+### [Stella’s Hotel Dromana](<https://peninsulainsider.com.au/eat/dromana-hotel/>)
 
-121 Point Nepean Rd, Dromana VIC 3936
+151 Point Nepean Rd, Dromana VIC 3936
 
-Sprawling beachfront pub with an enormous deck and bay views, the straightforward bayside pub day done correctly.
+A Dromana foreshore hotel with a restaurant, bistro and indoor and outdoor bars.
 
 waterfront  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://dromanahotel.com.au/book>)
+[Read notes](<https://peninsulainsider.com.au/eat/dromana-hotel/>) [Book](<https://stellasdromanahotel.com.au/contact/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -371,13 +371,7 @@ Browse locations as a list
 
 - [Crittenden Estate Villas](<https://peninsulainsider.com.au/stay/crittenden-villas/>) · villa
 
-- [Dromana Hotel](<https://peninsulainsider.com.au/eat/dromana-hotel/>) · pub
-
 - [Jetty Road Brewery](<https://peninsulainsider.com.au/eat/jetty-road-brewery/>) · brewery
-
-- [Pier Street Fresh Seafood](<https://peninsulainsider.com.au/eat/pier-street-seafood/>) · providore
-
-- [Small Stone Pantry](<https://peninsulainsider.com.au/eat/small-stone-pantry/>) · cafe
 
 - [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>) · winery
 

@@ -1,8 +1,8 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-08T14:36:56.516Z",
-  "snapshotId": "682bbf1b7230ccb8e96f0181bbcdac28d3a152f07f205ff11ad4339ee439b038",
-  "count": 596,
+  "generatedAt": "2026-10-08T16:18:19.581Z",
+  "snapshotId": "8a995a59045d3f6caa7e53b164baa1efb694cc28055646fa034f26109c6a394a",
+  "count": 588,
   "catalogUrl": "https://peninsulainsider.com.au/agents/catalog.json",
   "changesUrl": "https://peninsulainsider.com.au/agents/changes.json",
   "guideUrl": "https://peninsulainsider.com.au/agents/",
@@ -65,7 +65,7 @@
     },
     {
       "section": "eat",
-      "count": 68,
+      "count": 60,
       "url": "https://peninsulainsider.com.au/agents/sections/eat.json"
     },
     {
@@ -169,20 +169,20 @@
       "section": "eat",
       "url": "https://peninsulainsider.com.au/agents/directories/eat.json",
       "htmlUrl": "https://peninsulainsider.com.au/agents/directories/eat-html.json",
-      "count": 68,
-      "bytes": 10169,
-      "distinctUrls": 68,
-      "htmlBytes": 9683,
-      "htmlDistinctUrls": 68
+      "count": 60,
+      "bytes": 9139,
+      "distinctUrls": 60,
+      "htmlBytes": 8709,
+      "htmlDistinctUrls": 60
     },
     {
       "section": "wine",
       "url": "https://peninsulainsider.com.au/agents/directories/wine.json",
       "htmlUrl": "https://peninsulainsider.com.au/agents/directories/wine-html.json",
       "count": 56,
-      "bytes": 8126,
+      "bytes": 8129,
       "distinctUrls": 56,
-      "htmlBytes": 7724,
+      "htmlBytes": 7727,
       "htmlDistinctUrls": 56
     },
     {

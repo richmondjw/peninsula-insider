@@ -179,29 +179,29 @@ family  garden
 
 [Read notes](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
 
-providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+providore  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
+### [The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-81 William Rd, Red Hill VIC 3937
+45 Cook St, Flinders VIC 3929
 
-Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
 
-cellar door  slow
+family  rainy day
 
-[Read notes](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
+[Read notes](<https://peninsulainsider.com.au/eat/mornington-peninsula-chocolates/>)
 
-providore  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
-### [Peninsula Fresh Organics](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
+### [Balnarring Bakehouse](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
-170 Baxter-Tooradin Rd, Baxter VIC 3911
+3050 Frankston-Flinders Rd, Balnarring VIC 3926
 
-A working certified-organic market garden with a farm-gate shop, straight-out-of-the-ground vegetables and the best salad of your week.
+The village bakehouse for the Balnarring side of the Peninsula, pies, pastries, and the breakfast sandwich that fuels the Saturday market crowd.
 
-slow  quick bite
+quick bite  family
 
-[Read notes](<https://peninsulainsider.com.au/eat/peninsula-fresh-organics/>)
+[Read notes](<https://peninsulainsider.com.au/eat/balnarring-bakehouse/>)
 
 ## The Insider Note
 

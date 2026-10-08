@@ -67,7 +67,7 @@ Arrive for the sculpture walk before noon. Give yourself half a day. This is not
 
 Part of Point Leo Estate
 
-[Laura at Pt. Leo  Restaurant  An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)[Point Leo Wine Terrace  Restaurant  The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
+[Laura at Pt. Leo  Restaurant  An intimate fine-dining room at Pt. Leo Estate, with seasonal menus and an unhurried view across the grounds.](<https://peninsulainsider.com.au/eat/laura-pt-leo/>)[Point Leo Wine Terrace  Restaurant  Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park. Check the current Wine Terrace service days before visiting.](<https://peninsulainsider.com.au/eat/point-leo-wine-terrace/>)
 
 Worth knowing
 
@@ -297,11 +297,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Pt. Leo Estate
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 

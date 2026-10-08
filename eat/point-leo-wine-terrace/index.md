@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Point Leo Wine Terrace
 
-The all-day casual option at Point Leo Estate, wood-fired flatbreads, estate wines, and a terrace facing the bay and the sculpture park.
+Casual vineyard-side dining at Pt. Leo Estate, overlooking the Sculpture Park. Check the current Wine Terrace service days before visiting.
 
 Known for   Open-Air Sculpture Park Terrace Walk-In Format (No Booking Required) Estate Chardonnay by the Glass Point Leo Estate Integration
 
@@ -17,13 +17,9 @@ Known for   Open-Air Sculpture Park Terrace Walk-In Format (No Booking Required)
 
 Why we’d go
 
-The best walk-in view on the Peninsula, no six-week booking window, no degustation commitment, just a deck, a glass, and the sculpture park doing its thing in the foreground.
+A casual vineyard-side meal with a view over the Sculpture Park.
 
-Point Leo Wine Terrace is the casual, drop-in face of the sprawling Point Leo Estate, no booking required, no degustation, no fuss. Walk in, take a table on the deck, order a cheese board and a glass of the estate Chardonnay, and let an hour or two go by while the sculpture park sits in the foreground and Port Phillip Bay stretches out beyond it. The deck, with its open view back across the sculpture to the water, is one of the Peninsula's genuinely great outdoor rooms.
-
-The food is deliberately simple: charcuterie, cheese, wood-fired flatbreads, a share-plate list built around whatever the kitchen garden is producing. The wine program is all estate. The terrace works as a mid-morning reset between walking the sculpture park and lunch, or as your complete afternoon if you decide the view is enough.
-
-Use the terrace as your mid-morning reset on a Point Leo day, or as your complete lunch when you want the estate experience without committing to a full restaurant booking.
+The Wine Terrace is beside Pt. Leo Estate’s cellar door, overlooking the vineyard and Sculpture Park. The operator currently lists lunch service from Friday to Sunday, with walk-in and reserved group dining options. Group reservations are seated indoors. Check the current seasonal menus and availability before planning your visit.
 
 Part of Point Leo Estate
 
@@ -37,7 +33,7 @@ Scenic views · Cellar door visits · Long lunches · Sunset drinks
 
 If you only do one thing
 
-Walk the sculpture park first, then take a terrace table with the estate Chardonnay and a flatbread, and let the afternoon do the rest.
+Check Wine Terrace service days and the current walk-in or group menu before visiting.
 
 Works well with
 
@@ -143,11 +139,11 @@ cellar door  slow
 
 [Read notes](<https://peninsulainsider.com.au/eat/merricks-estate/>) [Book](<https://merricksestate.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Point Leo Wine Terrace
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

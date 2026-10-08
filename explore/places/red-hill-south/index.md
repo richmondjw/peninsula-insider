@@ -91,9 +91,11 @@ Check each cellar door and restaurant directly before travelling; neighbouring R
 
 What's mapped here
 
-- [**2** places to eat](<https://peninsulainsider.com.au/explore/places/red-hill-south/#eat-drink>)
+- [**3** places to eat](<https://peninsulainsider.com.au/explore/places/red-hill-south/#eat-drink>)
 
 - [**3** cellar doors & makers](<https://peninsulainsider.com.au/explore/places/red-hill-south/#wine>)
+
+- [**1** escape plans](<https://peninsulainsider.com.au/explore/places/red-hill-south/#escapes>)
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/red-hill-south/#journal>)
 
@@ -130,6 +132,20 @@ Sri Lankan flavours in a European wine-bar setting, from the Polperro team, pair
 first date  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/eat/many-little/>) [Book](<https://www.manylittle.com.au/contact>)
+
+Photo: Peter Tarasiuk, courtesy of Visit Victoria
+
+Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
+
+88 Shoreham Rd, Red Hill South VIC 3937
+
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
+
+cellar door  garden
+
+[Read notes](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
 
 [See the editorial rankings → Best Restaurants on the Peninsula](<https://peninsulainsider.com.au/eat/best-restaurants/>)
 
@@ -181,6 +197,24 @@ cellar door  long lunch
 
 [See the editorial rankings → Best Cellar Doors on the Peninsula](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
 
+Use it in sequence
+
+## Escapes that already route through Red Hill South
+
+These plans have been written around the landscape here - not bolted on after.
+
+ [Plan a Red Hill South weekend →](<https://peninsulainsider.com.au/explore/plans/>)
+
+Plan
+
+### [The Peninsula Family Day Out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+
+A gondola ride, a brewery lunch and a bay beach, with a coffee stop only if the day runs early.
+
+Day trip · Best for family · Mornington
+
+[View Plan →](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+
 Read this place properly
 
 ## Journal pieces connected to Red Hill South
@@ -213,13 +247,13 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
-Service   6 min
+Service   9 min
 
-### [What to Do in Red Hill This Weekend: The Saturday Plan](<https://peninsulainsider.com.au/explore/plans/how-to-build-a-red-hill-saturday/>)
+### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
 
-8 April 2026
+10 April 2026
 
-A ridge morning, one properly chosen cellar door, and a lunch that earns the drive. The clearest version of a Red Hill Saturday.
+You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
 
 Planning guides
 
@@ -292,3 +326,5 @@ Browse locations as a list
 - [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>) · village
 
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · winery
+
+- [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) · brewery

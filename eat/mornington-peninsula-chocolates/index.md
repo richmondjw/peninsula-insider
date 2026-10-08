@@ -7,23 +7,21 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Eat & Drink](<https://peninsulainsider.com.au/eat/>)    Providore    [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-# Mornington Peninsula Chocolates
+# The Chocolateries Mornington Peninsula
 
-Handmade chocolates, rich hot chocolates, and a small café, a reliable family stop with enough seasonal stock to justify the detour.
+A Flinders chocolate shop offering handmade chocolates, gifts, tastings and workshops.
 
-Known for   Handmade Chocolates Hot Chocolate Bar Seasonal Gift Boxes Family Cafe Stop
+Known for   Handmade Chocolates Chocolate Experiences Seasonal Gifts
 
-[Reserve a table](<https://www.mpchoc.com.au/>)  +61 3 5989 0988
+[Reserve a table](<https://www.mpchoc.com.au/>)  +61 3 5989 0040
 
 Why we’d go
 
-The sweet stop you slot into a Flinders loop without planning to and somehow spend forty minutes in, handmade chocolates, proper mocha, seasonal gift stock.
+Handmade chocolates and chocolate experiences make a useful addition to a Flinders visit.
 
-Mornington Peninsula Chocolates is the sweet stop you slot into a Flinders or hinterland loop without planning to and somehow spend forty minutes in. The chocolates are handmade, the hot chocolate is the real thing, and the small café at the front holds enough seasonal stock, Easter, Mother's Day, Christmas, to justify a return visit or three across a year.
+The current operator linked from this listing is The Chocolateries Mornington Peninsula at 45 Cook Street in Flinders. It offers handmade chocolates, seasonal gifts, tastings and workshops.
 
-It is unpretentious and built for families. The kids get a treat, the adults get a proper mocha and a slice of something, and everyone leaves with a small box for later. The room is small and fills up on weekends; arrive mid-morning if you want a table. The seasonal gift range makes it one of the better Peninsula stops when you need to bring something back to Melbourne.
-
-A useful seasonal gift stop when visitors are in town and you need something to take back with you.
+Choose it for a sweet stop or a chocolate experience, checking the operator’s current activity calendar before planning around a class. The operator posts daily opening except Christmas Day; confirm holiday hours before travelling. The existing Peninsula Insider URL remains in place for saved links.
 
 Worth knowing
 
@@ -33,7 +31,7 @@ Family outings · Morning stop · Local produce · Rainy-day plans
 
 If you only do one thing
 
-Buy a mixed box of the handmade chocolates and keep at least one bar for the drive home.
+Pick chocolates to take home, or check the current tasting and workshop calendar.
 
 Works well with
 
@@ -49,11 +47,11 @@ Providore
 
 **Location**
 
-50 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Chocolates%2C%2050%20Cook%20St%2C%20Flinders%20VIC%203929>)
+45 Cook St, Flinders VIC 3929 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Chocolateries%20Mornington%20Peninsula%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 **Call**
 
-+61 3 5989 0988
++61 3 5989 0040
 
 **Website**
 
@@ -61,21 +59,21 @@ Providore
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.4712%2C145.0218>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=The%20Chocolateries%20Mornington%20Peninsula%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Peninsula%20Chocolates%2C%2050%20Cook%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=The%20Chocolateries%20Mornington%20Peninsula%2C%2045%20Cook%20St%2C%20Flinders%20VIC%203929%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://www.mpchoc.com.au/>)
 
-Not sure how to build a day around Mornington Peninsula Chocolates?
+Not sure how to build a day around The Chocolateries Mornington Peninsula?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
 In the journal
 
-## Stories that mention Mornington Peninsula Chocolates
+## Stories that mention The Chocolateries Mornington Peninsula
 
 These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
 
@@ -115,7 +113,7 @@ Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
 ### [Flinders General Store](<https://peninsulainsider.com.au/eat/flinders-general-store/>)
 
-45 Cook St, Flinders VIC 3929
+48 Cook St, Flinders VIC 3929
 
 The village general store on Flinders' main street, slow-drip coffee, fresh bread, and pick-your-own picnics for the Blowhole walk.
 
@@ -135,23 +133,23 @@ quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
 
-Café  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
+Restaurant  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-### [Georgie Bass Cafe & Cookery](<https://peninsulainsider.com.au/eat/georgie-bass/>)
+### [Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>)
 
-30 Cook St, Flinders VIC 3929
+60 Cook St, Flinders VIC 3929
 
-All-day cafe on Cook Street built around produce from their own farm, the natural anchor for a Flinders morning or a post-cliff-walk lunch.
+Family-run fine dining on Cook Street, a weekly-changing set menu built on Peninsula produce, led by a chef who represented Australia at Bocuse d'Or.
 
-slow  walk
+anniversary  romance
 
-[Read notes](<https://peninsulainsider.com.au/eat/georgie-bass/>) [Book](<https://www.georgiebass.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/moke-dining/>) [Book](<https://mokedining.com.au/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Mornington Peninsula Chocolates
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The long lunch guide →](<https://peninsulainsider.com.au/journal/the-long-lunch/>) [Winery tour route →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>) [Rainy-day Peninsula →](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 

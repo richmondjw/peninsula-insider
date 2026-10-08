@@ -123,11 +123,11 @@ wellness  anniversary
 
 [Read notes](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [Book](<https://www.peninsulahotsprings.com/accommodation>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Happy Glamper Balnarring Deluxe
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The one-night escape →](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Weekend plans →](<https://peninsulainsider.com.au/explore/plans/>)
 

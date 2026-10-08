@@ -125,11 +125,11 @@ weekend escape  garden
 
 [Read notes](<https://peninsulainsider.com.au/stay/lindenderry/>) [Book](<https://lancemore.com.au/hotels/lancemore-lindenderry-red-hill/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Treetops at Red Hill
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [The one-night escape →](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>) [Weekend plans →](<https://peninsulainsider.com.au/explore/plans/>)
 

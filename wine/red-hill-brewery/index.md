@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-[Wine Country](<https://peninsulainsider.com.au/wine/>)    Brewery    [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[Wine Country](<https://peninsulainsider.com.au/wine/>)    Brewery    [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 # Red Hill Brewery
 
-The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
+A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
 
 Known for   Estate Hop Garden Belgian-Style Ales Peninsula's Oldest Craft Brewery Beer Garden and Changing Lunch Menu
 
@@ -35,7 +35,7 @@ Visitors walk past the open doors of the weathered timber Brewhouse shed, with b
 
 Why we’d go
 
-Red Hill Brewery is the oldest serious craft brewery on the Peninsula and still one of the few in Australia that grows its own hops, the farm-to-glass story here is not marketing, it is infrastructure.
+Brewery beer beside the on-site hop yard in Red Hill South.
 
 Red Hill Brewery is the oldest serious craft brewery on the Peninsula and still one of the few in Australia that grows its own hops. That detail matters: the farm-to-glass story here is not marketing, it is infrastructure. Dave and Karen Golding planted the hop garden in 2005 and have been making Belgian-style ales from it ever since, witbier, dubbel, tripel, and the seasonal fresh-hop beers that are worth waiting for.
 
@@ -79,7 +79,7 @@ Brewery
 
 **Website**
 
-[redhillbrewery.com.au](<https://redhillbrewery.com.au/>)
+[www.redhillbrewery.com.au](<https://www.redhillbrewery.com.au/>)
 
 **Directions**
 
@@ -187,17 +187,17 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Red Hill Brewery
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 
 Keep this for later
 
-[← Part of Red Hill - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+[← Part of Red Hill South - view the destination guide](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
 Is this your business? [Manage this listing](<https://peninsulainsider.com.au/partners/update/?venue=red-hill-brewery>)
 

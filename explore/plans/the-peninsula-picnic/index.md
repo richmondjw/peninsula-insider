@@ -161,18 +161,6 @@ Places in this plan
 
 ## Worth knowing before you go.
 
-providore  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-### [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
-
-81 William Rd, Red Hill VIC 3937
-
-Small-batch cheesemaker with a tasting room, hard sheep's milk styles, washed rinds, and a rotating seasonal list.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/eat/red-hill-cheese/>)
-
 providore  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
 ### [Main Ridge Dairy](<https://peninsulainsider.com.au/eat/main-ridge-dairy/>)
@@ -196,6 +184,18 @@ A small Flinders bakery using its original wood-fired oven for naturally ferment
 quick bite  weekend escape
 
 [Read notes](<https://peninsulainsider.com.au/eat/flinders-sourdough/>)
+
+Bakery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+
+### [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
+
+1/3000 Frankston-Flinders Rd, Balnarring VIC 3926
+
+Artisan bread, pies and pastries from the bakery's sole current shop in Balnarring.
+
+slow  quick bite
+
+[Read notes](<https://peninsulainsider.com.au/eat/red-hill-bakery/>)
 
 ## The Insider Note
 

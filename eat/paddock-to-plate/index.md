@@ -67,13 +67,13 @@ Restaurant  [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-
 
 ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-165 Boneo Rd, Cape Schanck VIC 3939
+113 Cape Schanck Rd, Cape Schanck VIC 3939
 
 Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape Schanck, one of the Peninsula's most compelling new voices.
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/barragunda-dining/>) [Book](<https://www.barragunda.com.au/dining/>)
 
 Photo: Two Palms Australia, courtesy of Visit Victoria
 
@@ -81,7 +81,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -139,19 +139,19 @@ The old Merricks general store reborn as a cellar door, bakery, and produce-forw
 
 slow  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>) [Book](<https://merricksstore.com.au/reservations/>)
 
-Café  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+Restaurant  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
-### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
+### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Hwy, Moorooduc VIC 3933
 
-All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
+A Moorooduc winery restaurant and cellar door for a meal alongside the estate wines.
 
 slow  garden
 
-[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>)
+[Read notes](<https://peninsulainsider.com.au/eat/barmah-park/>) [Book](<https://www.barmahparkwines.com.au/>)
 
 ## Frequently asked questions
 

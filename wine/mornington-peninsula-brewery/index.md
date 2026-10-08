@@ -7,25 +7,23 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 [Wine Country](<https://peninsulainsider.com.au/wine/>)    Brewery    [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
-# Mornington Peninsula Brewery
+# Tar Barrel Brewery & Distillery
 
-The in-town craft brewery bar, a working brewhouse, the full core range on tap, and live music on Friday nights in a warehouse taproom.
+The brewery and distillery at 72 Watt Road, with beer and spirit paddles and wood-fired pizza.
 
-Known for   Founding Peninsula Craft Brewery Working Brewhouse Taproom Friday Night Live Music Pilot Batch Rotating Taps
+Known for   Tar Barrel Beer and Spirits Wood-Fired Pizza 72 Watt Road Brewery
 
-[Reserve a table](<https://mpbrew.com.au/>)  +61 3 5976 3663
+[Reserve a table](<https://tarbarrel.com.au/>)  +61 477 378 294
 
-Mornington Peninsula Brewery · Mornington
+Tar Barrel Brewery & Distillery · Mornington
 
 Why we’d go
 
-Mornington Peninsula Brewery is the town's dedicated craft beer room, the founding Peninsula craft list, in a warehouse taproom that runs at a different pace from the pub down the road.
+Beer, spirits and pizza offer a casual Mornington stop away from the bayside pub circuit.
 
-Mornington Peninsula Brewery is the town's dedicated craft beer room, a warehouse-scale brewhouse with a taproom attached, set slightly back from the main bayside strip and pulling a loyal mix of locals, visiting beer nerds, and families stopping in on the way home from the beach. The core range is the Peninsula's founding craft list, the IPA and Lager remain the anchor bottles, and the rotating taps lean into pilot-batch experiments worth the conversation with the bar team.
+The current visitor venue at 72 Watt Road is Tar Barrel Brewery & Distillery. Its operator describes Matt Bebe and Andrew Gow continuing to brew at this address, now alongside a gin and whisky distillery.
 
-The food is straightforward brewery fare done properly, burgers, pizzas, a couple of share plates, and the room has enough space to absorb a group or to shrink down to a civilised weeknight pint. Live music Friday nights lifts the weekend tempo. The brewhouse is visible through the bar, which is exactly the right way to drink something and understand where it came from.
-
-A good alternative to the bayside pub when you want something with its own point of view.
+The venue offers core and specialty beers, beer and spirit tasting paddles and wood-fired pizzas. Check its current events and service times before visiting. Mornington Peninsula Brewery continues as a separate beer brand; its brand website is not the booking or contact source for this physical venue. The existing Peninsula Insider URL is retained so saved links still reach the current venue information.
 
 Worth knowing
 
@@ -35,7 +33,7 @@ Craft beer · Family outings · Big groups · Solo travellers
 
 If you only do one thing
 
-Start with the tasting paddle, ask about the pilot batches, and stay for lunch if the table is working.
+Choose a beer or spirit paddle from the current offering, then check the food menu.
 
 Works well with
 
@@ -51,19 +49,15 @@ Brewery
 
 **Location**
 
-72 Watt Rd, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Mornington%20Peninsula%20Brewery%2C%2072%20Watt%20Rd%2C%20Mornington%20VIC%203931>)
+72 Watt Rd, Mornington VIC 3931 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Tar%20Barrel%20Brewery%20%26%20Distillery%2C%2072%20Watt%20Rd%2C%20Mornington%20VIC%203931>)
 
 **Call**
 
-+61 3 5976 3663
-
-**Awards**
-
-Established 2009 - Peninsula Founding Craft Brewery
++61 477 378 294
 
 **Website**
 
-[mpbrew.com.au](<https://mpbrew.com.au/>)
+[tarbarrel.com.au](<https://tarbarrel.com.au/>)
 
 **Directions**
 
@@ -71,17 +65,17 @@ Established 2009 - Peninsula Founding Craft Brewery
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Mornington%20Peninsula%20Brewery%2C%2072%20Watt%20Rd%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Tar%20Barrel%20Brewery%20%26%20Distillery%2C%2072%20Watt%20Rd%2C%20Mornington%20VIC%203931%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
- [Book now](<https://mpbrew.com.au/>)
+ [Book now](<https://tarbarrel.com.au/>)
 
-Not sure how to build a day around Mornington Peninsula Brewery?
+Not sure how to build a day around Tar Barrel Brewery & Distillery?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
 In the journal
 
-## Stories that mention Mornington Peninsula Brewery
+## Stories that mention Tar Barrel Brewery & Distillery
 
 These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
 
@@ -137,11 +131,11 @@ cellar door  long lunch
 
 [Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-Build a day around this
+Plan your Peninsula day
 
-## Planning guides that include Mornington Peninsula Brewery
+## More ways to plan your Peninsula visit
 
-Peninsula Insider guides that put this stop into the context of a full day or weekend.
+Ideas for the rest of your Peninsula day or weekend.
 
 [Peninsula weekend itinerary →](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) [Cellar door shortlist →](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>) [Self-drive winery tour →](<https://peninsulainsider.com.au/tour/wine-tours/>) [Winter on the Peninsula →](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-winter/>)
 

@@ -139,7 +139,7 @@ Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/
 
 ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
-1180 Mornington-Flinders Rd, Red Hill VIC 3937
+1180 Mornington-Flinders Rd, Main Ridge VIC 3928
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -497,8 +497,6 @@ Browse locations as a list
 
 - [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>) · winery
 
-- [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>) · restaurant
-
 - [Hideaways at Red Hill](<https://peninsulainsider.com.au/stay/hideaways-red-hill/>) · cottage
 
 - [Lindenderry at Red Hill](<https://peninsulainsider.com.au/stay/lindenderry/>) · hotel
@@ -516,10 +514,6 @@ Browse locations as a list
 - [Prancing Horse Estate](<https://peninsulainsider.com.au/wine/prancing-horse-estate/>) · winery
 
 - [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>) · restaurant
-
-- [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) · brewery
-
-- [Red Hill Cheese](<https://peninsulainsider.com.au/eat/red-hill-cheese/>) · providore
 
 - [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) · restaurant
 
