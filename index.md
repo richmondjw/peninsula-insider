@@ -25,12 +25,6 @@ The short list
 
 Swipe or scroll for all three picks
 
-- ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
-
-Mornington Racecourse   Market
-
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Live acoustic sets at a resort with views.
@@ -42,6 +36,14 @@ Peppers Moonah Links   Every Saturday
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 Crib Point Community House   Market
+
+- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 

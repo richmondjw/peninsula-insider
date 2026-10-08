@@ -25,19 +25,21 @@ The short list / Fri 9 – Sun 11 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
+Swipe or scroll to see all three picks.
+
 - Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Illustration: Peninsula Insider / AI-assisted original vector artwork.
 
 The lead pick / 01
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big…
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause.
 
 Fri, 9 Oct   Mornington   Racing & Sport
 
 - ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 Sat, 10 Oct   Crib Point   Markets
 
@@ -65,7 +67,7 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 - [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and…
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
 
 7pm · Mornington · Racing & Sport · One-day event
 
@@ -73,7 +75,7 @@ Choose this for a Friday-night event with a distinct live-show atmosphere and a 
 
 - [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
 9am · Crib Point · Markets · Recurring monthly
 
@@ -93,7 +95,7 @@ Live acoustic sets at a resort with views.
 
 - [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact…
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
 
 9am · Mornington · Markets · One-day event
 
@@ -111,7 +113,7 @@ These are not confirmed sessions for the dates above. Check the operator's dates
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the…
+An art-led Peninsula stop that gives both dedicated gallery visitors and casual walkers a reason to spend time in the wine country.
 
 Check dates and hours · Merricks · Arts
 
@@ -139,7 +141,7 @@ Check dates and hours · Dromana · Food & Wine
 
 - [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact…
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
 
 9am · Mornington · Markets
 
@@ -173,7 +175,7 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you…
+The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
 
 11am · Mount Martha · Festivals
 
@@ -185,7 +187,7 @@ Portsea · Racing & Sport
 
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
-The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or…
+The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.
 
 8am · Sorrento · Racing & Sport
 
