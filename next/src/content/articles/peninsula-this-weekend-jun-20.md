@@ -5,10 +5,23 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-06-15
 heroImage:
-  src: "/images/sourced/article-sorrento-foreshore-01.webp"
-  alt: "Sorrento foreshore at dusk, winter solstice festival evening, Mornington Peninsula 2026"
-  credit: "Peninsula Insider"
-  license: "other-licensed"
+  src: /images/visit-victoria/vv-163880-millionaire-s-walk.webp
+  alt: Clifftop lawn and weatherboard houses above a bay dotted with moored boats and jetties along Millionaire's Walk
+  credit: Courtesy of Visit Victoria
+  license: visit-victoria
+  caption: Sorrento, Mornington Peninsula. Coastal context photograph, not a photograph of the listed events.
+  depicts: Millionaire's Walk
+  depictionStatus: illustrative
+  sourceUrl: Victoria Content Hub asset 163880, downloaded 2026-09-28
+  permission: Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).
+  permittedUses:
+    - website
+    - social
+  rightsHolder: Visit Victoria
+  rightsEstablishedOn: "2026-09-29"
+  rightsStatus: recorded
+  decorative: false
+  provenanceReview: verified
 format: "weekend-picker"
 tags: ["weekend-picker", "whats-on", "june-planning", "winter", "solstice", "festival", "sorrento", "truffle", "wine", "hotsprings"]
 relatedVenues: []

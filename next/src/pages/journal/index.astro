@@ -4,6 +4,7 @@ import { selectEventPromotions } from '../../lib/event-discovery.mjs';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import JournalStory from '../../components/journal/JournalStory.astro';
+import JournalImageRecovery from '../../components/journal/JournalImageRecovery.astro';
 import { routeSlug } from '../../lib/editorial';
 import { isJournalEditorial, isJournalDiscovery } from '../../lib/journal-curation.mjs';
 import { themeDefs } from '../../lib/journal-themes';
@@ -36,6 +37,7 @@ const months=[...new Set(articles.map(a=>a.data.publishedAt.toISOString().slice(
 const topicsFor=(a:typeof articles[number])=>themes.filter(t=>t.articles.includes(a)).map(t=>t.key);
 ---
 <BaseLayout title="The Journal · Peninsula Insider" description="Stories, people and places from the Mornington Peninsula. Explore the Peninsula Insider Journal." section="journal">
+<JournalImageRecovery />
 <div class="journal-page" data-journal-index>
  <section class="journal-heading wrap" aria-labelledby="journal-title"><div><p class="eyebrow">Stories from the Mornington Peninsula</p><h1 id="journal-title">The Journal<span>.</span></h1></div><p class="intro">Good places. Interesting people.<br/>{' '}And a few reasons to stay a little longer.</p></section>
  <nav class="topic-nav wrap" aria-label="Journal sections"><a href="#cover">This edit</a>{food.length>0&&<a href="#food-wine">Food &amp; wine</a>}{outdoors.length>0&&<a href="#outdoors">Out in the open</a>}{places.length>0&&<a href="#places">Places &amp; weekends</a>}{people.length>0&&<a href="#people">Behind the wine</a>}<a href="#archive">Every story ↓</a></nav>
