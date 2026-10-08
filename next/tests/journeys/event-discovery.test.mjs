@@ -16,6 +16,32 @@ const snapshot = (reader) => reader.page.evaluate(() => ({
   param: new URL(location.href).searchParams.get('date'),
 }));
 
+test('first phone screen offers a dated event link with the cookie note visible', async (t) => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({ width: 390, height: 844 });
+    await reader.load('/whats-on/');
+    const lead = await reader.page.evaluate(() => {
+      const title = document.querySelector('.wo-picks .pi-card:first-of-type .pi-card__link');
+      const whenWhere = document.querySelector('.wo-picks .pi-card:first-of-type .pi-card__eyebrow');
+      return {
+        hasCookieNote: document.body.textContent.includes('A note on cookies'),
+        title: title?.textContent?.trim(),
+        href: title?.getAttribute('href'),
+        titleBottom: title?.getBoundingClientRect().bottom,
+        whenWhere: whenWhere?.textContent?.trim(),
+        whenWhereBottom: whenWhere?.getBoundingClientRect().bottom,
+      };
+    });
+    if (!lead.title) { t.skip('No current weekend pick is eligible'); return; }
+    assert.ok(lead.hasCookieNote, 'measure the first-visit consent state');
+    assert.match(lead.href, /^\/whats-on\/[^/]+\/$/);
+    assert.match(lead.whenWhere, /\b(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)\b.* · .+/);
+    assert.ok(lead.whenWhereBottom <= 844, 'event date and place belong in the first screen');
+    assert.ok(lead.titleBottom <= 844, 'linked event title belongs in the first screen');
+  } finally { await reader.close(); }
+});
+
 test('featured picks keep keyboard focus visible after date changes and client navigation', async (t) => {
   for (const width of [320, 768]) {
     const reader = await site.reader();

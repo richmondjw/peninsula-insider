@@ -176,6 +176,7 @@ const pickCards = picks.map((p, i) => {
       : undefined,
     verdict: p.verdict,
     categoryLabel: p.live.categoryLabel,
+    leadMark: [p.dayLabel, p.live.placeLabel].filter(Boolean).join(' · '),
     meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
       .filter(Boolean)
       .slice(0, 3),
@@ -287,7 +288,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
               meta={c.meta}
               dateISO={c.dateISO}
               showEyebrow={c.position === 1}
-              typeMark="The lead pick / 01"
+              typeMark={c.leadMark}
               mediaFallback={c.position !== 1}
               mediaFallbackLabel={c.categoryLabel}
               trip={true}
@@ -1188,12 +1189,13 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     .wo-shelfnav__tile { flex: 0 0 12rem; scroll-snap-align: start; }
   }
   @media (max-width: 640px) {
-    .wo-head__inner { position: relative; display: block; min-height: 15rem; }
-    .wo-head__copy { position: relative; z-index: 2; min-height: 15rem; padding: 1rem 0 1.1rem; }
+    .wo-head__inner { position: relative; display: block; min-height: 13rem; }
+    .wo-head__copy { position: relative; z-index: 2; min-height: 13rem; padding: 1rem 0 .6rem; }
     .wo-head__eyebrow { margin-bottom: .35rem; font-size: .61rem; }
     .wo-head__title { font-size: clamp(1.9rem, 8vw, 2.65rem); }
     .wo-head__context { margin-top: .45rem; font-size: .85rem; }
-    .wo-head__rule { display: block; margin-top: .65rem; font-size: .83rem; line-height: 1.42; max-width: 35ch; }
+    .wo-head__rule { display: none; }
+    .wo-head__calendar-link { margin-top: .5rem; }
     .wo-head__figure { position: absolute; inset: 0 -1rem; margin: 0; }
     .wo-head__figure::before { inset: 0; width: auto; background: linear-gradient(90deg, rgba(11, 46, 74, .97) 0%, rgba(11, 46, 74, .83) 42%, rgba(11, 46, 74, .35) 76%, rgba(11, 46, 74, .2) 100%); }
     .wo-head__figure img { height: 100%; min-height: 0; object-position: 66% center; }
@@ -1332,5 +1334,9 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media { aspect-ratio: auto; height: 7rem; min-height: 0; }
     .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate { padding: .75rem 1rem .75rem 5rem; }
     .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic { font-size: 1.15rem; }
+  }
+  @media (max-width: 640px) {
+    .wo-picks__swipe { margin: .2rem 0 .35rem; }
+    .wo-picks .v5-card-grid > .pi-card { flex-basis: min(23.5rem, calc(100vw - 3rem)); }
   }
 </style>
