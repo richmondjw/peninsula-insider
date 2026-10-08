@@ -1198,6 +1198,11 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
   .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link { color: #f2efea; }
   .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__dek,
   .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__meta { color: #d7e4e8; }
+  /* Pick order changes with the calendar; a credited illustration can become the dark lead. */
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note,
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-credit,
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-credit a { color: #d7e4e8; }
+  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-credit a:focus-visible { outline-color: #f5c177; }
   .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link:hover { color: #f5c177; }
   .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link:focus-visible { outline-color: #f5c177; }
   .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip] { background: #f5c177; border-color: #f5c177; color: #0b2e4a; font-weight: 700; }
