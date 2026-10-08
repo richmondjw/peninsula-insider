@@ -26,4 +26,4 @@ Applies to Home, Eat & Drink, Stay, Wine, Explore, Plans, What's On and Journal.
 
 ## Enforcement and acceptance
 
-Rendered anchor-page checks compare actual fonts, headings, focus, overflow and first-screen actions. Shared typography changes are reviewed across every anchor and client navigation. The page-quality rubric and iteration log retain deductions; automated checks alone cannot certify 99/100. Factual, image-rights, accessibility and task failures block release.
+Rendered anchor-page checks compare actual fonts, headings, focus, overflow and first-screen actions. Include shared header controls, footer prose/headings and the open mobile menu on every anchor, with soft navigation and Escape focus return. Shared chrome uses the publication tokens and must not import legacy font files for its own text. Shared typography changes are reviewed across every anchor and client navigation. The page-quality rubric and iteration log retain deductions; automated checks alone cannot certify 99/100. Factual, image-rights, accessibility and task failures block release.
