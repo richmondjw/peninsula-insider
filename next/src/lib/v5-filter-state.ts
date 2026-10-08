@@ -259,6 +259,18 @@ interface FacetedItem {
   countable: boolean;
 }
 
+/** Local directory search is opt-in. Reader text never enters facet analytics. */
+export function directoryTextMatches(text: string, query: string): boolean {
+  const normalise = (value: string) => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+  const words = normalise(query).trim().split(/\s+/).filter(Boolean);
+  return words.every(word => normalise(text).includes(word));
+}
+function matchesDirectoryQuery(item: FacetedItem, root: ParentNode): boolean {
+  if (!root.querySelector('[data-directory-search]')) return true;
+  const query = new URLSearchParams(window.location.search).get('find') || '';
+  return directoryTextMatches(item.el.dataset.searchText || item.el.dataset.title || '', query);
+}
+
 function collectItems(root: ParentNode): FacetedItem[] {
   const els = root.querySelectorAll<HTMLElement>('[data-facets]');
   const items: FacetedItem[] = [];
@@ -286,7 +298,7 @@ function collectItems(root: ParentNode): FacetedItem[] {
 export function countMatches(state: FilterState, root?: ParentNode): number {
   if (!hasDom()) return 0;
   return countableSubset(collectItems(root || document)).reduce(
-    (n, it) => n + (itemMatches(it.facets, state) ? 1 : 0),
+    (n, it) => n + (itemMatches(it.facets, state) && matchesDirectoryQuery(it, root || document) ? 1 : 0),
     0,
   );
 }
@@ -347,16 +359,16 @@ export function applyToDom(
   const root = rootIn || document;
   const items = collectItems(root);
   for (const it of items) {
-    const ok = itemMatches(it.facets, state);
+    const ok = itemMatches(it.facets, state) && matchesDirectoryQuery(it, root);
     it.el.toggleAttribute('hidden', !ok);
     if (ok) delete it.el.dataset.filteredOut;
     else it.el.dataset.filteredOut = '1';
   }
   const counted = countableSubset(items);
   let shown = 0;
-  for (const it of counted) if (itemMatches(it.facets, state)) shown += 1;
+  for (const it of counted) if (itemMatches(it.facets, state) && matchesDirectoryQuery(it, root)) shown += 1;
   const total = counted.length;
-  const anyActive = !isEmptyState(state);
+  const anyActive = !isEmptyState(state) || (!!root.querySelector('[data-directory-search]') && !!new URLSearchParams(window.location.search).get('find')?.trim());
   const countText = anyActive ? `Showing ${shown} of ${total} ${noun}` : `Showing all ${total} ${noun}`;
   root.querySelectorAll<HTMLElement>('[data-filter-count]').forEach((el) => {
     el.textContent = countText;
@@ -391,6 +403,13 @@ export function commit(
   opts: { push?: boolean; source?: string; noun?: string } = {},
 ): { shown: number; total: number } {
   clearFilterError();
+  if (hasDom() && opts.source === 'clear' && document.querySelector('[data-directory-search]')) {
+    const url = new URL(window.location.href);
+    url.searchParams.delete('find');
+    window.history.replaceState(window.history.state, '', url.pathname + url.search + url.hash);
+    const input = document.querySelector<HTMLInputElement>('[data-directory-search]');
+    if (input) input.value = '';
+  }
   current = { ...state };
   writeUrl(current, { push: opts.push });
   const counts = applyToDom(current, document, opts.noun || 'results');
@@ -508,6 +527,7 @@ export function applySort(value?: SortValue, root?: ParentNode): void {
     });
     sorted.forEach((el) => container.appendChild(el));
   });
+  document.dispatchEvent(new CustomEvent('pi:sort-changed', {detail:{sort:sortValue}}));
 }
 
 export type ViewValue = 'list' | 'map';

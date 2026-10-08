@@ -10,6 +10,7 @@ import { CONCIERGE_API_URL } from '../lib/concierge-config';
  */
 
 import '../styles/global.css';
+import '../styles/anchor-pages.css';
 import '../styles/concierge.css';   // chat & drawer styles, loaded on every page
 import '../styles/search.css';      // masthead search and site-wide overlay only
 // Admin-only editor CSS loads after the allowlist check in inline-edit/client.ts.
@@ -350,7 +351,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   </script>
 
 </head>
-<body data-page={section} data-path={rawPathname} data-v4="true">
+<body data-page={section} data-path={rawPathname} data-anchor-page={['/','/eat/','/stay/','/wine/','/explore/','/plans/','/explore/plans/','/whats-on/','/journal/'].includes(rawPathname) ? '' : undefined} data-v4="true">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 

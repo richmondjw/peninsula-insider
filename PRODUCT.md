@@ -6,6 +6,8 @@
 
 web
 
+The eight public anchor pages follow [the anchor-page design rules](docs/ANCHOR-PAGE-DESIGN-RULES.md). Shared fonts, responsive heading scales, colours and controls are enforced across Home, Eat & Drink, Stay, Wine, Explore, Plans, What's On and Journal.
+
 ## Users
 
 Two related audiences. (1) Visitors and locals on the Mornington Peninsula using peninsulainsider.com.au to decide where to eat, drink, stay, and go, by season and mood, not a generic top-10 list. (2) Existing email subscribers who receive "The Insider Note" (renamed from "Field Notes" 2026-08-03), the weekly newsletter distilling that week's picks, currently issue No. VI.

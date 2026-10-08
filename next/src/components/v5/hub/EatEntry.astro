@@ -1,0 +1,84 @@
+---
+import type { PageImage } from '../../../lib/page-images';
+interface Props { count: number; categories: {value:string;label:string;count:number}[]; towns:{value:string;label:string}[]; image:PageImage; }
+const {count,categories,towns,image}=Astro.props;
+---
+<header class="eat-entry container">
+  <div class="eat-entry__copy">
+    <p class="label label--accent">Eat &amp; Drink</p>
+    <h1>Eat &amp; drink on the Mornington Peninsula</h1>
+    <p class="eat-entry__dek">A vineyard lunch. A village coffee. A table by the bay. Find a place for the day you have in mind.</p>
+    <nav class="category-browse__links eat-entry__links" aria-label="Browse this guide">
+      <a href="#directory">Browse all {count} places <span aria-hidden="true">↓</span></a>
+      <a href="#the-six">Start with six choices <span aria-hidden="true">↓</span></a>
+      <a href="/map/">View the map <span aria-hidden="true">→</span></a>
+    </nav>
+  </div>
+  <figure class="eat-entry__photo">
+    <a href="/eat/trofeo-estate/" aria-label="Explore Trofeo Estate"><img src={image.src} alt={image.alt} width="1200" height="800" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 700px) 100vw, 560px" /></a>
+    <figcaption>{image.caption} {image.credit}.</figcaption>
+  </figure>
+</header>
+<section class="eat-finder container" aria-labelledby="eat-finder-title" data-eat-finder>
+  <div class="eat-finder__heading"><h2 id="eat-finder-title">Find your kind of place</h2><p>{count} places. Your choice of town, table or coffee stop.</p></div>
+  <form class="eat-finder__form" action="/eat/" method="get">
+    <div><label for="eat-find">Search places</label><input id="eat-find" name="find" type="search" placeholder="Name, town or type" data-directory-search autocomplete="off" /></div>
+    <div><label for="eat-category">I’m looking for</label><select id="eat-category" name="cat" data-eat-select="cat"><option value="">Everything</option>{categories.map(c=><option value={c.value}>{c.label} ({c.count})</option>)}</select></div>
+    <div><label for="eat-town">Around</label><select id="eat-town" name="place" data-eat-select="place"><option value="">All towns</option>{towns.map(t=><option value={t.value}>{t.label}</option>)}</select></div>
+    <button type="submit">Show places <span aria-hidden="true">↓</span></button>
+  </form>
+  <noscript><style>.eat-finder__form{display:none!important}</style><p><a href="#directory">Browse all {count} places</a>. Search and filters need JavaScript; the complete directory is available below.</p></noscript>
+</section>
+<style>
+  .eat-entry{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:2rem 1.5rem}
+  .eat-entry h1{font:600 var(--fs-800)/1.1 var(--font-display);letter-spacing:var(--ls-display);max-width:22ch;margin:.75rem 0 1rem;text-wrap:balance}
+  .eat-entry__dek{font-size:var(--fs-400);line-height:1.6;max-width:49ch;color:var(--soft)}
+  .eat-entry__links{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem;margin-top:1rem}
+  .eat-entry__links a{min-height:44px;display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-weight:600;text-underline-offset:.2em}
+  .eat-entry__photo{margin:0}.eat-entry__photo img{display:block;width:100%;aspect-ratio:16/9;height:auto;object-fit:cover;border-radius:var(--radius-lg,16px)}
+  figcaption{font:400 var(--fs-200)/1.5 var(--font-ui);color:var(--soft);padding-top:.5rem}
+  .eat-finder{padding-block:1.25rem;border-block:1px solid var(--border)}
+  .eat-finder__heading{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem}
+  .eat-finder h2{font:600 var(--fs-600)/1.2 var(--font-display);margin:0}.eat-finder__heading p{font-size:var(--fs-300);color:var(--soft);margin:0}
+  .eat-finder__form{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:1rem;align-items:end}
+  label{display:block;font-size:var(--fs-200);font-weight:600;margin-bottom:.4rem}
+  input,select{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:.65rem .8rem;color:var(--text);font:400 1rem var(--font-ui)}
+  button{min-height:48px;border:0;border-radius:8px;padding:.65rem 1.2rem;background:var(--accent);color:white;font:600 1rem var(--font-ui);cursor:pointer}
+  :is(a,button,input,select):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  @media(max-width:700px){.eat-entry{grid-template-columns:1fr;gap:1rem;padding-block:1.25rem .75rem}.eat-entry h1{font-size:2rem;max-width:22ch}.eat-entry__photo{display:none}.eat-entry__dek{margin-bottom:0}.eat-entry__links{gap:0 1rem;margin-top:.5rem}.eat-finder__heading{display:block}.eat-finder__heading p{display:none}.eat-finder__form{grid-template-columns:1fr 1fr;gap:.75rem}.eat-finder__form>div:first-child{grid-column:1/-1;order:2}.eat-finder__form>button{grid-column:1/-1;order:3}}
+</style>
+<script>
+  import {commit,getState,type FilterKey} from '../../../lib/v5-filter-state';
+  function paint(){
+    const params=new URLSearchParams(location.search);
+    document.querySelectorAll<HTMLSelectElement>('[data-eat-select]').forEach(select=>{select.value=params.get(select.dataset.eatSelect!)?.split(',')[0]||'';});
+    const input=document.querySelector<HTMLInputElement>('[data-directory-search]');
+    if(input && document.activeElement!==input) input.value=params.get('find')||'';
+  }
+  function init(){
+    const finder=document.querySelector<HTMLElement>('[data-eat-finder]');
+    if(!finder || finder.dataset.initialized) return;
+    finder.dataset.initialized='true';paint();
+    const input=finder.querySelector<HTMLInputElement>('[data-directory-search]')!;
+    function updateSearch(){
+      const url=new URL(location.href);const query=input.value.trim();
+      if(query)url.searchParams.set('find',query);else url.searchParams.delete('find');
+      history.replaceState(history.state,'',url.pathname+url.search+url.hash);
+      commit(getState(),{source:'search',noun:'places'});
+    }
+    input.addEventListener('input',updateSearch);
+    finder.querySelectorAll<HTMLSelectElement>('[data-eat-select]').forEach(select=>select.addEventListener('change',()=>{
+      const key=select.dataset.eatSelect as FilterKey;const state={...getState()};
+      if(select.value)state[key]=[select.value];else delete state[key];
+      commit(state,{source:'select',noun:'places'});
+    }));
+    finder.querySelector('form')!.addEventListener('submit',event=>{
+      event.preventDefault();updateSearch();document.querySelector('#directory')?.scrollIntoView({behavior:'instant',block:'start'});
+      history.replaceState(history.state,'',location.pathname+location.search+'#directory');
+      document.querySelector<HTMLElement>('#directory-heading')?.focus({preventScroll:true});
+    });
+  }
+  document.addEventListener('pi:filters-changed',paint);
+  document.addEventListener('astro:page-load',init);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+</script>
