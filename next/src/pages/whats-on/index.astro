@@ -66,7 +66,7 @@ const shelfVisuals = shelves.map((shelf, index) => {
   // itself as artwork for a specific event in the shelf.
   const source = shelf.items.find((item) => {
     const photo = (item.event.data as Record<string, any>).heroImage;
-    return photo?.src && photo?.alt && photo?.credit && photo?.depictionStatus === 'actual';
+    return photo?.src && photo?.alt && photo?.credit && photo?.rightsStatus === 'recorded' && photo?.depictionStatus === 'actual';
   });
   const photo = source ? (source.event.data as Record<string, any>).heroImage : null;
   // The old markets hero depicts a venue whose current operation is unresolved.
@@ -217,7 +217,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
         <p class="wo-head__eyebrow">The Peninsula, in motion <span aria-hidden="true">✳</span> {season} edition</p>
         <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
-        <p class="wo-head__rule">A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.</p>
+        <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
         <a class="wo-head__calendar-link" href="#wo-calendar">Browse events by day <span aria-hidden="true">↘</span></a>
         <p class="wo-head__credit-mobile">Photo: {hubImage.credit}.</p>
       </div>
@@ -273,7 +273,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
           </div>
           <p class="wo-picks__dek">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
         </div>
-        <p class="wo-picks__swipe">Swipe or scroll to see all three picks.</p>
+        {picks.length > 1 && <p class="wo-picks__swipe">Swipe or scroll for more picks.</p>}
         <CardGrid label="PI's picks for this weekend">
           {pickCards.map((c) => (
             <Card
@@ -829,7 +829,10 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
       const from = String(fd.get('from') ?? '');
       const to = String(fd.get('to') ?? '');
       if (!from || !to) return;
-      if (custom) custom.open = false;
+      if (custom) {
+        custom.open = false;
+        custom.querySelector<HTMLElement>('summary')?.focus();
+      }
       applyScope('custom', from, to);
     });
 

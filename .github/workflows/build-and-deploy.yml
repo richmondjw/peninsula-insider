@@ -304,6 +304,21 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
+      - name: Verify reviewed event media on the public site
+        working-directory: next
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: node scripts/verify-public-event-media.mjs "--expect-sha=$SOURCE_SHA" "--report=$RUNNER_TEMP/event-media-live.json"
+
+      - name: Retain public event media verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: event-media-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/event-media-live.json
+          retention-days: 90
+          if-no-files-found: warn
+
       - name: Verify Dominion event detail while the one-off show is current
         env:
           SOURCE_SHA: ${{ github.sha }}

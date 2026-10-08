@@ -16,6 +16,126 @@ const snapshot = (reader) => reader.page.evaluate(() => ({
   param: new URL(location.href).searchParams.get('date'),
 }));
 
+test('featured picks keep keyboard focus visible after date changes and client navigation', async (t) => {
+  for (const width of [320, 768]) {
+    const reader = await site.reader();
+    try {
+      await reader.page.setViewport({ width, height: 900 });
+      await reader.load('/whats-on/');
+      const count = await reader.page.$$eval('.wo-picks .pi-card', cards => cards.length);
+      if (count < 2) { t.skip('This edition has fewer than two featured picks'); return; }
+      for (const state of ['initial', 'restored dates', 'client return']) {
+        if (state === 'restored dates') {
+          await clickScope(reader, 'next-weekend');
+          await nextReady(reader);
+          await clickScope(reader, 'weekend');
+        } else if (state === 'client return') {
+          await reader.navigate('/wine/');
+          await reader.navigate('/whats-on/');
+        }
+        await reader.page.focus('.wo-picks .pi-card__link');
+        const visited = new Set();
+        for (let step = 0; step < 30; step++) {
+          const focused = await reader.page.evaluate(() => {
+            const rail = document.querySelector('.wo-picks .v5-card-grid');
+            const active = document.activeElement;
+            const card = active?.closest('.pi-card');
+            if (!rail?.contains(card)) return null;
+            const box = active.getBoundingClientRect();
+            const bounds = rail.getBoundingClientRect();
+            return {
+              index: [...rail.querySelectorAll('.pi-card')].indexOf(card),
+              label: active.getAttribute('aria-label') || active.textContent.trim(),
+              width: box.width,
+              visible: Math.max(0, Math.min(box.right, bounds.right) - Math.max(box.left, bounds.left)),
+            };
+          });
+          if (!focused) break;
+          visited.add(focused.index);
+          assert.ok(focused.visible >= focused.width - 2, `${width}px ${state}: focused ${focused.label} is clipped`);
+          await reader.page.keyboard.press('Tab');
+        }
+        assert.equal(visited.size, count, `${width}px ${state}: every pick is keyboard reachable`);
+      }
+    } finally { await reader.close(); }
+  }
+});
+
+test('public event media keeps its reviewed image and attribution when CMS slots change', async () => {
+  const reader = await site.reader();
+  const mediaSnapshot = () => reader.page.evaluate(() => [...document.querySelectorAll('[data-pi-entity-type="event"][data-pi-field-path]')].map(el => ({
+    slug: el.dataset.piEntitySlug,
+    field: el.dataset.piFieldPath,
+    src: el.getAttribute('src'),
+    background: el.style.backgroundImage,
+    alt: el.getAttribute('alt'),
+    note: el.closest('.pi-card, .event-card, figure')?.querySelector('.pi-card__image-note, figcaption, .event-image-credit')?.textContent ?? '',
+  })));
+  try {
+    let observed = 0;
+    for (const route of ['/', '/whats-on/', '/whats-on/mornington-racecourse-market/', '/whats-on/by-mood/this-weekend/']) {
+      reader.setSupabase([]);
+      await reader.load(route);
+      await reader.page.waitForNetworkIdle({ idleTime: 100 });
+      const baseline = await mediaSnapshot();
+      observed += baseline.length;
+      if (!baseline.length) continue;
+      for (const metadata of [{ alt_text: null, credit: null }, { alt_text: 'A different uploaded subject', credit: 'Different uploader' }]) {
+        const slots = baseline.map(item => ({
+          entity_type: 'event', entity_slug: item.slug, field_path: item.field,
+          public_url: '/__unreviewed-event-upload.svg', ...metadata,
+        }));
+        reader.setSupabase([{ match: '/rest/v1/cms_image_slots', body: slots }]);
+        await reader.load(route);
+        await reader.page.waitForNetworkIdle({ idleTime: 100 });
+        assert.deepEqual(await mediaSnapshot(), baseline, `${route}: uploaded event media must not replace the reviewed image or attribution`);
+      }
+    }
+    assert.ok(observed > 0, 'event media slots were exercised');
+  } finally { await reader.close(); }
+});
+
+test('custom dates return keyboard focus to a visible trigger and date scopes keep suitable copy', async () => {
+  const reader = await site.reader();
+  try {
+    for (const width of [390, 1440]) {
+      await reader.page.setViewport({ width, height: 900 });
+      await reader.load('/whats-on/');
+      await reader.page.evaluate(() => {
+        const details = document.querySelector('[data-wo-custom]');
+        details.open = true;
+        const form = details.querySelector('form');
+        for (const name of ['from', 'to']) {
+          const input = form.elements.namedItem(name);
+          input.value = input.min;
+        }
+        form.querySelector('button[type="submit"]').focus();
+      });
+      await reader.page.keyboard.press('Enter');
+      const focus = await reader.page.evaluate(() => ({
+        open: document.querySelector('[data-wo-custom]').open,
+        summary: document.activeElement.matches('[data-wo-custom-summary]'),
+      }));
+      assert.deepEqual(focus, { open: false, summary: true }, `${width}px date submission keeps visible focus`);
+      await clickScope(reader, 'today');
+      await reader.waitFor(() => document.querySelector('[data-wo-heading]')?.textContent === "What's on today", 'today scope did not apply');
+      const copy = await reader.page.$eval('.wo-head__rule', el => el.textContent);
+      assert.ok(!/better weekend/i.test(copy), 'Today must not retain a weekend-only promise');
+    }
+  } finally { await reader.close(); }
+});
+
+test('a featured market without editorial notes still exposes its official confirmation source', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/whats-on/crib-point-community-market/');
+    const links = await reader.page.$$eval('main a[href]', nodes => nodes.map(el => ({ href: el.href, label: el.textContent.trim() })));
+    const record = JSON.parse(readFileSync(new URL('../../src/content/events/crib-point-community-market.json', import.meta.url), 'utf8'));
+    assert.ok(links.some(link => link.href === record.officialEventUrl && /Check latest details/.test(link.label)), 'official detail source is a usable primary action');
+    assert.ok(links.some(link => link.href === record.primarySourceUrl && /latest details at the source/.test(link.label)), 'source remains visible without editorial notes');
+  } finally { await reader.close(); }
+});
+
 test('next-weekend query reload and history preserve the selected dates and remove default picks/schema', async () => {
   const reader = await site.reader();
   try {
