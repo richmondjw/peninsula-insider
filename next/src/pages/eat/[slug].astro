@@ -128,11 +128,11 @@ const venueSchema = {
     addressRegion: 'VIC',
     addressCountry: 'AU',
   },
-  geo: {
+  ...(venue.data.coordinates ? { geo: {
     '@type': 'GeoCoordinates',
-    latitude: venue.data.coordinates?.lat,
-    longitude: venue.data.coordinates?.lng,
-  },
+    latitude: venue.data.coordinates.lat,
+    longitude: venue.data.coordinates.lng,
+  } } : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
   ...(placeId

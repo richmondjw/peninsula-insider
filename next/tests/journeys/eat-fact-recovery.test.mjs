@@ -25,3 +25,18 @@ test('unverified or retail-paused entries leave discovery without pretending the
  assert.doesNotMatch(await reader.page.$eval('main',el=>el.textContent),/Small Stone Pantry/);
  }finally{await reader.close();}
 });
+
+test('withheld map pins are omitted from venue structured data',async()=>{
+ const reader=await site.reader();try{
+ for(const slug of ['flinders-general-store','green-olive-red-hill','martha-s-table','mr-vincenzos','mornington-peninsula-chocolates','dromana-hotel','mornington-hotel']){
+ await reader.load(`/eat/${slug}/`);
+ const business=await reader.page.evaluate(()=>[...document.querySelectorAll('script[type="application/ld+json"]')].flatMap(el=>{const value=JSON.parse(el.textContent);return value['@graph']??[value];}).find(value=>value.address?.streetAddress));
+ assert.ok(business,slug+' retains its address');
+ assert.equal(Object.hasOwn(business,'geo'),false,slug+' does not emit an unverified pin');
+ }
+ await reader.load('/eat/barragunda-dining/');
+ const pin=await reader.page.evaluate(()=>[...document.querySelectorAll('script[type="application/ld+json"]')].map(el=>JSON.parse(el.textContent)).find(value=>value.geo)?.geo);
+ assert.equal(pin?.latitude,-38.46803496820978);
+ assert.equal(pin?.longitude,144.89851034298496);
+ }finally{await reader.close();}
+});
