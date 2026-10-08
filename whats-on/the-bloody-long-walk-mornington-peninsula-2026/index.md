@@ -11,7 +11,7 @@ Event     Racing & Sport     25 October 2026     One-off date
 
 35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
-[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>)
+[Get tickets](<https://www.bloodylongwalk.com.au/mornington-peninsula/>)
 
 Worth the drive
 
@@ -25,7 +25,7 @@ Who it's for: teams who want a hard physical day with a cause attached. The rout
 
 The practical move: register early, build a fundraising page from the day you sign up, and train on the actual Portsea-to-Sorrento section in the months before. Stay overnight in Portsea the night before so you're at the start without a 5am drive. Dinner in Sorrento or Mornington at the finish.
 
-[Check the latest details at the source →](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>)
+[Check the latest details at the source →](<https://www.bloodylongwalk.com.au/mornington-peninsula/>)
 
 Hosted at
 
@@ -63,7 +63,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Get tickets](<https://www.bloodylongwalk.com.au/lp/mornington-peninsula/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Bloody+Long+Walk+%E2%80%93+Mornington+Peninsula+2026&dates=20261025%2F20261026&details=35km+charity+walk+from+Point+Nepean+Quarantine+Station+to+Martha+Cove+Marina+for+the+Mito+Foundation.+Walk%2C+jog+or+run.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-bloody-long-walk-mornington-peninsula-2026%2F&location=Point+Nepean+National+Park+%28Quarantine+Station+start%29%2C+Point+Nepean+Road%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Get tickets](<https://www.bloodylongwalk.com.au/mornington-peninsula/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Bloody+Long+Walk+%E2%80%93+Mornington+Peninsula+2026&dates=20261025%2F20261026&details=35km+charity+walk+from+Point+Nepean+Quarantine+Station+to+Martha+Cove+Marina+for+the+Mito+Foundation.+Walk%2C+jog+or+run.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-bloody-long-walk-mornington-peninsula-2026%2F&location=Point+Nepean+National+Park+%28Quarantine+Station+start%29%2C+Point+Nepean+Road%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -81,7 +81,7 @@ Racing & Sport  30 Nov
 
 ### ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
-The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November.
+A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 

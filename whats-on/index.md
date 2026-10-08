@@ -179,7 +179,7 @@ Portsea · Racing & Sport
 
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
-The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.
+A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.
 
 8am · Sorrento · Racing & Sport
 

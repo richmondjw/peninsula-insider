@@ -85,7 +85,7 @@ Racing & Sport  30 Nov
 
 ### ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
-The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November.
+A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 

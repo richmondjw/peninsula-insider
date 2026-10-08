@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-09",
-  "generatedAt": "2026-10-08T20:13:06.802Z",
+  "generatedAt": "2026-10-08T23:04:24.485Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -212,7 +212,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
         "startDate": "2026-11-30",
         "endDate": "2026-11-30",
-        "description": "The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.",
+        "description": "A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     }
@@ -522,7 +522,7 @@
       "startDate": "2026-10-25",
       "endDate": "2026-10-25",
       "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "sourceUrl": "https://www.bloodylongwalk.com.au/lp/mornington-peninsula/",
+      "sourceUrl": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
       "factCheckedOn": null,
       "recurrence": "one-off",
       "category": "racing-sport",
@@ -566,7 +566,7 @@
       "category": "racing-sport",
       "place": null,
       "venue": null,
-      "summary": "The Old Lauristonians' golf day at Sorrento Golf Club on Monday 30 November. Choose an 18-hole or 9-hole competition, or book lunch only; registration is required.",
+      "summary": "A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

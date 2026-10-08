@@ -1,36 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-08T20:19:00.973Z",
+  "generatedAt": "2026-10-08T23:09:15.676Z",
   "baselineAvailable": true,
-  "fromSnapshot": "5379b76e20b8b4beea1dd43274db02689213c8811986b147f27afa31a5014278",
-  "toSnapshot": "af528e2b7f32f085b7e3514ed7c95e958d0f71606352b0fc7fd3f471b82f83f6",
-  "previousGeneratedAt": "2026-10-08T19:23:15.976Z",
+  "fromSnapshot": "af528e2b7f32f085b7e3514ed7c95e958d0f71606352b0fc7fd3f471b82f83f6",
+  "toSnapshot": "21357213d1d18f162aed8725b8095e73f8b5d374aeba727b2971024a8c943189",
+  "previousGeneratedAt": "2026-10-08T20:19:00.973Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 5,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/index.md",
-      "contentSha256": "c74186031b9d75c467520e043e647f983c8a540d52ddbdadca3068e4a8f6b0b6",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "e403f04223d82a25121e0c67e91a11b93e4fe38a8932b04036cf209a3ed29e7a",
-      "previousContentSha256": "c68f433cf1cd177b8e64030d61bb07f77dad72b70d740e59b1aed9692fe9c5bc"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4683b48231a235cf8180e6ecb5e6cfd579ad474dedd13f62ae761f4d1a76a5a6",
-      "previousContentSha256": "c24020dd7034d70f1afd503625c13479cdd05916344a79440e1ce484d5997c18"
+      "contentSha256": "c6feec6a64daf9b6e0c0a2b86eea2d087ec515b28200e1a2eba1fa97b796534a",
+      "previousContentSha256": "4683b48231a235cf8180e6ecb5e6cfd579ad474dedd13f62ae761f4d1a76a5a6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "a95ecfacb68fc0165f14df96af91237775c44d52ce6d78751ce7e9fe3d9348ec",
+      "previousContentSha256": "15134079fc6bb80342bfd96eca3cdf21d32cc0c60fc9916858130608c09d9096"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/index.md",
+      "contentSha256": "7c83a5efbf29dcd94f999686420bd9c7399d4e81a08c85851a7f235a4fae547a",
+      "previousContentSha256": "a2c22964577a27bf9447981590b297c6121a12f432c768219c4afb4a22e54326"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
+      "contentSha256": "97507682d9677467a1ff753f61d47e241ca34694a70e28d9b029c42196767828",
+      "previousContentSha256": "59431bc94958ba5d5c5e1eeca62238d2a1f4b5facf2dbc5c1f3943ff1ad6ce52"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
+      "contentSha256": "d43f3e39030c1ca7396be13c9d86c06b22e421648da65fbca437391717b48f6e",
+      "previousContentSha256": "d157fb0d64853ad113972666f42ba24bc883b1dfbc6c00a6ad0a726d349fb917"
     }
   ]
 }
