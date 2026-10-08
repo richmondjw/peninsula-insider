@@ -72,7 +72,7 @@ const placeId = venue.data.place?.id ?? venue.data.place;
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: absUrl('/') },
   { name: 'Stay', url: absUrl('/stay/') },
-  { name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) },
+  ...(isListableVenue(venue) ? [{ name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) }] : []),
   { name: venue.data.name, url: canonical },
 ]);
 

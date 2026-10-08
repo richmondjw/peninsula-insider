@@ -31,6 +31,10 @@ export interface Props {
 
 const { venue, section, related = [], articles = [], itineraries = [] } = Astro.props;
 const data = venue.data;
+// Pairings are current recommendations, so paused/closed venues cannot return
+// through free-text cross-links after being removed from the directory.
+const unavailableNames = new Set((await getCollection('venues')).filter(v => !isListableVenue(v)).map(v => v.data.name.trim().toLowerCase()));
+const availablePairings = Array.isArray(data.pairWith) ? data.pairWith.filter((name: string) => !unavailableNames.has(name.trim().toLowerCase())) : [];
 const visitorInformation = approvedVisitorInformation(data.visitorInformation);
 const liveStatusUrl = resolveLiveStatusUrl(data);
 const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(data.coordinates ? `${data.coordinates.lat},${data.coordinates.lng}` : `${data.name}, ${data.address}`)}`;
@@ -183,7 +187,7 @@ const placeId = data.place?.id ?? data.place;
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: sectionLabel, href: sectionHref },
-  { label: placeLabel(data.place), href: `/explore/places/${placeId}/` },
+  ...(isListableVenue(venue) ? [{ label: placeLabel(data.place), href: `/explore/places/${placeId}/` }] : []),
   { label: data.name },
 ];
 
@@ -217,8 +221,7 @@ function dedupeTags(tags: unknown[]): string[] {
   return out;
 }
 
-const allTags = dedupeTags([...moodTags, ...seasonTags, ...audienceTags])
-  .filter((tag) => data.status !== 'paused' || !/cellar[\s_-]*door/i.test(tag));
+const allTags = isListableVenue(venue) ? dedupeTags([...moodTags, ...seasonTags, ...audienceTags]) : [];
 
 const isWinery = section === 'wine';
 const hasFaq = isWinery && data.faq?.length > 0;
@@ -287,10 +290,10 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
     <div class="venue-detail__meta">
       <a href={sectionHref} class="venue-detail__type">{sectionLabel}</a>
       <span class="venue-detail__dot" aria-hidden="true"></span>
-      <span class="venue-detail__price">{typeLabel[data.type] ?? data.type}</span>
+      <span class="venue-detail__price">{isPaused ? "Listing paused" : typeLabel[data.type] ?? data.type}</span>
       <span class="venue-detail__dot" aria-hidden="true"></span>
-      <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="venue-detail__place">{placeLabel(data.place)}</a>
-      {subregionLabel && (
+      {!isPaused && !isClosed && <a href={`/explore/places/${data.place?.id ?? data.place}/`} class="venue-detail__place">{placeLabel(data.place)}</a>}
+      {!isPaused && !isClosed && subregionLabel && (
         <><span class="venue-detail__dot" aria-hidden="true"></span>
         <span class="venue-detail__subregion">{subregionLabel}</span></>
       )}
@@ -403,7 +406,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
         >
           <img src={hero.src} alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} data-pi-no-hydrate={section === 'eat' ? 'true' : undefined} fetchpriority="high" decoding="async" />
           <div class="venue-detail__hero-fog"></div>
-          {!isUnverifiedPaused && <span class="venue-detail__hero-label">{heroLabel}</span>}
+          {!isPaused && !isClosed && <span class="venue-detail__hero-label">{heroLabel}</span>}
         </figure>
         {heroCredit && (
           <p class="venue-detail__hero-credit">{venueSlug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : ''}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label={data.name + " image source"}>Source</a>{heroLicenceUrl && <><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href={heroLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}{flindersCommonsHero && <span> Resized and converted to WebP.</span>}</p>
@@ -452,7 +455,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
         )}
 
         {/* ── WORTH KNOWING - quick-scan trust layer ── */}
-        {hasWorthKnowing && (
+        {!isPaused && !isClosed && hasWorthKnowing && (
           <div class="worth-knowing">
             <p class="worth-knowing__heading">Worth knowing</p>
             <dl class="worth-knowing__grid">
@@ -503,7 +506,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
         )}
 
         {/* ── INSIDER ACTIONS strip ── */}
-        {(data.ifOnlyOneThing || data.pairWith) && (
+        {!isPaused && !isClosed && (data.ifOnlyOneThing || availablePairings.length > 0) && (
           <div class="venue-actions-strip">
             {data.ifOnlyOneThing && (
               <div class="venue-actions-strip__item">
@@ -511,10 +514,10 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
                 <p class="venue-actions-strip__value">{data.ifOnlyOneThing}</p>
               </div>
             )}
-            {data.pairWith && (
+            {availablePairings.length > 0 && (
               <div class="venue-actions-strip__item">
                 <p class="venue-actions-strip__label">Works well with</p>
-                <p class="venue-actions-strip__value">{Array.isArray(data.pairWith) ? data.pairWith.join(' · ') : data.pairWith}</p>
+                <p class="venue-actions-strip__value">{availablePairings.join(' · ')}</p>
               </div>
             )}
           </div>
@@ -570,7 +573,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
         )}
       </div>
 
-      <aside class="facts">
+      {!isPaused && !isClosed && <aside class="facts">
         <p class="facts__title">At a glance</p>
         <dl>
           <dt>Type</dt>
@@ -734,7 +737,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
           >{data.type === 'suite' || data.type === 'accommodation' ? 'Check availability' : isPortPhillipEstate ? 'Check suite availability' : isOceanEightContact ? 'Contact Ocean Eight' : isPolperroDiningLink ? 'View dining options' : 'Book now'}</a>
         )}
         {data.affiliateNote && <p class="facts__affiliate-note">{data.affiliateNote}</p>}
-      </aside>
+      </aside>}
     </div>
 
     {data.editorVerdict && (
@@ -853,7 +856,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
 <section class="venue-ask-pi">
   <div class="container">
     <div class="venue-ask-pi__inner">
-      <p class="venue-ask-pi__prompt">Not sure how to build a day around {data.name}?</p>
+      <p class="venue-ask-pi__prompt">{isPaused || isClosed ? "Looking for another place for your Peninsula day?" : `Not sure how to build a day around ${data.name}?`}</p>
       <a href="/search/" class="pi-btn pi-btn--text" data-open-search data-evt="search_open">
         Search Peninsula Insider
         <svg width="12" height="12" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -882,7 +885,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
   </section>
 )}
 
-{itineraries.length > 0 && (
+{!isPaused && !isClosed && itineraries.length > 0 && (
   <section class="escape-callout">
     <div class="container">
       <div class="venues__header">
@@ -906,7 +909,7 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
       <div class="venues__header">
         <div>
           <p class="label label--accent">{section === 'eat' ? 'Nearby picks' : 'More to explore'}</p>
-          <h2 class="venues__title">{section === 'eat' ? `More from ${placeLabel(data.place)}` : section === 'stay' ? 'Other stays to compare' : 'Other wine experiences to compare'}</h2>
+          <h2 class="venues__title">{section === 'eat' ? (isUnverifiedPaused ? "Other places to consider" : `More from ${placeLabel(data.place)}`) : section === 'stay' ? 'Other stays to compare' : 'Other wine experiences to compare'}</h2>
           {section === 'stay' && <p class="venues__sub">Compare the town, setting and stay format before deciding.</p>}
         </div>
         <a href={sectionHref} class="venues__link">Back to {sectionLabel} →</a>
@@ -923,9 +926,9 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
   <div class="container">
     <div class="venues__header">
       <div>
-        <p class="label label--accent">Build a day around this</p>
-        <h2 class="venues__title">Planning guides that include {data.name}</h2>
-        <p class="venues__sub">Peninsula Insider guides that put this stop into the context of a full day or weekend.</p>
+        <p class="label label--accent">{isPaused || isClosed ? "Find another plan" : "Plan your Peninsula day"}</p>
+        <h2 class="venues__title">More ways to plan your Peninsula visit</h2>
+        <p class="venues__sub">{isPaused || isClosed ? "Browse guides and current alternatives for your day or weekend." : "Ideas for the rest of your Peninsula day or weekend."}</p>
       </div>
     </div>
     <div class="venues__grid venues__grid--links">
@@ -951,17 +954,17 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
           <a href="/explore/plans/" class="pi-btn pi-btn--solid">Weekend plans →</a>
         </>
       )}
-      {data.dogFriendly && (
+      {!isPaused && !isClosed && data.dogFriendly && (
         <a href="/dog-friendly/" class="pi-btn pi-btn--solid">Dog-friendly Peninsula →</a>
       )}
-      {(moodTags.includes('rainy-day') || seasonTags.includes('winter')) && (
+      {!isPaused && !isClosed && (moodTags.includes('rainy-day') || seasonTags.includes('winter')) && (
         <a href="/journal/rainy-day-peninsula/" class="pi-btn pi-btn--solid">Rainy-day Peninsula →</a>
       )}
     </div>
   </div>
 </section>
 
-<PiArticleActions
+{!isPaused && !isClosed && <PiArticleActions
   kind="venue"
   slug={venue.id ?? data.slug}
   section={section}
@@ -969,11 +972,11 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
   href={venueHref(venue)}
   dek={data.editorNote}
   imageUrl={data.heroImage?.src}
-/>
+/>}
 {/* Destination hierarchy link - editorial return path to the parent place guide.
     Venue pages are the deepest layer of the ecosystem; this closes the loop.
     Renders only when place data is available (true for all 141 tagged venues). */}
-{(data.place?.id ?? data.place) && (
+{!isPaused && !isClosed && (data.place?.id ?? data.place) && (
   <div class="venue-place-link">
     <div class="container">
       <a

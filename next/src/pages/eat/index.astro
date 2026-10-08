@@ -114,33 +114,45 @@ function verdictLine(signature?: string): string | undefined {
 
 // ── The Six: editorially pinned by the desk. Verdicts are Critic
 //    voice, 25 words maximum, distilled from each venue's own editorial copy.
-const sixPicks: Array<{ slug: string; verdict: string; plateLabel?: string }> = [
+const sixPicks: Array<{ slug: string; verdict: string; plateLabel?: string; planning: string; source: string }> = [
   {
     slug: 'merricks-general-wine-store',
+    planning: 'Breakfast and lunch; reserve online',
+    source: 'https://merricksstore.com.au/reservations/',
     plateLabel: 'A village lunch',
     verdict: 'Breakfast or lunch in Merricks, with local wines and fireside or deck tables. A village stop before exploring the ridge.',
   },
   {
     slug: 'commonfolk-coffee',
+    planning: 'Walk-ins or limited reservations',
+    source: 'https://www.commonfolkcoffee.com.au/pages/locations/mornington',
     verdict: 'A Mornington cafe beside its roastery, with a full menu and dog-friendly courtyard. Useful for coffee, brunch or a casual family stop.',
   },
 
   {
     slug: 'tedesca-osteria',
+    planning: 'Allow 3½–4 hours; no vegan menu',
+    source: 'https://www.tedesca.com.au/book-tedesca',
     plateLabel: 'The long lunch',
-    verdict: 'A fixed-menu osteria in Red Hill, with produce from its own farm. Choose this for a meal to plan your day around.',
+    verdict: 'A fixed-menu farm lunch in Red Hill. Plan a long sitting and tell the kitchen about dietary needs when booking.',
   },
 
   {
     slug: 'doot-doot-doot',
+    planning: 'Evening dining; check availability',
+    source: 'https://jackalopehotels.com/drink-dine/',
     verdict: 'Jackalope’s dining room offers a multi-course tasting menu to guests and visitors. Choose this for an evening occasion.',
   },
   {
     slug: 'barragunda-dining',
+    planning: 'Four-course set menu; reserve ahead',
+    source: 'https://www.barragunda.com.au/dining/',
     verdict: 'A four-course farm menu in Cape Schanck, built around estate produce. Choose this for a planned farm-to-table meal; reserve ahead.',
   },
   {
     slug: 'portsea-hotel',
+    planning: 'Pub dining; check table availability',
+    source: 'https://portseahotel.com.au/',
     verdict: 'A seaside pub with dining areas overlooking Port Phillip Bay. Choose it for a coastal meal, then check the calendar for live music.',
   },
 ];
@@ -158,6 +170,8 @@ for (const pick of sixPicks) {
     plateLabel: pick.plateLabel,
     verdict: pick.verdict,
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
+    planningNote: pick.planning,
+    booking: {url: pick.source, label: 'Planning & availability'},
     freshness: isoDate(informationCheckedOn(venue.data)),
     facets: getFacets('venue', venue.data),
     saveSection: 'eat',
@@ -222,7 +236,7 @@ const journalItems = (await Promise.all([
   ),
   articleJournalItem(
     'the-long-lunch',
-    'Three hatted restaurants, a bay view, and the case for letting Sunday lunch run long.',
+    'A lunch on the ridge, a bay view, and the case for leaving the afternoon open.',
   ),
   articleJournalItem(
     'the-seafood-list',
@@ -293,6 +307,7 @@ export const prerender = true;
     sub="Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability."
     surface="eat"
     items={sixItems}
+    missingImagePlate
     suppressImageHydration
     lockImageEditing
   />

@@ -121,3 +121,36 @@ The final eight-route mobile axe scan reports no WCAG A/AA violations after the 
 The eight anchors now share one typographic hierarchy and interaction language. Eat uses early practical discovery, an editorial shortlist, progressive comparison rows and an image-bearing reading shelf. Photos retain source and subject truth rather than becoming interchangeable venue pictures. Home's larger cover title is a documented functional exception, not a second visual system.
 
 **Readiness:** a bounded improvement candidate with changed-reader journeys and image safeguards verified; no confirmed changed-hub hard gate remains. It is **not accepted as a 99/100 flagship page**. Catalogue details must still be rechecked against current operator evidence, assistive-technology paths need fuller verification, performance needs public cold-load evidence and remediation, and the shortlist would benefit from more approved subject-specific imagery. Those deductions remain open in the scorecards. Build/deployment success cannot close them.
+
+## Iteration 5: source integrity and practical comparison (9 October 2026, candidate)
+
+Continuation of the fixed rubric after production242d442. Target99 remains open. No score is assigned to this candidate before rendered review.
+
+- Two independent source audits covered the original catalogue allocation. Field corrections cover misdirecting contacts/addresses, restaurant identity, unsupported dishes, all-farm claims and booking promises. Existing whole-record verification dates remain unchanged.
+- The Eat shortlist adds supported planning distinctions and official planning/availability links. Tedesca's long sitting and lack of vegan menu are explicit; Commonfolk retains walk-in possibilities. These are operator statements, not live table availability.
+- Anonymous visitors no longer download the inline editing client. Stubbed browser journeys prove initial editor access, remount after soft navigation, denied controls outside the allowlist, and activation/sign-out through the installed auth library's real BroadcastChannel notification contract. No actual account changes performed.
+- Eight recommendations are temporarily paused: Johnny Ripe has an operator-confirmed retail pause; Peninsula Fresh and Via Boffe have unresolved entity/location records; Georgie Bass, Small Stone Pantry, Pier Street Fresh Seafood, Sourdough Kitchen and Red Hill Cheese lack sufficient current visitor/operator evidence after independent research. Canonical URLs and recoverable Git history remain. A verification pause is not a closure finding. The five latter entries are removed from current recommendation surfaces, with unsupported visitor directions/contact/actions withheld.
+- Two initial build attempts exposed required-address/knownFor schema constraints in paused records; those must be repaired before publication. Source-link reachability is recorded using real HTTP probes rather than resetting the gate.
+- Relevant evidence: EAT-FACT-CORRECTIONS-2026-10-09.md; EAT-CATALOGUE-A-M-SOURCE-COVERAGE-2026-10-09.md; EAT-CATALOGUE-FACT-AUDIT-N-Z-2026-10-09.md. Their field-scoped support does not certify every inherited article or venue claim.
+
+Remaining acceptance: completed content/publication build, exact revised catalogue count, paused-page recovery, map/directions correctness, mobile full planning-note readability, accessibility-tree/keyboard review, controlled loading measurement, independent fixed-rubric regrade and live release acceptance. No claim of99 or final readiness.
+
+### Iteration-five assessment and measured evidence
+
+Exact candidate full build passed on9October. Three independent fixed-rubric assessments: implementation owner93.25, reviewer one93.25, reviewer two95.25; all provisional. These are separate judgments, not an averaged99 acceptance. Reviewer one found residual paused-page itinerary wording; reviewer two retained a comparison-dimension deduction.
+
+All74 then-current reader journeys passed. Root's eight-anchor390px axe WCAG A/AA scan found0violations,0overflow and0running animations with reduced motion. Keyboard Commonfolk search → directory Save → Saved list → Trip → My Trip passed, preserving focus and a stable accessible name with aria-pressed=true. Real AX structure was inspected; actual screen-reader speech was not tested. Supabase/Pagefind are stubbed at reader-test boundaries.
+
+Three cold slow-mobile Lighthouse samples against the Astro preview: performance78/79/79, accessibility100each, LCP4.612/4.616/4.620seconds, TBT60/78/81ms, CLS0.000128each. Median performance79 and LCP4.616seconds. Contrary to an earlier assumption, this preview serves gzip (HTML42265wirebytes observed); the public HTML serves Brotli (45740wirebytes on the prior revision). Do not describe these samples as uncompressed. Large shared stylesheet payloads remain a measured render-blocking issue. Editor deferral is a verified loading change, not a proven speed-score gain. Public field INP is unavailable.
+
+## Iteration6: truthful recovery after independent review
+
+The shared venue template no longer encourages building a day around paused/closed listings. It withholds direct itinerary recommendations and new venue-save prompts, uses neutral alternative guide wording, and avoids a current place-return claim where visitor identity/location is not verified. Existing reader saved history is preserved. The generic guide shelf no longer claims that every linked guide includes the named venue.
+
+A browser recurrence check now verifies that all six full planning notes and complete action rows remain visible at390/1440px. Ten targeted reader checks pass, including all eight recovery pages, source-safe discovery and anonymous/editor/auth-change loading. Full publication build passes. Final wider reader and independent recovery checks are still recorded below when complete. Catalogue is44active recommendations, with all eight canonical recovery pages retained; this is not a closure claim.
+
+The99 target remains open: remaining whole-field/linked-guide freshness, spoken assistive assessment and measured speed deductions are substantive. No baseline or scoring weights were weakened. Next performance work should target the shared critical styles based on measured evidence, while preserving dynamic UI states and the eight-page presentation contract.
+
+Final recovery follow-up: independent review identified residual type/award fields in the At a glance panel. The final template withholds that panel for paused/closed listings, plus old category/location/breadcrumb/hero labels, recommendation tags/pairings and new venue-save prompts. Eat paused titles say listing paused. Own business schema/events no longer imply current visitor operation. Stay breadcrumb schema mirrors its shared visible trail. Johnny Ripe's stale booking URL/contact removed; its verified current brand website is retained in the source record. Existing saved history is untouched. These are evidence-driven corrections, not additional score credits.
+
+Wider iteration-six reader suite:75passed,0failed. The last withholding changes require exact-source publication and targeted recovery acceptance, recorded at release. Final independent provisional scores94.25/94.25; implementation owner93.25 remains provisional. The flagship99 acceptance gate is open.

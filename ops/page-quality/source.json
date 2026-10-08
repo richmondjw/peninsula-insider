@@ -1,16 +1,17 @@
 {
   "sitemapUrl": "https://peninsulainsider.com.au/sitemap.xml",
-  "snapshotFile": "2026-10-08-sitemap.xml",
-  "sha256": "ff590c2daf7edbfba21c42fe96f742db0e0e3bcd066e3aedf9bf720b245deb57",
-  "processedAtUtc": "2026-10-07T14:39:00+00:00",
-  "urlCount": 595,
+  "snapshotFile": "2026-10-09-eat-continuation-sitemap.xml",
+  "sha256": "172699e3e9a27df852f9bbbbc97682bf193041b1fb4954c1cc4b19ed4360cfd8",
+  "processedAtUtc": "2026-10-08T15:25:52+00:00",
+  "urlCount": 588,
   "tierCounts": {
     "T1": 60,
-    "T2": 387,
-    "T3": 148
+    "T2": 379,
+    "T3": 149
   },
-  "removedCount": 29,
-  "snapshotSource": "https://raw.githubusercontent.com/richmondjw/peninsula-insider/6b975579ec017d1f3d55fbd45b70d1f438a1d893/sitemap.xml",
-  "deploymentSourceSha": "b6e81bcee5add51c77db25b7840ae15dbcbc86c7",
-  "limitation": "Snapshot retrieved from the immutable deployed gh-pages commit; direct public sitemap HTTP fetch was unavailable in this session."
+  "removedCount": 36,
+  "snapshotEvidenceState": "validated-build-candidate",
+  "sourceBaseSha": "242d4423ef966deb7c4423c062ea160b2cbf970d",
+  "snapshotSource": "next/dist/sitemap.xml",
+  "limitation": "Built candidate snapshot; compare with the actual public sitemap and deployment revision after release. No live equality is implied by this file."
 }

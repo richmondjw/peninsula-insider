@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-07T19:35:20.027Z",
+  "updatedAt": "2026-10-08T14:10:25.759Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -995,6 +995,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://johnnyripe.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Johnny Ripe | FRESHLY MADE ON THE MORNINGTON PENINSULA",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://johnnyripe.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -1320,6 +1328,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Merricks General Wine Store - Merricks Store"
+    },
+    {
+      "url": "https://merricksstore.com.au/reservations/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Reservations - Merricks Store",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://mokedining.com.au",
@@ -2002,6 +2018,30 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://standrewsbeachbrewery.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Beer Breweries in Melbourne and Mornington",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://stellasdromanahotel.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Stella&#039;s Hotel Dromana | Bars in Dromana | Pubs in Dromana | Hotels in Dromana | Restaurants in Dromana",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://stellasdromanahotel.com.au/contact/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Contact | Stella&#039;s Hotel Dromana",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://stringerssorrento.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -2556,12 +2596,28 @@
       "reviewedOn": "2026-09-13"
     },
     {
+      "url": "https://www.barmahparkwines.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Barmah Park Restaurant &amp; Cellar Door",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.barragunda.com.au/",
       "verdict": "ok",
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Home - Barragunda"
+    },
+    {
+      "url": "https://www.barragunda.com.au/dining/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Dining - Barragunda",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.bassandflindersdistillery.com",
@@ -2822,6 +2878,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.commonfolkcoffee.com.au/pages/locations/mornington",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mornington &ndash; Commonfolk Coffee",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.countryracing.com.au/mornington",
       "verdict": "ok",
       "httpCode": "200",
@@ -2870,6 +2934,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "News &ndash; Crittenden Wines"
+    },
+    {
+      "url": "https://www.crittendenwines.com.au/pages/restaurant",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Winery Restaurant, Mornington Peninsula | Crittenden Wines",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.dexterwines.com.au",
@@ -3311,6 +3383,14 @@
       "pageTitle": "Jetty Road Brewery | Beers For You | Mornington Peninsula"
     },
     {
+      "url": "https://www.jettyroad.com.au/dromana",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Visit Our Brewery &mdash; Jetty Road Brewery",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.kellilundberg.art/exhibitions/",
       "verdict": "ok",
       "httpCode": "200",
@@ -3468,6 +3548,14 @@
       "replacement": "https://www.marthastable.com.au/book-a-table/"
     },
     {
+      "url": "https://www.marthastable.com.au/restaurant",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Restaurant",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.mcneillrealestate.com.au/post/Mornington-Peninsula-Mother%E2%80%99s-Day-Weekend-Guide-2026",
       "verdict": "ok",
       "httpCode": "200",
@@ -3589,6 +3677,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Mornington Peninsula, Wedding Venues, Mornington Golf ClubMornington Peninsula’s Premier Golf Club | Welcome to the Mornington Peninsula’s Premier Golf Club"
+    },
+    {
+      "url": "https://www.morningtonhotel.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "MORNINGTON HOTEL",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.morningtonmusicfestival.com.au",
@@ -4822,6 +4918,14 @@
       "pageTitle": "Red Hill Brewery"
     },
     {
+      "url": "https://www.redhillbrewery.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hill Brewery",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.redhillbrewery.com.au/brewers-cottage/",
       "verdict": "ok",
       "httpCode": "200",
@@ -5159,6 +5263,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Ten Minutes by Tractor | Cellar Door &amp; Wine Experiences | Ten Minutes…"
+    },
+    {
+      "url": "https://www.tenminutesbytractor.com.au/contact",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Ten Minutes by Tractor | Contact",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.tenminutesbytractor.com.au/Experiences/Terroir-Masterclass",

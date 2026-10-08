@@ -29,15 +29,17 @@ test('progressive directory exposes every place and preserves keyboard context',
   const reader = await site.reader();
   try {
     await reader.load('/eat/');
+    const catalogueSize = await reader.page.$$eval('#directory [data-filter-countable]', rows => rows.length);
+    assert.ok(catalogueSize > 16, 'meaningful complete catalogue remains available');
     assert.equal(await reader.page.evaluate(visibleRows), 8);
     await reader.page.$eval('[data-directory-more]', el => el.click());
     assert.equal(await reader.page.evaluate(visibleRows), 16);
     await reader.page.$eval('[data-directory-all]', el => el.click());
-    assert.equal(await reader.page.evaluate(visibleRows), 52);
+    assert.equal(await reader.page.evaluate(visibleRows), catalogueSize);
     assert.equal(await reader.page.evaluate(() => document.activeElement.id), 'directory-heading');
     await reader.page.setJavaScriptEnabled(false);
     await reader.page.reload({waitUntil:'networkidle0'});
-    assert.equal(await reader.page.evaluate(visibleRows), 52);
+    assert.equal(await reader.page.evaluate(visibleRows), catalogueSize);
   } finally { await reader.close(); }
 });
 
@@ -74,4 +76,18 @@ test('desktop section headings remain below the common anchor title scale', asyn
       assert.ok(await reader.page.$$eval('main h2', hs => hs.every(h => parseFloat(getComputedStyle(h).fontSize) <= 32)), `${route}: desktop section hierarchy`);
     }
   } finally { await reader.close(); }
+});
+
+test('six planning notes remain fully readable beside working mobile and desktop actions', async () => {
+ const reader=await site.reader();try{
+ for(const width of [390,1440]){
+ await reader.page.setViewport({width,height:844});await reader.load('/eat/');
+ await reader.page.$eval('.v5-six__more',el=>el.open=true);
+ const notes=await reader.page.$$eval('#the-six .pi-card__planning',els=>els.map(el=>({text:el.textContent.trim(),rect:el.getBoundingClientRect().toJSON(),clipped:el.scrollHeight>el.clientHeight+1,overflow:el.scrollWidth>el.clientWidth+1})));
+ assert.equal(notes.length,6,'six complete choices retain their practical planning notes');
+ assert.ok(notes.every(note=>note.text.length>0&&note.rect.height>0&&!note.clipped&&!note.overflow),JSON.stringify({width,notes}));
+ const actions=await reader.page.$$eval('#the-six .pi-card__actions',els=>els.map(el=>el.getBoundingClientRect().toJSON()));
+ assert.ok(actions.every(rect=>rect.left>=0&&rect.right<=width),`${width}: complete action rows fit`);
+ }
+ }finally{await reader.close();}
 });
