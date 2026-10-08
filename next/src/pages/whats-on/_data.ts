@@ -107,6 +107,22 @@ export function truncateWords(text: unknown, maxWords: number): string {
   return `${words.slice(0, maxWords).join(' ')}…`;
 }
 
+// A reader teaser may be short, but it must finish its thought. Word slicing
+// previously cut source qualifiers mid-sentence in both picks and day rows.
+export function completeEventTeaser(text: unknown, maxWords: number): string {
+  const copy = String(text ?? '').replace(/\s+/g, ' ').trim();
+  if (!copy || copy.split(' ').length <= maxWords) return copy;
+  const ends = [...copy.matchAll(/[.!?](?=\s+[A-Z“"]|$)/g)].map((match) => match.index! + 1);
+  if (!ends.length) return copy;
+  let chosen = copy.slice(0, ends[0]);
+  for (const end of ends) {
+    const sentenceGroup = copy.slice(0, end);
+    if (sentenceGroup.split(' ').length > maxWords) break;
+    chosen = sentenceGroup;
+  }
+  return chosen.trim();
+}
+
 function timeLabelFor(startTime: unknown): string {
   if (typeof startTime !== 'string') return '';
   const m = startTime.match(/^(\d{1,2}):(\d{2})/);
@@ -192,7 +208,7 @@ export async function loadLiveEvents(
       slug,
       href: `/whats-on/${slug}/`,
       title: data.title,
-      oneLiner: truncateWords(data.editorVerdict ?? data.whyWeCare ?? data.summary, 20),
+      oneLiner: completeEventTeaser(data.editorVerdict ?? data.whyWeCare ?? data.summary, 40),
       meta,
       timeLabel,
       categoryLabel,
@@ -395,7 +411,7 @@ export async function getPicks(
     const dateISO = isoDate(day);
     return {
       live,
-      verdict: truncateWords(verdict, 25),
+      verdict: completeEventTeaser(verdict, 25),
       dateISO,
       dayLabel: day.toLocaleDateString('en-AU', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC' }),
       occurrence: occurrenceStateFor(live, dateISO, now),
@@ -456,7 +472,10 @@ export async function getPicks(
     };
   };
   const candidates = rotateDaily(scored, now)
-    .map(({ e }) => toPick(e, (e.event.data as any).editorVerdict ?? e.oneLiner))
+    .map(({ e }) => {
+      const data = e.event.data as Record<string, any>;
+      return toPick(e, data.editorVerdict ?? data.whyWeCare ?? data.summary);
+    })
     .filter((pick) => pick.occurrence.phase !== 'past')
     .map(identity);
 

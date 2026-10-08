@@ -111,7 +111,11 @@ const metaText = [meta.join(' · '), spanLabel, statusLabel].filter(Boolean).joi
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
-  .wo-row__dek {
+  .wo-row .wo-row__dek {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
     margin: 2px 0 0;
     color: var(--text);
     font-style: normal;
