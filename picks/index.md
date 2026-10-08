@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/>) - Doot Doot Doot's vineyard dining in Merricks North, the Cape Woolamai ridge walk at peak wattle, and Dominion Wrestling's charity bout at Commonfolk on Friday night.
+
 - [Avani Syrah in Red Hill South, the Bushrangers Bay clifftop loop, and Peppers Moonah Links live music this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/>) - Avani Wines' skin-contact whites and Syrah at Red Hill South, Bushrangers Bay coastal loop in peak spring flower, and Acoustic Saturdays at Peppers Moonah Links from 5pm this Saturday.
 
 - [Many Little in spring, the Mornington Peninsula Rail Trail, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/>) - Sri Lankan-inflected fine dining at Polperro, the Rail Trail in full wildflower season, and live music on the lawn at Fingal this Saturday from 5pm.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Foxeys Hangout, the Bushrangers Bay cliff path, and Arj Barker at The Conti](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/>) - Foxeys Hangout's biodynamic sparkling flight in the spring sun, the Bushrangers Bay cliff path at its wildflower peak, and Arj Barker live at Barlow on Wednesday night.
 
 - [Dromana Hotel deck, wildflower heathland at Greens Bush, and the Dromana Community Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-24/>) - The Dromana Hotel's bay-view deck in first-spring warmth, the spider orchids peaking along Greens Bush, and Saturday's Dromana Community Market before the crowds.
-
-- [Main Ridge Dairy, Seawinds Gardens, and Pt. Leo's sculpture park](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/>) - Build a spring day around Main Ridge Dairy's goat cheeses, the short paths at Seawinds Gardens, and sculpture at Pt. Leo Estate.
 
 ## Planning a particular weekend?
 

@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-08T19:23:15.976Z",
-  "snapshotId": "5379b76e20b8b4beea1dd43274db02689213c8811986b147f27afa31a5014278",
+  "generatedAt": "2026-10-08T20:19:00.973Z",
+  "snapshotId": "af528e2b7f32f085b7e3514ed7c95e958d0f71606352b0fc7fd3f471b82f83f6",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 588,
+  "count": 589,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5754,6 +5754,23 @@
       "markdownBytes": 8866
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
+      "title": "Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/index.md",
+      "contentSha256": "c74186031b9d75c467520e043e647f983c8a540d52ddbdadca3068e4a8f6b0b6",
+      "citation": {
+        "title": "Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
+        "publishedAt": "2026-10-09T00:00:00.000Z",
+        "modifiedAt": "2026-10-09T00:00:00.000Z"
+      },
+      "htmlBytes": 174110,
+      "markdownBytes": 8815
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6558,7 +6575,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "c68f433cf1cd177b8e64030d61bb07f77dad72b70d740e59b1aed9692fe9c5bc",
+      "contentSha256": "e403f04223d82a25121e0c67e91a11b93e4fe38a8932b04036cf209a3ed29e7a",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6566,8 +6583,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 122899,
-      "markdownBytes": 5703
+      "htmlBytes": 122958,
+      "markdownBytes": 5762
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6592,7 +6609,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "c24020dd7034d70f1afd503625c13479cdd05916344a79440e1ce484d5997c18",
+      "contentSha256": "4683b48231a235cf8180e6ecb5e6cfd579ad474dedd13f62ae761f4d1a76a5a6",
       "citation": {
         "title": "Friday 9 October 2026",
         "publisher": "Peninsula Insider",
