@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-08",
-  "generatedAt": "2026-10-08T03:56:19.023Z",
+  "generatedAt": "2026-10-08T04:51:29.866Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -108,7 +108,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
         "startDate": "2026-10-10",
         "endDate": "2026-10-10",
-        "description": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.",
+        "description": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -399,7 +399,7 @@
       "category": "live-music",
       "place": "fingal",
       "venue": null,
-      "summary": "Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.",
+      "summary": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {

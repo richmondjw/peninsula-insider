@@ -706,6 +706,6 @@ A two-hour, all-ages professional wrestling show at Commonfolk Mornington suppor
 
 Fingal
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

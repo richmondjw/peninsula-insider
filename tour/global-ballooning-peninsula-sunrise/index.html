@@ -60,7 +60,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.CrSUanr3.js"></script><link rel="stylesheet" href="/_astro/global.D1wQ-Huw.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.CEaEWGhs.js"></script><link rel="stylesheet" href="/_astro/global.D1wQ-Huw.css">
 <link rel="stylesheet" href="/_astro/BaseLayout.jn2Ee70f.css">
 <style>.correction-note[data-astro-cid-lcocrzui]{margin:2rem 0 0;padding-top:1rem;border-top:1px solid rgba(0,0,0,.1);font-size:.92rem;line-height:1.6;color:var(--ink-soft, #433d39)}.correction-note--compact[data-astro-cid-lcocrzui]{margin-top:1.5rem;font-size:.88rem}.correction-note[data-astro-cid-lcocrzui] a[data-astro-cid-lcocrzui]{color:var(--accent, #3e7a6c);text-decoration:underline;text-underline-offset:2px}
 .subpage-hero__stage[data-astro-cid-hwizvnsu]{min-width:0;align-self:center}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__credit[data-astro-cid-hwizvnsu]{grid-column:-2 / -1;margin:.5rem 0 0;font-family:var(--font-ui);font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--soft);text-align:right}.subpage-hero__photos[data-astro-cid-hwizvnsu]{padding-block-start:clamp(1.25rem,2.5vw,2rem)}.subpage-hero__photos[data-astro-cid-hwizvnsu] .pstage{margin-block-end:0}.subpage-hero__stage[data-astro-cid-hwizvnsu] .pstage{--pstage-h: .75}
@@ -586,6 +586,9 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
+            // Event media and its attribution are reviewed together at build time.
+            // A browser-only URL swap bypasses that review and leaves old captions.
+            if (slot.entity_type === 'event') return;
             // Stay images are rendered through the vetted build resolver.
             // Browser swaps can bypass the rights and disclosure shown beside them.
             if (window.location.pathname.startsWith('/stay/') && slot.entity_type === 'venue') return;

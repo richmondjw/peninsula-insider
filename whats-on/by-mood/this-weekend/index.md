@@ -11,6 +11,10 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
+
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
@@ -103,7 +107,7 @@ Live Music   Every Saturday evening year-round from 5pm
 
 [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 

@@ -11,7 +11,7 @@ Event     Markets     17 October 2026     Recurs monthly
 
 Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
 
-[Visit organiser](<https://www.emuplainsmarket.com.au/>)
+[Check latest details](<https://www.emuplainsmarket.com.au/markets/october>)
 
 Worth the drive   First timer
 
@@ -69,7 +69,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.emuplainsmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emu+Plains+Market&dates=20261016T220000Z%2F20261017T030000Z&details=Seasonal+makers+market+at+Emu+Plains+Reserve%2C+Balnarring%2C+with+craft%2C+design%2C+vintage%2C+food+and+live+music.+The+organiser+confirms+daytime+markets+on+the+third+Saturdays+of+October%2C+November+and+December+2026%2C+9am+to+2pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Femu-plains-market%2F&location=Emu+Plains+Reserve%2C+54-58+Coolart+Road%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check latest details](<https://www.emuplainsmarket.com.au/markets/october>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Emu+Plains+Market&dates=20261016T220000Z%2F20261017T030000Z&details=Seasonal+makers+market+at+Emu+Plains+Reserve%2C+Balnarring%2C+with+craft%2C+design%2C+vintage%2C+food+and+live+music.+The+organiser+confirms+daytime+markets+on+the+third+Saturdays+of+October%2C+November+and+December+2026%2C+9am+to+2pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Femu-plains-market%2F&location=Emu+Plains+Reserve%2C+54-58+Coolart+Road%2C+Balnarring%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -92,6 +92,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 

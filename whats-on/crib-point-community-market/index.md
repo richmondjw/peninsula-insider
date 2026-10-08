@@ -11,6 +11,10 @@ Event     Markets     10 October 2026     Recurs monthly
 
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
+[Check latest details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
+
+[Check the latest details at the source →](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
+
 Hosted at
 
 Crib Point Community House
@@ -41,7 +45,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Crib+Point+Community+Market&dates=20261009T220000Z%2F20261010T020000Z&details=Indoor+and+outdoor+community+market+at+Crib+Point+Community+House+on+the+second+Saturday+of+the+month%2C+9am+to+1pm.+Expect+produce%2C+plants%2C+food+and+a+children%27s+treasure+hunt.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcrib-point-community-market%2F&location=Crib+Point+Community+House%2C+7+Park+Road%2C+Crib+Point%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check latest details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Crib+Point+Community+Market&dates=20261009T220000Z%2F20261010T020000Z&details=Indoor+and+outdoor+community+market+at+Crib+Point+Community+House+on+the+second+Saturday+of+the+month%2C+9am+to+1pm.+Expect+produce%2C+plants%2C+food+and+a+children%27s+treasure+hunt.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcrib-point-community-market%2F&location=Crib+Point+Community+House%2C+7+Park+Road%2C+Crib+Point%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -56,6 +60,10 @@ Keep planning
 ## More from What's On
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 

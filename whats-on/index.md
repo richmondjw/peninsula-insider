@@ -11,7 +11,7 @@ The Peninsula, in motion   spring edition
 
 Fri 9 – Sun 11 October  · Mornington Peninsula
 
-A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.
+Find the date, place and reason to go, then check with the organiser before you head out.
 
  [Browse events by day](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -25,7 +25,7 @@ The short list / Fri 9 – Sun 11 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-Swipe or scroll to see all three picks.
+Swipe or scroll for more picks.
 
 - Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Illustration: Peninsula Insider / AI-assisted original vector artwork.
 
@@ -45,7 +45,7 @@ Sat, 10 Oct   Crib Point   Markets
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live acoustic sets at a resort with views.
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Sat, 10 Oct   Fingal   Live Music
 
@@ -87,7 +87,7 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 - [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live acoustic sets at a resort with views.
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 5pm · Fingal · Live Music · Recurring weekly
 

@@ -91,7 +91,7 @@ Live Music   Every Saturday evening year-round from 5pm
 
 [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 

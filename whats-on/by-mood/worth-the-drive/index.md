@@ -19,6 +19,10 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
+
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)

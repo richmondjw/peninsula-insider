@@ -11,7 +11,7 @@ Event     Markets     14 October 2026     Recurs weekly
 
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
-[Visit organiser](<https://mainstreetmornington.com.au/>)
+[Check latest details](<https://mainstreetmornington.com.au/mornington-main-street-market/>)
 
 First timer
 
@@ -65,7 +65,7 @@ Weather flexible
 
 Start here
 
-[Visit organiser](<https://mainstreetmornington.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Wednesday+Market+%28Main+Street+Market%29&dates=20261013T220000Z%2F20261014T040000Z&details=Mornington%27s+long-running+artisan+market+fills+Main+Street+every+Wednesday%2C+9am+to+3pm.+Expect+local+makers%2C+produce+and+food%3B+severe+weather+can+cancel+the+market+or+limit+stalls.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-wednesday-market-main-street-market%2F&location=Main+Street+Mornington%2C+Main+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check latest details](<https://mainstreetmornington.com.au/mornington-main-street-market/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Wednesday+Market+%28Main+Street+Market%29&dates=20261013T220000Z%2F20261014T040000Z&details=Mornington%27s+long-running+artisan+market+fills+Main+Street+every+Wednesday%2C+9am+to+3pm.+Expect+local+makers%2C+produce+and+food%3B+severe+weather+can+cancel+the+market+or+limit+stalls.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-wednesday-market-main-street-market%2F&location=Main+Street+Mornington%2C+Main+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -86,6 +86,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 

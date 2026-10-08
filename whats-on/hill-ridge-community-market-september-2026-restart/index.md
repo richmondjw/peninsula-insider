@@ -75,6 +75,10 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
+
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)

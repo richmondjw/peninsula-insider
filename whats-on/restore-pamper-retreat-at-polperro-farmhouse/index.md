@@ -11,7 +11,7 @@ Experience     Wellness     Arrange a date with the organiser     By arrangement
 
 3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.
 
-[Check dates with organiser](<https://www.polperrowines.com.au/>)
+[Check dates with organiser](<https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/>)
 
 Worth the drive
 
@@ -63,7 +63,7 @@ Weather flexible
 
 Yes - unprompted recommendation
 
-[Check dates with organiser](<https://www.polperrowines.com.au/>)
+[Check dates with organiser](<https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/>)
 
 Filed under
 
@@ -94,6 +94,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 

@@ -9,7 +9,7 @@ Event     Live Music     10 October 2026     Recurs weekly
 
 # Acoustic Saturdays at Peppers Moonah Links
 
-Saturday evening acoustic sessions with local artists at Peppers Moonah Links. Happy hour 5–6pm.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
@@ -17,7 +17,7 @@ All weather
 
 Editor's verdict
 
-Live acoustic sets at a resort with views.
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 The resort places its live music at Spike Bar, with no booking required.
 
@@ -61,7 +61,7 @@ Check organiser for pricing
 
 All weather
 
-[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Acoustic+Saturdays+at+Peppers+Moonah+Links&dates=20261010T060000Z%2F20261010T090000Z&details=Saturday+evening+acoustic+sessions+with+local+artists+at+Peppers+Moonah+Links.+Happy+hour+5%E2%80%936pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Facoustic-saturdays-peppers-moonah-links-2026%2F&location=Peppers+Moonah+Links%2C+55+Peter+Thomson+Drive%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Acoustic+Saturdays+at+Peppers+Moonah+Links&dates=20261010T060000Z%2F20261010T090000Z&details=Live+acoustic+music+at+Spike+Bar+on+Saturday+evenings%2C+from+5pm+to+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Facoustic-saturdays-peppers-moonah-links-2026%2F&location=Peppers+Moonah+Links%2C+55+Peter+Thomson+Drive%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -90,6 +90,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 

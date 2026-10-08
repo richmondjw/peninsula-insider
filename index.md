@@ -27,7 +27,7 @@ Swipe or scroll for all three picks
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live acoustic sets at a resort with views.
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Peppers Moonah Links   Every Saturday
 

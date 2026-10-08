@@ -11,7 +11,7 @@ Event     Markets     25 October 2026     Recurs monthly
 
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
 
-[Visit organiser](<https://www.mtelizafarmersmarket.com.au/>)
+[Check latest details](<https://www.mtelizafarmersmarket.com.au/>)
 
 Worth the drive   First timer
 
@@ -65,7 +65,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Visit organiser](<https://www.mtelizafarmersmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mt+Eliza+Farmers+Market&dates=20261024T220000Z%2F20261025T020000Z&details=VFMA-accredited+farmers+market+on+the+Mount+Eliza+Village+Green+and+Mt+Eliza+Way+service+road.+The+organiser+lists+25+October+and+22+November+2026%2C+9am%E2%80%931pm..%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmt-eliza-farmers-market%2F&location=Mt+Eliza+Village+Precinct%2C+Corner+Mt+Eliza+Way+and+Canadian+Bay+Road%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check latest details](<https://www.mtelizafarmersmarket.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mt+Eliza+Farmers+Market&dates=20261024T220000Z%2F20261025T020000Z&details=VFMA-accredited+farmers+market+on+the+Mount+Eliza+Village+Green+and+Mt+Eliza+Way+service+road.+The+organiser+lists+25+October+and+22+November+2026%2C+9am%E2%80%931pm..%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmt-eliza-farmers-market%2F&location=Mt+Eliza+Village+Precinct%2C+Corner+Mt+Eliza+Way+and+Canadian+Bay+Road%2C+Mount+Eliza%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
@@ -88,6 +88,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
 Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
 
