@@ -40,6 +40,7 @@
      --font-ui:      humanist body/UI (Proxima substitute: Figtree). */
   --font-display: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-ui:      'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-editorial: var(--font-display);
 
   /* ── Type scale - 9 tokens, clamp(), rem-based.
      Top end raised toward the reference's giant hero. --fs-100 (12px)

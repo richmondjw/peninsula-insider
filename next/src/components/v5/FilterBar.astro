@@ -289,7 +289,8 @@ const presets = CHIP_PRESETS[surface] ?? [];
       chip.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
     const clear = bar.querySelector<HTMLElement>('[data-filter-clear]');
-    if (clear) clear.toggleAttribute('hidden', isEmptyState(state));
+    const searching = !!document.querySelector('[data-directory-search]') && !!new URLSearchParams(location.search).get('find')?.trim();
+    if (clear) clear.toggleAttribute('hidden', isEmptyState(state) && !searching);
     const badge = bar.querySelector<HTMLElement>('[data-filter-active-count]');
     if (badge) {
       const n = countActive(state);

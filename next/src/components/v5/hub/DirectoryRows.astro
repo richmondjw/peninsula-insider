@@ -78,6 +78,8 @@ export interface Props {
   desktopColumns?: 1 | 2;
   fullVerdicts?: boolean;
   detailActionFallback?: boolean;
+  /** Progressive browsing only after JavaScript initialises; all results stay in HTML. */
+  initialLimit?: number;
 }
 
 const {
@@ -98,17 +100,18 @@ const {
   desktopColumns = 1,
   fullVerdicts = false,
   detailActionFallback = false,
+  initialLimit,
 } = Astro.props;
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
 ---
 
-<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun}>
+<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun} data-directory-limit={initialLimit}>
   <div class="container">
     <div class="v5-directory__header">
       <div>
         {eyebrow && <p class="v5-directory__eyebrow">{eyebrow}</p>}
-        <h2 class="v5-directory__heading" id={headingId}>{heading}</h2>
+        <h2 class="v5-directory__heading" id={headingId} tabindex="-1">{heading}</h2>
         {sub && <p class="v5-directory__sub">{sub}</p>}
       </div>
       {topLink && (
@@ -125,6 +128,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
           data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
           data-filter-countable={countable && item.facets ? 'true' : undefined}
           data-title={item.sortTitle ?? item.title}
+          data-search-text={`${item.title} ${(item.meta ?? []).join(' ')} ${item.verdict ?? ''}`}
         >
           <Card
             as="div"
@@ -152,6 +156,8 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
       ))}
     </ul>
 
+    {initialLimit && <div class="directory-progress" data-directory-progress hidden><p data-directory-progress-count></p><button type="button" data-directory-more>Show more places</button><button type="button" data-directory-all>Show all places</button></div>}
+
     <div data-filter-empty hidden>
       <EmptyState
         variant="filter-zero"
@@ -165,11 +171,48 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
   </div>
 </section>
 
+<script>
+  function update(section:HTMLElement,reset=false){
+    const limit=Number(section.dataset.directoryLimit);if(!limit)return;
+    if(reset)section.dataset.directoryShown=String(limit);
+    const shown=Number(section.dataset.directoryShown)||limit;
+    const rows=[...section.querySelectorAll<HTMLElement>('[data-filter-countable]')].filter(row=>row.dataset.filteredOut!=='1');
+    section.querySelectorAll<HTMLElement>('[data-filter-countable]').forEach(row=>row.removeAttribute('data-page-hidden'));
+    rows.forEach((row,index)=>row.toggleAttribute('data-page-hidden',index>=shown));
+    const progress=section.querySelector<HTMLElement>('[data-directory-progress]')!;
+    progress.hidden=rows.length===0;
+    progress.querySelector('[data-directory-progress-count]')!.textContent=`${Math.min(shown,rows.length)} of ${rows.length} matching places shown`;
+    progress.querySelectorAll<HTMLButtonElement>('button').forEach(button=>button.hidden=shown>=rows.length);
+  }
+  function init(){document.querySelectorAll<HTMLElement>('[data-directory-limit]').forEach(section=>{
+    if(section.dataset.pagerReady)return;section.dataset.pagerReady='true';
+    section.querySelector('[data-directory-more]')?.addEventListener('click',()=>{
+      const limit=Number(section.dataset.directoryLimit),previous=Number(section.dataset.directoryShown)||limit;
+      section.dataset.directoryShown=String(previous+limit);update(section);
+      const rows=[...section.querySelectorAll<HTMLElement>('[data-filter-countable]')].filter(row=>row.dataset.filteredOut!=='1');
+      rows[previous]?.querySelector<HTMLAnchorElement>('h3 a')?.focus({preventScroll:false});
+    });
+    section.querySelector('[data-directory-all]')?.addEventListener('click',()=>{
+      section.dataset.directoryShown='100000';update(section);
+      section.querySelector<HTMLElement>('.v5-directory__heading')?.focus({preventScroll:true});
+    });update(section,true);
+  });}
+  document.addEventListener('pi:filters-changed',()=>document.querySelectorAll<HTMLElement>('[data-directory-limit]').forEach(section=>update(section,true)));
+  document.addEventListener('pi:sort-changed',()=>document.querySelectorAll<HTMLElement>('[data-directory-limit]').forEach(section=>update(section,true)));
+  document.addEventListener('astro:page-load',init);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+</script>
+
 <style>
   .v5-directory {
     padding: var(--space-6, 2rem) 0;
     scroll-margin-top: calc(var(--masthead-h, 0px) + 1rem);
   }
+  [data-page-hidden]{display:none!important}
+  .directory-progress{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.25rem}
+  .directory-progress p{flex:1 1 100%;margin:0;color:var(--soft);font-size:var(--fs-300)}
+  .directory-progress button{min-height:44px;border:1px solid var(--accent);border-radius:8px;padding:.65rem 1rem;background:var(--white);color:var(--accent);font:600 1rem var(--font-ui);cursor:pointer}
+  .directory-progress button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   .v5-directory__header {
     display: flex;
     align-items: flex-end;

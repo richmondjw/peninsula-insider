@@ -13,7 +13,7 @@ An image found on the web is a candidate, not permission to publish it. A credit
 
 ## Automatic protection
 
-- `resolveJournalImage` is shared by the Journal front and article detail template. It respects CMS slot identity and accepts uploaded replacements only when their own alt text and credit are present.
+- `resolveJournalImage` is shared by the Journal front, article detail template and Eat & Drink reading shelf. It respects CMS slot identity. Original and uploaded photographs must pass `hasWebsitePhotoEvidence`: their own source, depiction, credit, permission, rights holder and recorded website-use evidence are required. An available credited file without that evidence uses the thematic fallback. The selector fails closed when no rights validator is provided.
 - Local file checks strip cache parameters, reject traversal, and use the asset directory rather than the current working directory. A generic-photo classification cannot remove a Journal image slot.
 - If a photograph fails to load in the browser, `JournalImageRecovery` replaces it with the thematic photograph, then the original illustration. It updates alt text, caption and credit together and clears obsolete responsive derivatives.
 - `assert-journal-images.mjs` runs before and after the build. It rejects broken published article references, missing fallback assets, blank image-bearing Journal cards, broken local built images and missing recovery metadata.

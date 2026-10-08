@@ -22,7 +22,8 @@ const { directory, count, noun, mapHref = '/map/', showLinks = true } = Astro.pr
   import { isEmptyState, parseFilters } from '../../../lib/v5-filter-state';
   function syncEditorial(filters: Parameters<typeof isEmptyState>[0]) {
     document.querySelectorAll<HTMLElement>('[data-category-editorial]').forEach((el) => {
-      el.hidden = !isEmptyState(filters);
+      const searching = !!document.querySelector('[data-directory-search]') && !!new URLSearchParams(location.search).get('find')?.trim();
+      el.hidden = !isEmptyState(filters) || searching;
     });
   }
   function init() { syncEditorial(parseFilters(window.location.search)); }

@@ -8,32 +8,40 @@ const data = { heroImage: { src: '/own.webp', alt: 'Own image', credit: 'jem', c
 const hero = { src: '/own.webp', alt: 'Own image', hasPhoto: true, decorative: false };
 const available = src => ['/own.webp', '/context.webp', journalIllustration.src].includes(src);
 
+test('an available credited photo still falls back when its rights are not established', () => {
+  const image = selectJournalImage(hero, data, fallback, available, () => false);
+  assert.equal(image.src, '/context.webp');
+  assert.equal(image.fallback, true);
+  assert.equal(image.provenance, fallback);
+  assert.equal(selectJournalImage(hero, data, fallback, available).src, '/context.webp');
+});
+
 test('keeps an available credited article image and its provenance', () => {
-  const image = selectJournalImage(hero, data, fallback, available);
+  const image = selectJournalImage(hero, data, fallback, available, () => true);
   assert.equal(image.src, '/own.webp');
   assert.equal(image.provenance, data.heroImage);
   assert.equal(journalCredit(image), 'Photograph by jem');
 });
 test('a credited generic image hidden by the old photo guard remains visible', () => {
-  const image = selectJournalImage({ ...hero, hasPhoto: false }, data, fallback, available);
+  const image = selectJournalImage({ ...hero, hasPhoto: false }, data, fallback, available, () => true);
   assert.equal(image.src, '/own.webp');
   assert.equal(image.provenance, data.heroImage);
   assert.equal(image.caption, data.heroImage.caption);
 });
 test('a missing file or absent credit cannot leave the image space blank', () => {
   for (const [h, d] of [[{ ...hero, src: '/missing.webp' }, data], [hero, { heroImage: { credit: '' } }]]) {
-    assert.equal(selectJournalImage(h, d, fallback, available).src, '/context.webp');
+    assert.equal(selectJournalImage(h, d, fallback, available, () => true).src, '/context.webp');
   }
 });
 test('CMS replacements use their own credit and caption, never those of the previous file', () => {
   const override = { src: '/own.webp', alt: 'Uploaded image', credit: 'Uploader', caption: 'Uploaded caption' };
-  const image = selectJournalImage({ ...hero, override }, data, fallback, available);
+  const image = selectJournalImage({ ...hero, override }, data, fallback, available, () => true);
   assert.equal(image.credit, 'Uploader');
   assert.equal(image.caption, 'Uploaded caption');
   assert.equal(image.provenance, null);
 });
 test('an unavailable thematic image falls back to original art, with honest attribution', () => {
-  const image = selectJournalImage({ ...hero, src: '/missing.webp', hasPhoto: false }, data, fallback, src => src === journalIllustration.src);
+  const image = selectJournalImage({ ...hero, src: '/missing.webp', hasPhoto: false }, data, fallback, src => src === journalIllustration.src, () => true);
   assert.equal(image.src, journalIllustration.src);
   assert.match(journalCredit(image), /^Illustration/);
   assert.match(journalCredit({ ...image, src: image.src + '?v=hash' }), /^Illustration/);

@@ -28,9 +28,9 @@ export const journalIllustration = {
   decorative: false,
 };
 
-export function selectJournalImage(hero, data, fallback, available) {
+export function selectJournalImage(hero, data, fallback, available, rightsEstablished = (_source) => false) {
   const source = hero.override ?? data.heroImage;
-  const usable = source?.src === hero.src && available(hero.src) && (hero.alt?.trim() || hero.decorative) && source?.credit?.trim();
+  const usable = source?.src === hero.src && available(hero.src) && (hero.alt?.trim() || hero.decorative) && source?.credit?.trim() && rightsEstablished(source);
   const image = usable
     ? { src: hero.src, alt: hero.alt, credit: source.credit, caption: source.caption ?? '', provenance: hero.override ? null : source, decorative: hero.decorative }
     : { ...fallback, provenance: fallback, decorative: false };

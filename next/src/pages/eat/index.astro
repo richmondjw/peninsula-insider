@@ -21,14 +21,15 @@
 import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import HubStandfirst from '../../components/v5/hub/HubStandfirst.astro';
+import EatEntry from '../../components/v5/hub/EatEntry.astro';
+import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import type { SixItem } from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import type { DirectoryRowItem } from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
-import AskBand from '../../components/v5/hub/AskBand.astro';
+import { resolveJournalImage } from '../../lib/journal-image';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
 import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
@@ -72,6 +73,9 @@ const typeLabel: Record<string, string> = {
   providore: 'Providore',
   winery: 'Winery',
 };
+const pluralType: Record<string, string> = { Cafe: 'Cafes', Bakery: 'Bakeries', Brewery: 'Breweries', Distillery: 'Distilleries' };
+const categories = Object.entries(typeLabel).filter(([value]) => venues.some(v => v.data.type === value)).map(([value,label]) => ({value,label:pluralType[label] ?? `${label}s`,count:venues.filter(v=>v.data.type===value).length}));
+const towns = [...new Map(venues.map(v=>[typeof v.data.place==='string'?v.data.place:v.data.place?.id,{value:typeof v.data.place==='string'?v.data.place:v.data.place?.id,label:placeLabel(v)}])).values()].filter(t=>t.value).sort((a,b)=>a.label.localeCompare(b.label));
 
 /** Directory and Six cards may show only images with their own recorded
  *  subject and rights evidence. CMS replacements have no per-image permission
@@ -112,31 +116,32 @@ function verdictLine(signature?: string): string | undefined {
 //    voice, 25 words maximum, distilled from each venue's own editorial copy.
 const sixPicks: Array<{ slug: string; verdict: string; plateLabel?: string }> = [
   {
-    slug: 'tedesca-osteria',
-    plateLabel: 'The long lunch',
-    verdict: 'The long lunch, settled: wood oven, one set menu, and a room built for a slow table. Book lunch, not dinner.',
+    slug: 'merricks-general-wine-store',
+    plateLabel: 'A village lunch',
+    verdict: 'Breakfast or lunch in Merricks, with local wines and fireside or deck tables. A village stop before exploring the ridge.',
   },
   {
     slug: 'commonfolk-coffee',
-    verdict: 'The quick warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.',
+    verdict: 'A Mornington cafe beside its roastery, with a full menu and dog-friendly courtyard. Useful for coffee, brunch or a casual family stop.',
   },
 
   {
-    slug: 'merricks-general-wine-store',
-    verdict: 'The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.',
+    slug: 'tedesca-osteria',
+    plateLabel: 'The long lunch',
+    verdict: 'A fixed-menu osteria in Red Hill, with produce from its own farm. Choose this for a meal to plan your day around.',
   },
 
   {
     slug: 'doot-doot-doot',
-    verdict: 'The occasion room at Jackalope: a tasting-menu setting for a celebration. Check the current menu and dietary options before booking.',
+    verdict: 'Jackalope’s dining room offers a multi-course tasting menu to guests and visitors. Choose this for an evening occasion.',
   },
   {
     slug: 'barragunda-dining',
-    verdict: 'The farm booking: a thousand-acre estate, a weekly-changing menu, and cooking tied to what the estate has ready.',
+    verdict: 'A four-course farm menu in Cape Schanck, built around estate produce. Choose this for a planned farm-to-table meal; reserve ahead.',
   },
   {
     slug: 'portsea-hotel',
-    verdict: 'The bay-front pub: fireplace inside, acoustic sessions on the calendar, and the view still doing the work.',
+    verdict: 'A seaside pub with dining areas overlooking Port Phillip Bay. Choose it for a coastal meal, then check the calendar for live music.',
   },
 ];
 
@@ -177,11 +182,12 @@ for (const venue of venues) {
     href: `/eat/${routeSlug(venue)}/`,
     entityType: 'venue',
     entitySlug: routeSlug(venue),
-    image: await cardImage(venue),
     verdict: verdictLine(venue.data.signature),
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     facets: getFacets('venue', venue.data),
     partnerLabel: venue.data.featuredPartner ? 'Sponsored placement' : undefined,
+    freshness: isoDate(informationCheckedOn(venue.data)),
+    freshnessKind: 'checked',
   });
 }
 
@@ -189,16 +195,15 @@ for (const venue of venues) {
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .sort((a, b) => (b.data.publishedAt?.getTime() ?? 0) - (a.data.publishedAt?.getTime() ?? 0));
 
-const articleJournalItem = (slug: string, verdict: string, displayTitle?: string): JournalItem | null => {
+const articleJournalItem = async (slug: string, verdict: string, displayTitle?: string): Promise<JournalItem | null> => {
   const article = articlesAll.find((a) => routeSlug(a) === slug);
   if (!article) return null;
+  const image = await resolveJournalImage(routeSlug(article), article.data);
   return {
     title: displayTitle ?? article.data.title,
     href: `/journal/${routeSlug(article)}/`,
     entitySlug: routeSlug(article),
-    image: article.data.heroImage?.src
-      ? { src: article.data.heroImage.src, alt: article.data.heroImage.alt ?? article.data.title }
-      : undefined,
+    image: {src:image.src, alt:image.alt, caption:image.caption, credit:image.credit},
     verdict,
     byline: article.data.houseByline
       ? 'Peninsula Insider editors'
@@ -210,7 +215,7 @@ const articleJournalItem = (slug: string, verdict: string, displayTitle?: string
   };
 };
 
-const journalItems = [
+const journalItems = (await Promise.all([
   articleJournalItem(
     'the-spring-peninsula',
     'New leaf, quieter cellar doors, and the case for a slow Spring weekend before the summer rush.',
@@ -223,7 +228,7 @@ const journalItems = [
     'the-seafood-list',
     'The Peninsula seafood story, from fishmongers near the pier to the bay-view dining rooms worth booking.',
   ),
-].filter((item): item is JournalItem => Boolean(item));
+])).filter((item): item is JournalItem => Boolean(item));
 
 // ── Schemas (unchanged: protect-list page) ────────────────────────────────────
 const pillarSchema = {
@@ -246,21 +251,20 @@ const faqSchema = {
   '@type': 'FAQPage',
   mainEntity: [
     { '@type': 'Question', name: 'What are the best restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants, Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor, are the clearest destination dining choices.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Start with our editorial shortlist for different kinds of day, or open the restaurant guide for a longer comparison. The right choice depends on your town, occasion and appetite. Check current menus and booking availability with the operator.' } },
     { '@type': 'Question', name: 'Do I need to book restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Book ahead for destination restaurants and weekend lunches. Some casual venues accept walk-ins; Foxeys Hangout operates without bookings according to our venue record. Check the restaurant directly for current hours, group limits and availability before travelling.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'For a planned restaurant lunch or celebration, check booking availability before travelling. Our no-booking guide is a starting point for a more spontaneous day, but it does not guarantee a table. Confirm current hours, group limits and walk-in arrangements with the venue.' } },
     { '@type': 'Question', name: 'What is the best area for food on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The Red Hill plateau, including Main Ridge and Red Hill South, has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Choose your town in the finder to see the places in our current directory. Compare Red Hill and Merricks for the ridge, Mornington for the bay side, or Sorrento and Portsea for the southern Peninsula. The map helps you choose a stop that fits the rest of your day.' } },
     { '@type': 'Question', name: 'When is the best time to visit the Mornington Peninsula for food?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Winter (June to August) is the insider season: fires are lit, the best tables are more bookable, and menus lean into braises, roots and slow cooking. Autumn remains the peak vintage season; spring is a close second.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Build the visit around the meal you want and the venue’s current opening days. Menus, service times and availability change with the season. Use the venue’s own website to confirm the day before you make the drive.' } },
     { '@type': 'Question', name: 'Are there dog-friendly restaurants on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'Yes, outdoor seating options at cafes, village pub beer gardens, and a small number of winery casual dining areas permit dogs. Commonfolk Coffee (back courtyard), The Rocks Mornington (outdoor deck), Portsea Hotel (beer garden), and Green Olive at Red Hill (garden) are listed as dog-friendly in PI venue records. Verify directly before visiting.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'Use the Dog-friendly party filter to find possibilities recorded in our directory. Ask the venue about its current pet policy, the area where dogs are permitted and any restrictions before visiting. A filter match is a planning aid, not a guarantee.' } },
     { '@type': 'Question', name: 'What is the signature food experience on the Mornington Peninsula?',
-      acceptedAnswer: { '@type': 'Answer', text: 'The long lunch, a two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. In winter the format sharpens: wood ovens, fires, estate Pinot Noir, and menus built for cold weather.' } },
+      acceptedAnswer: { '@type': 'Answer', text: 'A long lunch is one way into the Peninsula’s dining scene. Our long-lunch and cellar-door-lunch guides give you a starting shortlist. For tasting-led visits rather than a meal, continue to the Wine guide.' } },
   ],
 };
 
-const standfirst = `Choose a destination lunch, a casual table or a coffee stop. Browse ${venues.length} places by occasion and town, or start with our editorial choices.`;
 
 export const prerender = true;
 ---
@@ -270,34 +274,29 @@ export const prerender = true;
   description="Find where to eat on the Mornington Peninsula: browse restaurants, winery lunches, cafes and bakeries by area and occasion, with links to our dining shortlists."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
-  modifiedTime="2026-07-30"
+  modifiedTime="2026-10-08"
   ogImage={pageImage('eat-hub').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
-  <HubStandfirst
-    eyebrow="Eat & Drink"
-    title="Where to eat on the Mornington Peninsula"
-    standfirst={standfirst}
-    compact
-  />
-
-  <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" />
-  <div class="container"><PlanningHelp /></div>
+  <EatEntry count={venues.length} categories={categories} towns={towns} image={pageImage('eat-hub')} />
+  <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" showLinks={false} />
 
   <div data-category-editorial>
   <!-- 2. The verdict layer -->
   <TheSix
     id="the-six"
-    heading="A table for the kind of day you want"
-    sub="Start with a long lunch, a coffee stop or an easy village meal. Check opening times, menus and bookings with the venue."
+    eyebrow="The editorial shortlist"
+    heading="Six starting points. Six different days."
+    sub="Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability."
     surface="eat"
     items={sixItems}
     suppressImageHydration
     lockImageEditing
   />
+  <div class="container eat-method"><p>Chosen for a reason, with no pay-for-coverage. <a href="/about/">How we choose our picks →</a> <a href="/corrections/">Tell us what has changed →</a></p><PlanningHelp /></div>
 
   <!-- Best-of rail: the strongest guide lanes, 6 maximum -->
   <nav class="eat-rail" aria-label="Best-of guides">
@@ -329,11 +328,12 @@ export const prerender = true;
     lockImageEditing
     fullVerdicts
     desktopColumns={2}
+    initialLimit={8}
     topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
-    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore sticky />
+    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore mobileWrap sticky><SortControl /></FilterBar>
   </DirectoryRows>
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
@@ -344,13 +344,13 @@ export const prerender = true;
   </p>
 
   <!-- 5. From the Journal (3 maximum) -->
-  <JournalModule
+  <div class="eat-reading"><JournalModule
     id="journal"
     heading="From the Journal"
     items={journalItems}
     moreHref="/journal/"
     surface="eat"
-  />
+  /></div>
 
   <!-- 6. FAQ: in-DOM, mirrors faqSchema -->
   <section class="hub-faq" aria-label="Frequently asked questions">
@@ -374,6 +374,9 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
+  .eat-method p{font-size:var(--fs-300);line-height:1.6;color:var(--soft);max-width:75ch}
+  .eat-method a{color:var(--accent);text-underline-offset:.2em;display:inline-flex;min-height:44px;align-items:center;margin-inline-end:1rem}
+  .eat-reading :global(.pi-card__media){aspect-ratio:16/9;max-height:180px}
   .eat-rail {
     padding: var(--space-4, 1rem) 0 var(--space-6, 2rem);
   }
@@ -418,5 +421,7 @@ export const prerender = true;
   }
   .eat-whatson a {
     color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: .2em;
   }
 </style>
