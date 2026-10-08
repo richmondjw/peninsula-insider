@@ -117,6 +117,9 @@ const friday = hasCurrentDispatch ? ptwWeekendFriday(latest) : currentWeekend.st
 const sunday = hasCurrentDispatch ? new Date(friday) : currentWeekend.end;
 if (hasCurrentDispatch) sunday.setUTCDate(friday.getUTCDate() + 2);
 sunday.setHours(23, 59, 0, 0);
+const editionYears = friday.getUTCFullYear() === sunday.getUTCFullYear()
+  ? String(sunday.getUTCFullYear())
+  : `${friday.getUTCFullYear()}–${sunday.getUTCFullYear()}`;
 const activeWindow: ScopeWindow = { start: friday, end: sunday, label: weekendLabel };
 const dispatchPickEventSlugs = new Set(
   [dispatch?.lead, dispatch?.saturday, dispatch?.sunday, dispatch?.rainyDay]
@@ -228,6 +231,13 @@ export const prerender = true;
             <p class="ptw-hero__stale" data-weekend-expired hidden>
               This edition covers {weekendLabel}. Check the date with each organiser before travelling, or <a href="/whats-on/">browse the current events index</a>.
             </p>
+            <noscript>
+              <style>.ptw-hero__title[data-weekend-current] { display: none !important; }</style>
+              <p class="ptw-hero__stale">
+                Edition dates: {weekendLabel} {editionYears}. If these dates have passed, <a href="/whats-on/">browse the events index</a> and check current details with the organiser.
+              </p>
+              <h1 class="ptw-hero__title">Peninsula weekend guide: {weekendLabel} {editionYears}</h1>
+            </noscript>
             <script is:inline>
               (function () {
                 var article = document.querySelector('.ptw[data-weekend-end]');
