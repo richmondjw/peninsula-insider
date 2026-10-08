@@ -487,7 +487,9 @@ export function eventBookingTarget(
   if (data.ticketingUrl) return { href: data.ticketingUrl, label: 'Get tickets', kind: 'tickets' };
   if (data.bookingUrl) return { href: data.bookingUrl, label: 'Book or check details', kind: 'booking' };
   if (data.category === 'exhibition' && data.officialEventUrl) return { href: data.officialEventUrl, label: 'Check exhibition details', kind: 'organiser' };
+  if (data.officialEventUrl) return { href: data.officialEventUrl, label: 'Check latest details', kind: 'organiser' };
   if (data.organiser?.website) return { href: data.organiser.website, label: 'Visit organiser', kind: 'organiser' };
+  if (data.primarySourceUrl) return { href: data.primarySourceUrl, label: 'Check latest details', kind: 'organiser' };
   return null;
 }
 

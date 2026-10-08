@@ -29,7 +29,7 @@ export interface Props {
   dateLabelOverride?: string;
 }
 
-const { event, featured = false, dateLabelOverride, imagePolicy = 'default' } = Astro.props;
+const { event, featured = false, dateLabelOverride, imagePolicy = 'recorded-only' } = Astro.props;
 const slug = routeSlug(event);
 const category = event.data.category;
 

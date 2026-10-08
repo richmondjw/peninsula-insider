@@ -512,6 +512,9 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
           if (!Array.isArray(slots)) return;
           slots.forEach(function (slot) {
             if (!slot.public_url) return;
+            // Event media and its attribution are reviewed together at build time.
+            // A browser-only URL swap bypasses that review and leaves old captions.
+            if (slot.entity_type === 'event') return;
             // Stay images are rendered through the vetted build resolver.
             // Browser swaps can bypass the rights and disclosure shown beside them.
             if (window.location.pathname.startsWith('/stay/') && slot.entity_type === 'venue') return;

@@ -41,3 +41,23 @@ test('actual detail labels only the cancelled edition and preserves noncancelled
   assert.equal(run(true), 'Cancelled edition. Check the organiser for future dates.');
   assert.equal(run(false), 'Recurs monthly');
 });
+
+test('homepage event photography requires a recorded rights receipt', async () => {
+  const home = await readFile(new URL('../src/components/v5/home/HomeWeekend.astro', import.meta.url), 'utf8');
+  const block = home.slice(home.indexOf('    const image ='), home.indexOf('    const dateISO ='));
+  const actual = new Function('contextPhotos', 'slug', 'hero', 'recorded', 'status', `${stripTypeScriptTypes(block)}; return image;`);
+  const hero = { hasPhoto: true, src: '/event.webp' };
+  const photo = { alt: 'Verified subject', credit: 'Photographer' };
+  assert.equal(actual({}, 'event', hero, photo, 'actual'), undefined);
+  assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'actual').src, '/event.webp');
+  assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'unverified'), undefined);
+});
+test('event discovery shelf photography requires recorded rights and actual depiction', async () => {
+  const hub = await readFile(new URL('../src/pages/whats-on/index.astro', import.meta.url), 'utf8');
+  const block = hub.slice(hub.indexOf('  const source = shelf.items.find'), hub.indexOf('  const photo = source ?'));
+  const actual = new Function('shelf', `${stripTypeScriptTypes(block)}; return source;`);
+  const item = rightsStatus => ({ event: { data: { heroImage: { src: '/event.webp', alt: 'Subject', credit: 'Photographer', depictionStatus: 'actual', rightsStatus } } } });
+  assert.equal(actual({ items: [item(undefined)] }), undefined);
+  const approved = item('recorded');
+  assert.equal(actual({ items: [item(undefined), approved] }), approved);
+});

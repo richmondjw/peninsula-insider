@@ -76,19 +76,9 @@ const cards = await Promise.all(
     const subcategory = String(event.data.subcategory ?? '').trim();
     const plateLabel = subcategory && subcategory.length <= 20 && !subcategory.includes('/')
       ? subcategory : categoryLabel(event.data.category);
-    const overrideReady = Boolean(hero.override?.alt?.trim() && hero.override?.credit?.trim());
-    // The CMS slot remains authoritative when its published replacement has
-    // the minimum descriptive and credit fields. CMS has no depiction-status
-    // field yet, so disclose the uncertainty rather than claim event coverage.
-    const image = overrideReady ? {
-      src: hero.src,
-      alt: hero.override!.alt!,
-      caption: [hero.override!.caption, 'Event depiction not verified.'].filter(Boolean).join(' '),
-      credit: hero.override!.credit!,
-      badge: 'Editorial image',
-    } : contextPhotos[slug] ? {
+    const image = contextPhotos[slug] ? {
       ...contextPhotos[slug],
-    } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && status !== 'unverified' ? {
+    } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && recorded?.rightsStatus === 'recorded' && status !== 'unverified' ? {
       src: hero.src,
       alt: recorded.alt,
       caption: status === 'illustrative'

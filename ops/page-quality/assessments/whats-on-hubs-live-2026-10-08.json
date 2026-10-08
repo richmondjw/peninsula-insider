@@ -112,5 +112,124 @@
       "future no-JavaScript weekend edition expiry after a missed rebuild"
     ]
   },
-  "decision": "adapt: live bounded accessibility fix verified, but both T1 pages remain below 99 with open evidence gates"
+  "decision": "adapt: live bounded accessibility fix verified, but both T1 pages remain below 99 with open evidence gates",
+  "latestFullReview": {
+    "sourceSha": "fa89148391097709c8fa43f8e7e76238d98b5098",
+    "release": "https://github.com/richmondjw/peninsula-insider/pull/631",
+    "deployRun": "37724829496",
+    "publicManifestMatched": true,
+    "status": "provisional-failed",
+    "acceptedAbove99": false,
+    "reviews": [
+      {
+        "reviewer": "golf_postrelease_access_facts",
+        "score": 85,
+        "ratings": [
+          4,
+          4,
+          3,
+          3,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          1,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "reviewer": "golf_postrelease_visual",
+        "score": 90,
+        "ratings": [
+          4,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          3,
+          3,
+          4
+        ]
+      },
+      {
+        "reviewer": "golf_postrelease_ux",
+        "score": 79.5,
+        "ratings": [
+          3,
+          3,
+          3,
+          2,
+          4,
+          3,
+          4,
+          3,
+          2,
+          3,
+          2,
+          2,
+          3,
+          4,
+          4,
+          4,
+          4,
+          4,
+          3,
+          3,
+          3,
+          4,
+          4
+        ],
+        "corrections": "H1/date update correctly; touchscreen swipe works and is an intentional mobile pattern. Final corrected score retained; raw initial 76.25 then 77.25 superseded."
+      }
+    ],
+    "gate": "Public CMS hydration substituted two uncredited event photos after build. No whole-page acceptance. Scores are independent and are not averaged.",
+    "verifiedImprovement": "Complete-sentence teasers and keyboard-visible mobile/tablet rail, no body overflow at 320/390/641/768/1023/1024/1440.",
+    "remainingEvidence": [
+      "Direct assistive technology review",
+      "Whole-feed freshness and rights audit",
+      "Production field performance"
+    ],
+    "nextCandidate": {
+      "decision": "adapt",
+      "state": "source reviewed; build and public release acceptance pending",
+      "changes": [
+        "Block event CMS URL swaps; use reviewed source image and attribution together",
+        "Require recorded image rights on homepage and discovery shelves",
+        "Restore date-picker keyboard focus",
+        "Expose recorded official source on event details",
+        "Clarify Moonah Saturday time and neutral date-scope intro"
+      ],
+      "facts": "Moonah primary venue October programme confirms Spike Bar Saturday 5pm-8pm; council listing confirms Family Friendly. No whole-record verification date advanced.",
+      "review": "golf_postrelease_access_facts found no remaining bounded code-level blocker; approval excludes live score and requires normal checks",
+      "rollback": "Revert the bounded follow-up commit through normal CI; no source images or CMS history deleted."
+    }
+  }
 }
