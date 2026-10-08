@@ -28,6 +28,12 @@ async function snapshot(route, javascript) {
   const page = await browser.newPage();
   try {
     const slotReads = [];
+    // networkidle2 permits two in-flight requests, including a slow CMS read.
+    // Wait for the actual data response before evaluating its page effects.
+    const firstSlotResponse = javascript ? page.waitForResponse(response =>
+      response.url().includes('/rest/v1/cms_image_slots') && response.request().method() === 'GET',
+      { timeout: 20000 },
+    ).catch(error => ({ error: error.message })) : null;
     if (javascript) page.on('response', response => {
       if (!response.url().includes('/rest/v1/cms_image_slots') || response.request().method() !== 'GET') return;
       slotReads.push(response.json().then(rows => ({ status: response.status(), rows })).catch(error => ({ status: response.status(), error: error.message })));
@@ -37,6 +43,8 @@ async function snapshot(route, javascript) {
     const response = await page.goto(new URL(route, base).href, { waitUntil: 'networkidle2', timeout: 45000 });
     assert.equal(response.status(), 200, `${route} returns 200`);
     if (javascript) {
+      const slotResponse = await firstSlotResponse;
+      assert.ok(!slotResponse.error, `${route}: CMS media response did not arrive: ${slotResponse.error || ''}`);
       const reads = await Promise.all(slotReads);
       assert.ok(reads.length > 0, `${route}: CMS media request was observed`);
       assert.ok(reads.every(read => read.status === 200 && Array.isArray(read.rows)), `${route}: CMS media request must succeed for live acceptance`);
