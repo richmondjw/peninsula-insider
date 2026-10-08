@@ -17,6 +17,10 @@ Keep this for later
 
 Waterfront  Seafood  Restaurants  Sorrento
 
+Sorrento Ferry, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Sorrento Ferry Terminal. It does not depict the place described on this page.
+
 The Mornington Peninsula’s waterfront dining is concentrated on Port Phillip Bay, the calmer, bay-facing side of the Peninsula rather than the ocean. Three venues define the category: The Baths at Sorrento for special occasion seafood with panoramic bay views, The Rocks at Mornington for casual waterfront dining at the marina, and the Portsea Hotel for a pub setting with the best bay views of any pub on the Peninsula.
 
 None of these venues are hatted. All three have legitimate waterfront positions.

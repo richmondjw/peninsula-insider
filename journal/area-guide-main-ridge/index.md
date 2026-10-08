@@ -17,7 +17,7 @@ Keep this for later
 
 Main Ridge  Area Guide  Planning
 
-Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider
+Chardonnay grapes at Main Ridge Estate in nearby Red Hill, used to illustrate the wine country around Main Ridge.   Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider
 
 Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate, Red Hill. It does not depict the place described on this page.
 

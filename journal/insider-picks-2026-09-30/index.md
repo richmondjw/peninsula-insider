@@ -17,7 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Peter Tarasiuk, courtesy of Visit Victoria
+Red Hill Brewery, Mornington Peninsula.   Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 ## EAT · Red Hill Brewery, Red Hill South
 

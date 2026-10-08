@@ -17,6 +17,10 @@ Keep this for later
 
 Insider Picks  Spring
 
+Photo · Daniel Kabel
+
+Illustrative image  This image shows a timber pier, a seaweed-covered rock shelf and moored boats on the bay. It does not depict the place described on this page.
+
 ## Eat: Moke Dining, Flinders
 
 Saturday lunch at Moke is the clearest argument for driving to the southern end of the Peninsula. Michael Cole placed fourteenth at Bocuse d’Or, and the five-course set menu in his 20-seat Cook Street room reflects someone who has cooked at that level and chosen to do something quieter with it. The menu changes weekly, which in September means whatever the farms around Flinders and Cape Schanck are handing over right now - expect brassicas, early-season greens, and whatever the fishers came back with. The room is small enough that nothing feels accidental. Spring is the right time because the cliff path to West Head is in good condition and the walk before lunch earns the meal properly. Allow three to three-and-a-half hours for the full experience, walk first. Book ahead - Saturday sittings disappear quickly and there is no walk-in option here.

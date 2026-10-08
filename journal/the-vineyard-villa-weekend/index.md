@@ -17,7 +17,7 @@ Keep this for later
 
 Stay  Weekend  Villa  Cottage
 
-Photo · Peter Foster, courtesy of Visit Victoria
+Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting.   Photo · Peter Foster, courtesy of Visit Victoria
 
 Illustrative image  This image shows Lancemore Lindenderry Red Hill. It does not depict the place described on this page.
 

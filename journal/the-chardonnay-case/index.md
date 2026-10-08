@@ -17,6 +17,8 @@ Keep this for later
 
 Wine  Chardonnay  Cellar Door  Red Hill
 
+Photo · Sarah Stierch / Wikimedia Commons (CC-BY-4.0)
+
 The Mornington Peninsula sells itself as pinot noir country and always has. Every tourism brochure, every estate map, every long-lunch menu leans on it. Pinot is the hero varietal, the grape that tells the cool-climate story, the thing the collectors came down from Melbourne to buy. None of this is wrong. The region does grow genuinely serious pinot noir, the kind that sits credibly alongside the Yarra Valley’s best at ten years of age, and the argument for pinot has been settled, mostly, for a decade.
 
 But spend a morning tasting across Main Ridge and Red Hill in the last two or three vintages and a different conversation starts to emerge in the glass. The chardonnays have got measurably, impressively better. Tighter, more mineral, more restrained, more European in a way that the pinots are not quite managing. And the collectors, the private buyers who spend actual money on wine, who buy in cases rather than six-packs, have started to notice.

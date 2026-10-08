@@ -17,6 +17,8 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Provided image
+
 **EAT - Ten Minutes by Tractor, Main Ridge**
 
 The name is a historical joke: the three vineyards that supply the fruit were once connected by tractor track, but the restaurant at 1333 Mornington–Flinders Road takes itself seriously enough to matter. The Sunday lunch menu leans into what winter does well on the Peninsula: slow-cooked proteins, aged cheeses from the on-site cave, and a wine list built almost entirely from estate and neighbour blocks. The dining room faces north across the vines and catches the best of the winter light from about midday onward.

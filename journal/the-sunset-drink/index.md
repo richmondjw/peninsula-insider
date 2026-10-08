@@ -17,6 +17,8 @@ Keep this for later
 
 Wine  Eat  Sunset  Bayside
 
+Photo · Wikimedia Commons
+
 The Mornington Peninsula has a structural advantage that no other wine region within two hours of a capital city can match: it faces two ways. The bay side catches the afternoon light coming in flat across Port Phillip, turning everything amber from about four-thirty onwards. The ocean side, the back beaches, the headlands, the bluff at Flinders, gets the other version, a wider, more dramatic sunset that drops over the Strait and does the pink-and-violet thing the landscape photographers are always chasing.
 
 You can drink a good glass of wine in either direction. The question is where.

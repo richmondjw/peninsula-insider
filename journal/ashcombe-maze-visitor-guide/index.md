@@ -17,6 +17,8 @@ Keep this for later
 
 Ashcombe Maze  Lavender  Family  Gardens
 
+Photo · DenisFrolow / Wikimedia Commons (CC BY-SA 4.0)
+
 Ashcombe Maze & Lavender Gardens is Australia’s oldest traditional hedge maze. It is open. Multiple travel aggregators and booking sites continue to list it as closed or reduced-hours following a period of quieter operation around 2020, this information is incorrect. The café re-opened in January 2025 and the maze is fully trading.
 
 The confusion costs visitors. People arrive expecting a closed attraction, or avoid planning a visit entirely, when in fact this is one of the more distinctive garden experiences in regional Victoria.

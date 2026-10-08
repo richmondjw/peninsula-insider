@@ -17,6 +17,10 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Daniel Kabel
+
+Illustrative image  This image shows a timber pier, a seaweed-covered rock shelf and moored boats on the bay. It does not depict the place described on this page.
+
 **EAT - Moke Dining, Flinders**
 
 Michael Cole’s five-course set menu is worth the drive to Cook Street in any season. In winter it becomes the point of the whole weekend. The menu changes weekly, but right now the kitchen is working with the kind of produce - braises, root vegetables, preserved summer fruit - that only makes sense in a cold room with twenty seats and nowhere else to be. Cole placed fourteenth at Bocuse d’Or. That detail is not decorative; it explains why the plates feel tighter than anything else on the Peninsula at this level.

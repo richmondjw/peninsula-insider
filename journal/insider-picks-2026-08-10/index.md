@@ -17,6 +17,10 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows a bay beach with a tideline of seaweed, curving to a wooded point under a grey sky. It does not depict the place described on this page.
+
 ## EAT - The Bay Hotel Mornington, Mornington
 
 The old vault at The Bay Hotel is the most persuasive argument for a mid-winter group dinner on the Peninsula. Converted from the original bank strongroom, it is a private dining room with thick limestone walls, zero natural light, and exactly the atmosphere you want when the wind is coming off the bay. The gastropub kitchen builds its menu around Peninsula producers week to week, so ask what’s running when you book rather than assuming a fixed list. The vault seats a group properly and the team will build a food and wine sequence around what’s on the produce list - this is the booking to make for an occasion that actually warrants the occasion. The heritage-listed building is on Mornington’s Esplanade, walking distance from the waterfront. Book well ahead; the vault does not hold many covers.

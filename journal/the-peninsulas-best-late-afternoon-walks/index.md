@@ -17,6 +17,8 @@ Keep this for later
 
 Explore  Walks  Cape Schanck  Sorrento
 
+Photo · Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)
+
 Start here
 
 ## The short version

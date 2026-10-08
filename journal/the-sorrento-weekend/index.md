@@ -17,7 +17,7 @@ Keep this for later
 
 Sorrento  Portsea  Weekend  Stay
 
-Photo · Courtesy of Visit Victoria
+Sorrento, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip in 8 photographs
 

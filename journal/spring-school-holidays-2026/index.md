@@ -17,7 +17,7 @@ Keep this for later
 
 Family  Kids  School Holidays  Spring
 
-Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula. This photograph does not show the 2026 school-holiday programme.   Photo · Courtesy of Visit Victoria
 
 Illustrative image  This image shows Arthurs Seat Eagle gondolas, not the 2026 school-holiday programme. It does not depict the place described on this page.
 

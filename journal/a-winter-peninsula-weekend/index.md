@@ -17,6 +17,8 @@ Keep this for later
 
 Winter  Weekend  Fireplace  Hot Springs
 
+Photo · Peninsula Insider
+
 There is a version of the Peninsula that most visitors never see, and it is the version that locals prefer.
 
 Not the long, bright January version with the back beaches humming and the cellar doors booked out three weeks in advance. Not the April version, which this publication has already argued is the secret month. The version that runs from roughly the middle of June to the middle of August, when the nights drop into the threes, the ridge fog settles around the vineyards by four in the afternoon, and the dining rooms that have fireplaces actually light them.

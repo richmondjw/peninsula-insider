@@ -17,6 +17,8 @@ Keep this for later
 
 Eat  Wine  Winter  Long Lunch
 
+Photo · Wikimedia Commons
+
 Winter changes what a long lunch on the Peninsula is for. In summer the two formats blur together: the deck at a cellar door and the beer garden at a pub both do the same job, which is to hold a warm afternoon open for as long as possible. In winter they split into two different kinds of day, and it’s worth knowing which one you’re actually planning before you book.
 
 ## The vineyard dining room

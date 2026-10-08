@@ -17,6 +17,8 @@ Keep this for later
 
 Corporate Events  Red Hill  Sorrento  Retreats
 
+Photo · Peninsula Insider
+
 Choosing between Red Hill and Sorrento for a corporate offsite is really a choice of tone. Both work; they work differently.
 
 ## Red Hill: better for retreat energy

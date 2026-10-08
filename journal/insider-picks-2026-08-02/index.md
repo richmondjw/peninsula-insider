@@ -17,6 +17,10 @@ Keep this for later
 
 Insider Picks  Winter
 
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+
 ## EAT - Mr Vincenzo’s, Mornington
 
 The parmesan-wheel gnocchi at Mr Vincenzo’s is the right call for a cold Saturday night, and the room - mirrored walls, close tables, volume turned up - is exactly what winter on a main street should feel like. The kitchen rolls a whole wheel tableside, the gnocchi lands glossy and unapologetic, and no one at the adjacent table is eating quietly. This is not a subtle restaurant. It knows what it is. The all-Italian wine list skews southern and robust, which suits the food and the season. Book the corner table if you can. The tiramisu is not optional. Winter makes it better because the room earns its warmth - it would feel wrong in December but in August it is completely correct. Book at least a week ahead for Saturday night. Pair the evening with a walk along Mornington waterfront before dinner while the bay sits flat and grey.

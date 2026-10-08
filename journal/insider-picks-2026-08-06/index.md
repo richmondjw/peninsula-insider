@@ -17,6 +17,8 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Peninsula Insider
+
 ## The Thursday reset: Hastings Street Market
 
 Hastings does not wait for a Saturday crowd. Its weekly street market lands on High Street every Thursday morning, and that is precisely why it works. The pace is local: produce, plants, homemade goods and craft stalls, with Western Port still close enough to make a foreshore walk the natural second act.

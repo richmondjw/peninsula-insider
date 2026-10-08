@@ -17,6 +17,8 @@ Keep this for later
 
 Wine  Cellar Doors  Pinot Noir  Chardonnay
 
+Photo · BrooksieG
+
 The Mornington Peninsula wine region is often introduced as a single place. For a visit, it helps to think in smaller areas, from Moorooduc near Frankston in the north to Main Ridge and Balnarring in the south. Where you drink on the Peninsula depends on what you’re after: serious benchmark Pinot Noir in the cool hills of Main Ridge, design-forward architecture and hatted restaurants in Merricks North, or dog-friendly lawns and easy walk-in cellar doors closer to the bay.
 
 No vineyard on the Peninsula is more than 7km from the ocean. That maritime influence, cool summers, mild winters, consistent sea breezes, is why cool-climate varieties work so well here. Pinot Noir accounts for roughly 50% of plantings and is the regional benchmark. Chardonnay follows. Pinot Gris has a disproportionate presence: Kathleen Quealy of Quealy Winemakers is credited as the Australian pioneer of the variety, planting on the Peninsula since 1993.

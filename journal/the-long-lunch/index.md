@@ -17,6 +17,8 @@ Keep this for later
 
 Eat  Wine  Weekend  Red Hill
 
+Photo · Wikimedia Commons
+
 The case for the Mornington Peninsula long lunch is straightforward: nowhere within ninety minutes of Melbourne pairs this kind of kitchen ambition, wine pedigree, and landscape. Sydney people know it. They fly down for it.
 
 The question is how to do it right.

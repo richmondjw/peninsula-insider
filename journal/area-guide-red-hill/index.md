@@ -17,7 +17,7 @@ Keep this for later
 
 Red Hill  Area Guide  Planning
 
-Photo · Peter Foster, courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
 
 Start here
 

@@ -17,7 +17,7 @@ Keep this for later
 
 Two Bays  Walking Track  Hiking  National Park
 
-Photo · Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Illustrative image  This image shows Cape Schanck Boardwalk. It does not depict the place described on this page.
 

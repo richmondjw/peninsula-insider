@@ -17,6 +17,8 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Simon Yeo
+
 **Stonier Fire & Wine Winter Lunch, Merricks - today only**
 
 Stonier runs these fire-side winter lunches selectively, and today’s is the one on the calendar. The format centres on Stonier’s Merricks estate, where the cellar door dining space gets a proper working fire and the kitchen builds a menu around the current-vintage Pinot Noirs and the Chardonnay that keeps appearing on serious restaurant lists. Winter is genuinely the right time to drink Stonier’s Merricks Pinot - the tannin structure makes sense when it’s cold outside and something is burning inside. This is not a casual drop-in situation. Bookings are required and the event is today, 9 August. If you don’t have a reservation, call the winery directly on the off-chance of a cancellation - it’s worth trying. Allow three hours minimum. Stonier Wines, 2 Thompsons Lane, Merricks; stonier.com.au/visit.

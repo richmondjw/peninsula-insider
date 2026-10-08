@@ -17,7 +17,7 @@ Keep this for later
 
 Point Nepean  National Park  Fort Nepean  Free
 
-Photo · Jesse Hisco, courtesy of Visit Victoria
+Point Nepean National Park, Mornington Peninsula.   Photo · Jesse Hisco, courtesy of Visit Victoria
 
 Point Nepean is the western tip of the Mornington Peninsula, a narrow headland jutting into Port Phillip Bay with Fort Nepean at the end and The Rip churning past the point where the bay meets Bass Strait. Entry is free. The interior roads and walking tracks are closed to private vehicles, which preserves the quiet that makes it worth the drive.
 

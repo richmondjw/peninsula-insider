@@ -17,6 +17,8 @@ Keep this for later
 
 Winter  Rainy Day  Indoor  Hot Springs
 
+Photo · Wikimedia Commons
+
 Start here
 
 ## The short version

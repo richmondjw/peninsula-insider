@@ -17,6 +17,8 @@ Keep this for later
 
 Insider Picks  Spring
 
+Photo · BrooksieG
+
 **WINE - Kerri Greens, Merricks**
 
 The single-vineyard Pinot Noir at Kerri Greens is worth the drive to Merricks right now. Spring means the vines have just broken bud and the cellar door is quiet enough that Tom McCarthy or Lucas Blanck will actually talk you through the current release rather than move you along.

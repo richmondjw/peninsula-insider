@@ -17,7 +17,7 @@ Keep this for later
 
 Arthurs Seat  Gondola  Cable Car  Family
 
-Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Arthurs Seat Eagle runs 24 gondolas along a one-kilometre cable from the valley floor to the highest point on the Mornington Peninsula, 314 metres above sea level. The ride takes approximately six minutes and opens up views across Port Phillip Bay and the Peninsula hinterland that are not accessible any other way.
 

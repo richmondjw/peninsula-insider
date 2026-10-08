@@ -17,7 +17,7 @@ Keep this for later
 
 Dromana  Area Guide  Planning
 
-Photo · Courtesy of Visit Victoria
+Crittenden Estate, Dromana, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Dromana does not have Sorrento’s social theatre, Red Hill’s tasting-room prestige or Flinders’ cultivated quiet. What it does have is usefulness, and on the Peninsula that matters.
 

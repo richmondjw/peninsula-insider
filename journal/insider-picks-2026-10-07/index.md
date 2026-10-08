@@ -17,7 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Peter Foster, courtesy of Visit Victoria
+Avani Wines, Red Hill, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
 
 **WINE - Avani Wines, Red Hill South**
 

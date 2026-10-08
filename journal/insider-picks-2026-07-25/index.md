@@ -17,6 +17,10 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows bare coastal trees above a beach curving to a rocky point. It does not depict the place described on this page.
+
 **EAT: Flinders Sourdough, Flinders**
 
 A village bakery good enough that it accidentally became a reason to drive to Flinders. The loaves hold their crust for three days, which is the only real test, and the queue on a Saturday morning is made up almost entirely of people who know exactly what they came for.

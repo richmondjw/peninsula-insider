@@ -17,7 +17,7 @@ Keep this for later
 
 Eat  Produce  Markets  Cook In
 
-Photo · Courtesy of Visit Victoria
+Mornington Farmers' Market, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Illustrative image  This image shows Produce at Mornington Farmers Market. It does not depict the place described on this page.
 

@@ -17,6 +17,8 @@ Keep this for later
 
 Insider Picks  Spring
 
+Photo · Chris Olszewski (Kgbo) / Wikimedia Commons (CC BY-SA 4.0)
+
 **EAT / DRINK - Portsea Hotel, Portsea**
 
 The front beer garden faces Port Phillip at the exact moment the water starts to look blue again rather than grey. September at the Portsea Hotel is the version of this pub that rewards timing: the summer crowds haven’t arrived, the deck furniture is out, and the kitchen is still running the fish and chips that make this place genuinely hard to argue with.

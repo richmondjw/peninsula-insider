@@ -17,6 +17,10 @@ Keep this for later
 
 Insider Picks  Winter
 
+Photo · Peninsula Insider
+
+Illustrative image  This image shows the boardwalk above the cliffs and rock shore at Cape Schanck. It does not depict the place described on this page.
+
 **St Andrews Beach Brewery, Rye - Sunday Roast in the Old Stables**
 
 The former racehorse training stables at Sandy Track were converted into one of the Peninsula’s most complete brewery destinations, and winter is when it earns that status. The lawns are empty, the heritage timber buildings hold warmth, and the Sunday roast format - a rotating centrepiece carved tableside, with sides that vary week to week - justifies the drive from anywhere on the Peninsula.

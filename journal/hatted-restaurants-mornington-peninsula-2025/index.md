@@ -17,6 +17,10 @@ Keep this for later
 
 Hatted Restaurants  Fine Dining  Food Guide  Mornington Peninsula
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+
 The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. The Peninsula’s hatted scene has changed significantly: Barragunda Dining debuted at two hats in February, Ten Minutes by Tractor has a new head chef (Craig Lunn, ex-Michelin UK), and Tedesca Osteria won Regional Restaurant of the Year. What follows is the accurate hat count, what each restaurant actually is, and the booking reality at each.
 
 ## The current hat table

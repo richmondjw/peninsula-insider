@@ -17,7 +17,7 @@ Keep this for later
 
 Flinders  Stay  Walks  Slow
 
-Photo · Gary Lisbon, courtesy of Visit Victoria
+Flinders Golf Club, Mornington Peninsula.   Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Most people who talk about the Peninsula mean Red Hill and Sorrento.
 

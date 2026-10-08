@@ -17,6 +17,8 @@ Keep this for later
 
 Weddings  Stay  Planning  Red Hill
 
+Photo · Peninsula Insider
+
 One of the easiest ways to make a Peninsula wedding feel effortless is to get the guest-stay logic right early.
 
 That sounds obvious, but it is where a lot of wedding weekends fall apart. A venue can be beautiful, the food can be strong, and the photos can look immaculate, but if guests are scattered too far apart, transport is awkward, and nobody understands which town is meant to be the base, the weekend starts to feel more work than celebration.

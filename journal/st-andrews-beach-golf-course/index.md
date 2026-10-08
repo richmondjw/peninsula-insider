@@ -17,7 +17,7 @@ Keep this for later
 
 Golf  St Andrews Beach  Public Golf  Mornington Peninsula
 
-Photo · Gary Lisbon, courtesy of Visit Victoria
+St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula.   Photo · Gary Lisbon, courtesy of Visit Victoria
 
 If you only need one golf story to understand why the Mornington Peninsula matters, make it St Andrews Beach.
 

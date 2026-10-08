@@ -17,7 +17,7 @@ Keep this for later
 
 Eat  Seafood  Bayside  Hastings
 
-Photo · Courtesy of Visit Victoria
+Sorrento Ferry, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Illustrative image  This image shows Sorrento Ferry Terminal. It does not depict the place described on this page.
 

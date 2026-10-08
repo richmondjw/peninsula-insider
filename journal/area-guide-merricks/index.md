@@ -17,7 +17,7 @@ Keep this for later
 
 Merricks  Area Guide  Planning
 
-Photo · Peter Foster, courtesy of Visit Victoria
+Merricks General Wine Store, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
 
 Start here
 

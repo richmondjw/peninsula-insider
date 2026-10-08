@@ -17,7 +17,7 @@ Keep this for later
 
 Cape Schanck  Lighthouse  Walk  National Park
 
-Photo · Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Boardwalk upgrades in progress: verify access before visiting
 

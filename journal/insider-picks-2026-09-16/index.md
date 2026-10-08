@@ -17,6 +17,8 @@ Keep this for later
 
 Insider Picks  Spring
 
+Photo · Marshlung
+
 ## Eat: Barragunda Dining, Cape Schanck
 
 Barragunda’s menu this week will not be the same as last week’s, and that is the whole point. Simone Watts builds every sitting around what the 1000-acre Cape Schanck estate has produced in the days immediately before service. Spring means the kitchen garden is accelerating fast - expect asparagus, broad beans, and new-season brassicas to anchor the first few courses. Lamb from the property is still on the table but the accompaniments have shifted from root-heavy winter plates to something sharper and greener.

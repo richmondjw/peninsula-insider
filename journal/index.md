@@ -14,6 +14,10 @@ Good places. Interesting people.
 
 **Selected 24 September 2026.** Recent practical stories sit alongside favourites from the archive. Each story keeps its original publication date; selecting it again is not a new check of every detail.
 
+Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
+
+Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
+
 Art & culture
 
 ## [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
@@ -60,6 +64,10 @@ Peninsula Insider · Published 21 Aug 2026
 
 The people who shaped what we drink, through our existing cellar-door stories.
 
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional vineyard context; this photograph shows Montalto, not Quealy Winemakers.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+
 Cellar door dispatch
 
 ### [Quealy, gloriously unpolished](<https://peninsulainsider.com.au/journal/quealy-winemakers-balnarring/>)
@@ -74,6 +82,8 @@ At the table
 
 [All food & wine ↗](<https://peninsulainsider.com.au/journal/?theme=food-and-wine#archive>)
 
+Photo · Wikimedia Commons
+
 The long lunch
 
 ### [An afternoon worth making room for](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
@@ -82,6 +92,10 @@ The Peninsula’s long-lunch tradition, and the tables that make a weekend of it
 
 Peninsula Insider · Published 15 Mar 2026 · 8 min read
 
+Trofeo Estate, Dromana, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Trofeo Estate. It does not depict the place described on this page.
+
 Start early
 
 ### [Breakfast before the crowds](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
@@ -89,6 +103,8 @@ Start early
 The first coffee. A good breakfast. The day still ahead.
 
 Peninsula Insider · Published 9 Apr 2026 · 7 min read
+
+Photo · Wikimedia Commons
 
 Wine country
 
@@ -101,6 +117,8 @@ Peninsula Insider · Published 6 Apr 2026 · 6 min read
 Out in the open
 
 ## A little further, a little slower
+
+Photo · Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)
 
 explore
 
@@ -116,7 +134,7 @@ Make a weekend of it
 
 ## A place to settle into
 
-Photo · Gary Lisbon, courtesy of Visit Victoria
+Flinders Golf Club, Mornington Peninsula.   Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Flinders
 
@@ -126,7 +144,7 @@ A village, a pier and a different pace.
 
 Peninsula Insider · Published 4 Apr 2026 · 7 min read
 
-Photo · Peter Foster, courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
 
 Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
 
@@ -138,7 +156,7 @@ A stay that shapes the trip, rather than simply hosts it.
 
 Peninsula Insider · Published 2 Apr 2026 · 6 min read
 
-Photo · Courtesy of Visit Victoria
+Sorrento, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
 Sorrento
 
