@@ -355,9 +355,9 @@ export const prerender = true;
             </aside>
           )}
 
-          {event.data.editorNote && (
+          {(event.data.editorNote || event.data.primarySourceUrl) && (
             <div class="prose">
-              {unconfirmedArchivedSchedule && <h2>Historical listing notes</h2>}{event.data.editorNote.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
+              {unconfirmedArchivedSchedule && <h2>Historical listing notes</h2>}{event.data.editorNote?.split(/\n\n+/).map((para: string) => <p>{para}</p>)}
               {event.data.primarySourceUrl && <p><a href={event.data.primarySourceUrl} rel="nofollow noreferrer" target="_blank">Check the latest details at the source &rarr;</a></p>}
             </div>
           )}
