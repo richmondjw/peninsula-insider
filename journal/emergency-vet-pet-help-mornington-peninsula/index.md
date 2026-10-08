@@ -17,9 +17,9 @@ Keep this for later
 
 Dogs  Emergency  Vet  Peninsula
 
-Photo · Unsplash
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows a chocolate Labrador looking up at the camera. It does not depict the place described on this page.
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 This page exists because not every Peninsula day goes to plan. Use it calmly.
 

@@ -17,7 +17,9 @@ Keep this for later
 
 Explore  Walks  Cape Schanck  Sorrento
 
-Photo · Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 Start here
 

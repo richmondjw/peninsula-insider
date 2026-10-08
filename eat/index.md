@@ -1,45 +1,47 @@
 Canonical: https://peninsulainsider.com.au/eat/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-07-30
+Modified: 2026-10-08
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 Eat & Drink
 
-# Where to eat on the Mornington Peninsula
+# Eat & drink on the Mornington Peninsula
 
-Choose a destination lunch, a casual table or a coffee stop. Browse 52 places by occasion and town, or start with our editorial choices.
+A vineyard lunch. A village coffee. A table by the bay. Find a place for the day you have in mind.
 
-Save a possibility or plan a visit?
+Trofeo Estate, Dromana, Mornington Peninsula. Courtesy of Visit Victoria.
 
-**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
+## Find your kind of place
 
-You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
+52 places. Your choice of town, table or coffee stop.
 
-## A table for the kind of day you want
+The editorial shortlist
 
-Start with a long lunch, a coffee stop or an easy village meal. Check opening times, menus and bookings with the venue.
+## Six starting points. Six different days.
 
-- ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
-
-The long lunch, settled: wood oven, one set menu, and a room built for a slow table. Book lunch, not dinner.
-
-Red Hill   Restaurant
-
-- ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
-
-The quick warm-up: serious coffee in a Mornington warehouse, best before ten, with the egg sandwich still the order.
-
-Mornington   Cafe
+Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability.
 
 - Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
-The softer ridge lunch: cellar door, bakery, fireplace, and produce-led plates without the two-hat booking pressure.
+Breakfast or lunch in Merricks, with local wines and fireside or deck tables. A village stop before exploring the ridge.
 
 Merricks   Restaurant
+
+- ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
+
+A Mornington cafe beside its roastery, with a full menu and dog-friendly courtyard. Useful for coffee, brunch or a casual family stop.
+
+Mornington   Cafe
+
+- ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
+
+A fixed-menu osteria in Red Hill, with produce from its own farm. Choose this for a meal to plan your day around.
+
+Red Hill   Restaurant
 
 See 3 more editorial choices
 
@@ -47,21 +49,29 @@ See 3 more editorial choices
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
-The occasion room at Jackalope: a tasting-menu setting for a celebration. Check the current menu and dietary options before booking.
+Jackalope’s dining room offers a multi-course tasting menu to guests and visitors. Choose this for an evening occasion.
 
 Merricks North   Restaurant
 
 - ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
-The farm booking: a thousand-acre estate, a weekly-changing menu, and cooking tied to what the estate has ready.
+A four-course farm menu in Cape Schanck, built around estate produce. Choose this for a planned farm-to-table meal; reserve ahead.
 
 Cape Schanck   Restaurant
 
 - ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
-The bay-front pub: fireplace inside, acoustic sessions on the calendar, and the view still doing the work.
+A seaside pub with dining areas overlooking Port Phillip Bay. Choose it for a coastal meal, then check the calendar for live music.
 
 Portsea   Pub
+
+Chosen for a reason, with no pay-for-coverage. [How we choose our picks →](<https://peninsulainsider.com.au/about/>) [Tell us what has changed →](<https://peninsulainsider.com.au/corrections/>)
+
+Save a possibility or plan a visit?
+
+**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
+
+You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
 
 The full list
 
@@ -70,6 +80,8 @@ The full list
 Compare the full list, then narrow it by occasion or town.
 
  [Ranked top 15 →](<https://peninsulainsider.com.au/eat/best-restaurants/>)
+
+Sort
 
 - ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
@@ -107,6 +119,8 @@ Balnarring's village pub, in a 1930s heritage home on a two-acre block, with ope
 
 Balnarring   Pub
 
+Details checked September 2026
+
 - ### [Barmah Park Farm Kitchen](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
 All-day farm kitchen and courtyard, brunches, cheese plates, and an easy Peninsula midweek lunch without the wine-country theatre.
@@ -119,9 +133,7 @@ Chef Simone Watts's farm dining room on a 1000-acre regenerative estate at Cape 
 
 Cape Schanck   Restaurant
 
-- Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
+- ### [Bass & Flinders Distillery](<https://peninsulainsider.com.au/eat/bass-and-flinders/>)
 
 A Peninsula gin distillery with a gin-school blending session that has quietly become one of the region's best wet-weather plans.
 
@@ -139,9 +151,7 @@ The Peninsula's most serious roaster, hidden in a Mornington warehouse with a ca
 
 Mornington   Cafe
 
-- Illustrative image. This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.   Photo: Peter Foster, courtesy of Visit Victoria.
-
-### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
+- ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
 A multi-course dining experience at Jackalope Hotel, with a dramatic room and a seasonal menu.
 
@@ -153,9 +163,7 @@ Sprawling beachfront pub with an enormous deck and bay views, the straightforwar
 
 Dromana   Pub
 
-- Photo: Peter Foster, courtesy of Visit Victoria.
-
-### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
+- ### [The Epicurean](<https://peninsulainsider.com.au/eat/epicurean-red-hill/>)
 
 A long table in Red Hill’s historic coolstore and packing shed.
 
@@ -179,9 +187,7 @@ All-day cafe on Cook Street built around produce from their own farm, the natura
 
 Flinders   Cafe
 
-- Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
+- ### [Green Olive at Red Hill](<https://peninsulainsider.com.au/eat/green-olive-red-hill/>)
 
 A working olive grove and produce kitchen on the Red Hill ridge, grazing boards, wood-fired mains, and oils pressed from the estate's own trees.
 
@@ -229,9 +235,7 @@ Bayside all-day bistro across from Safety Beach, modern Australian plates, a bay
 
 Safety Beach   Restaurant
 
-- Photo: Peter Foster, courtesy of Visit Victoria.
-
-### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
+- ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
 The old Merricks general store reborn as a cellar door, bakery, and produce-forward lunch room.
 
@@ -291,17 +295,13 @@ The front-row pub on Port Phillip, still the cleanest long lunch at the tip of t
 
 Portsea   Pub
 
-- Photo courtesy of Visit Victoria.
-
-### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
+- ### [Rare Hare at Willow Creek](<https://peninsulainsider.com.au/eat/rare-hare/>)
 
 Jackalope's relaxed lunch room, wood fire, vineyard views, and plates built for sharing over most of an afternoon.
 
 Merricks North   Restaurant
 
-- Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
+- ### [Red Gum BBQ](<https://peninsulainsider.com.au/eat/red-gum-bbq/>)
 
 Airy warehouse, picnic tables, and low-and-slow American barbecue, pulled pork, brisket, smoked chicken, the family-friendly antidote to the winery-restaurant circuit.
 
@@ -313,9 +313,7 @@ Artisan bread, pies and pastries from the bakery's sole current shop in Balnarri
 
 Balnarring   Bakery
 
-- Photo: Peter Tarasiuk, courtesy of Visit Victoria.
-
-### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
+- ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
 The Peninsula's original craft brewery, Belgian-style ales from the only estate hop farm in Victoria.
 
@@ -357,9 +355,7 @@ A small-batch sourdough baker at the top of Mornington's Main Street, long-ferme
 
 Mornington   Bakery
 
-- Photo courtesy of Visit Victoria.
-
-### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
+- ### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/eat/st-andrews-beach-brewery/>)
 
 Former horse-training stables turned sprawling brewery destination, wood-fired kitchen, acres of lawn, and Sunday roasts all year round.
 
@@ -409,19 +405,25 @@ The Journal
 
 [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
-- ### [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
+- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
 
 New leaf, quieter cellar doors, and the case for a slow Spring weekend before the summer rush.
 
 7 min read
 
-- ### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
+- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
 
 Three hatted restaurants, a bay view, and the case for letting Sunday lunch run long.
 
 8 min read
 
-- ### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
+- Sorrento Ferry, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+
+### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
 
 The Peninsula seafood story, from fishmongers near the pier to the bay-view dining rooms worth booking.
 
@@ -433,24 +435,24 @@ Frequently asked
 
 What are the best restaurants on the Mornington Peninsula?
 
-The Good Food Guide awarded 15 hats across 11 Peninsula venues. The four two-hat restaurants, Barragunda Dining, Laura at Pt. Leo Estate, Tedesca Osteria, and Ten Minutes by Tractor, are the clearest destination dining choices.
+Start with our editorial shortlist for different kinds of day, or open the restaurant guide for a longer comparison. The right choice depends on your town, occasion and appetite. Check current menus and booking availability with the operator.
 
 Do I need to book restaurants on the Mornington Peninsula?
 
-Book ahead for destination restaurants and weekend lunches. Some casual venues accept walk-ins; Foxeys Hangout operates without bookings according to our venue record. Check the restaurant directly for current hours, group limits and availability before travelling.
+For a planned restaurant lunch or celebration, check booking availability before travelling. Our no-booking guide is a starting point for a more spontaneous day, but it does not guarantee a table. Confirm current hours, group limits and walk-in arrangements with the venue.
 
 What is the best area for food on the Mornington Peninsula?
 
-The Red Hill plateau, including Main Ridge and Red Hill South, has the highest concentration of serious dining. Mornington town has the strongest casual eating scene. Sorrento and Portsea have the best waterfront and atmosphere-first dining. For wine-paired long lunches, stick to the ridge.
+Choose your town in the finder to see the places in our current directory. Compare Red Hill and Merricks for the ridge, Mornington for the bay side, or Sorrento and Portsea for the southern Peninsula. The map helps you choose a stop that fits the rest of your day.
 
 When is the best time to visit the Mornington Peninsula for food?
 
-Winter (June to August) is the insider season: fires are lit, the best tables are more bookable, and menus lean into braises, roots and slow cooking. Autumn remains the peak vintage season; spring is a close second.
+Build the visit around the meal you want and the venue’s current opening days. Menus, service times and availability change with the season. Use the venue’s own website to confirm the day before you make the drive.
 
 Are there dog-friendly restaurants on the Mornington Peninsula?
 
-Yes, outdoor seating options at cafes, village pub beer gardens, and a small number of winery casual dining areas permit dogs. Commonfolk Coffee (back courtyard), The Rocks Mornington (outdoor deck), Portsea Hotel (beer garden), and Green Olive at Red Hill (garden) are listed as dog-friendly in PI venue records. Verify directly before visiting.
+Use the Dog-friendly party filter to find possibilities recorded in our directory. Ask the venue about its current pet policy, the area where dogs are permitted and any restrictions before visiting. A filter match is a planning aid, not a guarantee.
 
 What is the signature food experience on the Mornington Peninsula?
 
-The long lunch, a two-to-three-hour table at a vineyard restaurant with estate wine and unhurried service. In winter the format sharpens: wood ovens, fires, estate Pinot Noir, and menus built for cold weather.
+A long lunch is one way into the Peninsula’s dining scene. Our long-lunch and cellar-door-lunch guides give you a starting shortlist. For tasting-led visits rather than a meal, continue to the Wine guide.

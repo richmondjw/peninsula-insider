@@ -17,7 +17,9 @@ Keep this for later
 
 Wine  Chardonnay  Cellar Door  Red Hill
 
-Photo · Sarah Stierch / Wikimedia Commons (CC-BY-4.0)
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 The Mornington Peninsula sells itself as pinot noir country and always has. Every tourism brochure, every estate map, every long-lunch menu leans on it. Pinot is the hero varietal, the grape that tells the cool-climate story, the thing the collectors came down from Melbourne to buy. None of this is wrong. The region does grow genuinely serious pinot noir, the kind that sits credibly alongside the Yarra Valley’s best at ten years of age, and the argument for pinot has been settled, mostly, for a decade.
 

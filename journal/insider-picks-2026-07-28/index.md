@@ -17,9 +17,9 @@ Keep this for later
 
 Insider Picks  Winter
 
-Photo · Peninsula Insider
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree. It does not depict the place described on this page.
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 **EAT - Doot Doot Doot, Merricks North**
 

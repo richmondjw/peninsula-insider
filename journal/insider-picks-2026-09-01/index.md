@@ -17,9 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · CSIRO
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict the place described on this page.
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 ## Eat: Green Olive at Red Hill
 

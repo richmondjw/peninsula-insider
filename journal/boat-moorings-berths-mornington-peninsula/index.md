@@ -17,9 +17,9 @@ Keep this for later
 
 Boating  Moorings  Berths  Mornington
 
-Photo · Simon Yeo
+Sorrento Ferry, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows brightly painted bathing boxes along a bay beach below a wooded hillside. It does not depict the place described on this page.
+Illustrative image  This image shows Sorrento Ferry Terminal. It does not depict the place described on this page.
 
 Mornington doesn’t have a marina in the Sorrento or Rye sense - what it has is a managed mooring ground, a genuinely competitive annual waiting list, and a seasonal booking system that resets every year. None of that is obvious from the water, and it isn’t obvious from a general web search either. Here’s the actual structure, and who to talk to.
 

@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Peninsula Insider
+Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
+
+Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
 
 **Rye Hotel - foreshore beer garden, first proper spring Saturday**
 

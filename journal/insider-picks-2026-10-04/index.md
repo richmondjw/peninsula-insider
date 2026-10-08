@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Mornington Peninsula Regional Gallery, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Peter Foster, courtesy of Visit Victoria
+
+Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
 
 ## EAT - The Bay Hotel Mornington
 

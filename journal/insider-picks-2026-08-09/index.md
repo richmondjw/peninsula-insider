@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Winter
 
-Photo · Simon Yeo
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 **Stonier Fire & Wine Winter Lunch, Merricks - today only**
 

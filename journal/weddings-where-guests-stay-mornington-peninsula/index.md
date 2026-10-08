@@ -17,7 +17,9 @@ Keep this for later
 
 Weddings  Stay  Planning  Red Hill
 
-Photo · Peninsula Insider
+Jackalope Hotel, Merricks North, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Peter Foster, courtesy of Visit Victoria
+
+Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
 
 One of the easiest ways to make a Peninsula wedding feel effortless is to get the guest-stay logic right early.
 

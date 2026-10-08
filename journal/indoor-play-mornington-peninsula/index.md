@@ -17,7 +17,9 @@ Keep this for later
 
 Family  Kids  Rainy Day  Indoor
 
-Photo · Wikimedia Commons
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 There is a particular kind of Peninsula weather - grey, wet, and not committed enough to be dramatic - that turns a normal Saturday into a problem. The beach is out. The garden is out. The kids have been circling the kitchen since eight.
 

@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Daniel Kabel
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 **Moke Dining, Flinders** - Michael Cole placed fourteenth at Bocuse d’Or. His room on Cook Street seats twenty people and runs a single weekly-changing five-course menu. There is no à la carte decision to agonise over, no wine list to second-guess without help. The kitchen sends what it wants to send, and what it wants to send right now in spring is worth the drive to Flinders.
 

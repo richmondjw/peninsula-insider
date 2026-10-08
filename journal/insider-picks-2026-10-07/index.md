@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Avani Wines, Red Hill, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 **WINE - Avani Wines, Red Hill South**
 

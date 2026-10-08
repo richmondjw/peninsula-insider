@@ -17,9 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · BrooksieG
+Sorrento Ferry, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows rows of trellised vines running to a cypress windbreak. It does not depict the place described on this page.
+Illustrative image  This image shows Sorrento Ferry Terminal. It does not depict the place described on this page.
 
 ## WINE - Elgee Park, Merricks North
 

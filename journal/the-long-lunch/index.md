@@ -17,7 +17,9 @@ Keep this for later
 
 Eat  Wine  Weekend  Red Hill
 
-Photo · Wikimedia Commons
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 The case for the Mornington Peninsula long lunch is straightforward: nowhere within ninety minutes of Melbourne pairs this kind of kitchen ambition, wine pedigree, and landscape. Sydney people know it. They fly down for it.
 

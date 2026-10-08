@@ -17,9 +17,9 @@ Keep this for later
 
 Insider Picks  Winter
 
-Photo · Daniel Kabel
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows a timber pier, a seaweed-covered rock shelf and moored boats on the bay. It does not depict the place described on this page.
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 **EAT - Moke Dining, Flinders**
 

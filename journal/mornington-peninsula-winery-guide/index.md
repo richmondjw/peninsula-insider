@@ -17,7 +17,9 @@ Keep this for later
 
 Wine  Cellar Doors  Pinot Noir  Chardonnay
 
-Photo · BrooksieG
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 The Mornington Peninsula wine region is often introduced as a single place. For a visit, it helps to think in smaller areas, from Moorooduc near Frankston in the north to Main Ridge and Balnarring in the south. Where you drink on the Peninsula depends on what you’re after: serious benchmark Pinot Noir in the cool hills of Main Ridge, design-forward architecture and hatted restaurants in Merricks North, or dog-friendly lawns and easy walk-in cellar doors closer to the bay.
 

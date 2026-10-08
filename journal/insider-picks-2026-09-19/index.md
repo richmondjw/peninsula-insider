@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Chris Olszewski (Kgbo) / Wikimedia Commons (CC BY-SA 4.0)
+Jackalope Hotel, Merricks North, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Peter Foster, courtesy of Visit Victoria
+
+Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
 
 **EAT / DRINK - Portsea Hotel, Portsea**
 

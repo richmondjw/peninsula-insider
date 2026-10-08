@@ -17,7 +17,9 @@ Keep this for later
 
 Hot Springs  Spa  Wellness  Mornington Peninsula
 
-Photo · Peninsula Hot Springs
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book? in 8 photographs
 

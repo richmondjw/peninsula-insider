@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Michael J Wyllie / Wikimedia Commons (CC BY-SA 4.0)
+Trofeo Estate, Dromana, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Trofeo Estate. It does not depict the place described on this page.
 
 ## EAT · Dromana Hotel
 

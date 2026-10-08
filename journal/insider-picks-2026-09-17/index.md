@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · BrooksieG
+Trofeo Estate, Dromana, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Trofeo Estate. It does not depict the place described on this page.
 
 **WINE - Kerri Greens, Merricks**
 

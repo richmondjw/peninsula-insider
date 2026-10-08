@@ -17,7 +17,9 @@ Keep this for later
 
 Insider Picks  Winter
 
-Photo · Peninsula Insider
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 ## The Thursday reset: Hastings Street Market
 

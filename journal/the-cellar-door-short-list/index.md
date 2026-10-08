@@ -17,7 +17,9 @@ Keep this for later
 
 Wine  Red Hill  Main Ridge  Cellar Door
 
-Photo · Wikimedia Commons
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 The big, beautiful estates with lawns and restaurants are excellent places to spend [a long lunch](<https://peninsulainsider.com.au/journal/the-long-lunch/>). But the experience of understanding what the Peninsula actually grows, the structural pinot noir, the [tight chardonnay](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>), the lesser-known Italian varieties, tends to happen in smaller rooms, at smaller tables, with the people who actually made the wine doing the pouring. For the broader landscape of what’s poured on the Peninsula, the [Mornington Peninsula winery guide](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>) and [The Producer Trail](<https://peninsulainsider.com.au/journal/the-producer-trail/>) are the wider companion pieces to this short list.
 

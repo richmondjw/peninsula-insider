@@ -17,9 +17,9 @@ Keep this for later
 
 Insider Picks  Spring
 
-Photo · Peninsula Insider
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows layered rock shelves running off a sandy beach into shallow water. It does not depict the place described on this page.
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 **EAT / DRINK - St Andrews Beach Brewery, Rye**
 

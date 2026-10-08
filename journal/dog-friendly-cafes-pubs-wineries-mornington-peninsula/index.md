@@ -17,7 +17,9 @@ Keep this for later
 
 Dogs  Cafes  Pubs  Wineries
 
-Photo · Supplied
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 For a dog-friendly meal on the Mornington Peninsula, start with the permitted seating area. A courtyard café, a pub deck and a winery lawn can all work, but a normal table booking may not reserve a place where your dog is allowed.
 

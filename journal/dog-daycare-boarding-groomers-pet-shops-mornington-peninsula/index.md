@@ -17,9 +17,9 @@ Keep this for later
 
 Dogs  Peninsula  Service  Boarding
 
-Photo · Unsplash
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows two dogs running along a dirt track in low light. It does not depict the place described on this page.
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 Dog-owner utility is where most travel guides fall apart. The practical layer, what to do when the dog needs to be somewhere while you’re at a restaurant, or when you’ve left supplies at home, determines whether the Peninsula trip still works when plans change.
 

@@ -17,7 +17,9 @@ Keep this for later
 
 Winter  Solstice  Festival  Sorrento
 
-Photo · Peninsula Insider
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 There is a moment on the Sorrento foreshore each winter when the crowd goes quiet. It is not the silence of boredom. It is the particular hush that happens when several thousand people, most of them wearing beanies and thermals, stand on cold sand and watch something they know is about to be destroyed.
 

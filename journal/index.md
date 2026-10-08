@@ -82,7 +82,9 @@ At the table
 
 [All food & wine ↗](<https://peninsulainsider.com.au/journal/?theme=food-and-wine#archive>)
 
-Photo · Wikimedia Commons
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 The long lunch
 
@@ -104,7 +106,9 @@ The first coffee. A good breakfast. The day still ahead.
 
 Peninsula Insider · Published 9 Apr 2026 · 7 min read
 
-Photo · Wikimedia Commons
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
+
+Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 Wine country
 
@@ -118,7 +122,9 @@ Out in the open
 
 ## A little further, a little slower
 
-Photo · Philip Mallis / Wikimedia Commons (CC-BY-SA-4.0)
+Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
 
 explore
 
