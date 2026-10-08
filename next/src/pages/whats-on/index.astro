@@ -273,6 +273,7 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
           </div>
           <p class="wo-picks__dek">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
         </div>
+        <p class="wo-picks__swipe">Swipe or scroll to see all three picks.</p>
         <CardGrid label="PI's picks for this weekend">
           {pickCards.map((c) => (
             <Card
@@ -892,6 +893,22 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
   }
   document.addEventListener('astro:page-load', initEventScopes);
   initEventScopes();
+  // Browser focus can accept a sliver of a card as visible. Align the entire
+  // card when one of its links or actions receives focus inside the rail.
+  function initPickRailFocus() {
+    const rail = document.querySelector<HTMLElement>('.wo-picks .v5-card-grid');
+    if (!rail || rail.dataset.focusScrollBound) return;
+    rail.dataset.focusScrollBound = 'true';
+    rail.addEventListener('focusin', (event) => {
+      if (rail.scrollWidth <= rail.clientWidth) return;
+      const card = (event.target as HTMLElement).closest<HTMLElement>('.pi-card');
+      if (!card) return;
+      const left = rail.scrollLeft + card.getBoundingClientRect().left - rail.getBoundingClientRect().left;
+      rail.scrollTo({ left, behavior: 'instant' });
+    });
+  }
+  document.addEventListener('astro:page-load', initPickRailFocus);
+  initPickRailFocus();
 </script>
 
 <style>
@@ -1229,9 +1246,60 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     max-width: none;
     font-size: clamp(1.4rem, 3vw, 1.85rem);
   }
+  /* The short list keeps a complete sentence visible and gives the lead image
+     the breadth it needs. Smaller choices follow without empty equal-height cards. */
+  .wo-picks .v5-card-grid .pi-card__dek {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    min-height: 0;
+  }
+  .wo-picks__swipe { display: none; }
   @media (min-width: 1024px) {
-    .wo-picks .v5-card-grid { grid-template-columns: minmax(0, 1.4fr) repeat(2, minmax(0, 1fr)); }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title { font-size: clamp(1.9rem, 2.7vw, 2.65rem); line-height: 1.06; }
+    .wo-picks .v5-card-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start;
+      gap: 1rem;
+    }
+    .wo-picks .v5-card-grid > .pi-card:first-of-type {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+    }
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 0;
+    }
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__body { grid-column: 2; grid-row: 1; }
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__actions { grid-column: 2; grid-row: 2; }
+    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title {
+      font-size: clamp(1.85rem, 2.5vw, 2.45rem);
+      line-height: 1.1;
+    }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate { min-height: 7rem; }
+  }
+  @media (min-width: 1024px) {
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) {
+      display: grid;
+      grid-template-columns: minmax(8rem, 30%) minmax(0, 1fr);
+    }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      aspect-ratio: auto;
+      height: 100%;
+      min-height: 0;
+    }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__body { grid-column: 2; grid-row: 1; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__actions { grid-column: 2; grid-row: 2; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__body { padding: 1rem; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__title { font-size: clamp(1.2rem, 1.55vw, 1.45rem); }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate { padding: 3.7rem .75rem .75rem; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic { font-size: clamp(1rem, 1.5vw, 1.35rem); }
   }
   /* Date scopes added from feed.json do not carry Astro's scoped-style marker. */
   @media (min-width: 1024px) {
@@ -1239,8 +1307,27 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
     .wo-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; border-top: 3px solid #f5c177; }
     .wo-days .wo-day__list, .wo-days .wo-day__empty { grid-column: 2; }
   }
-  @media (max-width: 640px) {
+  @media (max-width: 1023px) {
+    .wo-picks__swipe { display: block; margin: .45rem 0 .65rem; color: #4b5862; font-size: .9rem; }
+    .wo-picks .v5-card-grid {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: #5c6b75 transparent;
+      padding-bottom: .75rem;
+    }
+    .wo-picks .v5-card-grid > .pi-card {
+      flex: 0 0 min(22rem, calc(100vw - 5.5rem));
+      scroll-snap-align: start;
+    }
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media,
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note { display: none; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media { aspect-ratio: auto; height: 7rem; min-height: 0; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate { padding: .75rem 1rem .75rem 5rem; }
+    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic { font-size: 1.15rem; }
   }
 </style>
