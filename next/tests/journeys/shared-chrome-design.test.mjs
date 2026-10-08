@@ -43,8 +43,11 @@ test('mobile navigation keeps shared fonts, fits and returns keyboard focus afte
  const route=anchors[i];if(i===0)await reader.load(route);else await reader.navigate(route);
  const footerFonts=await reader.page.$$eval('.pi-shell.footer p,.pi-shell.footer h2',els=>els.map(e=>({font:getComputedStyle(e).fontFamily,heading:e.tagName==='H2'})));
  assert.ok(footerFonts.every(e=>e.font.includes(e.heading?'Sora':'Figtree')),route+' mobile footer typography');
+ await reader.waitFor(()=>document.querySelector('.site-header')?.dataset.bound==='true',route+' '+width+'px menu has bound its controls');
+ await reader.page.evaluate(async()=>{await document.fonts.ready;await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));});
+ await reader.waitFor(()=>{const button=document.querySelector('.site-header .mobile-menu');const r=button.getBoundingClientRect();return document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.closest('.mobile-menu')===button;},route+' '+width+'px menu opener is unobscured',null,{describe:()=>{const button=document.querySelector('.site-header .mobile-menu');const r=button.getBoundingClientRect();return {bound:document.querySelector('.site-header').dataset.bound,topmost:document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML,viewport:innerWidth,button:button.outerHTML};}});
  await reader.page.click('.site-header .mobile-menu');
- await reader.page.waitForFunction(()=>document.querySelector('#mobile-drawer').open);
+ await reader.waitFor(()=>document.querySelector('#mobile-drawer').open,route+' '+width+'px menu opens after a real click',null,{describe:()=>({bound:document.querySelector('.site-header').dataset.bound,expanded:document.querySelector('.mobile-menu').getAttribute('aria-expanded'),viewport:innerWidth,drawer:document.querySelector('#mobile-drawer').outerHTML.slice(0,250),dialogs:[...document.querySelectorAll('dialog[open]')].map(d=>d.id)})});
  await reader.page.evaluate(()=>document.fonts.ready);
  const menu=await reader.page.evaluate(()=>({
  title:getComputedStyle(document.querySelector('.mobile-drawer__title')).fontFamily,

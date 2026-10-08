@@ -4,6 +4,14 @@ import { Site } from './harness.mjs';
 const site = await Site.open();
 test.after(() => site.close());
 
+// State/image tests use actual keyboard activation so result scrolling cannot
+// move a pointer target between the coordinate lookup and the input event.
+async function activateMatcherControl(reader, selector) {
+  await reader.page.evaluate(()=>document.fonts.ready);
+  await reader.page.focus(selector);
+  await reader.page.keyboard.press('Enter');
+}
+
 test('matcher retains independent constraints and explains each partial recommendation', async () => {
   const reader = await site.reader();
   try {
@@ -12,7 +20,7 @@ test('matcher retains independent constraints and explains each partial recommen
     await reader.page.select('select[name="length"]','one-day');
     await reader.page.select('select[name="who"]','family');
     await reader.page.select('select[name="weather"]','rainy-day');
-    await reader.page.click('[data-build-go]');
+    await activateMatcherControl(reader,'[data-build-go]');
     await reader.waitFor(() => document.querySelector('[data-plan-results-heading]')?.textContent === 'Your closest itineraries','expected partial matches');
     assert.equal(await reader.page.$eval('select[name="length"]',e=>e.value),'one-day');
     assert.equal(await reader.page.$eval('select[name="who"]',e=>e.value),'family');
@@ -27,7 +35,7 @@ test('matcher retains independent constraints and explains each partial recommen
     assert.match(first.missing,/Wet-weather/);
     assert.equal(await reader.page.evaluate(()=>document.activeElement?.id),'plan-engine-heading');
     assert.equal(new URL(reader.page.url()).searchParams.get('weather'),'rainy-day');
-    await reader.page.click('[data-build-clear]');
+    await activateMatcherControl(reader,'[data-build-clear]');
     await reader.waitFor(()=>document.querySelector('[data-plan-results-heading]')?.textContent==='A good place to start','reset did not restore editorial picks');
     assert.equal(await reader.page.$eval('select[name="weather"]',e=>e.value),'');
     assert.equal(new URL(reader.page.url()).search,'');
@@ -58,10 +66,12 @@ test('a legacy season choice is visible, survives submit and can be cleared',asy
     await reader.load('/explore/plans/?context=this-season');
     assert.equal(await reader.page.$eval('[data-plan-season-control]',e=>e.hidden),false);
     assert.equal(await reader.page.$eval('input[name="season"]',e=>e.checked),true);
-    await reader.page.click('[data-build-go]');
+    await activateMatcherControl(reader,'[data-build-go]');
     assert.equal(new URL(reader.page.url()).searchParams.get('season'),'current');
-    await reader.page.click('input[name="season"]');
-    await reader.page.click('[data-build-go]');
+    await reader.page.focus('input[name="season"]');
+    await reader.page.keyboard.press('Space');
+    assert.equal(await reader.page.$eval('input[name="season"]',e=>e.checked),false);
+    await activateMatcherControl(reader,'[data-build-go]');
     assert.equal(new URL(reader.page.url()).searchParams.has('season'),false);
   } finally { await reader.close(); }
 });
@@ -90,13 +100,14 @@ test('recommendation image swaps preserve the right original and never retain an
     assert.ok(familyImage?.srcset,'family image should be available for reuse in another card slot');
     assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), true, 'chooser starts open');
     await reader.page.click('input[name="into"][value="golf"]');
-    await reader.page.click('[data-build-go]');
+    await activateMatcherControl(reader,'[data-build-go]');
     await reader.waitFor(()=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug==='the-peninsula-golf-weekend','golf image did not replace the default');
     assert.equal(await reader.page.$eval('[data-plan-card="0"] img',image=>image.srcset),'','uncached golf image must not keep the previous image variants');
-    await reader.page.click('[data-build-clear]');
+    await activateMatcherControl(reader,'[data-build-clear]');
     await reader.page.select('select[name="length"]','one-day');
     await reader.page.select('select[name="who"]','family');
-    await reader.page.click('[data-build-go]');
+    await activateMatcherControl(reader,'[data-build-go]');
+    await reader.waitFor(()=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug==='the-family-day-out','family image did not replace the golf recommendation');
     const image=await reader.page.$eval('[data-plan-card="0"] img',image=>({slug:image.dataset.piEntitySlug,original:image.dataset.piImageOriginalSrc,srcset:image.srcset,sizes:image.sizes}));
     assert.equal(image.slug,'the-family-day-out');
     assert.equal(image.original,familyImage.original);
@@ -119,4 +130,26 @@ test('guide actions stay read-only and itinerary route previews show the actual 
     assert.ok(days.every(text=>text.includes('Day')));
     assert.deepEqual(await reader.errors(),[]);
   } finally { await reader.close(); }
+});
+
+
+test('pointer reset restores the original picks after matcher result scrolling',async()=>{
+  const reader=await site.reader();
+  const waitForScroll=()=>reader.page.evaluate(()=>new Promise((resolve,reject)=>{
+    let y=scrollY,quiet=0;const deadline=performance.now()+5000;
+    function tick(){if(performance.now()>deadline){reject(new Error('result scrolling did not settle'));return;}if(scrollY===y)quiet++;else{y=scrollY;quiet=0;}if(quiet>=5)resolve();else requestAnimationFrame(tick);}
+    requestAnimationFrame(tick);
+  }));
+  try{
+    await reader.load('/explore/plans/');await reader.page.evaluate(()=>document.fonts.ready);
+    const original=await reader.page.$eval('[data-plan-card="0"] img',e=>e.dataset.piEntitySlug);
+    await reader.page.click('input[name="into"][value="golf"]');await reader.page.click('[data-build-go]');
+    await reader.waitFor(()=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug==='the-peninsula-golf-weekend','pointer submit did not select golf');
+    await waitForScroll();
+    await reader.page.$eval('[data-build-clear]',e=>e.scrollIntoView({behavior:'instant',block:'center'}));await waitForScroll();
+    await reader.page.click('[data-build-clear]');
+    await reader.waitFor(original=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug===original,'pointer reset did not restore original picks',original);
+    assert.equal(await reader.page.$eval('input[name="into"][value="golf"]',e=>e.checked),false);
+    assert.equal(new URL(reader.page.url()).search,'');
+  }finally{await reader.close();}
 });
