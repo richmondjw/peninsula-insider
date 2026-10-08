@@ -1,19 +1,15 @@
 ---
-import { routeSlug, formatHeroCredit } from '../../lib/editorial';
-import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { routeSlug } from '../../lib/editorial';
+import { resolveJournalImage } from '../../lib/journal-image';
+import { journalCredit, journalRecoveryAttrs } from '../../lib/journal-image-policy.mjs';
 import { editableImage } from '../../lib/inline-edit/attrs';
 import MediaProvenanceNote from '../MediaProvenanceNote.astro';
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
 const { display = {}, article, large = false, lead = false, author = 'Peninsula Insider' } = Astro.props;
 const slug=routeSlug(article);
-const hero=await resolveHero('article',slug,article.data,'hero');
-const available=!hero.src.startsWith('/') || existsSync(resolve('public',hero.src.slice(1)));
-const showPhoto=hero.hasPhoto && available;
-const provenance=hero.override ? undefined : article.data.heroImage;
+const hero=await resolveJournalImage(slug,article.data);
 ---
 <article class:list={['story',large && 'large',lead && 'cover']}>
- {showPhoto && <figure><a href={`/journal/${slug}/`}><img src={hero.src} data-pi-responsive={lead ? "(max-width: 767px) 100vw, (max-width: 1100px) 85vw, 920px" : "(max-width: 767px) 100vw, 426px"} alt={hero.alt} loading={lead?'eager':'lazy'} fetchpriority={lead?'high':'auto'} decoding="async" width="1200" height="800" {...editableImage({entityType:'article',entitySlug:slug,fieldPath:'hero',label:`${article.data.title} hero`,purpose:'hero'})}/></a>{!hero.override && article.data.heroImage?.credit && <figcaption class="image-credit">{formatHeroCredit(article.data.heroImage.credit)}</figcaption>}<MediaProvenanceNote image={provenance}/></figure>}
+ <figure><a href={`/journal/${slug}/`}><img src={hero.src} data-pi-responsive={lead ? "(max-width: 767px) 100vw, (max-width: 1100px) 85vw, 920px" : "(max-width: 767px) 100vw, 426px"} alt={hero.alt} role={hero.decorative ? 'presentation' : undefined} loading={lead?'eager':'lazy'} fetchpriority={lead?'high':'auto'} decoding="async" width="1200" height="800" {...journalRecoveryAttrs(hero)} {...editableImage({entityType:'article',entitySlug:slug,fieldPath:'hero',label:`${article.data.title} hero`,purpose:'hero'})}/></a><figcaption class="image-credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && ' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption><MediaProvenanceNote image={hero.provenance}/></figure>
  <div class:list={[lead && 'cover-copy']}>
  <p class="eyebrow">{display.eyebrow || article.data.tags?.[0]?.replaceAll('-',' ') || 'The Journal'}</p>
  {lead ? <h2><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h2> : <h3><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h3>}

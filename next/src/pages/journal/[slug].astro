@@ -3,8 +3,6 @@ import EventStrip from '../../components/EventStrip.astro';
 import { selectEventPromotions } from '../../lib/event-discovery.mjs';
 import { getCollection, render } from 'astro:content';
 import '../../styles/journal-article.css';
-import { existsSync } from 'node:fs';
-import { resolve } from 'node:path';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
@@ -22,12 +20,14 @@ import PhotoStage from '../../components/PhotoStage.astro';
 import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
 import { visibleArticleTags, isJournalDiscovery } from '../../lib/journal-curation.mjs';
-import { formatLabel, routeSlug, venueHrefPrefix, titleize, formatHeroCredit, isListableVenue } from '../../lib/editorial';
+import { formatLabel, routeSlug, venueHrefPrefix, titleize, isListableVenue } from '../../lib/editorial';
 import { pickRelatedArticles, resolveRefs } from '../../lib/related';
 import { isPeninsulaThisWeekend, ptwArchivePath } from '../../lib/peninsula-this-weekend';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
-import { resolveHero } from '../../lib/inline-edit/resolve-hero';
+import { resolveJournalImage } from '../../lib/journal-image';
+import { journalCredit, journalRecoveryAttrs } from '../../lib/journal-image-policy.mjs';
+import JournalImageRecovery from '../../components/journal/JournalImageRecovery.astro';
 import { altFor } from '../../lib/media-provenance';
 import { absUrl, buildBreadcrumbSchema } from '../../lib/schema';
 
@@ -177,15 +177,7 @@ const blockOverridesEntries = Object.entries(articleOverrides.text)
   .filter(([k]) => k.startsWith('body.block:'))
   .map(([k, v]) => [k.slice('body.block:'.length), v] as const);
 const blockOverrides = Object.fromEntries(blockOverridesEntries);
-const resolvedHero = await resolveHero('article', slug, article.data, 'hero');
-// This homepage-linked guide has a published photograph without its own alt
-// text or credit. Keep the credited original artwork through the linked page
-// as well as the homepage until the replacement's metadata is complete.
-const incompleteHolidayOverride = slug === 'spring-school-holidays-2026' && resolvedHero.override &&
-  (!resolvedHero.override.alt?.trim() || !resolvedHero.override.credit?.trim());
-const hero = incompleteHolidayOverride && article.data.heroImage?.src
-  ? { ...resolvedHero, src: article.data.heroImage.src, alt: article.data.heroImage.alt, override: undefined }
-  : resolvedHero;
+const hero = await resolveJournalImage(slug, article.data);
 // `hero.alt || article.data.title` was the old line. On an image marked
 // decorative that refilled the deliberately empty alt with the article's
 // headline - filler, and a claim about a photograph nobody assessed.
@@ -194,11 +186,11 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, article.da
 // disclosure, after venues and places. 35 article heroes are stand-ins,
 // and an essay hero makes the same implicit promise a venue page's does
 // when the copy underneath names specific businesses.
-const heroProvenance = hero.override ? null : article.data.heroImage;
+const heroProvenance = hero.provenance;
 // Licensed photographs of the places the article covers, as a filmstrip under
 // the hero. The hero itself stays the article's own choice.
 const articlePhotos = verifiedPhotos({ gallery: (article.data as any).gallery ?? [] });
-const heroCredit = hero.override ? hero.override.credit : article.data.heroImage.credit;
+const heroCredit = hero.credit;
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
 const ogImage = hero.src;
@@ -303,7 +295,6 @@ const faqSchema = article.data.faq && article.data.faq.length > 0 ? {
     acceptedAnswer: { '@type': 'Answer', text: answer },
   })),
 } : null;
-const heroAvailable = !hero.src.startsWith('/') || existsSync(resolve('public', hero.src.split('?')[0].slice(1)));
 export const prerender = true;
 ---
 
@@ -372,7 +363,7 @@ export const prerender = true;
               section={article.data.section ?? 'journal'}
               title={article.data.title}
               dek={article.data.dek}
-              imageUrl={article.data.heroImage?.src}
+              imageUrl={hero.src}
             />
             <div class="article-hero__byline">
               <span class="article-hero__byline-name"> - By <strong>{authorLabel}</strong></span>
@@ -385,19 +376,19 @@ export const prerender = true;
               </div>
             )}
           </div>
-          {heroAvailable && (<figure class="article-hero__figure">
-            <img class="article-hero__image" src={hero.src} data-pi-responsive="(max-width: 1360px) 100vw, 1280px" alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" data-pi-no-hydrate={incompleteHolidayOverride ? 'true' : undefined} {...editableImage({
+          <figure class="article-hero__figure">
+            <img class="article-hero__image" src={hero.src} data-pi-responsive="(max-width: 1360px) 100vw, 1280px" alt={heroAlt} role={heroPresentation ? 'presentation' : undefined} fetchpriority="high" decoding="async" {...journalRecoveryAttrs(hero)} {...editableImage({
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
             })} />
             {heroCredit && (
-              <figcaption class="article-hero__credit">{formatHeroCredit(heroCredit)}</figcaption>
+              <figcaption class="article-hero__credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && ' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
             )}
             <MediaProvenanceNote
               image={heroProvenance}
               class="article-hero__provenance"
             />
-          </figure>)}
+          </figure>
         </div>
       </div>
       {articlePhotos.length >= STAGE_MIN && (
@@ -406,6 +397,7 @@ export const prerender = true;
         </div>
       )}
     </header>
+    <JournalImageRecovery />
 
     <div class={`container${headings.length ? ' article-body--hub' : ''}`}>
       {headings.length > 0 && <HubGuideTOC headings={headings} />}

@@ -51,6 +51,8 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 - Independent: no pay-for-coverage, ever.
 - Design is the final gate on factual/image claims for the email; it comes back rather than shipping unsourced.
 
+Every published Journal article has an associated image. Image-bearing Journal cards and article heroes always render an available, credited image, with licensed context photography and original illustration as fallbacks. The source and built-image gates enforce this rule. See [Journal image policy](docs/JOURNAL-IMAGE-POLICY.md).
+
 ## Reader and Agent Boundary
 
 Reader pages must contain reader-facing editorial content only. Agent retrieval instructions and machine directory links belong in `/agents/`, JSON, Markdown, `llms.txt`, or HTML head metadata. Do not add them to page bodies, shared navigation, footers, hidden elements, or accessibility labels. `next/scripts/assert-reader-boundary.mjs` scans every built reader HTML page and blocks the build and publish when this boundary is crossed.
