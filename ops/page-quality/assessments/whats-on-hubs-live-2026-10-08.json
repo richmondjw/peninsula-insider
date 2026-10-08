@@ -1,0 +1,116 @@
+{
+  "schemaVersion": "1.0",
+  "programme": "Peninsula Insider page quality, existing 23-criterion rubric v1.0",
+  "assessedAt": "2026-10-08 Australia/Sydney",
+  "status": "provisional-failed",
+  "releasedSourceRevision": "9c5f2230c7649d15bc717772b52e441ff9a87922",
+  "releaseEvidence": {
+    "pullRequests": [
+      "https://github.com/richmondjw/peninsula-insider/pull/628",
+      "https://github.com/richmondjw/peninsula-insider/pull/629"
+    ],
+    "deployRun": "https://github.com/richmondjw/peninsula-insider/actions/runs/37708949326",
+    "publicDeploymentJsonMatched": true,
+    "sourceSha": "9c5f2230c7649d15bc717772b52e441ff9a87922",
+    "selfBrowserCheck": "Fresh public Chromium at 390 and 1440px: no horizontal overflow; Dominion lead illustration note and attribution rendered at 10.74:1 contrast on navy; mobile calendar guidance and no-JS weekend date warning passed in prior release check."
+  },
+  "pages": [
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/",
+      "tier": "T1",
+      "independentLiveBeforeLeadContrastFix": 85.75,
+      "independentLiveAfterBoundedContrastRecheck": 89.0,
+      "scoreStatus": "provisional bounded delta, not a fresh full-page acceptance",
+      "ratingsRubricOrderBeforeFix": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        3,
+        3,
+        3,
+        3,
+        4,
+        2,
+        4,
+        4,
+        3,
+        3,
+        2,
+        3,
+        3,
+        4
+      ],
+      "boundedRatingsDelta": {
+        "VS4": "2 to 4",
+        "AT1": "2 to 3"
+      },
+      "observedImprovement": "Mobile decision path and hero crop live; when an illustrated event became the lead, disclosure contrast improved from 1.91:1 to 10.74:1 on the actual public page.",
+      "next": "Improve clamped teaser clarity and tall lead-card rhythm; complete direct AT, field performance, image-rights and source checks."
+    },
+    {
+      "url": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "tier": "T1",
+      "independentLive": 91.25,
+      "scoreStatus": "provisional",
+      "ratingsRubricOrder": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        4,
+        4,
+        3,
+        3,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        4
+      ],
+      "observedImprovement": "The no-JavaScript mobile edition warning gives the exact Fri 9 to Sun 11 October 2026 date and an event index path before the H1.",
+      "next": "Improve mobile card scan and date discovery; test edition rollover after a missed build."
+    }
+  ],
+  "reviewEvidence": [
+    {
+      "role": "independent visual and mobile reviewer",
+      "surface": "public /whats-on/ at 1440px, exact deployment SHA",
+      "result": "Disclosure and credit visibly legible; computed #D7E4E8 on #0B2E4A = 10.74:1; specific accessibility contrast hard gate cleared.",
+      "limits": "Bounded recheck only. Previous full rubric remains provisional; no 99 acceptance."
+    },
+    {
+      "role": "implementation browser check",
+      "surface": "public /whats-on/ at 390 and 1440px, exact deployment SHA",
+      "result": "Lead note color and credit link match; 10.74:1 at desktop; no overflow.",
+      "limits": "Self-check does not replace independent full-page review."
+    }
+  ],
+  "hardGates": {
+    "clearedThisIteration": [
+      "Lead illustration disclosure text contrast on navy card"
+    ],
+    "notFullyCleared": [
+      "direct assistive-technology audit",
+      "complete independent image-rights source reopening",
+      "production field speed and stability",
+      "future no-JavaScript weekend edition expiry after a missed rebuild"
+    ]
+  },
+  "decision": "adapt: live bounded accessibility fix verified, but both T1 pages remain below 99 with open evidence gates"
+}
