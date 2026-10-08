@@ -111,7 +111,7 @@ const placeId = venue.data.place?.id ?? venue.data.place;
 const breadcrumbSchema = buildBreadcrumbSchema([
   { name: 'Home', url: absUrl('/') },
   { name: 'Eat & Drink', url: absUrl('/eat/') },
-  { name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) },
+  ...(isListableVenue(venue) ? [{ name: placeLabel(venue.data.place), url: absUrl(`/explore/places/${placeId}/`) }] : []),
   { name: venue.data.name, url: canonical },
 ]);
 
@@ -128,11 +128,11 @@ const venueSchema = {
     addressRegion: 'VIC',
     addressCountry: 'AU',
   },
-  geo: {
+  ...(venue.data.coordinates ? { geo: {
     '@type': 'GeoCoordinates',
-    latitude: venue.data.coordinates?.lat,
-    longitude: venue.data.coordinates?.lng,
-  },
+    latitude: venue.data.coordinates.lat,
+    longitude: venue.data.coordinates.lng,
+  } } : {}),
   ...(venue.data.website ? { url: venue.data.website } : {}),
   ...(venue.data.phone ? { telephone: venue.data.phone } : {}),
   ...(placeId
@@ -155,20 +155,20 @@ export const prerender = true;
   <Redirect to={`/wine/${slug}/`} consolidate />
 ) : (
 <BaseLayout
-  title={`${venue.data.name}, ${venuePlaceName} · Peninsula Insider`}
+  title={venue.data.status === "paused" ? `${venue.data.name}: listing paused · Peninsula Insider` : `${venue.data.name}, ${venuePlaceName} · Peninsula Insider`}
   description={description}
   section="eat"
   canonical={canonical}
   ogImage={ogImage}
   searchImage={ogImage}
   suppressImageMeta={!ogImage}
-  noindex={venue.data.sitemapExclude === true}
+  noindex={venue.data.sitemapExclude === true || venue.data.status === 'paused'}
 >
-  {!(venue.data.status === 'paused' && venue.data.sourceStatus === 'unsourced') && <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />}
+  {venue.data.status !== 'paused' && <script type="application/ld+json" set:html={JSON.stringify(venueSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <VenueDetailTemplate venue={venue} section="eat" related={related} articles={articles} itineraries={itineraries} />
 
-  <EventStrip
+  {isListableVenue(venue) && <EventStrip
     events={venueEvents}
     eyebrow="On the calendar here"
     heading={`${venue.data.name} is also a real event venue`}
@@ -176,6 +176,6 @@ export const prerender = true;
     moreHref="/whats-on/"
     moreLabel="All events"
     variant="alt"
-  />
+  />}
 </BaseLayout>
 )}

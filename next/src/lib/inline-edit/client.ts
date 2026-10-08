@@ -1,7 +1,7 @@
 /**
  * Peninsula Insider - inline editor client.
  *
- * Loads on every public page (via BaseLayout). When a signed-in admin is
+ * Loads after authentication (via BaseLayout). When a signed-in admin is
  * detected, renders an "Edit mode" toggle. When edit mode is on, decorates
  * elements marked with `data-pi-edit` to be edited in place:
  *
@@ -35,6 +35,7 @@ const EDITOR_STYLES_ID = 'pi-inline-editor-styles';
 
 let editMode = false;
 let isAdmin = false;
+let authSubscriptionInstalled = false;
 let toggleEl: HTMLButtonElement | null = null;
 let themeToggleEl: HTMLButtonElement | null = null;
 let menuEl: HTMLDivElement | null = null;
@@ -136,14 +137,17 @@ export async function bootInlineEditor(): Promise<void> {
   void applyOverridesOnLoad();
 
   // If the session ends mid-page, hide the chrome.
-  supa.auth.onAuthStateChange((event) => {
-    if (event === 'SIGNED_OUT') {
-      isAdmin = false;
-      setEditMode(false);
-      ensureToggleRemoved();
-      ensureThemeToggleRemoved();
-    }
-  });
+  if (!authSubscriptionInstalled) {
+    authSubscriptionInstalled = true;
+    supa.auth.onAuthStateChange((event) => {
+      if (event === 'SIGNED_OUT') {
+        isAdmin = false;
+        setEditMode(false);
+        ensureToggleRemoved();
+        ensureThemeToggleRemoved();
+      }
+    });
+  }
 }
 
 function ensureToggleRemoved() {

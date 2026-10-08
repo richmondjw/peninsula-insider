@@ -73,6 +73,8 @@ export interface Props {
   image?: CardImage;
   /** Verdict line <= 25 words. The named slot `verdict` overrides this. */
   verdict?: string;
+  planningNote?: string;
+  mediaFallbackMark?: string;
   /** Up to 3 plain-text chips, joined with a middot separator. */
   meta?: string[];
   /** '$'..'$$$$' or 1..4. Rendered as a band chip, never a dollar figure. */
@@ -152,6 +154,8 @@ const {
   showEyebrow = true,
   mediaFallback = false,
   mediaFallbackLabel,
+  mediaFallbackMark,
+  planningNote,
   eyebrow,
   byline,
   readTime,
@@ -299,7 +303,7 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
     >
       <span class="pi-card__plate" aria-hidden="true">
         <span class="pi-card__plate-rule"></span>
-        {variant === "compact-row" ? <span class="pi-card__plate-monogram">PI</span> : mediaFallbackLabel ? (
+        {variant === "compact-row" ? <span class="pi-card__plate-monogram">{mediaFallbackMark ?? 'PI'}</span> : mediaFallbackLabel ? (
           <>
             <span class="pi-card__plate-topic">{mediaFallbackLabel}</span>
             <span class="pi-card__plate-brand">Peninsula Insider</span>
@@ -403,6 +407,8 @@ const imageCredit = image?.credit ? creditLine(image.credit) : '';
         </p>
       )
     )}
+
+    {planningNote && <p class="pi-card__planning">{planningNote}</p>}
 
     {(freshnessText || partnerLabel) && (
       <p class="pi-card__provenance">

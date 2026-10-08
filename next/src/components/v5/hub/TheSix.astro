@@ -34,6 +34,7 @@ export interface SixItem {
   imageEdit?: { entityType: CmsEntityType; entitySlug: string; fieldPath: string };
   /** Critic voice, 25 words maximum (Card warns over). */
   verdict?: string;
+  planningNote?: string;
   /** Up to 3 plain-text chips. */
   meta?: string[];
   priceBand?: string | number;
@@ -99,7 +100,7 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
               <Card as="div" variant={groupIndex === 0 && i === 0 ? 'venue' : 'compact-row'}
                 title={item.title} href={item.href} entityType={item.entityType} entitySlug={item.entitySlug}
                 image={item.image} imageEdit={item.imageEdit} suppressImageHydration={suppressImageHydration} lockImageEditing={lockImageEditing} mediaFallback={anyImage && (missingImagePlate || (groupIndex === 0 && i === 0))}
-                mediaFallbackLabel={item.plateLabel ?? item.meta?.[1]} showEyebrow={showEyebrow} verdict={item.verdict} meta={item.meta}
+                mediaFallbackMark={lockImageEditing ? String(groupIndex * 3 + i + 1).padStart(2, '0') : undefined} planningNote={item.planningNote} mediaFallbackLabel={item.plateLabel ?? item.meta?.[1]} showEyebrow={showEyebrow} verdict={item.verdict} meta={item.meta}
                 priceBand={item.priceBand} freshness={item.freshness} freshnessKind="checked"
                 booking={item.booking} partnerLabel={item.partnerLabel} saveSection={item.saveSection}
                 trip={true} surface={surface} position={groupIndex * 3 + i + 1} />
@@ -121,6 +122,13 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
   .v5-six__lead :global(.v5-card-grid) { grid-template-columns: 1fr; }
   .v5-six__lead :global(.pi-card--venue .pi-card__media--plate) { background: radial-gradient(circle at 80% 24%, rgba(255,255,255,.12), transparent 30%), linear-gradient(145deg, #123e53, #0d2f48); }
   .v5-six__lead :global(.pi-card--venue .pi-card__media--plate::after) { content: "01"; position: absolute; right: 6%; bottom: -0.18em; color: rgba(255,255,255,.11); font: 700 clamp(8rem, 18vw, 17rem)/1 var(--font-display); pointer-events: none; }
+  .v5-six--image-locked :global(.pi-card--compact) { flex-wrap: wrap; }
+  .v5-six--image-locked :global(.pi-card--compact .pi-card__body) { flex: 1 1 70%; min-width: 0; }
+  .v5-six--image-locked :global(.pi-card--compact .pi-card__actions) { width: 100%; margin-left: 0; flex-wrap: wrap; }
+  .v5-six--image-locked :global(.pi-card__dek) { display: block; -webkit-line-clamp: unset; overflow: visible; }
+  .v5-six--image-locked :global(.pi-card--compact .pi-card__meta) { white-space: normal; flex-wrap: wrap; }
+  .v5-six--image-locked :global(.pi-card--compact .pi-card__body) { align-self: center; }
+  .v5-six--image-locked :global(.pi-card__planning) { margin: .6rem 0 0; font-size: var(--fs-300); line-height: 1.5; color: var(--text); }
   .v5-six__more { margin-top: 1rem; border-block: 1px solid var(--border); }
   .v5-six__more summary { padding-block: 0.75rem; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--teal-text); }
   .v5-six__more summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

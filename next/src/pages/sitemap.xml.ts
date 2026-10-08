@@ -83,8 +83,7 @@ const SEO_JOURNAL_LASTMOD: Record<string, string> = {
   '/journal/best-towns-to-base-yourself-with-a-dog-mornington-peninsula': '2026-06-01',
   '/journal/what-to-do-on-the-peninsula-with-a-dog-when-its-wet-or-busy': '2026-05-18',
 };
-// eat/red-hill-cheese has no source file (eat/[slug].astro takes it and no
-// matching venue slug exists) - left without lastmod, see C1 report.
+// Venue detail URLs are emitted from their active source records.
 const EAT_CATEGORY_LASTMOD: Record<string, string> = {
   bakeries: '2026-07-27', breweries: '2026-06-11', brunch: '2026-08-14', cafes: '2026-07-27',
   'cellar-door-lunch': '2026-07-27', 'date-night': '2026-07-27', distilleries: '2026-06-11',
@@ -324,9 +323,8 @@ export const GET: APIRoute = async () => {
   // (-> couples-retreats), /stay/where-to-stay-mornington-peninsula/ (§3.2),
   // /wine/cellar-doors/ + /wine/best-wineries-mornington-peninsula/ (§3.1),
   // /explore/free/ (§3.6 #3), /explore/where-to-base-yourself/ (§3.2).
-  // eat/red-hill-cheese has no matching page file (eat/[slug].astro would
-  // serve it, but no venue with that slug exists) - left without lastmod.
-  const eatCategoryPages = ['bakeries', 'breweries', 'brunch', 'cafes', 'cellar-door-lunch', 'date-night', 'distilleries', 'family-friendly', 'fine-dining', 'hatted-restaurants', 'long-lunch', 'markets', 'no-booking', 'paddock-to-plate', 'providores', 'pubs', 'red-hill-cheese', 'seafood', 'waterfront'];
+  // Detail venues do not belong in the category-page inventory.
+  const eatCategoryPages = ['bakeries', 'breweries', 'brunch', 'cafes', 'cellar-door-lunch', 'date-night', 'distilleries', 'family-friendly', 'fine-dining', 'hatted-restaurants', 'long-lunch', 'markets', 'no-booking', 'paddock-to-plate', 'providores', 'pubs', 'seafood', 'waterfront'];
   for (const page of eatCategoryPages) {
     entries.push(url(`/eat/${page}`, 0.7, 'weekly', EAT_CATEGORY_LASTMOD[page]));
   }

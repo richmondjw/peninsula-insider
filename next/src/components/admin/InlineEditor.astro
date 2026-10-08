@@ -1,32 +1,28 @@
 ---
-/**
- * Inline editor - global mount.
- *
- * Drops a small client-side bundle on every page that:
- *   - Detects a signed-in admin session (via Supabase)
- *   - Renders a floating "Edit mode" toggle when authenticated
- *   - When edit mode is on, lets the admin click-to-edit text and
- *     right-click-to-replace images marked with `data-pi-edit`
- *
- * For non-authenticated visitors the bundle is essentially inert - it boots,
- * sees no session, returns. No visual chrome, no behaviour change.
- */
+/** Load editing tools only after authentication; ordinary readers need no editor bundle. */
 ---
-
 <script>
-  import { bootInlineEditor } from '../../lib/inline-edit/client';
+  import { getSupabase } from '../../lib/auth';
 
-  // Initial boot - fires on cold page loads.
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => void bootInlineEditor());
-  } else {
-    void bootInlineEditor();
+  let editor: Promise<typeof import('../../lib/inline-edit/client')> | undefined;
+  async function refreshEditor() {
+    const supabase = getSupabase();
+    if (!supabase) return;
+    const { data: { session } } = await supabase.auth.getSession();
+    if (!session && !editor) return;
+    editor ??= import('../../lib/inline-edit/client');
+    await (await editor).bootInlineEditor();
   }
 
-  // Re-boot after every Astro <ClientRouter /> navigation. Soft transitions
-  // swap <body> and any DOM we appended (the floating toggle) gets wiped, so
-  // we need to re-mount it. `bootInlineEditor()` is idempotent.
-  document.addEventListener('astro:page-load', () => {
-    void bootInlineEditor();
+  // Defer session reads outside Supabase's auth callback lock. A sign-in on
+  // the current page must activate editing without requiring a reload.
+  getSupabase()?.auth.onAuthStateChange(() => {
+    setTimeout(() => void refreshEditor(), 0);
   });
+  document.addEventListener('astro:page-load', () => void refreshEditor());
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => void refreshEditor(), { once: true });
+  } else {
+    void refreshEditor();
+  }
 </script>

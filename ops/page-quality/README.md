@@ -39,3 +39,5 @@ The 8 October deployed Pages artifact snapshot has 595 canonical URLs (60 T1, 38
 Calibrate on four different pages per tier. Start with /, /eat/, /stay/ and /whats-on/this-weekend/ for T1; a venue, plan, guide and Journal article for T2; an event, fishing/boating detail, tour and awards page for T3. Then apply shared-template fixes and visit every registered URL, with T1 first and hard gates from any tier immediately.
 
 This inventory is a baseline. It does not claim 618 pages have been graded or improved.
+
+The9October Eat continuation candidate contains588 canonical URLs (60T1,379T2,149T3), preserving prior review states and36 removed-URL scope-review records. source.json explicitly labels this a validated-build candidate, not a public retrieval. Eight paused Eat recovery URLs remain accessible/noindex and are not presumed closed or deleted. One newly inventoried URL remains unscored. The Eat register now records the fixed-rubric implementation-owner baseline67.25/current93.25, provisional; separate independent assessments remain94.25/94.25. Public sitemap equality and deployment revision must be checked after release;99 is still open.
