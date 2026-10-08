@@ -13,6 +13,8 @@ Fri 9 – Sun 11 October  · Mornington Peninsula
 
 A better weekend starts here. Find the date, place and reason to go, then check with the organiser before you head out.
 
+ [Browse events by day](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
+
 Photo: Courtesy of Visit Victoria.
 
 Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria.
@@ -23,15 +25,9 @@ The short list / Fri 9 – Sun 11 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-- The lead pick / 01
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Live acoustic sets at a resort with views.
-
-Sat, 10 Oct   Fingal   Live Music
-
 - Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Illustration: Peninsula Insider / AI-assisted original vector artwork.
+
+The lead pick / 01
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
@@ -44,6 +40,12 @@ Fri, 9 Oct   Mornington   Racing & Sport
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.…
 
 Sat, 10 Oct   Crib Point   Markets
+
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Live acoustic sets at a resort with views.
+
+Sat, 10 Oct   Fingal   Live Music
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
