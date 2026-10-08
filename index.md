@@ -13,7 +13,7 @@ Independent local picks for where to eat, stay and explore. Every recommendation
 
  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Thursday 8 October
+Friday 9 October
 
 Cape Schanck, Mornington Peninsula.   Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
@@ -24,12 +24,6 @@ The short list
 10–11 October
 
 Swipe or scroll for all three picks
-
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Peppers Moonah Links   Every Saturday
 
 - ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
@@ -44,6 +38,16 @@ Crib Point Community House   Market
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+- Illustrative image
+
+AI-assisted editorial illustration. This is a conceptual market scene, not a photograph of Mornington Racecourse Market. Illustrative image, not this event.   Photo: Peninsula Insider.
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
+
+Mornington Racecourse   Market
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 
