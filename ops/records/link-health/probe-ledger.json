@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-08T14:10:25.759Z",
+  "updatedAt": "2026-10-08T22:39:01.909Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2726,6 +2726,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Bloody Long Walk - Mornington Peninsula",
+      "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.bluemooncottages.com.au",
