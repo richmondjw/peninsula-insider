@@ -43,13 +43,13 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Sat, 10 Oct   Fingal   Live Music
 
-- AI-assisted editorial illustration. A wrestling ring; not an exact depiction of the Commonfolk event or venue.   Illustration: Peninsula Insider.
+- AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market.   Illustration: Peninsula Insider.
 
-### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause.
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
 
-Fri, 9 Oct   Mornington   Racing & Sport
+Sun, 11 Oct   Mornington   Markets
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -61,11 +61,7 @@ Browse by date and save what catches your eye.
 
 ### Friday 9 October
 
-- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
-
-Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
-
-7pm · Mornington · Racing & Sport · One-day event
+A quiet one. Nothing we would send you to.
 
 ### Saturday 10 October
 
@@ -135,12 +131,6 @@ Check dates and hours · Dromana · Food & Wine
 
 ### Markets
 
-- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
-
-9am · Mornington · Markets
-
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
@@ -186,6 +176,12 @@ Portsea · Racing & Sport
 A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.
 
 8am · Sorrento · Racing & Sport
+
+- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
+
+7pm · Mornington · Racing & Sport
 
 ## The Insider Note
 

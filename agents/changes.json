@@ -1,20 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-09T08:35:21.637Z",
+  "generatedAt": "2026-10-09T10:14:33.968Z",
   "baselineAvailable": true,
-  "fromSnapshot": "71109fc2b92e597fff221e1e3a9349637ed6f38ec6baa00db1fbcadf7cb0104a",
-  "toSnapshot": "b0395aca460444801034308a843243b4aa2b75f6f454a8a8dad677708b2efb8c",
-  "previousGeneratedAt": "2026-10-09T08:14:21.759Z",
+  "fromSnapshot": "b0395aca460444801034308a843243b4aa2b75f6f454a8a8dad677708b2efb8c",
+  "toSnapshot": "650c796f0b8e8844fa86469f343391759f8a7900b2ff78c9cb4cf41f99199410",
+  "previousGeneratedAt": "2026-10-09T08:35:21.637Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 5,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "838cda37dacaad10488310d3bf5de4ba79ec6e60f21d9c97aa7d3d98dc5d3f46",
+      "previousContentSha256": "c98863458a9da579668ec02030275b10c522514210d6118f277619f4730eb69e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "86abc10a1b976f432e0ddefec4931708ffe5ce6e15759898cfbdac5751f0b9fd",
+      "previousContentSha256": "d07cdfcc3746c693afb7f5c160649badb0a87d26ce6c24a3f5382c25f44f0d9b"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "7f681bd0b437eadbcb3c0a74ad4813282808d7c556eb407e2bb18387847af952",
-      "previousContentSha256": "4f1b62e7aa666c75c0fe0fd169487f9247d714602636cc8a1d11a1b999053e7a"
+      "contentSha256": "7c8085bc4d8faba9cc66045032c11d7629c11aacc4c7977be6ca7b544546da13",
+      "previousContentSha256": "7f681bd0b437eadbcb3c0a74ad4813282808d7c556eb407e2bb18387847af952"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "e55c5ba05d1d9b3b7d2a3624d6ee19e7a57c9f50d2fae822dd078fbef1de8744",
+      "previousContentSha256": "8c9a18df7926c7047dffa6cb13bdf712b86a0bc484a36dc3a40fcf724bc0f499"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/index.md",
+      "contentSha256": "5209890a762a51ff4c83c81d2e9eb94405ab453fa52101f3c904fb432aa69829",
+      "previousContentSha256": "db3a4445695107fa9406169ed9cc95f4ca2fe5ea3ad3bf9543659dcd89ec5b9f"
     }
   ]
 }
