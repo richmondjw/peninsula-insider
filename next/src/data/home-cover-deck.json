@@ -1,10 +1,10 @@
 {
   "_readme": [
-    "HOMEPAGE COVER PHOTOGRAPH - the first recorded frame is the static hero.",
-    "Edit mode: replace the cover photograph, then publish with its own alt text and credit.",
+    "HOMEPAGE COVER IMAGE - the first recorded frame is the static hero; the approved illustration is disclosed.",
+    "Edit mode: replace the cover image, then publish with its own alt text and credit.",
     "An incomplete replacement keeps the credited original visible.",
     "Published replacements are baked into the next deploy.",
-    "Only slides[0] is rendered. Other recorded frames are retained as alternative photography.",
+    "Only slides[0] is rendered. Other recorded frames are retained as alternative imagery.",
     "An empty array uses the credited Cape Schanck default.",
     "Preserve image rights records and accurate captions when changing a source.",
     "The cover.image CMS slot is preserved. There is no automatic motion or slideshow."

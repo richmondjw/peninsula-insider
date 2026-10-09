@@ -75,7 +75,7 @@ const cards = await Promise.all(
     const subcategory = String(event.data.subcategory ?? '').trim();
     const plateLabel = subcategory && subcategory.length <= 20 && !subcategory.includes('/')
       ? subcategory : categoryLabel(event.data.category);
-    const image = contextPhotos[slug] ? {
+    const image = contextPhotos[slug] && status !== 'actual' ? {
       ...contextPhotos[slug],
     } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && recorded?.rightsStatus === 'recorded' && status !== 'unverified' ? {
       src: hero.src,
