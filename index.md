@@ -13,7 +13,7 @@ Independent local picks for where to eat, stay and explore. Every recommendation
 
  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Friday 9 October
+Saturday 10 October
 
 Conceptual coastal illustration, not a specific location.   Illustration: Peninsula Insider, AI-assisted illustration.
 
@@ -24,14 +24,6 @@ The short list
 10–11 October
 
 Swipe or scroll for all three picks
-
-- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 - Illustrative image
 
@@ -48,6 +40,16 @@ Mornington Racecourse   Market
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Peppers Moonah Links   Every Saturday
+
+- Illustrative image
+
+AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market. Illustrative image, not this event.   Illustration: Peninsula Insider.
+
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+
+Crib Point Community House   Market
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 

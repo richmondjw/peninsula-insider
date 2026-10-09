@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-10-09",
-  "generatedAt": "2026-10-09T12:30:29.736Z",
+  "generated": "2026-10-10",
+  "generatedAt": "2026-10-09T13:47:50.005Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-10-09",
-    "end": "2027-01-07"
+    "start": "2026-10-10",
+    "end": "2027-01-08"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -27,56 +27,6 @@
       "@type": "ListItem",
       "position": 1,
       "item": {
-        "@type": "Service",
-        "name": "Bass & Flinders Gin Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-        "description": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "item": {
-        "@type": "Service",
-        "name": "Peninsula Hot Springs Studio Yoga",
-        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-        "description": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Service",
-        "name": "Pt. Leo Estate Sculpture Park",
-        "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-        "description": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Service",
-        "name": "Restore & Pamper Retreat at Polperro Farmhouse",
-        "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-        "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Service",
-        "name": "Ten Minutes by Tractor, Terroir Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
         "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -88,7 +38,17 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 2,
+      "item": {
+        "@type": "Service",
+        "name": "Bass & Flinders Gin Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+        "description": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -101,7 +61,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 4,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
@@ -110,6 +70,46 @@
         "endDate": "2026-10-10",
         "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
         "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "Service",
+        "name": "Peninsula Hot Springs Studio Yoga",
+        "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+        "description": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Service",
+        "name": "Pt. Leo Estate Sculpture Park",
+        "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+        "description": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Service",
+        "name": "Restore & Pamper Retreat at Polperro Farmhouse",
+        "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+        "description": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga."
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Service",
+        "name": "Ten Minutes by Tractor, Terroir Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session."
       }
     },
     {
@@ -207,116 +207,6 @@
   "count": 15,
   "events": [
     {
-      "title": "Bass & Flinders Gin Masterclass",
-      "contentKind": "experience",
-      "dateMeaning": "availability",
-      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-09",
-      "endDate": "2027-01-07",
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
-      "factCheckedOn": null,
-      "recurrence": "ongoing",
-      "category": "food-wine",
-      "place": "dromana",
-      "venue": null,
-      "summary": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-09"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Peninsula Hot Springs Studio Yoga",
-      "contentKind": "experience",
-      "dateMeaning": "availability",
-      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-10-09",
-      "endDate": "2027-01-07",
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
-      "factCheckedOn": null,
-      "recurrence": "ongoing",
-      "category": "wellness",
-      "place": null,
-      "venue": null,
-      "summary": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-09"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Pt. Leo Estate Sculpture Park",
-      "contentKind": "experience",
-      "dateMeaning": "availability",
-      "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-10-09",
-      "endDate": "2027-01-07",
-      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
-      "factCheckedOn": null,
-      "recurrence": "one-off",
-      "category": "arts",
-      "place": "merricks",
-      "venue": null,
-      "summary": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-09"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Restore & Pamper Retreat at Polperro Farmhouse",
-      "contentKind": "experience",
-      "dateMeaning": "availability",
-      "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-10-09",
-      "endDate": "2027-01-07",
-      "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
-      "factCheckedOn": null,
-      "recurrence": "one-off",
-      "category": "wellness",
-      "place": "red-hill",
-      "venue": null,
-      "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-09"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Ten Minutes by Tractor, Terroir Masterclass",
-      "contentKind": "experience",
-      "dateMeaning": "availability",
-      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-10-09",
-      "endDate": "2027-01-07",
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
-      "factCheckedOn": null,
-      "recurrence": "ongoing",
-      "category": "food-wine",
-      "place": "main-ridge",
-      "venue": null,
-      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-09"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -336,6 +226,28 @@
         {
           "date": "2026-10-10",
           "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Bass & Flinders Gin Masterclass",
+      "contentKind": "experience",
+      "dateMeaning": "availability",
+      "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "startDate": "2026-10-10",
+      "endDate": "2027-01-08",
+      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
+      "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
+      "factCheckedOn": null,
+      "recurrence": "ongoing",
+      "category": "food-wine",
+      "place": "dromana",
+      "venue": null,
+      "summary": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-10"
         }
       ],
       "thisWeekend": true
@@ -388,6 +300,94 @@
         {
           "date": "2026-10-11",
           "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Peninsula Hot Springs Studio Yoga",
+      "contentKind": "experience",
+      "dateMeaning": "availability",
+      "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+      "startDate": "2026-10-10",
+      "endDate": "2027-01-08",
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+      "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
+      "factCheckedOn": null,
+      "recurrence": "ongoing",
+      "category": "wellness",
+      "place": null,
+      "venue": null,
+      "summary": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-10"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Pt. Leo Estate Sculpture Park",
+      "contentKind": "experience",
+      "dateMeaning": "availability",
+      "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "startDate": "2026-10-10",
+      "endDate": "2027-01-08",
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": "merricks",
+      "venue": null,
+      "summary": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-10"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Restore & Pamper Retreat at Polperro Farmhouse",
+      "contentKind": "experience",
+      "dateMeaning": "availability",
+      "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+      "startDate": "2026-10-10",
+      "endDate": "2027-01-08",
+      "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+      "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "wellness",
+      "place": "red-hill",
+      "venue": null,
+      "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-10"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Ten Minutes by Tractor, Terroir Masterclass",
+      "contentKind": "experience",
+      "dateMeaning": "availability",
+      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "startDate": "2026-10-10",
+      "endDate": "2027-01-08",
+      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
+      "factCheckedOn": null,
+      "recurrence": "ongoing",
+      "category": "food-wine",
+      "place": "main-ridge",
+      "venue": null,
+      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-10"
         }
       ],
       "thisWeekend": true

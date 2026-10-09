@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-09
+Modified: 2026-10-10
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -15,9 +15,9 @@ Find the date, place and reason to go, then check with the organiser before you 
 
  [Browse events by day](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
-Photo: Courtesy of Visit Victoria.
+AI-assisted artwork by Peninsula Insider.
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria.
+Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
 
 The short list / Fri 9 – Sun 11 October
 
@@ -43,13 +43,13 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Sat, 10 Oct   Fingal   Live Music
 
-- AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market.   Illustration: Peninsula Insider.
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Sun, 11 Oct   Mornington   Markets
+Sat, 10 Oct   Mornington   Exhibitions
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -58,10 +58,6 @@ Make a day of it
 ## Everything on, by day
 
 Browse by date and save what catches your eye.
-
-### Friday 9 October
-
-A quiet one. Nothing we would send you to.
 
 ### Saturday 10 October
 
@@ -131,6 +127,12 @@ Check dates and hours · Dromana · Food & Wine
 
 ### Markets
 
+- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
+
+9am · Mornington · Markets
+
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
@@ -148,14 +150,6 @@ Emu Plains is the artisan market that actually feels like the Peninsula: stringy
 Forty years of Wednesdays on Main Street. Not a tourist event, just the way Mornington shops midweek.
 
 9am · Mornington · Markets
-
-### Openings
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions
 
 ### Major events
 
@@ -176,12 +170,6 @@ Portsea · Racing & Sport
 A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.
 
 8am · Sorrento · Racing & Sport
-
-- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
-
-Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
-
-7pm · Mornington · Racing & Sport
 
 ## The Insider Note
 

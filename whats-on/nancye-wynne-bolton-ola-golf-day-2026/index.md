@@ -51,27 +51,39 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Racing & Sport  25 Oct
+Festivals   Annual, November
 
-### [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-[Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
 AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows Conceptual empty wrestling ring with coral ropes and yellow spotlights. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 
-Racing & Sport  9 Oct
+Markets   Monthly – 2nd Saturday of every month
 
-### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-A two-hour, all-ages professional wrestling show at Commonfolk Mornington supports Big Group Hug.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
+
+Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
+
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

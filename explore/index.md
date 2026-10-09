@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Walk, beach or indoor day? Start with your time and effort, then check the details before you go.
 
-Cape Schanck lighthouse
+Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
 
 ## Find a specific outing
 

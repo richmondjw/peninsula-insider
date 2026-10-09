@@ -609,32 +609,32 @@
       ]
     },
     {
-      "source": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
-      "originalBytes": 279380,
+      "source": "/images/generated/category-eat-coastal-punch.webp",
+      "originalBytes": 87050,
       "variants": [
         {
-          "src": "/_media/700428c6ddefd3b5aa38-480.webp",
+          "src": "/_media/63007371935429ea939e-480.webp",
           "width": 480,
-          "height": 320,
-          "bytes": 37078
+          "height": 270,
+          "bytes": 13532
         },
         {
-          "src": "/_media/700428c6ddefd3b5aa38-800.webp",
+          "src": "/_media/63007371935429ea939e-800.webp",
           "width": 800,
-          "height": 534,
-          "bytes": 78946
+          "height": 450,
+          "bytes": 23908
         },
         {
-          "src": "/_media/700428c6ddefd3b5aa38-1280.webp",
+          "src": "/_media/63007371935429ea939e-1280.webp",
           "width": 1280,
-          "height": 854,
-          "bytes": 154348
+          "height": 720,
+          "bytes": 38538
         },
         {
-          "src": "/_media/700428c6ddefd3b5aa38-1920.webp",
-          "width": 1920,
-          "height": 1281,
-          "bytes": 255942
+          "src": "/_media/63007371935429ea939e-1672.webp",
+          "width": 1672,
+          "height": 941,
+          "bytes": 55088
         }
       ]
     },
@@ -3219,20 +3219,26 @@
       ]
     },
     {
-      "source": "/images/sourced/explore-cape-schanck-lighthouse-01.webp",
-      "originalBytes": 47580,
+      "source": "/images/generated/category-explore-coastal-punch.webp",
+      "originalBytes": 76086,
       "variants": [
         {
-          "src": "/_media/d9eaa5bfe46fc3274f47-480.webp",
+          "src": "/_media/806cbb05d91985b910ee-480.webp",
           "width": 480,
-          "height": 640,
-          "bytes": 16360
+          "height": 720,
+          "bytes": 19610
         },
         {
-          "src": "/_media/d9eaa5bfe46fc3274f47-768.webp",
-          "width": 768,
-          "height": 1024,
-          "bytes": 43660
+          "src": "/_media/806cbb05d91985b910ee-800.webp",
+          "width": 800,
+          "height": 1200,
+          "bytes": 33230
+        },
+        {
+          "src": "/_media/806cbb05d91985b910ee-1024.webp",
+          "width": 1024,
+          "height": 1536,
+          "bytes": 47554
         }
       ]
     },
@@ -4253,6 +4259,36 @@
           "width": 1280,
           "height": 854,
           "bytes": 226448
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
+      "originalBytes": 279380,
+      "variants": [
+        {
+          "src": "/_media/700428c6ddefd3b5aa38-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 37078
+        },
+        {
+          "src": "/_media/700428c6ddefd3b5aa38-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 78946
+        },
+        {
+          "src": "/_media/700428c6ddefd3b5aa38-1280.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 154348
+        },
+        {
+          "src": "/_media/700428c6ddefd3b5aa38-1920.webp",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 255942
         }
       ]
     },
@@ -8547,6 +8583,36 @@
       ]
     },
     {
+      "source": "/images/generated/coastal-punch-crib.webp",
+      "originalBytes": 133362,
+      "variants": [
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23912
+        },
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 41724
+        },
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 65680
+        },
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 86324
+        }
+      ]
+    },
+    {
       "source": "/images/sourced/place-main-ridge-01.webp",
       "originalBytes": 288046,
       "variants": [
@@ -12069,6 +12135,36 @@
       ]
     },
     {
+      "source": "/images/generated/category-stay-coastal-punch.webp",
+      "originalBytes": 83124,
+      "variants": [
+        {
+          "src": "/_media/8722aa72ec87e5e1713d-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 14564
+        },
+        {
+          "src": "/_media/8722aa72ec87e5e1713d-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 24556
+        },
+        {
+          "src": "/_media/8722aa72ec87e5e1713d-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 39968
+        },
+        {
+          "src": "/_media/8722aa72ec87e5e1713d-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 52716
+        }
+      ]
+    },
+    {
       "source": "/images/sourced/venue-sorrento-hotel-01.webp",
       "originalBytes": 137208,
       "variants": [
@@ -13185,32 +13281,86 @@
       ]
     },
     {
-      "source": "/images/generated/coastal-punch-crib.webp",
-      "originalBytes": 133362,
+      "source": "/images/generated/category-whats-on-coastal-punch.webp",
+      "originalBytes": 63098,
       "variants": [
         {
-          "src": "/_media/7f7bfd271f1bd449b49b-480.webp",
+          "src": "/_media/f2afb0dcd5b5a1491c5e-480.webp",
           "width": 480,
           "height": 320,
-          "bytes": 23912
+          "bytes": 11306
         },
         {
-          "src": "/_media/7f7bfd271f1bd449b49b-800.webp",
+          "src": "/_media/f2afb0dcd5b5a1491c5e-800.webp",
           "width": 800,
           "height": 533,
-          "bytes": 41724
+          "bytes": 18948
         },
         {
-          "src": "/_media/7f7bfd271f1bd449b49b-1280.webp",
+          "src": "/_media/f2afb0dcd5b5a1491c5e-1280.webp",
           "width": 1280,
           "height": 853,
-          "bytes": 65680
+          "bytes": 31308
         },
         {
-          "src": "/_media/7f7bfd271f1bd449b49b-1536.webp",
+          "src": "/_media/f2afb0dcd5b5a1491c5e-1536.webp",
           "width": 1536,
           "height": 1024,
-          "bytes": 86324
+          "bytes": 40544
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/explore-mprg-01.webp",
+      "originalBytes": 267456,
+      "variants": [
+        {
+          "src": "/_media/165269b2b905bb8860a7-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 39118
+        },
+        {
+          "src": "/_media/165269b2b905bb8860a7-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 109006
+        },
+        {
+          "src": "/_media/165269b2b905bb8860a7-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 263906
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/category-wine-coastal-punch.webp",
+      "originalBytes": 35966,
+      "variants": [
+        {
+          "src": "/_media/a5830759d2f802cb80f5-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 5124
+        },
+        {
+          "src": "/_media/a5830759d2f802cb80f5-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 8998
+        },
+        {
+          "src": "/_media/a5830759d2f802cb80f5-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 15548
+        },
+        {
+          "src": "/_media/a5830759d2f802cb80f5-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 20966
         }
       ]
     },

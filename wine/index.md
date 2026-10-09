@@ -13,7 +13,7 @@ Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. F
 
 [Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 44 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photograph: Two Palms Australia, courtesy of Visit Victoria.
+Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
 
 Start with the kind of visit
 
