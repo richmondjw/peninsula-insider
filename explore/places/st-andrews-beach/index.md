@@ -89,7 +89,7 @@ The sandy access path drops steeply from the car park, and the coast is exposed.
 
 What's mapped here
 
-- [**2** journal pieces](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/#journal>)
+- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/#journal>)
 
 Read this place properly
 
@@ -106,6 +106,14 @@ Insider Edit   4 min
 10 September 2026
 
 The Sunday roast at St Andrews Beach Brewery, the Greens Bush woodland loop as wattlebirds return, and one of the last Red Hill truffle hunts of 2026.
+
+Insider Edit   4 min
+
+### [St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/>)
+
+10 October 2026
+
+A Sunday roast at the old stables brewery in Fingal, the Bushrangers Bay coastal loop in full spring flower, and a community walk from Safety Beach to Martha Cove on Saturday.
 
 Investigation   7 min
 

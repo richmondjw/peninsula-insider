@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-09T19:25:16.512Z",
-  "snapshotId": "0b62da2459387aff7f2333e4cf93730c32ec4ff62db472a147d6bf9f900fc27d",
+  "generatedAt": "2026-10-09T20:19:18.467Z",
+  "snapshotId": "6ef13d9ae4220ba33328195d7f8c1333b6515bec1d714d7f57cf1e3a45f129d0",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 590,
+  "count": 591,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2648,7 +2648,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/index.md",
-      "contentSha256": "fdeef0206fd5f3e80256f1ad5a047c64d1044c9981ec68c73c215e6e86dab289",
+      "contentSha256": "0269bd5cf72a14a0fef96801a12e407760aba37257a93d740236ebc22920b86b",
       "citation": {
         "title": "St Andrews Beach",
         "publisher": "Peninsula Insider",
@@ -2656,8 +2656,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 170643,
-      "markdownBytes": 8563
+      "htmlBytes": 173024,
+      "markdownBytes": 8941
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/stony-point/",
@@ -5771,6 +5771,23 @@
       "markdownBytes": 8828
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
+      "title": "St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/index.md",
+      "contentSha256": "fda855eff6e0a72fd7e5fccdaf0c8059d111d9e42e79ae564597ab86cb0b8675",
+      "citation": {
+        "title": "St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
+        "publishedAt": "2026-10-10T00:00:00.000Z",
+        "modifiedAt": "2026-10-10T00:00:00.000Z"
+      },
+      "htmlBytes": 172179,
+      "markdownBytes": 9173
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6575,7 +6592,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "e403f04223d82a25121e0c67e91a11b93e4fe38a8932b04036cf209a3ed29e7a",
+      "contentSha256": "cbf7e2c9f45ee2dd595189ba50fce9a6f88a8ec83ae487afaee519e3836d7cc9",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6583,8 +6600,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123232,
-      "markdownBytes": 5762
+      "htmlBytes": 123233,
+      "markdownBytes": 5771
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6609,7 +6626,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "e3f28e72235cb447defb777c964fb3ea0ee52a5ff24bab988f5f5973eddc54aa",
+      "contentSha256": "21a5c06dc3f6ab52d8d5392afc83812862b069a2379acd66e1d4060d03e1023f",
       "citation": {
         "title": "Saturday 10 October 2026",
         "publisher": "Peninsula Insider",

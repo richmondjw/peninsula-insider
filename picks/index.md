@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/>) - A Sunday roast at the old stables brewery in Fingal, the Bushrangers Bay coastal loop in full spring flower, and a community walk from Safety Beach to Martha Cove on Saturday.
+
 - [Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/>) - Doot Doot Doot's vineyard dining in Merricks North, the Cape Woolamai ridge walk at peak wattle, and Dominion Wrestling's charity bout at Commonfolk on Friday night.
 
 - [Avani Syrah in Red Hill South, the Bushrangers Bay clifftop loop, and Peppers Moonah Links live music this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/>) - Avani Wines' skin-contact whites and Syrah at Red Hill South, Bushrangers Bay coastal loop in peak spring flower, and Acoustic Saturdays at Peppers Moonah Links from 5pm this Saturday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [The Red Hill Baker in Balnarring, the Greens Bush orchid flush, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-28/>) - Artisan bread in Balnarring, spider orchids along the Greens Bush track, and Saturday's Hill & Ridge Community Market at Red Hill Recreation Reserve.
 
 - [Foxeys Hangout, the Bushrangers Bay cliff path, and Arj Barker at The Conti](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/>) - Foxeys Hangout's biodynamic sparkling flight in the spring sun, the Bushrangers Bay cliff path at its wildflower peak, and Arj Barker live at Barlow on Wednesday night.
-
-- [Dromana Hotel deck, wildflower heathland at Greens Bush, and the Dromana Community Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-24/>) - The Dromana Hotel's bay-view deck in first-spring warmth, the spider orchids peaking along Greens Bush, and Saturday's Dromana Community Market before the crowds.
 
 ## Planning a particular weekend?
 
