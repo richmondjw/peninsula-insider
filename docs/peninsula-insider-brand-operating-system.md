@@ -456,6 +456,12 @@ Design language: Carmen-Sandiego silhouette restaged for the Australian coast. W
 
 ---
 
+### 7.6 Coastal Punch editorial illustration rules (approved 2026-10-09)
+
+James approved Coastal Punch as the default visual language for conceptual editorial illustrations. Its canonical brief, palette, reference assets, scoring rubric and production checklist are in [COASTAL-PUNCH-ILLUSTRATIONS.md](COASTAL-PUNCH-ILLUSTRATIONS.md). Read that document before generating or placing artwork.
+
+The approved palette is deep navy, sea teal, warm ivory, coral and sunshine yellow. This is an explicit exception to the older muted generative-art direction in section 7.2 and the April production protocol. It applies to illustrations and their necessary overlay treatment; it does not replace the site chrome, typography, structure or factual photography. Use simplified bold silhouettes, controlled exaggeration, separate generations for each placement, truthful conceptual disclosure and crop-aware responsive resolution. Aim for 99/100 using the canonical rubric and record actual deductions.
+
 ## Layer 8: Operating cadence
 
 The masthead has a weekly rhythm. The brand-system version of that rhythm:

@@ -55,7 +55,14 @@ Peninsula Insider is a complete, independent guide to the Mornington Peninsula, 
 
 Every published Journal article has an associated image. Image-bearing Journal cards and article heroes always render an available, credited image, with licensed context photography and original illustration as fallbacks. The source and built-image gates enforce this rule. See [Journal image policy](docs/JOURNAL-IMAGE-POLICY.md).
 
+## Editorial Illustration Rules
+
+Coastal Punch is the approved default for conceptual editorial illustrations, including generative heroes and fallback artwork. Read [the canonical illustration rules](docs/COASTAL-PUNCH-ILLUSTRATIONS.md) before design work. They define the fresh coastal palette, simplified exaggerated forms, separate generations per placement, 100-point rubric, truthful captions/rights and desktop/mobile acceptance checks.
+
+This approved illustration palette is scoped to artwork and necessary overlay styling. Preserve the existing site structure, typography, controls and factual venue photography. Older muted illustration guidance does not override this approval. Responsive source resolution must account for the entire cover crop and device pixel ratio, including tall planning heroes.
+
 ## Reader and Agent Boundary
+
 
 Reader pages must contain reader-facing editorial content only. Agent retrieval instructions and machine directory links belong in `/agents/`, JSON, Markdown, `llms.txt`, or HTML head metadata. Do not add them to page bodies, shared navigation, footers, hidden elements, or accessibility labels. `next/scripts/assert-reader-boundary.mjs` scans every built reader HTML page and blocks the build and publish when this boundary is crossed.
 
