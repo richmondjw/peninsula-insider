@@ -6,13 +6,16 @@
  *
  * The desk selects a current seasonal feature and an evergreen fallback.
  * Picks remain discoverable at their own URLs but never fill this curated slot.
- * Hero resolves through resolveHero so CMS image overrides
+ * Hero resolves through the shared Journal image policy so CMS image overrides
  * survive rebuilds; the img carries the editableImage slot.
  */
 import { getCollection } from 'astro:content';
 import { isJournalDiscovery } from '../../../lib/journal-curation.mjs';
 import { routeSlug, formatLabel } from '../../../lib/editorial';
-import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
+import { resolveJournalImage } from '../../../lib/journal-image';
+import { journalCredit, journalRecoveryAttrs } from '../../../lib/journal-image-policy.mjs';
+import JournalImageRecovery from '../../journal/JournalImageRecovery.astro';
+import redHill from '../../../content/places/red-hill.json';
 import { editableImage } from '../../../lib/inline-edit/attrs';
 
 const published = await getCollection('articles', ({ data }) => isJournalDiscovery(data));
@@ -22,29 +25,14 @@ const lead = ['spring-school-holidays-2026', 'area-guide-red-hill']
   .map((slug) => published.find((article) => routeSlug(article) === slug))
   .find((article) => article !== undefined);
 const slug = lead ? routeSlug(lead) : '';
-const resolvedHero = lead ? await resolveHero('article', slug, lead.data, 'hero') : null;
-// The public feature needs alt text and a credit for the photograph actually
-// shown. If an editor's published upload is missing those, keep the original
-// credited artwork until its own metadata is completed.
-const incompleteOverride = resolvedHero?.override &&
-  (!resolvedHero.override.alt?.trim() || !resolvedHero.override.credit?.trim());
-if (incompleteOverride) {
-  console.warn(`[HomeJournalFeature] ${slug} hero upload has no alt or credit; using the credited article artwork`);
-}
-const hero = incompleteOverride && lead?.data.heroImage?.src && resolvedHero
-  ? { ...resolvedHero, src: lead.data.heroImage.src, alt: lead.data.heroImage.alt, override: undefined }
-  : resolvedHero;
+// A Red Hill guide uses a recorded photograph from the ridge it describes.
+// Published replacements retain priority through the shared rights and recovery policy.
+const imageryData = lead && slug === 'area-guide-red-hill'
+  ? { ...lead.data, heroImage: redHill.heroImage }
+  : lead?.data;
+const hero = lead ? await resolveJournalImage(slug, imageryData) : null;
 const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
-// An editor's replacement is a different image. Its caption and credit must
-// come from the override, never from the frontmatter image it replaced.
-const caption = hero?.override ? hero.override.caption : lead?.data.heroImage?.caption;
-const credit = hero?.override ? hero.override.credit : lead?.data.heroImage?.credit;
-const creditLabel = credit === 'Courtesy of Visit Victoria'
-  ? 'Photo courtesy of Visit Victoria'
-  : credit
-    ? `${!hero?.override && lead?.data.heroImage?.depictionStatus === 'illustrative' ? 'Artwork' : 'Photo'}: ${credit}`
-    : '';
-const photoNote = [caption, creditLabel].filter(Boolean).join(' ');
+
 ---
 
 {lead && hero && (
@@ -57,7 +45,7 @@ const photoNote = [caption, creditLabel].filter(Boolean).join(' ');
         loading="lazy"
         decoding="async"
         data-pi-no-hydrate="true"
-        data-pi-requires-image-metadata="true"
+        {...journalRecoveryAttrs(hero)}
         {...editableImage({
           entityType: 'article',
           entitySlug: slug,
@@ -66,7 +54,7 @@ const photoNote = [caption, creditLabel].filter(Boolean).join(' ');
           purpose: 'hero',
         })}
       />
-      {photoNote && <figcaption>{photoNote}</figcaption>}
+      <figcaption><span data-journal-image-caption>{hero.caption}</span>{' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
     </figure>
     <div class="home-journal__body">
       <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
@@ -90,6 +78,7 @@ const photoNote = [caption, creditLabel].filter(Boolean).join(' ');
   </section>
 )}
 
+<JournalImageRecovery />
 <script>
   import { initV5Analytics } from '../../../lib/v5-analytics';
   initV5Analytics();
@@ -102,7 +91,7 @@ const photoNote = [caption, creditLabel].filter(Boolean).join(' ');
   /* The responsive-image pass adds HTML width/height attributes. Explicitly
      clear their presentational height so the image follows this layout ratio. */
   .home-journal__media img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; border-radius: var(--radius-m); }
-  .home-journal__media figcaption { color: var(--soft); font-size: .75rem; line-height: 1.45; margin-top: .45rem; }
+  .home-journal__media figcaption { color: var(--soft); font-size: .9375rem; line-height: 1.45; margin-top: .45rem; }
   .home-journal__body { min-width: 0; }
   .home-journal__kicker { font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui); letter-spacing: var(--ls-eyebrow); text-transform: uppercase; color: var(--accent); margin: 0 0 var(--space-4); }
   .home-journal__headline { font: var(--fw-display) clamp(2rem, 3vw, 3rem)/1.12 var(--font-display); letter-spacing: -.035em; text-wrap: balance; margin: 0; }

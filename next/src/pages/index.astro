@@ -1,37 +1,12 @@
 ---
-/**
- * Homepage - v5 "Edition cover" rebuild (T-401).
- *
- * The v5 masthead lives in BaseLayout. This page renders the cover, one
- * temporal weekend module, three editorial plans, four interest doors,
- * three place starting points, one Journal feature and the Insider Note:
- *
- *   Cover statement (the single h1) and trip entry points
- *   This Weekend - three PI picks with Save and "+ Trip"
- *   Three plans to start with, plus a route preview and builder shortcuts
- *   Interest doors - Eat & Drink / Stay / Wine / Explore
- *   Place starting points - Mornington / Red Hill / Sorrento
- *   One flagship Journal feature
- *   The Insider Note
- *
- * Everything server-renders at build time, deterministic against the
- * content tree and published CMS image overrides. No reveal animations,
- * and no carousel of editorial content: the downstream modules stay static
- * and complete on the page.
- *
- * The one sanctioned exception is the cover photograph (block 2). It
- * cross-fades through a deck of Peninsula frames, with autoplay, arrows
- * and dots (2026-09-18, James). The rule it does not break: the copy is
- * fixed, so there is still one h1 and nothing moves under the reader.
- * Kill switch is SHOW_HOME_COVER_SLIDESHOW in src/lib/features.ts.
- * Title/meta/canonical are on the SEO protect list - unchanged from the
- * previous build.
- *
- * The previous "Edition" homepage (EditionCover + seven ed-* modules)
- * lives in git history at this path; its components remain under
- * src/components/edition/ untouched.
+/** Static welcome, native trip chooser, geographic orientation, comparable plans,
+ * current weekend picks, interest doors, Journal, Play and the Insider Note.
+ * Published image overrides retain their own metadata. SEO identity is preserved.
  */
+import ImageFormatFallback from '../components/ImageFormatFallback.astro';
 import HomeCover from '../components/v5/home/HomeCover.astro';
+import HomeChooser from '../components/v5/home/HomeChooser.astro';
+import PlayCard from '../components/play/PlayCard.astro';
 import HomeWeekend from '../components/v5/home/HomeWeekend.astro';
 import HomeDoors from '../components/v5/home/HomeDoors.astro';
 import HomeOrientation from '../components/v5/home/HomeOrientation.astro';
@@ -50,15 +25,20 @@ export const prerender = true;
   section="home"
   canonical="https://peninsulainsider.com.au"
 >
+  <ImageFormatFallback />
   <HomeCover />
+  <HomeChooser />
+  <HomeOrientation />
   <HomeWeekend />
   <HomePlan />
   <HomeDoors />
-  <HomeOrientation />
   <HomeJournalFeature />
   {/* TEMP (2026-07): Ask PI chat band hidden from the main screen per request.
       Code is preserved (HomeAsk.astro + import above are untouched); re-enable
       by restoring the <HomeAsk /> line below. */}
   {/* <HomeAsk /> */}
+  <div class="container home-play"><PlayCard variant="band" /></div>
   <HomeDispatch />
 </BaseLayout>
+
+<style>.home-play{padding-block:2rem}</style>

@@ -48,9 +48,13 @@ test('homepage event photography requires a recorded rights receipt', async () =
   const actual = new Function('contextPhotos', 'slug', 'hero', 'recorded', 'status', `${stripTypeScriptTypes(block)}; return image;`);
   const hero = { hasPhoto: true, src: '/event.webp' };
   const photo = { alt: 'Verified subject', credit: 'Photographer' };
-  assert.equal(actual({}, 'event', hero, photo, 'actual'), undefined);
+  const fallback = actual({}, 'event', hero, photo, 'actual');
+  assert.equal(fallback.src, '/images/generated/coastal-punch-plate.svg');
+  assert.match(fallback.caption, /not a depiction of this event/);
+  assert.equal(fallback.credit, 'Illustration: Peninsula Insider');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'actual').src, '/event.webp');
-  assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'unverified'), undefined);
+  assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'unverified').src, fallback.src);
+  assert.equal(actual({event:{src:'/context.webp'}}, 'event', hero, {...photo,rightsStatus:'recorded'}, 'actual').src, '/event.webp');
 });
 test('event discovery shelf photography requires recorded rights and actual depiction', async () => {
   const hub = await readFile(new URL('../src/pages/whats-on/index.astro', import.meta.url), 'utf8');

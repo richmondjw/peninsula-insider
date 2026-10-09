@@ -14,11 +14,11 @@ body[data-anchor-page][data-path] #main-content { font-family: var(--font-ui); }
 body[data-anchor-page][data-path] #main-content :is(p,a,li,span,small,label,figcaption) { font-family: var(--font-ui); }
 body[data-anchor-page][data-path] #main-content :is(h1,h2,h3) :is(a,span) { font-family: var(--font-display); }
 body[data-anchor-page][data-path] #main-content p a { text-decoration: underline; text-underline-offset: .2em; }
-body[data-anchor-page][data-path="/"] #main-content h1 { font-size: var(--fs-950); }
+body[data-anchor-page][data-path="/"] #main-content h1 { font-size: clamp(2rem, 4.2vw, 4rem); }
 body[data-anchor-page][data-path] #main-content :is(input,select,button) { font-family: var(--font-ui); }
 @media (max-width: 700px) {
   body[data-anchor-page][data-path] #main-content h1 { font-size: 2rem; }
   body[data-anchor-page][data-path] #main-content h2 { font-size: min(var(--fs-700), 1.75rem); }
   body[data-anchor-page][data-path] #main-content #eat-finder-title { font-size: var(--fs-600); }
-  body[data-anchor-page][data-path="/"] #main-content h1 { font-size: var(--fs-900); }
+  body[data-anchor-page][data-path="/"] #main-content h1 { font-size: 2rem; }
 }

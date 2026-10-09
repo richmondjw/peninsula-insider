@@ -1,0 +1,87 @@
+{
+  "schemaVersion": "1.0",
+  "url": "https://peninsulainsider.com.au/",
+  "tier": "T1",
+  "family": "home",
+  "primaryVisitorTask": "Choose a suitable Peninsula outing and continue into an actual plan or current event.",
+  "assessedAt": "2026-10-10 Australia/Sydney",
+  "reviewer": "independent-two-final",
+  "sourceRevision": "9acfe917d9b28e15e7190e80b186ecbde9fe3601",
+  "viewports": [
+    320,
+    390,
+    768,
+    1440
+  ],
+  "ratings": {
+    "VT1": 4,
+    "VT2": 4,
+    "VT3": 4,
+    "VT4": 4,
+    "FN1": 4,
+    "FN2": 4,
+    "FN3": 4,
+    "ET1": 4,
+    "ET2": 4,
+    "ET3": 4,
+    "ET4": 4,
+    "VS1": 4,
+    "VS2": 4,
+    "VS3": 4,
+    "VS4": 4,
+    "VS5": 4,
+    "MI1": 4,
+    "MI2": 4,
+    "MI3": 4,
+    "AT1": 3,
+    "AT2": 3,
+    "AT3": 4,
+    "AT4": 4
+  },
+  "criterionEvidence": {
+    "VT1": "Visitor time, party and interests lead to actual published plans.",
+    "VT2": "Clear promise and next actions fit the first mobile screen.",
+    "VT3": "Comparable plans include duration, audience, reason and booking considerations.",
+    "VT4": "Native chooser, plan import and Save/Trip completed.",
+    "FN1": "Distinct and ordered discovery, orientation, weekend, plans and Journal.",
+    "FN2": "Area, full map, catalogue, organiser and editorial destinations available.",
+    "FN3": "Native optional facets propagate to the existing matcher; no-script browsing works.",
+    "ET1": "Valid readable date receipts and separated captions; direct copy.",
+    "ET2": "Current three weekend dates/time supported by primary listings opened10October.",
+    "ET3": "Visible organiser, methodology and truthful conceptual/contextual captions.",
+    "ET4": "Approved artwork and named photos retain rights and matching credits; recovery tested.",
+    "VS1": "Recognisable mobile focal scene; equal card widths and caption/title anatomy.",
+    "VS2": "Sora/Figtree hierarchy,13pxmetadata/15pxJournalcaption, readable maplabels.",
+    "VS3": "Axe checks and actual rendered controls/text show readable contrast.",
+    "VS4": "Shared publication chrome, cards, controls and illustration rules.",
+    "VS5": "320/390/768/1440nooverflow; native48pxcontrols; DPR2covercrop sharp.",
+    "MI1": "Selection, saved state and trip import persist with visible outcomes.",
+    "MI2": "Meaningful repeat/conflict/offline trip, image failure and newsletter error/retry journeys passed.",
+    "MI3": "Keyboard tasks and modal focus return passed; spoken screen-reader assessment missing.",
+    "AT1": "Final isolated mobile Lighthouse83; LCP3963ms/FCP2735ms,TBT0; loading deduction remains.",
+    "AT2": "Static cover,noMP4/reduced-motion checks; finalCLS0.000128.",
+    "AT3": "Oneh1,labelled sections, nativeGET, canonical/title and state continuity retained."
+  },
+  "score": 97.75,
+  "status": "provisional",
+  "hardGates": [],
+  "issues": [
+    "Spoken assistive-technology assessment missing.",
+    "Measured mobile LCP3963ms retains1point speed deduction."
+  ],
+  "evidence": {
+    "technicalReport": "87/87 corrected full journeys;24/24 final changed-surface journeys;full publication build passed; four-widthaxe0/overflow0/failedimages0.",
+    "imageRightsSources": [
+      "docs/COASTAL-PUNCH-ILLUSTRATIONS.md",
+      "reports/coastal-punch-wide-assets-2026-10-09.json",
+      "next/src/content/itineraries/the-family-day-out.json"
+    ],
+    "factualSources": [
+      "https://www.moonahlinks.com.au/cms/whats-on/",
+      "https://www.visitmorningtonpeninsula.org/Whats-On/view/18258/mornington-racecourse-market",
+      "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1"
+    ],
+    "liveDeploymentReceipt": "Pending public release acceptance."
+  },
+  "nextAction": "Complete spoken assistive-technology assessment and retain speed deduction; verify public release before live claim."
+}

@@ -97,3 +97,37 @@ test('CMS replacement turns an empty card into a photo while preserving its date
   assert.equal(el.dataset.piEntitySlug, 'market');
   assert.equal(el.dataset.piFieldPath, 'heroImage');
 });
+
+test('opt-in AVIF images preserve the original and retain native WebP fallback', async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), 'pi-avif-'));
+  try {
+    const bytes = await sharp({create:{width:800,height:450,channels:3,background:'#31546a'}}).jpeg().toBuffer();
+    const webp = await derivatives(bytes,root);
+    const avif = await derivatives(bytes,root,'avif');
+    assert.deepEqual(avif.map(v=>v.width),[480,800]);
+    for(const variant of avif){const actual=await readFile(path.join(root,variant.src));const metadata=await sharp(actual).metadata();assert.equal(metadata.format,'heif');assert.equal(metadata.width,variant.width);assert.equal(metadata.height/metadata.width,450/800);assert.equal(actual.length,variant.bytes);}
+    const html='<figure><img src="/images/source.jpg" alt="Recorded coast" data-pi-responsive="100vw" data-pi-avif="true" data-pi-no-hydrate="true"></figure>';
+    const output=await optimiseHtml(html,async(_src,format)=>format==='avif'?avif:webp);
+    assert.match(output,/<picture><source data-pi-avif-source type="image\/avif"/);
+    assert.match(output,/\.avif 480w/);assert.match(output,/\.webp 480w/);
+    assert.match(output,/data-pi-image-original-src="\/images\/source.jpg"/);
+    assert.match(output,/alt="Recorded coast"/);
+    assert.equal(await optimiseHtml(output,()=>{throw Error('second transform');}),output);
+  }finally{await rm(root,{recursive:true,force:true});}
+});
+
+test('editor image replacement removes the former AVIF source as well as srcset', async () => {
+  const source=await readFile(new URL('../src/lib/inline-edit/client.ts',import.meta.url),'utf8');
+  const fn=source.slice(source.indexOf('function setImageSrc('),source.indexOf('function readImageDescriptor(')).replace('el: HTMLElement, src: string','el, src');
+  const removed=[];
+  class HTMLImageElement {
+    dataset={piImageOriginalSrc:'/old.webp'};
+    removeAttribute(name){removed.push(name);}
+    closest(selector){assert.equal(selector,'picture');return {querySelectorAll(selector){assert.equal(selector,'source[data-pi-avif-source]');return [{remove(){removed.push('avif');}}];}};}
+  }
+  const el=new HTMLImageElement();
+  vm.runInNewContext(fn+'\nsetImageSrc(el,"/replacement.jpg");',{HTMLImageElement,el});
+  assert.equal(el.src,'/replacement.jpg');
+  assert.deepEqual(removed,['avif','srcset','sizes']);
+  assert.equal(el.dataset.piImageOriginalSrc,undefined);
+});
