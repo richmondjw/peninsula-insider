@@ -16,6 +16,7 @@
  * ONE filter state governs The Six and the directory: the single FilterBar
  * below the stand-first renders #pi-results-status and the paired sheet;
  */
+import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
@@ -270,12 +271,7 @@ const journalItems = journalSlugs
 const standfirst =
   'The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.';
 
-const stayHero = {
-  src: '/images/visit-victoria/vv-25061209-lancemore-lindenderry-red-hill.webp',
-  alt: 'Visitors cross a sunlit lawn between large trees towards the white homestead building at Lindenderry in Red Hill.',
-  caption: 'Guests arriving at Lindenderry at Red Hill.',
-  credit: 'Peter Foster, courtesy of Visit Victoria',
-};
+const stayHero = categoryHero('stay');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -307,7 +303,7 @@ export const prerender = true;
   section="stay"
   canonical="https://peninsulainsider.com.au/stay"
   modifiedTime="2026-10-03"
-  ogImage={pageImage('stay-hub').src}
+  ogImage={stayHero.src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
@@ -325,8 +321,8 @@ export const prerender = true;
         </div>
       </div>
       <figure class="stay-hero__visual">
-        <img src={stayHero.src} alt={stayHero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 720px" />
-        <figcaption>{stayHero.caption} Photo: {stayHero.credit}.</figcaption>
+        <img src={stayHero.src} alt={stayHero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 1200px" />
+        <figcaption>{stayHero.caption} {stayHero.credit}.</figcaption>
       </figure>
     </div>
   </section>

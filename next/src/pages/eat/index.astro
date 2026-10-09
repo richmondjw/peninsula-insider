@@ -18,6 +18,7 @@
  * div carried data-facets and inflated the result count by one. The
  * reciprocal module on /wine/ still points here.
  */
+import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -289,13 +290,13 @@ export const prerender = true;
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
   modifiedTime="2026-10-08"
-  ogImage={pageImage('eat-hub').src}
+  ogImage={categoryHero('eat').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
-  <EatEntry count={venues.length} categories={categories} towns={towns} image={pageImage('eat-hub')} />
+  <EatEntry count={venues.length} categories={categories} towns={towns} image={categoryHero('eat')} />
   <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" showLinks={false} />
 
   <div data-category-editorial>
