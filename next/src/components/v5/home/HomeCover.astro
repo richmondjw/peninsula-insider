@@ -177,7 +177,7 @@ const creditLine = (credit: string) => {
       >
         <img
           class="home-cover__media"
-          src={slide.src} data-pi-responsive="100vw"
+          src={slide.src} data-pi-responsive="(max-width: 767px) 300vw, 100vw"
           alt={slide.alt}
           style={`object-position: ${slide.focal};`}
           fetchpriority={i === 0 ? 'high' : undefined}
@@ -789,7 +789,7 @@ const creditLine = (credit: string) => {
   }
 
   /* Approved artwork palette. Layout, type, spacing and actions stay intact. */
-  .home-cover__scrim { background: linear-gradient(180deg, rgb(16 45 66 / .48), rgb(16 45 66 / .42) 52%, rgb(16 45 66 / .72)); }
+  .home-cover__scrim { background: linear-gradient(180deg, rgb(16 45 66 / .74), rgb(16 45 66 / .64) 30%, rgb(16 45 66 / .42) 52%, rgb(16 45 66 / .72)); }
   .home-cover__statement, .home-cover__promise, .home-cover__method, .home-cover__context, .home-cover__attribution { color: #fff4dc; }
   .home-cover__eyebrow { color: #f3c969; }
   .home-cover__actions :global(.pi-btn--solid) { background: #f36b4f; color: #102d42; border-color: #f36b4f; }
