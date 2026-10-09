@@ -55,7 +55,7 @@ Play this weekend’s case
 
 ## Where in the Peninsula is PI?
 
-She took her coffee to go from Mornington pier and was gone. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.
+Last seen in Red Hill after lunch, PI and the dog had already moved on. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.
 
 Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
 
