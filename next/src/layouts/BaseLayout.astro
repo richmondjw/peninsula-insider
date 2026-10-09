@@ -497,6 +497,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
     (function () {
       if (!__SB_URL || !__SB_ANON) return;
       function applySlots() {
+        // Fully reviewed static image surfaces need no browser-only replacement fetch.
+        if (!document.querySelector('[data-pi-edit="image"][data-pi-entity-slug][data-pi-field-path]:not([data-pi-no-hydrate])')) return;
         var url = new URL('/rest/v1/cms_image_slots', __SB_URL);
         url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url,alt_text,credit');
         url.searchParams.set('status', 'eq.published');

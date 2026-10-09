@@ -52,7 +52,7 @@ test('homepage offers three working intent routes within narrow-screen width', a
   try {
     await reader.load('/');
     const targets = await reader.page.$$eval('.home-cover__actions a', links => links.map(a => a.getAttribute('href')));
-    assert.deepEqual(targets, ['/whats-on/this-weekend/', '/explore/plans/', '/search/']);
+    assert.deepEqual(targets, ['#home-choose', '/whats-on/this-weekend/', '/search/']);
     for (const width of [320, 390, 1280]) {
       await reader.page.setViewport({width, height: 900});
       assert.ok(await reader.page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `overflow at ${width}`);
@@ -60,7 +60,7 @@ test('homepage offers three working intent routes within narrow-screen width', a
     await reader.page.click('.home-cover__actions [data-open-search]');
     await reader.waitFor(() => document.querySelector('[role="dialog"][aria-modal="true"]') || location.pathname === '/search/', 'search did not open');
     for (const route of targets.slice(0, 2)) {
-      await reader.load(route);
+      await reader.load(route.startsWith('#') ? '/' + route : route);
       assert.ok(await reader.page.$('main h1'), route);
     }
   } finally { await reader.close(); }
@@ -204,19 +204,19 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
   } finally { await reader.close(); }
 });
 
-test('homepage alternate plan actions copy usable itineraries and the cover plays without a video button', async () => {
+test('homepage alternate plan actions retain usable itineraries and the cover is a single still image', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
     const copiedKinds = await reader.page.$$eval('.home-plan [data-variant="fork"]',els=>els.map(el=>el.dataset.kind));
     assert.ok(copiedKinds.length>=1);
     assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
-    await reader.waitFor(() => document.querySelector('[data-cover-motion]')?.currentTime > 0, 'cover video did not start');
+    assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
+    assert.equal(await reader.page.$$eval('.home-cover__media', els => els.length), 1);
+    assert.ok(await reader.page.$eval('.home-cover__media', image => image.complete && image.naturalWidth > 0));
     assert.equal(await reader.page.$$eval('.cover-motion-toggle', els => els.length), 0);
-    assert.equal(await reader.page.$eval('[data-cover-motion]', v => v.paused), false);
     await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
-    await reader.waitFor(() => document.querySelector('[data-cover-motion]').hidden, 'reduced-motion did not show the still fallback');
-    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
+    assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
   } finally { await reader.close(); }
 });
 

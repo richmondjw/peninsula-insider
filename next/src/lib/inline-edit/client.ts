@@ -600,6 +600,8 @@ function currentImageSrc(el: HTMLElement): string {
 /** Update either an <img> or a background-image div with a new src. */
 function setImageSrc(el: HTMLElement, src: string) {
   if (el instanceof HTMLImageElement) {
+    // A published replacement must not keep the former photograph's AVIF source.
+    el.closest?.('picture')?.querySelectorAll('source[data-pi-avif-source]').forEach(source => source.remove());
     el.removeAttribute('srcset');
     el.removeAttribute('sizes');
     delete el.dataset.piImageOriginalSrc;

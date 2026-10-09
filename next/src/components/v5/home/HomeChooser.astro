@@ -1,0 +1,31 @@
+---
+import { buildPlansModel } from '../plans/plans-data';
+import { FACET_OPTIONS } from '../../../lib/facets';
+const { plans } = await buildPlansModel();
+const itineraries = plans.filter(plan => plan.kind === 'itinerary' && plan.stops.length);
+const present = (key: 'party' | 'cat' | 'mood') => FACET_OPTIONS[key].filter(option => itineraries.some(plan => (plan.facets[key] ?? []).includes(option.value)));
+const interests = [...present('cat'),...present('mood')].filter(option=>option.value!=='plan'&&option.value!=='rainy-day').filter((option,i,list)=>list.findIndex(other=>other.value===option.value)===i);
+---
+<section id="home-choose" class="home-choose" aria-labelledby="home-choose-title">
+  <div class="container">
+    <div class="home-choose__heading"><h2 id="home-choose-title">Your time. Your kind of day.</h2><p>Choose what matters. See where our published plans fit, and where they don’t.</p></div>
+    <form action="/explore/plans/#build" method="get" class="home-choose__form" aria-label="Find a Peninsula plan">
+      <label>How long?<select name="length"><option value="">Any length</option><option value="one-day">One day</option><option value="weekend">A weekend</option><option value="longer">Two nights or more</option></select></label>
+      <label>Who’s coming?<select name="who"><option value="">Anyone</option>{present('party').map(option=><option value={option.value}>{option.label}</option>)}</select></label>
+      <label>What sounds good?<select name="into"><option value="">A bit of everything</option>{interests.map(option=><option value={option.value}>{option.label}</option>)}</select></label>
+      <button class="pi-btn pi-btn--solid" type="submit">Find my plan <span aria-hidden="true">↗</span></button>
+    </form>
+    <p class="home-choose__note">All choices are optional. No account needed. <a href="/explore/plans/">Browse every plan</a></p>
+  </div>
+</section>
+<style>
+  .home-choose{padding:1.6rem 0 1rem;background:var(--bg-alt);scroll-margin-top:9rem}
+  .home-choose__heading h2{font:600 1.5rem/1.25 var(--font-display);letter-spacing:-.03em;margin:0}
+  .home-choose__heading p{font-size:.9375rem;color:var(--soft);margin:.4rem 0 1rem;line-height:1.5}
+  .home-choose__form{display:grid;grid-template-columns:repeat(3,minmax(0,1fr)) auto;gap:1rem;align-items:end}
+  label{font-size:.8125rem;font-weight:600;min-width:0}
+  select{display:block;width:100%;margin-top:.35rem;min-height:48px;padding:.65rem 2rem .65rem .75rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius-s);color:var(--text);font:400 1rem/1.4 var(--font-ui)}
+  button{min-height:48px}select:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  .home-choose__note{display:flex;align-items:center;flex-wrap:wrap;gap:.3rem .75rem;font-size:.8125rem;color:var(--soft);margin:.5rem 0 0}.home-choose__note a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
+  @media(max-width:47.99em){.home-choose{padding:1.3rem 0 .5rem}.home-choose__heading h2{font-size:1.25rem}.home-choose__form{grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}.home-choose__form button{width:100%;font-size:.875rem;padding-inline:.5rem}.home-choose__heading p{font-size:.875rem}.home-choose__note{font-size:.75rem}}
+</style>

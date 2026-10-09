@@ -21,7 +21,6 @@ import { eventContentKind } from '../../../lib/event-publication.mjs';
 import { getCollection } from 'astro:content';
 import Card from '../Card.astro';
 import CardGrid from '../CardGrid.astro';
-import PlayCard from '../../play/PlayCard.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { depictionStatusOf } from '../../../lib/media-provenance';
 import {
@@ -82,9 +81,9 @@ const cards = await Promise.all(
       src: hero.src,
       alt: recorded.alt,
       caption: status === 'illustrative'
-        ? [recorded.caption, 'Illustrative image, not this event.'].filter(Boolean).join(' ')
+        ? recorded.caption || 'Illustrative image, not this event.'
         : recorded.caption ?? '',
-      credit: recorded.credit,
+      credit: status === 'illustrative' ? 'Illustration: ' + recorded.credit.replace(/^(Photo|Illustration):\s*/i, '') : recorded.credit,
       badge: status === 'illustrative' ? 'Illustrative image' : '',
     } : undefined;
     const dateISO = pickDateISO(event, now);
@@ -105,6 +104,8 @@ const cards = await Promise.all(
         : verdict,
       meta,
       dateISO,
+      sourceUrl: event.data.primarySourceUrl ?? event.data.officialEventUrl,
+      checkedOn: event.data.lastCheckedDate,
     };
   }),
 );
@@ -127,7 +128,7 @@ const cards = await Promise.all(
         <CardGrid label="This weekend's picks">
           {cards.map((card, i) => (
             <li data-event-promotion={JSON.stringify({id:card.promotion.id,data:publicEventData(card.promotion.data)})} data-event-promotion-day={card.dateISO}>
-            <Card as="article"
+            <Card preferAvif={true} as="article"
               variant="event"
               title={card.title}
               href={card.href}
@@ -148,6 +149,7 @@ const cards = await Promise.all(
             >
               {card.image?.badge && <span slot="badges" class="home-weekend__media-badge">{card.image.badge}</span>}
             </Card>
+            {card.sourceUrl?.startsWith('https://') && <p class="home-weekend__source">{card.checkedOn && <span>Event details checked {new Date(card.checkedOn+'T00:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}.</span>} <a href={card.sourceUrl}>Check organiser <span aria-hidden="true">↗</span></a></p>}
             </li>
           ))}
         </CardGrid>
@@ -157,7 +159,7 @@ const cards = await Promise.all(
         Saturday and Sunday picks. <a href="/whats-on/">See all events, including Friday &rarr;</a>
       </p>
 
-      <PlayCard variant="band" />
+
     </div>
   </section>
 )}
@@ -169,6 +171,15 @@ const cards = await Promise.all(
 </script>
 
 <style>
+  .home-weekend__source{font-size:.75rem;line-height:1.5;color:var(--soft);margin:.6rem .25rem 0}
+  .home-weekend__source>span{display:block}
+  .home-weekend__source a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
+  .home-weekend__scroller :global(.v5-card-grid){align-items:stretch}
+  .home-weekend__scroller :global(.v5-card-grid>li){display:flex;flex-direction:column;min-width:0}
+  .home-weekend__scroller :global(.pi-card){width:100%;height:100%}
+  .home-weekend__scroller :global(.pi-card__media){aspect-ratio:3/2}
+  .home-weekend__scroller :global(.pi-card__image-note){min-height:5.5rem;font-size:.75rem;line-height:1.45}
+
   :global(.home-weekend__media-badge) {
     position: absolute;
     right: var(--space-3);

@@ -1,68 +1,40 @@
 ---
+import mornington from '../../../content/places/mornington.json';
+import redHill from '../../../content/places/red-hill.json';
+import sorrento from '../../../content/places/sorrento.json';
 const areas = [
-  { title: 'Mornington & the bay', href: '/explore/places/mornington/', image: '/images/visit-victoria/vv-163841-bathing-boxes-at-mornington.webp', caption: 'Mornington, Mornington Peninsula.', credit: 'Courtesy of Visit Victoria', text: 'Start with town cafes and the bay foreshore. A useful first stop before heading further south.' },
-  { title: 'Red Hill & the ridge', href: '/explore/places/red-hill/', image: '/images/visit-victoria/vv-160356-montalto.webp', caption: 'Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.', credit: 'Two Palms Australia, courtesy of Visit Victoria', text: 'Build the day around a booked lunch or cellar door. Arrange transport between stops.' },
-  { title: 'Sorrento & the southern coast', href: '/explore/places/sorrento/', image: '/images/visit-victoria/vv-163884-millionaire-s-walk.webp', caption: 'Sorrento, Mornington Peninsula.', credit: 'Courtesy of Visit Victoria', text: 'Use the town as your starting point for the southern Peninsula. Check conditions before choosing a coastal walk.' },
+  {title:'Mornington & the bay',href:'/explore/places/mornington/',point:mornington.coordinates,text:'Town cafes and the bay foreshore. A useful first stop before heading further south.'},
+  {title:'Red Hill & the ridge',href:'/explore/places/red-hill/',point:redHill.coordinates,text:'Cellar doors and a booked lunch. Arrange transport between stops.'},
+  {title:'Sorrento & the southern coast',href:'/explore/places/sorrento/',point:sorrento.coordinates,text:'Start with the town, then choose a coastal walk. Check conditions before setting out.'},
 ];
-const photoCredit = (credit: string) => credit === 'Courtesy of Visit Victoria'
-  ? 'Photo courtesy of Visit Victoria'
-  : `Photo: ${credit}`;
+const position = (point:{lat:number;lng:number}) => ({x:35+(point.lng-144.65)/.5*320,y:30+(-point.lat-38.1)/.35*125});
 ---
 <section class="home-orientation container" aria-labelledby="home-orientation-title">
-  <div class="home-orientation__heading">
-    <div><h2 id="home-orientation-title">Explore by place</h2><p>Three starting points for finding your way around the Peninsula.</p></div>
-    <a href="/map/">Open the map →</a>
+  <div class="home-orientation__heading"><div><p class="home-orientation__eyebrow">Find your bearings</p><h2 id="home-orientation-title">Three ways into the Peninsula.</h2></div><a href="/map/">Open the full map <span aria-hidden="true">↗</span></a></div>
+  <div class="home-orientation__layout">
+    <figure class="home-orientation__diagram">
+      <svg viewBox="0 0 400 190" role="img" aria-labelledby="home-town-map-title home-town-map-desc">
+        <title id="home-town-map-title">Mornington, Red Hill and Sorrento town locations</title><desc id="home-town-map-desc">North is at the top. Mornington is north of Red Hill; Sorrento is west of both. This is a town-location diagram, not a road or boundary map. Use the adjacent links for each area.</desc>
+        <rect width="400" height="190" rx="12" fill="var(--bg-alt)" />
+        <path d="M25 42V18m-5 7 5-7 5 7" fill="none" stroke="var(--accent)" stroke-width="2"/><text x="20" y="58" class="home-orientation__north">N</text>
+        {areas.map((area,i)=>{const p=position(area.point);return <g><circle cx={p.x} cy={p.y} r="14" fill="var(--accent)"/><text x={p.x} y={p.y+5} text-anchor="middle" fill="white" class="home-orientation__number">{i+1}</text><text x={p.x+20} y={p.y-22} text-anchor="end" class="home-orientation__town">{[mornington.name,redHill.name,sorrento.name][i]}</text></g>})}
+      </svg>
+      <figcaption>Town locations, north at top. For roads and other places, open the full map.</figcaption>
+    </figure>
+    <ol class="home-orientation__areas">{areas.map((area,i)=><li><span class="home-orientation__index" aria-hidden="true">0{i+1}</span><div><h3><a href={area.href}>{area.title} <span aria-hidden="true">↗</span></a></h3><p>{area.text}</p></div></li>)}</ol>
   </div>
-  <ul>
-    {areas.map((area) => (
-      <li>
-        <a class="home-orientation__image" href={area.href} tabindex="-1" aria-hidden="true">
-          <img src={area.image} alt="" loading="lazy" decoding="async" width="640" height="400" />
-        </a>
-        <p class="home-orientation__caption">{area.caption} <span>{photoCredit(area.credit)}</span></p>
-        <h3><a href={area.href}>{area.title} <span aria-hidden="true">&rarr;</span></a></h3>
-        <p class="home-orientation__summary">{area.text}</p>
-      </li>
-    ))}
-  </ul>
 </section>
 <style>
-  .home-orientation { padding-block: clamp(3rem, 5vw, 5rem); }
-  .home-orientation__heading { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem 2rem; }
-  h2 { margin: 0; font-family: var(--font-display); font-size: var(--fs-600); line-height: 1.2; }
-  .home-orientation__heading p { margin: .5rem 0 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.5; }
-  ul { list-style: none; padding: 0; margin: 1.75rem 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); }
-  li { border-top: 1px solid var(--border); padding-top: 1rem; min-width: 0; }
-  .home-orientation__image { display: block; min-height: 0; overflow: hidden; border-radius: var(--radius-m); }
-  .home-orientation__image img { display: block; width: 100%; height: auto; aspect-ratio: 8 / 5; object-fit: cover; transition: transform var(--dur-slow) var(--ease-enter); }
-  li:hover .home-orientation__image img { transform: scale(1.035); }
-  .home-orientation__caption { color: var(--soft); font-size: .75rem; line-height: 1.45; margin: .45rem 0 var(--space-4); }
-  h3 { margin: 0; font-size: 1.125rem; line-height: 1.4; }
-  h3 span { margin-left: .3em; }
-  .home-orientation__summary { color: var(--soft); font-size: 0.9375rem; line-height: 1.6; margin: 0.5rem 0 0; }
-  a { color: var(--teal-text); text-underline-offset: 0.2em; display: inline-flex; align-items: center; min-height: 44px; }
-  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  @media(max-width: 47.99em) {
-    ul { grid-template-columns: 1fr; gap: 1rem; }
-    li {
-      display: grid;
-      grid-template-columns: minmax(7rem, 42%) minmax(0, 1fr);
-      grid-template-areas: "image title" "image summary" "caption caption";
-      column-gap: 1rem;
-      align-content: start;
-    }
-    .home-orientation__image { grid-area: image; }
-    .home-orientation__image img { aspect-ratio: 1 / 1; }
-    .home-orientation__caption { grid-area: caption; margin: .5rem 0 0; }
-    h3 { grid-area: title; font-size: 1rem; line-height: 1.3; }
-    .home-orientation__summary { grid-area: summary; font-size: .875rem; line-height: 1.45; margin-top: .35rem; }
-  }
-  @media(max-width: 22.5em) {
-    li { grid-template-columns: minmax(0, 1fr); grid-template-areas: "image" "title" "summary" "caption"; row-gap: .35rem; }
-    .home-orientation__image img { aspect-ratio: 16 / 9; }
-    h3 { font-size: 1.125rem; }
-    .home-orientation__summary { font-size: .9375rem; margin-top: 0; }
-    .home-orientation__caption { margin-top: .2rem; }
-  }
-  @media(prefers-reduced-motion: reduce) { .home-orientation__image img { transition: none; } li:hover .home-orientation__image img { transform: none; } }
+  .home-orientation{padding-block:1.7rem 2rem}
+  .home-orientation__heading{display:flex;align-items:end;justify-content:space-between;flex-wrap:wrap;gap:.5rem 1rem;margin-bottom:1rem}
+  .home-orientation__eyebrow{font:600 .6875rem/1.4 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin:0 0 .4rem}
+  h2{font:600 1.5rem/1.2 var(--font-display);letter-spacing:-.03em;margin:0}
+  .home-orientation__layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:2rem;align-items:center}
+  .home-orientation__diagram{margin:0;min-width:0}.home-orientation__diagram svg{display:block;width:100%;max-width:400px;margin:auto}.home-orientation__diagram figcaption{font-size:.75rem;color:var(--soft);line-height:1.5;margin-top:.35rem}
+  .home-orientation__town{font:600 13px var(--font-ui);fill:var(--text)}.home-orientation__number{font:600 14px var(--font-ui)}.home-orientation__north{font:600 12px var(--font-ui);fill:var(--accent)}
+  ol{list-style:none;margin:0;padding:0}.home-orientation__areas li{display:flex;gap:1rem;border-top:1px solid var(--border);padding:.5rem 0}.home-orientation__index{color:var(--accent);font:600 .8125rem/1.5 var(--font-ui);padding-top:.75rem}
+  h3{margin:0;font:600 1rem/1.3 var(--font-display)}li p{font-size:.875rem;line-height:1.5;color:var(--soft);margin:0 0 .3rem}
+  a{color:var(--accent);display:inline-flex;align-items:center;min-height:44px;text-underline-offset:.2em;font-weight:600}a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  @media(min-width:48em) and (max-width:63.99em){.home-orientation__town,.home-orientation__number,.home-orientation__north{font-size:18px}}
+  @media(max-width:47.99em){.home-orientation__town{font-size:28px}.home-orientation__number,.home-orientation__north{font-size:28px}.home-orientation__diagram circle{r:20px}.home-orientation{padding-block:1.2rem 1.5rem}.home-orientation__layout{grid-template-columns:1fr;gap:.7rem}.home-orientation__diagram svg{max-width:300px}.home-orientation__diagram figcaption{font-size:.75rem}.home-orientation__heading h2{font-size:1.25rem}.home-orientation__heading>a{font-size:.8125rem}.home-orientation__areas li{gap:.75rem}li p{font-size:.8125rem}.home-orientation__diagram{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr);gap:.8rem;align-items:center}}
 </style>

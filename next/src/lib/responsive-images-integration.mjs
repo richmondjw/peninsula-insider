@@ -43,20 +43,21 @@ export async function sourceBytes(src, root) {
   return Buffer.concat(chunks);
 }
 
-export async function derivatives(bytes, root) {
+export async function derivatives(bytes, root, format = 'webp') {
+  if (!['webp', 'avif'].includes(format)) throw new Error('Unsupported responsive image format');
   const metadata = await sharp(bytes, { limitInputPixels: 50000000 }).metadata();
   // Preserve animated assets and vectors intact.
   if (!['jpeg', 'png', 'webp', 'avif'].includes(metadata.format) || metadata.pages > 1) return null;
   const width = metadata.autoOrient?.width ?? metadata.width;
-  const hash = createHash('sha256').update(bytes).update('pi-webp-80-v1').digest('hex').slice(0, 20);
+  const hash = createHash('sha256').update(bytes).update(format === 'avif' ? 'pi-avif-50-v1' : 'pi-webp-80-v1').digest('hex').slice(0, 20);
   const widths = [...new Set([480, 800, 1280, 1920].map(w => Math.min(w, width)))];
   await mkdir(path.join(root, '_media'), { recursive: true });
   const results = [];
   // Sequential transforms bound CPU/RAM on CI workers.
   for (const w of widths) {
-    const output = await sharp(bytes, { limitInputPixels: 50000000 }).rotate()
-      .resize({ width: w, withoutEnlargement: true }).webp({ quality: 80 }).toBuffer({ resolveWithObject: true });
-    const src = `/_media/${hash}-${output.info.width}.webp`;
+    const pipeline = sharp(bytes, { limitInputPixels: 50000000 }).rotate().resize({ width: w, withoutEnlargement: true });
+    const output = await (format === 'avif' ? pipeline.avif({ quality: 50, effort: 4 }) : pipeline.webp({ quality: 80 })).toBuffer({ resolveWithObject: true });
+    const src = `/_media/${hash}-${output.info.width}.${format}`;
     await writeFile(path.join(root, src), output.data);
     results.push({ src, width: output.info.width, height: output.info.height, bytes: output.data.length });
   }
@@ -80,7 +81,11 @@ export async function optimiseHtml(html, resolve) {
       attrs.width = String(fallback.width);
       attrs.height = String(fallback.height);
     }
-    const tag = '<img ' + Object.entries(attrs).map(([k, v]) => `${k}="${escape(v)}"`).join(' ') + '>';
+    let tag = '<img ' + Object.entries(attrs).map(([k, v]) => `${k}="${escape(v)}"`).join(' ') + '>';
+    if (attrs['data-pi-avif'] === 'true') {
+      const avif = await resolve(attrs['data-pi-image-original-src'], 'avif');
+      if (avif?.length) tag = '<picture><source data-pi-avif-source type="image/avif" srcset="' + escape(avif.map(v => v.src + ' ' + v.width + 'w').join(', ')) + '" sizes="' + escape(attrs.sizes) + '">' + tag + '</picture>';
+    }
     replacements.push({ ...node.sourceCodeLocation.startTag, tag });
   }
   for (const change of replacements.reverse()) html = html.slice(0, change.startOffset) + change.tag + html.slice(change.endOffset);
@@ -95,15 +100,16 @@ export default function responsiveImages() {
         const root = fileURLToPath(dir);
         const cache = new Map();
         const manifest = [];
-        async function resolve(src) {
-          if (!cache.has(src)) cache.set(src, (async () => {
+        async function resolve(src, format = 'webp') {
+          const key = src + '|' + format;
+          if (!cache.has(key)) cache.set(key, (async () => {
             const bytes = await sourceBytes(src, root);
             if (!bytes) return null;
-            const variants = await derivatives(bytes, root);
-            if (variants) manifest.push({ source: src, originalBytes: bytes.length, variants });
+            const variants = await derivatives(bytes, root, format);
+            if (variants) manifest.push({ source: src, format, originalBytes: bytes.length, variants });
             return variants;
           })());
-          return cache.get(src);
+          return cache.get(key);
         }
         let pages = 0;
         async function walk(folder) {
