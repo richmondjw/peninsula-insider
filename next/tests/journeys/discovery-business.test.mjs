@@ -204,19 +204,19 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
   } finally { await reader.close(); }
 });
 
-test('homepage alternate plan actions copy usable itineraries and the cover plays without a video button', async () => {
+test('homepage alternate plan actions copy usable itineraries and the approved cover is a credited still', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
     const copiedKinds = await reader.page.$$eval('.home-plan [data-variant="fork"]',els=>els.map(el=>el.dataset.kind));
     assert.ok(copiedKinds.length>=1);
     assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
-    await reader.waitFor(() => document.querySelector('[data-cover-motion]')?.currentTime > 0, 'cover video did not start');
+    await reader.waitFor(() => document.querySelector('.home-cover__media')?.complete, 'cover illustration did not load');
     assert.equal(await reader.page.$$eval('.cover-motion-toggle', els => els.length), 0);
-    assert.equal(await reader.page.$eval('[data-cover-motion]', v => v.paused), false);
+    assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
+    assert.match(await reader.page.$eval('.home-cover__attributions', e => e.textContent), /illustration/i);
     await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
-    await reader.waitFor(() => document.querySelector('[data-cover-motion]').hidden, 'reduced-motion did not show the still fallback');
-    assert.equal(await reader.page.$eval('[data-cover-motion]',v=>v.paused), true);
+    assert.equal(await reader.page.$eval('.home-cover__media',img=>img.complete && img.naturalWidth>0), true);
   } finally { await reader.close(); }
 });
 

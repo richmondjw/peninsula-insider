@@ -51,7 +51,7 @@
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getAustralianSeasonLower } from '../../../lib/season';
-import HomeCoverMotion from './HomeCoverMotion.astro';
+// Approved Coastal Punch still replaces the photographic motion montage.
 import deckFile from '../../../data/home-cover-deck.json';
 
 const DEFAULT_STATEMENT = 'The Mornington Peninsula, sorted.';
@@ -128,7 +128,7 @@ const slides = source.map((slide, i) => {
     caption: (override ? override.caption : slide.caption)?.trim() ?? '',
     credit: (override ? override.credit : slide.credit)?.trim() ?? '',
     fieldPath,
-    label: i === 0 ? 'Cover photograph' : `Cover photograph ${i + 1}`,
+    label: i === 0 ? 'Cover image' : `Cover image ${i + 1}`,
   };
 });
 
@@ -149,6 +149,7 @@ const isoDate = new Intl.DateTimeFormat('en-CA', {
 const season = getAustralianSeasonLower(now);
 const creditLine = (credit: string) => {
   const clean = credit.trim().replace(/\.$/, '');
+  if (/illustration/i.test(clean)) return `Illustration: ${clean}.`;
   return /^Courtesy of /i.test(clean)
     ? `Photo courtesy of ${clean.slice('Courtesy of '.length)}.`
     : `Photo: ${clean}.`;
@@ -198,7 +199,7 @@ const creditLine = (credit: string) => {
     ))}
   </div>
 
-  <HomeCoverMotion />
+
   <span class="home-cover__scrim" aria-hidden="true"></span>
 
   {slideshow && (
@@ -259,7 +260,7 @@ const creditLine = (credit: string) => {
         <button class="home-cover__pause" type="button" data-cover-pause aria-pressed="false">Pause photos</button>
       </div>
     )}
-    <div class="home-cover__attributions" aria-label="Cover photograph credit">
+    <div class="home-cover__attributions" aria-label="Cover image credit">
       {slides.map((slide, i) => (
         <p
           class="home-cover__attribution"
@@ -786,4 +787,13 @@ const creditLine = (credit: string) => {
   @media (prefers-reduced-motion: reduce) {
     .home-cover__pause { display: none; }
   }
+
+  /* Approved artwork palette. Layout, type, spacing and actions stay intact. */
+  .home-cover__scrim { background: linear-gradient(180deg, rgb(16 45 66 / .48), rgb(16 45 66 / .42) 52%, rgb(16 45 66 / .72)); }
+  .home-cover__statement, .home-cover__promise, .home-cover__method, .home-cover__context, .home-cover__attribution { color: #fff4dc; }
+  .home-cover__eyebrow { color: #f3c969; }
+  .home-cover__actions :global(.pi-btn--solid) { background: #f36b4f; color: #102d42; border-color: #f36b4f; }
+  .home-cover__actions :global(.pi-btn--ghost) { background: rgb(16 45 66 / .72); color: #fff4dc; border-color: #fff4dc; }
+  .home-cover__actions :global(.pi-btn:hover) { filter: brightness(1.08); }
+  @media (max-width: 47.94em) { .home-cover__media { object-position: 15% center !important; } }
 </style>
