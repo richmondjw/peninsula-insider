@@ -75,6 +75,7 @@ export function playRole(kind: 'place' | 'venue', slug: string): PlayRole | null
 /** Outbound link to the game, tagged with the surface that sent the reader. */
 export function playUrl(surface: string): string {
   const u = new URL(PLAY.url);
+  u.searchParams.set('case', PLAY.case.id);
   u.searchParams.set('utm_source', 'peninsulainsider.com.au');
   u.searchParams.set('utm_medium', 'site');
   u.searchParams.set('utm_campaign', `where-is-pi-case-${PLAY.case.id}`);
