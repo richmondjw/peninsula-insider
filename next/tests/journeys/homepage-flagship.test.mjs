@@ -130,6 +130,8 @@ test('homepage town labels remain legible and inside their diagram at narrow wid
       await reader.page.setViewport({width,height:844});await reader.load('/');await reader.page.evaluate(()=>document.fonts.ready);
       const labels=await reader.page.$$eval('.home-orientation__town',els=>els.map(e=>{const diagram=e.closest('svg').getBoundingClientRect(),box=e.getBoundingClientRect();return {name:e.textContent,font:parseFloat(getComputedStyle(e).fontSize)*e.getScreenCTM().a,inside:box.left>=diagram.left-1&&box.right<=diagram.right+1&&box.top>=diagram.top-1&&box.bottom<=diagram.bottom+1};}));
       assert.equal(labels.length,3);assert.ok(labels.every(l=>l.font>=12&&l.inside),JSON.stringify({width,labels}));
+      const layout=await reader.page.$eval('.home-orientation__diagram',figure=>{const svg=figure.querySelector('svg').getBoundingClientRect(),caption=figure.querySelector('figcaption').getBoundingClientRect(),nodes=[...figure.querySelectorAll('text')].map(e=>({name:e.textContent,box:e.getBoundingClientRect()}));const overlaps=[];for(let i=0;i<nodes.length;i++)for(let j=i+1;j<nodes.length;j++){const a=nodes[i].box,b=nodes[j].box,area=Math.max(0,Math.min(a.right,b.right)-Math.max(a.left,b.left))*Math.max(0,Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top));if(area>0)overlaps.push([nodes[i].name,nodes[j].name,area]);}return {captionBelow:caption.top>=svg.bottom-1,overlaps};});
+      assert.ok(layout.captionBelow,JSON.stringify({width,layout}));assert.deepEqual(layout.overlaps,[],JSON.stringify({width,layout}));
     }
   }finally{await reader.close();}
 });
