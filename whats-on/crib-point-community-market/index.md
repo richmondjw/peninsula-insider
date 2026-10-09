@@ -13,6 +13,10 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Check latest details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
 
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+
 [Check the latest details at the source →](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
 
 Hosted at

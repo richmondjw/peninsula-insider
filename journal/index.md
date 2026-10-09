@@ -714,16 +714,6 @@ A two-hour, all-ages professional wrestling show at Commonfolk Mornington suppor
 
  Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-- [Fri, 9 Oct
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
 - [Sat, 10 Oct
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
@@ -733,3 +723,13 @@ Fingal
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 10 Oct
+
+### Crib Point Community Market
+
+Crib Point
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

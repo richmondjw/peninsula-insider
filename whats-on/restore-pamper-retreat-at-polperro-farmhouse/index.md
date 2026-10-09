@@ -87,6 +87,10 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
+AI-assisted artwork · Peninsula Insider
+
+Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+
 Markets   Monthly – 2nd Saturday of every month
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

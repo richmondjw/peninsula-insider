@@ -15,7 +15,7 @@ Independent local picks for where to eat, stay and explore. Every recommendation
 
 Friday 9 October
 
-Cape Schanck, Mornington Peninsula.   Photo: Peter Tarasiuk, courtesy of Visit Victoria.
+Conceptual coastal illustration, not a specific location.   Illustration: Peninsula Insider, AI-assisted illustration.
 
 The short list
 
@@ -24,12 +24,6 @@ The short list
 10–11 October
 
 Swipe or scroll for all three picks
-
-- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
-
-Crib Point Community House   Market
 
 - Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
@@ -41,13 +35,19 @@ Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 - Illustrative image
 
-AI-assisted editorial illustration. This is a conceptual market scene, not a photograph of Mornington Racecourse Market. Illustrative image, not this event.   Photo: Peninsula Insider.
+AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market. Illustrative image, not this event.   Illustration: Peninsula Insider.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
 A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
 
 Mornington Racecourse   Market
+
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Peppers Moonah Links   Every Saturday
 
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
 
@@ -69,14 +69,6 @@ Plan it
 
 Featured plan
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
-
-Red Hill wine country to the southern coast.
-
-3 days   Red Hill & Merricks   Couples
-
 Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
 ### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
@@ -84,6 +76,14 @@ Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 Coastal walks and one excellent meal.
 
 2 days   Flinders & the Ocean Coast   Couples
+
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Red Hill wine country to the southern coast.
+
+3 days   Red Hill & Merricks   Couples
 
 Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
@@ -93,21 +93,21 @@ A gondola, brewery lunch and a bay beach.
 
 One day   Red Hill & Merricks   Family
 
-Inside the featured plan **Ridge to sea**
+Inside the featured plan **Flinders and the Cape**
 
 Why we'd take it
 
-Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
+A shorter escape with one village base, two coastal walks and time set aside for the meals.
 
 The route, at a glance
 
-- Day 1 Montalto Vineyard & Olive Grove
+- Day 1 Quarters at Flinders Hotel
 
-- Day 2 Polperro
+- Day 1 Cape Schanck Boardwalk
 
-- Day 3 Point Nepean Fort Walk
+- Day 2 Bushrangers Bay Walk
 
-[See every stop](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+[See every stop](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
 Build your own
 

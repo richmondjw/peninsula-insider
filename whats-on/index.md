@@ -27,7 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 Swipe or scroll for more picks.
 
-- Sat, 10 Oct · Crib Point
+- AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
+
+Sat, 10 Oct · Crib Point
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
@@ -41,13 +43,13 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Sat, 10 Oct   Fingal   Live Music
 
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Illustration: Peninsula Insider / AI-assisted original vector artwork.
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause.
 
-Fri, 9 Oct   Mornington   Exhibitions
+Fri, 9 Oct   Mornington   Racing & Sport
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -58,12 +60,6 @@ Make a day of it
 Browse by date and save what catches your eye.
 
 ### Friday 9 October
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions · Recurring weekly
 
 - [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 
@@ -163,6 +159,14 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 9am · Mornington · Markets
 
+### Openings
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions
+
 ### Major events
 
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
@@ -182,12 +186,6 @@ Portsea · Racing & Sport
 A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.
 
 8am · Sorrento · Racing & Sport
-
-- [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
-
-Choose this for a Friday-night event with a distinct live-show atmosphere and a local cause. Dominion Wrestling says ticket and raffle sales will support Big Group Hug; confirm availability before travelling.
-
-7pm · Mornington · Racing & Sport
 
 ## The Insider Note
 
