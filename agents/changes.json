@@ -1,132 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-09T08:14:21.759Z",
+  "generatedAt": "2026-10-09T08:35:21.637Z",
   "baselineAvailable": true,
-  "fromSnapshot": "e806d4f3d89a045a74742b93bc36bcaf12697ab46c5b91e30941274ebdf63917",
-  "toSnapshot": "71109fc2b92e597fff221e1e3a9349637ed6f38ec6baa00db1fbcadf7cb0104a",
-  "previousGeneratedAt": "2026-10-09T07:25:44.837Z",
+  "fromSnapshot": "71109fc2b92e597fff221e1e3a9349637ed6f38ec6baa00db1fbcadf7cb0104a",
+  "toSnapshot": "b0395aca460444801034308a843243b4aa2b75f6f454a8a8dad677708b2efb8c",
+  "previousGeneratedAt": "2026-10-09T08:14:21.759Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 15,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/index.md",
-      "contentSha256": "e09354a85ea9a43b6970e68e737f786792ac42f1b7bdefea7b69a76432a71f16",
-      "previousContentSha256": "3380c607daed7db57188287b8882201a665355424fc6e0644c2c6245b6dc17fb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "d07cdfcc3746c693afb7f5c160649badb0a87d26ce6c24a3f5382c25f44f0d9b",
-      "previousContentSha256": "6eb5c65caf7bf62f08fe89e92db95674427b207d80158c153fe4bfb343bf27c6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/index.md",
-      "contentSha256": "70b126726de15d4cb3c3fed2e2133ff6219c0ef9f3804cde7268175ce9e77851",
-      "previousContentSha256": "38803d61e85099054cc52a2c30db2d07546a327f742cccdea01ec3490e99d0d9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/first-time-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/first-time-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/first-time-peninsula/index.md",
-      "contentSha256": "53c0a8afc72b69680a118cac635a1c5e9ad5a7b09991d756e94d86fb918b580a",
-      "previousContentSha256": "a634b4121f76217db9eb3dcd2433476547aeb4b8b898ec9c807620b272de84ee"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4f1b62e7aa666c75c0fe0fd169487f9247d714602636cc8a1d11a1b999053e7a",
-      "previousContentSha256": "678cdc618b6d6d8f41818ba47e54d29c321949b4f2fee45773b185db7e75b5ef"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "8c9a18df7926c7047dffa6cb13bdf712b86a0bc484a36dc3a40fcf724bc0f499",
-      "previousContentSha256": "e557a18c53a4dd0bec0cc16c20e56bf561d1d7ab4db8d25d34aae6a0a0a5c45e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "1af2210d6db2ddc5136cae6c0d117c876664cbdad5cfb2b31f0e71f5673a9b9b",
-      "previousContentSha256": "60ad725c562cd1d9153df91b31db3ccd1b622c251ca09edaeef68d8bab78a946"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "717233a967224b0f9586442129dea1595468ed4411b8f124cb4f3b18c8b009f1",
-      "previousContentSha256": "b18064123f1c7be926e9fe09cdbffc6eb074b92b5236fbfe38fa1a2a7513cab8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "e0dbe6d25a526c52617192875c9fe51970c692b2c9fde322e905a7f50f773679",
-      "previousContentSha256": "e10e78f310110a515fa1cce7db434de81c9f886ca6ea4c00a26a2e7cf862e974"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
-      "contentSha256": "176616ced3cace177ccf8c2991fed4fadf4e730ee90d57d12d516717584b4a39",
-      "previousContentSha256": "51c5631f7091edb921d0729637431cfa27c51f5255799d894410d6a5deb80be0"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/index.md",
-      "contentSha256": "db3a4445695107fa9406169ed9cc95f4ca2fe5ea3ad3bf9543659dcd89ec5b9f",
-      "previousContentSha256": "7c83a5efbf29dcd94f999686420bd9c7399d4e81a08c85851a7f235a4fae547a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
-      "contentSha256": "48042078fb00a38275acb0b37bf3f21da0799b4035ea5862a6c20d9093587838",
-      "previousContentSha256": "18df8b151996566cc2e77d3fbc0fa2627164cd538a2af134950dea87775b163c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
-      "contentSha256": "e86e6bd16f8ace8bebdc5d6febbcb30ba7039a659cc195435033f4189288a087",
-      "previousContentSha256": "97507682d9677467a1ff753f61d47e241ca34694a70e28d9b029c42196767828"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/index.md",
-      "contentSha256": "87c1c51cb12aed5b7a9ecb55e55d788c9f4f97afd68e1e89cf45aebe6f489110",
-      "previousContentSha256": "b0e0b29a5f79f3f845e4ff7b002a21b8a59d79f96804a9beda770be9ea4c61ea"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "f5ddfb1e83cca1989e11e0ccb4c1a31204356ece7ce8bd72fa6579bad8e20800",
-      "previousContentSha256": "d43f3e39030c1ca7396be13c9d86c06b22e421648da65fbca437391717b48f6e"
+      "contentSha256": "7f681bd0b437eadbcb3c0a74ad4813282808d7c556eb407e2bb18387847af952",
+      "previousContentSha256": "4f1b62e7aa666c75c0fe0fd169487f9247d714602636cc8a1d11a1b999053e7a"
     }
   ]
 }
