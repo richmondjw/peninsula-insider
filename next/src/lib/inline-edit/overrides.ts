@@ -17,6 +17,7 @@
  */
 
 import { createCmsAnonClient } from '../cms/server';
+import { imagePresentationText } from '../image-presentation.mjs';
 import bakedImageOverrides from '../../data/cms-image-overrides.json';
 import imageQuarantine from '../../data/cms-image-quarantine.json';
 
@@ -142,9 +143,9 @@ async function fetchOverrides(
       if (isQuarantined(key, row.field_path, row.storage_path, src)) continue;
       image[row.field_path] = {
         src,
-        alt: row.alt_text ? houseStyle(row.alt_text) : row.alt_text,
-        caption: row.caption ? houseStyle(row.caption) : row.caption,
-        credit: row.credit ? houseStyle(row.credit) : row.credit,
+        alt: row.alt_text ? imagePresentationText(houseStyle(row.alt_text)) : row.alt_text,
+        caption: row.caption ? imagePresentationText(houseStyle(row.caption)) : row.caption,
+        credit: row.credit ? imagePresentationText(houseStyle(row.credit)) : row.credit,
         storagePath: row.storage_path,
       };
     }
@@ -168,9 +169,9 @@ function loadBakedImages(entityType: CmsEntityType, entitySlug: string): Record<
     if (isQuarantined(key, fieldPath, row.storagePath, src)) continue;
     image[fieldPath] = {
       src,
-      alt: row.alt ?? null,
-      caption: row.caption ?? null,
-      credit: row.credit ?? null,
+      alt: imagePresentationText(row.alt ?? null),
+      caption: imagePresentationText(row.caption ?? null),
+      credit: imagePresentationText(row.credit ?? null),
       storagePath: row.storagePath ?? null,
     };
   }

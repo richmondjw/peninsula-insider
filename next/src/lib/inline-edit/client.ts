@@ -26,6 +26,7 @@
 import { getSupabase, isAuthEnabled } from '../auth';
 import inlineEditorStylesUrl from '../../styles/inline-edit.css?url';
 import imageQuarantine from '../../data/cms-image-quarantine.json';
+import { imagePresentationText } from '../image-presentation.mjs';
 
 type Tone = 'ok' | 'err' | 'info';
 
@@ -1020,8 +1021,8 @@ async function savePanelMeta(panel: HTMLElement, el: HTMLElement, desc: ImageDes
   }
 
   // Reflect alt in the DOM (only meaningful for <img>).
-  if (altText && el instanceof HTMLImageElement) el.alt = altText;
-  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', altText);
+  if (altText && el instanceof HTMLImageElement) el.alt = imagePresentationText(altText);
+  if (altText && !(el instanceof HTMLImageElement)) el.setAttribute('aria-label', imagePresentationText(altText));
 
   await recordRevision(supa, session.user.id, {
     entity_type: desc.entityType,
@@ -1467,8 +1468,8 @@ async function applyOverridesOnLoad() {
         .filter((c) => !/__hero--placeholder$/.test(c))
         .join(' ');
       if (row.alt_text) {
-        if (el instanceof HTMLImageElement) el.alt = row.alt_text;
-        else el.setAttribute('aria-label', row.alt_text);
+        if (el instanceof HTMLImageElement) el.alt = imagePresentationText(row.alt_text);
+        else el.setAttribute('aria-label', imagePresentationText(row.alt_text));
       }
     }
   }));
@@ -1532,8 +1533,8 @@ async function applyImplicitPageOverrides(supa: NonNullable<ReturnType<typeof ge
     if (src === override.public_url) continue;
     setImageSrc(el, override.public_url);
     if (override.alt_text) {
-      if (el instanceof HTMLImageElement) el.alt = override.alt_text;
-      else el.setAttribute('aria-label', override.alt_text);
+      if (el instanceof HTMLImageElement) el.alt = imagePresentationText(override.alt_text);
+      else el.setAttribute('aria-label', imagePresentationText(override.alt_text));
     }
   }
 }

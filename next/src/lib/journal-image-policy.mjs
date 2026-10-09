@@ -45,7 +45,10 @@ export function selectJournalImage(hero, data, fallback, available, rightsEstabl
 }
 
 export function journalCredit(image) {
-  if (image.src?.split(/[?#]/)[0].endsWith('.svg')) return `Illustration · ${image.credit}`;
+  // Reviewed credit identifies raster artwork too. A format or an
+  // illustrative depiction status alone does not make a context photo art.
+  if (/^Illustration\s*[:·]/i.test(image.credit?.trim() ?? '')) return image.credit.trim();
+  if (image.src?.split(/[?#]/)[0] === journalIllustration.src) return `Illustration · ${image.credit}`;
   return image.credit?.trim().toLowerCase() === 'jem' ? 'Photograph by jem' : `Photo · ${image.credit}`;
 }
 

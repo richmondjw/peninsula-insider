@@ -35,10 +35,12 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
       return;
     }
     if (url === '/market/') {
-      const figure = mode === 'good'
-        ? '<figure class="event-detail__image"><img src="/hero.png" alt="Conceptual market scene"><figcaption><p>AI-assisted artwork</p><p data-pi-media-disclosure="illustrative">Illustrative image</p></figcaption></figure>'
+      const credit = mode === 'missing-credit' ? 'Peninsula Insider' : mode === 'legacy-credit' ? 'AI-assisted artwork' : 'Illustration · Peninsula Insider';
+      const disclosure = mode === 'missing-disclosure' ? '' : ' data-pi-media-disclosure="illustrative"';
+      const figure = mode !== 'bad'
+        ? '<figure class="event-detail__image"><img src="/hero.png" alt="Conceptual market scene"><figcaption><p>' + credit + '</p><p' + disclosure + '>Illustrative image</p></figcaption></figure>'
         : '';
-      const prose = mode === 'good'
+      const prose = mode !== 'bad'
         ? Array(145).fill('practical').join(' ')
         : 'A short stub.';
       response.writeHead(200, { 'content-type': 'text/html' });
@@ -67,6 +69,14 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
     const good = await run(process.execPath, [script, ...args]);
     assert.match(good.stdout, /PASS/);
 
+    for (const invalid of ['missing-credit', 'missing-disclosure', 'legacy-credit']) {
+      mode = invalid;
+      await assert.rejects(run(process.execPath, [script, ...args]), (error) => {
+        assert.match(error.stdout, /event-illustration-disclosure/);
+        return true;
+      });
+    }
+
     mode = 'bad';
     await assert.rejects(run(process.execPath, [script, ...args]), (error) => {
       assert.match(error.stdout, /event-editorial-image/);
@@ -84,5 +94,52 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
     );
   } finally {
     await new Promise((resolve) => server.close(resolve));
+  }
+});
+
+test('article verification accepts illustration and photo credits and rejects missing attribution', async () => {
+  let origin = '';
+  let credit = 'Illustration: Peninsula Insider';
+  const server = createServer((request, response) => {
+    if (request.url === '/style.css') {
+      response.writeHead(200, { 'content-type': 'text/css' });
+      response.end('body { color: black; }');
+      return;
+    }
+    if (request.url !== '/article/') {
+      response.writeHead(404);
+      response.end();
+      return;
+    }
+    response.writeHead(200, { 'content-type': 'text/html' });
+    response.end('<!doctype html><html><head>' +
+      '<link rel="canonical" href="' + origin + '/article/">' +
+      '<title>A Peninsula morning | Peninsula Insider</title>' +
+      '<meta name="description" content="An editorial guide to making the most of a morning on the Mornington Peninsula.">' +
+      '<meta property="og:title" content="A Peninsula morning">' +
+      '<meta property="og:description" content="A morning guide">' +
+      '<meta property="og:image" content="' + origin + '/hero.webp">' +
+      '<link rel="stylesheet" href="/style.css"></head>' +
+      '<body data-page="article"><figure><img src="/hero.webp" alt="A conceptual Peninsula morning">' +
+      '<figcaption>' + credit + '</figcaption></figure><p>Last verified today</p>' +
+      '<a href="/eat/">Eat</a><a href="/stay/">Stay</a><a href="/explore/">Explore</a></body></html>');
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  origin = 'http://127.0.0.1:' + server.address().port;
+  try {
+    for (const kind of ['article', 'dispatch']) {
+      for (const value of ['Illustration: Peninsula Insider', 'Illustration · Peninsula Insider', 'Photograph by jem', 'Photo · Creator, courtesy of Visit Victoria']) {
+        credit = value;
+        const good = await run(process.execPath, [script, '--kind=' + kind, origin + '/article/']);
+        assert.match(good.stdout, /PASS/);
+      }
+      credit = '';
+      await assert.rejects(run(process.execPath, [script, '--kind=' + kind, origin + '/article/']), error => {
+        assert.match(error.stdout, /hero-credit-visible/);
+        return true;
+      });
+    }
+  } finally {
+    await new Promise(resolve => server.close(resolve));
   }
 });

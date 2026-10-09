@@ -177,7 +177,7 @@ async function verifyOne(url) {
   // Per-kind checks
   if (kind === 'article' || kind === 'dispatch') {
     // 11. hero credit visible
-    const creditVisible = /Photograph by jem|Photo · /i.test(html);
+    const creditVisible = /Photograph by jem|Photo · |\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(html);
     checks.push(check('hero-credit-visible', creditVisible));
 
     // 12. lastVerified rendered
@@ -237,7 +237,7 @@ async function verifyOne(url) {
         sourceHost || 'visible primary-source link missing'));
       if (expectIllustration) {
         checks.push(check('event-illustration-disclosure',
-          /AI-assisted artwork/i.test(figure) && /data-pi-media-disclosure=["']illustrative["']/i.test(figure),
+          /\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(figure) && /data-pi-media-disclosure=["']illustrative["']/i.test(figure),
           'illustration disclosure in image caption'));
       }
     }

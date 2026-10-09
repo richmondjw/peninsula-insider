@@ -11,7 +11,7 @@ export function categoryHero(key: string): PageImage {
  return {page: key, role: 'category-hero', entity: key,
  src: `/images/generated/category-${key}-coastal-punch.webp`,
  alt: `${subjects[key]}. Conceptual Coastal Punch illustration.`,
- caption: 'Conceptual coastal illustration.', credit: 'AI-assisted artwork by Peninsula Insider',
+ caption: 'Conceptual coastal illustration.', credit: 'Illustration: Peninsula Insider',
  depictionStatus: 'illustrative', creator: 'Peninsula Insider with OpenAI image generation',
  rights: 'Original user-authorized AI-assisted output', permission: 'Website publication approved by James',
  };

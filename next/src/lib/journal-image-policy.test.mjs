@@ -55,6 +55,18 @@ test('local availability ignores cache parameters and rejects traversal and unsa
   assert.equal(imageAvailable('//example.com/image.jpg'), false);
   assert.equal(imageAvailable('javascript:alert(1)'), false);
 });
+test('reviewed raster artwork keeps one illustration credit', () => {
+  for (const src of ['/images/generated/coastal-punch-breakfast.webp', '/art.jpg?v=1']) {
+    assert.equal(journalCredit({ src, credit: 'Illustration: Peninsula Insider' }), 'Illustration: Peninsula Insider');
+    assert.equal(journalCredit({ src, credit: 'Illustration · Peninsula Insider' }), 'Illustration · Peninsula Insider');
+  }
+});
+test('context-photo attribution is preserved regardless of depiction status or file format', () => {
+  assert.equal(journalCredit(fallback), 'Photo · Creator, courtesy of Visit Victoria');
+  assert.equal(journalCredit({ ...fallback, src: '/context.svg' }), 'Photo · Creator, courtesy of Visit Victoria');
+  assert.equal(journalCredit({ ...fallback, credit: 'Photographer / CC BY-SA 4.0' }), 'Photo · Photographer / CC BY-SA 4.0');
+  assert.equal(journalCredit({ ...fallback, credit: 'jem' }), 'Photograph by jem');
+});
 test('the article subject selects an appropriate theme', () => {
   for (const [title, theme] of [['National Works on Paper', 'art'], ['Quealy cellar door', 'wine'], ['The Peninsula pantry', 'food'], ['Boat moorings', 'boating'], ['A two-night hotel stay', 'stay'], ['Walk the coast', 'coast']]) {
     assert.equal(journalImageTheme({ title }), theme);
