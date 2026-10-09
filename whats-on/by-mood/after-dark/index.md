@@ -11,9 +11,9 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+Illustrative image  This image shows Conceptual empty wrestling ring with coral ropes and yellow spotlights. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
 
 Racing & Sport  9 Oct
 

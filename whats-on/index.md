@@ -43,7 +43,7 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Sat, 10 Oct   Fingal   Live Music
 
-- Original AI-assisted Peninsula Insider editorial illustration. It does not depict the Dominion Wrestling event or its participants.   Illustration: Peninsula Insider / AI-assisted original vector artwork.
+- AI-assisted editorial illustration. A wrestling ring; not an exact depiction of the Commonfolk event or venue.   Illustration: Peninsula Insider.
 
 ### [Dominion Wrestling for Big Group Hug at Commonfolk](<https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/>)
 

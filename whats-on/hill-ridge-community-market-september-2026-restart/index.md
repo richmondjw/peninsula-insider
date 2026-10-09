@@ -15,7 +15,7 @@ The organiser marks the 3 October 2026 Hill & Ridge Community Market at Red Hill
 
 AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows AI-generated country market still life with produce, bread and handmade ceramics. It does not depict Hill & Ridge Community Market, 3 October 2026 (cancelled).
+Illustrative image  This image shows Conceptual market produce and ceramics beneath a striped canopy. It does not depict Hill & Ridge Community Market, 3 October 2026 (cancelled).
 
 Editor's verdict
 

@@ -17,9 +17,9 @@ Keep this for later
 
 First Timers  Guide  Overview  Planning
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo · Two Palms Australia, courtesy of Visit Victoria
+AI-assisted editorial illustration. A first Peninsula visit; not a depiction of a specific road or location.   Photo · Illustration: Peninsula Insider
 
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Illustrative image  This image shows Conceptual coral car on a curving coastal road beside an abstract bay. It does not depict the place described on this page.
 
 Start here
 

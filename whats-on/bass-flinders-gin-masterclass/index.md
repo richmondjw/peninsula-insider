@@ -15,7 +15,7 @@ A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe
 
 AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
 
 Editor's verdict
 

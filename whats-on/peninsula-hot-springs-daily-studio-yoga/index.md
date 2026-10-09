@@ -15,7 +15,7 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
+Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
 
 Editor's verdict
 

@@ -13,9 +13,9 @@ A two-hour, all-ages professional wrestling show at Commonfolk Mornington suppor
 
 [Book or check details](<https://events.humanitix.com/dominion-wrestling-x-big-group-hug-live-pro-wrestling-for-charity/tickets>)
 
-Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+Illustrative image  This image shows Conceptual empty wrestling ring with coral ropes and yellow spotlights. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
 
 Editor's verdict
 

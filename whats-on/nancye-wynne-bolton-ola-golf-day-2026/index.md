@@ -61,9 +61,9 @@ Racing & Sport  25 Oct
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
-Image · Peninsula Insider / AI-assisted artwork with OpenAI Codex
+AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows a stylised empty wrestling ring under theatrical spotlights with event title typography. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
+Illustrative image  This image shows Conceptual empty wrestling ring with coral ropes and yellow spotlights. It does not depict Dominion Wrestling for Big Group Hug at Commonfolk.
 
 Racing & Sport  9 Oct
 

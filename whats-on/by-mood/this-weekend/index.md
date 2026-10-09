@@ -63,7 +63,7 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows AI-generated still life of gin botanicals and an unlabelled glass vessel. It does not depict Bass & Flinders Gin Masterclass.
+Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
 
 Food & Wine   Check session dates
 
@@ -91,7 +91,7 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 AI-assisted artwork · Peninsula Insider
 
-Illustrative image  This image shows AI-generated yoga still life with a mat, towel, leaves and water cup. It does not depict Peninsula Hot Springs Studio Yoga.
+Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
 
 Wellness   Check session dates
 
