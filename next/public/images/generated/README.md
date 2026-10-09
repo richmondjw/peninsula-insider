@@ -29,3 +29,13 @@
 - Created 3 October 2026 as an original, site-authored abstract social preview for text-only event details; the SVG is the editable source and the PNG is the rendered Open Graph asset (1200 x 630).
 - Design: Peninsula Insider title and a stylised coast/sun motif in site colours, with no depiction of any event, place, person or business. No third-party input imagery or marks.
 - Use: social and search previews when an event detail has no on-page, rights-recorded event image. The shared event template prevents uncredited fallback place photographs from becoming og:image or search imagery.
+
+## Coastal Punch illustrations, 9 October 2026
+
+- Files: coastal-punch-hero.webp, coastal-punch-crib.webp, coastal-punch-mornington.webp.
+- Created using the built-in image-generation tool from text prompts. No third-party reference pixels supplied to these generations. Approved by James for website rollout after reviewing the real-page preview.
+- Palette: navy #102D42, teal #008F9C, ivory #FFF4DC, coral #F36B4F, yellow #F3C969. Simplified silhouette figures, broad striped/scalloped canopies and sweeping shadows; no embedded typography.
+- Hero prompt: conceptual Peninsula bay with ivory beach, yellow parasol, navy seated figures, jetty and eucalyptus framing. Market prompts: conceptual community-house stalls and a spacious makers market beside a racecourse rail. No exact venue depiction is claimed.
+- Rights basis: original user-authorized AI output; same OpenAI Output terms basis recorded above. Public captions disclose conceptual illustrations. Only website use is recorded in the event metadata.
+- Masters: exec-6a87d634-06c9-4c33-9fa1-56080d793eb6.png; exec-a42286f8-3e3a-4f08-a8a7-256099af2053.png; exec-17f17395-87fb-4995-8642-9d46743d47b5.png. Optimized as WebP quality 90.
+- This release establishes an illustration direction, not a verified 99/100 quality score.

@@ -495,7 +495,9 @@ export const prerender = true;
               loading="eager"
               fetchpriority="high"
               decoding="async"
-              data-pi-responsive="(max-width: 820px) calc(100vw - 3rem), 500px"
+              data-pi-responsive={articleHero?.src?.includes('/images/generated/coastal-punch-')
+                ? '(max-width: 820px) 100vw, 1200px'
+                : '(max-width: 820px) calc(100vw - 3rem), 500px'}
               data-pi-requires-image-metadata="true"
               data-pi-no-hydrate={incompleteArticleOverride && creditedArticleSource ? 'true' : undefined}
               {...editableImage({

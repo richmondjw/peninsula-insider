@@ -16,11 +16,11 @@ const photo = replacement ?? original;
 const statement = overrides.text['cover.statement'] ?? 'The Mornington Peninsula, sorted.';
 const season = getAustralianSeasonLower(new Date());
 const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
-const creditLine = /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
+const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
-    <img data-pi-avif="true" class="home-cover__media" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover photograph',purpose:'hero'})} />
+    <img data-pi-avif="true" class="home-cover__media" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
     <figcaption>{photo.caption} {creditLine}</figcaption>
   </figure>
   <div class="container home-cover__content">

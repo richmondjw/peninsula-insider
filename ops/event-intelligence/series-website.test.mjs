@@ -29,6 +29,9 @@ ${actual}`;
  return (await import(`data:text/javascript;base64,${Buffer.from(moduleSource).toString('base64')}`)).occurrenceStateFor;
 }
 const now=new Date('2026-10-05T00:00:00Z');
+// Consumers select the next session using the current clock. Keep these
+// synthetic October fixtures anchored to their declared pre-session date.
+test.beforeEach(t=>t.mock.timers.enable({apis:['Date'],now:now.getTime()}));
 function fixture(){return {fields:{title:'Synthetic series fixture',startTime:'10:00',endTime:'11:00',venueName:'Original venue',officialEventUrl:'https://example.com/synthetic-series'},series:{id:'synthetic-weekly',frequency:'weekly',validFrom:'2026-10-02',validUntil:'2026-10-30',daysOfWeek:[5],exceptions:[]}};}
 function proposedRecord(candidate){const materialized=materializeSeries(candidate);return {slug:'synthetic-series',title:candidate.fields.title,summary:'Synthetic compatibility test only',venueName:candidate.fields.venueName,streetAddress:'Original address',suburb:'Mornington',startDate:new Date(candidate.series.validFrom),endDate:new Date(candidate.series.validUntil),startTime:candidate.fields.startTime,endTime:candidate.fields.endTime,nextOccurrence:new Date('2026-10-09'),recurrence:materialized.contract.recurrence,recurrenceNote:materialized.contract.recurrenceNote,occurrenceExceptions:materialized.contract.occurrenceExceptions,status:'published',timezone:'Australia/Melbourne'};}
 test('bounded unexceptional weekly/monthly contracts match actual website enumeration',async()=>{

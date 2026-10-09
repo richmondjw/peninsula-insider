@@ -83,7 +83,7 @@ const cards = await Promise.all(
       caption: status === 'illustrative'
         ? recorded.caption || 'Illustrative image, not this event.'
         : recorded.caption ?? '',
-      credit: status === 'illustrative' ? 'Illustration: ' + recorded.credit.replace(/^(Photo|Illustration):\s*/i, '') : recorded.credit,
+      credit: recorded.credit,
       badge: status === 'illustrative' ? 'Illustrative image' : '',
     } : undefined;
     const dateISO = pickDateISO(event, now);
@@ -194,7 +194,7 @@ const cards = await Promise.all(
   }
   .home-weekend { scroll-margin-top: 9rem; }
   @media (min-width: 64em) {
-    .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: 1.5fr 1fr 1fr; }
+    .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: 1.875rem; }
   }
   .home-weekend__scroller :global(.pi-card__media) { height: 14.375rem; aspect-ratio: auto; }

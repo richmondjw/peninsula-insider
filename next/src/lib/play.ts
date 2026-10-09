@@ -15,6 +15,7 @@ const CASES = [
   {
     id: '01',
     title: 'Took her coffee to go',
+    intro: 'She took her coffee to go from Mornington pier and was gone.',
     /** Place slugs on PI's route, in order. */
     places: ['mornington', 'cape-schanck', 'main-ridge', 'red-hill'],
     /** Venue slug where she is found. */
@@ -24,6 +25,7 @@ const CASES = [
   {
     id: '02',
     title: 'Took the long way to dinner',
+    intro: 'Last seen in Red Hill after lunch, PI and the dog had already moved on.',
     places: ['red-hill', 'balnarring', 'point-leo', 'flinders'],
     venue: 'moke-dining',
     image: '/images/play/case-02-red-hill.webp',
