@@ -487,6 +487,10 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
+- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+
 ## Journal
 
 - [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)

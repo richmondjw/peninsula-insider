@@ -93,39 +93,29 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
+Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
 
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict Orizome Workshop: The Japanese Art of Folding and Dyeing Paper.
 
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+Arts  17 Oct
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-AI-assisted artwork · Peninsula Insider
+Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery.
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-Markets   Monthly – 2nd Saturday of every month
+Image · Courtesy of Visit Victoria
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict Tessellation Folding Workshop with Jacky Cheng.
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+Arts  17 Oct
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
-AI-assisted artwork · Peninsula Insider
+Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery.
 
-Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
-
-Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
-
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

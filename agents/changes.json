@@ -1,116 +1,68 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-09T13:53:58.432Z",
+  "generatedAt": "2026-10-09T14:09:42.242Z",
   "baselineAvailable": true,
-  "fromSnapshot": "c7d7824997a330925e174330d7f0d9c6d1017b7ac3378ce1f00a4de90bc4db68",
-  "toSnapshot": "dc5e224756b0000a729e7b1fd3a0c351f78930ce278b987f73515697b31539a7",
-  "previousGeneratedAt": "2026-10-09T12:35:26.576Z",
+  "fromSnapshot": "dc5e224756b0000a729e7b1fd3a0c351f78930ce278b987f73515697b31539a7",
+  "toSnapshot": "e6f3af0cbe76d5863b5d01b2f72aaf91e5d8c821b85e7a5b1714973ca00f01b8",
+  "previousGeneratedAt": "2026-10-09T13:53:58.432Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 13,
+  "count": 7,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "9a1df9ff22489ebe15fa404351f76f3c14dc5b86751cc3ec45ae65a4412a0d44",
-      "previousContentSha256": "6e3c6f50289baabfb3d43a31c51105e1ebfa20fcb0add88b796f112f14cd3cde"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/eat/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
-      "contentSha256": "ce4691148db15a87a192dd4aeb977710eb992f987eea866584d30f6b6c9f7efe",
-      "previousContentSha256": "9eb8986ab12be9f2ca7ceb6f97544db011be8ba3b0f05e2edf35b63a2f875833"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/index.md",
-      "contentSha256": "d49d24f269d500fc28ab852ba6af7961bbcc27953c0388d2353fc6d48007e135",
-      "previousContentSha256": "b66902d99a4a3ece436446361f7884a62752fcbe458a11e084618ee424cc056e"
+      "contentSha256": "fbdf352df3a904ce35749ac49cc305949400c26346f0a99591917fb5e16af33a",
+      "previousContentSha256": "9a1df9ff22489ebe15fa404351f76f3c14dc5b86751cc3ec45ae65a4412a0d44"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "bbca1117ebc9d2767c4cd535171933e8e5480c70f8f44abba703dfb3cf9be1f9",
-      "previousContentSha256": "35dd743607289c432c7adef67f4975a7d48c50cf68e7317510a1e265c43cf350"
+      "contentSha256": "376e6027a8bd932574c3d17dc6691554e66660a30033bd539f6240d0755c6930",
+      "previousContentSha256": "bbca1117ebc9d2767c4cd535171933e8e5480c70f8f44abba703dfb3cf9be1f9"
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "3c3537f3174959e0e27221a26d9c5f333138485fd69dd31d57f307732327c505",
-      "previousContentSha256": "ac1894f833a510a18827bcf046a148846e0f92082be9724e6aee5b5701ae0bef"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/stay/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/stay/",
-      "markdownUrl": "https://peninsulainsider.com.au/stay/index.md",
-      "contentSha256": "9bb27ba25b88daf8f626e6f88408f364234c22eb6ebe5be98bcd49a2026afbe6",
-      "previousContentSha256": "0a17de509deddcb5b43ce4399286ff0dc40a872ce3aa39e892355305395b3ec8"
+      "contentSha256": "0d6a69b7b6c6ab1eb12c3ad0f870d4bc64aa3c6c8fa88da0aac0101929c3de9a",
+      "previousContentSha256": "3c3537f3174959e0e27221a26d9c5f333138485fd69dd31d57f307732327c505"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "8e8c78e2e37279ef04f3a6d3db2a2f3cf19a5cfd75cb1ff56dfb6f7c198d1bd4",
-      "previousContentSha256": "e55c5ba05d1d9b3b7d2a3624d6ee19e7a57c9f50d2fae822dd078fbef1de8744"
+      "contentSha256": "d1819bb8802b94272e6243c9f50561d632761b9ca7e09215552e71a1a11aa3e9",
+      "previousContentSha256": "8e8c78e2e37279ef04f3a6d3db2a2f3cf19a5cfd75cb1ff56dfb6f7c198d1bd4"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
+      "id": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/index.md",
+      "contentSha256": "9cf3e29b1993bf424f3ee68cb2d3ebe0c3c8f6c2d384d27a5b1bc01e1f70a914",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "f7a7c30b832a4dce0f53f723333ac6722218dc4486093ab3daf979f6767aee4f",
-      "previousContentSha256": "717233a967224b0f9586442129dea1595468ed4411b8f124cb4f3b18c8b009f1"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
+      "contentSha256": "ce47dee1da4f053505357bbf67469fadbf793042a7259936aef5afcf9a2c5b80",
+      "previousContentSha256": "e0b3224d0e7156cff77a9c2befcb1b54088a1f9a5a8a1f0ebf0298b8e1b80de4"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
-      "contentSha256": "7ec1d5444db24682b5ea9986ad3cc9b27ecc776f8f65c4b31ff3dedfb1670296",
-      "previousContentSha256": "e86e6bd16f8ace8bebdc5d6febbcb30ba7039a659cc195435033f4189288a087"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "0866eab5997c937b749f8363c8e1b9f5631436ad30daa629ba26e8c8dd0178f6",
-      "previousContentSha256": "f5ddfb1e83cca1989e11e0ccb4c1a31204356ece7ce8bd72fa6579bad8e20800"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "8aed5596dc30ebcbe07c727e5615c59ea190f4d000eae903bc7cf657cfc04d2b",
-      "previousContentSha256": "681f0f8cd769431b1574899fc671b6bb9566ca2ec6a928a8cc2855d6a9225246"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/index.md",
-      "contentSha256": "7784129509f97cd4d8f299408fcc16988fb6fb0f09b9305950a0155a62393d42",
-      "previousContentSha256": "83de56563597d406b019c4c2ab42fd5c2759d28fcc517d2dcb72ad43816903d5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dominion-wrestling-big-group-hug-mornington-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "5209890a762a51ff4c83c81d2e9eb94405ab453fa52101f3c904fb432aa69829"
+      "id": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/index.md",
+      "contentSha256": "07ab6197f8ad522b4cc14264614c27ce1174f24a5dee85668508daa6ba6eb423",
+      "previousContentSha256": null
     }
   ]
 }

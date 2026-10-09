@@ -5,17 +5,41 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
+Conceptual coastal illustration, not a specific location. Peninsula Insider, AI-assisted illustration.
+
 spring on the Peninsula
 
 # The Mornington Peninsula, sorted.
 
 Independent local picks for where to eat, stay and explore. Every recommendation has a reason.
 
- [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
+  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Saturday 10 October
+## Your time. Your kind of day.
 
-Conceptual coastal illustration, not a specific location.   Illustration: Peninsula Insider, AI-assisted illustration.
+Choose what matters. See where our published plans fit, and where they don’t.
+
+All choices are optional. No account needed. [Browse every plan](<https://peninsulainsider.com.au/explore/plans/>)
+
+Find your bearings
+
+## Three ways into the Peninsula.
+
+[Open the full map](<https://peninsulainsider.com.au/map/>)
+
+Town locations, north at top. For roads and other places, open the full map.
+
+- ### [Mornington & the bay](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Town cafes and the bay foreshore. A useful first stop before heading further south.
+
+- ### [Red Hill & the ridge](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+
+Cellar doors and a booked lunch. Arrange transport between stops.
+
+- ### [Sorrento & the southern coast](<https://peninsulainsider.com.au/explore/places/sorrento/>)
+
+Start with the town, then choose a coastal walk. Check conditions before setting out.
 
 The short list
 
@@ -27,7 +51,7 @@ Swipe or scroll for all three picks
 
 - Illustrative image
 
-AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market. Illustrative image, not this event.   Illustration: Peninsula Insider.
+AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market.   Illustration: Peninsula Insider.
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
@@ -35,15 +59,23 @@ A useful Sunday stop for makers, food and music, with room to extend the trip in
 
 Mornington Racecourse   Market
 
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+Event details checked 6 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1>)
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Peppers Moonah Links   Every Saturday
 
+Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
+
 - Illustrative image
 
-AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market. Illustrative image, not this event.   Illustration: Peninsula Insider.
+AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
@@ -51,17 +83,9 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 Crib Point Community House   Market
 
+Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
+
 Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
-
-Play this weekend’s case
-
-## Where in the Peninsula is PI?
-
-Last seen in Red Hill after lunch, PI and the dog had already moved on. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=home-band>) Six to ten minutes. Free, no account.
 
 Plan it
 
@@ -75,49 +99,33 @@ Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
 ### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Coastal walks and one excellent meal.
+A shorter escape with one village base, two coastal walks and time set aside for the meals.
 
 2 days   Flinders & the Ocean Coast   Couples
+
+Check the stay and restaurant service times first, then fit the walks around your reservations.
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Red Hill wine country to the southern coast.
+Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
 
 3 days   Red Hill & Merricks   Couples
+
+Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
 Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
 ### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
-A gondola, brewery lunch and a bay beach.
+One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
 
 One day   Red Hill & Merricks   Family
 
-Inside the featured plan **Flinders and the Cape**
+Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
 
-Why we'd take it
-
-A shorter escape with one village base, two coastal walks and time set aside for the meals.
-
-The route, at a glance
-
-- Day 1 Quarters at Flinders Hotel
-
-- Day 1 Cape Schanck Boardwalk
-
-- Day 2 Bushrangers Bay Walk
-
-[See every stop](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
-
-Build your own
-
-[One day](<https://peninsulainsider.com.au/explore/plans/?length=one-day#build>)[Weekend](<https://peninsulainsider.com.au/explore/plans/?length=weekend#build>)[Two nights +](<https://peninsulainsider.com.au/explore/plans/?length=longer#build>)
-
-[Couples](<https://peninsulainsider.com.au/explore/plans/?who=couples#build>)[Family](<https://peninsulainsider.com.au/explore/plans/?who=family#build>)[Group](<https://peninsulainsider.com.au/explore/plans/?who=group#build>)
-
-Choose one to see matching plans.
+Want a different combination? [Choose your time and interests](<https://peninsulainsider.com.au/#home-choose>)
 
 ## Explore by interest
 
@@ -129,37 +137,23 @@ Choose one to see matching plans.
 
 - [Explore   Walks, beaches, springs, and the roads between them   Cape Schanck Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/explore/>)
 
-## Explore by place
-
-Three starting points for finding your way around the Peninsula.
-
- [Open the map →](<https://peninsulainsider.com.au/map/>)
-
-- Mornington, Mornington Peninsula.  Photo courtesy of Visit Victoria
-
-### [Mornington & the bay](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-Start with town cafes and the bay foreshore. A useful first stop before heading further south.
-
-- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria
-
-### [Red Hill & the ridge](<https://peninsulainsider.com.au/explore/places/red-hill/>)
-
-Build the day around a booked lunch or cellar door. Arrange transport between stops.
-
-- Sorrento, Mornington Peninsula.  Photo courtesy of Visit Victoria
-
-### [Sorrento & the southern coast](<https://peninsulainsider.com.au/explore/places/sorrento/>)
-
-Use the town as your starting point for the southern Peninsula. Check conditions before choosing a coastal walk.
-
-Jackalope Hotel, Merricks North, Mornington Peninsula. Photo: Peter Foster, courtesy of Visit Victoria
+Montalto, Red Hill South, Mornington Peninsula.   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 From the Journal  Hub Guide
 
 ## [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
 
 Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
+
+Play this weekend’s case
+
+## Where in the Peninsula is PI?
+
+Last seen in Red Hill after lunch, PI and the dog had already moved on. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.
+
+Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
+
+[Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=home-band>) Six to ten minutes. Free, no account.
 
 ## The Insider Note
 

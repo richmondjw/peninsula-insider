@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-10",
-  "generatedAt": "2026-10-09T13:47:50.005Z",
+  "generatedAt": "2026-10-09T14:02:39.471Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 9 – Sun 11 October",
     "count": 9
   },
-  "numberOfItems": 15,
+  "numberOfItems": 17,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -156,6 +156,32 @@
       "position": 12,
       "item": {
         "@type": "Event",
+        "name": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
+        "url": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+        "startDate": "2026-10-17",
+        "endDate": "2026-10-17",
+        "description": "Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "Event",
+        "name": "Tessellation Folding Workshop with Jacky Cheng",
+        "url": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
+        "startDate": "2026-10-17",
+        "endDate": "2026-10-17",
+        "description": "Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery. Bookings are essential.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Event",
         "name": "Mt Eliza Farmers Market",
         "url": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
         "startDate": "2026-10-25",
@@ -166,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -179,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -192,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -204,7 +230,7 @@
       }
     }
   ],
-  "count": 15,
+  "count": 17,
   "events": [
     {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
@@ -450,6 +476,44 @@
       "place": "balnarring",
       "venue": null,
       "summary": "Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "id": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": null,
+      "venue": null,
+      "summary": "Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Tessellation Folding Workshop with Jacky Cheng",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
+      "startDate": "2026-10-17",
+      "endDate": "2026-10-17",
+      "id": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": null,
+      "venue": null,
+      "summary": "Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery. Bookings are essential.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

@@ -151,6 +151,20 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 9am · Mornington · Markets
 
+### Openings
+
+- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
+
+1.30pm · Mornington · Arts
+
+- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+
+Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
+
+9.30am · Mornington · Arts
+
 ### Major events
 
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
