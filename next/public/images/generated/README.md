@@ -39,3 +39,9 @@
 - Rights basis: original user-authorized AI output; same OpenAI Output terms basis recorded above. Public captions disclose conceptual illustrations. Only website use is recorded in the event metadata.
 - Masters: exec-6a87d634-06c9-4c33-9fa1-56080d793eb6.png; exec-a42286f8-3e3a-4f08-a8a7-256099af2053.png; exec-17f17395-87fb-4995-8642-9d46743d47b5.png. Optimized as WebP quality 90.
 - This release establishes an illustration direction, not a verified 99/100 quality score.
+
+## Category heroes, 10 October 2026
+
+Five separate built-in OpenAI generations replace the existing Eat & Drink, Stay, Wine, Explore and What's On hero photographs. They are conceptual illustrations, not depictions of particular venues or current events. Original photographs remain available. Venue cards and detail photography are preserved. Final prompts, master paths, dimensions, hashes, rights, permission and rubric deductions are recorded in reports/coastal-punch-category-heroes-2026-10-09.json.
+
+Plans and Journal have typographic introductions rather than standalone photo heroes; their structure is retained. Category artwork is not applied to the Journal's factual lead-story image.

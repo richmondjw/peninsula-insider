@@ -1,4 +1,5 @@
 ---
+import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 /**
  * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
@@ -390,7 +391,7 @@ export const prerender = true;
   description="Explore the Mornington Peninsula by activity and area: coastal walks, beaches, hot springs, golf and cultural places. Find an experience and plan your visit."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/"
-  ogImage={pageImage('explore-hub').src}
+  ogImage={categoryHero('explore').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
@@ -407,8 +408,8 @@ export const prerender = true;
         </nav>
       </div>
       <figure class="x-hero__media">
-        <img src="/images/sourced/explore-cape-schanck-lighthouse-01.webp" alt="Cape Schanck lighthouse above coastal scrub at dusk" width="800" height="1200" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="50vw" />
-        <figcaption>Cape Schanck lighthouse</figcaption>
+        <img src={categoryHero('explore').src} alt={categoryHero('explore').alt} width="800" height="1200" loading="eager" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) 100vw, 650px" />
+        <figcaption>Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.</figcaption>
       </figure>
     </div>
   </header>

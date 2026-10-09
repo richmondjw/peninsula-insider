@@ -1,5 +1,6 @@
 ---
 import {occurrenceData} from '../../lib/intelligence-series.mjs';
+import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 import { eventContentKind } from '../../lib/event-publication.mjs';
 /**
@@ -193,13 +194,8 @@ const categoryOptions = [...new Set(calendarEvents.map((entry) => entry.event.da
   .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
 const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
-// The photo at the top must depict a currently listed pick. The verified
-// Peninsula Hot Springs venue image is suitable when that pick is present;
-// otherwise use an explicitly captioned regional scene, not an unverified
-// market that could be mistaken for a live event.
-const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-sunday-sessions-spring-2026')
-  ? pageImage('spas-hub')
-  : pageImage('explore-hub');
+// A conceptual illustration introduces the calendar without depicting a current event.
+const hubImage = categoryHero('whats-on');
 ---
 
 <BaseLayout
@@ -220,11 +216,11 @@ const hubImage = picks.some((pick) => pick.live.slug === 'peninsula-hot-springs-
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
         <a class="wo-head__calendar-link" href="#wo-calendar">Browse events by day <span aria-hidden="true">↘</span></a>
-        <p class="wo-head__credit-mobile">Photo: {hubImage.credit}.</p>
+        <p class="wo-head__credit-mobile">{hubImage.credit}.</p>
       </div>
       <figure class="wo-head__figure">
         <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 640px) 320px, (max-width: 1023px) 600px, 720px" />
-        <figcaption>{hubImage.caption} Photo: {hubImage.credit}.</figcaption>
+        <figcaption>{hubImage.caption} {hubImage.credit}.</figcaption>
       </figure>
     </div>
   </header>

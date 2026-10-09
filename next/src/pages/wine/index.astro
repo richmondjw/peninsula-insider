@@ -14,6 +14,7 @@
  * AskBand) are the EAT agent's, at components/v5/hub/; props here match the
  * shipped module APIs (each module renders its own .container).
  */
+import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
@@ -267,7 +268,7 @@ const journalItems = Object.keys(journalVerdicts)
 const standfirst =
   'Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. Find your kind of visit, then confirm current hours.';
 
-const wineHero = pageImage('wine-hub');
+const wineHero = categoryHero('wine');
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Wine Country' }];
 
@@ -290,7 +291,7 @@ const faqSchema = {
   description="Explore Mornington Peninsula wine country: wineries by area, Pinot Noir and Chardonnay, cellar door visits, and winery dining. Start planning your wine-country trip."
   section="wine"
   canonical="https://peninsulainsider.com.au/wine/"
-  ogImage={pageImage('wine-hub').src}
+  ogImage={categoryHero('wine').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
@@ -310,7 +311,7 @@ const faqSchema = {
       </div>
       <figure class="wine-hero__visual">
         <img src={wineHero.src} alt={wineHero.alt} width="2000" height="1334" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 650px" />
-        <figcaption>{wineHero.caption} Photograph: {wineHero.credit}.</figcaption>
+        <figcaption>{wineHero.caption} {wineHero.credit}.</figcaption>
       </figure>
     </div>
   </section>

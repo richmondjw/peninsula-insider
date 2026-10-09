@@ -1902,4 +1902,19 @@ export const prerender = true;
     .itinerary-route__copy { margin: 0; }
     .itinerary-route__arrow { align-self: center; }
   }
+/* Compact mobile reading rhythm, with inset copy and reachable actions. */
+@media(max-width:600px){
+ .itinerary-detail__cover{width:100%;margin-inline:0;padding:24px 20px 20px;gap:24px}
+ .itinerary-detail__title{font-size:clamp(1.8rem,7.5vw,2.2rem);line-height:1.14;margin-block:14px 16px;text-wrap:balance}
+ .itinerary-detail__dek{font-size:1rem;line-height:1.6;margin-bottom:18px}
+ .itinerary-detail__meta{flex-wrap:wrap;gap:.45rem;font-size:.75rem;line-height:1.5}
+ .itinerary-detail__chips{flex-wrap:wrap;gap:6px}
+ .itinerary-detail__chips span{font-size:.7rem;line-height:1.4}
+ .itinerary-detail__cta-row{display:grid;grid-template-columns:1fr;gap:10px}
+ .itinerary-detail__cta-row .pi-btn{width:100%;justify-content:center;min-height:48px;font-size:.95rem}
+ .itinerary-detail__jumps{display:flex;flex-wrap:wrap;gap:4px 18px;margin-top:18px}
+ .itinerary-detail__jumps a{display:inline-flex;align-items:center;min-height:44px;font-size:.9rem}
+ .itinerary-detail__cover-media .pstage__description{font-size:.88rem;line-height:1.5}
+ .itinerary-detail__cover-media .pstage__credit,.itinerary-detail__image-credit{font-size:.75rem;line-height:1.5}
+}
 </style>
