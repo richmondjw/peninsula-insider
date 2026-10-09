@@ -13,7 +13,7 @@ Where in the Peninsula is PI?
 
 PI passed through here. Case 02, Took the long way to dinner. Twenty minutes ahead of you, as usual.
 
-[Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
+[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
 
 Point Leo is a small coastal locality on the Mornington Peninsula's Western Port coast, 85 km from Melbourne, anchored by a long-standing surf break, the Point Leo Foreshore Reserve camp ground and Point Leo Estate's sculpture park, restaurant and cellar door.
 

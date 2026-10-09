@@ -153,7 +153,7 @@ Last seen in Red Hill after lunch, PI and the dog had already moved on. Ask the 
 
 Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
 
-[Play Case 02](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=home-band>) Six to ten minutes. Free, no account.
+[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=home-band>) Six to ten minutes. Free, no account.
 
 ## The Insider Note
 

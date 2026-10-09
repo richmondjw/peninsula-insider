@@ -19,7 +19,7 @@ Where in the Peninsula is PI?
 
 PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of you, as usual.
 
-[Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
+[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
 
 Main Ridge is a rural locality on the Mornington Peninsula's elevated wine-country plateau, with cellar doors and farm-gate stops along its winding roads.
 

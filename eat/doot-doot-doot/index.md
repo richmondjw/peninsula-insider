@@ -19,7 +19,7 @@ Where in the Peninsula is PI?
 
 This month’s prize. Find PI before sunset and go in the draw for $250 to dine here. Draw closes 11:59pm AEDT Friday 30 October 2026.
 
-[Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-prize>)
+[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-prize>)
 
 Doot Doot Doot · Merricks North
 

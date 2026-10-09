@@ -19,7 +19,7 @@ Where in the Peninsula is PI?
 
 PI was found here. Case 01, Took her coffee to go. Solve it and this is where the day ends.
 
-[Play the case](<https://play.peninsulainsider.com.au/?utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-found>)
+[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-found>)
 
 - Photo · Two Palms Australia, courtesy of Visit Victoria
 
