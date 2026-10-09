@@ -62,6 +62,13 @@ function* files(dir) {
     else if (/\.(json|md|mdx)$/.test(e.name)) yield p;
   }
 }
+function* sourceFiles(dir) {
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    const p = path.join(dir, e.name);
+    if (e.isDirectory()) yield* sourceFiles(p);
+    else if (/\.(astro|css|js|mjs|ts|json|md|mdx)$/.test(e.name)) yield p;
+  }
+}
 function frontmatter(text) {
   const m = text.match(/^---\r?\n([\s\S]*?)\r?\n---/);
   if (!m) return null;
@@ -125,6 +132,23 @@ if (fs.existsSync(PAGE_IMAGES)) {
     else if (w.status !== 'available') fail(where, 'work', `${k} is ${w.status}`);
     if (!fs.existsSync(path.join(PUBLIC, (ref.src ?? '').split('?')[0]))) fail(where, 'file', `missing derivative ${ref.src}`);
     if (!placed.has(`pages/${key}|${ref.src}`)) fail(where, 'ledger', 'not in ops/records/visit-victoria/placements.json (run ops/scripts/visit-victoria/record-placements.mjs)');
+  }
+}
+
+// AI transformations and other non-technical derivatives need separate written
+// permission. Keep an unresolved derivative out of reader-facing source even
+// when its original photographs remain valid for ordinary editorial use.
+const HOME_MOTION_RECORD = path.join(REPO, 'ops/records/homepage-motion/2026-10-02.json');
+if (fs.existsSync(HOME_MOTION_RECORD)) {
+  const record = JSON.parse(fs.readFileSync(HOME_MOTION_RECORD, 'utf8'));
+  const asset = String(record.asset ?? '').replace(/^next\/public/, '');
+  const unresolved = /written licence not independently inspected/i.test(record.source_clearance ?? '');
+  if (asset && unresolved) {
+    for (const file of sourceFiles(path.join(NEXT, 'src'))) {
+      if (fs.readFileSync(file, 'utf8').includes(asset)) {
+        fail(path.relative(NEXT, file), 'derivative', `${asset} has no independently inspected written permission for its recorded AI transformation`);
+      }
+    }
   }
 }
 
