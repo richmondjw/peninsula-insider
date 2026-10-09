@@ -5,12 +5,21 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-09
 heroImage:
-  src: "/images/sourced/category-cafe-01.webp"
-  alt: "The interior of a cafe, with chalkboard menus above the counter, a barista at the espresso machine and rattan chairs around low tables."
-  depicts: "the interior of a cafe, with chalkboard menus and rattan chairs"
+  src: "/images/generated/coastal-punch-breakfast.webp"
+  alt: "Conceptual oversized coffee cup and croissant beside an abstract bay."
+  credit: "Illustration: Peninsula Insider"
+  license: "other-licensed"
+  caption: "AI-assisted editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu."
+  depicts: "Conceptual oversized coffee cup and croissant beside an abstract bay."
   depictionStatus: "illustrative"
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peninsula Insider, AI-assisted"
+  permission: "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+  permittedUses: ["website"]
+  rightsHolder: "Peninsula Insider"
+  rightsEstablishedOn: "2026-10-09"
+  rightsStatus: "recorded"
+  provenanceReview: "verified"
+  decorative: false
 format: "insider-edit"
 tags: ["eat", "coffee", "breakfast", "bakery", "mornington", "flinders", "sorrento", "red-hill"]
 relatedVenues:

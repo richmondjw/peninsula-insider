@@ -5,13 +5,21 @@ author: "editorial"
 houseByline: true
 publishedAt: 2026-04-10
 heroImage:
-  src: "/images/sourced/article-orientation-drive-01.webp"
-  alt: ""
-  depicts: "a bank of cumulus cloud over the sea, in black and white"
+  src: "/images/generated/coastal-punch-planning.webp"
+  alt: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
+  credit: "Illustration: Peninsula Insider"
+  license: "other-licensed"
+  caption: "AI-assisted editorial illustration. Weekend planning; the abstract map is not geographic or navigational."
+  depicts: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
   depictionStatus: "illustrative"
-  decorative: true
-  credit: "Peninsula Insider"
-  license: "tmp-unsplash"
+  creator: "Peninsula Insider, AI-assisted"
+  permission: "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+  permittedUses: ["website"]
+  rightsHolder: "Peninsula Insider"
+  rightsEstablishedOn: "2026-10-09"
+  rightsStatus: "recorded"
+  provenanceReview: "verified"
+  decorative: false
 format: "service"
 tags: ["planning", "weekend", "guide", "accommodation", "booking", "first-timers", "couples", "family", "groups", "all-year"]
 relatedVenues: ["ten-minutes-by-tractor", "montalto", "tedesca-osteria", "merricks-general-wine-store", "lindenderry", "jackalope", "polperro-villas", "crittenden-villas", "hotel-sorrento", "flinders-hotel", "pt-leo-estate", "commonfolk-coffee", "alba-thermal-springs", "peninsula-hot-springs", "the-continental-sorrento", "rare-hare", "paringa-estate", "port-phillip-estate-restaurant", "doot-doot-doot"]
