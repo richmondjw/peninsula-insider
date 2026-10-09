@@ -52,11 +52,11 @@ const tiers: Tier[] = [
         locality: 'Cape Schanck',
         distance: '1.5 km return',
         time: '40 min',
-        effort: 'Easy',
+        effort: 'Easy, with stairs',
         start: 'Cape Schanck lighthouse car park',
         verdict:
-          'The boardwalk descends from the lighthouse precinct to a basalt wave platform with blowholes, sea stacks, and serious Southern Ocean surge. Twenty minutes each way and entirely accessible. The best short coastal experience on the Peninsula by a margin.',
-        bestFor: 'Families, first-timers, those with limited mobility.',
+          'The boardwalk descends from the lighthouse precinct to a basalt wave platform with blowholes, sea stacks, and serious Southern Ocean surge. The descent and return include stairs; the wheelchair-accessible path into the lighthouse reserve is a separate option. The best short coastal experience on the Peninsula by a margin.',
+        bestFor: 'Families and first-timers comfortable with stairs.',
       },
       {
         rank: 2,
@@ -241,7 +241,7 @@ const faqs = [
   },
   {
     q: 'Are there easy walks suitable for families and young children?',
-    a: 'Yes. Cape Schanck boardwalk is accessible and short. Mornington foreshore walk is flat and pram-friendly. Arthurs Seat summit circuit is manageable for children 5+ with adult supervision.',
+    a: 'Yes. Cape Schanck boardwalk is short but includes stairs; the lighthouse reserve has a wheelchair-accessible entry path. Mornington foreshore walk is flat and pram-friendly. Arthurs Seat summit circuit is manageable for children 5+ with adult supervision.',
   },
   {
     q: 'What is the best walk in the Mornington Peninsula National Park?',
@@ -253,7 +253,7 @@ const collectionSchema = buildCollectionPageSchema({
   name: 'Best Walks on the Mornington Peninsula',
   description: "Ranked editorial guide to the Peninsula's best walks - coastal, hinterland, and national park. Effort, distance, and payoff rated.",
   path: '/explore/walks/',
-  dateModified: '2026-08-09',
+  dateModified: '2026-10-09',
 });
 
 const itemListSchema = buildItemListSchema({
@@ -328,7 +328,7 @@ export const prerender = true;
           <ul class="wk-calls__list">
             <li>
               <span class="wk-calls__num" aria-hidden="true">1</span>
-              <p><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best effort-to-payoff ratio on the Peninsula. Forty minutes, fully accessible.</p>
+              <p><a href="#cape-schanck-boardwalk">Cape Schanck boardwalk</a> is the best effort-to-payoff ratio on the Peninsula. Forty minutes, with stairs on the descent and return.</p>
             </li>
             <li>
               <span class="wk-calls__num" aria-hidden="true">2</span>
@@ -339,7 +339,7 @@ export const prerender = true;
               <p><a href="#two-bays-walking-track">Two Bays Walking Track</a> is the flagship: 26 km, bay to ocean. Most people walk it in sections.</p>
             </li>
           </ul>
-          <p class="wk-calls__note">No permits, no specialist gear, walkable all year. Prams or limited mobility: start with the boardwalk or the Mornington foreshore.</p>
+          <p class="wk-calls__note">No permits, no specialist gear, walkable all year. Cape Schanck has a wheelchair-accessible path into the lighthouse reserve and accessible facilities, but the boardwalk descent to the beach and rock platform includes stairs. Check <a href="https://www.parks.vic.gov.au/places-to-see/parks/cape-schanck-lighthouse-reserve">Parks Victoria's access information and current conditions</a> before choosing a route.</p>
         </div>
         <nav class="wk-calls__index" aria-label="The full ranking">
           <p class="wk-calls__index-title">The full ranking</p>
