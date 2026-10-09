@@ -1,44 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-09T20:19:18.467Z",
+  "generatedAt": "2026-10-09T22:21:59.316Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0b62da2459387aff7f2333e4cf93730c32ec4ff62db472a147d6bf9f900fc27d",
-  "toSnapshot": "6ef13d9ae4220ba33328195d7f8c1333b6515bec1d714d7f57cf1e3a45f129d0",
-  "previousGeneratedAt": "2026-10-09T19:25:16.512Z",
+  "fromSnapshot": "6ef13d9ae4220ba33328195d7f8c1333b6515bec1d714d7f57cf1e3a45f129d0",
+  "toSnapshot": "52465944d33ed4166ce3dccadfab13aa16b3ff58b46674341b850c1f8fe07b81",
+  "previousGeneratedAt": "2026-10-09T20:19:18.467Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/index.md",
-      "contentSha256": "0269bd5cf72a14a0fef96801a12e407760aba37257a93d740236ebc22920b86b",
-      "previousContentSha256": "fdeef0206fd5f3e80256f1ad5a047c64d1044c9981ec68c73c215e6e86dab289"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/index.md",
-      "contentSha256": "fda855eff6e0a72fd7e5fccdaf0c8059d111d9e42e79ae564597ab86cb0b8675",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "cbf7e2c9f45ee2dd595189ba50fce9a6f88a8ec83ae487afaee519e3836d7cc9",
-      "previousContentSha256": "e403f04223d82a25121e0c67e91a11b93e4fe38a8932b04036cf209a3ed29e7a"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "21a5c06dc3f6ab52d8d5392afc83812862b069a2379acd66e1d4060d03e1023f",
-      "previousContentSha256": "e3f28e72235cb447defb777c964fb3ea0ee52a5ff24bab988f5f5973eddc54aa"
+      "contentSha256": "18f5976ce9f81db03b51d1acc2a053e8eb27c3f6306a7c9edb902ba5493c438c",
+      "previousContentSha256": "21a5c06dc3f6ab52d8d5392afc83812862b069a2379acd66e1d4060d03e1023f"
     }
   ]
 }
