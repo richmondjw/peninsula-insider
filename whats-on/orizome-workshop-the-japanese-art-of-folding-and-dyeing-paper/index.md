@@ -59,6 +59,10 @@ Weather flexible
 
 [Book or check details](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Orizome+Workshop%3A+The+Japanese+Art+of+Folding+and+Dyeing+Paper&dates=20261017T023000Z%2F20261017T043000Z&details=Drop+in+to+make+patterned+paper+with+artist+Jacky+Cheng+at+Mornington+Peninsula+Regional+Gallery.+The+17+October+session+is+free%2C+and+the+gallery+asks+visitors+to+register.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Forizome-workshop-the-japanese-art-of-folding-and-dyeing-paper%2F&location=Mornington+Peninsula+Regional+Gallery%2C+Civic+Reserve%2C+Dunns+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
+Filed under
+
+- Family Saturday
+
 Keep planning
 
 ## More from What's On
