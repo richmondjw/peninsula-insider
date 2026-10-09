@@ -54,7 +54,7 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
           purpose: 'hero',
         })}
       />
-      <figcaption><span data-journal-image-caption>{hero.caption}</span> <span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
+      <figcaption><span data-journal-image-caption>{hero.caption}</span>{' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
     </figure>
     <div class="home-journal__body">
       <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
