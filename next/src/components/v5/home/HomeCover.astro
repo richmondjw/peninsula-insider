@@ -20,7 +20,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
-    <img data-pi-avif="true" class="home-cover__media" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
+    <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
     <figcaption>{photo.caption} {creditLine}</figcaption>
   </figure>
   <div class="container home-cover__content">
@@ -40,7 +40,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   .home-cover__plate{position:absolute;inset:0;margin:0;z-index:-1}
   .home-cover__plate::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,30,47,.95),rgba(7,30,47,.84) 45%,rgba(7,30,47,.22))}
   .home-cover__media{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-  figcaption{position:absolute;right:max(1rem,calc((100vw - 1280px)/2));bottom:1rem;z-index:1;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 .75rem/1.45 var(--font-ui);color:white}
+  figcaption{position:absolute;right:max(1rem,calc((100vw - 1280px)/2));bottom:1rem;z-index:1;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 .8125rem/1.45 var(--font-ui);color:white}
   .home-cover__content{padding-block:2.5rem 3rem}
   .home-cover__eyebrow{font:600 .75rem/1.4 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--sand,#f5c177);margin:0 0 .8rem}
   .home-cover__statement{font:600 clamp(2rem,4.2vw,4rem)/1.12 var(--font-display);letter-spacing:-.045em;max-width:17ch;margin:0;text-wrap:balance;color:white}
@@ -50,5 +50,5 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   .home-cover__search,.home-cover__method{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:white;font:600 .9375rem/1.4 var(--font-ui);text-underline-offset:.25em}
   .home-cover__method{margin-top:.65rem;font-size:.8125rem}
   a:focus-visible{outline:3px solid var(--sand,#f5c177);outline-offset:4px}
-  @media(max-width:47.99em){.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{font-size:2rem;max-width:19ch}.home-cover__promise{font-size:1rem;margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:.875rem}.home-cover__search{font-size:.875rem}.home-cover__method{margin:0}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:.75rem}}
+  @media(max-width:47.99em){.home-cover__media[data-home-art="true"]{object-position:left center}.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{font-size:2rem;max-width:19ch}.home-cover__promise{font-size:1rem;margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:.875rem}.home-cover__search{font-size:.875rem}.home-cover__method{margin:0}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:.8125rem}}
 </style>
