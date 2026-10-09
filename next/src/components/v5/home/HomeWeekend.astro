@@ -85,7 +85,7 @@ const cards = await Promise.all(
         : recorded.caption ?? '',
       credit: recorded.credit,
       badge: status === 'illustrative' ? 'Illustrative image' : '',
-    } : undefined;
+    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: 'Conceptual editorial artwork, not a depiction of this event.', credit: 'Illustration: Peninsula Insider', badge: 'Illustrative image' };
     const dateISO = pickDateISO(event, now);
     const dateLabel = dateISO ? new Date(dateISO + 'T00:00:00Z').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
     const fullTitle = String(event.data.title);
@@ -149,7 +149,7 @@ const cards = await Promise.all(
             >
               {card.image?.badge && <span slot="badges" class="home-weekend__media-badge">{card.image.badge}</span>}
             </Card>
-            {card.sourceUrl?.startsWith('https://') && <p class="home-weekend__source">{card.checkedOn && <span>Event details checked {new Date(card.checkedOn+'T00:00:00Z').toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}.</span>} <a href={card.sourceUrl}>Check organiser <span aria-hidden="true">↗</span></a></p>}
+            {card.sourceUrl?.startsWith('https://') && <p class="home-weekend__source">{card.checkedOn && <span>Event details checked {new Date(card.checkedOn).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}.</span>} <a href={card.sourceUrl}>Check organiser <span aria-hidden="true">↗</span></a></p>}
             </li>
           ))}
         </CardGrid>
