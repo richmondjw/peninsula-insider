@@ -117,7 +117,7 @@
   padding: 0.85rem 1.25rem 0.5rem;
 }
 .site-search-overlay__eyebrow {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--soft);
@@ -127,8 +127,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  min-height: 48px;
+  flex: 0 0 48px;
   border-radius: 50%;
   border: none;
   background: transparent;
