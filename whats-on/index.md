@@ -25,11 +25,11 @@ The short list / Fri 9 – Sun 11 October
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-Swipe or scroll for more picks.
+More picks to the right
 
 - Editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market.   Illustration: Peninsula Insider.
 
-Sun, 11 Oct · Mornington
+Sun, 11 Oct · 9am–2pm · Mornington
 
 ### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
@@ -44,6 +44,8 @@ Sun, 11 Oct   Mornington   Markets
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Sun, 11 Oct   Mornington   Exhibitions
+
+Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
