@@ -44,6 +44,8 @@ jobs:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
 
       - name: Phase C — Embed entity index
+        # Embeddings are optional; keep API failures visible without failing the registry refresh.
+        continue-on-error: true
         run: node next/scripts/embed-entity-index.mjs --apply
         env:
           SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
