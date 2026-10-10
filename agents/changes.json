@@ -1,76 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-10T03:37:29.795Z",
+  "generatedAt": "2026-10-10T04:18:24.744Z",
   "baselineAvailable": true,
-  "fromSnapshot": "49355d001f8d925761baa345dca7e0b6dfde23c0752ba3e4f7d2c0ec7636c070",
-  "toSnapshot": "673e80042e8978877aad68d5211663f7f26b80f485d26dae2d6e72da2e6bf0e2",
-  "previousGeneratedAt": "2026-10-10T03:00:07.741Z",
+  "fromSnapshot": "673e80042e8978877aad68d5211663f7f26b80f485d26dae2d6e72da2e6bf0e2",
+  "toSnapshot": "0de7899abd913c68e0f1edf35897f76cc43c3cfb7066a7aa2832b3fd3db02ad5",
+  "previousGeneratedAt": "2026-10-10T03:37:29.795Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 8,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/hastings/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
-      "contentSha256": "797afcebb4b156a6c5626d3f7a4ea1eeb7164e83b5bf0d24fd018314a19e0918",
-      "previousContentSha256": "7ae5b943542e241c05b6064fe5b9d2df89a447cb3557e235b07bca3061f680a2"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "17b7063bec1c38fa690b627c198850bcfc2c2eb5fbd7d7106fce0eb291402c27",
-      "previousContentSha256": "733b9f4de03fef46e022c44e1fe10492ce0c9ba4683cb663848605a365a2a5c9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "cd2ae9099b06fc878629b251a1d63b41a85ad2d7adbc4b6d3cc2bfc3a7c2e0e7",
-      "previousContentSha256": "0d6a69b7b6c6ab1eb12c3ad0f870d4bc64aa3c6c8fa88da0aac0101929c3de9a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "a9036c0e50daf1e9286d583584d63ebdcb21e81cb6e40995359952e671f1aa5f",
-      "previousContentSha256": "2078324fd30fb19a8274084b0dd99578964f1fa46f465233960301ff9a78fa42"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "9c86c3b90c1cb6b9153752cdc90cf1668959dae58f5047c4108a8e6d5be1b752",
-      "previousContentSha256": "15b23b511d0337d4f4e67d3659adc13f5cb931391186e8d51581e9faea06aee6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "aba7ec7257ef2922355d8323f229b10d079bda97577ee5819f6f2668cc9351c0",
-      "previousContentSha256": "f7a7c30b832a4dce0f53f723333ac6722218dc4486093ab3daf979f6767aee4f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
-      "contentSha256": "3769315259602ee722a4f3a6b54dec6343f1a345ab98365868e1f4600bb8454c",
-      "previousContentSha256": "2f672e4c4bd1594d7d5747a3682488dbe076702aa8380970d0540124d0f02bd6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/index.md",
-      "contentSha256": "7ca21aaf42d4847fad6fe3db097a37811780f90d006ac0a27a4d13aba30f06a5",
-      "previousContentSha256": null
+      "contentSha256": "af78d551b392a3ba8bf611656d2c52474079651ae010a77d4a31e10fcafffda4",
+      "previousContentSha256": "17b7063bec1c38fa690b627c198850bcfc2c2eb5fbd7d7106fce0eb291402c27"
     }
   ]
 }
