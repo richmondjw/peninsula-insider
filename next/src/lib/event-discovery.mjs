@@ -81,7 +81,11 @@ export function refreshEventPromotions(root, now = new Date()) {
     } catch { element.remove(); }
   }
   for (const section of root.querySelectorAll('[data-event-promotions-section]')) {
-    if (!section.querySelector('[data-event-promotion]')) section.hidden = true;
+    const remaining = section.querySelectorAll('[data-event-promotion]').length;
+    if (!remaining) section.hidden = true;
+    for (const hint of section.querySelectorAll('[data-event-promotion-multi-hint]')) {
+      hint.hidden = remaining < 2;
+    }
   }
 }
 

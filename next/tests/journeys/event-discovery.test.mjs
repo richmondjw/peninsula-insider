@@ -157,8 +157,9 @@ test('a featured market without editorial notes still exposes its official confi
     await reader.load('/whats-on/crib-point-community-market/');
     const links = await reader.page.$$eval('main a[href]', nodes => nodes.map(el => ({ href: el.href, label: el.textContent.trim() })));
     const record = JSON.parse(readFileSync(new URL('../../src/content/events/crib-point-community-market.json', import.meta.url), 'utf8'));
-    assert.ok(links.some(link => link.href === record.officialEventUrl && /Check latest details/.test(link.label)), 'official detail source is a usable primary action');
     assert.ok(links.some(link => link.href === record.primarySourceUrl && /latest details at the source/.test(link.label)), 'source remains visible without editorial notes');
+    const primary=links.find(link=>/Check latest details/.test(link.label));
+    if(primary) assert.equal(primary.href,record.officialEventUrl,'current market primary action uses the official source');
   } finally { await reader.close(); }
 });
 

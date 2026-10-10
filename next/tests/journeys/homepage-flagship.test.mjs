@@ -140,9 +140,12 @@ test('homepage weekend picks show the recorded check dates and direct official s
   const reader=await site.reader();
   try {
     await reader.load('/');
-    const sources=await reader.page.$$eval('.home-weekend__source',els=>els.map(e=>({text:e.textContent.trim(),url:e.querySelector('a')?.href})));
-    assert.equal(sources.length,3);
-    assert.ok(sources.every(s=>/Event details checked \d{1,2} \w+ \d{4}/.test(s.text)),JSON.stringify(sources));
-    assert.ok(sources.every(s=>s.url.startsWith('https://')&&!new URL(s.url).hostname.endsWith('peninsulainsider.com.au')));
+    const sources=await reader.page.$$eval('.home-weekend [data-event-promotion]',els=>els.map(card=>({text:card.querySelector('.home-weekend__source')?.textContent.trim(),url:card.querySelector('.home-weekend__source a')?.href})));
+    assert.ok(sources.length>=1&&sources.length<=3,JSON.stringify(sources));
+    assert.ok(sources.every(s=>/Event details checked \d{1,2} \w+ \d{4}/.test(s.text??'')),JSON.stringify(sources));
+    assert.ok(sources.every(s=>s.url?.startsWith('https://')&&!new URL(s.url).hostname.endsWith('peninsulainsider.com.au')),JSON.stringify(sources));
+    const hint=await reader.page.$eval('[data-event-promotion-multi-hint]',el=>({hidden:el.hidden,text:el.textContent.trim()}));
+    assert.equal(hint.hidden,sources.length<2);
+    assert.doesNotMatch(hint.text,/all three/i);
   }finally{await reader.close();}
 });
