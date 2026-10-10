@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-10
+Modified: 2026-10-11
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -37,11 +37,13 @@ A useful Sunday stop for makers, food and music, with room to extend the trip in
 
 Sun, 11 Oct   Mornington   Markets
 
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Sat, 10 Oct   Fingal   Live Music
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sun, 11 Oct   Mornington   Exhibitions
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
@@ -50,14 +52,6 @@ Make a day of it
 ## Everything on, by day
 
 Browse by date and save what catches your eye.
-
-### Saturday 10 October
-
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-5pm · Fingal · Live Music · Recurring weekly
 
 ### Sunday 11 October
 
@@ -131,6 +125,14 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 9am · Mornington · Markets
 
+### Live music
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music
+
 ### Food & wine
 
 - [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
@@ -140,12 +142,6 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 6pm · Hastings · Food & Wine
 
 ### Openings
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions
 
 - [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
