@@ -1,28 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-10T16:03:01.876Z",
+  "generatedAt": "2026-10-10T19:24:42.723Z",
   "baselineAvailable": true,
-  "fromSnapshot": "856c876b69566f799380b6297af4599a65c479abcb6abc1f28da8f5908818d65",
-  "toSnapshot": "10207f1466dfc9e10ad45f7179b2fd6d65266d01bcca7a64b9c2e3c093f252a5",
-  "previousGeneratedAt": "2026-10-10T14:33:34.806Z",
+  "fromSnapshot": "10207f1466dfc9e10ad45f7179b2fd6d65266d01bcca7a64b9c2e3c093f252a5",
+  "toSnapshot": "0d3f5881edad32b8c4a1b686146a2e0a2b41488e61d28c3a05da7d10be0d650b",
+  "previousGeneratedAt": "2026-10-10T16:03:01.876Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 3,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a9642ab34a5779b34e0b4e50e759d7edff30f5eade96ff10132ebefa65ea32dd",
-      "previousContentSha256": "6a1cc44d3866d9050191741b17eda39aa965a64bf450867110f885b7dc83db1d"
+      "contentSha256": "7b050e0612c177a88e613d2c93a3da2131a776c0537cd4c252f2cafc6a5ff05a",
+      "previousContentSha256": "a9642ab34a5779b34e0b4e50e759d7edff30f5eade96ff10132ebefa65ea32dd"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/",
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "93e9b4d2fef18bafd0181ca150680a8345292f74556ec43bfd5ed430a913d7a7",
-      "previousContentSha256": "3b4084cfc6308fd9fce4601be4194a1708732a71d8a4996b50459cbb73d4bcc9"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
+      "contentSha256": "081eb9e6bb02fe7647fedf5ce77ab369a1f1ac70eb28013dcb9796e13101bd58",
+      "previousContentSha256": "49fc4c4ab5bafecea58c7df7910ff8a6c250ce93aa199b325c2b409694fac3ba"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
+      "contentSha256": "d45cdd0e43eeaaf279249210585aeacdb13c7f9c4b6d750331eb4b9bd6dbe444",
+      "previousContentSha256": "30dc46ce504a5d2c04eb8eea93a44365a1830319798387fe1c29384bcfe25363"
     }
   ]
 }

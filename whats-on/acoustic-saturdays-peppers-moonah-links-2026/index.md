@@ -5,11 +5,13 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Live Music     10 October 2026     Recurs weekly
+Event     Live Music     17 October 2026     Recurs weekly
 
 # Acoustic Saturdays at Peppers Moonah Links
 
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+
+[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
 All weather
 
@@ -37,7 +39,7 @@ At a glance
 
 **When**
 
-10 October 2026
+17 October 2026
 
 **Time**
 
@@ -59,7 +61,7 @@ Check organiser for pricing
 
 All weather
 
-Booking and calendar links are withdrawn; this session has finished.
+[Book or check details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Acoustic+Saturdays+at+Peppers+Moonah+Links&dates=20261017T060000Z%2F20261017T090000Z&details=Live+acoustic+music+at+Spike+Bar+on+Saturday+evenings%2C+from+5pm+to+8pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Facoustic-saturdays-peppers-moonah-links-2026%2F&location=Peppers+Moonah+Links%2C+55+Peter+Thomson+Drive%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Filed under
 
