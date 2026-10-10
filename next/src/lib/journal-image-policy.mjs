@@ -48,7 +48,9 @@ export function journalCredit(image) {
   // Reviewed credit identifies raster artwork too. A format or an
   // illustrative depiction status alone does not make a context photo art.
   if (/^Illustration\s*[:·]/i.test(image.credit?.trim() ?? '')) return image.credit.trim();
-  if (image.src?.split(/[?#]/)[0] === journalIllustration.src) return `Illustration · ${image.credit}`;
+  // The HTML cache stamper also versions this constant when the recovery
+  // script is inlined, so compare both identities without cache parameters.
+  if (image.src?.split(/[?#]/)[0] === journalIllustration.src.split(/[?#]/)[0]) return `Illustration · ${image.credit}`;
   return image.credit?.trim().toLowerCase() === 'jem' ? 'Photograph by jem' : `Photo · ${image.credit}`;
 }
 

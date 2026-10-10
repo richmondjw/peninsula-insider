@@ -61,6 +61,17 @@ test('reviewed raster artwork keeps one illustration credit', () => {
     assert.equal(journalCredit({ src, credit: 'Illustration · Peninsula Insider' }), 'Illustration · Peninsula Insider');
   }
 });
+test('fallback attribution survives cache-stamping of the inlined illustration constant', () => {
+  const original = journalIllustration.src;
+  try {
+    journalIllustration.src = original + '?v=asset-hash';
+    assert.equal(journalCredit({ src: original + '?v=asset-hash', credit: 'Peninsula Insider' }), 'Illustration · Peninsula Insider');
+    assert.equal(journalCredit({ src: original, credit: 'Peninsula Insider' }), 'Illustration · Peninsula Insider');
+    assert.equal(journalCredit(fallback), 'Photo · Creator, courtesy of Visit Victoria');
+  } finally {
+    journalIllustration.src = original;
+  }
+});
 test('context-photo attribution is preserved regardless of depiction status or file format', () => {
   assert.equal(journalCredit(fallback), 'Photo · Creator, courtesy of Visit Victoria');
   assert.equal(journalCredit({ ...fallback, src: '/context.svg' }), 'Photo · Creator, courtesy of Visit Victoria');
