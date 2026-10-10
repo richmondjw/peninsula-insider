@@ -131,6 +131,7 @@ jobs:
           elif [ "$build_ok" != true ]; then
             exit 1
           fi
+          node scripts/check-search-opportunities.mjs
         env:
           PUBLIC_SUPABASE_URL: ${{ secrets.PUBLIC_SUPABASE_URL }}
           PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.PUBLIC_SUPABASE_ANON_KEY }}

@@ -1,0 +1,17 @@
+{
+  "dinnerSessions": {
+    "checkedOn": "2026-10-11",
+    "scope": "Published dinner sessions only; no whole-venue or availability verification.",
+    "sources": [
+      { "url": "https://www.therocksmornington.com.au/contact-us/", "claim": "Dinner Wednesday to Monday 5.30pm to 9pm; Tuesday closed; Sunday evening closed in winter." },
+      { "url": "https://www.manylittle.com.au/contact", "claim": "Restaurant dinner Thursday to Sunday from 5pm; weekend bar walk-ins are a separate service." }
+    ]
+  },
+  "rosebudPier": {
+    "checkedOn": "2026-10-11",
+    "scope": "Pier location, playground, picnic setting, dog lead rule and no jumping or diving. No general beach-safety or current-availability claim.",
+    "sources": [
+      { "url": "https://www.parks.vic.gov.au/places-to-see/sites/rosebud-pier", "claim": "Pier opposite Jetty Road; all-abilities playground and picnic setting; leashed dogs permitted; jumping and diving prohibited." }
+    ]
+  }
+}

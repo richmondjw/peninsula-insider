@@ -4,7 +4,7 @@ dek: "Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington P
 author: "editorial"
 houseByline: true
 publishedAt: 2026-04-17
-updatedAt: 2026-09-18
+updatedAt: 2026-10-11
 heroImage:
   src: "/images/sourced/dog-beach-emma-01.webp"
   alt: "Wet dog sitting on a Mornington Peninsula beach"
@@ -14,6 +14,8 @@ format: "service"
 tags: ["dogs", "cafes", "pubs", "wineries", "peninsula", "pet-friendly", "service"]
 lastVerified: 2026-09-18
 clusterLinks:
+  - label: "Compare Peninsula Restaurants for Dinner and Lunch"
+    href: "/eat/best-restaurants/"
   - label: "Dog-Friendly Wineries on the Mornington Peninsula"
     href: "/journal/dog-friendly-wineries-mornington-peninsula/"
   - label: "The Dog-Friendly Peninsula - Full Weekend Guide"
@@ -35,6 +37,12 @@ status: "published"
 ---
 
 For a dog-friendly meal on the Mornington Peninsula, start with the permitted seating area. A courtyard café, a pub deck and a winery lawn can all work, but a normal table booking may not reserve a place where your dog is allowed.
+
+## Looking for dog-friendly restaurants?
+
+Use this guide for a meal with your dog, and the [winery guide](/journal/dog-friendly-wineries-mornington-peninsula/) for a tasting stop. Green Olive is the farm-dining option in the published-policy shortlist; Flinders Hotel and St Andrews Beach Brewery offer other food-and-drink settings. Confirm food service, your dining date and a permitted table directly. This is not a list of venues that allow dogs throughout their restaurants.
+
+For dinner, ask whether the dog-friendly area is serving food that evening and whether your reservation secures it. Neither a daytime dog policy nor an indoor restaurant booking answers those questions. Our [restaurant guide](/eat/best-restaurants/#dinner) compares evening sessions, but does not establish pet access at those dinner venues.
 
 **The quick shortlist:** Commonfolk for a Mornington courtyard café; Flinders Hotel for a pub deck; Stonier for a Merricks cellar-door lawn; Main Ridge Estate for a prebooked outdoor winery visit; Green Olive for farm dining; and St Andrews Beach Brewery for a Fingal beer garden.
 

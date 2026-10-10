@@ -4,6 +4,8 @@ import { getCollection } from 'astro:content';
 import { eventPromotionEntries } from '../../../lib/event-discovery.mjs';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PlaceDetailTemplate from '../../../components/PlaceDetailTemplate.astro';
+import GuideChoices from '../../../components/GuideChoices.astro';
+import opportunityEvidence from '../../../data/search-opportunity-evidence.json';
 import PlaceMap from '../../../components/PlaceMap.astro';
 import EventStrip from '../../../components/EventStrip.astro';
 import { routeSlug, isStayVenue, wineTypes, isUpcoming, isListableVenue } from '../../../lib/editorial';
@@ -29,6 +31,7 @@ const allArticles = await getCollection('articles', ({ data }) => data.status ==
 const allEvents = await getCollection('events');
 
 const placeSlug = routeSlug(place);
+const pierCheckedDate = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Sydney' }).format(new Date(opportunityEvidence.rosebudPier.checkedOn));
 const placeNameLower = place.data.name.toLowerCase();
 
 const venuesForPlace = allVenues
@@ -144,6 +147,7 @@ const ogImage = hero.src || `/images/sourced/place-${placeSlug}-01.webp`;
 
 // --- SEO: Per-town title overrides and meta descriptions ---
 const titleOverrides: Record<string, string> = {
+  'rosebud': 'Things to Do in Rosebud · Peninsula Insider',
   'sorrento': `Sorrento Mornington Peninsula 2026 - Where to Eat, Stay & Swim · Peninsula Insider`,
   'red-hill': `Red Hill Mornington Peninsula 2026 - Best Wineries & Restaurants · Peninsula Insider`,
   'flinders': `Flinders Mornington Peninsula 2026 - Guide to the Ocean Village · Peninsula Insider`,
@@ -160,6 +164,7 @@ const titleOverrides: Record<string, string> = {
   'point-nepean': `Point Nepean Guide 2026 - Fort Walk, National Park & History · Peninsula Insider`,
 };
 const descOverrides: Record<string, string> = {
+  'rosebud': 'Plan a Rosebud outing: the Jetty Road playground, pier and foreshore, golf, nearby hot springs and a rainy-day alternative. Choose by time and weather.',
   'sorrento': 'The insider guide to Sorrento on the Mornington Peninsula - best restaurants, ocean baths, where to stay, and why off-season Sorrento is a revelation. Updated 2026.',
   'red-hill': 'The insider guide to Red Hill on the Mornington Peninsula - best cellar doors, vineyard restaurants, where to stay on the plateau, and how to check the current market calendar. Updated 2026.',
   'flinders': 'The insider guide to Flinders on the Mornington Peninsula - ocean coast walks, the bakery, the pub, and why this quiet village draws the weekend-escape crowd. Updated 2026.',
@@ -273,9 +278,9 @@ const townFaqs: Record<string, Array<{q: string; a: string}>> = {
     { q: 'How close is Safety Beach to Dromana?', a: 'About 5 minutes by car. The two towns effectively share the same bay stretch. Use Safety Beach for the quieter foreshore and Dromana for Arthur\'s Seat Eagle and hinterland access. They are naturally paired as a single half-day destination.' },
   ],
   'rosebud': [
-    { q: 'What is Rosebud known for on the Mornington Peninsula?', a: 'Rosebud is the Peninsula\'s most practical bayside town - a long sheltered beach, foreshore camping, a genuine main street with supermarket and services, and honest ethnic kitchens that make it a better lunch stop than the brochures suggest. It\'s the service hub for the lower bay side of the Peninsula.' },
-    { q: 'Is Rosebud good for a family holiday?', a: 'Yes - foreshore camping directly on the beach, calm family swimming, a pier good for fishing at dusk, and a main street with enough variety for a week\'s stay. Less polished than Sorrento but far more affordable and more liveable for families with young children.' },
-    { q: 'Can you camp in Rosebud?', a: 'Yes - the Rosebud Foreshore Camping Reserve is directly on the beach and is one of the best foreshore camping spots on Port Phillip Bay. Sites book out months in advance for peak summer. Off-peak bookings are much more accessible.' },
+    { q: 'What is there to do in Rosebud?', a: 'Start at the Jetty Road foreshore playground and Rosebud Pier for a short outing or picnic. For a longer activity, check Rosebud Country Club tee times. Hot springs are a separate trip inland to Fingal; they are not on the Rosebud foreshore.' },
+    { q: 'Is Rosebud good for a family day out?', a: 'The foreshore playground beside the pier gives families a clear starting point. Parks Victoria describes an all-abilities playground and picnic setting. Check current conditions and supervise children near the water; jumping and diving from the pier are prohibited.' },
+    { q: 'Can you bring a dog to Rosebud Pier?', a: 'Parks Victoria permits dogs at Rosebud Pier on a lead. This does not establish permission for every nearby beach: check the signed beach rules separately.' },
   ],
   'blairgowrie': [
     { q: 'What is Blairgowrie known for?', a: 'Blairgowrie is best known among divers for its back-beach pier - one of Victoria\'s top shore dives, with weedy sea dragons, octopus, nudibranchs, and leafy sea dragons visible year-round on the pier pylons. The bay front is calm and underused for a town between Rye and Sorrento. The yacht club marina gives the foreshore a working, community character.' },
@@ -343,7 +348,15 @@ export const prerender = true;
     itineraries={itineraries}
     articles={articles}
     relatedPlaces={relatedPlaces}
-  />
+  >
+    {placeSlug === 'rosebud' && <GuideChoices slot="trip-choices" id="rosebud-choices" title="Things to do in Rosebud, by time and weather" intro="Choose one anchor for the day. These time allowances are planning suggestions; they are not operator session lengths." choices={[
+      { title: 'Playground, picnic and pier', href: '#perfect-day', label: 'Allow 1 to 2 hours outdoors', body: 'Start beside Jetty Road at the foreshore playground, then make a pier walk or picnic the outing. Parks Victoria describes an all-abilities playground beside the pier.', note: 'Keep dogs on a lead at the pier. Jumping and diving from the pier are prohibited. Check current conditions before visiting.', source: { href: 'https://www.parks.vic.gov.au/places-to-see/sites/rosebud-pier', label: 'Check Rosebud Pier conditions and access' } },
+      { title: 'A golf day in Rosebud', href: '/explore/rosebud-country-club/', label: 'Set aside half a day', body: 'Use the Rosebud Country Club guide to compare its North and South courses and find the public tee-time booking page.', note: 'Golf is a separate activity from a foreshore walk. Check available tee times and allow time for your round.' },
+      { title: 'Change the plan when the weather turns', href: '/journal/rainy-day-peninsula/', label: 'Indoor alternatives across the Peninsula', body: 'Use the rainy-day guide when the foreshore does not suit. For thermal bathing, compare the hot springs guide and arrange a separate trip to Fingal.', note: 'These alternatives are not all in Rosebud or walkable from the pier. Choose the venue before planning transport.' },
+    ]} faqs={currentFaqs} checkedNote={`Rosebud Pier access and playground information were checked against Parks Victoria on ${pierCheckedDate}. Other linked guides keep their own verification dates.`}>
+      <p><a href="/explore/hot-springs/">Compare hot springs near Rosebud</a> · <a href="/explore/places/rye/">Explore nearby Rye</a> · <a href="/explore/plans/">Build a longer Peninsula outing</a></p>
+    </GuideChoices>}
+  </PlaceDetailTemplate>
 
   <!-- Phase 3 WS3B - scoped Leaflet map of every editorial pin in this
        place. Lazy-loaded via IntersectionObserver so the library only
