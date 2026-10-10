@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-10",
-  "generatedAt": "2026-10-10T02:53:01.348Z",
+  "generatedAt": "2026-10-10T03:32:49.036Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 9 – Sun 11 October",
     "count": 8
   },
-  "numberOfItems": 17,
+  "numberOfItems": 18,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -195,6 +195,19 @@
       "position": 15,
       "item": {
         "@type": "Event",
+        "name": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
+        "url": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
+        "startDate": "2026-10-30",
+        "endDate": "2026-10-30",
+        "description": "Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music and food. This is an adults-only, ticketed event.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
+      "item": {
+        "@type": "Event",
         "name": "Crib Point Community Market",
         "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
         "startDate": "2026-11-14",
@@ -205,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -218,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -230,7 +243,7 @@
       }
     }
   ],
-  "count": 17,
+  "count": 18,
   "events": [
     {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
@@ -528,6 +541,25 @@
       "place": "portsea",
       "venue": null,
       "summary": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
+      "startDate": "2026-10-30",
+      "endDate": "2026-10-30",
+      "id": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/wine-lovers-warehouse-wine-and-cheese-night-hastings-tickets-2002007929610",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": "hastings",
+      "venue": null,
+      "summary": "Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music and food. This is an adults-only, ticketed event.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

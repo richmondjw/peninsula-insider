@@ -172,3 +172,21 @@ Loading map…
 Browse locations as a list
 
 - [Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>) · town
+
+On the calendar in this place
+
+## Events in Hastings
+
+Coming up in Hastings, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Fri, 30 Oct
+
+### ✦ Wine and Cheese Night at Wine Lovers Warehouse Hastings
+
+Hastings
+
+Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music and food. This is an adults-only, ticketed event.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)

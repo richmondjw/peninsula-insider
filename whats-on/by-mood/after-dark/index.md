@@ -11,7 +11,15 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-No events match this filter for the upcoming window. Check back, or try [all events](<https://peninsulainsider.com.au/whats-on/>).
+Food & Wine  30 Oct
+
+### [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
+
+[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
+
+Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 
 ## The Insider Note
 

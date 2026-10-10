@@ -83,39 +83,29 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
-
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
 
-Markets   Monthly – 2nd Saturday of every month
+Food & Wine   Check session dates
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+[Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+A two-hour guided gin masterclass in Dromana.
 
-Illustration · Peninsula Insider
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
+Food & Wine  30 Oct
 
-Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
+### [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+[Hastings](<https://peninsulainsider.com.au/explore/places/hastings/>)
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music…
 
-A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

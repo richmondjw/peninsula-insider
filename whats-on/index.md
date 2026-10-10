@@ -145,6 +145,14 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 9am · Mornington · Markets
 
+### Food & wine
+
+- [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
+
+A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
+
+6pm · Hastings · Food & Wine
+
 ### Openings
 
 - [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
