@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-09T13:30:06.916Z",
+  "updatedAt": "2026-10-10T03:07:50.887Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3121,6 +3121,14 @@
       "pageTitle": "The Wellness Experience – Celebrating Women’s Health Week Tickets, Friday 11 September • 10 AM - 2 PM | Eventbrite"
     },
     {
+      "url": "https://www.eventbrite.com.au/e/wine-lovers-warehouse-wine-and-cheese-night-hastings-tickets-2002007929610",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Wine Lovers Warehouse Wine and Cheese Night Hastings Tickets, Friday 30 October • 6 PM - 8 PM | Eventbrite",
+      "probedOn": "2026-10-10",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.eventbrite.com/e/enchanting-kirtan-sacred-music-meditation-experience-mornington-tickets-1998394282093",
       "verdict": "ok",
       "httpCode": "200",
@@ -5739,6 +5747,14 @@
       "httpCode": "403",
       "pageTitle": "Just a moment...",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.winelover.com.au/warehouse-wine-deals/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Discount Wine Melbourne | Wine Lovers Warehouse",
+      "probedOn": "2026-10-10",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
