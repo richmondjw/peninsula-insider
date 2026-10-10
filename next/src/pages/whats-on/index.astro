@@ -163,6 +163,21 @@ const itemListLd = {
   itemListElement: ldEvents.map((ev, i) => ({ '@type': 'ListItem', position: i + 1, item: ev })),
 };
 
+function compactEventTime(start: unknown, end: unknown): string {
+  const display = (value: unknown): string => {
+    if (typeof value !== 'string') return '';
+    const match = /^(\d{1,2}):(\d{2})$/.exec(value);
+    if (!match) return '';
+    const hour = Number(match[1]);
+    if (hour > 23) return '';
+    const suffix = hour >= 12 ? 'pm' : 'am';
+    return `${hour % 12 || 12}${match[2] === '00' ? '' : `:${match[2]}`}${suffix}`;
+  };
+  const from = display(start);
+  const to = display(end);
+  return from && to ? `${from}–${to}` : from;
+}
+
 // Pick cards, precomputed here: the Astro compiler cannot parse TS generics
 // inside template expressions, and the template stays declarative this way.
 const pickCards = picks.map((p, i) => {
@@ -177,7 +192,7 @@ const pickCards = picks.map((p, i) => {
       : undefined,
     verdict: p.verdict,
     categoryLabel: p.live.categoryLabel,
-    leadMark: [p.dayLabel, p.live.placeLabel].filter(Boolean).join(' · '),
+    leadMark: [p.dayLabel, compactEventTime(data.startTime, data.endTime), p.live.placeLabel].filter(Boolean).join(' · '),
     meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
       .filter(Boolean)
       .slice(0, 3),
@@ -268,9 +283,9 @@ const hubImage = categoryHero('whats-on');
             <p class="wo-section-kicker">The short list / {weekend.label}</p>
             <h2 class="wo-picks__title" id="wo-picks-h">{pickHeading}</h2>
           </div>
-          <p class="wo-picks__dek">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
+          <p class="wo-picks__dek wo-picks__dek--desktop">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
         </div>
-        {picks.length > 1 && <p class="wo-picks__swipe">Swipe or scroll for more picks.</p>}
+        {picks.length > 1 && <p class="wo-picks__swipe">More picks to the right <span aria-hidden="true">→</span></p>}
         <CardGrid label="PI's picks for this weekend">
           {pickCards.map((c) => (
             <Card
@@ -293,6 +308,7 @@ const hubImage = categoryHero('whats-on');
             />
           ))}
         </CardGrid>
+        <p class="wo-picks__dek wo-picks__dek--mobile">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
         <a class="wo-picks__all" href="#wo-calendar">Explore the full calendar <span aria-hidden="true">↘</span></a>
       </div>
     </section>
@@ -1179,6 +1195,7 @@ const hubImage = categoryHero('whats-on');
     .wo-day__h, .wo-shelf__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; border-top: 3px solid #f5c177; }
     .wo-day__list, .wo-day__empty, .wo-shelf__list { grid-column: 2; }
   }
+  .wo-picks__dek--mobile { display: none; }
   @media (max-width: 1023px) {
     .wo-shelfnav { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: .75rem; padding: 0 .15rem .75rem; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
     .wo-shelfnav::-webkit-scrollbar { display: none; }
@@ -1201,9 +1218,9 @@ const hubImage = categoryHero('whats-on');
     .wo-picks { padding-top: .5rem; }
     .wo-picks__head { margin-bottom: .25rem; }
     .wo-picks .wo-section-kicker { margin-bottom: .4rem; }
-    .wo-picks__dek { max-width: none; margin-top: .45rem; }
+    .wo-picks__dek--desktop { display: none; }
+    .wo-picks__dek--mobile { display: block; max-width: 34rem; margin: .4rem 0 .7rem; }
     .wo-days__hint { display: none; }
-    .wo-picks__dek { display: block; }
   }
 </style>
 <style is:global>
