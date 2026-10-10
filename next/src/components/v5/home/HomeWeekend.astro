@@ -122,7 +122,7 @@ const cards = await Promise.all(
         <p class="home-weekend__window">{weekend.label}</p>
       </div>
 
-      <p class="home-weekend__scroll-hint">Swipe or scroll for all three picks <span aria-hidden="true">&rarr;</span></p>
+      <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={cards.length < 2}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
 
       <div class="home-weekend__scroller">
         <CardGrid label="This weekend's picks">
@@ -263,6 +263,7 @@ const cards = await Promise.all(
   }
 
   .home-weekend__scroll-hint span { color: var(--accent); }
+  .home-weekend__scroll-hint[hidden] { display: none; }
 
   .home-weekend__all {
     margin: var(--space-5) 0 0;
