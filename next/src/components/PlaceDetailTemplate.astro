@@ -185,6 +185,14 @@ const hasContent = eatVenues.length > 0 || wineVenues.length > 0 || stayVenues.l
 // Maintained here as a data mapping rather than a data field to keep it
 // lightweight and easy to extend when new category sub-pages are built.
 const categoryGuides: Record<string, Array<{ label: string; href: string; desc: string }>> = {
+  'mornington': [
+    { label: 'Dinner and restaurants', href: '/eat/best-restaurants/#dinner', desc: 'Compare a Mornington dinner with a meal on the ridge, then check the published dining sessions.' },
+    { label: 'Dining with a dog', href: '/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/', desc: 'Published courtyard, deck and garden policies, with booking conditions.' },
+  ],
+  'rosebud': [
+    { label: 'Hot springs nearby', href: '/explore/hot-springs/', desc: 'Compare thermal bathing options in Fingal and plan a separate trip inland.' },
+    { label: 'A rainy-day alternative', href: '/journal/rainy-day-peninsula/', desc: 'Indoor options across the Peninsula when a foreshore afternoon no longer suits.' },
+  ],
   'red-hill': [
     { label: 'Red Hill Wine', href: '/wine/red-hill/', desc: 'Cellar doors, terroir, tasting routes and producers on the plateau.' },
   ],
@@ -351,6 +359,7 @@ const factual = place.data.factualLede ?? '';
 <!-- ═══════════════════════════════════════════════════════════════════════
      3. SIGNATURE PULL-QUOTE
      ═══════════════════════════════════════════════════════════════════════ -->
+<slot name="trip-choices" />
 {place.data.signature && (
   <section class="pdv2-quote">
     <div class="container">

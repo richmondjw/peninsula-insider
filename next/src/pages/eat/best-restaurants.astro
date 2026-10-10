@@ -6,10 +6,13 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import SubpageHero from '../../components/SubpageHero.astro';
 import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, titleize, isListableVenue } from '../../lib/editorial';
+import GuideChoices from '../../components/GuideChoices.astro';
+import opportunityEvidence from '../../data/search-opportunity-evidence.json';
+import { routeSlug, venueHref, isListableVenue } from '../../lib/editorial';
 import { buildBreadcrumbSchema, absUrl } from '../../lib/schema';
 
 const eatTypes = ['restaurant', 'cafe', 'winery'];
+const dinnerCheckedDate = new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Sydney' }).format(new Date(opportunityEvidence.dinnerSessions.checkedOn));
 const venues = (await getCollection('venues'))
   .filter((v) => eatTypes.includes(v.data.type))
   .filter(isListableVenue)
@@ -31,7 +34,7 @@ const itemListSchema = {
     '@type': 'ListItem',
     position: i + 1,
     name: v.data.name,
-    url: `https://peninsulainsider.com.au/eat/${routeSlug(v)}/`,
+    url: absUrl(venueHref(v)),
   })),
 };
 
@@ -52,7 +55,7 @@ const faqSchema = {
       name: 'Do I need to book restaurants on the Mornington Peninsula?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most serious restaurants on the Peninsula require bookings, especially on weekends. Cellar door restaurants in Red Hill like Ten Minutes by Tractor and Montalto can book out weeks ahead in summer and autumn. Book as far ahead as you can for special occasions; casual venues like Allis Wine Bar and local bakeries typically operate walk-in.',
+        text: 'Choose your dining session before booking. A cellar-door reservation does not reserve a restaurant table, and a winery open for tastings may not serve dinner. Use the restaurant booking page to check the date, menu and seating area. Mention dietary needs and any dog when requesting a table.',
       },
     },
     {
@@ -65,6 +68,21 @@ const faqSchema = {
     },
   ],
 };
+
+const dinnerChoices = [
+  {
+    title: 'The Rocks Mornington', href: '/eat/the-rocks-mornington/', label: 'Dinner in Mornington town',
+    body: 'Choose a meal on Schnapper Point Drive when you want to stay on the bay side rather than drive inland for dinner.',
+    note: 'The operator lists dinner from 5.30pm to 9pm, Wednesday to Monday. Tuesday is closed, with an additional Sunday-evening closure in winter. Confirm your date before booking.',
+    source: { href: 'https://www.therocksmornington.com.au/contact-us/', label: 'Check dinner hours and book with The Rocks' },
+  },
+  {
+    title: 'Many Little, Red Hill South', href: '/eat/many-little/', label: 'Dinner on the ridge',
+    body: 'Choose the ridge for a Sri Lankan-influenced dining menu. Red Hill South is a different location from Mornington town; organise the journey home before settling in.',
+    note: 'The operator lists restaurant dinner Thursday to Sunday from 5pm. Its weekend bar is walk-in only; that is a different service from a restaurant booking.',
+    source: { href: 'https://www.manylittle.com.au/contact', label: 'Check dining sessions and book with Many Little' },
+  },
+].filter(choice => venues.some(venue => routeSlug(venue) === choice.href.split('/')[2]));
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
@@ -81,7 +99,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Best Restaurants Mornington Peninsula · Peninsula Insider"
-  description="The Peninsula Insider guide to the best restaurants on the Mornington Peninsula - vineyard dining rooms, cellar-door lunches, and the hatted kitchens worth booking weeks ahead."
+  description="Compare Mornington Peninsula restaurants for dinner, a winery lunch or a special occasion, with dining sessions, booking advice and guides by area."
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/best-restaurants"
   ogImage={pageImage('best-restaurants').src}
@@ -102,14 +120,12 @@ export const prerender = true;
   entityType="page"
 >
   <div class="prose">
-    <p>The Mornington Peninsula runs on the Sunday long lunch. From the ridge-top dining rooms of Red Hill to the fisherman's-wharf-adjacent tables of Mornington, the dining options are deep, opinionated, and worth the drive. This list is built on editorial judgement - every entry is researched and reviewed, and earned its place on merit. No advertising, no paid placement, no sponsored rankings. If a restaurant appears here, it's because the editor rates it and is willing to say so.</p>
-
-        <p>The Peninsula's strongest category is the vineyard restaurant - a dining room attached to or embedded within a working winery, where the produce is grown within a few kilometres and the wine list is anchored by the estate. Montalto, Ten Minutes by Tractor, and Polperro operate at the serious end of this format. Below them, a deep bench of rooms doing honest, seasonal work without the fanfare.</p>
-
-        <p>The list is ordered by editorial authority: top-rated rooms first, then the places doing quietly strong work below them.</p>
-      </div>
+    <p>Start with the meal you want: dinner in Mornington town, a destination restaurant on the ridge, or a winery lunch. The location and dining session matter as much as the name above the door. There is no paid placement in this list.</p>
+    <p><a href="#dinner">Compare dinner options</a> · <a href="#rankings">Browse the dining shortlist</a> · <a href="/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/">Eating out with a dog</a></p>
   </div>
 </SubpageHero>
+
+  <GuideChoices id="dinner" title="Where to go for dinner on the Mornington Peninsula" intro="Two starting points with published evening sessions. These are dinner options, not a new ranking of every restaurant. Check the operator's booking calendar for your date." choices={dinnerChoices} checkedNote={`These two venues' published dinner sessions were checked on ${dinnerCheckedDate}. The wider shortlist retains each venue's existing verification date.`} />
 
   <section class="venues" id="rankings">
     <div class="container">
@@ -122,7 +138,7 @@ export const prerender = true;
         <a href="/eat/" class="venues__link">All {venues.length} venues →</a>
       </div>
       <div class="venues__grid venues__grid--ranked">
-        {topVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/eat" />)}
+        {topVenues.map((venue) => <VenueCard venue={venue} href={venueHref(venue)} />)}
       </div>
     </div>
   </section>

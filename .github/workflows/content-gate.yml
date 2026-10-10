@@ -237,6 +237,11 @@ jobs:
           cd next
           npx astro build
 
+      - name: Search opportunity page contracts
+        run: |
+          cd next
+          node scripts/check-search-opportunities.mjs
+
       - name: Journeys
         run: |
           cd next
