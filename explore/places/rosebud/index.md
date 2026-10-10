@@ -37,6 +37,54 @@ strip traffic on long weekends
 
 Insider  The quieter southern end of Rosebud is much better than the strip - most visitors don't get that far.
 
+## Things to do in Rosebud, by time and weather
+
+Choose one anchor for the day. These time allowances are planning suggestions; they are not operator session lengths.
+
+Allow 1 to 2 hours outdoors
+
+### [Playground, picnic and pier](<https://peninsulainsider.com.au/explore/places/rosebud/#perfect-day>)
+
+Start beside Jetty Road at the foreshore playground, then make a pier walk or picnic the outing. Parks Victoria describes an all-abilities playground beside the pier.
+
+Keep dogs on a lead at the pier. Jumping and diving from the pier are prohibited. Check current conditions before visiting.
+
+ [Check Rosebud Pier conditions and access →](<https://www.parks.vic.gov.au/places-to-see/sites/rosebud-pier>)
+
+Set aside half a day
+
+### [A golf day in Rosebud](<https://peninsulainsider.com.au/explore/rosebud-country-club/>)
+
+Use the Rosebud Country Club guide to compare its North and South courses and find the public tee-time booking page.
+
+Golf is a separate activity from a foreshore walk. Check available tee times and allow time for your round.
+
+Indoor alternatives across the Peninsula
+
+### [Change the plan when the weather turns](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
+
+Use the rainy-day guide when the foreshore does not suit. For thermal bathing, compare the hot springs guide and arrange a separate trip to Fingal.
+
+These alternatives are not all in Rosebud or walkable from the pier. Choose the venue before planning transport.
+
+Rosebud Pier access and playground information were checked against Parks Victoria on 11 October 2026. Other linked guides keep their own verification dates.
+
+[Compare hot springs near Rosebud](<https://peninsulainsider.com.au/explore/hot-springs/>) · [Explore nearby Rye](<https://peninsulainsider.com.au/explore/places/rye/>) · [Build a longer Peninsula outing](<https://peninsulainsider.com.au/explore/plans/>)
+
+## Questions before you go
+
+### What is there to do in Rosebud?
+
+Start at the Jetty Road foreshore playground and Rosebud Pier for a short outing or picnic. For a longer activity, check Rosebud Country Club tee times. Hot springs are a separate trip inland to Fingal; they are not on the Rosebud foreshore.
+
+### Is Rosebud good for a family day out?
+
+The foreshore playground beside the pier gives families a clear starting point. Parks Victoria describes an all-abilities playground and picnic setting. Check current conditions and supervise children near the water; jumping and diving from the pier are prohibited.
+
+### Can you bring a dog to Rosebud Pier?
+
+Parks Victoria permits dogs at Rosebud Pier on a lead. This does not establish permission for every nearby beach: check the signed beach rules separately.
+
 The practical bay town where the beach is better than the reputation suggests.
 
 Peninsula Insider - editor's note
@@ -84,6 +132,16 @@ The quieter southern end of Rosebud is much better than the strip - most visitor
 What's mapped here
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/rosebud/#explore>)
+
+Explore Rosebud by experience
+
+## Category guides for Rosebud
+
+Deeper editorial guides focused on one experience category within Rosebud.
+
+- [Hot springs nearby   Compare thermal bathing options in Fingal and plan a separate trip inland.](<https://peninsulainsider.com.au/explore/hot-springs/>)
+
+- [A rainy-day alternative   Indoor options across the Peninsula when a foreshore afternoon no longer suits.](<https://peninsulainsider.com.au/journal/rainy-day-peninsula/>)
 
 Get outside
 

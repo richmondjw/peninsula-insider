@@ -9,13 +9,37 @@ Eat & Drink     Best Restaurants
 
 # The Best Restaurants on the Mornington Peninsula
 
-The Mornington Peninsula runs on the Sunday long lunch. From the ridge-top dining rooms of Red Hill to the fisherman's-wharf-adjacent tables of Mornington, the dining options are deep, opinionated, and worth the drive. This list is built on editorial judgement - every entry is researched and reviewed, and earned its place on merit. No advertising, no paid placement, no sponsored rankings. If a restaurant appears here, it's because the editor rates it and is willing to say so.
+Start with the meal you want: dinner in Mornington town, a destination restaurant on the ridge, or a winery lunch. The location and dining session matter as much as the name above the door. There is no paid placement in this list.
 
-The Peninsula's strongest category is the vineyard restaurant - a dining room attached to or embedded within a working winery, where the produce is grown within a few kilometres and the wine list is anchored by the estate. Montalto, Ten Minutes by Tractor, and Polperro operate at the serious end of this format. Below them, a deep bench of rooms doing honest, seasonal work without the fanfare.
-
-The list is ordered by editorial authority: top-rated rooms first, then the places doing quietly strong work below them.
+[Compare dinner options](<https://peninsulainsider.com.au/eat/best-restaurants/#dinner>) · [Browse the dining shortlist](<https://peninsulainsider.com.au/eat/best-restaurants/#rankings>) · [Eating out with a dog](<https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/>)
 
 Photo · Peter Foster, courtesy of Visit Victoria
+
+## Where to go for dinner on the Mornington Peninsula
+
+Two starting points with published evening sessions. These are dinner options, not a new ranking of every restaurant. Check the operator's booking calendar for your date.
+
+Dinner in Mornington town
+
+### [The Rocks Mornington](<https://peninsulainsider.com.au/eat/the-rocks-mornington/>)
+
+Choose a meal on Schnapper Point Drive when you want to stay on the bay side rather than drive inland for dinner.
+
+The operator lists dinner from 5.30pm to 9pm, Wednesday to Monday. Tuesday is closed, with an additional Sunday-evening closure in winter. Confirm your date before booking.
+
+ [Check dinner hours and book with The Rocks →](<https://www.therocksmornington.com.au/contact-us/>)
+
+Dinner on the ridge
+
+### [Many Little, Red Hill South](<https://peninsulainsider.com.au/eat/many-little/>)
+
+Choose the ridge for a Sri Lankan-influenced dining menu. Red Hill South is a different location from Mornington town; organise the journey home before settling in.
+
+The operator lists restaurant dinner Thursday to Sunday from 5pm. Its weekend bar is walk-in only; that is a different service from a restaurant booking.
+
+ [Check dining sessions and book with Many Little →](<https://www.manylittle.com.au/contact>)
+
+These two venues' published dinner sessions were checked on 11 October 2026. The wider shortlist retains each venue's existing verification date.
 
 Editorial ranking · 2026
 
@@ -29,7 +53,7 @@ Photo: Courtesy of Visit Victoria
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Pt. Leo Estate](<https://peninsulainsider.com.au/eat/pt-leo-estate/>)
+### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
 3649 Frankston-Flinders Rd, Merricks VIC 3916
 
@@ -37,7 +61,7 @@ A sculpture park walk followed by a long bay-view lunch in the glass-walled rest
 
 long lunch  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
+[Read notes](<https://peninsulainsider.com.au/wine/pt-leo-estate/>) [Book](<https://www.ptleoestate.com.au/restaurant>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -55,7 +79,7 @@ Photo: Provided image
 
 Winery  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>)
+### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
 
 1333 Mornington-Flinders Rd, Main Ridge VIC 3928
 
@@ -63,11 +87,11 @@ Estate-grown pinot noir alongside a seasonal degustation rooted in the Ridge vin
 
 long lunch  anniversary
 
-[Read notes](<https://peninsulainsider.com.au/eat/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) [Book](<https://www.tenminutesbytractor.com.au/>)
 
 Winery  [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>)
 
-### [Willow Creek Vineyard](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>)
+### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
 
 166 Balnarring Rd, Merricks North VIC 3926
 
@@ -75,7 +99,7 @@ The vineyard at the heart of Jackalope Hotel, a showpiece single-site program an
 
 cellar door  walk
 
-[Read notes](<https://peninsulainsider.com.au/eat/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>) [Book](<https://rarehare.com.au/>)
 
 Restaurant  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
@@ -93,7 +117,7 @@ Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/eat/montalto/>)
+### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
 
 33 Shoreham Rd, Red Hill South VIC 3937
 
@@ -101,13 +125,13 @@ Single Vineyard Pinot Noir and a Sunday lunch beneath the olive grove canopy.
 
 long lunch  cellar door
 
-[Read notes](<https://peninsulainsider.com.au/eat/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
+[Read notes](<https://peninsulainsider.com.au/wine/montalto/>) [Book](<https://www.montalto.com.au/restaurant>)
 
 Photo: Robert Blackburn, courtesy of Visit Victoria
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Paringa Estate](<https://peninsulainsider.com.au/eat/paringa-estate/>)
+### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
 44 Paringa Rd, Red Hill South VIC 3937
 
@@ -115,11 +139,11 @@ A serious single-vineyard producer with one of the Peninsula's most dependable r
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
+[Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Polperro](<https://peninsulainsider.com.au/eat/polperro/>)
+### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
 
 150 Red Hill Road, Red Hill VIC 3937
 
@@ -127,11 +151,11 @@ Small-production cool-climate pinot and chardonnay poured in one of the pretties
 
 cellar door  view
 
-[Read notes](<https://peninsulainsider.com.au/eat/polperro/>) [Book](<https://www.polperrowines.com.au/dine/>)
+[Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/dine/>)
 
 Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-### [Port Phillip Estate](<https://peninsulainsider.com.au/eat/port-phillip-estate/>)
+### [Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>)
 
 263 Red Hill Rd, Red Hill South VIC 3937
 
@@ -139,7 +163,7 @@ Rammed-earth architecture, an estate dining room and six vineyard suites in Red 
 
 anniversary  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/book-accommodation/>)
+[Read notes](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) [Book](<https://www.portphillipestate.com.au/book-accommodation/>)
 
 Restaurant  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
@@ -155,7 +179,7 @@ long lunch  anniversary
 
 Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
-### [Yabby Lake Vineyard](<https://peninsulainsider.com.au/eat/yabby-lake/>)
+### [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>)
 
 86-112 Tuerong Rd, Tuerong VIC 3933
 
@@ -163,7 +187,7 @@ Tom Carson's single-block Chardonnay and Pinot Noir program, poured from a relax
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/eat/yabby-lake/>) [Book](<https://www.yabbylake.com/>)
+[Read notes](<https://peninsulainsider.com.au/wine/yabby-lake/>) [Book](<https://www.yabbylake.com/>)
 
 Restaurant  [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
@@ -179,7 +203,7 @@ first date  slow
 
 Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
 
-### [Avani Wines](<https://peninsulainsider.com.au/eat/avani-wines/>)
+### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 98 Stanleys Road, Red Hill South VIC 3937
 
@@ -187,11 +211,11 @@ Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only s
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/avani-wines/>)
+[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
 
 Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>)
+### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
 51 Stanleys Rd, Merricks VIC 3916
 
@@ -199,7 +223,7 @@ A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir 
 
 cellar door  slow
 
-[Read notes](<https://peninsulainsider.com.au/eat/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
+[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
 
 Restaurant  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
@@ -221,7 +245,7 @@ The strongest rooms right now are Pt. Leo Estate, Tedesca Osteria, Ten Minutes b
 
 ### Do I need to book restaurants on the Mornington Peninsula?
 
-Most serious restaurants on the Peninsula require bookings, especially on weekends. Cellar door restaurants in Red Hill like Ten Minutes by Tractor and Montalto can book out weeks ahead in summer and autumn. Book as far ahead as you can for special occasions; casual venues like Allis Wine Bar and local bakeries typically operate walk-in.
+Choose your dining session before booking. A cellar-door reservation does not reserve a restaurant table, and a winery open for tastings may not serve dinner. Use the restaurant booking page to check the date, menu and seating area. Mention dietary needs and any dog when requesting a table.
 
 ### What is the best area for restaurants on the Mornington Peninsula?
 

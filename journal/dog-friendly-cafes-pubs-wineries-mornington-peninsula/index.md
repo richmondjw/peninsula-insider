@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/
 Publisher: Peninsula Insider
 Published: 2026-04-17T00:00:00.000Z
-Modified: 2026-09-18T00:00:00.000Z
+Modified: 2026-10-11T00:00:00.000Z
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -22,6 +22,12 @@ Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional contex
 Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 For a dog-friendly meal on the Mornington Peninsula, start with the permitted seating area. A courtyard café, a pub deck and a winery lawn can all work, but a normal table booking may not reserve a place where your dog is allowed.
+
+## Looking for dog-friendly restaurants?
+
+Use this guide for a meal with your dog, and the [winery guide](<https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/>) for a tasting stop. Green Olive is the farm-dining option in the published-policy shortlist; Flinders Hotel and St Andrews Beach Brewery offer other food-and-drink settings. Confirm food service, your dining date and a permitted table directly. This is not a list of venues that allow dogs throughout their restaurants.
+
+For dinner, ask whether the dog-friendly area is serving food that evening and whether your reservation secures it. Neither a daytime dog policy nor an indoor restaurant booking answers those questions. Our [restaurant guide](<https://peninsulainsider.com.au/eat/best-restaurants/#dinner>) compares evening sessions, but does not establish pet access at those dinner venues.
 
 **The quick shortlist:** Commonfolk for a Mornington courtyard café; Flinders Hotel for a pub deck; Stonier for a Merricks cellar-door lawn; Main Ridge Estate for a prebooked outdoor winery visit; Green Olive for farm dining; and St Andrews Beach Brewery for a Fingal beer garden.
 

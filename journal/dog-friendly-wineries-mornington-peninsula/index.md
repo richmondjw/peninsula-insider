@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/
 Publisher: Peninsula Insider
 Published: 2026-04-22T00:00:00.000Z
-Modified: 2026-09-18T00:00:00.000Z
+Modified: 2026-10-11T00:00:00.000Z
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -22,6 +22,8 @@ Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional contex
 Illustrative image  This image shows Montalto. It does not depict the place described on this page.
 
 A winery lawn and a restaurant table can have different dog rules. The confirmed entries below have an explicit published policy; call ahead about your table, weather cover and the day’s food offering.
+
+**Looking for a dog-friendly restaurant rather than a tasting stop?** Start with our [dog-friendly dining guide](<https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/>), which compares cafés, pub decks, farm dining and a brewery. It records the permitted seating and booking conditions. A welcome on a winery lawn does not guarantee a restaurant table for you and your dog.
 
 Policy update, 18 September 2026: the named venue policies below were rechecked. The wider winery list and beach information retain their earlier verification dates.
 

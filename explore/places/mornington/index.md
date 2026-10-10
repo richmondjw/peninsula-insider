@@ -111,6 +111,16 @@ What's mapped here
 
 - [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/mornington/#journal>)
 
+Explore Mornington by experience
+
+## Category guides for Mornington
+
+Deeper editorial guides focused on one experience category within Mornington.
+
+- [Dinner and restaurants   Compare a Mornington dinner with a meal on the ridge, then check the published dining sessions.](<https://peninsulainsider.com.au/eat/best-restaurants/#dinner>)
+
+- [Dining with a dog   Published courtyard, deck and garden policies, with booking conditions.](<https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/>)
+
 Eat & drink
 
 ## Where to eat and drink in Mornington

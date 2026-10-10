@@ -1,36 +1,60 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-10T19:24:42.723Z",
+  "generatedAt": "2026-10-10T20:11:39.410Z",
   "baselineAvailable": true,
-  "fromSnapshot": "10207f1466dfc9e10ad45f7179b2fd6d65266d01bcca7a64b9c2e3c093f252a5",
-  "toSnapshot": "0d3f5881edad32b8c4a1b686146a2e0a2b41488e61d28c3a05da7d10be0d650b",
-  "previousGeneratedAt": "2026-10-10T16:03:01.876Z",
+  "fromSnapshot": "0d3f5881edad32b8c4a1b686146a2e0a2b41488e61d28c3a05da7d10be0d650b",
+  "toSnapshot": "84bbc59bceb037417aff881ba4ae24768bae44effa3cb7353ee0880834169c9b",
+  "previousGeneratedAt": "2026-10-10T19:24:42.723Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 6,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/best-restaurants/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/best-restaurants/index.md",
+      "contentSha256": "d5157af9df9d26324b3e3faa2689524778b2496d257b527282cca52875f49411",
+      "previousContentSha256": "272cc74d2ff3490786caf6159ec623925a3d2e63e4116a6e372f4c06895ca0e1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "13226429a2d37d525d125b01d55926064bc93c04db3658aacdb4aca89b31fae1",
+      "previousContentSha256": "5cbe9a9d6ffd9af60854f5ec2da92ba30c7b15eba1e89bf7fdc68f929b4bc8da"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
+      "contentSha256": "668dddb7432259f00b4d2c4aea84e589625683fac7a2ae10d2b934d5944f7c12",
+      "previousContentSha256": "b8fb456a0d2d193205304cc3ddb27bb6252cfd95c72b03c0c8b473b2894e126c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/index.md",
+      "contentSha256": "5a5534070e63d171c8d256a387f6d97f12c1d0d8a10796288148af99c30d0dfb",
+      "previousContentSha256": "52da62a527fe3f0b34952b504d54702d8bb9220d9c262955b408737b95174e11"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/index.md",
+      "contentSha256": "e95dae094eb0f29c9dbefe40a4fb3a411c03b76fe9b65c7900da23b042a9589e",
+      "previousContentSha256": "7c5fdbd12788147e74f65dae360deee6d79650cdd2dadf9928e35bec56214de3"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "7b050e0612c177a88e613d2c93a3da2131a776c0537cd4c252f2cafc6a5ff05a",
-      "previousContentSha256": "a9642ab34a5779b34e0b4e50e759d7edff30f5eade96ff10132ebefa65ea32dd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "081eb9e6bb02fe7647fedf5ce77ab369a1f1ac70eb28013dcb9796e13101bd58",
-      "previousContentSha256": "49fc4c4ab5bafecea58c7df7910ff8a6c250ce93aa199b325c2b409694fac3ba"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
-      "contentSha256": "d45cdd0e43eeaaf279249210585aeacdb13c7f9c4b6d750331eb4b9bd6dbe444",
-      "previousContentSha256": "30dc46ce504a5d2c04eb8eea93a44365a1830319798387fe1c29384bcfe25363"
+      "contentSha256": "0df6509676d8bb7e82eec00a6c6ddc7e2fe2dfe5a0c342792c2bc22ea89c00c3",
+      "previousContentSha256": "7b050e0612c177a88e613d2c93a3da2131a776c0537cd4c252f2cafc6a5ff05a"
     }
   ]
 }
