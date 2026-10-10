@@ -27,15 +27,15 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 Swipe or scroll for more picks.
 
-- Editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
+- Editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market.   Illustration: Peninsula Insider.
 
-Sat, 10 Oct · Crib Point
+Sun, 11 Oct · Mornington
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
 
-Sat, 10 Oct   Crib Point   Markets
+Sun, 11 Oct   Mornington   Markets
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
@@ -60,12 +60,6 @@ Make a day of it
 Browse by date and save what catches your eye.
 
 ### Saturday 10 October
-
-- [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
-
-9am · Crib Point · Markets · Recurring monthly
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -127,11 +121,11 @@ Check dates and hours · Dromana · Food & Wine
 
 ### Markets
 
-- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+- [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
-9am · Mornington · Markets
+9am · Crib Point · Markets
 
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 

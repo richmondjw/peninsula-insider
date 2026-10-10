@@ -47,7 +47,7 @@ The short list
 
 10–11 October
 
-Swipe or scroll for all three picks
+Swipe or scroll through the picks
 
 - Illustrative image
 
@@ -63,18 +63,6 @@ Event details checked 6 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov
 
 - Illustrative image
 
-Editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
-
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
-
-Crib Point Community House   Market
-
-Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
-
-- Illustrative image
-
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
@@ -85,7 +73,17 @@ Peppers Moonah Links   Every Saturday
 
 Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
-Saturday and Sunday picks. [See all events, including Friday →](<https://peninsulainsider.com.au/whats-on/>)
+- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
 Plan it
 

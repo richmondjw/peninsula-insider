@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-10",
-  "generatedAt": "2026-10-10T00:23:44.966Z",
+  "generatedAt": "2026-10-10T02:53:01.348Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -19,7 +19,7 @@
     "start": "2026-10-09",
     "end": "2026-10-11",
     "label": "Fri 9 – Sun 11 October",
-    "count": 9
+    "count": 8
   },
   "numberOfItems": 17,
   "itemListElement": [
@@ -51,19 +51,6 @@
       "position": 3,
       "item": {
         "@type": "Event",
-        "name": "Crib Point Community Market",
-        "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-        "startDate": "2026-10-10",
-        "endDate": "2026-10-10",
-        "description": "Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
         "startDate": "2026-10-10",
@@ -74,7 +61,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Peninsula Hot Springs Studio Yoga",
@@ -84,7 +71,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -94,7 +81,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Service",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -104,7 +91,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Service",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -114,7 +101,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
@@ -127,7 +114,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -140,7 +127,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -153,7 +140,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
@@ -166,7 +153,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Tessellation Folding Workshop with Jacky Cheng",
@@ -179,7 +166,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -192,7 +179,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -200,6 +187,19 @@
         "startDate": "2026-10-25",
         "endDate": "2026-10-25",
         "description": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
+      "item": {
+        "@type": "Event",
+        "name": "Crib Point Community Market",
+        "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -274,30 +274,6 @@
       "weekendOccurrences": [
         {
           "date": "2026-10-10"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Crib Point Community Market",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "startDate": "2026-10-10",
-      "endDate": "2026-10-10",
-      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
-      "factCheckedOn": null,
-      "recurrence": "monthly",
-      "category": "market",
-      "place": null,
-      "venue": null,
-      "summary": "Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-10",
-          "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
       "thisWeekend": true
@@ -552,6 +528,25 @@
       "place": "portsea",
       "venue": null,
       "summary": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Crib Point Community Market",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
+      "factCheckedOn": null,
+      "recurrence": "monthly",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "summary": "Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
