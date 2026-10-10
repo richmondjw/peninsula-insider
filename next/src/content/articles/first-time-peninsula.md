@@ -9,7 +9,7 @@ heroImage:
   alt: "Conceptual coral car on a curving coastal road beside an abstract bay."
   credit: "Illustration: Peninsula Insider"
   license: "other-licensed"
-  caption: "AI-assisted editorial illustration. A first Peninsula visit; not a depiction of a specific road or location."
+  caption: "Editorial illustration. A first Peninsula visit; not a depiction of a specific road or location."
   depicts: "Conceptual coral car on a curving coastal road beside an abstract bay."
   depictionStatus: "illustrative"
   creator: "Peninsula Insider, AI-assisted"
