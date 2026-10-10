@@ -714,16 +714,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-- [Sat, 10 Oct
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
 - [Sun, 11 Oct
 
 ### ✦ Mornington Racecourse Market
@@ -733,3 +723,13 @@ Mornington
 A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+- [Sun, 11 Oct
+
+### ✦ National Works on Paper 2026 (NWOP)
+
+Mornington
+
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)

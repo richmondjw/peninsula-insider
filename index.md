@@ -27,7 +27,7 @@ Find your bearings
 
 [Open the full map](<https://peninsulainsider.com.au/map/>)
 
-Town locations, north at top. For roads and other places, open the full map.
+Simplified coastline and town locations, north at top. For roads and other places, open the full map.  Coastline simplified from © Commonwealth of Australia ([Geoscience Australia](<https://services.ga.gov.au/gis/rest/services/Australian_Shoreline/MapServer/0>)) 2016, [CC BY 4.0](<https://creativecommons.org/licenses/by/4.0/>).
 
 - ### [Mornington & the bay](<https://peninsulainsider.com.au/explore/places/mornington/>)
 

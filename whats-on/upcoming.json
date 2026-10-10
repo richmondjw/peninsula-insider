@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-10",
-  "generatedAt": "2026-10-10T04:39:56.299Z",
+  "generatedAt": "2026-10-10T05:12:26.605Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -50,19 +50,6 @@
       "@type": "ListItem",
       "position": 3,
       "item": {
-        "@type": "Event",
-        "name": "National Works on Paper 2026 (NWOP)",
-        "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-10-10",
-        "endDate": "2026-10-10",
-        "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
         "@type": "Service",
         "name": "Peninsula Hot Springs Studio Yoga",
         "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
@@ -71,7 +58,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -81,7 +68,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -91,7 +78,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Service",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -101,7 +88,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Mornington Racecourse Market",
@@ -109,6 +96,19 @@
         "startDate": "2026-10-11",
         "endDate": "2026-10-11",
         "description": "A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Event",
+        "name": "National Works on Paper 2026 (NWOP)",
+        "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+        "startDate": "2026-10-11",
+        "endDate": "2026-10-11",
+        "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -292,34 +292,6 @@
       "thisWeekend": true
     },
     {
-      "title": "National Works on Paper 2026 (NWOP)",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-10-10",
-      "endDate": "2026-10-10",
-      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
-      "factCheckedOn": null,
-      "recurrence": "weekly",
-      "category": "exhibition",
-      "place": "mornington",
-      "venue": null,
-      "summary": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-10",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
-          "date": "2026-10-11",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
       "title": "Peninsula Hot Springs Studio Yoga",
       "contentKind": "experience",
       "dateMeaning": "availability",
@@ -422,6 +394,30 @@
       "place": "mornington",
       "venue": null,
       "summary": "A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-11",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "National Works on Paper 2026 (NWOP)",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "startDate": "2026-10-11",
+      "endDate": "2026-10-11",
+      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
+      "factCheckedOn": null,
+      "recurrence": "weekly",
+      "category": "exhibition",
+      "place": "mornington",
+      "venue": null,
+      "summary": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
