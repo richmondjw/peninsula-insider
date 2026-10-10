@@ -15,7 +15,7 @@ Stop googling. Start here. A step-by-step planning guide that turns 'we should g
 
 Peninsula Insider   10 April 2026
 
-AI-assisted editorial illustration. Weekend planning; the abstract map is not geographic or navigational.  Illustration: Peninsula Insider
+Editorial illustration. Weekend planning; the abstract map is not geographic or navigational.  Illustration: Peninsula Insider
 
 Keep this for later
 

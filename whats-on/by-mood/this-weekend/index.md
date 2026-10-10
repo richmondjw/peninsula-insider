@@ -11,7 +11,7 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
@@ -61,7 +61,7 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
 
@@ -89,7 +89,7 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
 

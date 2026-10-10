@@ -11,7 +11,7 @@ The best stay starts with a place that suits your days. Choose a wine-country or
 
 [Choose your base](<https://peninsulainsider.com.au/stay/#choose-base>) [Browse all 26 stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
 
-Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
+Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 ## First, choose your corner of the Peninsula
 

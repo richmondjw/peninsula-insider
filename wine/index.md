@@ -13,7 +13,7 @@ Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. F
 
 [Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 44 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
 
-Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
+Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 Start with the kind of visit
 

@@ -85,7 +85,7 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 
@@ -97,7 +97,7 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 

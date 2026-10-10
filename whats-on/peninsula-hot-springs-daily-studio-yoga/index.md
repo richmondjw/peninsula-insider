@@ -13,7 +13,7 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 [Check dates with organiser](<https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
 
@@ -81,7 +81,7 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 
@@ -93,7 +93,7 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 

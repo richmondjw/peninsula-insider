@@ -15,7 +15,7 @@ A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Brows
 
 Worth the drive   First timer
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
@@ -93,7 +93,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 

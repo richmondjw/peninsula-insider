@@ -13,7 +13,7 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Check latest details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 
@@ -65,7 +65,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 

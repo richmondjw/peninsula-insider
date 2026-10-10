@@ -11,7 +11,7 @@ Eat & Drink
 
 A vineyard lunch. A village coffee. A table by the bay. Find a place for the day you have in mind.
 
-Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
+Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 ## Find your kind of place
 

@@ -94,7 +94,7 @@ The Peninsula’s long-lunch tradition, and the tables that make a weekend of it
 
 Peninsula Insider · Published 15 Mar 2026 · 8 min read
 
-AI-assisted editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu.   Photo · Illustration: Peninsula Insider
+Editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu.   Illustration: Peninsula Insider
 
 Illustrative image  This image shows Conceptual oversized coffee cup and croissant beside an abstract bay. It does not depict the place described on this page.
 

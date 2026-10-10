@@ -17,7 +17,7 @@ Keep this for later
 
 First Timers  Guide  Overview  Planning
 
-AI-assisted editorial illustration. A first Peninsula visit; not a depiction of a specific road or location.   Photo · Illustration: Peninsula Insider
+Editorial illustration. A first Peninsula visit; not a depiction of a specific road or location.   Illustration: Peninsula Insider
 
 Illustrative image  This image shows Conceptual coral car on a curving coastal road beside an abstract bay. It does not depict the place described on this page.
 

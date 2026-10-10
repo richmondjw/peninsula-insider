@@ -15,9 +15,9 @@ Find the date, place and reason to go, then check with the organiser before you 
 
  [Browse events by day](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
-AI-assisted artwork by Peninsula Insider.
+Illustration: Peninsula Insider.
 
-Conceptual coastal illustration. AI-assisted artwork by Peninsula Insider.
+Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 9 – Sun 11 October
 
@@ -27,7 +27,7 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 Swipe or scroll for more picks.
 
-- AI-assisted editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
+- Editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
 
 Sat, 10 Oct · Crib Point
 

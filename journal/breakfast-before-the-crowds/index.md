@@ -17,7 +17,7 @@ Keep this for later
 
 Eat  Coffee  Breakfast  Bakery
 
-AI-assisted editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu.   Photo · Illustration: Peninsula Insider
+Editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu.   Illustration: Peninsula Insider
 
 Illustrative image  This image shows Conceptual oversized coffee cup and croissant beside an abstract bay. It does not depict the place described on this page.
 

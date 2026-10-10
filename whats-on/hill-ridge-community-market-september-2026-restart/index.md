@@ -13,7 +13,7 @@ The organiser marks the 3 October 2026 Hill & Ridge Community Market at Red Hill
 
 **Cancelled. This event will not go ahead.** The organiser marks the 3 October 2026 edition as cancelled. No replacement date is confirmed in this record. [Hill & Ridge Community Market organiser](<https://www.hillandridgemarket.com.au/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows Conceptual market produce and ceramics beneath a striped canopy. It does not depict Hill & Ridge Community Market, 3 October 2026 (cancelled).
 
@@ -67,7 +67,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 
@@ -79,7 +79,7 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-AI-assisted artwork · Peninsula Insider
+Illustration · Peninsula Insider
 
 Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
 
