@@ -7,8 +7,7 @@ import { routeSlug } from '../lib/editorial';
 
 const recent = (await getCollection('articles', ({ data }) => data.status === 'published'))
   .filter((entry) => entry.data.tags.includes('insider-picks'))
-  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
-  .slice(0, 12);
+  .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime());
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Insider Picks' }];
 export const prerender = true;
 ---
@@ -31,7 +30,7 @@ export const prerender = true;
         <p>Insider Picks is a short selection of places, experiences and discoveries, with a reason for each recommendation. A new edition appears when a fresh selection is ready. Each carries its publication date; check venue hours and booking details before making plans.</p>
         {recent.length > 0 && (
           <>
-            <h2>Recent selections</h2>
+            <h2>Selections archive</h2>
             <ul>
               {recent.map((entry) => (
                 <li><a href={`/journal/${routeSlug(entry)}/`}>{entry.data.title}</a> - {entry.data.dek}</li>
