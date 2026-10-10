@@ -1,60 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-10T20:11:39.410Z",
+  "generatedAt": "2026-10-10T20:27:03.374Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0d3f5881edad32b8c4a1b686146a2e0a2b41488e61d28c3a05da7d10be0d650b",
-  "toSnapshot": "84bbc59bceb037417aff881ba4ae24768bae44effa3cb7353ee0880834169c9b",
-  "previousGeneratedAt": "2026-10-10T19:24:42.723Z",
+  "fromSnapshot": "84bbc59bceb037417aff881ba4ae24768bae44effa3cb7353ee0880834169c9b",
+  "toSnapshot": "6041bd06377f1000bda71216dad8c8217c1baf868538622ec6cd6fd7d2c9ecdc",
+  "previousGeneratedAt": "2026-10-10T20:11:39.410Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 3,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/eat/best-restaurants/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/best-restaurants/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/best-restaurants/index.md",
-      "contentSha256": "d5157af9df9d26324b3e3faa2689524778b2496d257b527282cca52875f49411",
-      "previousContentSha256": "272cc74d2ff3490786caf6159ec623925a3d2e63e4116a6e372f4c06895ca0e1"
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/index.md",
+      "contentSha256": "85c879a19bf7546d786ed724038ef0829fb010ec0d710f3e7349cdacb594dae6",
+      "previousContentSha256": null
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "id": "https://peninsulainsider.com.au/picks/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "13226429a2d37d525d125b01d55926064bc93c04db3658aacdb4aca89b31fae1",
-      "previousContentSha256": "5cbe9a9d6ffd9af60854f5ec2da92ba30c7b15eba1e89bf7fdc68f929b4bc8da"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
-      "contentSha256": "668dddb7432259f00b4d2c4aea84e589625683fac7a2ae10d2b934d5944f7c12",
-      "previousContentSha256": "b8fb456a0d2d193205304cc3ddb27bb6252cfd95c72b03c0c8b473b2894e126c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/index.md",
-      "contentSha256": "5a5534070e63d171c8d256a387f6d97f12c1d0d8a10796288148af99c30d0dfb",
-      "previousContentSha256": "52da62a527fe3f0b34952b504d54702d8bb9220d9c262955b408737b95174e11"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/index.md",
-      "contentSha256": "e95dae094eb0f29c9dbefe40a4fb3a411c03b76fe9b65c7900da23b042a9589e",
-      "previousContentSha256": "7c5fdbd12788147e74f65dae360deee6d79650cdd2dadf9928e35bec56214de3"
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "faa5a7f04854a69057a16fcd9b65d42c46e1133fb99a38b117f0a1f69621ed16",
+      "previousContentSha256": "cbf7e2c9f45ee2dd595189ba50fce9a6f88a8ec83ae487afaee519e3836d7cc9"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0df6509676d8bb7e82eec00a6c6ddc7e2fe2dfe5a0c342792c2bc22ea89c00c3",
-      "previousContentSha256": "7b050e0612c177a88e613d2c93a3da2131a776c0537cd4c252f2cafc6a5ff05a"
+      "contentSha256": "2b073d7a3d0c2330b2f230f37c2f1b37397659d14736ad0b8954753627ef800a",
+      "previousContentSha256": "0df6509676d8bb7e82eec00a6c6ddc7e2fe2dfe5a0c342792c2bc22ea89c00c3"
     }
   ]
 }

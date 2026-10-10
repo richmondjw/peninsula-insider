@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-10T20:11:39.410Z",
-  "snapshotId": "84bbc59bceb037417aff881ba4ae24768bae44effa3cb7353ee0880834169c9b",
+  "generatedAt": "2026-10-10T20:27:03.374Z",
+  "snapshotId": "6041bd06377f1000bda71216dad8c8217c1baf868538622ec6cd6fd7d2c9ecdc",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 592,
+  "count": 593,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5788,6 +5788,23 @@
       "markdownBytes": 9173
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+      "title": "Wood-fired lamb at Red Hill, wattle on the Boardwalk Loop, and origami at the regional gallery",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/index.md",
+      "contentSha256": "85c879a19bf7546d786ed724038ef0829fb010ec0d710f3e7349cdacb594dae6",
+      "citation": {
+        "title": "Wood-fired lamb at Red Hill, wattle on the Boardwalk Loop, and origami at the regional gallery",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+        "publishedAt": "2026-10-11T00:00:00.000Z",
+        "modifiedAt": "2026-10-11T00:00:00.000Z"
+      },
+      "htmlBytes": 177360,
+      "markdownBytes": 9295
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6592,7 +6609,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "cbf7e2c9f45ee2dd595189ba50fce9a6f88a8ec83ae487afaee519e3836d7cc9",
+      "contentSha256": "faa5a7f04854a69057a16fcd9b65d42c46e1133fb99a38b117f0a1f69621ed16",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6600,8 +6617,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123233,
-      "markdownBytes": 5771
+      "htmlBytes": 123287,
+      "markdownBytes": 5825
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6626,7 +6643,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0df6509676d8bb7e82eec00a6c6ddc7e2fe2dfe5a0c342792c2bc22ea89c00c3",
+      "contentSha256": "2b073d7a3d0c2330b2f230f37c2f1b37397659d14736ad0b8954753627ef800a",
       "citation": {
         "title": "Sunday 11 October 2026",
         "publisher": "Peninsula Insider",

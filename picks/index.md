@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Wood-fired lamb at Red Hill, wattle on the Boardwalk Loop, and origami at the regional gallery](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/>) - Green Olive at Red Hill's grove-to-table spring Sunday, the Boardwalk Nature Circuit at peak wattle bloom, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery this Saturday.
+
 - [St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/>) - A Sunday roast at the old stables brewery in Fingal, the Bushrangers Bay coastal loop in full spring flower, and a community walk from Safety Beach to Martha Cove on Saturday.
 
 - [Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/>) - Doot Doot Doot's vineyard dining in Merricks North, the Cape Woolamai ridge walk at peak wattle, and Dominion Wrestling's charity bout at Commonfolk on Friday night.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Rye Hotel's beer garden, the Cape Schanck clifftop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-29/>) - A sprawling foreshore pub hits its spring stride, Cape Schanck's clifftop track opens up in the wildflower window, and Mornington Peninsula Regional Gallery's National Works on Paper runs until 22 November.
 
 - [The Red Hill Baker in Balnarring, the Greens Bush orchid flush, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-28/>) - Artisan bread in Balnarring, spider orchids along the Greens Bush track, and Saturday's Hill & Ridge Community Market at Red Hill Recreation Reserve.
-
-- [Foxeys Hangout, the Bushrangers Bay cliff path, and Arj Barker at The Conti](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/>) - Foxeys Hangout's biodynamic sparkling flight in the spring sun, the Bushrangers Bay cliff path at its wildflower peak, and Arj Barker live at Barlow on Wednesday night.
 
 ## Planning a particular weekend?
 
