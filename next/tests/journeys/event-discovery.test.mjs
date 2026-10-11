@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Site, DIST } from './harness.mjs';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 const site = await Site.open();
 test.after(() => site.close());
@@ -251,6 +251,21 @@ test('built default Event ItemList and AI feed agree on weekend event identities
   const weekendUrls = feed.events.filter(e => e.thisWeekend && e.contentKind === 'event').map(e => e.url).sort();
   assert.deepEqual(pageUrls, weekendUrls);
   for (const event of feed.events) { assert.equal(event.thisWeekend, event.weekendOccurrences.length > 0); assert.ok(['event','experience','offer'].includes(event.contentKind)); if(event.contentKind !== 'event') { assert.equal(event.eventStatus, undefined); assert.notEqual(event.dateMeaning, 'occurrence'); } }
+});
+
+test('upcoming feed carries recorded source-check dates for JSON-backed events', () => {
+  const feed = JSON.parse(readFileSync(join(DIST, 'whats-on/upcoming.json'), 'utf8'));
+  let checked = 0;
+  for (const event of feed.events) {
+    const slug = new URL(event.url).pathname.split('/').filter(Boolean).at(-1);
+    const path = join(import.meta.dirname, '../../src/content/events', `${slug}.json`);
+    if (!existsSync(path)) continue;
+    const record = JSON.parse(readFileSync(path, 'utf8'));
+    if (!record.lastCheckedDate || record.editorialProvenance?.checkedOn) continue;
+    assert.equal(event.factCheckedOn, record.lastCheckedDate, `${slug}: feed must retain the recorded check date`);
+    checked++;
+  }
+  assert.ok(checked > 0, 'exercise a checked, upcoming JSON event');
 });
 
 test('date controls still work after leaving and returning through client navigation', async () => {
