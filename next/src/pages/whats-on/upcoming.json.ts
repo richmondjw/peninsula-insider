@@ -88,7 +88,9 @@ export const GET: APIRoute = async () => {
         endDate: endIso,
         id: `${SITE}${live.href}`,
         sourceUrl: actualData.officialEventUrl || actualData.organiser?.website || null,
-        factCheckedOn: e.data.editorialProvenance?.checkedOn ? isoDate(new Date(e.data.editorialProvenance.checkedOn)) : null,
+        factCheckedOn: e.data.editorialProvenance?.checkedOn
+          ? isoDate(new Date(e.data.editorialProvenance.checkedOn))
+          : e.data.lastCheckedDate ? isoDate(new Date(e.data.lastCheckedDate)) : null,
         ...(actualData.postponedFrom ? {previousStartDate: (actualData as any)._occurrencePreviousStartDate ?? actualData.postponedFrom} : {}),
         recurrence: e.data.recurrence ?? 'one-off',
         category: e.data.category ?? null,
