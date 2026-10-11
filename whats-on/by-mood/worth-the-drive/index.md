@@ -19,20 +19,6 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
-
-Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
-
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)

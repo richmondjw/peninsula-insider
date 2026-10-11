@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend   Fri 9 – Sun 11 October
+Peninsula This Weekend   Fri 16 – Sun 18 October
 
 # What’s on this weekend
 
-4 source-checked events for Fri 9 – Sun 11 October. Confirm details with the organiser before travelling.
+5 source-checked events for Fri 16 – Sun 18 October. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -25,19 +25,39 @@ Date confirmed · Exhibitions
 
 Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am–4pm.
 
-Friday 9 October   11am–4pm   Mornington   Checked 8 Oct 2026
+Friday 16 October   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 Date confirmed · Markets
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
 
-Saturday 10 October   9am–1pm   Crib Point   Checked 3 Oct 2026
+Saturday 17 October   9am–2pm   Balnarring   Checked 3 Oct 2026
 
-[View details](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
+[View details](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>) [Check organiser details](<https://www.emuplainsmarket.com.au/>)
+
+Date confirmed · Arts
+
+### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+
+Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery. Bookings are essential.
+
+Saturday 17 October   9:30am–12:30pm   Mornington   Checked 10 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
+
+Date confirmed · Arts
+
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.
+
+Saturday 17 October   1:30pm–3:30pm   Mornington   Checked 10 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>) [Check organiser details](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
 
 Date confirmed · Live Music
 
@@ -45,19 +65,9 @@ Date confirmed · Live Music
 
 After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
 
-Saturday 10 October   5pm–8pm   Fingal   Checked 3 Oct 2026
+Saturday 17 October   5pm–8pm   Fingal   Checked 3 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
-
-Date confirmed · Markets
-
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.
-
-Sunday 11 October   9am–2pm   Mornington   Checked 6 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1>)
 
 Choose your own timing
 

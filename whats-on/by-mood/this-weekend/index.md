@@ -11,20 +11,6 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual outdoor makers market. It does not depict Mornington Racecourse Market.
-
-Markets   Usually the second Sunday, but dates vary around racing events; check the confirmed date before travelling.
-
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
 Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
@@ -75,6 +61,16 @@ A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
+Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
+
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
 Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
 
 Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict National Works on Paper 2026 (NWOP).
@@ -110,6 +106,30 @@ Live Music   Every Saturday evening year-round from 5pm
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
+
+Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict Orizome Workshop: The Japanese Art of Folding and Dyeing Paper.
+
+Arts  17 Oct
+
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+Image · Courtesy of Visit Victoria
+
+Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict Tessellation Folding Workshop with Jacky Cheng.
+
+Arts  17 Oct
+
+### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+
+Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
 ## The Insider Note
 

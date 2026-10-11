@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-11
+Modified: 2026-10-12
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,7 +9,7 @@ The Peninsula, in motion   spring edition
 
 # What's on this weekend
 
-Fri 9 – Sun 11 October  · Mornington Peninsula
+Fri 16 – Sun 18 October  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
@@ -19,21 +19,37 @@ Illustration: Peninsula Insider.
 
 Conceptual coastal illustration. Illustration: Peninsula Insider.
 
-The short list / Fri 9 – Sun 11 October
+The short list / Fri 16 – Sun 18 October
 
-## A reason to go
+## Three reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+More picks to the right
 
-Sun, 11 Oct · 11am–4pm · Mornington
+- Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+Sat, 17 Oct · 1:30pm–3:30pm · Mornington
 
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-Sun, 11 Oct   Mornington   Exhibitions
+An easy afternoon making session after a Mornington outing.
+
+Sat, 17 Oct   Mornington   Arts
+
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 17 Oct   Fingal   Live Music
+
+- Photo: Peninsula Insider.
+
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Sat, 17 Oct   Balnarring   Markets
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -45,7 +61,47 @@ Make a day of it
 
 Browse by date and save what catches your eye.
 
-### Sunday 11 October
+### Friday 16 October
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
+### Saturday 17 October
+
+- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+9am · Balnarring · Markets · Recurring monthly
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music · Recurring weekly
+
+- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
+
+1.30pm · Mornington · Arts · One-day event
+
+- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+
+Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
+
+9.30am · Mornington · Arts · One-day event
+
+### Sunday 18 October
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -93,31 +149,17 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 9am · Crib Point · Markets
 
-- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
-
-9am · Mornington · Markets
-
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 9am · Mount Eliza · Markets
 
-- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+- [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+Forty years of Wednesdays on Main Street. Not a tourist event, just the way Mornington shops midweek.
 
-9am · Balnarring · Markets
-
-### Live music
-
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-5pm · Fingal · Live Music
+9am · Mornington · Markets
 
 ### Food & wine
 
@@ -129,11 +171,11 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 
 ### Openings
 
-- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-1.30pm · Mornington · Arts
+11am · Mornington · Exhibitions
 
 - [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 

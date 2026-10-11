@@ -1,60 +1,196 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-11T04:33:52.316Z",
+  "generatedAt": "2026-10-11T13:23:59.762Z",
   "baselineAvailable": true,
-  "fromSnapshot": "41c35a2099d728d78acfe967a5d774397383fba191bcf879f69581af29f601db",
-  "toSnapshot": "acd481ab02ce0224acd5e8159d6dd53065d903ea02a780a6afdae33f71d46fe3",
-  "previousGeneratedAt": "2026-10-10T22:16:20.043Z",
+  "fromSnapshot": "acd481ab02ce0224acd5e8159d6dd53065d903ea02a780a6afdae33f71d46fe3",
+  "toSnapshot": "6fd49b0f1858565cd7e6fd4c3b9729f61a3ad14301fbc80e1017295a81deaa58",
+  "previousGeneratedAt": "2026-10-11T04:33:52.316Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 23,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "1e3547fb59f1cb0ddaa540eacc530e23a3253208e4be1efa58527ca94f4cfbb5",
-      "previousContentSha256": "83b00462d57a77282eb62c058eff7a4e784f8dac963b886c9d007f6b6a338053"
+      "contentSha256": "5363cd7f46d76bc04d4ce2c74c72b85de498f14a1eb8f870277d2dfa39f76e5b",
+      "previousContentSha256": "1e3547fb59f1cb0ddaa540eacc530e23a3253208e4be1efa58527ca94f4cfbb5"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mornington/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "8bf81c6c39fed7c9c595a054e0ce1b0f3bfe78ddfc07976393dee9805c022f2c",
-      "previousContentSha256": "13226429a2d37d525d125b01d55926064bc93c04db3658aacdb4aca89b31fae1"
+      "contentSha256": "586bcab28c8d986f545d9d6e9e15132494bbeaf7d8279642a2e611a7f4d4139f",
+      "previousContentSha256": "8bf81c6c39fed7c9c595a054e0ce1b0f3bfe78ddfc07976393dee9805c022f2c"
     },
     {
       "id": "https://peninsulainsider.com.au/journal/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "76767f71cc65269120cb5572dc12e4cbc7889e76e9dd184ec9dac85c7624a3d0",
-      "previousContentSha256": "b4c96890e050ffde0be7802c5038e57ee7501bd3b87cbee5a9b8ddfab7421521"
+      "contentSha256": "1adefed747a1771a350953239931ed4ddc9371ee9ab39fd14e66ecc9a3b06d03",
+      "previousContentSha256": "76767f71cc65269120cb5572dc12e4cbc7889e76e9dd184ec9dac85c7624a3d0"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "11412e63a0f9f8ad72e05e470c14c63ad51c899ea6ea3d8efdb20db0c4b9c9bb",
-      "previousContentSha256": "eaceb7c4fd562797a8f7555cbb1955c4c3ffb4104c16bcb196b092fca296c7be"
+      "contentSha256": "5aab9dc56f31e0f7fdec9ae30d33b00302061bc06a2b544de139b4981963d2f0",
+      "previousContentSha256": "11412e63a0f9f8ad72e05e470c14c63ad51c899ea6ea3d8efdb20db0c4b9c9bb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "8161251adfcbece8790fc5d29b53c59e271887fa660d8be1c94a031b8e7554f5",
+      "previousContentSha256": "cd2ae9099b06fc878629b251a1d63b41a85ad2d7adbc4b6d3cc2bfc3a7c2e0e7"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "ea6665061bc80c3591c176b9aabe9fe6b345d778998e112b12f52546325a21d7",
-      "previousContentSha256": "93e9b4d2fef18bafd0181ca150680a8345292f74556ec43bfd5ed430a913d7a7"
+      "contentSha256": "adae20c6a7227cd2ab5eff9e2179d85275b2c88d41155b43345504cab084087f",
+      "previousContentSha256": "ea6665061bc80c3591c176b9aabe9fe6b345d778998e112b12f52546325a21d7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
+      "contentSha256": "c7d4bc4654589962438135994047f1747e3adc04eb73559aef2c5bdcd6f5b667",
+      "previousContentSha256": "081eb9e6bb02fe7647fedf5ce77ab369a1f1ac70eb28013dcb9796e13101bd58"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
+      "contentSha256": "07ba05c7a28ccd639388046fe2ac61708ebc2ac245c81b03ca11ad12dcac6f8e",
+      "previousContentSha256": "a03be3bebc1d8807bcea8642af7fc4496e255aa634336a86e9c6708908f83d5c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
+      "contentSha256": "04d1ae95a757a7385ede954bcbe14dffbacedb40226b88f93760da7983944710",
+      "previousContentSha256": "056b326eb497d02981330bd330a5d7e29226ec9351f092c9675387937f18ff27"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
+      "contentSha256": "3e003f067a8c26b21d8594d17c335698007e28e60b60830747243d49bb645c4f",
+      "previousContentSha256": "d45cdd0e43eeaaf279249210585aeacdb13c7f9c4b6d750331eb4b9bd6dbe444"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
+      "contentSha256": "46dde387ad279074f9000b0dff88e787a9c1a383436ffafd42cd25ce13d4b7da",
+      "previousContentSha256": "473da490879a08a493efe079e9646c317867d13801206c721e160400c46e1d8c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
+      "contentSha256": "fe4a97ee589e7884daa3801e6daf411ed1208b233c7bd8724f5ffd9d375ca372",
+      "previousContentSha256": "782f7134f0a7e492abcb8ae2685f9741b490fab9e9030f4241aa17a8e7bb8616"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
+      "contentSha256": "bc88f30a43dfdfe423bf19a7284e2c2414611ea87f14a41322d2f4af0d74f1d9",
+      "previousContentSha256": "2e6b1f0078115e06eab45a4083f6cc99c4ef02190292bc8be76ed769f2bdc188"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
+      "contentSha256": "bd571aea28848e7fee7b277d7d588b2ebc0f24fe0b3523a674f148f0ac9d6f34",
+      "previousContentSha256": "546f460b5849a52f1209113b6414ffed99fa81129d61d71a7a523c91c882aefd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
+      "contentSha256": "f9edbd6fc4d31b9ea41193952ceaea7ada984d7ef4b258915d48c6bfaeaf3f70",
+      "previousContentSha256": "885e52848ea9b269c60d16899f20fdeb3a0af639b4c0eb38635d4e77c4910899"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
+      "contentSha256": "1b1b52de79e602904b5f709711bf8f5648caf1e8719d51b139bcba97fc043f93",
+      "previousContentSha256": "d1729af1f9fa26ec6d09838c65204328f7b192134b23ce8a97d3a85e3f09e7db"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
+      "contentSha256": "8ed7f494d62b49dc73ef52526b7915f165c9d08a55e88485b7a75a06e6d65191",
+      "previousContentSha256": "eb4c66b6bf18e450e99f68f21df44300c68d851c405826b653c7ea7dce35df86"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/index.md",
+      "contentSha256": "3f65af10b9d939a0df9049ca023d5017ba11e2336025d1b2f1be2c2a78b87a66",
+      "previousContentSha256": "d62af088d6d07ecb994a0a681ccc6ea68b73675faa2412527721526f4cb36952"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
+      "contentSha256": "ba5b8a63d56f72253fc3f0e20675199a31597cc35a8b70a254e1d5ca8fd60795",
+      "previousContentSha256": "db04657172f43c428268fe2a2360dfdcd9bf73088b7780fc729944e3bdd37e88"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/index.md",
+      "contentSha256": "a2d01caa98a5b886a2d2df1ab8b598849510a627d6559fb69dfa27621e279360",
+      "previousContentSha256": "e2b4f7dbec26a74659d3ab3f3178d1b5a9086e2fe20ecfbca811aafe4096b0b3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
+      "contentSha256": "aefb3f3f2e807899fc12605eee1e3d87a45eb3fe58b6321eae4742271b940204",
+      "previousContentSha256": "8f0d457f2460e8c922d44664cb9ca9a14565a4de0d8b99c15b50e7354925d767"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
+      "contentSha256": "e461e6e837df67a8c5e92cf659138f2911ebab7a97433a8f83d7255859fe6da8",
+      "previousContentSha256": "8aed5596dc30ebcbe07c727e5615c59ea190f4d000eae903bc7cf657cfc04d2b"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
-      "kind": "representation-changed",
+      "kind": "representation-removed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/index.md",
-      "contentSha256": "75f38c30263e4b00e442086409371eabbc4381fb92b48257c6bb35608ce1dae2",
-      "previousContentSha256": "2960cea529c1ba871755dc49cac2c4d4b71bdb5e27e94a07e33a907971e76f3d"
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "75f38c30263e4b00e442086409371eabbc4381fb92b48257c6bb35608ce1dae2"
     }
   ]
 }

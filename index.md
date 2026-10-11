@@ -45,7 +45,21 @@ The short list
 
 ## This weekend
 
-10–11 October
+17–18 October
+
+Swipe or scroll through the picks
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Emu Plains Reserve   Market
+
+Event details checked 3 Oct 2026. [Check organiser](<https://www.emuplainsmarket.com.au/>)
 
 - Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
@@ -56,6 +70,18 @@ Start with the award-winning works, then take time with the wider survey of cont
 Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+An easy afternoon making session after a Mornington outing.
+
+Mornington Peninsula Regional Gallery   Arts
+
+Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
