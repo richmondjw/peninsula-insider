@@ -123,13 +123,13 @@ function hasRanking(course: (typeof golfCourses)[0]): boolean {
 // ── JSON-LD schemas ───────────────────────────────────────────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
-  description: 'Compare 11 Mornington Peninsula golf courses by visitor access, location and playing style.',
+  description: 'Compare 11 Mornington Peninsula golf venues by visitor access, location and playing style.',
   path: '/explore/golf/',
   dateModified: '2026-10-05',
 });
 const itemListSchema = buildItemListSchema({
-  name: 'Mornington Peninsula Golf Courses',
-  description: '11 Mornington Peninsula golf courses grouped by location and visitor access.',
+  name: 'Mornington Peninsula Golf Venues',
+  description: '11 Mornington Peninsula golf venues grouped by location and visitor access.',
   listPath: '/explore/golf',
   items: [
     { name: 'Moonah Links', path: '/explore/moonah-links/', itemType: 'GolfCourse', addressLocality: 'Fingal' },
@@ -181,8 +181,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Golf - Compare 11 Courses · Peninsula Insider"
-  description="Compare 11 Mornington Peninsula golf courses by visitor access, location and playing style, with course guides and stay ideas."
+  title="Mornington Peninsula Golf - Compare 11 Venues · Peninsula Insider"
+  description="Compare 11 Mornington Peninsula golf venues by visitor access, location and playing style, with course guides and stay ideas."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
@@ -202,7 +202,7 @@ export const prerender = true;
     eyebrow="Explore guide"
     title="Mornington Peninsula <em>Golf</em>"
     dek="A rare mix of visitor-bookable coastal courses and private-club architecture, all within reach of a Peninsula weekend."
-    meta={[{ label: '11 course guides' }, { label: 'Public and private access' }]}
+    meta={[{ label: '11 golf venues' }, { label: 'Public and private access' }]}
     primaryAction={{ label: 'Choose your round', href: '#choose-your-round' }}
     heroImage={pageImage('golf-hub').src}
     imageAlt={pageImage('golf-hub').alt}
@@ -220,7 +220,7 @@ export const prerender = true;
         <a href="#course-the-national-golf-club">Private club access <span>The National</span></a>
       </div>
       <details class="golf-quick__all">
-        <summary>Find any of the 11 course guides</summary>
+        <summary>Find any of the 11 golf venue guides</summary>
         <div class="golf-quick__index">
           {[...capeCourses, ...bayCourses].map((course) => {
             const slug = course.data.slug ?? course.id;
@@ -249,16 +249,16 @@ export const prerender = true;
       </div>
       <div class="golf-orientation__grid">
         <article class="golf-orientation__card">
-          <div class="golf-orientation__meta"><span>Southern coast</span><span>4 courses</span></div>
+          <div class="golf-orientation__meta"><span>Southern coast</span><span>4 venues</span></div>
           <h3>Fingal and Cape Schanck</h3>
           <p>Exposed coastal golf. St Andrews Beach, Moonah Links and RACV offer visitor play; The National has private-club rules.</p>
-          <a href="#cape-courses">Compare four courses <span aria-hidden="true">→</span></a>
+          <a href="#cape-courses">Compare four venues <span aria-hidden="true">→</span></a>
         </article>
         <article class="golf-orientation__card">
-          <div class="golf-orientation__meta"><span>Across the Peninsula</span><span>7 courses</span></div>
+          <div class="golf-orientation__meta"><span>Across the Peninsula</span><span>7 venues</span></div>
           <h3>Seven towns and settings</h3>
           <p>From Flinders headland and Rye dunes to Boneo parkland and bayside towns. Check club access and the drive from your base.</p>
-          <a href="#across-courses">Compare seven courses <span aria-hidden="true">→</span></a>
+          <a href="#across-courses">Compare seven venues <span aria-hidden="true">→</span></a>
         </article>
       </div>
     </div>
@@ -273,7 +273,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">Cape Schanck / Fingal cluster</p>
           <h2 class="venues__title">Cape Schanck and Fingal courses</h2>
-          <p class="venues__sub">Four southern Peninsula courses with different access rules and playing styles.</p>
+          <p class="venues__sub">Four southern Peninsula golf venues with different access rules and playing styles.</p>
         </div>
       </div>
       <div class="golf-grid golf-grid--cape">
@@ -289,7 +289,7 @@ export const prerender = true;
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access, slug)}</span>
                 </div>
-                <div class="golf-card__holes">{slug === 'the-dunes-golf-links' ? '18 + 9 holes' : slug === 'rosebud-country-club' ? '2 x 18 holes' : g.holes ? `${g.holes} holes` : ''}</div>
+                <div class="golf-card__holes">{slug === 'the-national-golf-club' ? '54 Cape Schanck + 18 Frankston' : slug === 'the-dunes-golf-links' ? '18 + 9 holes' : slug === 'rosebud-country-club' ? '2 x 18 holes' : g.holes ? `${g.holes} holes` : ''}</div>
               </div>
               <div class="golf-card__body">
                 <h3 class="golf-card__name">
@@ -336,7 +336,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">Across the Peninsula</p>
           <h2 class="venues__title">More ways to play</h2>
-          <p class="venues__sub">Seven courses across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.</p>
+          <p class="venues__sub">Seven golf venues across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.</p>
         </div>
       </div>
       <div class="golf-grid golf-grid--bay">
@@ -584,7 +584,7 @@ export const prerender = true;
       <div class="golf-articles">
 
         <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/" class="golf-article-card">
-          <div class="golf-article-card__img" style={`background-image: url('${heroGolfStayPlay}')`} aria-hidden="true"></div>
+          <img class="golf-article-card__img" src={heroGolfStayPlay} alt="" width="960" height="420" loading="lazy" decoding="async" />
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Stay and play</p>
             <h3 class="golf-article-card__title">Stay and play - accommodation near every course</h3>
@@ -594,7 +594,7 @@ export const prerender = true;
         </a>
 
         <a href="/journal/st-andrews-beach-golf-course/" class="golf-article-card">
-          <div class="golf-article-card__img" style={`background-image: url('${heroStAndrews}')`} aria-hidden="true"></div>
+          <img class="golf-article-card__img" src={heroStAndrews} alt="" width="960" height="420" loading="lazy" decoding="async" />
           <div class="golf-article-card__body">
             <p class="golf-article-card__tag">Course deep-dive</p>
             <h3 class="golf-article-card__title">St Andrews Beach - a Tom Doak course visitors can book</h3>
@@ -617,18 +617,18 @@ export const prerender = true;
           <p class="label label--accent">Stay and play</p>
           <h2 class="golf-stayplay__heading">Planning a golf weekend</h2>
           <p class="golf-stayplay__dek">A Peninsula golf weekend works when the accommodation is close enough that travel between the course and the stay does not eat the day. The RACV Cape Schanck Resort is the most integrated: on-property accommodation, an 18-hole course, and the spa within walking distance. Moonah Links has its own on-property stay. Both allow two rounds in two days without getting in a car between them.</p>
-          <p class="golf-stayplay__dek">For those not staying on a golf property, Sorrento and Blairgowrie are the strongest mid-Peninsula bases: within 20 minutes of the Cape Schanck cluster and within 15 minutes of the ferry for a Queenscliff morning. The full stay-and-play guide maps each accommodation option to its closest course and travel time.</p>
+          <p class="golf-stayplay__dek">For those not staying on a golf property, Sorrento and Blairgowrie are useful southern bases for the Cape Schanck cluster and the Sorrento ferry. Check the route for your chosen tee time because Peninsula traffic can change the drive substantially. The full stay-and-play guide pairs accommodation with nearby courses.</p>
           <p class="golf-stayplay__dek">Building a broader Peninsula trip around golf? The <a href="/journal/mornington-peninsula-itinerary/" class="golf-stayplay__link">3-day Mornington Peninsula itinerary</a> shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.</p>
           <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/" class="pi-btn pi-btn--text">Read the stay-and-play guide →</a>
         </div>
         <div class="golf-stayplay__aside">
           <div class="golf-stayplay__fact">
-            <span class="golf-stayplay__fact-num">15</span>
-            <span class="golf-stayplay__fact-label">minutes from Cape Schanck courses to Peninsula Hot Springs</span>
+            <span class="golf-stayplay__fact-num">Nearby</span>
+            <span class="golf-stayplay__fact-label">Peninsula Hot Springs and the Fingal course cluster</span>
           </div>
           <div class="golf-stayplay__fact">
-            <span class="golf-stayplay__fact-num">90</span>
-            <span class="golf-stayplay__fact-label">minutes Melbourne CBD to Moonah Links or St Andrews Beach</span>
+            <span class="golf-stayplay__fact-num">Check</span>
+            <span class="golf-stayplay__fact-label">your live route from Melbourne before choosing a tee time</span>
           </div>
           <div class="golf-stayplay__fact">
             <span class="golf-stayplay__fact-num">2</span>
@@ -1175,9 +1175,12 @@ export const prerender = true;
     box-shadow: 0 14px 36px rgba(0, 40, 34, 0.11);
   }
   .golf-article-card__img {
+    display: block;
+    width: 100%;
     aspect-ratio: 16 / 7;
-    background-size: cover;
-    background-position: center;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
     background-color: var(--bg-alt);
   }
   .golf-article-card__body {
@@ -1232,6 +1235,7 @@ export const prerender = true;
     gap: clamp(2rem, 4vw, 5rem);
     align-items: center;
   }
+  .golf-stayplay__body { max-width: 68ch; }
   @media (max-width: 700px) {
     .golf-stayplay__inner { grid-template-columns: 1fr; }
   }
@@ -1251,7 +1255,7 @@ export const prerender = true;
     margin-bottom: 0.75rem;
   }
   .golf-stayplay__link {
-    color: var(--sand);
+    color: var(--white);
     text-decoration: underline;
     text-decoration-color: rgba(7, 158, 165, 0.45);
     transition: text-decoration-color 0.2s;
