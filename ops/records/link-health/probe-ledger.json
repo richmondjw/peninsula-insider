@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-10T03:07:50.887Z",
+  "updatedAt": "2026-10-11T19:11:18.095Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3105,6 +3105,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.eventbrite.com.au/e/summer-lovin-singles-party-at-the-rye-hotel-rye-tickets-2000082513639",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Summer Lovin&#x27; Singles Party at The Rye Hotel, Rye. Tickets, Friday 23 October • Starts at 8 PM | Eventbrite",
+      "probedOn": "2026-10-11",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287",
       "verdict": "ok",
       "httpCode": "200",
@@ -5065,6 +5073,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "403 Forbidden"
+    },
+    {
+      "url": "https://www.ryehotel.com.au/book-a-table",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book Now &mdash; Rye Hotel, Rye VIC",
+      "probedOn": "2026-10-11",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.scorpowines.com.au",
