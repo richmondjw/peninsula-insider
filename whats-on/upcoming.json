@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-12",
-  "generatedAt": "2026-10-11T19:17:57.381Z",
+  "generatedAt": "2026-10-11T19:35:15.692Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 16 – Sun 18 October",
     "count": 10
   },
-  "numberOfItems": 17,
+  "numberOfItems": 18,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -156,6 +156,19 @@
       "position": 12,
       "item": {
         "@type": "Event",
+        "name": "Summer Lovin' Singles Party at Rye Hotel",
+        "url": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+        "startDate": "2026-10-23",
+        "endDate": "2026-10-23",
+        "description": "Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "Event",
         "name": "Mt Eliza Farmers Market",
         "url": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
         "startDate": "2026-10-25",
@@ -166,7 +179,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -179,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
@@ -192,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -205,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -218,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -230,7 +243,7 @@
       }
     }
   ],
-  "count": 17,
+  "count": 18,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -488,6 +501,25 @@
         }
       ],
       "thisWeekend": true
+    },
+    {
+      "title": "Summer Lovin' Singles Party at Rye Hotel",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+      "startDate": "2026-10-23",
+      "endDate": "2026-10-23",
+      "id": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/summer-lovin-singles-party-at-the-rye-hotel-rye-tickets-2000082513639",
+      "factCheckedOn": null,
+      "recurrence": "one-off",
+      "category": "community",
+      "place": "rye",
+      "venue": "rye-hotel",
+      "summary": "Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
     },
     {
       "title": "Mt Eliza Farmers Market",

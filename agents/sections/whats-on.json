@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-11T19:24:39.611Z",
-  "snapshotId": "6fadeed517cb8b5f4d1f3597b685a52f35b7f85e37d3fa888c7364be517135fe",
+  "generatedAt": "2026-10-11T19:41:50.954Z",
+  "snapshotId": "8976eca9c9de76c2ef3b0a87304052f82e3fbfc6e74996ed6fcc06f78f7b2e62",
   "section": "whats-on",
-  "count": 38,
+  "count": 39,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -19,7 +19,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-12"
       },
-      "htmlBytes": 194032,
+      "htmlBytes": 194156,
       "markdownBytes": 8771
     },
     {
@@ -62,7 +62,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "aba7ec7257ef2922355d8323f229b10d079bda97577ee5819f6f2668cc9351c0",
+      "contentSha256": "1109428451148ccb26e19fe9dcbd9ff167a165466914a3db8f7b35bbb493cc66",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -70,8 +70,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 130442,
-      "markdownBytes": 1403
+      "htmlBytes": 133134,
+      "markdownBytes": 1813
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -344,6 +344,23 @@
       },
       "htmlBytes": 141671,
       "markdownBytes": 4555
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+      "title": "Summer Lovin' Singles Party at Rye Hotel",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/index.md",
+      "contentSha256": "2ad34cee55840df80b0cf2f08a181c66bad0e508a8f24a9416e886f3f4dbb7b1",
+      "citation": {
+        "title": "Summer Lovin' Singles Party at Rye Hotel",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 141822,
+      "markdownBytes": 4243
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",

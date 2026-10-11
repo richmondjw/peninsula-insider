@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-11T19:24:39.611Z",
-  "snapshotId": "6fadeed517cb8b5f4d1f3597b685a52f35b7f85e37d3fa888c7364be517135fe",
+  "generatedAt": "2026-10-11T19:41:50.954Z",
+  "snapshotId": "8976eca9c9de76c2ef3b0a87304052f82e3fbfc6e74996ed6fcc06f78f7b2e62",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 592,
+  "count": 593,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 200074,
+      "htmlBytes": 203352,
       "markdownBytes": 811
     },
     {
@@ -1407,7 +1407,7 @@
       "section": "eat",
       "canonicalUrl": "https://peninsulainsider.com.au/eat/rye-hotel/",
       "markdownUrl": "https://peninsulainsider.com.au/eat/rye-hotel/index.md",
-      "contentSha256": "5c435d8be555bc435f6d1ec9a96d95f572c7bb28393e89efff342e0556f3381c",
+      "contentSha256": "657aa27ead7243d50b76bb6b694643cb3e5b9e0d271baaa2e4251ae2ec1a8347",
       "citation": {
         "title": "Rye Hotel",
         "publisher": "Peninsula Insider",
@@ -1415,8 +1415,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 158569,
-      "markdownBytes": 5887
+      "htmlBytes": 164427,
+      "markdownBytes": 6461
     },
     {
       "id": "https://peninsulainsider.com.au/eat/seafood/",
@@ -2563,7 +2563,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "527a38e599b24d1cdb35601f37e3f97f4aee4c6627233a7dcb009cbd3cdd8f24",
+      "contentSha256": "feeee4a4684d6fa3c260cacc3e401002c72b720b877becc1d657c52fd0c4a5aa",
       "citation": {
         "title": "Rye",
         "publisher": "Peninsula Insider",
@@ -2571,8 +2571,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 224953,
-      "markdownBytes": 15458
+      "htmlBytes": 230755,
+      "markdownBytes": 15999
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/safety-beach/",
@@ -6201,7 +6201,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/the-pub-guide/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/the-pub-guide/index.md",
-      "contentSha256": "520060f520956bf104d6fca9db792b31628612256edc3268c356e4ff621d5f82",
+      "contentSha256": "3d336b306218cbd1e03f3216aca6bd33a84f2e64a491ee642a088751058ed0bf",
       "citation": {
         "title": "The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For",
         "publisher": "Peninsula Insider",
@@ -6209,8 +6209,8 @@
         "publishedAt": "2026-04-10T00:00:00.000Z",
         "modifiedAt": "2026-04-10T00:00:00.000Z"
       },
-      "htmlBytes": 181017,
-      "markdownBytes": 11475
+      "htmlBytes": 186723,
+      "markdownBytes": 11962
     },
     {
       "id": "https://peninsulainsider.com.au/journal/the-seafood-list/",
@@ -6439,7 +6439,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/index.md",
-      "contentSha256": "eaf7b19fca3df0c988e0fe160222c88d90f5f7edeb54ac4d5b3ee652949b36db",
+      "contentSha256": "1b1bbf4a7ae9533c705acb3f36aa93c70bb86a52642260fc86ccfc159ace2587",
       "citation": {
         "title": "Where to Eat Without a Booking",
         "publisher": "Peninsula Insider",
@@ -6447,8 +6447,8 @@
         "publishedAt": "2026-04-10T00:00:00.000Z",
         "modifiedAt": "2026-04-10T00:00:00.000Z"
       },
-      "htmlBytes": 201847,
-      "markdownBytes": 18020
+      "htmlBytes": 207553,
+      "markdownBytes": 18507
     },
     {
       "id": "https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/",
@@ -6643,7 +6643,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "065360ed250e39b5a1d4165385f9ed9e3d6db759ac43f72c90404108eb951c50",
+      "contentSha256": "f7515c48c2e1b1489e7d03de012836d81de9f090962c76b588b39dee933685ef",
       "citation": {
         "title": "Monday 12 October 2026",
         "publisher": "Peninsula Insider",
@@ -6660,7 +6660,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "8161251adfcbece8790fc5d29b53c59e271887fa660d8be1c94a031b8e7554f5",
+      "contentSha256": "ad464c8adb6ef9bbdfb9eaf56ef43a72d12ee6e341a850a2b04c98d415f341b2",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6668,8 +6668,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134341,
-      "markdownBytes": 26995
+      "htmlBytes": 134461,
+      "markdownBytes": 27128
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8487,7 +8487,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-12"
       },
-      "htmlBytes": 194032,
+      "htmlBytes": 194156,
       "markdownBytes": 8771
     },
     {
@@ -8530,7 +8530,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "aba7ec7257ef2922355d8323f229b10d079bda97577ee5819f6f2668cc9351c0",
+      "contentSha256": "1109428451148ccb26e19fe9dcbd9ff167a165466914a3db8f7b35bbb493cc66",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -8538,8 +8538,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 130442,
-      "markdownBytes": 1403
+      "htmlBytes": 133134,
+      "markdownBytes": 1813
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -8812,6 +8812,23 @@
       },
       "htmlBytes": 141671,
       "markdownBytes": 4555
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+      "title": "Summer Lovin' Singles Party at Rye Hotel",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/index.md",
+      "contentSha256": "2ad34cee55840df80b0cf2f08a181c66bad0e508a8f24a9416e886f3f4dbb7b1",
+      "citation": {
+        "title": "Summer Lovin' Singles Party at Rye Hotel",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 141822,
+      "markdownBytes": 4243
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",

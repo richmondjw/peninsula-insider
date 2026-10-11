@@ -487,6 +487,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
+- [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
+
 - [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
 - [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
