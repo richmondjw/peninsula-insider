@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-11T20:15:35.469Z",
-  "snapshotId": "d818f10151466111eabd219bc9257eb0fd9d807ee550d152c69d645838b1f272",
+  "generatedAt": "2026-10-11T20:29:03.890Z",
+  "snapshotId": "a8e8534af45482a4309f3ffe979b84827f5b0d5157e1d1d216efe4e1d5195acb",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 593,
+  "count": 594,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5805,6 +5805,23 @@
       "markdownBytes": 9295
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
+      "title": "Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/index.md",
+      "contentSha256": "d4eab150df117ca2c0dd627398965cc17b6726a9aff4e904410fb0de6a95b23d",
+      "citation": {
+        "title": "Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
+        "publishedAt": "2026-10-12T00:00:00.000Z",
+        "modifiedAt": "2026-10-12T00:00:00.000Z"
+      },
+      "htmlBytes": 174320,
+      "markdownBytes": 8472
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6609,7 +6626,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "faa5a7f04854a69057a16fcd9b65d42c46e1133fb99a38b117f0a1f69621ed16",
+      "contentSha256": "92d3a8b26ce4fa4bc1fa8e9b074712456af609f384facc3b9d52964d86e59fb7",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6617,8 +6634,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123287,
-      "markdownBytes": 5825
+      "htmlBytes": 123323,
+      "markdownBytes": 5869
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6643,7 +6660,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "5de712e1561ccdee0a0e2e326dcdfe0d5c09944a563e5fcc514524f5da28c7af",
+      "contentSha256": "07f524f6969948fb4e169ec1a40c5edba2a54e17d4aeddf545b0869d0138c8ec",
       "citation": {
         "title": "Monday 12 October 2026",
         "publisher": "Peninsula Insider",
