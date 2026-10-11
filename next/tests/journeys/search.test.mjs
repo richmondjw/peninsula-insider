@@ -221,6 +221,22 @@ test('search overlay renders fast RPC suggestions as linked list items with a re
   } finally { await reader.close(); }
 });
 
+test('search overlay close control keeps a full touch target at narrow widths', async () => {
+  const reader = await site.reader();
+  try {
+    await reader.page.setViewport({ width: 320, height: 720 });
+    await reader.load('/');
+    await reader.page.click('[data-open-search]');
+    const size = await reader.page.$eval('.site-search-overlay__close', (button) => {
+      const box = button.getBoundingClientRect();
+      return { width: box.width, height: box.height };
+    });
+    assert.ok(size.width >= 44 && size.height >= 44, JSON.stringify(size));
+  } finally {
+    await reader.close();
+  }
+});
+
 
 test('mobile drawer search keeps immediate keyboard input through dialog close', async () => {
   const reader = await site.reader();

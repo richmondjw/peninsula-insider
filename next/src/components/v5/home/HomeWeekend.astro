@@ -125,7 +125,7 @@ const cards = await Promise.all(
       <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={cards.length < 2}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
 
       <div class="home-weekend__scroller">
-        <CardGrid label="This weekend's picks">
+        <CardGrid label="This weekend's picks" maxCols={cards.length === 2 ? 2 : 3}>
           {cards.map((card, i) => (
             <li data-event-promotion={JSON.stringify({id:card.promotion.id,data:publicEventData(card.promotion.data)})} data-event-promotion-day={card.dateISO}>
             <Card preferAvif={true} as="article"
@@ -195,6 +195,7 @@ const cards = await Promise.all(
   .home-weekend { scroll-margin-top: 9rem; }
   @media (min-width: 64em) {
     .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: 1.875rem; }
   }
   .home-weekend__scroller :global(.pi-card__media) { height: 14.375rem; aspect-ratio: auto; }
@@ -277,6 +278,7 @@ const cards = await Promise.all(
     text-decoration: none;
     border-bottom: 1.5px solid var(--accent);
     padding-bottom: 2px;
+    white-space: nowrap;
     transition: color var(--dur-fast) var(--ease-enter);
   }
 
