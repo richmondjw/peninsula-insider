@@ -21,23 +21,13 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 9 – Sun 11 October
 
-## Two reasons to go
+## A reason to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-More picks to the right
-
-- Editorial illustration. Conceptual market scene, not an exact depiction of Mornington Racecourse Market.   Illustration: Peninsula Insider.
-
-Sun, 11 Oct · 9am–2pm · Mornington
-
-### [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington.
-
-Sun, 11 Oct   Mornington   Markets
-
 - Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Sun, 11 Oct · 11am–4pm · Mornington
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -56,12 +46,6 @@ Make a day of it
 Browse by date and save what catches your eye.
 
 ### Sunday 11 October
-
-- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
-
-A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
-
-9am · Mornington · Markets · One-day event
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -109,6 +93,12 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 9am · Crib Point · Markets
 
+- [Mornington Racecourse Market](<https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/>)
+
+A useful Sunday stop for makers, food and music, with room to extend the trip into Mornington. Check the exact market date before leaving because racing can change the usual cadence.
+
+9am · Mornington · Markets
+
 - [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
@@ -120,12 +110,6 @@ A VFMA-accredited village market with local growers and specialty makers, suppor
 Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
 
 9am · Balnarring · Markets
-
-- [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
-
-Forty years of Wednesdays on Main Street. Not a tourist event, just the way Mornington shops midweek.
-
-9am · Mornington · Markets
 
 ### Live music
 

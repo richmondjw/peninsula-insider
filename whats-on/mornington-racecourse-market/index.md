@@ -11,8 +11,6 @@ Event     Markets     11 October 2026     Recurs monthly
 
 A makers market at Mornington Racecourse on Sunday 11 October, 9am to 2pm. Browse handmade, homegrown and Australian-designed goods, street food and live music. Entry is free; paid parking applies and dogs are not permitted.
 
-[Check latest details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1>)
-
 Worth the drive   First timer
 
 Illustration · Peninsula Insider
@@ -77,7 +75,7 @@ Yes - unprompted recommendation
 
 Start here
 
-[Check latest details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Racecourse+Market&dates=20261010T220000Z%2F20261011T030000Z&details=A+makers+market+at+Mornington+Racecourse+on+Sunday+11+October%2C+9am+to+2pm.+Browse+handmade%2C+homegrown+and+Australian-designed+goods%2C+street+food+and+live+music.+Entry+is+free%3B+paid+parking+applies+and+dogs+are+not+permitted.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-racecourse-market%2F&location=Mornington+Racecourse%2C+320+Racecourse+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 
