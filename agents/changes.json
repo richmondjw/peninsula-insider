@@ -1,36 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-11T20:29:03.890Z",
+  "generatedAt": "2026-10-12T03:06:40.239Z",
   "baselineAvailable": true,
-  "fromSnapshot": "d818f10151466111eabd219bc9257eb0fd9d807ee550d152c69d645838b1f272",
-  "toSnapshot": "a8e8534af45482a4309f3ffe979b84827f5b0d5157e1d1d216efe4e1d5195acb",
-  "previousGeneratedAt": "2026-10-11T20:15:35.469Z",
+  "fromSnapshot": "a8e8534af45482a4309f3ffe979b84827f5b0d5157e1d1d216efe4e1d5195acb",
+  "toSnapshot": "ecc4214261f79fecccb50212544787a14a7e6e51cac9b045e024b9eaf4a3c048",
+  "previousGeneratedAt": "2026-10-11T20:29:03.890Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 3,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/index.md",
-      "contentSha256": "d4eab150df117ca2c0dd627398965cc17b6726a9aff4e904410fb0de6a95b23d",
-      "previousContentSha256": null
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "5097947d7e069d72d0109521fc7dd6d5af7555ce76b527eb2cbc4bfe7a315747",
+      "previousContentSha256": "5363cd7f46d76bc04d4ce2c74c72b85de498f14a1eb8f870277d2dfa39f76e5b"
     },
     {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "92d3a8b26ce4fa4bc1fa8e9b074712456af609f384facc3b9d52964d86e59fb7",
-      "previousContentSha256": "faa5a7f04854a69057a16fcd9b65d42c46e1133fb99a38b117f0a1f69621ed16"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "bdf5936f31330e2f15fb3cac1980c7cbaf61b5a55c89b171be5be84575d74916",
+      "previousContentSha256": "46156a93016a3f5e8c5a1eb0b0f92b83108b805e5adeaab7d83a7b7bd2e8a8f2"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "07f524f6969948fb4e169ec1a40c5edba2a54e17d4aeddf545b0869d0138c8ec",
-      "previousContentSha256": "5de712e1561ccdee0a0e2e326dcdfe0d5c09944a563e5fcc514524f5da28c7af"
+      "contentSha256": "43b37a0bcdf490498acc8bdabb329502b6e7587a8a4807d038e6bb497ade3133",
+      "previousContentSha256": "07f524f6969948fb4e169ec1a40c5edba2a54e17d4aeddf545b0869d0138c8ec"
     }
   ]
 }

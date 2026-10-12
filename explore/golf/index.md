@@ -13,7 +13,7 @@ A rare mix of visitor-bookable coastal courses and private-club architecture, al
 
  [Choose your round](<https://peninsulainsider.com.au/explore/golf/#choose-your-round>)
 
-11 course guides  Public and private access
+11 golf venues  Public and private access
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -29,27 +29,27 @@ Compare your options
 
 Choose a part of the Peninsula, then compare access and playing style in the course cards.
 
-Southern coast  4 courses
+Southern coast  4 venues
 
 ### Fingal and Cape Schanck
 
 Exposed coastal golf. St Andrews Beach, Moonah Links and RACV offer visitor play; The National has private-club rules.
 
- [Compare four courses](<https://peninsulainsider.com.au/explore/golf/#cape-courses>)
+ [Compare four venues](<https://peninsulainsider.com.au/explore/golf/#cape-courses>)
 
-Across the Peninsula  7 courses
+Across the Peninsula  7 venues
 
 ### Seven towns and settings
 
 From Flinders headland and Rye dunes to Boneo parkland and bayside towns. Check club access and the drive from your base.
 
- [Compare seven courses](<https://peninsulainsider.com.au/explore/golf/#across-courses>)
+ [Compare seven venues](<https://peninsulainsider.com.au/explore/golf/#across-courses>)
 
 Cape Schanck / Fingal cluster
 
 ## Cape Schanck and Fingal courses
 
-Four southern Peninsula courses with different access rules and playing styles.
+Four southern Peninsula golf venues with different access rules and playing styles.
 
 Public green fees
 
@@ -81,7 +81,7 @@ Fully public, seven days; tee times and current fees are published by the club. 
 
 Private · visitor requests
 
-72 holes
+54 Cape Schanck + 18 Frankston
 
 ### [The National Golf Club](<https://peninsulainsider.com.au/explore/the-national-golf-club/>)
 
@@ -113,7 +113,7 @@ Across the Peninsula
 
 ## More ways to play
 
-Seven courses across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.
+Seven golf venues across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.
 
 Semi-private
 
@@ -355,15 +355,15 @@ Stay and play
 
 A Peninsula golf weekend works when the accommodation is close enough that travel between the course and the stay does not eat the day. The RACV Cape Schanck Resort is the most integrated: on-property accommodation, an 18-hole course, and the spa within walking distance. Moonah Links has its own on-property stay. Both allow two rounds in two days without getting in a car between them.
 
-For those not staying on a golf property, Sorrento and Blairgowrie are the strongest mid-Peninsula bases: within 20 minutes of the Cape Schanck cluster and within 15 minutes of the ferry for a Queenscliff morning. The full stay-and-play guide maps each accommodation option to its closest course and travel time.
+For those not staying on a golf property, Sorrento and Blairgowrie are useful southern bases for the Cape Schanck cluster and the Sorrento ferry. Check the route for your chosen tee time because Peninsula traffic can change the drive substantially. The full stay-and-play guide pairs accommodation with nearby courses.
 
 Building a broader Peninsula trip around golf? The [3-day Mornington Peninsula itinerary](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.
 
  [Read the stay-and-play guide →](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
 
-15   minutes from Cape Schanck courses to Peninsula Hot Springs
+Nearby   Peninsula Hot Springs and the Fingal course cluster
 
-90   minutes Melbourne CBD to Moonah Links or St Andrews Beach
+Check   your live route from Melbourne before choosing a tee time
 
 2   on-property accommodation options at the Cape cluster
 
