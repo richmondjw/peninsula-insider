@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-12
+Modified: 2026-10-13
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,13 +27,13 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Mornington Peninsula Regional Gallery interior for venue context; this photograph does not show the Tessellation workshop.   Photo courtesy of Visit Victoria.
 
-Sat, 17 Oct · 1:30pm–3:30pm · Mornington
+Sat, 17 Oct · 9:30am–12:30pm · Mornington
 
-### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
-An easy afternoon making session after a Mornington outing.
+Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
 
 Sat, 17 Oct   Mornington   Arts
 
@@ -177,11 +177,11 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions
 
-- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
+An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
 
-9.30am · Mornington · Arts
+1.30pm · Mornington · Arts
 
 ### Major events
 

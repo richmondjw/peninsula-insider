@@ -49,16 +49,6 @@ The short list
 
 Swipe or scroll through the picks
 
-- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
 - Illustrative image
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
@@ -82,6 +72,18 @@ Choose this for a structured morning making session with National Works on Paper
 Mornington Peninsula Regional Gallery   Arts
 
 Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Peppers Moonah Links   Every Saturday
+
+Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
