@@ -64,7 +64,7 @@ const href = playUrl('peek');
   function show() {
     const el = activeEl;
     if (!el || fired) return;
-    if (noteShown || !consentAnswered() || document.querySelector('#inote:not([hidden])')) {
+    if (noteShown || !consentAnswered() || document.documentElement.dataset.piPromoBar === 'visible' || document.querySelector('#inote:not([hidden])')) {
       stopTimer();
       timer = window.setTimeout(show, 5000);
       return;
@@ -79,6 +79,8 @@ const href = playUrl('peek');
 
   document.addEventListener('inote_open', () => { noteShown = true; });
   document.addEventListener('inote_impression', () => { noteShown = true; });
+  document.addEventListener('note_popup_shown', () => { noteShown = true; });
+  document.addEventListener('note_popup_dismissed', () => { noteShown = true; });
 
   window.addEventListener('scroll', () => {
     if (!activeEl || fired) return;
@@ -140,6 +142,7 @@ const href = playUrl('peek');
     transition: transform 0.32s ease, opacity 0.32s ease;
   }
   .play-peek[data-in="true"] { transform: none; opacity: 1; }
+  :global(html[data-pi-promo-bar="visible"]) .play-peek { display: none; }
   .play-peek__mark { flex: none; width: 56px; height: auto; }
   .play-peek__text { flex: 1 1 auto; min-width: 0; }
   .play-peek__lead { margin: 0 0 2px; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; line-height: 1.1; }

@@ -102,13 +102,17 @@ const imageAttrs = editable
       </div>
       {resolvedHeroImage && (
         <figure class="guide-hero__figure">
-          <div
+          <img
             class="guide-hero__image"
-            role="img"
-            aria-label={resolvedImageAlt}
-            style={`background-image: url(${resolvedHeroImage})`}
+            src={resolvedHeroImage}
+            alt={resolvedImageAlt}
+            width="1600"
+            height="2000"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
             {...imageAttrs}
-          ></div>
+          />
           {imageCredit && <figcaption class="guide-hero__credit">Photo · {imageCredit}</figcaption>}
         </figure>
       )}
