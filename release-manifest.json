@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "releaseId": "65e5088e439c-38267247133",
-  "sourceSha": "65e5088e439c73b136fd830f21565138ff74e6a5",
-  "buildRunId": "38267247133",
-  "generatedAt": "2026-10-12T15:13:23.827Z",
+  "releaseId": "5a8a9af5a7b0-38296369587",
+  "sourceSha": "5a8a9af5a7b0fd901acf15fe5cebd81ebf7b33d8",
+  "buildRunId": "38296369587",
+  "generatedAt": "2026-10-12T19:25:15.617Z",
   "trigger": "push",
   "authority": {
     "mode": "github-protected-release",
@@ -19,7 +19,7 @@
     {
       "path": "/index.html",
       "bytes": 199795,
-      "sha256": "be9cc14ff5cc688c809d1ad1eaea2c37904d721cacbb3462445a5d65fb89f047"
+      "sha256": "4c06074ccc56b1c7bd5914cfc266d1e4dc88bbad79a772c5a196105e20ef89a3"
     },
     {
       "path": "/llms.txt",
@@ -34,11 +34,11 @@
     {
       "path": "/whats-on/upcoming.json",
       "bytes": 29246,
-      "sha256": "7e37c21d524b9d1cd8d006ec37be70044a8eabe839fcac516ea959ff7d6e9b12"
+      "sha256": "5c41d8784b89b8120a283cd17dd156d9ea1433c4177e2e38a7a008b7270996cd"
     }
   ],
   "verification": {
     "state": "awaiting_external_verification",
-    "expectedDeploymentSha": "65e5088e439c73b136fd830f21565138ff74e6a5"
+    "expectedDeploymentSha": "5a8a9af5a7b0fd901acf15fe5cebd81ebf7b33d8"
   }
 }
