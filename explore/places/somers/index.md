@@ -129,6 +129,14 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
+Insider Edit   4 min
+
+### [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>)
+
+13 October 2026
+
+A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
+
 Service   6 min
 
 ### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
@@ -144,14 +152,6 @@ Service   8 min
 13 April 2026
 
 Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
-
-Service   8 min
-
-### [The Peninsula Orientation Drive: Six Stops in One Day](<https://peninsulainsider.com.au/explore/plans/the-peninsula-orientation-drive/>)
-
-10 April 2026
-
-The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay - in that order, with most of a day to enjoy it.
 
 Planning guides
 

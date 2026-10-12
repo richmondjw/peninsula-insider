@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
+
 - [Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/>) - Baillieu's Merricks Chardonnay at a cellar door most weekenders miss, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
 
 - [Wood-fired lamb at Red Hill, wattle on the Boardwalk Loop, and origami at the regional gallery](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/>) - Green Olive at Red Hill's grove-to-table spring Sunday, the Boardwalk Nature Circuit at peak wattle bloom, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery this Saturday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Moke Dining in Flinders, the Bushrangers Bay boardwalk, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/>) - Michael Cole's five-course set menu in Flinders, the Bushrangers Bay boardwalk track at spring peak, and the Hill & Ridge Community Market at Red Hill Recreation Reserve on Saturday.
 
 - [Red Hill Brewery's hop garden, the spring wildflower window on Arthurs Seat, and Peninsula Hot Springs Sunday Sessions](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/>) - Red Hill Brewery pours from its own estate hop garden, Arthurs Seat's Seawinds Garden hits peak spring bloom, and Peninsula Hot Springs launches its Sunday Sessions series in Fingal.
-
-- [Rye Hotel's beer garden, the Cape Schanck clifftop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-29/>) - A sprawling foreshore pub hits its spring stride, Cape Schanck's clifftop track opens up in the wildflower window, and Mornington Peninsula Regional Gallery's National Works on Paper runs until 22 November.
 
 ## Planning a particular weekend?
 

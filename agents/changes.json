@@ -1,20 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-12T19:25:13.456Z",
+  "generatedAt": "2026-10-12T20:20:01.272Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b0339782bf7c785f7b16095ba791cf35d5ef7937d4f049d0d0402818704aa7bf",
-  "toSnapshot": "325c4009c34554a7cbd12d91ffee53297e98279e786fc49dc01abe22af51637a",
-  "previousGeneratedAt": "2026-10-12T15:13:22.161Z",
+  "fromSnapshot": "325c4009c34554a7cbd12d91ffee53297e98279e786fc49dc01abe22af51637a",
+  "toSnapshot": "39ea9d53eb2f0c8e1c33fec077db4a9dcff73d47b68b6fe24253baf895660edb",
+  "previousGeneratedAt": "2026-10-12T19:25:13.456Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/somers/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/somers/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/somers/index.md",
+      "contentSha256": "227d6254c81d2723170061c3a8c758b8fbac9c6a5812de3b8f17bdf07c0506f5",
+      "previousContentSha256": "e1b4545916a845a85c7cdc50eb99a9b7d0bbeef1f525e54b85029b9a48c6890c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/index.md",
+      "contentSha256": "ae28615fdf08ea223dc0c98f12c830fbd60d72bf8e971af29fab8db2103e799e",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "5ee0dd2d4080071a8d4d2f6c4d5efa197be5e466b32616a1dd98be3cbfd9a59e",
+      "previousContentSha256": "92d3a8b26ce4fa4bc1fa8e9b074712456af609f384facc3b9d52964d86e59fb7"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6b81fb4bec5257c49563b182f3167a266b0d66ff44750c498163fe9871b66eef",
-      "previousContentSha256": "2fef3666f5b29582c4b0a6d7efcef11fbb741fe39b74ffd17e37386fc91ab3e8"
+      "contentSha256": "26b8cbfd2757fd4608380cfbdd0297cb89d65e011ec78a2f260cff18ec501c09",
+      "previousContentSha256": "6b81fb4bec5257c49563b182f3167a266b0d66ff44750c498163fe9871b66eef"
     }
   ]
 }
