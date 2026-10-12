@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/golf/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-05
+Modified: 2026-10-12
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -313,21 +313,21 @@ The Peninsula solves this better than almost anywhere else in Australia. The non
 
 While the golfer plays Moonah Links, St Andrews Beach, or The National:
 
-- [Peninsula Hot Springs](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>) - 15 minutes from the Cape cluster. A full morning or afternoon session fills the time of any golf round.
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/>) - A bathing session can fill the time of a golf round. Check the route from the chosen course before booking both.
 
-- [Cape Schanck boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>) - 45-minute clifftop walk to Pulpit Rock. The non-golfer gets the best scenery on the Peninsula.
+- [Cape Schanck boardwalk](<https://peninsulainsider.com.au/explore/cape-schanck-boardwalk/>) - A clifftop walk towards Pulpit Rock with exposed coastal views. Match the walk to the weather and available daylight.
 
-- [Flinders town](<https://peninsulainsider.com.au/explore/places/flinders/>) - Coffee, the Flinders Hotel beer garden, and a proper lunch. 15 minutes from the course cluster.
+- [Flinders town](<https://peninsulainsider.com.au/explore/places/flinders/>) - Coffee, the Flinders Hotel beer garden, and a proper lunch. Check the live route from the course before agreeing on a meeting time.
 
 ### Golf beyond Cape Schanck
 
 While the golfer plays Flinders, Eagle Ridge, The Dunes, or Mornington:
 
-- [Red Hill and Main Ridge wineries](<https://peninsulainsider.com.au/wine/>) - A self-guided cellar door morning within 20 minutes of Eagle Ridge. Pairs perfectly for a post-round lunch rendezvous.
+- [Red Hill and Main Ridge wineries](<https://peninsulainsider.com.au/wine/>) - A self-guided cellar-door morning that can pair with a post-round lunch. Confirm opening times and the live route from Eagle Ridge.
 
 - [Mornington town](<https://peninsulainsider.com.au/explore/places/mornington/>) - Main Street, the foreshore, and Mornington Racecourse if timing aligns. Full morning agenda for a non-golfer.
 
-- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>) - Also reachable from the mid-Peninsula corridor in 25 minutes.
+- [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>) - A bathing option for groups based in the mid-Peninsula corridor. Check the live route for the day and tee time.
 
 Further reading
 
@@ -391,15 +391,15 @@ RACV Cape Schanck Resort is on-site with direct access to its 18-hole course. Mo
 
 How do the Cape Schanck and other Peninsula courses differ?
 
-The Cape Schanck / Fingal cluster brings together St Andrews Beach, Moonah Links, and three of The National's four courses (Old, Moonah, Gunnamatta). The fourth National course, Long Island, sits 50 minutes north at Frankston and is the club's gateway from Melbourne. All sit in coastal duneland exposed to Bass Strait weather. The terrain is Links-adjacent and the quality of the design architecture is the highest on the Peninsula.
+The Cape Schanck / Fingal cluster brings together St Andrews Beach, Moonah Links, and three of The National's four courses (Old, Moonah, Gunnamatta). The fourth National course, Long Island, is at Frankston rather than Cape Schanck. The southern courses sit in coastal duneland exposed to Bass Strait weather, with links-style characteristics and a strong concentration of recognised course architecture.
 
 The other clubs are spread across Flinders, Boneo, Rye, Mornington and southern bayside towns. They vary in visitor access, terrain and travel time; check the club rules and route that suit your trip.
 
 How far is Mornington Peninsula golf from Melbourne?
 
-Most Peninsula golf courses are 75–105 minutes from Melbourne CBD via the Mornington Peninsula Freeway. The Cape Schanck / Fingal cluster - St Andrews Beach, Moonah Links, The National - is approximately 90–100 minutes. The Dunes (Rye) is in the same window. Mornington Golf Club is the closest course to Melbourne at around 60 minutes.
+Drive times from Melbourne vary materially by the course, departure point and Peninsula traffic. Mornington is the northernmost venue in this guide; the Rye, Fingal and Cape Schanck courses require travelling farther south.
 
-Weekend traffic on the Mornington Peninsula Freeway can add 15–30 minutes during summer and school holiday periods. Plan for an early departure on Friday afternoons or Saturday mornings in peak season.
+Check a live route for the exact tee time before booking. Allow extra margin on Friday afternoons, weekends, summer dates and school holidays, when Peninsula roads can be busier.
 
 What is the best time of year for golf on the Mornington Peninsula?
 

@@ -1,36 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-12T14:43:17.006Z",
+  "generatedAt": "2026-10-12T15:13:22.161Z",
   "baselineAvailable": true,
-  "fromSnapshot": "ecc4214261f79fecccb50212544787a14a7e6e51cac9b045e024b9eaf4a3c048",
-  "toSnapshot": "4328d59a59968946372ba2cbcca7241cb040fad8d2121f8012d344b415ee5e97",
-  "previousGeneratedAt": "2026-10-12T03:06:40.239Z",
+  "fromSnapshot": "4328d59a59968946372ba2cbcca7241cb040fad8d2121f8012d344b415ee5e97",
+  "toSnapshot": "b0339782bf7c785f7b16095ba791cf35d5ef7937d4f049d0d0402818704aa7bf",
+  "previousGeneratedAt": "2026-10-12T14:43:17.006Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 2,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/",
+      "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "19f75e94faa028cb9de9d0f3fcc4699b0a425c1fdfb217faa9a94dd7656f6a2a",
-      "previousContentSha256": "5097947d7e069d72d0109521fc7dd6d5af7555ce76b527eb2cbc4bfe7a315747"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "2d44f732adc48f57d72b1a368d51eebdd9a420174694fb4b3c9769f853c706fc",
+      "previousContentSha256": "bdf5936f31330e2f15fb3cac1980c7cbaf61b5a55c89b171be5be84575d74916"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "b16fb12da9194c6bda5d341da58eab21d7e274b28cd91063e83b0adfe65f0ed4",
-      "previousContentSha256": "43b37a0bcdf490498acc8bdabb329502b6e7587a8a4807d038e6bb497ade3133"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "33f490e45cb1ea916d0da7e3711cd3de5efbbae14bc7a476d8b86c03cdfd28c9",
-      "previousContentSha256": "adae20c6a7227cd2ab5eff9e2179d85275b2c88d41155b43345504cab084087f"
+      "contentSha256": "2fef3666f5b29582c4b0a6d7efcef11fbb741fe39b74ffd17e37386fc91ab3e8",
+      "previousContentSha256": "b16fb12da9194c6bda5d341da58eab21d7e274b28cd91063e83b0adfe65f0ed4"
     }
   ]
 }
