@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-12T20:20:01.272Z",
-  "snapshotId": "39ea9d53eb2f0c8e1c33fec077db4a9dcff73d47b68b6fe24253baf895660edb",
+  "generatedAt": "2026-10-12T21:23:29.705Z",
+  "snapshotId": "51c919bc9ae01b27138053bb9a872dd9c0aa02a9cbe32ccc8ac4dd937a96e6a8",
   "section": "whats-on",
-  "count": 39,
+  "count": 40,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,7 +11,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "33f490e45cb1ea916d0da7e3711cd3de5efbbae14bc7a476d8b86c03cdfd28c9",
+      "contentSha256": "e55749c2c8bf8ba353191b2ba5d527b863be6c6a635f08224327206babfb0e15",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-13"
       },
-      "htmlBytes": 194733,
-      "markdownBytes": 8904
+      "htmlBytes": 197771,
+      "markdownBytes": 9232
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -123,6 +123,23 @@
       },
       "htmlBytes": 148336,
       "markdownBytes": 4381
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "title": "Come and Try Fishing at Mornington Pier",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/index.md",
+      "contentSha256": "761804d8023f3efd9a0188da157e63f8494deb8e4134ae6167433184302457c0",
+      "citation": {
+        "title": "Come and Try Fishing at Mornington Pier",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 143475,
+      "markdownBytes": 4933
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -419,7 +436,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "e461e6e837df67a8c5e92cf659138f2911ebab7a97433a8f83d7255859fe6da8",
+      "contentSha256": "01fc4ee85e59ff184e56c2c8b01283bb0734cfdfdd573202e47959c5637d83ee",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -427,8 +444,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 150345,
-      "markdownBytes": 6724
+      "htmlBytes": 153202,
+      "markdownBytes": 7361
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",

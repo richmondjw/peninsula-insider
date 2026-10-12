@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-13",
-  "generatedAt": "2026-10-12T20:13:06.637Z",
+  "generatedAt": "2026-10-12T21:19:04.352Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -19,9 +19,9 @@
     "start": "2026-10-16",
     "end": "2026-10-18",
     "label": "Fri 16 – Sun 18 October",
-    "count": 10
+    "count": 11
   },
-  "numberOfItems": 18,
+  "numberOfItems": 19,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -104,6 +104,19 @@
       "position": 8,
       "item": {
         "@type": "Event",
+        "name": "Come and Try Fishing at Mornington Pier",
+        "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+        "startDate": "2026-10-16",
+        "endDate": "2026-10-16",
+        "description": "Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
         "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
         "startDate": "2026-10-17",
@@ -114,7 +127,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -127,7 +140,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
@@ -140,7 +153,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Tessellation Folding Workshop with Jacky Cheng",
@@ -153,7 +166,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Summer Lovin' Singles Party at Rye Hotel",
@@ -166,7 +179,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -179,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -192,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
@@ -205,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -218,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -231,7 +244,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -243,7 +256,7 @@
       }
     }
   ],
-  "count": 18,
+  "count": 19,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -405,6 +418,30 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
+    },
+    {
+      "title": "Come and Try Fishing at Mornington Pier",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-16",
+      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181",
+      "factCheckedOn": "2026-10-13",
+      "recurrence": "one-off",
+      "category": "nature",
+      "place": "mornington",
+      "venue": null,
+      "summary": "Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-16",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
     },
     {
       "title": "Acoustic Saturdays at Peppers Moonah Links",

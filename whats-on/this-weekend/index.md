@@ -9,7 +9,7 @@ Peninsula This Weekend   Fri 16 – Sun 18 October
 
 # What’s on this weekend
 
-5 source-checked events for Fri 16 – Sun 18 October. Confirm details with the organiser before travelling.
+6 source-checked events for Fri 16 – Sun 18 October. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -18,6 +18,16 @@ Dates we could verify
 ## Confirmed for this weekend
 
 These dated listings had recent source checks. Confirm opening times and bookings with the organiser before travelling.
+
+Date confirmed · Nature & Walks
+
+### [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
+
+Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.
+
+Friday 16 October   10:45am–11:45am   Mornington   Checked 13 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181>)
 
 Date confirmed · Exhibitions
 

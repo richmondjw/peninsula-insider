@@ -724,12 +724,12 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Sat, 17 Oct
+- [Fri, 16 Oct
 
-### ✦ Acoustic Saturdays at Peppers Moonah Links
+### ✦ Come and Try Fishing at Mornington Pier
 
-Fingal
+Mornington
 
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+ Event · Nature & Walks](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)

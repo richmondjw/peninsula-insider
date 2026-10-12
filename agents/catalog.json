@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-12T20:20:01.272Z",
-  "snapshotId": "39ea9d53eb2f0c8e1c33fec077db4a9dcff73d47b68b6fe24253baf895660edb",
+  "generatedAt": "2026-10-12T21:23:29.705Z",
+  "snapshotId": "51c919bc9ae01b27138053bb9a872dd9c0aa02a9cbe32ccc8ac4dd937a96e6a8",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 595,
+  "count": 596,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 203527,
+      "htmlBytes": 207102,
       "markdownBytes": 811
     },
     {
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "586bcab28c8d986f545d9d6e9e15132494bbeaf7d8279642a2e611a7f4d4139f",
+      "contentSha256": "9f93baf7167d2a2b912e060e89af083d0f27c5c2e1d1e430a1c667bc73c85e5c",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2418,8 +2418,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 270078,
-      "markdownBytes": 20030
+      "htmlBytes": 269616,
+      "markdownBytes": 19995
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "1adefed747a1771a350953239931ed4ddc9371ee9ab39fd14e66ecc9a3b06d03",
+      "contentSha256": "b26e2acbede789292e0843b6076abee6b76c8554fbd94bf87818846c9ae1798f",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 247501,
-      "markdownBytes": 21949
+      "htmlBytes": 248534,
+      "markdownBytes": 22050
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -6677,7 +6677,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "26b8cbfd2757fd4608380cfbdd0297cb89d65e011ec78a2f260cff18ec501c09",
+      "contentSha256": "e0a4c01cb5fd08eecdecfc45cba896fdc61e2881c0d558b2ad7c22c26efa2cc4",
       "citation": {
         "title": "Tuesday 13 October 2026",
         "publisher": "Peninsula Insider",
@@ -6694,7 +6694,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "ad464c8adb6ef9bbdfb9eaf56ef43a72d12ee6e341a850a2b04c98d415f341b2",
+      "contentSha256": "a586965e42accb3476d62163545dd773fccd4ed885837a6db2ed295a7f90160b",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6702,8 +6702,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134636,
-      "markdownBytes": 27128
+      "htmlBytes": 134755,
+      "markdownBytes": 27264
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8513,7 +8513,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "33f490e45cb1ea916d0da7e3711cd3de5efbbae14bc7a476d8b86c03cdfd28c9",
+      "contentSha256": "e55749c2c8bf8ba353191b2ba5d527b863be6c6a635f08224327206babfb0e15",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8521,8 +8521,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-13"
       },
-      "htmlBytes": 194733,
-      "markdownBytes": 8904
+      "htmlBytes": 197771,
+      "markdownBytes": 9232
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8625,6 +8625,23 @@
       },
       "htmlBytes": 148336,
       "markdownBytes": 4381
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "title": "Come and Try Fishing at Mornington Pier",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/index.md",
+      "contentSha256": "761804d8023f3efd9a0188da157e63f8494deb8e4134ae6167433184302457c0",
+      "citation": {
+        "title": "Come and Try Fishing at Mornington Pier",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 143475,
+      "markdownBytes": 4933
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -8921,7 +8938,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "e461e6e837df67a8c5e92cf659138f2911ebab7a97433a8f83d7255859fe6da8",
+      "contentSha256": "01fc4ee85e59ff184e56c2c8b01283bb0734cfdfdd573202e47959c5637d83ee",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -8929,8 +8946,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 150345,
-      "markdownBytes": 6724
+      "htmlBytes": 153202,
+      "markdownBytes": 7361
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",

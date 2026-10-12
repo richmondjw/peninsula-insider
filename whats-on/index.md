@@ -69,6 +69,12 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions · Recurring weekly
 
+- [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
+
+An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
+
+10.45am · Mornington · Nature & Walks · One-day event
+
 ### Saturday 17 October
 
 - [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
