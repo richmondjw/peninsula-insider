@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-11T19:11:18.095Z",
+  "updatedAt": "2026-10-12T21:03:01.457Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -743,6 +743,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "A Guide To The Mornington Peninsula Beaches - Explore Shaw"
+    },
+    {
+      "url": "https://fishcare.org.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Home - Fishcare Victoria",
+      "probedOn": "2026-10-12",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://flindersgeneralstore.com.au",
@@ -3063,6 +3071,13 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Author Talk: Vikki Petraitis - Mornington Library Tickets, Tuesday, September 29 • 10:30 AM - 11:30 AM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181",
+      "verdict": "ok",
+      "httpCode": "200",
+      "probedOn": "2026-10-13",
+      "probedBy": "manual source review"
     },
     {
       "url": "https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276",
