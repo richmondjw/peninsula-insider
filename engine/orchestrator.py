@@ -20,6 +20,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 import zoneinfo
 
+from event_admission import is_cancelled_record
+
 # ── Config ──────────────────────────────────────────────────────────────
 AEST = zoneinfo.ZoneInfo("Australia/Sydney")
 REPO_ROOT = Path(os.environ.get("PI_REPO_ROOT", "/home/node/.openclaw/workspace/peninsula-insider"))
@@ -1088,7 +1090,7 @@ def _load_event_intel(date_str: str, horizon_days: int = 7) -> tuple[list[dict],
         try:
             data = json.loads(scan.read_text(encoding="utf-8"))
             records = data.get("events", data) if isinstance(data, dict) else data
-            picked = [_trim(r) for r in records if isinstance(r, dict) and _in_window(r)]
+            picked = [_trim(r) for r in records if isinstance(r, dict) and not is_cancelled_record(r) and _in_window(r)]
             if picked:
                 return picked, "reports/peninsula-whats-on.json"
         except (json.JSONDecodeError, OSError, TypeError):
@@ -1103,7 +1105,7 @@ def _load_event_intel(date_str: str, horizon_days: int = 7) -> tuple[list[dict],
                 rec = json.loads(f.read_text(encoding="utf-8"))
             except (json.JSONDecodeError, OSError):
                 continue
-            if rec.get("status") == "published" and _in_window(rec):
+            if rec.get("status") == "published" and not is_cancelled_record(rec) and _in_window(rec):
                 picked.append(_trim(rec))
         if picked:
             picked.sort(key=lambda r: _pick_rank(r, today))
