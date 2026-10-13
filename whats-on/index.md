@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-13
+Modified: 2026-10-14
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,15 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Fri, 16 Oct · 10:45am–11:45am · Mornington
-
-### [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
-
-An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
-
-Fri, 16 Oct   Mornington   Nature & Walks
-
 - Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Sat, 17 Oct · 1:30pm–3:30pm · Mornington
 
 ### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
@@ -48,6 +42,14 @@ Sat, 17 Oct   Mornington   Arts
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Sat, 17 Oct   Fingal   Live Music
+
+- Photo: Peninsula Insider.
+
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Sat, 17 Oct   Balnarring   Markets
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -158,12 +160,6 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
 9am · Mount Eliza · Markets
-
-- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-9am · Balnarring · Markets
 
 - [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 

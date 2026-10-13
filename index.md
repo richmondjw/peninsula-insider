@@ -51,18 +51,6 @@ Swipe or scroll through the picks
 
 - Illustrative image
 
-Mornington Peninsula Regional Gallery interior for venue context; this photograph does not show the Tessellation workshop.   Photo courtesy of Visit Victoria.
-
-### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
-
-Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
-
-Mornington Peninsula Regional Gallery   Arts
-
-Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
-
-- Illustrative image
-
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
@@ -84,6 +72,16 @@ Emu Plains is the artisan market that actually feels like the Peninsula: stringy
 Emu Plains Reserve   Market
 
 Event details checked 3 Oct 2026. [Check organiser](<https://www.emuplainsmarket.com.au/>)
+
+- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 

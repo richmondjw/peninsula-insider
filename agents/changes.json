@@ -1,60 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-13T09:58:10.688Z",
+  "generatedAt": "2026-10-13T14:40:08.108Z",
   "baselineAvailable": true,
-  "fromSnapshot": "51c919bc9ae01b27138053bb9a872dd9c0aa02a9cbe32ccc8ac4dd937a96e6a8",
-  "toSnapshot": "737a70e2e2328562813040876d0ad2c9d7e5b101ca105542d2a14631315d16a2",
-  "previousGeneratedAt": "2026-10-12T21:23:29.705Z",
+  "fromSnapshot": "737a70e2e2328562813040876d0ad2c9d7e5b101ca105542d2a14631315d16a2",
+  "toSnapshot": "f9299f009fac45b7049acc7d93be5fd198f835fef9b63844a05c9304ecc412c9",
+  "previousGeneratedAt": "2026-10-13T09:58:10.688Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 3,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "c13cb75f93699324f73ba3bb6f32d574119eac970332980fa12fc56610b4aa0d",
-      "previousContentSha256": "19f75e94faa028cb9de9d0f3fcc4699b0a425c1fdfb217faa9a94dd7656f6a2a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/golf/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "35147d7f6ec1f609216ec603aee628c012f71cb70365059c8b93a31b89a8568c",
-      "previousContentSha256": "2d44f732adc48f57d72b1a368d51eebdd9a420174694fb4b3c9769f853c706fc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "b63381f5a7eb86675e75d84f02b8273d83207a10ac16a741ea687b9a8bac7c6b",
-      "previousContentSha256": "9f93baf7167d2a2b912e060e89af083d0f27c5c2e1d1e430a1c667bc73c85e5c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "7a77f69e7860dc9360497cc1eed82edf9eee04d83563fc75562bf4c493aa6138",
-      "previousContentSha256": "b26e2acbede789292e0843b6076abee6b76c8554fbd94bf87818846c9ae1798f"
+      "contentSha256": "1dff30c1dcc5d5b18b25a6045c5914cfce0838a21bb97c7971d2fd1d63db3a40",
+      "previousContentSha256": "c13cb75f93699324f73ba3bb6f32d574119eac970332980fa12fc56610b4aa0d"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "3bda30f9098768ede08a2e96e7ab0fd377110337ef0c43951ba878559d781733",
-      "previousContentSha256": "e0a4c01cb5fd08eecdecfc45cba896fdc61e2881c0d558b2ad7c22c26efa2cc4"
+      "contentSha256": "de112b9da398b0d0b9addff262463894fc5a0ccb0fe674b2e880d3daa71442a3",
+      "previousContentSha256": "3bda30f9098768ede08a2e96e7ab0fd377110337ef0c43951ba878559d781733"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "9b44e8179d8dbc0370ab602ddb5b9d256795cf43244eab3efe04d03c3577e74e",
-      "previousContentSha256": "e55749c2c8bf8ba353191b2ba5d527b863be6c6a635f08224327206babfb0e15"
+      "contentSha256": "d0c184a6164b2db680c3fef1b1e53a3443446378754e04fa21b90926d93e37d6",
+      "previousContentSha256": "9b44e8179d8dbc0370ab602ddb5b9d256795cf43244eab3efe04d03c3577e74e"
     }
   ]
 }
