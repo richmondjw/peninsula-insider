@@ -134,7 +134,7 @@
     "audit:link-health": "node scripts/audit-link-health.mjs --json ../ops/reports/content/link-health.json",
     "assert:link-health": "node scripts/audit-link-health.mjs --json ../ops/reports/content/link-health.json --assert",
     "probe:link-health": "node scripts/probe-link-health.mjs",
-    "test:link-health": "node --test scripts/audit-link-health.test.mjs",
+    "test:link-health": "node --test scripts/audit-link-health.test.mjs scripts/link-health/probe.test.mjs",
     "test:link-health:build": "node --test scripts/link-health-build-independence.test.mjs",
     "test:how-we-check": "node --test src/lib/how-we-check.test.mjs",
     "test:provenance": "node --test src/lib/provenance.test.mjs scripts/audit-provenance-dates.test.mjs",

@@ -51,7 +51,6 @@ const PARKED_MARKERS = [
 /** Markers of an anti-bot interstitial served with a 2xx status. */
 const CHALLENGE_MARKERS = [
   'sgcaptcha',
-  'cdn-cgi/challenge-platform',
   'just a moment...',
   'attention required!',
   'security checkpoint',
@@ -60,6 +59,10 @@ const CHALLENGE_MARKERS = [
   'px-captcha',
   'are you a human',
 ];
+
+// Cloudflare can load /cdn-cgi/challenge-platform/scripts/jsd/main.js on a
+// complete event page. That passive script is not an interstitial: the actual
+// challenge still carries the title or body markers above.
 
 const bodyTmp = (slot) => path.join(tmpdir(), `pi-link-health-${process.pid}-${slot}.html`);
 
