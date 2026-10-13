@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Portsea pub fish and chips, the Baldry's Creek loop, and the Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips, a spring wildflower loop at Baldry's Creek Reserve, and the Main Street Mornington Festival closing out Sunday.
+
 - [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 
 - [Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/>) - Baillieu's Merricks Chardonnay at a cellar door most weekenders miss, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Georgie Bass, the Olivers Hill loop, and Commonfolk's Sunday roast ritual](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/>) - Flinders' all-day breakfast kitchen at spring pace, the Olivers Hill clifftop loop above Port Phillip, and Commonfolk Coffee's single-origin filter bar before the weekend crowd arrives.
 
 - [Moke Dining in Flinders, the Bushrangers Bay boardwalk, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/>) - Michael Cole's five-course set menu in Flinders, the Bushrangers Bay boardwalk track at spring peak, and the Hill & Ridge Community Market at Red Hill Recreation Reserve on Saturday.
-
-- [Red Hill Brewery's hop garden, the spring wildflower window on Arthurs Seat, and Peninsula Hot Springs Sunday Sessions](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/>) - Red Hill Brewery pours from its own estate hop garden, Arthurs Seat's Seawinds Garden hits peak spring bloom, and Peninsula Hot Springs launches its Sunday Sessions series in Fingal.
 
 ## Planning a particular weekend?
 

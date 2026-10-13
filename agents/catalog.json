@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-13T20:13:55.354Z",
-  "snapshotId": "0ffe14d5504467fc84dd4dc7df0c3892aab76f1a2d78c71dcf5824d03b9a7d23",
+  "generatedAt": "2026-10-13T20:25:44.078Z",
+  "snapshotId": "eff7a2ab4abceaa95e835e7daa92ef18ac8852cf714dc1d35401b36e910de68d",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 596,
+  "count": 597,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2495,7 +2495,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "bfd476f15a0ca7f0c6e85dace89d9da250240a189e34c947032772d4daac8096",
+      "contentSha256": "742cd0cd08c449c38845997b30ef6cbcbc875dc4e6033372f76b943c6f32b57f",
       "citation": {
         "title": "Portsea",
         "publisher": "Peninsula Insider",
@@ -2503,8 +2503,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 219905,
-      "markdownBytes": 13717
+      "htmlBytes": 219949,
+      "markdownBytes": 13692
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
@@ -5839,6 +5839,23 @@
       "markdownBytes": 9086
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
+      "title": "Portsea pub fish and chips, the Baldry's Creek loop, and the Main Street Mornington Festival",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/index.md",
+      "contentSha256": "7ab8fa0c5712f33a11f7f3ef762467a1bc28ee69014e19832a1bc89814fd13f4",
+      "citation": {
+        "title": "Portsea pub fish and chips, the Baldry's Creek loop, and the Main Street Mornington Festival",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
+        "publishedAt": "2026-10-14T00:00:00.000Z",
+        "modifiedAt": "2026-10-14T00:00:00.000Z"
+      },
+      "htmlBytes": 175761,
+      "markdownBytes": 8687
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6643,7 +6660,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "5ee0dd2d4080071a8d4d2f6c4d5efa197be5e466b32616a1dd98be3cbfd9a59e",
+      "contentSha256": "c0e6e087daf1f428f0afc53c5b1e339eb87def339f7b2fa6b182004bf6e9b078",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6651,8 +6668,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123498,
-      "markdownBytes": 5881
+      "htmlBytes": 123465,
+      "markdownBytes": 5844
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6677,7 +6694,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "431e43fc6ef01cfa8c45efab18ceb578f0056fae64cc840674185ee188422c92",
+      "contentSha256": "e1f2793261d940a0e6242c0b3409a9b18c6f77f253daa4dfeee5d822c09c8296",
       "citation": {
         "title": "Wednesday 14 October 2026",
         "publisher": "Peninsula Insider",
