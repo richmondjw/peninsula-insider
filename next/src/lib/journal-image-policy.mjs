@@ -34,7 +34,7 @@ export function selectJournalImage(hero, data, fallback, available, rightsEstabl
   const source = hero.override ?? data.heroImage;
   const usable = source?.src === hero.src && available(hero.src) && (hero.alt?.trim() || hero.decorative) && source?.credit?.trim() && rightsEstablished(source);
   const image = usable
-    ? { src: hero.src, alt: hero.alt, credit: source.credit, caption: source.caption ?? '', provenance: hero.override ? null : source, decorative: hero.decorative }
+    ? { src: hero.src, alt: hero.alt, credit: source.credit, caption: source.caption ?? '', imageKind: source.imageKind, provenance: hero.override ? null : source, decorative: hero.decorative }
     : { ...fallback, provenance: fallback, decorative: false };
   if (!available(image.src)) Object.assign(image, journalIllustration, { provenance: journalIllustration });
   if (!available(image.src)) throw new Error('Journal image policy: no available image or original illustration');

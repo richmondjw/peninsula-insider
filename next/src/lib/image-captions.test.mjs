@@ -80,4 +80,5 @@ test('rendered gate rejects duplicate descriptions and boilerplate, ignores alt 
  assert.ok(figureCaptionIssues('<figure><figcaption>Coffee.</figcaption><figcaption>Coffee.</figcaption></figure>').length);
  for(const className of ['event-image-credit','pi-card__image-note','itinerary-card__photo-credit','itinerary-detail__image-credit']) assert.ok(figureCaptionIssues(`<p class="${className}">This image shows Conceptual oversized cup.</p>`).length);
  assert.deepEqual(figureCaptionIssues('<p class="article-copy">This image shows a documented process.</p>'),[]);
+ assert.deepEqual(figureCaptionIssues('<script>const template = `<p class="pi-card__image-note">This image shows Conceptual oversized cup.</p>`;</script>'),[]);
 });

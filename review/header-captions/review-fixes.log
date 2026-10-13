@@ -1,0 +1,56 @@
+
+> peninsula-insider-next@0.0.1 validate:content
+> npm run lint:image-captions && node scripts/validate-content.mjs
+
+
+> peninsula-insider-next@0.0.1 lint:image-captions
+> node --test src/lib/image-captions.test.mjs && node scripts/check-image-captions.mjs
+
+Γ£ö selected listing admission requires a real caption/credit distinction, not a word in prose (1.2703ms)
+Γ£ö the actual weekend-planning illustration retains its map warning in public display (1.1046ms)
+Γ£ö one useful art caption, with stored history unchanged (0.8684ms)
+Γ£ö context photography remains distinct and never becomes a venue claim (0.2284ms)
+Γ£ö string-only CMS captions keep medium, context and navigational warnings (0.2782ms)
+Γ£ö actual itinerary CMS consumers retain captions and do not assume photography (0.6621ms)
+Γ£ö admission refuses unknown kind, unverified identity, missing description and credit (0.275ms)
+Γ£ö unchanged legacy images are inventoried; edited and new images are gated (0.2498ms)
+Γ£ö journal detail and card render one caption rather than duplicate disclosure (0.4422ms)
+Γ£ö event detail and cards use one credited description, without a second disclosure (0.6426ms)
+Γ£ö rendered gate rejects duplicate descriptions and boilerplate, ignores alt and provenance (0.9273ms)
+Γä╣ tests 11
+Γä╣ suites 0
+Γä╣ pass 11
+Γä╣ fail 0
+Γä╣ cancelled 0
+Γä╣ skipped 0
+Γä╣ todo 0
+Γä╣ duration_ms 125.7935
+Caption review: 2087 legacy issues inventoried; 0 changed-image failures.
+22:15:17 [content] Syncing content
+22:15:17 [WARN] [glob-loader] No files found matching "**/*.{md,mdx}" in directory "src\content\local-secrets"
+22:15:22 [content] Synced content
+22:15:22 [types] Generated 6.29s
+PASS selected event listing quality: mornington-racecourse-market
+Γ£ö selected listing admission requires a real caption/credit distinction, not a word in prose (2.4888ms)
+Γ£ö the actual weekend-planning illustration retains its map warning in public display (1.3992ms)
+Γ£ö one useful art caption, with stored history unchanged (1.2234ms)
+Γ£ö context photography remains distinct and never becomes a venue claim (0.2651ms)
+Γ£ö string-only CMS captions keep medium, context and navigational warnings (0.3563ms)
+Γ£ö actual itinerary CMS consumers retain captions and do not assume photography (0.8105ms)
+Γ£ö admission refuses unknown kind, unverified identity, missing description and credit (0.3268ms)
+Γ£ö unchanged legacy images are inventoried; edited and new images are gated (0.2427ms)
+Γ£ö journal detail and card render one caption rather than duplicate disclosure (0.5855ms)
+Γ£ö event detail and cards use one credited description, without a second disclosure (0.7271ms)
+Γ£ö rendered gate rejects duplicate descriptions and boilerplate, ignores alt and provenance (1.1207ms)
+Γ£ö reviewed illustration labels use natural image wording and keep their qualifiers (1.853ms)
+Γ£ö real attribution, licences, topical descriptions and missing values are preserved (0.1881ms)
+Γ£ö reviewed source captions retain depiction caveats and internal generation provenance (9.0919ms)
+Γ£ö both CMS image presentation boundaries use the formatter without changing saved metadata (2.2144ms)
+Γä╣ tests 15
+Γä╣ suites 0
+Γä╣ pass 15
+Γä╣ fail 0
+Γä╣ cancelled 0
+Γä╣ skipped 0
+Γä╣ todo 0
+Γä╣ duration_ms 167.096

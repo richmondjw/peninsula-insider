@@ -8,6 +8,8 @@ Alt text describes visual information needed to understand the image. Preserve m
 
 ## One rendering path
 
+String-only CMS captions retain medium, context and navigational qualifiers because these rows do not establish image kind or depiction status. Only metadata-aware rendering removes a redundant illustration prefix when the adjacent credit visibly says “Illustration”. Unknown-kind CMS credits use “Credit”, preserving explicit photo/illustration and licence-required attribution wording. Itinerary cards and plan detail pages use this same credit formatter.
+
 `next/src/lib/image-presentation.mjs` provides `imageCaption` and caption-only normalisation. Journal images, including recovery choices, use it once; they do not also render a provenance badge. Shared provenance notes use the same description for contextual images on other detail/card surfaces. CMS read boundaries normalise display captions without rewriting stored source metadata. Image kind is explicit or established by a reviewed illustration credit, never inferred merely from a generated directory or an SVG extension. Existing raw provenance fields and generation history remain in the source record.
 
 ## Admission and ongoing maintenance
@@ -19,5 +21,7 @@ New or edited image records fail admission if image kind, depiction status, desc
 All importers and image-generation tasks must supply these fields before running admission. In particular, the event-source adapters, Visit Victoria page-image sync and image-intelligence pilot must preserve factual identity, credits and licences; generated candidates remain unapproved until viewed. Their existing review/admission flow owns approval. This task introduces no scheduled publisher or new service. For a new renderer, add a regression case and use the shared caption formatter rather than constructing disclaimer prose in the template.
 
 ## Review checklist
+
+The built gate checks duplicate descriptions within figures and known standalone caption paragraphs (`event-image-credit`, `pi-card__image-note`, `itinerary-card__photo-credit`, `itinerary-detail__image-credit`) for boilerplate. It excludes scripts, styles and metadata. Arbitrary future caption classes and live CMS updates still need source regression coverage and editorial/browser review; this gate is not proof of universal live CMS coverage.
 
 View desktop and phone output, including image failure/recovery and client navigation. Check that one image has one description, attribution is readable and present, captions do not overlap artwork, alt text survives, and contextual imagery cannot be mistaken for evidence of a named business/event. Run the existing image-rights and content checks as well as the caption gate. Publication follows the existing human approval process.

@@ -2,6 +2,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 export function figureCaptionIssues(html) {
+ html = html.replace(/<(script|style)\b[^>]*>[\s\S]*?<\/\1>/gi,'').replace(/<!--[\s\S]*?-->/g,'');
  const issues=[];
  for(const figure of html.matchAll(/<figure\b[^>]*>([\s\S]*?)<\/figure>/gi)) {
   const captions=[...figure[1].matchAll(/<figcaption\b[^>]*>([\s\S]*?)<\/figcaption>/gi)];

@@ -66,6 +66,17 @@ test('CMS image attribution never invents a photographic medium',()=>{
  assert.equal(journalCredit({override:{},credit:'Peninsula Insider',caption:'Original editorial illustration. Coastal hills.'}),'Credit: Peninsula Insider');
  assert.equal(journalCredit({override:{},credit:'Illustration: Peninsula Insider'}),'Illustration: Peninsula Insider');
 });
+test('selection retains matching illustration kind for a generic attribution',()=>{
+ const source={...data.heroImage,imageKind:'illustration',depictionStatus:'illustrative',credit:'Peninsula Insider',caption:'Coastal hills.'};
+ const image=selectJournalImage(hero,{...data,heroImage:source},fallback,available,()=>true);
+ assert.equal(image.imageKind,'illustration');assert.equal(image.provenance,source);
+ assert.equal(journalCredit(image),'Illustration: Peninsula Insider');
+ const override={src:hero.src,credit:'Peninsula Insider',caption:'Original editorial illustration. Coastal hills.'};
+ const replacement=selectJournalImage({...hero,override},{...data,heroImage:source},fallback,available,()=>true);
+ assert.equal(replacement.imageKind,undefined);assert.equal(replacement.provenance,null);
+ assert.equal(journalCredit(replacement),'Credit: Peninsula Insider');
+ assert.equal(replacement.caption,'Original editorial illustration. Coastal hills.');
+});
 test('fallback attribution survives cache-stamping of the inlined illustration constant', () => {
   const original = journalIllustration.src;
   try {
