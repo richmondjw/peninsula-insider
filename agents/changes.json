@@ -1,28 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-13T19:24:30.165Z",
+  "generatedAt": "2026-10-13T20:13:55.354Z",
   "baselineAvailable": true,
-  "fromSnapshot": "f9299f009fac45b7049acc7d93be5fd198f835fef9b63844a05c9304ecc412c9",
-  "toSnapshot": "db79374088d75711956d0c0fa1d34cd7177233685fe30222494d1fd8459bff78",
-  "previousGeneratedAt": "2026-10-13T14:40:08.108Z",
+  "fromSnapshot": "db79374088d75711956d0c0fa1d34cd7177233685fe30222494d1fd8459bff78",
+  "toSnapshot": "0ffe14d5504467fc84dd4dc7df0c3892aab76f1a2d78c71dcf5824d03b9a7d23",
+  "previousGeneratedAt": "2026-10-13T19:24:30.165Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 1,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "3722ee84a459470262bbc994e09569fdbf6b813a631385c4d0181265edb4ae10",
-      "previousContentSha256": "de112b9da398b0d0b9addff262463894fc5a0ccb0fe674b2e880d3daa71442a3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/index.md",
-      "contentSha256": "83864fdcadd214e9ae26ab053d4e4ddea4374d659c1d4f9acb440f1be84f7f4e",
-      "previousContentSha256": "761804d8023f3efd9a0188da157e63f8494deb8e4134ae6167433184302457c0"
+      "contentSha256": "431e43fc6ef01cfa8c45efab18ceb578f0056fae64cc840674185ee188422c92",
+      "previousContentSha256": "3722ee84a459470262bbc994e09569fdbf6b813a631385c4d0181265edb4ae10"
     }
   ]
 }
