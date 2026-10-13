@@ -1,0 +1,55 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-10-14",
+  "liveRevision": "e4cd7913fef4f919cd180b715c04c31deb63a976",
+  "liveRunId": "38378885581",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "independentScores": [84.75, 85.25, 86.75],
+  "acceptedConservativeScore": 84.75,
+  "scoreStatus": "provisional",
+  "thresholdMet": false,
+  "hardGateObserved": false,
+  "verifiedImprovement": {
+    "previousAcceptedScore": 83.25,
+    "previousThrottledMobileLcpSeconds": [4.128, 4.156, 4.168],
+    "currentThrottledMobileLcpSeconds": [2.0, 1.928, 1.852],
+    "responsiveHero": "390px DPR2 selected the 800px source at 358px rendered width",
+    "horizontalOverflow": false,
+    "consoleErrors": 0
+  },
+  "openEvidenceGates": [
+    "direct screen-reader assessment",
+    "field Core Web Vitals",
+    "exhaustive eleven-venue factual refresh",
+    "exact-release image-rights acceptance"
+  ],
+  "triage": [
+    "put a compact linked playing-style selector before the eleven venue cards",
+    "raise two measured 4.3:1 dark-panel accent labels above 4.5:1",
+    "increase useful inline-link hit areas without adding visual weight",
+    "continue reducing the 18203px mobile scanning burden",
+    "complete factual, rights, screen-reader and field-performance evidence"
+  ],
+  "boundedIteration11": {
+    "implemented": [
+      "three linked playing-style groups now precede the full venue sequence",
+      "each course jump has a 44px minimum hit area",
+      "dark-panel labels and checklist marks use the higher-contrast sand token"
+    ],
+    "verificationStatus": "full 1024-page build and local 390px DPR2 browser acceptance passed; merge and exact live verification pending",
+    "localAcceptance": {
+      "viewport": "390x844 at DPR2",
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "decisionAidY": 1253,
+      "firstVenueCardY": 3430.5,
+      "decisionAidBeforeVenueSequence": true,
+      "linkedCourses": 9,
+      "minimumLinkTargetPx": 44,
+      "allAnchorTargetsPresent": true,
+      "firstAnchorLandingTopPx": 141.46875,
+      "darkPanelAccentColor": "rgb(245, 193, 119)"
+    }
+  }
+}
