@@ -4,9 +4,9 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-10-13 07:08 AEDT  
+**Generated:** 2026-10-14 07:08 AEDT  
 **Season:** Spring  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:22-upcoming, seasonal-calendar:spring  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:23-upcoming, seasonal-calendar:spring  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 69 |
+| Open opportunities | 70 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-10-12._
+_Compared with 2026-10-13._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,34 +83,34 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington (17d out)
+### 6. [EVENT · score 2.992] Preview: Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington is 17 days out (2026-10-30, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Enchanting Kirtan: Sacred Music & Meditation Experience - Mornington is 16 days out (2026-10-30, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: Wine and Cheese Night at Wine Lovers Warehouse Hastings (17d out)
+### 7. [EVENT · score 2.992] Preview: Wine and Cheese Night at Wine Lovers Warehouse Hastings (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Wine and Cheese Night at Wine Lovers Warehouse Hastings is 17 days out (2026-10-30, Hastings) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Wine and Cheese Night at Wine Lovers Warehouse Hastings is 16 days out (2026-10-30, Hastings) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Saturday Pottery Class (18d out)
+### 8. [EVENT · score 2.992] Preview: Saturday Pottery Class (17d out)
 - **Desk:** dispatch-desk
-- **Why:** Saturday Pottery Class is 18 days out (2026-10-31, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Saturday Pottery Class is 17 days out (2026-10-31, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 (39d out)
+### 9. [EVENT · score 2.992] Preview: Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 (38d out)
 - **Desk:** dispatch-desk
-- **Why:** Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 is 39 days out (2026-11-21, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 is 38 days out (2026-11-21, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Peninsula VineHop Festival 2026 (39d out)
+### 10. [EVENT · score 2.992] Preview: Peninsula VineHop Festival 2026 (38d out)
 - **Desk:** dispatch-desk
-- **Why:** Peninsula VineHop Festival 2026 is 39 days out (2026-11-21, Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Peninsula VineHop Festival 2026 is 38 days out (2026-11-21, Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.904] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (48d out)
+### 11. [EVENT · score 2.933] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (47d out)
 - **Desk:** dispatch-desk
-- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 48 days out (2026-11-30, Sorrento) — on the horizon. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 47 days out (2026-11-30, Sorrento) — on the horizon. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 12. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
