@@ -621,19 +621,13 @@ export const prerender = true;
           <p class="golf-stayplay__dek">Building a broader Peninsula trip around golf? The <a href="/journal/mornington-peninsula-itinerary/" class="golf-stayplay__link">3-day Mornington Peninsula itinerary</a> shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.</p>
           <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/" class="pi-btn pi-btn--text">Read the stay-and-play guide →</a>
         </div>
-        <div class="golf-stayplay__aside">
-          <div class="golf-stayplay__fact">
-            <span class="golf-stayplay__fact-num">Nearby</span>
-            <span class="golf-stayplay__fact-label">Peninsula Hot Springs and the Fingal course cluster</span>
-          </div>
-          <div class="golf-stayplay__fact">
-            <span class="golf-stayplay__fact-num">Check</span>
-            <span class="golf-stayplay__fact-label">your live route from Melbourne before choosing a tee time</span>
-          </div>
-          <div class="golf-stayplay__fact">
-            <span class="golf-stayplay__fact-num">2</span>
-            <span class="golf-stayplay__fact-label">on-property accommodation options at the Cape cluster</span>
-          </div>
+        <div class="golf-stayplay__aside" aria-label="Planning checklist">
+          <p class="golf-stayplay__aside-title">Before you book</p>
+          <ul class="golf-stayplay__checklist">
+            <li><strong>Stay close:</strong> RACV Cape Schanck and Moonah Links put accommodation beside the course.</li>
+            <li><strong>Check access:</strong> confirm visitor eligibility and live tee times with the club.</li>
+            <li><strong>Check the route:</strong> allow for Peninsula traffic at the time you plan to travel.</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -873,7 +867,7 @@ export const prerender = true;
   /* ── Access badges ── */
   .golf-badge {
     display: inline-block;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1264,35 +1258,41 @@ export const prerender = true;
   .golf-stayplay .pi-btn--text { color: var(--sand); }
   .golf-stayplay .pi-btn--text:hover, .golf-stayplay .pi-btn--text:focus-visible { color: var(--white); }
   .golf-stayplay__aside {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    min-width: 180px;
+    width: min(100%, 22rem);
+    padding: 1.5rem;
+    border: 1px solid rgba(253, 252, 250, 0.18);
+    border-radius: 1rem;
+    background: rgba(253, 252, 250, 0.06);
   }
-  .golf-stayplay__fact { text-align: right; }
-  @media (max-width: 700px) {
-    .golf-stayplay__aside { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
-    .golf-stayplay__fact { text-align: left; }
-  }
-  .golf-stayplay__fact-num {
-    display: block;
-    font-family: var(--font-display);
-    font-size: 3.5rem;
-    font-weight: 700;
+  .golf-stayplay__aside-title {
+    margin: 0 0 1rem;
     color: var(--gold);
-    line-height: 1;
-    margin-bottom: 0.3rem;
+    font-family: var(--font-ui);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
   }
-  .golf-stayplay__fact-label {
-    display: block;
-    font-size: 0.75rem;
-    color: rgba(253, 252, 250, 0.55);
-    line-height: 1.4;
-    max-width: 15ch;
-    margin-left: auto;
+  .golf-stayplay__checklist {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.9rem;
   }
-  @media (max-width: 700px) {
-    .golf-stayplay__fact-label { margin-left: 0; }
+  .golf-stayplay__checklist li {
+    position: relative;
+    padding-left: 1.25rem;
+    color: rgba(253, 252, 250, 0.82);
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .golf-stayplay__checklist li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
   }
 
   /* ─────────────────────────────────────────────────────────────────

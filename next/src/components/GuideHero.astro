@@ -111,6 +111,7 @@ const imageAttrs = editable
             loading="eager"
             decoding="async"
             fetchpriority="high"
+            data-pi-responsive="(max-width: 700px) calc(100vw - 2rem), (max-width: 1100px) 50vw, 650px"
             {...imageAttrs}
           />
           {imageCredit && <figcaption class="guide-hero__credit">Photo · {imageCredit}</figcaption>}

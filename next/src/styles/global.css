@@ -5115,7 +5115,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
 }
 .guide-hero__eyebrow {
   font-family: var(--font-ui);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   font-weight: 600;
@@ -5155,7 +5155,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   padding-top: 1rem;
   border-top: 1px solid rgba(74, 90, 87, 0.18);
   font-family: var(--font-ui);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--soft);
@@ -5214,8 +5214,8 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
     line-height: 1.5;
   }
   .guide-hero__action { margin-bottom: 1.2rem; }
-.guide-hero__meta {
-    font-size: 0.62rem;
+  .guide-hero__meta {
+    font-size: 0.75rem;
     letter-spacing: 0.14em;
     gap: 0.45rem 1rem;
   }
