@@ -51,7 +51,6 @@ const PARKED_MARKERS = [
 /** Markers of an anti-bot interstitial served with a 2xx status. */
 const CHALLENGE_MARKERS = [
   'sgcaptcha',
-  'cdn-cgi/challenge-platform',
   'just a moment...',
   'attention required!',
   'security checkpoint',
@@ -60,6 +59,10 @@ const CHALLENGE_MARKERS = [
   'px-captcha',
   'are you a human',
 ];
+
+// Cloudflare can load /cdn-cgi/challenge-platform/scripts/jsd/main.js on a
+// complete event page. The script alone is not an interstitial, but a page
+// with no main content or heading still has not shown a reader a usable page.
 
 const bodyTmp = (slot) => path.join(tmpdir(), `pi-link-health-${process.pid}-${slot}.html`);
 
@@ -112,6 +115,7 @@ export function verdictFor(direct) {
   const haystack = `${direct.title} ${direct.body}`.toLowerCase();
   if (/^2/.test(direct.code) || /^3/.test(direct.code)) {
     if (CHALLENGE_MARKERS.some((m) => haystack.includes(m))) return 'blocked';
+    if (haystack.includes('cdn-cgi/challenge-platform') && !(/<main\b/i.test(direct.body) && /<h1\b/i.test(direct.body))) return 'blocked';
     if (PARKED_MARKERS.some((m) => haystack.includes(m))) return 'parked';
     // A NetRegistry-style redirector answers 200 with a two-word body. There
     // is no page here; there is a parked domain wearing a success code.
