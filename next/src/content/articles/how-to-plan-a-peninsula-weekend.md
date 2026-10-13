@@ -9,7 +9,7 @@ heroImage:
   alt: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
   credit: "Illustration: Peninsula Insider"
   license: "other-licensed"
-  caption: "Two travellers looking over a map by the coast."
+  caption: "Two travellers looking over a map by the coast. Illustrated map, not for navigation."
   depicts: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
   imageKind: "illustration"
   depictionStatus: "illustrative"

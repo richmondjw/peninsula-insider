@@ -1,6 +1,6 @@
 ---
 import { publicImageSourceUrl } from '../lib/image-source-url.mjs';
-import { imageCaption, imagePresentationText } from '../lib/image-presentation.mjs';
+import { imageCaption, imagePresentationText, imageCreditText } from '../lib/image-presentation.mjs';
 /** Attribution for an event image with recorded provenance. */
 export interface Props {
   image?: any;
@@ -34,7 +34,7 @@ const licenceUrl = licenceLabel === 'CC BY-SA 4.0'
   <p class:list={['event-image-credit', compact && 'event-image-credit--compact']}>
     {description && <span class="event-image-credit__description">{description}</span>}
     {generated ? (
-      <span>{displayCredit || `Illustration: ${image.creator ?? 'Credit pending review'}`}</span>
+      <span>{imageCreditText(displayCredit || image.creator || 'Credit pending review', 'illustration')}</span>
     ) : (
       <>
         <span>Image · {image.creator ?? image.credit}</span>

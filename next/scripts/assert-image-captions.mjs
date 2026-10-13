@@ -1,4 +1,4 @@
-/** Check built reader figures, without treating metadata/scripts as public captions. */
+/** Check reader figures and known standalone caption paths, excluding metadata/scripts. */
 import fs from 'node:fs';
 import path from 'node:path';
 export function figureCaptionIssues(html) {
@@ -9,6 +9,12 @@ export function figureCaptionIssues(html) {
   const text=captions.map(m=>m[1].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim()).join(' ');
   if(/This image shows|Conceptual oversized/i.test(text)) issues.push('Machine-like public caption');
   if(/data-journal-image-caption/.test(figure[1]) && /data-pi-media-disclosure/.test(figure[1])) issues.push('Duplicate Journal caption/disclosure');
+ }
+ const standalone = new Set(['event-image-credit','pi-card__image-note','itinerary-card__photo-credit','itinerary-detail__image-credit']);
+ for(const caption of html.matchAll(/<p\b[^>]*\bclass=(['"])([^'"]*)\1[^>]*>([\s\S]*?)<\/p>/gi)){
+  if(!caption[2].split(/\s+/).some(c=>standalone.has(c)))continue;
+  const text=caption[3].replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim();
+  if(/This image shows|Conceptual oversized/i.test(text))issues.push('Machine-like standalone caption');
  }
  return issues;
 }

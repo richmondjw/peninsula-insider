@@ -16,24 +16,43 @@ export function imageCaptionText(value) {
   if (typeof value !== 'string') return '';
   return imagePresentationText(value).trim()
     .replace(/^This image shows\s+/i, '')
-    .replace(/^Conceptual\s+/i, '')
-    .replace(/^Editorial illustration\.\s*/i, '')
-    .replace(/^Original editorial illustration\.\s*/i, '')
-    .replace(/\s*Regional (?:coastal )?context photograph, not a depiction of every[^.]*\.?/i, '')
-    .replace(/(?:[.;,]\s*|\s+)not (?:an? (?:exact )?)?(?:depiction|photograph) of (?:a named|a specific|the named|this event)[^.]*\.?$/i, '.')
     .replace(/\s+/g, ' ');
 }
 
 /** The visible description and distinction, without guessing from a URL or extension. */
 export function imageCaption(image = {}) {
   image ??= {};
-  const description = imageCaptionText(image.caption || image.depicts || '');
-  const art = /^Illustration\s*[:\u00b7]/i.test(image.credit || '') || image.imageKind === 'illustration';
+  let description = imageCaptionText(image.caption || image.depicts || '');
+  const labelledArt = /^Illustration\s*[:\u00b7]/i.test(imagePresentationText(image.credit || ''));
+  const art = labelledArt || image.imageKind === 'illustration';
+  // A string-only CMS row cannot establish the medium. Remove redundant prose
+  // only where the adjacent credit itself visibly identifies an illustration.
+  if (labelledArt) description = description
+    .replace(/^(?:Original )?Editorial illustration\.\s*/i, '')
+    .replace(/(?:[.;,]\s*|\s+)not (?:an? (?:exact )?)?(?:depiction|photograph) of (?:a named|a specific|the named|this event)[^.]*\.?$/i, '.');
   if (image.depictionStatus === 'illustrative' && !art) {
-    if (/^Context photograph\b/i.test(description)) return description;
-    return `Context photograph${description ? `: ${description}` : '.'}`;
+    if (/^(?:Context (?:photograph|image)|(?:Original )?Editorial illustration)\b/i.test(description)) return description;
+    description = description.replace(/\s*Regional (?:coastal )?context photograph, not a depiction of every[^.]*\.?/i, '');
+    const label = image.imageKind === 'photograph' ? 'Context photograph' : 'Context image';
+    return `${label}${description ? `: ${description}` : '.'}`;
   }
   return description;
+}
+
+/** Preserve explicit attribution wording; otherwise label unknown media neutrally. */
+export function imageCreditText(value, imageKind) {
+  const credit = imagePresentationText(value || '').trim();
+  if (!credit || /^(?:Illustration|Photo(?:graph|grapher)?|Credit)\b/i.test(credit)) return credit;
+  const label = imageKind === 'illustration' ? 'Illustration' : imageKind === 'photograph' ? 'Photo' : 'Credit';
+  return `${label}: ${credit}`;
+}
+
+/** A reviewed image's public caption/credit must identify its medium or context. */
+export function hasCaptionDistinction(image = {}) {
+  if (image.depictionStatus !== 'illustrative' || !imageCaptionText(image.caption).trim() || /^(?:Original )?Editorial illustration\.?$/i.test(image.caption.trim())) return false;
+  if (image.imageKind === 'illustration') return /^Illustration\s*[:\u00b7]/i.test(imagePresentationText(image.credit || ''));
+  if (image.imageKind === 'photograph') return Boolean(image.credit?.trim()) && /^Context photograph\b/.test(imageCaption(image));
+  return false;
 }
 
 /** Editorial admission issues, separate from legal provenance checks. */

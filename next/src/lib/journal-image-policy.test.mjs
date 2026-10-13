@@ -62,6 +62,10 @@ test('reviewed raster artwork keeps one illustration credit', () => {
     assert.equal(journalCredit({ src, credit: 'Illustration · Peninsula Insider' }), 'Illustration · Peninsula Insider');
   }
 });
+test('CMS image attribution never invents a photographic medium',()=>{
+ assert.equal(journalCredit({override:{},credit:'Peninsula Insider',caption:'Original editorial illustration. Coastal hills.'}),'Credit: Peninsula Insider');
+ assert.equal(journalCredit({override:{},credit:'Illustration: Peninsula Insider'}),'Illustration: Peninsula Insider');
+});
 test('fallback attribution survives cache-stamping of the inlined illustration constant', () => {
   const original = journalIllustration.src;
   try {

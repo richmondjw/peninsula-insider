@@ -1,5 +1,5 @@
 /** Journal imagery must survive missing records, files, and failed downloads. */
-import { imageCaption } from './image-presentation.mjs';
+import { imageCaption, imageCreditText } from './image-presentation.mjs';
 
 export function journalImageTheme(data = {}) {
   const topic = [data.title, data.format, ...(data.tags ?? [])].join(' ').toLowerCase();
@@ -48,6 +48,8 @@ export function selectJournalImage(hero, data, fallback, available, rightsEstabl
 }
 
 export function journalCredit(image) {
+  if (image.override) return imageCreditText(image.credit);
+  if (image.imageKind === 'illustration') return imageCreditText(image.credit, 'illustration');
   // Reviewed credit identifies raster artwork too. A format or an
   // illustrative depiction status alone does not make a context photo art.
   if (/^Illustration\s*[:·]/i.test(image.credit?.trim() ?? '')) return image.credit.trim();

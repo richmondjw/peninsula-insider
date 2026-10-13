@@ -203,7 +203,7 @@ export function illustrativeDisclosure(
 
   const art = image?.imageKind === 'illustration' || /^Illustration\s*[:\u00b7]/i.test(image?.credit || '');
   return {
-    label: art ? 'Illustration' : 'Context photograph',
+    label: art ? 'Illustration' : image?.imageKind === 'photograph' ? 'Context photograph' : 'Context image',
     detail: imageCaption(image || {}),
   };
 }
