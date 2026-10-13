@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-10-14",
-  "generatedAt": "2026-10-13T22:51:06.839Z",
+  "generatedAt": "2026-10-13T23:22:51.950Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 16 – Sun 18 October",
     "count": 11
   },
-  "numberOfItems": 19,
+  "numberOfItems": 20,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -169,6 +169,19 @@
       "position": 13,
       "item": {
         "@type": "Event",
+        "name": "British Comedy Trivia at The Pig & Whistle",
+        "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+        "startDate": "2026-10-22",
+        "endDate": "2026-10-22",
+        "description": "A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
+      "item": {
+        "@type": "Event",
         "name": "Summer Lovin' Singles Party at Rye Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
         "startDate": "2026-10-23",
@@ -179,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -192,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -205,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
@@ -218,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -231,7 +244,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -244,7 +257,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -256,7 +269,7 @@
       }
     }
   ],
-  "count": 19,
+  "count": 20,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -538,6 +551,25 @@
         }
       ],
       "thisWeekend": true
+    },
+    {
+      "title": "British Comedy Trivia at The Pig & Whistle",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-22",
+      "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+      "sourceUrl": "https://events.humanitix.com/trivia-night-british-comedy",
+      "factCheckedOn": "2026-10-14",
+      "recurrence": "one-off",
+      "category": "community",
+      "place": "main-ridge",
+      "venue": null,
+      "summary": "A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
     },
     {
       "title": "Summer Lovin' Singles Party at Rye Hotel",

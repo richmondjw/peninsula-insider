@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-13T22:55:47.781Z",
-  "snapshotId": "b724c38a6a83fea2042e2110559bb0cd5574da709d05ad342093b688452656ea",
+  "generatedAt": "2026-10-13T23:29:42.672Z",
+  "snapshotId": "2ec0637e586b80365e986ac5356ed5068aa20434a6827466d3f0ce0600417d02",
   "section": "whats-on",
-  "count": 40,
+  "count": 41,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -19,7 +19,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-14"
       },
-      "htmlBytes": 197369,
+      "htmlBytes": 197439,
       "markdownBytes": 9099
     },
     {
@@ -57,12 +57,29 @@
       "markdownBytes": 4331
     },
     {
+      "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+      "title": "British Comedy Trivia at The Pig & Whistle",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/index.md",
+      "contentSha256": "3277e1ff366e1c693b464e6225741e4d6ddc64d8f849fa96b8d4d356360b977d",
+      "citation": {
+        "title": "British Comedy Trivia at The Pig & Whistle",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 142309,
+      "markdownBytes": 4449
+    },
+    {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "title": "Things that start after the sun goes down",
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "1109428451148ccb26e19fe9dcbd9ff167a165466914a3db8f7b35bbb493cc66",
+      "contentSha256": "c25a6fcce486be79d1c088c7773c4d24dc4eb4bb0578286623cce923b08aaac1",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -70,8 +87,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 133309,
-      "markdownBytes": 1813
+      "htmlBytes": 135999,
+      "markdownBytes": 2231
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -198,7 +215,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "bc88f30a43dfdfe423bf19a7284e2c2414611ea87f14a41322d2f4af0d74f1d9",
+      "contentSha256": "db636c9bdb018ecaf29da0d88ba6d3b0e8209f6753af96ad02504f425277b5d9",
       "citation": {
         "title": "Main Street Mornington Festival 2026",
         "publisher": "Peninsula Insider",
@@ -206,8 +223,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142690,
-      "markdownBytes": 4997
+      "htmlBytes": 139614,
+      "markdownBytes": 4578
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",

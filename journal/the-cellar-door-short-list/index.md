@@ -261,6 +261,16 @@ On the calendar
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Thu, 22 Oct
+
+### ✦ British Comedy Trivia at The Pig & Whistle
+
+Main Ridge
+
+A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.
+
+ Event · Community](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
+
 - [Sat, 17 Oct
 
 ### ✦ Emu Plains Market
