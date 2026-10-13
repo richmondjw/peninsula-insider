@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 303,
+  "pages": 305,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -2108,6 +2108,37 @@
       ]
     },
     {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/explore-beaches/hero-1780283870720.jpg",
+      "format": "webp",
+      "originalBytes": 2246136,
+      "variants": [
+        {
+          "src": "/_media/946c36c4527780f4756f-480.webp",
+          "width": 480,
+          "height": 311,
+          "bytes": 23684
+        },
+        {
+          "src": "/_media/946c36c4527780f4756f-800.webp",
+          "width": 800,
+          "height": 518,
+          "bytes": 60326
+        },
+        {
+          "src": "/_media/946c36c4527780f4756f-1280.webp",
+          "width": 1280,
+          "height": 829,
+          "bytes": 146212
+        },
+        {
+          "src": "/_media/946c36c4527780f4756f-1920.webp",
+          "width": 1920,
+          "height": 1244,
+          "bytes": 325452
+        }
+      ]
+    },
+    {
       "source": "/images/visit-victoria/vv-161979-cape-schanck-boardwalk.webp",
       "format": "webp",
       "originalBytes": 134596,
@@ -3614,6 +3645,31 @@
           "width": 1920,
           "height": 1280,
           "bytes": 383398
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/place-red-hill-01.webp",
+      "format": "webp",
+      "originalBytes": 122654,
+      "variants": [
+        {
+          "src": "/_media/e18e1c454b97aa3910c0-480.webp",
+          "width": 480,
+          "height": 240,
+          "bytes": 25052
+        },
+        {
+          "src": "/_media/e18e1c454b97aa3910c0-800.webp",
+          "width": 800,
+          "height": 400,
+          "bytes": 58814
+        },
+        {
+          "src": "/_media/e18e1c454b97aa3910c0-1200.webp",
+          "width": 1200,
+          "height": 600,
+          "bytes": 121894
         }
       ]
     },
@@ -12676,31 +12732,6 @@
       ]
     },
     {
-      "source": "/images/sourced/place-red-hill-01.webp",
-      "format": "webp",
-      "originalBytes": 122654,
-      "variants": [
-        {
-          "src": "/_media/e18e1c454b97aa3910c0-480.webp",
-          "width": 480,
-          "height": 240,
-          "bytes": 25052
-        },
-        {
-          "src": "/_media/e18e1c454b97aa3910c0-800.webp",
-          "width": 800,
-          "height": 400,
-          "bytes": 58814
-        },
-        {
-          "src": "/_media/e18e1c454b97aa3910c0-1200.webp",
-          "width": 1200,
-          "height": 600,
-          "bytes": 121894
-        }
-      ]
-    },
-    {
       "source": "/images/generated/category-stay-coastal-punch.webp",
       "format": "webp",
       "originalBytes": 83124,
@@ -13914,6 +13945,31 @@
           "width": 1536,
           "height": 1024,
           "bytes": 40544
+        }
+      ]
+    },
+    {
+      "source": "/images/sourced/explore-mprg-01.webp",
+      "format": "webp",
+      "originalBytes": 267456,
+      "variants": [
+        {
+          "src": "/_media/165269b2b905bb8860a7-480.webp",
+          "width": 480,
+          "height": 360,
+          "bytes": 39118
+        },
+        {
+          "src": "/_media/165269b2b905bb8860a7-800.webp",
+          "width": 800,
+          "height": 600,
+          "bytes": 109006
+        },
+        {
+          "src": "/_media/165269b2b905bb8860a7-1200.webp",
+          "width": 1200,
+          "height": 900,
+          "bytes": 263906
         }
       ]
     },

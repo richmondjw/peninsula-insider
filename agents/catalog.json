@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-12T21:23:29.705Z",
-  "snapshotId": "51c919bc9ae01b27138053bb9a872dd9c0aa02a9cbe32ccc8ac4dd937a96e6a8",
+  "generatedAt": "2026-10-13T09:58:10.688Z",
+  "snapshotId": "737a70e2e2328562813040876d0ad2c9d7e5b101ca105542d2a14631315d16a2",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "19f75e94faa028cb9de9d0f3fcc4699b0a425c1fdfb217faa9a94dd7656f6a2a",
+      "contentSha256": "c13cb75f93699324f73ba3bb6f32d574119eac970332980fa12fc56610b4aa0d",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 199662,
-      "markdownBytes": 9217
+      "htmlBytes": 199006,
+      "markdownBytes": 9093
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -1653,7 +1653,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 175509,
+      "htmlBytes": 175936,
       "markdownBytes": 15650
     },
     {
@@ -1883,7 +1883,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "2d44f732adc48f57d72b1a368d51eebdd9a420174694fb4b3c9769f853c706fc",
+      "contentSha256": "35147d7f6ec1f609216ec603aee628c012f71cb70365059c8b93a31b89a8568c",
       "citation": {
         "title": "Mornington Peninsula Golf",
         "publisher": "Peninsula Insider",
@@ -1891,8 +1891,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-12"
       },
-      "htmlBytes": 196916,
-      "markdownBytes": 22458
+      "htmlBytes": 197190,
+      "markdownBytes": 22545
     },
     {
       "id": "https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/",
@@ -1976,7 +1976,7 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-04"
       },
-      "htmlBytes": 143844,
+      "htmlBytes": 144225,
       "markdownBytes": 7565
     },
     {
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "9f93baf7167d2a2b912e060e89af083d0f27c5c2e1d1e430a1c667bc73c85e5c",
+      "contentSha256": "b63381f5a7eb86675e75d84f02b8273d83207a10ac16a741ea687b9a8bac7c6b",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "b26e2acbede789292e0843b6076abee6b76c8554fbd94bf87818846c9ae1798f",
+      "contentSha256": "7a77f69e7860dc9360497cc1eed82edf9eee04d83563fc75562bf4c493aa6138",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -6677,7 +6677,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "e0a4c01cb5fd08eecdecfc45cba896fdc61e2881c0d558b2ad7c22c26efa2cc4",
+      "contentSha256": "3bda30f9098768ede08a2e96e7ab0fd377110337ef0c43951ba878559d781733",
       "citation": {
         "title": "Tuesday 13 October 2026",
         "publisher": "Peninsula Insider",
@@ -8513,7 +8513,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "e55749c2c8bf8ba353191b2ba5d527b863be6c6a635f08224327206babfb0e15",
+      "contentSha256": "9b44e8179d8dbc0370ab602ddb5b9d256795cf43244eab3efe04d03c3577e74e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8521,8 +8521,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-13"
       },
-      "htmlBytes": 197771,
-      "markdownBytes": 9232
+      "htmlBytes": 198675,
+      "markdownBytes": 9381
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",

@@ -27,13 +27,19 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Mornington Peninsula Regional Gallery interior for venue context; this photograph does not show the Tessellation workshop.   Photo courtesy of Visit Victoria.
+- Fri, 16 Oct · 10:45am–11:45am · Mornington
 
-Sat, 17 Oct · 9:30am–12:30pm · Mornington
+### [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
 
-### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
 
-Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
+Fri, 16 Oct   Mornington   Nature & Walks
+
+- Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+An easy afternoon making session after a Mornington outing.
 
 Sat, 17 Oct   Mornington   Arts
 
@@ -42,14 +48,6 @@ Sat, 17 Oct   Mornington   Arts
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Sat, 17 Oct   Fingal   Live Music
-
-- Photo: Peninsula Insider.
-
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-Sat, 17 Oct   Balnarring   Markets
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -161,6 +159,12 @@ A VFMA-accredited village market with local growers and specialty makers, suppor
 
 9am · Mount Eliza · Markets
 
+- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+9am · Balnarring · Markets
+
 - [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
 Forty years of Wednesdays on Main Street. Not a tourist event, just the way Mornington shops midweek.
@@ -183,11 +187,11 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions
 
-- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
-An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
+Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
 
-1.30pm · Mornington · Arts
+9.30am · Mornington · Arts
 
 ### Major events
 

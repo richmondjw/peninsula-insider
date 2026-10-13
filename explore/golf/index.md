@@ -361,11 +361,13 @@ Building a broader Peninsula trip around golf? The [3-day Mornington Peninsula i
 
  [Read the stay-and-play guide →](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
 
-Nearby   Peninsula Hot Springs and the Fingal course cluster
+Before you book
 
-Check   your live route from Melbourne before choosing a tee time
+- **Stay close:** RACV Cape Schanck and Moonah Links put accommodation beside the course.
 
-2   on-property accommodation options at the Cape cluster
+- **Check access:** confirm visitor eligibility and live tee times with the club.
+
+- **Check the route:** allow for Peninsula traffic at the time you plan to travel.
 
 Common questions
 
