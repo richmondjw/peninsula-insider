@@ -27,6 +27,8 @@
  * `hasRecordedProvenance` asks only whether the record itself says.
  */
 
+import { imageCaption } from './image-presentation.mjs';
+
 export type DepictionStatus = 'actual' | 'illustrative' | 'unverified';
 
 /**
@@ -37,6 +39,7 @@ export type DepictionStatus = 'actual' | 'illustrative' | 'unverified';
  */
 export interface ProvenanceImage {
   src?: string;
+  imageKind?: string;
   alt?: string;
   credit?: string;
   license?: string;
@@ -182,12 +185,12 @@ export function hasWebsitePhotoEvidence(image: ProvenanceImage | null | undefine
 }
 
 /**
- * The sentence shown to a sighted reader beneath an illustrative image.
+ * A concise recorded description beneath contextual imagery.
  *
  * Built only from what the record carries. When `depicts` is recorded the
  * reader is told what the photograph is of; when it is not, they are told
- * only that it is not the subject, because inventing the subject of a
- * photograph is the same class of error as inventing its licence.
+ * only the context label. Unknown identity is inventoried for editorial review;
+ * inventing an image's subject is the same class of error as inventing its licence.
  *
  * Returns null for anything not explicitly illustrative, so the caller cannot
  * accidentally render a disclosure onto an image that has not earned one.
@@ -198,14 +201,9 @@ export function illustrativeDisclosure(
 ): { label: string; detail: string } | null {
   if (!isIllustrative(image)) return null;
 
-  const depicts = typeof image?.depicts === 'string' ? image.depicts.trim().replace(/[.!?]+$/, '') : '';
-  const named = typeof subject === 'string' ? subject.trim() : '';
-  const target = named || 'the place described on this page';
-
+  const art = image?.imageKind === 'illustration' || /^Illustration\s*[:\u00b7]/i.test(image?.credit || '');
   return {
-    label: 'Illustrative image',
-    detail: depicts
-      ? `This image shows ${depicts}. It does not depict ${target}.`
-      : `This image does not depict ${target}.`,
+    label: art ? 'Illustration' : 'Context photograph',
+    detail: imageCaption(image || {}),
   };
 }

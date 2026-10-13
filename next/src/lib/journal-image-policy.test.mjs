@@ -45,7 +45,8 @@ test('an unavailable thematic image falls back to original art, with honest attr
   assert.equal(image.src, journalIllustration.src);
   assert.match(journalCredit(image), /^Illustration/);
   assert.match(journalCredit({ ...image, src: image.src + '?v=hash' }), /^Illustration/);
-  assert.match(image.caption, /not a photograph/);
+  assert.equal(image.caption, 'Coastal hills, vineyard rows and a sailboat under the sun.');
+  assert.equal(image.imageKind, 'illustration');
   assert.throws(() => selectJournalImage(hero, data, fallback, () => false), /no available image/);
 });
 test('local availability ignores cache parameters and rejects traversal and unsafe schemes', () => {

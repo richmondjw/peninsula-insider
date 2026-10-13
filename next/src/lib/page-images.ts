@@ -5,6 +5,7 @@
  * site, so credit, caption and alt text come from the record. The licence gate,
  * the credits page and the where-used ledger all read the same file.
  */
+import { imageCaption } from './image-presentation.mjs';
 import data from '../data/visit-victoria-page-images.json';
 
 export interface PageImage {
@@ -23,7 +24,7 @@ const images = (data as { images: Record<string, PageImage> }).images;
 export function pageImage(key: string): PageImage {
   const image = images[key];
   if (!image) throw new Error(`No licensed page image "${key}" in src/data/visit-victoria-page-images.json`);
-  return image;
+  return { ...image, caption: imageCaption(image) };
 }
 
 export function allPageImages(): Array<PageImage & { key: string }> {

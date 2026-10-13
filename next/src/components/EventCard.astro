@@ -8,7 +8,6 @@
  */
 import PiSaveActions from './PiSaveActions.astro';
 import EventImageCredit from './EventImageCredit.astro';
-import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import { eventCategoryLabel, routeSlug } from '../lib/editorial';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
@@ -243,7 +242,6 @@ const recurrenceDay = multipleOpeningDays
   {renderImage && recordedOwnHero && (
     <>
       <EventImageCredit image={event.data.heroImage} compact />
-      <MediaProvenanceNote image={event.data.heroImage} subject={event.data.title} />
     </>
   )}
   <div class="event-card__body">

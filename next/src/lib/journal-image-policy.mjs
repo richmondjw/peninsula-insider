@@ -1,4 +1,5 @@
 /** Journal imagery must survive missing records, files, and failed downloads. */
+import { imageCaption } from './image-presentation.mjs';
 
 export function journalImageTheme(data = {}) {
   const topic = [data.title, data.format, ...(data.tags ?? [])].join(' ').toLowerCase();
@@ -14,8 +15,9 @@ export const journalIllustration = {
   src: '/images/editorial/journal-backstop.svg',
   alt: 'Original illustration of layered coastal hills, vineyard rows and a sailboat under a warm sun',
   credit: 'Peninsula Insider',
-  caption: 'Original editorial illustration. A conceptual coastal scene, not a photograph of a named place or event.',
+  caption: 'Coastal hills, vineyard rows and a sailboat under the sun.',
   depicts: 'a conceptual coastal landscape',
+  imageKind: 'illustration',
   depictionStatus: 'illustrative',
   license: 'other-licensed',
   creator: 'Peninsula Insider',
@@ -38,9 +40,10 @@ export function selectJournalImage(hero, data, fallback, available, rightsEstabl
   if (!available(image.src)) throw new Error('Journal image policy: no available image or original illustration');
   return {
     ...hero, ...image,
+    caption: imageCaption(image.provenance || image),
     override: usable ? hero.override : undefined,
     fallback: !usable,
-    recovery: [fallback, journalIllustration].filter((r, i, rows) => available(r.src) && rows.findIndex(x => x.src === r.src) === i),
+    recovery: [fallback, journalIllustration].filter((r, i, rows) => available(r.src) && rows.findIndex(x => x.src === r.src) === i).map(r => ({ ...r, caption: imageCaption(r) })),
   };
 }
 
