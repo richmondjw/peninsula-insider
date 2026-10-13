@@ -5,11 +5,11 @@ Modified: 2026-10-14T00:00:00.000Z
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Insider Edit  14 October 2026  4 min read
+Insider Edit  14 October 2026  3 min read
 
-# Portsea pub fish and chips, the Baldry's Creek loop, and the Main Street Mornington Festival
+# Portsea pub fish and chips and the Baldry's Creek loop
 
-The Portsea Hotel's Port Phillip views with fish and chips, a spring wildflower loop at Baldry's Creek Reserve, and the Main Street Mornington Festival closing out Sunday.
+The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
 
 Keep this for later
 
@@ -33,11 +33,9 @@ The orchids at Baldry’s Creek Reserve peak in late September and hold into mid
 
 **Pair with** a stop at Balnarring Village on the way home for coffee.
 
-## DISCOVERY - Main Street Mornington Festival, Sunday 18 October
+## Correction - Main Street Mornington Festival cancelled for 2026
 
-The Main Street Mornington Festival runs once a year and closes Main Street to traffic between 11am and 5pm on Sunday 18 October 2026. The street fills with market stalls, food traders, and live music across the length of the strip. It is genuinely a local event - the crowd is mostly Peninsula residents rather than day-trippers - and the atmosphere reflects that. The food stalls draw producers from across the region rather than the standard van circuit. The live music stages are spread far enough apart that the sound doesn’t bleed. Arrive between 11am and midday to move freely along the street before it compresses in the early afternoon. Entry is free and no booking is required. Main Street runs through the centre of Mornington, easily reached from the Nepean Highway. Allow two to three hours if you intend to browse properly.
-
-**Pair with** a walk down to Mornington Pier before or after to use the spring light on the water.
+An earlier version of this article recommended the Main Street Mornington Festival for Sunday 18 October 2026. That recommendation was incorrect: [the organiser](<https://mainstreetfestival.com.au/>) confirms that the festival will not go ahead in 2026 because it could not secure sufficient funding. The organiser lists 17 October 2027 as the next festival. Do not plan a visit around a festival this October; check the organiser’s website for future updates.
 
 ## Quick Reference
 
@@ -45,7 +43,7 @@ The Main Street Mornington Festival runs once a year and closes Main Street to t
 
 **Baldry’s Creek Reserve** Baldry’s Creek Road, Tuerong Open daily, no entry fee, no booking required. Allow 90 minutes for the main loop. No dogs.
 
-**Main Street Mornington Festival 2026** Main Street, Mornington Sunday 18 October 2026, 11am–5pm. Free entry, no booking required.
+**Main Street Mornington Festival 2026** Main Street, Mornington Cancelled for 2026. The organiser lists 17 October 2027 as the next festival; check [the official website](<https://mainstreetfestival.com.au/>) for updates.
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
@@ -57,9 +55,9 @@ Where is the Portsea Hotel and when does the kitchen open?
 
 The Portsea Hotel is at 3746 Point Nepean Road, Portsea. Check the hotel's website for current kitchen hours and table availability, particularly on weekends in spring when the beer garden fills early.
 
-When and where is the Main Street Mornington Festival 2026?
+Has the Main Street Mornington Festival 2026 been cancelled?
 
-The Main Street Mornington Festival runs Sunday 18 October 2026 from 11am to 5pm along Main Street, Mornington. Entry is free and no booking is required.
+Yes. The organiser confirms that the Main Street Mornington Festival will not go ahead in 2026 and lists 17 October 2027 as the next festival. Check mainstreetfestival.com.au for future updates.
 
 Where is Baldry's Creek Reserve and how long is the loop?
 

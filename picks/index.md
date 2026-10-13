@@ -15,7 +15,7 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
-- [Portsea pub fish and chips, the Baldry's Creek loop, and the Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips, a spring wildflower loop at Baldry's Creek Reserve, and the Main Street Mornington Festival closing out Sunday.
+- [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
 
 - [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 

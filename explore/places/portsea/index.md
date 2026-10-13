@@ -205,13 +205,13 @@ Insider Edit   4 min
 
 The Portsea Hotel deck in first-spring warmth, the native orchids peaking along Point Nepean's Number 2 Rifle Range track, and the final truffle hunts of the season at Red Hill Truffles in Main Ridge.
 
-Insider Edit   4 min
+Insider Edit   3 min
 
-### [Portsea pub fish and chips, the Baldry's Creek loop, and the Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>)
+### [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>)
 
 14 October 2026
 
-The Portsea Hotel's Port Phillip views with fish and chips, a spring wildflower loop at Baldry's Creek Reserve, and the Main Street Mornington Festival closing out Sunday.
+The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
 
 Planning guides
 

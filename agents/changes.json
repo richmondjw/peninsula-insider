@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-13T20:25:44.078Z",
+  "generatedAt": "2026-10-13T22:05:48.199Z",
   "baselineAvailable": true,
-  "fromSnapshot": "db79374088d75711956d0c0fa1d34cd7177233685fe30222494d1fd8459bff78",
-  "toSnapshot": "eff7a2ab4abceaa95e835e7daa92ef18ac8852cf714dc1d35401b36e910de68d",
-  "previousGeneratedAt": "2026-10-13T19:24:30.165Z",
+  "fromSnapshot": "eff7a2ab4abceaa95e835e7daa92ef18ac8852cf714dc1d35401b36e910de68d",
+  "toSnapshot": "a706a5ef29f6542159153b5fb2f6f89a7eb2f2645de25fa1b28359c27050473f",
+  "previousGeneratedAt": "2026-10-13T20:25:44.078Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 4,
   "changes": [
@@ -13,32 +13,32 @@
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "742cd0cd08c449c38845997b30ef6cbcbc875dc4e6033372f76b943c6f32b57f",
-      "previousContentSha256": "bfd476f15a0ca7f0c6e85dace89d9da250240a189e34c947032772d4daac8096"
+      "contentSha256": "ae606f8dfc7423646814c8427694e44a10faf72702a859342c4e89ef14f1f84b",
+      "previousContentSha256": "742cd0cd08c449c38845997b30ef6cbcbc875dc4e6033372f76b943c6f32b57f"
     },
     {
       "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
-      "kind": "representation-added",
+      "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/index.md",
-      "contentSha256": "7ab8fa0c5712f33a11f7f3ef762467a1bc28ee69014e19832a1bc89814fd13f4",
-      "previousContentSha256": null
+      "contentSha256": "85be46d2100a5ca2b6daa3d353df09c293fff046e30f8632c21c918e74b80eab",
+      "previousContentSha256": "7ab8fa0c5712f33a11f7f3ef762467a1bc28ee69014e19832a1bc89814fd13f4"
     },
     {
       "id": "https://peninsulainsider.com.au/picks/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "c0e6e087daf1f428f0afc53c5b1e339eb87def339f7b2fa6b182004bf6e9b078",
-      "previousContentSha256": "5ee0dd2d4080071a8d4d2f6c4d5efa197be5e466b32616a1dd98be3cbfd9a59e"
+      "contentSha256": "01aaf7bd06b2e7b7227e7f563818feb87b88aef39569aacf3fa90a87f3e686de",
+      "previousContentSha256": "c0e6e087daf1f428f0afc53c5b1e339eb87def339f7b2fa6b182004bf6e9b078"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "e1f2793261d940a0e6242c0b3409a9b18c6f77f253daa4dfeee5d822c09c8296",
-      "previousContentSha256": "3722ee84a459470262bbc994e09569fdbf6b813a631385c4d0181265edb4ae10"
+      "contentSha256": "3db1883c190b2afc5c4c1743a31707625e952f7d09b9a004d26e08d01ad81169",
+      "previousContentSha256": "e1f2793261d940a0e6242c0b3409a9b18c6f77f253daa4dfeee5d822c09c8296"
     }
   ]
 }
