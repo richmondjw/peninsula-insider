@@ -704,16 +704,6 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 14 Oct
-
-### ✦ Steinfest at Tar Barrel
-
-Mornington
-
-Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
 - [Thu, 15 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
@@ -723,6 +713,16 @@ Mornington
 National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+- [Thu, 15 Oct
+
+### ✦ Steinfest at Tar Barrel
+
+Mornington
+
+Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
 - [Fri, 16 Oct
 

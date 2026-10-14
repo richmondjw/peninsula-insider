@@ -53,18 +53,6 @@ Swipe or scroll through the picks
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
-An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
-
-Tar Barrel Brewery & Distillery   Food & wine
-
-Event details checked 14 Oct 2026. [Check organiser](<https://tarbarrel.com.au/whats-on/>)
-
-- Illustrative image
-
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
-
 ### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
 An easy afternoon making session after a Mornington outing.
@@ -84,6 +72,18 @@ Choose this for a structured morning making session with National Works on Paper
 Mornington Peninsula Regional Gallery   Arts
 
 Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Peppers Moonah Links   Every Saturday
+
+Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
