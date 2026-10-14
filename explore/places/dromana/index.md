@@ -185,7 +185,7 @@ Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
 ### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
 
-420 Old Moorooduc Rd, Dromana VIC 3936
+85 Harrisons Road, Dromana VIC 3936
 
 The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebbiolo, and a cellar worth visiting on its own terms.
 

@@ -1,28 +1,428 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-14T23:04:14.114Z",
+  "generatedAt": "2026-10-14T23:26:16.227Z",
   "baselineAvailable": true,
-  "fromSnapshot": "7f7b2eb421251a924899c8189323ae4aa9e0789d5c63031c4b0b32a0262e382c",
-  "toSnapshot": "df373305f07d7e4fb386594544daf46f7129d939513791a6ca4ba2805eda513b",
-  "previousGeneratedAt": "2026-10-14T20:16:36.577Z",
+  "fromSnapshot": "df373305f07d7e4fb386594544daf46f7129d939513791a6ca4ba2805eda513b",
+  "toSnapshot": "4898d88e9be36fdb17c6d1a2d1d97ac68c414aba2dae78f43645a2ec6123f989",
+  "previousGeneratedAt": "2026-10-14T23:04:14.114Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 52,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "id": "https://peninsulainsider.com.au/eat/barmah-park/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
-      "contentSha256": "c602127f5dd8c5893f0df200c1fc358c08e11fad849decf5561f9d90c62528f9",
-      "previousContentSha256": "9bf00995f1c063cef7daf581675488eb24abc3d78c69a7a1a628abd641a57cac"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/barmah-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/barmah-park/index.md",
+      "contentSha256": "c8b79b0e32787353b3a056399f6688ac330b0ff03c79554d0604c3fffea0783f",
+      "previousContentSha256": "6bf1fbae49dc2a72160aa9db7d4b1802fc82f205701ce06745ce80d2f381f88f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
+      "contentSha256": "19e61aaa979183951b981ad3a77df80b0b69bab9c9bb899b426ecd29565936ae",
+      "previousContentSha256": "ffd95570736b8cba77dcdfcb313fa2489a04d4786ea9621a3a86597ea0bae476"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
+      "contentSha256": "b3a77320b04c1f3883d6831e477ec9013660f4ca07e947c23d7b7bc77a31eb0c",
+      "previousContentSha256": "a4223f499ea3bcd69b9a788ec64280d9b3f708cd25f64f8248255e2199249611"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/tuerong/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tuerong/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/tuerong/index.md",
+      "contentSha256": "8a570a25abbb80c82f1c5d125ff09840542038026930e27d8e3b76009404f34a",
+      "previousContentSha256": "6f583fd05c190af469eb25469e16181e7f1150fe4c56bd395db75133f335f6c4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
+      "contentSha256": "d6bb2df1fbdc65f8442d1ce1b3abbf72faf8c2c68ba47f3a59020e126018db58",
+      "previousContentSha256": "4b62ab5997671ffc04b372674f11d4fea92b9942efe4beee346422d87d797dcc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "376ec35cac95aec40bc333f99f4c09fcbe63bf95dee277a01348407ea690db1f",
+      "previousContentSha256": "cf6b77317cdf9354c0f6f1b806497426f8be4fd57e96ee07fbf3a83171d60fa0"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "ad356a854d59912e3773dfcf5e1852d1164e81c501c642a4d7500e6775773e05",
-      "previousContentSha256": "c27cfd90d4dca3a724d6e4d70ead3ad1bb40152d3d861806c3d80fcb24a00552"
+      "contentSha256": "7b56b72be9e13eed33b2554ce4e3806303c1522d53c38f8b0b6711c153ef6960",
+      "previousContentSha256": "ad356a854d59912e3773dfcf5e1852d1164e81c501c642a4d7500e6775773e05"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/avani-wines/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/avani-wines/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/avani-wines/index.md",
+      "contentSha256": "8051afc01944ab7a08a481d087ddfe0cde6cbe797bc975a0ab8475a28af58775",
+      "previousContentSha256": "7870757be2153db620c11a2d3a2d5f55bad8a6a8bd8c38dc20e9c567a67ddbed"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/baillieu-vineyard/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/baillieu-vineyard/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/baillieu-vineyard/index.md",
+      "contentSha256": "106e152a2f0f81d47dff38c25e03d7ffae291fe83d511837e20190ba414f03dc",
+      "previousContentSha256": "fc76845768ff58667e58de78c5249b2bba30023e9b49a7a0ee65f83b477fae26"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/barmah-park-vineyard/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/barmah-park-vineyard/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/barmah-park-vineyard/index.md",
+      "contentSha256": "63ac54953c1fcfa0efa378912cb22299fa82d3deb7af31bd7649548936b44ea6",
+      "previousContentSha256": "881826b4edc0dd2838f2482c88e58ecbc5a889b387473c3e9fb1d319098e9685"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/bass-and-flinders/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/bass-and-flinders/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/bass-and-flinders/index.md",
+      "contentSha256": "a3145213b21b6234ba87b41fda62ab013b14b77ffe1620090adfddf7b9f1999d",
+      "previousContentSha256": "3fa7e8b49285b8e22c560119f7fa8bf86d7c52a7bb0900857406467430bb8083"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/best-cellar-doors/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/best-cellar-doors/index.md",
+      "contentSha256": "eab75a504c0ca175887e4566efafdfc98368e5260c879cb0ee61b3029cde0661",
+      "previousContentSha256": "ca000f8cf75e04dc983d77a246027fb808d7184800919bb22bf93bac07ace565"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/crittenden-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/crittenden-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/crittenden-estate/index.md",
+      "contentSha256": "d9da00aab7f187ed8b45c2f7cb20c778c2e2fb2f07a052bb552f6281f98d9103",
+      "previousContentSha256": "fe04b0a332893c82fb493fbc9aee423f9ef45ffd6f28ac6bb59dcfce63596ba6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/dexter-wines/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/dexter-wines/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/dexter-wines/index.md",
+      "contentSha256": "290ba5d7a7147573c15b72a10a2630f562c0c96fee79456f1cf809a9449899e3",
+      "previousContentSha256": "ecf77f73ba920d03c753b99e251b8d7339a835ff9ed073e160f5028c253910b3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/dromana-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/dromana-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/dromana-estate/index.md",
+      "contentSha256": "1dd05acf982f329c6e6fae5b41ba27d1aaf6e7880c75d2275b1deeb8e74cbb27",
+      "previousContentSha256": "b40747187d8fa29f0caeeaae3d849e5ef4685644de521a805f7d0c22579f53e0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/elan-vineyard/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/elan-vineyard/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/elan-vineyard/index.md",
+      "contentSha256": "7afbab55bcb4118eea4962142118d50c1393e40859b0fd45e824a8cf888654a4",
+      "previousContentSha256": "dd7dd8ff111bcd568a215425d5f37a5e45210246d66f4594641469013a275fc8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/eldridge-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/eldridge-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/eldridge-estate/index.md",
+      "contentSha256": "93929b499b902b3dc0894a90885032bd6cf92b232396c968c7a4bc4328d7122b",
+      "previousContentSha256": "be4237edecca71b2815391175067f1b2ff6736101348e7ad4c81665bc21fd79f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/foxeys-hangout/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/foxeys-hangout/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/foxeys-hangout/index.md",
+      "contentSha256": "743638f3a091a12e7f0ad079e16a2358071ec305356f90e7b11eef712bbf2d44",
+      "previousContentSha256": "233f6bcad55755288b6c812efa900f55304307daf821d38d3e4f498f72071a15"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/hurley-vineyard/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/hurley-vineyard/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/hurley-vineyard/index.md",
+      "contentSha256": "5dc9737c4f0e069c5ffbc92f630d506e7b80f7083505a3455c7d4affbc7f9101",
+      "previousContentSha256": "681203062b1e89c51c09b5608eaca4cc159b0139887a710465f5572eb1c335fe"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/jetty-road-brewery/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/jetty-road-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/jetty-road-brewery/index.md",
+      "contentSha256": "afbec145af8befa40a3577cadd6441873ddd106045631b7f1fddd15cf8367563",
+      "previousContentSha256": "55aef466aac8aaf67b348cf571955adb64fafecc01e9d01874eff946ae143407"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/kooyong/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/kooyong/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/kooyong/index.md",
+      "contentSha256": "52181aa57a232f831ffb795ef94861f932ef724150e3a6ec5658542eec7c9347",
+      "previousContentSha256": "b5550a0a6bc9b36e2aaf3165932dec3b3678cb4e86177084db9686a2055f6629"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/lightfoot-wines/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/lightfoot-wines/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/lightfoot-wines/index.md",
+      "contentSha256": "9747c547de53c4212394eba1adc5ff0a5bb6a8e1b6439f5161c5def7c6220fbc",
+      "previousContentSha256": "e515606ac1fb7285e99535c53857958d206f57553db90fc44dc2786a03bdc624"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/main-ridge-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/main-ridge-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/main-ridge-estate/index.md",
+      "contentSha256": "09c1c2e375f8d14f71c403b5d1188f80d07b49bb500b202d1b0a43371158d23c",
+      "previousContentSha256": "4d51973c1d2bbee4702e157247a5b648c08e6599531cea3c363c4156c83cec81"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/merricks-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/merricks-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/merricks-estate/index.md",
+      "contentSha256": "604f93d5dae9f75f04d37b14f99c77104427bf6a6a6d904dd6bf06c8b4dc8a55",
+      "previousContentSha256": "f17a3a363ef81d2b81a7e747d8ff0a460e9442b30a611660a5c89bb2eca2deb2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/montalto/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/montalto/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/montalto/index.md",
+      "contentSha256": "a554b5302ddf40237c6afb21a2bc36b0bdf2c65b99ff71cf4416de2888d1ca97",
+      "previousContentSha256": "f9af8066316112dbe4cd74a69ef13eea0477e2683b8309593cdcfeae60b5223f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/moorooduc-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/moorooduc-estate/index.md",
+      "contentSha256": "bd5969fadd81d9051ad887d1fd11e184cfa257c358c8fa19dfd95d85a27ea478",
+      "previousContentSha256": "300e2319622a055939ceb1c0a5f72245e77b6e6480ef4112e737aaa790b33011"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/morning-sun/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/morning-sun/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/morning-sun/index.md",
+      "contentSha256": "d4b4af524f77f86064aa7081dc8ecf77de5b14886d428cc7e1c1ddafc8c305b8",
+      "previousContentSha256": "e2c3e14e83f7c0aec6e8a8cf42b0e66746fc59164739f3ec9890e2d7bf973d25"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/index.md",
+      "contentSha256": "2006a33bb5e83c266a7b2fb54757dda31603b5a342ccd67c4ddc71215016fb32",
+      "previousContentSha256": "1012f804e84b64aee886154f38b7ea7fdbe8e699f478050686310d0508d85e99"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/nazaaray-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/nazaaray-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/nazaaray-estate/index.md",
+      "contentSha256": "3a178afb9a88472660a9e69e5767629f458a20460f53117711470e55f4263bf4",
+      "previousContentSha256": "805973ba75d2f29a61314932089fe5806ea9efa8b4a53cb516b82723fcb2a77f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/ocean-eight/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/ocean-eight/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/ocean-eight/index.md",
+      "contentSha256": "ebc003d83eae3b9b42912c70848e45d2a65e76777dca4ae04a294614fa9867ac",
+      "previousContentSha256": "47d490832b8643d38d50b6cbd98e2512eda8f823d8b1e87cbab295a95c579537"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/onannon/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/onannon/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/onannon/index.md",
+      "contentSha256": "745690c9e66aefe37454a56d36d81f947e9d9f66d9576d704e1e1a413347d159",
+      "previousContentSha256": "3cab41d6e0f4fdccdbd19aadaee10a7c8ef9fd5f5b30a12c7f142084dfb376b9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/paradigm-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/paradigm-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/paradigm-hill/index.md",
+      "contentSha256": "7be28170d300e90750a57347731040159b1878b6bee4dfdb9d8c1ba68c221a77",
+      "previousContentSha256": "5efcd42249cf76ccd4557c35fb7b493d2e2e994005217aff6092ae0097e1da53"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/paringa-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/paringa-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/paringa-estate/index.md",
+      "contentSha256": "cb1c91f94ec3df89f203b1d50130f2700fd8dc0e185fc0773c688237be35ae34",
+      "previousContentSha256": "e237f2d067f5c9dbbefc5563469f6eefb823db6e93cbad4146cdebd992e62d26"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/phaedrus-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/phaedrus-estate/index.md",
+      "contentSha256": "bf78629431def96952ce111c82a8dbd64b3d7f7cda9cadbf7fdc5431865624b9",
+      "previousContentSha256": "6ec285830fbf8d7321cafd95eb299ac55d3ce408bec9ea4b6c196c63515ea469"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/polperro/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/polperro/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/polperro/index.md",
+      "contentSha256": "e99785a49a47c5a5678a1c8fc94ad36246985a7a0bb970af70887229ff6ae1a7",
+      "previousContentSha256": "6610cc68a5849d05d9d8ec4b3a55b78f39ebbc1bddefb4caa54d76ef4277c417"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/port-phillip-estate/index.md",
+      "contentSha256": "626b575d45384f22f06a63e7dd7e251b792660eb3d270f5f00023b13b176cc64",
+      "previousContentSha256": "50a812f1c8d88052b5e413ee3db962948b315c797c6adf9df9b8e10dce3c1cf1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/prancing-horse-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/prancing-horse-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/prancing-horse-estate/index.md",
+      "contentSha256": "542a2d4ff161e693550ac89244d0be8e265298d1f1af8a603b84bc75da988807",
+      "previousContentSha256": "7fd96e29573bc04e3c39888ed4962d60c76b6f5257559d1b2310851a902eb9ff"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/pt-leo-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/pt-leo-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/pt-leo-estate/index.md",
+      "contentSha256": "f10b58cd65f722ca38b72f476dfc9c690e084c1d49f49f9b4db00e21a36de692",
+      "previousContentSha256": "ef3419437cd5fa80779f06196488fc348c2cf59545e072502dad9698f18d724a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/quealy-winemakers/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/quealy-winemakers/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/quealy-winemakers/index.md",
+      "contentSha256": "a1577a19b32d0b1abf48fb39a43e7a169140476ba0a2ed0a4d1414077d40aafc",
+      "previousContentSha256": "5b19ecb03083bb91fcb7a016041568e7ec21cf04b6ba5a26082ae7ce7f1562f8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/red-hill-brewery/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill-brewery/index.md",
+      "contentSha256": "210acdd9f45cac3b4209d3a4650d28c9760b05358099d7bfbe54f1252ae84bf4",
+      "previousContentSha256": "d50c35656b66dd4957a4856c9a3a8d6b89d34d0adf5614aa0bf2554ed85dfdb8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/red-hill-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill-estate/index.md",
+      "contentSha256": "e06b787ece3ad8320b11b26afbac7c8fe8c48fe7465f417882925290225527a1",
+      "previousContentSha256": "0ecaa64a0ac310e89bab4bce8a0c8ab7c5e01c0f407dd3d6760e9bab1f43cdbb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/scorpo-wines/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/scorpo-wines/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/scorpo-wines/index.md",
+      "contentSha256": "c458f9474a7747c293939f751a954f98d931fe3b238eb5b5c33cdaa7278c5ff6",
+      "previousContentSha256": "52850916a4997a6d2f0c42f590c7d3e2949a1f6c9b251e9918d43fab80beabc0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/index.md",
+      "contentSha256": "64d5547b6fd9f8e1ec9ca924259222a271fb95d08819a5fee4774708ad29d1c3",
+      "previousContentSha256": "5d6b86ccd6a0212787189abe30129b43cfdb81b6837802e97978bb0af7cfd23a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/stonier-wines/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/stonier-wines/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/stonier-wines/index.md",
+      "contentSha256": "960418ba11e0b703363566d373a362daf9f2f438b2fd75e08c185c491c8eebde",
+      "previousContentSha256": "4229d9b2fa41199cde6be811a706886914bfc1298ceb21d1d993e2c598b1d22a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/index.md",
+      "contentSha256": "599eacddf138b575498b611db4e6eaa9f9bf3a79510bd85f5f100d2e23b65333",
+      "previousContentSha256": "fa8b2983987e5d6bc351fa7a83c8108066e32b8d006b4850f1257b804e5a56de"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/t-gallant/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/t-gallant/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/t-gallant/index.md",
+      "contentSha256": "1c78eb3c5733c377783c566e9d63b78eae73354d1f4cd70b12d1716206e59a05",
+      "previousContentSha256": "ddb4eefeb22f5cab974b4125cac2271009dae475d9988cc4cc1f3672146b920b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/index.md",
+      "contentSha256": "cde90f9cfc8f7dc134f7b2ac88219dac753e687252f01e56b0f8f31bde1348b5",
+      "previousContentSha256": "626d4d7c290399b33b4db73a0024df7f9c3d2ee58c0504f250c571fc2ed87674"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/trofeo-estate/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/trofeo-estate/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/trofeo-estate/index.md",
+      "contentSha256": "5a206e31c52782ec4fda0de85cd4ec980b3cc4cbcfb496b2c40af9d5cb1258cc",
+      "previousContentSha256": "2bd6aaf902d13deb96e1fe366541ea88ea4d378ed83cad84ca06d3b451eb6d9f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/tucks-ridge/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/tucks-ridge/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/tucks-ridge/index.md",
+      "contentSha256": "394da5c62e42011632eb78461e4cb89222452d089021b8df14ad28b60365bc6d",
+      "previousContentSha256": "c602c180ea08a534581cfd286ade867d7fc0f548ad8bdbaf3150e8c33a70d6f2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/two-bays-brewing/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/two-bays-brewing/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/two-bays-brewing/index.md",
+      "contentSha256": "e8850b5d53407662f5955ce16592c1cb18e71324570d09c6ab1efac80048411e",
+      "previousContentSha256": "a39ec92106a911bf7e2f9734cc97c13729e62f0fb2a1867d2bd82ad94ab31e2b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/willow-creek-vineyard/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/willow-creek-vineyard/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/willow-creek-vineyard/index.md",
+      "contentSha256": "7221f38267109c4b4d58fa1e33930af49d0cf414e78335723a85cf63375d4523",
+      "previousContentSha256": "df6ac77908277b6ae0e7dbeb9555f2d2a1839e824b92aa696ef73d7861f06025"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/wine/yabby-lake/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/yabby-lake/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/yabby-lake/index.md",
+      "contentSha256": "e446939f514022b2f66aae5ff9cd3e474e14b5d6e55d2ce5c8b80eb4241738cf",
+      "previousContentSha256": "7bad48a332181f4fdfb1e8bfa83f14264c95196b4bff691723dca26dcf292b7e"
     }
   ]
 }

@@ -51,7 +51,7 @@ Winery
 
 **Location**
 
-555 Old Moorooduc Rd, Tuerong VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Dromana%20Estate%2C%20555%20Old%20Moorooduc%20Rd%2C%20Tuerong%20VIC%203933>)
+555 Old Moorooduc Rd, Tuerong VIC 3915 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Dromana%20Estate%2C%20555%20Old%20Moorooduc%20Rd%2C%20Tuerong%20VIC%203915>)
 
 **Call**
 
@@ -71,7 +71,7 @@ Founding Peninsula Estate
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Dromana%20Estate%2C%20555%20Old%20Moorooduc%20Rd%2C%20Tuerong%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Dromana%20Estate%2C%20555%20Old%20Moorooduc%20Rd%2C%20Tuerong%20VIC%203915%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://www.dromanaestate.com.au/>)
 
@@ -113,13 +113,13 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Highway, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
+[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
 Plan your Peninsula day
 

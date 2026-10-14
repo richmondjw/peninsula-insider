@@ -13,7 +13,7 @@ A rustic, intimate cellar door running a five-wine, five-canape pairing from a h
 
 Known for   Five-Wine Canape Pairing Italian-Variety Plantings Communal Tasting Table Limited Session Format
 
-+61 3 5978 8049
+[Book a tasting](<https://www.barmahparkwines.com.au/experiences>)  +61 3 5978 8049
 
 Barmah Park Vineyard · Moorooduc
 
@@ -51,7 +51,7 @@ Winery
 
 **Location**
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Vineyard%2C%203007%20Frankston-Flinders%20Rd%2C%20Moorooduc%20VIC%203933>)
+945 Moorooduc Highway, Moorooduc VIC 3933 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Barmah%20Park%20Vineyard%2C%20945%20Moorooduc%20Highway%2C%20Moorooduc%20VIC%203933>)
 
 **Call**
 
@@ -61,13 +61,19 @@ Winery
 
 Peninsula's Only Canape-Paired Cellar Door
 
+**Website**
+
+[www.barmahparkwines.com.au](<https://www.barmahparkwines.com.au/>)
+
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2786%2C145.1198>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.2496751%2C145.0821892>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Barmah%20Park%20Vineyard%2C%203007%20Frankston-Flinders%20Rd%2C%20Moorooduc%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Barmah%20Park%20Vineyard%2C%20945%20Moorooduc%20Highway%2C%20Moorooduc%20VIC%203933%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+
+ [Book now](<https://www.barmahparkwines.com.au/experiences>)
 
 Not sure how to build a day around Barmah Park Vineyard?
 

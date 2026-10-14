@@ -13,7 +13,7 @@ The Peninsula's only amphora winery, terracotta-aged Sangiovese, Fiano, and Nebb
 
 Known for   Amphora Wine Ageing Sangiovese and Fiano Varieties Working Cellar Tour Italian-Varietal Focus
 
-[Book a tasting](<https://www.trofeoestate.com.au/visit-us/>)  +61 3 5981 4112
+[Book a tasting](<https://www.trofeoestate.com.au/visit-us/>)  +61 3 5981 8688
 
 - Photo · Courtesy of Visit Victoria
 
@@ -89,11 +89,11 @@ Winery
 
 **Location**
 
-420 Old Moorooduc Rd, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Trofeo%20Estate%2C%20420%20Old%20Moorooduc%20Rd%2C%20Dromana%20VIC%203936>)
+85 Harrisons Road, Dromana VIC 3936 · [Directions](<https://www.google.com/maps/dir/?api=1&destination=Trofeo%20Estate%2C%2085%20Harrisons%20Road%2C%20Dromana%20VIC%203936>)
 
 **Call**
 
-+61 3 5981 4112
++61 3 5981 8688
 
 **Awards**
 
@@ -105,11 +105,11 @@ Only Peninsula Winery Ageing in Terracotta Amphorae
 
 **Directions**
 
-[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3438%2C144.9812>)
+[Get directions](<https://www.google.com/maps/dir/?api=1&destination=-38.3411579%2C145.016174>)
 
 **Live status**
 
-[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Trofeo%20Estate%2C%20420%20Old%20Moorooduc%20Rd%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
+[Check current hours →](<https://www.google.com/maps/search/?api=1&query=Trofeo%20Estate%2C%2085%20Harrisons%20Road%2C%20Dromana%20VIC%203936%2C%20Mornington%20Peninsula%2C%20VIC%2C%20Australia>)
 
  [Book now](<https://www.trofeoestate.com.au/visit-us/>)
 
@@ -167,13 +167,13 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Highway, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
+[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
 Plan your Peninsula day
 

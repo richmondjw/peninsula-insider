@@ -173,13 +173,13 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Highway, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
+[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
 Illustrative, not Cassis Red Hill. Photo: faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
@@ -225,7 +225,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-555 Old Moorooduc Rd, Tuerong VIC 3933
+555 Old Moorooduc Rd, Tuerong VIC 3915
 
 One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir alongside a small run of Italian-leaning bottlings on the quieter hinterland side.
 

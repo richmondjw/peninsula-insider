@@ -199,13 +199,13 @@ Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
 
 ### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
 
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
+945 Moorooduc Highway, Moorooduc VIC 3933
 
 A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
 
 cellar door  long lunch
 
-[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
+[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>) [Book](<https://www.barmahparkwines.com.au/experiences>)
 
 Plan your Peninsula day
 

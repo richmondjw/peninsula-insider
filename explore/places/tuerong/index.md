@@ -123,7 +123,7 @@ Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
 ### [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-555 Old Moorooduc Rd, Tuerong VIC 3933
+555 Old Moorooduc Rd, Tuerong VIC 3915
 
 One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir alongside a small run of Italian-leaning bottlings on the quieter hinterland side.
 

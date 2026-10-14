@@ -5,185 +5,389 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# The Best Cellar Doors on the Mornington Peninsula
+Wine country / The visit edit
 
-Mornington Peninsula Pinot Noir is one of Australia's most consistent cool-climate stories. With over 200 vineyards across the region and 50-plus cellar doors concentrated on the Red Hill plateau and its surrounding sub-regions, the question is no longer whether it's worth the drive but which doors to open. This list is editorial, researched and ranked on editorial judgement, not paid placement.
+# Best cellar doors on the Mornington Peninsula
 
-The Peninsula's strengths are Pinot Noir and Chardonnay, with a handful of producers doing exceptional work in Pinot Gris, Pinot Blanc, and late-harvest styles. The best cellar door visits combine a tasting with a lunch or at minimum a board - the landscape earns more time than a thirty-minute visit allows.
+Compare tastings, vineyard lunches and smaller farm-gate visits. Choose a door to suit your day.
 
-This shortlist is ordered by the Halliday score recorded in our venue entries, where available. Scores describe wine assessment, not a live audit of the visitor experience. Check current tasting arrangements directly with each producer.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
 
-Cellar-door shortlist
+Montalto Vineyard & Olive Grove. A tasting can be the start of a bigger day.
 
-## Our 12 cellar-door selections
+Peninsula Insider editorial desk · Visit details checked 14 October 2026
 
-Ordered by recorded Halliday score where available. Check the individual venue for tasting and booking details.
+How to use this edit
 
- [All 38 producers →](<https://peninsulainsider.com.au/wine/>)
+## A shortlist for visiting.
 
-Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+We selected public cellar doors with different reasons to go: a focused tasting, a meal, or a broader estate visit. Each has an operator-published visitor offering. Photography is checked separately from the editorial selection. The order is editorial, with no numerical ranking or paid placement. Wine scores do not measure a cellar-door visit.
 
-### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
+This is researched planning guidance. The check covers public access, visit format and booking guidance. Availability is confirmed directly with the operator; check your date before travelling. [Our editorial approach](<https://peninsulainsider.com.au/editorial-approach/>)
 
-263 Red Hill Rd, Red Hill South VIC 3937
+Find your fit
 
-Single-vineyard pinot noir and chardonnay from one of the Peninsula's most decorated estates.
+## 13 doors, different days.
 
-cellar door  slow
+Pick the kind of visit you want, then jump to the practical notes.
 
-[Read notes](<https://peninsulainsider.com.au/wine/kooyong/>)
+[Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/best-cellar-doors/#montalto>) Wine, lunch & sculpture  Red Hill South
 
-Photo: Robert Blackburn, courtesy of Visit Victoria
+[Crittenden Estate](<https://peninsulainsider.com.au/wine/best-cellar-doors/#crittenden-estate>) A guided wine tasting  Dromana
 
-Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+[Paringa Estate](<https://peninsulainsider.com.au/wine/best-cellar-doors/#paringa-estate>) Tasting & a booked lunch  Red Hill South
 
-### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
+[Avani Wines](<https://peninsulainsider.com.au/wine/best-cellar-doors/#avani-wines>) Wine & an Indian-inspired menu  Red Hill South
 
-44 Paringa Rd, Red Hill South VIC 3937
+[Polperro](<https://peninsulainsider.com.au/wine/best-cellar-doors/#polperro>) Vineyard dining or casual grazing  Red Hill
 
-A serious single-vineyard producer with one of the Peninsula's most dependable restaurant terraces.
+[Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/best-cellar-doors/#ocean-eight>) A weekend wine stop  Shoreham
 
-cellar door  long lunch
+[Trofeo Estate](<https://peninsulainsider.com.au/wine/best-cellar-doors/#trofeo-estate>) Terracotta wines & a meal  Dromana
 
-[Read notes](<https://peninsulainsider.com.au/wine/paringa-estate/>) [Book](<https://www.sevenrooms.com/reservations/paringaestatewineryrestaurant>)
+[Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/wine/best-cellar-doors/#baillieu-vineyard>) Baillieu wines in a village cellar door  Merricks
 
-Photo: Two Palms Australia, courtesy of Visit Victoria
+[Kooyong at Port Phillip Estate](<https://peninsulainsider.com.au/wine/best-cellar-doors/#kooyong>) Kooyong & single-vineyard tastings  Red Hill South
 
-Winery  [Shoreham](<https://peninsulainsider.com.au/explore/places/shoreham/>)
+[Quealy Winemakers](<https://peninsulainsider.com.au/wine/best-cellar-doors/#quealy-winemakers>) Italian varieties & winery tastings  Balnarring
 
-### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
+[Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/wine/best-cellar-doors/#barmah-park-vineyard>) Tasting flights in Moorooduc  Moorooduc
 
-271 Tucks Road, Shoreham VIC 3916
+[Dromana Estate](<https://peninsulainsider.com.au/wine/best-cellar-doors/#dromana-estate>) A tasting & the Tuerong homestead  Tuerong
 
-Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's most quietly obsessive pinot noir.
+[Elan Vineyard](<https://peninsulainsider.com.au/wine/best-cellar-doors/#elan-vineyard>) A smaller farm-gate visit  Balnarring
 
-cellar door  slow
+The cellar-door edit
 
-[Read notes](<https://peninsulainsider.com.au/wine/ocean-eight/>) [Book](<https://oceaneight.com.au/pages/contact>)
+## Make room for the visit.
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
 
-### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
+Wine, lunch & sculpture
 
-150 Red Hill Road, Red Hill VIC 3937
+### [Montalto Vineyard & Olive Grove](<https://peninsulainsider.com.au/wine/montalto/>)
 
-Small-production cool-climate pinot and chardonnay poured in one of the prettiest tasting rooms on the ridge.
+A seated tasting with a choice of dining and sculpture to build the rest of the day around.
 
-cellar door  view
+**Where**
 
-[Read notes](<https://peninsulainsider.com.au/wine/polperro/>) [Book](<https://www.polperrowines.com.au/dine/>)
+33 Shoreham Rd, Red Hill South VIC 3937
 
-Producer  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
+**Before you go**
 
-### [Dexter Wines](<https://peninsulainsider.com.au/wine/dexter-wines/>)
+Walk-ins welcome; tasting bookings available for 1–6 people. Book dining separately.
 
-210 Foxeys Road, Tuerong VIC 3915
+Visit format checked 14 October 2026 · [Operator source](<https://montalto.com.au/pages/cellar-door>)
 
-Tod and Debbie Dexter produce single-vineyard Pinot Noir and Chardonnay in Tuerong. The vineyard is not open to the public.
+[Read Montalto Vineyard & Olive Grove notes](<https://peninsulainsider.com.au/wine/montalto/>)[Official visit details ↗](<https://montalto.com.au/pages/cellar-door>)
 
-slow
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-[Read notes](<https://peninsulainsider.com.au/wine/dexter-wines/>)
+Crittenden Estate, Dromana, Mornington Peninsula.  Photo: Courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
 
-Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
-
-### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
-
-62 Bittern-Dromana Rd, Balnarring VIC 3926
-
-A foundational Peninsula producer best known for pinot gris, friulano, and a cellar door with real local soul.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/quealy-winemakers/>) [Book](<https://quealy.com.au/pages/cellar-door>)
-
-Winery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
-
-### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
-
-98 Stanleys Road, Red Hill South VIC 3937
-
-Shashi and Rohit Singh's biodynamic family estate, one of the Peninsula's only serious Syrah programs alongside the Amrit single-vineyard range.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/avani-wines/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
-
-51 Stanleys Rd, Merricks VIC 3916
-
-A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
-
-Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
-
-### [Barmah Park Vineyard](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
-
-3007 Frankston-Flinders Rd, Moorooduc VIC 3933
-
-A rustic, intimate cellar door running a five-wine, five-canape pairing from a hatted-standard kitchen, the most structured tasting format on the Peninsula.
-
-cellar door  long lunch
-
-[Read notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
-
-Photo: Courtesy of Visit Victoria
-
-Winery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+A guided wine tasting
 
 ### [Crittenden Estate](<https://peninsulainsider.com.au/wine/crittenden-estate/>)
 
+Choose a tasting tailored to your palate or a single-vineyard flight at the lakeside estate.
+
+**Where**
+
 25 Harrisons Rd, Dromana VIC 3936
 
-The Peninsula's pioneering estate, four decades of Crittenden family winemaking, Pinot, Chardonnay, and the Spanish-Italian Los Hermanos range from a new lakeside wine centre.
+**Before you go**
 
-cellar door  waterfront
+Tasting bookings highly preferred. Check closures for private events before travelling.
 
-[Read notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>) [Book](<https://www.crittendenwines.com.au/>)
+Visit format checked 14 October 2026 · [Operator source](<https://www.crittendenwines.com.au/pages/cellar-door>)
 
-Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
+[Read Crittenden Estate notes](<https://peninsulainsider.com.au/wine/crittenden-estate/>)[Official visit details ↗](<https://www.crittendenwines.com.au/pages/cellar-door>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Paringa Estate, Red Hill South, Mornington Peninsula.  Photo: Robert Blackburn, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+
+Tasting & a booked lunch
+
+### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
+
+Pair the cellar door with the estate restaurant, or check the separate garden dining option.
+
+**Where**
+
+44 Paringa Rd, Red Hill South VIC 3937
+
+**Before you go**
+
+Cellar-door bookings recommended. Restaurant bookings essential; garden dining is walk-in.
+
+Visit format checked 14 October 2026 · [Operator source](<https://paringaestate.com.au/>)
+
+[Read Paringa Estate notes](<https://peninsulainsider.com.au/wine/paringa-estate/>)[Official visit details ↗](<https://paringaestate.com.au/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Avani Wines, Red Hill, Mornington Peninsula.  Photo: Peter Foster, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+
+Wine & an Indian-inspired menu
+
+### [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>)
+
+A seated wine tasting and a cellar kitchen with an Indian-inspired menu at the same estate.
+
+**Where**
+
+98 Stanleys Road, Red Hill South VIC 3937
+
+**Before you go**
+
+Bookings recommended; walk-ins welcome. Check the operator's trading days before setting out.
+
+Visit format checked 14 October 2026 · [Operator source](<https://www.avanisyrah.com.au/>)
+
+[Read Avani Wines notes](<https://peninsulainsider.com.au/wine/avani-wines/>)[Official visit details ↗](<https://www.avanisyrah.com.au/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Polperro, Red Hill, Mornington Peninsula.  Photo: Peter Tarasiuk, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+
+Vineyard dining or casual grazing
+
+### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
+
+Choose between reserved Vineyard Dining and first-come grazing on The Deck, with a separate cellar door.
+
+**Where**
+
+150 Red Hill Road, Red Hill VIC 3937
+
+**Before you go**
+
+Reserve Vineyard Dining; The Deck takes walk-ins. Confirm cellar-door arrangements directly.
+
+Visit format checked 14 October 2026 · [Operator source](<https://www.polperrowines.com.au/dine/>)
+
+[Read Polperro notes](<https://peninsulainsider.com.au/wine/polperro/>)[Official visit details ↗](<https://www.polperrowines.com.au/dine/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Visitors tasting outdoors at Ocean Eight Vineyard, Shoreham, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+
+A weekend wine stop
+
+### [Ocean Eight Vineyard](<https://peninsulainsider.com.au/wine/ocean-eight/>)
+
+A smaller Shoreham stop for a wine-focused visit, with the cellar-door contact page as your planning reference.
+
+**Where**
+
+271 Tucks Road, Shoreham VIC 3916
+
+**Before you go**
+
+Call to confirm your visit. The operator's opening-time text is inconsistent; do not rely on a guessed schedule.
+
+Visit format checked 14 October 2026 · [Operator source](<https://oceaneight.com.au/pages/contact>)
+
+[Read Ocean Eight Vineyard notes](<https://peninsulainsider.com.au/wine/ocean-eight/>)[Official visit details ↗](<https://oceaneight.com.au/pages/contact>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Trofeo Estate, Dromana, Mornington Peninsula.  Photo: Courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+
+Terracotta wines & a meal
+
+### [Trofeo Estate](<https://peninsulainsider.com.au/wine/trofeo-estate/>)
+
+Explore Trofeo's terracotta wine focus at its Dromana cellar door, with a restaurant at the same estate.
+
+**Where**
+
+85 Harrisons Road, Dromana VIC 3936
+
+**Before you go**
+
+Check cellar-door trading and restaurant reservations separately. Public-holiday closures apply.
+
+Visit format checked 14 October 2026 · [Operator source](<https://www.trofeoestate.com.au/visit-us/>)
+
+[Read Trofeo Estate notes](<https://peninsulainsider.com.au/wine/trofeo-estate/>)[Official visit details ↗](<https://www.trofeoestate.com.au/visit-us/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Merricks General Wine Store, Mornington Peninsula.  Photo: Peter Foster, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+
+Baillieu wines in a village cellar door
+
+### [Baillieu wines at Merricks Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
+
+Visit Merricks Store to taste Baillieu and Elgee Park wines, with a bistro at the same address. This is the public tasting location, rather than the vineyard.
+
+**Where**
+
+3460 Frankston-Flinders Road, Merricks VIC 3916
+
+**Before you go**
+
+The cellar door does not accommodate groups larger than six. Arrange bistro bookings separately.
+
+Visit format checked 14 October 2026 · [Operator source](<https://merricksstore.com.au/>)
+
+[Read Baillieu wines at Merricks Store notes](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)[Official visit details ↗](<https://merricksstore.com.au/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Photograph unavailable in this guide.
+
+Kooyong & single-vineyard tastings
+
+### [Kooyong at Port Phillip Estate](<https://peninsulainsider.com.au/wine/kooyong/>)
+
+The Port Phillip Estate cellar door is home to Kooyong, Port Phillip Estate and Bellvale wines. Its single-vineyard tasting explores the estates across Tuerong, Balnarring and Red Hill.
+
+**Where**
+
+263 Red Hill Rd, Red Hill South VIC 3937
+
+**Before you go**
+
+Bookings essential for the single-vineyard and wine-and-cheese tastings. Check current wines and your preferred date.
+
+Visit format checked 14 October 2026 · [Operator source](<https://www.portphillipestate.com.au/cellar-door-tastings/>)
+
+[Read Kooyong at Port Phillip Estate notes](<https://peninsulainsider.com.au/wine/kooyong/>)[Official visit details ↗](<https://www.portphillipestate.com.au/cellar-door-tastings/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Photograph unavailable in this guide.
+
+Italian varieties & winery tastings
+
+### [Quealy Winemakers](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)
+
+A cellar door among barrels and terracotta amphora, with Pinot Noir, Pinot Gris, Chardonnay and Italian varieties. Small plates offer a reason to linger.
+
+**Where**
+
+62 Bittern-Dromana Rd, Balnarring VIC 3926
+
+**Before you go**
+
+Groups of seven or more must book through the office. Confirm arrangements directly for your visit.
+
+Visit format checked 14 October 2026 · [Operator source](<https://quealy.com.au/pages/cellar-door>)
+
+[Read Quealy Winemakers notes](<https://peninsulainsider.com.au/wine/quealy-winemakers/>)[Official visit details ↗](<https://quealy.com.au/pages/cellar-door>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Photograph unavailable in this guide.
+
+Tasting flights in Moorooduc
+
+### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)
+
+Choose among the operator’s tasting formats at the tasting bar, or a seated wine-and-cheese experience. The restaurant is a separate option.
+
+**Where**
+
+945 Moorooduc Highway, Moorooduc VIC 3933
+
+**Before you go**
+
+Book a tasting through the official cellar-door page; check restaurant arrangements separately.
+
+Visit format checked 14 October 2026 · [Operator source](<https://www.barmahparkwines.com.au/experiences>)
+
+[Read Barmah Park Restaurant & Cellar Door notes](<https://peninsulainsider.com.au/wine/barmah-park-vineyard/>)[Official visit details ↗](<https://www.barmahparkwines.com.au/experiences>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Photograph unavailable in this guide.
+
+A tasting & the Tuerong homestead
 
 ### [Dromana Estate](<https://peninsulainsider.com.au/wine/dromana-estate/>)
 
-555 Old Moorooduc Rd, Tuerong VIC 3933
+A Tuerong cellar door with a restaurant at the homestead, useful for a tasting and meal on the hinterland side.
 
-One of the Peninsula's founding names, cool-climate Chardonnay and Pinot Noir alongside a small run of Italian-leaning bottlings on the quieter hinterland side.
+**Where**
 
-cellar door  slow
+555 Old Moorooduc Rd, Tuerong VIC 3915
 
-[Read notes](<https://peninsulainsider.com.au/wine/dromana-estate/>) [Book](<https://www.dromanaestate.com.au/>)
+**Before you go**
 
-Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+The operator asks visitors to book ahead for a tasting or restaurant meal. Confirm the current service before travelling.
 
-### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
+Visit format checked 14 October 2026 · [Operator source](<https://www.dromanaestate.com.au/>)
 
-17 Turners Rd, Bittern VIC 3918
+[Read Dromana Estate notes](<https://peninsulainsider.com.au/wine/dromana-estate/>)[Official visit details ↗](<https://www.dromanaestate.com.au/>)
 
-Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-cellar door  slow
+Photograph unavailable in this guide.
 
-[Read notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
+A smaller farm-gate visit
 
-## Frequently asked questions
+### [Elan Vineyard](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-### Do I need an appointment for cellar doors on the Mornington Peninsula?
+A small family vineyard with cellar-door tastings, a rotunda overlooking the vines and picnic facilities. The operator also lists a playground.
 
-Some cellar doors require appointments, particularly the smaller boutique producers. Larger estates like Montalto and Crittenden Estate are generally open without bookings. Always check the winery website before visiting - hours and booking requirements shift seasonally, especially in winter.
+**Where**
 
-### What is the best wine region on the Mornington Peninsula?
+17 Turners Road, Balnarring VIC
 
-The Red Hill plateau and its sub-regions - Red Hill South, Main Ridge, and Merricks - form the core of the Mornington Peninsula wine region. The cool maritime climate produces elegant Pinot Noir and Chardonnay. The region has over 200 vineyards and 50-plus cellar doors open to visitors.
+**Before you go**
 
-### When is the best time to visit Mornington Peninsula wineries?
+Weekend tastings or appointments are offered. Contact the vineyard for your date rather than assuming daily access.
 
-Autumn (March–May) is the peak season - vintage is underway, cellar doors have fires lit, and the plateau is at its most atmospheric. Spring (September–November) brings new vintage releases and lower crowds. Summer weekends are busy but the atmosphere is excellent; book ahead. Winter is the best-kept secret: most cellar doors are open with reduced hours and the coast is dramatically empty.
+Visit format checked 14 October 2026 · [Operator source](<https://elanvineyard.com.au/>)
+
+[Read Elan Vineyard notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>)[Official visit details ↗](<https://elanvineyard.com.au/>)
+
+[Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
+
+Looking for another producer? [Browse all wine country](<https://peninsulainsider.com.au/wine/>). Check whether a producer offers public tastings before planning a visit.
+
+Before the drive
+
+## Build a day with breathing room.
+
+### Choose a small area
+
+Crittenden and Trofeo are in Dromana; Montalto, Paringa and Avani are in Red Hill South; Polperro is in Red Hill and Ocean Eight is in Shoreham. Use the map to judge your route before adding stops.
+
+[Open the Peninsula map ↗](<https://peninsulainsider.com.au/map/>)
+
+### Book the parts separately
+
+A tasting, restaurant table and casual grazing option can have different rules. Check group size and confirm dates directly. Ask about step-free access, children and dogs before you commit.
+
+[Explore appointment producers →](<https://peninsulainsider.com.au/wine/appointment-producers/>)
+
+### Arrange the journey
+
+Allow time for the tasting and your meal. Agree on a designated driver or book suitable transport before drinking. This guide does not promise travel times or same-day availability.
+
+[Explore tours & transport →](<https://peninsulainsider.com.au/tour/wine-tours/>)
+
+A few useful answers
+
+## Before you book.
+
+Do I need to book a cellar-door tasting?
+
+It depends on the venue and the tasting. Montalto welcomes walk-ins, Crittenden highly prefers bookings, and Paringa recommends them. A restaurant reservation is separate from a tasting. Use each producer's visit link to confirm your date and group size.
+
+How many wineries should I plan for one day?
+
+Start with one tasting and a lunch, then add a second stop only if your bookings and transport allow it. This is a planning suggestion, not a timed driving itinerary. Arrange a designated driver or suitable transport before tasting.
+
+Can I assume a winery welcomes visitors?
+
+No. A wine producer may sell bottles without offering public tastings. This selection includes venues with an operator-published cellar door. For access needs, children, dogs or larger groups, ask the venue before booking; those policies are not verified here.
+
+Spot a change? [Send an editorial correction](<https://peninsulainsider.com.au/contact/?type=correction>).
 
 ## The Insider Note
 

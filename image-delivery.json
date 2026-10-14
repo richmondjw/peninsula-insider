@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 307,
+  "pages": 308,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -13970,6 +13970,230 @@
           "width": 1200,
           "height": 900,
           "bytes": 263906
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-160356-montalto.webp",
+      "format": "avif",
+      "originalBytes": 418692,
+      "variants": [
+        {
+          "src": "/_media/521fa7382450e956411e-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 19188
+        },
+        {
+          "src": "/_media/521fa7382450e956411e-800.avif",
+          "width": 800,
+          "height": 534,
+          "bytes": 42986
+        },
+        {
+          "src": "/_media/521fa7382450e956411e-1280.avif",
+          "width": 1280,
+          "height": 854,
+          "bytes": 80011
+        },
+        {
+          "src": "/_media/521fa7382450e956411e-1920.avif",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 129112
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-164290-crittenden-estate-cellar-door.webp",
+      "format": "avif",
+      "originalBytes": 429916,
+      "variants": [
+        {
+          "src": "/_media/33edd0ec9338d0d03c67-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 19280
+        },
+        {
+          "src": "/_media/33edd0ec9338d0d03c67-800.avif",
+          "width": 800,
+          "height": 534,
+          "bytes": 43301
+        },
+        {
+          "src": "/_media/33edd0ec9338d0d03c67-1280.avif",
+          "width": 1280,
+          "height": 854,
+          "bytes": 81906
+        },
+        {
+          "src": "/_media/33edd0ec9338d0d03c67-1920.avif",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 133637
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-143157-paringa-estate-mornington-peninsula.webp",
+      "format": "avif",
+      "originalBytes": 128738,
+      "variants": [
+        {
+          "src": "/_media/f2f320e1c4f1b422ba71-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 13626
+        },
+        {
+          "src": "/_media/f2f320e1c4f1b422ba71-800.avif",
+          "width": 800,
+          "height": 534,
+          "bytes": 25787
+        },
+        {
+          "src": "/_media/f2f320e1c4f1b422ba71-1280.avif",
+          "width": 1280,
+          "height": 854,
+          "bytes": 48875
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-26070138-avani-winery.webp",
+      "format": "avif",
+      "originalBytes": 97552,
+      "variants": [
+        {
+          "src": "/_media/dc75c027c535f6e1307c-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 8920
+        },
+        {
+          "src": "/_media/dc75c027c535f6e1307c-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 16198
+        },
+        {
+          "src": "/_media/dc75c027c535f6e1307c-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 32304
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-143758-polperro-winery.webp",
+      "format": "avif",
+      "originalBytes": 61736,
+      "variants": [
+        {
+          "src": "/_media/6e019148018d313f92e8-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 7167
+        },
+        {
+          "src": "/_media/6e019148018d313f92e8-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 12015
+        },
+        {
+          "src": "/_media/6e019148018d313f92e8-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 20240
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-159894-grape-explorations-australia-ocean-eight.webp",
+      "format": "avif",
+      "originalBytes": 88970,
+      "variants": [
+        {
+          "src": "/_media/68621be8ba25c973c2f7-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 9579
+        },
+        {
+          "src": "/_media/68621be8ba25c973c2f7-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 17017
+        },
+        {
+          "src": "/_media/68621be8ba25c973c2f7-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 28829
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-169287-trofeo-estate.webp",
+      "format": "avif",
+      "originalBytes": 279380,
+      "variants": [
+        {
+          "src": "/_media/c208f387ae61e388af1d-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 14880
+        },
+        {
+          "src": "/_media/c208f387ae61e388af1d-800.avif",
+          "width": 800,
+          "height": 534,
+          "bytes": 31419
+        },
+        {
+          "src": "/_media/c208f387ae61e388af1d-1280.avif",
+          "width": 1280,
+          "height": 854,
+          "bytes": 55029
+        },
+        {
+          "src": "/_media/c208f387ae61e388af1d-1920.avif",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 87054
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-25061243-merricks-general-wine-store.webp",
+      "format": "avif",
+      "originalBytes": 340242,
+      "variants": [
+        {
+          "src": "/_media/ded73f988d21e872767c-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 18155
+        },
+        {
+          "src": "/_media/ded73f988d21e872767c-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 37461
+        },
+        {
+          "src": "/_media/ded73f988d21e872767c-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 67207
+        },
+        {
+          "src": "/_media/ded73f988d21e872767c-1920.avif",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 105345
         }
       ]
     },
