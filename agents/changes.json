@@ -1,44 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-14T14:34:40.423Z",
+  "generatedAt": "2026-10-14T19:25:34.479Z",
   "baselineAvailable": true,
-  "fromSnapshot": "9987d8541afa4f5e58ef345317b8c761f5a64257a1c2d707bb1d2fa01f1a2265",
-  "toSnapshot": "08367545e3a746e7521353ac46b128887b80307f49baa5ea642686e1211ad8b0",
-  "previousGeneratedAt": "2026-10-14T12:20:56.438Z",
+  "fromSnapshot": "08367545e3a746e7521353ac46b128887b80307f49baa5ea642686e1211ad8b0",
+  "toSnapshot": "348753c39b2af4ca1fa590a374de716e4976cae85c4583047c2e51ebaa4035bf",
+  "previousGeneratedAt": "2026-10-14T14:34:40.423Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 2,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "8e7e0cf0143739bb6d3d1d26ff5edbd40ba718b3dbafa81b5c53bd3a717b8a07",
-      "previousContentSha256": "19e765912814c2f491e9a17ace85cc5e0a163f4ae78447f619277b291740d469"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "4297990e7a6fb825d8577d90d4503102a7a6015efbcf4f3da8700fb545275af7",
-      "previousContentSha256": "2511edc7114b50d2a5f85bfffd8eec4b006ea463d3d8f15d9bf166b1e8bca940"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "bec16000ad2d49697d205ac6783e856f4a8d14a616e633630047a7b6290e27a6",
-      "previousContentSha256": "3fd058322b35f04b5846e8df58bca980bef035da428c48d6d0c0efb789ba79ce"
+      "contentSha256": "a27458de7760e27896e38d4a85e10957af9f895143393394d47ba581a3d34189",
+      "previousContentSha256": "bec16000ad2d49697d205ac6783e856f4a8d14a616e633630047a7b6290e27a6"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "0490a67f25c565f85863bf7edc8a5d3f7e9aff010658a4b67fe9ffccad44d249",
-      "previousContentSha256": "e97868b4401eba860dae787b9dfd7339be856eff1219d9f359a9a576ef4fed18"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
+      "contentSha256": "0c8d4ee22758527fb1b89a796fc1efea994fdf4d2c30f6e0feab4d1aa3fab457",
+      "previousContentSha256": "d6e46d929da1f48107b4a9bca4608358e4b31795e10beaba72c7915fe49bda51"
     }
   ]
 }
