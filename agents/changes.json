@@ -1,68 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-13T23:29:42.672Z",
+  "generatedAt": "2026-10-14T02:03:36.767Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b724c38a6a83fea2042e2110559bb0cd5574da709d05ad342093b688452656ea",
-  "toSnapshot": "2ec0637e586b80365e986ac5356ed5068aa20434a6827466d3f0ce0600417d02",
-  "previousGeneratedAt": "2026-10-13T22:55:47.781Z",
+  "fromSnapshot": "2ec0637e586b80365e986ac5356ed5068aa20434a6827466d3f0ce0600417d02",
+  "toSnapshot": "809fa5155512d4fbf21c03e6367d645a666dc2e0b3259e14f29e3d854809f21b",
+  "previousGeneratedAt": "2026-10-13T23:29:42.672Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 7,
+  "count": 3,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
-      "contentSha256": "1732401b78707ac7c9282be6e2221f02873554cbf8d481436d939c8b1c6a6f64",
-      "previousContentSha256": "60e9554834b6e8facfe20a43cee239a212ba147c83ae20045561e1bed5579f5f"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "c55132a23b242ab4c21d4db71016bc620a6b1cd4df0bb0eaa93db4944129feb5",
+      "previousContentSha256": "1dff30c1dcc5d5b18b25a6045c5914cfce0838a21bb97c7971d2fd1d63db3a40"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
+      "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
-      "contentSha256": "653788aa1a2f17be168231cb0994ea46fa31724acdcd2daf06629c700ffc8e88",
-      "previousContentSha256": "f975c4045d6e607f5499eed70a71ea408c6cbaa37b7ce260911c726b90de93c7"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "9bf00995f1c063cef7daf581675488eb24abc3d78c69a7a1a628abd641a57cac",
+      "previousContentSha256": "35147d7f6ec1f609216ec603aee628c012f71cb70365059c8b93a31b89a8568c"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "79688189f5a96e670ecb0c95f0c9268d8df33f6a4c9893947d8c826062809052",
-      "previousContentSha256": "1401e9b12085960e237f7d4cdc1278bf3c46539224fe537d2aac0df4f4ae3170"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "ab141e852c42fc0053b18927f5da2b5383a98b9a1e9874b273304f8d2bb3b997",
-      "previousContentSha256": "a586965e42accb3476d62163545dd773fccd4ed885837a6db2ed295a7f90160b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/index.md",
-      "contentSha256": "3277e1ff366e1c693b464e6225741e4d6ddc64d8f849fa96b8d4d356360b977d",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "c25a6fcce486be79d1c088c7773c4d24dc4eb4bb0578286623cce923b08aaac1",
-      "previousContentSha256": "1109428451148ccb26e19fe9dcbd9ff167a165466914a3db8f7b35bbb493cc66"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "db636c9bdb018ecaf29da0d88ba6d3b0e8209f6753af96ad02504f425277b5d9",
-      "previousContentSha256": "bc88f30a43dfdfe423bf19a7284e2c2414611ea87f14a41322d2f4af0d74f1d9"
+      "contentSha256": "f6c6a2063c96246e14d24d607d0933a9052ad1ef52e36753a63b60ce57f116d3",
+      "previousContentSha256": "79688189f5a96e670ecb0c95f0c9268d8df33f6a4c9893947d8c826062809052"
     }
   ]
 }

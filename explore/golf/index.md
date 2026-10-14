@@ -17,6 +17,30 @@ A rare mix of visitor-bookable coastal courses and private-club architecture, al
 
 Photo · Gary Lisbon, courtesy of Visit Victoria
 
+Choose by playing style
+
+## Find your round before the full comparison
+
+Jump to a short list that matches the day you want, then check visitor access and live tee times in the course card.
+
+### Architectural challenge
+
+Exposed, strategic courses for golfers who want the round to be the main event.
+
+[St Andrews Beach](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>) [Moonah Links](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>) [The National](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)
+
+### Quality without the punishment
+
+Strong public options for a memorable round that still leaves room for the rest of the trip.
+
+[The Dunes](<https://peninsulainsider.com.au/explore/golf/#course-the-dunes-golf-links>) [RACV Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>) [Eagle Ridge](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)
+
+### Social and scenic
+
+Visitor-friendly choices when golf is one good part of the Peninsula day.
+
+[Mornington](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>) [Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-rosebud-country-club>) [Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)
+
 Mornington Peninsula golf courses in 10 photographs
 
 1  / 10

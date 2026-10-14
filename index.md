@@ -53,18 +53,6 @@ Swipe or scroll through the picks
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Peppers Moonah Links   Every Saturday
-
-Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
-
-- Illustrative image
-
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
-
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
@@ -83,6 +71,18 @@ Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+
+An easy afternoon making session after a Mornington outing.
+
+Mornington Peninsula Regional Gallery   Arts
+
+Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
+
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
 Plan it
@@ -93,15 +93,15 @@ Plan it
 
 Featured plan
 
-Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
-### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
-A shorter escape with one village base, two coastal walks and time set aside for the meals.
+One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
 
-2 days   Flinders & the Ocean Coast   Couples
+One day   Red Hill & Merricks   Family
 
-Check the stay and restaurant service times first, then fit the walks around your reservations.
+Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
@@ -113,15 +113,15 @@ Our starting point for a first weekend: vineyard lunches, a coastal walk and Poi
 
 Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
-Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
-### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
+A shorter escape with one village base, two coastal walks and time set aside for the meals.
 
-One day   Red Hill & Merricks   Family
+2 days   Flinders & the Ocean Coast   Couples
 
-Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
+Check the stay and restaurant service times first, then fit the walks around your reservations.
 
 Want a different combination? [Choose your time and interests](<https://peninsulainsider.com.au/#home-choose>)
 
