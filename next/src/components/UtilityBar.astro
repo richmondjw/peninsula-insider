@@ -32,11 +32,13 @@ import { getConditionsStrip } from '../lib/conditions';
 import { PLAY, playUrl } from '../lib/play';
 
 export interface Props {
+  /** Optional named landmark for routes requiring a complete landmark audit. */
+  landmarkLabel?: string;
   /** Override the reference instant. Defaults to build time. */
   now?: Date;
 }
 
-const { now = new Date() } = Astro.props;
+const { now = new Date(), landmarkLabel } = Astro.props;
 const c = getConditionsStrip(now);
 
 // "Sorrento 16°" reads as one unit; if there is no temperature it is just
@@ -46,7 +48,7 @@ const placeLabel = c.place && c.temperature
   : c.place ?? null;
 ---
 
-<div class="pi-conditions">
+<div class="pi-conditions" role={landmarkLabel ? 'region' : undefined} aria-label={landmarkLabel}>
   <div class="pi-conditions__inner">
     {!c.isBare && (
       <p class="pi-conditions__now">

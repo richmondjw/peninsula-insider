@@ -359,7 +359,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
       deliberately NOT sticky: it reads as a printed dateline and scrolls
       away, leaving the sticky masthead (and its --masthead-h measurement
       below) exactly as they were. */}
-  <UtilityBar />
+  <UtilityBar landmarkLabel={normalizedPath === '/wine/best-cellar-doors/' ? 'Peninsula conditions and edition' : undefined} />
 
   <V5Masthead section={section} />
 
