@@ -1,0 +1,59 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-10-14",
+  "liveRevision": "244bb86ae9ca09b6a123022139f6248f17baa25a",
+  "liveRunId": "38498101326",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "independentScores": [86.75, 89.75, 88.75],
+  "acceptedConservativeScore": 86.75,
+  "scoreStatus": "provisional",
+  "thresholdMet": false,
+  "hardGateObserved": false,
+  "liveEvidence": {
+    "mobilePageHeightPx": 19278,
+    "horizontalOverflow": false,
+    "consoleErrors": 0,
+    "courseFitLinks": 9,
+    "minimumCourseFitTargetPx": 44,
+    "darkPanelContrast": "8.50:1",
+    "throttledMobileLcpSeconds": [1.708, 1.652, 1.672]
+  },
+  "openEvidenceGates": [
+    "direct screen-reader assessment",
+    "field Core Web Vitals",
+    "exhaustive eleven-venue factual refresh",
+    "exact-release image-rights acceptance"
+  ],
+  "triage": [
+    "remove the later duplicate handicap-based decision guide",
+    "put access model and town beside each early course choice",
+    "preserve keyboard focus at the selected course card",
+    "increase undersized course-title and related inline link targets",
+    "raise remaining functional labels above eleven pixels"
+  ],
+  "boundedIteration12": {
+    "implemented": [
+      "the early playing-style chooser is now the single course-fit decision system",
+      "each choice includes access model and town",
+      "course-card anchor targets receive programmatic focus after activation",
+      "course-title and related inline links have 44px minimum targets",
+      "Insider read and editorial card labels use 0.72rem text"
+    ],
+    "verificationStatus": "full 1024-page build and focused 390px DPR2 browser acceptance passed; merge and exact live verification pending",
+    "localAcceptance": {
+      "mobilePageHeightPx": 17696,
+      "mobileHeightReductionPx": 1582,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "duplicateGuidePresent": false,
+      "courseFitLinks": 9,
+      "minimumCourseFitTargetPx": 54,
+      "minimumCourseTitleTargetPx": 44,
+      "minimumSmallFunctionalLabelPx": 11.52,
+      "allAnchorTargetsPresent": true,
+      "anchorFocusTransferredToCourseCard": true,
+      "firstAnchorLandingTopPx": 141.46875
+    }
+  }
+}

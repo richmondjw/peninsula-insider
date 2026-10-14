@@ -2110,6 +2110,14 @@
       "pageTitle": "Tar Barrel Brewery &amp; Distillery | Mornington Peninsula"
     },
     {
+      "url": "https://tarbarrel.com.au/whats-on/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What&#039;s on - events in Mornington Tar Barrel",
+      "probedOn": "2026-10-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://tgallantvineyard.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -5786,6 +5794,14 @@
       "httpCode": "200",
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
       "probedOn": "2026-09-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18489/steinfest-at-tar-barrel",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-10-14",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

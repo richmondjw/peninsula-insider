@@ -235,35 +235,35 @@ export const prerender = true;
     <div class="container">
       <div class="golf-fit__intro">
         <p class="label label--accent">Choose by playing style</p>
-        <h2 id="golf-fit-title">Find your round before the full comparison</h2>
-        <p>Jump to a short list that matches the day you want, then check visitor access and live tee times in the course card.</p>
+        <h2 id="golf-fit-title">Choose by playing style, access and location</h2>
+        <p>Start with the kind of round you want. Each choice shows the access model and town before taking you to the full course details.</p>
       </div>
       <div class="golf-fit__grid">
         <article class="golf-fit__group">
           <h3>Architectural challenge</h3>
           <p>Exposed, strategic courses for golfers who want the round to be the main event.</p>
           <div class="golf-fit__links">
-            <a href="#course-st-andrews-beach-golf-course">St Andrews Beach</a>
-            <a href="#course-moonah-links">Moonah Links</a>
-            <a href="#course-the-national-golf-club">The National</a>
+            <a href="#course-st-andrews-beach-golf-course"><strong>St Andrews Beach</strong><span>Public green fees · Fingal</span></a>
+            <a href="#course-moonah-links"><strong>Moonah Links</strong><span>Public green fees · Fingal</span></a>
+            <a href="#course-the-national-golf-club"><strong>The National</strong><span>Visitor requests · Cape Schanck</span></a>
           </div>
         </article>
         <article class="golf-fit__group">
           <h3>Quality without the punishment</h3>
           <p>Strong public options for a memorable round that still leaves room for the rest of the trip.</p>
           <div class="golf-fit__links">
-            <a href="#course-the-dunes-golf-links">The Dunes</a>
-            <a href="#course-racv-cape-schanck-golf-course">RACV Cape Schanck</a>
-            <a href="#course-eagle-ridge-golf-course">Eagle Ridge</a>
+            <a href="#course-the-dunes-golf-links"><strong>The Dunes</strong><span>Public green fees · Rye</span></a>
+            <a href="#course-racv-cape-schanck-golf-course"><strong>RACV Cape Schanck</strong><span>Public green fees · Cape Schanck</span></a>
+            <a href="#course-eagle-ridge-golf-course"><strong>Eagle Ridge</strong><span>Public green fees · Boneo</span></a>
           </div>
         </article>
         <article class="golf-fit__group">
           <h3>Social and scenic</h3>
           <p>Visitor-friendly choices when golf is one good part of the Peninsula day.</p>
           <div class="golf-fit__links">
-            <a href="#course-mornington-golf-club">Mornington</a>
-            <a href="#course-rosebud-country-club">Rosebud</a>
-            <a href="#course-flinders-golf-club">Flinders</a>
+            <a href="#course-mornington-golf-club"><strong>Mornington</strong><span>Public green fees · Mornington</span></a>
+            <a href="#course-rosebud-country-club"><strong>Rosebud</strong><span>Public green fees · Rosebud</span></a>
+            <a href="#course-flinders-golf-club"><strong>Flinders</strong><span>Visitor windows · Flinders</span></a>
           </div>
         </article>
       </div>
@@ -323,7 +323,7 @@ export const prerender = true;
           const visitor = visitorInfo[slug];
           const designers = Array.isArray(g.designers) ? g.designers.join(', ') : null;
           return (
-            <article class="golf-card" id={"course-" + slug}>
+            <article class="golf-card" id={"course-" + slug} tabindex="-1">
               <div class="golf-card__header">
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access, slug)}</span>
@@ -386,7 +386,7 @@ export const prerender = true;
           const visitor = visitorInfo[slug];
           const designers = Array.isArray(g.designers) ? g.designers.join(', ') : null;
           return (
-            <article class="golf-card golf-card--bay" id={"course-" + slug}>
+            <article class="golf-card golf-card--bay" id={"course-" + slug} tabindex="-1">
               <div class="golf-card__header">
                 <div class="golf-card__badges">
                   <span class={`golf-badge golf-badge--access ${accessMod(g.access)}`}>{accessLabel(g.access, slug)}</span>
@@ -429,101 +429,7 @@ export const prerender = true;
     </div>
   </section>
 
-  <!-- ═══════════════════════════════════════════════════════════════
-       5. FOR YOUR GAME - handicap-based decision guide
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="experience-index" aria-label="Golf course selector">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Course selector</p>
-          <h2 class="venues__title">For your game</h2>
-          <p class="venues__sub">Not every course suits every golfer. Here is how we'd route a visitor based on what they actually want from the round.</p>
-        </div>
-      </div>
-      <div class="game-guide">
-
-        <div class="game-panel game-panel--low">
-          <div class="game-panel__header">
-            <span class="game-panel__hcp">Single figures</span>
-            <h3 class="game-panel__heading">The serious rounds</h3>
-            <p class="game-panel__dek">Golfers who want architectural challenge, exposure, and a course that holds up on replay.</p>
-          </div>
-          <ul class="game-panel__list">
-            <li>
-              <strong>St Andrews Beach</strong>
-              <span>Tom Doak design with public green fees and a strategic links-style layout.</span>
-            </li>
-            <li>
-              <strong>Moonah Links - Open Course</strong>
-              <span>Peter Thomson's championship layout. Hosted the Australian Open. Rewards intelligent play over power.</span>
-            </li>
-            <li>
-              <strong>The National Golf Club</strong>
-              <span>Private club at Cape Schanck. Check visitor eligibility and request a tee time directly before making plans.</span>
-            </li>
-            <li>
-              <strong>Flinders Golf Club</strong>
-              <span>18 holes with some of the most dramatic views from a Peninsula tee box. Wildly underrated. Pairs with a Flinders lunch.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="game-panel game-panel--mid">
-          <div class="game-panel__header">
-            <span class="game-panel__hcp">Mid-handicap</span>
-            <h3 class="game-panel__heading">A great day out</h3>
-            <p class="game-panel__dek">Courses that deliver real quality without punishing the round. Good enough that you'll want to come back.</p>
-          </div>
-          <ul class="game-panel__list">
-            <li>
-              <strong>Moonah Links - Legends Course</strong>
-              <span>The Open Course's more forgiving sibling. Still championship quality; much more enjoyable for the 14–22 handicap range.</span>
-            </li>
-            <li>
-              <strong>The Dunes Golf Links</strong>
-              <span>An 18-hole public links course through rolling Rye dunes, with the shorter nine-hole Cups Course on site.</span>
-            </li>
-            <li>
-              <strong>Eagle Ridge Golf Course</strong>
-              <span>Parkland in Boneo, away from exposed coastal courses. Check the drive if you plan a winery stop.</span>
-            </li>
-            <li>
-              <strong>RACV Cape Schanck</strong>
-              <span>Tree-lined fairways, elevated ocean views and resort accommodation. Check both member and standard tee-time rates.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="game-panel game-panel--social">
-          <div class="game-panel__header">
-            <span class="game-panel__hcp">Social / casual</span>
-            <h3 class="game-panel__heading">The good-day round</h3>
-            <p class="game-panel__dek">High handicappers, occasional players, groups where golf is part of the day rather than the whole day.</p>
-          </div>
-          <ul class="game-panel__list">
-            <li>
-              <strong>Mornington Golf Club</strong>
-              <span>Bay-side golf at Mornington, with visitor green fees and advance tee-time booking through the club.</span>
-            </li>
-            <li>
-              <strong>Rosebud Country Club</strong>
-              <span>Two 18-hole courses, North and South. Check which has visitor tee times before choosing your round.</span>
-            </li>
-            <li>
-              <strong>The Cups at The Dunes</strong>
-              <span>The nine-hole Cups Course is a shorter option for mixed-experience groups; compare current green fees with the main 18.</span>
-            </li>
-            <li>
-              <strong>Sorrento Golf Club</strong>
-              <span>Limited visitor times at the Peninsula tip; no visitor play from Boxing Day through January.</span>
-            </li>
-          </ul>
-        </div>
-
-      </div>
-    </div>
-  </section>
+  <!-- The earlier playing-style selector replaces the former duplicate handicap guide. -->
 
   <!-- ═══════════════════════════════════════════════════════════════
        6. COURSE ARCHITECTS
@@ -745,6 +651,16 @@ export const prerender = true;
   </section>
 
   <NewsletterBlock />
+
+  <script is:inline>
+    document.querySelectorAll('.golf-fit__links a[href^="#course-"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        requestAnimationFrame(() => target.focus({ preventScroll: true }));
+      });
+    });
+  </script>
 </BaseLayout>
 
 <style>
@@ -836,15 +752,17 @@ export const prerender = true;
   .golf-fit__group p { margin: 0.55rem 0 0.8rem; color: var(--soft); font-size: 0.9rem; line-height: 1.5; }
   .golf-fit__links { display: grid; }
   .golf-fit__links a {
-    display: flex;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    min-height: 44px;
+    min-height: 54px;
     color: var(--accent);
-    font-size: 0.9rem;
-    font-weight: 700;
     text-underline-offset: 0.22em;
   }
-  .golf-fit__links a::after { content: '↓'; margin-left: auto; color: var(--soft); }
+  .golf-fit__links a strong { font-size: 0.9rem; font-weight: 700; }
+  .golf-fit__links a span { grid-column: 1; color: var(--soft); font-size: 0.76rem; line-height: 1.35; }
+  .golf-fit__links a::after { content: '↓'; grid-column: 2; grid-row: 1 / span 2; margin-left: 0.75rem; color: var(--soft); }
   .golf-card { scroll-margin-top: 12rem; }
   @media (min-width: 768px) {
     :global(.guide-hero .guide-hero__image) { aspect-ratio: 6 / 5; }
@@ -973,6 +891,9 @@ export const prerender = true;
     margin-bottom: 0.4rem;
   }
   .golf-card__name a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
     color: var(--text);
     text-decoration: none;
   }
@@ -1009,7 +930,7 @@ export const prerender = true;
   }
   .golf-card__local-tag {
     display: inline-block;
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -1209,7 +1130,7 @@ export const prerender = true;
     padding-left: 1rem;
     border-left: 2px solid rgba(11, 90, 72, 0.25);
   }
-  .pairing-card__list a { color: var(--accent); text-decoration: underline; }
+  .pairing-card__list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-decoration: underline; }
 
   /* ─────────────────────────────────────────────────────────────────
      EDITORIAL ARTICLE CARDS
@@ -1254,7 +1175,7 @@ export const prerender = true;
     flex: 1;
   }
   .golf-article-card__tag {
-    font-size: 0.63rem;
+    font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 0.14em;
     text-transform: uppercase;
