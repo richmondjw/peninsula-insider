@@ -27,13 +27,13 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Mornington Peninsula Regional Gallery interior for venue context; this photograph does not show the Tessellation workshop.   Photo courtesy of Visit Victoria.
 
-Sat, 17 Oct · 1:30pm–3:30pm · Mornington
+Sat, 17 Oct · 9:30am–12:30pm · Mornington
 
-### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
-An easy afternoon making session after a Mornington outing.
+Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
 
 Sat, 17 Oct   Mornington   Arts
 
@@ -74,6 +74,12 @@ Start with the award-winning works, then take time with the wider survey of cont
 An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
 
 10.45am · Mornington · Nature & Walks · One-day event
+
+- [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
+An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
+
+Mornington · Food & Wine · On during your dates · runs to Sun, 18 Oct
 
 ### Saturday 17 October
 
@@ -169,6 +175,12 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 ### Food & wine
 
+- [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
+An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
+
+Mornington · Food & Wine
+
 - [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 
 A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
@@ -183,11 +195,11 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions
 
-- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
+An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
 
-9.30am · Mornington · Arts
+1.30pm · Mornington · Arts
 
 ### Major events
 

@@ -119,6 +119,16 @@ Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
+Food & Wine  14 Oct
+
+### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
 Image · Courtesy of Visit Victoria
 
 Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict Tessellation Folding Workshop with Jacky Cheng.

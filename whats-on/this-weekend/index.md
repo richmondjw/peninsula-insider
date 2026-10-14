@@ -39,6 +39,16 @@ Friday 16 October   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
+Date confirmed · Food & Wine
+
+### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
+Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.
+
+14 October – 18 October 2026   Mornington   Checked 14 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>) [Check organiser details](<https://tarbarrel.com.au/whats-on/>)
+
 Date confirmed · Markets
 
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
@@ -68,16 +78,6 @@ Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula 
 Saturday 17 October   1:30pm–3:30pm   Mornington   Checked 10 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>) [Check organiser details](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
-
-Date confirmed · Live Music
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
-
-Saturday 17 October   5pm–8pm   Fingal   Checked 3 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
 Choose your own timing
 

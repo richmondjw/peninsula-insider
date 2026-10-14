@@ -399,7 +399,7 @@ Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Fr
 
  Event · Nature & Walks](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
 
-- [Wed, 14 Oct
+- [Wed, 21 Oct
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
 
@@ -409,7 +409,7 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Wed, 14 Oct
+- [Thu, 15 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
 

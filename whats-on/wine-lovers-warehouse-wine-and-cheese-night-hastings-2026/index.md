@@ -93,6 +93,16 @@ A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
+Food & Wine  14 Oct
+
+### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
 ## The Insider Note

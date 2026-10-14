@@ -706,15 +706,15 @@ Current events, experiences and offers, alongside our stories.
 
 - [Wed, 14 Oct
 
-### ✦ Mornington Wednesday Market (Main Street Market)
+### ✦ Steinfest at Tar Barrel
 
 Mornington
 
-Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
+Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.
 
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
-- [Wed, 14 Oct
+- [Thu, 15 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
