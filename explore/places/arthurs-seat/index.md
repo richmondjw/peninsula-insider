@@ -49,7 +49,7 @@ What's mapped here
 
 - [**1** stays](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#stay>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#journal>)
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/arthurs-seat/#journal>)
 
 Stay
 
@@ -96,6 +96,14 @@ Insider Edit   4 min
 30 September 2026
 
 Red Hill Brewery pours from its own estate hop garden, Arthurs Seat's Seawinds Garden hits peak spring bloom, and Peninsula Hot Springs launches its Sunday Sessions series in Fingal.
+
+Insider Edit   4 min
+
+### [Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/>)
+
+15 October 2026
+
+Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
 
 Service   7 min
 

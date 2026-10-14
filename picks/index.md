@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/>) - Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
+
 - [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
 
 - [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/>) - The Bay Hotel Mornington's vault dining room for a group occasion, the Balnarring to Coolart Wetlands trail in peak spring flower, and the National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
 
 - [Georgie Bass, the Olivers Hill loop, and Commonfolk's Sunday roast ritual](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/>) - Flinders' all-day breakfast kitchen at spring pace, the Olivers Hill clifftop loop above Port Phillip, and Commonfolk Coffee's single-origin filter bar before the weekend crowd arrives.
-
-- [Moke Dining in Flinders, the Bushrangers Bay boardwalk, and the Hill & Ridge Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/>) - Michael Cole's five-course set menu in Flinders, the Bushrangers Bay boardwalk track at spring peak, and the Hill & Ridge Community Market at Red Hill Recreation Reserve on Saturday.
 
 ## Planning a particular weekend?
 

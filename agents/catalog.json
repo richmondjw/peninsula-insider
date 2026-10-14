@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-14T19:25:34.479Z",
-  "snapshotId": "348753c39b2af4ca1fa590a374de716e4976cae85c4583047c2e51ebaa4035bf",
+  "generatedAt": "2026-10-14T20:16:36.577Z",
+  "snapshotId": "7f7b2eb421251a924899c8189323ae4aa9e0789d5c63031c4b0b32a0262e382c",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 599,
+  "count": 600,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2104,7 +2104,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
-      "contentSha256": "f3a4fd124a7e98a6a117678a1b704ef3d655bc9264b04ea71dbea14be0585b16",
+      "contentSha256": "f44fcde58992e9530c06cfe5fdf35cf5126fbf6b7fa7f61732c0f648393f83f4",
       "citation": {
         "title": "Arthurs Seat",
         "publisher": "Peninsula Insider",
@@ -2112,8 +2112,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 193294,
-      "markdownBytes": 8483
+      "htmlBytes": 195725,
+      "markdownBytes": 8880
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
@@ -5856,6 +5856,23 @@
       "markdownBytes": 8247
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+      "title": "Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/index.md",
+      "contentSha256": "12b46b86160fcbec5d6fe9d4f792f7ca6f160ac2ed9f9d0a89780c00ce1f9664",
+      "citation": {
+        "title": "Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+        "publishedAt": "2026-10-15T00:00:00.000Z",
+        "modifiedAt": "2026-10-15T00:00:00.000Z"
+      },
+      "htmlBytes": 171459,
+      "markdownBytes": 8547
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6660,7 +6677,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "01aaf7bd06b2e7b7227e7f563818feb87b88aef39569aacf3fa90a87f3e686de",
+      "contentSha256": "dcd8df49540008f124f3b8be8b85817306e6d236f18f0fc8a6f8ddc3d7fb425d",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6668,8 +6685,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123370,
-      "markdownBytes": 5749
+      "htmlBytes": 123376,
+      "markdownBytes": 5763
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6694,7 +6711,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a27458de7760e27896e38d4a85e10957af9f895143393394d47ba581a3d34189",
+      "contentSha256": "c27cfd90d4dca3a724d6e4d70ead3ad1bb40152d3d861806c3d80fcb24a00552",
       "citation": {
         "title": "Thursday 15 October 2026",
         "publisher": "Peninsula Insider",

@@ -1,28 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-14T19:25:34.479Z",
+  "generatedAt": "2026-10-14T20:16:36.577Z",
   "baselineAvailable": true,
-  "fromSnapshot": "08367545e3a746e7521353ac46b128887b80307f49baa5ea642686e1211ad8b0",
-  "toSnapshot": "348753c39b2af4ca1fa590a374de716e4976cae85c4583047c2e51ebaa4035bf",
-  "previousGeneratedAt": "2026-10-14T14:34:40.423Z",
+  "fromSnapshot": "348753c39b2af4ca1fa590a374de716e4976cae85c4583047c2e51ebaa4035bf",
+  "toSnapshot": "7f7b2eb421251a924899c8189323ae4aa9e0789d5c63031c4b0b32a0262e382c",
+  "previousGeneratedAt": "2026-10-14T19:25:34.479Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
+      "contentSha256": "f44fcde58992e9530c06cfe5fdf35cf5126fbf6b7fa7f61732c0f648393f83f4",
+      "previousContentSha256": "f3a4fd124a7e98a6a117678a1b704ef3d655bc9264b04ea71dbea14be0585b16"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/index.md",
+      "contentSha256": "12b46b86160fcbec5d6fe9d4f792f7ca6f160ac2ed9f9d0a89780c00ce1f9664",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "dcd8df49540008f124f3b8be8b85817306e6d236f18f0fc8a6f8ddc3d7fb425d",
+      "previousContentSha256": "01aaf7bd06b2e7b7227e7f563818feb87b88aef39569aacf3fa90a87f3e686de"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a27458de7760e27896e38d4a85e10957af9f895143393394d47ba581a3d34189",
-      "previousContentSha256": "bec16000ad2d49697d205ac6783e856f4a8d14a616e633630047a7b6290e27a6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "0c8d4ee22758527fb1b89a796fc1efea994fdf4d2c30f6e0feab4d1aa3fab457",
-      "previousContentSha256": "d6e46d929da1f48107b4a9bca4608358e4b31795e10beaba72c7915fe49bda51"
+      "contentSha256": "c27cfd90d4dca3a724d6e4d70ead3ad1bb40152d3d861806c3d80fcb24a00552",
+      "previousContentSha256": "a27458de7760e27896e38d4a85e10957af9f895143393394d47ba581a3d34189"
     }
   ]
 }
