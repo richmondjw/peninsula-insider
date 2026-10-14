@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-13T23:05:00.416Z",
+  "updatedAt": "2026-10-14T12:41:16.905Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -2617,6 +2617,14 @@
       "httpCode": "200",
       "pageTitle": "Barmah Park Restaurant &amp; Cellar Door",
       "probedOn": "2026-10-08",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.barmahparkwines.com.au/experiences",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "cellar door &mdash; Barmah Park Restaurant &amp; Cellar Door",
+      "probedOn": "2026-10-14",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

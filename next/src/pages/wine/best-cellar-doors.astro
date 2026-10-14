@@ -2,107 +2,110 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import VenueCard from '../../components/VenueCard.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
-import { routeSlug, isListableVenue } from '../../lib/editorial';
-
-const wineTypes = ['winery', 'producer'];
-const venues = (await getCollection('venues'))
-  .filter(isListableVenue)
-  .filter((v) => wineTypes.includes(v.data.type))
-  .sort((a, b) => Number(b.data.authority?.hallidayScore ?? 0) - Number(a.data.authority?.hallidayScore ?? 0));
-
-const topVenues = venues.slice(0, 12);
-const top3Names = topVenues.slice(0, 3).map((v) => v.data.name);
-
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Do I need an appointment for cellar doors on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Some cellar doors require appointments, particularly the smaller boutique producers. Larger estates like Montalto and Crittenden Estate are generally open without bookings. Always check the winery website before visiting - hours and booking requirements shift seasonally, especially in winter.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'What is the best wine region on the Mornington Peninsula?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'The Red Hill plateau and its sub-regions - Red Hill South, Main Ridge, and Merricks - form the core of the Mornington Peninsula wine region. The cool maritime climate produces elegant Pinot Noir and Chardonnay. The region has over 200 vineyards and 50-plus cellar doors open to visitors.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'When is the best time to visit Mornington Peninsula wineries?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Autumn (March–May) is the peak season - vintage is underway, cellar doors have fires lit, and the plateau is at its most atmospheric. Spring (September–November) brings new vintage releases and lower crowds. Summer weekends are busy but the atmosphere is excellent; book ahead. Winter is the best-kept secret: most cellar doors are open with reduced hours and the coast is dramatically empty.',
-      },
-    },
-  ],
-};
-
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Wine Country', href: '/wine/' },
-  { label: 'Best Cellar Doors' },
+import CellarDoorPhoto from '../../components/CellarDoorPhoto.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import shortlist from '../../data/cellar-door-shortlist.json';
+import { routeSlug, isListableVenue, venueHref } from '../../lib/editorial';
+import { reviewedCellarPhoto, resolveCellarHero } from '../../lib/cellar-door-media.mjs';
+const venues = (await getCollection('venues')).filter(isListableVenue);
+const picks = shortlist.selections.map(pick => {
+  const venue = venues.find(v => routeSlug(v) === pick.slug);
+  if (!venue || venue.data.type !== 'winery') throw new Error(`Invalid cellar-door selection: ${pick.slug}`);
+  const photoVenue = venues.find(v => routeSlug(v) === (pick.photoVenue ?? pick.slug));
+  const photo = photoVenue && reviewedCellarPhoto(photoVenue.data);
+  if (!photo && pick.imageStatus !== 'rights-unverified') throw new Error(`Undeclared image gap: ${pick.slug}`);
+  const displayed = {...venue, data:{...venue.data, name:pick.displayName ?? venue.data.name, address:pick.address ?? venue.data.address}};
+  return {...pick, venue:displayed, photoVenue, photo, href:pick.detailHref ?? venueHref(venue, '/wine')};
+});
+const checkedLabel = new Intl.DateTimeFormat('en-AU', {day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(shortlist.checkedOn + 'T00:00:00Z'));
+const hero = resolveCellarHero(shortlist, venues);
+const canonical = 'https://peninsulainsider.com.au/wine/best-cellar-doors/';
+const breadcrumbs = [{label:'Home',href:'/'},{label:'Wine Country',href:'/wine/'},{label:'Best Cellar Doors'}];
+const schema = [
+  {'@context':'https://schema.org','@type':'ItemList',name:'Mornington Peninsula cellar-door selections',numberOfItems:picks.length,itemListOrder:'https://schema.org/ItemListUnordered',itemListElement:picks.map((p,i)=>({'@type':'ListItem',position:i+1,name:p.venue.data.name,url:`https://peninsulainsider.com.au${p.href}`}))},
+  {'@context':'https://schema.org','@type':'FAQPage',mainEntity:shortlist.faq.map(f=>({'@type':'Question',name:f.q,acceptedAnswer:{'@type':'Answer',text:f.a}}))},
+  {'@context':'https://schema.org','@type':'BreadcrumbList',itemListElement:breadcrumbs.map((b,i)=>({'@type':'ListItem',position:i+1,name:b.label,item:b.href ? `https://peninsulainsider.com.au${b.href}` : canonical}))}
 ];
 export const prerender = true;
 ---
+<BaseLayout title="Best Cellar Doors Mornington Peninsula · Peninsula Insider" description="Compare Mornington Peninsula cellar doors by tasting style, location and visit format, with operator sources and practical booking guidance." section="wine" canonical={canonical} ogImage={hero.photo.src}>
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+  <Breadcrumbs items={breadcrumbs} />
+  <div class="cellar-guide">
+    <noscript><style>.cellar-guide [data-pi-actions] { display:none!important; }</style></noscript>
+    <header class="cellar-cover container">
+      <div>
+        <p class="cellar-eyebrow">Wine country / The visit edit</p>
+        <h1>Best cellar doors on the Mornington Peninsula</h1>
+        <p class="cellar-deck">Compare tastings, vineyard lunches and smaller farm-gate visits. Choose a door to suit your day.</p>
+        <nav class="cellar-links" aria-label="In this guide"><a class="pi-btn pi-btn--solid" href="#compare">Compare the doors</a><a href="#shortlist">See the shortlist ↓</a></nav>
 
-<BaseLayout
-  title="Best Cellar Doors Mornington Peninsula · Peninsula Insider"
-  description="The editorial shortlist of the best cellar doors on the Mornington Peninsula - Pinot Noir, Chardonnay, and the producers worth driving to."
-  section="wine"
-  canonical="https://peninsulainsider.com.au/wine/best-cellar-doors"
->
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
-  <Breadcrumbs items={breadcrumbItems} />
-
-  <article class="article">
-    <div class="container">
-      <h1 class="article__title">The Best Cellar Doors on the Mornington Peninsula</h1>
-
-      <div class="prose">
-        <p>Mornington Peninsula Pinot Noir is one of Australia's most consistent cool-climate stories. With over 200 vineyards across the region and 50-plus cellar doors concentrated on the Red Hill plateau and its surrounding sub-regions, the question is no longer whether it's worth the drive but which doors to open. This list is editorial, researched and ranked on editorial judgement, not paid placement.</p>
-
-        <p>The Peninsula's strengths are Pinot Noir and Chardonnay, with a handful of producers doing exceptional work in Pinot Gris, Pinot Blanc, and late-harvest styles. The best cellar door visits combine a tasting with a lunch or at minimum a board - the landscape earns more time than a thirty-minute visit allows.</p>
-
-        <p>This shortlist is ordered by the Halliday score recorded in our venue entries, where available. Scores describe wine assessment, not a live audit of the visitor experience. Check current tasting arrangements directly with each producer.</p>
       </div>
-    </div>
-  </article>
-
-  <section class="venues" id="rankings">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Cellar-door shortlist</p>
-          <h2 class="venues__title">Our {topVenues.length} cellar-door selections</h2>
-          <p class="venues__sub">Ordered by recorded Halliday score where available. Check the individual venue for tasting and booking details.</p>
+      <div><CellarDoorPhoto venue={hero.venue} eager /><p class="cellar-meta">{hero.caption}</p><p class="cellar-meta">Peninsula Insider editorial desk · Visit details checked <time datetime={shortlist.checkedOn}>{checkedLabel}</time></p></div>
+    </header>
+    <section class="cellar-method container" aria-labelledby="selection-method">
+      <div><p class="cellar-eyebrow">How to use this edit</p><h2 id="selection-method">A shortlist for visiting.</h2></div>
+      <div><p>We selected public cellar doors with different reasons to go: a focused tasting, a meal, or a broader estate visit. Each has an operator-published visitor offering. Photography is checked separately from the editorial selection. The order is editorial, with no numerical ranking or paid placement. Wine scores do not measure a cellar-door visit.</p><p>This is researched planning guidance. The check covers public access, visit format and booking guidance. Availability is confirmed directly with the operator; check your date before travelling. <a href="/editorial-approach/">Our editorial approach</a></p></div>
+    </section>
+    <section id="compare" class="cellar-compare container" aria-labelledby="compare-title">
+      <p class="cellar-eyebrow">Find your fit</p><h2 id="compare-title">{picks.length} doors, different days.</h2><p>Pick the kind of visit you want, then jump to the practical notes.</p>
+      <div class="cellar-comparison" role="list">{picks.map(p=><div class="cellar-comparison__row" role="listitem"><a href={`#${p.slug}`}>{p.venue.data.name}<span aria-hidden="true"> ↘</span></a><span>{p.fit}</span><span>{p.venue.data.address.match(/,\s*(.*?)\s+VIC/)?.[1]}</span></div>)}</div>
+    </section>
+    <section id="shortlist" class="cellar-shortlist container" aria-labelledby="shortlist-title">
+      <p class="cellar-eyebrow">The cellar-door edit</p><h2 id="shortlist-title">Make room for the visit.</h2>
+      <div class="cellar-cards">{picks.map(p=><article id={p.slug} class:list={['cellar-card', !p.photo && 'cellar-card--text']} tabindex="-1">
+        {p.photo && <CellarDoorPhoto venue={p.photoVenue} />}
+        <div class="cellar-card__body">{!p.photo && <p class="cellar-photo-note">Photograph unavailable in this guide.</p>}<p class="cellar-eyebrow">{p.fit}</p><h3><a href={p.href}>{p.venue.data.name}</a></h3><p class="cellar-reason">{p.reason}</p>
+          <dl><div><dt>Where</dt><dd>{p.venue.data.address}</dd></div><div><dt>Before you go</dt><dd>{p.planning}</dd></div></dl>
+          <p class="cellar-checked">Visit format checked {checkedLabel} · <a href={p.source} rel="noopener noreferrer">Operator source</a></p>
+          <div class="cellar-actions"><a href={p.href} class="pi-btn pi-btn--solid">Read {p.venue.data.name} notes</a><a href={p.source} class="pi-btn pi-btn--ghost">Official visit details ↗</a></div>
+          <div class="cellar-card__foot"><a href="#compare">Back to comparison ↑</a><PiSaveActions kind="venue" slug={p.saveSlug ?? p.slug} title={p.venue.data.name} href={p.href} dek={p.reason} imageUrl={p.photo?.src} floating={false} /></div>
         </div>
-        <a href="/wine/" class="venues__link">All {venues.length} producers →</a>
-      </div>
-      <div class="venues__grid">
-        {topVenues.map((venue) => <VenueCard venue={venue} hrefPrefix="/wine" />)}
-      </div>
-    </div>
-  </section>
-
-  <section class="faq-section">
-    <div class="container">
-      <div class="prose">
-        <h2>Frequently asked questions</h2>
-        {faqSchema.mainEntity.map((item) => (
-          <><h3>{item.name}</h3><p>{item.acceptedAnswer.text}</p></>
-        ))}
-      </div>
-    </div>
-  </section>
-
+      </article>)}</div>
+      <p class="cellar-browse">Looking for another producer? <a href="/wine/">Browse all wine country</a>. Check whether a producer offers public tastings before planning a visit.</p>
+    </section>
+    <section id="plan" class="cellar-plan" aria-labelledby="plan-title"><div class="container"><p class="cellar-eyebrow">Before the drive</p><h2 id="plan-title">Build a day with breathing room.</h2>
+      <div class="cellar-plan__grid"><div><h3>Choose a small area</h3><p>Crittenden and Trofeo are in Dromana; Montalto, Paringa and Avani are in Red Hill South; Polperro is in Red Hill and Ocean Eight is in Shoreham. Use the map to judge your route before adding stops.</p><a href="/map/">Open the Peninsula map ↗</a></div><div><h3>Book the parts separately</h3><p>A tasting, restaurant table and casual grazing option can have different rules. Check group size and confirm dates directly. Ask about step-free access, children and dogs before you commit.</p><a href="/wine/appointment-producers/">Explore appointment producers →</a></div><div><h3>Arrange the journey</h3><p>Allow time for the tasting and your meal. Agree on a designated driver or book suitable transport before drinking. This guide does not promise travel times or same-day availability.</p><a href="/tour/wine-tours/">Explore tours & transport →</a></div></div>
+    </div></section>
+    <section class="cellar-faq container" aria-labelledby="faq-title"><p class="cellar-eyebrow">A few useful answers</p><h2 id="faq-title">Before you book.</h2>{shortlist.faq.map(f=><details><summary>{f.q}</summary><p>{f.a}</p></details>)}<p>Spot a change? <a href="/contact/?type=correction">Send an editorial correction</a>.</p></section>
+  </div>
   <NewsletterBlock />
 </BaseLayout>
+<script>
+  function handlePhotoFailures() {
+    document.querySelectorAll<HTMLImageElement>('[data-cellar-photo] img').forEach(img => {
+      const failed = () => { img.hidden = true; const message = img.closest('.cellar-photo__frame')?.querySelector<HTMLElement>('.cellar-photo__unavailable'); if (message) message.hidden = false; };
+      if (img.complete && !img.naturalWidth) failed(); else img.addEventListener('error', failed, { once:true });
+    });
+  }
+  document.addEventListener('astro:page-load', handlePhotoFailures);
+</script>
+<style>
+  .cellar-guide { color:#14202a; font:400 17px/1.6 var(--font-ui); }
+  .cellar-guide h1,.cellar-guide h2,.cellar-guide h3 { font-family:var(--font-display); color:#0b2e4a; letter-spacing:-.035em; line-height:1.15; text-wrap:balance; margin:0 0 20px; }
+  .cellar-guide h1 { font-size:48px; max-width:19ch; } .cellar-guide h2 { font-size:32px; } .cellar-guide h3 { font-size:26px; }
+  .cellar-guide p { margin:0 0 18px; max-width:68ch; } .cellar-guide a { color:#10527e; text-underline-offset:4px; }
+  .cellar-method p a,.cellar-browse a,.cellar-faq p a { text-decoration:underline; }
+  .cellar-guide a:focus-visible,.cellar-guide summary:focus-visible { outline:3px solid #10527e; outline-offset:4px; } .cellar-guide [id] { scroll-margin-top:110px; }
+  .cellar-cover { display:grid; grid-template-columns:1fr 1fr; gap:48px; padding-block:36px 48px; align-items:center; }
+  .cellar-eyebrow { font-size:12px; letter-spacing:.12em; font-weight:700; text-transform:uppercase; color:#10527e; }
+  .cellar-deck { font-size:20px; line-height:1.5; } .cellar-links { display:flex; flex-wrap:wrap; align-items:center; gap:12px 20px; margin:24px 0; }
+  .cellar-links a,.cellar-card__foot>a { display:inline-flex; min-height:44px; align-items:center; } .cellar-guide .pi-btn--solid { background:#10527e; color:white; } .cellar-guide .pi-btn { min-height:44px; white-space:normal; text-align:center; }
+  .cellar-meta,.cellar-checked { font-size:15px; color:#465460; } .cellar-method { display:grid; grid-template-columns:1fr 2fr; gap:48px; padding-block:36px; border-block:1px solid #cbd4d9; } .cellar-method p:last-child { margin-bottom:0; }
+  .cellar-compare,.cellar-shortlist,.cellar-faq { padding-block:56px; } .cellar-comparison { margin-top:24px; border-top:2px solid #0b2e4a; }
+  .cellar-comparison__row { display:grid; grid-template-columns:1fr 1.4fr .8fr; gap:24px; align-items:center; padding:14px 0; border-bottom:1px solid #cbd4d9; }
+  .cellar-comparison__row a { font-weight:700; min-height:44px; display:flex; align-items:center; justify-content:space-between; } .cellar-comparison__row span:last-child { color:#465460; font-size:15px; }
+  .cellar-shortlist { padding-top:12px; } .cellar-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:36px; margin-top:32px; } .cellar-card { border-bottom:2px solid #cbd4d9; min-width:0; } .cellar-card__body { padding:16px 0 24px; }
+  .cellar-card h3 a { color:inherit; text-decoration:none; } .cellar-card h3 a:hover { text-decoration:underline; } .cellar-reason { min-height:3.2em; }
+  dl { margin:24px 0; } dl>div { padding:12px 0; border-top:1px solid #cbd4d9; display:grid; grid-template-columns:105px 1fr; gap:16px; } dt { font-weight:700; font-size:15px; } dd { margin:0; font-size:15px; }
+  .cellar-checked a { display:inline-flex; min-height:44px; align-items:center; } .cellar-actions { display:flex; gap:12px; flex-wrap:wrap; } .cellar-card__foot { display:flex; align-items:center; flex-wrap:wrap; justify-content:space-between; gap:12px; margin-top:16px; font-size:15px; } .cellar-browse { margin-top:32px!important; }
+  .cellar-plan { background:#e9eff2; padding-block:48px; } .cellar-plan__grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; margin-top:32px; } .cellar-plan h3 { font-size:22px; } .cellar-plan a { min-height:44px; display:inline-flex; align-items:center; }
+  .cellar-faq { max-width:900px; } details { border-top:1px solid #cbd4d9; } details:last-of-type { border-bottom:1px solid #cbd4d9; margin-bottom:24px; } summary { padding:20px 0; cursor:pointer; font-weight:700; min-height:44px; } details p { padding-bottom:20px; }
+  .cellar-card--text { background:#eef2f4; padding:20px; } .cellar-photo-note { font-size:15px; color:#465460; }
+  .cellar-card:target { outline:2px solid #10527e; outline-offset:8px; }
+  @media(min-width:701px) { .cellar-card:not(.cellar-card--text):last-child:nth-child(odd) { grid-column:1/-1; display:grid; grid-template-columns:1fr 1fr; gap:36px; align-items:start; } }
+  @media(max-width:900px) { .cellar-cover { gap:24px; } .cellar-guide h1 { font-size:40px; } .cellar-plan__grid { grid-template-columns:1fr; gap:24px; } }
+  @media(max-width:700px) { .cellar-cover,.cellar-method { grid-template-columns:1fr; gap:24px; } .cellar-cover { padding-block:16px 32px; gap:12px; } .cellar-guide h1 { font-size:32px; margin-bottom:12px; } .cellar-guide h2 { font-size:28px; } .cellar-deck { font-size:17px; margin-bottom:12px; } .cellar-links { gap:8px 16px; margin:12px 0 0; } .cellar-cards { grid-template-columns:1fr; gap:32px; } .cellar-comparison__row { grid-template-columns:1fr; gap:0; padding:12px 0; } .cellar-comparison__row a { font-size:18px; } .cellar-comparison__row span:last-child { margin-top:4px; } .cellar-compare,.cellar-faq { padding-block:36px; } .cellar-reason { min-height:0; } dl>div { grid-template-columns:1fr; gap:4px; } .cellar-actions { flex-direction:column; } .cellar-guide [id] { scroll-margin-top:90px; } }
+  @media(prefers-reduced-motion:reduce) { .cellar-guide * { scroll-behavior:auto!important; } }
+</style>
