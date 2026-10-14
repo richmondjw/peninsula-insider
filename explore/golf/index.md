@@ -19,27 +19,27 @@ Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Choose by playing style
 
-## Find your round before the full comparison
+## Choose by playing style, access and location
 
-Jump to a short list that matches the day you want, then check visitor access and live tee times in the course card.
+Start with the kind of round you want. Each choice shows the access model and town before taking you to the full course details.
 
 ### Architectural challenge
 
 Exposed, strategic courses for golfers who want the round to be the main event.
 
-[St Andrews Beach](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>) [Moonah Links](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>) [The National](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)
+[**St Andrews Beach** Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>) [**Moonah Links** Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>) [**The National** Visitor requests · Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)
 
 ### Quality without the punishment
 
 Strong public options for a memorable round that still leaves room for the rest of the trip.
 
-[The Dunes](<https://peninsulainsider.com.au/explore/golf/#course-the-dunes-golf-links>) [RACV Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>) [Eagle Ridge](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)
+[**The Dunes** Public green fees · Rye](<https://peninsulainsider.com.au/explore/golf/#course-the-dunes-golf-links>) [**RACV Cape Schanck** Public green fees · Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>) [**Eagle Ridge** Public green fees · Boneo](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)
 
 ### Social and scenic
 
 Visitor-friendly choices when golf is one good part of the Peninsula day.
 
-[Mornington](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>) [Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-rosebud-country-club>) [Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)
+[**Mornington** Public green fees · Mornington](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>) [**Rosebud** Public green fees · Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-rosebud-country-club>) [**Flinders** Visitor windows · Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)
 
 Mornington Peninsula golf courses in 10 photographs
 
@@ -242,54 +242,6 @@ Portsea Golf Club's course winds through coastal dunes and Moonah forest. Visito
 Visitor windows vary with member play. Check the live booking calendar or call the pro shop for the date and any eligibility rules. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
-
-Course selector
-
-## For your game
-
-Not every course suits every golfer. Here is how we'd route a visitor based on what they actually want from the round.
-
-Single figures
-
-### The serious rounds
-
-Golfers who want architectural challenge, exposure, and a course that holds up on replay.
-
-- **St Andrews Beach**  Tom Doak design with public green fees and a strategic links-style layout.
-
-- **Moonah Links - Open Course**  Peter Thomson's championship layout. Hosted the Australian Open. Rewards intelligent play over power.
-
-- **The National Golf Club**  Private club at Cape Schanck. Check visitor eligibility and request a tee time directly before making plans.
-
-- **Flinders Golf Club**  18 holes with some of the most dramatic views from a Peninsula tee box. Wildly underrated. Pairs with a Flinders lunch.
-
-Mid-handicap
-
-### A great day out
-
-Courses that deliver real quality without punishing the round. Good enough that you'll want to come back.
-
-- **Moonah Links - Legends Course**  The Open Course's more forgiving sibling. Still championship quality; much more enjoyable for the 14–22 handicap range.
-
-- **The Dunes Golf Links**  An 18-hole public links course through rolling Rye dunes, with the shorter nine-hole Cups Course on site.
-
-- **Eagle Ridge Golf Course**  Parkland in Boneo, away from exposed coastal courses. Check the drive if you plan a winery stop.
-
-- **RACV Cape Schanck**  Tree-lined fairways, elevated ocean views and resort accommodation. Check both member and standard tee-time rates.
-
-Social / casual
-
-### The good-day round
-
-High handicappers, occasional players, groups where golf is part of the day rather than the whole day.
-
-- **Mornington Golf Club**  Bay-side golf at Mornington, with visitor green fees and advance tee-time booking through the club.
-
-- **Rosebud Country Club**  Two 18-hole courses, North and South. Check which has visitor tee times before choosing your round.
-
-- **The Cups at The Dunes**  The nine-hole Cups Course is a shorter option for mixed-experience groups; compare current green fees with the main 18.
-
-- **Sorrento Golf Club**  Limited visitor times at the Peninsula tip; no visitor play from Boxing Day through January.
 
 The architects
 

@@ -1,44 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-14T20:16:36.577Z",
+  "generatedAt": "2026-10-14T23:04:14.114Z",
   "baselineAvailable": true,
-  "fromSnapshot": "348753c39b2af4ca1fa590a374de716e4976cae85c4583047c2e51ebaa4035bf",
-  "toSnapshot": "7f7b2eb421251a924899c8189323ae4aa9e0789d5c63031c4b0b32a0262e382c",
-  "previousGeneratedAt": "2026-10-14T19:25:34.479Z",
+  "fromSnapshot": "7f7b2eb421251a924899c8189323ae4aa9e0789d5c63031c4b0b32a0262e382c",
+  "toSnapshot": "df373305f07d7e4fb386594544daf46f7129d939513791a6ca4ba2805eda513b",
+  "previousGeneratedAt": "2026-10-14T20:16:36.577Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 2,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
+      "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
-      "contentSha256": "f44fcde58992e9530c06cfe5fdf35cf5126fbf6b7fa7f61732c0f648393f83f4",
-      "previousContentSha256": "f3a4fd124a7e98a6a117678a1b704ef3d655bc9264b04ea71dbea14be0585b16"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/index.md",
-      "contentSha256": "12b46b86160fcbec5d6fe9d4f792f7ca6f160ac2ed9f9d0a89780c00ce1f9664",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "dcd8df49540008f124f3b8be8b85817306e6d236f18f0fc8a6f8ddc3d7fb425d",
-      "previousContentSha256": "01aaf7bd06b2e7b7227e7f563818feb87b88aef39569aacf3fa90a87f3e686de"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "c602127f5dd8c5893f0df200c1fc358c08e11fad849decf5561f9d90c62528f9",
+      "previousContentSha256": "9bf00995f1c063cef7daf581675488eb24abc3d78c69a7a1a628abd641a57cac"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "c27cfd90d4dca3a724d6e4d70ead3ad1bb40152d3d861806c3d80fcb24a00552",
-      "previousContentSha256": "a27458de7760e27896e38d4a85e10957af9f895143393394d47ba581a3d34189"
+      "contentSha256": "ad356a854d59912e3773dfcf5e1852d1164e81c501c642a4d7500e6775773e05",
+      "previousContentSha256": "c27cfd90d4dca3a724d6e4d70ead3ad1bb40152d3d861806c3d80fcb24a00552"
     }
   ]
 }
