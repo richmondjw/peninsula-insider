@@ -27,7 +27,7 @@ Start with the kind of round you want. Each choice shows the access model and to
 
 Exposed, strategic courses for golfers who want the round to be the main event.
 
-[**St Andrews Beach** Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>) [**Moonah Links** Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>) [**The National** Visitor requests · Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)
+[**St Andrews Beach** Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>) [**Moonah Links** Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>) [**The National** Private club · eligibility rules](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)
 
 ### Quality without the punishment
 
@@ -83,7 +83,7 @@ Public green fees
 
 Fingal VIC 3939  · Peter Thomson, Ross Perrett
 
-Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal. The Open Course hosted the Australian Open in 2003 and 2005; Legends gives the group a second course to compare on the same trip.
+Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal.
 
 Public players register online before viewing tee times for Open and Legends. [Club details ↗](<https://www.moonahlinks.com.au/cms/golf/book-golf/>)  Visitor access checked 5 Oct 2026
 
@@ -97,7 +97,7 @@ Public green fees
 
 Fingal VIC 3941  · Tom Doak
 
-Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation.
+Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week.
 
 Fully public, seven days; tee times and current fees are published by the club. [Club details ↗](<https://standrewsbeachgolf.com.au/>)  Visitor access checked 5 Oct 2026
 
@@ -111,7 +111,7 @@ Private · visitor requests
 
 Cape Schanck VIC 3939  · Robert Trent Jones Jr, Greg Norman, Tom Doak, Gordon Oliver
 
-The National is the Peninsula's most ambitious golf property - four championship courses across two sites. Three sit on one sweeping Cape Schanck plateau: the Old (Robert Trent Jones Jr), the Moonah (Greg Norman and Bob Harrison), and the Gunnamatta (Tom Doak).
+The National is the Peninsula's most ambitious golf property - four championship courses across two sites.
 
 Victorian nonmembers need a member invitation; interstate and overseas visitors can request tee times. [Club details ↗](<https://nationalgolf.com.au/visitors/>)  Visitor access checked 5 Oct 2026
 
@@ -127,7 +127,7 @@ Public green fees
 
 Cape Schanck VIC 3939  · Robert Trent Jones Jr
 
-RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr. Tree-lined fairways, large bunkers and elevated tee positions with ocean views make it a different round from the nearby links courses.
+RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones Jr.
 
 Member and standard green fees; check current tee times and book online. [Club details ↗](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html>)  Visitor access checked 5 Oct 2026
 
@@ -147,7 +147,7 @@ Semi-private
 
 Flinders VIC 3929
 
-Flinders Golf Club sits above West Head at the southern edge of the Peninsula. Its 18-hole course offers a coastal outlook, making it a scenic option for a Flinders-based stay.
+Flinders Golf Club sits above West Head at the southern edge of the Peninsula.
 
 Visitor competition windows and green-fee options are published by the club. [Club details ↗](<https://www.flindersgolfclub.com.au/cms/visitors-and-social-groups/fees-availability/>)  Visitor access checked 5 Oct 2026
 
@@ -163,7 +163,7 @@ Public green fees
 
 Boneo VIC 3939
 
-Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking.
+Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster.
 
 Public online booking through the club-linked tee-time service. [Club details ↗](<https://eagleridge.com.au/>)  Visitor access checked 5 Oct 2026
 
@@ -179,7 +179,7 @@ Public green fees
 
 Rye VIC 3941  · Tony Cashmore
 
-The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes. The separate Cups Course is a shorter nine-hole links layout suited to a quick round or a mixed-experience group.
+The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes.
 
 Compare the club's separate main-course and Cups rates before booking. [Club details ↗](<https://thedunes.com.au/golf/prices-and-information-golf-rye/>)  Visitor access checked 5 Oct 2026
 
@@ -193,7 +193,7 @@ Semi-private
 
 Mornington VIC 3931
 
-Mornington Golf Club offers public green-fee bookings at its Mornington course, with views across Port Phillip Bay. It is an option for a round while visiting or staying in Mornington.
+Mornington Golf Club offers public green-fee bookings at its Mornington course, with views across Port Phillip Bay.
 
 Green-fee visitors are welcome; tee-time bookings are essential. [Club details ↗](<https://www.morningtongolf.com.au/cms/golf/public-golf/>)  Visitor access checked 5 Oct 2026
 
@@ -209,7 +209,7 @@ Public green fees
 
 Rosebud VIC 3939
 
-Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road. The club has practice facilities and a clubhouse for groups based around Rosebud.
+Rosebud Country Club has 36 holes across two 18-hole courses, North and South, at 207 Boneo Road.
 
 Public bookings for North and South; check current tee times with the club. [Club details ↗](<https://rosebudcountryclub.com.au/web/pages/play-golf>)  Visitor access checked 5 Oct 2026
 
@@ -223,7 +223,7 @@ Limited visitor times
 
 Sorrento VIC 3943
 
-Sorrento Golf Club is a private members' parkland course near the Peninsula's tip. Limited tee times are available to visitors and members' guests, subject to availability and change.
+Sorrento Golf Club is a private members' parkland course near the Peninsula's tip.
 
 Limited visitor times; no visitor play from Boxing Day to the end of January. [Club details ↗](<https://sorrentogolf.com.au/visitors/>)  Visitor access checked 5 Oct 2026
 
@@ -237,7 +237,7 @@ Semi-private
 
 Portsea VIC 3944
 
-Portsea Golf Club's course winds through coastal dunes and Moonah forest. Visitor tee times depend on member play and the season.
+Portsea Golf Club's course winds through coastal dunes and Moonah forest.
 
 Visitor windows vary with member play. Check the live booking calendar or call the pro shop for the date and any eligibility rules. [Visitor times and booking ↗](<https://portsea.miclub.com.au/cms/public-bookings/>)  Visitor access checked 5 Oct 2026
 
@@ -253,13 +253,13 @@ Tom Doak
 
 St Andrews Beach Golf Course; The National Gunnamatta Course
 
-Regarded by most serious course architecture critics as one of the three or four best designers working today. Doak's philosophy - restore the land, resist the ornamental, reward strategic play - is fully present at St Andrews Beach. His Peninsula work also includes the private Gunnamatta Course at The National, a 2019 redesign of its former Ocean Course.
+Doak designed St Andrews Beach and redesigned The National's private Gunnamatta Course in 2019. Both use the existing land to reward strategic shot choices.
 
 Peter Thomson
 
 Moonah Links Open Course
 
-Five-time Open Champion and arguably the most important figure in Australian golf. Thomson's course design philosophy followed his playing philosophy: intelligence over power, precision over length. The Moonah Links Open Course is his most publicly accessible Peninsula work. Moonah Links is the visitor-bookable Peninsula destination for his course design.
+Five-time Open Champion Peter Thomson designed the Moonah Links Open Course. It is the Peninsula's visitor-bookable Thomson layout.
 
 Greg Norman
 
@@ -271,13 +271,13 @@ Robert Trent Jones Jr
 
 The National Old Course; RACV Cape Schanck Resort
 
-Robert Trent Jones Jr designed The National's Old Course at Cape Schanck and the separate RACV Cape Schanck Resort course. His Old Course at The National is the grandest of the four National layouts, designed for a club that was always intended to rival the best in the world. The RACV design is more accessible and suits the resort context it was built for.
+Robert Trent Jones Jr designed The National's private Old Course and the separate visitor-bookable RACV Cape Schanck course.
 
 Tony Cashmore
 
 The Dunes Golf Links
 
-Australian public golf specialist. The Dunes is his most discussed work, built into genuine sand dune country near Rye and consistently ranked among Australia's best public-access courses. Where Doak and Thomson work at the prestige end, Cashmore built the Peninsula's most accessible championship-quality public round - and it holds up.
+Tony Cashmore designed The Dunes, an 18-hole public links course built through Rye's dune country.
 
 The mixed group question
 
