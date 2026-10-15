@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-14T23:26:16.227Z",
-  "snapshotId": "4898d88e9be36fdb17c6d1a2d1d97ac68c414aba2dae78f43645a2ec6123f989",
+  "generatedAt": "2026-10-15T01:17:35.951Z",
+  "snapshotId": "f31d8ee2b80dc9854dac028813d01dfb86a45a6ae846734fe0759b57f95086f6",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 600,
+  "count": 601,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "8e7e0cf0143739bb6d3d1d26ff5edbd40ba718b3dbafa81b5c53bd3a717b8a07",
+      "contentSha256": "dc4624cff0446ef3bed712e2847a97cd02e21daeed94cca970b708f2a02d6e6a",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 199690,
-      "markdownBytes": 9217
+      "htmlBytes": 196446,
+      "markdownBytes": 8908
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 212266,
+      "htmlBytes": 214926,
       "markdownBytes": 811
     },
     {
@@ -6711,7 +6711,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "7b56b72be9e13eed33b2554ce4e3806303c1522d53c38f8b0b6711c153ef6960",
+      "contentSha256": "e22b630671687be0a222b9e1fcb33e2169b52f6fee60fe4f99cb43acad8ee26f",
       "citation": {
         "title": "Thursday 15 October 2026",
         "publisher": "Peninsula Insider",
@@ -6728,7 +6728,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "280a83231ef4c1a013efc847a1ee45f12da7798bbceaf132afcab9d2c9635513",
+      "contentSha256": "7791820cc16c4a09078839fbb440577daef2328f03d06862d6846373fd74e142",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6736,8 +6736,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134967,
-      "markdownBytes": 27506
+      "htmlBytes": 135075,
+      "markdownBytes": 27627
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8547,7 +8547,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "0490a67f25c565f85863bf7edc8a5d3f7e9aff010658a4b67fe9ffccad44d249",
+      "contentSha256": "2b139a71901f3ca604871f37e2b84592862b64e61c77c63965de81e66dd057c7",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8555,8 +8555,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-15"
       },
-      "htmlBytes": 201749,
-      "markdownBytes": 9843
+      "htmlBytes": 204735,
+      "markdownBytes": 10159
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8615,7 +8615,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "c25a6fcce486be79d1c088c7773c4d24dc4eb4bb0578286623cce923b08aaac1",
+      "contentSha256": "83bf4d0410d15a52f0139a430902246c180b74855c6d7924652fd7c30e6a3d3d",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -8623,8 +8623,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 135999,
-      "markdownBytes": 2231
+      "htmlBytes": 138684,
+      "markdownBytes": 2715
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -8897,6 +8897,23 @@
       },
       "htmlBytes": 142252,
       "markdownBytes": 4745
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
+      "title": "Pub Carols at The Pig & Whistle",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/index.md",
+      "contentSha256": "a91859d5b1b4554a2ce949fb0336e7f6f41e361d46c0ff4195464f646539682a",
+      "citation": {
+        "title": "Pub Carols at The Pig & Whistle",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 142221,
+      "markdownBytes": 4512
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",

@@ -173,6 +173,14 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 9am · Mornington · Markets
 
+### Live music
+
+- [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+
+A participatory carols evening for groups rather than a background music dinner. Choose a Thursday and check Humanitix for current ticket terms.
+
+6pm · Main Ridge · Live Music
+
 ### Food & wine
 
 - [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)

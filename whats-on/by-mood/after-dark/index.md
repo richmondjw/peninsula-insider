@@ -41,6 +41,16 @@ Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Has
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 
+Live Music   Thursday 3, 10 and 17 December 2026, 6–10pm; no further dates confirmed.
+
+### [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+
+[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+
+A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+
 ## The Insider Note
 
 Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.
