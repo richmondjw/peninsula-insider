@@ -245,7 +245,7 @@ export const prerender = true;
           <div class="golf-fit__links">
             <a href="#course-st-andrews-beach-golf-course"><strong>St Andrews Beach</strong><span>Public green fees · Fingal</span></a>
             <a href="#course-moonah-links"><strong>Moonah Links</strong><span>Public green fees · Fingal</span></a>
-            <a href="#course-the-national-golf-club"><strong>The National</strong><span>Visitor requests · Cape Schanck</span></a>
+            <a href="#course-the-national-golf-club"><strong>The National</strong><span>Private club · eligibility rules</span></a>
           </div>
         </article>
         <article class="golf-fit__group">
@@ -338,7 +338,7 @@ export const prerender = true;
                   {d.address?.split(',')[1]?.trim() ?? d.place}
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
-                <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
+                <p class="golf-card__note">{firstSentences(d.editorNote, 1)}</p>
                 {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked {golfVisitorAccessChecked}</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
@@ -401,7 +401,7 @@ export const prerender = true;
                   {d.address?.split(',')[1]?.trim() ?? d.place}
                   {designers && <span class="golf-card__designers"> · {designers}</span>}
                 </p>
-                <p class="golf-card__note">{firstSentences(d.editorNote, 2)}</p>
+                <p class="golf-card__note">{firstSentences(d.editorNote, 1)}</p>
                 {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked {golfVisitorAccessChecked}</span></p>}
                 {g.localRead && (
                   <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
@@ -448,13 +448,13 @@ export const prerender = true;
         <article class="architect-card">
           <div class="architect-card__name">Tom Doak</div>
           <div class="architect-card__course">St Andrews Beach Golf Course; The National Gunnamatta Course</div>
-          <p class="architect-card__note">Regarded by most serious course architecture critics as one of the three or four best designers working today. Doak's philosophy - restore the land, resist the ornamental, reward strategic play - is fully present at St Andrews Beach. His Peninsula work also includes the private Gunnamatta Course at The National, a 2019 redesign of its former Ocean Course.</p>
+          <p class="architect-card__note">Doak designed St Andrews Beach and redesigned The National's private Gunnamatta Course in 2019. Both use the existing land to reward strategic shot choices.</p>
         </article>
 
         <article class="architect-card">
           <div class="architect-card__name">Peter Thomson</div>
           <div class="architect-card__course">Moonah Links Open Course</div>
-          <p class="architect-card__note">Five-time Open Champion and arguably the most important figure in Australian golf. Thomson's course design philosophy followed his playing philosophy: intelligence over power, precision over length. The Moonah Links Open Course is his most publicly accessible Peninsula work. Moonah Links is the visitor-bookable Peninsula destination for his course design.</p>
+          <p class="architect-card__note">Five-time Open Champion Peter Thomson designed the Moonah Links Open Course. It is the Peninsula's visitor-bookable Thomson layout.</p>
         </article>
 
         <article class="architect-card">
@@ -466,13 +466,13 @@ export const prerender = true;
         <article class="architect-card">
           <div class="architect-card__name">Robert Trent Jones Jr</div>
           <div class="architect-card__course">The National Old Course; RACV Cape Schanck Resort</div>
-          <p class="architect-card__note">Robert Trent Jones Jr designed The National's Old Course at Cape Schanck and the separate RACV Cape Schanck Resort course. His Old Course at The National is the grandest of the four National layouts, designed for a club that was always intended to rival the best in the world. The RACV design is more accessible and suits the resort context it was built for.</p>
+          <p class="architect-card__note">Robert Trent Jones Jr designed The National's private Old Course and the separate visitor-bookable RACV Cape Schanck course.</p>
         </article>
 
         <article class="architect-card">
           <div class="architect-card__name">Tony Cashmore</div>
           <div class="architect-card__course">The Dunes Golf Links</div>
-          <p class="architect-card__note">Australian public golf specialist. The Dunes is his most discussed work, built into genuine sand dune country near Rye and consistently ranked among Australia's best public-access courses. Where Doak and Thomson work at the prestige end, Cashmore built the Peninsula's most accessible championship-quality public round - and it holds up.</p>
+          <p class="architect-card__note">Tony Cashmore designed The Dunes, an 18-hole public links course built through Rye's dune country.</p>
         </article>
 
       </div>
