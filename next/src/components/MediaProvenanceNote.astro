@@ -19,6 +19,18 @@
  * The wording is assembled in lib/media-provenance.ts from fields the record
  * carries. Nothing here infers what a photograph shows, who made it, or what
  * licence covers it.
+ *
+ * 2026-10-15 (James, site-wide rule): the explanatory sentence no longer sits
+ * in the page as permanent visible prose - it was reading as clutter on card
+ * and detail layouts. It still has to be visible to a sighted reader somehow,
+ * because that is the entire reason this component exists (see A28 above):
+ * an illustrative photo with its explanation ONLY in alt text/metadata is
+ * exactly the undisclosed-stock-photo failure this was built to stop. So the
+ * compact label stays on the page and carries the full sentence as metadata
+ * a sighted reader can still reach - a native `title` tooltip on hover/press
+ * - plus a `data-detail` attribute for tooling, while screen-reader users get
+ * it via `aria-describedby` on an `sr-only` node so nothing regresses for
+ * them either.
  */
 import { illustrativeDisclosure, type ProvenanceImage } from '../lib/media-provenance';
 
@@ -34,29 +46,35 @@ export interface Props {
 const { image = null, subject = null, class: className = '' } = Astro.props;
 
 const disclosure = illustrativeDisclosure(image, subject);
+const detailId = disclosure
+  ? `media-provenance-detail-${Math.random().toString(36).slice(2, 9)}`
+  : undefined;
 ---
 
 {disclosure && (
   <p class:list={['media-provenance', className]} data-pi-media-disclosure="illustrative">
-    <span class="media-provenance__label">{disclosure.label}</span>
-    <span class="media-provenance__detail">{disclosure.detail}</span>
+    <span
+      class="media-provenance__label"
+      title={disclosure.detail}
+      data-detail={disclosure.detail}
+      aria-describedby={detailId}
+      tabindex="0"
+    >
+      {disclosure.label}
+    </span>
+    <span id={detailId} class="sr-only">{disclosure.detail}</span>
   </p>
 )}
 
 <style>
   .media-provenance {
     display: flex;
-    flex-wrap: wrap;
     align-items: baseline;
-    gap: 0.5rem;
     margin: 0.35rem 0 0;
-    font-size: 0.82rem;
-    line-height: 1.5;
-    color: var(--ink-soft, #433d39);
   }
 
   .media-provenance__label {
-    flex: none;
+    display: inline-block;
     padding: 0.1rem 0.45rem;
     border: 1px solid currentcolor;
     border-radius: 2px;
@@ -64,11 +82,20 @@ const disclosure = illustrativeDisclosure(image, subject);
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
+    color: var(--ink-soft, #433d39);
     opacity: 0.85;
+    cursor: help;
   }
 
-  .media-provenance__detail {
-    flex: 1 1 12rem;
-    min-width: 0;
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
   }
 </style>
