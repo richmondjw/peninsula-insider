@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/>) - Barragunda Dining's estate set menu at Cape Schanck, the Breast Foot Forward coastal walk from Safety Beach on Saturday, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery.
+
 - [Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/>) - Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
 
 - [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>) - Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
 
 - [The Bay Hotel's vault room, Balnarring's wildflower verge walk, and NWOP at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/>) - The Bay Hotel Mornington's vault dining room for a group occasion, the Balnarring to Coolart Wetlands trail in peak spring flower, and the National Works on Paper 2026 at Mornington Peninsula Regional Gallery before November.
-
-- [Georgie Bass, the Olivers Hill loop, and Commonfolk's Sunday roast ritual](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/>) - Flinders' all-day breakfast kitchen at spring pace, the Olivers Hill clifftop loop above Port Phillip, and Commonfolk Coffee's single-origin filter bar before the weekend crowd arrives.
 
 ## Planning a particular weekend?
 

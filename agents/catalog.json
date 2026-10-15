@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-15T19:26:06.139Z",
-  "snapshotId": "48f62035f56c44e1f19c95bd1ad91654acb27bf00ca95cdf6d5567bc647c49d4",
+  "generatedAt": "2026-10-15T20:19:14.733Z",
+  "snapshotId": "3b791f4d62375f3321c73eb327332da17643c7560cbe8310a43acd4552f2801c",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 601,
+  "count": 602,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5873,6 +5873,23 @@
       "markdownBytes": 8547
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/",
+      "title": "Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/index.md",
+      "contentSha256": "16c87ce87094aac2ec1763e214a7aee7e96bfc59a9f350eaff7f51b37037b584",
+      "citation": {
+        "title": "Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/",
+        "publishedAt": "2026-10-16T00:00:00.000Z",
+        "modifiedAt": "2026-10-16T00:00:00.000Z"
+      },
+      "htmlBytes": 172238,
+      "markdownBytes": 8831
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6677,7 +6694,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "dcd8df49540008f124f3b8be8b85817306e6d236f18f0fc8a6f8ddc3d7fb425d",
+      "contentSha256": "dc234009435e1721f5df67e9218aba89653e06153527cd433d0675ca2aa287b4",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6685,8 +6702,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123376,
-      "markdownBytes": 5763
+      "htmlBytes": 123411,
+      "markdownBytes": 5802
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6711,7 +6728,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6b12ce83ec493c3f403f2af2bfd7d6ac1072b59080e5e02c2a8aefd1e11f8f8d",
+      "contentSha256": "141633fa3c5e16cc1d65f7721eb8c7747389e805a65618188bce560bdb9549a8",
       "citation": {
         "title": "Friday 16 October 2026",
         "publisher": "Peninsula Insider",
