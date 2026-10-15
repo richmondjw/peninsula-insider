@@ -1,60 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-15T14:31:53.350Z",
+  "generatedAt": "2026-10-15T19:26:06.139Z",
   "baselineAvailable": true,
-  "fromSnapshot": "f31d8ee2b80dc9854dac028813d01dfb86a45a6ae846734fe0759b57f95086f6",
-  "toSnapshot": "f7523c92381124de24ede21fb4a3e34f33be4f1b1639e1eceaedcb6fbb31cec7",
-  "previousGeneratedAt": "2026-10-15T01:17:35.951Z",
+  "fromSnapshot": "f7523c92381124de24ede21fb4a3e34f33be4f1b1639e1eceaedcb6fbb31cec7",
+  "toSnapshot": "48f62035f56c44e1f19c95bd1ad91654acb27bf00ca95cdf6d5567bc647c49d4",
+  "previousGeneratedAt": "2026-10-15T14:31:53.350Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 2,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "5dcb6672f6ad8a0597e75a7e7dde5545cdb50a86f73c3f2ad1dfd4cfd669a095",
-      "previousContentSha256": "dc4624cff0446ef3bed712e2847a97cd02e21daeed94cca970b708f2a02d6e6a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/crib-point/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/crib-point/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/crib-point/index.md",
-      "contentSha256": "f856815a4272e331defe3053ec49010ffab5cc047fb52f79e8370f5f379756e9",
-      "previousContentSha256": "bc442ab84d2c35de9b775be493224a2cddee56f16341fe86347298f106a9e8a5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "db7c951cae47239f1a2ac61d1a5c50e45337dd67a3cb0c141261cfb84a3503de",
-      "previousContentSha256": "fe1062fcafb59978ad77dcd1670aacb1c97889b9e1c484cadaa3b2547f730f41"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "e2a35ef414357324ffdc6a233bf20d34e131f7821c093d9d5a42130c4bdc244f",
-      "previousContentSha256": "4297990e7a6fb825d8577d90d4503102a7a6015efbcf4f3da8700fb545275af7"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "aa68d990462fb32c945865543e61f05de96694691b4868c9b7a46d44121fefca",
-      "previousContentSha256": "e22b630671687be0a222b9e1fcb33e2169b52f6fee60fe4f99cb43acad8ee26f"
+      "contentSha256": "6b12ce83ec493c3f403f2af2bfd7d6ac1072b59080e5e02c2a8aefd1e11f8f8d",
+      "previousContentSha256": "aa68d990462fb32c945865543e61f05de96694691b4868c9b7a46d44121fefca"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/",
+      "id": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "67d414ed7997e0bd69d1a4ab506cce2d8981ecdd81c8d86d3e894f10bc1795d3",
-      "previousContentSha256": "2b139a71901f3ca604871f37e2b84592862b64e61c77c63965de81e66dd057c7"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/index.md",
+      "contentSha256": "26f08e651ac1016e44d3ba30dd359a9f020a4688db597b0878179d8ba7374512",
+      "previousContentSha256": "a91859d5b1b4554a2ce949fb0336e7f6f41e361d46c0ff4195464f646539682a"
     }
   ]
 }

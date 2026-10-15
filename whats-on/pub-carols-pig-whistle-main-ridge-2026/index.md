@@ -5,7 +5,7 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Live Music     3 December – 17 December 2026     Recurs weekly
+Event     Live Music     3 December 2026     Recurs weekly
 
 # Pub Carols at The Pig & Whistle
 
@@ -35,7 +35,7 @@ At a glance
 
 **When**
 
-3 December – 17 December 2026
+3 December 2026
 
 **Time**
 
@@ -57,7 +57,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/pub-carols>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pub+Carols+at+The+Pig+%26+Whistle&dates=20261203T070000Z%2F20261217T110000Z&details=A+group+carols+night+with+a+live+band+and+two-course+meal+at+The+Pig+%26+Whistle+in+Main+Ridge.+The+organiser+lists+Thursday+3%2C+10+and+17+December%2C+each+from+6pm+to+10pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpub-carols-pig-whistle-main-ridge-2026%2F&location=The+Pig+%26+Whistle+Tavern%2C+365+Purves+Road%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/pub-carols>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pub+Carols+at+The+Pig+%26+Whistle&dates=20261203T070000Z%2F20261203T110000Z&details=A+group+carols+night+with+a+live+band+and+two-course+meal+at+The+Pig+%26+Whistle+in+Main+Ridge.+The+organiser+lists+Thursday+3%2C+10+and+17+December%2C+each+from+6pm+to+10pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpub-carols-pig-whistle-main-ridge-2026%2F&location=The+Pig+%26+Whistle+Tavern%2C+365+Purves+Road%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
