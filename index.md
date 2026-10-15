@@ -53,18 +53,6 @@ Swipe or scroll through the picks
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
-An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
-
-Tar Barrel Brewery & Distillery   Food & wine
-
-Event details checked 14 Oct 2026. [Check organiser](<https://tarbarrel.com.au/whats-on/>)
-
-- Illustrative image
-
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
-
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
@@ -84,6 +72,16 @@ Emu Plains is the artisan market that actually feels like the Peninsula: stringy
 Emu Plains Reserve   Market
 
 Event details checked 3 Oct 2026. [Check organiser](<https://www.emuplainsmarket.com.au/>)
+
+- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 

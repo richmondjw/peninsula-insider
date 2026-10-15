@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-10-15",
-  "generatedAt": "2026-10-15T01:09:40.623Z",
+  "generated": "2026-10-16",
+  "generatedAt": "2026-10-15T14:26:50.592Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-10-15",
-    "end": "2027-01-13"
+    "start": "2026-10-16",
+    "end": "2027-01-14"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -38,17 +38,30 @@
       "position": 2,
       "item": {
         "@type": "Event",
-        "name": "National Works on Paper 2026 (NWOP)",
-        "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-10-15",
-        "endDate": "2026-10-15",
-        "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
+        "name": "Come and Try Fishing at Mornington Pier",
+        "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+        "startDate": "2026-10-16",
+        "endDate": "2026-10-16",
+        "description": "Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
       "position": 3,
+      "item": {
+        "@type": "Event",
+        "name": "National Works on Paper 2026 (NWOP)",
+        "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+        "startDate": "2026-10-16",
+        "endDate": "2026-10-16",
+        "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Peninsula Hot Springs Studio Yoga",
@@ -58,7 +71,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -68,7 +81,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "Service",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -78,12 +91,12 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Steinfest at Tar Barrel",
         "url": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-        "startDate": "2026-10-15",
+        "startDate": "2026-10-16",
         "endDate": "2026-10-18",
         "description": "Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.",
         "eventStatus": "https://schema.org/EventScheduled"
@@ -91,25 +104,12 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 8,
       "item": {
         "@type": "Service",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
         "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
         "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Event",
-        "name": "Come and Try Fishing at Mornington Pier",
-        "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-        "startDate": "2026-10-16",
-        "endDate": "2026-10-16",
-        "description": "Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.",
-        "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
@@ -302,8 +302,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-15",
-      "endDate": "2027-01-13",
+      "startDate": "2026-10-16",
+      "endDate": "2027-01-14",
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
       "factCheckedOn": "2026-10-03",
@@ -320,12 +320,36 @@
       "thisWeekend": true
     },
     {
+      "title": "Come and Try Fishing at Mornington Pier",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-16",
+      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181",
+      "factCheckedOn": "2026-10-13",
+      "recurrence": "one-off",
+      "category": "nature",
+      "place": "mornington",
+      "venue": null,
+      "summary": "Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-10-16",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "National Works on Paper 2026 (NWOP)",
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-10-15",
-      "endDate": "2026-10-15",
+      "startDate": "2026-10-16",
+      "endDate": "2026-10-16",
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
       "factCheckedOn": "2026-10-08",
@@ -356,8 +380,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-10-15",
-      "endDate": "2027-01-13",
+      "startDate": "2026-10-16",
+      "endDate": "2027-01-14",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": "2026-10-03",
@@ -378,8 +402,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-10-15",
-      "endDate": "2027-01-13",
+      "startDate": "2026-10-16",
+      "endDate": "2027-01-14",
       "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "factCheckedOn": "2026-10-03",
@@ -400,8 +424,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-10-15",
-      "endDate": "2027-01-13",
+      "startDate": "2026-10-16",
+      "endDate": "2027-01-14",
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
       "factCheckedOn": "2026-05-04",
@@ -422,7 +446,7 @@
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-      "startDate": "2026-10-15",
+      "startDate": "2026-10-16",
       "endDate": "2026-10-18",
       "id": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
       "sourceUrl": "https://tarbarrel.com.au/whats-on/",
@@ -446,8 +470,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-10-15",
-      "endDate": "2027-01-13",
+      "startDate": "2026-10-16",
+      "endDate": "2027-01-14",
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
       "factCheckedOn": "2026-10-03",
@@ -459,30 +483,6 @@
       "weekendOccurrences": [
         {
           "date": "2026-10-16"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Come and Try Fishing at Mornington Pier",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-      "startDate": "2026-10-16",
-      "endDate": "2026-10-16",
-      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-      "sourceUrl": "https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181",
-      "factCheckedOn": "2026-10-13",
-      "recurrence": "one-off",
-      "category": "nature",
-      "place": "mornington",
-      "venue": null,
-      "summary": "Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-16",
-          "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
       "thisWeekend": true

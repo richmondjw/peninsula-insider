@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-15
+Modified: 2026-10-16
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,15 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Sat, 17 Oct · 5pm–8pm · Fingal
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Sat, 17 Oct   Fingal   Live Music
-
 - Photo: Peninsula Insider.
+
+Sat, 17 Oct · 9am–2pm · Balnarring
 
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
@@ -50,6 +44,12 @@ Sat, 17 Oct   Balnarring   Markets
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Fri, 16 Oct   Mornington   Exhibitions
+
+- ### [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
+
+An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
+
+Fri, 16 Oct   Mornington   Nature & Walks
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -174,6 +174,12 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 9am · Mornington · Markets
 
 ### Live music
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
