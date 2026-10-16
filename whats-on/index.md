@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-16
+Modified: 2026-10-17
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -37,19 +37,19 @@ Emu Plains is the artisan market that actually feels like the Peninsula: stringy
 
 Sat, 17 Oct   Balnarring   Markets
 
-- Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-An easy afternoon making session after a Mornington outing.
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Sat, 17 Oct   Mornington   Arts
+Sat, 17 Oct   Mornington   Exhibitions
 
 - ### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
 An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
 
-Fri, 16 Oct   Mornington   Food & Wine
+Sat, 17 Oct   Mornington   Food & Wine
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -60,14 +60,6 @@ Make a day of it
 ## Everything on, by day
 
 Browse by date and save what catches your eye.
-
-### Friday 16 October
-
-- [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
-An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
-
-Mornington · Food & Wine · On during your dates · runs to Sun, 18 Oct
 
 ### Saturday 17 October
 
@@ -94,6 +86,12 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
 
 1.30pm · Mornington · Arts · One-day event
+
+- [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+
+An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
+
+Mornington · Food & Wine · On during your dates · runs to Sun, 18 Oct
 
 - [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
@@ -185,11 +183,11 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 
 ### Openings
 
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
 
-11am · Mornington · Exhibitions
+1.30pm · Mornington · Arts
 
 - [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 

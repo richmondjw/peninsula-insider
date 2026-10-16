@@ -19,16 +19,6 @@ Dates we could verify
 
 These dated listings had recent source checks. Confirm opening times and bookings with the organiser before travelling.
 
-Date confirmed · Nature & Walks
-
-### [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
-
-Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.
-
-Friday 16 October   10:45am–11:45am   Mornington   Checked 13 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181>)
-
 Date confirmed · Exhibitions
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -78,6 +68,16 @@ Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula 
 Saturday 17 October   1:30pm–3:30pm   Mornington   Checked 10 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>) [Check organiser details](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
+
+Date confirmed · Live Music
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
+
+Saturday 17 October   5pm–8pm   Fingal   Checked 3 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 
 Choose your own timing
 

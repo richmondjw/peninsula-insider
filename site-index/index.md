@@ -487,8 +487,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
 
-- [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
-
 - [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)

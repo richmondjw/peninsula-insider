@@ -49,18 +49,6 @@ The short list
 
 Swipe or scroll through the picks
 
-- Illustrative image
-
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
-
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-Emu Plains Reserve   Market
-
-Event details checked 3 Oct 2026. [Check organiser](<https://www.emuplainsmarket.com.au/>)
-
 - Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -82,6 +70,18 @@ An easy afternoon making session after a Mornington outing.
 Mornington Peninsula Regional Gallery   Arts
 
 Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
+
+- Illustrative image
+
+Mornington Peninsula Regional Gallery interior for venue context; this photograph does not show the Tessellation workshop.   Photo courtesy of Visit Victoria.
+
+### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
+
+Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
+
+Mornington Peninsula Regional Gallery   Arts
+
+Event details checked 10 Oct 2026. [Check organiser](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
