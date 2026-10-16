@@ -3,6 +3,7 @@ import { routeSlug } from '../lib/editorial';
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
+import { imageCreditText } from '../lib/image-presentation.mjs';
 
 export interface Props {
   itinerary: any;
@@ -45,7 +46,7 @@ const metaLine = [tripType, `Best for ${audienceLabel}`, regionLabel, driveLabel
     ></a>
   )}
   {(hero.override ? hero.override.credit : data.heroImage?.credit) && (
-    <p class="itinerary-card__photo-credit">{hero.override ? hero.override.caption : data.heroImage?.caption} Photo: {hero.override ? hero.override.credit : data.heroImage?.credit}</p>
+    <p class="itinerary-card__photo-credit">{hero.override ? hero.override.caption : data.heroImage?.caption}{' '}{imageCreditText(hero.override ? hero.override.credit : data.heroImage?.credit, hero.override ? undefined : data.heroImage?.imageKind)}</p>
   )}
   <div class="itinerary-card__top itinerary-card__top--brand">
     <span class="itinerary-card__label itinerary-card__label--plan" aria-label="Peninsula Insider Plan">

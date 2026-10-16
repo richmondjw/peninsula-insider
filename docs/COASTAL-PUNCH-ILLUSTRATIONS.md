@@ -34,6 +34,8 @@ The card fallback, shared event placeholder and What's On social graphic use aut
 
 ## Production rules for every future image task
 
+Caption maintenance follows [IMAGE-CAPTION-STANDARD.md](IMAGE-CAPTION-STANDARD.md). Record `imageKind: illustration` and `depictionStatus: illustrative` for reviewed artwork. Write a short description of visible objects, keep `Illustration: Peninsula Insider` as the credit, and retain generation/rights history in provenance fields. Do not generate a second public disclaimer from the prompt. Run `npm run lint:image-captions` before content admission; unknown image identity goes to editorial review.
+
 1. Start from the approved house language and an existing reference asset. Keep one dominant silhouette and a small number of large shapes. Remove incidental detail before increasing exaggeration. Avoid tropical resort imagery, decorative noise and photorealism.
 2. Create separate generations for separate placements. Define aspect ratio, subject position, desktop/mobile crop and any overlay text area in the brief. Never supply a collage as individual production assets.
 3. Keep lettering, logos, titles and buttons out of generated pixels. Typeset them separately with the existing site fonts and controls. Overlay colour or contrast adjustments may be scoped to the artwork; structural redesign requires its own scope.

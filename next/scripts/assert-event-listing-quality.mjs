@@ -4,6 +4,7 @@
 // the live page is checked separately after deployment.
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { hasCaptionDistinction } from '../src/lib/image-presentation.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const EVENT_DIR = path.join(ROOT, 'src', 'content', 'events');
@@ -60,7 +61,7 @@ for (const slug of slugs) {
   requireField(/^\/images\/[a-z0-9/_-]+\.(png|jpe?g|webp)$/i.test(hero.src ?? ''),
     slug, 'hero must be a local image asset');
   if (hero.depictionStatus === 'illustrative') {
-    requireField(/illustrat/i.test(hero.caption ?? ''), slug, 'illustration disclosure missing');
+    requireField(hasCaptionDistinction(hero), slug, 'image medium or context disclosure missing');
   }
   if (/^\/images\//.test(hero.src ?? '')) {
     try {

@@ -15,7 +15,6 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
 import EventImageCredit from '../../components/EventImageCredit.astro';
-import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
@@ -341,7 +340,6 @@ export const prerender = true;
           <img src={eventHero.src} alt={eventHero.alt} loading="eager" decoding="async" />
           <figcaption>
             <EventImageCredit image={event.data.heroImage} />
-            <MediaProvenanceNote image={event.data.heroImage} subject={event.data.title} />
           </figcaption>
         </figure>
       )}
