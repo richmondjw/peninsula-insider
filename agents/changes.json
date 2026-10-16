@@ -1,36 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-16T20:20:07.443Z",
+  "generatedAt": "2026-10-16T22:21:38.945Z",
   "baselineAvailable": true,
-  "fromSnapshot": "77a962e89ec67fda6306e0ad6516c4908bb894440057992e2e2a2b181a3de984",
-  "toSnapshot": "190b9dd9af31f3afc93ad983129a43a45792bf061d7f287bfcb74af88c13e6e3",
-  "previousGeneratedAt": "2026-10-16T19:26:05.790Z",
+  "fromSnapshot": "190b9dd9af31f3afc93ad983129a43a45792bf061d7f287bfcb74af88c13e6e3",
+  "toSnapshot": "58f5dba41af9ac67ae3d35ba1eeeed6d4eb1295ed995b16576abc65ec307bb67",
+  "previousGeneratedAt": "2026-10-16T20:20:07.443Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/index.md",
-      "contentSha256": "a01d6c1faab9d15e010616d21339087d64e38d5cea7c4df40918549e59dfbfcc",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "c25669cece0c728b3c0a75849969d88d46cadc247b2f3a1f538b0a869a62e053",
-      "previousContentSha256": "dc234009435e1721f5df67e9218aba89653e06153527cd433d0675ca2aa287b4"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "660d89d32d86b4f69a532c757107eb8147a25f59a32770ba316706a1b4458346",
-      "previousContentSha256": "3c81c95fc2904afc9da60eacbcf175b064e7bc07a4e039bdd2ccc2492f2aef84"
+      "contentSha256": "1e8aa16c647257b5c8ff2c797c0391471a63bb98c6d965a085be2aefb995fb6a",
+      "previousContentSha256": "660d89d32d86b4f69a532c757107eb8147a25f59a32770ba316706a1b4458346"
     }
   ]
 }
