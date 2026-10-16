@@ -11,8 +11,6 @@ Event     Nature & Walks     16 October 2026     One-off date
 
 Fishcare Victoria runs a free, one-hour fishing session at Mornington Pier on Friday 16 October, 10:45–11:45am. Equipment is supplied and registration is essential.
 
-[Book or check details](<https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181>)
-
 Editor's verdict
 
 An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
@@ -59,7 +57,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/come-try-fishing-mornington-pier-tickets-2002493238181>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Come+and+Try+Fishing+at+Mornington+Pier&dates=20261015T234500Z%2F20261016T004500Z&details=Fishcare+Victoria+runs+a+free%2C+one-hour+fishing+session+at+Mornington+Pier+on+Friday+16+October%2C+10%3A45%E2%80%9311%3A45am.+Equipment+is+supplied+and+registration+is+essential.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcome-try-fishing-mornington-pier-october-2026%2F&location=Mornington+Pier%2C+Schnapper+Point+Drive%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

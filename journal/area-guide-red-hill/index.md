@@ -25,13 +25,13 @@ Start here
 
 - Red Hill is the Mornington Peninsula's primary food and wine destination - a basalt plateau at 100–300m elevation producing benchmark cool-climate Pinot Noir and Chardonnay.
 
-- The village itself is small (a general store, a monthly Saturday market, vineyard roads) but anchors the entire upper Peninsula's culinary geography.
+- The village itself is small (a general store, a seasonal community market, vineyard roads) but anchors the entire upper Peninsula's culinary geography.
 
 - Best for: visitors building a trip around cellar doors and long lunches. The winery restaurant cluster - Ten Minutes by Tractor, Montalto, Paringa Estate, Principia - is the strongest such concentration in Victoria.
 
 - Suits: couples, food and wine focused visitors, anyone with two nights and appetite. Not suited to: those wanting beach access close by (any coast is 20+ minutes from the ridge).
 
-- Planning note: the first Saturday of each month market is the sharpest single entry point to the place. Book hatted restaurants 4–8 weeks ahead on weekends.
+- Planning note: Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours. Book hatted restaurants 4–8 weeks ahead on weekends.
 
 Red Hill is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.
 
@@ -49,7 +49,7 @@ Red Hill rewards appetite and discipline in equal measure. Bring both.
 
 ## How to arrive and when to come
 
-Arrive with your first booking no earlier than mid-morning unless a market date is confirmed. The original Red Hill Community Market is temporarily closed. The separate Hill & Ridge Community Market lists Saturday 3 October 2026, 9am–2pm, at Red Hill Recreation Reserve; check the organiser’s current calendar before starting the day there.
+Arrive with your first booking no earlier than mid-morning unless a market date is confirmed. The original Red Hill Community Market is temporarily closed. The separate Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours.
 
 Autumn is the cleanest version of Red Hill: vines turning, roads dry, lunch terraces at full usefulness. Spring is close behind, with greener hills and slightly sharper air. Winter works well if your priorities are fireplaces, tasting rooms and heavier lunches. Summer is fine but not essential. This is not a beach town.
 
@@ -147,7 +147,7 @@ Cool-climate wine, long lunches, and the Peninsula's most concentrated run of ge
 
 When is the best time to visit Red Hill?
 
-Autumn for vineyard colour and settled long-lunch weather, then spring for green hills and clearer daylight. The first-Saturday market mornings are the sharpest version of the place.
+Autumn for vineyard colour and settled long-lunch weather, then spring for green hills and clearer daylight. Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours.
 
 How far is Red Hill from Melbourne?
 

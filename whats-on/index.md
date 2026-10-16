@@ -37,19 +37,19 @@ Emu Plains is the artisan market that actually feels like the Peninsula: stringy
 
 Sat, 17 Oct   Balnarring   Markets
 
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Gallery exterior for venue context; this photograph does not show the Orizome workshop.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
 
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+An easy afternoon making session after a Mornington outing.
 
-Fri, 16 Oct   Mornington   Exhibitions
+Sat, 17 Oct   Mornington   Arts
 
-- ### [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
+- ### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
-An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
+An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
 
-Fri, 16 Oct   Mornington   Nature & Walks
+Fri, 16 Oct   Mornington   Food & Wine
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -62,18 +62,6 @@ Make a day of it
 Browse by date and save what catches your eye.
 
 ### Friday 16 October
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions · Recurring weekly
-
-- [Come and Try Fishing at Mornington Pier](<https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/>)
-
-An easy first fishing session with gear supplied. Register before heading to the pier, and watch for a weather update from Fishcare.
-
-10.45am · Mornington · Nature & Walks · One-day event
 
 - [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
@@ -189,12 +177,6 @@ A participatory carols evening for groups rather than a background music dinner.
 
 ### Food & wine
 
-- [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
-An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
-
-Mornington · Food & Wine
-
 - [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 
 A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
@@ -203,11 +185,11 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 
 ### Openings
 
-- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-An easy afternoon making session after a Mornington outing. The gallery says you can drop in between 1:30pm and 3:30pm and asks visitors to register even though entry is free.
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-1.30pm · Mornington · Arts
+11am · Mornington · Exhibitions
 
 - [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 

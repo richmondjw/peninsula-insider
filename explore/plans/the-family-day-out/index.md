@@ -121,7 +121,7 @@ Arthurs Seat is the Peninsula's highest point and the Eagle is the gondola that 
 
 ### [Mount Martha Beach](<https://peninsulainsider.com.au/explore/mount-martha-beach/>)
 
-Mount Martha is the gentlest swim on the Peninsula. The beach curves south in a long, shallow arc of pale sand, protected from the prevailing winds, shallow enough for kids, and deep enough fifty metres out for a real swim. The northern end carries the famous heritage-listed bathing boxes; the southern end runs into the coastal reserve and eventually hits the cliff track south toward Balcombe. Unlike the back beaches at Sorrento, this is a swim-first beach rather than a walk-first one. If you only have one bay-facing afternoon on the Peninsula and you want it to feel genuinely restorative rather than dramatic, come here. Easy parking outside of January. A single beach kiosk. Nothing to plan - which is exactly the point.
+A bayside beach stop; check local conditions and supervision needs before entering the water.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/mount-martha-beach/>)
 

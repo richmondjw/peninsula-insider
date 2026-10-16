@@ -69,7 +69,7 @@ A handful of specific spots turn wet-weather Peninsula weekends from a compromis
 
 **Bass & Flinders Distillery.** The gin school is one of the region’s better hands-on afternoons, and a grey sky costs it nothing. Book ahead.
 
-**Red Hill Brewery.** The cellar door is a low barn with a wood-fired pizza oven and enough indoor seating to sit out a genuinely wet afternoon. The hop garden walk is better in autumn than summer anyway.
+**Red Hill Brewery.** Considering Red Hill Brewery for lunch? Check the brewery’s current food service, menu and opening days before planning your stop. Confirm covered seating directly if you need a wet-weather option.
 
 **A long lunch followed by a long nap.** Book a two-night stay at a property with a proper room, eat lunch at one of the Red Hill wineries, and spend the afternoon reading a book in the kind of armchair the region specialises in. This is the version of the Peninsula trip that most resembles a real holiday.
 
@@ -105,7 +105,7 @@ Yes - often more so than in good weather. The hot springs are better in the cold
 
 What is the best rainy day activity on the Mornington Peninsula?
 
-Alba Thermal Springs or Peninsula Hot Springs - outdoor geothermal bathing is better in cold, grey weather. For indoor alternatives: Bass and Flinders Distillery gin school, Mornington Peninsula Regional Gallery (free entry), or Red Hill Brewery's indoor barn with wood-fired pizza.
+Alba Thermal Springs or Peninsula Hot Springs - outdoor geothermal bathing is better in cold, grey weather. For indoor alternatives: Bass and Flinders Distillery gin school or Mornington Peninsula Regional Gallery (free entry). Considering Red Hill Brewery for lunch? Check the brewery’s current food service, menu and opening days before planning your stop. Confirm covered seating directly if you need a wet-weather option.
 
 Which Peninsula restaurants are best for a rainy day?
 
