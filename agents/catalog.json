@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-16T19:26:05.790Z",
-  "snapshotId": "77a962e89ec67fda6306e0ad6516c4908bb894440057992e2e2a2b181a3de984",
+  "generatedAt": "2026-10-16T20:20:07.443Z",
+  "snapshotId": "190b9dd9af31f3afc93ad983129a43a45792bf061d7f287bfcb74af88c13e6e3",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 601,
+  "count": 602,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5890,6 +5890,23 @@
       "markdownBytes": 8831
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
+      "title": "Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/index.md",
+      "contentSha256": "a01d6c1faab9d15e010616d21339087d64e38d5cea7c4df40918549e59dfbfcc",
+      "citation": {
+        "title": "Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
+        "publishedAt": "2026-10-17T00:00:00.000Z",
+        "modifiedAt": "2026-10-17T00:00:00.000Z"
+      },
+      "htmlBytes": 172191,
+      "markdownBytes": 8730
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6694,7 +6711,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "dc234009435e1721f5df67e9218aba89653e06153527cd433d0675ca2aa287b4",
+      "contentSha256": "c25669cece0c728b3c0a75849969d88d46cadc247b2f3a1f538b0a869a62e053",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6702,8 +6719,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123411,
-      "markdownBytes": 5802
+      "htmlBytes": 123428,
+      "markdownBytes": 5807
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6728,7 +6745,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "3c81c95fc2904afc9da60eacbcf175b064e7bc07a4e039bdd2ccc2492f2aef84",
+      "contentSha256": "660d89d32d86b4f69a532c757107eb8147a25f59a32770ba316706a1b4458346",
       "citation": {
         "title": "Saturday 17 October 2026",
         "publisher": "Peninsula Insider",
