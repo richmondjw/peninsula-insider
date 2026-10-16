@@ -80,7 +80,7 @@ Check the program before you go. Allow forty-five minutes minimum.
 
 ## 1:30: Lunch somewhere deliberate
 
-The town has improved its food scene without becoming a cellar-door circuit. Main Street has a handful of reliable modern bistros, and for a longer lunch the better move is to drive seven minutes inland to **Bass & Flinders Distillery** in Tuerong for a gin-tasting flight and a short food menu. If the day has gone casual, the foreshore kiosks and the pub lunches along the Esplanade are cheerful and good.
+The town has improved its food scene without becoming a cellar-door circuit. Main Street has a handful of reliable modern bistros. For an optional distillery stop beyond Mornington, **Bass & Flinders** is at 40 Collins Road, Dromana. Check its current opening hours and experiences, and plan the onward journey from your previous stop before setting out. If the day has gone casual, the foreshore kiosks and the pub lunches along the Esplanade are cheerful and good.
 
 What you don't want to do is drive thirty minutes to a Red Hill cellar door restaurant in the middle of a Mornington day. It breaks the rhythm and the drive back is worse than you think.
 
