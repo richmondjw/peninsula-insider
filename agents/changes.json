@@ -1,68 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-16T14:37:45.556Z",
+  "generatedAt": "2026-10-16T19:26:05.790Z",
   "baselineAvailable": true,
-  "fromSnapshot": "47d27fbe9b418f80c0ef885858f56df23c1b45ab82fd54317c8b769f5d934dde",
-  "toSnapshot": "8aaf01237d8b4211cb6276ed5a714d25b1c280126d3af4ddccd33dbef541f924",
-  "previousGeneratedAt": "2026-10-16T07:49:23.587Z",
+  "fromSnapshot": "8aaf01237d8b4211cb6276ed5a714d25b1c280126d3af4ddccd33dbef541f924",
+  "toSnapshot": "77a962e89ec67fda6306e0ad6516c4908bb894440057992e2e2a2b181a3de984",
+  "previousGeneratedAt": "2026-10-16T14:37:45.556Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 7,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "efebe06fa1987ebed7dd313143da537703fb9cc1e68e9e86388d7c6267abbf59",
-      "previousContentSha256": "c55132a23b242ab4c21d4db71016bc620a6b1cd4df0bb0eaa93db4944129feb5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "9bf868bcfb3c2e2cc43980a8f0d3757ecb2f6dacf28f2f777d879649e2484fd8",
-      "previousContentSha256": "5ee2d717678a81dd0f51b240b9174ecafe66c7f10a8779e6d42b4941c487d2ed"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "4704ca4334c53978185a84c3e063bae032fd5896d788cf2d9e15ca6a812c08f6",
-      "previousContentSha256": "1ae8c10ba4c334a9afb229c339a6c02221b71fb5f458fe5741737a9f5fc1d5ea"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "083bfefbd5f019fe7bc9e13f873978d95857ad16d95bb1763f097082c7f4c1a0",
-      "previousContentSha256": "7791820cc16c4a09078839fbb440577daef2328f03d06862d6846373fd74e142"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "d6c380a2f27f322f8293ff88e772efb248e93b185eb6b5ce51bfa29c1a9c2b8f",
-      "previousContentSha256": "ffbf10e23aea8d7480cb84b766eec70efebb57552bf2ae7553c0a297370c573c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "1ba09e6a47e754e35ecd9201d70caaae78d33ab9fb6bd614371cec176683c02c",
-      "previousContentSha256": "01a1d7182ed46fa96ddfd36a1508551497150c147f2a74c61dbf98087fcf8c4f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/come-try-fishing-mornington-pier-october-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "66a450eb6f67888e0175ad9e47b567dbb28857afeded4f7d710fd2ec53ea8475"
+      "contentSha256": "3c81c95fc2904afc9da60eacbcf175b064e7bc07a4e039bdd2ccc2492f2aef84",
+      "previousContentSha256": "4704ca4334c53978185a84c3e063bae032fd5896d788cf2d9e15ca6a812c08f6"
     }
   ]
 }
