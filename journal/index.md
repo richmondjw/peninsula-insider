@@ -716,16 +716,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 - [Sat, 17 Oct
 
-### ✦ Emu Plains Market
-
-Balnarring
-
-Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-- [Sat, 17 Oct
-
 ### ✦ National Works on Paper 2026 (NWOP)
 
 Mornington
@@ -733,3 +723,13 @@ Mornington
 National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+- [Sat, 17 Oct
+
+### ✦ Orizome Workshop: The Japanese Art of Folding and Dyeing Paper
+
+Mornington
+
+Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)

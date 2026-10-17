@@ -11,8 +11,6 @@ Event     Arts     17 October 2026     One-off date
 
 Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery. Bookings are essential.
 
-[Book or check details](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
-
 Image · Courtesy of Visit Victoria
 
 Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict Tessellation Folding Workshop with Jacky Cheng.
@@ -57,7 +55,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Tessellation+Folding+Workshop+with+Jacky+Cheng&dates=20261016T223000Z%2F20261017T013000Z&details=Learn+paper-folding+techniques+with+National+Works+on+Paper+artist+Jacky+Cheng+in+a+three-hour+workshop+at+Mornington+Peninsula+Regional+Gallery.+Bookings+are+essential.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftessellation-folding-workshop-jacky-cheng-mprg-2026%2F&location=Mornington+Peninsula+Regional+Gallery%2C+Civic+Reserve%2C+Dunns+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

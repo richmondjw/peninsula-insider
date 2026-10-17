@@ -27,17 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Photo: Peninsula Insider.
-
-Sat, 17 Oct · 9am–2pm · Balnarring
-
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-Sat, 17 Oct   Balnarring   Markets
-
 - Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Sat, 17 Oct · 11am–4pm · Mornington
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -51,6 +43,12 @@ An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours
 
 Sat, 17 Oct   Mornington   Food & Wine
 
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 17 Oct   Fingal   Live Music
+
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
@@ -62,12 +60,6 @@ Make a day of it
 Browse by date and save what catches your eye.
 
 ### Saturday 17 October
-
-- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
-
-9am · Balnarring · Markets · Recurring monthly
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -92,12 +84,6 @@ An easy afternoon making session after a Mornington outing. The gallery says you
 An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
 
 Mornington · Food & Wine · On during your dates · runs to Sun, 18 Oct
-
-- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
-
-Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.
-
-9.30am · Mornington · Arts · One-day event
 
 ### Sunday 18 October
 
@@ -153,6 +139,12 @@ A VFMA-accredited village market with local growers and specialty makers, suppor
 
 9am · Mount Eliza · Markets
 
+- [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+9am · Balnarring · Markets
+
 - [Mornington Wednesday Market (Main Street Market)](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
 Forty years of Wednesdays on Main Street. Not a tourist event, just the way Mornington shops midweek.
@@ -160,12 +152,6 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 9am · Mornington · Markets
 
 ### Live music
-
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-5pm · Fingal · Live Music
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 

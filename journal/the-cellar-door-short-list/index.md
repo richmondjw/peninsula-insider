@@ -270,13 +270,3 @@ Main Ridge
 A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.
 
  Event · Community](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
-
-- [Sat, 17 Oct
-
-### ✦ Emu Plains Market
-
-Balnarring
-
-Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
