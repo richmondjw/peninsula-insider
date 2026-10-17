@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/>) - Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday.
+
 - [Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/>) - Kooyong's named-block Pinot tasting in Red Hill South, the Balnarring wildflower loop at Baldry's Creek Reserve, and a Main Ridge pub quiz built around Blackadder and Fawlty Towers on Thursday night.
 
 - [Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/>) - Barragunda Dining's estate set menu at Cape Schanck, the Breast Foot Forward coastal walk from Safety Beach on Saturday, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Avani Syrah in Red Hill South, the Bushrangers Bay clifftop loop, and Peppers Moonah Links live music this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/>) - Avani Wines' skin-contact whites and Syrah at Red Hill South, Bushrangers Bay coastal loop in peak spring flower, and Acoustic Saturdays at Peppers Moonah Links from 5pm this Saturday.
 
 - [Many Little in spring, the Mornington Peninsula Rail Trail, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/>) - Sri Lankan-inflected fine dining at Polperro, the Rail Trail in full wildflower season, and live music on the lawn at Fingal this Saturday from 5pm.
-
-- [Bass & Flinders gin school, Cape Schanck boardwalk in spring, and the Rye Foreshore Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/>) - Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
 
 ## Planning a particular weekend?
 

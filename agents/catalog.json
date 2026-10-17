@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-17T19:23:09.884Z",
-  "snapshotId": "3d8131363bb49c09512d7d907f1f83a2063b66c8839a5daeee1386b7665cb551",
+  "generatedAt": "2026-10-17T20:20:17.589Z",
+  "snapshotId": "081efade308be29f80a4dbf40ddac8fc1753ee6ac7cbcc1dc40bca558e0cc137",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 600,
+  "count": 601,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5907,6 +5907,23 @@
       "markdownBytes": 8730
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/",
+      "title": "Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/index.md",
+      "contentSha256": "c949a8e68310000faed9cbdb6ab4c97838c2bbbc450f5eccb52f4f8b14f12278",
+      "citation": {
+        "title": "Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/",
+        "publishedAt": "2026-10-18T00:00:00.000Z",
+        "modifiedAt": "2026-10-18T00:00:00.000Z"
+      },
+      "htmlBytes": 174197,
+      "markdownBytes": 8361
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6711,7 +6728,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "c25669cece0c728b3c0a75849969d88d46cadc247b2f3a1f538b0a869a62e053",
+      "contentSha256": "a5d6b262088668f6a4d3ecf062f16ebccc9721614900fbfaafa6c76b706bd063",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6719,8 +6736,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123428,
-      "markdownBytes": 5807
+      "htmlBytes": 123463,
+      "markdownBytes": 5842
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6745,7 +6762,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "e6dfe952cbd93de791e133a9cbc12ed21d60bc63e94646430ae9565bdcff101e",
+      "contentSha256": "50b86ab9b852a9cce4c83c98d1e66b736b8ab2a470233b85b1e252c157006614",
       "citation": {
         "title": "Sunday 18 October 2026",
         "publisher": "Peninsula Insider",
