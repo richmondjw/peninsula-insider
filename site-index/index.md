@@ -487,15 +487,11 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
 
-- [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
-
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
 - [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
 - [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
-
-- [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
 - [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
 

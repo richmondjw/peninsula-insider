@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-10-17",
-  "generatedAt": "2026-10-17T04:10:23.318Z",
+  "generated": "2026-10-18",
+  "generatedAt": "2026-10-17T14:22:55.544Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-10-17",
-    "end": "2027-01-15"
+    "start": "2026-10-18",
+    "end": "2027-01-16"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -19,26 +19,13 @@
     "start": "2026-10-16",
     "end": "2026-10-18",
     "label": "Fri 16 – Sun 18 October",
-    "count": 9
+    "count": 7
   },
-  "numberOfItems": 20,
+  "numberOfItems": 19,
   "itemListElement": [
     {
       "@type": "ListItem",
       "position": 1,
-      "item": {
-        "@type": "Event",
-        "name": "Acoustic Saturdays at Peppers Moonah Links",
-        "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-        "startDate": "2026-10-17",
-        "endDate": "2026-10-17",
-        "description": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
       "item": {
         "@type": "Service",
         "name": "Bass & Flinders Gin Masterclass",
@@ -48,33 +35,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 3,
+      "position": 2,
       "item": {
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-10-17",
-        "endDate": "2026-10-17",
+        "startDate": "2026-10-18",
+        "endDate": "2026-10-18",
         "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Event",
-        "name": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
-        "url": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
-        "startDate": "2026-10-17",
-        "endDate": "2026-10-17",
-        "description": "Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
+      "position": 3,
       "item": {
         "@type": "Service",
         "name": "Peninsula Hot Springs Studio Yoga",
@@ -84,7 +58,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -94,7 +68,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -104,12 +78,12 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 6,
       "item": {
         "@type": "Event",
         "name": "Steinfest at Tar Barrel",
         "url": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-        "startDate": "2026-10-17",
+        "startDate": "2026-10-18",
         "endDate": "2026-10-18",
         "description": "Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.",
         "eventStatus": "https://schema.org/EventScheduled"
@@ -117,7 +91,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 7,
       "item": {
         "@type": "Service",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -127,7 +101,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
@@ -140,7 +114,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "British Comedy Trivia at The Pig & Whistle",
@@ -153,7 +127,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Summer Lovin' Singles Party at Rye Hotel",
@@ -166,7 +140,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 11,
+      "item": {
+        "@type": "Event",
+        "name": "Acoustic Saturdays at Peppers Moonah Links",
+        "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+        "startDate": "2026-10-24",
+        "endDate": "2026-10-24",
+        "description": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -179,7 +166,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -192,7 +179,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
@@ -205,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -218,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -231,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -244,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -257,7 +244,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -269,39 +256,15 @@
       }
     }
   ],
-  "count": 20,
+  "count": 19,
   "events": [
-    {
-      "title": "Acoustic Saturdays at Peppers Moonah Links",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "startDate": "2026-10-17",
-      "endDate": "2026-10-17",
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
-      "factCheckedOn": "2026-10-03",
-      "recurrence": "weekly",
-      "category": "live-music",
-      "place": "fingal",
-      "venue": null,
-      "summary": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-17",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
     {
       "title": "Bass & Flinders Gin Masterclass",
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-17",
-      "endDate": "2027-01-15",
+      "startDate": "2026-10-18",
+      "endDate": "2027-01-16",
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
       "factCheckedOn": "2026-10-03",
@@ -312,7 +275,7 @@
       "summary": "A two-hour guided gin masterclass in Dromana. Explore botanicals, blend a recipe and take home a 500ml bottle of your own gin.",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17"
+          "date": "2026-10-18"
         }
       ],
       "thisWeekend": true
@@ -322,8 +285,8 @@
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-10-17",
-      "endDate": "2026-10-17",
+      "startDate": "2026-10-18",
+      "endDate": "2026-10-18",
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
       "factCheckedOn": "2026-10-08",
@@ -335,35 +298,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17",
-          "eventStatus": "https://schema.org/EventScheduled"
-        },
-        {
           "date": "2026-10-18",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
-      "startDate": "2026-10-17",
-      "endDate": "2026-10-17",
-      "id": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
-      "sourceUrl": "https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276",
-      "factCheckedOn": "2026-10-10",
-      "recurrence": "one-off",
-      "category": "arts",
-      "place": null,
-      "venue": null,
-      "summary": "Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-10-17",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -374,8 +309,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-10-17",
-      "endDate": "2027-01-15",
+      "startDate": "2026-10-18",
+      "endDate": "2027-01-16",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": "2026-10-03",
@@ -386,7 +321,7 @@
       "summary": "A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over. Book an available session with the operator.",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17"
+          "date": "2026-10-18"
         }
       ],
       "thisWeekend": true
@@ -396,8 +331,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-10-17",
-      "endDate": "2027-01-15",
+      "startDate": "2026-10-18",
+      "endDate": "2027-01-16",
       "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "factCheckedOn": "2026-10-03",
@@ -408,7 +343,7 @@
       "summary": "An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary works and two walking loops at a working winery. Open daily from 11am; last entry 4:30pm.",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17"
+          "date": "2026-10-18"
         }
       ],
       "thisWeekend": true
@@ -418,8 +353,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-10-17",
-      "endDate": "2027-01-15",
+      "startDate": "2026-10-18",
+      "endDate": "2027-01-16",
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
       "factCheckedOn": "2026-05-04",
@@ -430,7 +365,7 @@
       "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17"
+          "date": "2026-10-18"
         }
       ],
       "thisWeekend": true
@@ -440,7 +375,7 @@
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-      "startDate": "2026-10-17",
+      "startDate": "2026-10-18",
       "endDate": "2026-10-18",
       "id": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
       "sourceUrl": "https://tarbarrel.com.au/whats-on/",
@@ -453,7 +388,7 @@
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17",
+          "date": "2026-10-18",
           "eventStatus": "https://schema.org/EventScheduled"
         }
       ],
@@ -464,8 +399,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-10-17",
-      "endDate": "2027-01-15",
+      "startDate": "2026-10-18",
+      "endDate": "2027-01-16",
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
       "factCheckedOn": "2026-10-03",
@@ -476,7 +411,7 @@
       "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
       "weekendOccurrences": [
         {
-          "date": "2026-10-17"
+          "date": "2026-10-18"
         }
       ],
       "thisWeekend": true
@@ -534,6 +469,25 @@
       "place": "rye",
       "venue": "rye-hotel",
       "summary": "Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Acoustic Saturdays at Peppers Moonah Links",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "startDate": "2026-10-24",
+      "endDate": "2026-10-24",
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
+      "factCheckedOn": "2026-10-03",
+      "recurrence": "weekly",
+      "category": "live-music",
+      "place": "fingal",
+      "venue": null,
+      "summary": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

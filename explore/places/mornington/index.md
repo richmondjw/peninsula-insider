@@ -399,7 +399,7 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Sat, 17 Oct
+- [Sun, 18 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
@@ -409,12 +409,12 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-- [Sat, 17 Oct
+- [Sun, 18 Oct
 
-### ✦ Orizome Workshop: The Japanese Art of Folding and Dyeing Paper
+### ✦ Steinfest at Tar Barrel
 
 Mornington
 
-Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.
+Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.
 
- Event · Arts](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)

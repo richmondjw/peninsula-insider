@@ -9,7 +9,7 @@ Peninsula This Weekend   Fri 16 – Sun 18 October
 
 # What’s on this weekend
 
-6 source-checked events for Fri 16 – Sun 18 October. Confirm details with the organiser before travelling.
+4 source-checked events for Fri 16 – Sun 18 October. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -48,26 +48,6 @@ Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vi
 Saturday 17 October   9am–2pm   Balnarring   Checked 3 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>) [Check organiser details](<https://www.emuplainsmarket.com.au/>)
-
-Date confirmed · Arts
-
-### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
-
-Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery. Bookings are essential.
-
-Saturday 17 October   9:30am–12:30pm   Mornington   Checked 10 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/tessellation-folding-workshop-with-jacky-cheng-tickets-1999357561287>)
-
-Date confirmed · Arts
-
-### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
-
-Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery. The 17 October session is free, and the gallery asks visitors to register.
-
-Saturday 17 October   1:30pm–3:30pm   Mornington   Checked 10 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>) [Check organiser details](<https://www.eventbrite.com.au/e/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper-tickets-2000088410276>)
 
 Date confirmed · Live Music
 

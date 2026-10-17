@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-17T04:18:38.357Z",
-  "snapshotId": "9ce33fad44fe45602321c12814bb2dfcb46a1d9588bea679ad215db1792c7418",
+  "generatedAt": "2026-10-17T14:30:54.131Z",
+  "snapshotId": "1dd90f26988ce3f0af532969398841d90c0e7312cbd86bc9240ec49270755b4c",
   "section": "whats-on",
-  "count": 42,
+  "count": 40,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,16 +11,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "d080aa9bd72f19838d1d548aec470e775bfe8ba894f9c40d2efa38c2da0d14b9",
+      "contentSha256": "64ee83ee22dabad4664d6de4937e58af115e775493d4358acb2d6a1532b13204",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-17"
+        "modifiedAt": "2026-10-18"
       },
-      "htmlBytes": 194240,
-      "markdownBytes": 8909
+      "htmlBytes": 178735,
+      "markdownBytes": 7161
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -28,7 +28,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "c7d4bc4654589962438135994047f1747e3adc04eb73559aef2c5bdcd6f5b667",
+      "contentSha256": "23549b5a803d02c7367bc7fc7444576f6e3af404eb80ad8859766945f289a6ec",
       "citation": {
         "title": "Acoustic Saturdays at Peppers Moonah Links",
         "publisher": "Peninsula Insider",
@@ -36,8 +36,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142303,
-      "markdownBytes": 4220
+      "htmlBytes": 140752,
+      "markdownBytes": 3534
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -96,7 +96,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "a5efc8a623faeb47be5a9309b8398fffedc050d7b8efe6dcbc8df55b72f3b009",
+      "contentSha256": "485e989313f424197280836f213a2f0ac281f47b4d6b83017d7bf3946e7b36e6",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -104,8 +104,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 165343,
-      "markdownBytes": 7482
+      "htmlBytes": 157143,
+      "markdownBytes": 6051
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -278,23 +278,6 @@
       "markdownBytes": 5204
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
-      "title": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/index.md",
-      "contentSha256": "041d1505012ed0c5fda167529ffb72ee30c91eba6928f1d674e68c1c033d3f45",
-      "citation": {
-        "title": "Orizome Workshop: The Japanese Art of Folding and Dyeing Paper",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 143474,
-      "markdownBytes": 5271
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "title": "Peninsula Hot Springs Studio Yoga",
       "section": "whats-on",
@@ -334,7 +317,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
-      "contentSha256": "ce47dee1da4f053505357bbf67469fadbf793042a7259936aef5afcf9a2c5b80",
+      "contentSha256": "c6e3bf48e5dd3ef2b9788e2e42761bd41ea59227df17cb9dc51859685a92e25c",
       "citation": {
         "title": "Pt. Leo Estate Sculpture Park",
         "publisher": "Peninsula Insider",
@@ -342,8 +325,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142252,
-      "markdownBytes": 4745
+      "htmlBytes": 142572,
+      "markdownBytes": 4561
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
@@ -431,23 +414,6 @@
       "markdownBytes": 4715
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
-      "title": "Tessellation Folding Workshop with Jacky Cheng",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/index.md",
-      "contentSha256": "ba67791732558a6a8d9737960a4201be6278064658f57aadbd350a8851f5a497",
-      "citation": {
-        "title": "Tessellation Folding Workshop with Jacky Cheng",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 141363,
-      "markdownBytes": 4280
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
       "title": "The Bloody Long Walk – Mornington Peninsula 2026",
       "section": "whats-on",
@@ -470,7 +436,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "1ba09e6a47e754e35ecd9201d70caaae78d33ab9fb6bd614371cec176683c02c",
+      "contentSha256": "af10585b6537242aeb04a65e7919669b14cefded56e9d48f6aca646acc319802",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -478,8 +444,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 153135,
-      "markdownBytes": 7348
+      "htmlBytes": 147151,
+      "markdownBytes": 5967
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",

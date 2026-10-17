@@ -1,76 +1,116 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-17T04:18:38.357Z",
+  "generatedAt": "2026-10-17T14:30:54.131Z",
   "baselineAvailable": true,
-  "fromSnapshot": "58f5dba41af9ac67ae3d35ba1eeeed6d4eb1295ed995b16576abc65ec307bb67",
-  "toSnapshot": "9ce33fad44fe45602321c12814bb2dfcb46a1d9588bea679ad215db1792c7418",
-  "previousGeneratedAt": "2026-10-16T22:21:38.945Z",
+  "fromSnapshot": "9ce33fad44fe45602321c12814bb2dfcb46a1d9588bea679ad215db1792c7418",
+  "toSnapshot": "1dd90f26988ce3f0af532969398841d90c0e7312cbd86bc9240ec49270755b4c",
+  "previousGeneratedAt": "2026-10-17T04:18:38.357Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 8,
+  "count": 13,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "a90e86c9c5f2bb30bf64e72df66d08c1429ab2f80ad0d10ebfc6ffebdd4702f1",
-      "previousContentSha256": "efebe06fa1987ebed7dd313143da537703fb9cc1e68e9e86388d7c6267abbf59"
+      "contentSha256": "3248d8a20e0cf925bfc038e9ecbabbb1671b13b402582dc70e690c188b229240",
+      "previousContentSha256": "a90e86c9c5f2bb30bf64e72df66d08c1429ab2f80ad0d10ebfc6ffebdd4702f1"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "ffa5514110882a305055628ff06a24434f9a35607325c25293252e1f12e08898",
-      "previousContentSha256": "45d5a6f71e372c19b84184416f88fd8296516f821a83e0166886a9b4df03915f"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "5ae78d2c8093728c11b9010f0f291d06ed9a61e5d4ad2369f2132b292d54ac34",
+      "previousContentSha256": "91de9f116751c9650672026fcc6f3e77bee30540bae00fe4a3f43ceb76bf78e1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "f1f5bc321dc99056e5b378276d9ab6bd0372110068aa7136ad8711e2129727c6",
+      "previousContentSha256": "b8fa80b95b1078b18b3f73e161653a3c6d25fd1c2a65b043e27f46249e3cf03e"
     },
     {
       "id": "https://peninsulainsider.com.au/journal/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "b9beb22cbd06c01a9cb7693c6b498f02596461b441a3e970bcaed65e8c2939a1",
-      "previousContentSha256": "9bf868bcfb3c2e2cc43980a8f0d3757ecb2f6dacf28f2f777d879649e2484fd8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
-      "contentSha256": "34f28ddbc37a074f471413f7cfb36fe46c692f196b430c2505ed12acbb8dd5cf",
-      "previousContentSha256": "653788aa1a2f17be168231cb0994ea46fa31724acdcd2daf06629c700ffc8e88"
+      "contentSha256": "1859d7c6b6d3f071d3724c3bcafd8d72ebd68c05ad6d0f6a1886430e5bceaf3b",
+      "previousContentSha256": "b9beb22cbd06c01a9cb7693c6b498f02596461b441a3e970bcaed65e8c2939a1"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0429e07df2195731b47812afbebcf6783f4622ee8d1dcc31f283a6123577c31f",
-      "previousContentSha256": "1e8aa16c647257b5c8ff2c797c0391471a63bb98c6d965a085be2aefb995fb6a"
+      "contentSha256": "7e287df0a19c9ae906ee765892cc66ca3c32c67a1cbc5192cab92bf8b2e7b862",
+      "previousContentSha256": "0429e07df2195731b47812afbebcf6783f4622ee8d1dcc31f283a6123577c31f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "5d22b8292265d2e5ba89ec40063dca13163a7d6197f9943913d55f78bda25a65",
+      "previousContentSha256": "083bfefbd5f019fe7bc9e13f873978d95857ad16d95bb1763f097082c7f4c1a0"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "d080aa9bd72f19838d1d548aec470e775bfe8ba894f9c40d2efa38c2da0d14b9",
-      "previousContentSha256": "d6c380a2f27f322f8293ff88e772efb248e93b185eb6b5ce51bfa29c1a9c2b8f"
+      "contentSha256": "64ee83ee22dabad4664d6de4937e58af115e775493d4358acb2d6a1532b13204",
+      "previousContentSha256": "d080aa9bd72f19838d1d548aec470e775bfe8ba894f9c40d2efa38c2da0d14b9"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
-      "contentSha256": "df941366be08b39d548e38c37c41c075f49803b96697b51abc1b68f61dcbc56f",
-      "previousContentSha256": "46dde387ad279074f9000b0dff88e787a9c1a383436ffafd42cd25ce13d4b7da"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
+      "contentSha256": "23549b5a803d02c7367bc7fc7444576f6e3af404eb80ad8859766945f289a6ec",
+      "previousContentSha256": "c7d4bc4654589962438135994047f1747e3adc04eb73559aef2c5bdcd6f5b667"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
+      "contentSha256": "485e989313f424197280836f213a2f0ac281f47b4d6b83017d7bf3946e7b36e6",
+      "previousContentSha256": "a5efc8a623faeb47be5a9309b8398fffedc050d7b8efe6dcbc8df55b72f3b009"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
+      "contentSha256": "c6e3bf48e5dd3ef2b9788e2e42761bd41ea59227df17cb9dc51859685a92e25c",
+      "previousContentSha256": "ce47dee1da4f053505357bbf67469fadbf793042a7259936aef5afcf9a2c5b80"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
+      "contentSha256": "af10585b6537242aeb04a65e7919669b14cefded56e9d48f6aca646acc319802",
+      "previousContentSha256": "1ba09e6a47e754e35ecd9201d70caaae78d33ab9fb6bd614371cec176683c02c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+      "kind": "representation-removed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/",
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "041d1505012ed0c5fda167529ffb72ee30c91eba6928f1d674e68c1c033d3f45"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
-      "kind": "representation-changed",
+      "kind": "representation-removed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/index.md",
-      "contentSha256": "ba67791732558a6a8d9737960a4201be6278064658f57aadbd350a8851f5a497",
-      "previousContentSha256": "07ab6197f8ad522b4cc14264614c27ce1174f24a5dee85668508daa6ba6eb423"
+      "markdownUrl": null,
+      "contentSha256": null,
+      "previousContentSha256": "ba67791732558a6a8d9737960a4201be6278064658f57aadbd350a8851f5a497"
     }
   ]
 }

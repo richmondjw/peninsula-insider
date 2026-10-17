@@ -107,18 +107,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
-
-Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict Orizome Workshop: The Japanese Art of Folding and Dyeing Paper.
-
-Arts  17 Oct
-
-### [Orizome Workshop: The Japanese Art of Folding and Dyeing Paper](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
-
-Drop in to make patterned paper with artist Jacky Cheng at Mornington Peninsula Regional Gallery.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/orizome-workshop-the-japanese-art-of-folding-and-dyeing-paper/>)
-
 Food & Wine  14 Oct
 
 ### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
@@ -128,18 +116,6 @@ Food & Wine  14 Oct
 Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
-Image · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict Tessellation Folding Workshop with Jacky Cheng.
-
-Arts  17 Oct
-
-### [Tessellation Folding Workshop with Jacky Cheng](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
-
-Learn paper-folding techniques with National Works on Paper artist Jacky Cheng in a three-hour workshop at Mornington Peninsula Regional Gallery.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/tessellation-folding-workshop-jacky-cheng-mprg-2026/>)
 
 ## The Insider Note
 
