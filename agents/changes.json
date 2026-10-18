@@ -1,116 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T14:31:28.570Z",
+  "generatedAt": "2026-10-18T19:25:27.899Z",
   "baselineAvailable": true,
-  "fromSnapshot": "440e686eb2806631cf0ec5ff0c4155128a26e44f14ed457e6c25d9f7024f1840",
-  "toSnapshot": "7aa5a5d0954dd880ff4ea2f9c783959e767dfa23d4a84be40634e6861789e4f5",
-  "previousGeneratedAt": "2026-10-18T04:32:38.304Z",
+  "fromSnapshot": "7aa5a5d0954dd880ff4ea2f9c783959e767dfa23d4a84be40634e6861789e4f5",
+  "toSnapshot": "8e5d1557cbd23247577f6e0c0326f62c8c389c7ad442335c20edb78c120e0776",
+  "previousGeneratedAt": "2026-10-18T14:31:28.570Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 13,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "2463745e98cb1d0024a34d6cf3343bc3a42fe4b1bf79cfd9e0b23d31366a3992",
-      "previousContentSha256": "3248d8a20e0cf925bfc038e9ecbabbb1671b13b402582dc70e690c188b229240"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "6004046390765dcdb1e2585f3c0bd3f00c353d6388c5cf4a7777029bb92133df",
-      "previousContentSha256": "f1f5bc321dc99056e5b378276d9ab6bd0372110068aa7136ad8711e2129727c6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "cbcb7c11930d7473e6dd684504fce3524ab6fa744317bfaaeb847668fdb2814c",
-      "previousContentSha256": "1859d7c6b6d3f071d3724c3bcafd8d72ebd68c05ad6d0f6a1886430e5bceaf3b"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6a9c2d9681cdc70897e41fa6ef08e07d0cff6189245f3e96c31c3af5dacd9b1c",
-      "previousContentSha256": "10fe793fa4e9cc7d6ae1f18ca25a04cce9c7f2b196abfa4fca54a90dbe616c6f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "a0ea789ed41f223ab38b2529eaf9e453fcc8149ae616e07d2b635fae600e3c4a",
-      "previousContentSha256": "5d22b8292265d2e5ba89ec40063dca13163a7d6197f9943913d55f78bda25a65"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "3a04c22752e8ab1ac8e3e4ff5521a398853c0172a49990d0d8e0b6883bd9594a",
-      "previousContentSha256": "64ee83ee22dabad4664d6de4937e58af115e775493d4358acb2d6a1532b13204"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "9c86c3b90c1cb6b9153752cdc90cf1668959dae58f5047c4108a8e6d5be1b752",
-      "previousContentSha256": "696ba6e8a663bd4930f8132aa52328cf866d5d5fb95a4e7ba682aa509fcad60f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "8402c32fc132ac8f65812fd03e3ee1055e3ffbcb9a74b2f11df9cb1820455688",
-      "previousContentSha256": "485e989313f424197280836f213a2f0ac281f47b4d6b83017d7bf3946e7b36e6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
-      "contentSha256": "3769315259602ee722a4f3a6b54dec6343f1a345ab98365868e1f4600bb8454c",
-      "previousContentSha256": "9a04e78c05d0479c8303c4cfad9df4a905830de52e19b74e1a2b69bd54556f5c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "5d1ac4fceb243606f63dfa8c9d416c2c8809085887b749efb91cc9bcb2069ce1",
-      "previousContentSha256": "af10585b6537242aeb04a65e7919669b14cefded56e9d48f6aca646acc319802"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/index.md",
-      "contentSha256": "7ca21aaf42d4847fad6fe3db097a37811780f90d006ac0a27a4d13aba30f06a5",
-      "previousContentSha256": "4b77622f123011d922633c03ee465f2f341b1845106e07e1e99c4ca0071dde28"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "db636c9bdb018ecaf29da0d88ba6d3b0e8209f6753af96ad02504f425277b5d9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "d50d22f8bf5e4719282ff85121acc88b0ee2baa13b01d117ccbdfe1bebee3e8b"
+      "contentSha256": "ec9f9aa4e6acfd4f64615748ce3440b9035b2db394dac32fd7b427bb2a20f65a",
+      "previousContentSha256": "6a9c2d9681cdc70897e41fa6ef08e07d0cff6189245f3e96c31c3af5dacd9b1c"
     }
   ]
 }
