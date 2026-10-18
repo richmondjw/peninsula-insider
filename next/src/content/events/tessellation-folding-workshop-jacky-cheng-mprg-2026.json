@@ -25,7 +25,7 @@
   "lastCheckedDate": "2026-10-10",
   "verification": "verified",
   "verificationNote": "The organiser's event-specific Eventbrite page returned HTTP 200 on 10 October 2026 and confirmed Saturday 17 October, 9:30am to 12:30pm, at Mornington Peninsula Regional Gallery. The gallery's event page corroborates the workshop, duration, booking requirement and venue. Admission and availability may change; check the booking page.",
-  "status": "published",
+  "status": "archived",
   "suitableFor": "Art, design and paper-folding enthusiasts; no prior experience required",
   "editorVerdict": "Choose this for a structured morning making session with National Works on Paper artist Jacky Cheng. Allow time to explore the gallery afterwards.",
   "editorNote": "Jacky Cheng leads a three-hour workshop on tessellation and paper-folding methods at Mornington Peninsula Regional Gallery on Saturday 17 October. The gallery says no previous experience is needed, materials and morning tea are included, and bookings are essential because places are limited.\n\nThe session runs from 9:30am to 12:30pm at Civic Reserve, Dunns Road, Mornington. The gallery is also showing National Works on Paper 2026, but admission to the exhibition is separate from the workshop listing. Check the organiser's booking page for current ticket terms and availability before travelling.",
@@ -39,7 +39,10 @@
     "depictionStatus": "illustrative",
     "sourceUrl": "Victoria Content Hub asset 143140, downloaded 2026-09-28",
     "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
-    "permittedUses": ["website", "social"],
+    "permittedUses": [
+      "website",
+      "social"
+    ],
     "rightsHolder": "Visit Victoria",
     "rightsEstablishedOn": "2026-09-29",
     "rightsStatus": "recorded",
