@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend   Fri 16 – Sun 18 October
+Peninsula This Weekend   Fri 23 – Sun 25 October
 
 # What’s on this weekend
 
-4 source-checked events for Fri 16 – Sun 18 October. Confirm details with the organiser before travelling.
+4 source-checked events for Fri 23 – Sun 25 October. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -25,29 +25,19 @@ Date confirmed · Exhibitions
 
 Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am–4pm.
 
-Friday 16 October   11am–4pm   Mornington   Checked 8 Oct 2026
+Friday 23 October   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
-Date confirmed · Food & Wine
+Date confirmed · Community
 
-### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
 
-Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available at the venue. Check the organiser for the hours and current table arrangements for the day you plan to visit.
+Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.
 
-14 October – 18 October 2026   Mornington   Checked 14 Oct 2026
+Friday 23 October   8pm   Rye   Checked 12 Oct 2026
 
-[View details](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>) [Check organiser details](<https://tarbarrel.com.au/whats-on/>)
-
-Date confirmed · Markets
-
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
-
-Saturday 17 October   9am–2pm   Balnarring   Checked 3 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>) [Check organiser details](<https://www.emuplainsmarket.com.au/>)
+[View details](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/summer-lovin-singles-party-at-the-rye-hotel-rye-tickets-2000082513639>)
 
 Date confirmed · Live Music
 
@@ -55,9 +45,19 @@ Date confirmed · Live Music
 
 After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
 
-Saturday 17 October   5pm–8pm   Fingal   Checked 3 Oct 2026
+Saturday 24 October   5pm–8pm   Fingal   Checked 3 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
+
+Date confirmed · Markets
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
+
+Sunday 25 October   9am–1pm   Mount Eliza   Checked 3 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>) [Check organiser details](<https://www.mtelizafarmersmarket.com.au/>)
 
 Choose your own timing
 

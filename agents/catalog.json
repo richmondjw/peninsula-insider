@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-18T04:32:38.304Z",
-  "snapshotId": "440e686eb2806631cf0ec5ff0c4155128a26e44f14ed457e6c25d9f7024f1840",
+  "generatedAt": "2026-10-18T14:31:28.570Z",
+  "snapshotId": "7aa5a5d0954dd880ff4ea2f9c783959e767dfa23d4a84be40634e6861789e4f5",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 601,
+  "count": 599,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "3248d8a20e0cf925bfc038e9ecbabbb1671b13b402582dc70e690c188b229240",
+      "contentSha256": "2463745e98cb1d0024a34d6cf3343bc3a42fe4b1bf79cfd9e0b23d31366a3992",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 191211,
-      "markdownBytes": 8448
+      "htmlBytes": 200582,
+      "markdownBytes": 8943
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 204540,
+      "htmlBytes": 202086,
       "markdownBytes": 811
     },
     {
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "f1f5bc321dc99056e5b378276d9ab6bd0372110068aa7136ad8711e2129727c6",
+      "contentSha256": "6004046390765dcdb1e2585f3c0bd3f00c353d6388c5cf4a7777029bb92133df",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2418,8 +2418,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 268488,
-      "markdownBytes": 20050
+      "htmlBytes": 264106,
+      "markdownBytes": 19632
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "1859d7c6b6d3f071d3724c3bcafd8d72ebd68c05ad6d0f6a1886430e5bceaf3b",
+      "contentSha256": "cbcb7c11930d7473e6dd684504fce3524ab6fa744317bfaaeb847668fdb2814c",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 247406,
-      "markdownBytes": 22105
+      "htmlBytes": 247184,
+      "markdownBytes": 22051
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -6758,13 +6758,13 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Sunday 18 October 2026",
+      "title": "Monday 19 October 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "10fe793fa4e9cc7d6ae1f18ca25a04cce9c7f2b196abfa4fca54a90dbe616c6f",
+      "contentSha256": "6a9c2d9681cdc70897e41fa6ef08e07d0cff6189245f3e96c31c3af5dacd9b1c",
       "citation": {
-        "title": "Sunday 18 October 2026",
+        "title": "Monday 19 October 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
@@ -6779,7 +6779,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "5d22b8292265d2e5ba89ec40063dca13163a7d6197f9943913d55f78bda25a65",
+      "contentSha256": "a0ea789ed41f223ab38b2529eaf9e453fcc8149ae616e07d2b635fae600e3c4a",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6787,8 +6787,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134666,
-      "markdownBytes": 27167
+      "htmlBytes": 134572,
+      "markdownBytes": 27056
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8598,16 +8598,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "64ee83ee22dabad4664d6de4937e58af115e775493d4358acb2d6a1532b13204",
+      "contentSha256": "3a04c22752e8ab1ac8e3e4ff5521a398853c0172a49990d0d8e0b6883bd9594a",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-18"
+        "modifiedAt": "2026-10-19"
       },
-      "htmlBytes": 178734,
-      "markdownBytes": 7161
+      "htmlBytes": 192498,
+      "markdownBytes": 8627
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8632,7 +8632,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "696ba6e8a663bd4930f8132aa52328cf866d5d5fb95a4e7ba682aa509fcad60f",
+      "contentSha256": "9c86c3b90c1cb6b9153752cdc90cf1668959dae58f5047c4108a8e6d5be1b752",
       "citation": {
         "title": "Bass & Flinders Gin Masterclass",
         "publisher": "Peninsula Insider",
@@ -8640,8 +8640,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142700,
-      "markdownBytes": 4784
+      "htmlBytes": 140149,
+      "markdownBytes": 4331
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
@@ -8683,7 +8683,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "485e989313f424197280836f213a2f0ac281f47b4d6b83017d7bf3946e7b36e6",
+      "contentSha256": "8402c32fc132ac8f65812fd03e3ee1055e3ffbcb9a74b2f11df9cb1820455688",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -8691,8 +8691,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157143,
-      "markdownBytes": 6051
+      "htmlBytes": 157018,
+      "markdownBytes": 5930
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -8778,23 +8778,6 @@
       },
       "htmlBytes": 142491,
       "markdownBytes": 4377
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "title": "Main Street Mornington Festival 2026",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/index.md",
-      "contentSha256": "db636c9bdb018ecaf29da0d88ba6d3b0e8209f6753af96ad02504f425277b5d9",
-      "citation": {
-        "title": "Main Street Mornington Festival 2026",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/main-street-mornington-festival-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 139614,
-      "markdownBytes": 4578
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
@@ -8950,23 +8933,6 @@
       "markdownBytes": 4555
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-      "title": "Steinfest at Tar Barrel",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/index.md",
-      "contentSha256": "d50d22f8bf5e4719282ff85121acc88b0ee2baa13b01d117ccbdfe1bebee3e8b",
-      "citation": {
-        "title": "Steinfest at Tar Barrel",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 144294,
-      "markdownBytes": 5260
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
       "title": "Summer Lovin' Singles Party at Rye Hotel",
       "section": "whats-on",
@@ -8989,7 +8955,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
-      "contentSha256": "9a04e78c05d0479c8303c4cfad9df4a905830de52e19b74e1a2b69bd54556f5c",
+      "contentSha256": "3769315259602ee722a4f3a6b54dec6343f1a345ab98365868e1f4600bb8454c",
       "citation": {
         "title": "Ten Minutes by Tractor, Terroir Masterclass",
         "publisher": "Peninsula Insider",
@@ -8997,8 +8963,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143179,
-      "markdownBytes": 4715
+      "htmlBytes": 140628,
+      "markdownBytes": 4262
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
@@ -9023,7 +8989,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "af10585b6537242aeb04a65e7919669b14cefded56e9d48f6aca646acc319802",
+      "contentSha256": "5d1ac4fceb243606f63dfa8c9d416c2c8809085887b749efb91cc9bcb2069ce1",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -9031,8 +8997,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 147151,
-      "markdownBytes": 5967
+      "htmlBytes": 147164,
+      "markdownBytes": 5951
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",
@@ -9261,7 +9227,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/index.md",
-      "contentSha256": "4b77622f123011d922633c03ee465f2f341b1845106e07e1e99c4ca0071dde28",
+      "contentSha256": "7ca21aaf42d4847fad6fe3db097a37811780f90d006ac0a27a4d13aba30f06a5",
       "citation": {
         "title": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
         "publisher": "Peninsula Insider",
@@ -9269,8 +9235,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144599,
-      "markdownBytes": 5361
+      "htmlBytes": 142048,
+      "markdownBytes": 4908
     },
     {
       "id": "https://peninsulainsider.com.au/wine/",

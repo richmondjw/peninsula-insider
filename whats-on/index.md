@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-18
+Modified: 2026-10-19
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,7 +9,7 @@ The Peninsula, in motion   spring edition
 
 # What's on this weekend
 
-Fri 16 – Sun 18 October  · Mornington Peninsula
+Fri 23 – Sun 25 October  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
@@ -19,29 +19,35 @@ Illustration: Peninsula Insider.
 
 Conceptual coastal illustration. Illustration: Peninsula Insider.
 
-The short list / Fri 16 – Sun 18 October
+The short list / Fri 23 – Sun 25 October
 
-## Two reasons to go
+## Three reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
 More picks to the right
 
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+- Sat, 24 Oct · 5pm–8pm · Fingal
 
-Sun, 18 Oct · 11am–4pm · Mornington
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 24 Oct   Fingal   Live Music
+
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Sun, 18 Oct   Mornington   Exhibitions
+Fri, 23 Oct   Mornington   Exhibitions
 
-- ### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+- ### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
 
-An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
+A Friday night to meet other singles and dance at Rye Hotel. Doors open at 8pm; book ahead and check the organiser's current terms.
 
-Sun, 18 Oct   Mornington   Food & Wine
+Fri, 23 Oct   Rye   Community
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -53,7 +59,7 @@ Make a day of it
 
 Browse by date and save what catches your eye.
 
-### Sunday 18 October
+### Friday 23 October
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -61,11 +67,45 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions · Recurring weekly
 
-- [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
+- [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
 
-An easy Mornington beer-hall stop this weekend. Check Tar Barrel's trading hours and book a table if you're going with a group.
+A Friday night to meet other singles and dance at Rye Hotel. Doors open at 8pm; book ahead and check the organiser's current terms.
 
-Mornington · Food & Wine · On during your dates · runs to Sun, 18 Oct
+8pm · Rye · Community · One-day event
+
+### Saturday 24 October
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music · Recurring weekly
+
+### Sunday 25 October
+
+- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+9am · Mount Eliza · Markets · Recurring monthly
+
+- [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+
+If you're going to walk 35km, do it where the coast pays you back.
+
+Portsea · Racing & Sport · One-day event
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
 
 Choose your own timing
 
@@ -126,12 +166,6 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 9am · Mornington · Markets
 
 ### Live music
-
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-5pm · Fingal · Live Music
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 

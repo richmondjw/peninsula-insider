@@ -11,6 +11,14 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
 Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
@@ -47,6 +55,16 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
+Racing & Sport  25 Oct
+
+### [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+
+[Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
+
+35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+
 Illustration · Peninsula Insider
 
 Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
@@ -60,16 +78,6 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
-
-Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
-
-### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
-
-[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
-
-Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
 
@@ -106,16 +114,6 @@ Live Music   Every Saturday evening year-round from 5pm
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Food & Wine  14 Oct
-
-### [Steinfest at Tar Barrel](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
-
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-Tar Barrel's five-day Steinfest runs from Wednesday 14 to Sunday 18 October in Mornington, with a special beer line-up and steins available…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/steinfest-tar-barrel-mornington-2026/>)
 
 ## The Insider Note
 
