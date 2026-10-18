@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-18T19:25:27.899Z",
-  "snapshotId": "8e5d1557cbd23247577f6e0c0326f62c8c389c7ad442335c20edb78c120e0776",
+  "generatedAt": "2026-10-18T20:20:42.499Z",
+  "snapshotId": "dd3c552546854dfb668bb4ddfc3df96a2d536978a9b8112bcfe869d01ec881f1",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 599,
+  "count": 600,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2172,7 +2172,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "16fa422a1da7e48079479580efae83014c76729088b973feeb6341e0e2afde56",
+      "contentSha256": "2fd746050299c8552de60b6231dc04e3553496c333464be6590f2754c35fea1f",
       "citation": {
         "title": "Boneo",
         "publisher": "Peninsula Insider",
@@ -2180,8 +2180,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 169869,
-      "markdownBytes": 7929
+      "htmlBytes": 173431,
+      "markdownBytes": 8629
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
@@ -5924,6 +5924,23 @@
       "markdownBytes": 8361
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+      "title": "Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/index.md",
+      "contentSha256": "c9ceb7796a35aecd2390321ef3295093e02725432a5fed4df362d53d267627d2",
+      "citation": {
+        "title": "Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+        "publishedAt": "2026-10-19T00:00:00.000Z",
+        "modifiedAt": "2026-10-19T00:00:00.000Z"
+      },
+      "htmlBytes": 176310,
+      "markdownBytes": 8967
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6728,7 +6745,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "a5d6b262088668f6a4d3ecf062f16ebccc9721614900fbfaafa6c76b706bd063",
+      "contentSha256": "e3d0098fd7bfff7400ff59a219fd061631ea221ea85cef2c737c3177006daa29",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6736,8 +6753,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123463,
-      "markdownBytes": 5842
+      "htmlBytes": 123491,
+      "markdownBytes": 5862
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6762,7 +6779,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "ec9f9aa4e6acfd4f64615748ce3440b9035b2db394dac32fd7b427bb2a20f65a",
+      "contentSha256": "a91614df4fc2237d3cfd558ceb7e605a4344d3c2ad5c1a15b9223626dcb3a351",
       "citation": {
         "title": "Monday 19 October 2026",
         "publisher": "Peninsula Insider",

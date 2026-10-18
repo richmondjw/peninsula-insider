@@ -81,6 +81,8 @@ What's mapped here
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/boneo/#explore>)
 
+- [**1** journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
+
 Get outside
 
 ## Explore moves anchored to Boneo
@@ -98,6 +100,22 @@ The local experiences currently mapped in our guide, with detail to help you pla
 Eagle Ridge is an 18-hole public course in Boneo, away from the Cape Schanck and Rye links cluster. The club welcomes golfers of different abilities and links directly to online tee-time booking. Compare the live times and variable prices with your preferred travel day; the club is a separate drive from the coastal courses.
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>)
+
+Read this place properly
+
+## Journal pieces connected to Boneo
+
+Long-form editorial that builds the picture of a place beyond any single visit.
+
+ [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Insider Edit   4 min
+
+### [Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/>)
+
+19 October 2026
+
+Lindenderry's estate dining room in full bloom, the Boneo Plains grassland loop for spider orchids this week, and the Emu Plains Market at Balnarring Reserve on Saturday.
 
 Planning guides
 

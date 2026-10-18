@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/>) - Lindenderry's estate dining room in full bloom, the Boneo Plains grassland loop for spider orchids this week, and the Emu Plains Market at Balnarring Reserve on Saturday.
+
 - [Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/>) - Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday.
 
 - [Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/>) - Kooyong's named-block Pinot tasting in Red Hill South, the Balnarring wildflower loop at Baldry's Creek Reserve, and a Main Ridge pub quiz built around Blackadder and Fawlty Towers on Thursday night.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/>) - Doot Doot Doot's vineyard dining in Merricks North, the Cape Woolamai ridge walk at peak wattle, and Dominion Wrestling's charity bout at Commonfolk on Friday night.
 
 - [Avani Syrah in Red Hill South, the Bushrangers Bay clifftop loop, and Peppers Moonah Links live music this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/>) - Avani Wines' skin-contact whites and Syrah at Red Hill South, Bushrangers Bay coastal loop in peak spring flower, and Acoustic Saturdays at Peppers Moonah Links from 5pm this Saturday.
-
-- [Many Little in spring, the Mornington Peninsula Rail Trail, and Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/>) - Sri Lankan-inflected fine dining at Polperro, the Rail Trail in full wildflower season, and live music on the lawn at Fingal this Saturday from 5pm.
 
 ## Planning a particular weekend?
 

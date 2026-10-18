@@ -1,20 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-18T19:25:27.899Z",
+  "generatedAt": "2026-10-18T20:20:42.499Z",
   "baselineAvailable": true,
-  "fromSnapshot": "7aa5a5d0954dd880ff4ea2f9c783959e767dfa23d4a84be40634e6861789e4f5",
-  "toSnapshot": "8e5d1557cbd23247577f6e0c0326f62c8c389c7ad442335c20edb78c120e0776",
-  "previousGeneratedAt": "2026-10-18T14:31:28.570Z",
+  "fromSnapshot": "8e5d1557cbd23247577f6e0c0326f62c8c389c7ad442335c20edb78c120e0776",
+  "toSnapshot": "dd3c552546854dfb668bb4ddfc3df96a2d536978a9b8112bcfe869d01ec881f1",
+  "previousGeneratedAt": "2026-10-18T19:25:27.899Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
+      "contentSha256": "2fd746050299c8552de60b6231dc04e3553496c333464be6590f2754c35fea1f",
+      "previousContentSha256": "16fa422a1da7e48079479580efae83014c76729088b973feeb6341e0e2afde56"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/index.md",
+      "contentSha256": "c9ceb7796a35aecd2390321ef3295093e02725432a5fed4df362d53d267627d2",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "e3d0098fd7bfff7400ff59a219fd061631ea221ea85cef2c737c3177006daa29",
+      "previousContentSha256": "a5d6b262088668f6a4d3ecf062f16ebccc9721614900fbfaafa6c76b706bd063"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "ec9f9aa4e6acfd4f64615748ce3440b9035b2db394dac32fd7b427bb2a20f65a",
-      "previousContentSha256": "6a9c2d9681cdc70897e41fa6ef08e07d0cff6189245f3e96c31c3af5dacd9b1c"
+      "contentSha256": "a91614df4fc2237d3cfd558ceb7e605a4344d3c2ad5c1a15b9223626dcb3a351",
+      "previousContentSha256": "ec9f9aa4e6acfd4f64615748ce3440b9035b2db394dac32fd7b427bb2a20f65a"
     }
   ]
 }
