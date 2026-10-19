@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Two Bays on the taps, spider orchids above Balnarring, and what's showing at McClelland this spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/>) - Gluten-free or not, Two Bays Brewing's tasting paddle in Dromana earns a full second pour; the Balnarring wildflower loop hits peak spider orchid; and McClelland Sculpture Park's spring outdoor exhibition runs through November.
+
 - [Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/>) - Lindenderry's estate dining room in full bloom, the Boneo Plains grassland loop for spider orchids this week, and the Emu Plains Market at Balnarring Reserve on Saturday.
 
 - [Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/>) - Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/>) - A Sunday roast at the old stables brewery in Fingal, the Bushrangers Bay coastal loop in full spring flower, and a community walk from Safety Beach to Martha Cove on Saturday.
 
 - [Jackalope in spring, Cape Woolamai from the ridge, and live wrestling for a good cause](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/>) - Doot Doot Doot's vineyard dining in Merricks North, the Cape Woolamai ridge walk at peak wattle, and Dominion Wrestling's charity bout at Commonfolk on Friday night.
-
-- [Avani Syrah in Red Hill South, the Bushrangers Bay clifftop loop, and Peppers Moonah Links live music this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/>) - Avani Wines' skin-contact whites and Syrah at Red Hill South, Bushrangers Bay coastal loop in peak spring flower, and Acoustic Saturdays at Peppers Moonah Links from 5pm this Saturday.
 
 ## Planning a particular weekend?
 
