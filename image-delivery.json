@@ -8979,56 +8979,6 @@
       ]
     },
     {
-      "source": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
-      "format": "avif",
-      "originalBytes": 52460,
-      "variants": [
-        {
-          "src": "/_media/710a38e7545a24e2c966-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 7247
-        },
-        {
-          "src": "/_media/710a38e7545a24e2c966-800.avif",
-          "width": 800,
-          "height": 534,
-          "bytes": 13581
-        },
-        {
-          "src": "/_media/710a38e7545a24e2c966-1280.avif",
-          "width": 1280,
-          "height": 854,
-          "bytes": 27334
-        }
-      ]
-    },
-    {
-      "source": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
-      "format": "avif",
-      "originalBytes": 131310,
-      "variants": [
-        {
-          "src": "/_media/7c59376d34f7fc787617-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 19933
-        },
-        {
-          "src": "/_media/7c59376d34f7fc787617-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 40030
-        },
-        {
-          "src": "/_media/7c59376d34f7fc787617-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 86829
-        }
-      ]
-    },
-    {
       "source": "/images/visit-victoria/vv-160356-montalto.webp",
       "format": "avif",
       "originalBytes": 418692,
@@ -9081,6 +9031,31 @@
           "width": 1280,
           "height": 717,
           "bytes": 101843
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-167058-arthurs-seat-eagle.webp",
+      "format": "avif",
+      "originalBytes": 131310,
+      "variants": [
+        {
+          "src": "/_media/7c59376d34f7fc787617-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 19933
+        },
+        {
+          "src": "/_media/7c59376d34f7fc787617-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 40030
+        },
+        {
+          "src": "/_media/7c59376d34f7fc787617-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 86829
         }
       ]
     },

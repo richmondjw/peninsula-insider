@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-19
+Modified: 2026-10-20
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,15 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Sat, 24 Oct · 5pm–8pm · Fingal
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Sat, 24 Oct   Fingal   Live Music
-
 - Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Fri, 23 Oct · 11am–4pm · Mornington
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -48,6 +42,14 @@ Fri, 23 Oct   Mornington   Exhibitions
 A Friday night to meet other singles and dance at Rye Hotel. Doors open at 8pm; book ahead and check the organiser's current terms.
 
 Fri, 23 Oct   Rye   Community
+
+- Photo: Peninsula Insider.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+Sun, 25 Oct   Mount Eliza   Markets
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -147,12 +149,6 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 9am · Crib Point · Markets
 
-- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-9am · Mount Eliza · Markets
-
 - [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
@@ -166,6 +162,12 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 9am · Mornington · Markets
 
 ### Live music
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
