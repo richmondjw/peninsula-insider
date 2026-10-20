@@ -1,60 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-20T04:43:52.977Z",
+  "generatedAt": "2026-10-20T12:11:32.275Z",
   "baselineAvailable": true,
-  "fromSnapshot": "73d5533e8ee8506325d073d1c7cb4c286a96451ed31519ba84d7b4e88b118aaa",
-  "toSnapshot": "2f6a5e95768ebbe63d328cb5316a6f8f2e68cbfbd1f1daafd956a01bde67029b",
-  "previousGeneratedAt": "2026-10-19T20:20:00.675Z",
+  "fromSnapshot": "2f6a5e95768ebbe63d328cb5316a6f8f2e68cbfbd1f1daafd956a01bde67029b",
+  "toSnapshot": "39616a4a9e73a3d53b996bf7a144834d5d76b7200b49e0248906571afd765b93",
+  "previousGeneratedAt": "2026-10-20T04:43:52.977Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 4,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/",
+      "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "a5c94494db7a8cd430c2cd655bbfa4a99a238eda76e0a541cb989167aa221ab2",
-      "previousContentSha256": "1c12eaa1e1e77e4e90381060bffa4e1449c86c6edf9b3cb3d0848a10904bb302"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "3fb516e2836f3bbbb97770647b654a064371c5e42835bafdd7a0cbf739a30c98",
+      "previousContentSha256": "a89c3577fd4f22e16f3296f3928c30b08c4e396be24bec4abc495a89941c5e2f"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mornington/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "d193a38bc6ac210d0cef1b2f2e5a34c7e9cb7ecf4244e0667475c8aec1a40f54",
-      "previousContentSha256": "6004046390765dcdb1e2585f3c0bd3f00c353d6388c5cf4a7777029bb92133df"
+      "contentSha256": "78f68699dcb877a97615419bb6b16a2656e08b60f326f4e1e199c4c6ae4fba2f",
+      "previousContentSha256": "d193a38bc6ac210d0cef1b2f2e5a34c7e9cb7ecf4244e0667475c8aec1a40f54"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "5ff76761050ef3d566f9ba2dd856bba33428b53147a4def87df614c9ec0fb23b",
+      "previousContentSha256": "cbcb7c11930d7473e6dd684504fce3524ab6fa744317bfaaeb847668fdb2814c"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "92e392a55caa17577bc078b4e6a70f03e2fa631dcb37790d7fa95d128ef133f6",
-      "previousContentSha256": "bf14bffc0c948af8d06fd74289a922c6ae7d8d0e3a3a3e35901e72dbe2a6a8d5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "3fe1f2ca6f450f7461f2bcb09ef95031732cb90b852441bb7f3a8f832feb2dfe",
-      "previousContentSha256": "a0ea789ed41f223ab38b2529eaf9e453fcc8149ae616e07d2b635fae600e3c4a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "a7786d24c08c84bdff2dcb9798c96ba0dcc7fa9f0afb36d1c47b7a3aa5b1474e",
-      "previousContentSha256": "28ab9e372f0a9d482da46aa76b765d0ef35914e3b249cfccc0bcfdf3c0d19ea4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
-      "contentSha256": "4d33b16d7886a28ffa796c6fa63f1ad101fdc050cf048449a485071e0825198d",
-      "previousContentSha256": null
+      "contentSha256": "83b56c324f7446c9fa331082b0d39260cf6b1cba9303c58db9ab30c608f3a79c",
+      "previousContentSha256": "92e392a55caa17577bc078b4e6a70f03e2fa631dcb37790d7fa95d128ef133f6"
     }
   ]
 }
