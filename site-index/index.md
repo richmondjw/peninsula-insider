@@ -487,6 +487,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
 
+- [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
 - [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)

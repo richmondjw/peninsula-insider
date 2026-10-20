@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-19T20:20:00.675Z",
-  "snapshotId": "73d5533e8ee8506325d073d1c7cb4c286a96451ed31519ba84d7b4e88b118aaa",
+  "generatedAt": "2026-10-20T04:43:52.977Z",
+  "snapshotId": "2f6a5e95768ebbe63d328cb5316a6f8f2e68cbfbd1f1daafd956a01bde67029b",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 601,
+  "count": 602,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "1c12eaa1e1e77e4e90381060bffa4e1449c86c6edf9b3cb3d0848a10904bb302",
+      "contentSha256": "a5c94494db7a8cd430c2cd655bbfa4a99a238eda76e0a541cb989167aa221ab2",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 196994,
-      "markdownBytes": 8951
+      "htmlBytes": 200451,
+      "markdownBytes": 9057
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 202086,
+      "htmlBytes": 204834,
       "markdownBytes": 811
     },
     {
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "6004046390765dcdb1e2585f3c0bd3f00c353d6388c5cf4a7777029bb92133df",
+      "contentSha256": "d193a38bc6ac210d0cef1b2f2e5a34c7e9cb7ecf4244e0667475c8aec1a40f54",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2418,8 +2418,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 264106,
-      "markdownBytes": 19632
+      "htmlBytes": 268520,
+      "markdownBytes": 20000
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -6796,7 +6796,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "bf14bffc0c948af8d06fd74289a922c6ae7d8d0e3a3a3e35901e72dbe2a6a8d5",
+      "contentSha256": "92e392a55caa17577bc078b4e6a70f03e2fa631dcb37790d7fa95d128ef133f6",
       "citation": {
         "title": "Tuesday 20 October 2026",
         "publisher": "Peninsula Insider",
@@ -6813,7 +6813,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "a0ea789ed41f223ab38b2529eaf9e453fcc8149ae616e07d2b635fae600e3c4a",
+      "contentSha256": "3fe1f2ca6f450f7461f2bcb09ef95031732cb90b852441bb7f3a8f832feb2dfe",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6821,8 +6821,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134572,
-      "markdownBytes": 27056
+      "htmlBytes": 134707,
+      "markdownBytes": 27208
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8632,7 +8632,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "28ab9e372f0a9d482da46aa76b765d0ef35914e3b249cfccc0bcfdf3c0d19ea4",
+      "contentSha256": "a7786d24c08c84bdff2dcb9798c96ba0dcc7fa9f0afb36d1c47b7a3aa5b1474e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8640,8 +8640,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-20"
       },
-      "htmlBytes": 193839,
-      "markdownBytes": 8659
+      "htmlBytes": 197053,
+      "markdownBytes": 9023
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8778,6 +8778,23 @@
       },
       "htmlBytes": 141554,
       "markdownBytes": 4055
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "title": "Curators floor talk: The Making of a Prize Exhibition",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
+      "contentSha256": "4d33b16d7886a28ffa796c6fa63f1ad101fdc050cf048449a485071e0825198d",
+      "citation": {
+        "title": "Curators floor talk: The Making of a Prize Exhibition",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 142695,
+      "markdownBytes": 4684
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",

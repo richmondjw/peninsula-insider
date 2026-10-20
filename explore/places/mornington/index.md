@@ -389,6 +389,16 @@ Coming up in Mornington, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Sat, 14 Nov
+
+### ✦ Curators floor talk: The Making of a Prize Exhibition
+
+Mornington
+
+Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were selected for the prize.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
 - [Wed, 21 Oct
 
 ### ✦ Mornington Wednesday Market (Main Street Market)

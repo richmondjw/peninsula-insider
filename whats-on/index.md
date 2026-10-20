@@ -183,6 +183,14 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 
 6pm · Hastings · Food & Wine
 
+### Openings
+
+- [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
+A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
+
+11.30am · Mornington · Arts
+
 ### Major events
 
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)

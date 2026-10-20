@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-19T20:20:00.675Z",
-  "snapshotId": "73d5533e8ee8506325d073d1c7cb4c286a96451ed31519ba84d7b4e88b118aaa",
+  "generatedAt": "2026-10-20T04:43:52.977Z",
+  "snapshotId": "2f6a5e95768ebbe63d328cb5316a6f8f2e68cbfbd1f1daafd956a01bde67029b",
   "section": "whats-on",
-  "count": 38,
+  "count": 39,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,7 +11,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "28ab9e372f0a9d482da46aa76b765d0ef35914e3b249cfccc0bcfdf3c0d19ea4",
+      "contentSha256": "a7786d24c08c84bdff2dcb9798c96ba0dcc7fa9f0afb36d1c47b7a3aa5b1474e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-20"
       },
-      "htmlBytes": 193839,
-      "markdownBytes": 8659
+      "htmlBytes": 197053,
+      "markdownBytes": 9023
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -157,6 +157,23 @@
       },
       "htmlBytes": 141554,
       "markdownBytes": 4055
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "title": "Curators floor talk: The Making of a Prize Exhibition",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
+      "contentSha256": "4d33b16d7886a28ffa796c6fa63f1ad101fdc050cf048449a485071e0825198d",
+      "citation": {
+        "title": "Curators floor talk: The Making of a Prize Exhibition",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 142695,
+      "markdownBytes": 4684
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
