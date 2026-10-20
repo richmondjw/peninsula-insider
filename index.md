@@ -53,18 +53,6 @@ Swipe or scroll through the picks
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Peppers Moonah Links   Every Saturday
-
-Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
-
-- Illustrative image
-
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
-
 ### [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
 If you're going to walk 35km, do it where the coast pays you back.
@@ -82,6 +70,18 @@ Start with the award-winning works, then take time with the wider survey of cont
 Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 8 Oct 2026. [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+Mt Eliza Village Precinct   Market
+
+Event details checked 3 Oct 2026. [Check organiser](<https://www.mtelizafarmersmarket.com.au/>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
