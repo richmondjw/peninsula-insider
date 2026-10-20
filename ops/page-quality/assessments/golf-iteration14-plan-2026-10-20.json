@@ -1,0 +1,59 @@
+{
+  "url": "https://peninsulainsider.com.au/explore/golf/",
+  "tier": "T1",
+  "assessedAt": "2026-10-20",
+  "liveRevision": "5282b38d424dd178ca8e3705bebff3839397838c",
+  "liveRunId": "39316854411",
+  "programme": "peninsula-insider-page-quality-to-99",
+  "independentScores": [
+    83.75,
+    90,
+    92.25
+  ],
+  "acceptedConservativeScore": 83.75,
+  "scoreStatus": "provisional",
+  "thresholdMet": false,
+  "hardGateObserved": false,
+  "verifiedLiveEvidence": {
+    "mobilePageHeightPx": 16753,
+    "desktopPageHeightPx": 10032,
+    "horizontalOverflow": false,
+    "consoleErrors": 0,
+    "courseFitLinks": 9,
+    "minimumCourseFitTargetPx": 54,
+    "minimumCourseTitleTargetPx": 44,
+    "anchorFocusTransferredToCourseCard": true
+  },
+  "openEvidenceGates": [
+    "direct screen-reader assessment",
+    "field Core Web Vitals",
+    "exhaustive eleven-venue factual refresh"
+  ],
+  "triage": [
+    "make all eleven venues visible in the first decision aid",
+    "remove the redundant quick-pick and location-orientation layers",
+    "replace the unsupported Quality without the punishment heading",
+    "retain explicit access and location labels with working focus transfer"
+  ],
+  "boundedIteration14": {
+    "implemented": [
+      "the hero action now lands directly on the single playing-style, access and location chooser",
+      "Sorrento and Portsea complete the eleven-course chooser",
+      "the redundant four-link quick picker and two-card location orientation section are removed",
+      "the subjective heading is replaced with Memorable public rounds"
+    ],
+    "verificationStatus": "local build and focused 390px browser acceptance passed; merge, deployment and independent live regrade pending",
+    "localAcceptance": {
+      "mobilePageHeightPx": 15865,
+      "baselineHeightPx": 16753,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "courseFitLinks": 11,
+      "minimumCourseFitTargetPx": 54,
+      "redundantQuickPickerPresent": false,
+      "redundantOrientationPresent": false,
+      "anchorFocusTransferredToCourseCard": true,
+      "build": "passed with all post-build gates"
+    }
+  }
+}

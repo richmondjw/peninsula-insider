@@ -186,7 +186,7 @@ export const prerender = true;
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
-  modifiedTime="2026-10-12"
+  modifiedTime="2026-10-20"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -210,28 +210,7 @@ export const prerender = true;
     entitySlug="explore/golf"
   />
 
-  <nav class="golf-quick" id="choose-your-round" aria-label="Choose a golf course">
-    <div class="container golf-quick__inner">
-      <p class="golf-quick__prompt">Start with the round that fits your trip</p>
-      <div class="golf-quick__links">
-        <a href="#course-st-andrews-beach-golf-course">Public coastal links <span>St Andrews Beach</span></a>
-        <a href="#course-moonah-links">Championship and resort <span>Moonah Links</span></a>
-        <a href="#course-the-dunes-golf-links">Public dune course <span>The Dunes</span></a>
-        <a href="#course-the-national-golf-club">Private club access <span>The National</span></a>
-      </div>
-      <details class="golf-quick__all">
-        <summary>Find any of the 11 golf venue guides</summary>
-        <div class="golf-quick__index">
-          {[...capeCourses, ...bayCourses].map((course) => {
-            const slug = course.data.slug ?? course.id;
-            return <a href={'#course-' + slug}>{course.data.name}</a>;
-          })}
-        </div>
-      </details>
-    </div>
-  </nav>
-
-  <section class="golf-fit" aria-labelledby="golf-fit-title">
+  <section class="golf-fit" id="choose-your-round" aria-labelledby="golf-fit-title">
     <div class="container">
       <div class="golf-fit__intro">
         <p class="label label--accent">Choose by playing style</p>
@@ -249,7 +228,7 @@ export const prerender = true;
           </div>
         </article>
         <article class="golf-fit__group">
-          <h3>Quality without the punishment</h3>
+          <h3>Memorable public rounds</h3>
           <p>Strong public options for a memorable round that still leaves room for the rest of the trip.</p>
           <div class="golf-fit__links">
             <a href="#course-the-dunes-golf-links"><strong>The Dunes</strong><span>Public green fees · Rye</span></a>
@@ -264,6 +243,8 @@ export const prerender = true;
             <a href="#course-mornington-golf-club"><strong>Mornington</strong><span>Public green fees · Mornington</span></a>
             <a href="#course-rosebud-country-club"><strong>Rosebud</strong><span>Public green fees · Rosebud</span></a>
             <a href="#course-flinders-golf-club"><strong>Flinders</strong><span>Visitor windows · Flinders</span></a>
+            <a href="#course-sorrento-golf-club"><strong>Sorrento</strong><span>Private club · visitor windows</span></a>
+            <a href="#course-portsea-golf-club"><strong>Portsea</strong><span>Visitor windows · Portsea</span></a>
           </div>
         </article>
       </div>
@@ -275,33 +256,6 @@ export const prerender = true;
       <PhotoStage photos={golfPhotos} subject="Mornington Peninsula golf courses" id="golf-photos" variant="strip" />
     </div>
   )}
-
-  <!-- ═══════════════════════════════════════════════════════════════
-       2. ORIENTATION: Cape Schanck vs other Peninsula courses
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="golf-orientation" aria-labelledby="golf-orientation-title">
-    <div class="container">
-      <div class="golf-orientation__intro">
-        <p class="label label--accent">Compare your options</p>
-        <h2 id="golf-orientation-title">Start with where you want to play</h2>
-        <p>Choose a part of the Peninsula, then compare access and playing style in the course cards.</p>
-      </div>
-      <div class="golf-orientation__grid">
-        <article class="golf-orientation__card">
-          <div class="golf-orientation__meta"><span>Southern coast</span><span>4 venues</span></div>
-          <h3>Fingal and Cape Schanck</h3>
-          <p>Exposed coastal golf. St Andrews Beach, Moonah Links and RACV offer visitor play; The National has private-club rules.</p>
-          <a href="#cape-courses">Compare four venues <span aria-hidden="true">→</span></a>
-        </article>
-        <article class="golf-orientation__card">
-          <div class="golf-orientation__meta"><span>Across the Peninsula</span><span>7 venues</span></div>
-          <h3>Seven towns and settings</h3>
-          <p>From Flinders headland and Rye dunes to Boneo parkland and bayside towns. Check club access and the drive from your base.</p>
-          <a href="#across-courses">Compare seven venues <span aria-hidden="true">→</span></a>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
        3. CAPE SCHANCK / FINGAL CLUSTER
