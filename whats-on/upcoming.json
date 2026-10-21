@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-10-21",
-  "generatedAt": "2026-10-20T20:21:56.546Z",
+  "generated": "2026-10-22",
+  "generatedAt": "2026-10-21T14:27:59.918Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-10-21",
-    "end": "2027-01-19"
+    "start": "2026-10-22",
+    "end": "2027-01-20"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -38,11 +38,11 @@
       "position": 2,
       "item": {
         "@type": "Event",
-        "name": "Mornington Wednesday Market (Main Street Market)",
-        "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-        "startDate": "2026-10-21",
-        "endDate": "2026-10-21",
-        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
+        "name": "British Comedy Trivia at The Pig & Whistle",
+        "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+        "startDate": "2026-10-22",
+        "endDate": "2026-10-22",
+        "description": "A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -53,8 +53,8 @@
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-10-21",
-        "endDate": "2026-10-21",
+        "startDate": "2026-10-22",
+        "endDate": "2026-10-22",
         "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -104,19 +104,6 @@
       "position": 8,
       "item": {
         "@type": "Event",
-        "name": "British Comedy Trivia at The Pig & Whistle",
-        "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-        "startDate": "2026-10-22",
-        "endDate": "2026-10-22",
-        "description": "A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 9,
-      "item": {
-        "@type": "Event",
         "name": "Summer Lovin' Singles Party at Rye Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/",
         "startDate": "2026-10-23",
@@ -127,7 +114,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 9,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -140,7 +127,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -153,7 +140,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "The Bloody Long Walk – Mornington Peninsula 2026",
@@ -161,6 +148,19 @@
         "startDate": "2026-10-25",
         "endDate": "2026-10-25",
         "description": "35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "Mornington Wednesday Market (Main Street Market)",
+        "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+        "startDate": "2026-10-28",
+        "endDate": "2026-10-28",
+        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -263,8 +263,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-21",
-      "endDate": "2027-01-19",
+      "startDate": "2026-10-22",
+      "endDate": "2027-01-20",
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
       "factCheckedOn": "2026-10-03",
@@ -281,20 +281,20 @@
       "thisWeekend": true
     },
     {
-      "title": "Mornington Wednesday Market (Main Street Market)",
+      "title": "British Comedy Trivia at The Pig & Whistle",
       "contentKind": "event",
       "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "startDate": "2026-10-21",
-      "endDate": "2026-10-21",
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "sourceUrl": "https://mainstreetmornington.com.au/mornington-main-street-market/",
-      "factCheckedOn": "2026-10-03",
-      "recurrence": "weekly",
-      "category": "market",
-      "place": "mornington",
+      "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-22",
+      "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
+      "sourceUrl": "https://events.humanitix.com/trivia-night-british-comedy",
+      "factCheckedOn": "2026-10-14",
+      "recurrence": "one-off",
+      "category": "community",
+      "place": "main-ridge",
       "venue": null,
-      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
+      "summary": "A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -304,8 +304,8 @@
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-10-21",
-      "endDate": "2026-10-21",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-22",
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
       "factCheckedOn": "2026-10-08",
@@ -336,8 +336,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-10-21",
-      "endDate": "2027-01-19",
+      "startDate": "2026-10-22",
+      "endDate": "2027-01-20",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": "2026-10-03",
@@ -358,8 +358,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-10-21",
-      "endDate": "2027-01-19",
+      "startDate": "2026-10-22",
+      "endDate": "2027-01-20",
       "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "factCheckedOn": "2026-10-03",
@@ -380,8 +380,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-10-21",
-      "endDate": "2027-01-19",
+      "startDate": "2026-10-22",
+      "endDate": "2027-01-20",
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
       "factCheckedOn": "2026-05-04",
@@ -402,8 +402,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-10-21",
-      "endDate": "2027-01-19",
+      "startDate": "2026-10-22",
+      "endDate": "2027-01-20",
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
       "factCheckedOn": "2026-10-03",
@@ -418,25 +418,6 @@
         }
       ],
       "thisWeekend": true
-    },
-    {
-      "title": "British Comedy Trivia at The Pig & Whistle",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-22",
-      "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-      "sourceUrl": "https://events.humanitix.com/trivia-night-british-comedy",
-      "factCheckedOn": "2026-10-14",
-      "recurrence": "one-off",
-      "category": "community",
-      "place": "main-ridge",
-      "venue": null,
-      "summary": "A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
     },
     {
       "title": "Summer Lovin' Singles Party at Rye Hotel",
@@ -533,6 +514,25 @@
         }
       ],
       "thisWeekend": true
+    },
+    {
+      "title": "Mornington Wednesday Market (Main Street Market)",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "startDate": "2026-10-28",
+      "endDate": "2026-10-28",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "sourceUrl": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+      "factCheckedOn": "2026-10-03",
+      "recurrence": "weekly",
+      "category": "market",
+      "place": "mornington",
+      "venue": null,
+      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
     },
     {
       "title": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",

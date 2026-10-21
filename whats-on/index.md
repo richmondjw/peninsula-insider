@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-21
+Modified: 2026-10-22
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,15 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Fri, 23 Oct · 8pm · Rye
-
-### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
-
-A Friday night to meet other singles and dance at Rye Hotel. Doors open at 8pm; book ahead and check the organiser's current terms.
-
-Fri, 23 Oct   Rye   Community
-
 - Photo: Peninsula Insider.
+
+Sun, 25 Oct · 9am–1pm · Mount Eliza
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
@@ -48,6 +42,14 @@ Sun, 25 Oct   Mount Eliza   Markets
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Sat, 24 Oct   Fingal   Live Music
+
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Fri, 23 Oct   Mornington   Exhibitions
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -176,12 +178,6 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 6pm · Hastings · Food & Wine
 
 ### Openings
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 

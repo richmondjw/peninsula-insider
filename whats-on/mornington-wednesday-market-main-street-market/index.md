@@ -11,8 +11,6 @@ Event     Markets     21 October 2026     Recurs weekly
 
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
-[Check latest details](<https://mainstreetmornington.com.au/mornington-main-street-market/>)
-
 First timer
 
 Editor's verdict
@@ -65,7 +63,7 @@ Weather flexible
 
 Start here
 
-[Check latest details](<https://mainstreetmornington.com.au/mornington-main-street-market/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Wednesday+Market+%28Main+Street+Market%29&dates=20261020T220000Z%2F20261021T040000Z&details=Mornington%27s+long-running+artisan+market+fills+Main+Street+every+Wednesday%2C+9am+to+3pm.+Expect+local+makers%2C+produce+and+food%3B+severe+weather+can+cancel+the+market+or+limit+stalls.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-wednesday-market-main-street-market%2F&location=Main+Street+Mornington%2C+Main+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 
