@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Foxeys Hangout, the Coastal Cliffs at Cape Schanck, and British Comedy Trivia in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/>) - Foxeys Hangout's biodynamic sparkling flight earns the afternoon, Cape Schanck's clifftop track is in full spring form, and The Pig & Whistle is running British Comedy Trivia tonight.
+
 - [Merricks lunch, the Boneo Plains grassland, and a new opening in Dromana](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-21/>) - Merricks General Wine Store earns a dedicated spring lunch booking, the Boneo Plains Native Grassland Reserve is at peak golden weather-grass, and The Curious Pantry has opened its doors in Dromana.
 
 - [Two Bays on the taps, spider orchids above Balnarring, and what's showing at McClelland this spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/>) - Gluten-free or not, Two Bays Brewing's tasting paddle in Dromana earns a full second pour; the Balnarring wildflower loop hits peak spider orchid; and McClelland Sculpture Park's spring outdoor exhibition runs through November.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/>) - Baillieu's Merricks Chardonnay at a cellar door most weekenders miss, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
 
 - [Wood-fired lamb at Red Hill, wattle on the Boardwalk Loop, and origami at the regional gallery](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/>) - Green Olive at Red Hill's grove-to-table spring Sunday, the Boardwalk Nature Circuit at peak wattle bloom, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery this Saturday.
-
-- [St Andrews Beach Brewery, the Bushrangers Bay Track, and the Breast Foot Forward Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/>) - A Sunday roast at the old stables brewery in Fingal, the Bushrangers Bay coastal loop in full spring flower, and a community walk from Safety Beach to Martha Cove on Saturday.
 
 ## Planning a particular weekend?
 
