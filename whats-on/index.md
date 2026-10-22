@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-22
+Modified: 2026-10-23
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,17 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Photo: Peninsula Insider.
+- Sat, 24 Oct · 5pm–8pm · Fingal
 
-Sun, 25 Oct · 9am–1pm · Mount Eliza
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-Sun, 25 Oct   Mount Eliza   Markets
-
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
@@ -50,6 +42,12 @@ Sat, 24 Oct   Fingal   Live Music
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Fri, 23 Oct   Mornington   Exhibitions
+
+- ### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
+
+A Friday night to meet other singles and dance at Rye Hotel. Doors open at 8pm; book ahead and check the organiser's current terms.
+
+Fri, 23 Oct   Rye   Community
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -148,6 +146,12 @@ Check dates and hours · Dromana · Food & Wine
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
 9am · Crib Point · Markets
+
+- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+9am · Mount Eliza · Markets
 
 - [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 

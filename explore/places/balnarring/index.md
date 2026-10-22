@@ -378,3 +378,21 @@ Browse locations as a list
 - [The Red Hill Baker](<https://peninsulainsider.com.au/eat/red-hill-bakery/>) · bakery
 
 - [Balnarring Beach](<https://peninsulainsider.com.au/explore/balnarring-beach/>) · beach
+
+On the calendar in this place
+
+## Events in Balnarring
+
+Coming up in Balnarring, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 21 Nov
+
+### ✦ Emu Plains Market
+
+Balnarring
+
+Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music. The organiser confirms daytime markets on the third Saturdays of October, November and December 2026, 9am to 2pm.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)

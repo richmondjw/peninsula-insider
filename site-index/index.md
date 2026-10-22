@@ -485,8 +485,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
-- [British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
-
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)

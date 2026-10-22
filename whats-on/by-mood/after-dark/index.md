@@ -11,16 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Community  22 Oct
-
-### [British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
-
-[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
-
 Community  23 Oct
 
 ### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)

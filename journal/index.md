@@ -704,17 +704,7 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Thu, 22 Oct
-
-### ✦ British Comedy Trivia at The Pig & Whistle
-
-Main Ridge
-
-A British comedy trivia night at The Pig & Whistle in Main Ridge on Thursday 22 October. Registration opens at 6pm, the quiz starts at 7pm, and the event listing ends at 9:30pm.
-
- Event · Community](<https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/>)
-
-- [Thu, 22 Oct
+- [Fri, 23 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
@@ -733,3 +723,13 @@ Rye
 Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.
 
  Event · Community](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
+
+- [Sat, 24 Oct
+
+### ✦ Acoustic Saturdays at Peppers Moonah Links
+
+Fingal
+
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
