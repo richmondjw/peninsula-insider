@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-22T19:25:04.337Z",
-  "snapshotId": "f8978e78e470f454b362b2c7c2966c5492234b7301357dee466bb2331e6f31d8",
+  "generatedAt": "2026-10-22T20:20:35.195Z",
+  "snapshotId": "708ab9015bbef4f58569503acf324c98bceede80fd10ac76d0f72b096dfcad0e",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 603,
+  "count": 604,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -5992,6 +5992,23 @@
       "markdownBytes": 8741
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/",
+      "title": "Flinders Sourdough, the Wirrbul Loop, and the Bloody Long Walk at Portsea",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/index.md",
+      "contentSha256": "b34f1062a883edca22afa4de58c1f4ebadb122a9e41300d0e6149219be51c7f1",
+      "citation": {
+        "title": "Flinders Sourdough, the Wirrbul Loop, and the Bloody Long Walk at Portsea",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/",
+        "publishedAt": "2026-10-23T00:00:00.000Z",
+        "modifiedAt": "2026-10-23T00:00:00.000Z"
+      },
+      "htmlBytes": 170120,
+      "markdownBytes": 8269
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6796,7 +6813,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "4a2070dc6cd67738a5bdd802c3959967ecb24a57f9ccf5fff92c353028846f5c",
+      "contentSha256": "705faf5a0d5bd4df24370205bef8df34e0f6f9c58ac10fcf2f86ee8e66b95100",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6804,8 +6821,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123563,
-      "markdownBytes": 5922
+      "htmlBytes": 123502,
+      "markdownBytes": 5861
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6830,7 +6847,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "dba21a67ab34cac754d80131fdfad19e57860ed382ae44405af73efbfa5398ef",
+      "contentSha256": "84549c523552e7e395f79aacb662c8e3c9219e3484a2d868a4d8f4439a7cd015",
       "citation": {
         "title": "Friday 23 October 2026",
         "publisher": "Peninsula Insider",

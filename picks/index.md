@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Flinders Sourdough, the Wirrbul Loop, and the Bloody Long Walk at Portsea](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/>) - A wood-fired Beach Bun in Flinders, the Wirrbul walking trail in full spring wattle, and Sunday's Bloody Long Walk starting from the Quarantine Station at Portsea.
+
 - [Foxeys Hangout, the Coastal Cliffs at Cape Schanck, and British Comedy Trivia in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/>) - Foxeys Hangout's biodynamic sparkling flight earns the afternoon, Cape Schanck's clifftop track is in full spring form, and The Pig & Whistle is running British Comedy Trivia tonight.
 
 - [Merricks lunch, the Boneo Plains grassland, and a new opening in Dromana](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-21/>) - Merricks General Wine Store earns a dedicated spring lunch booking, the Boneo Plains Native Grassland Reserve is at peak golden weather-grass, and The Curious Pantry has opened its doors in Dromana.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 
 - [Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/>) - Baillieu's Merricks Chardonnay at a cellar door most weekenders miss, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
-
-- [Wood-fired lamb at Red Hill, wattle on the Boardwalk Loop, and origami at the regional gallery](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/>) - Green Olive at Red Hill's grove-to-table spring Sunday, the Boardwalk Nature Circuit at peak wattle bloom, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery this Saturday.
 
 ## Planning a particular weekend?
 
