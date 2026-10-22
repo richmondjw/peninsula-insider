@@ -1,108 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-22T14:36:05.110Z",
+  "generatedAt": "2026-10-22T19:25:04.337Z",
   "baselineAvailable": true,
-  "fromSnapshot": "cb5459e6e48362489f4aa3b977884f1fd9c696e58128e075f2db1eb6f0ba575b",
-  "toSnapshot": "be2474fc72ce6e873e48097bc8c926c8afe24014b1a9a581d55837d08d5729e1",
-  "previousGeneratedAt": "2026-10-21T20:17:42.492Z",
+  "fromSnapshot": "be2474fc72ce6e873e48097bc8c926c8afe24014b1a9a581d55837d08d5729e1",
+  "toSnapshot": "f8978e78e470f454b362b2c7c2966c5492234b7301357dee466bb2331e6f31d8",
+  "previousGeneratedAt": "2026-10-22T14:36:05.110Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 12,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "ad6188a4f0497083d35a113f778de7c9a7478d11ceaf390275266aad40c88e46",
-      "previousContentSha256": "1c12eaa1e1e77e4e90381060bffa4e1449c86c6edf9b3cb3d0848a10904bb302"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/balnarring/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/balnarring/index.md",
-      "contentSha256": "b9aa7625b9ebedc1812a7e05c6da081b420225c6faab07be73a3c06607a55577",
-      "previousContentSha256": "ffa5514110882a305055628ff06a24434f9a35607325c25293252e1f12e08898"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
-      "contentSha256": "60e9554834b6e8facfe20a43cee239a212ba147c83ae20045561e1bed5579f5f",
-      "previousContentSha256": "1732401b78707ac7c9282be6e2221f02873554cbf8d481436d939c8b1c6a6f64"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "b05e99162b62dfae8a57ac93e5032720e9e53a10ffe053fdcc260c688c046974",
-      "previousContentSha256": "1a3461fe33169e82b1c42eda519c75cbd9550986e4c9697b3ff35e71aaea9802"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
-      "contentSha256": "fdc77f8510ff75bddbdf47d890a0022f958db9fe88ac50b7427eadf8fe31dcf8",
-      "previousContentSha256": "efd0806cf105615dc9275d9c148ce15cb6f95f3e1f929be046765c11162ff82f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "f9a1a78c573b315f60ede7ef15889842834c445bc248597b9a53462ef181f1e4",
-      "previousContentSha256": "d1893d0db65a2dcb5a83dd74fc60b4229ae29738984f0fb875223c4be92f7b1a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
-      "contentSha256": "0a22c2a77d703e39e06e6e16830aa32d9045690e2c4ff83dc460dbdd7e3d1112",
-      "previousContentSha256": "34f28ddbc37a074f471413f7cfb36fe46c692f196b430c2505ed12acbb8dd5cf"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "b8801ad49d16e5f0808d750eee47c9e1e793f26bb783131cba6ddefd6db1951b",
-      "previousContentSha256": "1cd41738c7f69743d71d1bfcbf7364aa0ded3b3bd14c66b13428b07e982cecb1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "b8af27ec0a50bbba6f6ff54220cde493bb2c1a5f2d97c8e19c56b2baee7fb0ea",
-      "previousContentSha256": "3fe1f2ca6f450f7461f2bcb09ef95031732cb90b852441bb7f3a8f832feb2dfe"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "ae2c842ac02815538d55bacc530be8704d5cf69ebefdce49b93eafce79f78928",
-      "previousContentSha256": "30477250d1492375e4592789cc18647901b6b1a532697ff10da399f102d5e16f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "a000d9f7b71e4f68621d626d481e7449356adb5ffa8223670c76a29b489f521c",
-      "previousContentSha256": "83bf4d0410d15a52f0139a430902246c180b74855c6d7924652fd7c30e6a3d3d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/british-comedy-trivia-main-ridge-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "3277e1ff366e1c693b464e6225741e4d6ddc64d8f849fa96b8d4d356360b977d"
+      "contentSha256": "dba21a67ab34cac754d80131fdfad19e57860ed382ae44405af73efbfa5398ef",
+      "previousContentSha256": "b8801ad49d16e5f0808d750eee47c9e1e793f26bb783131cba6ddefd6db1951b"
     }
   ]
 }
