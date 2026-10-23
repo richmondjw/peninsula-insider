@@ -174,19 +174,3 @@ The Peninsula worth knowing. An occasional email. What's on, where we'd go and w
 Independent editorial. Sent when there is something worth knowing.
 
 Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)
-
-On the calendar
-
-## Coming up in these places
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Fri, 23 Oct
-
-### ✦ Summer Lovin' Singles Party at Rye Hotel
-
-Rye
-
-Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.
-
- Event · Community](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)

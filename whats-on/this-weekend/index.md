@@ -9,7 +9,7 @@ Peninsula This Weekend   Fri 23 – Sun 25 October
 
 # What’s on this weekend
 
-4 source-checked events for Fri 23 – Sun 25 October. Confirm details with the organiser before travelling.
+3 source-checked events for Fri 23 – Sun 25 October. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -28,16 +28,6 @@ Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am�
 Friday 23 October   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
-Date confirmed · Community
-
-### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
-
-Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.
-
-Friday 23 October   8pm   Rye   Checked 12 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/summer-lovin-singles-party-at-the-rye-hotel-rye-tickets-2000082513639>)
 
 Date confirmed · Live Music
 

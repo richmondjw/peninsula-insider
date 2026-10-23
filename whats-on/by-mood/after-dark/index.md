@@ -11,16 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Community  23 Oct
-
-### [Summer Lovin' Singles Party at Rye Hotel](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
-
-[Rye](<https://peninsulainsider.com.au/explore/places/rye/>)
-
-Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
-
 Food & Wine  30 Oct
 
 ### [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)

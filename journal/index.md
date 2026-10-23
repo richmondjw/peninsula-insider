@@ -704,26 +704,6 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 23 Oct
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-- [Fri, 23 Oct
-
-### ✦ Summer Lovin' Singles Party at Rye Hotel
-
-Rye
-
-Melbourne Singles Ball hosts a ticketed singles night at Rye Hotel on Friday 23 October. Doors open at 8pm for music and dancing; the organiser says the night is aimed at people aged 25 and over.
-
- Event · Community](<https://peninsulainsider.com.au/whats-on/summer-lovin-singles-party-rye-hotel-2026/>)
-
 - [Sat, 24 Oct
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
@@ -733,3 +713,23 @@ Fingal
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 24 Oct
+
+### ✦ National Works on Paper 2026 (NWOP)
+
+Mornington
+
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+- [Sun, 25 Oct
+
+### ✦ Mt Eliza Farmers Market
+
+Mount Eliza
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
