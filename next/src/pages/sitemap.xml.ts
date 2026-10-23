@@ -264,6 +264,7 @@ export const GET: APIRoute = async () => {
   const newestPick = articles.filter((entry) => entry.data.tags.includes('insider-picks'))
     .map((entry) => dateStr(entry.data.publishedAt)).filter(Boolean).sort().at(-1);
   entries.push(url('/picks', 0.6, 'weekly', newestPick && newestPick > '2026-09-16' ? newestPick : '2026-09-16'));
+  entries.push(url('/whats-on/this-weekend/archive', 0.5, 'weekly', '2026-10-11'));
   entries.push(url('/partners', 0.5, 'monthly', '2026-09-20'));
   for (const path of ['/partners/add', '/partners/update', '/partners/enquire']) entries.push(url(path, 0.4, 'monthly', '2026-09-20'));
 

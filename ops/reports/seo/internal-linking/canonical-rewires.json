@@ -1,0 +1,4080 @@
+{
+  "generatedAt": "2026-10-10T19:24:35.244Z",
+  "changes": [
+    {
+      "source": "/boating/hire/mornington-boat-hire/",
+      "from": "/boating/hire/rye-boat-hire/",
+      "to": "/boating/hire/"
+    },
+    {
+      "source": "/boating/hire/mornington-boat-hire/",
+      "from": "/boating/hire/sorrento-boat-hire/",
+      "to": "/boating/hire/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "from": "/boating/hire/sorrento-boat-hire/",
+      "to": "/boating/hire/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/eat/allis-wine-bar/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/allis-wine-bar/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/allis-wine-bar/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-market/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-market/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-market/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/phaedrus-estate/",
+      "to": "/wine/phaedrus-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/phaedrus-estate/",
+      "to": "/wine/phaedrus-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/phaedrus-estate/",
+      "to": "/wine/phaedrus-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/moorooduc-estate/",
+      "to": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/moorooduc-estate/",
+      "to": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/moorooduc-estate/",
+      "to": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/barmah-park-vineyard/",
+      "to": "/eat/barmah-park/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/barmah-park-vineyard/",
+      "to": "/eat/barmah-park/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "from": "/eat/barmah-park-vineyard/",
+      "to": "/eat/barmah-park/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/yabby-lake/",
+      "to": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/yabby-lake/",
+      "to": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/yabby-lake/",
+      "to": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/t-gallant/",
+      "to": "/wine/t-gallant/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/t-gallant/",
+      "to": "/wine/t-gallant/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/t-gallant/",
+      "to": "/wine/t-gallant/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/red-hill-estate/",
+      "to": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/red-hill-estate/",
+      "to": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/red-hill-estate/",
+      "to": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "from": "/eat/scorpo-wines/",
+      "to": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "from": "/eat/scorpo-wines/",
+      "to": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "from": "/eat/scorpo-wines/",
+      "to": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/family-friendly/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/family-friendly/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/family-friendly/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/main-ridge-estate/",
+      "to": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/main-ridge-estate/",
+      "to": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/main-ridge-estate/",
+      "to": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/yabby-lake/",
+      "to": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/yabby-lake/",
+      "to": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/yabby-lake/",
+      "to": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/two-bays-brewing/",
+      "to": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/mornington-peninsula-brewery/",
+      "to": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/eat/port-phillip-estate-restaurant/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/",
+      "from": "/corrections/",
+      "to": "/contact/?type=correction"
+    },
+    {
+      "source": "/eat/johnny-ripe/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/johnny-ripe/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/johnny-ripe/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/la-baracca-tgallant/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/la-baracca-tgallant/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/la-baracca-tgallant/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/red-hill-estate/",
+      "to": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/red-hill-estate/",
+      "to": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/red-hill-estate/",
+      "to": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/port-phillip-estate/",
+      "to": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/pt-leo-estate/",
+      "to": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/polperro/",
+      "to": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/main-ridge-dairy/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/main-ridge-dairy/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/main-ridge-dairy/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/paringa-estate/",
+      "to": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/pier-street-seafood/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/pier-street-seafood/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/pier-street-seafood/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/pier-street-seafood/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/pier-street-seafood/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/pier-street-seafood/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/portsea-hotel/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "from": "/eat/willow-creek-vineyard/",
+      "to": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "from": "/eat/scorpo-wines/",
+      "to": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "from": "/eat/scorpo-wines/",
+      "to": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "from": "/eat/scorpo-wines/",
+      "to": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/eat/red-hill-bakery/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/red-hill-bakery/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/red-hill-bakery/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/rye-hotel/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/eat/seafood/",
+      "from": "/eat/ocean-eight/",
+      "to": "/wine/ocean-eight/"
+    },
+    {
+      "source": "/eat/seafood/",
+      "from": "/eat/ocean-eight/",
+      "to": "/wine/ocean-eight/"
+    },
+    {
+      "source": "/eat/seafood/",
+      "from": "/eat/ocean-eight/",
+      "to": "/wine/ocean-eight/"
+    },
+    {
+      "source": "/eat/small-stone-pantry/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/small-stone-pantry/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/small-stone-pantry/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/small-stone-pantry/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/small-stone-pantry/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/small-stone-pantry/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/sorrento-hotel/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/stringers-sorrento/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/the-baths-sorrento/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/via-boffe/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/via-boffe/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/via-boffe/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/via-boffe/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/explore/ashcombe-maze/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/ashcombe-maze/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/ashcombe-maze/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/balnarring-beach/",
+      "from": "/journal/the-dog-friendly-peninsula/",
+      "to": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/explore/beaches/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/beaches/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/beaches/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/bushrangers-bay-walk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/bushrangers-bay-walk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/bushrangers-bay-walk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-boardwalk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-boardwalk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-boardwalk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-lighthouse-walk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-lighthouse-walk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-lighthouse-walk/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/coastal-walk-cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/coastal-walk-cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/coastal-walk-cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/flinders-golf-club/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/flinders-golf-club/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/flinders-golf-club/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/greens-bush-two-bays-section/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/explore/gunnamatta-ocean-beach/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/gunnamatta-ocean-beach/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/gunnamatta-ocean-beach/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/explore/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/explore/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/moonah-links/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/moonah-links/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/moonah-links/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/mount-martha-beach/",
+      "from": "/journal/peninsula-this-weekend-may-30/",
+      "to": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/explore/places/arthurs-seat/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "from": "/eat/two-bays-brewing/",
+      "to": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/merricks-north/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/moorooduc/",
+      "from": "/journal/peninsula-this-weekend-jun-06/",
+      "to": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/explore/places/moorooduc/",
+      "from": "/wine/moorooduc/",
+      "to": "/explore/places/moorooduc/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "from": "/eat/mornington-peninsula-brewery/",
+      "to": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "from": "/stay/mornington/",
+      "to": "/explore/places/mornington/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/explore/places/mount-martha/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/places/mount-martha/",
+      "from": "/journal/peninsula-this-weekend-may-30/",
+      "to": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/rye/",
+      "from": "/journal/peninsula-this-weekend-jun-27/",
+      "to": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/explore/places/safety-beach/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/plans/how-to-plan-a-peninsula-weekend/",
+      "from": "/journal/the-four-hour-peninsula/",
+      "to": "/explore/plans/the-four-hour-peninsula/"
+    },
+    {
+      "source": "/explore/plans/mornington-day-guide/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/plans/mornington-day-guide/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/plans/mornington-day-guide/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/plans/the-family-day-out/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-four-hour-peninsula/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-four-hour-peninsula/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-four-hour-peninsula/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-market-saturday/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-market-saturday/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-market-saturday/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-peninsula-orientation-drive/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-peninsula-orientation-drive/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-peninsula-orientation-drive/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/walks-cape-schanck-hot-springs-day/",
+      "from": "/journal/mornington-peninsula-stay-and-soak/",
+      "to": "/explore/plans/mornington-peninsula-stay-and-soak/"
+    },
+    {
+      "source": "/explore/racv-cape-schanck-golf-course/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/racv-cape-schanck-golf-course/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/racv-cape-schanck-golf-course/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/two-bays-brewing/",
+      "to": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/two-bays-brewing/",
+      "to": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/two-bays-brewing/",
+      "to": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/mornington-peninsula-brewery/",
+      "to": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/mornington-peninsula-brewery/",
+      "to": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/mornington-peninsula-brewery/",
+      "to": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/regions/red-hill-wine-country/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/regions/red-hill-wine-country/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/regions/red-hill-wine-country/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/rye-ocean-beach/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/rye-ocean-beach/",
+      "from": "/journal/peninsula-this-weekend-jun-27/",
+      "to": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/explore/safety-beach-foreshore/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/st-andrews-beach-golf-course/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/st-andrews-beach-golf-course/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/st-andrews-beach-golf-course/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/sunny-ridge-strawberry-farm/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/explore/the-dunes-golf-links/",
+      "from": "/journal/peninsula-this-weekend-jun-27/",
+      "to": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/explore/the-national-golf-club/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/the-national-golf-club/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/the-national-golf-club/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/two-bays-walking-track/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/two-bays-walking-track/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/two-bays-walking-track/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/fishing/locations/portsea-pier/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/garfish/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/king-george-whiting/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/pinkies/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/squid/",
+      "from": "/fishing/locations/sorrento-pier/",
+      "to": "/fishing/"
+    },
+    {
+      "source": "/insiders-30/2026/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/insiders-30/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/journal/a-flinders-weekend/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/a-winter-peninsula-weekend/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/a-winter-peninsula-weekend/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/area-guide-dromana/",
+      "from": "/journal/peninsula-this-weekend-may-03/",
+      "to": "/whats-on/this-weekend/archive/2026-05-03/"
+    },
+    {
+      "source": "/journal/area-guide-flinders/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/area-guide-main-ridge/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/area-guide-merricks/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "from": "/journal/peninsula-this-weekend-april-24/",
+      "to": "/whats-on/this-weekend/archive/2026-04-24/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "from": "/journal/where-to-stay-mornington-peninsula/",
+      "to": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/ashcombe-maze-visitor-guide/",
+      "from": "/journal/where-to-stay-mornington-peninsula/",
+      "to": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/ashcombe-maze-visitor-guide/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/ashcombe-maze-visitor-guide/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/boat-moorings-berths-mornington-peninsula/",
+      "from": "/places/mornington/",
+      "to": "/explore/places/mornington/"
+    },
+    {
+      "source": "/journal/boat-moorings-berths-mornington-peninsula/",
+      "from": "/boating/boat-hire/",
+      "to": "/boating/hire/"
+    },
+    {
+      "source": "/journal/boat-moorings-berths-mornington-peninsula/",
+      "from": "/journal/mornington-peninsula-boat-ramps/",
+      "to": "/boating/ramps/"
+    },
+    {
+      "source": "/journal/corporate-events-red-hill-vs-sorrento/",
+      "from": "/journal/where-to-stay-mornington-peninsula/",
+      "to": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/dog-friendly-beaches-mornington-peninsula/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/dog-friendly-beaches-mornington-peninsula/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
+      "from": "/journal/the-dog-friendly-peninsula/",
+      "to": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/dog-friendly-wineries-mornington-peninsula/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/first-time-peninsula/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/first-time-peninsula/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/first-time-peninsula/",
+      "from": "/journal/the-four-hour-peninsula/",
+      "to": "/explore/plans/the-four-hour-peninsula/"
+    },
+    {
+      "source": "/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/the-dog-friendly-peninsula/",
+      "to": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/where-to-stay-mornington-peninsula/",
+      "to": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-april-24/",
+      "to": "/whats-on/this-weekend/archive/2026-04-24/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-april-26/",
+      "to": "/whats-on/this-weekend/archive/2026-04-26/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-may-03/",
+      "to": "/whats-on/this-weekend/archive/2026-05-03/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-may-16/",
+      "to": "/whats-on/this-weekend/archive/2026-05-11/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-may-23/",
+      "to": "/whats-on/this-weekend/archive/2026-05-17/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-may-30/",
+      "to": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jun-06/",
+      "to": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jun-13/",
+      "to": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jun-27/",
+      "to": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-24/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-24/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-25/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-25/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-27/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-27/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-28/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-28/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-29/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-29/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-30/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-30/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-31/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-31/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-01/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-01/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-02/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-02/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-06/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-09/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-09/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-10/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-10/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-12/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-12/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-17/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-17/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-27/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-27/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-27/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-02/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-02/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-07/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-07/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-12/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-12/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-17/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-17/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-27/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-27/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "from": "/journal/how-to-plan-a-peninsula-weekend/",
+      "to": "/explore/plans/how-to-plan-a-peninsula-weekend/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-07/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-07/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "from": "/journal/how-to-plan-a-peninsula-weekend/",
+      "to": "/explore/plans/how-to-plan-a-peninsula-weekend/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "from": "/explore/best-walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/luxury-hotels-mornington-peninsula/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/luxury-hotels-mornington-peninsula/",
+      "from": "/journal/where-to-stay-mornington-peninsula/",
+      "to": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/peninsula-hot-springs-vs-alba/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/journal/peninsula-hot-springs-vs-alba/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/peninsula-hot-springs-vs-alba/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "from": "/journal/peninsula-this-weekend-jun-13/",
+      "to": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "from": "/journal/peninsula-this-weekend-jun-13/",
+      "to": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "from": "/journal/peninsula-this-weekend-jun-27/",
+      "to": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/point-nepean-national-park-guide/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/point-nepean-national-park-guide/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/practical-spring-visit-national-works-on-paper/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/quealy-winemakers-balnarring/",
+      "from": "/journal/peninsula-this-weekend-april-26/",
+      "to": "/whats-on/this-weekend/archive/2026-04-26/"
+    },
+    {
+      "source": "/journal/quealy-winemakers-balnarring/",
+      "from": "/journal/peninsula-this-weekend-jun-13/",
+      "to": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/quealy-winemakers-balnarring/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/rainy-day-peninsula/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/rainy-day-peninsula/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/rainy-day-peninsula/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "from": "/journal/peninsula-this-weekend-jun-13/",
+      "to": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/spring-school-holidays-2026/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/spring-school-holidays-2026/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/spring-school-holidays-2026/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/st-andrews-beach-golf-course/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/st-andrews-beach-golf-course/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/journal/st-andrews-beach-golf-course/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/journal/the-cellar-door-short-list/",
+      "from": "/journal/how-to-build-a-red-hill-saturday/",
+      "to": "/explore/plans/how-to-build-a-red-hill-saturday/"
+    },
+    {
+      "source": "/journal/the-cellar-door-short-list/",
+      "from": "/journal/the-producer-trail/",
+      "to": "/explore/plans/the-producer-trail/"
+    },
+    {
+      "source": "/journal/the-chardonnay-case/",
+      "from": "/eat/ten-minutes-by-tractor/",
+      "to": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/journal/the-peninsula-pantry/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/the-peninsula-pantry/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/the-pub-guide/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/the-pub-guide/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/the-pub-guide/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/the-seafood-list/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/the-sorrento-weekend/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/the-sorrento-weekend/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/the-spring-peninsula/",
+      "from": "/journal/the-dog-friendly-peninsula/",
+      "to": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/the-sunset-hour/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/two-bays-walk-mornington-peninsula/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/walks-bushrangers-bay-walk-guide/",
+      "from": "/journal/the-dog-friendly-peninsula/",
+      "to": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/walks-bushrangers-bay-walk-guide/",
+      "from": "/journal/walks-cape-schanck-hot-springs-day/",
+      "to": "/explore/plans/walks-cape-schanck-hot-springs-day/"
+    },
+    {
+      "source": "/journal/waterfront-restaurants-mornington-peninsula/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/waterfront-restaurants-mornington-peninsula/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/why-winter-works-on-the-peninsula/",
+      "from": "/journal/peninsula-this-weekend-jun-06/",
+      "to": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/map/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/map/",
+      "from": "/eat/two-bays-brewing/",
+      "to": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/map/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/map/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/map/",
+      "from": "/eat/mornington-peninsula-brewery/",
+      "to": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/map/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/red-hill-brewery/",
+      "to": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/bass-and-flinders/",
+      "to": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/eat/st-andrews-beach-brewery/",
+      "to": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/photography/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/where-to-stay-mornington-peninsula/",
+      "to": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/where-to-eat-mornington-peninsula/",
+      "to": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/weddings-mornington-peninsula-weekend-planning/",
+      "to": "/explore/plans/weddings-mornington-peninsula-weekend-planning/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/walks-cape-schanck-hot-springs-day/",
+      "to": "/explore/plans/walks-cape-schanck-hot-springs-day/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/things-to-do-mornington-peninsula/",
+      "to": "/explore/things-to-do/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-thermal-springs-weekend/",
+      "to": "/explore/plans/the-thermal-springs-weekend/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-school-holidays-survival-guide/",
+      "to": "/explore/plans/the-school-holidays-survival-guide/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "to": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-pub-crawl/",
+      "to": "/explore/plans/the-pub-crawl/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-producer-trail/",
+      "to": "/explore/plans/the-producer-trail/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-point-nepean-half-day/",
+      "to": "/explore/plans/the-point-nepean-half-day/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-peninsula-picnic/",
+      "to": "/explore/plans/the-peninsula-picnic/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-peninsula-orientation-drive/",
+      "to": "/explore/plans/the-peninsula-orientation-drive/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-peninsula-beach-swimming-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-one-night-escape/",
+      "to": "/explore/plans/the-one-night-escape/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-one-booking-peninsula-day/",
+      "to": "/explore/plans/the-one-booking-peninsula-day/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-market-saturday/",
+      "to": "/explore/plans/the-market-saturday/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-friday-night-arrival/",
+      "to": "/explore/plans/the-friday-night-arrival/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-four-hour-peninsula/",
+      "to": "/explore/plans/the-four-hour-peninsula/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-easter-peninsula/",
+      "to": "/explore/plans/the-easter-peninsula/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-dog-friendly-peninsula/",
+      "to": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-couples-weekend/",
+      "to": "/explore/plans/the-couples-weekend/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/the-birthday-weekend/",
+      "to": "/explore/plans/the-birthday-weekend/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-may-30/",
+      "to": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-may-23/",
+      "to": "/whats-on/this-weekend/archive/2026-05-17/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-may-16/",
+      "to": "/whats-on/this-weekend/archive/2026-05-11/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-may-03/",
+      "to": "/whats-on/this-weekend/archive/2026-05-03/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jun-27/",
+      "to": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jun-20/",
+      "to": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jun-13/",
+      "to": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jun-06/",
+      "to": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jul-18/",
+      "to": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jul-11/",
+      "to": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-jul-04/",
+      "to": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-april-26/",
+      "to": "/whats-on/this-weekend/archive/2026-04-26/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/peninsula-this-weekend-april-24/",
+      "to": "/whats-on/this-weekend/archive/2026-04-24/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/one-more-hour-after-five-peninsula/",
+      "to": "/explore/plans/one-more-hour-after-five-peninsula/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/mornington-peninsula-stay-and-soak/",
+      "to": "/explore/plans/mornington-peninsula-stay-and-soak/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/mornington-peninsula-golf-stay-and-play/",
+      "to": "/explore/plans/mornington-peninsula-golf-stay-and-play/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/mornington-peninsula-golf-guide/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/mornington-peninsula-beach-guide/",
+      "to": "/explore/beaches/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/mornington-day-guide/",
+      "to": "/explore/plans/mornington-day-guide/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/how-to-plan-a-peninsula-weekend/",
+      "to": "/explore/plans/how-to-plan-a-peninsula-weekend/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/how-to-build-a-red-hill-saturday/",
+      "to": "/explore/plans/how-to-build-a-red-hill-saturday/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/corporate-events-how-to-plan-peninsula-retreat/",
+      "to": "/explore/plans/corporate-events-how-to-plan-peninsula-retreat/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/best-spas-mornington-peninsula/",
+      "to": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/journal/best-golf-courses-mornington-peninsula/",
+      "to": "/explore/golf/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/explore/bushrangers-bay/",
+      "to": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/morning-sun/",
+      "to": "/wine/morning-sun/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/moorooduc-estate/",
+      "to": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/montalto/",
+      "to": "/wine/montalto/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/merricks-estate/",
+      "to": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/main-ridge-estate/",
+      "to": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/lightfoot-wines/",
+      "to": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/kooyong/",
+      "to": "/wine/kooyong/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/hurley-vineyard/",
+      "to": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/foxeys-hangout/",
+      "to": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/eldridge-estate/",
+      "to": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/elan-vineyard/",
+      "to": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/dromana-estate/",
+      "to": "/wine/dromana-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/crittenden-estate/",
+      "to": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/barmah-park-vineyard/",
+      "to": "/eat/barmah-park/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/baillieu-vineyard/",
+      "to": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/site-index/",
+      "from": "/eat/avani-wines/",
+      "to": "/wine/avani-wines/"
+    },
+    {
+      "source": "/walks/easy-walks-mornington-peninsula/",
+      "from": "/walks/",
+      "to": "/explore/walks/"
+    },
+    {
+      "source": "/weddings/",
+      "from": "/journal/weddings-mornington-peninsula-weekend-planning/",
+      "to": "/explore/plans/weddings-mornington-peninsula-weekend-planning/"
+    },
+    {
+      "source": "/weddings/",
+      "from": "/journal/weddings-mornington-peninsula-weekend-planning/",
+      "to": "/explore/plans/weddings-mornington-peninsula-weekend-planning/"
+    },
+    {
+      "source": "/whats-on/jetty-road-brewery-mothers-day-2026/",
+      "from": "/eat/jetty-road-brewery/",
+      "to": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/wine/",
+      "from": "/journal/how-to-build-a-red-hill-saturday/",
+      "to": "/explore/plans/how-to-build-a-red-hill-saturday/"
+    },
+    {
+      "source": "/wine/st-andrews-beach-brewery/",
+      "from": "/journal/the-peninsula-with-kids/",
+      "to": "/journal/mornington-peninsula-with-kids/"
+    }
+  ]
+}
