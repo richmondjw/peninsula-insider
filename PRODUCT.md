@@ -57,6 +57,8 @@ Every published Journal article has an associated image. Image-bearing Journal c
 
 ## Editorial Illustration Rules
 
+New and updated image metadata follows [the image caption standard](docs/IMAGE-CAPTION-STANDARD.md). Shared caption rendering and the content/build admission checks keep descriptions useful, attribution intact and unresolved identities in editorial review.
+
 Coastal Punch is the approved default for conceptual editorial illustrations, including generative heroes and fallback artwork. Read [the canonical illustration rules](docs/COASTAL-PUNCH-ILLUSTRATIONS.md) before design work. They define the fresh coastal palette, simplified exaggerated forms, separate generations per placement, 100-point rubric, truthful captions/rights and desktop/mobile acceptance checks.
 
 This approved illustration palette is scoped to artwork and necessary overlay styling. Preserve the existing site structure, typography, controls and factual venue photography. Older muted illustration guidance does not override this approval. Responsive source resolution must account for the entire cover crop and device pixel ratio, including tall planning heroes.

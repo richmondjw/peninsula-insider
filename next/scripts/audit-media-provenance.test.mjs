@@ -310,6 +310,20 @@ test('noProvenanceAtAll counts records that say nothing, and is never gated', as
 
 // ── disclosure, unchanged behaviour that the new fields must not break ────
 
+test('a consolidated caption counts only when its description and context formatter are wired', async () => {
+  const image = { src: '/images/context.webp', alt: 'Recorded context', credit: 'Photographer', depictionStatus: 'illustrative', license: 'wikimedia-cc0' };
+  const surfaces = {
+    'src/pages/whats-on/[slug].astro': '<EventImageCredit image={x} />',
+    'src/components/EventCard.astro': '<EventImageCredit image={x} />',
+    'src/components/EventImageCredit.astro': 'const description = imageCaption(image); image.credit; <span>{description}</span>',
+    'src/lib/image-presentation.mjs': "export function imageCaption() { return 'Context photograph'; }",
+  };
+  const valid = await audit({records:{'events/a.json':{heroImage:image}},surfaces});
+  assert.equal(valid.code, 0);
+  const broken = await audit({records:{'events/a.json':{heroImage:image}},surfaces:{...surfaces,'src/components/EventImageCredit.astro':'<span>Credit only</span>'}});
+  assert.notEqual(broken.code, 0);
+});
+
 test('an illustrative image on a collection with no disclosure surface fails', async () => {
   const { code, totals } = await audit({
     records: { 'tour-packages/a.json': { heroImage: image({ depictionStatus: 'illustrative' }) } },

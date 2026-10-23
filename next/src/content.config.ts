@@ -158,6 +158,7 @@ const imageRef = z.object({
   // Absence of a recorded licence reads as `unknown`, never as a grant.
   license: imageLicense.default('unknown'),
   caption: z.string().optional(),
+  imageKind: z.enum(['photograph', 'illustration']).optional(),
   /** Optional responsive derivatives of the same verified photograph. */
   responsive: z.object({
     srcset: z.string(),

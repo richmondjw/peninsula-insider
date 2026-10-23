@@ -33,7 +33,7 @@ jobs:
           # is unset. GITHUB_TOKEN pushes do NOT trigger other workflows, so
           # with the fallback a freshness commit needs a manual deploy dispatch.
           token: ${{ secrets.PAT_CONTENT_PUSH || github.token }}
-          fetch-depth: 1
+          fetch-depth: 2
 
       - name: Setup Python
         uses: actions/setup-python@v5
