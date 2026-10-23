@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-23T19:26:51.121Z",
-  "snapshotId": "6d7964f1386f24adea583e92395fd209cd6a8e7f708064aa84ebfa269229ac32",
+  "generatedAt": "2026-10-23T20:19:59.849Z",
+  "snapshotId": "091d0b9b0ff6065700b61ced52c08dda986192afb8448309b6861474e055b399",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 603,
+  "count": 604,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6009,6 +6009,23 @@
       "markdownBytes": 8269
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/",
+      "title": "Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/index.md",
+      "contentSha256": "2f02a59909bdcf3d7f8d99afecfa5e24d057048669b05dab6cb301464e7c9300",
+      "citation": {
+        "title": "Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/",
+        "publishedAt": "2026-10-24T00:00:00.000Z",
+        "modifiedAt": "2026-10-24T00:00:00.000Z"
+      },
+      "htmlBytes": 175054,
+      "markdownBytes": 8906
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6813,7 +6830,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "705faf5a0d5bd4df24370205bef8df34e0f6f9c58ac10fcf2f86ee8e66b95100",
+      "contentSha256": "7d37b0cf542015e2181c1095131344e9e6c4b8026830c6582c663dac3e8f3435",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6821,8 +6838,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123502,
-      "markdownBytes": 5861
+      "htmlBytes": 123529,
+      "markdownBytes": 5884
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6847,7 +6864,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "ad4e058a4444e531e2d11015c594be8c671bc39d012563859f95c56a8cf824e9",
+      "contentSha256": "b73849bff0f4681d9429b2052ea3f6b86b05e548ed81bb5cc6190c4c0614d3c2",
       "citation": {
         "title": "Saturday 24 October 2026",
         "publisher": "Peninsula Insider",

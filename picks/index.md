@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/>) - Flinders Hotel's pub dining earns a spring Saturday booking, Bushrangers Bay track is in full coastal heath bloom, and the Emu Plains Market at Balnarring Reserve is quietly one of the Peninsula's best Saturday rituals.
+
 - [Flinders Sourdough, the Wirrbul Loop, and the Bloody Long Walk at Portsea](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/>) - A wood-fired Beach Bun in Flinders, the Wirrbul walking trail in full spring wattle, and Sunday's Bloody Long Walk starting from the Quarantine Station at Portsea.
 
 - [Foxeys Hangout, the Coastal Cliffs at Cape Schanck, and British Comedy Trivia in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/>) - Foxeys Hangout's biodynamic sparkling flight earns the afternoon, Cape Schanck's clifftop track is in full spring form, and The Pig & Whistle is running British Comedy Trivia tonight.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
 
 - [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
-
-- [Baillieu Vineyard, Cape Schanck Coastal Track, and Main Street Mornington Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/>) - Baillieu's Merricks Chardonnay at a cellar door most weekenders miss, the Cape Schanck coastal loop with spring wildflowers on the cliffs, and the Main Street Mornington Festival running free on Sunday.
 
 ## Planning a particular weekend?
 
