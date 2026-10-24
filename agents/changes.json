@@ -1,44 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T20:15:16.221Z",
+  "generatedAt": "2026-10-24T22:20:12.676Z",
   "baselineAvailable": true,
-  "fromSnapshot": "9e6359650680f1372b46966c5a6cac5a422880b0e3510b758263ed03b36a83fa",
-  "toSnapshot": "1c0caa93b664991b6b83cd764dfad904a33a5fe18a33a54845f38b3a0801efb3",
-  "previousGeneratedAt": "2026-10-24T19:19:55.927Z",
+  "fromSnapshot": "1c0caa93b664991b6b83cd764dfad904a33a5fe18a33a54845f38b3a0801efb3",
+  "toSnapshot": "ece790ae8015ad9e475b08f4906c20e040e4ddebc51fe287581472615c209d96",
+  "previousGeneratedAt": "2026-10-24T20:15:16.221Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
-      "contentSha256": "ef21a1d3338e7d5f2239a288f6134f5300da4d10cadca77019c85dd8dc745289",
-      "previousContentSha256": "f44fcde58992e9530c06cfe5fdf35cf5126fbf6b7fa7f61732c0f648393f83f4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/index.md",
-      "contentSha256": "b7e2c2bac95db33a1cc562b1f94ccc110d8437d718a96a7664b9dd7629d01528",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "094942e4c844c96439b68ab84877f65b3cf28718ce762b897220d9ad2f48f785",
-      "previousContentSha256": "7d37b0cf542015e2181c1095131344e9e6c4b8026830c6582c663dac3e8f3435"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "50dc2b32e88933f4558dab49dcfe62aad3bdd2698510c1045ddbe6b6b60bf4f1",
-      "previousContentSha256": "6aef27bbc08676c48dda00d072c7842a07651f20baddc22953a716e5ca159633"
+      "contentSha256": "c24a52b84dd0800b5d296f27ab79edd04d0eb987cf59ccb81bab01380b4d3dc1",
+      "previousContentSha256": "50dc2b32e88933f4558dab49dcfe62aad3bdd2698510c1045ddbe6b6b60bf4f1"
     }
   ]
 }
