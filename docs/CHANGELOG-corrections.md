@@ -65,4 +65,4 @@ Newest entries on top. Do not edit historical entries — append corrections to 
 - **Sources (read 24 October 2026):** https://www.redhillbrewery.com.au/celebrate-oktoberfest-german-beer-specials-2/ ; https://www.redhillbrewery.com.au/whats-on/ ; https://mmlsc.com.au/lifesaving/ ; https://www.police.vic.gov.au/beach-and-waterways-safety ; https://aseagle.com.au/faq/ ; https://www.commonfolkcoffee.com.au/pages/locations/mornington
 - **Lifecycle:** Dated historical wording ("advertised", full date and year), not a recurring or current-event promise. Retained as a dated planning record after the event; no undated promotion, invented recurrence or unattended expiry dependency. The itinerary schema has no temporary advisory field.
 - **Applied by:** Codex under James's explicit publication authorisation.
-- **Ledger ref:** family-day-out-20261024 (record after exact live verification).
+- **Ledger ref:** pi-family-day-out-correction-20261024; PR #688, source 8fcdad839ac0d614253487de7ebf35a07e94ff66, successful run 40045942386 and exact live verification on 24 October 2026.
