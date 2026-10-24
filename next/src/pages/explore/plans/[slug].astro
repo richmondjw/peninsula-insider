@@ -959,7 +959,7 @@ export const prerender = true;
             )}
 
             <dt>Stops</dt>
-            <dd>{data!.stops.length} sequenced stops</dd>
+            <dd>{slug === 'the-family-day-out' ? '3 main stops + optional coffee' : `${data!.stops.length} sequenced stops`}</dd>
           </dl>
 
           {effectiveStayHref ? (

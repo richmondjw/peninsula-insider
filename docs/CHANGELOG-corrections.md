@@ -57,3 +57,12 @@ Newest entries on top. Do not edit historical entries — append corrections to 
 - **Source:** Tranche 2 of the current-state implementation backlog (item 7).
 - **Applied by:** Remy
 - **Ledger ref:** _(n/a — bootstrap)_
+
+## 2026-10-24 - Family Day Out: Oktoberfest and beach planning
+- **Surface:** https://peninsulainsider.com.au/explore/plans/the-family-day-out/
+- **Class:** factual / date-specific clarification
+- **Change:** Added an explicitly dated 24 October 2026 Oktoberfest lunch disclosure (11 am–7 pm), with seating and family suitability unconfirmed. Made the beach stop shore-based unless a suitable flagged swimming area is operating; recorded the November regular patrol season and absence of a confirmed 24 October patrol. Retained three main anchors, optional coffee deadline, Eagle timing/operation caveats and all image rights records.
+- **Sources (read 24 October 2026):** https://www.redhillbrewery.com.au/celebrate-oktoberfest-german-beer-specials-2/ ; https://www.redhillbrewery.com.au/whats-on/ ; https://mmlsc.com.au/lifesaving/ ; https://www.police.vic.gov.au/beach-and-waterways-safety ; https://aseagle.com.au/faq/ ; https://www.commonfolkcoffee.com.au/pages/locations/mornington
+- **Lifecycle:** Dated historical wording ("advertised", full date and year), not a recurring or current-event promise. Retained as a dated planning record after the event; no undated promotion, invented recurrence or unattended expiry dependency. The itinerary schema has no temporary advisory field.
+- **Applied by:** Codex under James's explicit publication authorisation.
+- **Ledger ref:** family-day-out-20261024 (record after exact live verification).
