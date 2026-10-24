@@ -105,13 +105,13 @@ Insider Edit   4 min
 
 Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
 
-Service   7 min
+Insider Edit   4 min
 
-### [The Peninsula with Kids: A Day That Doesn't Punish Anyone](<https://peninsulainsider.com.au/journal/the-peninsula-with-kids/>)
+### [Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/>)
 
-10 April 2026
+25 October 2026
 
-A working plan for parents who want the region to feel like a holiday, not a logistics problem. One lookout, one lunch with a garden, one beach, one coffee on the way home.
+Jetty Road Brewery's rotating seasonals earn the afternoon, Arthurs Seat State Park is at peak wildflower density, and the National Works on Paper 2026 closes 22 November at Mornington Peninsula Regional Gallery.
 
 Planning guides
 

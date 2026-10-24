@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/>) - Jetty Road Brewery's rotating seasonals earn the afternoon, Arthurs Seat State Park is at peak wildflower density, and the National Works on Paper 2026 closes 22 November at Mornington Peninsula Regional Gallery.
+
 - [Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/>) - Flinders Hotel's pub dining earns a spring Saturday booking, Bushrangers Bay track is in full coastal heath bloom, and the Emu Plains Market at Balnarring Reserve is quietly one of the Peninsula's best Saturday rituals.
 
 - [Flinders Sourdough, the Wirrbul Loop, and the Bloody Long Walk at Portsea](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/>) - A wood-fired Beach Bun in Flinders, the Wirrbul walking trail in full spring wattle, and Sunday's Bloody Long Walk starting from the Quarantine Station at Portsea.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/>) - Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
 
 - [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
-
-- [Somers General on a Spring Sunday, the Bushrangers Bay Cliff Loop, and National Works on Paper at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/>) - A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 
 ## Planning a particular weekend?
 

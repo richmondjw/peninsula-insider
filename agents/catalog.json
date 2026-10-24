@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-24T19:19:55.927Z",
-  "snapshotId": "9e6359650680f1372b46966c5a6cac5a422880b0e3510b758263ed03b36a83fa",
+  "generatedAt": "2026-10-24T20:15:16.221Z",
+  "snapshotId": "1c0caa93b664991b6b83cd764dfad904a33a5fe18a33a54845f38b3a0801efb3",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 604,
+  "count": 605,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2104,7 +2104,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
-      "contentSha256": "f44fcde58992e9530c06cfe5fdf35cf5126fbf6b7fa7f61732c0f648393f83f4",
+      "contentSha256": "ef21a1d3338e7d5f2239a288f6134f5300da4d10cadca77019c85dd8dc745289",
       "citation": {
         "title": "Arthurs Seat",
         "publisher": "Peninsula Insider",
@@ -2112,8 +2112,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 195725,
-      "markdownBytes": 8880
+      "htmlBytes": 196010,
+      "markdownBytes": 8980
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/balnarring/",
@@ -6026,6 +6026,23 @@
       "markdownBytes": 8906
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+      "title": "Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/index.md",
+      "contentSha256": "b7e2c2bac95db33a1cc562b1f94ccc110d8437d718a96a7664b9dd7629d01528",
+      "citation": {
+        "title": "Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+        "publishedAt": "2026-10-25T00:00:00.000Z",
+        "modifiedAt": "2026-10-25T00:00:00.000Z"
+      },
+      "htmlBytes": 176005,
+      "markdownBytes": 9151
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6830,7 +6847,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "7d37b0cf542015e2181c1095131344e9e6c4b8026830c6582c663dac3e8f3435",
+      "contentSha256": "094942e4c844c96439b68ab84877f65b3cf28718ce762b897220d9ad2f48f785",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6838,8 +6855,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123529,
-      "markdownBytes": 5884
+      "htmlBytes": 123553,
+      "markdownBytes": 5900
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6864,7 +6881,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6aef27bbc08676c48dda00d072c7842a07651f20baddc22953a716e5ca159633",
+      "contentSha256": "50dc2b32e88933f4558dab49dcfe62aad3bdd2698510c1045ddbe6b6b60bf4f1",
       "citation": {
         "title": "Sunday 25 October 2026",
         "publisher": "Peninsula Insider",

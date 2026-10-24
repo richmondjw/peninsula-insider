@@ -1,28 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T19:19:55.927Z",
+  "generatedAt": "2026-10-24T20:15:16.221Z",
   "baselineAvailable": true,
-  "fromSnapshot": "3c3ab5db581a3ac6a8b8b3ee93d673c63eb567cc6c2cff37e766a93a5563b6e0",
-  "toSnapshot": "9e6359650680f1372b46966c5a6cac5a422880b0e3510b758263ed03b36a83fa",
-  "previousGeneratedAt": "2026-10-24T14:32:26.716Z",
+  "fromSnapshot": "9e6359650680f1372b46966c5a6cac5a422880b0e3510b758263ed03b36a83fa",
+  "toSnapshot": "1c0caa93b664991b6b83cd764dfad904a33a5fe18a33a54845f38b3a0801efb3",
+  "previousGeneratedAt": "2026-10-24T19:19:55.927Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/arthurs-seat/index.md",
+      "contentSha256": "ef21a1d3338e7d5f2239a288f6134f5300da4d10cadca77019c85dd8dc745289",
+      "previousContentSha256": "f44fcde58992e9530c06cfe5fdf35cf5126fbf6b7fa7f61732c0f648393f83f4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/index.md",
+      "contentSha256": "b7e2c2bac95db33a1cc562b1f94ccc110d8437d718a96a7664b9dd7629d01528",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "094942e4c844c96439b68ab84877f65b3cf28718ce762b897220d9ad2f48f785",
+      "previousContentSha256": "7d37b0cf542015e2181c1095131344e9e6c4b8026830c6582c663dac3e8f3435"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6aef27bbc08676c48dda00d072c7842a07651f20baddc22953a716e5ca159633",
-      "previousContentSha256": "ed752b5b0056edf80cb8d997b85dbeb5b1bce225829a18095a1ae7a3fe4b376a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "e7277434b22c7112d50981eda3f3d6efd2042678da19a6fbaf20fc5eacde0809",
-      "previousContentSha256": "4a08235306584d2457ed5ea1329bc05de4a1ae82f4772dcf6f73df293d864c57"
+      "contentSha256": "50dc2b32e88933f4558dab49dcfe62aad3bdd2698510c1045ddbe6b6b60bf4f1",
+      "previousContentSha256": "6aef27bbc08676c48dda00d072c7842a07651f20baddc22953a716e5ca159633"
     }
   ]
 }
