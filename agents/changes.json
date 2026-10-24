@@ -1,28 +1,68 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T04:18:21.405Z",
+  "generatedAt": "2026-10-24T14:32:26.716Z",
   "baselineAvailable": true,
-  "fromSnapshot": "040555955398a479fb005ead0fadeee656bc542df2ddfba0f079a414c3da97bc",
-  "toSnapshot": "bdf70da63ec2262c0966f2d78c5373ffc86b9eb508a8bc986b75c47088731378",
-  "previousGeneratedAt": "2026-10-24T00:47:34.790Z",
+  "fromSnapshot": "bdf70da63ec2262c0966f2d78c5373ffc86b9eb508a8bc986b75c47088731378",
+  "toSnapshot": "3c3ab5db581a3ac6a8b8b3ee93d673c63eb567cc6c2cff37e766a93a5563b6e0",
+  "previousGeneratedAt": "2026-10-24T04:18:21.405Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 7,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "9ea7d0ea6002bed18f51c2367fa286956d3262d968a618563f776a370dfa7bc9",
-      "previousContentSha256": "97486d4fb87310e4bc6420c8ca1010d1f8330af20b6f8e4bbe09486be0ee7b39"
+      "contentSha256": "181de0535fd48b645b4ddb6dfcc42aef5d77bd707103da20d8510e0e78fb8d5d",
+      "previousContentSha256": "9ea7d0ea6002bed18f51c2367fa286956d3262d968a618563f776a370dfa7bc9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "a4e0de2c94a93ffdf8c79ecc28c6897e959265fd1be49573f94cd0d5f18a6639",
+      "previousContentSha256": "5ae78d2c8093728c11b9010f0f291d06ed9a61e5d4ad2369f2132b292d54ac34"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "963da03f955c2669da875b6f84faaa7b252296af0020e09ff8fcbb0dd02b492c",
+      "previousContentSha256": "4b8f6596e97308df87ead25303b3248855872f1f607e5d1d05dd8b7a8b9d4da0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "6a67d73b88f2eba003fbbbc4749647d589b0ff9814c9da27f7b1dd61387388ec",
+      "previousContentSha256": "a01c331e2d64ba0e86b68d4bcbbbc7ede36b5b193b6f665997acf882c448068d"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "479f2d1305ffda58a6ca702e225e4a27ae2cfc1afdacccf01e0d5f4dbb38dcec",
-      "previousContentSha256": "834f230a185d6fee791ccd376cac2c0288e13a06fbbcf87de9975e76148d0c78"
+      "contentSha256": "ed752b5b0056edf80cb8d997b85dbeb5b1bce225829a18095a1ae7a3fe4b376a",
+      "previousContentSha256": "479f2d1305ffda58a6ca702e225e4a27ae2cfc1afdacccf01e0d5f4dbb38dcec"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "54cbfd0982501f268175d675dbc62350c6d896f5a89ec45937c9358a2adb0f7e",
+      "previousContentSha256": "359c5c9bbad617f0f042efcac79713353df26738afb5555917a51ed7f68a4d8d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
+      "contentSha256": "4a08235306584d2457ed5ea1329bc05de4a1ae82f4772dcf6f73df293d864c57",
+      "previousContentSha256": "f592900a65c84d81bdbd5e3106978a57f56b49b33851319af4a9aa529c9e4189"
     }
   ]
 }

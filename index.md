@@ -53,13 +53,13 @@ Swipe or scroll through the picks
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
 
-Peppers Moonah Links   Every Saturday
+Mt Eliza Village Precinct   Market
 
-Event details checked 3 Oct 2026. [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
+Event details checked 3 Oct 2026. [Check organiser](<https://www.mtelizafarmersmarket.com.au/>)
 
 - Illustrative image
 

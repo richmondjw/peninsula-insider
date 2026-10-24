@@ -704,17 +704,17 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 24 Oct
+- [Sun, 25 Oct
 
-### ✦ Acoustic Saturdays at Peppers Moonah Links
+### ✦ Mt Eliza Farmers Market
 
-Fingal
+Mount Eliza
 
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-- [Sat, 24 Oct
+- [Sun, 25 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
@@ -726,10 +726,10 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 - [Sun, 25 Oct
 
-### ✦ Mt Eliza Farmers Market
+### ✦ The Bloody Long Walk – Mornington Peninsula 2026
 
-Mount Eliza
+Portsea
 
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
+35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+ Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-24T04:18:21.405Z",
-  "snapshotId": "bdf70da63ec2262c0966f2d78c5373ffc86b9eb508a8bc986b75c47088731378",
+  "generatedAt": "2026-10-24T14:32:26.716Z",
+  "snapshotId": "3c3ab5db581a3ac6a8b8b3ee93d673c63eb567cc6c2cff37e766a93a5563b6e0",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "9ea7d0ea6002bed18f51c2367fa286956d3262d968a618563f776a370dfa7bc9",
+      "contentSha256": "181de0535fd48b645b4ddb6dfcc42aef5d77bd707103da20d8510e0e78fb8d5d",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 200889,
-      "markdownBytes": 9057
+      "htmlBytes": 200992,
+      "markdownBytes": 8943
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -2257,7 +2257,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
-      "contentSha256": "5ae78d2c8093728c11b9010f0f291d06ed9a61e5d4ad2369f2132b292d54ac34",
+      "contentSha256": "a4e0de2c94a93ffdf8c79ecc28c6897e959265fd1be49573f94cd0d5f18a6639",
       "citation": {
         "title": "Fingal",
         "publisher": "Peninsula Insider",
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "4b8f6596e97308df87ead25303b3248855872f1f607e5d1d05dd8b7a8b9d4da0",
+      "contentSha256": "963da03f955c2669da875b6f84faaa7b252296af0020e09ff8fcbb0dd02b492c",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "a01c331e2d64ba0e86b68d4bcbbbc7ede36b5b193b6f665997acf882c448068d",
+      "contentSha256": "6a67d73b88f2eba003fbbbc4749647d589b0ff9814c9da27f7b1dd61387388ec",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 247165,
-      "markdownBytes": 21881
+      "htmlBytes": 248130,
+      "markdownBytes": 21944
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -6860,20 +6860,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Saturday 24 October 2026",
+      "title": "Sunday 25 October 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "479f2d1305ffda58a6ca702e225e4a27ae2cfc1afdacccf01e0d5f4dbb38dcec",
+      "contentSha256": "ed752b5b0056edf80cb8d997b85dbeb5b1bce225829a18095a1ae7a3fe4b376a",
       "citation": {
-        "title": "Saturday 24 October 2026",
+        "title": "Sunday 25 October 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 114120,
-      "markdownBytes": 982
+      "htmlBytes": 114112,
+      "markdownBytes": 980
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -8700,16 +8700,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "359c5c9bbad617f0f042efcac79713353df26738afb5555917a51ed7f68a4d8d",
+      "contentSha256": "54cbfd0982501f268175d675dbc62350c6d896f5a89ec45937c9358a2adb0f7e",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-24"
+        "modifiedAt": "2026-10-25"
       },
-      "htmlBytes": 189547,
-      "markdownBytes": 8122
+      "htmlBytes": 183102,
+      "markdownBytes": 7496
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8717,7 +8717,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "f592900a65c84d81bdbd5e3106978a57f56b49b33851319af4a9aa529c9e4189",
+      "contentSha256": "4a08235306584d2457ed5ea1329bc05de4a1ae82f4772dcf6f73df293d864c57",
       "citation": {
         "title": "Acoustic Saturdays at Peppers Moonah Links",
         "publisher": "Peninsula Insider",
@@ -8725,8 +8725,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142303,
-      "markdownBytes": 4220
+      "htmlBytes": 140752,
+      "markdownBytes": 3534
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
