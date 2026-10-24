@@ -95,16 +95,6 @@ Plan it
 
 Featured plan
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
-
-Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
-
-3 days   Red Hill & Merricks   Couples
-
-Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
-
 Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
 ### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
@@ -114,6 +104,16 @@ A shorter escape with one village base, two coastal walks and time set aside for
 2 days   Flinders & the Ocean Coast   Couples
 
 Check the stay and restaurant service times first, then fit the walks around your reservations.
+
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
+
+3 days   Red Hill & Merricks   Couples
+
+Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
 Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 

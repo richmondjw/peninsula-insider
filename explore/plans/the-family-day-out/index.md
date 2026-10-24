@@ -59,7 +59,7 @@ Flexible budget
 
 **Stops**
 
-4 sequenced stops
+3 main stops + optional coffee
 
 [Follow the route →](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/#day-by-day>)
 
@@ -77,13 +77,13 @@ Start with a return gondola ride, about 15 minutes each way, and pause at the su
 
 ### [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>)
 
-The deck and beer garden make this a relaxed family lunch. The bar and kitchen are usually open Thursday to Sunday, with food from midday; menus vary, so check today's service before setting out.
+The bar and kitchen are usually open Thursday to Sunday, with food from midday; menus vary, so check your chosen day's service before setting out. Date-specific note for Saturday 24 October 2026: the brewery advertised Oktoberfest from 11 am to 7 pm, overlapping this lunch stop. Seating availability and suitability for your family are unconfirmed; check with the brewery before making it your lunch plan.
 
 - Afternoon
 
 ### [Mount Martha Beach](<https://peninsulainsider.com.au/explore/mount-martha-beach/>)
 
-Make the beach the afternoon pause. Choose whether to swim after checking the day's conditions, and supervise children near the water.
+Make the beach a shore-based afternoon pause. Only consider swimming if a suitable swimming area is operating between red and yellow flags and conditions suit your group; otherwise stay on shore. Supervise children near the water. Mount Martha's regular patrol season starts in November; at our 24 October 2026 check, PI had not confirmed a patrol for that day.
 
 - Afternoon
 

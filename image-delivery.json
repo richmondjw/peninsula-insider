@@ -8979,6 +8979,31 @@
       ]
     },
     {
+      "source": "/images/visit-victoria/vv-161976-cape-schanck-lighthouse.webp",
+      "format": "avif",
+      "originalBytes": 127032,
+      "variants": [
+        {
+          "src": "/_media/bb346c9d4b45f1fcdabb-480.avif",
+          "width": 480,
+          "height": 269,
+          "bytes": 14986
+        },
+        {
+          "src": "/_media/bb346c9d4b45f1fcdabb-800.avif",
+          "width": 800,
+          "height": 448,
+          "bytes": 33847
+        },
+        {
+          "src": "/_media/bb346c9d4b45f1fcdabb-1280.avif",
+          "width": 1280,
+          "height": 717,
+          "bytes": 101843
+        }
+      ]
+    },
+    {
       "source": "/images/visit-victoria/vv-160356-montalto.webp",
       "format": "avif",
       "originalBytes": 418692,
@@ -9006,31 +9031,6 @@
           "width": 1920,
           "height": 1281,
           "bytes": 225687
-        }
-      ]
-    },
-    {
-      "source": "/images/visit-victoria/vv-161976-cape-schanck-lighthouse.webp",
-      "format": "avif",
-      "originalBytes": 127032,
-      "variants": [
-        {
-          "src": "/_media/bb346c9d4b45f1fcdabb-480.avif",
-          "width": 480,
-          "height": 269,
-          "bytes": 14986
-        },
-        {
-          "src": "/_media/bb346c9d4b45f1fcdabb-800.avif",
-          "width": 800,
-          "height": 448,
-          "bytes": 33847
-        },
-        {
-          "src": "/_media/bb346c9d4b45f1fcdabb-1280.avif",
-          "width": 1280,
-          "height": 717,
-          "bytes": 101843
         }
       ]
     },
