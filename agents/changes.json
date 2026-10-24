@@ -1,36 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T00:47:34.790Z",
+  "generatedAt": "2026-10-24T04:18:21.405Z",
   "baselineAvailable": true,
-  "fromSnapshot": "c2db2c188b86e6ae27437a8d4f97bf2b86a035bb01599a4e8e81aae61b3ef9f2",
-  "toSnapshot": "040555955398a479fb005ead0fadeee656bc542df2ddfba0f079a414c3da97bc",
-  "previousGeneratedAt": "2026-10-23T22:23:56.579Z",
+  "fromSnapshot": "040555955398a479fb005ead0fadeee656bc542df2ddfba0f079a414c3da97bc",
+  "toSnapshot": "bdf70da63ec2262c0966f2d78c5373ffc86b9eb508a8bc986b75c47088731378",
+  "previousGeneratedAt": "2026-10-24T00:47:34.790Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 2,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "97486d4fb87310e4bc6420c8ca1010d1f8330af20b6f8e4bbe09486be0ee7b39",
-      "previousContentSha256": "1c12eaa1e1e77e4e90381060bffa4e1449c86c6edf9b3cb3d0848a10904bb302"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/index.md",
-      "contentSha256": "5a2b83f164f09ebf7739f03a781943eaa29aee2b5cfea8a50b9ffdacdcfd7b3e",
-      "previousContentSha256": "f2d1e3bab1ad6e61c3bf578e3e23204db3fcb811985ce6ca0797f793f581ca37"
+      "contentSha256": "9ea7d0ea6002bed18f51c2367fa286956d3262d968a618563f776a370dfa7bc9",
+      "previousContentSha256": "97486d4fb87310e4bc6420c8ca1010d1f8330af20b6f8e4bbe09486be0ee7b39"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "834f230a185d6fee791ccd376cac2c0288e13a06fbbcf87de9975e76148d0c78",
-      "previousContentSha256": "3e1b96ffaa185bee5bf1ed984551b1d8b7e8aaaa630eb0967ce0607fd6e7c73d"
+      "contentSha256": "479f2d1305ffda58a6ca702e225e4a27ae2cfc1afdacccf01e0d5f4dbb38dcec",
+      "previousContentSha256": "834f230a185d6fee791ccd376cac2c0288e13a06fbbcf87de9975e76148d0c78"
     }
   ]
 }
