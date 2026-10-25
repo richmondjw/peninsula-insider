@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend   Fri 23 – Sun 25 October
+Peninsula This Weekend   Fri 30 October – Sun 1 November
 
 # What’s on this weekend
 
-3 source-checked events for Fri 23 – Sun 25 October. Confirm details with the organiser before travelling.
+3 source-checked events for Fri 30 October – Sun 1 November. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -25,9 +25,19 @@ Date confirmed · Exhibitions
 
 Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am–4pm.
 
-Friday 23 October   11am–4pm   Mornington   Checked 8 Oct 2026
+Friday 30 October   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+Date confirmed · Food & Wine
+
+### [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
+
+Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music and food. This is an adults-only, ticketed event.
+
+Friday 30 October   6pm–8pm   Hastings   Checked 10 Oct 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>) [Check organiser details](<https://www.eventbrite.com.au/e/wine-lovers-warehouse-wine-and-cheese-night-hastings-tickets-2002007929610>)
 
 Date confirmed · Live Music
 
@@ -35,19 +45,9 @@ Date confirmed · Live Music
 
 After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
 
-Saturday 24 October   5pm–8pm   Fingal   Checked 3 Oct 2026
+Saturday 31 October   5pm–8pm   Fingal   Checked 3 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
-
-Date confirmed · Markets
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
-
-Sunday 25 October   9am–1pm   Mount Eliza   Checked 3 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>) [Check organiser details](<https://www.mtelizafarmersmarket.com.au/>)
 
 Choose your own timing
 

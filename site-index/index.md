@@ -469,8 +469,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-- [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
-
 - [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
 - [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)

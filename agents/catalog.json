@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-25T08:20:53.123Z",
-  "snapshotId": "249a2617cd96aab25495a57bb92cb0f0a858bd4639ec6d4435e7793c86d555d4",
+  "generatedAt": "2026-10-25T14:32:47.872Z",
+  "snapshotId": "05847eeeb85b377b7a6e03ed1e17374f98e3b5649797bb3f9bfbeaaf9efd7bb3",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 605,
+  "count": 604,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "1e70f5b98810874963a81916f38e1a6373047572c7c5ae60a6e7e4283d5ed935",
+      "contentSha256": "88a7bc8cf11f29226078d54544b8476f4a4062c32344e5a3136f510da75d9e32",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181372,
-      "markdownBytes": 7854
+      "htmlBytes": 192099,
+      "markdownBytes": 8546
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 199560,
+      "htmlBytes": 196333,
       "markdownBytes": 811
     },
     {
@@ -2495,7 +2495,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "ae606f8dfc7423646814c8427694e44a10faf72702a859342c4e89ef14f1f84b",
+      "contentSha256": "f43186c911dbe25f12544a0286fd206e71163303191cf7a0949a01181cb87623",
       "citation": {
         "title": "Portsea",
         "publisher": "Peninsula Insider",
@@ -2503,8 +2503,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 219683,
-      "markdownBytes": 13597
+      "htmlBytes": 213508,
+      "markdownBytes": 13100
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "c552dc19c808d78c15de02d9aed712c19d356844e222b98aabb4ee6f28bd0e7c",
+      "contentSha256": "2d245bf103a73a28a25c2e9f21b0e25647ded509a582ad7d36f679220ba743d3",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 248466,
-      "markdownBytes": 22012
+      "htmlBytes": 247597,
+      "markdownBytes": 22089
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -6877,13 +6877,13 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Sunday 25 October 2026",
+      "title": "Monday 26 October 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "8c9f98161e0b6cb57d2ee16b46edbb373e301f9ef9be5e2385625c91e7c9fe49",
+      "contentSha256": "e7c02367333a3cae96812d63365e7ad82d7bdb08a09e6ff614156d0a7f626322",
       "citation": {
-        "title": "Sunday 25 October 2026",
+        "title": "Monday 26 October 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
@@ -6898,7 +6898,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "8719ac88a3da42406c6e045e558c6ba23161add041a14a0350759dd15161c915",
+      "contentSha256": "55d92482356a9b001b844e191cf4ad30fcd5d7d8aad1ea5f37d673fab9ad05f0",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -6906,8 +6906,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134469,
-      "markdownBytes": 26944
+      "htmlBytes": 134338,
+      "markdownBytes": 26796
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8717,16 +8717,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "56aed29e0e08dfbc37cb90adf9428f7b86833ee10fcad5c5080cc745f8f04de3",
+      "contentSha256": "397fd9cc28877af5265c68b6c1b49e5f2396642f8f5cadb00635344a64c28b05",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-25"
+        "modifiedAt": "2026-10-26"
       },
-      "htmlBytes": 172162,
-      "markdownBytes": 6301
+      "htmlBytes": 184370,
+      "markdownBytes": 7969
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8785,7 +8785,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "8402c32fc132ac8f65812fd03e3ee1055e3ffbcb9a74b2f11df9cb1820455688",
+      "contentSha256": "9c50e6fea495562c0a2bf3887fad08d80ba0e9ca1cf7b8da57ae74321741cf92",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -8793,8 +8793,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157018,
-      "markdownBytes": 5930
+      "htmlBytes": 151872,
+      "markdownBytes": 5124
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -8819,7 +8819,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "04d1ae95a757a7385ede954bcbe14dffbacedb40226b88f93760da7983944710",
+      "contentSha256": "e0b56037cc7bfbbe7fa7e7981b73f7e3e4876bda62e3f99662b1fbd042574acb",
       "citation": {
         "title": "Events that justify the ninety-minute drive",
         "publisher": "Peninsula Insider",
@@ -8827,8 +8827,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 148336,
-      "markdownBytes": 4381
+      "htmlBytes": 145611,
+      "markdownBytes": 3925
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -9069,29 +9069,12 @@
       "markdownBytes": 4262
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "title": "The Bloody Long Walk – Mornington Peninsula 2026",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "aefb3f3f2e807899fc12605eee1e3d87a45eb3fe58b6321eae4742271b940204",
-      "citation": {
-        "title": "The Bloody Long Walk – Mornington Peninsula 2026",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 143025,
-      "markdownBytes": 4603
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "title": "What’s on this weekend",
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "8aa3470567c384541a7101784bcd10ead8c0ea6de002f51c164459c3dbd329c4",
+      "contentSha256": "82f752ceb3329bee9311003343d1d4b71a66aa406ac44ad81f301540befd2e3e",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -9099,8 +9082,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144258,
-      "markdownBytes": 5303
+      "htmlBytes": 144751,
+      "markdownBytes": 5510
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",

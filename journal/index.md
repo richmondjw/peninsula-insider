@@ -704,16 +704,6 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sun, 25 Oct
-
-### ✦ The Bloody Long Walk – Mornington Peninsula 2026
-
-Portsea
-
-35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
-
- Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
-
 - [Tue, 27 Oct
 
 ### ✦ National Works on Paper 2026 (NWOP)
@@ -733,3 +723,13 @@ Mornington
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+- [Fri, 30 Oct
+
+### ✦ Wine and Cheese Night at Wine Lovers Warehouse Hastings
+
+Hastings
+
+Wine Lovers Warehouse and Peninsula Cheese host a wine and cheese evening in Hastings on Friday 30 October, 6–8pm, with live music and food. This is an adults-only, ticketed event.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)

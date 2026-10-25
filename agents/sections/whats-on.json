@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-25T08:20:53.123Z",
-  "snapshotId": "249a2617cd96aab25495a57bb92cb0f0a858bd4639ec6d4435e7793c86d555d4",
+  "generatedAt": "2026-10-25T14:32:47.872Z",
+  "snapshotId": "05847eeeb85b377b7a6e03ed1e17374f98e3b5649797bb3f9bfbeaaf9efd7bb3",
   "section": "whats-on",
-  "count": 37,
+  "count": 36,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,16 +11,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "56aed29e0e08dfbc37cb90adf9428f7b86833ee10fcad5c5080cc745f8f04de3",
+      "contentSha256": "397fd9cc28877af5265c68b6c1b49e5f2396642f8f5cadb00635344a64c28b05",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-25"
+        "modifiedAt": "2026-10-26"
       },
-      "htmlBytes": 172162,
-      "markdownBytes": 6301
+      "htmlBytes": 184370,
+      "markdownBytes": 7969
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -79,7 +79,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "8402c32fc132ac8f65812fd03e3ee1055e3ffbcb9a74b2f11df9cb1820455688",
+      "contentSha256": "9c50e6fea495562c0a2bf3887fad08d80ba0e9ca1cf7b8da57ae74321741cf92",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -87,8 +87,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 157018,
-      "markdownBytes": 5930
+      "htmlBytes": 151872,
+      "markdownBytes": 5124
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -113,7 +113,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "04d1ae95a757a7385ede954bcbe14dffbacedb40226b88f93760da7983944710",
+      "contentSha256": "e0b56037cc7bfbbe7fa7e7981b73f7e3e4876bda62e3f99662b1fbd042574acb",
       "citation": {
         "title": "Events that justify the ninety-minute drive",
         "publisher": "Peninsula Insider",
@@ -121,8 +121,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 148336,
-      "markdownBytes": 4381
+      "htmlBytes": 145611,
+      "markdownBytes": 3925
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -363,29 +363,12 @@
       "markdownBytes": 4262
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "title": "The Bloody Long Walk – Mornington Peninsula 2026",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/index.md",
-      "contentSha256": "aefb3f3f2e807899fc12605eee1e3d87a45eb3fe58b6321eae4742271b940204",
-      "citation": {
-        "title": "The Bloody Long Walk – Mornington Peninsula 2026",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 143025,
-      "markdownBytes": 4603
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "title": "What’s on this weekend",
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "8aa3470567c384541a7101784bcd10ead8c0ea6de002f51c164459c3dbd329c4",
+      "contentSha256": "82f752ceb3329bee9311003343d1d4b71a66aa406ac44ad81f301540befd2e3e",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -393,8 +376,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144258,
-      "markdownBytes": 5303
+      "htmlBytes": 144751,
+      "markdownBytes": 5510
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",

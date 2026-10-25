@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-25
+Modified: 2026-10-26
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,7 +9,7 @@ The Peninsula, in motion   spring edition
 
 # What's on this weekend
 
-Fri 23 – Sun 25 October  · Mornington Peninsula
+Fri 30 October – Sun 1 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
@@ -19,19 +19,81 @@ Illustration: Peninsula Insider.
 
 Conceptual coastal illustration. Illustration: Peninsula Insider.
 
+The short list / Fri 30 October – Sun 1 November
+
+## Three reasons to go
+
+Our edit of the weekend. Open an event for the details, then confirm with its organiser.
+
+More picks to the right
+
+- Sat, 31 Oct · 5pm–8pm · Fingal
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 31 Oct   Fingal   Live Music
+
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Fri, 30 Oct   Mornington   Exhibitions
+
+- ### [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
+
+A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
+
+Fri, 30 Oct   Hastings   Food & Wine
+
+Our edit of the weekend. Open an event for the details, then confirm with its organiser.
+
+ [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
+
 Make a day of it
 
 ## Everything on, by day
 
 Browse by date and save what catches your eye.
 
-### Sunday 25 October
+### Friday 30 October
 
-- [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-If you're going to walk 35km, do it where the coast pays you back.
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Portsea · Racing & Sport · One-day event
+11am · Mornington · Exhibitions · Recurring weekly
+
+- [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
+
+A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
+
+6pm · Hastings · Food & Wine · One-day event
+
+### Saturday 31 October
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music · Recurring weekly
+
+### Sunday 1 November
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
 
 Choose your own timing
 
@@ -93,33 +155,13 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 ### Live music
 
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-5pm · Fingal · Live Music
-
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
 A participatory carols evening for groups rather than a background music dinner. Choose a Thursday and check Humanitix for current ticket terms.
 
 6pm · Main Ridge · Live Music
 
-### Food & wine
-
-- [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
-
-A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
-
-6pm · Hastings · Food & Wine
-
 ### Openings
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
@@ -134,12 +176,6 @@ A useful way into the National Works on Paper exhibition if you want to understa
 The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
 
 11am · Mount Martha · Festivals
-
-- [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
-
-If you're going to walk 35km, do it where the coast pays you back.
-
-Portsea · Racing & Sport
 
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 

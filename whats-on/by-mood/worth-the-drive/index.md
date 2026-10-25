@@ -63,16 +63,6 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Racing & Sport  25 Oct
-
-### [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
-
-[Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
-
-35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
-
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)

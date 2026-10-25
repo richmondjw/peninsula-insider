@@ -11,14 +11,6 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
 Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
@@ -54,16 +46,6 @@ Food & Wine   Check session dates
 An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-Racing & Sport  25 Oct
-
-### [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
-
-[Portsea](<https://peninsulainsider.com.au/explore/places/portsea/>)
-
-35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
 Illustration · Peninsula Insider
 
