@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-25T04:29:26.440Z",
-  "snapshotId": "0cc0777496667795521df139e4daeae99daed2dbd1969796c59d44e5d3cbbf03",
+  "generatedAt": "2026-10-25T07:48:37.340Z",
+  "snapshotId": "27f528493358e8942e6e55cc66207e00504c6630177b9728453e71517799e5a6",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "7f3e1a6b2c4f5ba0e8d777b0f81c446b4cb27b7da590ccca1fa9ec739d018cb5",
+      "contentSha256": "1e70f5b98810874963a81916f38e1a6373047572c7c5ae60a6e7e4283d5ed935",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 192925,
-      "markdownBytes": 8469
+      "htmlBytes": 181372,
+      "markdownBytes": 7854
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "963da03f955c2669da875b6f84faaa7b252296af0020e09ff8fcbb0dd02b492c",
+      "contentSha256": "7c99a352ae594869b975b5fe27a1097a8f66751d508a987a0ff67eae7233a280",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "3edb806adf674142575c64d2da488c7bab165579cbd1ace9a6365bc0307a725d",
+      "contentSha256": "c552dc19c808d78c15de02d9aed712c19d356844e222b98aabb4ee6f28bd0e7c",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -6881,7 +6881,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "5d55a4e8e1a7ce56eb6b6617c3ca87a5f39d3ee7cf3fc43a38d85d1aee70625c",
+      "contentSha256": "7a012cb7b6424b27c401b1a5a750d585058d0f7fe8f249e86f0bfba468b322cc",
       "citation": {
         "title": "Sunday 25 October 2026",
         "publisher": "Peninsula Insider",
@@ -8717,7 +8717,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "3d88ad8ab2b9dd543712c19d118acebe168ad1e4c21c0edc02b70829b86eef86",
+      "contentSha256": "56aed29e0e08dfbc37cb90adf9428f7b86833ee10fcad5c5080cc745f8f04de3",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -8725,8 +8725,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-10-25"
       },
-      "htmlBytes": 178334,
-      "markdownBytes": 7159
+      "htmlBytes": 172162,
+      "markdownBytes": 6301
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",

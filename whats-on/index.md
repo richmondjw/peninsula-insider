@@ -19,26 +19,6 @@ Illustration: Peninsula Insider.
 
 Conceptual coastal illustration. Illustration: Peninsula Insider.
 
-The short list / Fri 23 – Sun 25 October
-
-## A reason to go
-
-Our edit of the weekend. Open an event for the details, then confirm with its organiser.
-
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
-
-Sun, 25 Oct · 11am–4pm · Mornington
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Sun, 25 Oct   Mornington   Exhibitions
-
-Our edit of the weekend. Open an event for the details, then confirm with its organiser.
-
- [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
-
 Make a day of it
 
 ## Everything on, by day
@@ -52,12 +32,6 @@ Browse by date and save what catches your eye.
 If you're going to walk 35km, do it where the coast pays you back.
 
 Portsea · Racing & Sport · One-day event
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions · Recurring weekly
 
 Choose your own timing
 
@@ -140,6 +114,12 @@ A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and
 6pm · Hastings · Food & Wine
 
 ### Openings
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 

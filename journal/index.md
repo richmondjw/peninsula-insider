@@ -706,16 +706,6 @@ Current events, experiences and offers, alongside our stories.
 
 - [Sun, 25 Oct
 
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-- [Sun, 25 Oct
-
 ### ✦ The Bloody Long Walk – Mornington Peninsula 2026
 
 Portsea
@@ -723,6 +713,16 @@ Portsea
 35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
  Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+
+- [Tue, 27 Oct
+
+### ✦ National Works on Paper 2026 (NWOP)
+
+Mornington
+
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 - [Wed, 28 Oct
 
