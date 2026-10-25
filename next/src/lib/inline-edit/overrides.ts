@@ -17,7 +17,7 @@
  */
 
 import { createCmsAnonClient } from '../cms/server';
-import { imagePresentationText } from '../image-presentation.mjs';
+import { imagePresentationText, imageCaptionText } from '../image-presentation.mjs';
 import bakedImageOverrides from '../../data/cms-image-overrides.json';
 import imageQuarantine from '../../data/cms-image-quarantine.json';
 
@@ -144,7 +144,7 @@ async function fetchOverrides(
       image[row.field_path] = {
         src,
         alt: row.alt_text ? imagePresentationText(houseStyle(row.alt_text)) : row.alt_text,
-        caption: row.caption ? imagePresentationText(houseStyle(row.caption)) : row.caption,
+        caption: row.caption ? imageCaptionText(houseStyle(row.caption)) : row.caption,
         credit: row.credit ? imagePresentationText(houseStyle(row.credit)) : row.credit,
         storagePath: row.storage_path,
       };
@@ -170,7 +170,7 @@ function loadBakedImages(entityType: CmsEntityType, entitySlug: string): Record<
     image[fieldPath] = {
       src,
       alt: imagePresentationText(row.alt ?? null),
-      caption: imagePresentationText(row.caption ?? null),
+      caption: imageCaptionText(row.caption ?? null),
       credit: imagePresentationText(row.credit ?? null),
       storagePath: row.storagePath ?? null,
     };
