@@ -1,52 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T07:48:37.340Z",
+  "generatedAt": "2026-10-25T08:20:53.123Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0cc0777496667795521df139e4daeae99daed2dbd1969796c59d44e5d3cbbf03",
-  "toSnapshot": "27f528493358e8942e6e55cc66207e00504c6630177b9728453e71517799e5a6",
-  "previousGeneratedAt": "2026-10-25T04:29:26.440Z",
+  "fromSnapshot": "27f528493358e8942e6e55cc66207e00504c6630177b9728453e71517799e5a6",
+  "toSnapshot": "249a2617cd96aab25495a57bb92cb0f0a858bd4639ec6d4435e7793c86d555d4",
+  "previousGeneratedAt": "2026-10-25T07:48:37.340Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 5,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "1e70f5b98810874963a81916f38e1a6373047572c7c5ae60a6e7e4283d5ed935",
-      "previousContentSha256": "7f3e1a6b2c4f5ba0e8d777b0f81c446b4cb27b7da590ccca1fa9ec739d018cb5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "7c99a352ae594869b975b5fe27a1097a8f66751d508a987a0ff67eae7233a280",
-      "previousContentSha256": "963da03f955c2669da875b6f84faaa7b252296af0020e09ff8fcbb0dd02b492c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "c552dc19c808d78c15de02d9aed712c19d356844e222b98aabb4ee6f28bd0e7c",
-      "previousContentSha256": "3edb806adf674142575c64d2da488c7bab165579cbd1ace9a6365bc0307a725d"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "7a012cb7b6424b27c401b1a5a750d585058d0f7fe8f249e86f0bfba468b322cc",
-      "previousContentSha256": "5d55a4e8e1a7ce56eb6b6617c3ca87a5f39d3ee7cf3fc43a38d85d1aee70625c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "56aed29e0e08dfbc37cb90adf9428f7b86833ee10fcad5c5080cc745f8f04de3",
-      "previousContentSha256": "3d88ad8ab2b9dd543712c19d118acebe168ad1e4c21c0edc02b70829b86eef86"
+      "contentSha256": "8c9f98161e0b6cb57d2ee16b46edbb373e301f9ef9be5e2385625c91e7c9fe49",
+      "previousContentSha256": "7a012cb7b6424b27c401b1a5a750d585058d0f7fe8f249e86f0bfba468b322cc"
     }
   ]
 }
