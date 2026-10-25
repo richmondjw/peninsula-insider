@@ -44,12 +44,19 @@ async function snapshot(route, javascript) {
     const response = await page.goto(new URL(route, base).href, { waitUntil: 'networkidle2', timeout: 45000 });
     assert.equal(response.status(), 200, `${route} returns 200`);
     if (javascript) {
-      const slotResponse = await firstSlotResponse;
-      assert.ok(!slotResponse.error, `${route}: CMS media response did not arrive: ${slotResponse.error || ''}`);
-      const reads = await Promise.all(slotReads);
-      assert.ok(reads.length > 0, `${route}: CMS media request was observed`);
-      assert.ok(reads.every(read => read.status === 200 && Array.isArray(read.rows)), `${route}: CMS media request must succeed for live acceptance`);
-      report.cmsReads.push({ route, publishedRows: reads[0].rows.length, eventRows: reads[0].rows.filter(row => row.entity_type === 'event').length });
+      const remaining = await page.$$eval('[data-pi-entity-type="event"][data-pi-field-path]', elements => elements.length);
+      if (remaining) {
+        const slotResponse = await firstSlotResponse;
+        assert.ok(!slotResponse.error, `${route}: CMS media response did not arrive: ${slotResponse.error || ''}`);
+        const reads = await Promise.all(slotReads);
+        assert.ok(reads.length > 0, `${route}: CMS media request was observed`);
+        assert.ok(reads.every(read => read.status === 200 && Array.isArray(read.rows)), `${route}: CMS media request must succeed for live acceptance`);
+        report.cmsReads.push({ route, publishedRows: reads[0].rows.length, eventRows: reads[0].rows.filter(row => row.entity_type === 'event').length });
+      } else {
+        // A dated promotion may expire after the static build. With no event
+        // media left to hydrate, the page correctly makes no CMS slot read.
+        report.cmsReads.push({ route, skipped: 'no-visible-event-media' });
+      }
     }
     return await page.evaluate(() => [...document.querySelectorAll('[data-pi-entity-type="event"][data-pi-field-path]')].map(el => {
       const promotion = el.closest('[data-event-promotion]');

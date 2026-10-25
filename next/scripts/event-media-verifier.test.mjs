@@ -91,3 +91,45 @@ test('public media verifier permits expired promotion removal but protects curre
     assert.match(unsafe.report.error, /changed reviewed event media or attribution/);
   } finally { await new Promise(resolve => server.close(resolve)); }
 });
+
+test('public media verifier does not require a CMS read after the last promotion expires', async () => {
+  const entry = { id: 'expired', data: {
+    slug: 'expired', title: 'Expired fixture', status: 'published',
+    venueName: 'Fixture venue', suburb: 'Mornington', place: 'mornington',
+    startDate: '2026-10-10', endDate: '2026-10-10',
+    startTime: '10:00', endTime: '13:00',
+  } };
+  const server = createServer((req, res) => {
+    if (req.url === '/rest/v1/cms_image_slots') {
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.end(JSON.stringify([{ entity_type: 'event' }]));
+      return;
+    }
+    res.writeHead(200, { 'content-type': 'text/html' });
+    if (req.url === '/whats-on/') {
+      res.end(`<li data-event-promotion="${JSON.stringify(entry).replaceAll('"', '&quot;')}" data-event-promotion-day="2026-10-10">
+        <img data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="expired" src="/expired.webp" alt="Reviewed fixture">
+      </li><script>document.querySelector('[data-event-promotion]').remove();</script>`);
+    } else {
+      res.end(`<div data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="current"></div>
+        <script>fetch('/rest/v1/cms_image_slots').then(r => r.json());</script>`);
+    }
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    const child = spawn(process.execPath, [fileURLToPath(new URL('./verify-public-event-media.mjs', import.meta.url)), `--base-url=http://127.0.0.1:${server.address().port}`]);
+    let stdout = '', stderr = '';
+    child.stdout.on('data', chunk => stdout += chunk);
+    child.stderr.on('data', chunk => stderr += chunk);
+    const code = await new Promise((resolve, reject) => { child.on('error', reject); child.on('close', resolve); });
+    const report = JSON.parse(stdout);
+    assert.equal(code, 0, JSON.stringify({ report, stderr }));
+    assert.deepEqual(report.checks.find(check => check.route === '/whats-on/'), {
+      route: '/whats-on/', eventMediaSlots: 0, expiredPromotionSlots: 1, unchangedAfterScripts: true,
+    });
+    assert.deepEqual(report.cmsReads.find(read => read.route === '/whats-on/'), {
+      route: '/whats-on/', skipped: 'no-visible-event-media',
+    });
+    assert.equal(report.cmsReads.filter(read => read.publishedRows === 1).length, 3);
+  } finally { await new Promise(resolve => server.close(resolve)); }
+});
