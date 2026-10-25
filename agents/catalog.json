@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-25T19:24:22.496Z",
-  "snapshotId": "8fbc9783a31667f87a00fce6fdedae9c9dc8c56834133c21645448c89029adab",
+  "generatedAt": "2026-10-25T20:16:09.011Z",
+  "snapshotId": "6a5b546c8dc463c24e98f045a34dd8c69599d00043088ca46f07b1d673233dba",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 604,
+  "count": 605,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6043,6 +6043,23 @@
       "markdownBytes": 9151
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/",
+      "title": "Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/index.md",
+      "contentSha256": "ecc6334a168a44aea194aca1c2419f2e238a63355fab88cac5a37a725f7de982",
+      "citation": {
+        "title": "Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/",
+        "publishedAt": "2026-10-26T00:00:00.000Z",
+        "modifiedAt": "2026-10-26T00:00:00.000Z"
+      },
+      "htmlBytes": 176444,
+      "markdownBytes": 8891
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6847,7 +6864,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "094942e4c844c96439b68ab84877f65b3cf28718ce762b897220d9ad2f48f785",
+      "contentSha256": "8a4e14840f6fe0636fc7962c801f30bd0ad611a78f93926e134ab52b4ebd95fe",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6855,8 +6872,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123553,
-      "markdownBytes": 5900
+      "htmlBytes": 123678,
+      "markdownBytes": 6029
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6881,7 +6898,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "93e2256f981d39e464113c18bc2a8c45421d39f1e729403d9ba25d0b669d3cab",
+      "contentSha256": "08ad5efb6d032430b3f6189372a1a320252b1a9a7f7157daa15d484cf5b1e5a3",
       "citation": {
         "title": "Monday 26 October 2026",
         "publisher": "Peninsula Insider",

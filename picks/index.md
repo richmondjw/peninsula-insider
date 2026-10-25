@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/>) - Rare Hare at Willow Creek opens its Pinot Row terrace for spring, the Enchanted Adventure Garden's hedge maze hits peak season, and Emu Plains Market runs Saturdays at Balnarring Reserve through December.
+
 - [Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/>) - Jetty Road Brewery's rotating seasonals earn the afternoon, Arthurs Seat State Park is at peak wildflower density, and the National Works on Paper 2026 closes 22 November at Mornington Peninsula Regional Gallery.
 
 - [Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/>) - Flinders Hotel's pub dining earns a spring Saturday booking, Bushrangers Bay track is in full coastal heath bloom, and the Emu Plains Market at Balnarring Reserve is quietly one of the Peninsula's best Saturday rituals.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/>) - Barragunda Dining's estate set menu at Cape Schanck, the Breast Foot Forward coastal walk from Safety Beach on Saturday, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery.
 
 - [Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/>) - Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
-
-- [Portsea pub fish and chips and the Baldry's Creek loop](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/>) - The Portsea Hotel's Port Phillip views with fish and chips and a spring wildflower loop at Baldry's Creek Reserve.
 
 ## Planning a particular weekend?
 
