@@ -1,92 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-25T14:32:47.872Z",
+  "generatedAt": "2026-10-25T19:24:22.496Z",
   "baselineAvailable": true,
-  "fromSnapshot": "249a2617cd96aab25495a57bb92cb0f0a858bd4639ec6d4435e7793c86d555d4",
-  "toSnapshot": "05847eeeb85b377b7a6e03ed1e17374f98e3b5649797bb3f9bfbeaaf9efd7bb3",
-  "previousGeneratedAt": "2026-10-25T08:20:53.123Z",
+  "fromSnapshot": "05847eeeb85b377b7a6e03ed1e17374f98e3b5649797bb3f9bfbeaaf9efd7bb3",
+  "toSnapshot": "8fbc9783a31667f87a00fce6fdedae9c9dc8c56834133c21645448c89029adab",
+  "previousGeneratedAt": "2026-10-25T14:32:47.872Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 10,
+  "count": 2,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "88a7bc8cf11f29226078d54544b8476f4a4062c32344e5a3136f510da75d9e32",
-      "previousContentSha256": "1e70f5b98810874963a81916f38e1a6373047572c7c5ae60a6e7e4283d5ed935"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/portsea/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/portsea/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/portsea/index.md",
-      "contentSha256": "f43186c911dbe25f12544a0286fd206e71163303191cf7a0949a01181cb87623",
-      "previousContentSha256": "ae606f8dfc7423646814c8427694e44a10faf72702a859342c4e89ef14f1f84b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "2d245bf103a73a28a25c2e9f21b0e25647ded509a582ad7d36f679220ba743d3",
-      "previousContentSha256": "c552dc19c808d78c15de02d9aed712c19d356844e222b98aabb4ee6f28bd0e7c"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "e7c02367333a3cae96812d63365e7ad82d7bdb08a09e6ff614156d0a7f626322",
-      "previousContentSha256": "8c9f98161e0b6cb57d2ee16b46edbb373e301f9ef9be5e2385625c91e7c9fe49"
+      "contentSha256": "93e2256f981d39e464113c18bc2a8c45421d39f1e729403d9ba25d0b669d3cab",
+      "previousContentSha256": "e7c02367333a3cae96812d63365e7ad82d7bdb08a09e6ff614156d0a7f626322"
     },
     {
-      "id": "https://peninsulainsider.com.au/site-index/",
+      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "55d92482356a9b001b844e191cf4ad30fcd5d7d8aad1ea5f37d673fab9ad05f0",
-      "previousContentSha256": "8719ac88a3da42406c6e045e558c6ba23161add041a14a0350759dd15161c915"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "397fd9cc28877af5265c68b6c1b49e5f2396642f8f5cadb00635344a64c28b05",
-      "previousContentSha256": "56aed29e0e08dfbc37cb90adf9428f7b86833ee10fcad5c5080cc745f8f04de3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "9c50e6fea495562c0a2bf3887fad08d80ba0e9ca1cf7b8da57ae74321741cf92",
-      "previousContentSha256": "8402c32fc132ac8f65812fd03e3ee1055e3ffbcb9a74b2f11df9cb1820455688"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "e0b56037cc7bfbbe7fa7e7981b73f7e3e4876bda62e3f99662b1fbd042574acb",
-      "previousContentSha256": "04d1ae95a757a7385ede954bcbe14dffbacedb40226b88f93760da7983944710"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "82f752ceb3329bee9311003343d1d4b71a66aa406ac44ad81f301540befd2e3e",
-      "previousContentSha256": "8aa3470567c384541a7101784bcd10ead8c0ea6de002f51c164459c3dbd329c4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "aefb3f3f2e807899fc12605eee1e3d87a45eb3fe58b6321eae4742271b940204"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
+      "contentSha256": "38f0a3556af0ef7647e46f93fcd017c8dbd5d69da81192039e58d538df0d127e",
+      "previousContentSha256": "114501591eb44df079cff91e01d5872f94e213dc51cc78e710cdd8ca638180cc"
     }
   ]
 }
