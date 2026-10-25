@@ -21,23 +21,13 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 23 – Sun 25 October
 
-## Two reasons to go
+## A reason to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-More picks to the right
-
-- Photo: Peninsula Insider.
-
-Sun, 25 Oct · 9am–1pm · Mount Eliza
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-Sun, 25 Oct   Mount Eliza   Markets
-
 - Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Sun, 25 Oct · 11am–4pm · Mornington
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -56,12 +46,6 @@ Make a day of it
 Browse by date and save what catches your eye.
 
 ### Sunday 25 October
-
-- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
-
-9am · Mount Eliza · Markets · Recurring monthly
 
 - [The Bloody Long Walk – Mornington Peninsula 2026](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
 
@@ -114,6 +98,12 @@ Check dates and hours · Dromana · Food & Wine
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
 9am · Crib Point · Markets
+
+- [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+9am · Mount Eliza · Markets
 
 - [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 

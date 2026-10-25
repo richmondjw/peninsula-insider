@@ -1,20 +1,60 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-24T22:20:12.676Z",
+  "generatedAt": "2026-10-25T04:29:26.440Z",
   "baselineAvailable": true,
-  "fromSnapshot": "1c0caa93b664991b6b83cd764dfad904a33a5fe18a33a54845f38b3a0801efb3",
-  "toSnapshot": "ece790ae8015ad9e475b08f4906c20e040e4ddebc51fe287581472615c209d96",
-  "previousGeneratedAt": "2026-10-24T20:15:16.221Z",
+  "fromSnapshot": "ece790ae8015ad9e475b08f4906c20e040e4ddebc51fe287581472615c209d96",
+  "toSnapshot": "0cc0777496667795521df139e4daeae99daed2dbd1969796c59d44e5d3cbbf03",
+  "previousGeneratedAt": "2026-10-24T22:20:12.676Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 6,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "7f3e1a6b2c4f5ba0e8d777b0f81c446b4cb27b7da590ccca1fa9ec739d018cb5",
+      "previousContentSha256": "181de0535fd48b645b4ddb6dfcc42aef5d77bd707103da20d8510e0e78fb8d5d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-eliza/index.md",
+      "contentSha256": "0cce561c0608c634c1207afc234d2c35f6eec3d67004fd486edfb0611d3535d4",
+      "previousContentSha256": "60f0f66067a3b57f3824619daa2b64e6cdd8dc525c41b090f7c17387a2be153a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "3edb806adf674142575c64d2da488c7bab165579cbd1ace9a6365bc0307a725d",
+      "previousContentSha256": "6a67d73b88f2eba003fbbbc4749647d589b0ff9814c9da27f7b1dd61387388ec"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "c24a52b84dd0800b5d296f27ab79edd04d0eb987cf59ccb81bab01380b4d3dc1",
-      "previousContentSha256": "50dc2b32e88933f4558dab49dcfe62aad3bdd2698510c1045ddbe6b6b60bf4f1"
+      "contentSha256": "5d55a4e8e1a7ce56eb6b6617c3ca87a5f39d3ee7cf3fc43a38d85d1aee70625c",
+      "previousContentSha256": "c24a52b84dd0800b5d296f27ab79edd04d0eb987cf59ccb81bab01380b4d3dc1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "3d88ad8ab2b9dd543712c19d118acebe168ad1e4c21c0edc02b70829b86eef86",
+      "previousContentSha256": "54cbfd0982501f268175d675dbc62350c6d896f5a89ec45937c9358a2adb0f7e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
+      "contentSha256": "114501591eb44df079cff91e01d5872f94e213dc51cc78e710cdd8ca638180cc",
+      "previousContentSha256": "f9edbd6fc4d31b9ea41193952ceaea7ada984d7ef4b258915d48c6bfaeaf3f70"
     }
   ]
 }

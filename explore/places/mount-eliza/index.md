@@ -189,7 +189,7 @@ Coming up in Mount Eliza, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sun, 25 Oct
+- [Sun, 22 Nov
 
 ### ✦ Mt Eliza Farmers Market
 

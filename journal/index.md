@@ -706,16 +706,6 @@ Current events, experiences and offers, alongside our stories.
 
 - [Sun, 25 Oct
 
-### ✦ Mt Eliza Farmers Market
-
-Mount Eliza
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-- [Sun, 25 Oct
-
 ### ✦ National Works on Paper 2026 (NWOP)
 
 Mornington
@@ -733,3 +723,13 @@ Portsea
 35km charity walk from Point Nepean Quarantine Station to Martha Cove Marina for the Mito Foundation. Walk, jog or run.
 
  Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/the-bloody-long-walk-mornington-peninsula-2026/>)
+
+- [Wed, 28 Oct
+
+### ✦ Mornington Wednesday Market (Main Street Market)
+
+Mornington
+
+Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
