@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { mkdir, writeFile } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import puppeteer from 'puppeteer';
+import { selectEventPromotions } from '../src/lib/event-discovery.mjs';
 
 const options = Object.fromEntries(process.argv.slice(2).map(arg => {
   const [key, ...parts] = arg.replace(/^--/, '').split('=');
@@ -50,15 +51,34 @@ async function snapshot(route, javascript) {
       assert.ok(reads.every(read => read.status === 200 && Array.isArray(read.rows)), `${route}: CMS media request must succeed for live acceptance`);
       report.cmsReads.push({ route, publishedRows: reads[0].rows.length, eventRows: reads[0].rows.filter(row => row.entity_type === 'event').length });
     }
-    return await page.evaluate(() => [...document.querySelectorAll('[data-pi-entity-type="event"][data-pi-field-path]')].map(el => ({
-      slug: el.dataset.piEntitySlug,
-      field: el.dataset.piFieldPath,
-      src: el.getAttribute('src'),
-      background: el.style.backgroundImage,
-      alt: el.getAttribute('alt'),
-      note: el.closest('.pi-card, .event-card, figure')?.querySelector('.pi-card__image-note, figcaption, .event-image-credit')?.textContent ?? '',
-    })));
+    return await page.evaluate(() => [...document.querySelectorAll('[data-pi-entity-type="event"][data-pi-field-path]')].map(el => {
+      const promotion = el.closest('[data-event-promotion]');
+      return {
+        slug: el.dataset.piEntitySlug,
+        field: el.dataset.piFieldPath,
+        src: el.getAttribute('src'),
+        background: el.style.backgroundImage,
+        alt: el.getAttribute('alt'),
+        note: el.closest('.pi-card, .event-card, figure')?.querySelector('.pi-card__image-note, figcaption, .event-image-credit')?.textContent ?? '',
+        promotion: promotion ? {
+          entry: promotion.getAttribute('data-event-promotion'),
+          day: promotion.getAttribute('data-event-promotion-day'),
+        } : null,
+      };
+    }));
   } finally { await page.close(); }
+}
+
+function currentReviewedMedia(slots, now) {
+  return slots.filter(slot => {
+    if (!slot.promotion) return true;
+    try {
+      const { entry, day } = slot.promotion;
+      return selectEventPromotions([JSON.parse(entry)], {
+        now, windowStart: new Date(day + 'T00:00:00Z'), windowDays: 1,
+      }).some(item => item.day === day);
+    } catch { return false; }
+  }).map(({ promotion, ...media }) => media);
 }
 
 try {
@@ -68,9 +88,15 @@ try {
   for (const route of routes) {
     const reviewed = await snapshot(route, false);
     const hydrated = await snapshot(route, true);
-    observed += reviewed.length;
-    assert.deepEqual(hydrated, reviewed, `${route}: public scripts changed reviewed event media or attribution`);
-    report.checks.push({ route, eventMediaSlots: reviewed.length, unchangedAfterScripts: true });
+    // The browser legitimately removes a dated promotion when it finishes
+    // between the static build and this audit. Apply the same pure eligibility
+    // rule to the reviewed baseline; still reject changed images, credits,
+    // missing current cards, and unreviewed additions.
+    const current = currentReviewedMedia(reviewed, new Date());
+    const hydratedMedia = hydrated.map(({ promotion, ...media }) => media);
+    observed += current.length;
+    assert.deepEqual(hydratedMedia, current, `${route}: public scripts changed reviewed event media or attribution`);
+    report.checks.push({ route, eventMediaSlots: current.length, expiredPromotionSlots: reviewed.length - current.length, unchangedAfterScripts: true });
   }
   assert.ok(observed > 0, 'the public audit exercised event media slots');
   await verifyRevision();

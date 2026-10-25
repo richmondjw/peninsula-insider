@@ -42,3 +42,52 @@ test('public media verifier waits for a delayed CMS response and still detects s
     assert.match(unsafe.report.error, /changed reviewed event media or attribution/);
   } finally { await new Promise(resolve => server.close(resolve)); }
 });
+
+test('public media verifier permits expired promotion removal but protects current media', async () => {
+  const future = new Date(Date.now() + 2 * 86400000).toISOString().slice(0, 10);
+  const promotion = (slug, day) => {
+    const entry = { id: slug, data: {
+      slug, title: slug, status: 'published', venueName: 'Fixture venue',
+      suburb: 'Mornington', place: 'mornington', startDate: day,
+      endDate: day, startTime: '10:00', endTime: '17:00',
+    } };
+    return `<li data-event-promotion="${JSON.stringify(entry).replaceAll('"', '&quot;')}" data-event-promotion-day="${day}">
+      <img data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="${slug}" src="/${slug}.webp" alt="Reviewed fixture">
+    </li>`;
+  };
+  let removeCurrent = false;
+  const server = createServer((req, res) => {
+    if (req.url === '/rest/v1/cms_image_slots') {
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.end(JSON.stringify([{ entity_type: 'event' }]));
+      return;
+    }
+    res.writeHead(200, { 'content-type': 'text/html' });
+    res.end(`${promotion('expired', '2026-10-10')}${promotion('current', future)}
+      <script>fetch('/rest/v1/cms_image_slots').then(r => r.json()).then(() => {
+        document.querySelector('[data-pi-entity-slug="expired"]').closest('li').remove();
+        ${removeCurrent ? `document.querySelector('[data-pi-entity-slug="current"]').closest('li').remove();` : ''}
+      });</script>`);
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  const run = () => new Promise((resolve, reject) => {
+    const child = spawn(process.execPath, [fileURLToPath(new URL('./verify-public-event-media.mjs', import.meta.url)), `--base-url=http://127.0.0.1:${server.address().port}`]);
+    let stdout = '', stderr = '';
+    child.stdout.on('data', chunk => stdout += chunk);
+    child.stderr.on('data', chunk => stderr += chunk);
+    child.on('error', reject);
+    child.on('close', code => {
+      try { resolve({ code, report: JSON.parse(stdout), stderr }); } catch (error) { reject(new Error(`${error.message}: ${stdout} ${stderr}`)); }
+    });
+  });
+  try {
+    const safe = await run();
+    assert.equal(safe.code, 0, JSON.stringify(safe));
+    assert.equal(safe.report.checks[0].eventMediaSlots, 1);
+    assert.equal(safe.report.checks[0].expiredPromotionSlots, 1);
+    removeCurrent = true;
+    const unsafe = await run();
+    assert.equal(unsafe.code, 1);
+    assert.match(unsafe.report.error, /changed reviewed event media or attribution/);
+  } finally { await new Promise(resolve => server.close(resolve)); }
+});
