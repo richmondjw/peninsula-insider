@@ -12,7 +12,7 @@ import argparse
 import json
 import os
 import sys
-from datetime import datetime, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 import zoneinfo
 import subprocess
@@ -192,7 +192,78 @@ Remember: no brochure language. Specific. Local. Opinionated. Start with the thi
     _sys.path.insert(0, str(Path(__file__).resolve().parent))
     import llm
     out = llm.complete(prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
-    return _clean_llm_output(out) if out else None
+    if not out:
+        return None
+    cleaned = _clean_llm_output(out)
+    return _repair_rotation_violations(
+        cleaned,
+        date_str=date_str,
+        prompt=prompt,
+        rotation=rotation,
+        llm_complete=llm.complete,
+    )
+
+
+def _rotation_failures(text: str, date_str: str) -> list[str]:
+    """Use the publish gate's own rotation check so generation and verification
+    stay aligned."""
+    try:
+        import verify_gate
+        return verify_gate.check_rotation(
+            Path(f"insider-picks-{date_str}.md"),
+            text,
+            Path(__file__).resolve().parent.parent,
+        )
+    except ImportError:
+        import recency
+        repo_root = Path(__file__).resolve().parent.parent
+        today = date.fromisoformat(date_str)
+        ledger = recency.build_ledger(repo_root, today - timedelta(days=1))
+        venues = {v["slug"]: v.get("name", "") for v in recency.load_venues(repo_root)}
+        low = recency._feature_text(text).lower()
+        fails = []
+        for slug in ledger["blocked"]:
+            name = venues.get(slug, "")
+            if len(name) >= 8 and name.lower() in low:
+                fails.append(f"Rotation violation: '{name}' is inside its "
+                             f"{recency.VENUE_COOLDOWN_DAYS}-day cooldown and cannot be featured again yet.")
+        return fails
+
+
+def _repair_rotation_violations(text: str, *, date_str: str, prompt: str,
+                                rotation: dict | None, llm_complete) -> str:
+    """Ask the model for one bounded rewrite when the draft features a blocked venue."""
+    if not rotation:
+        return text
+    failures = _rotation_failures(text, date_str)
+    if not failures:
+        return text
+    blocked = rotation.get("blocked_names", [])
+    candidates = rotation.get("candidates", [])
+    revision_prompt = f"""{prompt}
+
+REVISION REQUIRED:
+Your previous draft failed the rotation gate and cannot ship as written.
+Problems:
+{chr(10).join(f"- {failure}" for failure in failures)}
+
+Do not feature any venue inside cooldown.
+If you keep an EAT/DRINK/WINE pick, choose it only from these eligible candidates:
+{json.dumps(candidates[:12], indent=2)}
+
+Blocked venues today:
+{json.dumps(blocked[:25], indent=2)}
+
+Return a full replacement article using the same YAML schema as before.
+
+Previous draft:
+{text}
+"""
+    revised = llm_complete(revision_prompt, system=PI_VOICE_SYSTEM_PROMPT, max_tokens=2000)
+    if not revised:
+        return text
+    cleaned = _clean_llm_output(revised)
+    return cleaned if not _rotation_failures(cleaned, date_str) else text
 
 
 def _clean_llm_output(text: str) -> str:
