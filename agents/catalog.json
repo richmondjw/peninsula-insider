@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-26T19:28:35.510Z",
-  "snapshotId": "61657fcf677e79a1bbc597022f3d6eba0d68ad8d9bda354bfdc2a5178b026eb1",
+  "generatedAt": "2026-10-26T20:16:50.046Z",
+  "snapshotId": "d84187915d940ff81f2e6977d7a349d574555c933813fb4acabd120da4f7b877",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 605,
+  "count": 606,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2172,7 +2172,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "557f2c446a7e83c831cdd9d4eeaf58b3d2235874f78b239c65cd1a8cb2e6156b",
+      "contentSha256": "9d6d56eb32a4adf14c244f99d23b782755e0a098ffe72b15416f78ef4d963912",
       "citation": {
         "title": "Boneo",
         "publisher": "Peninsula Insider",
@@ -2180,8 +2180,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 175811,
-      "markdownBytes": 9017
+      "htmlBytes": 178218,
+      "markdownBytes": 9428
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
@@ -6060,6 +6060,23 @@
       "markdownBytes": 8891
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
+      "title": "Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/index.md",
+      "contentSha256": "a044d6008e6c3d877902f990af19d211b04595ac41b6ce9d90134e1d6c621f90",
+      "citation": {
+        "title": "Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
+        "publishedAt": "2026-10-27T00:00:00.000Z",
+        "modifiedAt": "2026-10-27T00:00:00.000Z"
+      },
+      "htmlBytes": 177295,
+      "markdownBytes": 9166
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6864,7 +6881,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "8a4e14840f6fe0636fc7962c801f30bd0ad611a78f93926e134ab52b4ebd95fe",
+      "contentSha256": "6e0cdda689f6477d5adbd1ae1c361a30afd9144a987bc746b14a903dfafedfa7",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6872,8 +6889,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123678,
-      "markdownBytes": 6029
+      "htmlBytes": 123696,
+      "markdownBytes": 6043
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6898,7 +6915,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "8ac75336fda57e31f54cba145c8b8761c0ab8425232d42eaabe005fb649ab006",
+      "contentSha256": "a9179f483b0502c4aa7b6b43d083b872eb96110a321ddfa470dc4306095b01bd",
       "citation": {
         "title": "Tuesday 27 October 2026",
         "publisher": "Peninsula Insider",

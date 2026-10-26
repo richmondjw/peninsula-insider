@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>) - David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
+
 - [Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/>) - Rare Hare at Willow Creek opens its Pinot Row terrace for spring, the Enchanted Adventure Garden's hedge maze hits peak season, and Emu Plains Market runs Saturdays at Balnarring Reserve through December.
 
 - [Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/>) - Jetty Road Brewery's rotating seasonals earn the afternoon, Arthurs Seat State Park is at peak wildflower density, and the National Works on Paper 2026 closes 22 November at Mornington Peninsula Regional Gallery.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/>) - Kooyong's named-block Pinot tasting in Red Hill South, the Balnarring wildflower loop at Baldry's Creek Reserve, and a Main Ridge pub quiz built around Blackadder and Fawlty Towers on Thursday night.
 
 - [Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/>) - Barragunda Dining's estate set menu at Cape Schanck, the Breast Foot Forward coastal walk from Safety Beach on Saturday, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery.
-
-- [Steinfest at Tar Barrel, the Arthurs Seat Summit Track, and a free fishing lesson at Mornington Pier](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/>) - Tar Barrel's Steinfest runs until Sunday, the Arthurs Seat Summit Track is in full spring form, and a free come-and-try fishing session opens on Friday morning at Mornington Pier.
 
 ## Planning a particular weekend?
 

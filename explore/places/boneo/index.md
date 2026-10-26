@@ -81,7 +81,7 @@ What's mapped here
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/boneo/#explore>)
 
-- [**2** journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
+- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
 
 Get outside
 
@@ -124,6 +124,14 @@ Insider Edit   4 min
 21 October 2026
 
 Merricks General Wine Store earns a dedicated spring lunch booking, the Boneo Plains Native Grassland Reserve is at peak golden weather-grass, and The Curious Pantry has opened its doors in Dromana.
+
+Insider Edit   4 min
+
+### [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>)
+
+27 October 2026
+
+David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
 
 Planning guides
 
