@@ -1,44 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-26T20:16:50.046Z",
+  "generatedAt": "2026-10-27T14:38:39.254Z",
   "baselineAvailable": true,
-  "fromSnapshot": "61657fcf677e79a1bbc597022f3d6eba0d68ad8d9bda354bfdc2a5178b026eb1",
-  "toSnapshot": "d84187915d940ff81f2e6977d7a349d574555c933813fb4acabd120da4f7b877",
-  "previousGeneratedAt": "2026-10-26T19:28:35.510Z",
+  "fromSnapshot": "d84187915d940ff81f2e6977d7a349d574555c933813fb4acabd120da4f7b877",
+  "toSnapshot": "b346004eece2d1160e67102ddcd4ddb1ea3cc15d7a89ea601d52e013eca84386",
+  "previousGeneratedAt": "2026-10-26T20:16:50.046Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 4,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "9d6d56eb32a4adf14c244f99d23b782755e0a098ffe72b15416f78ef4d963912",
-      "previousContentSha256": "557f2c446a7e83c831cdd9d4eeaf58b3d2235874f78b239c65cd1a8cb2e6156b"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "c74267751e454ba0f7549f0b67370a6e692926f106550bb9046d3b631ebf7d60",
+      "previousContentSha256": "7c99a352ae594869b975b5fe27a1097a8f66751d508a987a0ff67eae7233a280"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/index.md",
-      "contentSha256": "a044d6008e6c3d877902f990af19d211b04595ac41b6ce9d90134e1d6c621f90",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/journal/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "6e0cdda689f6477d5adbd1ae1c361a30afd9144a987bc746b14a903dfafedfa7",
-      "previousContentSha256": "8a4e14840f6fe0636fc7962c801f30bd0ad611a78f93926e134ab52b4ebd95fe"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "a1197aa40cfd4731814ab850ef399a79e553cfd56b7e2f712b9c09ee032ab241",
+      "previousContentSha256": "2d245bf103a73a28a25c2e9f21b0e25647ded509a582ad7d36f679220ba743d3"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a9179f483b0502c4aa7b6b43d083b872eb96110a321ddfa470dc4306095b01bd",
-      "previousContentSha256": "8ac75336fda57e31f54cba145c8b8761c0ab8425232d42eaabe005fb649ab006"
+      "contentSha256": "66bf68ec7507a3811836b49a16b58117d13ce1429efc6033a418a5a940ea21b9",
+      "previousContentSha256": "a9179f483b0502c4aa7b6b43d083b872eb96110a321ddfa470dc4306095b01bd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "b1d4106f1ecdec035b98dd94ede6e013294030539a08a7e15f1b46f667364fd0",
+      "previousContentSha256": "a25a3f635f4aec2fa9b3ac336732bcd220b9167870c1c2a3c28bb49aaf4d3ab2"
     }
   ]
 }
