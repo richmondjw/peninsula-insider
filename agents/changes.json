@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-27T19:19:49.262Z",
+  "generatedAt": "2026-10-27T20:11:53.055Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b346004eece2d1160e67102ddcd4ddb1ea3cc15d7a89ea601d52e013eca84386",
-  "toSnapshot": "cc0225930bd5e2ee34dc6fd0ad201fd246269cce351b050531a2672f710d5581",
-  "previousGeneratedAt": "2026-10-27T14:38:39.254Z",
+  "fromSnapshot": "cc0225930bd5e2ee34dc6fd0ad201fd246269cce351b050531a2672f710d5581",
+  "toSnapshot": "6d37de9202097d8de30913661bd23b34aa1dc26a7e1f3742951d603dc6672c4a",
+  "previousGeneratedAt": "2026-10-27T19:19:49.262Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 1,
   "changes": [
@@ -13,8 +13,8 @@
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "cd73562a56083183bd88038142a8e9c2de2abd41ae5912c88b648ea4071d0d97",
-      "previousContentSha256": "66bf68ec7507a3811836b49a16b58117d13ce1429efc6033a418a5a940ea21b9"
+      "contentSha256": "336dede3daefa86e7a760b042e631afee026e79fa6bfd3f3d2c7740c2800b5a9",
+      "previousContentSha256": "cd73562a56083183bd88038142a8e9c2de2abd41ae5912c88b648ea4071d0d97"
     }
   ]
 }
