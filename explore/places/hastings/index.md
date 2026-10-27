@@ -83,7 +83,7 @@ Peninsula Fresh Seafood lists a weather-dependent Friday Hastings Foreshore truc
 
 What's mapped here
 
-- [**2** journal pieces](<https://peninsulainsider.com.au/explore/places/hastings/#journal>)
+- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/hastings/#journal>)
 
 Read this place properly
 
@@ -100,6 +100,14 @@ Service   5 min
 7 August 2026
 
 When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
+
+Insider Edit   4 min
+
+### [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>)
+
+28 October 2026
+
+Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
 
 Insider Edit   7 min
 

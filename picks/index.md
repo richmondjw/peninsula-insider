@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>) - Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
+
 - [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>) - David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
 
 - [Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/>) - Rare Hare at Willow Creek opens its Pinot Row terrace for spring, the Enchanted Adventure Garden's hedge maze hits peak season, and Emu Plains Market runs Saturdays at Balnarring Reserve through December.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/>) - Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday.
 
 - [Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/>) - Kooyong's named-block Pinot tasting in Red Hill South, the Balnarring wildflower loop at Baldry's Creek Reserve, and a Main Ridge pub quiz built around Blackadder and Fawlty Towers on Thursday night.
-
-- [Barragunda's Market Garden Menu, the Breast Foot Forward Walk, and an Orizome Workshop at MPRG](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/>) - Barragunda Dining's estate set menu at Cape Schanck, the Breast Foot Forward coastal walk from Safety Beach on Saturday, and a free orizome paper-dyeing workshop at Mornington Peninsula Regional Gallery.
 
 ## Planning a particular weekend?
 

@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-27T20:11:53.055Z",
-  "snapshotId": "6d37de9202097d8de30913661bd23b34aa1dc26a7e1f3742951d603dc6672c4a",
+  "generatedAt": "2026-10-27T20:28:33.669Z",
+  "snapshotId": "ce25d14e210081e4af8c2af6710cc5da752c97115ce1da7693df8ae5004781c4",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 606,
+  "count": 607,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2291,7 +2291,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
-      "contentSha256": "797afcebb4b156a6c5626d3f7a4ea1eeb7164e83b5bf0d24fd018314a19e0918",
+      "contentSha256": "959682c4b706ca4d678019610d7cd2359cf29d9085ab7efdeb00bfba1ae6ed16",
       "citation": {
         "title": "Hastings",
         "publisher": "Peninsula Insider",
@@ -2299,8 +2299,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174367,
-      "markdownBytes": 8270
+      "htmlBytes": 176714,
+      "markdownBytes": 8645
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
@@ -6077,6 +6077,23 @@
       "markdownBytes": 9166
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+      "title": "Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/index.md",
+      "contentSha256": "c8d57f27e333f2dec7561c4380d2e733ad3b99aad8fc9c8115faea5964c3eb5e",
+      "citation": {
+        "title": "Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+        "publishedAt": "2026-10-28T00:00:00.000Z",
+        "modifiedAt": "2026-10-28T00:00:00.000Z"
+      },
+      "htmlBytes": 174634,
+      "markdownBytes": 8824
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6881,7 +6898,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "6e0cdda689f6477d5adbd1ae1c361a30afd9144a987bc746b14a903dfafedfa7",
+      "contentSha256": "85e576a05c70112fe6e9fab283cf3eecd602dd602b1fe8d18b3d44068e75a764",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6889,8 +6906,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123696,
-      "markdownBytes": 6043
+      "htmlBytes": 123652,
+      "markdownBytes": 6003
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6915,7 +6932,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "336dede3daefa86e7a760b042e631afee026e79fa6bfd3f3d2c7740c2800b5a9",
+      "contentSha256": "dc7e8e242af6f8efe22da569c698413ab8f6538b7661dd2dae2ab039515ad943",
       "citation": {
         "title": "Wednesday 28 October 2026",
         "publisher": "Peninsula Insider",

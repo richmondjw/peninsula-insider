@@ -1,19 +1,43 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-27T20:11:53.055Z",
+  "generatedAt": "2026-10-27T20:28:33.669Z",
   "baselineAvailable": true,
   "fromSnapshot": "cc0225930bd5e2ee34dc6fd0ad201fd246269cce351b050531a2672f710d5581",
-  "toSnapshot": "6d37de9202097d8de30913661bd23b34aa1dc26a7e1f3742951d603dc6672c4a",
+  "toSnapshot": "ce25d14e210081e4af8c2af6710cc5da752c97115ce1da7693df8ae5004781c4",
   "previousGeneratedAt": "2026-10-27T19:19:49.262Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/hastings/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
+      "contentSha256": "959682c4b706ca4d678019610d7cd2359cf29d9085ab7efdeb00bfba1ae6ed16",
+      "previousContentSha256": "797afcebb4b156a6c5626d3f7a4ea1eeb7164e83b5bf0d24fd018314a19e0918"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/index.md",
+      "contentSha256": "c8d57f27e333f2dec7561c4380d2e733ad3b99aad8fc9c8115faea5964c3eb5e",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "85e576a05c70112fe6e9fab283cf3eecd602dd602b1fe8d18b3d44068e75a764",
+      "previousContentSha256": "6e0cdda689f6477d5adbd1ae1c361a30afd9144a987bc746b14a903dfafedfa7"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "336dede3daefa86e7a760b042e631afee026e79fa6bfd3f3d2c7740c2800b5a9",
+      "contentSha256": "dc7e8e242af6f8efe22da569c698413ab8f6538b7661dd2dae2ab039515ad943",
       "previousContentSha256": "cd73562a56083183bd88038142a8e9c2de2abd41ae5912c88b648ea4071d0d97"
     }
   ]
