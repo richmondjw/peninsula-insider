@@ -4,7 +4,7 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-10-28 07:05 AEDT  
+**Generated:** 2026-10-29 07:06 AEDT  
 **Season:** Spring  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:13-upcoming, seasonal-calendar:spring  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-10-27._
+_Compared with 2026-10-28._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,29 +83,29 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: Curators floor talk: The Making of a Prize Exhibition (17d out)
+### 6. [EVENT · score 2.992] Preview: Curators floor talk: The Making of a Prize Exhibition (16d out)
 - **Desk:** dispatch-desk
-- **Why:** Curators floor talk: The Making of a Prize Exhibition is 17 days out (2026-11-14, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Curators floor talk: The Making of a Prize Exhibition is 16 days out (2026-11-14, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 (24d out)
+### 7. [EVENT · score 2.992] Preview: Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 (23d out)
 - **Desk:** dispatch-desk
-- **Why:** Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 is 24 days out (2026-11-21, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 is 23 days out (2026-11-21, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: Peninsula VineHop Festival 2026 (24d out)
+### 8. [EVENT · score 2.992] Preview: Peninsula VineHop Festival 2026 (23d out)
 - **Desk:** dispatch-desk
-- **Why:** Peninsula VineHop Festival 2026 is 24 days out (2026-11-21, Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Peninsula VineHop Festival 2026 is 23 days out (2026-11-21, Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (33d out)
+### 9. [EVENT · score 2.992] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (32d out)
 - **Desk:** dispatch-desk
-- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 33 days out (2026-11-30, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 32 days out (2026-11-30, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Mornington Tourist Railway, Santa Specials (39d out)
+### 10. [EVENT · score 2.992] Preview: Mornington Tourist Railway, Santa Specials (38d out)
 - **Desk:** dispatch-desk
-- **Why:** Mornington Tourist Railway, Santa Specials is 39 days out (2026-12-06, Moorooduc) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Tourist Railway, Santa Specials is 38 days out (2026-12-06, Moorooduc) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 11. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
@@ -114,10 +114,10 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'dog friendly guide mornington peninsula' ranks avg position 9.6 on 17 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 12. [INDEX · score 2.868] Get /journal/the-spring-peninsula/ indexed
-- **Desk:** field-desk
-- **Why:** Google reports 'Discovered – currently not indexed' (last crawl: Never). This page that isn't indexed cannot rank for anything — the single highest-leverage fix.
-- **Do:** Ensure it's in sitemap.xml with a strong priority, add internal links from already-indexed pages, confirm it isn't noindex, add unique above-the-fold content, then Request Indexing in GSC.
+### 12. [EVENT · score 2.875] Preview: Pub Carols - Thursday 17th December (49d out)
+- **Desk:** dispatch-desk
+- **Why:** Pub Carols - Thursday 17th December is 49 days out (2026-12-17, ) — on the horizon. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ## Coverage snapshot
 
