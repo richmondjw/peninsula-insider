@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-28T19:25:06.256Z",
-  "snapshotId": "1999a611851aa453aa82943b542078ac36f2959c504eee3141f2ddd8941c661c",
+  "generatedAt": "2026-10-28T20:15:55.678Z",
+  "snapshotId": "6382f1d0d7d89dca2698af8703b1e4fef4b51022b7cf8cd8bf9a450e74dcbca2",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 607,
+  "count": 608,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2291,7 +2291,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
-      "contentSha256": "959682c4b706ca4d678019610d7cd2359cf29d9085ab7efdeb00bfba1ae6ed16",
+      "contentSha256": "456edee9a24cd5689c92f1a594786ecd42a8f0433542ca87f16f393fb2342dcc",
       "citation": {
         "title": "Hastings",
         "publisher": "Peninsula Insider",
@@ -2299,8 +2299,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176714,
-      "markdownBytes": 8645
+      "htmlBytes": 179149,
+      "markdownBytes": 9054
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
@@ -6094,6 +6094,23 @@
       "markdownBytes": 8824
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+      "title": "The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/index.md",
+      "contentSha256": "49ceaff5624b762a1d66c23da73381c31784021d5caa77970322b3a9a756ce2d",
+      "citation": {
+        "title": "The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+        "publishedAt": "2026-10-29T00:00:00.000Z",
+        "modifiedAt": "2026-10-29T00:00:00.000Z"
+      },
+      "htmlBytes": 171972,
+      "markdownBytes": 8855
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6898,7 +6915,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "85e576a05c70112fe6e9fab283cf3eecd602dd602b1fe8d18b3d44068e75a764",
+      "contentSha256": "a02d2f6a07135df2961e1b7d6d423a5f09b9a6893ce55a14358a9021f8b0b9b6",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6906,8 +6923,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123652,
-      "markdownBytes": 6003
+      "htmlBytes": 123617,
+      "markdownBytes": 5984
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -6932,7 +6949,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0d778765d046255e08e49aba57c8ed502a2c89e1c7a8eb4598d7fdcc0da31092",
+      "contentSha256": "c81beb5e7a9bde171619efe5e6caa4c8472a2a135fd1b81949e3d108725b81a5",
       "citation": {
         "title": "Thursday 29 October 2026",
         "publisher": "Peninsula Insider",

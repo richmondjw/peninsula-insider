@@ -1,28 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-28T19:25:06.256Z",
+  "generatedAt": "2026-10-28T20:15:55.678Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0779fff926cfe5304152c23f7534ce2e3cfaf7859e35e54591b0eb63d48d33db",
-  "toSnapshot": "1999a611851aa453aa82943b542078ac36f2959c504eee3141f2ddd8941c661c",
-  "previousGeneratedAt": "2026-10-28T14:30:29.695Z",
+  "fromSnapshot": "1999a611851aa453aa82943b542078ac36f2959c504eee3141f2ddd8941c661c",
+  "toSnapshot": "6382f1d0d7d89dca2698af8703b1e4fef4b51022b7cf8cd8bf9a450e74dcbca2",
+  "previousGeneratedAt": "2026-10-28T19:25:06.256Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/hastings/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
+      "contentSha256": "456edee9a24cd5689c92f1a594786ecd42a8f0433542ca87f16f393fb2342dcc",
+      "previousContentSha256": "959682c4b706ca4d678019610d7cd2359cf29d9085ab7efdeb00bfba1ae6ed16"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/index.md",
+      "contentSha256": "49ceaff5624b762a1d66c23da73381c31784021d5caa77970322b3a9a756ce2d",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "a02d2f6a07135df2961e1b7d6d423a5f09b9a6893ce55a14358a9021f8b0b9b6",
+      "previousContentSha256": "85e576a05c70112fe6e9fab283cf3eecd602dd602b1fe8d18b3d44068e75a764"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "0d778765d046255e08e49aba57c8ed502a2c89e1c7a8eb4598d7fdcc0da31092",
-      "previousContentSha256": "55ea3129f5b17301b0a2b6933b67b78d1c8b7a1f83f627f40a2676fcdb0a0c15"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "20ee677ca34ae0746756cc59a52831b3dc84c5e78f8e43e8020cac448d7f8ee9",
-      "previousContentSha256": "80d2f64c90e4f3c811abb766a08ea4e8225dbaa5934e21eb1f4345797efc276d"
+      "contentSha256": "c81beb5e7a9bde171619efe5e6caa4c8472a2a135fd1b81949e3d108725b81a5",
+      "previousContentSha256": "0d778765d046255e08e49aba57c8ed502a2c89e1c7a8eb4598d7fdcc0da31092"
     }
   ]
 }

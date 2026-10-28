@@ -83,7 +83,7 @@ Peninsula Fresh Seafood lists a weather-dependent Friday Hastings Foreshore truc
 
 What's mapped here
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/hastings/#journal>)
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/hastings/#journal>)
 
 Read this place properly
 
@@ -108,6 +108,14 @@ Insider Edit   4 min
 28 October 2026
 
 Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
+
+Insider Edit   4 min
+
+### [The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/>)
+
+29 October 2026
+
+The Bay Hotel Mornington's private vault dining room earns a booking, Greens Bush trails are at peak wildflower density, and Wine Lovers Warehouse Hastings runs a guided cheese-and-glass night on Friday.
 
 Insider Edit   7 min
 

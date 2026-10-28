@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/>) - The Bay Hotel Mornington's private vault dining room earns a booking, Greens Bush trails are at peak wildflower density, and Wine Lovers Warehouse Hastings runs a guided cheese-and-glass night on Friday.
+
 - [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>) - Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
 
 - [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>) - David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/>) - Lindenderry's estate dining room in full bloom, the Boneo Plains grassland loop for spider orchids this week, and the Emu Plains Market at Balnarring Reserve on Saturday.
 
 - [Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/>) - Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday.
-
-- [Kooyong's single-block spring flight, Baldry's Creek wildflowers, and the Pig & Whistle's British Comedy Trivia](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/>) - Kooyong's named-block Pinot tasting in Red Hill South, the Balnarring wildflower loop at Baldry's Creek Reserve, and a Main Ridge pub quiz built around Blackadder and Fawlty Towers on Thursday night.
 
 ## Planning a particular weekend?
 
