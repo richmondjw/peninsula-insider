@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-10-28",
-  "generatedAt": "2026-10-27T20:20:10.816Z",
+  "generated": "2026-10-29",
+  "generatedAt": "2026-10-28T14:21:59.524Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-10-28",
-    "end": "2027-01-26"
+    "start": "2026-10-29",
+    "end": "2027-01-27"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -38,30 +38,17 @@
       "position": 2,
       "item": {
         "@type": "Event",
-        "name": "Mornington Wednesday Market (Main Street Market)",
-        "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-        "startDate": "2026-10-28",
-        "endDate": "2026-10-28",
-        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-10-28",
-        "endDate": "2026-10-28",
+        "startDate": "2026-10-29",
+        "endDate": "2026-10-29",
         "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 4,
+      "position": 3,
       "item": {
         "@type": "Service",
         "name": "Peninsula Hot Springs Studio Yoga",
@@ -71,7 +58,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Pt. Leo Estate Sculpture Park",
@@ -81,7 +68,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Restore & Pamper Retreat at Polperro Farmhouse",
@@ -91,7 +78,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 6,
       "item": {
         "@type": "Service",
         "name": "Ten Minutes by Tractor, Terroir Masterclass",
@@ -101,7 +88,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
@@ -114,7 +101,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -122,6 +109,19 @@
         "startDate": "2026-10-31",
         "endDate": "2026-10-31",
         "description": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Event",
+        "name": "Mornington Wednesday Market (Main Street Market)",
+        "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+        "startDate": "2026-11-04",
+        "endDate": "2026-11-04",
+        "description": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -224,8 +224,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-10-28",
-      "endDate": "2027-01-26",
+      "startDate": "2026-10-29",
+      "endDate": "2027-01-27",
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
       "factCheckedOn": "2026-10-03",
@@ -242,31 +242,12 @@
       "thisWeekend": true
     },
     {
-      "title": "Mornington Wednesday Market (Main Street Market)",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "startDate": "2026-10-28",
-      "endDate": "2026-10-28",
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "sourceUrl": "https://mainstreetmornington.com.au/mornington-main-street-market/",
-      "factCheckedOn": "2026-10-03",
-      "recurrence": "weekly",
-      "category": "market",
-      "place": "mornington",
-      "venue": null,
-      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [],
-      "thisWeekend": false
-    },
-    {
       "title": "National Works on Paper 2026 (NWOP)",
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-10-28",
-      "endDate": "2026-10-28",
+      "startDate": "2026-10-29",
+      "endDate": "2026-10-29",
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
       "factCheckedOn": "2026-10-08",
@@ -297,8 +278,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-10-28",
-      "endDate": "2027-01-26",
+      "startDate": "2026-10-29",
+      "endDate": "2027-01-27",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": "2026-10-03",
@@ -319,8 +300,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-10-28",
-      "endDate": "2027-01-26",
+      "startDate": "2026-10-29",
+      "endDate": "2027-01-27",
       "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "factCheckedOn": "2026-10-03",
@@ -341,8 +322,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-10-28",
-      "endDate": "2027-01-26",
+      "startDate": "2026-10-29",
+      "endDate": "2027-01-27",
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
       "factCheckedOn": "2026-05-04",
@@ -363,8 +344,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-10-28",
-      "endDate": "2027-01-26",
+      "startDate": "2026-10-29",
+      "endDate": "2027-01-27",
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
       "factCheckedOn": "2026-10-03",
@@ -427,6 +408,25 @@
         }
       ],
       "thisWeekend": true
+    },
+    {
+      "title": "Mornington Wednesday Market (Main Street Market)",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-04",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "sourceUrl": "https://mainstreetmornington.com.au/mornington-main-street-market/",
+      "factCheckedOn": "2026-10-03",
+      "recurrence": "weekly",
+      "category": "market",
+      "place": "mornington",
+      "venue": null,
+      "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
     },
     {
       "title": "Crib Point Community Market",
