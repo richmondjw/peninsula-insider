@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-28T20:15:55.678Z",
-  "snapshotId": "6382f1d0d7d89dca2698af8703b1e4fef4b51022b7cf8cd8bf9a450e74dcbca2",
+  "generatedAt": "2026-10-29T14:27:26.953Z",
+  "snapshotId": "3897835569d6efa69c8d88d731449dc3df4899c62aa722141501d6dfc20cc1bb",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "88a7bc8cf11f29226078d54544b8476f4a4062c32344e5a3136f510da75d9e32",
+      "contentSha256": "fd345048c6adb2dec2ba1a0d98871be5a840b7f358c28989c085599b5013da68",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,7 +21,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 192099,
+      "htmlBytes": 192127,
       "markdownBytes": 8546
     },
     {
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "b3ef46ae8bd6a77a74e596abb7246e7b7d20b2351b3bc66bf3dc9b979e1dc215",
+      "contentSha256": "c35060ab4fa84ec885f7552a44292d8bcc62d136171a5b6aa3c6931b619cce4b",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "22d367a5ec3039931b3e5fd77cd4346d6deafbc2d0ce5831ca267411a5aec84d",
+      "contentSha256": "0cb0b9a5f39ebc62a552e7a5a4c9f169f0f4f7135dd559c61808bc1f3d74cf5e",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -6945,20 +6945,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Thursday 29 October 2026",
+      "title": "Friday 30 October 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "c81beb5e7a9bde171619efe5e6caa4c8472a2a135fd1b81949e3d108725b81a5",
+      "contentSha256": "42fe6cfa4821de27f04d5fe1f36c3f3bac9ed4c794141aa6727c1ea9a77679fa",
       "citation": {
-        "title": "Thursday 29 October 2026",
+        "title": "Friday 30 October 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 114120,
-      "markdownBytes": 982
+      "htmlBytes": 114112,
+      "markdownBytes": 980
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -8785,13 +8785,13 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "46eae4d74792dbfd4ec46309f1ed25eeddaf0d6385d868a8b92bd488ca51f649",
+      "contentSha256": "6519a40cf649e00a90fd4dee23e0879bfdef52eca40630b37bb6dbd4630c490b",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-29"
+        "modifiedAt": "2026-10-30"
       },
       "htmlBytes": 184370,
       "markdownBytes": 7969

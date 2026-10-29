@@ -7,9 +7,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Quick Note
 
-# Thursday 29 October 2026
+# Friday 30 October 2026
 
-Vol 04 · No 212     0 live briefs     Refreshed every morning     Updated 7:09 am
+Vol 04 · No 213     0 live briefs     Refreshed every morning     Updated 1:21 am
 
 ## Today
 

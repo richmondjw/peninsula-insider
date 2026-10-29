@@ -81,15 +81,15 @@ Plan it
 
 Featured plan
 
-Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
-### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
-A shorter escape with one village base, two coastal walks and time set aside for the meals.
+One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
 
-2 days   Flinders & the Ocean Coast   Couples
+One day   Red Hill & Merricks   Family
 
-Check the stay and restaurant service times first, then fit the walks around your reservations.
+Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
@@ -101,15 +101,15 @@ Our starting point for a first weekend: vineyard lunches, a coastal walk and Poi
 
 Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
-Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
 
-### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
+A shorter escape with one village base, two coastal walks and time set aside for the meals.
 
-One day   Red Hill & Merricks   Family
+2 days   Flinders & the Ocean Coast   Couples
 
-Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
+Check the stay and restaurant service times first, then fit the walks around your reservations.
 
 Want a different combination? [Choose your time and interests](<https://peninsulainsider.com.au/#home-choose>)
 
