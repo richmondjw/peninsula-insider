@@ -1,100 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-30T14:31:40.743Z",
+  "generatedAt": "2026-10-30T19:18:30.636Z",
   "baselineAvailable": true,
-  "fromSnapshot": "25866a3d375ef5178765f000938ccc5150ccaf99448092050063db3250d9e3e1",
-  "toSnapshot": "63c7719b02da2b2b9caf8a1524faff0ba26a56a7e696bd4385a850d9beaf5265",
-  "previousGeneratedAt": "2026-10-29T19:22:53.857Z",
+  "fromSnapshot": "63c7719b02da2b2b9caf8a1524faff0ba26a56a7e696bd4385a850d9beaf5265",
+  "toSnapshot": "98dcba2b2fe18b461e4a2c9644b3d89d47d9a49e8ccd65fe8e782415358da127",
+  "previousGeneratedAt": "2026-10-30T14:31:40.743Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 11,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/hastings/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/hastings/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/hastings/index.md",
-      "contentSha256": "f0d4f3c26a21675672ef219843e887da05cd75b0e2c3cb08dde74bdc1475447b",
-      "previousContentSha256": "456edee9a24cd5689c92f1a594786ecd42a8f0433542ca87f16f393fb2342dcc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "6e7b71f9ef4900c0817f7100f878a35fb567b42b4acece129d6306953190c99f",
-      "previousContentSha256": "c35060ab4fa84ec885f7552a44292d8bcc62d136171a5b6aa3c6931b619cce4b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "977cd4058ea311333c0f87dab3d724a5ee8b194f740046806ad6de96a75fe9c4",
-      "previousContentSha256": "0cb0b9a5f39ebc62a552e7a5a4c9f169f0f4f7135dd559c61808bc1f3d74cf5e"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "adfd53505c845ac53e68ac21d88606a49e45a5c5d1ccbdc7a3df0390f09d069d",
-      "previousContentSha256": "c6af6c99144ebfc9aadcc66eff38a3591b0ea84b407072f67e3ab9fbb886eec1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "6eb3779b4f9b816f1891edc7052686771040761cbfbc1fb3daae0cf9283edf61",
-      "previousContentSha256": "55d92482356a9b001b844e191cf4ad30fcd5d7d8aad1ea5f37d673fab9ad05f0"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "91386dc02be8a8bbb76e8a0e113d45fd18247ea3bafb3ec16647d08e8770cf5a",
-      "previousContentSha256": "6519a40cf649e00a90fd4dee23e0879bfdef52eca40630b37bb6dbd4630c490b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "9ad41a73d4ee49a302b8c1cf001016910d579c9eb1e1a87390d8f141b1772318",
-      "previousContentSha256": "9c86c3b90c1cb6b9153752cdc90cf1668959dae58f5047c4108a8e6d5be1b752"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "02384b76f4224b000353423c236573f72c3fff76be386df1f46bf3dc0579a554",
-      "previousContentSha256": "e921cd34e6ef63d2af1445c837668e7a12026b8e5ed76f4b3b8dbc37b177edf4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
-      "contentSha256": "564f96f183321e6a33625477f57aab956d7fc45f289e6bb426f4913eab05561e",
-      "previousContentSha256": "3769315259602ee722a4f3a6b54dec6343f1a345ab98365868e1f4600bb8454c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "c01a6defe2029f163fca97548b03e6586c497ad4b868c4950224da5a2bc43002",
-      "previousContentSha256": "82f752ceb3329bee9311003343d1d4b71a66aa406ac44ad81f301540befd2e3e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "7ca21aaf42d4847fad6fe3db097a37811780f90d006ac0a27a4d13aba30f06a5"
+      "contentSha256": "cf84d5c049bd0653c050ab88683b012b332f28792a305f4941f4a0fbf17069eb",
+      "previousContentSha256": "adfd53505c845ac53e68ac21d88606a49e45a5c5d1ccbdc7a3df0390f09d069d"
     }
   ]
 }
