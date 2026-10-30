@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-30
+Modified: 2026-10-31
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -21,7 +21,7 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 30 October – Sun 1 November
 
-## Three reasons to go
+## Two reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -41,13 +41,7 @@ Sat, 31 Oct   Fingal   Live Music
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Fri, 30 Oct   Mornington   Exhibitions
-
-- ### [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
-
-A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
-
-Fri, 30 Oct   Hastings   Food & Wine
+Sat, 31 Oct   Mornington   Exhibitions
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -58,20 +52,6 @@ Make a day of it
 ## Everything on, by day
 
 Browse by date and save what catches your eye.
-
-### Friday 30 October
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions · Recurring weekly
-
-- [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
-
-A relaxed Friday wine-and-cheese tasting in Hastings with local cheesemakers and live music. Check the current ticket terms before you go.
-
-6pm · Hastings · Food & Wine · One-day event
 
 ### Saturday 31 October
 

@@ -487,8 +487,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
-- [Wine and Cheese Night at Wine Lovers Warehouse Hastings](<https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/>)
-
 ## Journal
 
 - [A Flinders Weekend: The Case for the Quiet Side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)

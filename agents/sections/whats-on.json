@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-10-29T19:22:53.857Z",
-  "snapshotId": "25866a3d375ef5178765f000938ccc5150ccaf99448092050063db3250d9e3e1",
+  "generatedAt": "2026-10-30T14:31:40.743Z",
+  "snapshotId": "63c7719b02da2b2b9caf8a1524faff0ba26a56a7e696bd4385a850d9beaf5265",
   "section": "whats-on",
-  "count": 36,
+  "count": 35,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,16 +11,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "6519a40cf649e00a90fd4dee23e0879bfdef52eca40630b37bb6dbd4630c490b",
+      "contentSha256": "91386dc02be8a8bbb76e8a0e113d45fd18247ea3bafb3ec16647d08e8770cf5a",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-10-30"
+        "modifiedAt": "2026-10-31"
       },
-      "htmlBytes": 184370,
-      "markdownBytes": 7969
+      "htmlBytes": 175055,
+      "markdownBytes": 6966
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -45,7 +45,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "9c86c3b90c1cb6b9153752cdc90cf1668959dae58f5047c4108a8e6d5be1b752",
+      "contentSha256": "9ad41a73d4ee49a302b8c1cf001016910d579c9eb1e1a87390d8f141b1772318",
       "citation": {
         "title": "Bass & Flinders Gin Masterclass",
         "publisher": "Peninsula Insider",
@@ -53,8 +53,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 140149,
-      "markdownBytes": 4331
+      "htmlBytes": 141624,
+      "markdownBytes": 4257
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
@@ -62,7 +62,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "e921cd34e6ef63d2af1445c837668e7a12026b8e5ed76f4b3b8dbc37b177edf4",
+      "contentSha256": "02384b76f4224b000353423c236573f72c3fff76be386df1f46bf3dc0579a554",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -70,8 +70,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 133302,
-      "markdownBytes": 1887
+      "htmlBytes": 130393,
+      "markdownBytes": 1371
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -351,7 +351,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
-      "contentSha256": "3769315259602ee722a4f3a6b54dec6343f1a345ab98365868e1f4600bb8454c",
+      "contentSha256": "564f96f183321e6a33625477f57aab956d7fc45f289e6bb426f4913eab05561e",
       "citation": {
         "title": "Ten Minutes by Tractor, Terroir Masterclass",
         "publisher": "Peninsula Insider",
@@ -359,8 +359,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 140628,
-      "markdownBytes": 4262
+      "htmlBytes": 142694,
+      "markdownBytes": 4432
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
@@ -368,7 +368,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "82f752ceb3329bee9311003343d1d4b71a66aa406ac44ad81f301540befd2e3e",
+      "contentSha256": "c01a6defe2029f163fca97548b03e6586c497ad4b868c4950224da5a2bc43002",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -376,8 +376,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144751,
-      "markdownBytes": 5510
+      "htmlBytes": 141355,
+      "markdownBytes": 4810
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",
@@ -599,23 +599,6 @@
       },
       "htmlBytes": 142226,
       "markdownBytes": 5948
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "title": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/index.md",
-      "contentSha256": "7ca21aaf42d4847fad6fe3db097a37811780f90d006ac0a27a4d13aba30f06a5",
-      "citation": {
-        "title": "Wine and Cheese Night at Wine Lovers Warehouse Hastings",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/wine-lovers-warehouse-wine-and-cheese-night-hastings-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 142048,
-      "markdownBytes": 4908
     }
   ]
 }
