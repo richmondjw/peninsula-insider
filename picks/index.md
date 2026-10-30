@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Moke's five-course set menu, the Balnarring horse trails at peak spring green, and the Emu Plains Market craft find](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/>) - Moke Dining's fixed five-course menu in Flinders, the Balnarring horse trails at their most open, and the Emu Plains Market in Balnarring for a local's Saturday circuit.
+
 - [The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/>) - The Bay Hotel Mornington's private vault dining room earns a booking, Greens Bush trails are at peak wildflower density, and Wine Lovers Warehouse Hastings runs a guided cheese-and-glass night on Friday.
 
 - [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>) - Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Two Bays on the taps, spider orchids above Balnarring, and what's showing at McClelland this spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/>) - Gluten-free or not, Two Bays Brewing's tasting paddle in Dromana earns a full second pour; the Balnarring wildflower loop hits peak spider orchid; and McClelland Sculpture Park's spring outdoor exhibition runs through November.
 
 - [Lindenderry's spring garden table, the Boneo Plains wildflower loop, and Emu Plains Market in Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/>) - Lindenderry's estate dining room in full bloom, the Boneo Plains grassland loop for spider orchids this week, and the Emu Plains Market at Balnarring Reserve on Saturday.
-
-- [Main Ridge Dairy Cheese Board, the Bloodroot Track in Spring Colour, and British Comedy Trivia at The Pig & Whistle](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/>) - Goat-milk gelato at Main Ridge Dairy, wildflower season along the Bloodroot Track above Merricks, and a British Comedy Trivia night at The Pig & Whistle on Thursday.
 
 ## Planning a particular weekend?
 
