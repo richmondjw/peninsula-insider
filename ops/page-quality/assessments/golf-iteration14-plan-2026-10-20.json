@@ -2,24 +2,24 @@
   "url": "https://peninsulainsider.com.au/explore/golf/",
   "tier": "T1",
   "assessedAt": "2026-10-20",
-  "liveRevision": "5282b38d424dd178ca8e3705bebff3839397838c",
-  "liveRunId": "39316854411",
+  "liveRevision": "05e5236aff2a96e17cb7e61653326f38e2391d1f",
+  "liveRunId": "39438769351",
   "programme": "peninsula-insider-page-quality-to-99",
   "independentScores": [
-    83.75,
-    90,
-    92.25
+    85,
+    92,
+    93.25
   ],
-  "acceptedConservativeScore": 83.75,
+  "acceptedConservativeScore": 85,
   "scoreStatus": "provisional",
   "thresholdMet": false,
   "hardGateObserved": false,
   "verifiedLiveEvidence": {
-    "mobilePageHeightPx": 16753,
+    "mobilePageHeightPx": 15865,
     "desktopPageHeightPx": 10032,
     "horizontalOverflow": false,
     "consoleErrors": 0,
-    "courseFitLinks": 9,
+    "courseFitLinks": 11,
     "minimumCourseFitTargetPx": 54,
     "minimumCourseTitleTargetPx": 44,
     "anchorFocusTransferredToCourseCard": true
@@ -42,7 +42,7 @@
       "the redundant four-link quick picker and two-card location orientation section are removed",
       "the subjective heading is replaced with Memorable public rounds"
     ],
-    "verificationStatus": "local build and focused 390px browser acceptance passed; merge, deployment and independent live regrade pending",
+    "verificationStatus": "live and independently regraded; hero CTA anchor-clearance regression found; responsive scroll-margin and focus hotfix passed local responsive acceptance and awaits protected release",
     "localAcceptance": {
       "mobilePageHeightPx": 15865,
       "baselineHeightPx": 16753,
@@ -50,6 +50,9 @@
       "consoleErrors": 0,
       "courseFitLinks": 11,
       "minimumCourseFitTargetPx": 54,
+      "heroTargetTopMobilePx": 143.52,
+      "heroTargetTopDesktopPx": 192.16,
+      "heroTargetFocusTransferred": true,
       "redundantQuickPickerPresent": false,
       "redundantOrientationPresent": false,
       "anchorFocusTransferredToCourseCard": true,
