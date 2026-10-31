@@ -424,3 +424,21 @@ Browse locations as a list
 - [Sorrento Golf Club](<https://peninsulainsider.com.au/explore/sorrento-golf-club/>) · golf-course
 
 - [Sorrento Ocean Baths](<https://peninsulainsider.com.au/explore/sorrento-ocean-baths/>) · beach
+
+On the calendar in this place
+
+## Events in Sorrento
+
+Coming up in Sorrento, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Mon, 30 Nov
+
+### "Nancye Wynne Bolton" OLA Golf Day 2026
+
+Sorrento
+
+A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.
+
+ Event · Racing & Sport](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
