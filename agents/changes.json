@@ -1,28 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-10-31T19:18:01.709Z",
+  "generatedAt": "2026-10-31T20:17:12.482Z",
   "baselineAvailable": true,
-  "fromSnapshot": "a4439bb9f4d6ccae2ee221b194172eb3b1f99e3d1b72c39479d5bed47a514231",
-  "toSnapshot": "455211b05a6443b14ac143f452beca5b5b8f3a4d912f9ddf44b410a0cd56497f",
-  "previousGeneratedAt": "2026-10-31T14:22:13.185Z",
+  "fromSnapshot": "455211b05a6443b14ac143f452beca5b5b8f3a4d912f9ddf44b410a0cd56497f",
+  "toSnapshot": "4aff591db440dfb17909006e9bd4a41e0e7b795a43c836a59c6872358787ac18",
+  "previousGeneratedAt": "2026-10-31T19:18:01.709Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 3,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/index.md",
+      "contentSha256": "cbe07a27612a88f5d0237c25bfde453c7b5e20ea48b8c1f183d8388fe1e532fb",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "ca866190ea120b1bbacdc0cf57485ecd36e7781d4db4535fa3ecb3e1c057c4d4",
+      "previousContentSha256": "04aaa920c7712b9cddd1117b66bf42ecc5f96c79948aaf17ab3d0315717a61f3"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "243febbbd329cd3d7ae21d99f1db903edfb17376d11d5abafd26db917ddfc5a5",
-      "previousContentSha256": "5a8e3a86daa76cbfc25a1c0076a958ea4deb97f9f743afacd82837543747b66f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "267e1fd1511202a924e7638253f8748209cf0f2f59989c049833d375b7eefe9c",
-      "previousContentSha256": "f814ef6b46930ed9c742bbd2a5381f3443b8f1c58f723c5fb04233ef7db76553"
+      "contentSha256": "0b5a2583c5482eca72defbd768e7ec8ce0f17fa7d02672c030b06bbe4b0b9380",
+      "previousContentSha256": "243febbbd329cd3d7ae21d99f1db903edfb17376d11d5abafd26db917ddfc5a5"
     }
   ]
 }
