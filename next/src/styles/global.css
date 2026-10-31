@@ -8407,7 +8407,7 @@ body[data-path^="/ask"] .concierge-fab {
    Fades in once the reader passes the 50% scroll mark.
    Mobile-only. Bottom-LEFT (opposite concierge FAB at
    bottom-right). Hidden on routes where it'd be redundant
-   or unwanted (/newsletter, /ask, /account).
+   or unwanted (home's full signup form, /newsletter, /ask, /account).
    ========================================================= */
 /* P3-2: ground, radius, type and hover come from .pi-btn --solid --sm.
    KEPT: this is a floating affordance, not an inline button - the fixed
@@ -8444,7 +8444,9 @@ body.show-subscribe-pill .subscribe-pill {
   pointer-events: auto;
 }
 
-/* Hidden on routes where the pill would be redundant or off-tone. */
+/* Hidden where the homepage's complete signup form or a dedicated flow
+   already gives the reader a clear, unobscured way to join. */
+body[data-path="/"] .subscribe-pill,
 body[data-path^="/newsletter"] .subscribe-pill,
 body[data-path^="/ask"] .subscribe-pill,
 body[data-path^="/account"] .subscribe-pill {

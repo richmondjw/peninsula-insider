@@ -1,5 +1,7 @@
 ---
 import { PLAY, playUrl } from '../../../lib/play';
+// The homepage and Dispatch page already present the full signup decision.
+const showFooterLetter = Astro.url.pathname !== '/' && !Astro.url.pathname.startsWith('/dispatch');
 ---
 <footer class="footer pi-shell">
 <div class="wrap footer-lead">
@@ -8,7 +10,7 @@ import { PLAY, playUrl } from '../../../lib/play';
 </a>
 <p>Every pick earns its place.<br/>Every verdict, a reason.</p>
 </div>
-{!Astro.url.pathname.startsWith('/dispatch') && <div class="footer-letter">
+{showFooterLetter && <div class="footer-letter">
 <p class="eyebrow">A note from the Peninsula</p>
 <h2>Good stories travel.</h2>
 <p>The Peninsula worth knowing. An occasional email.</p>

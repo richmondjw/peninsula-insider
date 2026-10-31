@@ -127,7 +127,7 @@ const slug = isArticle ? '' : routeSlug(itinerary);
 // CMS override consult for the itinerary hero - baked at SSR so the
 // editor's uploaded image ships in the static HTML.
 const itineraryOverrides = !isArticle && slug ? await loadOverrides('itinerary', slug) : null;
-const itineraryHeroOverride = itineraryOverrides?.image['hero'];
+const itineraryHeroOverride = itineraryOverrides?.image['heroImage'] ?? itineraryOverrides?.image['hero'];
 // The photograph rule (src/lib/photo-set.ts): the stops' licensed photographs
 // open the plan, or sit under an editor's hero as a filmstrip.
 const itineraryPhotos = data ? photoPlan(data, { override: Boolean(itineraryHeroOverride) }) : null;
@@ -297,7 +297,7 @@ const breadcrumbItems = data
   : [];
 const canonical = data ? `https://peninsulainsider.com.au/explore/plans/${slug}/` : '';
 const ogImage = data
-  ? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp')
+  ? (itineraryHeroOverride?.src ?? (data.heroImage?.src && !data.heroImage.src.includes('placeholder') ? data.heroImage.src : '/images/sourced/home-cover.webp'))
   : '';
 export const prerender = true;
 ---

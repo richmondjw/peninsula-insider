@@ -7,7 +7,7 @@ const sources = [
  ['NewsletterBlock', readFileSync(new URL('../components/NewsletterBlock.astro', import.meta.url), 'utf8').match(/<script is:inline>([\s\S]*?)<\/script>/)[1]],
 ];
 for (const [name, script] of sources) test(`${name}: receipt-only success, no double submit and retry after failure`, async () => {
- const input = { value: 'private@example.invalid', disabled: false, focus() {} };
+ const input = { value: 'private@example.invalid', disabled: false, focus() {}, addEventListener() {}, setAttribute() {}, removeAttribute() {} };
  const button = { disabled: false, textContent: 'Join' };
  const label = { textContent: 'Join' }; const status = {textContent: ''};
  let submit; let resolve; let requests = 0; const events = [];

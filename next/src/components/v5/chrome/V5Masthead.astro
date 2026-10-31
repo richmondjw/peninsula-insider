@@ -1,7 +1,7 @@
 ---
 import PlayBeacon from '../../play/PlayBeacon.astro';
 import V5MegaPanel from './V5MegaPanel.astro';
-import { v5Pillars } from '../../../lib/v5-nav';
+import { v5Pillars, v5DrawerItems, v5DrawerCta } from '../../../lib/v5-nav';
 import '../../../styles/editorial-shell.css';
 const { section = 'home' } = Astro.props;
 const path = Astro.url.pathname;
@@ -13,7 +13,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 </a>
 <p class="brand-note">A local point of view.<br/>A Peninsula worth knowing.</p>
 <div class="header-actions">
-<a class="search-link" data-open-search data-evt="search_open" href="/search/">
+<a class="search-link" data-open-search data-evt="search_open" href="/search/" aria-label="Search the Peninsula">
 <svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="17">
 <circle cx="10.5" cy="10.5" r="6.5">
 </circle>
@@ -25,7 +25,7 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 <PlayBeacon />
 <a class="note-link" href="/dispatch/">The Insider Note <span aria-hidden="true">↗</span>
 </a>
-<button aria-controls="site-nav" aria-expanded="false" aria-label="Open navigation" class="mobile-menu">
+<button type="button" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open navigation" class="mobile-menu">
 <svg aria-hidden="true" height="22" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="22">
 <path d="M3 7h18M3 12h18M3 17h18">
 </path>
@@ -58,6 +58,60 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 <a class="mobile-note" href="/dispatch/">The Insider Note ↗</a>
 </div>
 </nav>
+<dialog class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
+  <div class="mobile-drawer__top">
+    <a class="mobile-drawer__brand" href="/" aria-label="Peninsula Insider home">Peninsula <span>Insider</span></a>
+    <button class="mobile-drawer__close" type="button" aria-label="Close navigation" data-mobile-drawer-close>
+      <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M5 5 19 19M19 5 5 19"/></svg>
+    </button>
+  </div>
+  <nav class="mobile-drawer__body" aria-label="Explore the Peninsula">
+    <div class="mobile-drawer__intro">
+      <p class="mobile-drawer__eyebrow">The local edit</p>
+      <p class="mobile-drawer__title">Find your way.</p>
+    </div>
+    <a class="mobile-drawer__search" data-open-search data-evt="search_open" href="/search/">
+      <svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" width="19"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+      <span>Search places, plans &amp; stories</span>
+      <span class="mobile-drawer__search-arrow" aria-hidden="true">↗</span>
+    </a>
+    <div class="mobile-drawer__columns">
+      <section class="mobile-drawer__section" aria-labelledby="mobile-drawer-explore">
+        <h2 class="mobile-drawer__group-label" id="mobile-drawer-explore">Explore</h2>
+        <ul class="mobile-drawer__primary">
+          {v5DrawerItems.filter(item => item.group === 'pillars').map((item, index) => (
+            <li><a href={item.href} aria-current={active === item.key ? 'page' : undefined}><span class="mobile-drawer__index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{item.label}</span><span class="mobile-drawer__arrow" aria-hidden="true">↗</span></a></li>
+          ))}
+        </ul>
+      </section>
+      <div class="mobile-drawer__aside">
+        <section class="mobile-drawer__section" aria-labelledby="mobile-drawer-yours">
+          <h2 class="mobile-drawer__group-label" id="mobile-drawer-yours">Your Peninsula</h2>
+          <ul class="mobile-drawer__secondary">
+            {v5DrawerItems.filter(item => item.group === 'mine').map(item => (
+              <li><a href={item.href}><span>{item.label}</span><span aria-hidden="true">↗</span></a></li>
+            ))}
+            <li><a href="/map/"><span>Open the map</span><span aria-hidden="true">↗</span></a></li>
+          </ul>
+        </section>
+        <section class="mobile-drawer__section mobile-drawer__section--about" aria-labelledby="mobile-drawer-about">
+          <h2 class="mobile-drawer__group-label" id="mobile-drawer-about">About us</h2>
+          <ul class="mobile-drawer__secondary">
+            {v5DrawerItems.filter(item => item.group === 'trust').map(item => (
+              <li><a href={item.href}><span>{item.label}</span><span aria-hidden="true">↗</span></a></li>
+            ))}
+          </ul>
+        </section>
+        <a class="mobile-drawer__dispatch" href={v5DrawerCta.href}>
+          <span class="mobile-drawer__dispatch-kicker">A note from here</span>
+          <strong>{v5DrawerCta.label}</strong>
+          <span class="mobile-drawer__dispatch-dek">{v5DrawerCta.dek}</span>
+          <span class="mobile-drawer__dispatch-action">{v5DrawerCta.ctaLabel} <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</dialog>
 </header>
 <script>
 let shellCleanup:(()=>void)|undefined;
@@ -68,9 +122,13 @@ function initEditorialShell(){
  header.dataset.bound='true';
  const button=header.querySelector<HTMLButtonElement>('.mobile-menu')!;
  const nav=header.querySelector<HTMLElement>('#site-nav')!;
+ const drawer=header.querySelector<HTMLDialogElement>('#mobile-drawer')!;
+ const drawerClose=drawer.querySelector<HTMLButtonElement>('[data-mobile-drawer-close]')!;
  const personal=header.querySelector<HTMLDetailsElement>('.personal-menu')!;
  const menus=[...header.querySelectorAll<HTMLElement>('[data-pillar-menu]')];
  let closeTimer:number|undefined;
+ let savedScrollY=0;
+ let savedBodyStyle:{position:string;top:string;width:string;overflow:string;htmlOverflow:string}|undefined;
 
  function closeMenu(menu:HTMLElement){
    const panel=menu.querySelector<HTMLElement>('[data-v5-mega]')!;
@@ -109,17 +167,62 @@ function initEditorialShell(){
   toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
  });
 
- function close(){button.setAttribute('aria-expanded','false');button.setAttribute('aria-label','Open navigation');nav.classList.remove('open');closePanels();}
- button.addEventListener('click',()=>{const open=button.getAttribute('aria-expanded')!=='true';button.setAttribute('aria-expanded',String(open));button.setAttribute('aria-label',open?'Close navigation':'Open navigation');nav.classList.toggle('open',open);});
- const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}else if(button.getAttribute('aria-expanded')==='true'){close();button.focus();}};
+ function unlockPage(){
+  if(!savedBodyStyle)return;
+  document.body.style.position=savedBodyStyle.position;
+  document.body.style.top=savedBodyStyle.top;
+  document.body.style.width=savedBodyStyle.width;
+  document.body.style.overflow=savedBodyStyle.overflow;
+  document.documentElement.style.overflow=savedBodyStyle.htmlOverflow;
+  savedBodyStyle=undefined;
+  window.scrollTo(0,savedScrollY);
+ }
+ function closeDrawer(restoreFocus=true){
+  if(drawer.open)drawer.close();
+  unlockPage();
+  button.setAttribute('aria-expanded','false');
+  button.setAttribute('aria-label','Open navigation');
+  if(restoreFocus && button.isConnected && window.matchMedia('(max-width: 1100px)').matches)button.focus();
+ }
+ function openDrawer(){
+  if(!window.matchMedia('(max-width: 1100px)').matches || drawer.open)return;
+  closePanels();
+  personal.open=false;
+  savedScrollY=window.scrollY;
+  savedBodyStyle={
+   position:document.body.style.position,
+   top:document.body.style.top,
+   width:document.body.style.width,
+   overflow:document.body.style.overflow,
+   htmlOverflow:document.documentElement.style.overflow,
+  };
+  document.body.style.position='fixed';
+  document.body.style.top=`-${savedScrollY}px`;
+  document.body.style.width='100%';
+  document.body.style.overflow='hidden';
+  document.documentElement.style.overflow='hidden';
+  drawer.showModal();
+  button.setAttribute('aria-expanded','true');
+  button.setAttribute('aria-label','Close navigation');
+  drawerClose.focus({preventScroll:true});
+  drawer.scrollTop=0;
+ }
+ button.addEventListener('click',()=>drawer.open?closeDrawer():openDrawer());
+ drawerClose.addEventListener('click',()=>closeDrawer());
+ drawer.addEventListener('cancel',e=>{e.preventDefault();closeDrawer();});
+ drawer.addEventListener('click',e=>{if((e.target as Element).closest('a'))closeDrawer(false);});
+ const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;if(drawer.open){e.preventDefault();closeDrawer();return;}const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}};
  const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();};
+ const onResize=()=>{if(drawer.open && !window.matchMedia('(max-width: 1100px)').matches)closeDrawer(false);};
  document.addEventListener('keydown',onKeydown);
  document.addEventListener('click',onClick);
- shellCleanup=()=>{window.clearTimeout(closeTimer);document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);};
+ window.addEventListener('resize',onResize);
+ shellCleanup=()=>{closeDrawer(false);window.clearTimeout(closeTimer);document.removeEventListener('keydown',onKeydown);document.removeEventListener('click',onClick);window.removeEventListener('resize',onResize);};
 }
 initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>
 <style>
+ .pi-shell .masthead-row{min-height:82px!important}
  .site-nav{position:relative}
  .pillar-menu__trigger{display:flex;align-items:center}
  .pillar-menu__toggle{display:flex;align-items:center;justify-content:center;width:25px;height:44px;margin-left:-2px;padding:0;border:0;background:transparent;color:#53636d;cursor:pointer}
@@ -127,18 +230,61 @@ initEditorialShell();document.addEventListener('astro:page-load',initEditorialSh
  .pillar-menu.is-open .pillar-menu__toggle svg{transform:rotate(180deg)}
  .pillar-menu.is-open .pillar-menu__trigger>a{color:#10527e}
  .pillar-menu__toggle:focus-visible{outline:3px solid #11309c;outline-offset:2px}
+ .mobile-drawer{display:none}
  @media(max-width:1100px){
+  .pi-shell .masthead-row{min-height:72px!important}
   .site-nav{display:none}
-  .site-nav.open{display:block}
-  .site-nav>.wrap{display:grid;grid-template-columns:1fr;gap:0;padding:10px 0 20px}
-  .mobile-menu{display:flex;align-items:center;justify-content:center;cursor:pointer}
-  .pillar-menu{border-bottom:1px solid #e4e5e3}
-  .pillar-menu__trigger{justify-content:space-between}
-  .pillar-menu__trigger>a{flex:1}
-  .pillar-menu__toggle{width:46px;height:46px;border-left:1px solid #e4e5e3}
-  .personal-menu{margin:0;border-bottom:1px solid #e4e5e3}
-  .personal-panel{position:static;box-shadow:none;border:0;padding:0 8px 10px}
-  .site-nav .mobile-search,.site-nav .mobile-note{display:flex}
+  .mobile-menu{display:flex;align-items:center;justify-content:center;cursor:pointer;width:44px!important;height:44px;flex:none}
+  .mobile-drawer[open]{display:block;position:fixed;inset:0;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#f7f4ed;color:#172d3f;overflow-y:auto;overscroll-behavior:contain;z-index:10000}
+  .mobile-drawer::backdrop{background:#0b2e4a}
+  .mobile-drawer__top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px;padding:10px max(24px,calc((100vw - 920px)/2));background:#fff;border-bottom:1px solid #d8d8d5}
+  .mobile-drawer__brand{display:flex;align-items:center;gap:.18em;min-height:44px;font:700 25px/1.05 Sora,system-ui,sans-serif;letter-spacing:-.025em;color:#14202a;white-space:nowrap}
+  .mobile-drawer__brand span{color:#10527e}
+  .mobile-drawer__close{display:grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid #bfc8cc;border-radius:50%;background:#fff;color:#0b2e4a;cursor:pointer}
+  .mobile-drawer__close:hover{background:#e7eef1}
+  .mobile-drawer__body{width:min(920px,calc(100% - 48px));margin:0 auto;padding:26px 0 max(48px,env(safe-area-inset-bottom))}
+  .mobile-drawer__eyebrow,.mobile-drawer__group-label,.mobile-drawer__dispatch-kicker{margin:0;font:700 10px/1.5 Inter,Arial,sans-serif;letter-spacing:.15em;text-transform:uppercase;color:#10527e}
+  .mobile-drawer__title{margin:5px 0 20px;font:400 clamp(32px,4vw,43px)/1.1 'Source Serif 4',Georgia,serif;letter-spacing:-.025em;color:#0b2e4a}
+  .mobile-drawer__search{display:flex;align-items:center;gap:13px;min-height:54px;padding:0 16px;background:#fff;border:1px solid #bfc8cc;border-radius:4px;font:500 14px/1.3 Inter,Arial,sans-serif;color:#314653;text-decoration:none}
+  .mobile-drawer__search:hover{border-color:#10527e;color:#10527e}
+  .mobile-drawer__search-arrow{margin-left:auto;font-size:19px;color:#10527e}
+  .mobile-drawer__columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(255px,.85fr);gap:64px;margin-top:31px}
+  .mobile-drawer__group-label{margin:0 0 8px;color:#5a686d}
+  .mobile-drawer__primary,.mobile-drawer__secondary{list-style:none;margin:0;padding:0}
+  .mobile-drawer__primary li,.mobile-drawer__secondary li{margin:0}
+  .mobile-drawer__primary a{display:flex;align-items:center;gap:13px;min-height:56px;border-bottom:1px solid #cfd5d5;color:#0b2e4a;font:400 23px/1.1 'Source Serif 4',Georgia,serif;letter-spacing:-.018em;text-decoration:none}
+  .mobile-drawer__primary a:hover,.mobile-drawer__primary a[aria-current=page]{color:#10527e;background:#e7eef1}
+  .mobile-drawer__index{width:29px;flex:none;color:#5a686d;font:600 10px/1 Inter,Arial,sans-serif;letter-spacing:.08em}
+  .mobile-drawer__arrow{margin-left:auto;font:400 17px/1 Inter,Arial,sans-serif;color:#10527e}
+  .mobile-drawer__secondary a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:47px;border-bottom:1px solid #cfd5d5;color:#172d3f;font:600 13px/1.3 Inter,Arial,sans-serif;text-decoration:none}
+  .mobile-drawer__secondary a:hover{color:#10527e;background:#e7eef1}
+  .mobile-drawer__secondary a span:last-child{font-size:17px;font-weight:400;color:#10527e}
+  .mobile-drawer__section--about{margin-top:25px}
+  .mobile-drawer__dispatch{display:flex;flex-direction:column;align-items:flex-start;gap:11px;margin-top:28px;padding:22px 24px;background:#0b2e4a;color:#fff;text-decoration:none}
+  .mobile-drawer__dispatch:hover{background:#144364;color:#fff}
+  .mobile-drawer__dispatch-kicker{color:#b9d7e3}
+  .mobile-drawer__dispatch strong{font:400 27px/1.1 'Source Serif 4',Georgia,serif;letter-spacing:-.02em}
+  .mobile-drawer__dispatch-dek{max-width:40ch;color:#e0e9eb;font:400 12px/1.55 Inter,Arial,sans-serif}
+  .mobile-drawer__dispatch-action{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:5px;padding-top:10px;border-top:1px solid #6d91a5;color:#fff;font:700 12px/1.3 Inter,Arial,sans-serif}
+  .mobile-drawer__dispatch-action span{font-size:19px;font-weight:400}
+  .mobile-drawer a:focus-visible,.mobile-drawer button:focus-visible,.mobile-menu:focus-visible{outline:3px solid #11309c;outline-offset:3px}
+  .mobile-drawer__dispatch:focus-visible{outline-color:#eac47c;outline-offset:3px}
  }
- @media(max-width:767px){.site-nav>.wrap{grid-template-columns:1fr;gap:0}}
+ @media(max-width:699px){
+  .mobile-drawer__columns{display:block;margin-top:28px}
+  .mobile-drawer__aside{margin-top:32px}
+ }
+ @media(max-width:767px){
+  .pi-shell .masthead-row{min-height:68px!important}
+  .pi-shell .header-actions .search-link{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px}
+  .pi-shell .header-actions .search-link span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+  .pi-shell :global(.v5-play__link){min-width:44px!important;justify-content:center}
+  .pi-shell .masthead-row{gap:4px}
+  .pi-shell.site-header .brand{display:flex;align-items:center;min-height:44px;font-size:min(23px,5.55vw)}
+  .mobile-drawer__top{padding:10px 16px;min-height:68px}
+  .mobile-drawer__brand{font-size:min(24px,5.9vw)}
+  .mobile-drawer__body{width:calc(100% - 32px);padding-top:23px}
+  .mobile-drawer__title{font-size:34px;margin-bottom:18px}
+  .mobile-drawer__primary a{min-height:54px;font-size:22px}
+ }
 </style>

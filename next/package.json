@@ -123,6 +123,8 @@
     "lint:rls-editor-gate": "node --test scripts/rls-editor-gate.test.mjs",
     "assert:commercial-firewall": "node scripts/audit-commercial-firewall.mjs --assert",
     "test:commercial-firewall": "node --test scripts/audit-commercial-firewall.test.mjs src/lib/partner-slot.test.mjs",
+    "audit:stay-affiliate-readiness": "node scripts/audit-stay-affiliate-readiness.mjs",
+    "test:stay-affiliate-readiness": "node --test scripts/audit-stay-affiliate-readiness.test.mjs src/lib/stay-affiliate-link.test.mjs",
     "test:analytics-contract": "node --test src/lib/analytics-contract.test.mjs",
     "audit:provenance-dates": "node scripts/audit-provenance-dates.mjs",
     "assert:provenance-dates": "node scripts/audit-provenance-dates.mjs --assert",

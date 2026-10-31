@@ -8,8 +8,10 @@
     "   then right-click any cover photograph and choose 'Replace image'.",
     "   Rotation pauses automatically while edit mode is on, and the arrows",
     "   and dots stay visible, so step to the slide you want and replace it.",
-    "   A published replacement wins over this file, applies live, and is",
-    "   baked into the next deploy. Nothing here needs changing for that.",
+    "   A published replacement with alt text and photo credit wins over this file,",
+    "   while incomplete image metadata keeps the credited deck frame visible.",
+    "   An accepted replacement is baked into the next deploy. Homepage",
+    "   photographs and their credits are rendered together at build time.",
     "",
     "2. IN THIS FILE, to add, remove or reorder slides. Edit the 'slides'",
     "   array and rebuild. Order here is the order on screen.",
@@ -37,27 +39,35 @@
   ],
   "slides": [
     {
-      "id": "cape-schanck-rainbow",
-      "src": "/images/sourced/home-cover-cape-schanck-rainbow-01.webp",
-      "alt": "A rainbow arcs over the bay at Cape Schanck on a still winter morning, Mornington Peninsula",
-      "focal": "center 38%"
+      "id": "cape-schanck-lighthouse",
+      "src": "/images/visit-victoria/vv-143799-cape-schanck.webp",
+      "alt": "Scrubby cliffs at Cape Schanck falling to a rocky shore and sunlit sea, with the lighthouse on the headland above",
+      "caption": "Cape Schanck, Mornington Peninsula.",
+      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
+      "focal": "center 15%"
     },
     {
       "id": "sorrento-pier",
-      "src": "/images/sourced/home-cover-sorrento-pier-01.webp",
-      "alt": "A long pier reaching into calm water past moored boats on a clear Peninsula morning",
+      "src": "/images/visit-victoria/vv-163876-sorrento-pier.webp",
+      "alt": "A couple walks along a narrow white-railed pier at Sorrento over clear shallow water dotted with moored boats",
+      "caption": "Sorrento, Mornington Peninsula.",
+      "credit": "Courtesy of Visit Victoria",
       "focal": "center 30%"
     },
     {
-      "id": "back-beach-horses",
-      "src": "/images/sourced/home-cover-back-beach-horses-01.webp",
-      "alt": "Riders on horseback along the wet sand of a Mornington Peninsula back beach",
+      "id": "gunnamatta-horses",
+      "src": "/images/visit-victoria/vv-25061205-the-ranch-gunnamatta-beach.webp",
+      "alt": "Three horse riders head along Gunnamatta Beach beside dune grass, with breaking surf and Cape Schanck headland in the distance",
+      "caption": "Gunnamatta Ocean Beach, Cape Schanck, Mornington Peninsula.",
+      "credit": "Peter Foster, courtesy of Visit Victoria",
       "focal": "center 42%"
     },
     {
-      "id": "sunset-bay",
-      "src": "/images/sourced/home-cover-sunset-bay-01.webp",
-      "alt": "Sunset over a bay beach and boatsheds on the Mornington Peninsula",
+      "id": "red-hill-vines",
+      "src": "/images/visit-victoria/vv-160356-montalto.webp",
+      "alt": "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
       "focal": "center 34%"
     }
   ]

@@ -96,7 +96,7 @@ python3 ops/scripts/publication-ledger.py validate \
 
 - **Tier 1 / low risk** → autonomous or system-approved publish is allowed, but logging is still mandatory
 - **Tier 2 / medium risk** → review-gated publish, logging mandatory
-- **Tier 3 / high risk** → founder-led approval before publish, logging mandatory
+- **Tier 3 / high risk** → founder-led approval by James or delegated editorial approval by Remy before publish, logging mandatory. Record James as `founder-led-editorial-approval`; record Remy as `publisher-delegate-editorial-approval` with `approved_by: remy`.
 
 ## Notes
 

@@ -57,6 +57,7 @@ ALLOWED_APPROVAL_MODES = {
     "bulk-approved",
     "light-editorial-review",
     "founder-led-editorial-approval",
+    "publisher-delegate-editorial-approval",
     "manual-approval",
     "no-publish",
 }
@@ -121,11 +122,18 @@ def validate_entry(entry: dict[str, Any]) -> dict[str, Any]:
     if normalized["verification_result"] not in ALLOWED_VERIFICATION_RESULTS:
         raise ValueError(f"invalid verification_result: {normalized['verification_result']}")
 
-    if normalized["risk_tier"] == "high" and normalized["approval_mode"] != "founder-led-editorial-approval":
-        raise ValueError("high-risk entries must use founder-led-editorial-approval")
+    high_risk_approval_modes = {
+        "founder-led-editorial-approval",
+        "publisher-delegate-editorial-approval",
+    }
+    if normalized["risk_tier"] == "high" and normalized["approval_mode"] not in high_risk_approval_modes:
+        raise ValueError("high-risk entries must use founder-led-editorial-approval or publisher-delegate-editorial-approval")
 
-    if normalized["approval_mode"] == "founder-led-editorial-approval" and not normalized.get("approved_by"):
-        raise ValueError("founder-led approvals require approved_by")
+    if normalized["approval_mode"] in high_risk_approval_modes and not normalized.get("approved_by"):
+        raise ValueError("high-risk editorial approvals require approved_by")
+
+    if normalized["approval_mode"] == "publisher-delegate-editorial-approval" and normalized.get("approved_by") != "remy":
+        raise ValueError("publisher-delegate-editorial-approval must be approved_by remy")
 
     if not normalized.get("ledger_id"):
         normalized["ledger_id"] = build_ledger_id(normalized)

@@ -146,7 +146,9 @@ fs.writeFileSync(ledgerPath, JSON.stringify({
   writtenBy: 'ops/scripts/visit-victoria/apply-entity-map.mjs --write',
   writtenAt: new Date().toISOString(),
   entityMap: 'ops/records/visit-victoria/entity-map.json',
-  placements: [...(prior.placements ?? []).filter((p) => p.surface !== 'site'), ...placements],
+  // The entity map owns content-record placements. Keep explicitly managed
+  // homepage placements because their sources live in Astro/JSON, not this map.
+  placements: [...(prior.placements ?? []).filter((p) => p.surface !== 'site' || p.managedBy === 'homepage'), ...placements],
   cmsRetired: prior.cmsRetired ?? [],
 }, null, 1) + '\n');
 console.log(`derivatives made ${made}, total ${(bytes / 1e6).toFixed(1)} MB; ledger ${ledgerPath}`);

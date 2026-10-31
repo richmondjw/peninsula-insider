@@ -24,6 +24,9 @@ export interface Props {
   previewItems?: string[];
   endpoint?: string;
   source?: string;
+  buttonLabel?: string;
+  /** Home-only evergreen format card, rather than implying an article is an email issue. */
+  formatPreview?: boolean;
   /**
    * Hide the preview card on the right entirely. Useful for footer/embedded
    * placements where the card would crowd the surface. Default false - the
@@ -43,6 +46,8 @@ const {
   previewItems = [],
   endpoint = 'https://tjjhpvslpysfklwpqmgz.supabase.co/functions/v1/pi-newsletter-subscribe',
   source = 'footer',
+  buttonLabel = 'Join',
+  formatPreview = false,
   hidePreview = false,
 } = Astro.props;
 
@@ -113,12 +118,13 @@ const resolvedFoot = dispatch
   ? `Read in ${readMinutes} ${readMinutes === 1 ? 'minute' : 'minutes'} · Used all weekend`
   : '';
 
-const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0;
+const showFormatPreview = !hidePreview && formatPreview;
+const showPreview = !hidePreview && !showFormatPreview && resolvedHeadline && resolvedPicks.length > 0;
 ---
 
 <section class="v2-newsletter" id="newsletter" aria-labelledby="newsletter-title">
   <div class="v2-newsletter__container">
-    <div class={`v2-newsletter__frame${showPreview ? ' v2-newsletter__frame--has-preview' : ''}`}>
+    <div class={`v2-newsletter__frame${showPreview || showFormatPreview ? ' v2-newsletter__frame--has-preview' : ''}`}>
       <div class="v2-newsletter__copy">
         <h2
           class="v2-newsletter__title"
@@ -132,14 +138,18 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
         >{body}</p>
         {sub && <p class="v2-newsletter__sub">{sub}</p>}
 
+        {source === 'home' && <label class="v2-newsletter__input-label" for="home-insider-note-email">Email address</label>}
+
         <form
           class="v2-newsletter__form"
           novalidate
           data-source={source}
           data-endpoint={endpoint}
+          data-button-label={buttonLabel}
         >
           <input
             class="v2-newsletter__input"
+            id={source === 'home' ? 'home-insider-note-email' : undefined}
             type="email"
             name="email"
             placeholder="your@email.com"
@@ -147,7 +157,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
             autocomplete="email"
             required
           />
-          <button class="v2-newsletter__submit" type="submit">Join</button>
+          <button class="v2-newsletter__submit" type="submit">{buttonLabel}</button>
         </form>
 
         <div class="v2-newsletter__meta">
@@ -176,6 +186,18 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           {resolvedFoot && <div class="v2-np__foot">{resolvedFoot}</div>}
         </a>
       )}
+      {showFormatPreview && (
+        <aside class="v2-newsletter__format" aria-label="What is inside The Insider Note">
+          <h3 class="v2-newsletter__format-title">What lands in your inbox</h3>
+          <ul class="v2-newsletter__format-list">
+            <li><strong>Weekend inspiration</strong><span>What is worth doing and where we would go.</span></li>
+            <li><strong>Seasonal picks</strong><span>Places and experiences worth knowing now.</span></li>
+            <li><strong>Local notes</strong><span>Useful observations you might otherwise miss.</span></li>
+            <li><strong>From the Journal</strong><span>Selected guides and stories worth reading.</span></li>
+          </ul>
+          <a class="v2-newsletter__format-link" href="/dispatch/">More about the Note <span aria-hidden="true">&rarr;</span></a>
+        </aside>
+      )}
     </div>
   </div>
 </section>
@@ -186,21 +208,33 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     function emailValid(s) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(s); }
     function setStatus(form, msg, kind) {
       var parent = form.parentNode;
+      var input = form.querySelector('.v2-newsletter__input');
       var st = parent && parent.querySelector(':scope > .v2-newsletter__status');
       if (!st) {
         st = document.createElement('p');
         st.className = 'v2-newsletter__status';
+        st.id = 'v2-newsletter-status-' + Array.prototype.indexOf.call(document.querySelectorAll('.v2-newsletter__form'), form);
         st.setAttribute('role', 'status');
         st.setAttribute('aria-live', 'polite');
         parent && parent.insertBefore(st, form.nextSibling);
       }
       st.textContent = msg;
       st.className = 'v2-newsletter__status' + (kind ? ' v2-newsletter__status--' + kind : '');
+      if (input) {
+        if (msg) input.setAttribute('aria-describedby', st.id);
+        else input.removeAttribute('aria-describedby');
+      }
     }
     function init() {
       document.querySelectorAll('.v2-newsletter__form').forEach(function (form) {
         if (form._v2nlInit) return;
         form._v2nlInit = true;
+        var emailInput = form.querySelector('.v2-newsletter__input');
+        if (emailInput) emailInput.addEventListener('input', function () {
+          emailInput.removeAttribute('aria-invalid');
+          var status = form.parentNode && form.parentNode.querySelector(':scope > .v2-newsletter__status');
+          if (status && status.textContent === 'Please enter a valid email address.') setStatus(form, '', '');
+        });
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           if (form._v2nlBusy || form._v2nlDone) return;
@@ -209,9 +243,11 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           var email = ((input && input.value) || '').trim();
           if (!emailValid(email)) {
             setStatus(form, 'Please enter a valid email address.', 'err');
+            input && input.setAttribute('aria-invalid', 'true');
             input && input.focus();
             return;
           }
+          input && input.removeAttribute('aria-invalid');
           var endpoint = form.dataset.endpoint || '';
           var source   = form.dataset.source   || 'v2-newsletter';
           form._v2nlBusy = true;
@@ -226,7 +262,7 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
           }
           function fail(msg) {
             form._v2nlBusy = false;
-            if (btn) { btn.textContent = 'Join'; btn.disabled = false; }
+            if (btn) { btn.textContent = form.dataset.buttonLabel || 'Join'; btn.disabled = false; }
             setStatus(form, msg || 'Something went wrong. Please try again.', 'err');
           }
           if (!endpoint) {
@@ -366,6 +402,14 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
     max-width: 48ch;
     margin: 0 0 2rem;
   }
+  .v2-newsletter__input-label {
+    display: block;
+    margin: 0 0 0.55rem;
+    color: var(--paper, #FAF7F0);
+    font-family: var(--font-ui);
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
   .v2-newsletter__form {
     display: flex;
     max-width: 460px;
@@ -426,6 +470,68 @@ const showPreview = !hidePreview && resolvedHeadline && resolvedPicks.length > 0
   }
   .v2-newsletter__meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
   .v2-newsletter__meta svg { color: var(--gold, #56b6a0); }
+
+  .v2-newsletter__format {
+    justify-self: end;
+    width: min(100%, 30rem);
+    padding: clamp(1.4rem, 3vw, 2.2rem);
+    border: 1px solid var(--border, #D9D5CE);
+    border-radius: var(--radius-m, 16px);
+    background: var(--paper-warm, #F2EFEA);
+    color: var(--text, #14202A);
+    font-family: var(--font-ui);
+  }
+  .v2-newsletter__format-title {
+    margin: 0 0 1.1rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+  .v2-newsletter__format-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .v2-newsletter__format-list li {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.85rem 0;
+    border-top: 1px solid var(--border, #D9D5CE);
+  }
+  .v2-newsletter__format-list strong {
+    color: var(--text, #14202A);
+    font-size: 0.92rem;
+    line-height: 1.3;
+  }
+  .v2-newsletter__format-list span {
+    color: var(--muted, #4B5862);
+    font-size: 0.83rem;
+    line-height: 1.4;
+  }
+  .v2-newsletter__format-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 44px;
+    margin-top: 0.5rem;
+    color: var(--harbour, #10527E);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-underline-offset: 0.2em;
+  }
+  .v2-newsletter__format-link:focus-visible { outline: 2px solid var(--harbour, #10527E); outline-offset: 3px; }
+  @media (max-width: 880px) {
+    .v2-newsletter__format { justify-self: stretch; width: 100%; }
+  }
+  @media (max-width: 420px) {
+    .v2-newsletter__format-list { grid-template-columns: 1fr; }
+  }
 
   .v2-newsletter__preview {
     position: relative;

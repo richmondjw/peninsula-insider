@@ -1,18 +1,13 @@
 {
-  "generatedAt": "2026-09-13T11:35:12.930Z",
+  "generatedAt": "2026-09-30T05:34:04.130Z",
   "dist": "next/dist",
   "totals": {
     "closedVenues": 3,
-    "pagesScanned": 996,
-    "leakingPages": 0,
-    "leakInstances": 0
+    "pagesScanned": 1025,
+    "leakingPages": 4,
+    "leakInstances": 4
   },
   "closedVenues": [
-    {
-      "slug": "la-baracca-tgallant",
-      "name": "La Baracca at T'Gallant",
-      "field": "operatingStatus"
-    },
     {
       "slug": "maxs-red-hill-estate",
       "name": "Max's at Red Hill Estate",
@@ -22,7 +17,61 @@
       "slug": "ouest-france-bistro",
       "name": "Ouest France Bistro",
       "field": "status"
+    },
+    {
+      "slug": "red-hill-market",
+      "name": "Red Hill Market",
+      "field": "status"
     }
   ],
-  "leaks": []
+  "leaks": [
+    {
+      "route": "/eat/markets/",
+      "count": 1,
+      "venues": [
+        {
+          "slug": "red-hill-market",
+          "name": "Red Hill Market",
+          "closureField": "status",
+          "matched": "name"
+        }
+      ]
+    },
+    {
+      "route": "/explore/plans/the-market-saturday/",
+      "count": 1,
+      "venues": [
+        {
+          "slug": "red-hill-market",
+          "name": "Red Hill Market",
+          "closureField": "status",
+          "matched": "name"
+        }
+      ]
+    },
+    {
+      "route": "/guides/easter-long-weekend/",
+      "count": 1,
+      "venues": [
+        {
+          "slug": "red-hill-market",
+          "name": "Red Hill Market",
+          "closureField": "status",
+          "matched": "name"
+        }
+      ]
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-04-26/",
+      "count": 1,
+      "venues": [
+        {
+          "slug": "red-hill-market",
+          "name": "Red Hill Market",
+          "closureField": "status",
+          "matched": "name"
+        }
+      ]
+    }
+  ]
 }
