@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Balnarring Bakehouse, Greens Bush in Flower, and Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/>) - Balnarring Bakehouse's beef-and-mushroom pie, Greens Bush at peak wildflower density, and the Emu Plains Market at Balnarring Reserve on Saturday.
+
 - [Avani's Syrah, Western Port Wildflowers, and the Emu Plains Market in Full Spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/>) - Avani Wines pours the skin-contact white that earns a detour, the coastal scrub above Balnarring is carpeted in wax lip orchids, and the Emu Plains Market at Balnarring Reserve runs until mid-December.
 
 - [Moke's five-course set menu, the Balnarring horse trails at peak spring green, and the Emu Plains Market craft find](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/>) - Moke Dining's fixed five-course menu in Flinders, the Balnarring horse trails at their most open, and the Emu Plains Market in Balnarring for a local's Saturday circuit.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Foxeys Hangout, the Coastal Cliffs at Cape Schanck, and British Comedy Trivia in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/>) - Foxeys Hangout's biodynamic sparkling flight earns the afternoon, Cape Schanck's clifftop track is in full spring form, and The Pig & Whistle is running British Comedy Trivia tonight.
 
 - [Merricks lunch, the Boneo Plains grassland, and a new opening in Dromana](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-21/>) - Merricks General Wine Store earns a dedicated spring lunch booking, the Boneo Plains Native Grassland Reserve is at peak golden weather-grass, and The Curious Pantry has opened its doors in Dromana.
-
-- [Two Bays on the taps, spider orchids above Balnarring, and what's showing at McClelland this spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/>) - Gluten-free or not, Two Bays Brewing's tasting paddle in Dromana earns a full second pour; the Balnarring wildflower loop hits peak spider orchid; and McClelland Sculpture Park's spring outdoor exhibition runs through November.
 
 ## Planning a particular weekend?
 
