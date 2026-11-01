@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-01
+Modified: 2026-11-02
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -9,7 +9,7 @@ The Peninsula, in motion   spring edition
 
 # What's on this weekend
 
-Fri 30 October – Sun 1 November  · Mornington Peninsula
+Fri 6 – Sun 8 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
@@ -19,21 +19,29 @@ Illustration: Peninsula Insider.
 
 Conceptual coastal illustration. Illustration: Peninsula Insider.
 
-The short list / Fri 30 October – Sun 1 November
+The short list / Fri 6 – Sun 8 November
 
-## A reason to go
+## Two reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+More picks to the right
 
-Sun, 1 Nov · 11am–4pm · Mornington
+- Sat, 7 Nov · 5pm–8pm · Fingal
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 7 Nov   Fingal   Live Music
+
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Sun, 1 Nov   Mornington   Exhibitions
+Fri, 6 Nov   Mornington   Exhibitions
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -45,7 +53,29 @@ Make a day of it
 
 Browse by date and save what catches your eye.
 
-### Sunday 1 November
+### Friday 6 November
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
+### Saturday 7 November
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions · Recurring weekly
+
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music · Recurring weekly
+
+### Sunday 8 November
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -112,12 +142,6 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 9am · Mornington · Markets
 
 ### Live music
-
-- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-5pm · Fingal · Live Music
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 

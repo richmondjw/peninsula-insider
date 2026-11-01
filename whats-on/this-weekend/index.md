@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend   Fri 30 October – Sun 1 November
+Peninsula This Weekend   Fri 6 – Sun 8 November
 
 # What’s on this weekend
 
-2 source-checked events for Fri 30 October – Sun 1 November. Confirm details with the organiser before travelling.
+2 source-checked events for Fri 6 – Sun 8 November. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -25,7 +25,7 @@ Date confirmed · Exhibitions
 
 Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am–4pm.
 
-Friday 30 October   11am–4pm   Mornington   Checked 8 Oct 2026
+Friday 6 November   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
@@ -35,7 +35,7 @@ Date confirmed · Live Music
 
 After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
 
-Saturday 31 October   5pm–8pm   Fingal   Checked 3 Oct 2026
+Saturday 7 November   5pm–8pm   Fingal   Checked 3 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
 

@@ -1,20 +1,68 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-01T04:25:54.345Z",
+  "generatedAt": "2026-11-01T14:22:37.137Z",
   "baselineAvailable": true,
-  "fromSnapshot": "3dcfcd4dcda9b021dec91cee092f23386e364e4b450b6735fb5488c2f83eb1a7",
-  "toSnapshot": "7fd37fe10795ffda65105095b49e5e7365db68e6f1287e34f3604f9388ddb845",
-  "previousGeneratedAt": "2026-10-31T22:14:01.558Z",
+  "fromSnapshot": "7fd37fe10795ffda65105095b49e5e7365db68e6f1287e34f3604f9388ddb845",
+  "toSnapshot": "94294d745660898c45993b6e3a0adb65c511e4771daeca6172f0cb7830f63c0f",
+  "previousGeneratedAt": "2026-11-01T04:25:54.345Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 7,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "55f35140ac0d6af9d1a3bf65663d0d58cdd9ddfbaa29acfeb507812015c32b24",
+      "previousContentSha256": "090abda50dad19b8c660bf51fbe55d47d722db8ae0efd7aeab17071dc3cc704a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "b0cb575599ab1f8c7d2f4afefdcd4ae59cc6a634f0b2382e83a8f183b2ad1454",
+      "previousContentSha256": "3fb516e2836f3bbbb97770647b654a064371c5e42835bafdd7a0cbf739a30c98"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "19452dc9a0c5c1b8af52a208d14a858185fd68ee4ed69c24d89dcc29711252de",
+      "previousContentSha256": "2444e5ec9995614405c1dc069183e4ef2702710146be9e07062821472a7213bf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "da6709da54c7a702663bfd9e4d74de8d588dde69337098039027073017ffd3af",
+      "previousContentSha256": "154014ae3cb398be9bc832a5b4931ad5ed6ff297c8f0d1fe83c109eeffc5da2f"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "fc26d8df67581ac8268ab5fcee30d0fa200e976d1b35f1f8d6316b486d894b70",
-      "previousContentSha256": "0c18661ceb4ac239b305c94d52bb45b6d147dad75848505df4a8997ddc299672"
+      "contentSha256": "9706c77957866158d2246143914e81af9a54eb1411b7ff33ffde5645bf55900b",
+      "previousContentSha256": "fc26d8df67581ac8268ab5fcee30d0fa200e976d1b35f1f8d6316b486d894b70"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "d8098184b049ed4f1641aa9dc99c02ce3ceb647f75a541cc822e483ca54977dd",
+      "previousContentSha256": "af975323f5503a9d39e3ef024b04426cdbe99b1250ff19f1176b9792f4cbd622"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
+      "contentSha256": "c53695baeec699876e76c6b13daff5080b9a6ac8f85b38219304a12b4180d4c4",
+      "previousContentSha256": "c01a6defe2029f163fca97548b03e6586c497ad4b868c4950224da5a2bc43002"
     }
   ]
 }
