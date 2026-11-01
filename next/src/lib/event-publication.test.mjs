@@ -1,3 +1,5 @@
+import {routineFixture} from '../../../ops/event-intelligence/routine-test-fixtures.mjs';
+import {refreshRoutineDetails} from './event-publication.mjs';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
@@ -187,3 +189,10 @@ for (const enabled of [true, false]) {
     }
   });
 }
+
+test('routine detail expiry hides facts, exposes source fallback and removes live Event schema',()=>{
+ const instant=new Date('2026-11-01T11:00:00Z'),f=routineFixture(instant),message={hidden:true},detail={hidden:false,getAttribute:()=>JSON.stringify(f.record)},robots={setAttribute:(key,value)=>{robots[key]=value;}},schema={textContent:'{"@type":"Event"}',remove:()=>{schema.removed=true;}};
+ const root={querySelector:()=>robots,querySelectorAll:q=>q==='[data-routine-event]'?[detail]:q==='[data-routine-expired]'?[message]:[schema]};
+ refreshRoutineDetails(root,instant);assert.equal(detail.hidden,false);assert.equal(message.hidden,true);
+ refreshRoutineDetails(root,new Date(+instant+86400000));assert.equal(detail.hidden,true);assert.equal(message.hidden,false);assert.equal(robots.content,'noindex,follow');assert.equal(schema.removed,true);
+});

@@ -73,6 +73,7 @@ export function isPublicEventRecord(data, now = new Date()) {
   // Legacy publication defaults remain intact. Intelligence imports carry
   // an explicit approval receipt; incomplete receipts cannot expose a URL.
   if (!data.intelligence) return true;
+  if(data.reviewHold||data.factualReviewHold||(data.reviewStatus&&data.reviewStatus!=='published')||data.sourceReview?.required===true)return false;
   const receipt = data.intelligence;
   return Boolean(typeof receipt.approvedContent === 'string' && receipt.approvedContent === approvedEventContent(data) && receipt.revision && (receipt.approvedBy === 'James' || hasRoutineAuthority(data,now)) && receipt.approvedAt != null && receipt.reviewedAt != null &&
     Number.isFinite(new Date(receipt.approvedAt).getTime()) &&
@@ -97,4 +98,22 @@ export function refreshVerifiedPriceElements(root, now = Date.now()) {
     if (current) nextExpiry = Math.min(nextExpiry, expiry);
   }
   return Number.isFinite(nextExpiry) ? nextExpiry : null;
+}
+
+/** Hide unattended routine detail content after its evidence receipt expires. */
+export function refreshRoutineDetails(root,now=new Date()){
+  for(const detail of root.querySelectorAll('[data-routine-event]')){
+    let current=false;try{current=isPublicEventRecord(JSON.parse(detail.getAttribute('data-routine-event')),now);}catch{}
+    detail.hidden=!current;
+    for(const message of root.querySelectorAll('[data-routine-expired]'))message.hidden=current;
+    if(!current){
+      const robots=root.querySelector?.('meta[name="robots"]');if(robots)robots.setAttribute('content','noindex,follow');
+      for(const schema of root.querySelectorAll('script[type="application/ld+json"]'))if(/"@type"\s*:\s*"Event"/.test(schema.textContent))schema.remove();
+    }
+  }
+}
+export function installRoutineDetailRefresh(window,document){
+  const key=Symbol.for('pi.routine-detail-refresh');if(window[key])return;
+  const refresh=()=>refreshRoutineDetails(document);document.addEventListener('astro:page-load',refresh);window.addEventListener('pageshow',refresh);
+  window[key]=window.setInterval(refresh,60000);refresh();
 }

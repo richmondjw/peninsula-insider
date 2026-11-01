@@ -1,3 +1,4 @@
+import {hash} from './data.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {mkdtemp,mkdir,readFile,writeFile,rm} from 'node:fs/promises';
@@ -43,4 +44,36 @@ test('fresh verified updates renew authority while edited publication bytes are 
  assert.equal(second.status,'promoted-locally');let record=JSON.parse(await readFile(first.target,'utf8'));
  assert.equal(record.intelligence.reviewedAt,later.toISOString());record.summary='Independent editorial edit';await writeFile(first.target,JSON.stringify(record));
  assert.equal((await publishRoutineEvents(packet,{...options,now:later,apply:true})).results[0].reason,'existing-editorial-record-protected');
+}));
+
+test('explicit factual holds and rejections survive standing authority',()=>sandbox(async options=>{
+ for(const hold of [{reviewHold:true},{factualReviewHold:true},{reviewStatus:'rejected'},{reviewStatus:'held'}]){
+  const packet=fixture();Object.assign(packet.candidates[0],hold);assert.equal((await publishRoutineEvents(packet,{...options,apply:true})).results[0].status,'held');
+ }
+}));
+test('oldest booking and price proofs bound the whole automated receipt',()=>sandbox(async options=>{
+ const packet=fixture(),candidate=packet.candidates[0],old=new Date(+now-23*3600000).toISOString();candidate.fields.bookingUrl='https://example.com/book';candidate.price={label:'Free entry',checkedAt:old,validUntil:new Date(+now+3600000).toISOString()};
+ packet.evidence.push({id:'booking-price',url:candidate.fields.bookingUrl,authority:'official',retrievedAt:old,body:'Booking https://example.com/book Free entry'});
+ candidate.proofs.bookingUrl={evidenceId:'booking-price',value:candidate.fields.bookingUrl,quote:'Booking https://example.com/book',verified:true,verifiedBy:'James'};
+ candidate.proofs.price={evidenceId:'booking-price',value:'Free entry',quote:'Free entry',verified:true,verifiedBy:'James'};
+ const output=(await publishRoutineEvents(packet,{...options,apply:true})).results[0];const record=JSON.parse(await readFile(output.target,'utf8'));
+ assert.equal(record.expiresAt,new Date(+now+3600000).toISOString());assert.equal(isPublicEventRecord(record,new Date(+now+2*3600000)),false);
+}));
+test('cross-source equivalent instants and normalized venue identities are duplicate-held',()=>sandbox(async options=>{
+ const packet=fixture(),other=structuredClone(packet.candidates[0]);other.id='same-instant-event';other.fields.startDate='2026-11-01T23:00:00Z';other.fields.venueName=' gallery ';other.fields.officialEventUrl='https://example.com/other-source';
+ packet.candidates.push(other);assert.equal((await publishRoutineEvents(packet,options)).results[0].reason,'duplicate-or-overlapping-occurrence');
+}));
+
+test('boundary expiry keeps its thirty-day policy and bounds a fresh event receipt',()=>sandbox(async options=>{
+ const packet=fixture(),c=packet.candidates[0];c.fields.coordinates={lat:-38,lng:144.5};const quote=JSON.stringify(c.fields.coordinates);packet.evidence[0].body+=' '+quote;c.proofs.coordinates={evidenceId:'official-capture',quote,value:c.fields.coordinates,verified:true,verifiedBy:'James'};
+ const body=JSON.stringify({type:'FeatureCollection',numberMatched:1,numberReturned:1,features:[{properties:{lga_official_name:'MORNINGTON PENINSULA SHIRE'},geometry:{type:'Polygon',coordinates:[[[144,-39],[146,-39],[146,-37],[144,-37],[144,-39]]]}}],crs:{properties:{name:'urn:ogc:def:crs:EPSG::4326'}}});
+ packet.evidence.push({id:'boundary',url:'https://opendata.maps.vic.gov.au/geoserver/wfs',authority:'official',body,hash:hash(body),retrievedAt:new Date(+now-(30*24-1)*3600000).toISOString()});c.geography.boundaryEvidenceId='boundary';
+ const output=(await publishRoutineEvents(packet,{...options,apply:true})).results[0],record=JSON.parse(await readFile(output.target,'utf8'));assert.equal(record.expiresAt,new Date(+now+3600000).toISOString());
+}));
+
+test('evidence shared by boundary and volatile facts uses the stricter fact deadline',()=>sandbox(async options=>{
+ const packet=fixture(),c=packet.candidates[0];c.fields.coordinates={lat:-38,lng:144.5};const quote=JSON.stringify(c.fields.coordinates);c.proofs.coordinates={evidenceId:'official-capture',quote,value:c.fields.coordinates,verified:true,verifiedBy:'James'};c.geography.boundaryEvidenceId='official-capture';
+ const body=JSON.stringify({type:'FeatureCollection',numberMatched:1,numberReturned:1,features:[{properties:{lga_official_name:'MORNINGTON PENINSULA SHIRE',facts:c.fields},geometry:{type:'Polygon',coordinates:[[[144,-39],[146,-39],[146,-37],[144,-37],[144,-39]]]}}],crs:{properties:{name:'urn:ogc:def:crs:EPSG::4326'}}});
+ Object.assign(packet.evidence[0],{url:'https://opendata.maps.vic.gov.au/geoserver/wfs',body,hash:hash(body),retrievedAt:new Date(+now-23*3600000).toISOString()});
+ const output=(await publishRoutineEvents(packet,{...options,apply:true})).results[0],record=JSON.parse(await readFile(output.target,'utf8'));assert.equal(record.expiresAt,new Date(+now+3600000).toISOString());
 }));

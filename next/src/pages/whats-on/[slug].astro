@@ -27,7 +27,7 @@ import {
   weatherCopy,
 } from '../../lib/editorial';
 import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
-import { currentVerifiedPrice, eventContentKind, isPublicEventRecord } from '../../lib/event-publication.mjs';
+import { currentVerifiedPrice, eventContentKind, isPublicEventRecord, publicEventData } from '../../lib/event-publication.mjs';
 import { USE_OCCURRENCE_MODEL } from '../../lib/features';
 import { dayIsoOf, recordDisposition, resolveOccurrence } from '../../lib/event-occurrence.mjs';
 import { editableText, editableImage } from '../../lib/inline-edit/attrs';
@@ -228,7 +228,8 @@ export const prerender = true;
   {eventSchema && <script type="application/ld+json" set:html={JSON.stringify(eventSchema)} />}
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
-  <article class="event-detail">
+  <aside class="event-detail__ended" data-routine-expired hidden>This listing needs a fresh source check. <a href={event.data.primarySourceUrl}>Check the organiser</a> or <a href="/whats-on/">browse current listings</a>.</aside>
+  <article class="event-detail" data-routine-event={event.data.intelligence?.standingAuthority ? JSON.stringify(publicEventData(event.data)) : undefined}>
     <div class="container">
       <div class="event-detail__header">
         <div class="event-detail__meta">
@@ -577,3 +578,8 @@ export const prerender = true;
   .event-detail__image figcaption { padding: 0 0.2rem; }
   @media (max-width: 600px) { .event-detail__image img { aspect-ratio: 4 / 3; } }
 </style>
+
+<script>
+  import { installRoutineDetailRefresh } from '../../lib/event-publication.mjs';
+  installRoutineDetailRefresh(window,document);
+</script>

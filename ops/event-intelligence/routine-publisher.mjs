@@ -12,7 +12,9 @@ function overlaps(a,b){
  return [start(a),end(a),start(b),end(b)].every(Number.isFinite)&&start(a)<=end(b)&&start(b)<=end(a);
 }
 function duplicate(a,b){
- return duplicateSignals(a,b).length>0 || (a.fields.officialEventUrl===b.fields.officialEventUrl&&overlaps(a.fields,b.fields));
+ const norm=value=>String(value??'').toLowerCase().replace(/[^a-z0-9]/g,'');
+ const sameInstant=Number.isFinite(Date.parse(a.fields.startDate))&&Date.parse(a.fields.startDate)===Date.parse(b.fields.startDate);
+ return duplicateSignals(a,b).length>0 || (norm(a.fields.title)===norm(b.fields.title)&&norm(a.fields.venueName)===norm(b.fields.venueName)&&sameInstant) || (a.fields.officialEventUrl===b.fields.officialEventUrl&&overlaps(a.fields,b.fields));
 }
 /** Local content promotion only. The existing protected release pipeline owns deployment. */
 export async function publishRoutineEvents(packet,{contentDirectory,historyDirectory,now=new Date(),apply=false}={}){
@@ -29,7 +31,7 @@ export async function publishRoutineEvents(packet,{contentDirectory,historyDirec
   const slug=candidate.slug??candidate.id;
   const existing=inventory.find(entry=>entry.name===slug+'.json');
   if(!reason&&inventory.some(entry=>entry!==existing&&duplicate(candidate,{id:entry.record.eventId,fields:{...entry.record,officialEventUrl:entry.record.primarySourceUrl??entry.record.officialEventUrl}})))reason='public-catalogue-duplicate';
-  if(!reason&&existing&&(existing.record.eventId!==candidate.id||existing.record.intelligence?.approvedBy!==EVENT_PUBLISHER||existing.record.intelligence?.standingAuthority?.id!==EVENT_AUTHORITY.id||existing.record.intelligence?.approvedContent!==approvedEventContent(existing.record)||existing.record.heroImage||existing.record.reviewHold||existing.record.factualReviewHold||existing.record.cancelled||existing.record.postponed))reason='existing-editorial-record-protected';
+  if(!reason&&existing&&(existing.record.eventId!==candidate.id||existing.record.intelligence?.approvedBy!==EVENT_PUBLISHER||existing.record.intelligence?.standingAuthority?.id!==EVENT_AUTHORITY.id||existing.record.intelligence?.approvedContent!==approvedEventContent(existing.record)||existing.record.heroImage||existing.record.reviewHold||existing.record.factualReviewHold||(existing.record.reviewStatus&&existing.record.reviewStatus!=='published')||!['published','expired','past'].includes(existing.record.status)||existing.record.sourceReview?.required===true||existing.record.cancelled||existing.record.postponed))reason='existing-editorial-record-protected';
   // Images are deliberately omitted: the website already supports text-only details.
   // This avoids treating source image discovery as permission to redistribute it.
   if(reason){results.push({id:candidate.id,status:'held',reason});continue;}

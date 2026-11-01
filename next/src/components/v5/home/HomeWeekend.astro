@@ -111,7 +111,7 @@ const cards = await Promise.all(
 );
 ---
 
-{cards.length > 0 && (
+
   <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title" data-event-promotions-section>
     <div class="container">
       <div class="home-weekend__head">
@@ -122,6 +122,8 @@ const cards = await Promise.all(
         <p class="home-weekend__window">{weekend.label}</p>
       </div>
 
+      <p data-event-promotion-empty hidden={cards.length > 0}>No verified event picks remain for this weekend. <a href="/whats-on/?date=next-weekend">Browse next weekend</a> or <a href="/explore/">find a place to explore</a>.</p>
+      <div data-event-promotion-content hidden={cards.length === 0}>
       <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={cards.length < 2}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
 
       <div class="home-weekend__scroller">
@@ -158,12 +160,10 @@ const cards = await Promise.all(
       <p class="home-weekend__all">
         More happening this weekend. <a href="/whats-on/">See all events &rarr;</a>
       </p>
-
+      </div>
 
     </div>
   </section>
-)}
-
 
 <script>
   import { installEventPromotionRefresh } from '../../../lib/event-discovery.mjs';

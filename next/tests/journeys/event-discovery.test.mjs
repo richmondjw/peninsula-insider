@@ -413,12 +413,17 @@ test('the default weekend offers no finished occurrence as a current result', as
         phase: row.dataset.occurrencePhase,
         text: row.textContent,
       })),
+      empty: [...document.querySelectorAll('[data-wo-days] .wo-day__empty')].map(node=>node.textContent.trim()),
       firstDay: document.querySelector('[data-wo-days] .wo-day__h')?.textContent ?? '',
       todayName: new Intl.DateTimeFormat('en-AU', {
         timeZone: 'Australia/Melbourne', weekday: 'long',
       }).format(new Date()),
     }));
-    assert.ok(state.rows.length > 0, 'weekend still needs useful results');
+    if(!state.rows.length){
+      assert.ok(state.empty.length>0,'an empty verified calendar must explain the absence of listings');
+      assert.ok(state.empty.every(text=>/No verified event listings remain|Nothing in the registry/.test(text)),JSON.stringify(state.empty));
+      assert.equal(await reader.page.$$eval('[data-wo-days] a[href^="/whats-on/"]',nodes=>nodes.length),0,'empty state must not invent event links');
+    }
     assert.ok(state.rows.every(row => row.phase !== 'past' && !row.text.includes('Ended')));
     if (['Saturday', 'Sunday'].includes(state.todayName)) {
       assert.match(state.firstDay, new RegExp('^' + state.todayName));
