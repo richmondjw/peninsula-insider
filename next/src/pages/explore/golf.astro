@@ -74,6 +74,20 @@ const bayCourses = bayOrder
 // Visitor rules change. Keep dated, direct club sources beside these claims.
 const visitorInfo = golfVisitorInfo;
 
+const courseComparison = [
+  { slug: 'st-andrews-beach-golf-course', name: 'St Andrews Beach', character: 'Strategic dunes', access: 'Public green fees', town: 'Fingal' },
+  { slug: 'moonah-links', name: 'Moonah Links', character: 'Two resort courses', access: 'Public green fees', town: 'Fingal' },
+  { slug: 'the-national-golf-club', name: 'The National', character: 'Private multi-course club', access: 'Eligibility rules apply', town: 'Cape Schanck' },
+  { slug: 'the-dunes-golf-links', name: 'The Dunes', character: 'Links and nine-hole option', access: 'Public green fees', town: 'Rye' },
+  { slug: 'racv-cape-schanck-golf-course', name: 'RACV Cape Schanck', character: 'Resort course', access: 'Public green fees', town: 'Cape Schanck' },
+  { slug: 'eagle-ridge-golf-course', name: 'Eagle Ridge', character: 'Inland public course', access: 'Public green fees', town: 'Boneo' },
+  { slug: 'mornington-golf-club', name: 'Mornington', character: 'Bay-side parkland', access: 'Public green fees', town: 'Mornington' },
+  { slug: 'rosebud-country-club', name: 'Rosebud', character: 'Two 18-hole courses', access: 'Public green fees', town: 'Rosebud' },
+  { slug: 'flinders-golf-club', name: 'Flinders', character: 'Clifftop coastal course', access: 'Visitor windows', town: 'Flinders' },
+  { slug: 'sorrento-golf-club', name: 'Sorrento', character: 'Private parkland', access: 'Limited visitor times', town: 'Sorrento' },
+  { slug: 'portsea-golf-club', name: 'Portsea', character: 'Coastal dunes and Moonah', access: 'Visitor windows', town: 'Portsea' },
+];
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function accessLabel(access: string, slug: string) {
   if (slug === 'the-national-golf-club') return 'Private · visitor requests';
@@ -213,40 +227,27 @@ export const prerender = true;
   <section class="golf-fit" id="choose-your-round" aria-labelledby="golf-fit-title" tabindex="-1">
     <div class="container">
       <div class="golf-fit__intro">
-        <p class="label label--accent">Choose by playing style</p>
-        <h2 id="golf-fit-title">Choose by playing style, access and location</h2>
-        <p>Start with the kind of round you want. Each choice shows the access model and town before taking you to the full course details.</p>
+        <p class="label label--accent">Compare the courses</p>
+        <h2 id="golf-fit-title">Choose by course character, access and location</h2>
+        <p>Compare all 11 venues in one view, then jump to the course details and current visitor-access source.</p>
       </div>
-      <div class="golf-fit__grid">
-        <article class="golf-fit__group">
-          <h3>Architectural challenge</h3>
-          <p>Exposed, strategic courses for golfers who want the round to be the main event.</p>
-          <div class="golf-fit__links">
-            <a href="#course-st-andrews-beach-golf-course"><strong>St Andrews Beach</strong><span>Public green fees · Fingal</span></a>
-            <a href="#course-moonah-links"><strong>Moonah Links</strong><span>Public green fees · Fingal</span></a>
-            <a href="#course-the-national-golf-club"><strong>The National</strong><span>Private club · eligibility rules</span></a>
-          </div>
-        </article>
-        <article class="golf-fit__group">
-          <h3>Memorable public rounds</h3>
-          <p>Strong public options for a memorable round that still leaves room for the rest of the trip.</p>
-          <div class="golf-fit__links">
-            <a href="#course-the-dunes-golf-links"><strong>The Dunes</strong><span>Public green fees · Rye</span></a>
-            <a href="#course-racv-cape-schanck-golf-course"><strong>RACV Cape Schanck</strong><span>Public green fees · Cape Schanck</span></a>
-            <a href="#course-eagle-ridge-golf-course"><strong>Eagle Ridge</strong><span>Public green fees · Boneo</span></a>
-          </div>
-        </article>
-        <article class="golf-fit__group">
-          <h3>Social and scenic</h3>
-          <p>Visitor-friendly choices when golf is one good part of the Peninsula day.</p>
-          <div class="golf-fit__links">
-            <a href="#course-mornington-golf-club"><strong>Mornington</strong><span>Public green fees · Mornington</span></a>
-            <a href="#course-rosebud-country-club"><strong>Rosebud</strong><span>Public green fees · Rosebud</span></a>
-            <a href="#course-flinders-golf-club"><strong>Flinders</strong><span>Visitor windows · Flinders</span></a>
-            <a href="#course-sorrento-golf-club"><strong>Sorrento</strong><span>Private club · visitor windows</span></a>
-            <a href="#course-portsea-golf-club"><strong>Portsea</strong><span>Visitor windows · Portsea</span></a>
-          </div>
-        </article>
+      <div class="golf-compare" aria-label="Compare Mornington Peninsula golf venues">
+        <div class="golf-compare__header" aria-hidden="true">
+          <span>Course</span>
+          <span>Course character</span>
+          <span>Visitor access</span>
+          <span>Town</span>
+          <span></span>
+        </div>
+        {courseComparison.map((course) => (
+          <a class="golf-compare__row" href={`#course-${course.slug}`}>
+            <strong>{course.name}</strong>
+            <span data-label="Course character">{course.character}</span>
+            <span data-label="Visitor access">{course.access}</span>
+            <span data-label="Town">{course.town}</span>
+            <span class="golf-compare__arrow" aria-hidden="true">↓</span>
+          </a>
+        ))}
       </div>
     </div>
   </section>
@@ -614,7 +615,7 @@ export const prerender = true;
         requestAnimationFrame(() => target.focus({ preventScroll: true }));
       });
     });
-    document.querySelectorAll('.golf-fit__links a[href^="#course-"]').forEach((link) => {
+    document.querySelectorAll('.golf-compare__row[href^="#course-"]').forEach((link) => {
       link.addEventListener('click', () => {
         const target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
@@ -625,75 +626,7 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .golf-orientation {
-    padding: clamp(2.6rem, 5vw, 4.2rem) 0;
-    background: var(--bg-alt);
-  }
-  .golf-orientation__intro { max-width: 45rem; margin-bottom: 1.5rem; }
-  .golf-orientation__intro h2 {
-    margin: 0.35rem 0 0.55rem;
-    font-family: var(--font-display);
-    font-size: clamp(1.8rem, 3vw, 2.6rem);
-    line-height: 1.15;
-    color: var(--dark);
-  }
-  .golf-orientation__intro > p:last-child { margin: 0; color: var(--soft); line-height: 1.55; }
-  .golf-orientation__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
-  .golf-orientation__card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.65rem;
-    padding: clamp(1.15rem, 2vw, 1.7rem);
-    border: 1px solid var(--border);
-    border-radius: 1rem;
-    background: var(--white);
-  }
-  .golf-orientation__meta {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0.35rem 1rem;
-    color: var(--accent);
-    font-size: 0.74rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-  }
-  .golf-orientation__card h3 {
-    margin: 0;
-    font-family: var(--font-display);
-    font-size: clamp(1.25rem, 2vw, 1.65rem);
-    line-height: 1.2;
-    color: var(--dark);
-  }
-  .golf-orientation__card p { margin: 0; color: var(--text); font-size: 0.92rem; line-height: 1.55; }
-  .golf-orientation__card a {
-    display: inline-flex;
-    align-items: center;
-    width: fit-content;
-    min-height: 44px;
-    margin-top: auto;
-    color: var(--accent);
-    font-weight: 700;
-    text-underline-offset: 3px;
-  }
-  .golf-orientation__card a span { margin-left: 0.25rem; }
   #cape-courses, #across-courses { scroll-margin-top: 9rem; }
-  @media (max-width: 700px) {
-    .golf-orientation__grid { grid-template-columns: 1fr; }
-  }
-  .golf-quick { background: var(--white); border-bottom: 1px solid var(--border); scroll-margin-top: 12rem; }
-  .golf-quick__inner { padding-top: 1.2rem; padding-bottom: 1.35rem; }
-  .golf-quick__prompt { margin: 0 0 0.7rem; font-family: var(--font-display); font-weight: 600; color: var(--dark); }
-  .golf-quick__links { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.6rem; }
-  .golf-quick__links a { min-height: 60px; padding: 0.55rem 0.75rem; display: flex; flex-direction: column; justify-content: center; gap: 0.2rem; border: 1px solid var(--border); border-radius: 0.6rem; color: var(--dark); background: var(--bg); text-decoration: none; font-size: 0.78rem; line-height: 1.3; }
-  .golf-quick__links a span { font-weight: 700; font-size: 0.9rem; }
-  .golf-quick__links a:hover, .golf-quick__links a:focus-visible { border-color: var(--accent); color: var(--accent); }
-  .golf-quick__all { margin-top: 0.8rem; }
-  .golf-quick__all summary { min-height: 44px; display: list-item; width: fit-content; cursor: pointer; padding-block: 0.7rem; font-size: 0.86rem; font-weight: 700; color: var(--accent); }
-  .golf-quick__all summary:focus-visible, .golf-quick__index a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  .golf-quick__index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.35rem 0.8rem; padding-top: 0.35rem; }
-  .golf-quick__index a { display: flex; align-items: center; min-height: 44px; color: var(--dark); font-size: 0.85rem; text-decoration-thickness: 1px; text-underline-offset: 3px; }
 
   .golf-fit { padding: clamp(2.5rem, 6vw, 4.5rem) 0; background: var(--bg); scroll-margin-top: 12rem; }
   .golf-fit__intro { max-width: 48rem; margin-bottom: 1.4rem; }
@@ -706,34 +639,60 @@ export const prerender = true;
     letter-spacing: -0.025em;
   }
   .golf-fit__intro > p:last-child { margin: 0; max-width: 66ch; color: var(--soft); line-height: 1.6; }
-  .golf-fit__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-block: 1px solid var(--border); }
-  .golf-fit__group { padding: 1.35rem 1.25rem 1.5rem; }
-  .golf-fit__group + .golf-fit__group { border-left: 1px solid var(--border); }
-  .golf-fit__group h3 { margin: 0; color: var(--dark); font-family: var(--font-display); font-size: 1.05rem; line-height: 1.3; }
-  .golf-fit__group p { margin: 0.55rem 0 0.8rem; color: var(--soft); font-size: 0.9rem; line-height: 1.5; }
-  .golf-fit__links { display: grid; }
-  .golf-fit__links a {
-    position: relative;
+  .golf-compare { border-block: 1px solid var(--border); }
+  .golf-compare__header,
+  .golf-compare__row {
     display: grid;
-    grid-template-columns: 1fr auto;
+    grid-template-columns: minmax(9rem, 1.2fr) minmax(10rem, 1.5fr) minmax(9rem, 1.2fr) minmax(6rem, 0.8fr) auto;
+    gap: 1rem;
     align-items: center;
-    min-height: 54px;
-    color: var(--accent);
-    text-underline-offset: 0.22em;
   }
-  .golf-fit__links a strong { font-size: 0.9rem; font-weight: 700; }
-  .golf-fit__links a span { grid-column: 1; color: var(--soft); font-size: 0.76rem; line-height: 1.35; }
-  .golf-fit__links a::after { content: '↓'; grid-column: 2; grid-row: 1 / span 2; margin-left: 0.75rem; color: var(--soft); }
+  .golf-compare__header {
+    padding: 0.65rem 1rem;
+    color: var(--soft);
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .golf-compare__row {
+    min-height: 58px;
+    padding: 0.65rem 1rem;
+    border-top: 1px solid color-mix(in srgb, var(--border) 72%, transparent);
+    color: var(--text);
+    text-decoration: none;
+    transition: background-color 0.18s ease, color 0.18s ease;
+  }
+  .golf-compare__row strong {
+    color: var(--accent);
+    font-size: 0.92rem;
+  }
+  .golf-compare__row span { color: var(--soft); font-size: 0.82rem; line-height: 1.35; }
+  .golf-compare__row:hover,
+  .golf-compare__row:focus-visible { background: var(--white); color: var(--accent); }
+  .golf-compare__row:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+  .golf-compare__arrow { color: var(--accent) !important; font-size: 1rem !important; }
   .golf-card { scroll-margin-top: 12rem; }
   @media (min-width: 768px) {
     :global(.guide-hero .guide-hero__image) { aspect-ratio: 6 / 5; }
   }
-  @media (max-width: 700px) { .golf-card, .golf-quick, .golf-fit { scroll-margin-top: 9rem; } }
+  @media (max-width: 700px) { .golf-card, .golf-fit { scroll-margin-top: 9rem; } }
   @media (max-width: 700px) {
-    .golf-quick__links, .golf-quick__index { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .golf-fit__grid { grid-template-columns: 1fr; }
-    .golf-fit__group { padding-inline: 0; }
-    .golf-fit__group + .golf-fit__group { border-left: 0; border-top: 1px solid var(--border); }
+    .golf-compare__header { display: none; }
+    .golf-compare__row {
+      grid-template-columns: 1fr auto;
+      gap: 0.3rem 1rem;
+      min-height: 96px;
+      padding-inline: 0.2rem;
+    }
+    .golf-compare__row strong { grid-column: 1; font-size: 1rem; }
+    .golf-compare__row span:not(.golf-compare__arrow) { grid-column: 1; }
+    .golf-compare__row span:not(.golf-compare__arrow)::before {
+      content: attr(data-label) ': ';
+      color: var(--text);
+      font-weight: 700;
+    }
+    .golf-compare__arrow { grid-column: 2; grid-row: 1 / span 4; align-self: center; }
   }
 
   .golf-photos { padding-block-start: clamp(1rem, 2vw, 1.5rem); }
