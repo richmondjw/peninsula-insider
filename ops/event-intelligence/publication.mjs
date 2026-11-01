@@ -1,23 +1,27 @@
+import {EVENT_AUTHORITY,EVENT_PUBLISHER,validEventAuthority} from '../../next/src/lib/event-standing-authority.mjs';
 import {approvedEventContent} from '../../next/src/lib/event-publication.mjs';
 import {materializeSeries} from './series.mjs';
 import {candidateRevision,htmlEscape} from './data.mjs';
 import {verifyCandidate} from './verify.mjs';
 import {productionDecision} from './editorial.mjs';
-export function approvalReady(candidate,evidence,now=new Date()) {
- const verification=verifyCandidate(candidate,evidence,{now});
+export function approvalReady(candidate,evidence,now=new Date(),{standingAuthority=false}={}) {
+ const verification=verifyCandidate(candidate,evidence,{now,maxAgeHours:standingAuthority?24:168});
  const decision=productionDecision(candidate,verification);
  const approval=candidate.approval;
- const ready=verification.ready&&decision.path!=='review'&&approval?.by==='James'&&approval.revision===candidateRevision(candidate)&&new Date(approval.at)<=now;
- return {ready,verification,decision};
+ const routine=standingAuthority&&validEventAuthority(EVENT_AUTHORITY,now)&&candidate.kind==='event'&&decision.path==='standard-listing'&&!candidate.sponsored;
+ const authorised=routine||(approval?.by==='James'&&approval.revision===candidateRevision(candidate)&&new Date(approval.at)<=now);
+ const ready=verification.ready&&decision.path!=='review'&&authorised;
+ return {ready,verification,decision,standingAuthority:routine};
 }
-export function astroRecord(candidate,evidence,{now=new Date()}={}) {
+export function astroRecord(candidate,evidence,{now=new Date(),standingAuthority=false}={}) {
  const series = candidate.series ? materializeSeries(candidate) : null;
- const checked=approvalReady(candidate,evidence,now);
+ const checked=approvalReady(candidate,evidence,now,{standingAuthority});
  if(!checked.ready)throw new Error('Current revision requires James approval and verified essential evidence');
  if(!candidate.fields.startDate)throw new Error('Undated experience requires existing experiences adapter; do not invent a date');
  const f=candidate.fields;const start=f.startDate.slice(0,10);const end=f.endDate?.slice(0,10);
  const slug=candidate.slug??candidate.id;if(!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug))throw new Error('Invalid slug');
- const record={slug,eventId:candidate.id,contentKind:candidate.kind,title:f.title,summary:candidate.summary,category:candidate.category,startDate:start,...(end?{endDate:end}:{}),...(f.startDate.includes('T')?{startTime:f.startDate.slice(11,16)}:{}),...(f.endDate?.includes('T')?{endTime:f.endDate.slice(11,16)}:{}),venueName:f.venueName,suburb:f.suburb,streetAddress:f.streetAddress,...(f.coordinates?{coordinates:f.coordinates}:{}),officialEventUrl:f.officialEventUrl,primarySourceUrl:f.officialEventUrl,bookingUrl:f.bookingUrl,bookingStatus:f.bookingStatus??'unknown',timezone:'Australia/Melbourne',recurrence:series?.contract.recurrence??'one-off',...(series?{startDate:candidate.series.validFrom,endDate:candidate.series.validUntil,recurrenceNote:series.contract.recurrenceNote,seriesOccurrences:series.occurrences.map(({id,originalDate,date,status,startTime,endTime,venueName,sourceUrl,note})=>({id,originalDate,date,status,startTime,endTime,venueName,sourceUrl,...(note?{note}:{})})),...(f.startTime?{startTime:f.startTime}:{}),...(f.endTime?{endTime:f.endTime}:{})}:{}),status:'review',publishedAt:now.toISOString(),lastCheckedDate:now.toISOString(),lastVerifiedAt:now.toISOString(),...(candidate.price?{verifiedPrice:{...candidate.price,sourceUrl:evidence.find(e=>e.id===candidate.proofs.price.evidenceId).url}}:{}),intelligence:{geography:{shireConfirmed:true,verifiedBy:'James',evidenceId:candidate.geography.evidenceId,checkedAt:evidence.find(e=>e.id===candidate.geography.evidenceId).retrievedAt,...(f.coordinates?{coordinates:f.coordinates,coordinateEvidenceId:candidate.proofs.coordinates.evidenceId,coordinateCheckedAt:evidence.find(e=>e.id===candidate.proofs.coordinates.evidenceId).retrievedAt,coordinateSourceUrl:evidence.find(e=>e.id===candidate.proofs.coordinates.evidenceId).url}:{})},revision:candidateRevision(candidate),approvedBy:'James',approvedAt:candidate.approval.at,reviewedAt:checked.verification.checkedAt,factScore:checked.verification.factScore,evidenceIds:[...new Set(Object.values(candidate.proofs).map(p=>p.evidenceId))]}};
+ const record={slug,eventId:candidate.id,contentKind:candidate.kind,title:f.title,summary:candidate.summary,category:candidate.category,startDate:start,...(end?{endDate:end}:{}),...(f.startDate.includes('T')?{startTime:f.startDate.slice(11,16)}:{}),...(f.endDate?.includes('T')?{endTime:f.endDate.slice(11,16)}:{}),venueName:f.venueName,suburb:f.suburb,streetAddress:f.streetAddress,...(f.coordinates?{coordinates:f.coordinates}:{}),officialEventUrl:f.officialEventUrl,primarySourceUrl:f.officialEventUrl,bookingUrl:f.bookingUrl,bookingStatus:f.bookingStatus??'unknown',timezone:'Australia/Melbourne',recurrence:series?.contract.recurrence??'one-off',...(series?{startDate:candidate.series.validFrom,endDate:candidate.series.validUntil,recurrenceNote:series.contract.recurrenceNote,seriesOccurrences:series.occurrences.map(({id,originalDate,date,status,startTime,endTime,venueName,sourceUrl,note})=>({id,originalDate,date,status,startTime,endTime,venueName,sourceUrl,...(note?{note}:{})})),...(f.startTime?{startTime:f.startTime}:{}),...(f.endTime?{endTime:f.endTime}:{})}:{}),status:'review',publishedAt:now.toISOString(),lastCheckedDate:now.toISOString(),lastVerifiedAt:now.toISOString(),...(candidate.price?{verifiedPrice:{...candidate.price,sourceUrl:evidence.find(e=>e.id===candidate.proofs.price.evidenceId).url}}:{}),intelligence:{geography:{shireConfirmed:true,verifiedBy:'James',evidenceId:candidate.geography.evidenceId,checkedAt:evidence.find(e=>e.id===candidate.geography.evidenceId).retrievedAt,...(f.coordinates?{coordinates:f.coordinates,coordinateEvidenceId:candidate.proofs.coordinates.evidenceId,coordinateCheckedAt:evidence.find(e=>e.id===candidate.proofs.coordinates.evidenceId).retrievedAt,coordinateSourceUrl:evidence.find(e=>e.id===candidate.proofs.coordinates.evidenceId).url}:{})},revision:candidateRevision(candidate),approvedBy:checked.standingAuthority?EVENT_PUBLISHER:'James',approvedAt:checked.standingAuthority?now.toISOString():candidate.approval.at,...(checked.standingAuthority?{standingAuthority:{...EVENT_AUTHORITY}}:{}),reviewedAt:checked.verification.checkedAt,factScore:checked.verification.factScore,evidenceIds:[...new Set(Object.values(candidate.proofs).map(p=>p.evidenceId))]}};
+ if(checked.standingAuthority){const ids=new Set([...Object.values(checked.verification.fields).map(field=>field.evidenceId),candidate.geography.evidenceId]);record.expiresAt=new Date(Math.min(...evidence.filter(item=>ids.has(item.id)).map(item=>Date.parse(item.retrievedAt)+86400000))).toISOString();}
  record.intelligence.approvedContent=approvedEventContent(record);
  return record;
 }

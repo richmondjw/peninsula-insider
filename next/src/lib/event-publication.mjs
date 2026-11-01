@@ -1,3 +1,4 @@
+import {EVENT_PUBLISHER,validEventAuthority} from './event-standing-authority.mjs';
 /** Canonical approved public content. This detects drift; authenticated approval remains external. */
 const approvedFields = ('slug eventId contentKind title summary description category subcategory startDate endDate nextOccurrence sourceUpdatedAt sourceReview retiredSourceLinks startTime endTime endsNextDay timezone venue venueName place venueRegion suburb streetAddress coordinates indoorOutdoor bookingUrl ticketingUrl officialEventUrl primarySourceUrl secondarySourceUrl bookingRequired bookingStatus bookingStatusNote bookingStatusSourceUrl bookingStatusCheckedAt freePaid priceTier recurrence recurrenceNote occurrencePolicy dateBasis occurrenceExceptions seriesOccurrences verifiedPrice suitableFor audienceTags familyFriendly petFriendly accessibilityNotes weather weatherDependency weatherShape organiser verification verificationStatus verificationNote lastVerifiedAt lastCheckedDate visitorAppealScore editorialPriority nearbyAttractions suggestedItineraryPairing nearestVenues worthTheDrive firstTimer skipThis skipReason skipInstead editorVerdict whyWeCare standoutOfMonth pairingProse editorVisited featuredInDispatch relatedArticles lens editorNote heroImage cancelled cancelledOn cancellationNote cancellationSourceUrl cancellationSourceLabel postponed postponedOn postponedFrom rescheduledTo postponementNote postponementSourceUrl postponementSourceLabel expiresAt').split(' ');
 const approvalDefaults = {timezone:'Australia/Melbourne',bookingStatus:'unknown',recurrence:'one-off',occurrenceExceptions:[],audienceTags:[],weather:'mixed',nearestVenues:[],worthTheDrive:false,firstTimer:false,skipThis:false,standoutOfMonth:false,editorVisited:false,relatedArticles:[],lens:[],cancelled:false,postponed:false};
@@ -23,8 +24,17 @@ export function publicEventData(data) {
   const content=JSON.parse(approvedEventContent(data));
   delete content.geography;
   for(const key of ['status','publishedAt','archivedAt','archivedReason'])if(data?.[key]!=null)content[key]=data[key];
-  if(data?.intelligence){const receipt=data.intelligence;content.intelligence=Object.fromEntries(['revision','approvedContent','approvedBy','approvedAt','reviewedAt','factScore','evidenceIds','geography'].filter(key=>receipt[key]!==undefined).map(key=>[key,receipt[key]]));}
+  if(data?.intelligence){const receipt=data.intelligence;content.intelligence=Object.fromEntries(['revision','approvedContent','approvedBy','approvedAt','reviewedAt','factScore','evidenceIds','geography','standingAuthority'].filter(key=>receipt[key]!==undefined).map(key=>[key,receipt[key]]));}
   return content;
+}
+
+function hasRoutineAuthority(data,now){
+  const receipt=data.intelligence,checked=+new Date(receipt.reviewedAt),instant=+new Date(now);
+  return receipt.approvedBy===EVENT_PUBLISHER && validEventAuthority(receipt.standingAuthority,now)
+    && data.contentKind==='event' && !data.sponsored && !data.heroImage
+    && receipt.geography?.shireConfirmed===true && receipt.factScore===100
+    && checked>=Date.parse(receipt.standingAuthority.at) && instant-checked<86400000
+    && Number.isFinite(+new Date(data.expiresAt)) && instant<+new Date(data.expiresAt);
 }
 
 /** Reader-facing safeguards for event intelligence records. */
@@ -64,7 +74,7 @@ export function isPublicEventRecord(data, now = new Date()) {
   // an explicit approval receipt; incomplete receipts cannot expose a URL.
   if (!data.intelligence) return true;
   const receipt = data.intelligence;
-  return Boolean(typeof receipt.approvedContent === 'string' && receipt.approvedContent === approvedEventContent(data) && receipt.revision && receipt.approvedBy === 'James' && receipt.approvedAt != null && receipt.reviewedAt != null &&
+  return Boolean(typeof receipt.approvedContent === 'string' && receipt.approvedContent === approvedEventContent(data) && receipt.revision && (receipt.approvedBy === 'James' || hasRoutineAuthority(data,now)) && receipt.approvedAt != null && receipt.reviewedAt != null &&
     Number.isFinite(new Date(receipt.approvedAt).getTime()) &&
     Number.isFinite(new Date(receipt.reviewedAt).getTime()) &&
     new Date(receipt.approvedAt) <= new Date(now) &&
