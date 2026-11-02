@@ -128,7 +128,7 @@
     }
   },
   "boundedIteration17": {
-    "status": "triaged",
+    "status": "implemented-local",
     "highestImpactDefects": [
       "the shortlist expands immediately into an eleven-item comparison wall",
       "cross-course comparison still relies on memory once readers enter separated cards",
@@ -136,6 +136,30 @@
       "mobile actions can sit more than one viewport below a course title",
       "the ending does not yet convert the comparison into a personalized choice payoff"
     ],
-    "verificationStatus": "bounded implementation, exact-release evidence closure and independent live regrade pending"
+    "implemented": [
+      "collapsed the full eleven-course comparison behind an accessible native disclosure while keeping all rows available without JavaScript",
+      "moved course-guide and tee-time actions directly below each course title and metadata",
+      "added three evidence-bound decision paths for public access, on-course accommodation and coastal visitor windows",
+      "made every back-to-comparison route open the disclosure and transfer focus to its summary",
+      "retained four authored starting choices and all eleven comparison rows"
+    ],
+    "verificationStatus": "full build, detector and local responsive browser acceptance passed; protected release, exact-live verification and independent regrade pending",
+    "localAcceptance": {
+      "mobileCssViewportPx": 390,
+      "mobilePageHeightPx": 16368,
+      "desktopCssViewportPx": 1440,
+      "desktopPageHeightPx": 10120,
+      "horizontalOverflow": false,
+      "comparisonInitiallyCollapsed": true,
+      "comparisonRows": 11,
+      "shortlistLinks": 4,
+      "decisionPathLinks": 7,
+      "maximumMobileTitleToActionOffsetPx": 134.25,
+      "comparisonReturnFocusTransferred": true,
+      "courseAndDecisionAnchorFocusTransferred": true,
+      "minimumSupportingCopyPx": 15,
+      "detectorFindings": 0,
+      "build": "passed with all post-build gates"
+    }
   }
 }
