@@ -2,25 +2,28 @@
   "url": "https://peninsulainsider.com.au/explore/golf/",
   "tier": "T1",
   "assessedAt": "2026-11-02",
-  "liveRevision": "7dfc48033e211c91fa073d59fd46585dee57eddd",
-  "liveRunId": "41416129529",
+  "liveRevision": "cb855ef9ec26bf2304f0a93f1767650f688dc375",
+  "liveRunId": "41515951444",
   "programme": "peninsula-insider-page-quality-to-99",
   "independentScores": [
-    90.25
+    90.25,
+    92.25
   ],
-  "acceptedConservativeScore": 90.25,
+  "acceptedConservativeScore": 92.25,
   "scoreStatus": "provisional",
   "thresholdMet": false,
   "hardGateObserved": false,
   "verifiedLiveEvidence": {
-    "mobilePageHeightPx": 16505,
-    "desktopPageHeightPx": 9431,
+    "mobilePageHeightPx": 16273,
+    "desktopPageHeightPx": 9470,
     "horizontalOverflow": false,
     "consoleErrors": 0,
     "shortlistLinks": 4,
     "comparisonLinks": 11,
-    "backToComparisonLinks": 2,
-    "minimumSupportingCopyPx": 15,
+    "backToComparisonLinks": 3,
+    "decisionPathLinks": 7,
+    "comparisonInitiallyCollapsed": true,
+    "minimumSupportingCopyPx": 15.66,
     "minimumBackLinkTargetPx": 44,
     "shortlistAnchorFocusTransferredToCourseCard": true,
     "backAnchorFocusTransferredToComparison": true,
@@ -33,11 +36,11 @@
     "exact-release image-rights acceptance"
   ],
   "triage": [
-    "separate the four authored starting choices from the eleven-course directory wall",
-    "add a comparison mode that reduces memory load across separated course cards",
-    "create stronger editorial hierarchy within the equal-weight course-card sequence",
-    "keep mobile course actions within one viewport of each course title where practical",
-    "end with a personalized choice payoff instead of another generic planning handoff"
+    "shorten the exhaustive middle with regional summaries and optional course detail while preserving semantic HTML and anchors",
+    "add map or base context, or URL-backed access and location filters, so geography does not depend on memory",
+    "surface the constraint-led chooser earlier or repeat it once readers enter the course catalogue",
+    "tighten duplicated access and freshness copy and distinguish sourced facts from editorial judgment",
+    "close direct screen-reader, field Core Web Vitals, eleven-venue factual and exact-release image-rights evidence gates"
   ],
   "boundedIteration14": {
     "implemented": [
@@ -128,7 +131,7 @@
     }
   },
   "boundedIteration17": {
-    "status": "implemented-local",
+    "status": "live-regraded",
     "highestImpactDefects": [
       "the shortlist expands immediately into an eleven-item comparison wall",
       "cross-course comparison still relies on memory once readers enter separated cards",
@@ -143,7 +146,7 @@
       "made every back-to-comparison route open the disclosure and transfer focus to its summary",
       "retained four authored starting choices and all eleven comparison rows"
     ],
-    "verificationStatus": "full build, detector and local responsive browser acceptance passed; protected release, exact-live verification and independent regrade pending",
+    "verificationStatus": "live on release cb855ef9ec26bf2304f0a93f1767650f688dc375 via run 41515951444, which contains PR #698 merge 71303bb0b00ff95e2e3a198cfff591553e99c4b5; independently regraded at 92.25/100 with no observed hard gate; 99 remains open",
     "localAcceptance": {
       "mobileCssViewportPx": 390,
       "mobilePageHeightPx": 16368,
@@ -159,7 +162,21 @@
       "courseAndDecisionAnchorFocusTransferred": true,
       "minimumSupportingCopyPx": 15,
       "detectorFindings": 0,
-      "build": "passed with all post-build gates"
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "cb855ef9ec26bf2304f0a93f1767650f688dc375",
+      "liveRunId": "41515951444",
+      "liveStatus": 200,
+      "liveMobileCssViewportPx": 390,
+      "liveDesktopCssViewportPx": 1440,
+      "liveHorizontalOverflow": false,
+      "liveMinimumSupportingCopyPx": 15.66,
+      "liveMaximumMobileTitleToActionOffsetPx": 98.13,
+      "liveMaximumDesktopTitleToActionOffsetPx": 71.22,
+      "liveComparisonInitiallyCollapsed": true,
+      "liveComparisonRows": 11,
+      "liveDecisionPathLinks": 7,
+      "livePageOriginConsoleErrors": 0,
+      "independentScore": 92.25
     }
   }
 }
