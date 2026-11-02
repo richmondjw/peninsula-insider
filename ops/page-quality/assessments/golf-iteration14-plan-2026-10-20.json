@@ -1,33 +1,34 @@
 {
   "url": "https://peninsulainsider.com.au/explore/golf/",
   "tier": "T1",
-  "assessedAt": "2026-11-01",
-  "liveRevision": "a7a5d8cdb9498ec7483c2f8d3706c6633d67fd6e",
-  "liveRunId": "41246552958",
+  "assessedAt": "2026-11-02",
+  "liveRevision": "79b7c3ac66392ed7435b5fcd0ec1488ab14cf873",
+  "liveRunId": "41345011423",
   "programme": "peninsula-insider-page-quality-to-99",
   "independentScores": [
-    86,
+    86.25,
     92,
     93.25
   ],
-  "acceptedConservativeScore": 86,
+  "acceptedConservativeScore": 86.25,
   "scoreStatus": "provisional",
   "thresholdMet": false,
   "hardGateObserved": false,
   "verifiedLiveEvidence": {
-    "mobilePageHeightPx": 15865,
-    "desktopPageHeightPx": 9446,
+    "mobilePageHeightPx": 16175,
+    "desktopPageHeightPx": 9720,
     "horizontalOverflow": false,
     "consoleErrors": 0,
     "courseFitLinks": 11,
-    "minimumCourseFitTargetPx": 54,
+    "minimumCourseFitTargetPx": 58,
     "minimumCourseTitleTargetPx": 44,
     "anchorFocusTransferredToCourseCard": true
   },
   "openEvidenceGates": [
     "direct screen-reader assessment",
     "field Core Web Vitals",
-    "exhaustive eleven-venue factual refresh"
+    "exhaustive eleven-venue factual refresh",
+    "exact-release image-rights acceptance"
   ],
   "triage": [
     "make all eleven venues visible in the first decision aid",
@@ -68,7 +69,7 @@
       "comparison rows retain course-card focus transfer and sticky-header clearance",
       "removed obsolete quick-picker and orientation styles"
     ],
-    "verificationStatus": "full build and focused local responsive acceptance passed; protected release and independent live regrade pending",
+    "verificationStatus": "live on a release containing PR #692 and independently regraded at 86.25/100; no observed hard gate; 99 remains open",
     "localAcceptance": {
       "mobilePageHeightPx": 16175,
       "desktopPageHeightPx": 9720,
@@ -80,6 +81,44 @@
       "heroAnchorFocusTransferred": true,
       "courseAnchorFocusTransferred": true,
       "oldGroupedChooserPresent": false,
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "79b7c3ac66392ed7435b5fcd0ec1488ab14cf873",
+      "liveRunId": "41345011423",
+      "liveStatus": 200,
+      "independentScore": 86.25
+    }
+  },
+  "boundedIteration16": {
+    "status": "implemented-local",
+    "highestImpactDefects": [
+      "restore the Harbour hairline and no-resting-shadow visual system",
+      "add an authored shortlist before the complete eleven-course comparison",
+      "raise supporting and action copy to the documented fifteen-pixel floor",
+      "add a repeated back-to-comparison navigation route through the long catalogue",
+      "consolidate the page ending around one decisive next action"
+    ],
+    "implemented": [
+      "restored white hairline course surfaces with no resting shadow or gradient",
+      "added a four-course evidence-bound shortlist while retaining the full eleven-course comparison",
+      "raised supporting and action copy to the documented fifteen-pixel floor",
+      "added two back-to-comparison routes with focus transfer",
+      "removed the duplicated golf-editorial card section and consolidated the stay-and-play ending"
+    ],
+    "verificationStatus": "full build and local responsive browser acceptance passed; protected release, live verification and independent regrade pending",
+    "localAcceptance": {
+      "mobileCssViewportPx": 397,
+      "mobilePageHeightPx": 16320,
+      "desktopCssViewportPx": 1431,
+      "desktopPageHeightPx": 9431,
+      "horizontalOverflow": false,
+      "consoleErrors": 0,
+      "shortlistLinks": 4,
+      "comparisonLinks": 11,
+      "backToComparisonLinks": 2,
+      "minimumSupportingCopyPx": 15,
+      "shortlistAnchorFocusTransferred": true,
+      "backAnchorFocusTransferred": true,
+      "oldGolfEditorialSectionPresent": false,
       "build": "passed with all post-build gates"
     }
   }

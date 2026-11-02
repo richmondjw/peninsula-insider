@@ -13,28 +13,8 @@ import {
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
-import { routeSlug } from '../../lib/editorial';
 import ProvenanceLine from '../../components/ProvenanceLine.astro';
 import { golfVisitorInfo, golfVisitorAccessChecked } from '../../lib/golf-visitor-info';
-
-// ── Editorial-card hero lookup ────────────────────────────────────────────────
-// Cards in section 8 ("Golf editorial") all link to journal articles. Their
-// background image is bound to each article's heroImage so editors can change
-// the card art by editing the article's frontmatter, with the hardcoded path
-// retained as a build-time fallback.
-const allArticles = await getCollection('articles', ({ data }) => data.status === 'published');
-async function resolveArticleHero(slug: string, fallback: string): Promise<string> {
-  const local = allArticles.find((a) => routeSlug(a) === slug);
-  return (local?.data as any)?.heroImage?.src ?? fallback;
-}
-const heroGolfStayPlay = await resolveArticleHero(
-  'mornington-peninsula-golf-stay-and-play',
-  '/images/sourced/article-sorrento-weekend-01.webp',
-);
-const heroStAndrews = await resolveArticleHero(
-  'st-andrews-beach-golf-course',
-  '/images/sourced/place-cape-schanck-01.webp',
-);
 
 // ── Load golf courses from experiences collection ─────────────────────────────
 const allExperiences = await getCollection('experiences');
@@ -88,6 +68,13 @@ const courseComparison = [
   { slug: 'portsea-golf-club', name: 'Portsea', character: 'Coastal dunes and Moonah', access: 'Visitor windows', town: 'Portsea' },
 ];
 
+const courseShortlist = [
+  { slug: 'st-andrews-beach-golf-course', cue: 'Public architecture', reason: 'Strategic dunes · Public green fees · Fingal' },
+  { slug: 'moonah-links', cue: 'Two-course resort', reason: 'Open and Legends courses · Public green fees · Fingal' },
+  { slug: 'flinders-golf-club', cue: 'Clifftop coast', reason: 'Coastal course · Visitor windows · Flinders' },
+  { slug: 'portsea-golf-club', cue: 'Southern bayside', reason: 'Coastal dunes and Moonah · Visitor windows · Portsea' },
+].map((item) => ({ ...item, course: courseComparison.find((course) => course.slug === item.slug)! }));
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function accessLabel(access: string, slug: string) {
   if (slug === 'the-national-golf-club') return 'Private · visitor requests';
@@ -107,39 +94,18 @@ function accessMod(access: string) {
   };
   return map[access] ?? '';
 }
-function tierLabel(tier: string) {
-  const map: Record<string, string> = {
-    'tier-1': 'Tier 1',
-    'tier-2': 'Tier 2',
-    'tier-3': 'Tier 3',
-  };
-  return map[tier] ?? '';
-}
-function tierMod(tier: string) {
-  const map: Record<string, string> = {
-    'tier-1': 'golf-tier--1',
-    'tier-2': 'golf-tier--2',
-    'tier-3': 'golf-tier--3',
-  };
-  return map[tier] ?? '';
-}
 // Return first N sentences of a string
 function firstSentences(text: string, n = 3): string {
   if (!text) return '';
   const sentences = text.match(/[^.!?]+[.!?]+/g) ?? [];
   return sentences.slice(0, n).join(' ').trim();
 }
-function hasRanking(course: (typeof golfCourses)[0]): boolean {
-  const rankings = course.data.golf?.rankings;
-  return Array.isArray(rankings) && rankings.length > 0;
-}
-
 // ── JSON-LD schemas ───────────────────────────────────────────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
   description: 'Compare 11 Mornington Peninsula golf venues by visitor access, location and playing style.',
   path: '/explore/golf/',
-  dateModified: '2026-10-12',
+  dateModified: '2026-11-02',
 });
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Golf Venues',
@@ -200,7 +166,7 @@ export const prerender = true;
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
-  modifiedTime="2026-10-20"
+  modifiedTime="2026-11-02"
 >
   <script type="application/ld+json" set:html={JSON.stringify(collectionSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -229,8 +195,18 @@ export const prerender = true;
       <div class="golf-fit__intro">
         <p class="label label--accent">Compare the courses</p>
         <h2 id="golf-fit-title">Choose by course character, access and location</h2>
-        <p>Compare all 11 venues in one view, then jump to the course details and current visitor-access source.</p>
+        <p>Start with four distinct fits, or compare all 11 venues before opening the course details and current visitor-access source.</p>
       </div>
+      <div class="golf-shortlist" aria-label="Four useful starting points">
+        {courseShortlist.map(({ cue, reason, course }) => (
+          <a href={`#course-${course.slug}`} class="golf-shortlist__item">
+            <span>{cue}</span>
+            <strong>{course.name}</strong>
+            <small>{reason}</small>
+          </a>
+        ))}
+      </div>
+      <h3 class="golf-compare__title">Compare all 11 courses</h3>
       <div class="golf-compare" aria-label="Compare Mornington Peninsula golf venues">
         <div class="golf-compare__header" aria-hidden="true">
           <span>Course</span>
@@ -318,6 +294,7 @@ export const prerender = true;
           );
         })}
       </div>
+      <p class="golf-back"><a href="#choose-your-round">Back to the course comparison ↑</a></p>
     </div>
   </section>
 
@@ -381,6 +358,7 @@ export const prerender = true;
           );
         })}
       </div>
+      <p class="golf-back"><a href="#choose-your-round">Back to the course comparison ↑</a></p>
     </div>
   </section>
 
@@ -470,44 +448,6 @@ export const prerender = true;
   </section>
 
   <!-- ═══════════════════════════════════════════════════════════════
-       8. EDITORIAL READS
-       ═══════════════════════════════════════════════════════════════ -->
-  <section class="experience-index experience-index--plain" aria-label="Golf editorial">
-    <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Further reading</p>
-          <h2 class="venues__title">Golf editorial</h2>
-          <p class="venues__sub">Two guides to help turn a course choice into a bookable weekend.</p>
-        </div>
-      </div>
-      <div class="golf-articles">
-
-        <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/" class="golf-article-card">
-          <img class="golf-article-card__img" src={heroGolfStayPlay} alt="" width="960" height="420" loading="lazy" decoding="async" />
-          <div class="golf-article-card__body">
-            <p class="golf-article-card__tag">Stay and play</p>
-            <h3 class="golf-article-card__title">Stay and play - accommodation near every course</h3>
-            <p class="golf-article-card__dek">The accommodation that makes each Peninsula golf course walkable, driveable, or otherwise properly paired. Ten courses, stay recommendations for each.</p>
-            <span class="golf-article-card__cta">Read the guide →</span>
-          </div>
-        </a>
-
-        <a href="/journal/st-andrews-beach-golf-course/" class="golf-article-card">
-          <img class="golf-article-card__img" src={heroStAndrews} alt="" width="960" height="420" loading="lazy" decoding="async" />
-          <div class="golf-article-card__body">
-            <p class="golf-article-card__tag">Course deep-dive</p>
-            <h3 class="golf-article-card__title">St Andrews Beach - a Tom Doak course visitors can book</h3>
-            <p class="golf-article-card__dek">Tom Doak architecture and public bookings that turn a course choice into a real weekend. The one golf story that explains the Peninsula.</p>
-            <span class="golf-article-card__cta">Read the deep-dive →</span>
-          </div>
-        </a>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════════════════════════════
        9. STAY & PLAY FEATURE
        ═══════════════════════════════════════════════════════════════ -->
   <section class="golf-stayplay" aria-label="Stay and play">
@@ -516,9 +456,8 @@ export const prerender = true;
         <div class="golf-stayplay__body">
           <p class="label label--accent">Stay and play</p>
           <h2 class="golf-stayplay__heading">Planning a golf weekend</h2>
-          <p class="golf-stayplay__dek">A Peninsula golf weekend works when the accommodation is close enough that travel between the course and the stay does not eat the day. The RACV Cape Schanck Resort is the most integrated: on-property accommodation, an 18-hole course, and the spa within walking distance. Moonah Links has its own on-property stay. Both allow two rounds in two days without getting in a car between them.</p>
-          <p class="golf-stayplay__dek">For those not staying on a golf property, Sorrento and Blairgowrie are useful southern bases for the Cape Schanck cluster and the Sorrento ferry. Check the route for your chosen tee time because Peninsula traffic can change the drive substantially. The full stay-and-play guide pairs accommodation with nearby courses.</p>
-          <p class="golf-stayplay__dek">Building a broader Peninsula trip around golf? The <a href="/journal/mornington-peninsula-itinerary/" class="golf-stayplay__link">3-day Mornington Peninsula itinerary</a> shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.</p>
+          <p class="golf-stayplay__dek">RACV Cape Schanck Resort and Moonah Links put accommodation beside the course. For another base, check the live route to your chosen tee time before booking because Peninsula traffic can change the drive substantially.</p>
+          <p class="golf-stayplay__dek">The stay-and-play guide pairs the courses with practical bases. For the course-design story, read the <a href="/journal/st-andrews-beach-golf-course/" class="golf-stayplay__link">St Andrews Beach deep-dive</a>.</p>
           <a href="/explore/plans/mornington-peninsula-golf-stay-and-play/" class="pi-btn pi-btn--text">Read the stay-and-play guide →</a>
         </div>
         <div class="golf-stayplay__aside" aria-label="Planning checklist">
@@ -615,7 +554,7 @@ export const prerender = true;
         requestAnimationFrame(() => target.focus({ preventScroll: true }));
       });
     });
-    document.querySelectorAll('.golf-compare__row[href^="#course-"]').forEach((link) => {
+    document.querySelectorAll('.golf-compare__row[href^="#course-"], .golf-shortlist__item[href^="#course-"]').forEach((link) => {
       link.addEventListener('click', () => {
         const target = document.querySelector(link.getAttribute('href'));
         if (!target) return;
@@ -639,6 +578,36 @@ export const prerender = true;
     letter-spacing: -0.025em;
   }
   .golf-fit__intro > p:last-child { margin: 0; max-width: 66ch; color: var(--soft); line-height: 1.6; }
+  .golf-shortlist {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin-bottom: 2rem;
+    border-block: 1px solid var(--border);
+  }
+  .golf-shortlist__item {
+    display: grid;
+    align-content: start;
+    gap: 0.35rem;
+    min-height: 9rem;
+    padding: 1.25rem;
+    color: var(--text);
+    text-decoration: none;
+    border-right: 1px solid var(--border);
+  }
+  .golf-shortlist__item:last-child { border-right: 0; }
+  .golf-shortlist__item:hover,
+  .golf-shortlist__item:focus-visible { background: var(--white); }
+  .golf-shortlist__item:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
+  .golf-shortlist__item > span {
+    color: var(--accent);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .golf-shortlist__item strong { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.3; }
+  .golf-shortlist__item small { color: var(--soft); font-size: 0.9375rem; line-height: 1.45; }
+  .golf-compare__title { margin: 0 0 0.75rem; font-family: var(--font-display); font-size: 1.15rem; }
   .golf-compare { border-block: 1px solid var(--border); }
   .golf-compare__header,
   .golf-compare__row {
@@ -650,7 +619,7 @@ export const prerender = true;
   .golf-compare__header {
     padding: 0.65rem 1rem;
     color: var(--soft);
-    font-size: 0.68rem;
+    font-size: 0.75rem;
     font-weight: 800;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -665,9 +634,9 @@ export const prerender = true;
   }
   .golf-compare__row strong {
     color: var(--accent);
-    font-size: 0.92rem;
+    font-size: 0.9375rem;
   }
-  .golf-compare__row span { color: var(--soft); font-size: 0.82rem; line-height: 1.35; }
+  .golf-compare__row span { color: var(--soft); font-size: 0.9375rem; line-height: 1.4; }
   .golf-compare__row:hover,
   .golf-compare__row:focus-visible { background: var(--white); color: var(--accent); }
   .golf-compare__row:focus-visible { outline: 3px solid var(--accent); outline-offset: -3px; }
@@ -678,6 +647,9 @@ export const prerender = true;
   }
   @media (max-width: 700px) { .golf-card, .golf-fit { scroll-margin-top: 9rem; } }
   @media (max-width: 700px) {
+    .golf-shortlist { grid-template-columns: 1fr; }
+    .golf-shortlist__item { min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); }
+    .golf-shortlist__item:last-child { border-bottom: 0; }
     .golf-compare__header { display: none; }
     .golf-compare__row {
       grid-template-columns: 1fr auto;
@@ -733,17 +705,14 @@ export const prerender = true;
   .golf-card {
     display: flex;
     flex-direction: column;
-    background: linear-gradient(180deg, rgba(255,252,247,0.99) 0%, rgba(248,243,236,0.99) 100%);
-    border: 1px solid rgba(74, 90, 87, 0.14);
-    border-radius: 1.25rem;
-    box-shadow: 0 12px 32px rgba(0, 40, 34, 0.06);
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
     overflow: hidden;
-    transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: border-color 0.18s ease, background-color 0.18s ease;
   }
   .golf-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 48px rgba(0, 40, 34, 0.11);
+    border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
   }
 
   .golf-card__header {
@@ -752,8 +721,8 @@ export const prerender = true;
     justify-content: space-between;
     gap: 0.75rem;
     padding: 1.1rem 1.4rem 0.75rem;
-    border-bottom: 1px solid rgba(74, 90, 87, 0.09);
-    background: rgba(11, 90, 72, 0.035);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-alt);
   }
   .golf-card__badges {
     display: flex;
@@ -784,14 +753,14 @@ export const prerender = true;
     line-height: 1.5;
   }
   .golf-badge--public {
-    background: rgba(90, 140, 80, 0.12);
-    color: #3d6e34;
-    border: 1px solid rgba(90, 140, 80, 0.25);
+    background: color-mix(in srgb, var(--accent) 10%, var(--white));
+    color: var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent) 34%, var(--border));
   }
   .golf-badge--semi {
-    background: rgba(7, 158, 165, 0.15);
-    color: #2a7a67;
-    border: 1px solid rgba(7, 158, 165, 0.3);
+    background: color-mix(in srgb, var(--sand) 24%, var(--white));
+    color: var(--sand-text);
+    border: 1px solid color-mix(in srgb, var(--sand-text) 30%, var(--border));
   }
   .golf-badge--private {
     background: rgba(44, 35, 28, 0.07);
@@ -820,7 +789,7 @@ export const prerender = true;
   .golf-card__name a:hover { color: var(--accent); }
 
   .golf-card__meta {
-    font-size: 0.78rem;
+    font-size: 0.9375rem;
     color: var(--soft);
     margin-bottom: 0.6rem;
     letter-spacing: 0.01em;
@@ -829,23 +798,23 @@ export const prerender = true;
     font-style: normal;
   }
   .golf-card__note {
-    font-size: 0.88rem;
-    color: #2b443e;
+    font-size: 1rem;
+    color: var(--text);
     line-height: 1.65;
     margin: 0;
   }
-  .golf-card__access-note { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.84rem; line-height: 1.5; color: var(--text); }
+  .golf-card__access-note { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.9375rem; line-height: 1.55; color: var(--text); }
   .golf-card__access-note a { display: flex; align-items: center; width: fit-content; min-height: 44px; margin-top: 0.1rem; color: var(--accent); font-weight: 700; }
   .golf-card__access-note span { display: block; font-size: 0.76rem; color: var(--soft); }
   .golf-card__local {
-    font-size: 0.82rem;
-    color: #385a52;
+    font-size: 0.9375rem;
+    color: var(--text);
     line-height: 1.6;
     margin: 0.85rem 0 0;
     padding: 0.65rem 0.85rem;
-    background: rgba(7, 158, 165, 0.09);
-    border: 1px solid rgba(7, 158, 165, 0.2);
-    border-radius: 0 0.35rem 0.35rem 0;
+    background: color-mix(in srgb, var(--accent) 6%, var(--white));
+    border: 1px solid color-mix(in srgb, var(--accent) 20%, var(--border));
+    border-radius: 0.5rem;
     font-style: normal;
   }
   .golf-card__local-tag {
@@ -854,7 +823,7 @@ export const prerender = true;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #2a7a67;
+    color: var(--accent);
     font-style: normal;
     margin-right: 0.5rem;
   }
@@ -865,14 +834,14 @@ export const prerender = true;
     align-items: center;
     gap: 1rem;
     padding: 0.9rem 1.4rem 1.1rem;
-    border-top: 1px solid rgba(74, 90, 87, 0.09);
+    border-top: 1px solid var(--border);
     margin-top: auto;
   }
   .golf-card__book {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    font-size: 0.82rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     letter-spacing: 0.04em;
     color: var(--accent);
@@ -975,13 +944,10 @@ export const prerender = true;
 
   .architect-card {
     background: var(--white);
-    border: 1px solid rgba(74, 90, 87, 0.12);
+    border: 1px solid var(--border);
     border-radius: 1rem;
     padding: 1.4rem 1.5rem;
-    box-shadow: 0 4px 16px rgba(0, 40, 34, 0.04);
-    transition: box-shadow 0.2s;
   }
-  .architect-card:hover { box-shadow: 0 8px 28px rgba(0, 40, 34, 0.09); }
   .architect-card__name {
     font-family: var(--font-display);
     font-size: 1.3rem;
@@ -999,8 +965,8 @@ export const prerender = true;
     line-height: 1.4;
   }
   .architect-card__note {
-    font-size: 0.86rem;
-    color: #2b443e;
+    font-size: 0.9375rem;
+    color: var(--text);
     line-height: 1.65;
     margin: 0;
   }
@@ -1017,10 +983,9 @@ export const prerender = true;
 
   .pairing-card {
     background: var(--white);
-    border: 1px solid rgba(74, 90, 87, 0.12);
-    border-radius: 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 1rem;
     padding: 1.75rem 1.75rem;
-    box-shadow: 0 6px 20px rgba(0, 40, 34, 0.05);
   }
   .pairing-card__heading {
     font-family: var(--font-display);
@@ -1029,7 +994,7 @@ export const prerender = true;
     margin-bottom: 0.3rem;
   }
   .pairing-card__sub {
-    font-size: 0.82rem;
+    font-size: 0.9375rem;
     color: var(--soft);
     font-style: normal;
     margin-bottom: 1.1rem;
@@ -1044,86 +1009,13 @@ export const prerender = true;
     gap: 0.85rem;
   }
   .pairing-card__list li {
-    font-size: 0.87rem;
+    font-size: 1rem;
     line-height: 1.6;
     color: var(--text);
-    padding-left: 1rem;
-    border-left: 2px solid rgba(11, 90, 72, 0.25);
+    padding-block: 0.75rem;
+    border-top: 1px solid var(--border);
   }
   .pairing-card__list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); text-decoration: underline; }
-
-  /* ─────────────────────────────────────────────────────────────────
-     EDITORIAL ARTICLE CARDS
-     ───────────────────────────────────────────────────────────────── */
-  .golf-articles {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-  @media (max-width: 700px) { .golf-articles { grid-template-columns: 1fr; } }
-
-  .golf-article-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-    border: 1px solid rgba(74, 90, 87, 0.12);
-    border-radius: 1.25rem;
-    overflow: hidden;
-    text-decoration: none;
-    color: inherit;
-    box-shadow: 0 6px 20px rgba(0, 40, 34, 0.05);
-    transition: transform 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                box-shadow 0.22s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  }
-  .golf-article-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 14px 36px rgba(0, 40, 34, 0.11);
-  }
-  .golf-article-card__img {
-    display: block;
-    width: 100%;
-    aspect-ratio: 16 / 7;
-    height: auto;
-    object-fit: cover;
-    object-position: center;
-    background-color: var(--bg-alt);
-  }
-  .golf-article-card__body {
-    padding: 1.4rem 1.5rem 1.6rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  .golf-article-card__tag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.45rem;
-  }
-  .golf-article-card__title {
-    font-family: var(--font-display);
-    font-size: clamp(1.1rem, 1.5vw, 1.3rem);
-    font-weight: 700;
-    line-height: 1.25;
-    color: var(--text);
-    margin-bottom: 0.6rem;
-  }
-  .golf-article-card__dek {
-    font-size: 0.85rem;
-    color: var(--soft);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    flex: 1;
-  }
-  .golf-article-card__cta {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    color: var(--accent);
-    margin-top: auto;
-  }
 
   /* ─────────────────────────────────────────────────────────────────
      STAY & PLAY FEATURE
@@ -1154,7 +1046,7 @@ export const prerender = true;
     line-height: 1.15;
   }
   .golf-stayplay__dek {
-    font-size: 0.93rem;
+    font-size: 1rem;
     color: rgba(253, 252, 250, 0.72);
     line-height: 1.75;
     margin-bottom: 0.75rem;
@@ -1230,7 +1122,7 @@ export const prerender = true;
     list-style: none;
     padding: 1.15rem 1.5rem;
     font-weight: 600;
-    font-size: 0.92rem;
+    font-size: 1rem;
     line-height: 1.4;
     color: var(--text);
     display: flex;
@@ -1253,8 +1145,8 @@ export const prerender = true;
   }
   .golf-faq__a {
     padding: 0 1.5rem 1.25rem;
-    font-size: 0.88rem;
-    color: #2b443e;
+    font-size: 1rem;
+    color: var(--text);
     line-height: 1.7;
   }
   .golf-faq__a p { margin-bottom: 0.6rem; }
@@ -1266,8 +1158,10 @@ export const prerender = true;
      ───────────────────────────────────────────────────────────────── */
   .golf-verified {
     margin-top: 2.5rem;
-    font-size: 0.78rem;
+    font-size: 0.8125rem;
     color: var(--soft);
     text-align: center;
   }
+  .golf-back { margin: 1.5rem 0 0; text-align: right; }
+  .golf-back a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: 0.9375rem; font-weight: 700; text-underline-offset: 0.2em; }
 </style>
