@@ -193,7 +193,7 @@ test('compact weekend grid uses the available row and keeps full reasons readabl
   if(desktop.count===2)assert.ok(Math.abs(desktop.right-desktop.lastRight)<2,JSON.stringify(desktop));
   assert.ok(desktop.reasons.every(p=>p.scroll<=p.client+1&&p.clamp==='none'),JSON.stringify(desktop));
   await reader.page.setViewport({width:390,height:844});
-  const captions=await reader.page.$$eval('.home-orientation figcaption,.home-orientation__credit',els=>els.map(e=>parseFloat(getComputedStyle(e).fontSize)));
+  const captions=await reader.page.$$eval('.home-orientation figcaption,.home-orientation__credit,.home-orientation__areas p',els=>els.map(e=>parseFloat(getComputedStyle(e).fontSize)));
   assert.ok(captions.every(size=>size>=15),JSON.stringify(captions));
  }finally{await reader.close();}
 });
