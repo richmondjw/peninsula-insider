@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-02T19:18:03.948Z",
-  "snapshotId": "b00c9a24d6ec6e116c2335343a28c7c33d441944c24643201f369b88e3dac9e5",
+  "generatedAt": "2026-11-02T20:17:33.709Z",
+  "snapshotId": "c2f4048a58e547212cc4b8c32404a5ba7ee2aef08892eb09b91de1d9b1bf9eb1",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 613,
+  "count": 614,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2563,7 +2563,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "527a38e599b24d1cdb35601f37e3f97f4aee4c6627233a7dcb009cbd3cdd8f24",
+      "contentSha256": "37ac993879b6e7313580ab7374561661458717c9b1b3d99be00cc251a5aadbca",
       "citation": {
         "title": "Rye",
         "publisher": "Peninsula Insider",
@@ -2571,8 +2571,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 225129,
-      "markdownBytes": 15458
+      "htmlBytes": 225459,
+      "markdownBytes": 15566
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/safety-beach/",
@@ -6162,6 +6162,23 @@
       "markdownBytes": 8409
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+      "title": "Rye Hotel's deck in spring, the Cape Schanck heathland walk, and Elan Vineyard's current show",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/index.md",
+      "contentSha256": "9e23947d4f98d447aa0c9fa7fad539eadd8abba9fb29b91b1439b3eeed406bfa",
+      "citation": {
+        "title": "Rye Hotel's deck in spring, the Cape Schanck heathland walk, and Elan Vineyard's current show",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+        "publishedAt": "2026-11-03T00:00:00.000Z",
+        "modifiedAt": "2026-11-03T00:00:00.000Z"
+      },
+      "htmlBytes": 172267,
+      "markdownBytes": 8794
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6966,7 +6983,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "92998181b820e5042f74925faa272519b5eb74e9d3ffb97a3ac560092e7b668b",
+      "contentSha256": "425cd1f3f0834b8571487838483446ca05c0956ccb05ac27f153d9ba5e3af578",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6974,8 +6991,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123508,
-      "markdownBytes": 5882
+      "htmlBytes": 123549,
+      "markdownBytes": 5907
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -7000,7 +7017,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a4dc4f01a15b3ffae02d1fef981df4ac062e7650e8c8e342ed9c8149b3006b54",
+      "contentSha256": "9c44cb37774782447c03bf66e405f5f47c53dee57a6e17214d96696bf5046e87",
       "citation": {
         "title": "Tuesday 3 November 2026",
         "publisher": "Peninsula Insider",

@@ -1,20 +1,44 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-02T19:18:03.948Z",
+  "generatedAt": "2026-11-02T20:17:33.709Z",
   "baselineAvailable": true,
-  "fromSnapshot": "9f2181fbb62e875637cdcaeaab4a26f31c4208a0b7ecf40e0b27040ecc10a161",
-  "toSnapshot": "b00c9a24d6ec6e116c2335343a28c7c33d441944c24643201f369b88e3dac9e5",
-  "previousGeneratedAt": "2026-11-02T17:02:39.460Z",
+  "fromSnapshot": "b00c9a24d6ec6e116c2335343a28c7c33d441944c24643201f369b88e3dac9e5",
+  "toSnapshot": "c2f4048a58e547212cc4b8c32404a5ba7ee2aef08892eb09b91de1d9b1bf9eb1",
+  "previousGeneratedAt": "2026-11-02T19:18:03.948Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 4,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/rye/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
+      "contentSha256": "37ac993879b6e7313580ab7374561661458717c9b1b3d99be00cc251a5aadbca",
+      "previousContentSha256": "527a38e599b24d1cdb35601f37e3f97f4aee4c6627233a7dcb009cbd3cdd8f24"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/index.md",
+      "contentSha256": "9e23947d4f98d447aa0c9fa7fad539eadd8abba9fb29b91b1439b3eeed406bfa",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "425cd1f3f0834b8571487838483446ca05c0956ccb05ac27f153d9ba5e3af578",
+      "previousContentSha256": "92998181b820e5042f74925faa272519b5eb74e9d3ffb97a3ac560092e7b668b"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "a4dc4f01a15b3ffae02d1fef981df4ac062e7650e8c8e342ed9c8149b3006b54",
-      "previousContentSha256": "ad487a2b58343c6fc6b51444754a416aae5c60e9bd59de46e312a6a2df6362e6"
+      "contentSha256": "9c44cb37774782447c03bf66e405f5f47c53dee57a6e17214d96696bf5046e87",
+      "previousContentSha256": "a4dc4f01a15b3ffae02d1fef981df4ac062e7650e8c8e342ed9c8149b3006b54"
     }
   ]
 }

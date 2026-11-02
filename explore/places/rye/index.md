@@ -235,6 +235,14 @@ Insider Edit   3 min
 
 Blend your own gin at Bass & Flinders in Dromana, visit the Cape Schanck coastal viewpoints, and browse the Rye Foreshore Market on a confirmed market day.
 
+Insider Edit   4 min
+
+### [Rye Hotel's deck in spring, the Cape Schanck heathland walk, and Elan Vineyard's current show](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/>)
+
+3 November 2026
+
+The Rye Hotel earns a long afternoon on its foreshore deck, Cape Schanck's heathland boardwalk hits peak colour this week, and Elan Vineyard & Gallery in Balnarring is showing new work worth the detour.
+
 Service   9 min
 
 ### [Mornington Peninsula Golf: Stay and Play](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
@@ -242,14 +250,6 @@ Service   9 min
 14 April 2026
 
 Peninsula golf courses, nearby stays, and the booking checks that make a trip work.
-
-Weekend Picker   3 min
-
-### [Peninsula This Weekend - 27 to 28 June](<https://peninsulainsider.com.au/journal/peninsula-this-weekend-jun-27/>)
-
-22 June 2026
-
-The solstice crowd has gone home. This is the quiet winter weekend of truffle hunts, local markets, and the final Sunday Sessions at the springs.
 
 Planning guides
 
