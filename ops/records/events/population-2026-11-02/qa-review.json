@@ -1,0 +1,31 @@
+{
+  "reviewedAt": "2026-11-02T04:34:18.924208+00:00",
+  "reviewer": "independent agent /root/review_event_authority",
+  "contentRightsVisualScore": 9.3,
+  "outOf": 10,
+  "criticalFailures": [],
+  "artworkScores": {
+    "chatty": 93,
+    "studyRosebud": 94,
+    "studyMornington": 94,
+    "acoustic": 95
+  },
+  "target": 99,
+  "targetAchieved": false,
+  "deductions": [
+    "Generic icon silhouettes",
+    "Repeated decorative backgrounds",
+    "Safe but tight desktop teacup spacing"
+  ],
+  "evidence": [
+    "Fresh primary-source HTML hashes in verification.json",
+    "All eight desktop/mobile figure crops and eight full-page screenshots inspected",
+    "Original vector artwork, no third-party images or embedded lettering",
+    "High-density phone and desktop image resolutions verified; final renders1680x1120"
+  ],
+  "releaseConditions": [
+    "Normal protected CI must regenerate final cache-bust strings",
+    "Public selected assets must match final ledger hashes",
+    "No claim of live publication before deployment SHA/detail/feed/image verification"
+  ]
+}

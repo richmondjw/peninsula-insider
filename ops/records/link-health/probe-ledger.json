@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-10-20T04:12:28.549Z",
+  "updatedAt": "2026-11-02T04:21:25.679Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1135,6 +1135,23 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://library.mornpen.vic.gov.au",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "effectiveUrl": "https://library.mornpen.vic.gov.au/",
+      "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Science-Week-TwistED-Science-Show-Rosebud-Library",
       "verdict": "dead",
       "httpCode": "404",
@@ -1144,6 +1161,22 @@
       "disposition": "gone",
       "dispositionNote": "The library's own 404 page renders at this URL. A past event listing, removed.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Mornington-Library",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Rosebud-Library",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://lightfootwines.com.au",
@@ -3747,6 +3780,14 @@
       "pageTitle": "Home - Moonah Links Resort"
     },
     {
+      "url": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Spike Dining - Moonah Links Resort",
+      "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.moonlitsanctuary.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -4054,6 +4095,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Acoustic Saturdays Peppers Moonah Links Live Music - Mornington Peninsula Shire"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music-1",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1",
