@@ -1,28 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-02T14:30:15.582Z",
+  "generatedAt": "2026-11-02T17:02:39.460Z",
   "baselineAvailable": true,
-  "fromSnapshot": "35d7169200ba388b93dee3358f244bd406aa87766aee8345ba73772fb95cd364",
-  "toSnapshot": "32e279a4c717c1d7d96edeee1daf03d23a984ce24f94d89617500e5a07b53c18",
-  "previousGeneratedAt": "2026-11-02T09:01:52.200Z",
+  "fromSnapshot": "32e279a4c717c1d7d96edeee1daf03d23a984ce24f94d89617500e5a07b53c18",
+  "toSnapshot": "9f2181fbb62e875637cdcaeaab4a26f31c4208a0b7ecf40e0b27040ecc10a161",
+  "previousGeneratedAt": "2026-11-02T14:30:15.582Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 2,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/golf/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "a3439c4108c9bb3c4700ef52d4eccf893d333e25c3ec36a61e7afd9b4e988a80",
+      "previousContentSha256": "36a75a7e007fc5972ed1a96325d02efb45bb08b7ccff9553ed42b5fed8548e0f"
+    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "1d94d03d4fdb440af344a20dbddd12265e3bee8c801996eb776db12ec11aec89",
-      "previousContentSha256": "0de952d75ecd984406f698ec2bed56479acd17819838e09f3c2c26f4928354e7"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "0ce914c1501f0b2580000781e00967d96330076f0de08f7ea8b7b11b1ead8e7b",
-      "previousContentSha256": "1909e908672d78cc9e9105851fbbb37c05dec75e10e64589ab91b8d89ab002f9"
+      "contentSha256": "ad487a2b58343c6fc6b51444754a416aae5c60e9bd59de46e312a6a2df6362e6",
+      "previousContentSha256": "1d94d03d4fdb440af344a20dbddd12265e3bee8c801996eb776db12ec11aec89"
     }
   ]
 }
