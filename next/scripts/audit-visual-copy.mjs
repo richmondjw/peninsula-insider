@@ -13,7 +13,7 @@ async function walk(dir){
   text(parse(await fs.readFile(file,'utf8')));
   const visible=parts.join(' ');
   // Target disclosure/promotion strings, never general discussion of art.
-  const pattern=/Illustrative image|Conceptual (?:coastal|editorial)|original editorial illustration|Illustration\s*[:·]|go in the draw|250 to dine|Jackalope.{0,30}voucher|voucher.{0,30}Jackalope/gi;
+  const pattern=/\billustrati(?:ve|on)s?\b|Conceptual (?:coastal|editorial)|original editorial illustration|Illustration\s*[:·]|go in the draw|250 to dine|Jackalope.{0,30}voucher|voucher.{0,30}Jackalope/gi;
   for(const hit of visible.matchAll(pattern))matches.push({file:path.relative(root,file),context:visible.slice(Math.max(0,hit.index-50),hit.index+hit[0].length+100)});
  }
 }

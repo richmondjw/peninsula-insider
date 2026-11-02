@@ -25,3 +25,10 @@ test('presentation removes original art captions without losing context photo cr
   assert.equal(isOriginalIllustration(photo), false);
   assert.equal(visibleImageCaption(photo), photo.caption);
 });
+
+
+test('context-photo wording drops illustrative labels while retaining truthful limitations',()=>{
+ assert.equal(visibleImageCaption({src:'/photo.webp',caption:'Illustrative venue photograph; it does not depict this exhibition.'}),'Context photograph; it does not depict this exhibition.');
+ assert.equal(visibleImageCaption({src:'/photo.webp',caption:'Lindenderry, shown as an illustrative wine-country setting.'}),'Lindenderry, shown as a wine-country setting.');
+ assert.equal(visibleImageCaption({src:'/photo.webp',caption:'Illustrative: bathing grounds, not accommodation.'}),'Context photo: bathing grounds, not accommodation.');
+});

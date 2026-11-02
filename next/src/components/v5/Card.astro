@@ -1,5 +1,5 @@
 ---
-import { isOriginalIllustration } from '../../lib/illustration-presentation.mjs';
+import { isOriginalIllustration, visibleImageCaption } from '../../lib/illustration-presentation.mjs';
 /**
  * Card (v5) - THE one card primitive (component spec 2.15).
  *
@@ -251,7 +251,7 @@ const creditLine = (credit: string) => {
       : `${/\b(?:illustration|artwork|drawing)\b/i.test(clean) ? 'Illustration' : 'Photo'}: ${clean}.`;
 };
 const originalIllustration = isOriginalIllustration(image);
-const imageCaption = originalIllustration ? '' : image?.caption ?? '';
+const imageCaption = visibleImageCaption(image);
 const imageCredit = !originalIllustration && image?.credit ? creditLine(image.credit) : '';
 ---
 

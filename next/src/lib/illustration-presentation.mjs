@@ -7,5 +7,9 @@ export function isOriginalIllustration(image) {
     /^(?:Illustration|Artwork)\s*[:·]/i.test(image.credit?.trim() ?? '');
 }
 export function visibleImageCaption(image) {
-  return isOriginalIllustration(image) ? '' : image?.caption ?? '';
+  if (isOriginalIllustration(image)) return '';
+  return (image?.caption ?? '')
+    .replace(/\billustrative venue photograph\b/gi, 'Context photograph')
+    .replace(/shown as an illustrative wine-country setting/gi, 'shown as a wine-country setting')
+    .replace(/^Illustrative:\s*/i, 'Context photo: ');
 }
