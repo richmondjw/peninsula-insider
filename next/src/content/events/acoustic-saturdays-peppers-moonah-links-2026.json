@@ -18,8 +18,8 @@
     "lng": 144.8526463
   },
   "indoorOutdoor": "Indoor",
-  "officialEventUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
-  "bookingUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
+  "officialEventUrl": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
+  "bookingUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music-1",
   "bookingRequired": "No",
   "category": "live-music",
   "subcategory": "Live Music",
@@ -39,9 +39,9 @@
     "name": "Peppers Moonah Links",
     "website": "https://www.moonahlinks.com.au"
   },
-  "primarySourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
+  "primarySourceUrl": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
   "verification": "verified",
-  "lastCheckedDate": "2026-10-03",
+  "lastCheckedDate": "2026-11-02T04:13:21.488Z",
   "editorialPriority": 3,
   "nearbyAttractions": "Arthurs Seat Eagle; Cape Schanck; Flinders",
   "suggestedItineraryPairing": "Round of golf during the day, settle in for happy hour and acoustic set from 5pm",
@@ -55,5 +55,32 @@
   ],
   "place": "fingal",
   "nextOccurrence": "2026-11-07",
-  "familyFriendly": true
+  "familyFriendly": true,
+  "lastVerifiedAt": "2026-11-02T04:13:21.488Z",
+  "secondarySourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music-1",
+  "verificationStatus": "Primary venue programme and explicit Shire 7 November date checked by Codex on 2026-11-02",
+  "bookingStatus": "not-required",
+  "bookingStatusSourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music-1",
+  "bookingStatusCheckedAt": "2026-11-02T04:13:21.488Z",
+  "bookingStatusNote": "The Shire listing says no bookings are required. Check the venue before travelling.",
+  "provenance": "Checked by Codex on 2026-11-02 against the venue-owned Spike Bar programme (Acoustic Saturdays, 5pm to 8pm) and the Shire calendar explicitly listing 7 November. The calendar midnight value is a placeholder; the displayed time follows the venue programme. No cancellation or postponement notice found in the retrieved pages. Existing editorial wording and bounded recurrence preserved. No drinks prices republished.",
+  "heroImage": {
+    "src": "/images/generated/acoustic-saturdays-peppers-moonah-links-2026.webp",
+    "alt": "Conceptual illustration of a coral acoustic guitar on an ivory and teal background",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "original-commissioned",
+    "caption": "Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.",
+    "depicts": "a conceptual acoustic guitar",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider, original authored SVG",
+    "rightsHolder": "Peninsula Insider",
+    "permission": "Original vector artwork authored for Peninsula Insider during the authorised 2026-11-02 event publication task. No third-party photographs, logos or artwork were incorporated.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsEstablishedOn": "2026-11-02",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
+  }
 }

@@ -1,0 +1,93 @@
+{
+  "slug": "chatty-cafe-rosebud-library-2026-11-04",
+  "eventId": "PI-CURATED-2026-11-04-chatty",
+  "contentKind": "event",
+  "title": "Chatty Café at Rosebud Library",
+  "summary": "A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.",
+  "description": "A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.",
+  "startDate": "2026-11-04",
+  "endDate": "2026-11-04",
+  "nextOccurrence": "2026-11-04",
+  "startTime": "10:00",
+  "endTime": "12:00",
+  "endsNextDay": false,
+  "timezone": "Australia/Melbourne",
+  "season": "spring",
+  "month": "November",
+  "venueName": "Rosebud Library",
+  "venueRegion": "Rosebud",
+  "suburb": "Rosebud",
+  "place": "rosebud",
+  "streetAddress": "McDowell Street",
+  "coordinates": {
+    "lat": -38.3574413,
+    "lng": 144.9048471
+  },
+  "indoorOutdoor": "Indoor",
+  "officialEventUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+  "primarySourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+  "bookingUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+  "bookingRequired": "No",
+  "bookingStatus": "not-required",
+  "bookingStatusNote": "The library states that no booking is required. Check its current listing before travelling.",
+  "bookingStatusSourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+  "bookingStatusCheckedAt": "2026-11-02T04:10:00.908Z",
+  "category": "community",
+  "subcategory": "Community conversation",
+  "recurrence": "one-off",
+  "occurrencePolicy": "confirmed-only",
+  "suitableFor": "People seeking a local conversation session",
+  "audienceTags": [
+    "locals",
+    "solo"
+  ],
+  "accessibilityNotes": "Contact the library directly to confirm access requirements and available support.",
+  "weather": "all-weather",
+  "weatherDependency": "Library session. Check the operator for any changes.",
+  "weatherShape": "all-weather",
+  "organiser": {
+    "name": "Mornington Peninsula Libraries",
+    "website": "https://library.mornpen.vic.gov.au"
+  },
+  "verification": "verified",
+  "verificationStatus": "Primary operator date, time, venue and no-booking statement checked by Codex on 2026-11-02",
+  "lastCheckedDate": "2026-11-02T04:10:00.908Z",
+  "lastVerifiedAt": "2026-11-02T04:10:00.908Z",
+  "provenance": "Fresh primary operator HTML retrieved on 2026-11-02 and reviewed by Codex. The operator explicitly lists this date, time and library address; no cancellation or postponement notice was found in the retrieved page. This is an authorised editorial record, not an approval of an unverified collection candidate. Source and original illustration hashes are retained in ops/records/events/population-2026-11-02/verification.json.",
+  "editorialPriority": 2,
+  "editorVerdict": "A local, low-commitment way to make time for conversation.",
+  "editorNote": "Rosebud Library lists a Chatty Café session on Wednesday 4 November, from 10am to noon. It is a chance to share a cuppa and conversation in a local library setting. The organiser welcomes everyone and says no bookings are required.\n\nThe programme is part of the Chatty Cafe Scheme, which encourages social connection through conversation. You do not need to arrive with a group. Treat this as a relaxed community session rather than a scheduled performance or a formal class.\n\nThe listed venue is Rosebud Library on McDowell Street. Check the library’s source page before travelling for any changes to this particular session. If you have access requirements, contact the library directly so you can plan your visit. This listing confirms only the dated session shown here; it does not promise that every future Wednesday will run.",
+  "status": "published",
+  "publishedAt": "2026-11-02T04:10:00.908Z",
+  "lens": [
+    "locals-know",
+    "walk-in"
+  ],
+  "freePaid": "Free entry",
+  "priceTier": "free",
+  "verifiedPrice": {
+    "label": "Free entry",
+    "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+    "checkedAt": "2026-11-02T04:10:00.908Z",
+    "validUntil": "2026-11-04T12:00:00+11:00"
+  },
+  "heroImage": {
+    "src": "/images/generated/chatty-cafe-rosebud-library-2026-11-04.webp",
+    "alt": "Conceptual illustration of two speech bubbles and a teacup in navy, teal and coral",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "original-commissioned",
+    "caption": "Original editorial illustration of conversation and a cuppa. Not a photograph of Rosebud Library or this event.",
+    "depicts": "conceptual conversation and a cuppa",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider, original authored SVG",
+    "rightsHolder": "Peninsula Insider",
+    "permission": "Original vector artwork authored for Peninsula Insider during the authorised 2026-11-02 event publication task. No third-party photographs, logos or artwork were incorporated.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsEstablishedOn": "2026-11-02",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
+  }
+}

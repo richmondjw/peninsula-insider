@@ -1,3 +1,4 @@
+import { isoDate } from '../../src/lib/event-schedule.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { Site, DIST } from './harness.mjs';
@@ -253,7 +254,7 @@ test('built default Event ItemList and AI feed agree on weekend event identities
   for (const event of feed.events) { assert.equal(event.thisWeekend, event.weekendOccurrences.length > 0); assert.ok(['event','experience','offer'].includes(event.contentKind)); if(event.contentKind !== 'event') { assert.equal(event.eventStatus, undefined); assert.notEqual(event.dateMeaning, 'occurrence'); } }
 });
 
-test('upcoming feed carries recorded source-check dates for JSON-backed events', () => {
+test('upcoming feed carries recorded source-check calendar dates for JSON-backed events', () => {
   const feed = JSON.parse(readFileSync(join(DIST, 'whats-on/upcoming.json'), 'utf8'));
   let checked = 0;
   for (const event of feed.events) {
@@ -262,7 +263,7 @@ test('upcoming feed carries recorded source-check dates for JSON-backed events',
     if (!existsSync(path)) continue;
     const record = JSON.parse(readFileSync(path, 'utf8'));
     if (!record.lastCheckedDate || record.editorialProvenance?.checkedOn) continue;
-    assert.equal(event.factCheckedOn, record.lastCheckedDate, `${slug}: feed must retain the recorded check date`);
+    assert.equal(event.factCheckedOn, isoDate(new Date(record.lastCheckedDate)), `${slug}: feed must retain the recorded check calendar date`);
     checked++;
   }
   assert.ok(checked > 0, 'exercise a checked, upcoming JSON event');
@@ -473,4 +474,8 @@ test('selected dates omit finished occurrences while keeping an ongoing range an
     assert.equal(await reader.page.$$eval('[data-wo-days] .wo-day', days => days.length), 2,
       'past day should not take a result section');
   } finally { await reader.close(); }
+});
+
+test('source-check calendar dates retain the Melbourne day across the UTC boundary',()=>{
+ for(const stamp of ['2026-11-02','2026-11-02T00:30:00+11:00','2026-11-01T13:30:00Z'])assert.equal(isoDate(new Date(stamp)),'2026-11-02');
 });
