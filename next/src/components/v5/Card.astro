@@ -1,4 +1,5 @@
 ---
+import { isOriginalIllustration } from '../../lib/illustration-presentation.mjs';
 /**
  * Card (v5) - THE one card primitive (component spec 2.15).
  *
@@ -249,8 +250,9 @@ const creditLine = (credit: string) => {
       ? `${clean}.`
       : `${/\b(?:illustration|artwork|drawing)\b/i.test(clean) ? 'Illustration' : 'Photo'}: ${clean}.`;
 };
-const imageCaption = image?.caption ?? '';
-const imageCredit = image?.credit ? creditLine(image.credit) : '';
+const originalIllustration = isOriginalIllustration(image);
+const imageCaption = originalIllustration ? '' : image?.caption ?? '';
+const imageCredit = !originalIllustration && image?.credit ? creditLine(image.credit) : '';
 ---
 
 {/* `compact-row` is the primitive's `--compact` variant; the other six are

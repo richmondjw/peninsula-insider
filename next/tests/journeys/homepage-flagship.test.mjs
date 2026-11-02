@@ -110,16 +110,22 @@ test('homepage newsletter explains invalid input and recovers from a rejected su
 
 
 
-test('failed AVIF download falls back to the original WebP variants without changing credits',async()=>{
+test('homepage original vector art is static without scripts and supports pause and reduced motion',async()=>{
   const reader=await site.reader();
   try {
     await reader.load('/');
-    const before=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption').textContent}));
-    assert.ok(await reader.page.$('.home-cover__plate source[data-pi-avif-source]'));
-    await reader.page.$eval('.home-cover__plate source',e=>{e.srcset='/images/missing-avif-regression.avif 800w';});
-    await reader.waitFor(()=>{const img=document.querySelector('.home-cover__media');return img.complete&&img.naturalWidth>0&&img.currentSrc.includes('.webp')&&!img.closest('picture').querySelector('source[data-pi-avif-source]');},'native WebP did not recover');
-    const after=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption').textContent}));
-    assert.deepEqual(after,before);
+    assert.equal(await reader.page.$('.home-cover__plate img'),null);
+    assert.equal(await reader.page.$('.home-cover__plate figcaption'),null);
+    await reader.page.click('[data-coastal-motion]');
+    assert.equal(await reader.page.$eval('[data-coastal-art]',e=>e.dataset.paused),'true');
+    await reader.page.click('[data-coastal-motion]');
+    assert.equal(await reader.page.$eval('[data-coastal-art]',e=>e.dataset.paused),'false');
+    await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
+    await reader.waitFor(()=>document.querySelector('[data-coastal-motion]').hidden,'motion control must hide when OS motion is reduced');
+    assert.equal(await reader.page.$eval('[data-coastal-art] .boat',e=>getComputedStyle(e).animationName),'none');
+    await reader.page.setJavaScriptEnabled(false);
+    await reader.page.goto(site.origin+'/',{waitUntil:'domcontentloaded'});
+    assert.deepEqual(await reader.page.$eval('[data-coastal-art]',e=>[e.dataset.period,e.dataset.paused]),['morning','true']);
   }finally{await reader.close();}
 });
 
@@ -141,7 +147,7 @@ test('homepage weekend picks show the recorded check dates and direct official s
   try {
     await reader.load('/');
     const sources=await reader.page.$$eval('.home-weekend [data-event-promotion]',els=>els.map(card=>({text:card.querySelector('.home-weekend__source')?.textContent.trim(),url:card.querySelector('.home-weekend__source a')?.href})));
-    assert.ok(sources.length<=3,JSON.stringify(sources));
+    assert.ok(sources.length<=6,JSON.stringify(sources));
     if(!sources.length){
       const empty=await reader.page.$eval('[data-event-promotion-empty]',node=>({hidden:node.hidden,text:node.textContent,href:node.querySelector('a')?.getAttribute('href')}));
       assert.equal(empty.hidden,false);assert.match(empty.text,/No verified event picks remain for this weekend/);assert.equal(empty.href,'/whats-on/?date=next-weekend');
@@ -150,8 +156,30 @@ test('homepage weekend picks show the recorded check dates and direct official s
     assert.equal(await reader.page.$eval('[data-event-promotion-empty]',node=>node.hidden),true);
     assert.ok(sources.every(s=>/Event details checked \d{1,2} \w+ \d{4}/.test(s.text??'')),JSON.stringify(sources));
     assert.ok(sources.every(s=>s.url?.startsWith('https://')&&!new URL(s.url).hostname.endsWith('peninsulainsider.com.au')),JSON.stringify(sources));
-    const hint=await reader.page.$eval('[data-event-promotion-multi-hint]',el=>({hidden:el.hidden,text:el.textContent.trim()}));
-    assert.equal(hint.hidden,sources.length<2);
-    assert.doesNotMatch(hint.text,/all three/i);
+    const browse=await reader.page.$$eval('.home-weekend__browse a',els=>els.map(e=>e.getAttribute('href')));
+    assert.deepEqual(browse,['/whats-on/?date=today','/whats-on/?date=tomorrow','/whats-on/?date=next-weekend','/whats-on/']);
   }finally{await reader.close();}
+});
+
+
+test('town markers and labels share real area links, keyboard focus and mobile tap areas',async()=>{
+ const reader=await site.reader();
+ try{
+  for(const width of [320,390,1440]){
+   await reader.page.setViewport({width,height:844});await reader.load('/');
+   const links=await reader.page.$$eval('.home-orientation__town-link',els=>els.map(e=>{const hit=e.querySelector('rect').getBoundingClientRect();return {href:e.getAttribute('href'),name:e.getAttribute('aria-label'),width:hit.width,height:hit.height};}));
+   const adjacent=await reader.page.$$eval('.home-orientation__areas h3 a',els=>els.map(e=>e.getAttribute('href')));
+   assert.deepEqual(links.map(e=>e.href),adjacent);
+   assert.ok(links.every(e=>e.name&&e.width>=44&&e.height>=44),JSON.stringify({width,links}));
+   await reader.page.focus('.home-orientation__heading a');
+   await reader.page.keyboard.press('Tab');
+   assert.equal(await reader.page.$eval('.home-orientation__town-link',e=>e.matches(':focus-visible')),true);
+  }
+  await reader.page.keyboard.press('Enter');
+  await reader.page.waitForFunction(()=>location.pathname==='/explore/places/mornington/');
+  for(const part of ['.home-orientation__number','.home-orientation__town']){
+   await reader.load('/');await reader.page.click('.home-orientation__town-link '+part);
+   await reader.page.waitForFunction(()=>location.pathname==='/explore/places/mornington/');
+  }
+ }finally{await reader.close();}
 });

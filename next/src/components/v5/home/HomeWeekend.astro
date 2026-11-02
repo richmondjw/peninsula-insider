@@ -4,7 +4,7 @@ import { publicEventData } from '../../../lib/event-publication.mjs';
  * HomeWeekend - block 3, the homepage's ONLY temporal module
  * (page-redesigns.md 1.9 item 3; wireframes.html #home note 2).
  *
- * Three PI picks for the upcoming weekend, each a v5 event Card with Save
+ * Up to six PI picks for the upcoming weekend, each a v5 event Card with Save
  * and "+ Trip", closed by "Everything on this weekend" into /whats-on/.
  * The cards run without the type eyebrow: "This weekend" plus a date window
  * already declares that these are events, and three stacked EVENT stamps
@@ -13,9 +13,8 @@ import { publicEventData } from '../../../lib/event-publication.mjs';
  * when one exists; otherwise a ranked fallback over the events collection
  * keeps the module honest between editorial pushes (see home-data.ts).
  *
- * List semantics via CardGrid; below 1024px the grid becomes a horizontal
- * scroller with a visible peek (mobile-strategy: swipe, no carousel, no
- * auto-motion). All server-rendered.
+ * List semantics via CardGrid; compact responsive tiles remain visible in
+ * reading order on every width. All server-rendered.
  */
 import { eventContentKind } from '../../../lib/event-publication.mjs';
 import { getCollection } from 'astro:content';
@@ -34,7 +33,7 @@ import {
 const events = await getCollection('events');
 const picksEntries = await getCollection('weekend-picks');
 const now = new Date();
-const { picks, window: weekend } = selectWeekendPicks(picksEntries, events, now);
+const { picks, window: weekend } = selectWeekendPicks(picksEntries, events, now, 6);
 
 const slugOf = (e: any) => e.data.slug ?? e.id;
 
@@ -80,12 +79,9 @@ const cards = await Promise.all(
     } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && recorded?.rightsStatus === 'recorded' && status !== 'unverified' ? {
       src: hero.src,
       alt: recorded.alt,
-      caption: status === 'illustrative'
-        ? recorded.caption || 'Illustrative image, not this event.'
-        : recorded.caption ?? '',
+      caption: recorded.caption ?? '',
       credit: recorded.credit,
-      badge: status === 'illustrative' ? 'Illustrative image' : '',
-    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: 'Conceptual editorial artwork, not a depiction of this event.', credit: 'Illustration: Peninsula Insider', badge: 'Illustrative image' };
+    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: '', credit: 'Illustration: Peninsula Insider' };
     const dateISO = pickDateISO(event, now);
     const dateLabel = dateISO ? new Date(dateISO + 'T00:00:00Z').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
     const fullTitle = String(event.data.title);
@@ -124,7 +120,7 @@ const cards = await Promise.all(
 
       <p data-event-promotion-empty hidden={cards.length > 0}>No verified event picks remain for this weekend. <a href="/whats-on/?date=next-weekend">Browse next weekend</a> or <a href="/explore/">find a place to explore</a>.</p>
       <div data-event-promotion-content hidden={cards.length === 0}>
-      <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={cards.length < 2}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
+      <nav class="home-weekend__browse" aria-label="Browse more events"><a href="/whats-on/?date=today">Today</a><a href="/whats-on/?date=tomorrow">Tomorrow</a><a href="/whats-on/?date=next-weekend">Next weekend</a><a href="/whats-on/">All events &rarr;</a></nav>
 
       <div class="home-weekend__scroller">
         <CardGrid label="This weekend's picks" maxCols={cards.length === 2 ? 2 : 3}>
@@ -149,7 +145,7 @@ const cards = await Promise.all(
               surface="home-weekend"
               position={i}
             >
-              {card.image?.badge && <span slot="badges" class="home-weekend__media-badge">{card.image.badge}</span>}
+
             </Card>
             {card.sourceUrl?.startsWith('https://') && <p class="home-weekend__source">{card.checkedOn && <span>Event details checked {new Date(card.checkedOn).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}.</span>} <a href={card.sourceUrl}>Check organiser <span aria-hidden="true">↗</span></a></p>}
             </li>
@@ -171,163 +167,32 @@ const cards = await Promise.all(
 </script>
 
 <style>
-  .home-weekend__source{font-size:.8125rem;line-height:1.5;color:var(--soft);margin:.6rem .25rem 0}
-  .home-weekend__source>span{display:block}
-  .home-weekend__source a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
-  .home-weekend__scroller :global(.v5-card-grid){align-items:stretch}
-  .home-weekend__scroller :global(.v5-card-grid>li){display:flex;flex-direction:column;min-width:0}
-  .home-weekend__scroller :global(.pi-card){width:100%;height:100%}
-  .home-weekend__scroller :global(.pi-card__media){aspect-ratio:3/2}
-  .home-weekend__scroller :global(.pi-card__image-note){min-height:4.5rem;font-size:.8125rem;line-height:1.45}
-
-  :global(.home-weekend__media-badge) {
-    position: absolute;
-    right: var(--space-3);
-    bottom: var(--space-3);
-    z-index: 1;
-    max-width: calc(100% - 2 * var(--space-3));
-    padding: .3rem .55rem;
-    border-radius: var(--radius-s);
-    background: var(--bg-dark);
-    color: var(--white);
-    font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui);
-  }
-  .home-weekend { scroll-margin-top: 9rem; }
-  @media (min-width: 64em) {
-    .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: 1.875rem; }
-  }
-  .home-weekend__scroller :global(.pi-card__media) { height: 14.375rem; aspect-ratio: auto; }
-  .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-400); line-height: var(--lh-body); display: block; overflow: visible; -webkit-line-clamp: unset; }
-
-  .home-weekend {
-    padding: var(--space-7) 0;
-  }
-
-  .home-weekend__head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: var(--space-3);
-    margin-bottom: var(--space-5);
-  }
-
-  .home-weekend__heading {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-
-  .home-weekend__eyebrow {
-    margin: 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-    color: var(--teal-text);
-  }
-
-  .home-weekend__title {
-    margin: 0;
-    font-family: var(--font-display);
-    font-weight: var(--fw-display);
-    font-size: var(--fs-700);
-    line-height: var(--lh-heading);
-    letter-spacing: var(--ls-display);
-    color: var(--text);
-  }
-
-  /* The single live/now marker: a restrained amber pill. */
-  .home-weekend__window {
-    margin: 0;
-    align-self: center;
-    display: inline-flex;
-    align-items: center;
-    padding: 0.3rem 0.75rem;
-    border-radius: var(--radius-pill);
-    background: color-mix(in srgb, var(--signal) 16%, transparent);
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    font-weight: var(--fw-semibold);
-    letter-spacing: 0.02em;
-    color: var(--signal-text);
-  }
-
-  .home-weekend__scroll-hint {
-    display: none;
-    margin: calc(-1 * var(--space-3)) 0 var(--space-3);
-    color: var(--soft);
-    font: var(--fw-semibold) var(--fs-200)/var(--lh-ui) var(--font-ui);
-  }
-
-  .home-weekend__scroll-hint span { color: var(--accent); }
-  .home-weekend__scroll-hint[hidden] { display: none; }
-
-  .home-weekend__all {
-    margin: var(--space-5) 0 0;
-    font-family: var(--font-ui);
-    font-weight: var(--fw-bold);
-    font-size: var(--fs-400);
-  }
-
-  .home-weekend__all a {
-    color: var(--text);
-    text-decoration: none;
-    border-bottom: 1.5px solid var(--accent);
-    padding-bottom: 2px;
-    white-space: nowrap;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-
-  .home-weekend__all a:hover {
-    color: var(--accent);
-  }
-
-  /* Below the desktop grid breakpoint the picks row scrolls horizontally
-     with a visible peek (wireframe mobile frame: "swipe · 2 more"). The
-     override targets CardGrid's ul from this wrapper; scroll is
-     reader-driven, never automated. */
-  @media (max-width: 63.94em) {
-    .home-weekend__scroll-hint { display: block; }
-    .home-weekend__scroller :global(.v5-card-grid--grid) {
-      grid-template-columns: none;
-      grid-auto-flow: column;
-      grid-auto-columns: min(21rem, 84vw);
-      overflow-x: auto;
-      scroll-snap-type: x proximity;
-      padding-bottom: var(--space-2, 0.5rem);
-      -webkit-overflow-scrolling: touch;
-    }
-
-    .home-weekend__scroller :global(.v5-card-grid--grid > *) {
-      scroll-snap-align: start;
-    }
-
-    .home-weekend__scroller :global(.v5-card-grid--grid) {
-      align-items: start;
-    }
-
-    /* House rail treatment: hide the native scrollbar (swipe affordance
-       comes from the visible card peek, per audit-surface-hardening). */
-    .home-weekend__scroller :global(.v5-card-grid--grid) {
-      scrollbar-width: none;
-    }
-
-    .home-weekend__scroller :global(.v5-card-grid--grid)::-webkit-scrollbar {
-      display: none;
-    }
-  }
-  @media (max-width: 39.99em) {
-    .home-weekend__scroller { margin-right: -1rem; }
-    .home-weekend__scroller :global(.v5-card-grid--grid) { column-gap: 1rem; }
-    .home-weekend__scroller :global(.pi-card__media) { height: 10.5rem; }
-    .home-weekend__scroller :global(.pi-card__body) { padding: 1rem; }
-    .home-weekend__scroller :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.22; }
-    .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
-    .home-weekend__scroller :global(.pi-card__image-note) { min-height: 0; font-size: .8125rem; line-height: 1.4; }
-    .home-weekend__scroller :global(.pi-card__actions) { padding: 0 1rem 1rem; }
-  }
+ .home-weekend{scroll-margin-top:9rem;padding:var(--space-7) 0}
+ .home-weekend__head{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:var(--space-3);margin-bottom:var(--space-5)}
+ .home-weekend__heading{display:flex;flex-direction:column;gap:var(--space-2)}
+ .home-weekend__eyebrow{margin:0;font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--teal-text)}
+ .home-weekend__title{margin:0;font:var(--fw-display) var(--fs-700)/var(--lh-heading) var(--font-display);letter-spacing:var(--ls-display);color:var(--text)}
+ .home-weekend__window{margin:0;align-self:center;display:inline-flex;align-items:center;padding:.3rem .75rem;border-radius:var(--radius-pill);background:color-mix(in srgb,var(--signal) 16%,transparent);font:600 var(--fs-200)/1.4 var(--font-ui);letter-spacing:.02em;color:var(--signal-text)}
+ .home-weekend__scroller :global(.v5-card-grid>li){display:flex;flex-direction:column;min-width:0}
+ .home-weekend__scroller :global(.pi-card){width:100%;height:100%}
+ .home-weekend__source{font-size:.8125rem;line-height:1.5;color:var(--soft)}
+ .home-weekend__source>span{display:block}
+ .home-weekend__source a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
+ .home-weekend__all{margin:var(--space-5) 0 0;font:700 var(--fs-400)/1.5 var(--font-ui)}
+ .home-weekend__all a{display:inline-flex;min-height:44px;align-items:center;color:var(--accent);text-underline-offset:.2em}
+ .home-weekend a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+</style>
+<style>
+ /* Compact editorial tiles: all eligible picks remain visible without a carousel. */
+ .home-weekend__browse{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-bottom:1rem}.home-weekend__browse a{min-height:44px;display:inline-flex;align-items:center;color:var(--accent);font-weight:600;text-underline-offset:.2em}
+ .home-weekend__scroller :global(.v5-card-grid--grid),.home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-flow:row;grid-auto-columns:auto;overflow:visible;gap:1rem;align-items:stretch}
+ .home-weekend__scroller :global(.pi-card__media){height:8rem;aspect-ratio:auto}
+ .home-weekend__scroller :global(.pi-card__body){padding:1rem}
+ .home-weekend .home-weekend__scroller :global(.pi-card .pi-card__title),.home-weekend .home-weekend__scroller :global(.pi-card:first-child .pi-card__title){font-size:1.125rem;line-height:1.3}
+ .home-weekend .home-weekend__scroller :global(.pi-card__dek){font-size:.9375rem;line-height:1.45}
+ .home-weekend__scroller :global(.pi-card__image-note){min-height:0;font-size:.8125rem;line-height:1.4}
+ .home-weekend__scroller :global(.pi-card__actions){padding:0 1rem 1rem}
+ .home-weekend__source{margin:.25rem .25rem 0}
+ @media(max-width:63.99em){.home-weekend__scroller :global(.v5-card-grid--grid),.home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two){grid-template-columns:repeat(2,minmax(0,1fr))}}
+ @media(max-width:39.99em){.home-weekend__scroller{margin-right:0}.home-weekend__scroller :global(.v5-card-grid--grid),.home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two){grid-template-columns:minmax(0,1fr)}.home-weekend__scroller :global(.pi-card__media){height:7rem}.home-weekend{padding-block:2rem}}
 </style>

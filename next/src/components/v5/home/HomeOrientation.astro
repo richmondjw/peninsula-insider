@@ -17,7 +17,7 @@ const landPaths = land.rings.map(orientationLandPath);
   <div class="home-orientation__heading"><div><p class="home-orientation__eyebrow">Find your bearings</p><h2 id="home-orientation-title">Three ways into the Peninsula.</h2></div><a href="/map/">Open the full map <span aria-hidden="true">↗</span></a></div>
   <div class="home-orientation__layout">
     <figure class="home-orientation__diagram">
-      <svg viewBox={`0 0 ${orientationFrame.width} ${orientationFrame.height}`} role="img" aria-labelledby="home-town-map-title home-town-map-desc">
+      <svg viewBox={`0 0 ${orientationFrame.width} ${orientationFrame.height}`} role="group" aria-labelledby="home-town-map-title home-town-map-desc">
         <title id="home-town-map-title">Mornington, Red Hill and Sorrento on the Peninsula</title>
         <desc id="home-town-map-desc">A simplified north-up coastline map. Mornington is on Port Phillip, north of inland Red Hill. Sorrento is to the west near the southern end of the bay. Numbered town locations match the area links. For roads and other places, open the full map.</desc>
         <defs><clipPath id="home-town-map-frame"><rect width="400" height="340" rx="12" /></clipPath></defs>
@@ -33,11 +33,12 @@ const landPaths = land.rings.map(orientationLandPath);
         {areas.map((area, i) => {
           const p = projectOrientationPoint(area.point);
           const label = labelOffsets[i];
-          return <g>
+          return <a href={area.href} aria-label={`Explore ${area.title}`} class="home-orientation__town-link">
+            <rect x={Math.min(p.x - 22, p.x + label.x - 4)} y={Math.min(p.y - 31, p.y + label.y - 20)} width={i === 0 ? 145 : i === 1 ? 110 : 105} height={i === 2 ? 77 : 62} rx="8" class="home-orientation__hit" />
             <circle cx={p.x} cy={p.y} r="16" class="home-orientation__marker" />
             <text x={p.x} y={p.y + 6} text-anchor="middle" class="home-orientation__number">0{i + 1}</text>
             <text x={p.x + label.x} y={p.y + label.y} text-anchor="start" class="home-orientation__town">{towns[i].name}</text>
-          </g>;
+          </a>;
         })}
       </svg>
       <figcaption>
@@ -60,6 +61,7 @@ const landPaths = land.rings.map(orientationLandPath);
   .home-orientation__compass{fill:none;stroke:#102d42;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
   .home-orientation__town,.home-orientation__number,.home-orientation__north,.home-orientation__sea{font:600 18px var(--font-ui);fill:#102d42}
   .home-orientation__sea{font-weight:400}.home-orientation__marker{fill:#f36b4f;stroke:#fff4dc;stroke-width:2}
+  .home-orientation__town-link{display:inline}.home-orientation__hit{fill:transparent;stroke:transparent;stroke-width:2}.home-orientation__town-link:hover .home-orientation__town{text-decoration:underline}.home-orientation__town-link:focus-visible{outline:none}.home-orientation__town-link:focus-visible .home-orientation__hit{stroke:#10527e;fill:#ffffff55}
   ol{list-style:none;margin:0;padding:0}.home-orientation__areas li{display:flex;gap:1rem;border-top:1px solid var(--border);padding:.5rem 0}.home-orientation__index{color:var(--accent);font:600 .8125rem/1.5 var(--font-ui);padding-top:.75rem}
   h3{margin:0;font:600 1rem/1.3 var(--font-display)}li p{font-size:.875rem;line-height:1.5;color:var(--soft);margin:0 0 .3rem}
   a{color:var(--accent);display:inline-flex;align-items:center;min-height:44px;text-underline-offset:.2em;font-weight:600}a:focus-visible{outline:3px solid var(--accent);outline-offset:3px}

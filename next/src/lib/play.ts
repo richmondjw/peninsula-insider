@@ -41,16 +41,10 @@ export const PLAY = {
   cases: CASES,
   /** The case every promo surface leads with: the newest one. */
   case: CASES[CASES.length - 1] as PlayCase,
-  draw: {
-    period: '2026-10',
-    partner: 'Doot Doot Doot, Jackalope',
-    partnerSlug: 'doot-doot-doot',
-    prize: '$250 to dine',
-    closes: '11:59pm AEDT Friday 30 October 2026',
-  },
+
 } as const;
 
-export type PlayRole = 'found' | 'route' | 'prize';
+export type PlayRole = 'found' | 'route';
 
 /** The case this entity belongs to, newest first (Red Hill is on both routes). */
 export function playCaseFor(kind: 'place' | 'venue', slug: string): PlayCase | null {
@@ -67,7 +61,6 @@ export function playRole(kind: 'place' | 'venue', slug: string): PlayRole | null
   if (!PLAY.enabled) return null;
   const c = playCaseFor(kind, slug);
   if (kind === 'venue' && c) return 'found';
-  if (kind === 'venue' && slug === PLAY.draw.partnerSlug) return 'prize';
   if (kind === 'place' && c) return 'route';
   return null;
 }
@@ -83,5 +76,5 @@ export function playUrl(surface: string): string {
   return u.toString();
 }
 
-/** One line, used wherever the prize is mentioned. Always names the partner. */
-export const PRIZE_LINE = `Find her and go in the draw for ${PLAY.draw.prize} at ${PLAY.draw.partner}.`;
+/** Neutral game invitation shared by navigation and editorial placements. */
+export const PLAY_LINE = 'Follow the clues and discover a Peninsula day out.';

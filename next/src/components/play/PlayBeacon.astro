@@ -8,7 +8,7 @@
  * after window.load; touch and reduced-motion devices keep the still to avoid
  * downloading decorative motion. The hover/focus card carries the case.
  */
-import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
+import { PLAY, playUrl, PLAY_LINE } from '../../lib/play';
 const href = playUrl('masthead');
 ---
 
@@ -40,7 +40,7 @@ const href = playUrl('masthead');
       <p class="v5-play__eyebrow">Where in the Peninsula is PI?</p>
       <p class="v5-play__lead">She&rsquo;s out again.</p>
       <p class="v5-play__copy">
-        Case {PLAY.case.id}: {PLAY.case.title}. Ask the locals, read the land, find her before sunset. {PRIZE_LINE}
+        Case {PLAY.case.id}: {PLAY.case.title}. Ask the locals, read the land, find her before sunset. {PLAY_LINE}
       </p>
       <p class="v5-play__fine">Free to play, no account.</p>
     </div>

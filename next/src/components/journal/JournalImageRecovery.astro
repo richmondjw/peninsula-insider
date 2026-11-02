@@ -1,4 +1,5 @@
 <script>
+  import { visibleImageCaption } from '../../lib/illustration-presentation.mjs';
   import { journalCredit } from '../../lib/journal-image-policy.mjs';
   function recover(img: HTMLImageElement) {
     let choices: any[];
@@ -17,7 +18,7 @@
     const credit = figure?.querySelector('[data-journal-image-credit]');
     if (credit) credit.textContent = journalCredit(image);
     const caption = figure?.querySelector('[data-journal-image-caption]');
-    if (caption) caption.textContent = image.caption;
+    if (caption) caption.textContent = visibleImageCaption(image);
     // The replacement's caption discloses context; discard the old image's note.
     figure?.querySelector('[data-pi-media-disclosure]')?.remove();
     img.src = image.src;

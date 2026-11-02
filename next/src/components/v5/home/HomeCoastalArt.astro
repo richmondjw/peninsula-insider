@@ -1,0 +1,48 @@
+---
+// Original authored Coastal Punch vectors. Decorative, never a photograph of a place.
+// Rights holder: Peninsula Insider. Website use authorised by James, 2 November 2026.
+---
+<div class="coastal-art" data-coastal-art data-period="morning" data-paused="true" aria-hidden="true">
+  <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" focusable="false">
+    <defs>
+      <linearGradient id="coastal-sky" x2="0" y2="1"><stop class="sky-top"/><stop offset="1" class="sky-bottom"/></linearGradient>
+    </defs>
+    <rect width="1440" height="600" fill="url(#coastal-sky)"/>
+    <circle class="sun" cx="1130" cy="135" r="65" fill="#F3C969"/>
+    <g class="evening-stars" fill="#FFF4DC"><circle cx="970" cy="70" r="3"/><circle cx="1260" cy="55" r="3"/><circle cx="1330" cy="150" r="2"/><circle cx="1040" cy="170" r="2"/></g>
+    <path d="M0 330Q220 245 400 320T800 315Q1100 240 1440 300V600H0Z" fill="#102D42"/>
+    <path d="M0 350Q320 315 620 350T1440 325V600H0Z" fill="#008F9C"/>
+    <g class="ripples" fill="none" stroke="#FFF4DC" stroke-width="3" opacity=".4"><path d="M580 395q130-18 240 0m110 0q130-18 290 0M700 445q140-18 320 0m110 0h200M460 485q120-18 250 0"/></g>
+    <g class="morning-scene boat">
+      <path d="M930 376h230l-35 35H967Z" fill="#F36B4F"/>
+      <path d="M1040 370V167" stroke="#102D42" stroke-width="8"/>
+      <path d="M1028 189v173H930Z" fill="#FFF4DC"/><path d="M1052 217v145h92Z" fill="#F3C969"/>
+    </g>
+    <path d="M0 550Q400 440 850 516T1440 465V600H0Z" fill="#FFF4DC"/>
+    <path d="M700 600Q970 515 1440 540V600Z" fill="#102D42"/>
+    <g class="afternoon-scene">
+      <path d="M1100 280v270" stroke="#102D42" stroke-width="10"/>
+      <g class="canopy"><path d="M895 295A205 165 0 0 1 1305 295Z" fill="#F36B4F"/><path d="M1100 130Q1000 200 980 295h65Q1070 190 1100 130M1100 130Q1170 190 1170 295h65Q1200 200 1100 130" fill="#FFF4DC"/><path d="M895 295q35 55 70 0q35 55 70 0q32 55 65 0q35 55 70 0q35 55 70 0q32 55 65 0" fill="#F36B4F"/></g>
+      <path d="M950 535h210l60 25H980Z" fill="#F3C969"/>
+    </g>
+    <g class="evening-scene">
+      <path class="light-beam" d="M1120 243L1440 95v270Z" fill="#F3C969" opacity=".18"/>
+      <path d="M1058 520l30-265h62l30 265Z" fill="#FFF4DC"/><path d="M1088 255h62v-52h-62Z" fill="#F3C969"/>
+      <path d="M1070 203l49-43 49 43Z" fill="#F36B4F"/><path d="M1080 275h79" stroke="#F36B4F" stroke-width="17"/>
+      <path d="M1058 520l9-75h105l8 75Z" fill="#F36B4F"/>
+    </g>
+    <g class="leaves" fill="#008F9C"><path d="M1410 600q-140-150-90-270q120 110 90 270Z"/><path d="M1400 600q-190-50-210-155q155 0 210 155Z"/></g>
+  </svg>
+</div>
+<style>
+ .coastal-art{position:absolute;inset:0;background:linear-gradient(var(--sky-top),var(--sky-bottom));--sky-top:#fff4dc;--sky-bottom:#f3c969}.coastal-art svg{width:100%;height:100%;display:block}
+ .sky-top{stop-color:var(--sky-top)}.sky-bottom{stop-color:var(--sky-bottom)}
+ .afternoon-scene,.evening-scene,.evening-stars{display:none}
+ [data-period="afternoon"]{--sky-top:#fff4dc;--sky-bottom:#fff4dc}[data-period="afternoon"] .morning-scene{display:none}[data-period="afternoon"] .afternoon-scene{display:block}
+ [data-period="evening"]{--sky-top:#102d42;--sky-bottom:#f36b4f}[data-period="evening"] .morning-scene{display:none}[data-period="evening"] .evening-scene,[data-period="evening"] .evening-stars{display:block}
+ .boat{animation:coastal-float 8s ease-in-out infinite;transform-origin:1045px 390px}.ripples{animation:coastal-tide 12s ease-in-out infinite}.canopy,.leaves{animation:coastal-sway 10s ease-in-out infinite;transform-origin:1100px 550px}.leaves{transform-origin:1400px 600px}.light-beam{animation:coastal-glow 8s ease-in-out infinite}
+ [data-paused="true"] :is(.boat,.ripples,.canopy,.leaves,.light-beam){animation-play-state:paused}
+ @keyframes coastal-float{50%{transform:translateY(5px) rotate(1deg)}}@keyframes coastal-tide{50%{transform:translateX(18px)}}@keyframes coastal-sway{50%{transform:rotate(1deg)}}@keyframes coastal-glow{50%{opacity:.08}}
+ @media(prefers-reduced-motion:reduce){.boat,.ripples,.canopy,.leaves,.light-beam{animation:none}}
+ @media(max-width:47.99em){.coastal-art svg{position:absolute;bottom:0;right:-80px;width:768px;height:320px;max-width:none}}
+</style>
