@@ -68,4 +68,21 @@ No numeric quality score is claimed. These are implementation observations for t
 
 ## Release status
 
-Draft PR only. Do not merge or deploy on prior event-work approval. T1 independent scorecards required by `ops/page-quality/rubric-v1.md`, spoken assistive-technology assessment and James's explicit approval remain pending. A numeric 99/100 score or live status must not be inferred from automated checks.
+James approved proceeding with this visual release at 06:12 UTC on 2 November, after reviewing the previews. Do not merge or deploy until terminal CI, the T1 quality threshold in `ops/page-quality/rubric-v1.md` and the remaining assistive-technology assessment are satisfied. The approval explicitly does not waive gates. A numeric 99/100 score or live status must not be inferred from automated checks.
+
+
+## Independent review, iteration 2
+
+Three independent reviewers assessed revision 03db28c and returned provisional scores 95.75, 92.25 and 91.25. Shared scoped deductions were an unused third desktop event column when only two picks exist, clipped weekend reasons and 12px mobile map supporting text. The follow-up uses adaptive columns, displays full reasons and makes map captions/credit 15px. Independent reassessment is required; no score is upgraded by the implementer.
+
+Fresh organiser verification on 2 November: the official Moonah Links Spike Bar page confirms Acoustic Saturdays 17:00–20:00. MPRG's official event-calendar page explicitly lists 7 and 8 November 2026, 11:00–16:00, within the 5 September–22November exhibition, and its footer confirms Tuesday–Sunday hours. Direct exhibition fetch returned 403; indexed official calendar/current-exhibition/home pages supplied corroborating evidence. Source data and dates were not changed.
+
+- https://www.moonahlinks.com.au/cms/dining/spike-bar/
+- https://mprg.mornpen.vic.gov.au/Events/National-Works-on-Paper-2026-exhibition
+- https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions
+
+Chrome AX-tree and native keyboard checks passed at 390/1440, including names/order/Space pause states and no-script links. Actual Narrator assessment was attempted through the computer-use skill: Narrator.exe launch exposed no targetable window; subsequent inventory and normal keyboard shortcut produced no usable Narrator surface. Spoken output remains unverified. This is an unmet assessment requirement, not a waived gate. User approved proceeding on 2 November but explicitly prohibited bypassing gates.
+
+A throttled cold-load performance check found an intermittent SVG layout shift of 0.21789. Independent diagnosis reproduced it before the first time-period mutation: progressive HTML parsed the bottom-anchored artwork before the hero content established its height. The figure now follows the content in DOM order, retaining its absolute visual placement. Repeat cold-load measurements are required; no CLS pass is inferred from unchanged final dimensions.
+
+After the DOM-order fix, three repeated cold mobile runs (4x CPU, 150ms latency, 1.6Mbps download) measured CLS 0.000105 in every run, matching baseline, compared with the earlier intermittent 0.21789. Candidate mobile LCP was 4.584/4.240/4.120s versus baseline 4.708/4.008/4.060s; desktop candidate LCP 0.220/0.204/0.204s versus baseline 0.148/0.168/0.160s. Pause handler time was 4.9–11.6ms mobile and under 1ms desktop. These are local synthetic checks with harness network fixtures, not field performance or a 99 score. The independently repeated outcome is recorded separately.

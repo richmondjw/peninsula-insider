@@ -23,10 +23,6 @@ const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
 const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
-  <figure class="home-cover__plate">
-    {vectorArt ? <HomeCoastalArt /> : <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />}
-    {showCredit && <figcaption>{photo.caption} {creditLine}</figcaption>}
-  </figure>
   <div class="container home-cover__content">
     <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement}</h1>
@@ -39,6 +35,11 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <a class="home-cover__method" href="/about/#how-we-choose">How we choose our picks <span aria-hidden="true">→</span></a>
     {vectorArt && <button type="button" class="home-cover__motion" data-coastal-motion hidden aria-pressed="false">Pause animation</button>}
   </div>
+  <!-- Parse the content first so slow HTML delivery cannot move bottom-anchored artwork. -->
+  <figure class="home-cover__plate">
+    {vectorArt ? <HomeCoastalArt /> : <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />}
+    {showCredit && <figcaption>{photo.caption} {creditLine}</figcaption>}
+  </figure>
 </section>
 <style>
   .home-cover{position:relative;isolation:isolate;background:var(--navy,#0b2e4a);color:white;overflow:hidden}

@@ -185,11 +185,11 @@ const cards = await Promise.all(
 <style>
  /* Compact editorial tiles: all eligible picks remain visible without a carousel. */
  .home-weekend__browse{display:flex;flex-wrap:wrap;gap:.5rem 1.25rem;margin-bottom:1rem}.home-weekend__browse a{min-height:44px;display:inline-flex;align-items:center;color:var(--accent);font-weight:600;text-underline-offset:.2em}
- .home-weekend__scroller :global(.v5-card-grid--grid),.home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two){display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-auto-flow:row;grid-auto-columns:auto;overflow:visible;gap:1rem;align-items:stretch}
+ .home-weekend__scroller :global(.v5-card-grid--grid),.home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two){display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));grid-auto-flow:row;grid-auto-columns:auto;overflow:visible;gap:1rem;align-items:stretch}
  .home-weekend__scroller :global(.pi-card__media){height:8rem;aspect-ratio:auto}
  .home-weekend__scroller :global(.pi-card__body){padding:1rem}
  .home-weekend .home-weekend__scroller :global(.pi-card .pi-card__title),.home-weekend .home-weekend__scroller :global(.pi-card:first-child .pi-card__title){font-size:1.125rem;line-height:1.3}
- .home-weekend .home-weekend__scroller :global(.pi-card__dek){font-size:.9375rem;line-height:1.45}
+ .home-weekend .home-weekend__scroller :global(.pi-card__dek){font-size:.9375rem;line-height:1.45;display:block;overflow:visible;-webkit-line-clamp:unset}
  .home-weekend__scroller :global(.pi-card__image-note){min-height:0;font-size:.8125rem;line-height:1.4}
  .home-weekend__scroller :global(.pi-card__actions){padding:0 1rem 1rem}
  .home-weekend__source{margin:.25rem .25rem 0}

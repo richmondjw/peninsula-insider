@@ -183,3 +183,17 @@ test('town markers and labels share real area links, keyboard focus and mobile t
   }
  }finally{await reader.close();}
 });
+
+
+test('compact weekend grid uses the available row and keeps full reasons readable',async()=>{
+ const reader=await site.reader();
+ try{
+  await reader.page.setViewport({width:1440,height:1000});await reader.load('/');
+  const desktop=await reader.page.$eval('.home-weekend__scroller',e=>{const grid=e.querySelector('ul');const cards=[...grid.children].filter(c=>!c.hidden);return {count:cards.length,right:grid.getBoundingClientRect().right,lastRight:cards.at(-1)?.getBoundingClientRect().right,reasons:[...e.querySelectorAll('.pi-card__dek')].map(p=>({scroll:p.scrollHeight,client:p.clientHeight,clamp:getComputedStyle(p).webkitLineClamp}))};});
+  if(desktop.count===2)assert.ok(Math.abs(desktop.right-desktop.lastRight)<2,JSON.stringify(desktop));
+  assert.ok(desktop.reasons.every(p=>p.scroll<=p.client+1&&p.clamp==='none'),JSON.stringify(desktop));
+  await reader.page.setViewport({width:390,height:844});
+  const captions=await reader.page.$$eval('.home-orientation figcaption,.home-orientation__credit',els=>els.map(e=>parseFloat(getComputedStyle(e).fontSize)));
+  assert.ok(captions.every(size=>size>=15),JSON.stringify(captions));
+ }finally{await reader.close();}
+});
