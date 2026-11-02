@@ -2,27 +2,29 @@
   "url": "https://peninsulainsider.com.au/explore/golf/",
   "tier": "T1",
   "assessedAt": "2026-11-02",
-  "liveRevision": "79b7c3ac66392ed7435b5fcd0ec1488ab14cf873",
-  "liveRunId": "41345011423",
+  "liveRevision": "7dfc48033e211c91fa073d59fd46585dee57eddd",
+  "liveRunId": "41416129529",
   "programme": "peninsula-insider-page-quality-to-99",
   "independentScores": [
-    86.25,
-    92,
-    93.25
+    90.25
   ],
-  "acceptedConservativeScore": 86.25,
+  "acceptedConservativeScore": 90.25,
   "scoreStatus": "provisional",
   "thresholdMet": false,
   "hardGateObserved": false,
   "verifiedLiveEvidence": {
-    "mobilePageHeightPx": 16175,
-    "desktopPageHeightPx": 9720,
+    "mobilePageHeightPx": 16505,
+    "desktopPageHeightPx": 9431,
     "horizontalOverflow": false,
     "consoleErrors": 0,
-    "courseFitLinks": 11,
-    "minimumCourseFitTargetPx": 58,
-    "minimumCourseTitleTargetPx": 44,
-    "anchorFocusTransferredToCourseCard": true
+    "shortlistLinks": 4,
+    "comparisonLinks": 11,
+    "backToComparisonLinks": 2,
+    "minimumSupportingCopyPx": 15,
+    "minimumBackLinkTargetPx": 44,
+    "shortlistAnchorFocusTransferredToCourseCard": true,
+    "backAnchorFocusTransferredToComparison": true,
+    "firstVisitCookieNoticeObscuresPrimaryAction": false
   },
   "openEvidenceGates": [
     "direct screen-reader assessment",
@@ -31,12 +33,11 @@
     "exact-release image-rights acceptance"
   ],
   "triage": [
-    "make all eleven venues visible in the first decision aid",
-    "remove the redundant quick-pick and location-orientation layers",
-    "replace the unsupported Quality without the punishment heading",
-    "retain explicit access and location labels with working focus transfer",
-    "replace the grouped chooser with a compact all-course comparison",
-    "reduce repeated cautionary copy and visual repetition through the long card sequence"
+    "separate the four authored starting choices from the eleven-course directory wall",
+    "add a comparison mode that reduces memory load across separated course cards",
+    "create stronger editorial hierarchy within the equal-weight course-card sequence",
+    "keep mobile course actions within one viewport of each course title where practical",
+    "end with a personalized choice payoff instead of another generic planning handoff"
   ],
   "boundedIteration14": {
     "implemented": [
@@ -89,7 +90,7 @@
     }
   },
   "boundedIteration16": {
-    "status": "implemented-local",
+    "status": "live-regraded",
     "highestImpactDefects": [
       "restore the Harbour hairline and no-resting-shadow visual system",
       "add an authored shortlist before the complete eleven-course comparison",
@@ -104,7 +105,7 @@
       "added two back-to-comparison routes with focus transfer",
       "removed the duplicated golf-editorial card section and consolidated the stay-and-play ending"
     ],
-    "verificationStatus": "full build and local responsive browser acceptance passed; protected release, live verification and independent regrade pending",
+    "verificationStatus": "live on exact release 7dfc48033e211c91fa073d59fd46585dee57eddd via run 41416129529 and independently regraded at 90.25/100; no hard gate observed; 99 remains open",
     "localAcceptance": {
       "mobileCssViewportPx": 397,
       "mobilePageHeightPx": 16320,
@@ -119,7 +120,22 @@
       "shortlistAnchorFocusTransferred": true,
       "backAnchorFocusTransferred": true,
       "oldGolfEditorialSectionPresent": false,
-      "build": "passed with all post-build gates"
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "7dfc48033e211c91fa073d59fd46585dee57eddd",
+      "liveRunId": "41416129529",
+      "liveStatus": 200,
+      "independentScore": 90.25
     }
+  },
+  "boundedIteration17": {
+    "status": "triaged",
+    "highestImpactDefects": [
+      "the shortlist expands immediately into an eleven-item comparison wall",
+      "cross-course comparison still relies on memory once readers enter separated cards",
+      "equal-weight cards flatten editorial hierarchy through the long catalogue",
+      "mobile actions can sit more than one viewport below a course title",
+      "the ending does not yet convert the comparison into a personalized choice payoff"
+    ],
+    "verificationStatus": "bounded implementation, exact-release evidence closure and independent live regrade pending"
   }
 }
