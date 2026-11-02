@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/explore/golf/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-10-20
+Modified: 2026-11-02
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -21,7 +21,11 @@ Compare the courses
 
 ## Choose by course character, access and location
 
-Compare all 11 venues in one view, then jump to the course details and current visitor-access source.
+Start with four distinct fits, or compare all 11 venues before opening the course details and current visitor-access source.
+
+[Public architecture  **St Andrews Beach** Strategic dunes · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[Two-course resort  **Moonah Links** Open and Legends courses · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[Clifftop coast  **Flinders** Coastal course · Visitor windows · Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[Southern bayside  **Portsea** Coastal dunes and Moonah · Visitor windows · Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
+
+### Compare all 11 courses
 
 [**St Andrews Beach**  Strategic dunes   Public green fees   Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[**Moonah Links**  Two resort courses   Public green fees   Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[**The National**  Private multi-course club   Eligibility rules apply   Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)[**The Dunes**  Links and nine-hole option   Public green fees   Rye](<https://peninsulainsider.com.au/explore/golf/#course-the-dunes-golf-links>)[**RACV Cape Schanck**  Resort course   Public green fees   Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>)[**Eagle Ridge**  Inland public course   Public green fees   Boneo](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)[**Mornington**  Bay-side parkland   Public green fees   Mornington](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>)[**Rosebud**  Two 18-hole courses   Public green fees   Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-rosebud-country-club>)[**Flinders**  Clifftop coastal course   Visitor windows   Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[**Sorrento**  Private parkland   Limited visitor times   Sorrento](<https://peninsulainsider.com.au/explore/golf/#course-sorrento-golf-club>)[**Portsea**  Coastal dunes and Moonah   Visitor windows   Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
 
@@ -94,6 +98,8 @@ RACV Cape Schanck has an 18-hole, par-70 course designed by Robert Trent Jones J
 Member and standard green fees; check current tee times and book online. [Club details ↗](<https://www.racv.com.au/travel-experiences/resorts/cape-schanck/golf.html>)  Visitor access checked 5 Oct 2026
 
 [Course guide →](<https://peninsulainsider.com.au/explore/racv-cape-schanck-golf-course/>) [Check tee times ↗](<https://capeschanck.miclub.com.au/cms/public-bookings/>)
+
+[Back to the course comparison ↑](<https://peninsulainsider.com.au/explore/golf/#choose-your-round>)
 
 Across the Peninsula
 
@@ -205,6 +211,8 @@ Visitor windows vary with member play. Check the live booking calendar or call t
 
 [Course guide →](<https://peninsulainsider.com.au/explore/portsea-golf-club/>)
 
+[Back to the course comparison ↑](<https://peninsulainsider.com.au/explore/golf/#choose-your-round>)
+
 The architects
 
 ## Five designers, one peninsula
@@ -267,35 +275,13 @@ While the golfer plays Flinders, Eagle Ridge, The Dunes, or Mornington:
 
 - [Peninsula Hot Springs](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>) - A bathing option for groups based in the mid-Peninsula corridor. Check the live route for the day and tee time.
 
-Further reading
-
-## Golf editorial
-
-Two guides to help turn a course choice into a bookable weekend.
-
-[Stay and play
-
-### Stay and play - accommodation near every course
-
-The accommodation that makes each Peninsula golf course walkable, driveable, or otherwise properly paired. Ten courses, stay recommendations for each.
-
-  Read the guide →](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>) [Course deep-dive
-
-### St Andrews Beach - a Tom Doak course visitors can book
-
-Tom Doak architecture and public bookings that turn a course choice into a real weekend. The one golf story that explains the Peninsula.
-
-  Read the deep-dive →](<https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/>)
-
 Stay and play
 
 ## Planning a golf weekend
 
-A Peninsula golf weekend works when the accommodation is close enough that travel between the course and the stay does not eat the day. The RACV Cape Schanck Resort is the most integrated: on-property accommodation, an 18-hole course, and the spa within walking distance. Moonah Links has its own on-property stay. Both allow two rounds in two days without getting in a car between them.
+RACV Cape Schanck Resort and Moonah Links put accommodation beside the course. For another base, check the live route to your chosen tee time before booking because Peninsula traffic can change the drive substantially.
 
-For those not staying on a golf property, Sorrento and Blairgowrie are useful southern bases for the Cape Schanck cluster and the Sorrento ferry. Check the route for your chosen tee time because Peninsula traffic can change the drive substantially. The full stay-and-play guide pairs accommodation with nearby courses.
-
-Building a broader Peninsula trip around golf? The [3-day Mornington Peninsula itinerary](<https://peninsulainsider.com.au/journal/mornington-peninsula-itinerary/>) shows how a long weekend can hold golf, wineries, hot springs, and the coast without feeling rushed.
+The stay-and-play guide pairs the courses with practical bases. For the course-design story, read the [St Andrews Beach deep-dive](<https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/>).
 
  [Read the stay-and-play guide →](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-golf-stay-and-play/>)
 
