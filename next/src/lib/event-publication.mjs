@@ -1,3 +1,4 @@
+import {EVENT_PUBLISHER,validEventAuthority} from './event-standing-authority.mjs';
 /** Canonical approved public content. This detects drift; authenticated approval remains external. */
 const approvedFields = ('slug eventId contentKind title summary description category subcategory startDate endDate nextOccurrence sourceUpdatedAt sourceReview retiredSourceLinks startTime endTime endsNextDay timezone venue venueName place venueRegion suburb streetAddress coordinates indoorOutdoor bookingUrl ticketingUrl officialEventUrl primarySourceUrl secondarySourceUrl bookingRequired bookingStatus bookingStatusNote bookingStatusSourceUrl bookingStatusCheckedAt freePaid priceTier recurrence recurrenceNote occurrencePolicy dateBasis occurrenceExceptions seriesOccurrences verifiedPrice suitableFor audienceTags familyFriendly petFriendly accessibilityNotes weather weatherDependency weatherShape organiser verification verificationStatus verificationNote lastVerifiedAt lastCheckedDate visitorAppealScore editorialPriority nearbyAttractions suggestedItineraryPairing nearestVenues worthTheDrive firstTimer skipThis skipReason skipInstead editorVerdict whyWeCare standoutOfMonth pairingProse editorVisited featuredInDispatch relatedArticles lens editorNote heroImage cancelled cancelledOn cancellationNote cancellationSourceUrl cancellationSourceLabel postponed postponedOn postponedFrom rescheduledTo postponementNote postponementSourceUrl postponementSourceLabel expiresAt').split(' ');
 const approvalDefaults = {timezone:'Australia/Melbourne',bookingStatus:'unknown',recurrence:'one-off',occurrenceExceptions:[],audienceTags:[],weather:'mixed',nearestVenues:[],worthTheDrive:false,firstTimer:false,skipThis:false,standoutOfMonth:false,editorVisited:false,relatedArticles:[],lens:[],cancelled:false,postponed:false};
@@ -23,8 +24,17 @@ export function publicEventData(data) {
   const content=JSON.parse(approvedEventContent(data));
   delete content.geography;
   for(const key of ['status','publishedAt','archivedAt','archivedReason'])if(data?.[key]!=null)content[key]=data[key];
-  if(data?.intelligence){const receipt=data.intelligence;content.intelligence=Object.fromEntries(['revision','approvedContent','approvedBy','approvedAt','reviewedAt','factScore','evidenceIds','geography'].filter(key=>receipt[key]!==undefined).map(key=>[key,receipt[key]]));}
+  if(data?.intelligence){const receipt=data.intelligence;content.intelligence=Object.fromEntries(['revision','approvedContent','approvedBy','approvedAt','reviewedAt','factScore','evidenceIds','geography','standingAuthority'].filter(key=>receipt[key]!==undefined).map(key=>[key,receipt[key]]));}
   return content;
+}
+
+function hasRoutineAuthority(data,now){
+  const receipt=data.intelligence,checked=+new Date(receipt.reviewedAt),instant=+new Date(now);
+  return receipt.approvedBy===EVENT_PUBLISHER && validEventAuthority(receipt.standingAuthority,now)
+    && data.contentKind==='event' && !data.sponsored && !data.heroImage
+    && receipt.geography?.shireConfirmed===true && receipt.factScore===100
+    && checked>=Date.parse(receipt.standingAuthority.at) && instant-checked<86400000
+    && Number.isFinite(+new Date(data.expiresAt)) && instant<+new Date(data.expiresAt);
 }
 
 /** Reader-facing safeguards for event intelligence records. */
@@ -63,8 +73,9 @@ export function isPublicEventRecord(data, now = new Date()) {
   // Legacy publication defaults remain intact. Intelligence imports carry
   // an explicit approval receipt; incomplete receipts cannot expose a URL.
   if (!data.intelligence) return true;
+  if(data.reviewHold||data.factualReviewHold||(data.reviewStatus&&data.reviewStatus!=='published')||data.sourceReview?.required===true)return false;
   const receipt = data.intelligence;
-  return Boolean(typeof receipt.approvedContent === 'string' && receipt.approvedContent === approvedEventContent(data) && receipt.revision && receipt.approvedBy === 'James' && receipt.approvedAt != null && receipt.reviewedAt != null &&
+  return Boolean(typeof receipt.approvedContent === 'string' && receipt.approvedContent === approvedEventContent(data) && receipt.revision && (receipt.approvedBy === 'James' || hasRoutineAuthority(data,now)) && receipt.approvedAt != null && receipt.reviewedAt != null &&
     Number.isFinite(new Date(receipt.approvedAt).getTime()) &&
     Number.isFinite(new Date(receipt.reviewedAt).getTime()) &&
     new Date(receipt.approvedAt) <= new Date(now) &&
@@ -87,4 +98,22 @@ export function refreshVerifiedPriceElements(root, now = Date.now()) {
     if (current) nextExpiry = Math.min(nextExpiry, expiry);
   }
   return Number.isFinite(nextExpiry) ? nextExpiry : null;
+}
+
+/** Hide unattended routine detail content after its evidence receipt expires. */
+export function refreshRoutineDetails(root,now=new Date()){
+  for(const detail of root.querySelectorAll('[data-routine-event]')){
+    let current=false;try{current=isPublicEventRecord(JSON.parse(detail.getAttribute('data-routine-event')),now);}catch{}
+    detail.hidden=!current;
+    for(const message of root.querySelectorAll('[data-routine-expired]'))message.hidden=current;
+    if(!current){
+      const robots=root.querySelector?.('meta[name="robots"]');if(robots)robots.setAttribute('content','noindex,follow');
+      for(const schema of root.querySelectorAll('script[type="application/ld+json"]'))if(/"@type"\s*:\s*"Event"/.test(schema.textContent))schema.remove();
+    }
+  }
+}
+export function installRoutineDetailRefresh(window,document){
+  const key=Symbol.for('pi.routine-detail-refresh');if(window[key])return;
+  const refresh=()=>refreshRoutineDetails(document);document.addEventListener('astro:page-load',refresh);window.addEventListener('pageshow',refresh);
+  window[key]=window.setInterval(refresh,60000);refresh();
 }

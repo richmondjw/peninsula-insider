@@ -82,7 +82,10 @@ export function refreshEventPromotions(root, now = new Date()) {
   }
   for (const section of root.querySelectorAll('[data-event-promotions-section]')) {
     const remaining = section.querySelectorAll('[data-event-promotion]').length;
-    if (!remaining) section.hidden = true;
+    const placeholders=section.querySelectorAll('[data-event-promotion-empty]');
+    section.hidden=!remaining&&!placeholders.length;
+    for(const empty of placeholders)empty.hidden=remaining>0;
+    for(const content of section.querySelectorAll('[data-event-promotion-content]'))content.hidden=!remaining;
     for (const hint of section.querySelectorAll('[data-event-promotion-multi-hint]')) {
       hint.hidden = remaining < 2;
     }

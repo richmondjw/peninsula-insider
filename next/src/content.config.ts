@@ -1351,6 +1351,7 @@ const events = defineCollection({
       revision: z.string().min(1),
       approvedContent: z.string().min(1).optional(),
       approvedBy: z.string().min(1),
+      standingAuthority: z.object({id:z.literal('pi-routine-events-2026-11-01'),by:z.literal('James'),at:z.literal('2026-11-01T10:13:33.000Z'),scope:z.literal('verified-routine-pi-website-events'),source:z.literal('Sentinel_d25f9be50a808191af4932dd34f3ee8f')}).optional(),
       approvedAt: z.coerce.date(),
       factScore: z.number().min(0).max(100),
       evidenceIds: z.array(z.string().min(1)).min(1),

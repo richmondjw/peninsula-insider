@@ -141,7 +141,13 @@ test('homepage weekend picks show the recorded check dates and direct official s
   try {
     await reader.load('/');
     const sources=await reader.page.$$eval('.home-weekend [data-event-promotion]',els=>els.map(card=>({text:card.querySelector('.home-weekend__source')?.textContent.trim(),url:card.querySelector('.home-weekend__source a')?.href})));
-    assert.ok(sources.length>=1&&sources.length<=3,JSON.stringify(sources));
+    assert.ok(sources.length<=3,JSON.stringify(sources));
+    if(!sources.length){
+      const empty=await reader.page.$eval('[data-event-promotion-empty]',node=>({hidden:node.hidden,text:node.textContent,href:node.querySelector('a')?.getAttribute('href')}));
+      assert.equal(empty.hidden,false);assert.match(empty.text,/No verified event picks remain for this weekend/);assert.equal(empty.href,'/whats-on/?date=next-weekend');
+      assert.equal(await reader.page.$eval('[data-event-promotion-content]',node=>node.hidden),true);return;
+    }
+    assert.equal(await reader.page.$eval('[data-event-promotion-empty]',node=>node.hidden),true);
     assert.ok(sources.every(s=>/Event details checked \d{1,2} \w+ \d{4}/.test(s.text??'')),JSON.stringify(sources));
     assert.ok(sources.every(s=>s.url?.startsWith('https://')&&!new URL(s.url).hostname.endsWith('peninsulainsider.com.au')),JSON.stringify(sources));
     const hint=await reader.page.$eval('[data-event-promotion-multi-hint]',el=>({hidden:el.hidden,text:el.textContent.trim()}));
