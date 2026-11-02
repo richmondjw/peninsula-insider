@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-02
+Modified: 2026-11-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,17 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Original editorial illustration of books and study stationery. Not a photograph of Rosebud Library or this event.   Illustration: Peninsula Insider.
-
-Fri, 6 Nov · 4pm–5:45pm · Rosebud
-
-### [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
-
-A practical local space for students who want to set aside time for their own work.
-
-Fri, 6 Nov   Rosebud   Community
-
 - Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
+
+Sat, 7 Nov · 5pm–8pm · Fingal
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
@@ -52,6 +44,14 @@ Sat, 7 Nov   Fingal   Live Music
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Fri, 6 Nov   Mornington   Exhibitions
+
+- Original editorial illustration of books and an open notebook. Not a photograph of Mornington Library or this event.   Illustration: Peninsula Insider.
+
+### [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+
+A practical local space for students who want to set aside time for their own work.
+
+Fri, 6 Nov   Mornington   Community
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
