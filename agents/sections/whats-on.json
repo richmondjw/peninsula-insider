@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-02T03:38:09.259Z",
-  "snapshotId": "c281500cefbc729347995ea6d693721d7137f5284b537e16bc4cb027236a7ff0",
+  "generatedAt": "2026-11-02T05:10:30.462Z",
+  "snapshotId": "7713e34e9b41402080bb8af4faf78cfbbc1b7850d7f42b71494b95985722efd4",
   "section": "whats-on",
-  "count": 35,
+  "count": 38,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,7 +11,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "d8098184b049ed4f1641aa9dc99c02ce3ceb647f75a541cc822e483ca54977dd",
+      "contentSha256": "1909e908672d78cc9e9105851fbbb37c05dec75e10e64589ab91b8d89ab002f9",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-02"
       },
-      "htmlBytes": 177292,
-      "markdownBytes": 7247
+      "htmlBytes": 188923,
+      "markdownBytes": 8304
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -28,7 +28,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "267e1fd1511202a924e7638253f8748209cf0f2f59989c049833d375b7eefe9c",
+      "contentSha256": "3afaf069fd0b2601217ad185ddf6b202439154dbb7d2006327ec3295f821f471",
       "citation": {
         "title": "Acoustic Saturdays at Peppers Moonah Links",
         "publisher": "Peninsula Insider",
@@ -36,8 +36,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142789,
-      "markdownBytes": 4220
+      "htmlBytes": 143736,
+      "markdownBytes": 4332
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -79,7 +79,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "9c50e6fea495562c0a2bf3887fad08d80ba0e9ca1cf7b8da57ae74321741cf92",
+      "contentSha256": "e79dae5a72aaf033bb7f102c597717b0c46763c891c47094582988169d18fa3a",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -87,8 +87,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 151873,
-      "markdownBytes": 5124
+      "htmlBytes": 153039,
+      "markdownBytes": 5290
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -96,7 +96,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
-      "contentSha256": "6b6981666497b35d633aa2e7b8476dcc8970541c3974496275c725b0d9f4b31e",
+      "contentSha256": "5431580e56cea412d7295ebf72d775e2d31da0dde9d8fae81189c3a6a6a17ab2",
       "citation": {
         "title": "Rooms with a roof, in case the forecast turns",
         "publisher": "Peninsula Insider",
@@ -104,8 +104,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 151705,
-      "markdownBytes": 5082
+      "htmlBytes": 163892,
+      "markdownBytes": 7012
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
@@ -123,6 +123,23 @@
       },
       "htmlBytes": 145612,
       "markdownBytes": 3925
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
+      "title": "Chatty Café at Rosebud Library",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/index.md",
+      "contentSha256": "218aa413740354918de78abc5397813ffd101f8f62d17fbed7f2ea33a69f58c3",
+      "citation": {
+        "title": "Chatty Café at Rosebud Library",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 144061,
+      "markdownBytes": 4922
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -346,6 +363,40 @@
       "markdownBytes": 4555
     },
     {
+      "id": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+      "title": "Study Smart at Mornington Library",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/index.md",
+      "contentSha256": "4271872a0300203652c0383bc43078e81d80c87fcd271f4c219ab0740aa64a26",
+      "citation": {
+        "title": "Study Smart at Mornington Library",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 144286,
+      "markdownBytes": 5051
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+      "title": "Study Smart at Rosebud Library",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/index.md",
+      "contentSha256": "2823732d2b85eefbb32b97fb2c2106aac5336145028a20358f281585846a4d7a",
+      "citation": {
+        "title": "Study Smart at Rosebud Library",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 144188,
+      "markdownBytes": 5011
+    },
+    {
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
       "title": "Ten Minutes by Tractor, Terroir Masterclass",
       "section": "whats-on",
@@ -368,7 +419,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "6275323967fbe0f85db0d83cf33948b2b3a5e04282d10000c3a02328bc26d984",
+      "contentSha256": "2442a6c9467fb1d8c7dac8a57967ac3ef64fc79b55e58b0d4f9719a2e08f42ae",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -376,8 +427,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 138260,
-      "markdownBytes": 4216
+      "htmlBytes": 147160,
+      "markdownBytes": 5959
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",

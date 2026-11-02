@@ -716,6 +716,16 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 - [Wed, 4 Nov
 
+### ✦ Chatty Café at Rosebud Library
+
+Rosebud
+
+A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.
+
+ Event · Community](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
+
+- [Wed, 4 Nov
+
 ### ✦ Mornington Wednesday Market (Main Street Market)
 
 Mornington
@@ -723,13 +733,3 @@ Mornington
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
-
-- [Sat, 7 Nov
-
-### ✦ Acoustic Saturdays at Peppers Moonah Links
-
-Fingal
-
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

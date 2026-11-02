@@ -51,7 +51,7 @@ Swipe or scroll through the picks
 
 - Illustrative image
 
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
@@ -59,7 +59,7 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Peppers Moonah Links   Every Saturday
 
-Event details checked 3 Oct 2026.  [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music>)
+Event details checked 2 Nov 2026.  [Check organiser](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
 - Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
 

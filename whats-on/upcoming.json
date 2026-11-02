@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-02",
-  "generatedAt": "2026-11-02T03:29:40.748Z",
+  "generatedAt": "2026-11-02T05:01:56.630Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -19,9 +19,9 @@
     "start": "2026-11-06",
     "end": "2026-11-08",
     "label": "Fri 6 – Sun 8 November",
-    "count": 7
+    "count": 9
   },
-  "numberOfItems": 15,
+  "numberOfItems": 18,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -91,6 +91,19 @@
       "position": 7,
       "item": {
         "@type": "Event",
+        "name": "Chatty Café at Rosebud Library",
+        "url": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
+        "startDate": "2026-11-04",
+        "endDate": "2026-11-04",
+        "description": "A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
         "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
         "startDate": "2026-11-04",
@@ -101,7 +114,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
+      "item": {
+        "@type": "Event",
+        "name": "Study Smart at Mornington Library",
+        "url": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+        "startDate": "2026-11-06",
+        "endDate": "2026-11-06",
+        "description": "VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without booking ahead.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "Event",
+        "name": "Study Smart at Rosebud Library",
+        "url": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+        "startDate": "2026-11-06",
+        "endDate": "2026-11-06",
+        "description": "A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -114,7 +153,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 12,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -127,7 +166,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Curators floor talk: The Making of a Prize Exhibition",
@@ -140,7 +179,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -153,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -166,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -179,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -192,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -204,7 +243,7 @@
       }
     }
   ],
-  "count": 15,
+  "count": 18,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -349,6 +388,25 @@
       "thisWeekend": true
     },
     {
+      "title": "Chatty Café at Rosebud Library",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
+      "startDate": "2026-11-04",
+      "endDate": "2026-11-04",
+      "id": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
+      "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Chatty-Caf%C3%A9-Rosebud-Library",
+      "factCheckedOn": "2026-11-02",
+      "recurrence": "one-off",
+      "category": "community",
+      "place": "rosebud",
+      "venue": null,
+      "summary": "A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "Mornington Wednesday Market (Main Street Market)",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -368,6 +426,54 @@
       "thisWeekend": false
     },
     {
+      "title": "Study Smart at Mornington Library",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "id": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+      "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Mornington-Library",
+      "factCheckedOn": "2026-11-02",
+      "recurrence": "one-off",
+      "category": "community",
+      "place": "mornington",
+      "venue": null,
+      "summary": "VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without booking ahead.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-06",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Study Smart at Rosebud Library",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
+      "id": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+      "sourceUrl": "https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Rosebud-Library",
+      "factCheckedOn": "2026-11-02",
+      "recurrence": "one-off",
+      "category": "community",
+      "place": "rosebud",
+      "venue": null,
+      "summary": "A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-06",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -375,8 +481,8 @@
       "startDate": "2026-11-07",
       "endDate": "2026-11-07",
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "sourceUrl": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
-      "factCheckedOn": "2026-10-03",
+      "sourceUrl": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
+      "factCheckedOn": "2026-11-02",
       "recurrence": "weekly",
       "category": "live-music",
       "place": "fingal",

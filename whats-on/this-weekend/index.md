@@ -9,7 +9,7 @@ Peninsula This Weekend   Fri 6 – Sun 8 November
 
 # What’s on this weekend
 
-1 source-checked events for Fri 6 – Sun 8 November. Confirm details with the organiser before travelling.
+4 source-checked events for Fri 6 – Sun 8 November. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -28,6 +28,36 @@ Choose this for an indoor art stop. The gallery is open Tuesday to Sunday, 11am�
 Friday 6 November   11am–4pm   Mornington   Checked 8 Oct 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+Date confirmed · Community
+
+### [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+
+VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without booking ahead.
+
+Friday 6 November   4pm–5:45pm   Mornington   Checked 2 Nov 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>) [Check organiser details](<https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Mornington-Library>)
+
+Date confirmed · Community
+
+### [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
+
+A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.
+
+Friday 6 November   4pm–5:45pm   Rosebud   Checked 2 Nov 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>) [Check organiser details](<https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Rosebud-Library>)
+
+Date confirmed · Live Music
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
+
+Saturday 7 November   5pm–8pm   Fingal   Checked 2 Nov 2026
+
+[View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
 Choose your own timing
 

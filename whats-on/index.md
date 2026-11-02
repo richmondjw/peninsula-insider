@@ -21,13 +21,23 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 6 – Sun 8 November
 
-## Two reasons to go
+## Three reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
 More picks to the right
 
-- Sat, 7 Nov · 5pm–8pm · Fingal
+- Original editorial illustration of books and study stationery. Not a photograph of Rosebud Library or this event.   Illustration: Peninsula Insider.
+
+Fri, 6 Nov · 4pm–5:45pm · Rosebud
+
+### [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
+
+A practical local space for students who want to set aside time for their own work.
+
+Fri, 6 Nov   Rosebud   Community
+
+- Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
@@ -60,6 +70,18 @@ Browse by date and save what catches your eye.
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 11am · Mornington · Exhibitions · Recurring weekly
+
+- [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+
+A practical local space for students who want to set aside time for their own work.
+
+4pm · Mornington · Community · One-day event
+
+- [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
+
+A practical local space for students who want to set aside time for their own work.
+
+4pm · Rosebud · Community · One-day event
 
 ### Saturday 7 November
 

@@ -232,3 +232,31 @@ Browse locations as a list
 - [Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>) · town
 
 - [Rosebud Country Club](<https://peninsulainsider.com.au/explore/rosebud-country-club/>) · golf-course
+
+On the calendar in this place
+
+## Events in Rosebud
+
+Coming up in Rosebud, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Wed, 4 Nov
+
+### ✦ Chatty Café at Rosebud Library
+
+Rosebud
+
+A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.
+
+ Event · Community](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
+
+- [Fri, 6 Nov
+
+### ✦ Study Smart at Rosebud Library
+
+Rosebud
+
+A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.
+
+ Event · Community](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)

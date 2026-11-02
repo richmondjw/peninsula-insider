@@ -85,6 +85,10 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a conceptual acoustic guitar. It does not depict Acoustic Saturdays at Peppers Moonah Links.
+
 Live Music   Every Saturday evening year-round from 5pm
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
@@ -94,6 +98,48 @@ Live Music   Every Saturday evening year-round from 5pm
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows conceptual conversation and a cuppa. It does not depict Chatty Café at Rosebud Library.
+
+Community  4 Nov
+
+### [Chatty Café at Rosebud Library](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
+
+[Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
+
+A Wednesday morning cuppa and conversation at Rosebud Library.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows conceptual books and an open notebook. It does not depict Study Smart at Mornington Library.
+
+Community  6 Nov
+
+### [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows conceptual books and study stationery. It does not depict Study Smart at Rosebud Library.
+
+Community  6 Nov
+
+### [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
+
+[Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
+
+A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
 
 ## The Insider Note
 
