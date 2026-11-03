@@ -280,11 +280,16 @@ export const prerender = true;
                     <a href={g.bookingUrl} class="golf-card__book" target="_blank" rel="noopener" data-pi-entity-type="golf-course" data-pi-entity-slug={slug} data-pi-surface="golf-card" aria-label={"Check tee times \u2197 for " + d.name + ", opens in a new tab"}>Check tee times ↗</a>
                   )}
                 </div>
-                <p class="golf-card__note">{firstSentences(d.editorNote, 1)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked {golfVisitorAccessChecked}</span></p>}
-                {g.localRead && (
-                  <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
-                )}
+                <details class="golf-card__detail">
+                  <summary>Why choose it + verified access</summary>
+                  <div class="golf-card__detail-body">
+                    <p class="golf-card__note">{firstSentences(d.editorNote, 1)}</p>
+                    {visitor && <p class="golf-card__access-note"><span class="golf-card__fact-label">Current visitor access</span>{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Source checked {golfVisitorAccessChecked}</span></p>}
+                    {g.localRead && (
+                      <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
+                    )}
+                  </div>
+                </details>
               </div>
             </article>
           );
@@ -335,11 +340,16 @@ export const prerender = true;
                     <a href={g.bookingUrl} class="golf-card__book" target="_blank" rel="noopener" data-pi-entity-type="golf-course" data-pi-entity-slug={slug} data-pi-surface="golf-card" aria-label={"Check tee times \u2197 for " + d.name + ", opens in a new tab"}>Check tee times ↗</a>
                   )}
                 </div>
-                <p class="golf-card__note">{firstSentences(d.editorNote, 1)}</p>
-                {visitor && <p class="golf-card__access-note">{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Visitor access checked {golfVisitorAccessChecked}</span></p>}
-                {g.localRead && (
-                  <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
-                )}
+                <details class="golf-card__detail">
+                  <summary>Why choose it + verified access</summary>
+                  <div class="golf-card__detail-body">
+                    <p class="golf-card__note">{firstSentences(d.editorNote, 1)}</p>
+                    {visitor && <p class="golf-card__access-note"><span class="golf-card__fact-label">Current visitor access</span>{visitor.summary} <a href={visitor.url} target="_blank" rel="noopener" aria-label={(visitor.linkLabel ?? "Club details") + " \u2197 for " + d.name + ", opens in a new tab"}>{visitor.linkLabel ?? 'Club details'} ↗</a> <span>Source checked {golfVisitorAccessChecked}</span></p>}
+                    {g.localRead && (
+                      <p class="golf-card__local"><span class="golf-card__local-tag">Insider read</span>{g.localRead}</p>
+                    )}
+                  </div>
+                </details>
               </div>
             </article>
           );
@@ -856,6 +866,36 @@ export const prerender = true;
   .golf-card__designers {
     font-style: normal;
   }
+  .golf-card__detail {
+    margin-top: 0.65rem;
+    border-top: 1px solid var(--border);
+  }
+  .golf-card__detail summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 48px;
+    color: var(--accent);
+    font-size: 0.9375rem;
+    font-weight: 700;
+    cursor: pointer;
+    list-style: none;
+  }
+  .golf-card__detail summary::-webkit-details-marker { display: none; }
+  .golf-card__detail summary::after {
+    content: '+';
+    margin-left: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1;
+  }
+  .golf-card__detail[open] summary::after { content: '−'; }
+  .golf-card__detail summary:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 0.2rem;
+  }
+  .golf-card__detail-body { padding: 0.15rem 0 0.85rem; }
   .golf-card__note {
     font-size: 1rem;
     color: var(--text);
@@ -864,7 +904,15 @@ export const prerender = true;
   }
   .golf-card__access-note { margin: 0.8rem 0 0; padding-top: 0.7rem; border-top: 1px solid var(--border); font-size: 0.9375rem; line-height: 1.55; color: var(--text); }
   .golf-card__access-note a { display: flex; align-items: center; width: fit-content; min-height: 44px; margin-top: 0.1rem; color: var(--accent); font-weight: 700; }
-  .golf-card__access-note span { display: block; font-size: 0.76rem; color: var(--soft); }
+  .golf-card__access-note span { display: block; font-size: 0.8125rem; color: var(--soft); }
+  .golf-card__access-note .golf-card__fact-label {
+    margin-bottom: 0.2rem;
+    color: var(--soft);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
   .golf-card__local {
     font-size: 0.9375rem;
     color: var(--text);
