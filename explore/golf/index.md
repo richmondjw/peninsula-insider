@@ -235,6 +235,8 @@ Current visitor access Visitor windows vary with member play. Check the live boo
 
 [Back to the course comparison ↑](<https://peninsulainsider.com.au/explore/golf/#course-comparison>)
 
+Go deeper   Course architecture + mixed-group ideas   Open the supporting guide
+
 The architects
 
 ## Five designers, one peninsula
