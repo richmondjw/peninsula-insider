@@ -81,16 +81,6 @@ Plan it
 
 Featured plan
 
-Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
-
-### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
-
-One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
-
-One day   Red Hill & Merricks   Family
-
-Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
-
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -110,6 +100,16 @@ A shorter escape with one village base, two coastal walks and time set aside for
 2 days   Flinders & the Ocean Coast   Couples
 
 Check the stay and restaurant service times first, then fit the walks around your reservations.
+
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+
+### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+
+One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
+
+One day   Red Hill & Merricks   Family
+
+Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
 
 Want a different combination? [Choose your time and interests](<https://peninsulainsider.com.au/#home-choose>)
 

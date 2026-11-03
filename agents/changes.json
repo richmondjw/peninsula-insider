@@ -1,44 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-02T20:17:33.709Z",
+  "generatedAt": "2026-11-03T01:09:38.473Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b00c9a24d6ec6e116c2335343a28c7c33d441944c24643201f369b88e3dac9e5",
-  "toSnapshot": "c2f4048a58e547212cc4b8c32404a5ba7ee2aef08892eb09b91de1d9b1bf9eb1",
-  "previousGeneratedAt": "2026-11-02T19:18:03.948Z",
+  "fromSnapshot": "c2f4048a58e547212cc4b8c32404a5ba7ee2aef08892eb09b91de1d9b1bf9eb1",
+  "toSnapshot": "44d474683059307905b5295a03fecf4eccd15d0f4efe9bf5bb3a765b0e232e2f",
+  "previousGeneratedAt": "2026-11-02T20:17:33.709Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 3,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/rye/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rye/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rye/index.md",
-      "contentSha256": "37ac993879b6e7313580ab7374561661458717c9b1b3d99be00cc251a5aadbca",
-      "previousContentSha256": "527a38e599b24d1cdb35601f37e3f97f4aee4c6627233a7dcb009cbd3cdd8f24"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "62ac0260a45a80a3535e69fab3edc2501c3f840035a816ea7bdf976fd0bc84fc",
+      "previousContentSha256": "07138057da85b4443da4d74d2706d56e670f0e300285386e84a5b415f4d958f0"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/index.md",
-      "contentSha256": "9e23947d4f98d447aa0c9fa7fad539eadd8abba9fb29b91b1439b3eeed406bfa",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
+      "id": "https://peninsulainsider.com.au/explore/golf/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "425cd1f3f0834b8571487838483446ca05c0956ccb05ac27f153d9ba5e3af578",
-      "previousContentSha256": "92998181b820e5042f74925faa272519b5eb74e9d3ffb97a3ac560092e7b668b"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/golf/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/golf/index.md",
+      "contentSha256": "2fbd3590cb8b3f108359730a66dbea0099693e5ba11d6480b5d66404a7fadd2b",
+      "previousContentSha256": "a3439c4108c9bb3c4700ef52d4eccf893d333e25c3ec36a61e7afd9b4e988a80"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "9c44cb37774782447c03bf66e405f5f47c53dee57a6e17214d96696bf5046e87",
-      "previousContentSha256": "a4dc4f01a15b3ffae02d1fef981df4ac062e7650e8c8e342ed9c8149b3006b54"
+      "contentSha256": "183a486ff053aa3374f86592e0ba9a16a5e153ecdc28c5b015d71a22d2390d6e",
+      "previousContentSha256": "9c44cb37774782447c03bf66e405f5f47c53dee57a6e17214d96696bf5046e87"
     }
   ]
 }
