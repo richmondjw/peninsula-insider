@@ -1,44 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-03T14:24:28.727Z",
+  "generatedAt": "2026-11-03T19:22:51.711Z",
   "baselineAvailable": true,
-  "fromSnapshot": "2f2c823246876204004d1e90a90bb8568cca73f1cf163582672276e1928cec7a",
-  "toSnapshot": "ed6523ed10e5a6cedc7eae36b6ccc4d8b1c7b56ad518fd7cdfeeb9b935875f9d",
-  "previousGeneratedAt": "2026-11-03T09:10:43.988Z",
+  "fromSnapshot": "ed6523ed10e5a6cedc7eae36b6ccc4d8b1c7b56ad518fd7cdfeeb9b935875f9d",
+  "toSnapshot": "1623eddb50d2269e48364fe599f2d5e6fbdbe861a9551f98265594b92021cde2",
+  "previousGeneratedAt": "2026-11-03T14:24:28.727Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
-      "contentSha256": "0a67679259b41d1f6c6e7b6832408163ed76e9e5d962da1ee76b62b7829d15f7",
-      "previousContentSha256": "60e9554834b6e8facfe20a43cee239a212ba147c83ae20045561e1bed5579f5f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/the-cellar-door-short-list/index.md",
-      "contentSha256": "b08b40af197786b9eb5f1d11e4910e9f05cb46f6cb2942e808db3e4747235d0e",
-      "previousContentSha256": "0a22c2a77d703e39e06e6e16830aa32d9045690e2c4ff83dc460dbdd7e3d1112"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "c57931f2188718c6397ca0bb4d58c45f1f447e175ee00135cd9438ba0f36c7d8",
-      "previousContentSha256": "3bba747ad21d64c75ab938802cf8d62090a549a417184a9ff70cc8842386130c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "fec14a9f73994f15e7309dd09c5425f57f6c4d6c9a774e512e26348ff65fbbc0",
-      "previousContentSha256": "0ce914c1501f0b2580000781e00967d96330076f0de08f7ea8b7b11b1ead8e7b"
+      "contentSha256": "5aa91e537abc9fcc09b4760341e41fa231d436c7737466df006716c4ab5d8f4e",
+      "previousContentSha256": "c57931f2188718c6397ca0bb4d58c45f1f447e175ee00135cd9438ba0f36c7d8"
     }
   ]
 }
