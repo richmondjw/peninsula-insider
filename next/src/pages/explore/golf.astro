@@ -361,6 +361,13 @@ export const prerender = true;
 
   <!-- The earlier playing-style selector replaces the former duplicate handicap guide. -->
 
+  <details class="golf-deep-dive">
+    <summary>
+      <span class="golf-deep-dive__eyebrow">Go deeper</span>
+      <span class="golf-deep-dive__title">Course architecture + mixed-group ideas</span>
+      <span class="golf-deep-dive__hint">Open the supporting guide</span>
+    </summary>
+
   <!-- ═══════════════════════════════════════════════════════════════
        6. COURSE ARCHITECTS
        ═══════════════════════════════════════════════════════════════ -->
@@ -443,6 +450,8 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  </details>
 
   <!-- ═══════════════════════════════════════════════════════════════
        9. STAY & PLAY FEATURE
@@ -1034,6 +1043,62 @@ export const prerender = true;
     margin-bottom: 0.15rem;
   }
   .game-panel__list span { color: var(--soft); }
+
+  .golf-deep-dive {
+    border-block: 1px solid var(--border);
+    background: var(--white);
+  }
+  .golf-deep-dive > summary {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem 1.25rem;
+    width: min(calc(100% - 2rem), var(--max-w));
+    min-height: 88px;
+    margin-inline: auto;
+    cursor: pointer;
+    list-style: none;
+  }
+  .golf-deep-dive > summary::-webkit-details-marker { display: none; }
+  .golf-deep-dive > summary::after {
+    content: '+';
+    grid-column: 4;
+    grid-row: 1;
+    color: var(--accent);
+    font-size: 1.75rem;
+    font-weight: 300;
+    line-height: 1;
+  }
+  .golf-deep-dive[open] > summary::after { content: '−'; }
+  .golf-deep-dive > summary:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: -3px;
+  }
+  .golf-deep-dive__eyebrow {
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .golf-deep-dive__title {
+    font-family: var(--font-display);
+    font-size: clamp(1.2rem, 2vw, 1.65rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .golf-deep-dive__hint { color: var(--soft); font-size: 0.9375rem; }
+  @media (max-width: 700px) {
+    .golf-deep-dive > summary {
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 0.25rem 0.75rem;
+      padding-block: 1rem;
+    }
+    .golf-deep-dive > summary::after { grid-column: 2; grid-row: 1 / span 3; }
+    .golf-deep-dive__eyebrow,
+    .golf-deep-dive__title,
+    .golf-deep-dive__hint { grid-column: 1; }
+  }
 
   /* ─────────────────────────────────────────────────────────────────
      ARCHITECTS GRID
