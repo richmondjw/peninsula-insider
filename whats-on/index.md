@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-03
+Modified: 2026-11-04
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -27,17 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
-
-Sat, 7 Nov · 5pm–8pm · Fingal
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Sat, 7 Nov   Fingal   Live Music
-
 - Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Fri, 6 Nov · 11am–4pm · Mornington
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
@@ -52,6 +44,14 @@ Fri, 6 Nov   Mornington   Exhibitions
 A practical local space for students who want to set aside time for their own work.
 
 Fri, 6 Nov   Mornington   Community
+
+- Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 7 Nov   Fingal   Live Music
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 

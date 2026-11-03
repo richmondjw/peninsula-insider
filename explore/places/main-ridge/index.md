@@ -382,3 +382,21 @@ Browse locations as a list
 - [Greens Bush - Two Bays Section](<https://peninsulainsider.com.au/explore/greens-bush-two-bays-section/>) · walk
 
 - [Sunny Ridge Strawberry Farm](<https://peninsulainsider.com.au/explore/sunny-ridge-strawberry-farm/>) · attraction
+
+On the calendar in this place
+
+## Events in Main Ridge
+
+Coming up in Main Ridge, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Thu, 3 Dec
+
+### ✦ Pub Carols at The Pig & Whistle
+
+Main Ridge
+
+A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
