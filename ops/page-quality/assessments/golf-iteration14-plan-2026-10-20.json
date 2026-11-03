@@ -2,20 +2,21 @@
   "url": "https://peninsulainsider.com.au/explore/golf/",
   "tier": "T1",
   "assessedAt": "2026-11-02",
-  "liveRevision": "cb855ef9ec26bf2304f0a93f1767650f688dc375",
-  "liveRunId": "41515951444",
+  "liveRevision": "375d9d9d4eb85d70d86febba2bc9e23cc6d7e6a3",
+  "liveRunId": "41556547398",
   "programme": "peninsula-insider-page-quality-to-99",
   "independentScores": [
     90.25,
-    92.25
+    92.25,
+    93.25
   ],
-  "acceptedConservativeScore": 92.25,
+  "acceptedConservativeScore": 93.25,
   "scoreStatus": "provisional",
   "thresholdMet": false,
   "hardGateObserved": false,
   "verifiedLiveEvidence": {
-    "mobilePageHeightPx": 16273,
-    "desktopPageHeightPx": 9470,
+    "mobilePageHeightPx": 15123,
+    "desktopPageHeightPx": 9107,
     "horizontalOverflow": false,
     "consoleErrors": 0,
     "shortlistLinks": 4,
@@ -36,11 +37,11 @@
     "exact-release image-rights acceptance"
   ],
   "triage": [
-    "shorten the exhaustive middle with regional summaries and optional course detail while preserving semantic HTML and anchors",
     "add map or base context, or URL-backed access and location filters, so geography does not depend on memory",
-    "surface the constraint-led chooser earlier or repeat it once readers enter the course catalogue",
-    "tighten duplicated access and freshness copy and distinguish sourced facts from editorial judgment",
-    "close direct screen-reader, field Core Web Vitals, eleven-venue factual and exact-release image-rights evidence gates"
+    "consolidate or progressively disclose the architects, mixed-group, planning and FAQ modules",
+    "surface the constraint-led chooser earlier or preserve the chosen constraint through the catalogue",
+    "replace repeated course-detail labels with a short course-specific differentiator",
+    "exercise newsletter failure and recovery and close the four remaining evidence gates"
   ],
   "boundedIteration14": {
     "implemented": [
@@ -177,6 +178,39 @@
       "liveDecisionPathLinks": 7,
       "livePageOriginConsoleErrors": 0,
       "independentScore": 92.25
+    }
+  },
+  "boundedIteration18": {
+    "status": "live-regraded",
+    "highestImpactDefects": [
+      "eleven expanded course descriptions keep the mobile catalogue longer than necessary",
+      "source facts and editorial judgment are not explicitly separated within each course card",
+      "repeated dense copy slows the initial course scan"
+    ],
+    "implemented": [
+      "kept access badge, course name, location and direct actions visible on all eleven cards",
+      "moved supporting editorial and visitor-access detail into eleven native disclosures",
+      "labelled current visitor-access facts separately from the Insider read",
+      "retained semantic HTML, course anchors and forty-eight-pixel disclosure targets"
+    ],
+    "verificationStatus": "live on exact release 375d9d9d4eb85d70d86febba2bc9e23cc6d7e6a3 via run 41556547398 and independently regraded at 93.25/100; no hard gate observed; 99 remains open",
+    "acceptance": {
+      "mobileCssViewportPx": 390,
+      "mobilePageHeightPx": 15123,
+      "desktopCssViewportPx": 1440,
+      "desktopPageHeightPx": 9107,
+      "horizontalOverflow": false,
+      "courseDisclosures": 11,
+      "courseDisclosuresInitiallyOpen": 0,
+      "minimumDisclosureTargetPx": 48,
+      "disclosureFocusRetained": true,
+      "pageOriginConsoleErrors": 0,
+      "detectorFindings": 0,
+      "build": "passed with all post-build gates",
+      "liveSourceRevision": "375d9d9d4eb85d70d86febba2bc9e23cc6d7e6a3",
+      "liveRunId": "41556547398",
+      "liveStatus": 200,
+      "independentScore": 93.25
     }
   }
 }
