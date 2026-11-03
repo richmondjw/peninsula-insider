@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-03T20:13:44.189Z",
-  "snapshotId": "3fb6a3aa7066ff000756b3c5cd76e27468a8da09a109c105d05a7750b8c52a91",
+  "generatedAt": "2026-11-03T20:32:46.613Z",
+  "snapshotId": "3419c4ae65ac16ff1f9ca284fce6552f0ccf30f512b2826b2a3323f0833b5d8c",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 614,
+  "count": 615,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2172,7 +2172,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "9d6d56eb32a4adf14c244f99d23b782755e0a098ffe72b15416f78ef4d963912",
+      "contentSha256": "1e7c46e9d35ddccef330e7a88c9b16794f0d2c72763e5d3da9271d6465646241",
       "citation": {
         "title": "Boneo",
         "publisher": "Peninsula Insider",
@@ -2180,8 +2180,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 178219,
-      "markdownBytes": 9428
+      "htmlBytes": 180632,
+      "markdownBytes": 9806
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/cape-schanck/",
@@ -6179,6 +6179,23 @@
       "markdownBytes": 8794
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/",
+      "title": "Red Hill Brewery's tasting paddle, the Boneo Plains wildflower flush, and the Mt Eliza Farmers Market",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/index.md",
+      "contentSha256": "cc5ab75ef47792e0d65462858eb84f4910debac5f8c41c29269bebc27f37ffd4",
+      "citation": {
+        "title": "Red Hill Brewery's tasting paddle, the Boneo Plains wildflower flush, and the Mt Eliza Farmers Market",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/",
+        "publishedAt": "2026-11-04T00:00:00.000Z",
+        "modifiedAt": "2026-11-04T00:00:00.000Z"
+      },
+      "htmlBytes": 171766,
+      "markdownBytes": 8594
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -6983,7 +7000,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "425cd1f3f0834b8571487838483446ca05c0956ccb05ac27f153d9ba5e3af578",
+      "contentSha256": "8052ad39118fcc748420ef9c2457179a7a3798bfb1c7ec3d2f9f714ff25ff832",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -6991,8 +7008,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123549,
-      "markdownBytes": 5907
+      "htmlBytes": 123531,
+      "markdownBytes": 5893
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -7017,7 +7034,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "272f87859ceb73bb22b4fddcb07002ba7a86e05acfc71acffb1f9034acb3ccfb",
+      "contentSha256": "39b62455e9a86c3cc8b8c775d13105b1f0988ad9de34af72c3d9812605ee82a5",
       "citation": {
         "title": "Wednesday 4 November 2026",
         "publisher": "Peninsula Insider",

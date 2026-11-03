@@ -81,7 +81,7 @@ What's mapped here
 
 - [**1** ways to explore](<https://peninsulainsider.com.au/explore/places/boneo/#explore>)
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/boneo/#journal>)
 
 Get outside
 
@@ -132,6 +132,14 @@ Insider Edit   4 min
 27 October 2026
 
 David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
+
+Insider Edit   4 min
+
+### [Red Hill Brewery's tasting paddle, the Boneo Plains wildflower flush, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/>)
+
+4 November 2026
+
+Red Hill Brewery's Belgian-style paddle in the hop yard, the grassland orchid bloom on Boneo Plains, and the Mt Eliza Farmers Market running until 22 November.
 
 Planning guides
 

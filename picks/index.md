@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Red Hill Brewery's tasting paddle, the Boneo Plains wildflower flush, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/>) - Red Hill Brewery's Belgian-style paddle in the hop yard, the grassland orchid bloom on Boneo Plains, and the Mt Eliza Farmers Market running until 22 November.
+
 - [Rye Hotel's deck in spring, the Cape Schanck heathland walk, and Elan Vineyard's current show](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/>) - The Rye Hotel earns a long afternoon on its foreshore deck, Cape Schanck's heathland boardwalk hits peak colour this week, and Elan Vineyard & Gallery in Balnarring is showing new work worth the detour.
 
 - [Balnarring Bakehouse, Greens Bush in Flower, and Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/>) - Balnarring Bakehouse's beef-and-mushroom pie, Greens Bush at peak wildflower density, and the Emu Plains Market at Balnarring Reserve on Saturday.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/>) - Flinders Hotel's pub dining earns a spring Saturday booking, Bushrangers Bay track is in full coastal heath bloom, and the Emu Plains Market at Balnarring Reserve is quietly one of the Peninsula's best Saturday rituals.
 
 - [Flinders Sourdough, the Wirrbul Loop, and the Bloody Long Walk at Portsea](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/>) - A wood-fired Beach Bun in Flinders, the Wirrbul walking trail in full spring wattle, and Sunday's Bloody Long Walk starting from the Quarantine Station at Portsea.
-
-- [Foxeys Hangout, the Coastal Cliffs at Cape Schanck, and British Comedy Trivia in Main Ridge](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/>) - Foxeys Hangout's biodynamic sparkling flight earns the afternoon, Cape Schanck's clifftop track is in full spring form, and The Pig & Whistle is running British Comedy Trivia tonight.
 
 ## Planning a particular weekend?
 
