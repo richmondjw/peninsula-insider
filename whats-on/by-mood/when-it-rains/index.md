@@ -101,20 +101,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows conceptual conversation and a cuppa. It does not depict Chatty Café at Rosebud Library.
-
-Community  4 Nov
-
-### [Chatty Café at Rosebud Library](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
-
-[Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
-
-A Wednesday morning cuppa and conversation at Rosebud Library.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
-
-Illustration · Peninsula Insider
-
 Illustrative image  This image shows conceptual books and an open notebook. It does not depict Study Smart at Mornington Library.
 
 Community  6 Nov

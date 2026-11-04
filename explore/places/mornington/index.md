@@ -399,7 +399,7 @@ Walk through the National Works on Paper exhibition with MPRG curator and judgin
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
-- [Wed, 4 Nov
+- [Wed, 11 Nov
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
 
@@ -409,7 +409,7 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Wed, 4 Nov
+- [Thu, 5 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 

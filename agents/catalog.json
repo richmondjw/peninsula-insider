@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-03T20:32:46.613Z",
-  "snapshotId": "3419c4ae65ac16ff1f9ca284fce6552f0ccf30f512b2826b2a3323f0833b5d8c",
+  "generatedAt": "2026-11-04T14:29:53.853Z",
+  "snapshotId": "e6bddf1f29275d5f0009eb70aeca8599721f8fc4e8aa659adf017f71664b53e6",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 615,
+  "count": 614,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 209947,
+      "htmlBytes": 205409,
       "markdownBytes": 811
     },
     {
@@ -2410,7 +2410,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "1cfcb749766eb8224d12abd5bed4df271b029c84b7270f52701bb219d580c825",
+      "contentSha256": "71622e186a8548dde9c93ad17624d2016231b9261b17e06d36c8b938f4d965e4",
       "citation": {
         "title": "Mornington",
         "publisher": "Peninsula Insider",
@@ -2418,8 +2418,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 268519,
-      "markdownBytes": 19998
+      "htmlBytes": 268520,
+      "markdownBytes": 19999
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mount-eliza/",
@@ -2546,7 +2546,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
-      "contentSha256": "f3931a4e799d2aedebedd4c3112b6197550687ccdfbdd3665856ca2b695b5fb8",
+      "contentSha256": "52b2005d8d70f5307a1cffc7b998dc0463d82867edd30ceea4d9d202c05a7e5c",
       "citation": {
         "title": "Rosebud",
         "publisher": "Peninsula Insider",
@@ -2554,8 +2554,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 192483,
-      "markdownBytes": 12207
+      "htmlBytes": 185260,
+      "markdownBytes": 11874
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/rye/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "1f0185cc844d98bedc0d979be17d92df873425f3e1992b5ea05c1a406a3bb1d7",
+      "contentSha256": "01803474e4c7ae1477b08367d4c8d44af78816f027f741aa668a41a861829c6c",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 250246,
-      "markdownBytes": 22018
+      "htmlBytes": 252617,
+      "markdownBytes": 21951
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -7030,20 +7030,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Wednesday 4 November 2026",
+      "title": "Thursday 5 November 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "39b62455e9a86c3cc8b8c775d13105b1f0988ad9de34af72c3d9812605ee82a5",
+      "contentSha256": "d659522b7a35d4b2844aea771893abd466214ecba9ceea9a9f29e70fa8db94de",
       "citation": {
-        "title": "Wednesday 4 November 2026",
+        "title": "Thursday 5 November 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 114125,
-      "markdownBytes": 983
+      "htmlBytes": 114121,
+      "markdownBytes": 982
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -7051,7 +7051,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "b2f5d68e14d695d90f55df80af61a9861f324beded3858d6983710267efbadcf",
+      "contentSha256": "f1bd6adc319243c752e24af24e5f742a6c8594d7e2b4b80e1d79e45d349e9f39",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -7059,8 +7059,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 134508,
-      "markdownBytes": 26999
+      "htmlBytes": 134404,
+      "markdownBytes": 26878
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -8870,16 +8870,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "fec14a9f73994f15e7309dd09c5425f57f6c4d6c9a774e512e26348ff65fbbc0",
+      "contentSha256": "e28790774075be51774ea1aebb208097e4f15324b2d94ee28a569b335144dd8b",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-04"
+        "modifiedAt": "2026-11-05"
       },
-      "htmlBytes": 188981,
-      "markdownBytes": 8317
+      "htmlBytes": 188983,
+      "markdownBytes": 8319
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -8955,7 +8955,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
-      "contentSha256": "5431580e56cea412d7295ebf72d775e2d31da0dde9d8fae81189c3a6a6a17ab2",
+      "contentSha256": "f7e6cf1e4614ecbbfe4d158e88bca311b37f0b374a3440ba7f9bd1e1435b5a3a",
       "citation": {
         "title": "Rooms with a roof, in case the forecast turns",
         "publisher": "Peninsula Insider",
@@ -8963,8 +8963,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 163892,
-      "markdownBytes": 7012
+      "htmlBytes": 160268,
+      "markdownBytes": 6474
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
@@ -8982,23 +8982,6 @@
       },
       "htmlBytes": 145612,
       "markdownBytes": 3925
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
-      "title": "Chatty Café at Rosebud Library",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/index.md",
-      "contentSha256": "218aa413740354918de78abc5397813ffd101f8f62d17fbed7f2ea33a69f58c3",
-      "citation": {
-        "title": "Chatty Café at Rosebud Library",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 144061,
-      "markdownBytes": 4922
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -9074,7 +9057,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "20ee677ca34ae0746756cc59a52831b3dc84c5e78f8e43e8020cac448d7f8ee9",
+      "contentSha256": "0c5a85eaa8dcef8f79dc4ca622c61965b65f99a49236a6e8fe9d15b31de228ce",
       "citation": {
         "title": "Mornington Wednesday Market (Main Street Market)",
         "publisher": "Peninsula Insider",
@@ -9082,8 +9065,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143558,
-      "markdownBytes": 4547
+      "htmlBytes": 142011,
+      "markdownBytes": 3829
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
@@ -9227,7 +9210,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/index.md",
-      "contentSha256": "4271872a0300203652c0383bc43078e81d80c87fcd271f4c219ab0740aa64a26",
+      "contentSha256": "a4fb997daefc9c1de2afce5f5d275be145543ca4a9313154b2b2047d7c0f8356",
       "citation": {
         "title": "Study Smart at Mornington Library",
         "publisher": "Peninsula Insider",
@@ -9235,8 +9218,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144286,
-      "markdownBytes": 5051
+      "htmlBytes": 145430,
+      "markdownBytes": 5160
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
@@ -9244,7 +9227,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/index.md",
-      "contentSha256": "2823732d2b85eefbb32b97fb2c2106aac5336145028a20358f281585846a4d7a",
+      "contentSha256": "a6bf39b820bbd1ac1772120b3174a077e6d199079d89701f2e6ed7a57082b4e6",
       "citation": {
         "title": "Study Smart at Rosebud Library",
         "publisher": "Peninsula Insider",
@@ -9252,8 +9235,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144188,
-      "markdownBytes": 5011
+      "htmlBytes": 145277,
+      "markdownBytes": 5094
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",

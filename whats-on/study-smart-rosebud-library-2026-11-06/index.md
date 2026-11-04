@@ -81,33 +81,33 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
+Festivals   Annual, November
 
-Illustrative image  This image shows conceptual conversation and a cuppa. It does not depict Chatty Café at Rosebud Library.
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Community  4 Nov
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-### [Chatty Café at Rosebud Library](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
-
-[Rosebud](<https://peninsulainsider.com.au/explore/places/rosebud/>)
-
-A Wednesday morning cuppa and conversation at Rosebud Library.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows conceptual books and an open notebook. It does not depict Study Smart at Mornington Library.
+Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
 
-Community  6 Nov
+Markets   Monthly – 2nd Saturday of every month
 
-### [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without…
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -481,8 +481,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-- [Chatty Café at Rosebud Library](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
-
 - [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
 
 - [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)

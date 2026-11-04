@@ -241,16 +241,6 @@ Coming up in Rosebud, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 4 Nov
-
-### ✦ Chatty Café at Rosebud Library
-
-Rosebud
-
-A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.
-
- Event · Community](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
-
 - [Fri, 6 Nov
 
 ### ✦ Study Smart at Rosebud Library

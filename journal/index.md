@@ -704,27 +704,7 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 4 Nov
-
-### ✦ Chatty Café at Rosebud Library
-
-Rosebud
-
-A Wednesday morning cuppa and conversation at Rosebud Library. The library welcomes everyone and lists this session from 10am to noon, with no booking required.
-
- Event · Community](<https://peninsulainsider.com.au/whats-on/chatty-cafe-rosebud-library-2026-11-04/>)
-
-- [Wed, 4 Nov
-
-### ✦ Mornington Wednesday Market (Main Street Market)
-
-Mornington
-
-Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
-
-- [Wed, 4 Nov
+- [Thu, 5 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
@@ -733,3 +713,23 @@ Mornington
 National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+- [Fri, 6 Nov
+
+### ✦ Study Smart at Mornington Library
+
+Mornington
+
+VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without booking ahead.
+
+ Event · Community](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
+
+- [Fri, 6 Nov
+
+### ✦ Study Smart at Rosebud Library
+
+Rosebud
+
+A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.
+
+ Event · Community](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
