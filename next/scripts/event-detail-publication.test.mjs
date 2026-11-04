@@ -50,7 +50,8 @@ test('homepage event photography requires a recorded rights receipt', async () =
   const photo = { alt: 'Verified subject', credit: 'Photographer' };
   const fallback = actual({}, 'event', hero, photo, 'actual');
   assert.equal(fallback.src, '/images/generated/coastal-punch-plate.svg');
-  assert.match(fallback.caption, /not a depiction of this event/);
+  assert.equal(fallback.caption, 'Coastal shapes in navy, teal and coral.');
+  assert.equal(fallback.badge, 'Illustrative image');
   assert.equal(fallback.credit, 'Illustration: Peninsula Insider');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'actual').src, '/event.webp');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'unverified').src, fallback.src);

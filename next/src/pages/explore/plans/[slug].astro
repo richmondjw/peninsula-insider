@@ -12,6 +12,7 @@
  *   3. Footer rail - anchor + alt stays
  */
 import PhotoStage from '../../../components/PhotoStage.astro';
+import { imageCreditText } from '../../../lib/image-presentation.mjs';
 import { photoPlan } from '../../../lib/photo-set';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
@@ -108,7 +109,7 @@ const articlePhotoCaption = articleHero?.override
   : ad?.planShape === 'one-night' && ad?.heroImage?.depictionStatus === 'illustrative' && ad?.heroImage?.caption
     ? `${ad.heroImage.caption} One of three suggested bases.`
     : ad?.heroImage?.caption;
-const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
+const articlePhotoCredit = imageCreditText(articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit, articleHero?.override ? undefined : ad?.heroImage?.imageKind);
 const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
 const articleFactReviewLabel = isOneNightGuide && ad?.lastVerified
   ? ad.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -851,7 +852,7 @@ export const prerender = true;
             <p class="itinerary-detail__image-credit">
               {itineraryHeroOverride?.caption ?? data!.heroImage.caption ?? ''}
               {' · '}
-              {itineraryHeroOverride?.credit ?? data!.heroImage.credit}
+              {imageCreditText(itineraryHeroOverride?.credit ?? data!.heroImage.credit, itineraryHeroOverride ? undefined : data!.heroImage.imageKind)}
             </p>
           )}
           {(itineraryPhotos?.photos.length ?? 0) >= 3 && <PhotoStage photos={itineraryPhotos!.photos} subject={data!.title} id="photos" variant="strip" />}

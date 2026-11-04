@@ -3,13 +3,12 @@ import { routeSlug } from '../../lib/editorial';
 import { resolveJournalImage } from '../../lib/journal-image';
 import { journalCredit, journalRecoveryAttrs } from '../../lib/journal-image-policy.mjs';
 import { editableImage } from '../../lib/inline-edit/attrs';
-import MediaProvenanceNote from '../MediaProvenanceNote.astro';
 const { display = {}, article, large = false, lead = false, author = 'Peninsula Insider' } = Astro.props;
 const slug=routeSlug(article);
 const hero=await resolveJournalImage(slug,article.data);
 ---
 <article class:list={['story',large && 'large',lead && 'cover']}>
- <figure><a href={`/journal/${slug}/`}><img src={hero.src} data-pi-responsive={lead ? "(max-width: 767px) 100vw, (max-width: 1100px) 85vw, 920px" : "(max-width: 767px) 100vw, 426px"} alt={hero.alt} role={hero.decorative ? 'presentation' : undefined} loading={lead?'eager':'lazy'} fetchpriority={lead?'high':'auto'} decoding="async" width="1200" height="800" {...journalRecoveryAttrs(hero)} {...editableImage({entityType:'article',entitySlug:slug,fieldPath:'hero',label:`${article.data.title} hero`,purpose:'hero'})}/></a><figcaption class="image-credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && ' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption><MediaProvenanceNote image={hero.provenance}/></figure>
+ <figure><a href={`/journal/${slug}/`}><img src={hero.src} data-pi-responsive={lead ? "(max-width: 767px) 100vw, (max-width: 1100px) 85vw, 920px" : "(max-width: 767px) 100vw, 426px"} alt={hero.alt} role={hero.decorative ? 'presentation' : undefined} loading={lead?'eager':'lazy'} fetchpriority={lead?'high':'auto'} decoding="async" width="1200" height="800" {...journalRecoveryAttrs(hero)} {...editableImage({entityType:'article',entitySlug:slug,fieldPath:'hero',label:`${article.data.title} hero`,purpose:'hero'})}/></a><figcaption class="image-credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && ' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption></figure>
  <div class:list={[lead && 'cover-copy']}>
  <p class="eyebrow">{display.eyebrow || article.data.tags?.[0]?.replaceAll('-',' ') || 'The Journal'}</p>
  {lead ? <h2><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h2> : <h3><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h3>}

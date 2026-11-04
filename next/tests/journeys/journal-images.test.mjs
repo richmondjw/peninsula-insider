@@ -50,12 +50,16 @@ test('failed article and thematic images recover to original art after client na
     const result = await reader.page.evaluate(() => {
       const img = document.querySelector('.article-hero__image');
       const figure = img.closest('figure');
-      return { slug: img.dataset.piEntitySlug, alt: img.alt, credit: figure.querySelector('[data-journal-image-credit]').textContent, caption: figure.querySelector('[data-journal-image-caption]').textContent };
+      const credit = figure.querySelector('[data-journal-image-credit]');
+      const bounds = credit.getBoundingClientRect();
+      const style = getComputedStyle(credit);
+      return { slug: img.dataset.piEntitySlug, alt: img.alt, credit: credit.textContent, caption: figure.querySelector('[data-journal-image-caption]').textContent, creditVisible: bounds.width > 0 && bounds.height > 0 && style.display !== 'none' && style.visibility !== 'hidden' };
     });
     assert.equal(result.slug, slug);
     assert.match(result.alt, /Original illustration/);
-    assert.equal(result.credit, 'Illustration · Peninsula Insider');
-    assert.match(result.caption, /not a photograph/);
+    assert.match(result.credit, /^Illustration\s*[:·]\s*Peninsula Insider$/);
+    assert.equal(result.creditVisible, true);
+    assert.equal(result.caption, 'Coastal hills, vineyard rows and a sailboat under the sun.');
     assert.doesNotMatch(result.credit, /Visit Victoria/);
   } finally { await reader.close(); }
 });

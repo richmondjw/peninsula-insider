@@ -17,6 +17,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { imageCaption } from '../../../next/src/lib/image-presentation.mjs';
 
 const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../../..');
 const C = path.join(REPO, 'next/src/content');
@@ -52,7 +53,9 @@ for (const [key, [page, role, entity, assetKey]] of Object.entries(USES)) {
   const refs = [d.heroImage, ...(d.gallery ?? [])].filter((r) => r?.license === 'visit-victoria');
   const ref = assetKey ? refs.find((r) => r.src.includes(`/${assetKey}-`)) : (d.heroImage?.license === 'visit-victoria' ? d.heroImage : refs[0]);
   if (!ref) throw new Error(`${key}: no licensed photograph ${assetKey ?? '(hero)'} on ${entity}`);
-  out.images[key] = { page, role, entity, ...ref };
+  // This curated feed contains licensed photographs, not generated candidates.
+  // Keep source rights/identity evidence; only the public description is formatted.
+  out.images[key] = { page, role, entity, ...ref, imageKind: 'photograph', caption: imageCaption({ ...ref, imageKind: 'photograph' }) };
   console.log(`${key.padEnd(18)} ${page.padEnd(30)} ${ref.src}`);
 }
 if (process.argv.includes('--write')) {

@@ -231,10 +231,9 @@ const hubImage = categoryHero('whats-on');
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
         <a class="wo-head__calendar-link" href="#wo-calendar">Browse events by day <span aria-hidden="true">↘</span></a>
-        <p class="wo-head__credit-mobile">{hubImage.credit}.</p>
       </div>
       <figure class="wo-head__figure">
-        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 640px) 320px, (max-width: 1023px) 600px, 720px" />
+        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 640px) 100vw, (max-width: 1023px) 50vw, 640px" />
         <figcaption>{hubImage.caption} {hubImage.credit}.</figcaption>
       </figure>
     </div>
@@ -1150,23 +1149,22 @@ const hubImage = categoryHero('whats-on');
     border-bottom: 1px solid var(--border);
   }
   /* Editorial treatment: a photographic opening, curated cards, then the full calendar. */
-  .wo-head { overflow: hidden; padding: 0; background: #0b2e4a; color: #f2efea; border: 0; }
-  .wo-head__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .82fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: stretch; min-height: 22rem; }
-  .wo-head__copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 4.5rem) 0; }
-  .wo-head__eyebrow, .wo-section-kicker { margin: 0 0 .8rem; color: #a9552a; font-size: .73rem; font-weight: 800; letter-spacing: .16em; line-height: 1.4; text-transform: uppercase; }
+  .wo-head { padding: 0; background: var(--navy, #0b2e4a); color: #f2efea; border: 0; }
+  .wo-head__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 4.5rem); align-items: center; padding-block: clamp(1.5rem, 4vw, 3rem); }
+  .wo-head__copy { min-width: 0; padding-block: .5rem; }
+  .wo-head__eyebrow, .wo-section-kicker { margin: 0 0 1rem; font-size: .75rem; font-weight: 750; letter-spacing: .12em; line-height: 1.5; text-transform: uppercase; }
+  .wo-section-kicker { color: #a9552a; }
   .wo-head__eyebrow { color: #f5c177; }
-  .wo-head__eyebrow span { margin: 0 .35rem; font-size: 1.1em; }
-  .wo-head__title { color: #f2efea; }
-  .wo-head__context { color: #f5c177; }
-  .wo-head__rule { color: #e5e5e0; line-height: 1.5; max-width: 38ch; }
-  .wo-head__calendar-link { display: inline-flex; align-items: center; gap: .45rem; width: fit-content; min-height: 44px; margin-top: .8rem; color: #f5c177; font-size: .93rem; font-weight: 700; text-decoration: underline; text-underline-offset: .2rem; }
+  .wo-head__eyebrow span { margin-inline: .35rem; }
+  .wo-head__title { margin: 0; max-width: 14ch; color: #f2efea; font-size: var(--fs-800, 3rem); line-height: 1.12; letter-spacing: -.035em; text-wrap: balance; }
+  .wo-head__context { margin: 1rem 0 0; color: #f5c177; font-size: 1rem; line-height: 1.5; }
+  .wo-head__rule { margin: .85rem 0 0; color: #e5e5e0; font-size: 1.0625rem; line-height: 1.55; max-width: 38ch; }
+  .wo-head__calendar-link { display: inline-flex; align-items: center; gap: .5rem; width: fit-content; min-height: 44px; margin-top: 1rem; color: #f5c177; font-size: 1rem; font-weight: 700; text-decoration: underline; text-underline-offset: .25rem; }
   .wo-head__calendar-link:hover { color: #fff; }
-  .wo-head__calendar-link:focus-visible { outline: 3px solid #f5c177; outline-offset: 3px; }
-  .wo-head__figure { position: relative; margin: 0; min-height: 100%; }
-  .wo-head__figure::before { content: ''; position: absolute; z-index: 1; inset: 0 auto 0 0; width: 22%; background: linear-gradient(90deg, #0b2e4a, transparent); pointer-events: none; }
-  .wo-head__figure img { display: block; width: 100%; height: 100%; min-height: 22rem; object-fit: cover; object-position: right center; }
-  .wo-head__figure figcaption { position: absolute; z-index: 2; right: .5rem; bottom: .5rem; max-width: calc(100% - 1rem); padding: .25rem .4rem; border-radius: .2rem; background: rgba(11, 46, 74, .8); color: white; font-size: .64rem; line-height: 1.3; }
-  .wo-head__credit-mobile { display: none; }
+  .wo-head__calendar-link:focus-visible { outline: 3px solid #f5c177; outline-offset: 4px; border-radius: 2px; }
+  .wo-head__figure { min-width: 0; margin: 0; }
+  .wo-head__figure img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: .25rem; }
+  .wo-head__figure figcaption { margin-top: .6rem; color: #dce5e9; font-size: .8125rem; line-height: 1.5; }
   .wo-picks { padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(2rem, 4vw, 3.25rem); background: #f2efea; }
   .wo-picks__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem 2rem; max-width: none; }
   .wo-picks__dek { max-width: 26ch; margin: 0 0 .2rem; }
@@ -1202,18 +1200,14 @@ const hubImage = categoryHero('whats-on');
     .wo-shelfnav__tile { flex: 0 0 12rem; scroll-snap-align: start; }
   }
   @media (max-width: 640px) {
-    .wo-head__inner { position: relative; display: block; min-height: 13rem; }
-    .wo-head__copy { position: relative; z-index: 2; min-height: 13rem; padding: 1rem 0 .6rem; }
-    .wo-head__eyebrow { margin-bottom: .35rem; font-size: .61rem; }
-    .wo-head__title { font-size: clamp(1.9rem, 8vw, 2.65rem); }
-    .wo-head__context { margin-top: .45rem; font-size: .85rem; }
-    .wo-head__rule { display: none; }
-    .wo-head__calendar-link { margin-top: .5rem; }
-    .wo-head__figure { position: absolute; inset: 0 -1rem; margin: 0; }
-    .wo-head__figure::before { inset: 0; width: auto; background: linear-gradient(90deg, rgba(11, 46, 74, .97) 0%, rgba(11, 46, 74, .83) 42%, rgba(11, 46, 74, .35) 76%, rgba(11, 46, 74, .2) 100%); }
-    .wo-head__figure img { height: 100%; min-height: 0; object-position: 66% center; }
-    .wo-head__figure figcaption { display: none; }
-    .wo-head__credit-mobile { display: block; margin: .25rem 0 0; color: #ced8dc; font-size: .58rem; line-height: 1.2; }
+    .wo-head__inner { grid-template-columns: 1fr; gap: 1.25rem; padding-block: 1.5rem; }
+    .wo-head__copy { padding: 0; }
+    .wo-head__eyebrow { margin-bottom: .75rem; }
+    .wo-head__title { font-size: 2rem; max-width: 18ch; }
+    .wo-head__context { margin-top: .75rem; }
+    .wo-head__rule { margin-top: .65rem; }
+    .wo-head__calendar-link { margin-top: .65rem; }
+    .wo-head__figure img { aspect-ratio: 3 / 2; }
     .wo-picks__head, .wo-days__head { display: block; }
     .wo-picks { padding-top: .5rem; }
     .wo-picks__head { margin-bottom: .25rem; }

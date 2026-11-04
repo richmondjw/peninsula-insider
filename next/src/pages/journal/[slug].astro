@@ -15,7 +15,6 @@ import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
-import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import PhotoStage from '../../components/PhotoStage.astro';
 import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
@@ -384,10 +383,6 @@ export const prerender = true;
             {heroCredit && (
               <figcaption class="article-hero__credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && ' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
             )}
-            <MediaProvenanceNote
-              image={heroProvenance}
-              class="article-hero__provenance"
-            />
           </figure>
         </div>
       </div>

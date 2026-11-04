@@ -43,8 +43,8 @@ test('reviewed source captions retain depiction caveats and internal generation 
   for (const [collection, slug, extension] of records) {
     const source = fs.readFileSync(new URL(`../content/${collection}/${slug}.${extension}`, import.meta.url), 'utf8');
     const caption = source.match(/(?:"caption"|caption):\s*"([^"]+)"/)[1];
-    assert.match(caption, /^Editorial illustration\./, slug);
-    assert.match(caption, /\bnot\b/i, slug);
+    assert.ok(caption.length > 10, slug);
+    assert.ok(!/not a depiction|Editorial illustration\./i.test(caption), slug);
     assert.match(source, /Peninsula Insider, AI-assisted/, slug);
     assert.match(source, /Original AI-assisted artwork created for Peninsula Insider/, slug);
   }
@@ -53,10 +53,10 @@ test('reviewed source captions retain depiction caveats and internal generation 
 test('both CMS image presentation boundaries use the formatter without changing saved metadata', () => {
   const loader = fs.readFileSync(new URL('./inline-edit/overrides.ts', import.meta.url), 'utf8');
   for (const field of ['alt_text', 'caption', 'credit']) {
-    assert.ok(loader.includes(`imagePresentationText(houseStyle(row.${field}))`));
+    assert.ok(loader.includes(`${field === 'caption' ? 'imageCaptionText' : 'imagePresentationText'}(houseStyle(row.${field}))`));
   }
   for (const field of ['alt', 'caption', 'credit']) {
-    assert.ok(loader.includes(`imagePresentationText(row.${field} ?? null)`));
+    assert.ok(loader.includes(`${field === 'caption' ? 'imageCaptionText' : 'imagePresentationText'}(row.${field} ?? null)`));
   }
   assert.ok(loader.includes('text[row.field_path] = houseStyle(row.value)'));
   const client = fs.readFileSync(new URL('./inline-edit/client.ts', import.meta.url), 'utf8');

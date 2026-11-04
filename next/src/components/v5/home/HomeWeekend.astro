@@ -81,11 +81,11 @@ const cards = await Promise.all(
       src: hero.src,
       alt: recorded.alt,
       caption: status === 'illustrative'
-        ? recorded.caption || 'Illustrative image, not this event.'
+        ? recorded.caption || 'Context photograph.'
         : recorded.caption ?? '',
       credit: recorded.credit,
       badge: status === 'illustrative' ? 'Illustrative image' : '',
-    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: 'Conceptual editorial artwork, not a depiction of this event.', credit: 'Illustration: Peninsula Insider', badge: 'Illustrative image' };
+    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: 'Coastal shapes in navy, teal and coral.', credit: 'Illustration: Peninsula Insider', badge: 'Illustrative image' };
     const dateISO = pickDateISO(event, now);
     const dateLabel = dateISO ? new Date(dateISO + 'T00:00:00Z').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
     const fullTitle = String(event.data.title);

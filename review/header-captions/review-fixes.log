@@ -1,0 +1,33 @@
+
+> peninsula-insider-next@0.0.1 validate:content
+> npm run lint:image-captions && node scripts/validate-content.mjs
+
+
+> peninsula-insider-next@0.0.1 lint:image-captions
+> node --test src/lib/image-captions.test.mjs && node scripts/check-image-captions.mjs
+
+Γ£ö selected listing admission requires a real caption/credit distinction, not a word in prose (1.1547ms)
+Γ£ö the actual weekend-planning illustration retains its map warning in public display (0.7848ms)
+Γ£ö one useful art caption, with stored history unchanged (0.6619ms)
+Γ£ö context photography remains distinct and never becomes a venue claim (0.1491ms)
+Γ£ö string-only CMS captions keep medium, context and navigational warnings (0.2151ms)
+Γ£ö actual itinerary CMS consumers retain captions and do not assume photography (0.45ms)
+Γ£ö admission refuses unknown kind, unverified identity, missing description and credit (0.1832ms)
+Γ£ö unchanged legacy images are inventoried; edited and new images are gated (0.1398ms)
+Γ£ö journal detail and card render one caption rather than duplicate disclosure (0.2794ms)
+Γ£ö event detail and cards use one credited description, without a second disclosure (0.3318ms)
+Γ£ö rendered gate rejects duplicate descriptions and boilerplate, ignores alt and provenance (0.6757ms)
+Γä╣ tests 11
+Γä╣ suites 0
+Γä╣ pass 11
+Γä╣ fail 0
+Γä╣ cancelled 0
+Γä╣ skipped 0
+Γä╣ todo 0
+Γä╣ duration_ms 79.0006
+Caption review: 2087 legacy issues inventoried; 0 changed-image failures.
+22:28:09 [content] Syncing content
+22:28:09 [WARN] [glob-loader] No files found matching "**/*.{md,mdx}" in directory "src\content\local-secrets"
+22:28:10 [content] Synced content
+22:28:10 [types] Generated 792ms
+PASS selected event listing quality: mornington-racecourse-market

@@ -367,7 +367,19 @@ async function disclosureCoverage() {
       } catch {
         body = null;
       }
-      const renders = body !== null && body.includes(`<${DISCLOSURE_COMPONENT}`);
+      let renders = body !== null && body.includes(`<${DISCLOSURE_COMPONENT}`);
+      // Consolidated captions still disclose context. Verify the renderer chain,
+      // rather than requiring a redundant second badge beneath the same image.
+      if (!renders && body !== null && collection === 'events' && body.includes('<EventImageCredit')) {
+        const renderer = await readFile(path.join(PROJECT_ROOT, 'src/components/EventImageCredit.astro'), 'utf8').catch(() => '');
+        const formatter = await readFile(path.join(PROJECT_ROOT, 'src/lib/image-presentation.mjs'), 'utf8').catch(() => '');
+        renders = renderer.includes('imageCaption(image)') && renderer.includes('{description}') && renderer.includes('image.credit') && formatter.includes('Context photograph');
+      }
+      if (!renders && body !== null && collection === 'articles' && body.includes('data-journal-image-caption') && body.includes('journalCredit(hero)') && body.includes('resolveJournalImage(')) {
+        const resolver = await readFile(path.join(PROJECT_ROOT, 'src/lib/journal-image-policy.mjs'), 'utf8').catch(() => '');
+        const formatter = await readFile(path.join(PROJECT_ROOT, 'src/lib/image-presentation.mjs'), 'utf8').catch(() => '');
+        renders = resolver.includes('caption: imageCaption(') && formatter.includes('Context photograph');
+      }
       (surfaces[collection] ??= []).push({ file: rel, renders });
       if (!renders) {
         allPresent = false;
