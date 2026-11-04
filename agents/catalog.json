@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-04T19:21:22.947Z",
-  "snapshotId": "4f5015bac5fc696f922242ae6a921b5dc058a619c70ac0ba5a0568af2b66caf6",
+  "generatedAt": "2026-11-04T20:17:13.836Z",
+  "snapshotId": "bf92264f19c60065c3216e289f1c9042ceb4992ee0a9bec7850c6d14b072e792",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 614,
+  "count": 615,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6196,6 +6196,23 @@
       "markdownBytes": 8594
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/",
+      "title": "Green Olive in the grove, the coastal heath in full flower, and the Works on Paper closing window",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/index.md",
+      "contentSha256": "5150470683d343cdd58aff653c42e637ed1363aad948d3c5bc9d33d9df1239ca",
+      "citation": {
+        "title": "Green Olive in the grove, the coastal heath in full flower, and the Works on Paper closing window",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/",
+        "publishedAt": "2026-11-05T00:00:00.000Z",
+        "modifiedAt": "2026-11-05T00:00:00.000Z"
+      },
+      "htmlBytes": 175426,
+      "markdownBytes": 8872
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7000,7 +7017,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "8052ad39118fcc748420ef9c2457179a7a3798bfb1c7ec3d2f9f714ff25ff832",
+      "contentSha256": "bda57c4a053677fbcb64ef7c98418a42d6fe5f07fc29cd6ff08a0420b779c68b",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7008,8 +7025,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123531,
-      "markdownBytes": 5893
+      "htmlBytes": 123567,
+      "markdownBytes": 5929
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -7034,7 +7051,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "706d1ba4c6f972ab1e2d78c4eccc8c66f2d39308235ab2e08b8b6427c7742a33",
+      "contentSha256": "3074e924cc27faac96086fac582113dcf996df9ca883ba9f9b9ab7f37f7e0f3b",
       "citation": {
         "title": "Thursday 5 November 2026",
         "publisher": "Peninsula Insider",
