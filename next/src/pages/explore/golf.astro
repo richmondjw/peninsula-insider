@@ -75,6 +75,29 @@ const courseShortlist = [
   { slug: 'portsea-golf-club', cue: 'Southern bayside', reason: 'Coastal dunes and Moonah · Visitor windows · Portsea' },
 ].map((item) => ({ ...item, course: courseComparison.find((course) => course.slug === item.slug)! }));
 
+const golfAreas = [
+  {
+    name: 'Fingal + Cape Schanck', cue: '4 venues',
+    summary: 'The strongest concentration of courses, including public resorts and private-club architecture.',
+    href: '#cape-courses', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Fingal+Cape+Schanck+Victoria',
+  },
+  {
+    name: 'Boneo + Rye + Rosebud', cue: '3 venues',
+    summary: 'A practical central cluster for Eagle Ridge, The Dunes and Rosebud Country Club.',
+    href: '#course-eagle-ridge-golf-course', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Boneo+Rye+Rosebud+Victoria',
+  },
+  {
+    name: 'Sorrento + Portsea', cue: '2 venues',
+    summary: 'Southern bayside clubs with limited visitor windows and nearby town bases.',
+    href: '#course-sorrento-golf-club', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Sorrento+Portsea+Victoria',
+  },
+  {
+    name: 'Mornington + Flinders', cue: '2 venues',
+    summary: 'Two distinct coastal directions: northern bay access or the eastern clifftop course.',
+    href: '#course-mornington-golf-club', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Mornington+Flinders+Victoria',
+  },
+];
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 function accessLabel(access: string, slug: string) {
   if (slug === 'the-national-golf-club') return 'Private · visitor requests';
@@ -205,6 +228,23 @@ export const prerender = true;
             <small>{reason}</small>
           </a>
         ))}
+      </div>
+      <div class="golf-area-guide" aria-labelledby="golf-area-title">
+        <div class="golf-area-guide__intro">
+          <p class="label label--accent">Choose a base</p>
+          <h3 id="golf-area-title">See which courses sit together</h3>
+          <p>Use an area to narrow the drive, then check the live route for your actual tee time.</p>
+        </div>
+        <div class="golf-area-guide__grid">
+          {golfAreas.map((area) => (
+            <article class="golf-area-card">
+              <span>{area.cue}</span>
+              <h4><a href={area.href}>{area.name}</a></h4>
+              <p>{area.summary}</p>
+              <a class="golf-area-card__map" href={area.mapUrl} target="_blank" rel="noopener" aria-label={`Open ${area.name} golf area in Google Maps, opens in a new tab`}>Open area map ↗</a>
+            </article>
+          ))}
+        </div>
       </div>
       <details class="golf-compare-disclosure" id="course-comparison">
         <summary class="golf-compare-disclosure__summary">
@@ -665,6 +705,19 @@ export const prerender = true;
   }
   .golf-shortlist__item strong { font-family: var(--font-display); font-size: 1.05rem; line-height: 1.3; }
   .golf-shortlist__item small { color: var(--soft); font-size: 0.9375rem; line-height: 1.45; }
+  .golf-area-guide { display: grid; grid-template-columns: minmax(12rem, 0.72fr) minmax(0, 2.28fr); gap: clamp(1.25rem, 3vw, 2.5rem); margin: 0 0 2rem; padding: 1.4rem; border: 1px solid var(--border); border-radius: 1rem; background: var(--white); }
+  .golf-area-guide__intro h3 { margin: 0.3rem 0 0.55rem; color: var(--dark); font-family: var(--font-display); font-size: 1.25rem; line-height: 1.25; }
+  .golf-area-guide__intro > p:last-child { margin: 0; color: var(--soft); font-size: 0.9375rem; line-height: 1.5; }
+  .golf-area-guide__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; border: 1px solid var(--border); border-radius: 0.75rem; overflow: hidden; }
+  .golf-area-card { display: grid; align-content: start; gap: 0.35rem; min-width: 0; padding: 1rem; }
+  .golf-area-card:nth-child(odd) { border-right: 1px solid var(--border); }
+  .golf-area-card:nth-child(n+3) { border-top: 1px solid var(--border); }
+  .golf-area-card > span { color: var(--accent); font-size: 0.75rem; font-weight: 800; letter-spacing: 0.07em; text-transform: uppercase; }
+  .golf-area-card h4 { margin: 0; font-family: var(--font-display); font-size: 0.95rem; line-height: 1.35; }
+  .golf-area-card h4 a { color: var(--text); text-underline-offset: 0.2em; }
+  .golf-area-card p { margin: 0; color: var(--soft); font-size: 0.875rem; line-height: 1.45; }
+  .golf-area-card__map { display: inline-flex; align-items: center; width: fit-content; min-height: 44px; margin-top: 0.15rem; color: var(--accent); font-size: 0.875rem; font-weight: 700; text-underline-offset: 0.2em; }
+  .golf-area-card a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 0.2rem; }
   .golf-compare-disclosure { border-block: 1px solid var(--border); scroll-margin-top: 10rem; }
   .golf-compare-disclosure__summary {
     display: grid;
@@ -727,6 +780,10 @@ export const prerender = true;
     .golf-shortlist { grid-template-columns: 1fr; }
     .golf-shortlist__item { min-height: 0; border-right: 0; border-bottom: 1px solid var(--border); }
     .golf-shortlist__item:last-child { border-bottom: 0; }
+    .golf-area-guide { grid-template-columns: 1fr; padding: 1rem; }
+    .golf-area-guide__grid { grid-template-columns: 1fr; }
+    .golf-area-card:nth-child(odd) { border-right: 0; }
+    .golf-area-card:nth-child(n+2) { border-top: 1px solid var(--border); }
     .golf-compare-disclosure__summary { padding-inline: 0.2rem; }
     .golf-compare__header { display: none; }
     .golf-compare__row {
