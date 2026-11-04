@@ -59,6 +59,11 @@ export const prerender = true;
           <li><a href="/whats-on/">What's On</a></li>
           <li><a href="/journal/">Journal</a></li>
           <li><a href="/explore/places/">Places</a></li>
+          <li><a href="/explore/regions/">Peninsula regions</a></li>
+          <li><a href="/events/">Signature events</a></li>
+          <li><a href="/awards/">Peninsula Insider awards</a></li>
+          <li><a href="/picks/">Insider Picks archive</a></li>
+          <li><a href="/whats-on/this-weekend/archive/">Weekend editions archive</a></li>
         </ul>
 
         <h2>Priority planning pages</h2>
@@ -81,10 +86,13 @@ export const prerender = true;
           <li><a href="/eat/providores/">Providores</a></li>
           <li><a href="/eat/paddock-to-plate/">Paddock to Plate</a></li>
           <li><a href="/eat/family-friendly/">Family-Friendly Dining</a></li>
+          <li><a href="/eat/no-booking/">Dining without a booking</a></li>
+          <li><a href="/eat/seafood/">Seafood restaurants</a></li>
           <li><a href="/stay/resorts/">Resorts</a></li>
           <li><a href="/stay/luxury/">Luxury Stays</a></li>
           <li><a href="/stay/boutique-hotels/">Boutique Hotels</a></li>
           <li><a href="/stay/cottages/">Cottages</a></li>
+          <li><a href="/stay/villas/">Villas</a></li>
           <li><a href="/stay/glamping/">Glamping</a></li>
           <li><a href="/guides/">Seasonal Guides</a></li>
           {otherSeasonalGuides.map((guide) => (
@@ -94,6 +102,10 @@ export const prerender = true;
           <li><a href="/journal/local-secrets/">Local Secrets</a></li>
           <li><a href="/quick-note/">Quick Notes</a></li>
           <li><a href="/insiders-30/2026/">The Insider's 30, 2026</a></li>
+          <li><a href="/insiders-30/map/">The Insider's 30 map</a></li>
+          <li><a href="/journal/mornington-peninsula-in-autumn/">Autumn activities and local planning</a></li>
+          <li><a href="/wine/elgee-park/">Elgee Park producer information</a></li>
+          <li><a href="/wine/kerri-greens/">Kerri Greens producer information</a></li>
           <li><a href="/explore/plans/mornington-peninsula-itinerary/">Mornington Peninsula Itinerary</a></li>
           <li><a href="/walks/easy-walks-mornington-peninsula/">Easy Walks</a></li>
           <li><a href="/fishing/seasons/snapper-run-oct-dec/">Snapper Season</a></li>
@@ -144,6 +156,8 @@ export const prerender = true;
         </ul>
 
         <h2>What's On</h2>
+        <p><a href="/whats-on/main-street-mornington-festival-2026/">Main Street Mornington Festival 2026 cancellation notice</a>.</p>
+        <p>Choose an <a href="/whats-on/by-mood/after-dark/">evening out</a>, <a href="/whats-on/by-mood/this-weekend/">this weekend's events</a>, <a href="/whats-on/by-mood/when-it-rains/">a rainy-day activity</a> or <a href="/whats-on/by-mood/worth-the-drive/">an event worth the drive</a>.</p>
         <ul>
           {events.map((entry) => (
             <li><a href={`/whats-on/${routeSlug(entry)}/`}>{entry.data.title}</a></li>
@@ -152,9 +166,14 @@ export const prerender = true;
 
         <h2>Journal</h2>
         <ul>
-          {articles.slice(0, 50).map((entry) => (
+          {articles.map((entry) => (
             <li><a href={`/journal/${routeSlug(entry)}/`}>{entry.data.title}</a></li>
           ))}
+        </ul>
+        <h2>About the publication</h2>
+        <ul>
+          <li><a href="/careers/">Working with Peninsula Insider</a></li>
+          <li><a href="/photography/">Photography and contributors</a></li>
         </ul>
       </div>
     </div>

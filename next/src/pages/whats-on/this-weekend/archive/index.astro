@@ -1,15 +1,22 @@
 ---
 import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { isPeninsulaThisWeekend, sortPtwLatestFirst, ptwArchivePath, ptwWeekendLabel } from '../../../../lib/peninsula-this-weekend';
+const editions = sortPtwLatestFirst((await getCollection('articles', ({data}) => data.status === 'published')).filter(isPeninsulaThisWeekend));
 export const prerender = true;
 ---
 <BaseLayout
   title="Peninsula This Weekend archive · Peninsula Insider"
   description="Past Peninsula This Weekend dispatches."
   section="whats-on"
-  noindex={true}
+  canonical="https://peninsulainsider.com.au/whats-on/this-weekend/archive/"
 >
-  <div class="container">
-    <h1>Peninsula This Weekend archive</h1>
-    <p><a href="/whats-on/this-weekend/">See this weekend’s current edition.</a></p>
-  </div>
+  <section class="legal"><div class="container">
+    <div class="legal__header"><p class="label label--accent">Past editions</p><h1 class="legal__title">Peninsula This Weekend archive</h1></div>
+    <div class="legal__body prose">
+      <p><a href="/whats-on/this-weekend/">See this weekend’s current edition.</a></p>
+      <p>Past editions are historical reading. Their event dates and recommendations relate to the original publication weekend.</p>
+      <ul>{editions.map(entry => <li><a href={ptwArchivePath(entry)}>Peninsula This Weekend, {ptwWeekendLabel(entry)} {entry.data.publishedAt.getFullYear()}</a></li>)}</ul>
+    </div>
+  </div></section>
 </BaseLayout>

@@ -13,6 +13,7 @@
 
 import { routeSlug } from './editorial.ts';
 import {selectEventPromotions} from './event-discovery.mjs';
+import {articleLinkRelevance} from './article-link-relevance.mjs';
 
 type ContentEntry = {
   id?: string;
@@ -50,19 +51,11 @@ export function resolveRefs<T extends ContentEntry>(
 
 /**
  * Score article→article relatedness. Higher score = more related.
- *   +3 same format
- *   +1 per shared tag
- *   +2 if both list the same place in their content
+ * Shared topics and recorded places/entities lead. Same format is only
+ * a tiebreaker once an actual topic or entity connection exists.
  */
 export function scoreArticleSimilarity(a: ContentEntry, b: ContentEntry): number {
-  let score = 0;
-  if (a.data.format && a.data.format === b.data.format) score += 3;
-  const aTags: string[] = a.data.tags ?? [];
-  const bTags: string[] = b.data.tags ?? [];
-  for (const tag of aTags) {
-    if (bTags.includes(tag)) score += 1;
-  }
-  return score;
+  return articleLinkRelevance(a,b);
 }
 
 /**
@@ -73,7 +66,7 @@ export function scoreArticleSimilarity(a: ContentEntry, b: ContentEntry): number
 export function pickRelatedArticles<T extends ContentEntry>(
   article: T,
   pool: T[],
-  options: { explicit?: Array<{ id?: string } | string>; limit?: number } = {},
+  options: { explicit?: Array<{ id?: string } | string>; limit?: number; relevantOnly?: boolean } = {},
 ): T[] {
   const limit = options.limit ?? 3;
   const sourceSlug = routeSlug(article);
@@ -95,6 +88,7 @@ export function pickRelatedArticles<T extends ContentEntry>(
     });
 
   const tail = ranked.map((x) => x.entry);
+  if(options.relevantOnly)return [...explicit,...tail].slice(0,limit);
   if (explicit.length + tail.length >= limit) {
     return [...explicit, ...tail].slice(0, limit);
   }

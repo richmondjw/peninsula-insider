@@ -1,0 +1,67 @@
+{
+  "generatedAt": "2026-10-10T19:17:50.268Z",
+  "scope": "Built public canonical HTML; Google does not provide this score. Semantic relevance requires separate review.",
+  "pages": 1023,
+  "eligible": 609,
+  "edges": 94084,
+  "score": 99.98,
+  "components": [
+    {
+      "criterion": "Route and fragment integrity",
+      "weight": 25,
+      "total": 94084,
+      "defects": 0,
+      "earned": 25
+    },
+    {
+      "criterion": "Direct canonical destinations",
+      "weight": 20,
+      "total": 609,
+      "defects": 0,
+      "earned": 20
+    },
+    {
+      "criterion": "Inbound links and homepage reachability",
+      "weight": 20,
+      "total": 609,
+      "defects": 0,
+      "earned": 20
+    },
+    {
+      "criterion": "Public pages within three clicks",
+      "weight": 10,
+      "total": 609,
+      "defects": 1,
+      "earned": 9.983579638752053
+    },
+    {
+      "criterion": "Named anchors and followed internal links",
+      "weight": 15,
+      "total": 94084,
+      "defects": 0,
+      "earned": 15
+    },
+    {
+      "criterion": "Links from page content",
+      "weight": 10,
+      "total": 609,
+      "defects": 0,
+      "earned": 10
+    }
+  ],
+  "broken": [],
+  "missingFragments": [],
+  "noncanonical": [],
+  "empty": [],
+  "generic": [],
+  "nofollow": [],
+  "orphans": [],
+  "unreachable": [],
+  "deep": [
+    {
+      "route": "/whats-on/main-street-mornington-festival-2026/",
+      "depth": 4
+    }
+  ],
+  "noBody": []
+}

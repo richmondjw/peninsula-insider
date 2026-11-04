@@ -1,0 +1,5959 @@
+{
+  "generatedAt": "2026-10-10T19:22:58.806Z",
+  "scope": "Built public canonical HTML; Google does not provide this score. Semantic relevance requires separate review.",
+  "pages": 700,
+  "eligible": 608,
+  "edges": 81114,
+  "score": 91.66,
+  "components": [
+    {
+      "criterion": "Route and fragment integrity",
+      "weight": 25,
+      "total": 81114,
+      "defects": 0,
+      "earned": 25
+    },
+    {
+      "criterion": "Direct canonical destinations",
+      "weight": 20,
+      "total": 608,
+      "defects": 186,
+      "earned": 13.881578947368421
+    },
+    {
+      "criterion": "Inbound links and homepage reachability",
+      "weight": 20,
+      "total": 608,
+      "defects": 44,
+      "earned": 18.552631578947366
+    },
+    {
+      "criterion": "Public pages within three clicks",
+      "weight": 10,
+      "total": 608,
+      "defects": 10,
+      "earned": 9.835526315789473
+    },
+    {
+      "criterion": "Named anchors and followed internal links",
+      "weight": 15,
+      "total": 81114,
+      "defects": 0,
+      "earned": 15
+    },
+    {
+      "criterion": "Links from page content",
+      "weight": 10,
+      "total": 608,
+      "defects": 37,
+      "earned": 9.391447368421053
+    }
+  ],
+  "broken": [],
+  "missingFragments": [],
+  "noncanonical": [
+    {
+      "source": "/boating/hire/mornington-boat-hire/",
+      "target": "/boating/hire/sorrento-boat-hire/",
+      "text": "Sorrento Boat Hire",
+      "chrome": false,
+      "canonical": "/boating/hire/"
+    },
+    {
+      "source": "/boating/hire/mornington-boat-hire/",
+      "target": "/boating/hire/rye-boat-hire/",
+      "text": "Rye Boat Hire",
+      "chrome": false,
+      "canonical": "/boating/hire/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/boating/ramps/sorrento-boat-ramp/",
+      "target": "/boating/hire/sorrento-boat-hire/",
+      "text": "Sorrento Boat Hire",
+      "chrome": false,
+      "canonical": "/boating/hire/"
+    },
+    {
+      "source": "/eat/allis-wine-bar/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/allis-wine-bar/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Lightfoot Wines",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/allis-wine-bar/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "target": "/eat/elan-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Elan Vineyard & Gallery",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "Hurley Vineyard",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-bakehouse/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "target": "/eat/elan-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Elan Vineyard & Gallery",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "Hurley Vineyard",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/balnarring-pub/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/barmah-park-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/eat/barmah-park/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/barmah-park-vineyard/",
+      "text": "Barmah Park Vineyard",
+      "chrome": false,
+      "canonical": "/eat/barmah-park/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/barmah-park-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/eat/barmah-park/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/moorooduc-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/moorooduc-estate/",
+      "text": "Moorooduc Estate",
+      "chrome": false,
+      "canonical": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/moorooduc-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/phaedrus-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/phaedrus-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/phaedrus-estate/",
+      "text": "Phaedrus Estate",
+      "chrome": false,
+      "canonical": "/wine/phaedrus-estate/"
+    },
+    {
+      "source": "/eat/barmah-park/",
+      "target": "/eat/phaedrus-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/phaedrus-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Pt. Leo Estate",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Ten Minutes by Tractor",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Willow Creek Vineyard",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/paringa-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/paringa-estate/",
+      "text": "Paringa Estate",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/paringa-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/polperro/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/polperro/",
+      "text": "Polperro",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/polperro/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Port Phillip Estate",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/yabby-lake/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/yabby-lake/",
+      "text": "Yabby Lake Vineyard",
+      "chrome": false,
+      "canonical": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/yabby-lake/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/avani-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/avani-wines/",
+      "text": "Avani Wines",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/avani-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Baillieu Vineyard",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/best-restaurants/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Ten Minutes by Tractor",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Pt. Leo Estate",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/polperro/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/polperro/",
+      "text": "Polperro",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/polperro/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/paringa-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/paringa-estate/",
+      "text": "Paringa Estate",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/paringa-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Port Phillip Estate",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/red-hill-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/red-hill-estate/",
+      "text": "Red Hill Estate",
+      "chrome": false,
+      "canonical": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/red-hill-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/t-gallant/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/t-gallant/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/t-gallant/",
+      "text": "T'Gallant",
+      "chrome": false,
+      "canonical": "/wine/t-gallant/"
+    },
+    {
+      "source": "/eat/cellar-door-lunch/",
+      "target": "/eat/t-gallant/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/t-gallant/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "target": "/eat/crittenden-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "target": "/eat/crittenden-estate/",
+      "text": "Crittenden Estate",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/crittenden-restaurant/",
+      "target": "/eat/crittenden-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "target": "/eat/polperro/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "target": "/eat/polperro/",
+      "text": "Polperro",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "target": "/eat/polperro/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/date-night/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "target": "/eat/scorpo-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "target": "/eat/scorpo-wines/",
+      "text": "Scorpo Wines",
+      "chrome": false,
+      "canonical": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "target": "/eat/scorpo-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Willow Creek Vineyard",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/doot-doot-doot/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/eat/crittenden-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/eat/crittenden-estate/",
+      "text": "Crittenden Estate",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/dromana-hotel/",
+      "target": "/eat/crittenden-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "target": "/eat/avani-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "target": "/eat/avani-wines/",
+      "text": "Avani Wines",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "target": "/eat/avani-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "target": "/eat/kooyong/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "target": "/eat/kooyong/",
+      "text": "Kooyong",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/epicurean-red-hill/",
+      "target": "/eat/kooyong/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/family-friendly/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/family-friendly/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/family-friendly/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Ten Minutes by Tractor",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/polperro/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/polperro/",
+      "text": "Polperro",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/polperro/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/paringa-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/paringa-estate/",
+      "text": "Paringa Estate",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/paringa-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Port Phillip Estate",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/fine-dining/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/eldridge-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Eldridge Estate",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/main-ridge-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/main-ridge-estate/",
+      "text": "Main Ridge Estate",
+      "chrome": false,
+      "canonical": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/eat/green-olive-red-hill/",
+      "target": "/eat/main-ridge-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Pt. Leo Estate",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Ten Minutes by Tractor",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Willow Creek Vineyard",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/paringa-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/paringa-estate/",
+      "text": "Paringa Estate",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/paringa-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/polperro/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/polperro/",
+      "text": "Polperro",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/polperro/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Port Phillip Estate",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/yabby-lake/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/yabby-lake/",
+      "text": "Yabby Lake Vineyard",
+      "chrome": false,
+      "canonical": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/hatted-restaurants/",
+      "target": "/eat/yabby-lake/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/yabby-lake/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/corrections/",
+      "text": "Tell us what has changed →",
+      "chrome": false,
+      "canonical": "/contact/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/port-phillip-estate-restaurant/",
+      "text": "Port Phillip Estate Restaurant",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/jetty-road-brewery/",
+      "text": "Jetty Road Brewery",
+      "chrome": false,
+      "canonical": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "Tar Barrel Brewery & Distillery",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/eat/",
+      "target": "/eat/two-bays-brewing/",
+      "text": "Two Bays Brewing Co",
+      "chrome": false,
+      "canonical": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/eat/la-baracca-tgallant/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/la-baracca-tgallant/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Lightfoot Wines",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/la-baracca-tgallant/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Baillieu Vineyard",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "target": "/eat/merricks-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "target": "/eat/merricks-estate/",
+      "text": "Merricks Estate",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/laura-pt-leo/",
+      "target": "/eat/merricks-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/polperro/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/polperro/",
+      "text": "Polperro",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/polperro/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/polperro/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Pt. Leo Estate",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/pt-leo-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/pt-leo-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/paringa-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/paringa-estate/",
+      "text": "Paringa Estate",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/paringa-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Ten Minutes by Tractor",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Port Phillip Estate",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/port-phillip-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/port-phillip-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/red-hill-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/red-hill-estate/",
+      "text": "Red Hill Estate",
+      "chrome": false,
+      "canonical": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/long-lunch/",
+      "target": "/eat/red-hill-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-estate/"
+    },
+    {
+      "source": "/eat/main-ridge-dairy/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/main-ridge-dairy/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Lightfoot Wines",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/main-ridge-dairy/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "target": "/eat/avani-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "target": "/eat/avani-wines/",
+      "text": "Avani Wines",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "target": "/eat/avani-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "target": "/eat/kooyong/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "target": "/eat/kooyong/",
+      "text": "Kooyong",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/many-little/",
+      "target": "/eat/kooyong/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Baillieu Vineyard",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "target": "/eat/merricks-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "target": "/eat/merricks-estate/",
+      "text": "Merricks Estate",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/merricks-general-wine-store/",
+      "target": "/eat/merricks-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/no-booking/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/montalto/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/montalto/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/paringa-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/paringa-estate/",
+      "text": "Paringa Estate",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/paringa-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/paringa-estate/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/paddock-to-plate/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Baillieu Vineyard",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "target": "/eat/merricks-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "target": "/eat/merricks-estate/",
+      "text": "Merricks Estate",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/point-leo-wine-terrace/",
+      "target": "/eat/merricks-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/eat/portsea-hotel/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "target": "/eat/scorpo-wines/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "target": "/eat/scorpo-wines/",
+      "text": "Scorpo Wines",
+      "chrome": false,
+      "canonical": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "target": "/eat/scorpo-wines/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/scorpo-wines/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Willow Creek Vineyard",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/rare-hare/",
+      "target": "/eat/willow-creek-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/willow-creek-vineyard/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/eat/eldridge-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Eldridge Estate",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-gum-bbq/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-hill-bakery/",
+      "target": "/eat/elan-vineyard/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/red-hill-bakery/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Elan Vineyard & Gallery",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/red-hill-bakery/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "target": "/eat/eldridge-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Eldridge Estate",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/red-hill-cheese/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/rye-hotel/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/eat/seafood/",
+      "target": "/eat/ocean-eight/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/ocean-eight/"
+    },
+    {
+      "source": "/eat/seafood/",
+      "target": "/eat/ocean-eight/",
+      "text": "Ocean Eight Vineyard",
+      "chrome": false,
+      "canonical": "/wine/ocean-eight/"
+    },
+    {
+      "source": "/eat/seafood/",
+      "target": "/eat/ocean-eight/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/ocean-eight/"
+    },
+    {
+      "source": "/eat/sorrento-hotel/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/eat/stringers-sorrento/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "target": "/eat/eldridge-estate/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Eldridge Estate",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/tedesca-osteria/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/eat/the-baths-sorrento/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/ashcombe-maze/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/ashcombe-maze/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/ashcombe-maze/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/balnarring-beach/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/explore/beaches/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/beaches/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/beaches/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/bushrangers-bay-walk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/bushrangers-bay-walk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/bushrangers-bay-walk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-boardwalk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-boardwalk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-boardwalk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-lighthouse-walk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-lighthouse-walk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/cape-schanck-lighthouse-walk/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/coastal-walk-cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/coastal-walk-cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/coastal-walk-cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/dromana-beach/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/flinders-golf-club/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/flinders-golf-club/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/flinders-golf-club/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/greens-bush-two-bays-section/",
+      "target": "/journal/peninsula-this-weekend-jul-04/",
+      "text": "Peninsula This Weekend - 4 to 5 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/explore/gunnamatta-ocean-beach/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/gunnamatta-ocean-beach/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/gunnamatta-ocean-beach/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/explore/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/explore/moonah-links/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/moonah-links/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/moonah-links/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/mount-martha-beach/",
+      "target": "/journal/peninsula-this-weekend-may-30/",
+      "text": "Peninsula This Weekend - 30 to 31 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/explore/places/arthurs-seat/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/cape-schanck/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "target": "/eat/jetty-road-brewery/",
+      "text": "Jetty Road Brewery",
+      "chrome": false,
+      "canonical": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/places/dromana/",
+      "target": "/eat/two-bays-brewing/",
+      "text": "Two Bays Brewing Co",
+      "chrome": false,
+      "canonical": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/fingal/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/places/merricks-north/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/moorooduc/",
+      "target": "/wine/moorooduc/",
+      "text": "Moorooduc wine guide →",
+      "chrome": false,
+      "canonical": "/explore/places/moorooduc/"
+    },
+    {
+      "source": "/explore/places/moorooduc/",
+      "target": "/journal/peninsula-this-weekend-jun-06/",
+      "text": "Peninsula This Weekend - 6 to 7 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "target": "/stay/mornington/",
+      "text": "Mornington Stays Bay-side bases, walkable and good for first-timers →",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/"
+    },
+    {
+      "source": "/explore/places/mornington/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "Tar Barrel Brewery & Distillery",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/places/mount-martha/",
+      "target": "/journal/peninsula-this-weekend-may-30/",
+      "text": "Peninsula This Weekend - 30 to 31 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/explore/places/mount-martha/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/red-hill-south/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/places/rye/",
+      "target": "/journal/peninsula-this-weekend-jun-27/",
+      "text": "Peninsula This Weekend - 27 to 28 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/explore/places/safety-beach/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/plans/how-to-plan-a-peninsula-weekend/",
+      "target": "/journal/the-four-hour-peninsula/",
+      "text": "four-hour guide",
+      "chrome": false,
+      "canonical": "/explore/plans/the-four-hour-peninsula/"
+    },
+    {
+      "source": "/explore/plans/mornington-day-guide/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/plans/mornington-day-guide/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/plans/mornington-day-guide/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/plans/the-family-day-out/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-four-hour-peninsula/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-four-hour-peninsula/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-four-hour-peninsula/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-market-saturday/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-market-saturday/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-market-saturday/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-peninsula-orientation-drive/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-peninsula-orientation-drive/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-peninsula-orientation-drive/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/plans/the-school-holidays-survival-guide/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/plans/walks-cape-schanck-hot-springs-day/",
+      "target": "/journal/mornington-peninsula-stay-and-soak/",
+      "text": "Where to stay near the hot springs",
+      "chrome": false,
+      "canonical": "/explore/plans/mornington-peninsula-stay-and-soak/"
+    },
+    {
+      "source": "/explore/racv-cape-schanck-golf-course/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/racv-cape-schanck-golf-course/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/racv-cape-schanck-golf-course/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/jetty-road-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/jetty-road-brewery/",
+      "text": "Jetty Road Brewery",
+      "chrome": false,
+      "canonical": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/jetty-road-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "Tar Barrel Brewery & Distillery",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/two-bays-brewing/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/two-bays-brewing/",
+      "text": "Two Bays Brewing Co",
+      "chrome": false,
+      "canonical": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/regions/mornington-bay-coast/",
+      "target": "/eat/two-bays-brewing/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/ocean-coast/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/regions/red-hill-wine-country/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/regions/red-hill-wine-country/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/regions/red-hill-wine-country/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/explore/rye-ocean-beach/",
+      "target": "/journal/peninsula-this-weekend-jun-27/",
+      "text": "Peninsula This Weekend - 27 to 28 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/explore/rye-ocean-beach/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/safety-beach-foreshore/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/explore/st-andrews-beach-golf-course/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/st-andrews-beach-golf-course/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/st-andrews-beach-golf-course/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/sunny-ridge-strawberry-farm/",
+      "target": "/journal/peninsula-this-weekend-jul-04/",
+      "text": "Peninsula This Weekend - 4 to 5 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/explore/the-dunes-golf-links/",
+      "target": "/journal/peninsula-this-weekend-jun-27/",
+      "text": "Peninsula This Weekend - 27 to 28 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/explore/the-national-golf-club/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/the-national-golf-club/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/the-national-golf-club/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/two-bays-walking-track/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay Beach",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/two-bays-walking-track/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/explore/two-bays-walking-track/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Open the guide →",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/fishing/locations/portsea-pier/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/garfish/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/king-george-whiting/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/pinkies/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/fishing/species/squid/",
+      "target": "/fishing/locations/sorrento-pier/",
+      "text": "Sorrento Pier",
+      "chrome": false,
+      "canonical": "/fishing/"
+    },
+    {
+      "source": "/insiders-30/2026/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "16 wine Bass & Flinders Distillery $$ · Dromana Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson. →",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/insiders-30/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "16 wine Bass & Flinders Distillery $$ · Dromana Distillery whose gin botanical walks and tasting flights doubled as a Peninsula geography lesson. →",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/journal/a-winter-peninsula-weekend/",
+      "target": "/journal/peninsula-this-weekend-jul-11/",
+      "text": "Peninsula This Weekend - 11 to 12 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/a-winter-peninsula-weekend/",
+      "target": "/journal/peninsula-this-weekend-jul-18/",
+      "text": "Peninsula This Weekend - 18 to 19 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/a-winter-peninsula-weekend/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "Next → The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": true,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/area-guide-dromana/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/area-guide-dromana/",
+      "target": "/journal/peninsula-this-weekend-may-03/",
+      "text": "Next → Peninsula This Weekend - 9 to 10 May",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-03/"
+    },
+    {
+      "source": "/journal/area-guide-flinders/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/area-guide-main-ridge/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/area-guide-merricks/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/area-guide-portsea/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/area-guide-red-hill/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/arthurs-seat-eagle-visitor-guide/",
+      "target": "/journal/peninsula-this-weekend-april-24/",
+      "text": "Next → Peninsula This Weekend - 24 to 26 April",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-04-24/"
+    },
+    {
+      "source": "/journal/autumn-weekend-edit/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/autumn-weekend-edit/",
+      "target": "/journal/peninsula-this-weekend-may-30/",
+      "text": "Peninsula This Weekend - 30 to 31 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/journal/boat-moorings-berths-mornington-peninsula/",
+      "target": "/journal/mornington-peninsula-boat-ramps/",
+      "text": "Mornington Peninsula Boat Ramps →",
+      "chrome": true,
+      "canonical": "/boating/ramps/"
+    },
+    {
+      "source": "/journal/boat-moorings-berths-mornington-peninsula/",
+      "target": "/boating/boat-hire/",
+      "text": "Boat Hire on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/boating/hire/"
+    },
+    {
+      "source": "/journal/boat-moorings-berths-mornington-peninsula/",
+      "target": "/places/mornington/",
+      "text": "Mornington - Full Place Guide →",
+      "chrome": true,
+      "canonical": "/explore/places/mornington/"
+    },
+    {
+      "source": "/journal/corporate-events-red-hill-vs-sorrento/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/corporate-events-red-hill-vs-sorrento/",
+      "target": "/journal/where-to-stay-mornington-peninsula/",
+      "text": "Next → Where to Stay on the Mornington Peninsula",
+      "chrome": true,
+      "canonical": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/first-time-peninsula/",
+      "target": "/journal/the-four-hour-peninsula/",
+      "text": "four-hour guide",
+      "chrome": false,
+      "canonical": "/explore/plans/the-four-hour-peninsula/"
+    },
+    {
+      "source": "/journal/first-time-peninsula/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "← Previous The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": true,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/first-time-peninsula/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "Next → The Rainy-Day Peninsula Without a Booking",
+      "chrome": true,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jul-18/",
+      "text": "Peninsula This Weekend - 18 to 19 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jul-11/",
+      "text": "Peninsula This Weekend - 11 to 12 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jul-04/",
+      "text": "Peninsula This Weekend - 4 to 5 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jun-27/",
+      "text": "Peninsula This Weekend - 27 to 28 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jun-20/",
+      "text": "Peninsula This Weekend - 20 to 21 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Peninsula This Weekend - 13 to 14 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-jun-06/",
+      "text": "Peninsula This Weekend - 6 to 7 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-may-30/",
+      "text": "Peninsula This Weekend - 30 to 31 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-24/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-may-23/",
+      "text": "Peninsula This Weekend - 23 to 24 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-17/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-may-16/",
+      "text": "Peninsula This Weekend - 16 to 17 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-11/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-may-03/",
+      "text": "Peninsula This Weekend - 9 to 10 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-03/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-april-26/",
+      "text": "Peninsula This Weekend - 2 to 3 May",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-04-26/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/peninsula-this-weekend-april-24/",
+      "text": "Peninsula This Weekend - 24 to 26 April",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-04-24/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/where-to-stay-mornington-peninsula/",
+      "text": "Where to Stay on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/stay/best-accommodation/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "the Peninsula with kids",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/indoor-play-mornington-peninsula/",
+      "target": "/journal/peninsula-this-weekend-jul-18/",
+      "text": "← Previous Peninsula This Weekend - 18 to 19 July",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-05/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-05/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-24/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-24/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-25/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-25/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-27/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-27/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-28/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-28/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-29/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-29/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-30/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-30/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-31/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-07-31/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-01/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-01/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-02/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-02/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-06/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-06/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-09/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-09/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-10/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-10/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-12/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-12/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-17/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-17/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-27/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-27/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-08-27/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-01/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-02/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-02/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-02/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-02/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-04/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-05/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-06/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-07/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-07/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-07/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-07/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-08/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-09/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-10/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-11/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-12/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-12/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-12/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-12/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-13/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-14/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-15/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-16/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-17/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-17/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-17/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-17/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-19/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-20/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-23/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-24/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-27/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-27/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-27/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-27/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-28/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-29/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-09-30/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-01/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "target": "/journal/how-to-plan-a-peninsula-weekend/",
+      "text": "How to Plan a Peninsula Weekend →",
+      "chrome": true,
+      "canonical": "/explore/plans/how-to-plan-a-peninsula-weekend/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-03/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-04/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-05/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-06/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-07/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-07/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-07/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-07/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "target": "/journal/how-to-plan-a-peninsula-weekend/",
+      "text": "How to Plan a Peninsula Weekend →",
+      "chrome": true,
+      "canonical": "/explore/plans/how-to-plan-a-peninsula-weekend/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-09/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Things to Do on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "target": "/explore/best-walks/",
+      "text": "Best Walks on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula →",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/insider-picks-2026-10-10/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/luxury-hotels-mornington-peninsula/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "← Previous The Mornington Peninsula Beach Guide",
+      "chrome": true,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "The Mornington Peninsula Beach Guide",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/mornington-peninsula-winery-guide/",
+      "target": "/journal/mornington-peninsula-beach-guide/",
+      "text": "Next → The Mornington Peninsula Beach Guide",
+      "chrome": true,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/peninsula-hot-springs-vs-alba/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/journal/peninsula-hot-springs-vs-alba/",
+      "target": "/journal/peninsula-this-weekend-jul-11/",
+      "text": "Peninsula This Weekend - 11 to 12 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/peninsula-hot-springs-vs-alba/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Next → Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": true,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "target": "/journal/peninsula-this-weekend-jul-18/",
+      "text": "Peninsula This Weekend - 18 to 19 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "target": "/journal/peninsula-this-weekend-jul-11/",
+      "text": "Peninsula This Weekend - 11 to 12 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "target": "/journal/peninsula-this-weekend-jun-27/",
+      "text": "Peninsula This Weekend - 27 to 28 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-22/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "target": "/journal/peninsula-this-weekend-jul-04/",
+      "text": "Peninsula This Weekend - 4 to 5 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Peninsula This Weekend - 13 to 14 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/peninsula-notes-june-2026/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Next → Peninsula This Weekend - 13 to 14 June",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/point-nepean-national-park-guide/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "← Previous Things to Do on the Mornington Peninsula",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/quealy-winemakers-balnarring/",
+      "target": "/journal/peninsula-this-weekend-jun-20/",
+      "text": "Peninsula This Weekend - 20 to 21 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/quealy-winemakers-balnarring/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Peninsula This Weekend - 13 to 14 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/quealy-winemakers-balnarring/",
+      "target": "/journal/peninsula-this-weekend-april-26/",
+      "text": "← Previous Peninsula This Weekend - 2 to 3 May",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-04-26/"
+    },
+    {
+      "source": "/journal/rainy-day-peninsula/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/rainy-day-peninsula/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "target": "/journal/peninsula-this-weekend-jun-20/",
+      "text": "Peninsula This Weekend - 20 to 21 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "← Previous Peninsula This Weekend - 13 to 14 June",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/sorrento-solstice-festival-2026-guide/",
+      "target": "/journal/peninsula-this-weekend-jun-20/",
+      "text": "Next → Peninsula This Weekend - 20 to 21 June",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/spring-school-holidays-2026/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/spring-school-holidays-2026/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": false,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/st-andrews-beach-golf-course/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/st-andrews-beach-golf-course/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/st-andrews-beach-golf-course/",
+      "target": "/journal/the-peninsula-beach-swimming-guide/",
+      "text": "← Previous The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach",
+      "chrome": true,
+      "canonical": "/explore/beaches/"
+    },
+    {
+      "source": "/journal/the-cellar-door-short-list/",
+      "target": "/journal/the-producer-trail/",
+      "text": "The Producer Trail",
+      "chrome": false,
+      "canonical": "/explore/plans/the-producer-trail/"
+    },
+    {
+      "source": "/journal/the-cellar-door-short-list/",
+      "target": "/journal/how-to-build-a-red-hill-saturday/",
+      "text": "How to Build a Red Hill Saturday",
+      "chrome": false,
+      "canonical": "/explore/plans/how-to-build-a-red-hill-saturday/"
+    },
+    {
+      "source": "/journal/the-chardonnay-case/",
+      "target": "/eat/ten-minutes-by-tractor/",
+      "text": "Ten Minutes by Tractor",
+      "chrome": false,
+      "canonical": "/wine/ten-minutes-by-tractor/"
+    },
+    {
+      "source": "/journal/the-chardonnay-case/",
+      "target": "/journal/peninsula-this-weekend-jul-04/",
+      "text": "Peninsula This Weekend - 4 to 5 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/the-chardonnay-case/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Peninsula This Weekend - 13 to 14 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/the-long-lunch/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Peninsula This Weekend - 13 to 14 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/the-peninsula-pantry/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/the-pub-guide/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/the-pub-guide/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "Next → The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": true,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    },
+    {
+      "source": "/journal/the-sorrento-weekend/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "← Previous The Rainy-Day Peninsula Without a Booking",
+      "chrome": true,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/the-spring-peninsula/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/the-spring-peninsula/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "← Previous The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": true,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/the-sunset-drink/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/the-vineyard-villa-weekend/",
+      "target": "/journal/peninsula-this-weekend-jul-04/",
+      "text": "Peninsula This Weekend - 4 to 5 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-29/"
+    },
+    {
+      "source": "/journal/the-winter-long-lunch/",
+      "target": "/journal/peninsula-this-weekend-jun-20/",
+      "text": "Peninsula This Weekend - 20 to 21 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/journal/the-winter-long-lunch/",
+      "target": "/journal/peninsula-this-weekend-jun-13/",
+      "text": "Peninsula This Weekend - 13 to 14 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-07/"
+    },
+    {
+      "source": "/journal/the-winter-long-lunch/",
+      "target": "/journal/peninsula-this-weekend-jun-06/",
+      "text": "Peninsula This Weekend - 6 to 7 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/journal/two-bays-walk-mornington-peninsula/",
+      "target": "/journal/things-to-do-mornington-peninsula/",
+      "text": "Next → Things to Do on the Mornington Peninsula",
+      "chrome": true,
+      "canonical": "/explore/things-to-do/"
+    },
+    {
+      "source": "/journal/walks-bushrangers-bay-walk-guide/",
+      "target": "/journal/walks-cape-schanck-hot-springs-day/",
+      "text": "The Cape Schanck Day: full itinerary guide",
+      "chrome": false,
+      "canonical": "/explore/plans/walks-cape-schanck-hot-springs-day/"
+    },
+    {
+      "source": "/journal/walks-bushrangers-bay-walk-guide/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/waterfront-restaurants-mornington-peninsula/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "← Previous Where to Eat on the Mornington Peninsula",
+      "chrome": true,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "target": "/journal/the-dog-friendly-peninsula/",
+      "text": "The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog",
+      "chrome": false,
+      "canonical": "/journal/dog-friendly-mornington-peninsula/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/journal/where-to-eat-without-a-booking/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Read notes",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/journal/why-winter-works-on-the-peninsula/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/journal/why-winter-works-on-the-peninsula/",
+      "target": "/journal/peninsula-this-weekend-jul-18/",
+      "text": "Peninsula This Weekend - 18 to 19 July",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/journal/why-winter-works-on-the-peninsula/",
+      "target": "/journal/peninsula-this-weekend-jun-06/",
+      "text": "← Previous Peninsula This Weekend - 6 to 7 June",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-05-31/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "target": "/journal/peninsula-this-weekend-jul-11/",
+      "text": "← Previous Peninsula This Weekend - 11 to 12 July",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-10/"
+    },
+    {
+      "source": "/journal/winter-indoors-mprg-rainy-day-circuit/",
+      "target": "/journal/peninsula-this-weekend-jul-18/",
+      "text": "Next → Peninsula This Weekend - 18 to 19 July",
+      "chrome": true,
+      "canonical": "/whats-on/this-weekend/archive/2026-07-13/"
+    },
+    {
+      "source": "/map/",
+      "target": "/eat/jetty-road-brewery/",
+      "text": "View : Jetty Road Brewery",
+      "chrome": false,
+      "canonical": "/wine/jetty-road-brewery/"
+    },
+    {
+      "source": "/map/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "View : Tar Barrel Brewery & Distillery",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/map/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "View : Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/map/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "View : St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/map/",
+      "target": "/eat/two-bays-brewing/",
+      "text": "View : Two Bays Brewing Co",
+      "chrome": false,
+      "canonical": "/wine/two-bays-brewing/"
+    },
+    {
+      "source": "/map/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "View : Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/where-to-eat-mornington-peninsula/",
+      "text": "Where to Eat on the Mornington Peninsula",
+      "chrome": false,
+      "canonical": "/eat/best-restaurants/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/peninsula-this-weekend-jun-20/",
+      "text": "Peninsula This Weekend - 20 to 21 June",
+      "chrome": false,
+      "canonical": "/whats-on/this-weekend/archive/2026-06-15/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Pizzas, a grazing board, fried chicken and two pints of beer on a marble table before a blazing open fireplace",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "A bartender smiles as he pulls a beer from a long row of colourful tap badges at St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "A staff member carries two steel tasting paddles holding glasses of dark, amber and pale beer across a garden",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "A pint of pale beer in a branded glass on the bar at St Andrews Beach Brewery, with beer tap badges lined up above",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Pizzas and a bowl of glazed chicken wings on a marble bench in front of an open wood fire at St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Overhead view of hands reaching for pizzas, chicken wings and a salad on a dark marble table, with glasses of beer",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Close view of a hand pulling a tap to fill a St Andrews Beach Brewery glass with pale beer",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "Amber beer poured straight from a steel brewing tank into a stemmed St Andrews Beach Brewery tasting glass",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "A glass of pale beer on a timber table at St Andrews Beach Brewery, with a fireplace glowing in the background",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/st-andrews-beach-brewery/",
+      "text": "St Andrews Beach Brewery",
+      "chrome": false,
+      "canonical": "/wine/st-andrews-beach-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/mornington-peninsula-golf-guide/",
+      "text": "Mornington Peninsula Golf - Why It's Australia's Best Golf Region",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Guests play chess and share drinks at tables in the Bass and Flinders Distillery bar, beside a wall of bottle-filled barrels",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass and Flinders Distillery signage on a tall grey wall beside a picket-fenced garden, planter boxes and a small bar",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "A hand holds a Bass and Flinders Distillery tumbler of gin and tonic on the bar beside a stemmed glass of pink spirit",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "A distiller draws spirit from an oak barrel with a glass thief, in front of a copper still and racks of barrels",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "A bottle of Bass and Flinders Heartbreak pinot noir gin on the bar beside two small glasses of the ruby spirit",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "A tasting paddle of gin and tonics over ice on a timber board, each glass paired with a slice of dried orange",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Hands use droppers to blend botanicals from rows of labelled shot glasses during a gin-making class at a timber table",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/bass-and-flinders/",
+      "text": "Bass & Flinders Distillery",
+      "chrome": false,
+      "canonical": "/wine/bass-and-flinders/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/journal/the-rainy-day-peninsula-without-a-booking/",
+      "text": "The Rainy-Day Peninsula Without a Booking",
+      "chrome": false,
+      "canonical": "/journal/rainy-day-peninsula/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Visitors walk past the open doors of the weathered timber Brewhouse shed, with brewing tanks visible inside",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Rows of hop bines climb tall timber poles either side of a grassy path, with gum trees beyond",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "A hand pulls a pale beer into a small glass from a row of worn metal taps with a Red Hill Brewery tap badge",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "A small glass fills with frothy beer from a curved chrome spout beside a brass and timber beer engine",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "A tasting paddle of four beers, from dark to pale, on a weathered outdoor table beside timber chairs",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Clusters of green hop cones hang from a leafy bine against a weathered grey timber fence",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/photography/",
+      "target": "/eat/red-hill-brewery/",
+      "text": "Red Hill Brewery",
+      "chrome": false,
+      "canonical": "/wine/red-hill-brewery/"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "Skip to content",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/#main-content"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "01 A perfect day",
+      "chrome": true,
+      "canonical": "/explore/places/mornington/#perfect-day"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "02 Eat & drink",
+      "chrome": true,
+      "canonical": "/explore/places/mornington/#eat-drink"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "03 Explore",
+      "chrome": true,
+      "canonical": "/explore/places/mornington/#explore"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "04 Escape plans",
+      "chrome": true,
+      "canonical": "/explore/places/mornington/#escapes"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "05 From the journal",
+      "chrome": true,
+      "canonical": "/explore/places/mornington/#journal"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "3 places to eat",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/#eat-drink"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "3 ways to explore",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/#explore"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "3 escape plans",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/#escapes"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/places/mornington/",
+      "text": "4 journal pieces",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/#journal"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/stay/mornington/",
+      "text": "Mornington Stays Bay-side bases, walkable and good for first-timers →",
+      "chrome": false,
+      "canonical": "/explore/places/mornington/"
+    },
+    {
+      "source": "/places/mornington/",
+      "target": "/eat/mornington-peninsula-brewery/",
+      "text": "Tar Barrel Brewery & Distillery",
+      "chrome": false,
+      "canonical": "/wine/mornington-peninsula-brewery/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/avani-wines/",
+      "text": "Avani Wines",
+      "chrome": false,
+      "canonical": "/wine/avani-wines/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/baillieu-vineyard/",
+      "text": "Baillieu Vineyard",
+      "chrome": false,
+      "canonical": "/wine/baillieu-vineyard/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/barmah-park-vineyard/",
+      "text": "Barmah Park Vineyard",
+      "chrome": false,
+      "canonical": "/eat/barmah-park/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/crittenden-estate/",
+      "text": "Crittenden Estate",
+      "chrome": false,
+      "canonical": "/wine/crittenden-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/dromana-estate/",
+      "text": "Dromana Estate",
+      "chrome": false,
+      "canonical": "/wine/dromana-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/elan-vineyard/",
+      "text": "Elan Vineyard & Gallery",
+      "chrome": false,
+      "canonical": "/wine/elan-vineyard/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/eldridge-estate/",
+      "text": "Eldridge Estate",
+      "chrome": false,
+      "canonical": "/wine/eldridge-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/foxeys-hangout/",
+      "text": "Foxeys Hangout",
+      "chrome": false,
+      "canonical": "/wine/foxeys-hangout/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/hurley-vineyard/",
+      "text": "Hurley Vineyard",
+      "chrome": false,
+      "canonical": "/wine/hurley-vineyard/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/kooyong/",
+      "text": "Kooyong",
+      "chrome": false,
+      "canonical": "/wine/kooyong/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/lightfoot-wines/",
+      "text": "Lightfoot Wines",
+      "chrome": false,
+      "canonical": "/wine/lightfoot-wines/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/main-ridge-estate/",
+      "text": "Main Ridge Estate",
+      "chrome": false,
+      "canonical": "/wine/main-ridge-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/merricks-estate/",
+      "text": "Merricks Estate",
+      "chrome": false,
+      "canonical": "/wine/merricks-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/montalto/",
+      "text": "Montalto Vineyard & Olive Grove",
+      "chrome": false,
+      "canonical": "/wine/montalto/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/moorooduc-estate/",
+      "text": "Moorooduc Estate",
+      "chrome": false,
+      "canonical": "/wine/moorooduc-estate/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/eat/morning-sun/",
+      "text": "Morning Sun Vineyard",
+      "chrome": false,
+      "canonical": "/wine/morning-sun/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/explore/bushrangers-bay/",
+      "text": "Bushrangers Bay",
+      "chrome": false,
+      "canonical": "/explore/bushrangers-bay-walk/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/journal/best-golf-courses-mornington-peninsula/",
+      "text": "Best Golf Courses on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/golf/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/journal/best-spas-mornington-peninsula/",
+      "text": "Best Spas on the Mornington Peninsula - The Tier Guide",
+      "chrome": false,
+      "canonical": "/explore/spas-and-wellness/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/journal/corporate-events-how-to-plan-peninsula-retreat/",
+      "text": "How to Plan a Mornington Peninsula Corporate Retreat",
+      "chrome": false,
+      "canonical": "/explore/plans/corporate-events-how-to-plan-peninsula-retreat/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/journal/how-to-build-a-red-hill-saturday/",
+      "text": "What to Do in Red Hill This Weekend: The Saturday Plan",
+      "chrome": false,
+      "canonical": "/explore/plans/how-to-build-a-red-hill-saturday/"
+    },
+    {
+      "source": "/site-index/",
+      "target": "/journal/how-to-plan-a-peninsula-weekend/",
+      "text": "How to Plan a Peninsula Weekend: The Decision Framework",
+      "chrome": false,
+      "canonical": "/explore/plans/how-to-plan-a-peninsula-weekend/"
+    },
+    {
+      "source": "/walks/easy-walks-mornington-peninsula/",
+      "target": "/walks/",
+      "text": "Walks",
+      "chrome": true,
+      "canonical": "/explore/walks/"
+    },
+    {
+      "source": "/weddings/",
+      "target": "/journal/weddings-mornington-peninsula-weekend-planning/",
+      "text": "How to Plan a Mornington Peninsula Wedding Weekend",
+      "chrome": false,
+      "canonical": "/explore/plans/weddings-mornington-peninsula-weekend-planning/"
+    },
+    {
+      "source": "/weddings/",
+      "target": "/journal/weddings-mornington-peninsula-weekend-planning/",
+      "text": "Read →",
+      "chrome": false,
+      "canonical": "/explore/plans/weddings-mornington-peninsula-weekend-planning/"
+    },
+    {
+      "source": "/wine/",
+      "target": "/journal/how-to-build-a-red-hill-saturday/",
+      "text": "A Red Hill Saturday",
+      "chrome": false,
+      "canonical": "/explore/plans/how-to-build-a-red-hill-saturday/"
+    },
+    {
+      "source": "/wine/st-andrews-beach-brewery/",
+      "target": "/journal/the-peninsula-with-kids/",
+      "text": "The Peninsula with Kids: A Day That Doesn't Punish Anyone",
+      "chrome": false,
+      "canonical": "/journal/mornington-peninsula-with-kids/"
+    }
+  ],
+  "empty": [],
+  "generic": [],
+  "nofollow": [],
+  "orphans": [
+    "/careers/",
+    "/journal/insider-picks-2026-09-06/",
+    "/journal/insider-picks-2026-09-07/",
+    "/journal/insider-picks-2026-09-08/",
+    "/journal/insider-picks-2026-09-09/",
+    "/journal/insider-picks-2026-09-11/",
+    "/journal/insider-picks-2026-09-13/",
+    "/journal/insider-picks-2026-09-14/",
+    "/journal/insider-picks-2026-09-15/",
+    "/journal/insider-picks-2026-09-16/",
+    "/journal/insider-picks-2026-09-17/",
+    "/journal/insider-picks-2026-09-20/",
+    "/journal/insider-picks-2026-09-24/",
+    "/journal/mornington-peninsula-in-autumn/",
+    "/whats-on/main-street-mornington-festival-2026/",
+    "/wine/elgee-park/",
+    "/wine/kerri-greens/"
+  ],
+  "unreachable": [
+    "/awards/best-family-day/",
+    "/awards/best-new-opening/",
+    "/awards/cellar-door-of-the-year/",
+    "/awards/editorial-discovery/",
+    "/awards/",
+    "/awards/locals-choice/",
+    "/awards/nominate/",
+    "/awards/restaurant-of-the-year/",
+    "/awards/stay-of-the-year/",
+    "/awards/walk-of-the-year/",
+    "/awards/worth-the-drive/",
+    "/careers/",
+    "/events/annual-festivals/",
+    "/events/",
+    "/events/main-street-mornington-festival/",
+    "/events/mornington-winter-music-festival/",
+    "/events/peninsula-film-festival/",
+    "/events/portsea-polo/",
+    "/events/portsea-swim-classic/",
+    "/events/portsea-twilight/",
+    "/events/sailing-regattas/",
+    "/events/sorrento-writers-festival/",
+    "/events/wine-weekends/",
+    "/events/winter-wine-weekend/",
+    "/journal/insider-picks-2026-09-06/",
+    "/journal/insider-picks-2026-09-07/",
+    "/journal/insider-picks-2026-09-08/",
+    "/journal/insider-picks-2026-09-09/",
+    "/journal/insider-picks-2026-09-11/",
+    "/journal/insider-picks-2026-09-13/",
+    "/journal/insider-picks-2026-09-14/",
+    "/journal/insider-picks-2026-09-15/",
+    "/journal/insider-picks-2026-09-16/",
+    "/journal/insider-picks-2026-09-17/",
+    "/journal/insider-picks-2026-09-20/",
+    "/journal/insider-picks-2026-09-24/",
+    "/journal/mornington-peninsula-in-autumn/",
+    "/whats-on/by-mood/after-dark/",
+    "/whats-on/by-mood/this-weekend/",
+    "/whats-on/by-mood/when-it-rains/",
+    "/whats-on/by-mood/worth-the-drive/",
+    "/whats-on/main-street-mornington-festival-2026/",
+    "/wine/elgee-park/",
+    "/wine/kerri-greens/"
+  ],
+  "deep": [
+    {
+      "route": "/eat/seafood/",
+      "depth": 4
+    },
+    {
+      "route": "/insiders-30/map/",
+      "depth": 4
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-04-24/",
+      "depth": 11
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-04-26/",
+      "depth": 10
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-05-03/",
+      "depth": 9
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-05-11/",
+      "depth": 8
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-05-17/",
+      "depth": 7
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-05-24/",
+      "depth": 6
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-05-31/",
+      "depth": 5
+    },
+    {
+      "route": "/whats-on/this-weekend/archive/2026-06-07/",
+      "depth": 4
+    }
+  ],
+  "noBody": [
+    "/awards/",
+    "/careers/",
+    "/eat/no-booking/",
+    "/events/",
+    "/explore/regions/",
+    "/journal/insider-picks-2026-09-06/",
+    "/journal/insider-picks-2026-09-07/",
+    "/journal/insider-picks-2026-09-08/",
+    "/journal/insider-picks-2026-09-09/",
+    "/journal/insider-picks-2026-09-11/",
+    "/journal/insider-picks-2026-09-13/",
+    "/journal/insider-picks-2026-09-14/",
+    "/journal/insider-picks-2026-09-15/",
+    "/journal/insider-picks-2026-09-16/",
+    "/journal/insider-picks-2026-09-17/",
+    "/journal/insider-picks-2026-09-20/",
+    "/journal/insider-picks-2026-09-24/",
+    "/journal/mornington-peninsula-in-autumn/",
+    "/photography/",
+    "/site-index/",
+    "/stay/villas/",
+    "/whats-on/by-mood/after-dark/",
+    "/whats-on/by-mood/this-weekend/",
+    "/whats-on/by-mood/when-it-rains/",
+    "/whats-on/by-mood/worth-the-drive/",
+    "/whats-on/main-street-mornington-festival-2026/",
+    "/whats-on/this-weekend/archive/2026-04-24/",
+    "/whats-on/this-weekend/archive/2026-04-26/",
+    "/whats-on/this-weekend/archive/2026-05-03/",
+    "/whats-on/this-weekend/archive/2026-05-11/",
+    "/whats-on/this-weekend/archive/2026-05-17/",
+    "/whats-on/this-weekend/archive/2026-05-24/",
+    "/whats-on/this-weekend/archive/2026-05-31/",
+    "/whats-on/this-weekend/archive/2026-06-07/",
+    "/whats-on/this-weekend/archive/2026-06-15/",
+    "/wine/elgee-park/",
+    "/wine/kerri-greens/"
+  ]
+}
