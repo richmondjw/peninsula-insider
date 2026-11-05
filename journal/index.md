@@ -704,7 +704,7 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Thu, 5 Nov
+- [Fri, 6 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 

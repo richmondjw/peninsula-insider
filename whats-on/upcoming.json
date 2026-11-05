@@ -3,14 +3,14 @@
   "@type": "ItemList",
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
-  "generated": "2026-11-05",
-  "generatedAt": "2026-11-05T02:31:59.783Z",
+  "generated": "2026-11-06",
+  "generatedAt": "2026-11-05T14:20:04.524Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
   "window": {
-    "start": "2026-11-05",
-    "end": "2027-02-03"
+    "start": "2026-11-06",
+    "end": "2027-02-04"
   },
   "documentation": "https://peninsulainsider.com.au/agents/#trust",
   "site": "https://peninsulainsider.com.au",
@@ -40,8 +40,8 @@
         "@type": "Event",
         "name": "National Works on Paper 2026 (NWOP)",
         "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-        "startDate": "2026-11-05",
-        "endDate": "2026-11-05",
+        "startDate": "2026-11-06",
+        "endDate": "2026-11-06",
         "description": "National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
@@ -80,16 +80,6 @@
       "@type": "ListItem",
       "position": 6,
       "item": {
-        "@type": "Service",
-        "name": "Ten Minutes by Tractor, Terroir Masterclass",
-        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session."
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
         "@type": "Event",
         "name": "Study Smart at Mornington Library",
         "url": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
@@ -101,7 +91,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Event",
         "name": "Study Smart at Rosebud Library",
@@ -110,6 +100,16 @@
         "endDate": "2026-11-06",
         "description": "A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.",
         "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Service",
+        "name": "Ten Minutes by Tractor, Terroir Masterclass",
+        "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+        "description": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session."
       }
     },
     {
@@ -237,8 +237,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "startDate": "2026-11-05",
-      "endDate": "2027-02-03",
+      "startDate": "2026-11-06",
+      "endDate": "2027-02-04",
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
       "sourceUrl": "https://www.bassandflindersdistillery.com/pages/gin-masterclass",
       "factCheckedOn": "2026-10-03",
@@ -259,8 +259,8 @@
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "startDate": "2026-11-05",
-      "endDate": "2026-11-05",
+      "startDate": "2026-11-06",
+      "endDate": "2026-11-06",
       "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "sourceUrl": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
       "factCheckedOn": "2026-10-08",
@@ -291,8 +291,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "startDate": "2026-11-05",
-      "endDate": "2027-02-03",
+      "startDate": "2026-11-06",
+      "endDate": "2027-02-04",
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
       "sourceUrl": "https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga",
       "factCheckedOn": "2026-10-03",
@@ -313,8 +313,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "startDate": "2026-11-05",
-      "endDate": "2027-02-03",
+      "startDate": "2026-11-06",
+      "endDate": "2027-02-04",
       "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "sourceUrl": "https://www.ptleoestate.com.au/experience/sculpture-park/",
       "factCheckedOn": "2026-10-03",
@@ -335,8 +335,8 @@
       "contentKind": "experience",
       "dateMeaning": "availability",
       "url": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "startDate": "2026-11-05",
-      "endDate": "2027-02-03",
+      "startDate": "2026-11-06",
+      "endDate": "2027-02-04",
       "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
       "sourceUrl": "https://www.polperrowines.com.au/restore-pamper-retreat-at-polperro-farmhouse/",
       "factCheckedOn": "2026-05-04",
@@ -345,28 +345,6 @@
       "place": "red-hill",
       "venue": null,
       "summary": "3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill. Yoga, massage at PHS or Endota, optional juice cleanse, at the farmhouse in Red Hill. Booked direct via Polperro or Hut Yoga.",
-      "weekendOccurrences": [
-        {
-          "date": "2026-11-06"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Ten Minutes by Tractor, Terroir Masterclass",
-      "contentKind": "experience",
-      "dateMeaning": "availability",
-      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "startDate": "2026-11-05",
-      "endDate": "2027-02-03",
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
-      "factCheckedOn": "2026-10-03",
-      "recurrence": "ongoing",
-      "category": "food-wine",
-      "place": "main-ridge",
-      "venue": null,
-      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
       "weekendOccurrences": [
         {
           "date": "2026-11-06"
@@ -418,6 +396,28 @@
         {
           "date": "2026-11-06",
           "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Ten Minutes by Tractor, Terroir Masterclass",
+      "contentKind": "experience",
+      "dateMeaning": "availability",
+      "url": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "startDate": "2026-11-06",
+      "endDate": "2027-02-04",
+      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
+      "sourceUrl": "https://www.tenminutesbytractor.com.au/visit-us",
+      "factCheckedOn": "2026-10-03",
+      "recurrence": "ongoing",
+      "category": "food-wine",
+      "place": "main-ridge",
+      "venue": null,
+      "summary": "An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room. Explore the character of its Mornington Peninsula vineyards through two limited-release and six current-release wines; book an available session.",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-06"
         }
       ],
       "thisWeekend": true
