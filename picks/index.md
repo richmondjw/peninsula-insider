@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Baillieu Vineyard, the Merricks vine walk, and National Works on Paper closing soon](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/>) - Baillieu Vineyard's Chardonnay opens up with time, the Merricks vine walk is at its best in new-growth spring, and the National Works on Paper show at MPRG closes 22 November.
+
 - [Green Olive in the grove, the coastal heath in full flower, and the Works on Paper closing window](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/>) - Green Olive at Red Hill's wood-fired lamb under the olive grove, the Boneo heathland orchids at peak density, and the National Works on Paper show at MPRG closing 22 November.
 
 - [Red Hill Brewery's tasting paddle, the Boneo Plains wildflower flush, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/>) - Red Hill Brewery's Belgian-style paddle in the hop yard, the grassland orchid bloom on Boneo Plains, and the Mt Eliza Farmers Market running until 22 November.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/>) - Rare Hare at Willow Creek opens its Pinot Row terrace for spring, the Enchanted Adventure Garden's hedge maze hits peak season, and Emu Plains Market runs Saturdays at Balnarring Reserve through December.
 
 - [Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/>) - Jetty Road Brewery's rotating seasonals earn the afternoon, Arthurs Seat State Park is at peak wildflower density, and the National Works on Paper 2026 closes 22 November at Mornington Peninsula Regional Gallery.
-
-- [Quarters at Flinders, the Bushrangers Bay track, and the Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/>) - Flinders Hotel's pub dining earns a spring Saturday booking, Bushrangers Bay track is in full coastal heath bloom, and the Emu Plains Market at Balnarring Reserve is quietly one of the Peninsula's best Saturday rituals.
 
 ## Planning a particular weekend?
 
