@@ -1,0 +1,31 @@
+{
+  "reviewer": "/root/review_event_authority",
+  "rubric": "PI editorial v1.0",
+  "asset": "pre-correction service listing",
+  "scores": {
+    "C1": 97,
+    "C2": 92,
+    "C3": 100,
+    "C4": 100,
+    "C5": 100,
+    "C6": 97,
+    "C7": 100,
+    "C8": 92,
+    "C9": 97,
+    "C10": 92
+  },
+  "gates": {
+    "G1": "FAIL",
+    "G2": "PASS",
+    "G3": "PASS",
+    "G4": "PASS",
+    "G5": "UNKNOWN",
+    "G6": "FAIL"
+  },
+  "defects": [
+    "False Ticketmaster no-availability corroboration",
+    "Title did not identify ticketholder purpose",
+    "Opening repeated audience already in summary"
+  ],
+  "correction": "Factual contradiction disclosed, title specifies ticketholder guide, redundant body opening removed. Re-review requested; no score uplift inferred."
+}
