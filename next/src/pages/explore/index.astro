@@ -1,6 +1,8 @@
 ---
 import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
+import { isOriginalIllustration } from '../../lib/illustration-presentation.mjs';
+import { illustrativeDisclosure } from '../../lib/media-provenance';
 /**
  * Explore hub (v5 redesign, T-504) - page-redesigns-hubs.md section 5.
  *
@@ -483,7 +485,7 @@ export const prerender = true;
                 href={item.href}
                 entityType="experience"
                 entitySlug={item.slug}
-                image={{ src: item.hero.src, alt: item.hero.alt, caption: !item.hero.override && item.data.heroImage?.depictionStatus === 'unverified' ? 'Image subject unverified' : undefined }}
+                image={{ src: item.hero.src, alt: item.hero.alt, caption: !item.hero.override && !isOriginalIllustration(item.data.heroImage) ? (illustrativeDisclosure(item.data.heroImage, item.name)?.detail ?? (item.data.heroImage?.depictionStatus === 'unverified' ? 'Image subject unverified' : undefined)) : undefined }}
                 typeMark={item.meta[0]}
                 verdict={item.verdict}
                 meta={item.meta.slice(1)}
@@ -901,3 +903,4 @@ export const prerender = true;
   else init();
   document.addEventListener('astro:page-load', init);
 </script>
+
