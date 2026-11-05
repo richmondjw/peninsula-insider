@@ -24,14 +24,16 @@
       "url": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
       "httpStatus": 200,
       "retrievedAt": "2026-11-05T08:54:56.791Z",
-      "sha256": "1cc73b2bea21b72840c282aed44703e84900a04a68ff26f18ba2f43c56210838"
+      "sha256": "1cc73b2bea21b72840c282aed44703e84900a04a68ff26f18ba2f43c56210838",
+      "httpResponseDate": "2026-11-05T08:54:53Z"
     },
     {
       "name": "ticketmaster-artist",
       "url": "https://www.ticketmaster.com.au/red-hot-summer-tour-tickets/artist/1662101",
       "httpStatus": 200,
       "retrievedAt": "2026-11-05T08:54:56.791Z",
-      "sha256": "8fc874e368499105be31777c41800e134d4bcdc983096e2c9402f9f6736fcdcb"
+      "sha256": "8fc874e368499105be31777c41800e134d4bcdc983096e2c9402f9f6736fcdcb",
+      "httpResponseDate": "2026-11-05T08:54:58Z"
     }
   ],
   "unresolved": [
@@ -145,5 +147,18 @@
     "Removed false Ticketmaster no-availability corroboration after independent review of fresh HTML; preserved explicit operator attribution and recorded inventory contradiction.",
     "CMS record held as draft, tentative verification and unknown availability. Schema-mandatory publishedAt retains draft preparation date only; existing draft status guard blocks public routes, feeds and recommendations."
   ],
-  "releaseStatus": "held: official availability conflict and denied exact-event recheck; not published"
+  "releaseStatus": "held: official availability conflict and denied exact-event recheck; not published",
+  "availabilityObservation": {
+    "ticketmaster": "Artist listing page, but exact Mornington 8 November 2026 12:30 row: Low Availability; exact event JSON-LD: InStock",
+    "exactEventRequest": {
+      "responseDate": "2026-11-05T08:54:55Z",
+      "retried": false,
+      "classification": "Origin server HTTP access denial, executed; not approval-review denial or readability failure",
+      "action": "Direct HTTPS GET using curl.exe --fail --max-time 20",
+      "httpStatus": 401
+    },
+    "operator": "Event-specific Mornington page: Sold Out",
+    "priorPermittedWebRead": "Exact event page title, date, time and venue readable before denial; no inventory exposed. Earlier artist web rendering showed No Availability. Current saved response conflicts.",
+    "genericOnSaleCopyUsed": false
+  }
 }
