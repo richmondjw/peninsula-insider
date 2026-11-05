@@ -1,0 +1,149 @@
+{
+  "checkedAt": "2026-11-05T08:54:56.791Z",
+  "checkedBy": "Codex",
+  "genre": "researched ticketholder service listing; no visit claimed",
+  "proposal": {
+    "sessionUrl": "https://claude.ai/chat/58c2b3be-09f8-842f-9be8-c3cc43cae6e1",
+    "artifact": "pi-events-changepack-2026-11-05.json",
+    "itemId": "PI-EVT-2026-11-05-01",
+    "eventId": "PI-CURATED-2026-11-05-redhotsummer",
+    "targetFile": "next/src/content/events/red-hot-summer-tour-mornington-racecourse-2026.json",
+    "authority": "Verified user routine PI website event publication instruction, 1 and 2 November 2026; not Claude approval"
+  },
+  "duplicates": {
+    "localReviewPacketCreatedAt": "2026-11-05T08:14:28.555Z",
+    "candidates": 950,
+    "matches": 0,
+    "repositoryBase": "531218e5f72db659ee6d210c1a2b1a8c0100bd72",
+    "matchingExistingPublishedRecord": false,
+    "collectorQueueChanged": false
+  },
+  "sources": [
+    {
+      "name": "operator",
+      "url": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-05T08:54:56.791Z",
+      "sha256": "1cc73b2bea21b72840c282aed44703e84900a04a68ff26f18ba2f43c56210838"
+    },
+    {
+      "name": "ticketmaster-artist",
+      "url": "https://www.ticketmaster.com.au/red-hot-summer-tour-tickets/artist/1662101",
+      "httpStatus": 200,
+      "retrievedAt": "2026-11-05T08:54:56.791Z",
+      "sha256": "8fc874e368499105be31777c41800e134d4bcdc983096e2c9402f9f6736fcdcb"
+    }
+  ],
+  "unresolved": [
+    {
+      "url": "https://www.ticketmaster.com.au/2026-red-hot-summer-tour-australian-mornington-08-11-2026/event/130064CAA09230F7",
+      "httpStatus": 401,
+      "action": "Stopped direct HTTP retrieval; no alternate route used after denial. Earlier permitted web read confirmed exact event/date, but inventory was not exposed there.",
+      "releaseGate": "Direct Ticketmaster event source recheck remains unresolved"
+    },
+    {
+      "issue": "Conflicting official availability evidence",
+      "operator": "Sold Out",
+      "ticketmasterArtist": "Low Availability for Mornington 8 November; JSON-LD InStock",
+      "earlierWebRendering": "Earlier search/web rendering showed No Availability; it is superseded for current inventory assessment by the fresh saved HTML. Do not represent the sources as corroborating.",
+      "action": "Hold release until exact-event inventory discrepancy can be resolved through permitted access; no denied-route retry or workaround."
+    }
+  ],
+  "claims": [
+    {
+      "id": "schedule",
+      "claim": "8 November 2026; general gates 12.30pm; final set ends 9.30pm, subject to change",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "PLAYING TIMES",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "attributed and verified against source"
+    },
+    {
+      "id": "sold-out",
+      "claim": "Operator marks Mornington Sold Out. Fresh Ticketmaster artist page labels Mornington Low Availability and JSON-LD InStock; sources conflict.",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "Sold Out",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "conflicted; release hold",
+      "secondarySourceUrl": "https://www.ticketmaster.com.au/red-hot-summer-tour-tickets/artist/1662101"
+    },
+    {
+      "id": "billing",
+      "claim": "Australian Crawl, Men At Work, Birds of Tokyo, Vika & Linda, Eskimo Joe, Boom Crash Opera, Ella Hooper",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "event introduction and PLAYING TIMES",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "attributed and verified against source"
+    },
+    {
+      "id": "entry",
+      "claim": "Strictly 18+; downloaded ticket ready to scan",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "AGE RESTRICTIONS and BOX OFFICE",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "attributed and verified against source"
+    },
+    {
+      "id": "location-transport",
+      "claim": "320 Racecourse Road; congestion allowance; limited unreserved parking; official shuttle and drop-off information",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "ABOUT THE VENUE and PARKING & TRANSPORT",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "attributed and verified against source"
+    },
+    {
+      "id": "access",
+      "claim": "Uneven outdoor surfaces, permit parking, accessible viewing area and toilets",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "ACCESSIBILITY INFORMATION",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "attributed and verified against source"
+    },
+    {
+      "id": "entry-conditions",
+      "claim": "Picnic rugs and umbrellas prohibited; promoter event-change advice",
+      "type": "operator claim",
+      "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "pinpoint": "PROHIBITED ITEMS and WEATHER POLICY",
+      "checkedAt": "2026-11-05T08:54:56.791Z",
+      "status": "attributed and verified against source"
+    }
+  ],
+  "geography": {
+    "basis": "Primary operator address and existing Mornington Racecourse Market venue record establish Mornington within Mornington Peninsula Shire.",
+    "sourceUrl": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview"
+  },
+  "image": {
+    "src": "/images/generated/acoustic-saturdays-peppers-moonah-links-2026.webp",
+    "sha256": "9530b0b3df11ea9f2f30293ff55140d4254bf86cf107d3ac50dd4b02ced3ddad",
+    "master": "ops/records/events/population-2026-11-02/illustration-masters/acoustic-saturdays-peppers-moonah-links-2026.svg",
+    "rightsBasis": "Original vector artwork authored for Peninsula Insider during the authorised 2026-11-02 event publication task. No third-party photographs, logos or artwork were incorporated.",
+    "rightsHolder": "Peninsula Insider",
+    "permittedUses": [
+      "website"
+    ],
+    "depictionStatus": "illustrative",
+    "reuse": "Existing PI-owned conceptual guitar illustration reused; no new generation, third-party photographs, logos or spend"
+  },
+  "commercial": {
+    "basis": "Service information compiled from public official sources; no visit, affiliate link, consideration or operator engagement involved in this task.",
+    "unknown": "No assertion about unrelated commercial relationships"
+  },
+  "expiry": "One-off date 8 November; normal event currentness rules apply after occurrence end",
+  "corrections": [
+    "Preserved proposal/event identity",
+    "Replaced on-sale/book-ahead claims with sold-out information",
+    "Replaced generic source links",
+    "Corrected billing and age/access information",
+    "No bookingUrl or editorial recommendation lens",
+    "Removed false Ticketmaster no-availability corroboration after independent review of fresh HTML; preserved explicit operator attribution and recorded inventory contradiction.",
+    "CMS record held as draft, tentative verification and unknown availability. Schema-mandatory publishedAt retains draft preparation date only; existing draft status guard blocks public routes, feeds and recommendations."
+  ],
+  "releaseStatus": "held: official availability conflict and denied exact-event recheck; not published"
+}

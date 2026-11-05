@@ -1,0 +1,30 @@
+{
+  "claimId": "events/red-hot-summer-tour-mornington-racecourse-2026/event-schedule",
+  "claimClass": "event-schedule",
+  "subject": {
+    "type": "events",
+    "slug": "red-hot-summer-tour-mornington-racecourse-2026",
+    "field": "nextOccurrence"
+  },
+  "statement": "Red Hot Summer Tour at Mornington Racecourse is scheduled for Sunday 8 November 2026, general gates 12.30pm and final set ending 9.30pm Melbourne time. It is sold out.",
+  "assertedBy": [
+    {
+      "type": "events",
+      "slug": "red-hot-summer-tour-mornington-racecourse-2026",
+      "field": "nextOccurrence"
+    },
+    {
+      "type": "events",
+      "slug": "red-hot-summer-tour-mornington-racecourse-2026",
+      "field": "startTime"
+    },
+    {
+      "type": "events",
+      "slug": "red-hot-summer-tour-mornington-racecourse-2026",
+      "field": "endTime"
+    }
+  ],
+  "createdAt": "2026-11-05",
+  "origin": "authored",
+  "note": "Programme times are subject to change. Sold out is not cancellation."
+}
