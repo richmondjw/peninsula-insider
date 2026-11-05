@@ -25,6 +25,44 @@ Start with four distinct fits, or compare all 11 venues before opening the cours
 
 [Public architecture  **St Andrews Beach** Strategic dunes · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[Two-course resort  **Moonah Links** Open and Legends courses · Public green fees · Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[Clifftop coast  **Flinders** Coastal course · Visitor windows · Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[Southern bayside  **Portsea** Coastal dunes and Moonah · Visitor windows · Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
 
+Choose a base
+
+### See which courses sit together
+
+Use an area to narrow the drive, then check the live route for your actual tee time.
+
+4 venues
+
+#### [Fingal + Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#cape-courses>)
+
+The strongest concentration of courses, including public resorts and private-club architecture.
+
+ [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Fingal+Cape+Schanck+Victoria>)
+
+3 venues
+
+#### [Boneo + Rye + Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)
+
+A practical central cluster for Eagle Ridge, The Dunes and Rosebud Country Club.
+
+ [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Boneo+Rye+Rosebud+Victoria>)
+
+2 venues
+
+#### [Sorrento + Portsea](<https://peninsulainsider.com.au/explore/golf/#course-sorrento-golf-club>)
+
+Southern bayside clubs with limited visitor windows and nearby town bases.
+
+ [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Sorrento+Portsea+Victoria>)
+
+2 venues
+
+#### [Mornington + Flinders](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>)
+
+Two distinct coastal directions: northern bay access or the eastern clifftop course.
+
+ [Open area map ↗](<https://www.google.com/maps/search/?api=1&query=golf+courses+Mornington+Flinders+Victoria>)
+
 Compare all 11 courses  Course character · visitor access · town
 
 [**St Andrews Beach**  Strategic dunes   Public green fees   Fingal](<https://peninsulainsider.com.au/explore/golf/#course-st-andrews-beach-golf-course>)[**Moonah Links**  Two resort courses   Public green fees   Fingal](<https://peninsulainsider.com.au/explore/golf/#course-moonah-links>)[**The National**  Private multi-course club   Eligibility rules apply   Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-the-national-golf-club>)[**The Dunes**  Links and nine-hole option   Public green fees   Rye](<https://peninsulainsider.com.au/explore/golf/#course-the-dunes-golf-links>)[**RACV Cape Schanck**  Resort course   Public green fees   Cape Schanck](<https://peninsulainsider.com.au/explore/golf/#course-racv-cape-schanck-golf-course>)[**Eagle Ridge**  Inland public course   Public green fees   Boneo](<https://peninsulainsider.com.au/explore/golf/#course-eagle-ridge-golf-course>)[**Mornington**  Bay-side parkland   Public green fees   Mornington](<https://peninsulainsider.com.au/explore/golf/#course-mornington-golf-club>)[**Rosebud**  Two 18-hole courses   Public green fees   Rosebud](<https://peninsulainsider.com.au/explore/golf/#course-rosebud-country-club>)[**Flinders**  Clifftop coastal course   Visitor windows   Flinders](<https://peninsulainsider.com.au/explore/golf/#course-flinders-golf-club>)[**Sorrento**  Private parkland   Limited visitor times   Sorrento](<https://peninsulainsider.com.au/explore/golf/#course-sorrento-golf-club>)[**Portsea**  Coastal dunes and Moonah   Visitor windows   Portsea](<https://peninsulainsider.com.au/explore/golf/#course-portsea-golf-club>)
