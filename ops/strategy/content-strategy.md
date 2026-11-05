@@ -4,7 +4,7 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-11-05 07:05 AEDT  
+**Generated:** 2026-11-06 07:05 AEDT  
 **Season:** Spring  
 **Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:12-upcoming, seasonal-calendar:spring  
 
@@ -23,7 +23,7 @@
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-11-04._
+_Compared with 2026-11-05._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,34 +83,34 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: Peninsula VineHop Festival 2026 (16d out)
+### 6. [EVENT · score 2.992] Preview: Peninsula VineHop Festival 2026 (15d out)
 - **Desk:** dispatch-desk
-- **Why:** Peninsula VineHop Festival 2026 is 16 days out (2026-11-21, Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Peninsula VineHop Festival 2026 is 15 days out (2026-11-21, Mornington Peninsula) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 (16d out)
+### 7. [EVENT · score 2.992] Preview: Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 (15d out)
 - **Desk:** dispatch-desk
-- **Why:** Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 is 16 days out (2026-11-21, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Glamping Tents - Horror Movie Campout: Back From The Dead Tour 2026 is 15 days out (2026-11-21, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (25d out)
+### 8. [EVENT · score 2.992] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (24d out)
 - **Desk:** dispatch-desk
-- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 25 days out (2026-11-30, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 24 days out (2026-11-30, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: Mornington Tourist Railway, Santa Specials (31d out)
+### 9. [EVENT · score 2.992] Preview: Mornington Tourist Railway, Santa Specials (30d out)
 - **Desk:** dispatch-desk
-- **Why:** Mornington Tourist Railway, Santa Specials is 31 days out (2026-12-06, Moorooduc) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Tourist Railway, Santa Specials is 30 days out (2026-12-06, Moorooduc) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Pub Carols - Thursday 17th December (42d out)
+### 10. [EVENT · score 2.992] Preview: Pub Carols - Thursday 17th December (41d out)
 - **Desk:** dispatch-desk
-- **Why:** Pub Carols - Thursday 17th December is 42 days out (2026-12-17, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Pub Carols - Thursday 17th December is 41 days out (2026-12-17, ) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.992] Preview: Mornington Christmas Festival & Main Street Christmas Parade (45d out)
+### 11. [EVENT · score 2.992] Preview: Mornington Christmas Festival & Main Street Christmas Parade (44d out)
 - **Desk:** dispatch-desk
-- **Why:** Mornington Christmas Festival & Main Street Christmas Parade is 45 days out (2026-12-20, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Christmas Festival & Main Street Christmas Parade is 44 days out (2026-12-20, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ### 12. [RANK · score 2.883] Push 'dog friendly guide mornington peninsula' onto page 1
