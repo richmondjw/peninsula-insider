@@ -4,7 +4,6 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import {
   buildCollectionPageSchema,
-  buildItemListSchema,
   buildFaqSchema,
   buildBreadcrumbSchema,
 } from '../../lib/schema';
@@ -16,18 +15,21 @@ const collectionSchema = buildCollectionPageSchema({
   dateModified: '2026-04-23',
 });
 
-const itemListSchema = buildItemListSchema({
+const itemListSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
   name: 'Mornington Peninsula Day Trip Routes',
-  description: 'Five distinct day-trip routes from Melbourne to the Mornington Peninsula.',
-  listPath: '/explore/day-trips',
-  items: [
-    { name: 'The Hinterland Loop', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Red Hill' },
-    { name: 'The Bay Coast Run', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Mornington' },
-    { name: 'The Sorrento Tip', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Sorrento' },
-    { name: 'The Wine Crawl', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Main Ridge' },
-    { name: 'The Walk and Soak', path: '/explore/day-trips/', itemType: 'TouristAttraction', addressLocality: 'Cape Schanck' },
-  ],
-});
+  url: 'https://peninsulainsider.com.au/explore/day-trips/',
+  numberOfItems: 5,
+  itemListElement: [
+    'The Hinterland Loop', 'The Bay Coast Run', 'The Sorrento Tip', 'The Wine Route', 'The Walk and Soak',
+  ].map((name, index) => ({
+    '@type': 'ListItem',
+    position: index + 1,
+    name,
+    url: `https://peninsulainsider.com.au/explore/day-trips/#route-${index + 1}`,
+  })),
+};
 
 const faqSchema = buildFaqSchema([
   {
@@ -90,10 +92,11 @@ export const prerender = true;
         </blockquote>
 
         <p>The Mornington Peninsula, Victoria, Australia is 60–110 km from central Melbourne - a range that makes a day trip genuinely worthwhile but requires clear pre-thinking to avoid the driving-for-driving's-sake trap. This page gives you five distinct day-trip routes based on what kind of day you want.</p>
+        <p>If you want one timed route from Melbourne, use our <a href="/journal/mornington-peninsula-day-trip/">one-day itinerary</a>. The five routes below help you choose a different focus. For any wine-tasting route, arrange a non-drinking driver or transport before you leave.</p>
 
         <h2>Five day-trip routes</h2>
 
-        <h3>Route 1 - The Hinterland Loop</h3>
+        <h3 id="route-1">Route 1 - The Hinterland Loop</h3>
         <p><strong>Best for:</strong> First-timers, food and wine visitors, market days.</p>
         <ul>
           <li>Drive to Red Hill via Moorooduc Highway.</li>
@@ -104,7 +107,7 @@ export const prerender = true;
         </ul>
         <p>The hinterland route covers the Peninsula's food-and-wine identity, a landmark attraction, and a sense of the geography. The gondola gives the view that makes everything else make sense. Full planning detail: <a href="/explore/plans/how-to-build-a-red-hill-saturday/">How to build a Red Hill Saturday</a>.</p>
 
-        <h3>Route 2 - The Bay Coast Run</h3>
+        <h3 id="route-2">Route 2 - The Bay Coast Run</h3>
         <p><strong>Best for:</strong> Families, beach-focused visitors, first-timers with children.</p>
         <ul>
           <li>Drive to <a href="/explore/places/mornington/">Mornington</a> via the Nepean Highway.</li>
@@ -114,7 +117,7 @@ export const prerender = true;
         </ul>
         <p>Keeps everything on the calm bay side; predictable for families; the gondola adds the "worth the drive" element.</p>
 
-        <h3>Route 3 - The Sorrento Tip</h3>
+        <h3 id="route-3">Route 3 - The Sorrento Tip</h3>
         <p><strong>Best for:</strong> Those who want the Peninsula's most photogenic town; ferry users from Queenscliff.</p>
         <ul>
           <li>Drive or catch Searoad Ferries from Queenscliff to Sorrento.</li>
@@ -124,18 +127,18 @@ export const prerender = true;
         </ul>
         <p>The tip of the Peninsula is the most iconic section. Coppins Track delivers a 45-minute walk without a major time commitment. Full Sorrento detail: <a href="/journal/the-sorrento-weekend/">the Sorrento weekend</a>.</p>
 
-        <h3>Route 4 - The Wine Crawl</h3>
+        <h3 id="route-4">Route 4 - The Wine Route</h3>
         <p><strong>Best for:</strong> Wine-focused visitors, groups of adults, cellar-door explorers.</p>
         <ul>
           <li>Drive to Red Hill/Main Ridge via Moorooduc Highway.</li>
           <li>Morning: Paringa Estate cellar door (Main Ridge) - one of the Peninsula's most respected pinots.</li>
           <li>Midday: Lunch at Montalto or Polperro (book in advance). Polperro Restaurant and Cellar Door are closed on Mondays and Tuesdays.</li>
           <li>Afternoon: Foxeys Hangout or Ten Minutes by Tractor depending on style preference.</li>
-          <li>Drive home early to avoid freeway peak traffic.</li>
+          <li>Use your arranged non-drinking driver or transport for the return journey.</li>
         </ul>
         <p>The hinterland triangle (Red Hill, Main Ridge, Merricks) can be covered in a circuit with minimal backtracking. Don't plan more than three stops - the experience is better at depth than breadth.</p>
 
-        <h3>Route 5 - The Walk and Soak</h3>
+        <h3 id="route-5">Route 5 - The Walk and Soak</h3>
         <p><strong>Best for:</strong> Active visitors; those wanting a physical-and-restorative combination.</p>
         <ul>
           <li>Early start: Drive to <a href="/explore/places/cape-schanck/">Cape Schanck</a>.</li>

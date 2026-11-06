@@ -1,0 +1,64 @@
+{
+  "updatedAt": "2026-10-01",
+  "decision": "ADAPT: ship reviewed page fixes, recover indexation, and hold Ads until account, editorial and analytics gates pass.",
+  "queue": [
+    {
+      "rank": 1,
+      "action": "Review day-trip landing and release the small page correction",
+      "evidence": "Article crawled but not indexed; safety and copy defects found in source",
+      "owner": "PI editorial + engineering",
+      "due": "2026-10-14",
+      "risk": "Venue facts and driving safety",
+      "workItemUrl": "https://app.asana.com/0/0/1218823504088839",
+      "url": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/"
+    },
+    {
+      "rank": 2,
+      "action": "Verify positive signup receipt and Ads account preview",
+      "evidence": "No PI Ads account in the accessible manager and no live GA4 reporting receipt",
+      "owner": "Analytics + Ads account owner",
+      "due": "Before spend",
+      "risk": "Unmeasured or unauthorised spend",
+      "workItemUrl": "https://app.asana.com/0/0/1218823504088839",
+      "url": "https://github.com/richmondjw/peninsula-insider/blob/codex/pi-search-growth-20261001/ops/campaigns/search-pilot-2026-10/README.md"
+    },
+    {
+      "rank": 3,
+      "action": "Fact-check restaurant and dog guide candidates",
+      "evidence": "Both pages are indexed; current venue and access claims need review before promotion",
+      "owner": "PI editorial",
+      "due": "2026-10-21",
+      "risk": "Outdated venue or access claims",
+      "workItemUrl": "https://app.asana.com/0/0/1218823504088839",
+      "url": "https://peninsulainsider.com.au/eat/best-restaurants/"
+    }
+  ],
+  "experiments": [
+    {
+      "id": "PI-SEARCH-2026-10-01-DAYTRIP",
+      "status": "PREPARED",
+      "hypothesis": "Clearer intent separation and contextual links will improve crawl/indexation and relevant AU impressions.",
+      "baseline": "31 Aug–27 Sep: absent from privacy-filtered AU page rows; article crawled not indexed, hub discovered not indexed at last inspection.",
+      "change": "Article safety/canonical copy and reciprocal contextual links; no release yet.",
+      "measure": "URL Inspection plus fixed 28-day AU page/query cohort after verified release and recrawl.",
+      "evaluation": "First complete 28-day post-recrawl window, no earlier than 2026-11-02",
+      "owner": "PI engineering",
+      "reviewer": "PI editorial and independent release reviewer pending",
+      "rollback": "Revert the bounded page changes through the normal release process",
+      "decision": "INVESTIGATE"
+    },
+    {
+      "id": "PI-SEARCH-2026-10-01-ADS",
+      "status": "GATED",
+      "hypothesis": "Planning-intent Search visits can produce verified Insider Note subscriptions or useful planning actions.",
+      "baseline": "No Ads or GA4 account receipt; zero conversions must not be inferred.",
+      "change": "At most A$300 in one authorised month, only after all launch gates pass.",
+      "measure": "Billed cost, reviewed search-term relevance, verified signups, save_add and trip_add.",
+      "evaluation": "A$75, A$150 and A$300 billed checkpoints, or 30 days",
+      "owner": "Ads account owner",
+      "reviewer": "James for spend; PI editorial and analytics for gates",
+      "rollback": "Pause campaign immediately",
+      "decision": "INVESTIGATE"
+    }
+  ]
+}

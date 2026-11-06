@@ -16,6 +16,30 @@ Every shipped SEO change is logged here as a hypothesis-driven experiment. Wins 
 
 ## Active experiments
 
+### PI-SEARCH-2026-10-01-DAYTRIP — Distinct route intent and safe landing
+
+- **Status**: Prepared in `codex/pi-search-growth-20261001`; not released or recrawled. No SEO result claimed.
+- **Owner / reviewer**: PI engineering owns the release and measurement; PI editorial and the independent release reviewer must approve the factual, safety and landing changes.
+- **Pages affected**: `/journal/mornington-peninsula-day-trip/` and `/explore/day-trips/`.
+- **Baseline**: Live GSC final web window 2026-08-31 to 2026-09-27; neither page appeared in privacy-filtered AU page rows. URL Inspection last showed the article crawled but not indexed and the hub discovered but not indexed. Exact property totals are retained in the private strategy receipt. Missing AU page rows are not proof of zero demand or an exact page-level impression count.
+- **Hypothesis**: Clearer distinction between one timed route and five alternative routes, reciprocal contextual links and safer current copy will make the pages more useful and easier to interpret. Indexation and relevant AU impressions may improve after recrawl; no volume forecast is asserted.
+- **Bounded change**: Reciprocal body links; route section anchors and accurate list schema; trailing-slash article schema URL; removal of wine-then-drive wording, price symbols and unsupported no-booking assurances. No new article or paid promotion in this experiment.
+- **Metric / source**: URL Inspection verdict and canonical for both URLs; fixed AU GSC page/query cohorts in complete equal 28-day windows after verified deployment and recrawl. Use the existing `pi-seo-daily-pull` and Monday digest; do not sum privacy-filtered rows to get property totals.
+- **Evaluation date**: First complete 28-day post-recrawl window, no earlier than 2026-11-02. If recrawl is later, move the comparison window forward and record that fact.
+- **Rollback**: Revert only these page changes through the normal PI release process if factual QA fails or the page experience regresses.
+- **Decision / next action**: INVESTIGATE. Editorial review, build and live release receipt are pending; then request/observe recrawl. Independent reviewer and final outcome are pending.
+
+### PI-SEARCH-2026-10-01-ADS — Australia planning-intent pilot
+
+- **Status**: GATED. Account draft at `ops/campaigns/search-pilot-2026-10/pilot.json`; no campaign launched and no Ads spend.
+- **Owner / reviewers**: Ads account owner operates; James approves exact spend; PI editorial, engineering and analytics approve their respective launch gates.
+- **Baseline / hypothesis**: No live Google Ads or GA4 account receipt was available. Test whether bounded Australian planning-intent visits lead to a positively receipted `newsletter_signup_succeeded` or a meaningful `save_add`/`trip_add` action.
+- **Bounded change**: One Search campaign, at most A$300 billed in an authorised month, two ad groups run sequentially after their own landing gates. See the campaign draft for keywords, negatives, copy, locations and pause rules.
+- **Metric / source**: Google Ads billed cost, clicks and reviewed search-term relevance; consented GA4 positive signup and planning-action events. Booking outbound is a handoff, not a reservation.
+- **Evaluation**: A$75 tracking check; A$150 relevance check; A$300 or 30-day decision. Pause immediately for broken measurement, false claims, wrong geography or unauthorised billed spend.
+- **Rollback**: Pause the campaign. Keep unused allocation unspent.
+- **Decision / next action**: INVESTIGATE. Obtain editorial, landing, analytics and account preview receipts, then James's exact spend authorisation before activation.
+
 ### 2026-05-17-01 — CTR snippet rewrite on /wine/ hub
 
 - **Status**: shipped to worktree branch 2026-05-17. Awaiting deploy.
