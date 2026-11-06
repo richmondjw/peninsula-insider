@@ -24,6 +24,7 @@ import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
 // The conditions strip and issue stamp (visual design review finding #1,
 // P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
 import UtilityBar from '../components/UtilityBar.astro';
+import SiteUpdateBanner from '../components/SiteUpdateBanner.astro';
 
 
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
@@ -354,6 +355,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 <body data-page={section} data-path={rawPathname} data-anchor-page={['/','/eat/','/stay/','/wine/','/explore/','/plans/','/explore/plans/','/whats-on/','/journal/'].includes(rawPathname) ? '' : undefined} data-v4="true">
 
   <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <SiteUpdateBanner />
 
   {/* Conditions strip + issue stamp. Deliberately above the masthead and
       deliberately NOT sticky: it reads as a printed dateline and scrolls
