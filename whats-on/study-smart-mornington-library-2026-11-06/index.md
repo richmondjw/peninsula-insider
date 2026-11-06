@@ -11,8 +11,6 @@ Event     Community     6 November 2026     One-off date
 
 VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without booking ahead.
 
-[Book or check details](<https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Mornington-Library>)
-
 All weather
 
 Illustration · Peninsula Insider
@@ -67,7 +65,7 @@ Check organiser for pricing
 
 All weather
 
-[Book or check details](<https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Mornington-Library>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Study+Smart+at+Mornington+Library&dates=20261106T050000Z%2F20261106T064500Z&details=VCE+and+tertiary+students+can+use+a+dedicated+study+space+at+Mornington+Library+on+Friday+6+November%2C+from+4pm+to+5.45pm%2C+without+booking+ahead.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fstudy-smart-mornington-library-2026-11-06%2F&location=Mornington+Library%2C+Vancouver+Street%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

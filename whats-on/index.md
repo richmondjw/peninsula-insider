@@ -21,37 +21,19 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 6 – Sun 8 November
 
-## Three reasons to go
+## A reason to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
-More picks to the right
-
-- Original editorial illustration of books and study stationery. Not a photograph of Rosebud Library or this event.   Illustration: Peninsula Insider.
-
-Fri, 6 Nov · 4pm–5:45pm · Rosebud
-
-### [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
-
-A practical local space for students who want to set aside time for their own work.
-
-Fri, 6 Nov   Rosebud   Community
-
 - Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
+
+Sat, 7 Nov · 5pm–8pm · Fingal
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Sat, 7 Nov   Fingal   Live Music
-
-- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Fri, 6 Nov   Mornington   Exhibitions
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -65,23 +47,7 @@ Browse by date and save what catches your eye.
 
 ### Friday 6 November
 
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions · Recurring weekly
-
-- [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
-
-A practical local space for students who want to set aside time for their own work.
-
-4pm · Mornington · Community · One-day event
-
-- [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
-
-A practical local space for students who want to set aside time for their own work.
-
-4pm · Rosebud · Community · One-day event
+No verified event listings remain for this day. Choose another date.
 
 ### Saturday 7 November
 
@@ -172,6 +138,12 @@ A participatory carols evening for groups rather than a background music dinner.
 6pm · Main Ridge · Live Music
 
 ### Openings
+
+- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+11am · Mornington · Exhibitions
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 

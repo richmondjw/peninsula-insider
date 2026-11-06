@@ -11,8 +11,6 @@ Event     Community     6 November 2026     One-off date
 
 A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.
 
-[Book or check details](<https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Rosebud-Library>)
-
 All weather
 
 Illustration · Peninsula Insider
@@ -67,7 +65,7 @@ Check organiser for pricing
 
 All weather
 
-[Book or check details](<https://library.mornpen.vic.gov.au/Whats-On/Events/Study-Smart-VCE-Tertiary-Student-Study-Space-Rosebud-Library>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Study+Smart+at+Rosebud+Library&dates=20261106T050000Z%2F20261106T064500Z&details=A+dedicated+library+study+session+for+VCE+and+tertiary+students+in+Rosebud%2C+listed+for+Friday+6+November+from+4pm+to+5.45pm.+No+booking+is+required.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fstudy-smart-rosebud-library-2026-11-06%2F&location=Rosebud+Library%2C+McDowell+Street%2C+Rosebud%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Filed under
 

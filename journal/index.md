@@ -704,7 +704,17 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 6 Nov
+- [Sat, 7 Nov
+
+### ✦ Acoustic Saturdays at Peppers Moonah Links
+
+Fingal
+
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sat, 7 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
@@ -714,22 +724,12 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-- [Fri, 6 Nov
+- [Wed, 11 Nov
 
-### ✦ Study Smart at Mornington Library
+### ✦ Mornington Wednesday Market (Main Street Market)
 
 Mornington
 
-VCE and tertiary students can use a dedicated study space at Mornington Library on Friday 6 November, from 4pm to 5.45pm, without booking ahead.
+Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
- Event · Community](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
-
-- [Fri, 6 Nov
-
-### ✦ Study Smart at Rosebud Library
-
-Rosebud
-
-A dedicated library study session for VCE and tertiary students in Rosebud, listed for Friday 6 November from 4pm to 5.45pm. No booking is required.
-
- Event · Community](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)

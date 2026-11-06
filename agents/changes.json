@@ -1,28 +1,68 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-06T02:42:49.869Z",
+  "generatedAt": "2026-11-06T12:13:08.286Z",
   "baselineAvailable": true,
-  "fromSnapshot": "16fe742076fa8e752443d5193fa2dee28426250e481c7097b7e71ab98eceae4d",
-  "toSnapshot": "e53128b8d0add82b44e72243c8a7cc246d74df261191286fe57c7984cf05006f",
-  "previousGeneratedAt": "2026-11-05T20:16:01.723Z",
+  "fromSnapshot": "e53128b8d0add82b44e72243c8a7cc246d74df261191286fe57c7984cf05006f",
+  "toSnapshot": "180bad724bb1e25b160e4e9d58b4aa8bd42f4a063a9cfdc4998e83929131352d",
+  "previousGeneratedAt": "2026-11-06T02:42:49.869Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 2,
+  "count": 7,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/sorrento-golf-club/index.md",
-      "contentSha256": "e8201c340779526e371f3d688af95f09b2afc47d626d0cd0ab54fc25e52cf2c5",
-      "previousContentSha256": "1d01e2f0f5e3b819a2524f2b3be1f48a8a4cdb8ed2e4d39f2175dc6879ba7bff"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "285a4d377a2a13d2d8b126c0a89a6af37fd3d36216ecefd507e73781c8852f83",
+      "previousContentSha256": "5c12b92d20666cf554f72601c05c108ee44300d385bd2b2137617ae2adbe1cbf"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/rosebud/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/rosebud/index.md",
+      "contentSha256": "668dddb7432259f00b4d2c4aea84e589625683fac7a2ae10d2b934d5944f7c12",
+      "previousContentSha256": "52b2005d8d70f5307a1cffc7b998dc0463d82867edd30ceea4d9d202c05a7e5c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "e8bd30f71f2c037e3440ac5d635385802b40b9bcd4b194b0d3ce3e97458aea3f",
+      "previousContentSha256": "63faa0dc26b57aeb25e51cec441f8f98db00fafed31ff917ef8e938dbfef4488"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6fce1640796f98228b576eb04eb0b2871ed49e6df6fa392876da8945855cd6a9",
-      "previousContentSha256": "63475d4118cc32a7a0ec9412f46dc0912f0ff858325c1d97259f7e292b0b00b8"
+      "contentSha256": "9147fa0c4d06c867bc7e098a33b655fef6a6f88536c1f74513e931ddecfb0206",
+      "previousContentSha256": "6fce1640796f98228b576eb04eb0b2871ed49e6df6fa392876da8945855cd6a9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "7d1e72e59093c2f9e464148c8a0d1e0c47f4a98d6fecada92ce4590de1c48abc",
+      "previousContentSha256": "f4d986c06a47e1430d02fcc4397aedcc731c009aef74ec5c03ccfa5fde1d2bbb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/index.md",
+      "contentSha256": "d53c222230bf6807b73d8f9596cb1d6549fa2410dfe7c44228eacad1a54bb210",
+      "previousContentSha256": "a4fb997daefc9c1de2afce5f5d275be145543ca4a9313154b2b2047d7c0f8356"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/index.md",
+      "contentSha256": "05e64553a391a98b297f736ccf63b58b64d280532695b23b8bd78d71721cd712",
+      "previousContentSha256": "a6bf39b820bbd1ac1772120b3174a077e6d199079d89701f2e6ed7a57082b4e6"
     }
   ]
 }
