@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-06
+Modified: 2026-11-07
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -21,9 +21,11 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 6 – Sun 8 November
 
-## A reason to go
+## Two reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
+
+More picks to the right
 
 - Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
 
@@ -35,6 +37,14 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Sat, 7 Nov   Fingal   Live Music
 
+- Mornington Peninsula Regional Gallery exterior. Illustrative venue photograph; it does not depict the National Works on Paper 2026 exhibition.   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sat, 7 Nov   Mornington   Exhibitions
+
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
  [Explore the full calendar](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
@@ -44,10 +54,6 @@ Make a day of it
 ## Everything on, by day
 
 Browse by date and save what catches your eye.
-
-### Friday 6 November
-
-No verified event listings remain for this day. Choose another date.
 
 ### Saturday 7 November
 
@@ -138,12 +144,6 @@ A participatory carols evening for groups rather than a background music dinner.
 6pm · Main Ridge · Live Music
 
 ### Openings
-
-- [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-11am · Mornington · Exhibitions
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 

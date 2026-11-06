@@ -481,10 +481,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-- [Study Smart at Mornington Library](<https://peninsulainsider.com.au/whats-on/study-smart-mornington-library-2026-11-06/>)
-
-- [Study Smart at Rosebud Library](<https://peninsulainsider.com.au/whats-on/study-smart-rosebud-library-2026-11-06/>)
-
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
