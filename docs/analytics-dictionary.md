@@ -78,6 +78,18 @@ repeat click is a repeat event by design.
 
 ## 2. Events implemented
 
+### `web_vital_observed`
+
+| | |
+|---|---|
+| **Fires when** | The official `web-vitals` library finalises LCP, INP or CLS on the production site and the reader has explicitly granted analytics consent. |
+| **Does not fire when** | Consent is unknown, denied or withdrawn; the page is local/preview; the metric is FCP or TTFB; a value is not finite; or Astro has begun a client-side route transition. |
+| **Dedup** | None. The library reports one final observation per metric and navigation lifecycle. |
+| **Payload** | `metric` (`LCP` / `INP` / `CLS`), `metric_value`, `metric_delta`, `metric_rating`, `navigation_type`. LCP and INP remain milliseconds. CLS is multiplied by 1000 and rounded because GA4 event values are integers. |
+| **Never** | Element selectors, URLs, query strings, user identifiers or raw interaction details. The shared envelope contributes only the path, release and consent state. |
+| **Route scope** | Hard navigations only. The originating path is captured before observers install. A first `astro:before-preparation` event disables the observers' dispatch path so a document-level metric cannot be attributed to a later soft-route URL. |
+| **Purpose** | Privacy-safe real-user performance evidence while Peninsula Insider remains below Chrome UX Report's traffic threshold. This event does not itself prove good performance; acceptance requires a sufficiently sized, dated sample and independent review. |
+
 ### `booking_outbound_clicked`
 
 The closest thing on the site to a commercial outcome, and until PI-024 it was not
