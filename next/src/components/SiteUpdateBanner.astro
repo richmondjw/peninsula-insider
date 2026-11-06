@@ -24,4 +24,26 @@
   .site-update-banner strong {
     font-weight: var(--fw-bold);
   }
+
+  @media (max-width: 639px) {
+    .site-update-banner {
+      position: absolute;
+      z-index: 1;
+      top: calc(env(safe-area-inset-top) + 4px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: var(--space-1);
+      font-size: var(--fs-100);
+      white-space: nowrap;
+    }
+
+    .site-update-banner span {
+      display: none;
+    }
+
+    :global(.pi-conditions .pi-conditions__inner) {
+      width: calc(100% - var(--space-2) - env(safe-area-inset-left) - env(safe-area-inset-right));
+      padding-inline: 0;
+    }
+  }
 </style>
