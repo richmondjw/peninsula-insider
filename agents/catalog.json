@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-06T19:37:50.365Z",
-  "snapshotId": "edb4acae441d3baa354f89b7f4d96dc2584675b931b4e493396c799b28867df3",
+  "generatedAt": "2026-11-06T20:14:54.904Z",
+  "snapshotId": "63edbe0b1caf1214d634038317b23c1d4a74b7a7e31a655d92be7a64d0d15f97",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 614,
+  "count": 615,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2614,7 +2614,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/somers/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/somers/index.md",
-      "contentSha256": "227d6254c81d2723170061c3a8c758b8fbac9c6a5812de3b8f17bdf07c0506f5",
+      "contentSha256": "bbc16aeabdc323ffe151a8d77826735e27205b9986d556091daaea8b486c5ecb",
       "citation": {
         "title": "Somers",
         "publisher": "Peninsula Insider",
@@ -2622,8 +2622,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 182943,
-      "markdownBytes": 10762
+      "htmlBytes": 182888,
+      "markdownBytes": 10763
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/sorrento/",
@@ -6230,6 +6230,23 @@
       "markdownBytes": 8766
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/",
+      "title": "Somers General, the Mornington inlet run, and an acoustic set at Moonah Links",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/index.md",
+      "contentSha256": "f000496a9d64d2f4e0cb394341a96cf6a41444a375becf0ad48b2fc05aec8e74",
+      "citation": {
+        "title": "Somers General, the Mornington inlet run, and an acoustic set at Moonah Links",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/",
+        "publishedAt": "2026-11-07T00:00:00.000Z",
+        "modifiedAt": "2026-11-07T00:00:00.000Z"
+      },
+      "htmlBytes": 172198,
+      "markdownBytes": 8916
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7034,7 +7051,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "f66f63f2bc8e7082909a8e8c35f671e4fb32c981d79af74922dd4148b50cdc49",
+      "contentSha256": "99847f2ee7a7021004bd5fa3ee6eeb99c9e6262123653d9b4207f5f7b2a14ffc",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7042,8 +7059,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123809,
-      "markdownBytes": 5880
+      "htmlBytes": 123716,
+      "markdownBytes": 5791
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -7068,7 +7085,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "6c906362033ab1ff29f7020b4264ec9db2998744a9d2732b4d51eda12c7e6d4f",
+      "contentSha256": "3082f1a26f65ae6a369a49e387f2a0d06864bdf1cb9f04c38eb27cc9fcb82d1c",
       "citation": {
         "title": "Saturday 7 November 2026",
         "publisher": "Peninsula Insider",

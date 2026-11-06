@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Somers General, the Mornington inlet run, and an acoustic set at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/>) - Somers General's Sunday brunch spread, the Balcombe Creek estuary walk at high tide, and live music on the Moonah Links deck before the summer crowds land.
+
 - [Baillieu Vineyard, the Merricks vine walk, and National Works on Paper closing soon](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/>) - Baillieu Vineyard's Chardonnay opens up with time, the Merricks vine walk is at its best in new-growth spring, and the National Works on Paper show at MPRG closes 22 November.
 
 - [Green Olive in the grove, the coastal heath in full flower, and the Works on Paper closing window](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/>) - Green Olive at Red Hill's wood-fired lamb under the olive grove, the Boneo heathland orchids at peak density, and the National Works on Paper show at MPRG closing 22 November.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>) - David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
 
 - [Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/>) - Rare Hare at Willow Creek opens its Pinot Row terrace for spring, the Enchanted Adventure Garden's hedge maze hits peak season, and Emu Plains Market runs Saturdays at Balnarring Reserve through December.
-
-- [Jetty Road Brewery's seasonal taps, Arthurs Seat in spring bloom, and the National Works on Paper closing run](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/>) - Jetty Road Brewery's rotating seasonals earn the afternoon, Arthurs Seat State Park is at peak wildflower density, and the National Works on Paper 2026 closes 22 November at Mornington Peninsula Regional Gallery.
 
 ## Planning a particular weekend?
 

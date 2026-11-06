@@ -137,6 +137,14 @@ Insider Edit   4 min
 
 A Western Port brunch stop with Peninsula pantry goods, a coastal trail above Flinders at peak wildflower, and a national paper art survey open until 22 November at Mornington Peninsula Regional Gallery.
 
+Insider Edit   4 min
+
+### [Somers General, the Mornington inlet run, and an acoustic set at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/>)
+
+7 November 2026
+
+Somers General's Sunday brunch spread, the Balcombe Creek estuary walk at high tide, and live music on the Moonah Links deck before the summer crowds land.
+
 Service   6 min
 
 ### [The Four-Hour Peninsula: A Surgical Strike for When the Weekend Is Half a Day](<https://peninsulainsider.com.au/explore/plans/the-four-hour-peninsula/>)
@@ -144,14 +152,6 @@ Service   6 min
 15 April 2026
 
 For the midweek visit, the work trip with a free morning, or the Melbourne friends who have a flight out of Tullamarine at five. Four hours, three stops, one decisive lunch, and no wasted drives. The Peninsula you can actually do in half a day.
-
-Service   8 min
-
-### [The Market Saturday: Two Peninsula Weekends Built Around the Right Hour at the Right Stall](<https://peninsulainsider.com.au/explore/plans/the-market-saturday/>)
-
-13 April 2026
-
-Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current calendar, then build a Peninsula weekend around a confirmed market.
 
 Planning guides
 
