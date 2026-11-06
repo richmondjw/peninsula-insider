@@ -27,11 +27,22 @@
 
   @media (max-width: 639px) {
     .site-update-banner {
-      padding-block: var(--space-1);
+      position: absolute;
+      z-index: 1;
+      top: calc(env(safe-area-inset-top) + 2px);
+      left: 50%;
+      transform: translateX(-50%);
+      padding: var(--space-1);
+      white-space: nowrap;
     }
 
     .site-update-banner span {
       display: none;
+    }
+
+    :global(.pi-conditions .pi-conditions__inner) {
+      padding-inline: calc(var(--space-2) + env(safe-area-inset-left))
+                      calc(var(--space-2) + env(safe-area-inset-right));
     }
   }
 </style>
