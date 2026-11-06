@@ -24,6 +24,7 @@ on:
       - 'ops/event-intelligence/**'
       - 'ops/scripts/post-publish-verify.mjs'
       - 'ops/scripts/lib/publication-page-policy.mjs'
+      - 'ops/scripts/lib/original-art-figure.mjs'
       - 'ops/scripts/generate-llms-txt.mjs'
       - 'ops/seo-automation/**'
       - 'ops/baselines/**'

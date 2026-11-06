@@ -13,9 +13,10 @@
 //
 // --kind selects which optional checks apply. Default is "page" (only required checks).
 
-import { writeFile, mkdir } from 'node:fs/promises';
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { dirname } from 'node:path';
 import {metaContent,sitemapPolicy} from './lib/publication-page-policy.mjs';
+import { hasOriginalArtProvenance } from './lib/original-art-figure.mjs';
 
 const args = process.argv.slice(2);
 const urls = [];
@@ -236,9 +237,18 @@ async function verifyOne(url) {
         (!expectSourceHost || sourceHost === expectSourceHost),
         sourceHost || 'visible primary-source link missing'));
       if (expectIllustration) {
-        checks.push(check('event-illustration-disclosure',
-          /\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(figure) && /data-pi-media-disclosure=["']illustrative["']/i.test(figure),
-          'illustration disclosure in image caption'));
+        let sourceImage = null;
+        // Bind the deployed hero to this event's reviewed source record. Never
+        // accept self-asserted rights from HTML or borrow a neighbouring image.
+        const slug = new URL(res.url).pathname.match(/^\/whats-on\/([a-z0-9-]+)\/?$/)?.[1];
+        if (slug) {
+          try {
+            const record = await readFile(new URL(`../../next/src/content/events/${slug}.json`, import.meta.url), 'utf8');
+            sourceImage = JSON.parse(record).heroImage;
+          } catch { /* Missing or malformed source evidence must fail closed. */ }
+        }
+        checks.push(check('event-original-art-provenance', hasOriginalArtProvenance(figure, sourceImage, res.url),
+          'verified original PI artwork rights record bound to the rendered hero and descriptive alt'));
       }
     }
   }
@@ -286,3 +296,4 @@ if (reportPath) {
 }
 
 process.exit(allOk ? 0 : 1);
+

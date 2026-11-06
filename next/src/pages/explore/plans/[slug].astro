@@ -1,4 +1,5 @@
 ---
+import { isOriginalIllustration } from '../../../lib/illustration-presentation.mjs';
 /**
  * /explore/plans/[slug] - itinerary detail page + section:plans article pages
  *
@@ -103,12 +104,13 @@ if (incompleteArticleOverride && creditedArticleSource) {
 const articleHero = incompleteArticleOverride && creditedArticleSource && resolvedArticleHero
   ? { ...resolvedArticleHero, src: ad.heroImage.src, alt: ad.heroImage.alt, style: heroBackgroundStyle(ad), override: undefined }
   : resolvedArticleHero;
-const articlePhotoCaption = articleHero?.override
+const articleArt = isOriginalIllustration(articleHero?.override ?? ad?.heroImage);
+const articlePhotoCaption = articleArt ? '' : articleHero?.override
   ? articleHero.override.caption
   : ad?.planShape === 'one-night' && ad?.heroImage?.depictionStatus === 'illustrative' && ad?.heroImage?.caption
     ? `${ad.heroImage.caption} One of three suggested bases.`
     : ad?.heroImage?.caption;
-const articlePhotoCredit = articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
+const articlePhotoCredit = articleArt ? '' : articleHero?.override ? articleHero.override.credit : ad?.heroImage?.credit;
 const isOneNightGuide = isArticle && ad?.planShape === 'one-night';
 const articleFactReviewLabel = isOneNightGuide && ad?.lastVerified
   ? ad.lastVerified.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' })
@@ -845,9 +847,9 @@ export const prerender = true;
             })}
           >
             <div class="itinerary-detail__hero-fog"></div>
-            <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>
+            {!isOriginalIllustration(itineraryHeroOverride ?? data!.heroImage) && <span class="itinerary-detail__hero-label">{itineraryHeroOverride?.alt ?? data!.heroImage.alt}</span>}
           </div>
-          {(itineraryHeroOverride?.credit || data!.heroImage.credit) && (
+          {!isOriginalIllustration(itineraryHeroOverride ?? data!.heroImage) && (itineraryHeroOverride?.credit || data!.heroImage.credit) && (
             <p class="itinerary-detail__image-credit">
               {itineraryHeroOverride?.caption ?? data!.heroImage.caption ?? ''}
               {' · '}

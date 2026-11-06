@@ -13,7 +13,7 @@
  *   - reduce-motion: no slide, just appears
  *   - mobile: a slim bar above the bottom quick-actions bar
  */
-import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
+import { PLAY, playUrl, PLAY_LINE } from '../../lib/play';
 const href = playUrl('peek');
 ---
 
@@ -22,7 +22,7 @@ const href = playUrl('peek');
     <img class="play-peek__mark" src="/images/play/pi-mark-still-96.png" srcset="/images/play/pi-mark-still-96.png 1x, /images/play/pi-mark-still-192.png 2x" width="56" height="52" alt="" decoding="async" />
     <div class="play-peek__text">
       <p class="play-peek__lead">She&rsquo;s out again.</p>
-      <p class="play-peek__copy">Play Case {PLAY.case.id}, find her before sunset. {PRIZE_LINE}</p>
+      <p class="play-peek__copy">Play Case {PLAY.case.id}, find her before sunset. {PLAY_LINE}</p>
     </div>
     <a class="play-peek__cta pi-btn pi-btn--solid pi-btn--sm" href={href} data-evt="pi_play_promo" data-surface="peek" data-position="cta">Play</a>
     <button type="button" class="play-peek__close" aria-label="Not now" data-play-peek-close>&times;</button>

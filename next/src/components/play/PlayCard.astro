@@ -10,7 +10,7 @@
  * and the card enforcer leave them alone; the art is game art, not a
  * content-registry hero.
  */
-import { PLAY, playUrl, PRIZE_LINE } from '../../lib/play';
+import { PLAY, playUrl, PLAY_LINE } from '../../lib/play';
 
 export interface Props { variant?: 'band' | 'inline' }
 const { variant = 'band' } = Astro.props;
@@ -32,7 +32,7 @@ const href = playUrl(surface);
           ? PLAY.case.intro + ' Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.'
           : 'An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.'}
       </p>
-      <p class="play-card__prize">{PRIZE_LINE} <a href="https://play.peninsulainsider.com.au/terms">Draw terms and prize details</a></p>
+      <p class="play-card__prize">{PLAY_LINE}</p>
       <p class="play-card__actions">
         <a class="pi-btn pi-btn--solid" href={href} data-evt="pi_play_promo" data-surface={surface} data-position="cta">Play Case {PLAY.case.id}</a>
         <span class="play-card__fine">Six to ten minutes. Free, no account.</span>

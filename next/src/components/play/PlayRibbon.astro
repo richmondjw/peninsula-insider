@@ -19,9 +19,7 @@ const inCase = playCaseFor(kind, slug) ?? PLAY.case;
 const href = playUrl(`ribbon-${role ?? 'none'}`);
 const copy = role === 'found'
   ? { lead: 'PI was found here.', body: `Case ${inCase.id}, ${inCase.title}. Solve it and this is where the day ends.` }
-  : role === 'route'
-  ? { lead: 'PI passed through here.', body: `Case ${inCase.id}, ${inCase.title}. Twenty minutes ahead of you, as usual.` }
-  : { lead: 'This month’s prize.', body: `Find PI before sunset and go in the draw for ${PLAY.draw.prize} here. Draw closes ${PLAY.draw.closes}.` };
+  : { lead: 'PI passed through here.', body: `Case ${inCase.id}, ${inCase.title}. Twenty minutes ahead of you, as usual.` };
 ---
 
 {role && (

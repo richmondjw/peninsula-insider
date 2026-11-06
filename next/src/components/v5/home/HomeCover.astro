@@ -1,4 +1,6 @@
 ---
+import HomeCoastalArt from './HomeCoastalArt.astro';
+import { isOriginalIllustration } from '../../../lib/illustration-presentation.mjs';
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getAustralianSeasonLower } from '../../../lib/season';
@@ -15,14 +17,12 @@ const replacement = published?.src && published.alt?.trim() && published.credit?
 const photo = replacement ?? original;
 const statement = overrides.text['cover.statement'] ?? 'The Mornington Peninsula, sorted.';
 const season = getAustralianSeasonLower(new Date());
+const vectorArt = !replacement;
+const showCredit = !vectorArt && !isOriginalIllustration(photo);
 const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
 const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
-  <figure class="home-cover__plate">
-    <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
-    <figcaption>{photo.caption} {creditLine}</figcaption>
-  </figure>
   <div class="container home-cover__content">
     <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement}</h1>
@@ -33,12 +33,18 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
       <a class="home-cover__search" href="/search/" data-open-search data-surface="home-intents">Search the Peninsula <span aria-hidden="true">↗</span></a>
     </nav>
     <a class="home-cover__method" href="/about/#how-we-choose">How we choose our picks <span aria-hidden="true">→</span></a>
+    {vectorArt && <button type="button" class="home-cover__motion" data-coastal-motion hidden aria-pressed="false">Pause animation</button>}
   </div>
+  <!-- Parse the content first so slow HTML delivery cannot move bottom-anchored artwork. -->
+  <figure class="home-cover__plate">
+    {vectorArt ? <HomeCoastalArt /> : <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />}
+    {showCredit && <figcaption>{photo.caption} {creditLine}</figcaption>}
+  </figure>
 </section>
 <style>
   .home-cover{position:relative;isolation:isolate;background:var(--navy,#0b2e4a);color:white;overflow:hidden}
   .home-cover__plate{position:absolute;inset:0;margin:0;z-index:-1}
-  .home-cover__plate::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,30,47,.95),rgba(7,30,47,.84) 45%,rgba(7,30,47,.22))}
+  .home-cover__plate::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,30,47,.95),rgba(7,30,47,.85) 43%,rgba(7,30,47,.18) 67%,rgba(7,30,47,.02))}
   .home-cover__media{width:100%;height:100%;object-fit:cover;object-position:center 30%}
   figcaption{position:absolute;right:max(1rem,calc((100vw - 1280px)/2));bottom:1rem;z-index:1;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 .8125rem/1.45 var(--font-ui);color:white}
   .home-cover__content{padding-block:2.5rem 3rem}
@@ -49,6 +55,43 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   .home-cover__actions .pi-btn{min-height:48px}
   .home-cover__search,.home-cover__method{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:white;font:600 .9375rem/1.4 var(--font-ui);text-underline-offset:.25em}
   .home-cover__method{margin-top:.65rem;font-size:.8125rem}
+  .home-cover__motion{position:absolute;right:1rem;bottom:.75rem;display:block;min-height:44px;padding:.5rem .8rem;border:1px solid #fff8;border-radius:var(--radius-s);background:#102d42;color:#fff;font:600 .8125rem var(--font-ui);cursor:pointer}.home-cover__motion[hidden]{display:none}button:focus-visible{outline:3px solid var(--sand);outline-offset:4px}
   a:focus-visible{outline:3px solid var(--sand,#f5c177);outline-offset:4px}
   @media(max-width:47.99em){.home-cover__media[data-home-art="true"]{object-position:left center}.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{font-size:2rem;max-width:19ch}.home-cover__promise{font-size:1rem;margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:.875rem}.home-cover__search{font-size:.875rem}.home-cover__method{margin:0}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:.8125rem}}
 </style>
+
+<script>
+ import { homeArtPeriod } from '../../../lib/home-art-time.mjs';
+ let dispose = () => {};
+ function initCoastalArt() {
+   dispose();
+   const art = document.querySelector<HTMLElement>('[data-coastal-art]');
+   const button = document.querySelector<HTMLButtonElement>('[data-coastal-motion]');
+   if (!art || !button) return;
+   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+   let paused = reduced.matches;
+   const update = () => { art.dataset.period = homeArtPeriod(); };
+   const sync = () => {
+     art.dataset.paused = String(paused || reduced.matches);
+     button.hidden = reduced.matches;
+     button.textContent = paused ? 'Resume animation' : 'Pause animation';
+     button.setAttribute('aria-pressed', String(paused));
+   };
+   const toggle = () => { paused = !paused; sync(); };
+   const preference = () => { paused = reduced.matches; sync(); };
+   button.addEventListener('click', toggle);
+   reduced.addEventListener('change', preference);
+   document.addEventListener('visibilitychange', update);
+   update(); sync();
+   const timer = window.setInterval(update, 15000);
+   dispose = () => {
+     window.clearInterval(timer);
+     button.removeEventListener('click', toggle);
+     reduced.removeEventListener('change', preference);
+     document.removeEventListener('visibilitychange', update);
+   };
+ }
+ initCoastalArt();
+ document.addEventListener('astro:page-load', initCoastalArt);
+ document.addEventListener('astro:before-swap', () => dispose());
+</script>

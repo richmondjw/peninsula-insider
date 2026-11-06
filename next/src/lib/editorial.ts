@@ -524,7 +524,7 @@ export function heroBackgroundStyle(data: any): string {
  * heroImage. Anything else passes through unchanged.
  */
 export function formatHeroCredit(credit: string | undefined | null): string {
-  if (!credit) return '';
+  if (!credit || /^(Illustration|Artwork)\s*[:·]/i.test(credit.trim())) return '';
   if (credit.trim().toLowerCase() === 'jem') return 'Photograph by jem';
   return `Photo · ${credit}`;
 }

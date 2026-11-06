@@ -90,7 +90,7 @@ async function cardImage(venue: any): Promise<{ src: string; alt: string; captio
   return {
     src: hero.src,
     alt: hero.alt,
-    caption: disclosure ? `${disclosure.label}. ${disclosure.detail}` : undefined,
+    caption: disclosure ? disclosure.detail : undefined,
     credit: image.credit,
   };
 }

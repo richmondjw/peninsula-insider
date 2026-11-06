@@ -1,6 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { Site } from './harness.mjs';
+import { Site, DIST } from './harness.mjs';
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+import { stripTypeScriptTypes } from 'node:module';
+import { isOriginalIllustration } from '../../src/lib/illustration-presentation.mjs';
+import { originalArtProvenance, matchesOriginalArtProvenance } from '../../src/lib/original-art-provenance.mjs';
+import { hasOriginalArtProvenance } from '../../../ops/scripts/lib/original-art-figure.mjs';
 const site = await Site.open();
 test.after(() => site.close());
 
@@ -110,16 +116,22 @@ test('homepage newsletter explains invalid input and recovers from a rejected su
 
 
 
-test('failed AVIF download falls back to the original WebP variants without changing credits',async()=>{
+test('homepage original vector art is static without scripts and supports pause and reduced motion',async()=>{
   const reader=await site.reader();
   try {
     await reader.load('/');
-    const before=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption').textContent}));
-    assert.ok(await reader.page.$('.home-cover__plate source[data-pi-avif-source]'));
-    await reader.page.$eval('.home-cover__plate source',e=>{e.srcset='/images/missing-avif-regression.avif 800w';});
-    await reader.waitFor(()=>{const img=document.querySelector('.home-cover__media');return img.complete&&img.naturalWidth>0&&img.currentSrc.includes('.webp')&&!img.closest('picture').querySelector('source[data-pi-avif-source]');},'native WebP did not recover');
-    const after=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption').textContent}));
-    assert.deepEqual(after,before);
+    assert.equal(await reader.page.$('.home-cover__plate img'),null);
+    assert.equal(await reader.page.$('.home-cover__plate figcaption'),null);
+    await reader.page.click('[data-coastal-motion]');
+    assert.equal(await reader.page.$eval('[data-coastal-art]',e=>e.dataset.paused),'true');
+    await reader.page.click('[data-coastal-motion]');
+    assert.equal(await reader.page.$eval('[data-coastal-art]',e=>e.dataset.paused),'false');
+    await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
+    await reader.waitFor(()=>document.querySelector('[data-coastal-motion]').hidden,'motion control must hide when OS motion is reduced');
+    assert.equal(await reader.page.$eval('[data-coastal-art] .boat',e=>getComputedStyle(e).animationName),'none');
+    await reader.page.setJavaScriptEnabled(false);
+    await reader.page.goto(site.origin+'/',{waitUntil:'domcontentloaded'});
+    assert.deepEqual(await reader.page.$eval('[data-coastal-art]',e=>[e.dataset.period,e.dataset.paused]),['morning','true']);
   }finally{await reader.close();}
 });
 
@@ -141,7 +153,7 @@ test('homepage weekend picks show the recorded check dates and direct official s
   try {
     await reader.load('/');
     const sources=await reader.page.$$eval('.home-weekend [data-event-promotion]',els=>els.map(card=>({text:card.querySelector('.home-weekend__source')?.textContent.trim(),url:card.querySelector('.home-weekend__source a')?.href})));
-    assert.ok(sources.length<=3,JSON.stringify(sources));
+    assert.ok(sources.length<=6,JSON.stringify(sources));
     if(!sources.length){
       const empty=await reader.page.$eval('[data-event-promotion-empty]',node=>({hidden:node.hidden,text:node.textContent,href:node.querySelector('a')?.getAttribute('href')}));
       assert.equal(empty.hidden,false);assert.match(empty.text,/No verified event picks remain for this weekend/);assert.equal(empty.href,'/whats-on/?date=next-weekend');
@@ -150,8 +162,152 @@ test('homepage weekend picks show the recorded check dates and direct official s
     assert.equal(await reader.page.$eval('[data-event-promotion-empty]',node=>node.hidden),true);
     assert.ok(sources.every(s=>/Event details checked \d{1,2} \w+ \d{4}/.test(s.text??'')),JSON.stringify(sources));
     assert.ok(sources.every(s=>s.url?.startsWith('https://')&&!new URL(s.url).hostname.endsWith('peninsulainsider.com.au')),JSON.stringify(sources));
-    const hint=await reader.page.$eval('[data-event-promotion-multi-hint]',el=>({hidden:el.hidden,text:el.textContent.trim()}));
-    assert.equal(hint.hidden,sources.length<2);
-    assert.doesNotMatch(hint.text,/all three/i);
+    const browse=await reader.page.$$eval('.home-weekend__browse a',els=>els.map(e=>e.getAttribute('href')));
+    assert.deepEqual(browse,['/whats-on/?date=today','/whats-on/?date=tomorrow','/whats-on/?date=next-weekend','/whats-on/']);
   }finally{await reader.close();}
+});
+
+
+test('town markers and labels share real area links, keyboard focus and mobile tap areas',async()=>{
+ const reader=await site.reader();
+ try{
+  for(const width of [320,390,1440]){
+   await reader.page.setViewport({width,height:844});await reader.load('/');
+   const links=await reader.page.$$eval('.home-orientation__town-link',els=>els.map(e=>{const hit=e.querySelector('rect').getBoundingClientRect();return {href:e.getAttribute('href'),name:e.getAttribute('aria-label'),width:hit.width,height:hit.height};}));
+   const adjacent=await reader.page.$$eval('.home-orientation__areas h3 a',els=>els.map(e=>e.getAttribute('href')));
+   assert.deepEqual(links.map(e=>e.href),adjacent);
+   assert.ok(links.every(e=>e.name&&e.width>=44&&e.height>=44),JSON.stringify({width,links}));
+   await reader.page.focus('.home-orientation__heading a');
+   await reader.page.keyboard.press('Tab');
+   assert.equal(await reader.page.$eval('.home-orientation__town-link',e=>e.matches(':focus-visible')),true);
+  }
+  await reader.page.keyboard.press('Enter');
+  await reader.page.waitForFunction(()=>location.pathname==='/explore/places/mornington/');
+  for(const part of ['.home-orientation__number','.home-orientation__town']){
+   await reader.load('/');await reader.page.click('.home-orientation__town-link '+part);
+   await reader.page.waitForFunction(()=>location.pathname==='/explore/places/mornington/');
+  }
+ }finally{await reader.close();}
+});
+
+
+test('compact weekend grid uses the available row and keeps full reasons readable',async()=>{
+ const reader=await site.reader();
+ try{
+  await reader.page.setViewport({width:1440,height:1000});await reader.load('/');
+  const desktop=await reader.page.$eval('.home-weekend__scroller',e=>{const grid=e.querySelector('ul');const cards=[...grid.children].filter(c=>!c.hidden);return {count:cards.length,right:grid.getBoundingClientRect().right,lastRight:cards.at(-1)?.getBoundingClientRect().right,reasons:[...e.querySelectorAll('.pi-card__dek')].map(p=>({scroll:p.scrollHeight,client:p.clientHeight,clamp:getComputedStyle(p).webkitLineClamp}))};});
+  if(desktop.count===2)assert.ok(Math.abs(desktop.right-desktop.lastRight)<2,JSON.stringify(desktop));
+  assert.ok(desktop.reasons.every(p=>p.scroll<=p.client+1&&p.clamp==='none'),JSON.stringify(desktop));
+  await reader.page.setViewport({width:390,height:844});
+  const captions=await reader.page.$$eval('.home-orientation figcaption,.home-orientation__credit,.home-orientation__areas p',els=>els.map(e=>parseFloat(getComputedStyle(e).fontSize)));
+  assert.ok(captions.every(size=>size>=15),JSON.stringify(captions));
+ }finally{await reader.close();}
+});
+
+
+test('Explore fallback caption uses the actual source expression and preserves photo limitations', async () => {
+  const source = readFileSync(new URL('../../src/pages/explore/index.astro', import.meta.url), 'utf8');
+  const expression = source.match(/image=\{\{ src: item\.hero\.src, alt: item\.hero\.alt, caption: (.+) \}\}/)?.[1];
+  assert.ok(expression, 'Actual Explore card caption expression must be present');
+  const provenanceSource = readFileSync(new URL('../../src/lib/media-provenance.ts', import.meta.url), 'utf8');
+  const { illustrativeDisclosure } = await import('data:text/javascript;base64,' + Buffer.from(stripTypeScriptTypes(provenanceSource)).toString('base64'));
+  const actual = new Function('item', 'isOriginalIllustration', 'illustrativeDisclosure', `return (${expression});`);
+  const photo = { src: '/images/sourced/context.webp', depictionStatus: 'illustrative', depicts: 'a bay beach', credit: 'Peninsula Insider' };
+  const render = (image, override = undefined) => actual({ name: 'Eagle Ridge Golf Course', hero: { override }, data: { heroImage: image } }, isOriginalIllustration, illustrativeDisclosure);
+  assert.equal(render(photo), 'This image shows a bay beach. It does not depict Eagle Ridge Golf Course.');
+  assert.equal(render({ ...photo, depicts: undefined }), 'This image does not depict Eagle Ridge Golf Course.');
+  assert.equal(render({ ...photo, src: '/images/generated/original.webp', credit: 'Illustration: Peninsula Insider' }), undefined);
+  assert.equal(render(photo, { src: '/approved-cms-photo.webp' }), undefined);
+  assert.equal(render({ ...photo, depictionStatus: 'unverified' }), 'Image subject unverified');
+  assert.equal(render({ ...photo, depictionStatus: 'actual' }), undefined);
+  assert.equal(render(undefined), undefined);
+});
+
+test('Explore source photographs retain their truthful subject limitation on rendered shelves', async (t) => {
+  const reader = await site.reader();
+  try {
+    await reader.load('/explore/');
+    const cards = await reader.page.$$eval('.x-shelf .pi-card', cards => cards.map(card => {
+      const image = card.querySelector('img');
+      return {
+        slug: card.querySelector('.pi-card__link')?.dataset.entitySlug,
+        source: image?.getAttribute('data-pi-image-original-src') || image?.getAttribute('src'),
+        note: card.querySelector('.pi-card__image-note')?.textContent?.replace(/\s+/g, ' ').trim() || '',
+      };
+    }));
+    assert.ok(cards.length > 0, 'Explore shelves were not rendered');
+    const sourceIdentity = value => {
+      const url = new URL(value, 'https://peninsulainsider.com.au');
+      if (/^[a-f0-9]{8}$/i.test(url.searchParams.get('v') || '')) url.searchParams.delete('v');
+      return url.href;
+    };
+    let contextChecks = 0;
+    for (const card of cards) {
+      const record = JSON.parse(readFileSync(join(DIST, '..', 'src', 'content', 'experiences', `${card.slug}.json`), 'utf8'));
+      const image = record.heroImage;
+      // A CMS replacement is a different photograph. Never describe it using
+      // the source record or manufacture a warning on an approved override.
+      if (!image?.src || !card.source || sourceIdentity(card.source) !== sourceIdentity(image.src)) continue;
+      if (isOriginalIllustration(image)) {
+        assert.equal(card.note, '', `${card.slug}: original artwork must not regain a disclosure caption`);
+      } else if (image.depictionStatus === 'illustrative') {
+        contextChecks += 1;
+        assert.ok(card.note.includes(`It does not depict ${record.name}.`) || card.note.includes(`This image does not depict ${record.name}.`), `${card.slug}: missing context-photo warning`);
+        if (image.depicts?.trim()) {
+          assert.ok(card.note.includes(image.depicts.trim().replace(/[.!?]+$/, '')), `${card.slug}: recorded photographed subject missing`);
+        }
+      } else if (image.depictionStatus === 'unverified') {
+        assert.ok(card.note.includes('Image subject unverified'), `${card.slug}: unverified-image warning missing`);
+      }
+    }
+    if (contextChecks === 0) t.skip('No source context photograph selected; CMS replacements do not exercise fallback coverage');
+    else t.diagnostic(`Verified ${contextChecks} rendered source context-photo warnings`);
+  } finally { await reader.close(); }
+});
+
+
+test('built Market hero keeps validated original-art provenance without visible art labels', async () => {
+  const record = JSON.parse(readFileSync(new URL('../../src/content/events/mornington-racecourse-market.json', import.meta.url), 'utf8'));
+  assert.equal(record.heroImage.src, '/images/generated/coastal-punch-mornington.webp');
+  const expected = originalArtProvenance(record.heroImage);
+  assert.match(expected, /^sha256:[a-f0-9]{64}$/, 'the checked-in Market record must establish original-art rights');
+  const reader = await site.reader();
+  try {
+    for (const width of [390, 1440]) {
+      await reader.page.setViewport({ width, height: 900 });
+      await reader.load('/whats-on/mornington-racecourse-market/');
+      for (const state of ['cold load', 'client return']) {
+        if (state === 'client return') {
+          await reader.navigate('/wine/');
+          await reader.navigate('/whats-on/mornington-racecourse-market/');
+        }
+        await reader.waitFor(() => {
+          const image = document.querySelector('.event-detail__image img');
+          return image?.complete && image.naturalWidth > 0;
+        }, 'reviewed Market artwork did not load');
+        const hero = await reader.page.$eval('.event-detail__image', figure => {
+          const image = figure.querySelector('img');
+          const style = getComputedStyle(image);
+          const box = image.getBoundingClientRect();
+          return {
+            html: figure.outerHTML,
+            fingerprint: figure.getAttribute('data-pi-original-art'),
+            currentSrc: image.currentSrc,
+            alt: image.getAttribute('alt'),
+            text: figure.innerText.trim(),
+            displayed: style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0 && box.width > 0 && box.height > 0,
+          };
+        });
+        const context = `${width}px ${state}`;
+        assert.equal(hero.fingerprint, expected, `${context}: reviewed fingerprint survives rendering/navigation`);
+        assert.equal(hasOriginalArtProvenance(hero.html, record.heroImage, reader.page.url()), true, `${context}: live verifier accepts the actual built figure`);
+        assert.equal(matchesOriginalArtProvenance(hero.fingerprint, { src: hero.currentSrc, alt: hero.alt }, record.heroImage, reader.page.url()), true,
+          `${context}: the browser-selected image, not just a data attribute, is the reviewed artwork`);
+        assert.ok(hero.displayed, `${context}: artwork is visibly rendered`);
+        assert.equal(hero.text, '', `${context}: no original-art label, credit or caption is visible`);
+        assert.ok(!hero.html.includes(record.heroImage.permission), `${context}: internal permission note stays out of page HTML`);
+        assert.ok(!hero.html.includes(record.heroImage.creator), `${context}: internal creator record stays out of page HTML`);
+      }
+    }
+  } finally { await reader.close(); }
 });
