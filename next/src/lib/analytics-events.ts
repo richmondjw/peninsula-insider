@@ -32,8 +32,8 @@ import {
   makeDeduper,
   safePagePath,
   type EnvelopeContext,
-} from './analytics-contract';
-import { readConsentState, trackEvent } from './v5-analytics';
+} from './analytics-contract.ts';
+import { readConsentState, trackEvent } from './v5-analytics.ts';
 
 /**
  * Build identity. Set PUBLIC_RELEASE_SHA in the deploy workflow (it is wired
@@ -41,7 +41,7 @@ import { readConsentState, trackEvent } from './v5-analytics';
  * 'unreleased' rather than a plausible-looking lie.
  */
 const RELEASE: string =
-  (import.meta.env.PUBLIC_RELEASE_SHA as string | undefined)?.slice(0, 12) || 'unreleased';
+  (import.meta.env?.PUBLIC_RELEASE_SHA as string | undefined)?.slice(0, 12) || 'unreleased';
 
 /** One dedup gate for the whole page, so keys are comparable across surfaces. */
 const gate = makeDeduper();
@@ -63,6 +63,8 @@ export interface EmitOptions {
   /** Dedup key. Identify the intent, not the element. Omit to skip dedup. */
   dedupKey?: string;
   dedupMs?: number;
+  /** Bind delayed observations to the page that created them. */
+  pagePath?: string;
 }
 
 /**
@@ -82,7 +84,7 @@ export function emit(
     const ctx: EnvelopeContext = {
       eventId: newId(),
       timestamp: new Date().toISOString(),
-      pagePath: safePagePath(window.location.pathname),
+      pagePath: safePagePath(opts.pagePath ?? window.location.pathname),
       release: RELEASE,
       consentState: readConsentState(),
       component: opts.component,

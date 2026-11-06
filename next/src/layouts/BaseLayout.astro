@@ -347,8 +347,10 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <script>
     import { initV5Analytics } from '../lib/v5-analytics';
     import { initContractAnalytics } from '../lib/analytics-events';
+    import { initWebVitalsRUM } from '../lib/web-vitals-rum';
     initV5Analytics();
     initContractAnalytics();
+    initWebVitalsRUM();
   </script>
 
 </head>
