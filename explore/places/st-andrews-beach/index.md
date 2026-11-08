@@ -89,7 +89,7 @@ The sandy access path drops steeply from the car park, and the coast is exposed.
 
 What's mapped here
 
-- [**3** journal pieces](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/#journal>)
+- [**4** journal pieces](<https://peninsulainsider.com.au/explore/places/st-andrews-beach/#journal>)
 
 Read this place properly
 
@@ -114,6 +114,14 @@ Insider Edit   4 min
 10 October 2026
 
 A Sunday roast at the old stables brewery in Fingal, the Bushrangers Bay coastal loop in full spring flower, and a community walk from Safety Beach to Martha Cove on Saturday.
+
+Insider Edit   4 min
+
+### [St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/>)
+
+9 November 2026
+
+A Sunday roast in a converted racehorse stable, spring wildflowers at their densest on the Bushranger Bay heathland trail, and the last Saturday of the Mt Eliza market run.
 
 Investigation   7 min
 

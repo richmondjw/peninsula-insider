@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/>) - A Sunday roast in a converted racehorse stable, spring wildflowers at their densest on the Bushranger Bay heathland trail, and the last Saturday of the Mt Eliza market run.
+
 - [Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/>) - The Portsea Hotel's front-beach deck before the summer crowds, the Bushranger Bay underwater trail at peak spring visibility, and acoustic sets running every Saturday at Peppers Moonah Links through December.
 
 - [Somers General, the Mornington inlet run, and an acoustic set at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/>) - Somers General's Sunday brunch spread, the Balcombe Creek estuary walk at high tide, and live music on the Moonah Links deck before the summer crowds land.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/>) - The Bay Hotel Mornington's private vault dining room earns a booking, Greens Bush trails are at peak wildflower density, and Wine Lovers Warehouse Hastings runs a guided cheese-and-glass night on Friday.
 
 - [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>) - Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
-
-- [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>) - David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
 
 ## Planning a particular weekend?
 

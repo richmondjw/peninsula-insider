@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-08T19:18:43.762Z",
-  "snapshotId": "6d51a316c3a9abc9b910b1e0e873d299c397a84c27e7afb6b99578d336591b5b",
+  "generatedAt": "2026-11-08T20:17:55.979Z",
+  "snapshotId": "3071c38b62c2e3f0da976a7110d7e988513aed42f2a624a10736a739bbe6689c",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 616,
+  "count": 617,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2648,7 +2648,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/index.md",
-      "contentSha256": "0269bd5cf72a14a0fef96801a12e407760aba37257a93d740236ebc22920b86b",
+      "contentSha256": "f333db9dfc9cfddc8514adb2eb119a269b656d87a420816051817d5ce27fa39f",
       "citation": {
         "title": "St Andrews Beach",
         "publisher": "Peninsula Insider",
@@ -2656,8 +2656,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 174539,
-      "markdownBytes": 8941
+      "htmlBytes": 176914,
+      "markdownBytes": 9316
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/stony-point/",
@@ -6264,6 +6264,23 @@
       "markdownBytes": 9343
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
+      "title": "St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/index.md",
+      "contentSha256": "d15021166925d8757b29f332024c08b2cff6d432e6a82b1984573070db25147c",
+      "citation": {
+        "title": "St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
+        "publishedAt": "2026-11-09T00:00:00.000Z",
+        "modifiedAt": "2026-11-09T00:00:00.000Z"
+      },
+      "htmlBytes": 171240,
+      "markdownBytes": 8572
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7068,7 +7085,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "72de00754d15d6be19f4758511b39522c60f751c875408453c14e47737bbc9ff",
+      "contentSha256": "2aee7ef4462ed142eee58beb7bbae3e9a8bdb6179aabd3424a25584f70e1f353",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7076,8 +7093,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123717,
-      "markdownBytes": 5796
+      "htmlBytes": 123673,
+      "markdownBytes": 5760
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -7102,7 +7119,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "340a735e8d2b0456f3d9dc146d7a04ba7a88920250aac456d05f08a8c78e6ab7",
+      "contentSha256": "b6da217cbd5e95ee25ba8c63c92340db5ee34b74b1b0b461f8da00612964aaeb",
       "citation": {
         "title": "Monday 9 November 2026",
         "publisher": "Peninsula Insider",
