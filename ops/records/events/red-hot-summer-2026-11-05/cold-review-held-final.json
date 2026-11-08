@@ -1,0 +1,69 @@
+{
+  "reviewer": "/root/review_event_authority",
+  "rubric": "PI editorial v1.0",
+  "scope": "Held editorial asset only, not rendered production or release approval",
+  "reviewedAt": "2026-11-05T09:06:34.387Z",
+  "dimensions": {
+    "C1": {
+      "independentScore": 100,
+      "positiveEvidence": "Title and summary identify local ticketholder purpose",
+      "defects": []
+    },
+    "C2": {
+      "independentScore": 100,
+      "positiveEvidence": "Precise operator-supported service details; actual inventory conflict distinguished",
+      "defects": []
+    },
+    "C3": {
+      "independentScore": 100,
+      "positiveEvidence": "Restrained audience-specific service judgement, no purchase pressure",
+      "defects": []
+    },
+    "C4": {
+      "independentScore": 100,
+      "positiveEvidence": "Programme, entry, transport then access sequence",
+      "defects": []
+    },
+    "C5": {
+      "independentScore": 100,
+      "positiveEvidence": "Concrete measured Australian English, no simulated visit",
+      "defects": []
+    },
+    "C6": {
+      "independentScore": 100,
+      "positiveEvidence": "Redundant opening removed; practical paragraphs advance the purpose",
+      "defects": []
+    },
+    "C7": {
+      "independentScore": 100,
+      "positiveEvidence": "Proportionate age, access and uneven-surface limitations",
+      "defects": []
+    },
+    "C8": {
+      "independentScore": 100,
+      "positiveEvidence": "Useful ticketholder details; availability unknown honestly represented",
+      "defects": []
+    },
+    "C9": {
+      "independentScore": 100,
+      "positiveEvidence": "Title, summary and body fit the service guide brief",
+      "defects": []
+    },
+    "C10": {
+      "independentScore": 100,
+      "positiveEvidence": "Held draft state agrees with qualified copy and recorded conflict",
+      "defects": []
+    }
+  },
+  "gates": {
+    "G1": "FAIL: availability conflict and required exact-event recheck unresolved",
+    "G2": "PASS: no consideration or affiliate engagement in this task",
+    "G3": "PASS: existing PI original artwork rights and exact hash recorded",
+    "G4": "PASS: sourced age/access restrictions, no safety promise",
+    "G5": "UNKNOWN: no final public render or deployment",
+    "G6": "FAIL: user scope authorised but factual release gates unresolved"
+  },
+  "production": "Not certified. Required production checks and source clearance remain separate.",
+  "schemaNote": "publishedAt is mandatory on draft event records. The 5 November value is draft preparation metadata only; status draft is rejected by existing isPublicEventRecord.",
+  "strongestCaseAgainstRelease": "Unresolved promoter Sold Out versus Ticketmaster Low Availability/InStock, and exact Ticketmaster event retrieval HTTP401. No denied-route retry or alternative access workaround is permitted."
+}

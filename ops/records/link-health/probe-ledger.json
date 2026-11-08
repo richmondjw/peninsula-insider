@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-02T04:21:25.679Z",
+  "updatedAt": "2026-11-05T08:58:32.760Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -5130,6 +5130,14 @@
       "reviewedOn": "2026-09-13"
     },
     {
+      "url": "https://www.redhotsummertour.com.au/event/mornington-vic/786/overview",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hot Summer Tour",
+      "probedOn": "2026-11-05",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.relaischateaux.com/us/details/laura/",
       "verdict": "ok",
       "httpCode": "200",
@@ -5570,6 +5578,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "The Somers General - Relaxed Cafe Mornington Peninsula"
+    },
+    {
+      "url": "https://www.ticketmaster.com.au/red-hot-summer-tour-tickets/artist/1662101",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Red Hot Summer Tour Tickets | 2026-27 Tour &amp; Concert Dates | Ticketmaster AU",
+      "probedOn": "2026-11-05",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.tootps.vic.edu.au/page/107/Community-Market-",
