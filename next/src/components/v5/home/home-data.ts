@@ -158,6 +158,7 @@ export function selectWeekendPicks(
   picksEntries: any[],
   events: any[],
   now: Date = new Date(),
+  limit = 3,
 ): { picks: WeekendPick[]; window: WeekendWindow } {
   const win = weekendWindow(now);
   events = eventPromotionEntries(events, {now, windowStart: new Date(win.satISO + 'T00:00:00Z'), windowDays: 2});
@@ -185,11 +186,11 @@ export function selectWeekendPicks(
     for (const candidate of editorialCandidates) {
       used.add(slugOf(candidate.event));
       out.push(candidate);
-      if (out.length === 3) break;
+      if (out.length === limit) break;
     }
   }
 
-  if (out.length < 3) {
+  if (out.length < limit) {
     const mel = melbourneNow(now);
     const ranked = events
       .filter((e) => isLiveEvent(e, now))
@@ -213,7 +214,7 @@ export function selectWeekendPicks(
         event: ev,
         verdict: clampVerdict(ev.data.editorVerdict ?? ev.data.whyWeCare ?? ev.data.summary),
       });
-      if (out.length === 3) break;
+      if (out.length === limit) break;
     }
   }
 

@@ -43,3 +43,15 @@ test('an emptied homepage retains a truthful dated fallback instead of fabricate
  const empty={hidden:true},content={hidden:false},section={hidden:false,querySelectorAll:q=>q==='[data-event-promotion-empty]'?[empty]:q==='[data-event-promotion-content]'?[content]:[]};
  const root={querySelectorAll:q=>q==='[data-event-promotions-section]'?[section]:[]};refreshEventPromotions(root,now);assert.equal(section.hidden,false);assert.equal(empty.hidden,false);assert.equal(content.hidden,true);
 });
+
+
+test('compact homepage supports empty, few and six-event capacity with unchanged eligibility',()=>{
+  for(const count of [0,1,2,8]){
+    const events=Array.from({length:count},(_,i)=>fixture({slug:`fixture-${i}`,title:`Fixture ${i}`}));
+    events.push(fixture({slug:'expired',startDate:new Date('2026-09-01'),endDate:new Date('2026-09-01')}));
+    const selected=selectWeekendPicks([],events,now,6).picks;
+    assert.equal(selected.length,Math.min(count,6));
+    assert.ok(selected.every(p=>p.event.data.slug!=='expired'));
+    assert.equal(new Set(selected.map(p=>p.event.data.slug)).size,selected.length);
+  }
+});

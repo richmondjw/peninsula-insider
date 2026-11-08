@@ -1,3 +1,4 @@
+import { isOriginalIllustration, visibleImageCaption } from './illustration-presentation.mjs';
 /** Journal imagery must survive missing records, files, and failed downloads. */
 
 export function journalImageTheme(data = {}) {
@@ -37,7 +38,7 @@ export function selectJournalImage(hero, data, fallback, available, rightsEstabl
   if (!available(image.src)) Object.assign(image, journalIllustration, { provenance: journalIllustration });
   if (!available(image.src)) throw new Error('Journal image policy: no available image or original illustration');
   return {
-    ...hero, ...image,
+    ...hero, ...image, caption: visibleImageCaption(image),
     override: usable ? hero.override : undefined,
     fallback: !usable,
     recovery: [fallback, journalIllustration].filter((r, i, rows) => available(r.src) && rows.findIndex(x => x.src === r.src) === i),
@@ -45,6 +46,7 @@ export function selectJournalImage(hero, data, fallback, available, rightsEstabl
 }
 
 export function journalCredit(image) {
+  if (isOriginalIllustration(image)) return '';
   // Reviewed credit identifies raster artwork too. A format or an
   // illustrative depiction status alone does not make a context photo art.
   if (/^Illustration\s*[:·]/i.test(image.credit?.trim() ?? '')) return image.credit.trim();

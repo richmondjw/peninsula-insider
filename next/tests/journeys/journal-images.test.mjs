@@ -1,5 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { isOriginalIllustration } from '../../src/lib/illustration-presentation.mjs';
 import { Site } from './harness.mjs';
 
 const site = await Site.open();
@@ -18,11 +19,13 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844
       }, 'Journal images did not load');
       const figures = await reader.page.evaluate(() => [...document.querySelectorAll('.story')].map(story => ({
         image: !!story.querySelector('img[data-journal-image]'),
+        src: story.querySelector('img')?.dataset.piImageOriginalSrc || story.querySelector('img')?.getAttribute('src'),
+        alt: story.querySelector('img')?.alt,
         credit: story.querySelector('[data-journal-image-credit]')?.textContent?.trim(),
         width: story.querySelector('img')?.getBoundingClientRect().width,
       })));
       assert.ok(figures.length > 0);
-      assert.ok(figures.every(f => f.image && f.credit && f.width > 0 && f.width <= viewport.width));
+      assert.ok(figures.every(f => f.image && f.alt && (f.credit || isOriginalIllustration(f)) && f.width > 0 && f.width <= viewport.width));
     } finally { await reader.close(); }
   });
 }
@@ -54,8 +57,8 @@ test('failed article and thematic images recover to original art after client na
     });
     assert.equal(result.slug, slug);
     assert.match(result.alt, /Original illustration/);
-    assert.equal(result.credit, 'Illustration · Peninsula Insider');
-    assert.match(result.caption, /not a photograph/);
+    assert.equal(result.credit, '');
+    assert.equal(result.caption, '');
     assert.doesNotMatch(result.credit, /Visit Victoria/);
   } finally { await reader.close(); }
 });

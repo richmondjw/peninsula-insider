@@ -102,7 +102,7 @@ const hasPhoto = (hero.hasPhoto || vettedStayIllustration) && (hero.override
   : Boolean(data.heroImage?.credit?.trim()));
 const photoCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
 const photoNote = hasPhoto && photoCredit
-  ? ((href.startsWith('/stay/') && !hero.override && data.heroImage?.depictionStatus === 'illustrative') ? `Illustrative, not ${data.name}. ` : slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
+  ? ((href.startsWith('/stay/') && !hero.override && data.heroImage?.depictionStatus === 'illustrative') ? `Context photo, not ${data.name}. ` : slug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : '') + 'Photo: ' + photoCredit
   : '';
 const flindersCommonsPhoto = slug === 'flinders-hotel' && !hero.override && hasPhoto;
 const photoSourceUrl = !hero.override && hasPhoto && /^https?:\/\/\S+$/.test(String(data.heroImage?.sourceUrl)) ? data.heroImage.sourceUrl : undefined;

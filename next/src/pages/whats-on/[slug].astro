@@ -16,6 +16,7 @@ import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
 import EventImageCredit from '../../components/EventImageCredit.astro';
 import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
+import { originalArtProvenance } from '../../lib/original-art-provenance.mjs';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
 import {
@@ -126,6 +127,7 @@ const eventHero = resolvedHero.override
 // A recorded, explicitly marked illustrative venue photo is eligible even
 // when its filename matches the generic-location fallback pattern.
 const showReviewedImage = Boolean(eventHero.src && event.data.heroImage?.src) && event.data.heroImage?.rightsStatus === 'recorded';
+const originalArt = originalArtProvenance(event.data.heroImage);
 // A text-only detail must not redistribute a fallback place photograph without its on-page credit.
 const ogImage = showReviewedImage ? eventHero.src : '/images/generated/whats-on-og-card.png';
 
@@ -338,7 +340,7 @@ export const prerender = true;
       </div>
 
       {showReviewedImage && (
-        <figure class="event-detail__image">
+        <figure class="event-detail__image" data-pi-original-art={originalArt ?? undefined}>
           <img src={eventHero.src} alt={eventHero.alt} loading="eager" decoding="async" />
           <figcaption>
             <EventImageCredit image={event.data.heroImage} />
@@ -583,3 +585,4 @@ export const prerender = true;
   import { installRoutineDetailRefresh } from '../../lib/event-publication.mjs';
   installRoutineDetailRefresh(window,document);
 </script>
+

@@ -4,9 +4,16 @@ import { createServer } from 'node:http';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
+import { readFileSync } from 'node:fs';
+import { originalArtProvenance } from '../../next/src/lib/original-art-provenance.mjs';
+import { hasOriginalArtProvenance } from './lib/original-art-figure.mjs';
 
 const run = promisify(execFile);
 const script = fileURLToPath(new URL('./post-publish-verify.mjs', import.meta.url));
+const marketRoute = '/whats-on/mornington-racecourse-market/';
+const originalImage = JSON.parse(readFileSync(new URL('../../next/src/content/events/mornington-racecourse-market.json', import.meta.url), 'utf8')).heroImage;
+const fingerprint = originalArtProvenance(originalImage);
+const escape = value => String(value).replaceAll('&', '&amp;').replaceAll('"', '&quot;');
 const source = 'https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/MORNINGTON-RACECOURSE-MARKET-1-1';
 
 test('live event quality rejects missing imagery and thin copy, and checks release identity', async () => {
@@ -19,8 +26,8 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
       response.end('body { color: black; }');
       return;
     }
-    if (url === '/hero.png') {
-      response.writeHead(200, { 'content-type': 'image/png' });
+    if (url.split('?')[0] === originalImage.src) {
+      response.writeHead(200, { 'content-type': 'image/webp' });
       response.end(Buffer.alloc(12_000));
       return;
     }
@@ -31,21 +38,22 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
     }
     if (url === '/sitemap.xml') {
       response.writeHead(200, { 'content-type': 'application/xml' });
-      response.end('<urlset><url><loc>' + origin + '/market/</loc></url></urlset>');
+      response.end('<urlset><url><loc>' + origin + marketRoute + '</loc></url></urlset>');
       return;
     }
-    if (url === '/market/') {
-      const credit = mode === 'missing-credit' ? 'Peninsula Insider' : mode === 'legacy-credit' ? 'AI-assisted artwork' : 'Illustration · Peninsula Insider';
-      const disclosure = mode === 'missing-disclosure' ? '' : ' data-pi-media-disclosure="illustrative"';
-      const figure = mode !== 'bad'
-        ? '<figure class="event-detail__image"><img src="/hero.png" alt="Conceptual market scene"><figcaption><p>' + credit + '</p><p' + disclosure + '>Illustrative image</p></figcaption></figure>'
-        : '';
+    if (url === marketRoute) {
+      const evidence = mode === 'missing-provenance' ? '' : ' data-pi-original-art="' + (mode === 'wrong-provenance' ? 'sha256:' + '0'.repeat(64) : fingerprint) + '"';
+      const imageSrc = mode === 'wrong-image' ? '/images/generated/unreviewed.webp' : originalImage.src + (mode === 'cache-stamped' ? '?v=a1b2c3d4' : '');
+      const alt = mode === 'wrong-alt' ? 'A photograph of the market' : originalImage.alt;
+      const figure = mode === 'bad' ? '' : mode === 'caption-only'
+        ? '<figure class="event-detail__image"><img src="' + originalImage.src + '" alt="' + escape(originalImage.alt) + '"><figcaption><p>Illustration · Peninsula Insider</p><p data-pi-media-disclosure="illustrative">Illustrative image</p></figcaption></figure>'
+        : '<figure class="event-detail__image"' + evidence + '><img src="' + imageSrc + '" alt="' + escape(alt) + '"><figcaption></figcaption></figure>';
       const prose = mode !== 'bad'
         ? Array(145).fill('practical').join(' ')
         : 'A short stub.';
       response.writeHead(200, { 'content-type': 'text/html' });
       response.end('<!doctype html><html><head>' +
-        '<link rel="canonical" href="' + origin + '/market/">' +
+        '<link rel="canonical" href="' + origin + marketRoute + '">' +
         '<title>Mornington Racecourse Market | Peninsula Insider</title>' +
         '<meta name="description" content="A complete market guide with visitor details, current source and practical information.">' +
         '<meta property="og:title" content="Mornington Racecourse Market">' +
@@ -64,15 +72,18 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   origin = 'http://127.0.0.1:' + server.address().port;
   const args = ['--kind=event', '--event-quality', '--expect-illustration',
-    '--expect-source-host=www.mornpen.vic.gov.au', '--expect-sha=abc123', origin + '/market/'];
+    '--expect-source-host=www.mornpen.vic.gov.au', '--expect-sha=abc123', origin + marketRoute];
   try {
     const good = await run(process.execPath, [script, ...args]);
     assert.match(good.stdout, /PASS/);
 
-    for (const invalid of ['missing-credit', 'missing-disclosure', 'legacy-credit']) {
+    mode = 'cache-stamped';
+    assert.match((await run(process.execPath, [script, ...args])).stdout, /PASS/);
+
+    for (const invalid of ['missing-provenance', 'wrong-provenance', 'wrong-image', 'wrong-alt', 'caption-only']) {
       mode = invalid;
       await assert.rejects(run(process.execPath, [script, ...args]), (error) => {
-        assert.match(error.stdout, /event-illustration-disclosure/);
+        assert.match(error.stdout, /event-original-art-provenance/);
         return true;
       });
     }
@@ -142,4 +153,62 @@ test('article verification accepts illustration and photo credits and rejects mi
   } finally {
     await new Promise(resolve => server.close(resolve));
   }
+});
+
+
+test('original-art evidence requires the complete reviewed rights record, not path or credit alone', () => {
+  assert.match(fingerprint, /^sha256:[a-f0-9]{64}$/);
+  assert.equal(originalArtProvenance({ src: originalImage.src, credit: originalImage.credit }), null);
+  for (const field of ['src', 'alt', 'credit', 'license', 'depicts', 'depictionStatus', 'creator', 'permission', 'permittedUses', 'rightsHolder', 'rightsEstablishedOn', 'rightsStatus', 'provenanceReview', 'decorative']) {
+    const incomplete = { ...originalImage };
+    delete incomplete[field];
+    assert.equal(originalArtProvenance(incomplete), null, `missing ${field}`);
+  }
+  for (const change of [
+    { src: '/images/sourced/market.webp' }, { src: 'https://example.com/images/generated/market.webp' },
+    { alt: 'Photograph of Mornington Racecourse Market' }, { depictionStatus: 'actual' },
+    { credit: 'Peninsula Insider' }, { credit: 'Illustration: Someone else' },
+    { creator: 'Different creator' }, { rightsHolder: 'Different rights holder' },
+    { rightsStatus: 'unknown' }, { provenanceReview: 'pending' },
+    { license: 'cc-by' }, { licenseUrl: 'https://creativecommons.org/licenses/by/4.0/' },
+    { licenceUrl: 'https://creativecommons.org/licenses/by/4.0/' },
+    { permission: 'Credit supplied, rights not established' }, { permittedUses: ['social'] },
+    { rightsEstablishedOn: '2026-02-30' }, { decorative: true },
+  ]) assert.equal(originalArtProvenance({ ...originalImage, ...change }), null, JSON.stringify(change));
+  assert.notEqual(originalArtProvenance({ ...originalImage, permission: originalImage.permission + ' Updated record.' }), fingerprint,
+    'a changed permission record invalidates the old fingerprint');
+});
+
+test('original-art fingerprint is bound to its hero, alt and reviewed local source', () => {
+  const pageUrl = 'https://peninsulainsider.com.au/whats-on/mornington-racecourse-market/';
+  const valid = `<figure class="event-detail__image" data-pi-original-art="${fingerprint}"><img src="${originalImage.src}" alt="${escape(originalImage.alt)}"><figcaption></figcaption></figure>`;
+  const accepts = html => hasOriginalArtProvenance(html, originalImage, pageUrl);
+  assert.equal(accepts(valid), true);
+  assert.equal(accepts(valid.replace(originalImage.src, originalImage.src + '?v=a1b2c3d4')), true);
+  assert.equal(accepts(valid.replace(originalImage.src, 'https://peninsulainsider.com.au' + originalImage.src)), true);
+  for (const wrong of [
+    valid.replace(` data-pi-original-art="${fingerprint}"`, ''),
+    valid.replace(fingerprint, 'sha256:' + '0'.repeat(64)),
+    valid.replace(originalImage.src, '/images/generated/different.webp'),
+    valid.replace(originalImage.src, 'https://example.com' + originalImage.src),
+    valid.replace(originalImage.src, originalImage.src + '?other=a1b2c3d4'),
+    valid.replace(originalImage.src, originalImage.src + '?v=not-a-build-hash'),
+    valid.replace(originalImage.src, originalImage.src + '?v=a1b2c3d4&amp;other=1'),
+    valid.replace(originalImage.src, originalImage.src + '?v=a1b2c3d4&amp;v=00112233'),
+    valid.replace(originalImage.src, originalImage.src + '#different'),
+    valid.replace(originalImage.alt, ''),
+    valid.replace('<img ', '<img srcset="/images/generated/different.webp 1280w" '),
+    valid.replace('<img ', `<img data-pi-image-original-src="${originalImage.src}" `),
+    valid.replace('<img ', '<source srcset="/images/generated/different.webp"><img '),
+    valid.replace('<img ', '<img src="/other.webp"><img '),
+    valid.replace('<figure ', `<figure data-pi-original-art="${fingerprint}" `),
+    valid.replace(` data-pi-original-art="${fingerprint}"`, '').replace('<figcaption>', `<figcaption data-pi-original-art="${fingerprint}">`),
+    valid.replace('<img ', '<!-- <img src="/ignored.webp"> --><img ').replace(` data-pi-original-art="${fingerprint}"`, ''),
+  ]) assert.equal(accepts(wrong), false, wrong);
+  assert.equal(hasOriginalArtProvenance(valid, null, pageUrl), false, 'source record is required');
+  assert.equal(hasOriginalArtProvenance(valid, { ...originalImage, rightsStatus: 'unknown' }, pageUrl), false);
+  assert.equal(hasOriginalArtProvenance(valid, { ...originalImage, permission: originalImage.permission + ' Revised.' }, pageUrl), false);
+  const quoted = { ...originalImage, alt: 'Conceptual illustration of a maker\'s "fruit & flowers" stall' };
+  const quotedFigure = valid.replace(fingerprint, originalArtProvenance(quoted)).replace(escape(originalImage.alt), escape(quoted.alt));
+  assert.equal(hasOriginalArtProvenance(quotedFigure, quoted, pageUrl), true);
 });

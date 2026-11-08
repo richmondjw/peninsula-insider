@@ -12,7 +12,7 @@ Applies to Home, Eat & Drink, Stay, Wine, Explore, Plans, What's On and Journal.
 ## Colour, imagery and composition
 
 - Harbour blue carries links, selected states and primary actions; deep navy carries dark sections; white and warm neutral carry reading surfaces. Sand is a restrained accent, with the AA-safe sand-text token on white.
-- Every image has subject, rights and descriptive alt evidence. A contextual photo identifies the actual photographed place; an illustration is disclosed. No generic coastal photo may silently stand in as a venue photograph.
+- Every image has subject, rights and descriptive alt evidence. A contextual photo identifies the actual photographed place; original illustration provenance stays in internal records and accessible descriptions, without visible illustration-only labels or captions. No generic coastal photo may silently stand in as a venue photograph.
 - Use stable image dimensions and deliberate 3:2 or 16:9 crops. Avoid giant empty plates paired with tiny unrelated thumbnails. A photo cannot carry the only text or action.
 - Use a consistent section rhythm and a small family of card types. Editorial curation, practical discovery and deeper stories are recognisable layers rather than competing modules.
 

@@ -204,7 +204,7 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
   } finally { await reader.close(); }
 });
 
-test('homepage alternate plan actions retain usable itineraries and the cover is a single still image', async () => {
+test('homepage alternate plan actions retain usable itineraries and the cover uses original controllable vector art', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
@@ -212,8 +212,8 @@ test('homepage alternate plan actions retain usable itineraries and the cover is
     assert.ok(copiedKinds.length>=1);
     assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
     assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
-    assert.equal(await reader.page.$$eval('.home-cover__media', els => els.length), 1);
-    assert.ok(await reader.page.$eval('.home-cover__media', image => image.complete && image.naturalWidth > 0));
+    assert.equal(await reader.page.$$eval('.home-cover__plate svg', els => els.length), 1);
+    assert.ok(await reader.page.$('[data-coastal-motion]'));
     assert.equal(await reader.page.$$eval('.cover-motion-toggle', els => els.length), 0);
     await reader.page.emulateMediaFeatures([{name:'prefers-reduced-motion',value:'reduce'}]);
     assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
