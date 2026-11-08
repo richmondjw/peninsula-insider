@@ -1,100 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-08T14:27:36.166Z",
+  "generatedAt": "2026-11-08T19:18:43.762Z",
   "baselineAvailable": true,
-  "fromSnapshot": "eeb2c5a958d397501e5054f5a543f5ac7762f561f8955be347d704ac219bd1b8",
-  "toSnapshot": "232893311931d5c2278a86fff972916ef1f53651f46ac71ac0897acd4abecc51",
-  "previousGeneratedAt": "2026-11-06T22:17:14.229Z",
+  "fromSnapshot": "232893311931d5c2278a86fff972916ef1f53651f46ac71ac0897acd4abecc51",
+  "toSnapshot": "6d51a316c3a9abc9b910b1e0e873d299c397a84c27e7afb6b99578d336591b5b",
+  "previousGeneratedAt": "2026-11-08T14:27:36.166Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 11,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "2bb880e919449a60c7c71e1fed40c4a8bd2b59c7c1d43d8b16e1f37442009f38",
-      "previousContentSha256": "62ac0260a45a80a3535e69fab3edc2501c3f840035a816ea7bdf976fd0bc84fc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
-      "contentSha256": "aae62da14ecee9d3eab1ba8c80416305bf93cebd2c4af0242ffa611049e23522",
-      "previousContentSha256": "de5e2c539fa527dbb81651c1e46f00075ab8b482566c2ff58904def6b70b7a0d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "eabc3aece75f6e34933e2591675e96534b9d53cd41da1f566311f06c64e370a1",
-      "previousContentSha256": "285a4d377a2a13d2d8b126c0a89a6af37fd3d36216ecefd507e73781c8852f83"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "0fd74738b5fe10e04a504e2a1f7d3f6d549a8f201abe14f563228d1f00d03965",
-      "previousContentSha256": "e8bd30f71f2c037e3440ac5d635385802b40b9bcd4b194b0d3ce3e97458aea3f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/index.md",
-      "contentSha256": "bdd5bfadb1d5344ab7016792318ad6c95ffb1df34523153ebf5664a6f5d0e55d",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "72de00754d15d6be19f4758511b39522c60f751c875408453c14e47737bbc9ff",
-      "previousContentSha256": "99847f2ee7a7021004bd5fa3ee6eeb99c9e6262123653d9b4207f5f7b2a14ffc"
-    },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "31304d7c9d10f6ce3e55b4cbbb1b27f97d5a407335f03b75d16daaae7ab82e3f",
-      "previousContentSha256": "0474523f898a51c18162b6272a9170500790982495ca65541741e1bf1a7f4bea"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "c6d8eb4ac84e446d9a73c0b600b8dbbf2fd0f4298e808d04393da7733b31e4dd",
-      "previousContentSha256": "ae8521187ebe273c250f1c693a78ac4026fe26cd2f0c509b2e045c8a4078b110"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "bf3f406d572cdefaaf4d206133f9b9c5d5118a35c0397ffabbdc8cdd73644dee",
-      "previousContentSha256": "3afaf069fd0b2601217ad185ddf6b202439154dbb7d2006327ec3295f821f471"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "2d71f11df50fe5b7cfeee2b80de322110dda37c95ebca86692b40ec478c2b8ce",
-      "previousContentSha256": "e79dae5a72aaf033bb7f102c597717b0c46763c891c47094582988169d18fa3a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "50b9f20618fb2d7adecabf56735381fddf41006a68df2b9afe0493cb5bcc2acf",
-      "previousContentSha256": "20efda9397a717a98b36f7d95dbd82ed8409fbb5177c74be4f9c4c9c22e46e28"
+      "contentSha256": "340a735e8d2b0456f3d9dc146d7a04ba7a88920250aac456d05f08a8c78e6ab7",
+      "previousContentSha256": "31304d7c9d10f6ce3e55b4cbbb1b27f97d5a407335f03b75d16daaae7ab82e3f"
     }
   ]
 }
