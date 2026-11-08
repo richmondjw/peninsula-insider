@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-06T22:17:14.229Z",
-  "snapshotId": "eeb2c5a958d397501e5054f5a543f5ac7762f561f8955be347d704ac219bd1b8",
+  "generatedAt": "2026-11-08T14:27:36.166Z",
+  "snapshotId": "232893311931d5c2278a86fff972916ef1f53651f46ac71ac0897acd4abecc51",
   "section": "journal",
-  "count": 147,
+  "count": 148,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/journal/",
@@ -11,7 +11,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "e8bd30f71f2c037e3440ac5d635385802b40b9bcd4b194b0d3ce3e97458aea3f",
+      "contentSha256": "0fd74738b5fe10e04a504e2a1f7d3f6d549a8f201abe14f563228d1f00d03965",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 249580,
-      "markdownBytes": 21947
+      "htmlBytes": 249582,
+      "markdownBytes": 21949
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -1789,6 +1789,23 @@
       },
       "htmlBytes": 172198,
       "markdownBytes": 8916
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
+      "title": "Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/index.md",
+      "contentSha256": "bdd5bfadb1d5344ab7016792318ad6c95ffb1df34523153ebf5664a6f5d0e55d",
+      "citation": {
+        "title": "Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
+        "publishedAt": "2026-11-08T00:00:00.000Z",
+        "modifiedAt": "2026-11-08T00:00:00.000Z"
+      },
+      "htmlBytes": 173374,
+      "markdownBytes": 9343
     },
     {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",

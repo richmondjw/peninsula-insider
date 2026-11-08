@@ -704,17 +704,7 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 7 Nov
-
-### ✦ Acoustic Saturdays at Peppers Moonah Links
-
-Fingal
-
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-- [Sat, 7 Nov
+- [Tue, 10 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 
@@ -733,3 +723,13 @@ Mornington
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+- [Sat, 14 Nov
+
+### ✦ Acoustic Saturdays at Peppers Moonah Links
+
+Fingal
+
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)

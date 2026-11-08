@@ -101,6 +101,16 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Arts  14 Nov
+
+### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
+[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
 ## The Insider Note
 
 Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.

@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/>) - The Portsea Hotel's front-beach deck before the summer crowds, the Bushranger Bay underwater trail at peak spring visibility, and acoustic sets running every Saturday at Peppers Moonah Links through December.
+
 - [Somers General, the Mornington inlet run, and an acoustic set at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/>) - Somers General's Sunday brunch spread, the Balcombe Creek estuary walk at high tide, and live music on the Moonah Links deck before the summer crowds land.
 
 - [Baillieu Vineyard, the Merricks vine walk, and National Works on Paper closing soon](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/>) - Baillieu Vineyard's Chardonnay opens up with time, the Merricks vine walk is at its best in new-growth spring, and the National Works on Paper show at MPRG closes 22 November.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>) - Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
 
 - [Eldridge Estate, Boneo Road Wildflowers, and National Works on Paper 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/>) - David Lloyd's MV6 Pinot Noir at Eldridge Estate, the coastal heath in full flower along Boneo Road's Greens Bush loop, and the National Works on Paper 2026 closing at Mornington Peninsula Regional Gallery on 22 November.
-
-- [Rare Hare's terrace, the Enchanted Adventure Garden maze, and Emu Plains Market at Balnarring](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/>) - Rare Hare at Willow Creek opens its Pinot Row terrace for spring, the Enchanted Adventure Garden's hedge maze hits peak season, and Emu Plains Market runs Saturdays at Balnarring Reserve through December.
 
 ## Planning a particular weekend?
 
