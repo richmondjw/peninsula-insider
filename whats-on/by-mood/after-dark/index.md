@@ -45,6 +45,14 @@ Come along to meet other MP creatives, join a curator tour of the new Gareth Sam
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
+Food & Wine  31 Dec
+
+### [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
+
+New Years Eve Event 2026/2027 at The Baths Sorrento.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
+
 ## The Insider Note
 
 Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.

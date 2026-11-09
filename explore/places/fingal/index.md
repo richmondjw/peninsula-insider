@@ -416,3 +416,13 @@ Fingal
 Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+- [Sun, 15 Nov
+
+### sunday sessions at Peninsula Hot Springs Eco Lodges
+
+Fingal
+
+Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
+
+ Event · Wellness](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)

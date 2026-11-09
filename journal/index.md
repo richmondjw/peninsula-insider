@@ -724,12 +724,12 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Sat, 14 Nov
+- [Fri, 13 Nov
 
-### ✦ Acoustic Saturdays at Peppers Moonah Links
+### Live Music at Quarters at Flinders Hotel
 
-Fingal
+Flinders
 
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)

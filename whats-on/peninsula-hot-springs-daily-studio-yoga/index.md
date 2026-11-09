@@ -73,33 +73,23 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
+Wellness   Dates on request
 
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill.
 
-Illustration · Peninsula Insider
+[Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+Wellness  15 Nov
 
-Markets   Monthly – 2nd Saturday of every month
+### [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+Sunday sessions at Bath House Café, complimentary with bathing.
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

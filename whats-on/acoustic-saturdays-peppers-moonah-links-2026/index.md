@@ -79,33 +79,23 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
+Live Music  13 Nov
 
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+### [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
-Illustration · Peninsula Insider
+Live Music   Thursday 3, 10 and 17 December 2026, 6–10pm; no further dates confirmed.
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+### [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
-Markets   Monthly – 2nd Saturday of every month
+[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge.
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
-
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

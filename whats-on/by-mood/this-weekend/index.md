@@ -111,6 +111,22 @@ Walk through the National Works on Paper exhibition with MPRG curator and judgin
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
+Cellar Doors  14 Nov
+
+### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+Wellness  15 Nov
+
+### [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
+Sunday sessions at Bath House Café, complimentary with bathing.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
 ## The Insider Note
 
 Thoughtful recommendations, seasonal discoveries, and what’s happening across the Mornington Peninsula.

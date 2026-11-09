@@ -491,9 +491,33 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
+- [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+
+- [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+
+- [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+- [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+- [New Year’s Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/>)
+
+- [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
+
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
+- [School Holiday Fun at Red Gum BBQ!](<https://peninsulainsider.com.au/whats-on/school-holiday-fun-at-red-gum-bbq-2027-04-09/>)
+
+- [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
+- [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
+
 - [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
+
+- [The Lucky Duck & Pinot Lunch](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
+
+- [Torren Foot at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/>)
+
+- [Vinehop at Phaedrus Estate](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)
 
 ## Journal
 

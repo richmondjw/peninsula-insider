@@ -530,3 +530,31 @@ Browse locations as a list
 - [Red Hill Truffles](<https://peninsulainsider.com.au/explore/red-hill-truffles/>) · attraction
 
 - [Summit Circuit Walk - Arthurs Seat](<https://peninsulainsider.com.au/explore/summit-circuit-arthurs-seat/>) · walk
+
+On the calendar in this place
+
+## Events in Red Hill
+
+Coming up in Red Hill, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 14 Nov
+
+### Mornington Peninsula Wine Spring Winery Walk
+
+Red Hill
+
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+
+ Event · Cellar Doors](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+- [Fri, 20 Nov
+
+### The Lucky Duck & Pinot Lunch
+
+Red Hill
+
+One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)

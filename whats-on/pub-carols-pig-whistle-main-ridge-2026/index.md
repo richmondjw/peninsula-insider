@@ -65,33 +65,27 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
-
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+Illustrative image  This image shows a conceptual acoustic guitar. It does not depict Acoustic Saturdays at Peppers Moonah Links.
 
-Markets   Monthly – 2nd Saturday of every month
+Live Music   Every Saturday evening year-round from 5pm
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+Live Music  13 Nov
 
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+### [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

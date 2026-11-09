@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-09",
-  "generatedAt": "2026-11-09T00:39:28.696Z",
+  "generatedAt": "2026-11-09T01:04:35.863Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -19,9 +19,9 @@
     "start": "2026-11-13",
     "end": "2026-11-15",
     "label": "Fri 13 – Sun 15 November",
-    "count": 9
+    "count": 12
   },
-  "numberOfItems": 19,
+  "numberOfItems": 30,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -104,6 +104,19 @@
       "position": 8,
       "item": {
         "@type": "Event",
+        "name": "Live Music at Quarters at Flinders Hotel",
+        "url": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
+        "startDate": "2026-11-13",
+        "endDate": "2026-11-13",
+        "description": "Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
         "url": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
         "startDate": "2026-11-14",
@@ -114,7 +127,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -127,7 +140,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 11,
       "item": {
         "@type": "Event",
         "name": "Curators floor talk: The Making of a Prize Exhibition",
@@ -140,7 +153,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "Mornington Peninsula Wine Spring Winery Walk",
+        "url": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "Event",
+        "name": "sunday sessions at Peninsula Hot Springs Eco Lodges",
+        "url": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
@@ -153,7 +192,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 15,
+      "item": {
+        "@type": "Event",
+        "name": "The Lucky Duck & Pinot Lunch",
+        "url": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
+        "startDate": "2026-11-20",
+        "endDate": "2026-11-20",
+        "description": "One-off chef’s lunch featuring an all-duck menu paired with pinot noir.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "CREATE: Pottery for your table",
@@ -166,7 +218,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -179,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -192,7 +244,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 19,
+      "item": {
+        "@type": "Event",
+        "name": "Taste & Create, Gourmet Bar",
+        "url": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 20,
+      "item": {
+        "@type": "Event",
+        "name": "Vinehop at Phaedrus Estate",
+        "url": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Vinehop at Phaedrus Estate at Phaedrus Estate.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -205,7 +283,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Jane Gilmore - Mornington Library",
@@ -218,7 +296,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -231,7 +309,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -244,7 +322,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 25,
+      "item": {
+        "@type": "Event",
+        "name": "Deck the Chocolate Tree",
+        "url": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
+        "startDate": "2026-12-05",
+        "endDate": "2026-12-24",
+        "description": "Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "The Creators Network: End of Year Catch-up for Creatives",
@@ -254,9 +345,61 @@
         "description": "Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "item": {
+        "@type": "Event",
+        "name": "Eve Eve at Portsea Hotel",
+        "url": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
+        "startDate": "2026-12-23",
+        "endDate": "2026-12-23",
+        "description": "Eve Eve at Portsea Hotel at Portsea Hotel.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "item": {
+        "@type": "Event",
+        "name": "New Year’s Eve at Portsea Hotel",
+        "url": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
+        "startDate": "2026-12-31",
+        "endDate": "2026-12-31",
+        "description": "New Year’s Eve at Portsea Hotel at Portsea Hotel.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "item": {
+        "@type": "Event",
+        "name": "New Years Eve Event 2026/2027",
+        "url": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/",
+        "startDate": "2026-12-31",
+        "endDate": "2027-01-01",
+        "description": "New Years Eve Event 2026/2027 at The Baths Sorrento.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 30,
+      "item": {
+        "@type": "Event",
+        "name": "Torren Foot at Portsea Hotel",
+        "url": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
+        "startDate": "2027-01-23",
+        "endDate": "2027-01-23",
+        "description": "Torren Foot at Portsea Hotel at Portsea Hotel.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
     }
   ],
-  "count": 19,
+  "count": 30,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -420,6 +563,30 @@
       "thisWeekend": false
     },
     {
+      "title": "Live Music at Quarters at Flinders Hotel",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "id": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
+      "sourceUrl": "https://flindershotel.com.au/events/live-music/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-13",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Acoustic Saturdays at Peppers Moonah Links",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -492,6 +659,54 @@
       "thisWeekend": true
     },
     {
+      "title": "Mornington Peninsula Wine Spring Winery Walk",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
+      "sourceUrl": "https://foxeys-hangout.com.au/events/foxeys-hangout/the-lucky-duck-pinot-lunch-2/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "cellar-door",
+      "place": null,
+      "venue": null,
+      "summary": "Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "sunday sessions at Peninsula Hot Springs Eco Lodges",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
+      "sourceUrl": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "wellness",
+      "place": null,
+      "venue": null,
+      "summary": "Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -506,6 +721,25 @@
       "place": null,
       "venue": null,
       "summary": "Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "The Lucky Duck & Pinot Lunch",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "id": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
+      "sourceUrl": "https://foxeys-hangout.com.au/events/morning-sun/the-lucky-duck-pinot-lunch/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "One-off chef’s lunch featuring an all-duck menu paired with pinot noir.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -563,6 +797,44 @@
       "place": null,
       "venue": null,
       "summary": "A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Taste & Create, Gourmet Bar",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/",
+      "sourceUrl": "https://www.mpchoc.com.au/events/taste-create-gourmet-bar-3/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Vinehop at Phaedrus Estate",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
+      "sourceUrl": "https://www.phaedrus.com.au/vinehop-festival-0",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "cellar-door",
+      "place": null,
+      "venue": null,
+      "summary": "Vinehop at Phaedrus Estate at Phaedrus Estate.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -644,6 +916,25 @@
       "thisWeekend": false
     },
     {
+      "title": "Deck the Chocolate Tree",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-24",
+      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
+      "sourceUrl": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "The Creators Network: End of Year Catch-up for Creatives",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -658,6 +949,82 @@
       "place": null,
       "venue": null,
       "summary": "Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Eve Eve at Portsea Hotel",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
+      "startDate": "2026-12-23",
+      "endDate": "2026-12-23",
+      "id": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
+      "sourceUrl": "https://portseahotel.com.au/summer-series-2026/#eve-eve",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Eve Eve at Portsea Hotel at Portsea Hotel.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "New Year’s Eve at Portsea Hotel",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "id": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
+      "sourceUrl": "https://portseahotel.com.au/summer-series-2026/#nye",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "New Year’s Eve at Portsea Hotel at Portsea Hotel.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "New Years Eve Event 2026/2027",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/",
+      "startDate": "2026-12-31",
+      "endDate": "2027-01-01",
+      "id": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/",
+      "sourceUrl": "https://www.trybooking.com/au/event/1666909",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "New Years Eve Event 2026/2027 at The Baths Sorrento.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Torren Foot at Portsea Hotel",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
+      "startDate": "2027-01-23",
+      "endDate": "2027-01-23",
+      "id": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
+      "sourceUrl": "https://portseahotel.com.au/summer-series-2026/#golden-hour",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Torren Foot at Portsea Hotel at Portsea Hotel.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

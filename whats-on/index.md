@@ -21,27 +21,31 @@ Conceptual coastal illustration. Illustration: Peninsula Insider.
 
 The short list / Fri 13 – Sun 15 November
 
-## Two reasons to go
+## Three reasons to go
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
 More picks to the right
 
-- Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
+- Sat, 14 Nov · 11:30am–12:30pm · Mornington
 
-Sat, 14 Nov · 5pm–8pm · Fingal
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Sat, 14 Nov   Fingal   Live Music
-
-- ### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
 A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
 
 Sat, 14 Nov   Mornington   Arts
+
+- ### [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue.
+
+Fri, 13 Nov   Flinders   Live Music
+
+- ### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+
+Sat, 14 Nov   Red Hill   Cellar Doors
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -60,6 +64,12 @@ Browse by date and save what catches your eye.
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 11am · Mornington · Exhibitions · Recurring weekly
+
+- [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+
+Flinders · Live Music · One-day event
 
 ### Saturday 14 November
 
@@ -87,6 +97,12 @@ A useful way into the National Works on Paper exhibition if you want to understa
 
 11.30am · Mornington · Arts · One-day event
 
+- [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+
+Red Hill · Cellar Doors · One-day event
+
 ### Sunday 15 November
 
 - [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -94,6 +110,12 @@ A useful way into the National Works on Paper exhibition if you want to understa
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 11am · Mornington · Exhibitions · Recurring weekly
+
+- [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
+Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
+
+Fingal · Wellness · One-day event
 
 Choose your own timing
 
@@ -155,11 +177,43 @@ Forty years of Wednesdays on Main Street. Not a tourist event, just the way Morn
 
 ### Live music
 
+- [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+5pm · Fingal · Live Music
+
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
 A participatory carols evening for groups rather than a background music dinner. Choose a Thursday and check Humanitix for current ticket terms.
 
 6pm · Main Ridge · Live Music
+
+### Food & wine
+
+- [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+
+Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.
+
+Flinders · Food & Wine
+
+- [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+
+Eve Eve at Portsea Hotel at Portsea Hotel.
+
+Portsea · Food & Wine
+
+- [New Year’s Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/>)
+
+New Year’s Eve at Portsea Hotel at Portsea Hotel.
+
+Portsea · Food & Wine
+
+- [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
+
+New Years Eve Event 2026/2027 at The Baths Sorrento.
+
+7.30pm · Sorrento · Food & Wine
 
 ### Openings
 

@@ -51,18 +51,6 @@ Swipe or scroll through the picks
 
 - Illustrative image
 
-Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Peppers Moonah Links   Every Saturday
-
-Event details checked 2 Nov 2026.  [Check organiser](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
-
-- Illustrative image
-
 Editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
@@ -82,6 +70,18 @@ Start with the award-winning works, then take time with the wider survey of cont
 Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 8 Oct 2026.  [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- Illustrative image
+
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+
+### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
+A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member.
+
+Mornington Peninsula Regional Gallery   Arts
+
+Event details checked 20 Oct 2026.  [Check organiser](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 

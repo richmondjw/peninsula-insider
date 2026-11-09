@@ -320,3 +320,21 @@ Browse locations as a list
 - [Stumpy Gully Vineyard](<https://peninsulainsider.com.au/wine/stumpy-gully-vineyard/>) · winery
 
 - [Chalet Un at Woodman Estate](<https://peninsulainsider.com.au/stay/woodman-estate/>) · villa
+
+On the calendar in this place
+
+## Events in Moorooduc
+
+Coming up in Moorooduc, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 21 Nov
+
+### Vinehop at Phaedrus Estate
+
+Moorooduc
+
+Vinehop at Phaedrus Estate at Phaedrus Estate.
+
+ Event · Cellar Doors](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)

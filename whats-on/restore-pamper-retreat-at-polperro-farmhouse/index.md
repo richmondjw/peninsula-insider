@@ -79,33 +79,25 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
-
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
 
-Markets   Monthly – 2nd Saturday of every month
+Wellness   Check session dates
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
 
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+Wellness  15 Nov
 
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+### [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+Sunday sessions at Bath House Café, complimentary with bathing.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

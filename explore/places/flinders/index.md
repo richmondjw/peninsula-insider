@@ -370,3 +370,41 @@ Browse locations as a list
 - [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) · winery
 
 - [Flinders Golf Club](<https://peninsulainsider.com.au/explore/flinders-golf-club/>) · golf-course
+
+On the calendar in this place
+
+## Events in Flinders
+
+Coming up in Flinders, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 5 Dec
+
+### Deck the Chocolate Tree
+
+Flinders
+
+Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+
+- [Fri, 13 Nov
+
+### Live Music at Quarters at Flinders Hotel
+
+Flinders
+
+Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+- [Sat, 21 Nov
+
+### Taste & Create, Gourmet Bar
+
+Flinders
+
+Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)

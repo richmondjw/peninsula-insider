@@ -83,33 +83,35 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Festivals   Annual, November
-
-### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
+Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
 
-Markets   Monthly – 2nd Saturday of every month
+Food & Wine   Check session dates
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+[Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+A two-hour guided gin masterclass in Dromana.
 
-Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+Food & Wine  5 Dec
 
-VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+### [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+Decorate a milk couverture Christmas Tree with delicious ingredients.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+
+Food & Wine  23 Dec
+
+### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+
+Eve Eve at Portsea Hotel at Portsea Hotel.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
