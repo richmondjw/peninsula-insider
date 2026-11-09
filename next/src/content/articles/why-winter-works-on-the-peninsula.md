@@ -9,7 +9,7 @@ heroImage:
   alt: "Two visitors crouch among marigolds in the kitchen garden at Montalto, with vine-covered pergolas and olive trees behind"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula."
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
   depicts: "Montalto"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

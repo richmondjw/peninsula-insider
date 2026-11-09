@@ -9,7 +9,7 @@ heroImage:
   alt: "Two golfers on a clifftop green at Flinders Golf Course, with Bass Strait and a low headland beyond under late sun"
   credit: "Gary Lisbon, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Flinders Golf Club, Mornington Peninsula."
+  caption: "Flinders Golf Club, Mornington Peninsula"
   depicts: "Flinders Golf Course"
   depictionStatus: "actual"
   creator: "Gary Lisbon"

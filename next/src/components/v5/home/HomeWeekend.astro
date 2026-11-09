@@ -23,6 +23,7 @@ import Card from '../Card.astro';
 import CardGrid from '../CardGrid.astro';
 import { resolveHero } from '../../../lib/inline-edit/resolve-hero';
 import { depictionStatusOf } from '../../../lib/media-provenance';
+import { cleanCaption } from '../../../lib/image-caption.mjs';
 import {
   selectWeekendPicks,
   categoryLabel,
@@ -38,20 +39,20 @@ const { picks, window: weekend } = selectWeekendPicks(picksEntries, events, now)
 
 const slugOf = (e: any) => e.data.slug ?? e.id;
 
-// These library photographs show a different market and an unidentified gallery
-// installation. Keep that distinction next to the image, never in alt alone.
-// They are fallback artwork for this dated shortlist, not event hero records.
+// Library photographs used for this dated shortlist when the event has no
+// photograph of its own. Captioned with the place they show (caption rule:
+// src/lib/image-caption.mjs).
 const contextPhotos: Record<string, { src: string; alt: string; caption: string; credit: string }> = {
   'hill-ridge-community-market-september-2026-restart': {
     src: '/images/visit-victoria/vv-143096-produce-at-mornington-farmers-market.webp',
     alt: 'A stallholder holds out a bunch of freshly pulled beetroot with leaves attached at Mornington Farmers Market',
-    caption: "Context photo: Mornington Farmers' Market, not this event.",
+    caption: "Mornington Farmers' Market, Mornington Peninsula",
     credit: 'Courtesy of Visit Victoria',
   },
   'national-works-on-paper-2026-nwop': {
     src: '/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp',
     alt: 'Gallery room at Mornington Peninsula Regional Gallery with framed prints on white walls and sculptures on plinths under a vaulted ceiling',
-    caption: 'Context photo: Mornington Peninsula Regional Gallery, not this exhibition.',
+    caption: 'Mornington Peninsula Regional Gallery, Mornington',
     credit: 'Robert Blackburn, courtesy of Visit Victoria',
   },
 };
@@ -80,12 +81,9 @@ const cards = await Promise.all(
     } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && recorded?.rightsStatus === 'recorded' && status !== 'unverified' ? {
       src: hero.src,
       alt: recorded.alt,
-      caption: status === 'illustrative'
-        ? recorded.caption || 'Illustrative image, not this event.'
-        : recorded.caption ?? '',
+      caption: cleanCaption(recorded.caption),
       credit: recorded.credit,
-      badge: status === 'illustrative' ? 'Illustrative image' : '',
-    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: 'Conceptual editorial artwork, not a depiction of this event.', credit: 'Illustration: Peninsula Insider', badge: 'Illustrative image' };
+    } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: '', credit: '' };
     const dateISO = pickDateISO(event, now);
     const dateLabel = dateISO ? new Date(dateISO + 'T00:00:00Z').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
     const fullTitle = String(event.data.title);
@@ -149,7 +147,6 @@ const cards = await Promise.all(
               surface="home-weekend"
               position={i}
             >
-              {card.image?.badge && <span slot="badges" class="home-weekend__media-badge">{card.image.badge}</span>}
             </Card>
             {card.sourceUrl?.startsWith('https://') && <p class="home-weekend__source">{card.checkedOn && <span>Event details checked {new Date(card.checkedOn).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})}.</span>} <a href={card.sourceUrl}>Check organiser <span aria-hidden="true">↗</span></a></p>}
             </li>
@@ -180,18 +177,6 @@ const cards = await Promise.all(
   .home-weekend__scroller :global(.pi-card__media){aspect-ratio:3/2}
   .home-weekend__scroller :global(.pi-card__image-note){min-height:4.5rem;font-size:.8125rem;line-height:1.45}
 
-  :global(.home-weekend__media-badge) {
-    position: absolute;
-    right: var(--space-3);
-    bottom: var(--space-3);
-    z-index: 1;
-    max-width: calc(100% - 2 * var(--space-3));
-    padding: .3rem .55rem;
-    border-radius: var(--radius-s);
-    background: var(--bg-dark);
-    color: var(--white);
-    font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui);
-  }
   .home-weekend { scroll-margin-top: 9rem; }
   @media (min-width: 64em) {
     .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }

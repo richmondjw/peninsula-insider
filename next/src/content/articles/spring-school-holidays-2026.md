@@ -8,7 +8,7 @@ updatedAt: 2026-09-30
 heroImage:
   src: "/images/visit-victoria/vv-167061-arthurs-seat-eagle.webp"
   alt: "Two blue Arthurs Seat Eagle gondolas glide above gum trees, with the bay and a wide sky beyond"
-  caption: "Arthurs Seat Eagle, Mornington Peninsula. This photograph does not show the 2026 school-holiday programme."
+  caption: "Arthurs Seat Eagle, Mornington Peninsula"
   depicts: "Arthurs Seat Eagle gondolas, not the 2026 school-holiday programme"
   depictionStatus: "illustrative"
   credit: "Courtesy of Visit Victoria"

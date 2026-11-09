@@ -9,7 +9,7 @@ heroImage:
   alt: "A visitor walks past the weatherboard facade of Merricks General Store, its painted sign framed by a red flowering vine"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Merricks General Wine Store, Mornington Peninsula."
+  caption: "Merricks General Wine Store, Mornington Peninsula"
   depicts: "Merricks General Wine Store"
   depictionStatus: "actual"
   creator: "Peter Foster"

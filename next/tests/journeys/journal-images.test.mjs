@@ -54,8 +54,8 @@ test('failed article and thematic images recover to original art after client na
     });
     assert.equal(result.slug, slug);
     assert.match(result.alt, /Original illustration/);
-    assert.equal(result.credit, 'Illustration · Peninsula Insider');
-    assert.match(result.caption, /not a photograph/);
+    assert.equal(result.credit, '');
+    assert.equal(result.caption, '');
     assert.doesNotMatch(result.credit, /Visit Victoria/);
   } finally { await reader.close(); }
 });

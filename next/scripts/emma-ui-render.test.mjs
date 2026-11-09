@@ -37,12 +37,9 @@ test('an unsourced paused stay keeps context without purchase or search signals'
   assert.ok(hero, 'the paused detail keeps a visible hero');
   if (hero[1].includes('/images/sourced/place-rye-01.webp')) {
     assert.equal(hero[2], '', 'the illustrative source image is decorative');
-    assert.match(html, /data-pi-media-disclosure="illustrative"/);
-  } else {
-    // A published CMS override is a different image; never inherit the
-    // illustrative source image's disclosure or its credit by implication.
-    assert.doesNotMatch(html, /data-pi-media-disclosure="illustrative"/);
   }
+  // No illustrative-image badge on any surface (James, 9 November 2026).
+  assert.doesNotMatch(html, /data-pi-media-disclosure|Illustrative image/);
   assert.match(html, /noindex, nofollow/);
   assert.match(html, /data-pagefind-ignore/);
   assert.match(html, /BreadcrumbList/);

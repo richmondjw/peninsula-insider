@@ -42,7 +42,7 @@ test('no match falls back to the category default, and the result is always comp
   const r = resolveEventHero(ev({ title: 'Untitled evening', category: 'writers-ideas' }), ctx);
   assert.equal(r.via, 'category:writers-ideas');
   assert.ok(heroIsComplete(r.hero));
-  assert.match(r.hero.caption, /not a photograph/);
+  assert.equal(r.hero.caption, '');
 });
 
 test('variant choice is stable for a slug', () => {

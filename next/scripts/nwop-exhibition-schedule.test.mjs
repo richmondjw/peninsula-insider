@@ -32,5 +32,6 @@ test('restored listing has substantial visitor guidance and credited illustrativ
   assert.match(record.heroImage.permission, /Attribution 2\.0/);
   assert.equal(record.heroImage.license, 'wikimedia-cc-by');
   assert.match(record.heroImage.adaptationNote, /Converted from JPEG to WebP/);
-  assert.match(record.heroImage.caption, /does not depict the National Works on Paper 2026 exhibition/i);
+  // Caption rule (lib/image-caption.mjs): name the place the photograph shows.
+  assert.equal(record.heroImage.caption, 'Mornington Peninsula Regional Gallery, Mornington');
 });

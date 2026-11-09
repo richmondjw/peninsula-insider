@@ -9,7 +9,7 @@ heroImage:
   alt: "Chardonnay grapes at Main Ridge Estate in nearby Red Hill, Mornington Peninsula"
   credit: "CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider"
   license: "wikimedia-cc-by"
-  caption: "Chardonnay grapes at Main Ridge Estate in nearby Red Hill, used to illustrate the wine country around Main Ridge."
+  caption: "Main Ridge Estate, Red Hill, Mornington Peninsula"
   depicts: "Chardonnay grapes at Main Ridge Estate, Red Hill"
   depictionStatus: "illustrative"
   creator: "CSIRO"

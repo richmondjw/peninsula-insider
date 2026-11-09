@@ -9,7 +9,7 @@ heroImage:
   alt: "Two bathers walk to a steaming hilltop pool at Peninsula Hot Springs as the low sun lights the surrounding bushland"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Peninsula Hot Springs, Fingal, Mornington Peninsula."
+  caption: "Peninsula Hot Springs, Fingal, Mornington Peninsula"
   depicts: "Peninsula Hot Springs"
   depictionStatus: "illustrative"
   sourceUrl: "Victoria Content Hub asset 161941, downloaded 2026-09-28"

@@ -9,7 +9,7 @@ heroImage:
   alt: "Visitors cross a sunlit lawn between large tree trunks towards the white homestead building at Lindenderry at Red Hill"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Lindenderry at Red Hill, Mornington Peninsula."
+  caption: "Lindenderry at Red Hill, Mornington Peninsula"
   creator: "Peter Foster"
   sourceUrl: "Victoria Content Hub asset 25061209, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."

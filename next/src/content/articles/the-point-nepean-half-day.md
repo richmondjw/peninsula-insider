@@ -9,7 +9,7 @@ heroImage:
   alt: "Two walkers on the sealed road to Fort Nepean as it winds along the narrow headland between bay and ocean under a pink sky"
   credit: "Jesse Hisco, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Point Nepean Fort Walk, Mornington Peninsula, one of the routes covered in this guide."
+  caption: "Point Nepean Fort Walk, Mornington Peninsula"
   depicts: "Point Nepean - Fort Nepean"
   depictionStatus: "illustrative"
   creator: "Jesse Hisco"

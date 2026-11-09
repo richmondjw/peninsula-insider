@@ -15,7 +15,6 @@ import ClusterLinks from '../../components/ClusterLinks.astro';
 import ItineraryCard from '../../components/ItineraryCard.astro';
 import PlaceCard from '../../components/PlaceCard.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
-import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import PhotoStage from '../../components/PhotoStage.astro';
 import { verifiedPhotos, STAGE_MIN } from '../../lib/photo-set';
 import HubGuideTOC from '../../components/HubGuideTOC.astro';
@@ -190,7 +189,7 @@ const heroProvenance = hero.provenance;
 // Licensed photographs of the places the article covers, as a filmstrip under
 // the hero. The hero itself stays the article's own choice.
 const articlePhotos = verifiedPhotos({ gallery: (article.data as any).gallery ?? [] });
-const heroCredit = hero.credit;
+const heroCredit = journalCredit(hero);
 
 const canonical = `https://peninsulainsider.com.au/journal/${slug}/`;
 const ogImage = hero.src;
@@ -381,13 +380,10 @@ export const prerender = true;
               entityType: 'article', entitySlug: slug, fieldPath: 'hero',
               label: `${article.data.title} hero`, purpose: 'hero',
             })} />
-            {heroCredit && (
-              <figcaption class="article-hero__credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && ' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
+            {(heroCredit || hero.caption) && (
+              <figcaption class="article-hero__credit"><span data-journal-image-caption>{hero.caption}</span>{hero.caption && heroCredit && ' '}<span data-journal-image-credit>{heroCredit}</span></figcaption>
             )}
-            <MediaProvenanceNote
-              image={heroProvenance}
-              class="article-hero__provenance"
-            />
+
           </figure>
         </div>
       </div>

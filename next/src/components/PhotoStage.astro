@@ -3,7 +3,7 @@
  * PhotoStage - the opening for a detail page with several verified
  * photographs of the place (rule: src/lib/photo-set.ts).
  *
- *   variant="stage"  a large lead with its description and credit, previous /
+ *   variant="stage"  a large lead with its place line and credit, previous /
  *                    next, a counter, a filmstrip and a full-screen viewer.
  *                    Venue, explore, tour and tour-operator pages.
  *   variant="strip"  the filmstrip and viewer only, for pages whose opening is
@@ -20,6 +20,7 @@
  * (ops/records/visit-victoria/README.md).
  */
 import { altFor } from '../lib/media-provenance';
+import { cleanCaption } from '../lib/image-caption.mjs';
 import { formatHeroCredit } from '../lib/editorial';
 import type { PhotoRef } from '../lib/photo-set';
 
@@ -28,14 +29,12 @@ export interface Props {
   /** The place the photographs show; used in labels and as the alt fallback. */
   subject: string;
   variant?: 'stage' | 'strip';
-  /** Show a short editorial caption beside the photograph when available. */
-  stageCaption?: 'description' | 'caption';
   /** Unique on the page; in-text photographs open the viewer through it. */
   id?: string;
   class?: string;
 }
 
-const { photos, subject, variant = 'stage', stageCaption = 'description', id = 'photos', class: className } = Astro.props;
+const { photos, subject, variant = 'stage', id = 'photos', class: className } = Astro.props;
 const n = photos.length;
 const items = photos.map((photo, index) => {
   const { alt, presentation } = altFor(photo, subject);
@@ -45,7 +44,10 @@ const items = photos.map((photo, index) => {
     alt,
     presentation,
     description: presentation ? '' : alt,
-    caption: photo.caption ?? '',
+    // Caption rule (lib/image-caption.mjs): a short place line, never the alt
+    // sentence. Only verified photographs of the subject reach the stage, so
+    // the subject is a truthful fallback.
+    caption: cleanCaption(photo.caption) || subject,
     credit: formatHeroCredit(photo.credit) || '',
   };
 });
@@ -80,7 +82,7 @@ const label = `Photographs of ${subject}`;
                   />
                 </div>
                 <figcaption class="pstage__caption">
-                  {item.description && <span class="pstage__description" aria-hidden="true">{stageCaption === 'caption' ? (item.caption || item.description) : item.description}</span>}
+                  {item.caption && <span class="pstage__description" aria-hidden="true">{item.caption}</span>}
                   {item.credit && <span class="pstage__credit">{item.credit}</span>}
                 </figcaption>
               </figure>
@@ -139,7 +141,6 @@ const label = `Photographs of ${subject}`;
       <figure class="pviewer__figure">
         <img class="pviewer__image" src={items[0]?.src} alt={items[0]?.alt} loading="lazy" decoding="async" />
         <figcaption class="pviewer__caption">
-          <span class="pviewer__description" data-pviewer-description>{items[0]?.description}</span>
           <span class="pviewer__place" data-pviewer-place>{items[0]?.caption}</span>
           <span class="pviewer__credit" data-pviewer-credit>{items[0]?.credit}</span>
         </figcaption>
@@ -221,7 +222,6 @@ const label = `Photographs of ${subject}`;
     if (img) { img.src = photo.src; img.alt = photo.alt; }
     const set = (sel: string, text: string) => { const el = dialog.querySelector(sel); if (el) el.textContent = text; };
     set('[data-pviewer-current]', String(i + 1));
-    set('[data-pviewer-description]', photo.description);
     set('[data-pviewer-place]', photo.caption);
     set('[data-pviewer-credit]', photo.credit);
   }
@@ -529,7 +529,6 @@ const label = `Photographs of ${subject}`;
     margin-inline: auto;
     padding-block-end: 0.5rem;
   }
-  .pviewer__description { font-size: var(--fs-400); line-height: 1.5; }
   .pviewer__place { font-family: var(--font-ui); font-size: var(--fs-200); color: var(--sand); }
   .pviewer__credit { font-family: var(--font-ui); font-size: var(--fs-100); letter-spacing: 0.02em; color: rgb(242 239 234 / 0.72); }
   .pviewer__close, .pviewer__nav {

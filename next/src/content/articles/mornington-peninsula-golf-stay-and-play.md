@@ -9,7 +9,7 @@ heroImage:
   alt: "Aerial view over St Andrews Beach Golf Course, with golfers on a tee, a cart path winding through dune grass and fairways beyond"
   credit: "Gary Lisbon, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "St Andrews Beach Golf Course, Fingal, Mornington Peninsula."
+  caption: "St Andrews Beach Golf Course, Fingal, Mornington Peninsula"
   depicts: "St Andrews Beach Golf Course - Fingal"
   depictionStatus: "actual"
   creator: "Gary Lisbon"

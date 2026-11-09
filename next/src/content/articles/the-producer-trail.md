@@ -9,7 +9,7 @@ heroImage:
   alt: "Four friends holding glasses of wine walk along a grassy path beside vine rows at Green Olive at Red Hill on a clear day"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Green Olive at Red Hill, Mornington Peninsula."
+  caption: "Green Olive at Red Hill, Mornington Peninsula"
   depicts: "Green Olive at Red Hill"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

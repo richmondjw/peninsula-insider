@@ -2,12 +2,13 @@
 /**
  * InlinePhoto - a photograph set into the reading, chosen by the rule in
  * src/lib/photo-set.ts. One photograph breaks wide across the text column; a
- * pair sits side by side. Each carries its own description and credit, and
+ * pair sits side by side. Each carries its own place line and credit, and
  * opens the page's full-screen viewer at that photograph when a PhotoStage
  * with the matching id is on the page.
  */
 import { altFor } from '../lib/media-provenance';
 import { formatHeroCredit } from '../lib/editorial';
+import { cleanCaption } from '../lib/image-caption.mjs';
 import type { PhotoRef } from '../lib/photo-set';
 
 export interface Props {
@@ -29,6 +30,8 @@ const picked = indexes
     {picked.map(({ index, photo }) => {
       const { alt, presentation } = altFor(photo, subject);
       const credit = formatHeroCredit(photo.credit);
+      // Caption rule (lib/image-caption.mjs): the place, never the alt sentence.
+      const place = presentation ? '' : cleanCaption(photo.caption) || subject;
       return (
         <figure class="inline-photo__figure">
           <button
@@ -48,7 +51,7 @@ const picked = indexes
             />
           </button>
           <figcaption>
-            {!presentation && alt && <span class="inline-photo__description" aria-hidden="true">{alt}</span>}
+            {place && <span class="inline-photo__description" aria-hidden="true">{place}</span>}
             {credit && <span class="inline-photo__credit">{credit}</span>}
           </figcaption>
         </figure>

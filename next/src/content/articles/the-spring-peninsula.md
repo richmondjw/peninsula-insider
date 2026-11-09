@@ -9,7 +9,7 @@ heroImage:
   alt: "Rolling rows of vines in autumn yellow and green lead to bushland on the hills at Montalto, with pink cosmos in front"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula."
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
   depicts: "Montalto"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

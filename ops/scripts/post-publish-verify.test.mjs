@@ -35,10 +35,11 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
       return;
     }
     if (url === '/market/') {
-      const credit = mode === 'missing-credit' ? 'Peninsula Insider' : mode === 'legacy-credit' ? 'AI-assisted artwork' : 'Illustration · Peninsula Insider';
-      const disclosure = mode === 'missing-disclosure' ? '' : ' data-pi-media-disclosure="illustrative"';
+      const caption = mode === 'legacy-badge'
+        ? '<figcaption><p data-pi-media-disclosure="illustrative">Illustrative image</p></figcaption>'
+        : mode === 'legacy-credit' ? '<figcaption><p>Illustration · Peninsula Insider</p></figcaption>' : '';
       const figure = mode !== 'bad'
-        ? '<figure class="event-detail__image"><img src="/hero.png" alt="Conceptual market scene"><figcaption><p>' + credit + '</p><p' + disclosure + '>Illustrative image</p></figcaption></figure>'
+        ? '<figure class="event-detail__image"><img src="/hero.png" alt="Conceptual market scene">' + caption + '</figure>'
         : '';
       const prose = mode !== 'bad'
         ? Array(145).fill('practical').join(' ')
@@ -69,10 +70,10 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
     const good = await run(process.execPath, [script, ...args]);
     assert.match(good.stdout, /PASS/);
 
-    for (const invalid of ['missing-credit', 'missing-disclosure', 'legacy-credit']) {
+    for (const invalid of ['legacy-badge', 'legacy-credit']) {
       mode = invalid;
       await assert.rejects(run(process.execPath, [script, ...args]), (error) => {
-        assert.match(error.stdout, /event-illustration-disclosure/);
+        assert.match(error.stdout, /event-illustration-uncaptioned/);
         return true;
       });
     }
@@ -100,6 +101,7 @@ test('live event quality rejects missing imagery and thin copy, and checks relea
 test('article verification accepts illustration and photo credits and rejects missing attribution', async () => {
   let origin = '';
   let credit = 'Illustration: Peninsula Insider';
+  let heroSrc = '/hero.webp';
   const server = createServer((request, response) => {
     if (request.url === '/style.css') {
       response.writeHead(200, { 'content-type': 'text/css' });
@@ -120,7 +122,7 @@ test('article verification accepts illustration and photo credits and rejects mi
       '<meta property="og:description" content="A morning guide">' +
       '<meta property="og:image" content="' + origin + '/hero.webp">' +
       '<link rel="stylesheet" href="/style.css"></head>' +
-      '<body data-page="article"><figure><img src="/hero.webp" alt="A conceptual Peninsula morning">' +
+      '<body data-page="article"><figure><img src="' + heroSrc + '" alt="A conceptual Peninsula morning">' +
       '<figcaption>' + credit + '</figcaption></figure><p>Last verified today</p>' +
       '<a href="/eat/">Eat</a><a href="/stay/">Stay</a><a href="/explore/">Explore</a></body></html>');
   });
@@ -138,6 +140,11 @@ test('article verification accepts illustration and photo credits and rejects mi
         assert.match(error.stdout, /hero-credit-visible/);
         return true;
       });
+      // Our own artwork hero carries no credit and still passes.
+      heroSrc = '/images/editorial/journal-backstop.svg';
+      const art = await run(process.execPath, [script, '--kind=' + kind, origin + '/article/']);
+      assert.match(art.stdout, /PASS/);
+      heroSrc = '/hero.webp';
     }
   } finally {
     await new Promise(resolve => server.close(resolve));

@@ -17,6 +17,10 @@
 //   3. a house illustration whose motif matches the title, then the summary;
 //   4. the category's default illustration.
 // Deterministic, no network, no model calls.
+//
+// Captions follow src/lib/image-caption.mjs (9 Nov 2026): a venue photograph
+// is captioned with the venue's place line, an illustration with nothing.
+import { cleanCaption } from '../src/lib/image-caption.mjs';
 
 import { readFile, readdir } from 'node:fs/promises';
 import path from 'node:path';
@@ -64,7 +68,7 @@ function venuePhoto(event, venues) {
     || h.license === 'visit-victoria') return null;
   return {
     ...h,
-    caption: `${venue.name}, the venue. Not a photograph of the event.`,
+    caption: cleanCaption(h.caption) || venue.name,
     depictionStatus: 'illustrative',
   };
 }
@@ -84,8 +88,8 @@ function illustration(motif, slug, library) {
     alt: v.alt,
     credit: 'Illustration: Peninsula Insider',
     license: 'other-licensed',
-    // Cards print the caption above the credit, so keep it to one short line.
-    caption: 'Illustration, not a photograph of the event.',
+    // Our own artwork prints nothing beneath it.
+    caption: '',
     depicts: v.depicts,
     depictionStatus: 'illustrative',
     creator: g.creator,

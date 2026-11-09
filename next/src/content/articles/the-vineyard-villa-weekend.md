@@ -9,7 +9,7 @@ heroImage:
   alt: "Two guests stand beside a wine barrel under festoon lights near outdoor tables and the white homestead at Lindenderry at dusk"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting."
+  caption: "Lindenderry, Red Hill, Mornington Peninsula"
   depicts: "Lancemore Lindenderry Red Hill"
   depictionStatus: "illustrative"
   creator: "Peter Foster"

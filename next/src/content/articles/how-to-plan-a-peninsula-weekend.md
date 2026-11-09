@@ -9,7 +9,7 @@ heroImage:
   alt: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
   credit: "Illustration: Peninsula Insider"
   license: "other-licensed"
-  caption: "Editorial illustration. Weekend planning; the abstract map is not geographic or navigational."
+  caption: ""
   depicts: "Conceptual travellers considering an unlabelled folded map beside an abstract bay."
   depictionStatus: "illustrative"
   creator: "Peninsula Insider, AI-assisted"

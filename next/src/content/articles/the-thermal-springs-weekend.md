@@ -9,7 +9,7 @@ heroImage:
   alt: "A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula."
+  caption: "Alba Thermal Springs & Spa, Fingal, Mornington Peninsula"
   depicts: "Alba Thermal Springs and Spa"
   depictionStatus: "illustrative"
   sourceUrl: "Victoria Content Hub asset 172661, downloaded 2026-09-28"

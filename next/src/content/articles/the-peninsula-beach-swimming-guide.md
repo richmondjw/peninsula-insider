@@ -9,7 +9,7 @@ heroImage:
   alt: "Overhead view of surf washing over dark rock shelves and green reef along the Sorrento Back Beach shoreline"
   credit: "SHERPA Projects Pty Ltd, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Sorrento Back Beach, Mornington Peninsula."
+  caption: "Sorrento Back Beach, Mornington Peninsula"
   depicts: "Sorrento Back Beach"
   depictionStatus: "illustrative"
   creator: "SHERPA Projects Pty Ltd"

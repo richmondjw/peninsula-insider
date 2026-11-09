@@ -9,7 +9,7 @@ heroImage:
   alt: "Two bathers in white robes walk a timber boardwalk past a round wooden soaking tub in the bush at Peninsula Hot Springs"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Peninsula Hot Springs, Cape Schanck, Mornington Peninsula."
+  caption: "Peninsula Hot Springs, Cape Schanck, Mornington Peninsula"
   depicts: "Peninsula Hot Springs"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

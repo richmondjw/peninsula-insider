@@ -9,7 +9,7 @@ heroImage:
   alt: Clifftop lawn and weatherboard houses above a bay dotted with moored boats and jetties along Millionaire's Walk
   credit: Courtesy of Visit Victoria
   license: visit-victoria
-  caption: Sorrento, Mornington Peninsula. Coastal context photograph, not a photograph of the listed events.
+  caption: "Sorrento, Mornington Peninsula"
   depicts: Millionaire's Walk
   depictionStatus: illustrative
   sourceUrl: Victoria Content Hub asset 163880, downloaded 2026-09-28

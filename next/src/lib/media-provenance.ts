@@ -16,8 +16,9 @@
  *   an unrecorded image is never an actual depiction.
  *
  * Absent, malformed, or `unverified` all collapse to "nobody has said". Only
- * the literal string `actual` asserts the photograph shows the entity, and
- * only the literal string `illustrative` renders the visible disclosure. The
+ * the literal string `actual` asserts the photograph shows the entity.
+ * (The visible "Illustrative image" disclosure was retired on 9 November
+ * 2026; what prints beneath an image is decided by lib/image-caption.mjs.) The
  * safe direction is the default direction: getting this wrong by omission
  * produces silence, not a false claim.
  *
@@ -179,33 +180,4 @@ export function hasWebsitePhotoEvidence(image: ProvenanceImage | null | undefine
     image?.rightsHolder?.trim() &&
     image?.permittedUses?.includes('website')
   );
-}
-
-/**
- * The sentence shown to a sighted reader beneath an illustrative image.
- *
- * Built only from what the record carries. When `depicts` is recorded the
- * reader is told what the photograph is of; when it is not, they are told
- * only that it is not the subject, because inventing the subject of a
- * photograph is the same class of error as inventing its licence.
- *
- * Returns null for anything not explicitly illustrative, so the caller cannot
- * accidentally render a disclosure onto an image that has not earned one.
- */
-export function illustrativeDisclosure(
-  image: ProvenanceImage | null | undefined,
-  subject?: string | null
-): { label: string; detail: string } | null {
-  if (!isIllustrative(image)) return null;
-
-  const depicts = typeof image?.depicts === 'string' ? image.depicts.trim().replace(/[.!?]+$/, '') : '';
-  const named = typeof subject === 'string' ? subject.trim() : '';
-  const target = named || 'the place described on this page';
-
-  return {
-    label: 'Illustrative image',
-    detail: depicts
-      ? `This image shows ${depicts}. It does not depict ${target}.`
-      : `This image does not depict ${target}.`,
-  };
 }

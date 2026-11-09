@@ -9,7 +9,7 @@ heroImage:
   alt: "Bass and Flinders Distillery signage on a tall grey wall beside a picket-fenced garden, planter boxes and a small bar"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Bass & Flinders Distillery, Mornington, Mornington Peninsula."
+  caption: "Bass & Flinders Distillery, Mornington, Mornington Peninsula"
   depicts: "Bass and Flinders Distillery"
   depictionStatus: "actual"
   creator: "Two Palms Australia"

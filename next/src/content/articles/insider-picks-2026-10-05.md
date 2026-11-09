@@ -9,7 +9,7 @@ heroImage:
   alt: "A bottle of Bass and Flinders Heartbreak pinot noir gin on the bar beside two small glasses of the ruby spirit"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Bass & Flinders Distillery, Dromana, Mornington Peninsula."
+  caption: "Bass & Flinders Distillery, Dromana, Mornington Peninsula"
   creator: "Two Palms Australia"
   sourceUrl: "Victoria Content Hub asset 159170, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."

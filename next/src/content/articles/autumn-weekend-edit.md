@@ -9,7 +9,7 @@ heroImage:
   alt: "A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula."
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
   depicts: "Montalto"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

@@ -9,7 +9,7 @@ heroImage:
   alt: "The London Bridge rock arch standing in the shallows below a sandy clifftop track on the ocean coast near Portsea"
   credit: "Robert Blackburn, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Portsea, Mornington Peninsula."
+  caption: "Portsea, Mornington Peninsula"
   depicts: "London Bridge, Mornington Peninsula"
   depictionStatus: "actual"
   creator: "Robert Blackburn"

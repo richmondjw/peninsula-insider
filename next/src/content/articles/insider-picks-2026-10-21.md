@@ -9,7 +9,7 @@ heroImage:
   alt: "A group of friends talk over wine at a table near the fireplace and botanical prints at Merricks General Wine Store"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Merricks General Wine Store, Mornington Peninsula."
+  caption: "Merricks General Wine Store, Mornington Peninsula"
   creator: "Peter Foster"
   sourceUrl: "Victoria Content Hub asset 25061232, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."

@@ -9,7 +9,7 @@ heroImage:
   alt: "Logs burn inside a domed wood-fired oven as a hand reaches in with tongs, seen from the front of the oven"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Rare Hare at Willow Creek, Merricks North, Mornington Peninsula."
+  caption: "Rare Hare at Willow Creek, Merricks North, Mornington Peninsula"
   sourceUrl: "Victoria Content Hub asset 161946, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
   rightsHolder: "Visit Victoria"

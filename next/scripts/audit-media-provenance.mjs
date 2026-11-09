@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 /**
- * audit-media-provenance.mjs - the illustrative-image disclosure gate.
+ * audit-media-provenance.mjs - the image rights and depiction-record gate.
+ *
+ * (Its visible-disclosure check was retired on 9 November 2026; see
+ * src/lib/image-caption.mjs.)
  *
  * Evidence item A28, confirmed: named venues are illustrated with
  * representative third-party photographs, and the reader sees no disclosure.
@@ -17,18 +20,6 @@
  * specifically to stop a rights claim being asserted from nothing.
  *
  * What is measured, and what each metric is for:
- *
- *   illustrativeWithoutDisclosure   An image explicitly marked illustrative,
- *                                   on a collection whose reader-facing
- *                                   surfaces do not render
- *                                   MediaProvenanceNote. This is the headline
- *                                   gate: a marked image that discloses
- *                                   nothing to a sighted reader is the exact
- *                                   A28 failure, now in machine-checkable
- *                                   form. Zero today because nothing is
- *                                   marked yet - armed empty, deliberately,
- *                                   the same shape as the disclosure tripwire
- *                                   in audit-commercial-firewall.mjs.
  *
  *   actualWithoutProvenance         A record asserting `depictionStatus:
  *                                   "actual"` - a positive claim that the
@@ -139,9 +130,6 @@ const PROJECT_ROOT = path.resolve(getArg('--project-root', NEXT));
 const CONTENT_DIR = path.join(PROJECT_ROOT, 'src', 'content');
 const SRC_DIR = path.join(PROJECT_ROOT, 'src');
 
-/** The component whose presence on a surface counts as a rendered disclosure. */
-const DISCLOSURE_COMPONENT = 'MediaProvenanceNote';
-
 /** The three statuses the schema allows. Anything else is a typo. */
 const VALID_STATUS = new Set(['actual', 'illustrative', 'unverified']);
 
@@ -181,11 +169,9 @@ const REPRESENTATIVE_RE = /\brepresentative\b/i;
  * size, and a gate that fires when the site grows is a gate nobody keeps.
  */
 const ASSERTED_METRICS = new Set([
-  'illustrativeWithoutDisclosure',
   'actualWithoutProvenance',
   'permittedUseWithoutPermission',
   'invalidDepictionStatus',
-  'brokenDisclosureSurface',
   'undisclosedRepresentativeAlt',
   'invalidRightsStatus',
   'rightsRecordedWithoutSource',
@@ -314,71 +300,18 @@ async function readImageRecords() {
   return records.sort((a, b) => a.file.localeCompare(b.file) || a.field.localeCompare(b.field));
 }
 
-// -- which collections actually render the disclosure ----------------------
+// -- the visible disclosure is retired --------------------------------------
 
-/**
- * Which collection's reader-facing surface renders the disclosure, declared
- * rather than inferred.
- *
- * An earlier draft of this script inferred coverage by following imports and
- * reading every `getCollection(...)` call on a disclosing surface. That was
- * far too generous to be useful: the venue detail page also loads articles,
- * events, experiences and itineraries to build its related rails, so four
- * collections that render no disclosure anywhere were reported as covered. A
- * gate whose coverage test says yes when the answer is no is worse than no
- * gate, because it reads as reassurance.
- *
- * So coverage is declared here and then VERIFIED against the file: a surface
- * counts only if it still contains the component. Wiring a new collection
- * means adding the component to its template and adding the entry here, in
- * the same change. Removing the component from a declared surface un-covers
- * the collection, which is what `brokenDisclosureSurface` catches.
+/*
+ * Until 9 November 2026 this script also required every listed template to
+ * render MediaProvenanceNote, an "Illustrative image" badge with a "This image
+ * shows X. It does not depict Y." sentence. James retired it: artwork carries
+ * no caption at all, and a stand-in photograph of a real place is captioned
+ * with that place, so the reader is told what they are looking at without a
+ * badge. The rule lives in src/lib/image-caption.mjs and is enforced by
+ * scripts/assert-image-captions.mjs. depictionStatus is still recorded and
+ * still gates schema.org images and the verified photo set.
  */
-const DISCLOSURE_SURFACES = {
-  events: ['src/pages/whats-on/[slug].astro', 'src/components/EventCard.astro'],
-  venues: ['src/components/VenueDetailTemplate.astro'],
-  places: ['src/components/PlaceDetailTemplate.astro'],
-  // Added when the 152 inherited representative-alt records were marked. All
-  // three collections carry stand-in heroes; wiring only the two that already
-  // had the component would have meant marking an experience or an article
-  // illustrative and rendering nothing to the reader, which is the A28
-  // failure with an extra field in it.
-  experiences: ['src/pages/explore/[slug].astro'],
-  articles: ['src/pages/journal/[slug].astro'],
-  tours: ['src/pages/tour/[slug].astro', 'src/components/TourCard.astro'],
-  'tour-operators': ['src/pages/tour/operators/[slug].astro', 'src/components/TourOperatorCard.astro'],
-};
-
-/**
- * Confirm each declared surface still renders the component, and report the
- * collections that are genuinely covered.
- */
-async function disclosureCoverage() {
-  const covered = new Set();
-  const broken = [];
-  const surfaces = {};
-
-  for (const [collection, files] of Object.entries(DISCLOSURE_SURFACES)) {
-    let allPresent = files.length > 0;
-    for (const rel of files) {
-      let body = null;
-      try {
-        body = await readFile(path.join(PROJECT_ROOT, rel), 'utf8');
-      } catch {
-        body = null;
-      }
-      const renders = body !== null && body.includes(`<${DISCLOSURE_COMPONENT}`);
-      (surfaces[collection] ??= []).push({ file: rel, renders });
-      if (!renders) {
-        allPresent = false;
-        broken.push({ collection, file: rel, reason: body === null ? 'missing file' : 'component not rendered' });
-      }
-    }
-    if (allPresent) covered.add(collection);
-  }
-
-  return { covered, surfaces, broken };
-}
 
 // -- the audit -------------------------------------------------------------
 
@@ -394,9 +327,6 @@ const isTrue = (value) => value === true || value === 'true';
 
 async function main() {
   const records = await readImageRecords();
-  const { covered, surfaces, broken } = await disclosureCoverage();
-
-  const illustrativeWithoutDisclosure = [];
   const actualWithoutProvenance = [];
   const permittedUseWithoutPermission = [];
   const invalidDepictionStatus = [];
@@ -477,9 +407,6 @@ async function main() {
 
     if (recorded === 'illustrative') {
       illustrativeMarked.push(where);
-      if (!covered.has(rec.collection)) {
-        illustrativeWithoutDisclosure.push({ ...where, collection: rec.collection });
-      }
     }
 
     if (recorded === 'actual' && !filled(img.creator) && !filled(img.sourceUrl) && !filled(img.permission)) {
@@ -517,11 +444,9 @@ async function main() {
     imageRecords: records.length,
     namedEntityImages: namedEntityImages.length,
     illustrativeMarked: illustrativeMarked.length,
-    illustrativeWithoutDisclosure: illustrativeWithoutDisclosure.length,
     actualWithoutProvenance: actualWithoutProvenance.length,
     permittedUseWithoutPermission: permittedUseWithoutPermission.length,
     invalidDepictionStatus: invalidDepictionStatus.length,
-    brokenDisclosureSurface: broken.length,
     undisclosedRepresentativeAlt: undisclosedRepresentativeAlt.length,
     unrecordedDepiction: unrecordedDepiction.length,
     decorativeMarked: decorativeMarked.length,
@@ -539,14 +464,9 @@ async function main() {
 
   const report = {
     generatedAt: new Date().toISOString(),
-    disclosureComponent: DISCLOSURE_COMPONENT,
     namedEntityCollections: [...NAMED_ENTITY_COLLECTIONS],
     assertedMetrics: [...ASSERTED_METRICS],
-    coveredCollections: [...covered].sort(),
-    disclosureSurfaces: surfaces,
-    brokenDisclosureSurface: broken,
     totals,
-    illustrativeWithoutDisclosure,
     actualWithoutProvenance,
     permittedUseWithoutPermission,
     invalidDepictionStatus,
@@ -570,7 +490,6 @@ async function main() {
   console.log('');
   console.log('  Disclosure');
   console.log(`    marked illustrative ........... ${t.illustrativeMarked}   [report-only]`);
-  console.log(`    illustrative, no disclosure ... ${t.illustrativeWithoutDisclosure}   [gated]`);
   console.log(`    marked decorative ............. ${t.decorativeMarked}   [report-only]`);
   console.log(`    decorative WITH alt text ...... ${t.decorativeWithAltText}   [gated]`);
   console.log('  Rights discipline');
@@ -581,7 +500,6 @@ async function main() {
   console.log(`    "recorded" rights, no source .. ${t.rightsRecordedWithoutSource}   [gated]`);
   console.log(`    rights date, no rights record . ${t.rightsDatedWithoutRecord}   [gated]`);
   console.log(`    malformed rights date ......... ${t.malformedRightsDate}   [gated]`);
-  console.log(`    disclosure surface broken ..... ${t.brokenDisclosureSurface}   [gated]`);
   console.log(`    rights recorded as unknown .... ${t.rightsUnknownRecorded}   [report-only]`);
   console.log('  Rights recorded');
   console.log(`    licence unknown ............... ${t.licenceUnknown}   [gated, ratchet]`);
@@ -592,12 +510,7 @@ async function main() {
   console.log(`    named entity, status unrecorded ${t.unrecordedDepiction}   [report-only]`);
   console.log(`    NO provenance of any kind ..... ${t.noProvenanceAtAll} of ${t.imageRecords}   [report-only]`);
   console.log('');
-  console.log(`  Collections with a disclosure surface: ${[...covered].sort().join(', ') || '(none)'}`);
-  console.log('');
 
-  for (const d of illustrativeWithoutDisclosure) {
-    console.log(`    NO DISCLOSURE  ${d.file} (${d.field}) is illustrative and ${d.collection} renders no disclosure`);
-  }
   for (const a of actualWithoutProvenance) {
     console.log(`    UNSOURCED      ${a.file} (${a.field}) claims an actual depiction with no creator, source or permission`);
   }
@@ -606,9 +519,6 @@ async function main() {
   }
   for (const s of invalidDepictionStatus) {
     console.log(`    BAD STATUS     ${s.file} (${s.field}) has depictionStatus "${s.status}"`);
-  }
-  for (const b of broken) {
-    console.log(`    UNWIRED        ${b.file} is the declared disclosure surface for ${b.collection} (${b.reason})`);
   }
   for (const d of decorativeWithAltText) {
     console.log(`    CONTRADICTION  ${d.file} (${d.field}) is decorative and still carries alt text: ${d.alt}`);

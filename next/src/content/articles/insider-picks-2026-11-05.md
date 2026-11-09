@@ -9,7 +9,7 @@ heroImage:
   alt: "Two visitors feed a small dark pony surrounded by brown hens in a grassy paddock at Green Olive at Red Hill"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Green Olive at Red Hill, Mornington Peninsula."
+  caption: "Green Olive at Red Hill, Mornington Peninsula"
   creator: "Two Palms Australia"
   sourceUrl: "Victoria Content Hub asset 160000, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."

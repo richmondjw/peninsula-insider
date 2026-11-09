@@ -9,7 +9,7 @@ heroImage:
   alt: "A tasting paddle of four beers, from dark to pale, on a weathered outdoor table beside timber chairs"
   credit: "Peter Tarasiuk, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Red Hill Brewery, Mornington Peninsula."
+  caption: "Red Hill Brewery, Mornington Peninsula"
   depicts: "Red Hill Brewery"
   depictionStatus: "illustrative"
   creator: "Peter Tarasiuk"

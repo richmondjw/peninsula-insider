@@ -9,7 +9,7 @@ heroImage:
   alt: Gallery room at Mornington Peninsula Regional Gallery with framed prints on white walls and sculptures on plinths under a vaulted ceiling
   credit: Robert Blackburn, courtesy of Visit Victoria
   license: visit-victoria
-  caption: Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.
+  caption: "Mornington Peninsula Regional Gallery, Mornington Peninsula"
   depicts: Mornington Peninsula Regional Gallery
   depictionStatus: illustrative
   creator: Robert Blackburn
