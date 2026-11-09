@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-09T07:27:14.131Z",
+  "updatedAt": "2026-11-09T12:18:31.567Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -1857,6 +1857,14 @@
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "Live Music - Peninsula Beer Garden",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://peninsulabeergarden.com.au/the-musicians/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Musicians - Peninsula Beer Garden",
       "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
@@ -5062,6 +5070,14 @@
       "pageTitle": "Upcoming Events | Peninsula Hot Springs"
     },
     {
+      "url": "https://www.petesews.com.au/beginner-sewing-class",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Beginner Sewing Class Mornington Peninsula | Pete Sews",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.petesews.com.au/sewing-classes",
       "verdict": "ok",
       "httpCode": "200",
@@ -6731,6 +6747,14 @@
       "httpCode": "403",
       "pageTitle": "Just a moment...",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.wheelercentre.com/events-tickets/season-2026/barrie-cassidy-at-port-phillip-estate",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Wheeler Centre - Barrie Cassidy at Port Phillip Estate",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
