@@ -19,8 +19,6 @@ Blue Moon Cottages · Rye
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a calm bay beach with boats moored offshore. It does not depict Blue Moon Cottages.
-
 Why we’d go
 
 A Rye cottage base near the bay with pet-welcoming rules and a log fire in Sandpiper.

@@ -17,9 +17,7 @@ Known for   Balnarring Foreshore Reserve location Seasonal furnished bell tent C
 
 Happy Glamper Balnarring Deluxe · Balnarring
 
-Photo · Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
-
-Illustrative image  This image shows Balnarring Beach shoreline photographed in 2006. It does not depict Happy Glamper Balnarring Deluxe.
+Balnarring Beach, Mornington Peninsula. Photo · Honk squeak · Balnarring Beach, Victoria, Australia · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg>) [Licence](<https://commons.wikimedia.org/wiki/File:Balnarring_Beach%2C_Victoria%2C_Australia.jpg#Licensing>)
 
 Why we’d go
 

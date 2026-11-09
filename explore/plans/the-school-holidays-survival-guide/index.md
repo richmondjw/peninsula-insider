@@ -15,7 +15,7 @@ One active morning, an easy lunch, a quieter afternoon, and a rainy-day fallback
 
 Peninsula Insider   10 April 2026
 
-Arthurs Seat Eagle, Mornington Peninsula.  Courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula  Courtesy of Visit Victoria
 
 Keep this for later
 

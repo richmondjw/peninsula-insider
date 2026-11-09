@@ -19,8 +19,6 @@ The Cape Retreat · Cape Schanck
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a rocky headland and offshore sea stack at sunset, framed by coastal tea-tree. It does not depict The Cape Retreat.
-
 Why we’d go
 
 A Cape Schanck retreat with suite accommodation and shared spaces suited to a group stay.

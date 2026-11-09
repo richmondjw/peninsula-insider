@@ -15,7 +15,7 @@ A ridge morning, one properly chosen cellar door, and a lunch that earns the dri
 
 Peninsula Insider   8 April 2026
 
-Montalto Vineyard & Olive Grove, Mornington Peninsula, one of the suggested Red Hill stops.  Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula  Two Palms Australia, courtesy of Visit Victoria
 
 Keep this for later
 

@@ -15,7 +15,7 @@ One room, one dinner, one slow morning. Choose the right Peninsula base and a si
 
 Peninsula Insider   9 April 2026
 
-Sorrento, Mornington Peninsula. One of three suggested bases.  Courtesy of Visit Victoria
+Sorrento, Mornington Peninsula One of three suggested bases.  Courtesy of Visit Victoria
 
 Keep this for later
 

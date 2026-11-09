@@ -37,7 +37,7 @@ Known for   Working Olive Grove Estate Olive Oils Wood Oven Cooking Mediterranea
 
 1  / 9
 
-A picnic box of cured meats, cheese, grapes, dips and olives on a rug, with nuts and a slice of cake alongside  Green Olive at Red Hill, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Green Olive at Red Hill, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 

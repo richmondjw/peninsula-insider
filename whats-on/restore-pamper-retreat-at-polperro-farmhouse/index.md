@@ -15,10 +15,6 @@ Experience     Wellness     Arrange a date with the organiser     By arrangement
 
 Worth the drive
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
-
 Editor's verdict
 
 A retreat that takes wellness seriously without the wellness-industrial-complex theatrics.
@@ -83,10 +79,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
-
 Wellness   Check session dates
 
 ### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
@@ -94,10 +86,6 @@ Wellness   Check session dates
 A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Sunday sessions at Peninsula Hot Springs Eco Lodges.
 
 Wellness  15 Nov
 

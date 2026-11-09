@@ -51,7 +51,7 @@ Known for   Amphora Wine Ageing Sangiovese and Fiano Varieties Working Cellar To
 
 1  / 16
 
-Dining room at Trofeo Estate with exposed brick walls, bentwood chairs, set tables and a shelf of wine bottles  Trofeo Estate, Dromana, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Trofeo Estate, Dromana, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 

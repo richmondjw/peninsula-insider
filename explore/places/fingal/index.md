@@ -37,7 +37,7 @@ Fingal in 8 photographs
 
 1  / 8
 
-A single bather in a round outdoor hot pool framed by tall shrubs and yellow wildflowers at Alba Thermal Springs  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Fingal is a Mornington Peninsula locality between Rye and Cape Schanck, home to Peninsula Hot Springs, Alba Thermal Springs & Spa and Moonah Links golf resort.
 
@@ -249,7 +249,7 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

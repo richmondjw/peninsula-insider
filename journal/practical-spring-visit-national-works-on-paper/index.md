@@ -17,9 +17,7 @@ Keep this for later
 
 Mornington  Art  Exhibition  Spring
 
-Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
-
-Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
+Mornington Peninsula Regional Gallery, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
 
 National Works on Paper 2026 is showing at Mornington Peninsula Regional Gallery from 5 September to 22 November. For a practical visit, use the gallery’s regular Tuesday-to-Sunday window, 11am to 4pm, and allow the exhibition to set the pace rather than crowding it into another stop.
 

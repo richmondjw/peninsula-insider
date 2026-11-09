@@ -59,7 +59,7 @@ A stay built around bathing
 
 These operators describe different accommodation formats. Check the booking you choose for current inclusions and conditions.
 
-Eco Lodge room. Photo courtesy of Visit Victoria.
+Eco Lodges, Peninsula Hot Springs, Fingal. Photo courtesy of Visit Victoria.
 
 Peninsula Hot Springs
 
@@ -69,7 +69,7 @@ Rooms in shared lodges, separate from tented glamping.
 
 [Read stay notes →](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-eco-lodges/>) [Operator details ↗](<https://www.peninsulahotsprings.com/accommodation/eco-lodges>)
 
-Illustrative: Peninsula Hot Springs bathing grounds, not a glamping tent. Photo courtesy of Visit Victoria.
+Peninsula Hot Springs, Fingal. Photo courtesy of Visit Victoria.
 
 Peninsula Hot Springs
 
@@ -79,7 +79,7 @@ Tented stays on site. Check bathing inclusions.
 
 [Read stay notes →](<https://peninsulainsider.com.au/stay/peninsula-hot-springs-glamping/>) [Operator details ↗](<https://www.peninsulahotsprings.com/accommodation/glamping>)
 
-Illustrative: Alba bathing grounds, not Sanctuary accommodation. Photo courtesy of Visit Victoria.
+Alba Thermal Springs, Fingal. Photo courtesy of Visit Victoria.
 
 Alba Thermal Springs
 

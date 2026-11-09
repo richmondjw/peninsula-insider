@@ -37,7 +37,7 @@ Couples  Wellness · Coastal
 
 1  / 9
 
-A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 At a glance
 
@@ -221,7 +221,7 @@ Try another shape
 
 [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -233,7 +233,7 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 
@@ -245,7 +245,7 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

@@ -14,7 +14,7 @@ Good places. Interesting people.
 
 **Selected 24 September 2026.** Recent practical stories sit alongside favourites from the archive. Each story keeps its original publication date; selecting it again is not a new check of every detail.
 
-Rare Hare at Willow Creek, Merricks North, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 eat
 
@@ -62,9 +62,7 @@ Peninsula Insider · Published 9 Apr 2026
 
 The people who shaped what we drink, through our existing cellar-door stories.
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional vineyard context; this photograph shows Montalto, not Quealy Winemakers.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Cellar door dispatch
 
@@ -80,9 +78,7 @@ At the table
 
 [All food & wine ↗](<https://peninsulainsider.com.au/journal/?theme=food-and-wine#archive>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 The long lunch
 
@@ -92,10 +88,6 @@ The Peninsula’s long-lunch tradition, and the tables that make a weekend of it
 
 Peninsula Insider · Published 15 Mar 2026 · 8 min read
 
-Editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu.   Illustration: Peninsula Insider
-
-Illustrative image  This image shows Conceptual oversized coffee cup and croissant beside an abstract bay. It does not depict the place described on this page.
-
 Start early
 
 ### [Breakfast before the crowds](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
@@ -104,9 +96,7 @@ The first coffee. A good breakfast. The day still ahead.
 
 Peninsula Insider · Published 9 Apr 2026 · 7 min read
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Wine country
 
@@ -120,9 +110,7 @@ Out in the open
 
 ## A little further, a little slower
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 explore
 
@@ -138,7 +126,7 @@ Make a weekend of it
 
 ## A place to settle into
 
-Flinders Golf Club, Mornington Peninsula.   Photo · Gary Lisbon, courtesy of Visit Victoria
+Flinders Golf Club, Mornington Peninsula   Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Flinders
 
@@ -148,9 +136,7 @@ A village, a pier and a different pace.
 
 Peninsula Insider · Published 4 Apr 2026 · 7 min read
 
-Jackalope Hotel, Merricks North, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
-
-Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
+Jackalope Hotel, Merricks North, Mornington Peninsula   Photo · Peter Foster, courtesy of Visit Victoria
 
 Stay a little longer
 
@@ -160,7 +146,7 @@ A stay that shapes the trip, rather than simply hosts it.
 
 Peninsula Insider · Published 2 Apr 2026 · 6 min read
 
-Sorrento, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Sorrento, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Sorrento
 

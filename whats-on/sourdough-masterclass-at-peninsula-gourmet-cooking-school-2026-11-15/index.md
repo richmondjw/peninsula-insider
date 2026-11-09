@@ -13,10 +13,6 @@ Get Your Sourdough Perfect Every Time Your class will take place in our brand ne
 
 [Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a round sourdough loaf. It does not depict Sourdough Masterclass at Peninsula Gourmet Cooking School.
-
 Hosted at
 
 Peninsula Gourmet Cooking School
@@ -55,9 +51,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
-
-Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+Main Ridge Estate, Red Hill, Mornington Peninsula  Photo · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
 
 Food & Wine   Check session dates
 
@@ -69,10 +63,6 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
-
 Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
@@ -82,10 +72,6 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

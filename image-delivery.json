@@ -8979,68 +8979,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/wine.webp",
-      "format": "webp",
-      "originalBytes": 32106,
-      "variants": [
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 7928
-        },
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 13810
-        },
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 22548
-        },
-        {
-          "src": "/_media/7ed23e9c0fa4a293b3a3-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 30120
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/wine.webp",
-      "format": "avif",
-      "originalBytes": 32106,
-      "variants": [
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 4125
-        },
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 6200
-        },
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 8459
-        },
-        {
-          "src": "/_media/1c5c8a6cfd63e3c50353-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 11265
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/music-guitar.webp",
       "format": "webp",
       "originalBytes": 34712,
@@ -9161,6 +9099,68 @@
           "width": 1680,
           "height": 1120,
           "bytes": 8456
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/coastal-punch-crib.webp",
+      "format": "webp",
+      "originalBytes": 133362,
+      "variants": [
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23912
+        },
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 41724
+        },
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 65680
+        },
+        {
+          "src": "/_media/7f7bfd271f1bd449b49b-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 86324
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/coastal-punch-crib.webp",
+      "format": "avif",
+      "originalBytes": 133362,
+      "variants": [
+        {
+          "src": "/_media/f9a6b07db2ef42641a8d-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 14679
+        },
+        {
+          "src": "/_media/f9a6b07db2ef42641a8d-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 22323
+        },
+        {
+          "src": "/_media/f9a6b07db2ef42641a8d-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 31346
+        },
+        {
+          "src": "/_media/f9a6b07db2ef42641a8d-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 39712
         }
       ]
     },
@@ -14104,37 +14104,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/music-microphone.webp",
-      "format": "webp",
-      "originalBytes": 24324,
-      "variants": [
-        {
-          "src": "/_media/5781c0117d3ea0b19129-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 6096
-        },
-        {
-          "src": "/_media/5781c0117d3ea0b19129-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 10726
-        },
-        {
-          "src": "/_media/5781c0117d3ea0b19129-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 17142
-        },
-        {
-          "src": "/_media/5781c0117d3ea0b19129-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 22550
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/books-talk.webp",
       "format": "webp",
       "originalBytes": 34566,
@@ -14193,6 +14162,37 @@
           "width": 1536,
           "height": 1024,
           "bytes": 42046
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-amp.webp",
+      "format": "webp",
+      "originalBytes": 36502,
+      "variants": [
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8956
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 15504
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 25322
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 34318
         }
       ]
     },

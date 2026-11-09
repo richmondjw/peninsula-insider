@@ -33,7 +33,7 @@ Known for   Peninsula Gin Distillery Gin School Blending Sessions Angry Ant Bota
 
 1  / 7
 
-Guests play chess and share drinks at tables in the Bass and Flinders Distillery bar, beside a wall of bottle-filled barrels  Bass & Flinders Distillery, Dromana, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Bass & Flinders Distillery, Dromana, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 

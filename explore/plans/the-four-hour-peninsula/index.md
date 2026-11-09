@@ -15,7 +15,7 @@ For the midweek visit, the work trip with a free morning, or the Melbourne frien
 
 Peninsula Insider   15 April 2026
 
-Merricks General Wine Store, Mornington Peninsula.  Peter Foster, courtesy of Visit Victoria
+Merricks General Wine Store, Mornington Peninsula  Peter Foster, courtesy of Visit Victoria
 
 Keep this for later
 

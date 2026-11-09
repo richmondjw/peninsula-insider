@@ -15,10 +15,6 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 Worth the drive   First timer
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a glass of white wine with grapes. It does not depict Peninsula VineHop Festival 2026.
-
 Editor's verdict
 
 The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
@@ -91,10 +87,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
-
 Markets   Monthly – 2nd Saturday of every month
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
@@ -102,10 +94,6 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
 
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
@@ -115,7 +103,7 @@ VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
 

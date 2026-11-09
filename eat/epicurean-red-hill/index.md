@@ -29,7 +29,7 @@ Known for   Historic Red Hill coolstore The Shed Restaurant Sunday lunch Seasona
 
 1  / 5
 
-Long dining tables set between walls of stacked wine barrels under a neon swan sign at The Epicurean, Red Hill  The Epicurean, Red Hill, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+The Epicurean, Red Hill, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 

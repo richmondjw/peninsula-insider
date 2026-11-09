@@ -203,7 +203,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Merricks North weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -225,7 +225,7 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

@@ -13,7 +13,7 @@ The stay guide · cottages & B&Bs
 
 Start with the format, then the exact room. A cottage gives you your own front door; a B&B can add a hosted breakfast or optional provisions. Pet, kitchen and access details change by property.
 
-Red Hill and Rye area views, not photographs of the accommodation. Images: Peninsula Insider.
+Red Hill and Rye. Photos: Peninsula Insider.
 
 The first decision
 

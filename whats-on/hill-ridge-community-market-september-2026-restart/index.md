@@ -13,10 +13,6 @@ The organiser marks the 3 October 2026 Hill & Ridge Community Market at Red Hill
 
 **Cancelled. This event will not go ahead.** The organiser marks the 3 October 2026 edition as cancelled. No replacement date is confirmed in this record. [Hill & Ridge Community Market organiser](<https://www.hillandridgemarket.com.au/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual market produce and ceramics beneath a striped canopy. It does not depict Hill & Ridge Community Market, 3 October 2026 (cancelled).
-
 Editor's verdict
 
 Cancelled: the organiser's homepage marked the 3 October 2026 market as cancelled when checked on 4 October 2026. Check the organiser for any future market date.
@@ -67,10 +63,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
-
 Markets   Monthly – 2nd Saturday of every month
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
@@ -79,10 +71,6 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
-
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
@@ -90,10 +78,6 @@ Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Emu Plains Market.
 
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 

@@ -13,7 +13,7 @@ A bay beach morning, a reserve walk, and Rye nearby for dinner.
 
  [Check reserve access with the Shire](<https://www.mornpen.vic.gov.au/Things-to-do/Parks-and-reserves/Tootgarook-Bushland-Reserve>)
 
-Tootgarook Recreation Reserve, photographed in February 2023. This is not the Tootgarook Wetland.
+Tootgarook Recreation Reserve, Mornington Peninsula
 
 Photo · Tangerineduel / Wikimedia Commons (CC BY-SA 4.0; resized and converted to WebP) [Source](<https://commons.wikimedia.org/wiki/File:Tootgarook_Recreation_Reserve_2023-02-22.jpg>)   [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
 

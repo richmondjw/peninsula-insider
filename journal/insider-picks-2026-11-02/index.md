@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 **Balnarring Bakehouse** earns the detour on any spring morning when you are already heading out towards Emu Plains or the Greens Bush trails. The beef-and-mushroom pie is the reason to go - dense filling, short pastry that holds together on the walk back to the car.
 

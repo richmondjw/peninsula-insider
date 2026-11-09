@@ -37,7 +37,7 @@ Known for   Jackalope's Relaxed Lunch Room Wood-Fired Grill Menu Willow Creek Es
 
 1  / 9
 
-Plates of roast duck, charred meat, a beetroot salad and a leafy dish with a glass of rose on a timber table  Rare Hare at Willow Creek, Merricks North, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 
@@ -135,7 +135,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

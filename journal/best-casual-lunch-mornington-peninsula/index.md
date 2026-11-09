@@ -17,7 +17,7 @@ Keep this for later
 
 Eat  Lunch  Casual  Wineries
 
-Rare Hare at Willow Creek, Merricks North, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Start here
 

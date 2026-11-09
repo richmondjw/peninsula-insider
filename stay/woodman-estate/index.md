@@ -17,9 +17,7 @@ Known for   Chalet Un beside the lake Shared 50-acre estate grounds King bed and
 
 Chalet Un at Woodman Estate · Moorooduc
 
-Photo · Smartiejl · Devilbend lake · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
-
-Illustrative image  This image shows Devilbend Reservoir lake near Moorooduc. It does not depict Chalet Un at Woodman Estate.
+Devilbend Reservoir, Moorooduc, Mornington Peninsula. Photo · Smartiejl · Devilbend lake · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Devilbend_lake.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/4.0/>)
 
 Why we’d go
 

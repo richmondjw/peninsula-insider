@@ -13,7 +13,7 @@ We live here. We choose places worth your time, say who they suit and explain wh
 
 Peninsula Insider is an independent guide shaped by real visits, local knowledge and ongoing checks.
 
-Cape Schanck, Mornington Peninsula.  Photography: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula  Photography: Courtesy of Visit Victoria
 
 Our point of view
 
@@ -62,7 +62,7 @@ Businesses cannot pay for a recommendation, ranking or Insider Pick.
 
 We may work through advertising, sponsored content and partnerships. We identify that work clearly and keep it separate from our editorial choices.
 
-Sorrento Ferry, Mornington Peninsula.  Photography: Courtesy of Visit Victoria
+Sorrento Ferry, Mornington Peninsula  Photography: Courtesy of Visit Victoria
 
 Keeping things current
 

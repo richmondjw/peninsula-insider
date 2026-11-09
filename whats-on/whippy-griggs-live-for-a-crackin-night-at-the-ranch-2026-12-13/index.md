@@ -13,10 +13,6 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Book or check details](<https://www.theranchmp.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict "Whippy" Griggs Live for a Crackin' Night at The Ranch.
-
 Hosted at
 
 Ranch
@@ -55,7 +51,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
 
@@ -67,10 +63,6 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a classic sewing machine. It does not depict Beginner Alteration and Repair Sewing Class with Pete Sews.
-
 Arts  14 Nov
 
 ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
@@ -78,10 +70,6 @@ Arts  14 Nov
 Love your clothes but wish they fit better-or lasted longer?
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Curators floor talk: The Making of a Prize Exhibition.
 
 Arts  14 Nov
 

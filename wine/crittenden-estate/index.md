@@ -51,7 +51,7 @@ Known for   Founded 1982 by Garry Crittenden Los Hermanos Italian-Spanish Range 
 
 1  / 16
 
-A host pours red wine for two guests at an umbrella-shaded table on a brick terrace overlooking vines and a lake  Crittenden Estate, Dromana, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Crittenden Estate, Dromana, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 

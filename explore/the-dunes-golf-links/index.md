@@ -45,7 +45,7 @@ Compare the club's separate main-course and Cups rates before booking.
 
 1  / 12
 
-A golfer plays a fairway shot at The Dunes Golf Links as a partner stands by the bags, long shadows under a bright cloudy sky  The Dunes Golf Links, Rye, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+The Dunes Golf Links, Rye, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 The Dunes is Tony Cashmore's public 18-hole championship links course in Rye, set among rolling dunes. The separate Cups Course is a shorter nine-hole links layout suited to a quick round or a mixed-experience group. The club also has a driving range and on-site Links Lodge accommodation. Check the club's current course conditions, green fees and live tee times before you travel.
 

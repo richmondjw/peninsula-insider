@@ -19,8 +19,6 @@ Polperro Villas · Red Hill
 
 Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Illustrative image  This image shows Mornington Peninsula vineyard (resized to 1600px and converted to WebP). It does not depict Polperro Villas.
-
 Why we’d go
 
 A vineyard stay for two, with a king-size bed, indoor spa and open fireplace in each of the four villas.

@@ -57,7 +57,7 @@ Public players register online before viewing tee times for Open and Legends.
 
 1  / 18
 
-Two golfers carry their bags along a fairway at Moonah Links between deep sand bunkers towards a distant flag  Moonah Links, Fingal, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+Moonah Links, Fingal, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Moonah Links offers two 18-hole courses, Open and Legends, alongside Peppers accommodation and on-site dining in Fingal. The Open Course hosted the Australian Open in 2003 and 2005; Legends gives the group a second course to compare on the same trip. Public players register online before viewing live tee times for either course.
 

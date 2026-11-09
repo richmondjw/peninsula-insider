@@ -13,7 +13,7 @@ The stay guide / five distinctive hotels
 
 The best fit starts with the weekend you want. Stay near a village, settle into a vineyard estate, or make design and dinner the occasion. Then choose the exact room.
 
-Jackalope in Merricks North and Lindenderry in Red Hill. These show the named properties, not a promised room or view. Photos: Peter Foster, courtesy of Visit Victoria.
+Jackalope Hotel, Merricks North, and Lindenderry, Red Hill. Photos: Peter Foster, courtesy of Visit Victoria.
 
 Start with the setting
 

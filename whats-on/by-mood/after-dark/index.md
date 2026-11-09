@@ -11,10 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a classic sewing machine. It does not depict Not Sew Scary Beginner Sewing Class with Pete Sews.
-
 Arts  10 Nov
 
 ### [Not Sew Scary Beginner Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
@@ -22,10 +18,6 @@ Arts  10 Nov
 A small, three-hour introduction to sewing for adults and teens starting from scratch.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Books and Ideas: Barrie Cassidy at Port Phillip Estate.
 
 Writers & Ideas  13 Nov
 
@@ -35,10 +27,6 @@ Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and A
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a retro guitar amplifier. It does not depict Jamie MacDowell Live at Jetty Road Brewery.
-
 Live Music  14 Nov
 
 ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
@@ -46,10 +34,6 @@ Live Music  14 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows an acoustic guitar. It does not depict REwind Lane Live at Tar Barrel.
 
 Live Music  14 Nov
 
@@ -59,10 +43,6 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Author Talk: Anna Downes & Naima Brown - Mornington Library.
-
 Writers & Ideas  19 Nov
 
 ### [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
@@ -70,10 +50,6 @@ Writers & Ideas  19 Nov
 Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern.
 
 Live Music  21 Nov
 
@@ -83,10 +59,6 @@ Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are h
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows an acoustic guitar. It does not depict Oskar Proy Live at Jetty Road Brewery.
-
 Live Music  21 Nov
 
 ### [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
@@ -94,10 +66,6 @@ Live Music  21 Nov
 Live music every weekend at Jetty Road Brewery!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict Improv Comedy Show at The Bay Hotel Mornington.
 
 Arts  25 Nov
 
@@ -107,10 +75,6 @@ Come and finish the year out with our last student showcase of comedy!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Author Talk: Jane Gilmore - Mornington Library.
-
 Writers & Ideas  26 Nov
 
 ### [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
@@ -118,10 +82,6 @@ Writers & Ideas  26 Nov
 Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
 
 Live Music  27 Nov
 
@@ -131,10 +91,6 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows an acoustic guitar. It does not depict Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern.
-
 Live Music  27 Nov
 
 ### [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
@@ -143,10 +99,6 @@ Get ready, Main Ridge!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict DJ Sophie Joy Live at Jetty Road Brewery.
-
 Live Music  28 Nov
 
 ### [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
@@ -154,10 +106,6 @@ Live Music  28 Nov
 Live music every weekend at Jetty Road Brewery!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a retro guitar amplifier. It does not depict Pub Carols at The Pig & Whistle.
 
 Live Music   Thursday 3, 10 and 17 December 2026, 6–10pm; no further dates confirmed.
 
@@ -169,10 +117,6 @@ A group carols night with a live band and two-course meal at The Pig & Whistle i
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows two picture frames lit by a spotlight. It does not depict The Creators Network: End of Year Catch-up for Creatives.
-
 Exhibitions  10 Dec
 
 ### [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
@@ -181,10 +125,6 @@ Come along to meet other MP creatives, join a curator tour of the new Gareth Sam
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict "Whippy" Griggs Live for a Crackin' Night at The Ranch.
-
 Arts  13 Dec
 
 ### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
@@ -192,10 +132,6 @@ Arts  13 Dec
 World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a coupe of sparkling wine with a lit sparkler. It does not depict New Years Eve Event 2026/2027.
 
 Food & Wine  31 Dec
 

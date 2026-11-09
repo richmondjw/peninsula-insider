@@ -13,10 +13,6 @@ New to clay or returning to it? You're in good hands. Starts 3pm.
 
 [Book or check details](<https://www.peachykeenceramics.com.au/product/sunday-sessions/CKY26BU2D3GNTV6EE755ES6U?cp=true&amp;sa=false&amp;sbp=false&amp;q=false&amp;category_id=IZJTR3ECJ7DQTG7CXAFKDQTH>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a paintbrush crossing an artist's palette. It does not depict Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics.
-
 Hosted at
 
 Peachy Keen Ceramics
@@ -51,7 +47,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
 
@@ -63,10 +59,6 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict "Whippy" Griggs Live for a Crackin' Night at The Ranch.
-
 Arts  13 Dec
 
 ### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
@@ -74,10 +66,6 @@ Arts  13 Dec
 World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a classic sewing machine. It does not depict Beginner Alteration and Repair Sewing Class with Pete Sews.
 
 Arts  14 Nov
 

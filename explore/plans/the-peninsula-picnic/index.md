@@ -15,7 +15,7 @@ The best picnic on the Mornington Peninsula is not a hamper from a winery gift s
 
 Peninsula Insider   10 April 2026
 
-Green Olive at Red Hill, Mornington Peninsula.  Two Palms Australia, courtesy of Visit Victoria
+Green Olive at Red Hill, Mornington Peninsula  Two Palms Australia, courtesy of Visit Victoria
 
 Keep this for later
 

@@ -15,7 +15,7 @@ You leave the city at four. You hit the freeway. You arrive at six with nothing 
 
 Peninsula Insider   10 April 2026
 
-The Epicurean, Red Hill, Mornington Peninsula.  Peter Foster, courtesy of Visit Victoria
+The Epicurean, Red Hill, Mornington Peninsula  Peter Foster, courtesy of Visit Victoria
 
 Keep this for later
 

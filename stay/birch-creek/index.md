@@ -19,8 +19,6 @@ Birch Creek · Dromana
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict Birch Creek.
-
 Why we’d go
 
 A working-farm setting with two cottage sizes, open fires and a clear choice between a stay for two or four.

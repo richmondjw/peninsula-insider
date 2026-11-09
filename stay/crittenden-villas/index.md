@@ -19,8 +19,6 @@ Crittenden Estate Villas · Dromana
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a long exposure beneath a concrete pier, a pipe running down the sand into the water. It does not depict Crittenden Estate Villas.
-
 Why we’d go
 
 A self-contained lakeside stay with wine tasting and dining options on the same estate.

@@ -15,7 +15,7 @@ The right stay starts with the setting. Compare nine places across wine country,
 
 Check room features, dining, bathing inclusions and guest conditions with the operator for your dates.
 
-Jackalope Hotel vineyard. Peter Foster, courtesy of Visit Victoria.
+Jackalope Hotel, Merricks North. Photo: Peter Foster, courtesy of Visit Victoria.
 
 The first decision
 

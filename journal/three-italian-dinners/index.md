@@ -17,9 +17,7 @@ Keep this for later
 
 Eat  Wine  Red Hill  Long Lunch
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 The Mornington Peninsula has four or five serious dining rooms at any given moment, and three of them do the same thing in almost entirely different ways. The question of which one you book depends on a set of variables people don’t usually name out loud: the mood of the group, the time of the year, how long you are staying, and what you actually want a dining room to do to the weekend.
 

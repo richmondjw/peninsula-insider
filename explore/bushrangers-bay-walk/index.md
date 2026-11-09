@@ -99,7 +99,7 @@ Use it in a weekend
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

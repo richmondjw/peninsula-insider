@@ -11,10 +11,6 @@ Worth the trip from Melbourne
 
 Most regional event sites pretend the drive is free. We do not. These are the events worth booking accommodation for, or the day trip from Melbourne that earns its travel time.
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a glass of white wine with grapes. It does not depict Peninsula VineHop Festival 2026.
-
 Festivals   Annual, November
 
 ### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
@@ -22,10 +18,6 @@ Festivals   Annual, November
 A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
 
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
@@ -35,7 +27,7 @@ VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
-Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
 
@@ -47,10 +39,6 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
-
 Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
@@ -61,9 +49,7 @@ Wellness   Dates on request
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
-Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
-
-Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+Main Ridge Estate, Red Hill, Mornington Peninsula  Photo · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
 
 Food & Wine   Check session dates
 
@@ -74,10 +60,6 @@ Food & Wine   Check session dates
 An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Emu Plains Market.
 
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 

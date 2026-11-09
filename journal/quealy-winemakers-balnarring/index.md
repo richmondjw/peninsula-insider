@@ -17,9 +17,7 @@ Keep this for later
 
 Wine  Cellar Door  Balnarring
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional vineyard context; this photograph shows Montalto, not Quealy Winemakers.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Quealy is one of those Peninsula addresses that matters more than the room first suggests. If you arrive expecting architectural theatre, a long driveway, or a restaurant built for anniversary lunches, you have come to the wrong place. If you arrive wanting to understand why the Peninsula drinks the way it does now, especially when it comes to pinot gris, pinot grigio, and the region’s comfort with Italian varieties, this is still one of the essential stops.
 

@@ -13,7 +13,7 @@ Rye in 6 photographs
 
 1  / 6
 
-Aerial view of the clubhouse, accommodation and car park at The Dunes Golf Links, with fairways and greens stretching behind  The Dunes Golf Links, Rye, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+The Dunes Golf Links, Rye, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Rye is a coastal town on the Mornington Peninsula's southern Port Phillip shore, 90 km from Melbourne, with a back beach on Bass Strait, the Rye Pier, and a foreshore that fills with summer holidaymakers.
 

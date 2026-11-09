@@ -19,8 +19,6 @@ Arthurs Views · Arthurs Seat
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows the view over Port Phillip Bay from the Arthurs Seat lookout. It does not depict Arthurs Views.
-
 Why we’d go
 
 A bay-view suite stay for two, with a clear choice between spa suites and penthouse formats.

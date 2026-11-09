@@ -37,7 +37,7 @@ Known for   Village Bistro Elgee Park and Baillieu Wines Breakfast and Lunch Pen
 
 1  / 9
 
-Timber tables set for lunch before an open kitchen with hanging woven baskets and shelves of wine at Merricks General Wine Store  Merricks General Wine Store, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Merricks General Wine Store, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -137,7 +137,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

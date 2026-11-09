@@ -463,7 +463,7 @@ Flinders & the Ocean Coast in 13 photographs
 
 1  / 13
 
-Aerial view of the white Cape Schanck lighthouse and keepers' cottages on a clifftop above a rocky coastline  Cape Schanck, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## The Insider Note
 

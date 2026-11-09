@@ -65,7 +65,7 @@ Peninsula Hot Springs: spa treatments in 16 photographs
 
 1  / 16
 
-Overhead view of a shared platter with grain salads, cheese, crispbread, fresh fruit and berry yoghurt cups at Peninsula Hot Springs  Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Peninsula Hot Springs, Cape Schanck, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 [Cape Schanck](<https://peninsulainsider.com.au/explore/spas-and-wellness/#one-spa-racv-cape-schanck>)
 
@@ -97,7 +97,7 @@ Alba Thermal Springs & Spa in 16 photographs
 
 1  / 16
 
-A bather wading through a turquoise pool beneath curved concrete canopies at Alba Thermal Springs and Spa  Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## Bathing or treatments?
 

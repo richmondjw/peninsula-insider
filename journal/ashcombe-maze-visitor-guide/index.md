@@ -17,9 +17,7 @@ Keep this for later
 
 Ashcombe Maze  Lavender  Family  Gardens
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Ashcombe Maze & Lavender Gardens is Australia’s oldest traditional hedge maze. It is open. Multiple travel aggregators and booking sites continue to list it as closed or reduced-hours following a period of quieter operation around 2020, this information is incorrect. The café re-opened in January 2025 and the maze is fully trading.
 

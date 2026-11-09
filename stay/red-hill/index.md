@@ -13,7 +13,7 @@ Choose an estate stay or a private Red Hill base. Let lunch run long.
 
 Red Hill and Red Hill South are the focus. [Dromana, Merricks North and Fingal are different bases.](<https://peninsulainsider.com.au/stay/red-hill/#further-afield>)
 
-Lindenderry at Red Hill, pictured from the garden. This shows the hotel exterior, not a room or promised view. Photo: Peter Foster, courtesy of Visit Victoria.
+Lindenderry, Red Hill. Photo: Peter Foster, courtesy of Visit Victoria.
 
 The short read
 
@@ -83,7 +83,7 @@ Peppercorn and Winemakers are two private-entry cottages at an artisan vineyard.
 
 [Read our notes →](<https://peninsulainsider.com.au/stay/treetops-red-hill/>) [Check with operator →](<https://treetopsatredhill.com.au/>)
 
-Winery grounds at Polperro in Red Hill. This photograph does not show the villas. Photo: Peter Tarasiuk, courtesy of Visit Victoria.
+Polperro, Red Hill. Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
 The local logic
 

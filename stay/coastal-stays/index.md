@@ -13,7 +13,7 @@ Sorrento hotels, bay-side cottages, a Flinders or Cape Schanck base, or canvas a
 
 A coastal address does not guarantee a beachfront room or a safe swimming beach.
 
-Cape Schanck boardwalk and coast. Destination view, not a view from a listed stay. Peninsula Insider.
+Cape Schanck Boardwalk. Photo: Peninsula Insider.
 
 ## Sorrento, for a village by the bay
 
@@ -37,7 +37,7 @@ Rooms and studios at the clifftop pub-hotel. The operator describes the township
 
 [Read stay notes](<https://peninsulainsider.com.au/stay/hotel-sorrento/>) [Check with operator](<https://hotelsorrento.com.au/stay/>)
 
-Sorrento bay coast. Area photograph, not a view from a listed room. Peninsula Insider.
+Sorrento. Photo: Peninsula Insider.
 
 ## Rye and Capel Sound, for a cottage
 
@@ -59,7 +59,7 @@ A small group of cottages near Capel Sound bay beach. Studio, one-bedroom and tw
 
 [Read stay notes](<https://peninsulainsider.com.au/stay/mp-beach-club-cottages/>) [Check with operator](<https://mpcottages.com/>)
 
-Rye bay coast. Area photograph, not a view from either cottage. Peninsula Insider.
+Rye. Photo: Peninsula Insider.
 
 ## Flinders and Cape Schanck, for the south coast
 
@@ -81,7 +81,7 @@ A group-oriented retreat with suites and shared spaces at Cape Schanck. Confirm 
 
 [Read stay notes](<https://peninsulainsider.com.au/stay/cape-retreat/>) [Check with operator](<https://www.thecaperetreat.com.au/book>)
 
-Cape Schanck coastline. Area photograph, not a property or room view. Peninsula Insider.
+Cape Schanck. Photo: Peninsula Insider.
 
 ## Point Nepean, for a night in the park
 
@@ -95,7 +95,7 @@ Two- and four-person tents in coastal or woodland campground areas. Parks Victor
 
 [Read stay notes](<https://peninsulainsider.com.au/stay/point-nepean-discovery-tents/>) [Check with operator](<https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents>)
 
-Point Nepean National Park. Area photograph, not the Discovery Tents. Peninsula Insider.
+Point Nepean National Park. Photo: Peninsula Insider.
 
 ## Still choosing?
 

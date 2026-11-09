@@ -11,7 +11,7 @@ Three stays, two thermal operators, one useful first decision: choose the bathin
 
 [Compare the stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/#compare-stays>) [Before you book](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/#booking-order>)
 
-An Eco Lodge room at Peninsula Hot Springs, one of the stays compared here. Courtesy of Visit Victoria.
+Eco Lodges, Peninsula Hot Springs, Fingal. Photo courtesy of Visit Victoria.
 
 ## Choose the stay that changes your day.
 

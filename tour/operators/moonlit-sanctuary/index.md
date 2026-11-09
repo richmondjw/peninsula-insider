@@ -33,7 +33,7 @@ Moonlit Sanctuary is a conservation wildlife park at Pearcedale, specialising in
 
 1  / 9
 
-A Moonlit Sanctuary keeper in a red vest points skyward as a pink and white galah lifts off from her hand  Moonlit Sanctuary Wildlife Conservation Park, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Moonlit Sanctuary Wildlife Conservation Park, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 ## About Moonlit Sanctuary Wildlife Conservation Park
 

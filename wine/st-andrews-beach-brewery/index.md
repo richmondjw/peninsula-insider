@@ -37,7 +37,7 @@ Known for   Former racehorse training stables converted to a working brewery Acr
 
 1  / 9
 
-Pizzas, a grazing board, fried chicken and two pints of beer on a marble table before a blazing open fireplace  St Andrews Beach Brewery, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+St Andrews Beach Brewery, Fingal, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 

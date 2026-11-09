@@ -15,7 +15,7 @@ Polperro Dolphin Swim in 9 photographs
 
 1  / 9
 
-A person in a yellow puffer jacket watching a dolphin fin break the surface of grey Port Phillip Bay  Polperro Dolphin Swim, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Polperro Dolphin Swim, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 ## At a glance
 

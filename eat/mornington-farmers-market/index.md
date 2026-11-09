@@ -35,7 +35,7 @@ Known for   Second Saturday Monthly Mornington Park Setting Peninsula Produce
 
 1  / 9
 
-Shoppers stroll past white and red marquees and a butcher's chalkboard sign at Mornington Farmers Market  Mornington Farmers' Market, Mornington Peninsula.  Photo · Robert Blackburn, courtesy of Visit Victoria
+Mornington Farmers' Market, Mornington Peninsula  Photo · Robert Blackburn, courtesy of Visit Victoria
 
 The Mornington Chamber lists Mornington Farmers Market in Mornington Park on the second Saturday of each month, 8am–1pm. This is separate from the weekly Wednesday Main Street Market. Check the Chamber's current calendar before travelling.
 

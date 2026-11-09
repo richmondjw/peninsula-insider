@@ -17,9 +17,7 @@ Keep this for later
 
 Winter  Seasonal  Red Hill  Flinders
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 **The ridge in the morning.** Fog sits on the Red Hill plateau from about June onward in the kind of dense, directional way that makes the vineyard rows disappear fifty metres from the road. It burns off by ten. The hour before it does is the reason people who live up here choose it over the coast.
 

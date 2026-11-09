@@ -15,7 +15,7 @@ The drive to make on your first visit, or the one to send a friend on when you a
 
 Peninsula Insider   10 April 2026
 
-Merricks General Wine Store, Mornington Peninsula.  Peter Foster, courtesy of Visit Victoria
+Merricks General Wine Store, Mornington Peninsula  Peter Foster, courtesy of Visit Victoria
 
 Keep this for later
 

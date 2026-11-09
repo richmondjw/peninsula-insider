@@ -11,8 +11,6 @@ Eat & Drink
 
 A vineyard lunch. A village coffee. A table by the bay. Find a place for the day you have in mind.
 
-Conceptual coastal illustration. Illustration: Peninsula Insider.
-
 ## Find your kind of place
 
 44 places. Your choice of town, table or coffee stop.
@@ -23,7 +21,7 @@ The editorial shortlist
 
 Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability.
 
-- Photo: Peter Foster, courtesy of Visit Victoria.
+- Merricks General Wine Store, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Merricks General Wine Store](<https://peninsulainsider.com.au/eat/merricks-general-wine-store/>)
 
@@ -57,7 +55,7 @@ Allow 3½–4 hours; no vegan menu
 
 See 3 more editorial choices
 
-- Illustrative image. This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.   Photo: Peter Foster, courtesy of Visit Victoria.
+- Jackalope Hotel exterior, Merricks North, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>)
 
@@ -381,7 +379,7 @@ The Journal
 
 [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
-- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [The Spring Peninsula: Why September and October Are the Region's Most Underrated Weekends](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
 
@@ -389,7 +387,7 @@ New leaf, quieter cellar doors, and the case for a slow Spring weekend before th
 
 7 min read
 
-- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
 
@@ -397,7 +395,7 @@ A lunch on the ridge, a bay view, and the case for leaving the afternoon open.
 
 8 min read
 
-- Sorrento Ferry, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+- Sorrento Ferry, Mornington Peninsula   Photo courtesy of Visit Victoria.
 
 ### [The Seafood List: Where the Fish Comes Off the Boat and Onto the Plate](<https://peninsulainsider.com.au/journal/the-seafood-list/>)
 

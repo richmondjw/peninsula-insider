@@ -11,8 +11,6 @@ The best stay starts with a place that suits your days. Choose a wine-country or
 
 [Choose your base](<https://peninsulainsider.com.au/stay/#choose-base>) [Browse all 26 stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
 
-Conceptual coastal illustration. Illustration: Peninsula Insider.
-
 ## First, choose your corner of the Peninsula
 
 Pick the days you want, then the bed. These are area comparisons; check each property's address and transport before booking.
@@ -75,7 +73,7 @@ Travelling without a car? Start with [the transport guide](<https://peninsulains
 
 Six distinct ways in. Check the current room, inclusions and dates with each operator.
 
-- A suite at Jackalope Hotel, Merricks North.   Photo: Peter Foster, courtesy of Visit Victoria.
+- Jackalope Hotel, Merricks North   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)
 
@@ -97,7 +95,7 @@ Details checked October 2026
 
 [Visit website](<https://www.polperrowines.com.au/escape/>)
 
-- Hotel Sorrento exterior, photographed in 2006 before recent renovations.   Photo: Biatch / Wikimedia Commons (public domain).
+- Hotel Sorrento exterior   Photo: Biatch / Wikimedia Commons (public domain).
 
 ### [Hotel Sorrento](<https://peninsulainsider.com.au/stay/hotel-sorrento/>)
 
@@ -111,7 +109,7 @@ Details checked October 2026
 
 See 3 more editorial choices
 
-- Flinders Hotel pub frontage, photographed in 2010; this is not a photograph of the Quarters rooms.   [Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0).](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) · [CC BY-SA 3.0 licence](<https://creativecommons.org/licenses/by-sa/3.0/>) · Resized and converted to WebP.
+- Flinders Hotel, Flinders, Mornington Peninsula   [Photo: Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0).](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>) · [CC BY-SA 3.0 licence](<https://creativecommons.org/licenses/by-sa/3.0/>) · Resized and converted to WebP.
 
 ### [Quarters at Flinders Hotel](<https://peninsulainsider.com.au/stay/flinders-hotel/>)
 
@@ -445,7 +443,7 @@ Details checked October 2026
 
 [All in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
-- Jackalope Hotel, Merricks North, Mornington Peninsula.   Photo: Peter Foster, courtesy of Visit Victoria.
+- Jackalope Hotel, Merricks North, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [Where to Stay for a Two-Night Peninsula Escape](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
 
@@ -453,7 +451,7 @@ If you only have one weekend, choose your base carefully. These are the stays th
 
 6 min read
 
-- Sorrento, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+- Sorrento, Mornington Peninsula   Photo courtesy of Visit Victoria.
 
 ### [The One-Night Peninsula Escape](<https://peninsulainsider.com.au/explore/plans/the-one-night-escape/>)
 
@@ -461,7 +459,7 @@ One room, one dinner, one slow morning. Choose the right Peninsula base and a si
 
 4 min read
 
-- Lindenderry at Red Hill, Mornington Peninsula, shown as an illustrative wine-country setting.   Photo: Peter Foster, courtesy of Visit Victoria.
+- Lindenderry, Red Hill, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
 ### [The Vineyard Villa Weekend: The Peninsula's Quietest Luxury](<https://peninsulainsider.com.au/journal/the-vineyard-villa-weekend/>)
 

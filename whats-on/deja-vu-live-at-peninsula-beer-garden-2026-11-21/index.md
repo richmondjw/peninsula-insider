@@ -13,10 +13,6 @@ Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upb
 
 [Book or check details](<https://peninsulabeergarden.com.au/live-music/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a retro guitar amplifier. It does not depict Deja Vu Live at Peninsula Beer Garden.
-
 Hosted at
 
 Peninsula Beer Garden
@@ -55,10 +51,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual acoustic guitar. It does not depict Acoustic Saturdays at Peppers Moonah Links.
-
 Live Music   Every Saturday evening year-round from 5pm
 
 ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
@@ -69,10 +61,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
-
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
@@ -80,10 +68,6 @@ Live Music  27 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
 
 Live Music  15 Nov
 

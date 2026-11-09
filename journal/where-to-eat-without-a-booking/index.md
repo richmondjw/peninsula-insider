@@ -17,9 +17,7 @@ Keep this for later
 
 Dining  Walk In  No Booking  Pubs
 
-Red Hill Brewery, Mornington Peninsula.   Photo · Peter Tarasiuk, courtesy of Visit Victoria
-
-Illustrative image  This image shows Red Hill Brewery. It does not depict the place described on this page.
+Red Hill Brewery, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 Start here
 

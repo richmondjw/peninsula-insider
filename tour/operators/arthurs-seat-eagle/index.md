@@ -33,7 +33,7 @@ Arthurs Seat Eagle is a gondola lift connecting its Base Station on Arthurs Seat
 
 1  / 9
 
-Arthurs Seat Eagle gondolas pass a support tower above the bay as a pale band of light sits on the horizon  Arthurs Seat Eagle, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## About Arthurs Seat Eagle
 

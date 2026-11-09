@@ -13,7 +13,7 @@ Point Nepean in 18 photographs
 
 1  / 18
 
-Two cyclists on a road winding through coastal scrub and sandy dunes at Point Nepean above rocky headlands and a grey sea  Point Nepean, Mornington Peninsula.  Photo · Jesse Hisco, courtesy of Visit Victoria
+Point Nepean, Mornington Peninsula  Photo · Jesse Hisco, courtesy of Visit Victoria
 
 Point Nepean is the western tip of the Mornington Peninsula, 100 km from Melbourne, a national park covering the historic quarantine station, fortifications and the entry to Port Phillip Bay.
 
@@ -147,7 +147,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Point Nepean weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -159,7 +159,7 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

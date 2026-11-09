@@ -15,7 +15,7 @@ Most Peninsula days are over-planned. The ones that work usually aren't. One tab
 
 Peninsula Insider   1 June 2026
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula  Two Palms Australia, courtesy of Visit Victoria
 
 Keep this for later
 

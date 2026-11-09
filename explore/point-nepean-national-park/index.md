@@ -39,7 +39,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 13
 
-Two cyclists on a road winding through coastal scrub and sandy dunes at Point Nepean above rocky headlands and a grey sea  Point Nepean National Park, Mornington Peninsula.  Photo · Jesse Hisco, courtesy of Visit Victoria
+Point Nepean National Park, Mornington Peninsula  Photo · Jesse Hisco, courtesy of Visit Victoria
 
 Point Nepean is the Peninsula's great historic national park - a former defence installation at the very tip of the land, now a sprawling reserve with some of the most dramatic views in Victoria back up the bay and across to Queenscliff. Fort Nepean itself sits at the far end and holds a genuinely significant military history, including the gun battery that fired the first Allied shots of both World Wars.
 

@@ -13,10 +13,6 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 [Check dates with organiser](<https://www.peninsulahotsprings.com/bathe/wellness-activities/yoga>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
-
 Editor's verdict
 
 A useful add-on if you're already booked in to bathe, not a reason to drive out on its own.
@@ -73,10 +69,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
-
 Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
@@ -86,10 +78,6 @@ Wellness   Dates on request
 3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Sunday sessions at Peninsula Hot Springs Eco Lodges.
 
 Wellness  15 Nov
 

@@ -15,7 +15,7 @@ A villa, a suite or a hotel on the estate? Start with the kind of stay you want.
 
  [Prefer a nearby villa?](<https://peninsulainsider.com.au/stay/vineyard-stays/#nearby-base>)
 
-Jackalope vineyard and Lindenderry at Red Hill. These views do not guarantee a particular room or view. Photos: Peter Foster, courtesy of Visit Victoria.
+Jackalope Hotel, Merricks North, and Lindenderry, Red Hill. Photos: Peter Foster, courtesy of Visit Victoria.
 
 The first decision
 

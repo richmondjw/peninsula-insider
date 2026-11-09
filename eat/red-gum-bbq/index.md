@@ -33,7 +33,7 @@ Known for   Low-and-Slow American BBQ Red Gum Wood Smoker Counter-and-Tray Order
 
 1  / 7
 
-Overhead spread of brisket, pulled pork, sausage, mac and cheese, chips, coleslaw and beer on a timber table  Red Gum BBQ, Red Hill, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Red Gum BBQ, Red Hill, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 

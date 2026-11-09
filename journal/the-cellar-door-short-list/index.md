@@ -17,9 +17,7 @@ Keep this for later
 
 Wine  Red Hill  Main Ridge  Cellar Door
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 The big, beautiful estates with lawns and restaurants are excellent places to spend [a long lunch](<https://peninsulainsider.com.au/journal/the-long-lunch/>). But the experience of understanding what the Peninsula actually grows, the structural pinot noir, the [tight chardonnay](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>), the lesser-known Italian varieties, tends to happen in smaller rooms, at smaller tables, with the people who actually made the wine doing the pouring. For the broader landscape of what’s poured on the Peninsula, the [Mornington Peninsula winery guide](<https://peninsulainsider.com.au/journal/mornington-peninsula-winery-guide/>) and [The Producer Trail](<https://peninsulainsider.com.au/journal/the-producer-trail/>) are the wider companion pieces to this short list.
 
@@ -223,7 +221,7 @@ Make this a weekend
 
 [All itineraries →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -235,7 +233,7 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

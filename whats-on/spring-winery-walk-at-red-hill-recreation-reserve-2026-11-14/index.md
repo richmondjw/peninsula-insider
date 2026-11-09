@@ -13,10 +13,6 @@ A guided 10-kilometre route through Red Hill vineyards and private tracks, with 
 
 [Book or check details](<https://events.humanitix.com/spring-winery-walk-2026>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a glass of white wine with grapes. It does not depict Spring Winery Walk at Red Hill Recreation Reserve.
-
 This is a substantial walk rather than a cellar-door shuttle. The route starts and finishes at Red Hill Recreation Reserve and runs via Foxeys Hangout, a private property where Moorooduc Estate pours, Polperro, Eldridge and Lancemore Lindenderry. Allow about five hours for the circuit.
 
 Departure groups leave at 8am, 8.45am, 9.30am and 10.15am, with arrival requested 15 minutes early. The event runs in all weather. Bring water, a hat and sturdy walking shoes or boots. Parking is at the reserve. The organiser can accommodate vegetarian and gluten-free requirements when noted during booking, but says other dietary requirements cannot be supported.
@@ -61,9 +57,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
-
-Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+Main Ridge Estate, Red Hill, Mornington Peninsula  Photo · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
 
 Food & Wine   Check session dates
 
@@ -75,10 +69,6 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
-
 Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
@@ -88,10 +78,6 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

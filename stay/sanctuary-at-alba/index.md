@@ -17,9 +17,7 @@ Known for   On-site Alba stay Villas and premium rooms Daily springs entry Break
 
 The Sanctuary at Alba · Fingal
 
-Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows the Alba Thermal Springs estate in Fingal. It does not depict The Sanctuary at Alba.
+Alba Thermal Springs estate, Fingal, Mornington Peninsula. Photo · Courtesy of Visit Victoria
 
 Why we’d go
 

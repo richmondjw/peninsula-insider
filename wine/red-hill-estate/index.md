@@ -19,8 +19,6 @@ Red Hill Estate · Main Ridge
 
 Photo · CSIRO
 
-Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict Red Hill Estate.
-
 Why we’d go
 
 The view from the tasting room, vineyard slope dropping to Western Port, French Island in the middle distance, is the most dramatic cellar-door position on the plateau.

@@ -17,7 +17,7 @@ Merricks in 8 photographs
 
 1  / 8
 
-A visitor walks past the weatherboard facade of Merricks General Store, its painted sign framed by a red flowering vine  Merricks General Wine Store, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Merricks General Wine Store, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Merricks is a hinterland village on the Mornington Peninsula's southern wine country, 90 km from Melbourne, anchored by the Merricks General Wine Store crossroads.
 
@@ -235,7 +235,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Merricks weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 
@@ -247,7 +247,7 @@ One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 
@@ -259,7 +259,7 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

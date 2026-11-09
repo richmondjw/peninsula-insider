@@ -15,7 +15,7 @@ Arthurs Seat Eagle Gondola Ride in 9 photographs
 
 1  / 9
 
-Arthurs Seat Eagle gondolas pass a support tower above the bay as a pale band of light sits on the horizon  Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## At a glance
 

@@ -33,7 +33,7 @@ Moonraker Charters operates marine wildlife cruises from Sorrento Pier, with wha
 
 1  / 9
 
-Snorkellers in wetsuits sit on a boat deck as a guide briefs them beside a marker platform crowded with fur seals  Moonraker Charters, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Moonraker Charters, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## About Moonraker Charters
 

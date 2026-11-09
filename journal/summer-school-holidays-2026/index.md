@@ -17,7 +17,7 @@ Keep this for later
 
 Family  Kids  School Holidays  Summer
 
-Paddleboarding off Mills Beach, Mornington, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Paddleboarding off Mills Beach, Mornington, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Start here
 

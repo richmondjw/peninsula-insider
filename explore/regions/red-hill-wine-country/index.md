@@ -1015,7 +1015,7 @@ Red Hill & Merricks in 11 photographs
 
 1  / 11
 
-View from Arthurs Seat over bushland and bayside suburbs curving around Port Phillip Bay under broken cloud  Arthurs Seat Eagle, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## The Insider Note
 

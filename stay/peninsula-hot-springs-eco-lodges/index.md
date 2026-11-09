@@ -33,7 +33,7 @@ Known for   Eco Lodge Accommodation Peninsula Hot Springs Precinct Geothermal Ba
 
 1  / 7
 
-Eco Lodge bedroom at Peninsula Hot Springs with a made bed, bush-view window seat and a deck holding an outdoor bath  Peninsula Hot Springs Eco Lodges, Fingal, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Peninsula Hot Springs Eco Lodges, Fingal, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 

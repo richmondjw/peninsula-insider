@@ -17,9 +17,7 @@ Keep this for later
 
 Winter  Weekend  Fireplace  Hot Springs
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 There is a version of the Peninsula that most visitors never see, and it is the version that locals prefer.
 

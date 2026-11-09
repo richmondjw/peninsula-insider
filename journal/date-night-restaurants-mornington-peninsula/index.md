@@ -17,9 +17,7 @@ Keep this for later
 
 Eat  Date Night  Couples  Dinner
 
-Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula. A regional photograph, not a depiction of the restaurants named in this story.   Photo · Peter Tarasiuk, courtesy of Visit Victoria
-
-Illustrative image  This image shows Dromana Pier and boats on the bay. It does not depict the place described on this page.
+Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 Start here
 

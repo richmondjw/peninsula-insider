@@ -25,7 +25,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 6
 
-Aerial view of the white Cape Schanck lighthouse and keepers' cottages on a clifftop above a rocky coastline  Cape Schanck Lighthouse, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Cape Schanck Lighthouse, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 The Cape Schanck Lighthouse walk is one of the most dramatic short coastal walks in Victoria. A well-formed boardwalk trail leads from the lighthouse - a working heritage structure dating from 1859 - down to the headland and Pulpit Rock, with extraordinary views over Bass Strait every step of the way. The boardwalk out to the headland is genuinely vertiginous; you are walking on a platform above sheer rock with ocean on both sides.
 

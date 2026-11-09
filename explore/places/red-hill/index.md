@@ -23,7 +23,7 @@ Red Hill in 10 photographs
 
 1  / 10
 
-A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto in nearby Red Hill South, beneath tall pine trees  Montalto, Red Hill South, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Montalto, Red Hill South, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Red Hill is the central hinterland village of the Mornington Peninsula's wine country, 85 km from Melbourne, on a cool-climate basalt plateau between Western Port and Port Phillip.
 
@@ -339,7 +339,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Red Hill weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 

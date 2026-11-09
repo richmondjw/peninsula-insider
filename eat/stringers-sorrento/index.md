@@ -109,7 +109,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

@@ -33,7 +33,7 @@ Known for   'LJM' Pinot Noir Halliday 98-Point Winery Lindsay McCall Single-Vine
 
 1  / 7
 
-A waiter carrying wine through the Paringa Estate dining room, with tall windows over autumn-gold vineyard rows  Paringa Estate, Red Hill South, Mornington Peninsula.  Photo · Robert Blackburn, courtesy of Visit Victoria
+Paringa Estate, Red Hill South, Mornington Peninsula  Photo · Robert Blackburn, courtesy of Visit Victoria
 
 Why we’d go
 

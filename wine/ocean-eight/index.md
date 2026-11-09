@@ -29,7 +29,7 @@ Known for   Halliday Top 100 Winery Verve Chardonnay Mike Aylward Single-Vineyar
 
 1  / 5
 
-Two people sit on stools at a barrel table raising glasses of wine among gum trees and green hills  Visitors tasting outdoors at Ocean Eight Vineyard, Shoreham, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Visitors tasting outdoors at Ocean Eight Vineyard, Shoreham, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 

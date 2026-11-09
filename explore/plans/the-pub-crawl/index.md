@@ -15,7 +15,7 @@ A drinking guide to the Mornington Peninsula's public houses - the fires, the bi
 
 Peninsula Insider   10 April 2026
 
-Red Hill Brewery, Mornington Peninsula.  Peter Tarasiuk, courtesy of Visit Victoria
+Red Hill Brewery, Mornington Peninsula  Peter Tarasiuk, courtesy of Visit Victoria
 
 Keep this for later
 

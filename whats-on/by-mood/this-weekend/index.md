@@ -11,7 +11,7 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
-Image · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
+Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
 
@@ -23,10 +23,6 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
-
 Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
@@ -37,9 +33,7 @@ Wellness   Dates on request
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
 
-Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
-
-Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
+Main Ridge Estate, Red Hill, Mornington Peninsula  Photo · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
 
 Food & Wine   Check session dates
 
@@ -51,10 +45,6 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
-
 Food & Wine   Check session dates
 
 ### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
@@ -65,9 +55,7 @@ A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
-
-Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict National Works on Paper 2026 (NWOP).
+Mornington Peninsula Regional Gallery, Mornington  Photo · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
 
 Exhibitions   Tuesday to Sunday, 11am to 4pm
 
@@ -79,10 +67,6 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette. It does not depict Peninsula Hot Springs Studio Yoga.
-
 Wellness   Check session dates
 
 ### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
@@ -90,10 +74,6 @@ Wellness   Check session dates
 A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual acoustic guitar. It does not depict Acoustic Saturdays at Peppers Moonah Links.
 
 Live Music   Every Saturday evening year-round from 5pm
 
@@ -105,10 +85,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a classic sewing machine. It does not depict Beginner Alteration and Repair Sewing Class with Pete Sews.
-
 Arts  14 Nov
 
 ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
@@ -117,10 +93,6 @@ Love your clothes but wish they fit better-or lasted longer?
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
-
 Live Music  15 Nov
 
 ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
@@ -128,10 +100,6 @@ Live Music  15 Nov
 Enjoy live music at Peninsula Beer Garden!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Curators floor talk: The Making of a Prize Exhibition.
 
 Arts  14 Nov
 
@@ -143,10 +111,6 @@ Walk through the National Works on Paper exhibition with MPRG curator and judgin
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a eucalyptus wreath with a coral bow. It does not depict Festive Wreath Making at Heronswood House and Garden.
-
 Arts  15 Nov
 
 ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
@@ -154,10 +118,6 @@ Arts  15 Nov
 Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a retro guitar amplifier. It does not depict Jamie MacDowell Live at Jetty Road Brewery.
 
 Live Music  14 Nov
 

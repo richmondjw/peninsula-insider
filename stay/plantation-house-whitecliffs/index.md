@@ -19,8 +19,6 @@ Plantation House at Whitecliffs · Rye
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a calm bay beach with boats moored offshore. It does not depict Plantation House at Whitecliffs.
-
 Why we’d go
 
 A hosted Rye B&B with included cooked breakfast and a choice of room and suite formats.

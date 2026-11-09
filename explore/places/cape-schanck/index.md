@@ -23,7 +23,7 @@ Cape Schanck in 12 photographs
 
 1  / 12
 
-Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lighthouse and cottages on the headland  Cape Schanck, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Cape Schanck is the southernmost cape of the Mornington Peninsula, 95 km from Melbourne, marked by an 1859 lighthouse and the Bass Strait basalt coastline.
 
@@ -263,7 +263,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Cape Schanck weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 
@@ -275,7 +275,7 @@ One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -287,7 +287,7 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

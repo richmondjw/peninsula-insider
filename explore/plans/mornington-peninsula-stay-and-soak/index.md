@@ -15,7 +15,7 @@ Sleep beside the springs, choose a base with a drive, or make the hotel spa your
 
 Peninsula Insider   14 April 2026
 
-Peninsula Hot Springs, Fingal, Mornington Peninsula.  Courtesy of Visit Victoria
+Peninsula Hot Springs, Fingal, Mornington Peninsula  Courtesy of Visit Victoria
 
 Keep this for later
 

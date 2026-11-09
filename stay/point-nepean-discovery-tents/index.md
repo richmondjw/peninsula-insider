@@ -19,8 +19,6 @@ Point Nepean Discovery Tents · Portsea
 
 Photo · Essiewingrove
 
-Illustrative image  This image shows two children in shallow water beside a timber jetty. It does not depict Point Nepean Discovery Tents.
-
 Why we’d go
 
 A pre-pitched national-park stay inside the historic Quarantine Station precinct, with two-person and four-person options.

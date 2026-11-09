@@ -53,8 +53,6 @@ Autopia Tours is a Melbourne-based ecotourism operator founded in 1987, running 
 
  [View operator →](<https://peninsulainsider.com.au/tour/operators/autopia-tours/>)
 
-Illustrative image  This image shows Point King Beach, Portsea. It does not depict Bayplay Adventure.
-
 Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
 
 Activity Specialist   Assessed

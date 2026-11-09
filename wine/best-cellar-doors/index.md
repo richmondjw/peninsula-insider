@@ -11,7 +11,7 @@ Wine country / The visit edit
 
 Compare tastings, vineyard lunches and smaller farm-gate visits. Choose a door to suit your day.
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula  Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 Montalto Vineyard & Olive Grove. A tasting can be the start of a bigger day.
 
@@ -61,7 +61,7 @@ The cellar-door edit
 
 ## Make room for the visit.
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula  Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 Wine, lunch & sculpture
 
@@ -83,7 +83,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://montalto.com.
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Crittenden Estate, Dromana, Mornington Peninsula.  Photo: Courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Crittenden Estate, Dromana, Mornington Peninsula  Photo: Courtesy of Visit Victoria.
 
 A guided wine tasting
 
@@ -105,7 +105,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://www.crittende
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Paringa Estate, Red Hill South, Mornington Peninsula.  Photo: Robert Blackburn, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Paringa Estate, Red Hill South, Mornington Peninsula  Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 Tasting & a booked lunch
 
@@ -127,7 +127,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://paringaestate
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Avani Wines, Red Hill, Mornington Peninsula.  Photo: Peter Foster, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Avani Wines, Red Hill, Mornington Peninsula  Photo: Peter Foster, courtesy of Visit Victoria.
 
 Wine & an Indian-inspired menu
 
@@ -149,7 +149,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://www.avanisyra
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Polperro, Red Hill, Mornington Peninsula.  Photo: Peter Tarasiuk, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Polperro, Red Hill, Mornington Peninsula  Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
 Vineyard dining or casual grazing
 
@@ -171,7 +171,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://www.polperrow
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Visitors tasting outdoors at Ocean Eight Vineyard, Shoreham, Mornington Peninsula.  Photo: Two Palms Australia, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Visitors tasting outdoors at Ocean Eight Vineyard, Shoreham, Mornington Peninsula  Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 A weekend wine stop
 
@@ -193,7 +193,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://oceaneight.co
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Trofeo Estate, Dromana, Mornington Peninsula.  Photo: Courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Trofeo Estate, Dromana, Mornington Peninsula  Photo: Courtesy of Visit Victoria.
 
 Terracotta wines & a meal
 
@@ -215,7 +215,7 @@ Visit format checked 14 October 2026 · [Operator source](<https://www.trofeoest
 
 [Back to comparison ↑](<https://peninsulainsider.com.au/wine/best-cellar-doors/#compare>)
 
-Merricks General Wine Store, Mornington Peninsula.  Photo: Peter Foster, courtesy of Visit Victoria. [Credits & rights](<https://peninsulainsider.com.au/photography/>)
+Merricks General Wine Store, Mornington Peninsula  Photo: Peter Foster, courtesy of Visit Victoria.
 
 Baillieu wines in a village cellar door
 

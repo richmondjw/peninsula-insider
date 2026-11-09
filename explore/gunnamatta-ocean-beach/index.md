@@ -29,7 +29,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 8
 
-Three horse riders walk along the waterline of Gunnamatta Beach past a bleached driftwood branch under a clear blue sky  Gunnamatta Ocean Beach, Cape Schanck, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Gunnamatta Ocean Beach, Cape Schanck, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Gunnamatta is long, wild, and remote-feeling despite being accessible from the main road. Powerful surf, huge skies, and almost nobody on the sand outside peak summer. This is not a swimming beach in any sensible sense - the rips are serious, the waves are powerful, and the water temperature is cold most of the year - but it is an extraordinary beach for walking and watching the power of Bass Strait.
 

@@ -13,7 +13,7 @@ The stay guide · for two
 
 Start with the mood of the trip. A vineyard table, time at the springs, a Sorrento evening or somewhere smaller each leads to a different stay.
 
-At Jackalope Hotel’s Merricks North vineyard. Peter Foster, courtesy of Visit Victoria.
+Jackalope Hotel, Merricks North. Photo: Peter Foster, courtesy of Visit Victoria.
 
 The first decision
 
@@ -66,7 +66,7 @@ Ask whether dining or a tasting needs its own reservation.
 
 Alba and Peninsula Hot Springs are separate operators in Fingal. Choose the bathing venue first, then compare its accommodation.
 
-Alba Thermal Springs estate, shown as setting context rather than a Sanctuary room. Courtesy of Visit Victoria.
+Alba Thermal Springs, Fingal. Photo courtesy of Visit Victoria.
 
 #### [The Sanctuary at Alba](<https://peninsulainsider.com.au/stay/sanctuary-at-alba/>)
 
@@ -91,7 +91,7 @@ Check the exact room, bathing package and any separate treatments before booking
 
 A village base suits a weekend built around dining, the bay and an ocean-side walk.
 
-Sorrento Back Beach, shown as coastal context rather than a hotel view. SHERPA Projects Pty Ltd, courtesy of Visit Victoria.
+Sorrento Back Beach. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria.
 
 #### [InterContinental Sorrento](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>)
 

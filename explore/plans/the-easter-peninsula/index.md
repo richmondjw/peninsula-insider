@@ -15,7 +15,7 @@ Easter is the Peninsula's first big four-day stress test of the year. Cars from 
 
 Peninsula Insider   17 April 2026
 
-Merricks General Wine Store, Mornington Peninsula.  Peter Foster, courtesy of Visit Victoria
+Merricks General Wine Store, Mornington Peninsula  Peter Foster, courtesy of Visit Victoria
 
 Keep this for later
 

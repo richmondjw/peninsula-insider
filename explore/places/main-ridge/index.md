@@ -13,8 +13,6 @@ Chardonnay grapes at Main Ridge Estate in nearby Red Hill, Mornington Peninsula
 
 Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider [Source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)   [Licence](<https://creativecommons.org/licenses/by/3.0/>)
 
-Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate, Red Hill. It does not depict Main Ridge.
-
 Where in the Peninsula is PI?
 
 PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of you, as usual.

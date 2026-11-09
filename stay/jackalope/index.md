@@ -51,7 +51,7 @@ Known for   Art-led hotel design Doot Doot Doot restaurant Flaggerdoot bar Merri
 
 1  / 16
 
-Two silhouetted guests raise glasses of red wine above a valley of vineyard rows and bushland at Jackalope Hotel  Jackalope Hotel, Merricks North, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -155,7 +155,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 

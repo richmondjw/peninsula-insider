@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Choose between Hotel Sorrento's adults-only rooms and family stays at InterContinental Sorrento.
 
-Sorrento village and the ferry terminal from above. This is a town view, not a hotel room view. Photo courtesy of Visit Victoria.
+Sorrento. Photo courtesy of Visit Victoria.
 
 ## The place is shared. The stay is not.
 
@@ -41,7 +41,7 @@ Choose this for a hotel stay woven into The Continental precinct, with Sorrento 
 
 [Read our hotel notes](<https://peninsulainsider.com.au/stay/the-continental-sorrento/>) [Check rooms with hotel](<https://sorrento.intercontinental.com/accommodation>)
 
-The Continental heritage building, which houses part of InterContinental Sorrento. This is a building view, not a room outlook. Photo courtesy of Visit Victoria.
+The Continental, Sorrento. Photo courtesy of Visit Victoria.
 
 ### Choose the wing, not just the hotel.
 

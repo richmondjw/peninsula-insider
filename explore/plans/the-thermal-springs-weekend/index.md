@@ -15,7 +15,7 @@ One Fingal bathhouse, two nights and an unhurried Sunday.
 
 Peninsula Insider   9 April 2026
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula.  Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula  Courtesy of Visit Victoria
 
 Keep this for later
 

@@ -17,13 +17,13 @@ Keep this for later
 
 Sorrento  Portsea  Weekend  Stay
 
-Sorrento, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Sorrento, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 The Sorrento Weekend: How to Do the Tip Without Treating It Like a Summer Strip in 8 photographs
 
 1  / 8
 
-Overhead view of surf washing over dark rock shelves and green reef along the Sorrento Back Beach shoreline  Sorrento Back Beach, Mornington Peninsula.  Photo · SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula  Photo · SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Sorrento has two problems, and they are the same problem at different volumes.
 

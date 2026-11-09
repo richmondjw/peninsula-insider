@@ -39,7 +39,7 @@ Fully public, seven days; tee times and current fees are published by the club.
 
 1  / 9
 
-A golfer tees off at St Andrews Beach Golf Course as a second player waits beside two golf bags, with dunes and scrub behind  St Andrews Beach Golf Course, Fingal, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+St Andrews Beach Golf Course, Fingal, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Tom Doak designed St Andrews Beach, a fully public 18-hole course in Fingal that welcomes players seven days a week. The Glasshouse now provides a golf shop and café, and the club also lists on-site accommodation. Use the live club calendar to check tee times and current green fees.
 

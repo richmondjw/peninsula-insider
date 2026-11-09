@@ -13,10 +13,6 @@ Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics
 
 [Book or check details](<https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a paintbrush crossing an artist's palette. It does not depict CREATE: Pottery for your table.
-
 Hosted at
 
 Mornington Community House
@@ -55,9 +51,7 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Image · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
-
-Illustrative image  This image shows entrance to Mornington Peninsula Regional Gallery. It does not depict National Works on Paper 2026 (NWOP).
+Mornington Peninsula Regional Gallery, Mornington  Photo · pru\_mitchell [CC BY 2.0](<https://creativecommons.org/licenses/by/2.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_Regional_Gallery.jpg>) Converted from JPEG to WebP and resized for this site.
 
 Exhibitions   Tuesday to Sunday, 11am to 4pm
 
@@ -69,10 +63,6 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows two picture frames lit by a spotlight. It does not depict Gareth Sansom at MPRG.
-
 Exhibitions  5 Dec
 
 ### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
@@ -80,10 +70,6 @@ Exhibitions  5 Dec
 Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a glass of white wine with grapes. It does not depict November Cellar Door Opening.
 
 Exhibitions  28 Nov
 

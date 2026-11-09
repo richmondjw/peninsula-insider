@@ -17,15 +17,13 @@ Keep this for later
 
 Hot Springs  Spa  Wellness  Mornington Peninsula
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Peninsula Hot Springs vs Alba Thermal Springs - Which One Should You Book? in 8 photographs
 
 1  / 8
 
-Two bathers in white robes walk a timber boardwalk past a round wooden soaking tub in the bush at Peninsula Hot Springs  Peninsula Hot Springs, Cape Schanck, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Peninsula Hot Springs, Cape Schanck, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Choosing between Peninsula Hot Springs and Alba starts with the day you want: shared bathing with children, a broader circuit for adults, or a private session for two. The useful comparison is the access included in your ticket, what you need to bring and how much flexibility the booking gives you.
 

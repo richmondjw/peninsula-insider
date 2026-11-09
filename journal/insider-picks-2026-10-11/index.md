@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
-
-Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
+Mornington Peninsula Regional Gallery, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
 
 ## EAT - Green Olive at Red Hill
 

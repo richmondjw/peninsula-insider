@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 **Quarters at Flinders Hotel** earns a spring Saturday lunch booking for one clear reason: the beer garden comes back into its own when the westerlies ease, and the kitchen is running a specials board that changes with what’s landing locally.
 

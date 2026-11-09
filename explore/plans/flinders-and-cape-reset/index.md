@@ -27,7 +27,7 @@ Couples  Coastal · Food & wine
 
 1  / 4
 
-Aerial view of green cliffs dropping to a rocky shore, with the Cape Schanck lighthouse and cottages on the headland  Cape Schanck, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 At a glance
 
@@ -189,7 +189,7 @@ Try another shape
 
 [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 
@@ -201,7 +201,7 @@ Two-night escape · Best for couple · Sorrento
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/sorrento-off-season-weekend/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -213,7 +213,7 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

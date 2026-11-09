@@ -19,8 +19,6 @@ Mornington Peninsula Retro Caravans · Rye
 
 Photo · Nicolas Görmer · Vintage orange and brown caravan parked outdoors · cropped and converted to WebP [Source](<https://unsplash.com/photos/vintage-orange-and-brown-caravan-parked-outdoors-Nek4gd3E89Q>) [Licence](<https://unsplash.com/license>)
 
-Illustrative image  This image shows Vintage orange and brown caravan parked outdoors, Potsdam, Germany. It does not depict Mornington Peninsula Retro Caravans.
-
 Why we’d go
 
 A characterful caravan stay near Rye bay beach, with practical heating and cooling and a shared park bathroom.

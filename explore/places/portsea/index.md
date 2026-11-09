@@ -13,7 +13,7 @@ Portsea in 9 photographs
 
 1  / 9
 
-The London Bridge rock arch standing in the shallows below a sandy clifftop track on the ocean coast near Portsea  Portsea, Mornington Peninsula.  Photo · Robert Blackburn, courtesy of Visit Victoria
+Portsea, Mornington Peninsula  Photo · Robert Blackburn, courtesy of Visit Victoria
 
 Portsea is a coastal village at the western tip of the Mornington Peninsula, 100 km from Melbourne, with a heritage front beach, a back beach on Bass Strait and the gateway to Point Nepean National Park.
 

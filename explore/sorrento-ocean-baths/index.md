@@ -95,7 +95,7 @@ Use it in a weekend
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

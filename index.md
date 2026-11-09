@@ -5,8 +5,6 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Conceptual coastal illustration, not a specific location. Illustration: Peninsula Insider.
-
 spring on the Peninsula
 
 # The Mornington Peninsula, sorted.
@@ -49,23 +47,7 @@ The short list
 
 Swipe or scroll through the picks
 
-- Illustrative image
-
-Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
-
-### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
-
-Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
-
-Foxeys Hangout   Cellar door
-
-Event details checked 9 Nov 2026.  [Check organiser](<https://foxeys-hangout.com.au/events/foxeys-hangout/the-lucky-duck-pinot-lunch-2/>)
-
-- Illustrative image
-
-Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
-
-### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
+- ### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
 
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
 
@@ -73,17 +55,21 @@ Tar Barrel   Live music
 
 Event details checked 9 Nov 2026.  [Check organiser](<https://tarbarrel.com.au/music/>)
 
-- Illustrative image
-
-Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
 Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Peppers Moonah Links   Every Saturday
 
 Event details checked 2 Nov 2026.  [Check organiser](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
+
+- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+
+Crib Point Community House   Market
+
+Event details checked 3 Oct 2026.  [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 
@@ -95,7 +81,7 @@ Plan it
 
 Featured plan
 
-Cape Schanck, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+Cape Schanck, Mornington Peninsula   Photo courtesy of Visit Victoria.
 
 ### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
@@ -105,7 +91,7 @@ A shorter escape with one village base, two coastal walks and time set aside for
 
 Check the stay and restaurant service times first, then fit the walks around your reservations.
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo: Two Palms Australia, courtesy of Visit Victoria.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
@@ -115,7 +101,7 @@ Our starting point for a first weekend: vineyard lunches, a coastal walk and Poi
 
 Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
 
-Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.   Photo courtesy of Visit Victoria.
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula   Photo courtesy of Visit Victoria.
 
 ### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
 
@@ -129,15 +115,15 @@ Want a different combination? [Choose your time and interests](<https://peninsul
 
 ## Explore by interest
 
-- [Eat & Drink   Places worth planning lunch around   Trofeo Estate, Dromana Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/eat/>)
+- [Eat & Drink   Places worth planning lunch around   Trofeo Estate, Dromana, Mornington Peninsula Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/eat/>)
 
-- [Stay   From a weekend shack to a cliff house   Jackalope Hotel, Merricks North Photo: Peter Foster, courtesy of Visit Victoria](<https://peninsulainsider.com.au/stay/>)
+- [Stay   From a weekend shack to a cliff house   Jackalope Hotel, Merricks North, Mornington Peninsula Photo: Peter Foster, courtesy of Visit Victoria](<https://peninsulainsider.com.au/stay/>)
 
-- [Wine   Cellar doors worth taking the turn for   Green Olive at Red Hill Photo: Two Palms Australia, courtesy of Visit Victoria](<https://peninsulainsider.com.au/wine/>)
+- [Wine   Cellar doors worth taking the turn for   Green Olive at Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria](<https://peninsulainsider.com.au/wine/>)
 
-- [Explore   Walks, beaches, springs, and the roads between them   Cape Schanck Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/explore/>)
+- [Explore   Walks, beaches, springs, and the roads between them   Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/explore/>)
 
-Montalto, Red Hill South, Mornington Peninsula.   Photo · Two Palms Australia, courtesy of Visit Victoria
+Montalto, Red Hill South, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 From the Journal  Hub Guide
 

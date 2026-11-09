@@ -11,7 +11,7 @@ Stay / wellness
 
 Sleep at the springs, add a hotel treatment, or stay elsewhere with bathing in Fingal.
 
-Alba’s thermal estate in Fingal. The image shows bathing, not a Sanctuary room. Courtesy of Visit Victoria.
+Alba Thermal Springs, Fingal. Photo courtesy of Visit Victoria.
 
 01 / On-site bathing
 
@@ -51,7 +51,7 @@ The Sanctuary has five standalone villas and two premium rooms above Alba’s th
 
 Pictured: an Eco Lodge room at Peninsula Hot Springs
 
-An Eco Lodge room at Peninsula Hot Springs. One of the stays here, not every room type. Courtesy of Visit Victoria.
+Eco Lodges, Peninsula Hot Springs, Fingal. Photo courtesy of Visit Victoria.
 
 02 / Hotel and treatments
 
@@ -71,7 +71,7 @@ Stay at the design hotel and build in a treatment, dining or time by the guest-o
 
 Pictured: Jackalope Hotel in Merricks North
 
-Jackalope Hotel in Merricks North. The photograph shows its vineyard setting, not a treatment room. Peter Foster, courtesy of Visit Victoria.
+Jackalope Hotel, Merricks North. Photo: Peter Foster, courtesy of Visit Victoria.
 
 03 / Optional off-site packages
 
@@ -101,7 +101,7 @@ Lindenderry lists an Alba Thermal Springs & Spa package with its Red Hill accomm
 
 Pictured: Lindenderry at Red Hill
 
-Lindenderry at Red Hill, one of two off-site hotel bases. Flinders Hotel is a separate property. Peter Foster, courtesy of Visit Victoria.
+Lindenderry, Red Hill. Photo: Peter Foster, courtesy of Visit Victoria.
 
 Before you reserve
 

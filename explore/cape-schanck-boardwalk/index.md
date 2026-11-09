@@ -23,7 +23,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 5
 
-Aerial view of the Cape Schanck Boardwalk tracing a green and red ridge down to a basalt headland and rock platform  Cape Schanck Boardwalk, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Cape Schanck Boardwalk, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Cape Schanck gives you basalt formations, pounding water and lighthouse views within a compact coastal precinct. Several lookouts offer views over the geological formations, while the wooden staircase and boardwalk descend to the beach and rock platform. The descent includes stairs, so distinguish a lookout visit from the full route down and back when planning around mobility.
 
@@ -105,7 +105,7 @@ Use it in a weekend
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 
@@ -117,7 +117,7 @@ One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 

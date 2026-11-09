@@ -19,7 +19,7 @@ Flinders in 9 photographs
 
 1  / 9
 
-Two golfers on a clifftop green at Flinders Golf Course, with Bass Strait and a low headland beyond under late sun  Flinders Golf Club, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+Flinders Golf Club, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Flinders is a coastal village on the Mornington Peninsula's southern Bass Strait edge, 105 km from Melbourne, with a working pier, marine sanctuary and a ranked golf course.
 
@@ -237,7 +237,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Flinders weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

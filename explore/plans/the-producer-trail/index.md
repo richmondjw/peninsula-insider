@@ -15,7 +15,7 @@ Past the cellar doors and the long lunches, the Peninsula has a quieter and more
 
 Peninsula Insider   17 April 2026
 
-Green Olive at Red Hill, Mornington Peninsula.  Two Palms Australia, courtesy of Visit Victoria
+Green Olive at Red Hill, Mornington Peninsula  Two Palms Australia, courtesy of Visit Victoria
 
 Keep this for later
 

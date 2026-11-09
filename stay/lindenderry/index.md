@@ -49,7 +49,7 @@ Known for   34-Acre Garden and Vineyard Estate Lancemore Group Property Weekend 
 
 1  / 15
 
-Visitors cross a sunlit lawn between large tree trunks towards the white homestead building at Lindenderry at Red Hill  Lindenderry at Red Hill, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Lindenderry at Red Hill, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -151,7 +151,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

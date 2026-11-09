@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 **Baillieu Vineyard, Merricks** - the cellar door the Peninsula wine crowd mentions in lowered voices. Not a secret, just genuinely under-visited, and every bit the better for it.
 

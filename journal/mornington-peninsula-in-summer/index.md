@@ -17,7 +17,7 @@ Keep this for later
 
 Summer  Beaches  Seasonal  Planning
 
-Bathing boxes at Mornington, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
+Bathing boxes at Mornington, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Start here
 

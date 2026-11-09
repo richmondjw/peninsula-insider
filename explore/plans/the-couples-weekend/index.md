@@ -15,7 +15,7 @@ One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mor
 
 Peninsula Insider   10 April 2026
 
-Jackalope Hotel, Mornington Peninsula, one of the suggested stays.  Photo: Peter Foster, courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula  Photo: Peter Foster, courtesy of Visit Victoria
 
 Keep this for later
 

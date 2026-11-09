@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 **Green Olive at Red Hill** runs its wood-fired kitchen off an estate olive grove that is doing its best work right now, as spring pulls the first real warmth back into the hill.
 

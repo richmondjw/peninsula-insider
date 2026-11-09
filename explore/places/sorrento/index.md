@@ -13,7 +13,7 @@ Sorrento in 18 photographs
 
 1  / 18
 
-Clifftop lawn and weatherboard houses above a bay dotted with moored boats and jetties along Millionaire's Walk  Sorrento, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Sorrento, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Sorrento is a coastal town near the western tip of the Mornington Peninsula, 100 km from Melbourne, with a limestone-cliff main street, a ferry to Queenscliff and back-beach ocean baths carved into the rock.
 
@@ -265,7 +265,7 @@ These plans have been written around the landscape here - not bolted on after.
 
  [Plan a Sorrento weekend →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
@@ -277,7 +277,7 @@ Two-night escape · Best for couple · Red Hill
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

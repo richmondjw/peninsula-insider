@@ -15,7 +15,7 @@ The Peninsula's most satisfying day combination - Bushrangers Bay in the morning
 
 Peninsula Insider   19 April 2026
 
-Cape Schanck, Mornington Peninsula.  Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula  Courtesy of Visit Victoria
 
 Keep this for later
 

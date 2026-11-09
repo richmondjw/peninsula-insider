@@ -27,8 +27,6 @@ Autopia Tours has been running small-group day tours from Melbourne since 1987 a
 
  [Read notes →](<https://peninsulainsider.com.au/tour/autopia-mornington-peninsula-day-tour/>)
 
-Illustrative image  This image shows Point King Beach, Portsea. It does not depict Bayplay Sea Dragon Snorkel Tour.
-
 Photo by [Essiewingrove](<https://commons.wikimedia.org/wiki/File:Point_king_beach_in_Portsea_Victoria.jpg>), [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>). Resized.
 
 About 2 hours   Families

@@ -19,8 +19,6 @@ Mornington Peninsula Beach Club Cottages · Tootgarook
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a calm bay beach with boats moored offshore. It does not depict Mornington Peninsula Beach Club Cottages.
-
 Why we’d go
 
 A flexible bayside cottage set with different unit sizes, pet access and clearly identified features for Unit 1.

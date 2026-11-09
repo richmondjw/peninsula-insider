@@ -63,7 +63,7 @@ Visitor competition windows and green-fee options are published by the club.
 
 1  / 21
 
-Two golfers on a clifftop green at Flinders Golf Course, with Bass Strait and a low headland beyond under late sun  Flinders Golf Club, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+Flinders Golf Club, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Flinders Golf Club sits above West Head at the southern edge of the Peninsula. Its 18-hole course offers a coastal outlook, making it a scenic option for a Flinders-based stay. The club publishes visitor playing windows and asks golfers to contact the golf shop for bookings; check current availability before planning your round.
 

@@ -71,7 +71,7 @@ Mornington Peninsula golf courses in 10 photographs
 
 1  / 10
 
-Two golfers carrying bags across a fairway at Flinders Golf Course towards the sea, with low sun flaring over the clubhouse  Flinders Golf Club, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+Flinders Golf Club, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 Cape Schanck / Fingal cluster
 

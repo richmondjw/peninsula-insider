@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Winter  Peninsula
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 The kitchen at Quealy is running its winter menu through August - and the mushroom tart with truffle cream is worth the drive to Balnarring alone.
 

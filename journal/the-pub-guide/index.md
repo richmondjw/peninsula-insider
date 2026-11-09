@@ -17,9 +17,7 @@ Keep this for later
 
 Eat  Pub  Beer  Stay
 
-Trofeo Estate, Dromana, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Trofeo Estate. It does not depict the place described on this page.
+Trofeo Estate, Dromana, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 There is a version of the Mornington Peninsula that has nothing to do with cellar doors, degustation menus, or hot springs, and it runs on pubs.
 

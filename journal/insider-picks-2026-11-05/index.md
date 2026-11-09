@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
-
-Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
+Mornington Peninsula Regional Gallery, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
 
 **Green Olive at Red Hill** earns the spring lunch argument clearly: the olive grove is in full leaf, the kitchen gardens are supplying the kitchen right now, and the wood oven has been running since the estate planted its first trees.
 

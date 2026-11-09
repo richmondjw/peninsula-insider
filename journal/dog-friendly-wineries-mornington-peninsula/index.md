@@ -17,9 +17,7 @@ Keep this for later
 
 Dog Friendly  Wineries  Cellar Door  Mornington Peninsula
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 A winery lawn and a restaurant table can have different dog rules. The confirmed entries below have an explicit published policy; call ahead about your table, weather cover and the day’s food offering.
 

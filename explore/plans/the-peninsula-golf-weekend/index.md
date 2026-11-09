@@ -39,7 +39,7 @@ Friends  Golf · Food & wine
 
 1  / 10
 
-Two golfers carrying bags walk down a wide fairway at St Andrews Beach Golf Course toward sandy dunes and coastal scrub  St Andrews Beach Golf Course, Fingal, Mornington Peninsula.  Photo · Gary Lisbon, courtesy of Visit Victoria
+St Andrews Beach Golf Course, Fingal, Mornington Peninsula  Photo · Gary Lisbon, courtesy of Visit Victoria
 
 At a glance
 

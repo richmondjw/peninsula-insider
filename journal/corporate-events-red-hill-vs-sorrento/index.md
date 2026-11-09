@@ -17,9 +17,7 @@ Keep this for later
 
 Corporate Events  Red Hill  Sorrento  Retreats
 
-Trofeo Estate, Dromana, Mornington Peninsula. Regional context photograph, not a depiction of every place named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Trofeo Estate. It does not depict the place described on this page.
+Trofeo Estate, Dromana, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 Choosing between Red Hill and Sorrento for a corporate offsite is really a choice of tone. Both work; they work differently.
 

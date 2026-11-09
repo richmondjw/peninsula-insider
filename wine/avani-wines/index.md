@@ -21,7 +21,7 @@ Avani Wines in 5 photographs
 
 1  / 5
 
-Two guests at a small table sharing a bottle of red wine in the mudbrick cellar door at Avani Winery  Avani Wines, Red Hill, Mornington Peninsula.  Photo · Peter Foster, courtesy of Visit Victoria
+Avani Wines, Red Hill, Mornington Peninsula  Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 

@@ -23,9 +23,7 @@ This month’s prize. Find PI before sunset and go in the draw for $250 to dine 
 
 Doot Doot Doot · Merricks North
 
-Photo · Peter Foster, courtesy of Visit Victoria
-
-Illustrative image  This image shows Jackalope Hotel exterior. It does not depict Doot Doot Doot.
+Jackalope Hotel exterior, Merricks North, Mornington Peninsula. Photo · Peter Foster, courtesy of Visit Victoria
 
 Why we’d go
 

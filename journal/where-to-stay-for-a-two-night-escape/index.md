@@ -17,9 +17,7 @@ Keep this for later
 
 Stay  Weekend  Sorrento  Red Hill
 
-Jackalope Hotel, Merricks North, Mornington Peninsula.   Photo · Peter Foster, courtesy of Visit Victoria
-
-Illustrative image  This image shows Jackalope Hotel. It does not depict the place described on this page.
+Jackalope Hotel, Merricks North, Mornington Peninsula   Photo · Peter Foster, courtesy of Visit Victoria
 
 There are two ways to get the Mornington Peninsula wrong.
 

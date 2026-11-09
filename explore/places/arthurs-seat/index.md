@@ -17,7 +17,7 @@ Arthurs Seat in 9 photographs
 
 1  / 9
 
-View from Arthurs Seat over bushland and bayside suburbs curving around Port Phillip Bay under broken cloud  Arthurs Seat Eagle, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Arthurs Seat is the highest point on the Mornington Peninsula, rising above Dromana with views across Port Phillip Bay and the surrounding hinterland.
 

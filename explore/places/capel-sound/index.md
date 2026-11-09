@@ -13,7 +13,7 @@ A bay beach, foreshore camps and the Bay Trail on the doorstep.
 
  [Check current foreshore bookings](<https://capelsoundforeshores.com.au/20232024-booking-information>)
 
-Capel Sound foreshore from above in April 2024. Cropped from the original panorama.
+Capel Sound foreshore, Mornington Peninsula
 
 Photo · BobTanGo / Wikimedia Commons (CC BY 4.0; cropped and converted to WebP) [Source](<https://commons.wikimedia.org/wiki/File:Capel_Sound_aerial_panorama._April_2024.jpg>)   [Licence](<https://creativecommons.org/licenses/by/4.0/>)
 

@@ -9,8 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Walk, beach or indoor day? Start with your time and effort, then check the details before you go.
 
-Conceptual coastal illustration by Peninsula Insider.
-
 ## Find a specific outing
 
 Filter the complete guide, or open the map and choose a place.
@@ -45,9 +43,7 @@ Wander the hedge maze and gardens, then stop at the café. Check opening days be
 
 Shoreham
 
-- Image subject unverified
-
-Beach
+- Beach
 
 ### [Balnarring Beach](<https://peninsulainsider.com.au/explore/balnarring-beach/>)
 
@@ -69,9 +65,7 @@ Cape Schanck, Bushrangers Bay, the Two Bays. The ranked list lives at [the Penin
 
  [All 9 →](<https://peninsulainsider.com.au/explore/?cat=walk#directory>)
 
-- Image subject unverified
-
-Walk
+- Walk
 
 ### [Bushrangers Bay Walk](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 
@@ -87,9 +81,7 @@ Follow the lighthouse headland for Bass Strait views. Check track access and cho
 
 Cape Schanck   1.5 hr · Easy walk
 
-- Illustrative image
-
-Walk
+- Walk
 
 ### [Cape Schanck to London Bridge Coastal Walk](<https://peninsulainsider.com.au/explore/coastal-walk-cape-schanck/>)
 
@@ -119,9 +111,7 @@ Go for the open coastline and surf views. Check beach conditions and patrol info
 
 Cape Schanck   1 hr
 
-- Image subject unverified
-
-Beach
+- Beach
 
 ### [Mount Martha Beach](<https://peninsulainsider.com.au/explore/mount-martha-beach/>)
 

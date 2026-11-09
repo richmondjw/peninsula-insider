@@ -15,7 +15,7 @@ A milestone birthday deserves more than a booking at the usual restaurant. Here 
 
 Peninsula Insider   16 April 2026
 
-Jackalope Hotel, Merricks North, Mornington Peninsula.  Peter Foster, courtesy of Visit Victoria
+Jackalope Hotel, Merricks North, Mornington Peninsula  Peter Foster, courtesy of Visit Victoria
 
 Keep this for later
 

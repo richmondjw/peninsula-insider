@@ -17,9 +17,7 @@ Keep this for later
 
 Insider Picks  Spring
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 **Main Ridge Dairy** is the Peninsula’s most direct farm-to-table stop, and spring is the right time to visit. The does are at peak milk production after kidding, which means the fresh chèvre and the goat-milk gelato are both in their best condition right now.
 

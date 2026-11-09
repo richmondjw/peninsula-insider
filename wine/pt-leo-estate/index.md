@@ -51,7 +51,7 @@ Known for   Sculpture Park Laura Restaurant Bay Views Estate Wines Two-Hat Fine 
 
 1  / 16
 
-A colourful mosaic face sculpture shaped like an arch stands on the lawn at Pt. Leo Estate, with vineyards and bushland beyond  Pt. Leo Estate, Merricks, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Pt. Leo Estate, Merricks, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Why we’d go
 
@@ -231,7 +231,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Cape Schanck, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 
@@ -243,7 +243,7 @@ One-night escape · Best for couple · Flinders
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

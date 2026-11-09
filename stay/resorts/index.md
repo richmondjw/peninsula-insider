@@ -9,7 +9,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 These are different bookings. Choose hotel service, bathing on the same estate, or space for a group before you choose the room.
 
-Cape Schanck coast and lighthouse. Destination photograph, not a view from a resort room or retreat suite. Peter Tarasiuk, courtesy of Visit Victoria.
+Cape Schanck Lighthouse. Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
 ## A room with the resort around it.
 
@@ -31,7 +31,7 @@ Peninsula Hot Springs offers Eco Lodges and glamping. Alba offers villas and roo
 
  [Compare hot springs stays](<https://peninsulainsider.com.au/stay/hot-springs-accommodation/>)
 
-An Eco Lodge room at Peninsula Hot Springs. This shows one thermal format, not Alba or every springs room. Courtesy of Visit Victoria.
+Eco Lodges, Peninsula Hot Springs, Fingal. Photo courtesy of Visit Victoria.
 
 ## Bring the group. Plan the program.
 

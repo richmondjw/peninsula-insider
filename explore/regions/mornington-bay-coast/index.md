@@ -421,7 +421,7 @@ Mornington & the Bay in 13 photographs
 
 1  / 13
 
-A row of colourful painted bathing boxes along the beach at Mornington, reflected in calm water, with a few beachgoers  Mornington, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Mornington, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## The Insider Note
 

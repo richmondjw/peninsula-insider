@@ -57,7 +57,7 @@ PI was found here. Case 01, Took her coffee to go. Solve it and this is where th
 
 1  / 16
 
-A grassy path between vine rows leads to the glass-fronted restaurant and umbrellas at Montalto, beneath tall pine trees  Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -229,7 +229,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 

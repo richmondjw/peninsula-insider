@@ -21,7 +21,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 4
 
-A couple strolls along the beach in front of colourful bathing boxes at Mornington, backed by thick coastal trees  Mills Beach bathing boxes on the Mornington foreshore, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Mills Beach bathing boxes on the Mornington foreshore, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 The foreshore walk between Mornington and Mount Martha is the Peninsula's most dog-friendly significant walk and one of its most reliably beautiful - seven kilometres one way along the coast, with sweeping Port Phillip Bay views, heritage bathing boxes, clifftop lookouts, and several quiet little beaches you can detour into along the way.
 

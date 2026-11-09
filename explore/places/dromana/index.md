@@ -17,7 +17,7 @@ Dromana in 13 photographs
 
 1  / 13
 
-Dromana Pier reaches into Port Phillip Bay beside moored boats at sunset  Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula.  Photo · Peter Tarasiuk, courtesy of Visit Victoria
+Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula  Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 Dromana is a bayside town on the Mornington Peninsula's eastern Port Phillip shoreline, 75 km from Melbourne, at the foot of Arthurs Seat State Park.
 

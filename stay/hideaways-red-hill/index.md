@@ -19,8 +19,6 @@ Hideaways at Red Hill · Red Hill
 
 Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Illustrative image  This image shows Mornington Peninsula vineyard landscape. It does not depict Hideaways at Red Hill.
-
 Why we’d go
 
 A Red Hill guest suite for two with an indoor spa bath and easy access by car to wine-country stops.

@@ -11,8 +11,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
-Illustrative image  This image shows Cape Schanck. It does not depict Cape Schanck to London Bridge Coastal Walk.
-
 The clifftop traverse from Cape Schanck to London Bridge is the Peninsula's longest coastal walk: 26 kilometres of Bass Strait cliff, small coves, rock platforms, tidal pools, and dense coastal scrub, with the Southern Ocean working below you the entire way. Almost nobody walks the full traverse in one go, and you don't need to.
 
 Walk it in sections. Cape Schanck north toward Tootgarook (about 13 km one-way, half a day, transport coordination needed at the far end) is the section we rate. Cape Schanck to Bushrangers Bay and back is the reliable half-day; Diamond Bay to London Bridge is the quieter one. Orange markers show the through-track direction. Check tides before setting off: some lower sections flood at high tide and need the inland bypass.

@@ -15,7 +15,7 @@ Peninsula golf courses, nearby stays, and the booking checks that make a trip wo
 
 Peninsula Insider   14 April 2026
 
-St Andrews Beach Golf Course, Fingal, Mornington Peninsula.  Gary Lisbon, courtesy of Visit Victoria
+St Andrews Beach Golf Course, Fingal, Mornington Peninsula  Gary Lisbon, courtesy of Visit Victoria
 
 Keep this for later
 

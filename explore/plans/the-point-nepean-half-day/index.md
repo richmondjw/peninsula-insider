@@ -15,7 +15,7 @@ Fort Nepean, the Quarantine Station and open coast in one considered half-day. C
 
 Peninsula Insider   14 April 2026
 
-Point Nepean Fort Walk, Mornington Peninsula, one of the routes covered in this guide.  Jesse Hisco, courtesy of Visit Victoria
+Point Nepean Fort Walk, Mornington Peninsula  Jesse Hisco, courtesy of Visit Victoria
 
 Keep this for later
 

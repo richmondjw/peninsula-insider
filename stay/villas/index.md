@@ -15,7 +15,7 @@ Start with the setting, then compare what is actually included. A vineyard villa
 
 Choose the individual villa before booking. Pool, bath, cooking facilities and dining access vary by property and room.
 
-Inside a Polperro villa. Image courtesy of Polperro.
+Polperro Villas, Red Hill. Photo courtesy of Polperro.
 
 The first decision
 

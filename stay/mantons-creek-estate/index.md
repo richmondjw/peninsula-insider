@@ -19,8 +19,6 @@ Mantons Creek Estate · Shoreham
 
 Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Illustrative image  This image shows Mornington Peninsula vineyard (resized to 1600px and converted to WebP). It does not depict Mantons Creek Estate.
-
 Why we’d go
 
 A Shoreham vineyard stay with an on-estate restaurant for a planned lunch.

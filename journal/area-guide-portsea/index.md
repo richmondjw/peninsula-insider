@@ -17,7 +17,7 @@ Keep this for later
 
 Portsea  Area Guide  Planning
 
-Portsea, Mornington Peninsula.   Photo · Robert Blackburn, courtesy of Visit Victoria
+Portsea, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
 
 Start here
 

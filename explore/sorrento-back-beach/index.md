@@ -23,7 +23,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 1  / 5
 
-Turquoise water fills the sheltered cove at Diamond Bay near Sorrento Back Beach, ringed by sandstone cliffs and a timber stairway  Sorrento Back Beach, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 The back beach is where Sorrento stops performing and starts feeling elemental. The surf side has more force, more wind, and far better dusk light than the bay, which is why locals drift here late in the day even when they have spent the morning elsewhere. Swim only when conditions suit and the flags are up, but walk it in any season. The stretch from the car park toward Diamond Bay is one of the easiest ways to understand why the southern tip of the Peninsula feels like a different region entirely.
 
@@ -109,7 +109,7 @@ Use it in a weekend
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Sorrento Back Beach, Mornington Peninsula. Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
+Sorrento Back Beach, Mornington Peninsula Photo: SHERPA Projects Pty Ltd, courtesy of Visit Victoria
 
 Plan
 

@@ -23,7 +23,7 @@ Mornington in 16 photographs
 
 1  / 16
 
-Two people walk along the sand past a row of brightly painted bathing boxes, reflected in the shallows at Mornington  Mornington, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Mornington, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 Mornington is the gateway town to the Mornington Peninsula on the Port Phillip Bay shore, 60 km from Melbourne, with the Wednesday Main Street Market and the Esplanade bathing-box stretch.
 
@@ -235,7 +235,7 @@ Two-night escape · Best for friends · Rye
 
 [View Plan →](<https://peninsulainsider.com.au/explore/plans/the-peninsula-golf-weekend/>)
 
-Alba Thermal Springs & Spa, Fingal, Mornington Peninsula. Photo: Courtesy of Visit Victoria
+Alba Thermal Springs & Spa, Fingal, Mornington Peninsula Photo: Courtesy of Visit Victoria
 
 Plan
 

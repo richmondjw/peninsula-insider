@@ -19,8 +19,6 @@ The Orchard Luxury Accommodation · Red Hill
 
 Photo · faVori rouge · Mornington Peninsula vineyard · resized and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:Mornington_Peninsula_vineyard.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Illustrative image  This image shows Mornington Peninsula vineyard landscape. It does not depict The Orchard Luxury Accommodation.
-
 Why we’d go
 
 A rammed-earth apartment with a private deck and spa bath, looking across a quiet ten-acre property.

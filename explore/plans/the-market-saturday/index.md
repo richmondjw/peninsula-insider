@@ -15,7 +15,7 @@ Mornington, Hill & Ridge, Balnarring and Somers: check each organiser's current 
 
 Peninsula Insider   13 April 2026
 
-Mornington Farmers' Market, Mornington Peninsula.  Robert Blackburn, courtesy of Visit Victoria
+Mornington Farmers' Market, Mornington Peninsula  Robert Blackburn, courtesy of Visit Victoria
 
 Keep this for later
 

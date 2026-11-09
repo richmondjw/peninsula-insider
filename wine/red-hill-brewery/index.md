@@ -31,7 +31,7 @@ Known for   Estate Hop Garden Belgian-Style Ales Peninsula's Oldest Craft Brewer
 
 1  / 6
 
-Visitors walk past the open doors of the weathered timber Brewhouse shed, with brewing tanks visible inside  Red Hill Brewery, Mornington Peninsula.  Photo · Peter Tarasiuk, courtesy of Visit Victoria
+Red Hill Brewery, Mornington Peninsula  Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 Why we’d go
 

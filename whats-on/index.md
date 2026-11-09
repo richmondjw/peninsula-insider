@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-09
+Modified: 2026-11-10
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -15,10 +15,6 @@ Find the date, place and reason to go, then check with the organiser before you 
 
  [Browse events by day](<https://peninsulainsider.com.au/whats-on/#wo-calendar>)
 
-Illustration: Peninsula Insider.
-
-Conceptual coastal illustration. Illustration: Peninsula Insider.
-
 The short list / Fri 13 – Sun 15 November
 
 ## Three reasons to go
@@ -27,17 +23,7 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
-
-Sun, 15 Nov · 12pm–4pm · Boneo
-
-### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
-Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
-
-Sun, 15 Nov   Boneo   Live Music
-
-- Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
+- Fri, 13 Nov · 6:30pm–9:30pm · Red Hill South
 
 ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
@@ -45,13 +31,17 @@ Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and A
 
 Fri, 13 Nov   Red Hill South   Writers & Ideas
 
-- Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
-
-### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+- ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
 Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage.
 
 Sun, 15 Nov   Dromana   Arts
+
+- ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+
+Sat, 14 Nov   Dromana   Live Music
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -291,17 +281,17 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 
 6pm · Dromana · Live Music
 
+- [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
+
+12pm · Boneo · Live Music
+
 - [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
 Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
 
 5pm · Fingal · Live Music
-
-- [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
-
-Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
-
-Mornington · Live Music
 
 ### Food & wine
 

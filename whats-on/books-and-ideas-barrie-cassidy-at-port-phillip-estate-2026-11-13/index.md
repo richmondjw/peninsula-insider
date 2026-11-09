@@ -13,10 +13,6 @@ Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and A
 
 [Book or check details](<https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Books and Ideas: Barrie Cassidy at Port Phillip Estate.
-
 This is a seated dinner and conversation, not a standard theatre talk. Cassidy will reflect on more than three decades in political journalism, including his time as Bob Hawke's press secretary, an ABC foreign correspondent and the creator and host of Insiders. Erin Vincent, CEO of The Wheeler Centre, hosts the discussion.
 
 The ticket includes a two-course dinner; beverages are charged separately. The organiser says most dietary requirements can be accommodated when details are supplied during booking. Ticket sales are scheduled to close at 5pm on Friday 6 November, so check availability rather than assuming door sales.
@@ -61,10 +57,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Author Talk: Anna Downes & Naima Brown - Mornington Library.
-
 Writers & Ideas  19 Nov
 
 ### [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
@@ -72,10 +64,6 @@ Writers & Ideas  19 Nov
 Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a stack of books with reading glasses. It does not depict Author Talk: Jane Gilmore - Mornington Library.
 
 Writers & Ideas  26 Nov
 

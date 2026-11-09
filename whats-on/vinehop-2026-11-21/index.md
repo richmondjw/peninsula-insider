@@ -13,10 +13,6 @@ Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music a
 
 [Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a glass of white wine with grapes. It does not depict Vinehop at Phaedrus Estate.
-
 Hosted at
 
 Phaedrus Estate
@@ -51,10 +47,6 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a glass of white wine with grapes. It does not depict Peninsula VineHop Festival 2026.
-
 Festivals   Annual, November
 
 ### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
@@ -63,10 +55,6 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows a conceptual community market. It does not depict Crib Point Community Market.
-
 Markets   Monthly – 2nd Saturday of every month
 
 ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
@@ -74,10 +62,6 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Illustration · Peninsula Insider
-
-Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
 
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 

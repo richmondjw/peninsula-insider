@@ -27,7 +27,7 @@ Family  General · Coastal
 
 1  / 5
 
-A family looks out from inside an Arthurs Seat Eagle gondola over the bayside suburbs and Port Phillip below  Arthurs Seat Eagle Gondola Ride, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Arthurs Seat Eagle Gondola Ride, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 At a glance
 

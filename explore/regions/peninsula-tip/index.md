@@ -393,7 +393,7 @@ Sorrento & Portsea in 12 photographs
 
 1  / 12
 
-Aerial view of Sorrento at soft early light, with the ferry terminal pier reaching into the bay and the town and ocean beyond  Sorrento Ferry, Mornington Peninsula.  Photo · Courtesy of Visit Victoria
+Sorrento Ferry, Mornington Peninsula  Photo · Courtesy of Visit Victoria
 
 ## The Insider Note
 

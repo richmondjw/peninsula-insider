@@ -17,9 +17,7 @@ Keep this for later
 
 Dogs  Walks  Peninsula  Service
 
-Cape Schanck, Mornington Peninsula. Regional coastal context photograph, not a depiction of every place or event named in the story.   Photo · Courtesy of Visit Victoria
-
-Illustrative image  This image shows Cape Schanck lighthouse. It does not depict the place described on this page.
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
 PAPP fox baiting active in National Park: dogs will die
 

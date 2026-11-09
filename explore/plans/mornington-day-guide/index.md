@@ -15,7 +15,7 @@ Forget pressing on to the vineyards. A well-built day in Mornington - market, co
 
 Peninsula Insider   5 April 2026
 
-Bass & Flinders Distillery, Mornington, Mornington Peninsula.  Two Palms Australia, courtesy of Visit Victoria
+Bass & Flinders Distillery, Mornington, Mornington Peninsula  Two Palms Australia, courtesy of Visit Victoria
 
 Keep this for later
 

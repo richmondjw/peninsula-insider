@@ -19,8 +19,6 @@ Iluka Retreat & Camp · Shoreham
 
 Photo · mattyv.au · P1030597, Balnarring rural sunrise · cropped and converted to WebP [Source](<https://commons.wikimedia.org/wiki/File:P1030597_-_Flickr_-_mattyv.au.jpg>) [Licence](<https://creativecommons.org/licenses/by-sa/2.0/>)
 
-Illustrative image  This image shows P1030597, rural sunrise near Balnarring, Victoria. It does not depict Iluka Retreat & Camp.
-
 Why we’d go
 
 A Shoreham tent stay for couples or small groups who want the lake setting and are comfortable with shared camp facilities.

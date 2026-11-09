@@ -19,8 +19,6 @@ Treetops at Red Hill · Red Hill
 
 Photo · Peninsula Insider
 
-Illustrative image  This image shows a grassed row between trellised vines in full leaf. It does not depict Treetops at Red Hill.
-
 Why we’d go
 
 A two-cottage vineyard base where you can choose between Peppercorn and Winemakers layouts.

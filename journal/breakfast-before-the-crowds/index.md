@@ -17,10 +17,6 @@ Keep this for later
 
 Eat  Coffee  Breakfast  Bakery
 
-Editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu.   Illustration: Peninsula Insider
-
-Illustrative image  This image shows Conceptual oversized coffee cup and croissant beside an abstract bay. It does not depict the place described on this page.
-
 The Mornington Peninsula is a morning region. The light at 7:30am on the bay side is better than the light at midday. The cellar doors do not open until eleven. The hatted restaurants are still finishing their mise. And the cafes, if you know which ones and when to arrive, are doing the quieter, specific thing: serving breakfast to a local clientele before the day fills out.
 
 The first hour of the day is the under-sold half of the Peninsula food story.

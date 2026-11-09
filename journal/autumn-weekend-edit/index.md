@@ -17,9 +17,7 @@ Keep this for later
 
 Autumn  Red Hill  Long Lunch  Walks
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 There is a case to be made that April is the Peninsula’s secret month.
 

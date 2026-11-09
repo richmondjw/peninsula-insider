@@ -19,8 +19,6 @@ Peninsula Hot Springs Glamping · Fingal
 
 Photo · Peninsula Hot Springs
 
-Illustrative image  This image shows a hilltop bathing pool reached by a curving path through scrub, seen from the air at dusk. It does not depict Peninsula Hot Springs Glamping.
-
 Why we’d go
 
 Accommodation within the hot springs grounds keeps bathing at the centre of the stay.

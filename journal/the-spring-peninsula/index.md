@@ -17,9 +17,7 @@ Keep this for later
 
 Spring  Seasonal  Weekend  Red Hill
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Illustrative image  This image shows Montalto. It does not depict the place described on this page.
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
 There is a three-week window in the middle of October when the Mornington Peninsula is at its quiet best, and almost no one comes down for it.
 

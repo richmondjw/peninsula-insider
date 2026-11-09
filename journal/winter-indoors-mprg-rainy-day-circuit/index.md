@@ -17,9 +17,7 @@ Keep this for later
 
 Culture  Mprg  Winter  Rainy Day
 
-Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
-
-Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
+Mornington Peninsula Regional Gallery, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
 
 The winter program at Mornington Peninsula Regional Gallery is worth the drive. Four exhibitions and a children’s space make it a full afternoon, and the programming across the rooms is more considered than you typically find in a regional winter season.
 

@@ -33,7 +33,7 @@ Polperro Dolphin Swims has run marine wildlife tours from Sorrento Pier for over
 
 1  / 9
 
-A person in a yellow puffer jacket watching a dolphin fin break the surface of grey Port Phillip Bay  Polperro Dolphin Swims, Mornington Peninsula.  Photo · Two Palms Australia, courtesy of Visit Victoria
+Polperro Dolphin Swims, Mornington Peninsula  Photo · Two Palms Australia, courtesy of Visit Victoria
 
 ## About Polperro Dolphin Swims
 

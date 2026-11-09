@@ -21,7 +21,7 @@ Polperro in 4 photographs
 
 1  / 4
 
-Rows of wine bottles stored in dark timber racks in the cellar at Polperro Winery, with labelled bottles on the lower shelf  Polperro, Red Hill, Mornington Peninsula.  Photo · Peter Tarasiuk, courtesy of Visit Victoria
+Polperro, Red Hill, Mornington Peninsula  Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
 Why we’d go
 
@@ -201,7 +201,7 @@ Skip the planning - these itineraries sequence this venue into a proper Peninsul
 
  [All plans →](<https://peninsulainsider.com.au/explore/plans/>)
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula. Photo: Two Palms Australia, courtesy of Visit Victoria
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Plan
 
