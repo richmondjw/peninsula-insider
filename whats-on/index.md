@@ -191,6 +191,12 @@ Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at Th
 
 2pm · Main Ridge · Live Music · One-day event
 
+- [Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
+
+3pm · Mornington · Live Music · One-day event
+
 - [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
 
 Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
@@ -275,6 +281,12 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 5pm · Fingal · Live Music
 
+- [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
+
+3pm · Mornington · Live Music
+
 - [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
@@ -287,12 +299,6 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
 12pm · Boneo · Live Music
 
-- [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
-
-Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
-
-5pm · Fingal · Live Music
-
 ### Food & wine
 
 - [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
@@ -301,23 +307,23 @@ BRASA brings the spirit of South America to the Mornington Peninsula! A celebrat
 
 5.30pm · Red Hill South · Food & Wine
 
-- [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+- [Celebrate Christmas Day at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/>)
 
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
 
-11.30am · Merricks · Food & Wine
+11am · Fingal · Food & Wine
 
-- [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+- [Christmas Day at Ember](<https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/>)
 
-Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am.
+Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for a relaxed afternoon of festive dining.
 
-Flinders · Food & Wine
+12pm · Sorrento · Food & Wine
 
-- [Mornington Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
+- [Christmas Day Feast at The Conti](<https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/>)
 
-Mornington Christmas Series, presented by Barmah Park Vineyard This December, swap the office Christmas party for an afternoon at the races with the Mornington Christmas Series, presented by Barmah Park Vineyard.
+Gather the family and celebrate Christmas Day across the beautiful surrounds of CeeCee’s, Halcyon Hall and The Gallery.
 
-12pm · Mornington · Food & Wine
+11.30am · Sorrento · Food & Wine
 
 ### Openings
 
@@ -358,6 +364,18 @@ The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hu
 A golf-and-lunch day for Old Lauristonians and the wider Lauriston community at Sorrento Golf Club on Monday 30 November. Choose 18 holes, 9 holes or lunch only; golf places are limited and registration is required for every option.
 
 8am · Sorrento · Racing & Sport
+
+- [New Year's Day at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/>)
+
+Mornington New Year's Day Ring in the New Year in style with us, trackside at Mornington Racecourse.
+
+12pm · Mornington · Festivals
+
+- [Peninsula Film Festival at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
+
+The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+
+7pm · Rosebud · Festivals
 
 ## The Insider Note
 

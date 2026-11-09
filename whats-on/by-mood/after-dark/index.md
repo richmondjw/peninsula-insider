@@ -53,6 +53,14 @@ Join authors Anna Downes and Naima Brown as they discuss the art of storytelling
 
 Live Music  21 Nov
 
+### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+Live Music  21 Nov
+
 ### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
 Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
@@ -117,6 +125,14 @@ A group carols night with a live band and two-course meal at The Pig & Whistle i
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
+Live Music  5 Dec
+
+### [Countdown Classics 70's & 80's Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
+
+Countdown Classics, The Ultimate 70’s and 80’s Live Music Experience Get ready for an unforgettable night where you travel back to the…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/countdown-classics-70-s-and-80-s-live-at-peninsula-beer-garden-2026-12-05/>)
+
 Exhibitions  10 Dec
 
 ### [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
@@ -140,6 +156,22 @@ Food & Wine  31 Dec
 A four-course New Year's Eve dinner at The Baths Sorrento, with a cocktail on arrival, drinks through the night and a DJ,…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
+
+Festivals  8 Jan
+
+### [Peninsula Film Festival at Rosebud Cinema](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
+
+The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
+
+Festivals  9 Jan
+
+### [Peninsula Film Festival under the Big Top](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
+
+The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 
 ## The Insider Note
 
