@@ -350,3 +350,21 @@ Browse locations as a list
 - [Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) · restaurant
 
 - [Scorpo Wines](<https://peninsulainsider.com.au/wine/scorpo-wines/>) · winery
+
+On the calendar in this place
+
+## Events in Merricks North
+
+Coming up in Merricks North, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 28 Nov
+
+### November Cellar Door Opening
+
+Merricks North
+
+Taste and purchase wines while enjoying a guided tour of Elgee Park’s sculpture collection. Starts 12pm.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)

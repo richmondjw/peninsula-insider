@@ -417,22 +417,22 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-- [Sat, 14 Nov
+- [Sat, 28 Nov
 
-### Jesse Lewis Live at Peppers Moonah Links Resort
-
-Fingal
-
-Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
-
-- [Sat, 21 Nov
-
-### Sam O'Connell Live at Peppers Moonah Links Resort
+### Brad Kennedy Live at Peppers Moonah Links Resort
 
 Fingal
 
-Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+- [Sat, 5 Dec
+
+### Coco Michelle Live at Peppers Moonah Links Resort
+
+Fingal
+
+Moonah Links is proud to have Coco Michelle performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new midweek menu, and listen to some chill live music.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/>)

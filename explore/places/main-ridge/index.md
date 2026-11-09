@@ -401,6 +401,16 @@ Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are h
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
+- [Fri, 27 Nov
+
+### Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern
+
+Main Ridge
+
+Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
+
 - [Sun, 15 Nov
 
 ### Michael Charles Live at The Pig & Whistle Tavern
@@ -410,13 +420,3 @@ Main Ridge
 Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle! “Touring his 19th international tour, the “Where to Next?” 2026 tour and known for his expressive guitar work and blistering guitar solos, Australian born, Chicago Blues Hall of Famer, Michael Charles returns to Australia a
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
-
-- [Thu, 3 Dec
-
-### ✦ Pub Carols at The Pig & Whistle
-
-Main Ridge
-
-A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)

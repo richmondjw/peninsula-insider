@@ -279,25 +279,31 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 5pm · Fingal · Live Music
 
-- [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+- [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Eve Eve at Portsea Hotel.
-
-Portsea · Live Music
-
-- [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
-
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
-
-8pm · Main Ridge · Live Music
-
-- [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
 
 6pm · Dromana · Live Music
 
+- [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+
+5pm · Fingal · Live Music
+
+- [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+
+Brown Sugar - Rolling Stones at The Bay Hotel Mornington. Starts 8.30pm.
+
+Mornington · Live Music
+
 ### Food & wine
+
+- [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
+
+BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.
+
+5.30pm · Red Hill South · Food & Wine
 
 - [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
@@ -311,17 +317,11 @@ Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am
 
 Flinders · Food & Wine
 
-- [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+- [Mornington Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
 
-Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+Mornington Christmas Series, presented by Barmah Park Vineyard This December, swap the office Christmas party for an afternoon at the races with the Mornington Christmas Series, presented by Barmah Park Vineyard.
 
-Red Hill · Cellar Doors
-
-- [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
-
-New Years Eve Event 2026/2027 at The Baths Sorrento.
-
-7.30pm · Sorrento · Food & Wine
+12pm · Mornington · Food & Wine
 
 ### Openings
 
@@ -330,6 +330,12 @@ New Years Eve Event 2026/2027 at The Baths Sorrento.
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 11am · Mornington · Exhibitions
+
+- ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
+
+World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch! Based in the Northern Territory, Nathan combines incredible whip-cracking skills, handcrafted whips and a healthy dose of good ol' Aussie humour.
+
+6.30pm · Boneo · Arts
 
 - [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
@@ -342,12 +348,6 @@ Love your clothes but wish they fit better-or lasted longer? Learn how to repair
 Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
 10am · Mornington · Exhibitions
-
-- [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
-A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
-
-11.30am · Mornington · Arts
 
 ### Major events
 

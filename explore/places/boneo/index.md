@@ -231,22 +231,22 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-- [Fri, 13 Nov
+- [Fri, 20 Nov
 
-### Smooth Operators Live at Peninsula Beer Garden
-
-Boneo
-
-Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
-
-- [Sat, 14 Nov
-
-### The Calmer Miles Live at Peninsula Beer Garden
+### Dee - Calmer Miles Live at Peninsula Beer Garden
 
 Boneo
 
-Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.
+Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+
+- [Sat, 21 Nov
+
+### Deja Vu Live at Peninsula Beer Garden
+
+Boneo
+
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)

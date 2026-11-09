@@ -250,3 +250,13 @@ Mount Martha
 A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.
 
  Event · Festivals](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+- [Sat, 5 Dec
+
+### The Mount Martha Briars Market
+
+Mount Martha
+
+Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out. Visitors will discover a range of homemade, home-grown products while exploring the beautiful grounds, wildlife, walking trails, galleries, and heritage
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)

@@ -387,6 +387,26 @@ Coming up in Dromana, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Fri, 27 Nov
+
+### Ben Smith Live at Jetty Road Brewery
+
+Dromana
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Ben Smith will be live from 6pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+- [Sat, 28 Nov
+
+### DJ Sophie Joy Live at Jetty Road Brewery
+
+Dromana
+
+Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
+
 - [Sun, 15 Nov
 
 ### Festive Wreath Making at Heronswood House and Garden
@@ -396,23 +416,3 @@ Dromana
 Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage. Invite a friend and catch up while learning from a true artist.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-- [Sat, 14 Nov
-
-### Jamie MacDowell Live at Jetty Road Brewery
-
-Dromana
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-- [Sun, 15 Nov
-
-### Jimmy & Niki Live at Jetty Road Brewery
-
-Dromana
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)

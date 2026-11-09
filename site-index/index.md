@@ -483,15 +483,29 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - ["Nancye Wynne Bolton" OLA Golf Day 2026](<https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/>)
 
+- ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
+
+- [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
+
 - [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
 
 - [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
 - [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
+- [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
 - [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
 - [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+
+- [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
+
+- [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
+
+- [Chris Gogerly Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
+
+- [Coco Michelle Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/>)
 
 - [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
@@ -501,13 +515,25 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
 
+- [Deck the Chocolate Tree at The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
+
+- [Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+
+- [Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
+
+- [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
+
 - [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
 - [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
 - [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
+- [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
 - [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
+
+- [James Vincent Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
 - [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
 
@@ -515,19 +541,33 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
 
+- [Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
+
 - [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+- [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
 - [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
 
+- [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
+
 - [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
+- [Mornington Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
+
 - [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+
+- [Mornington Twilight Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
 
 - [New Year’s Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/>)
 
 - [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
 
 - [Not Sew Scary Beginner Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
+
+- [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
+
+- [Olivia Mae Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)
 
 - [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
 
@@ -549,7 +589,11 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
 
+- [Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
+
 - [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
+- [Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 
 - [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
 
@@ -559,7 +603,11 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [The Lucky Duck & Pinot Lunch](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
 
+- [The Mount Martha Briars Market](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)
+
 - [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
+
+- [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
 
 - [Torren Foot at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/>)
 

@@ -409,12 +409,12 @@ Hear journalist and author Jane Gilmore discuss her new book, helping adults tal
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
-- [Sat, 21 Nov
+- [Fri, 27 Nov
 
-### CREATE: Pottery for your table
+### Brown Sugar - Rolling Stones
 
 Mornington
 
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+Brown Sugar - Rolling Stones at The Bay Hotel Mornington. Starts 8.30pm.
 
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)

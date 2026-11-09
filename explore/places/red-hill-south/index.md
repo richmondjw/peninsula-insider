@@ -337,6 +337,16 @@ Coming up in Red Hill South, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Sat, 5 Dec
+
+### An Evening at BRASA by Montalto
+
+Red Hill South
+
+BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
+
 - [Sat, 14 Nov
 
 ### Spring Winery Walk at Red Hill Recreation Reserve

@@ -83,6 +83,30 @@ Hear journalist and author Jane Gilmore discuss her new book, helping adults tal
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
+Live Music  27 Nov
+
+### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Live Music  27 Nov
+
+### [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
+
+Get ready, Main Ridge!
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
+
+Live Music  28 Nov
+
+### [DJ Sophie Joy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
+
+Live music every weekend at Jetty Road Brewery!
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
+
 Live Music   Thursday 3, 10 and 17 December 2026, 6–10pm; no further dates confirmed.
 
 ### [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
@@ -100,6 +124,14 @@ Exhibitions  10 Dec
 Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
+
+Arts  13 Dec
+
+### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
+
+World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
 Food & Wine  31 Dec
 

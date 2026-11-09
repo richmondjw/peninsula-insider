@@ -73,6 +73,14 @@ Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
+Exhibitions  5 Dec
+
+### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
+Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six…
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
 ## The Insider Note

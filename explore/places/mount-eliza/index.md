@@ -198,3 +198,13 @@ Mount Eliza
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+- [Sun, 6 Dec
+
+### Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics
+
+Mount Eliza
+
+New to clay or returning to it? You're in good hands. Starts 3pm.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)

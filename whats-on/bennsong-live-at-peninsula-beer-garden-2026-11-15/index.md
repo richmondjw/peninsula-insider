@@ -65,21 +65,21 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live Music  23 Dec
+Live Music  27 Nov
 
-### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Eve Eve at Portsea Hotel.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Live Music  21 Nov
+Live Music  28 Nov
 
-### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+Ease into the weekend with live music in the Spike Bar at Moonah Links.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

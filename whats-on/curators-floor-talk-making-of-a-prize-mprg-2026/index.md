@@ -77,6 +77,14 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
+Arts  13 Dec
+
+### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
+
+World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
+
 Arts  14 Nov
 
 ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
@@ -84,14 +92,6 @@ Arts  14 Nov
 Love your clothes but wish they fit better-or lasted longer?
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-Arts  15 Nov
-
-### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
