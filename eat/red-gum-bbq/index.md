@@ -107,6 +107,22 @@ These pieces give you the context a listing page never does - the when, the why,
 
  [Journal →](<https://peninsulainsider.com.au/journal/>)
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 Service   6 min
 
 ### [The Friday Night Arrival](<https://peninsulainsider.com.au/explore/plans/the-friday-night-arrival/>)
@@ -114,22 +130,6 @@ Service   6 min
 10 April 2026
 
 You leave the city at four. You hit the freeway. You arrive at six with nothing booked and nothing defrosted. Here is what to do with the first three hours, the ones that set the tone for everything that follows.
-
-Service   7 min
-
-### [The Peninsula with Kids: A Day That Doesn't Punish Anyone](<https://peninsulainsider.com.au/journal/the-peninsula-with-kids/>)
-
-10 April 2026
-
-A working plan for parents who want the region to feel like a holiday, not a logistics problem. One lookout, one lunch with a garden, one beach, one coffee on the way home.
-
-Service   8 min
-
-### [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
-
-10 April 2026
-
-One active morning, an easy lunch, a quieter afternoon, and a rainy-day fallback. A family plan for the Peninsula.
 
 Nearby picks
 

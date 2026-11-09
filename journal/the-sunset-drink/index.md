@@ -173,6 +173,14 @@ Insider Edit   7 min
 
 Not a gastropub ranking. Not a beer list. A guide to the five Peninsula pubs that still operate as the social centre of a town, where the food is good, the beer is cold, the rooms are clean, and nobody is trying to be anything else.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   7 min
 
 ### [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
@@ -180,14 +188,6 @@ Insider Edit   7 min
 15 June 2026
 
 The longest night of the year deserves a proper send-off. Two days on the Sorrento foreshore, a six-metre effigy on the bay, and the particular magic of a winter festival done right.
-
-Insider Edit   10 min
-
-### [Best Golf Courses on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-golf-courses-mornington-peninsula/>)
-
-14 April 2026
-
-Not all Peninsula golf is equally useful to readers. This guide separates the destination rounds from the club names, and the public-access standouts from the private mythology.
 
 ## The Insider Note
 

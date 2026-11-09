@@ -157,21 +157,21 @@ Service   5 min
 
 The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have genuine waterfront positions on Port Phillip Bay. Here is what each actually is, what to order, and when each one makes sense.
 
-Insider Edit   7 min
+Service   7 min
 
-### [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-15 June 2026
+10 November 2026
 
-The longest night of the year deserves a proper send-off. Two days on the Sorrento foreshore, a six-metre effigy on the bay, and the particular magic of a winter festival done right.
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-Hub Guide   8 min
+Service   7 min
 
-### [Portsea: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-portsea/>)
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-2 May 2026
+10 November 2026
 
-Portsea is the Peninsula's quiet final note - more private than Sorrento, less immediately legible, and better for visitors who already know how to read the tip. Come for Point Nepean, the back beaches and one of the most withheld village atmospheres in Victoria.
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
 ## The Insider Note
 

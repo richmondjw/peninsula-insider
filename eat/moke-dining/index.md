@@ -87,6 +87,22 @@ Not sure how to build a day around Moke Dining?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+In the journal
+
+## Stories that mention Moke Dining
+
+These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+
+ [Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Part of an escape
 
 ## Weekend plans that already include Moke Dining

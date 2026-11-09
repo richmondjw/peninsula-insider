@@ -77,6 +77,14 @@ Keep reading
 
 [All stories →](<https://peninsulainsider.com.au/journal/>)
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   7 min
 
 ### [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
@@ -116,14 +124,6 @@ Insider Edit   7 min
 10 April 2026
 
 The Peninsula is a wine region that happens to be surrounded by water. The seafood story is quieter than the pinot story, but it is arguably the more honest one - and the best of it is very, very good.
-
-Insider Edit   7 min
-
-### [The Sunset Drink: Where to Watch the Light Drop on the Peninsula](<https://peninsulainsider.com.au/journal/the-sunset-drink/>)
-
-10 April 2026
-
-The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
 
 ## The Insider Note
 

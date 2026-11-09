@@ -57,6 +57,14 @@ Keep reading
 
 [All stories →](<https://peninsulainsider.com.au/journal/>)
 
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 Service   5 min
 
 ### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
@@ -96,14 +104,6 @@ Service   8 min
 14 April 2026
 
 Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
-
-Service   5 min
-
-### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
-
-21 August 2026
-
-Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
 
 ## The Insider Note
 

@@ -133,6 +133,14 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   7 min
 
 ### [The Peninsula Pub Guide: Five Hotels That Still Know What a Pub Is For](<https://peninsulainsider.com.au/journal/the-pub-guide/>)
@@ -156,14 +164,6 @@ Long Lunch List   8 min
 15 March 2026
 
 Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend.
-
-Long Lunch List   7 min
-
-### [The Winter Long Lunch: Vineyard Dining Room or Coastal Pub](<https://peninsulainsider.com.au/journal/the-winter-long-lunch/>)
-
-13 August 2026
-
-Two very different versions of the same afternoon. Here's how to pick the right one for the day you're actually having.
 
 ## The Insider Note
 

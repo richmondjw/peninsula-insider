@@ -143,6 +143,14 @@ Long-form editorial that builds the picture of a place beyond any single visit.
 
  [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   5 min
 
 ### [One More Hour: Three After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
@@ -151,6 +159,14 @@ Service   5 min
 
 Daylight saving begins on 4 October. Choose the evening by the time, weather and energy you actually have, then keep one useful fallback.
 
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 Service   8 min
 
 ### [The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach](<https://peninsulainsider.com.au/journal/the-peninsula-beach-swimming-guide/>)
@@ -158,22 +174,6 @@ Service   8 min
 14 April 2026
 
 Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
-
-Service   8 min
-
-### [School Holidays on the Peninsula](<https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/>)
-
-10 April 2026
-
-One active morning, an easy lunch, a quieter afternoon, and a rainy-day fallback. A family plan for the Peninsula.
-
-Service   6 min
-
-### [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
-
-10 April 2026
-
-The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit, drink, or walk in the forty minutes before dark - the guide to the best light on the Mornington Peninsula.
 
 Planning guides
 

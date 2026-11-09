@@ -281,13 +281,13 @@ Hub Guide   8 min
 
 Flinders is the quiet southern village that proves the Peninsula does not need theatre to be good. Come for the harder light, the ocean edge, and a day shaped by a walk, a bakery and one proper lunch rather than a schedule full of noise.
 
-Insider Edit   7 min
+Service   7 min
 
-### [Breakfast Before the Crowds: Four Peninsula Mornings](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-9 April 2026
+10 November 2026
 
-The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
 Planning guides
 

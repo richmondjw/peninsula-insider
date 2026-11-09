@@ -387,6 +387,32 @@ Safety Beach is the Peninsula's most reliably calm swimming beach - the name is 
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/safety-beach-foreshore/>)
 
+## From the Journal
+
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 ## Nearby regions
 
 [Red Hill & Merricks   The Peninsula's wine heartland: cool-climate pinot, long lunches, and unhurried cellar doors.](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)[Western Port   The quieter side: mangroves, French Island ferries, and a genuinely local pace of life.](<https://peninsulainsider.com.au/explore/regions/western-port/>)

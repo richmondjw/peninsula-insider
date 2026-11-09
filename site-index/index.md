@@ -639,6 +639,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [The Autumn Weekend Edit: Why April on the Peninsula Feels Most Earned](<https://peninsulainsider.com.au/journal/autumn-weekend-edit/>)
 
+- [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
 - [Best Golf Courses on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-golf-courses-mornington-peninsula/>)
 
 - [Best Spas on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-spas-mornington-peninsula/>)
@@ -652,6 +654,8 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [How to Plan a Mornington Peninsula Corporate Retreat](<https://peninsulainsider.com.au/journal/corporate-events-how-to-plan-peninsula-retreat/>)
 
 - [Red Hill vs Sorrento for a Corporate Offsite](<https://peninsulainsider.com.au/journal/corporate-events-red-hill-vs-sorrento/>)
+
+- [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
 
 - [Dog Daycare, Boarding, Groomers and Pet Shops on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-daycare-boarding-groomers-pet-shops-mornington-peninsula/>)
 
@@ -712,7 +716,3 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Insider Picks: 1 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-01/>)
 
 - [Insider Picks: 2 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-02/>)
-
-- [Insider Picks: 4 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-04/>)
-
-- [Insider Picks: 5 September 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-09-05/>)

@@ -155,6 +155,14 @@ Insider Edit   9 min
 
 A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   7 min
 
 ### [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
@@ -162,14 +170,6 @@ Insider Edit   7 min
 15 June 2026
 
 The longest night of the year deserves a proper send-off. Two days on the Sorrento foreshore, a six-metre effigy on the bay, and the particular magic of a winter festival done right.
-
-Service   9 min
-
-### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
-
-9 April 2026
-
-If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
 ## The Insider Note
 

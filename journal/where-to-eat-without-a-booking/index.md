@@ -175,6 +175,14 @@ Service   6 min
 
 Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with official policy links, booking rules and clearly marked unknowns.
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
 Service   8 min
 
 ### [The Dog-Friendly Peninsula: A Weekend That Actually Works With the Dog](<https://peninsulainsider.com.au/journal/the-dog-friendly-peninsula/>)
@@ -191,29 +199,21 @@ Service   9 min
 
 You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
 
-Service   1 min
+Service   7 min
 
-### [A Practical Spring Visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-17 September 2026
+10 November 2026
 
-The confirmed dates, regular opening hours and location for a straightforward gallery visit in Mornington.
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
-Service   5 min
+Service   6 min
 
-### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
 
-21 August 2026
+10 November 2026
 
-Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
-
-Service   5 min
-
-### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
-
-7 August 2026
-
-When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
 
 Mentioned in this piece
 

@@ -127,6 +127,22 @@ Service   8 min
 
 One MICHELIN Two Keys hotel, one IHG five-star on a clifftop, and a country house hotel with two AGFG hats. Plus the most common confusion on the Peninsula: Hotel Sorrento and InterContinental Sorrento are not the same property.
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   1 min
 
 ### [A Practical Spring Visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
@@ -150,22 +166,6 @@ Service   5 min
 7 August 2026
 
 When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
-
-Service   3 min
-
-### [Winter indoors: MPRG's winter program and the rainy day circuit](<https://peninsulainsider.com.au/journal/winter-indoors-mprg-rainy-day-circuit/>)
-
-12 July 2026
-
-Four exhibitions and a children's space at Mornington Peninsula Regional Gallery until 23 August, and how to build a full wet day around them.
-
-Service   6 min
-
-### [Dog-Friendly Wineries on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/>)
-
-22 April 2026
-
-Plan a winery visit with your dog: published policies at Stonier, Main Ridge Estate and Green Olive, plus venues whose pet access needs confirmation.
 
 ## The Insider Note
 

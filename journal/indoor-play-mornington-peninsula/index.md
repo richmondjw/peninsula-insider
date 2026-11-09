@@ -131,6 +131,14 @@ Service   6 min
 
 A cold, grey Peninsula weekend is not a ruined one, it is the version that gives you back the best rooms, the best fires, and the best reasons to stay inside.
 
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 Service   7 min
 
 ### [The Peninsula with Kids: A Day That Doesn't Punish Anyone](<https://peninsulainsider.com.au/journal/the-peninsula-with-kids/>)
@@ -146,14 +154,6 @@ Service   1 min
 17 September 2026
 
 The confirmed dates, regular opening hours and location for a straightforward gallery visit in Mornington.
-
-Service   5 min
-
-### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
-
-21 August 2026
-
-Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
 
 ## The Insider Note
 

@@ -153,6 +153,14 @@ Service   7 min
 
 The best towns, hotels, and guest-base logic for a Peninsula wedding weekend, from Red Hill winery weddings to Sorrento coastal celebrations.
 
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   8 min
 
 ### [Luxury Hotels on the Mornington Peninsula - The Honest Guide](<https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/>)
@@ -184,14 +192,6 @@ Service   9 min
 10 April 2026
 
 You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
-
-Service   9 min
-
-### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
-
-9 April 2026
-
-If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
 ## The Insider Note
 

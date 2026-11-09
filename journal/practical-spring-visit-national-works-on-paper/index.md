@@ -85,13 +85,13 @@ Service   9 min
 
 If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
-Service   6 min
+Service   7 min
 
-### [Dog-Friendly Wineries on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/>)
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-22 April 2026
+10 November 2026
 
-Plan a winery visit with your dog: published policies at Stonier, Main Ridge Estate and Green Olive, plus venues whose pet access needs confirmation.
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
 ## The Insider Note
 

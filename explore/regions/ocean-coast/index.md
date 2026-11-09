@@ -429,6 +429,32 @@ Two Bays is the Peninsula's signature long-distance walking track - a 26-kilomet
 
  [Open the guide →](<https://peninsulainsider.com.au/explore/two-bays-walking-track/>)
 
+## From the Journal
+
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 ## Nearby regions
 
 [Sorrento & Portsea   Limestone cliffs, ocean baths, the Heads ferry, the Peninsula's most iconic edge.](<https://peninsulainsider.com.au/explore/regions/peninsula-tip/>)[Red Hill & Merricks   The Peninsula's wine heartland: cool-climate pinot, long lunches, and unhurried cellar doors.](<https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/>)

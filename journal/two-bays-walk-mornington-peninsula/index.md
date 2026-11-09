@@ -179,21 +179,21 @@ Investigation   7 min
 
 If you want one golf story that explains the Peninsula properly, start here. Tom Doak architecture, genuine global ranking, and public-access bookings that turn prestige into a real weekend.
 
-Hub Guide   8 min
+Service   7 min
 
-### [Dromana: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-dromana/>)
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-2 May 2026
+10 November 2026
 
-Dromana is the Peninsula's practical gateway - a bay town at the foot of Arthurs Seat with easier edges than the famous villages further south. Come when you want a base that can do beach, ridge and family logistics without pretending to be something rarer than it is.
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-Venue Guide   6 min
+Service   7 min
 
-### [Arthurs Seat Eagle - The Complete Visitor Guide](<https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/>)
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-22 April 2026
+10 November 2026
 
-The gondola ride to the highest point on the Mornington Peninsula is ticketed - several travel publications still list an outdated fare, so book direct for current prices. Everything else you need to know: hours, the Enchanted Adventure Garden, accessibility, and how to combine the visit.
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
 ## The Insider Note
 

@@ -141,13 +141,13 @@ Insider Edit   7 min
 
 The long lunches get the headlines. But the Peninsula's first hour of the day - the flat white, the croissant out of the oven, the eggs on a working bakery's sourdough - is the quieter, better-value half of the food story. Here is where locals go, and the order to do it in.
 
-Insider Edit   10 min
+Insider Edit   6 min
 
-### [Best Golf Courses on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-golf-courses-mornington-peninsula/>)
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
 
-14 April 2026
+10 November 2026
 
-Not all Peninsula golf is equally useful to readers. This guide separates the destination rounds from the club names, and the public-access standouts from the private mythology.
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
 
 ## The Insider Note
 

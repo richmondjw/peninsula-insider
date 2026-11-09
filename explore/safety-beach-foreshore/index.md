@@ -97,6 +97,14 @@ Further reading
 
  [Journal →](<https://peninsulainsider.com.au/journal/>)
 
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   5 min
 
 ### [One More Hour: Three After-Five Peninsula Plans](<https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/>)
@@ -104,14 +112,6 @@ Service   5 min
 26 September 2026
 
 Daylight saving begins on 4 October. Choose the evening by the time, weather and energy you actually have, then keep one useful fallback.
-
-Service   8 min
-
-### [The Peninsula Beach Swimming Guide: Which Beach for Which Swim, From Bay to Back Beach](<https://peninsulainsider.com.au/journal/the-peninsula-beach-swimming-guide/>)
-
-14 April 2026
-
-Thirty kilometres of Port Phillip coastline, fifteen kilometres of Bass Strait back beaches, and four distinct swimming moods that most visitors cannot tell apart. A proper guide to where to actually swim on the Mornington Peninsula, by conditions and by purpose.
 
 ## The Insider Note
 

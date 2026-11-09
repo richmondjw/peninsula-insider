@@ -1,724 +1,1244 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-09T08:18:03.554Z",
+  "generatedAt": "2026-11-09T12:26:36.565Z",
   "baselineAvailable": true,
-  "fromSnapshot": "164ea4405e320f19c101b48786270fc4a3beec069f4526844a46fba1dd95b101",
-  "toSnapshot": "671ec712cd543f0a12df9f50b14004f2f1901cd089e4b0f0fe2296e5b637be1b",
-  "previousGeneratedAt": "2026-11-09T07:14:58.750Z",
+  "fromSnapshot": "671ec712cd543f0a12df9f50b14004f2f1901cd089e4b0f0fe2296e5b637be1b",
+  "toSnapshot": "521f79ccfd74d9dedc032e9bbe56c294fcf0b3d80985a43aae0fe0fe7c473db5",
+  "previousGeneratedAt": "2026-11-09T08:18:03.554Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 89,
+  "count": 154,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/",
+      "id": "https://peninsulainsider.com.au/eat/bistro-elba/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "d5f83d0398a0a85956b91b5447431e7f63c7df8b9fc1907e2473ef83d1fbf2bd",
-      "previousContentSha256": "a0783ff55a7f3c832c1516a184899227609209d2695cb652df8b74382e56e16a"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/bistro-elba/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/bistro-elba/index.md",
+      "contentSha256": "8de9b7f9520220427e6b85dbb4f6a5142ba2dbed0c3f8cb445adc357d980a0f9",
+      "previousContentSha256": "7aedf2c696fcadd3f906ac7ad3e4df0062656fdb930e78d0b66c71f98961485a"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
+      "id": "https://peninsulainsider.com.au/eat/crittenden-restaurant/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "3ce3055ffa4c64c1678d38dc7d44aef89cdf1d9429af229baa1a3d478317d6e3",
-      "previousContentSha256": "bfa9b54517fc53396ca41cef62c09f57071f8ab5ea401f7ba90a8b4c266e76d1"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/crittenden-restaurant/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/crittenden-restaurant/index.md",
+      "contentSha256": "795d61e3dc9a17a6660e3ba0dc89c8b074a05adfaf8dba5be95fe7ae36d4857c",
+      "previousContentSha256": "cb2c47f8fcc3593bf4a8cd96c06decf5d492310b5ece876b97381ecf45c97d7d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/doot-doot-doot/index.md",
+      "contentSha256": "21d80c602cba4c855d5882357639edd3afc575f1352bd6fa8a64ece14ae234d8",
+      "previousContentSha256": "5d6747787c29254fc69f0af69f5670f5bb91be6e8f09697717644e6529a4fde8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/flinders-general-store/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/flinders-general-store/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/flinders-general-store/index.md",
+      "contentSha256": "c7d04aff2c1a78b5927183eec39cac1e890258f79a08f51462276e681b486d40",
+      "previousContentSha256": "8f275cfd53f929c7109b39fc32aa7b09ad5eb6bee37410a57e8810c1b16d639e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/laura-pt-leo/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/laura-pt-leo/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/laura-pt-leo/index.md",
+      "contentSha256": "95664cde31e2cce0bba8ad0ae464f6e9682a1fe858044911a202066e09d8ddf0",
+      "previousContentSha256": "88441e23722a20401a0b9e8029038c701f79cbcb462dbb4e87693cb6768f1177"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/main-ridge-dairy/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/main-ridge-dairy/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/main-ridge-dairy/index.md",
+      "contentSha256": "939081e0e40020735b2730e62842c61505bde413da5c367915690ff5ee278e7c",
+      "previousContentSha256": "423f23722f586191ee5c44809fa727c73e71a2c5bb5e3844e028116dfd56d11d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/many-little/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/many-little/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/many-little/index.md",
+      "contentSha256": "121de5a499bd229155d4d84232f9d77d92240e0e465351af5011bc22879654c3",
+      "previousContentSha256": "0836cf1420c6a431cd5de76a7b378490f3a803680a84ebb25bb0a3433e34a36b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/merricks-general-wine-store/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/merricks-general-wine-store/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/merricks-general-wine-store/index.md",
+      "contentSha256": "7324c0beb90869ac2e89b11cc85c5896fbe442edba808980a6c1186d5e19a0d0",
+      "previousContentSha256": "5cffbbdc8069de32038a39635bf6c51b107c125b50db09e4a471ae4e9805e2d2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/moke-dining/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/moke-dining/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/moke-dining/index.md",
+      "contentSha256": "a8c8666b7d2d97ea751fd4abb774107c3d567f2704e6ca15b6c75b23da57f2b3",
+      "previousContentSha256": "6b86de577741d7376a87214f674a13cf5782a24fbd9b8a8dacc4ea3f35917d2e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/mr-vincenzos/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/mr-vincenzos/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/mr-vincenzos/index.md",
+      "contentSha256": "ea120c03c99dead4c2c0489dc8f356369cf87b4e2c38703e6f9fb81c108f32a9",
+      "previousContentSha256": "49edbfcc9f4d4ad252b43dd07451097a24b0e11dd6c42230928b7969524946f8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/point-leo-wine-terrace/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/point-leo-wine-terrace/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/point-leo-wine-terrace/index.md",
+      "contentSha256": "de2523c0e93b83c39f5503da9757660e7b908c263f9d426e76425414bd5ad134",
+      "previousContentSha256": "94ec691d96f0f04d2420c1e64d854e2d2a1250a9a2e773718337ec0f6d479f0e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/portsea-hotel/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/portsea-hotel/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/portsea-hotel/index.md",
+      "contentSha256": "7ac6b18987a8a0bb6bbdb9b4f6404290b9203f61c3053ac7e0c247ce73d99d34",
+      "previousContentSha256": "0f3a6dda7c844c9b4094bf83cbee049f041eea4b6ca44f52b0ed0ca0015db640"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/rare-hare/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/rare-hare/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/rare-hare/index.md",
+      "contentSha256": "9b67006b359c79c50d6dfc6afac4f688afccf9ef267bf5a4be00be9183e48832",
+      "previousContentSha256": "6d73d962eda055f40889823a6210fb9a1376d87633f946c28d01de85e96608d4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/red-gum-bbq/index.md",
+      "contentSha256": "39b793b411daac86f7557e0fc28956159bca7ca1c352c766aeedec13b28a77cd",
+      "previousContentSha256": "39d9711e17b05a7da951ba88df31929b1f677f345113152102d26e69e34300a7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/rye-hotel/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/rye-hotel/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/rye-hotel/index.md",
+      "contentSha256": "63336feee1e837cb830c8c0da6fd0f28b0f7eb614e05982f4fca264024386665",
+      "previousContentSha256": "5c435d8be555bc435f6d1ec9a96d95f572c7bb28393e89efff342e0556f3381c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/somers-general/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/somers-general/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/somers-general/index.md",
+      "contentSha256": "162b6f01e24c61906299c0be1ff73f70d3f0b041dcc961f3caa7c59f75da1c7a",
+      "previousContentSha256": "71150ccc98a4ecf9439a815564354c294b06089f8822097766397a2eeb978484"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/the-baths-sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/the-baths-sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/the-baths-sorrento/index.md",
+      "contentSha256": "9a688576fb423fa890801c077711595c1528080fa5720733e1db2bf3008fc5f6",
+      "previousContentSha256": "018d29530ad93301d43f309f459b6e559d7e25b2aa668e298382cb1c9da6f892"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/eat/the-rocks-mornington/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/the-rocks-mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/the-rocks-mornington/index.md",
+      "contentSha256": "4ee7f0ce2f0edbe271a75d4e36b7480c7f63110da8d4fa57a34a467654146897",
+      "previousContentSha256": "2b2788b7128134c4b94ab4980b685d5e3aaaa3ffcb93cf4c0c1187b11cdf04e7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/ashcombe-maze/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/ashcombe-maze/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/ashcombe-maze/index.md",
+      "contentSha256": "b77c14ecc47d8d6f187ea70bde50e39b43cb15c5a55aeb85d28f7a2c6f20efb0",
+      "previousContentSha256": "de4fb9a26dd7c3bd52e97c06691a0a3cc9e1e353a25df2c0eae9d4eeb10bbc57"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/mount-martha-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/mount-martha-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/mount-martha-beach/index.md",
+      "contentSha256": "41c5ac864c50d253b66697b740057ee1fda4fdc96b186f894ecbe581f193cdfc",
+      "previousContentSha256": "164f2af0e9a8215e78f431216b298110ae797478f3f7f0fdc2eeb300f8e1ad51"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
+      "contentSha256": "d29ceac50a061bdaca8b4543ee97426307717af9353691a2334051beecc401d9",
+      "previousContentSha256": "fd4bec89e439a4314c9654039ed17ee89af7a82705d3321c22455515e37971f7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
+      "contentSha256": "00c2c702dc94d881745dd20baed70584804eb978ce2fd71b14466ffe70c0753e",
+      "previousContentSha256": "ae76ce423ffe069140530631e50519440b1e97d0db37da5a6bde62975b4a2c64"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
+      "contentSha256": "a59cb4960fb923171b74151f023d4c1beb222ba854722c436ab1b92e58f74f2e",
+      "previousContentSha256": "2409914cfbad0f7fc62605848ea61f66d959b8308c010db2a832c82f89084f99"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
+      "contentSha256": "ac4f9be7eaedce6262b1fa8cbc23f3370385274e3b7dc4f3b2e356e8ea3f3e8d",
+      "previousContentSha256": "8916dc709775841f3c721fc7d5214eb54d8bb72bf7472cfe727bc05ace4825be"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/merricks-north/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks-north/index.md",
+      "contentSha256": "66d1107066df62d916d69afa5ababca02615690d0e8989c610f16d1afaa131e0",
+      "previousContentSha256": "60f4abebf4a5314f3f8de8f1fabff86dea0697385602e827b9d732ccebd34fc5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/merricks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/merricks/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/merricks/index.md",
+      "contentSha256": "24a3df524d70e6339d4a32dcf0fbfbbefcc6ba1a3ea0b0c572fc29a21bc5efb9",
+      "previousContentSha256": "fea7cc93914605700e5498817f4550f2fa92ad925423c39515f8dec3880c305f"
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mornington/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
-      "contentSha256": "5373959b1af08d1749c5a0ad7d35c890e38a768d2438f2e58f6c2ef884b42072",
-      "previousContentSha256": "99e79a47654f79a4c82746f08ffbc2649aa1bfb385dfaa2e50efd0575eb907b4"
+      "contentSha256": "c0f78efe2ef05fe1ec8397d0860fb5f2e236d14de10b3ca58c579eaa55584222",
+      "previousContentSha256": "5373959b1af08d1749c5a0ad7d35c890e38a768d2438f2e58f6c2ef884b42072"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
+      "contentSha256": "b8f73584e6559d948c99fb550df010e819bf0cd8421308cebbd7b673b5672fcd",
+      "previousContentSha256": "4ac579f269cf9477fa0d4659f7a5122ac1db82beb5de23940b2e84f4cd84fe0f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/point-nepean/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/point-nepean/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/point-nepean/index.md",
+      "contentSha256": "7af42535251dcc9fa33b692f07c51409933e92c29a4d500bf0ee82a2b7806981",
+      "previousContentSha256": "78b96b59b046e70fda8d93507552ebb0884e6bf381d490cb450da1b6193fd415"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/index.md",
+      "contentSha256": "4cb99772a0c8bd53ab1190c49eb830283c4c32e897971edaef8d9fe992f1274e",
+      "previousContentSha256": "90301429e7cd4af02897ecdf946705accbbdd6b4b49ae4b250ae15d8d2fac409"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/safety-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/safety-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/safety-beach/index.md",
+      "contentSha256": "d414937b0221bd47153a536ddf375db76824ae77629a6f45cbd8cd4f0c0fcecb",
+      "previousContentSha256": "e82a5a26b5b4939d786e9ddd61042c605ae2af7f2cc4a0f47dacece9fa00a531"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/shoreham/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/shoreham/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/shoreham/index.md",
+      "contentSha256": "66f180481d92c4f39d341a7acbac8ad830543ea0ef7c0f833061b03c40b65b41",
+      "previousContentSha256": "280cf0be2e97a37ef292b4076ca79299dd0529ce1d98dcdb2a36413b1a868447"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/somers/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/somers/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/somers/index.md",
+      "contentSha256": "2eec30dc09224484bc461902d3c500d97ffcb4a7890007da76b267bb8cd7ec09",
+      "previousContentSha256": "bbc16aeabdc323ffe151a8d77826735e27205b9986d556091daaea8b486c5ecb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/plans/the-family-day-out/index.md",
+      "contentSha256": "de6e60ee366b0f7362e2ac8d4fa8b02cf08d95ea49d49d247703fdb4747bebca",
+      "previousContentSha256": "5a2b83f164f09ebf7739f03a781943eaa29aee2b5cfea8a50b9ffdacdcfd7b3e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/portsea-front-beach/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/portsea-front-beach/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/portsea-front-beach/index.md",
+      "contentSha256": "a87cc03d0411e7d248f364b1fa7a121940f6f4433abd8e9bb079146aa19026e7",
+      "previousContentSha256": "10924358d03292f63a60d5d616d22795921dc25faa8c7921980ec23dd49eb795"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/mornington-bay-coast/index.md",
+      "contentSha256": "d17931d341f427aa02d9df56155f23298d8a3d3fba415f3b3e563c042852b2aa",
+      "previousContentSha256": "beeb78c2362cc91f8668ddeaac6d83f36981a364d2bafad764a8e243aec59a9c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/ocean-coast/index.md",
+      "contentSha256": "dec8420b43b9a874edb1b46948a4b9ccf6c00af6b1d8120bcc01d55974955467",
+      "previousContentSha256": "07f8301b1ce5681c2a9db0c3f617c2078311c65738f2f26a8b8d77b335501773"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/peninsula-tip/index.md",
+      "contentSha256": "964935fe3fe079f77364e49f59ce208989fdb682fcd4db031af40601c01aff11",
+      "previousContentSha256": "b87b073d9fde548146f5763ed6703f17e4bb19a9b36f01babf7dc818e15cb571"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/regions/red-hill-wine-country/index.md",
+      "contentSha256": "3854722666d9a9c0188a0263b1373284beca809eb4ca1bf0ee4f72524368e3f8",
+      "previousContentSha256": "376ec35cac95aec40bc333f99f4c09fcbe63bf95dee277a01348407ea690db1f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/safety-beach-foreshore/index.md",
+      "contentSha256": "26a782f779395a4eb24053e6d1013515b83ac5e14696fd687eafc39d98e08a9f",
+      "previousContentSha256": "f74b6643bfd696a91b2d013f085d3a644d90e7e892598c0fe82dec81c99bfad9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "f771256e91248f13edec5044a1a01854df15213beb9b71e93d0a8311326a3701",
+      "previousContentSha256": "6ef718b467bebd8a2d2783ef544d804171e4f7eb899240452eda89195d22bbd6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/index.md",
+      "contentSha256": "82842232ef36cb4c07752bb4e182dcd3371fbcaf628de653c31273217c2faa9e",
+      "previousContentSha256": "11dae2860c6704d0993d6651b9fea7d5c7faa1143497b722ba1569f24ded4301"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/ashcombe-maze-visitor-guide/index.md",
+      "contentSha256": "139ffb3f2819a81d93a5376394c06afdff3eadcf4f8594d8eee1736fff91bf57",
+      "previousContentSha256": "e7afb4041b436411c559e3e4325dd655b6f48d160d6142cbcf314a8bfb05eb7d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/index.md",
+      "contentSha256": "545046aa46b1349e4d7bdf28b5a3364ee0ab5a53ae345e4852343aac7eb339e0",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/index.md",
+      "contentSha256": "742a1b92e809334b85c7dd799826a2b9fb4a7447fb2db0dddf9d346a8ad561bc",
+      "previousContentSha256": "0e0168994c75f367c778d37f5df2598213172c8dcbb6611216befcdaa097c454"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/cape-schanck-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/cape-schanck-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/cape-schanck-guide/index.md",
+      "contentSha256": "f45116574f331075113b12b9428ba7dc07d01232d4049e8f4ead3e6e3d830fa5",
+      "previousContentSha256": "a21bc55659bab1d452f4281a2a1e25adacd8d3d30035507118cd39e11a3edd8e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/corporate-events-red-hill-vs-sorrento/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/corporate-events-red-hill-vs-sorrento/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/corporate-events-red-hill-vs-sorrento/index.md",
+      "contentSha256": "865c246c016c1d27ce068c0bbb868a52321e8dd52a4bdd3775f4e8664378ce6a",
+      "previousContentSha256": "34aa6051d0ad8c194ea99491c535246e1b89edccffdbf4127164fdf8560beaac"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "96f9cbc207fb56a011bb5d25a3d0e41ed7fb4104e2d71245ce4e767e8ec869b4",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/index.md",
+      "contentSha256": "6d4e2687494efe1d9834a618c85ee7f72590494ac45bfb0a51b71e80a37d3742",
+      "previousContentSha256": "43092a6dd862e0a4ef996aec6e308a73052de9d7577e5ba8793f726d2e6e0bee"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/index.md",
+      "contentSha256": "52bfcf636dfef9e67245f28a7e6f43488ebf22d168df971c70cb5e7b374cb583",
+      "previousContentSha256": "e95dae094eb0f29c9dbefe40a4fb3a411c03b76fe9b65c7900da23b042a9589e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/first-time-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/first-time-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/first-time-peninsula/index.md",
+      "contentSha256": "ed8342968c8a23bf00c9a1551919ecbb7948c410f44040f42c8aab9e53775d0a",
+      "previousContentSha256": "65f9aa43dd35246d6c651ba7e699b7038a9ca5fea92c6e95d823b31d5be37bab"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/index.md",
+      "contentSha256": "f62b0ffad0ea3450382aaca1e3ab94ea6fd09c6b9250b75c502b358a8d12e0ea",
+      "previousContentSha256": "18f1ce8c42d13bd7e19b0942c88213092da2a134a0562b526d10a1a24e9c1c42"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/index.md",
+      "contentSha256": "f9ad072b28fffb5c55be21d5545cdcf9e1b05b2c344aeb9f68a8b8828ab4d2c4",
+      "previousContentSha256": "01df97d1cfbdcd2e2ef0a66ed8f883ff16b1b991bf897c08f8be767e20d397c4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-05/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-05/index.md",
+      "contentSha256": "4261b6a3c8e6e69ad87848a025f67a277a3a4bf5b489e4cb09b5b898e2f48b98",
+      "previousContentSha256": "555d79beb4d1c4a864faf9aff2c2cd64370b1329fed17719d349a4a3702017d3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-24/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-24/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-24/index.md",
+      "contentSha256": "65c88e40d49e3996ba85236f34863e3c68be9289bc0ae237c373e76faa47a844",
+      "previousContentSha256": "5f240b02242ab973e5635483f3f3ebe5b57c79688bd4fbcddf24912580847a77"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-25/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-25/index.md",
+      "contentSha256": "5ab1a90d70d0f1b35a7837dbf23a8dc1664f49b1da48a04f95ad4990b2acaaa3",
+      "previousContentSha256": "eb44c59dc44ff25b8db9d450bde277384296600b72c21c701db4d8f112de9aa8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-27/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-27/index.md",
+      "contentSha256": "ab24c966f6062e2e6f9a18966a42a161aa10726035cc52f864d0079860479711",
+      "previousContentSha256": "ab0ef1e4fe3b1df8e46e9cdeb57007ec5f8e4902ec4858cc4f56ea7b104bb08e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-28/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-28/index.md",
+      "contentSha256": "86452da1be37a5263be2039974dbf167a155f1745234b8891ab80c5064620dd1",
+      "previousContentSha256": "4b208060b1ab928ecc07281ae7e5567b3ef8147a5fde80ea3ed97840f5c76daa"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-29/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-29/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-29/index.md",
+      "contentSha256": "4e31051cb76505d5c0bb3798becf3dc1669fd370e0dc87cd3397d53521976ff1",
+      "previousContentSha256": "289d8a3bfa58460047391522127a15243e2c8001d67cf8a37d8c30a74654b878"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-30/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-30/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-30/index.md",
+      "contentSha256": "9e2878fa0220ce42c92a5fc4175b89413cf568833ef60946f0becd55bd08d6db",
+      "previousContentSha256": "3ceae1d9b2fd88b1d0bb3b1169a80785fd4b6be754bae39dd39eefdb5ed38ebd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-31/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-31/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-07-31/index.md",
+      "contentSha256": "96b918e9e4d9e5c98ea86cbc31d0872531437a762b23c6ed19a525c475f68178",
+      "previousContentSha256": "d202debb15bd45b4b1f74a0e3193f429426cd2f13046ff9e6b6b08cd667939aa"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-01/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-01/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-01/index.md",
+      "contentSha256": "643b65f0b65d07a40cda4bedf33ef4b20e10bda755668dcfee065a317aa87ed3",
+      "previousContentSha256": "99976be2b97b0e0fe8899b7831ace41502308e8c14aac7dfcba7777c125d76e3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-02/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-02/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-02/index.md",
+      "contentSha256": "e13ba121b2358545c0effade968ee7c740539c747ae626c5a5a8ee9ae3f66835",
+      "previousContentSha256": "e7c3b37bfc22842be6235bcaa2874adfe57263885e96b1f54dcb2ccd52dee6ba"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-06/index.md",
+      "contentSha256": "4cd9aa97facf71e620bad181c29fdbd885a72c62533d6badd7a8ab2f54d1f841",
+      "previousContentSha256": "467e33caf98462aabc583b445b6d51bf536ab0cba3914208ceb4f7a439ab26bb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-09/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-09/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-09/index.md",
+      "contentSha256": "7ec5247bd181e505f4924af616db0f4d36d56f22970ae65337e9d936331cb872",
+      "previousContentSha256": "fe2a25c326a480d4ccd68ae9d259677e00fb8bb4c7f8b8e78d21615a4f54bfd6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-10/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-10/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-10/index.md",
+      "contentSha256": "c81c38c3379c1905af5ef9a4d511a49ef87c3f8280a8ba27e1e96c794608dfcb",
+      "previousContentSha256": "ea4d259c9825410f459a5acbcb5b5dc778bb59e6338f320b2d1b49e4a305b595"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-12/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-12/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-12/index.md",
+      "contentSha256": "b2ec702d6415014e2b55312849720bbf69ba4620618f5645b6dd300d188868fd",
+      "previousContentSha256": "3ff2e958d84478548962c68f953a257ee93a431c9ed6288face97a9be130d45f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-17/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-17/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-17/index.md",
+      "contentSha256": "8e0c4a1b96524e7f434d6f2e655e89897cb1cd0eaafd1b47a2dee958caaf088a",
+      "previousContentSha256": "636c32b8b4bd957e0faa103dfacb609a5312bd74c1f5aaf870b2ecaa0299c0a1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-27/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-08-27/index.md",
+      "contentSha256": "09c4189c0ae940870af7fc6fe7d9fae81fff88dbbe4533eef324c5ff8abdc270",
+      "previousContentSha256": "070d7e16579f518f870b62fdc7e528733037ab58aaf20843e7850a9df82fcb00"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-01/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-01/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-01/index.md",
+      "contentSha256": "90be0a0a338b735317f692f546c854629700650cbc0ca002195533f24b413a8b",
+      "previousContentSha256": "380814ddeffed8bfc2ac1037628ccf1262c679481d2374a149d08875adce3472"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-02/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-02/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-02/index.md",
+      "contentSha256": "b7922e0367c42b3b9905e3514ccd0df0d1309a5cd33ae4d643f766b348f7def3",
+      "previousContentSha256": "fa6bd08a7bae09725525be37acdc460aeb1b0d1708e2a4116aa18e91d1c9a063"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-04/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-04/index.md",
+      "contentSha256": "bdf863576a551d7e0d104c83d42104394450f85e63d09ca29012153e6ea5870b",
+      "previousContentSha256": "3ba2728f5efec8d4fb989e1da1b080aaf398f1b42873ad783cb7e6501cb15e37"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-05/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-05/index.md",
+      "contentSha256": "e8b0b409e13cea37d1ed1ddfbf29edf7144000a508a50745d3b8288ea0daf53a",
+      "previousContentSha256": "dcad0b0a0285d232c1c2234201d8f05e089d297589187897b7ce03934cf39168"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-06/index.md",
+      "contentSha256": "12ed6cf3968ad862c3f3cd060015f2717c2e31b12d5cd5a1f361501fe97ce793",
+      "previousContentSha256": "5cfe48b7a87bdb3721d7aa393c002dd51b38a522af85f7a6b5fcf3035d1e1abd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-07/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-07/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-07/index.md",
+      "contentSha256": "a8718a96fc53929ef7fa8e6593a7593774809063f3a4d9a8be4c0afbf6aea9cd",
+      "previousContentSha256": "1e705579f4f67baf7a04aa8edb7d0e625e9ca820238a1876b47ebba95adf1714"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-08/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-08/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-08/index.md",
+      "contentSha256": "2ecd1b08c27bef944bc9d1828a9dd0839c9a19a538085ef6dcd89c9f9dd8443b",
+      "previousContentSha256": "2f0a84e399ddfce2d152d5f621bdec0f7edbac6a6f9a55495f15819985ffc30c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-09/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-09/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-09/index.md",
+      "contentSha256": "b15e801465580cc37424687cabf12c18d23bea7395e98476959d9c9f9cc5aa4d",
+      "previousContentSha256": "17a3c90eb1daa7e39030c8d298853f6a5c3c280aa29eff0811ed0839b58f3138"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-10/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-10/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-10/index.md",
+      "contentSha256": "843d1a271a0882c7df6b804276f84c11070e7d9009dba65d5e24070ea4bf3682",
+      "previousContentSha256": "870ec35e313af8d43007476899f866add7c7367adcd923b078f2a963bbc6ebab"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-11/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-11/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-11/index.md",
+      "contentSha256": "d7c343e5959ad9a3ab6bfc2b2e54dea4d1b464e18f70ec756f207962f3943aa9",
+      "previousContentSha256": "bb415442a2b4fe1cff8f6c61ddbdc8fc28088a208657ab4b4448913b402d271f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-12/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-12/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-12/index.md",
+      "contentSha256": "d9b7cd504ccbb8b927d1796886afd23d95921689da74db4baf8e0969ad8b86ef",
+      "previousContentSha256": "dd0bb4900848bb6e483769b10ee3ecf9dbeae9d4e69e240eba5f24f607305d8c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-13/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-13/index.md",
+      "contentSha256": "29b8f23353623f2266f31c5e2cf657d422da456e8276540d178e2357a0ee2362",
+      "previousContentSha256": "f9efe530395ba16937c7d39b1069f59023a1ddd30f2a373fa86c18698f96ee65"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-14/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-14/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-14/index.md",
+      "contentSha256": "e5c26790bf8ad3d9ef3bfcb8aa90e234b8ceac5bbfa31ddaa823a7d265d42c64",
+      "previousContentSha256": "ac5fb69a0c41097a559571d36bcbe9f806c6e03ed662f612f8e504b27e7e45d7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-15/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-15/index.md",
+      "contentSha256": "5dae55d2ec967b116d3e60e2f66057974ecb94e181fc7a473aa3b3bf62293f20",
+      "previousContentSha256": "22b8199e6e95895ca90f7188af83cd6df082ff8e0c264ba5d13b7091a9e93529"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-16/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-16/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-16/index.md",
+      "contentSha256": "912507afedea2c45b6d15f5163a6a1588b6363fd329476f6a6f0be3c32df0ad8",
+      "previousContentSha256": "d2892b4989dff8d0c004462a8b20b0355644963040f8a2d9847d808a0b027cf8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-17/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-17/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-17/index.md",
+      "contentSha256": "994318cde9df00e608a2fdd4b209a114ec9d8e05c885654eb3b2baf2fd5e30b4",
+      "previousContentSha256": "4c0342356c79baa21961654f2a40c41ec2c67a0c0319a727bd8bed776443e6ca"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-19/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-19/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-19/index.md",
+      "contentSha256": "6efc9ff268fb920e8bfd9323d96f7c74430022e007d1756b9ceb55650700b6ea",
+      "previousContentSha256": "c5eb5a801331590e40f667c6df304fbf589c664b4150ba3e6b27459a3b38512f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-20/index.md",
+      "contentSha256": "9e032da188ab6a04565f1577b746b757489e21111bd38f47bad6cc227f065724",
+      "previousContentSha256": "7706f70d0f11175f3e9f9bc16daacb8adee6b382117445af41da29d3b09652b9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-23/index.md",
+      "contentSha256": "7dca0fc5d24ed8e089d9d7c3a52261bb452d5b1e8125b6c0a23e2eead91acb3c",
+      "previousContentSha256": "576dd9a75bbea680b53e23a4746c800595bcf247f4096421c8ee759f91869b5a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-24/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-24/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-24/index.md",
+      "contentSha256": "aea863eec508db8e5a20199a2d78bc0c784953aed9e51e8933b1861641b51e20",
+      "previousContentSha256": "b61de4f4d6f72e9f4e5463b3f7139879d4ed38f5598b4aa0263a4a2c974e4b0f"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/index.md",
+      "contentSha256": "fe53ff0f52eb8db4eb68a9d53c9bc0cbc27f7da45bd60dba833491623ef4ac2a",
+      "previousContentSha256": "7cd0b73e0c393d794f0ce4caa5f563f96202847ce74fe4f37bfc61dfee277c91"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-28/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-28/index.md",
+      "contentSha256": "16a9c325336c243da20b90a7bdb6567c194a44c8f20044c8e0669343f7cdeba8",
+      "previousContentSha256": "6b437a5dcf2a73e189abad24eb086add16321652a683f602f3d12a22cb91e053"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-29/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-29/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-29/index.md",
+      "contentSha256": "115f2d97ed588c8e98a0538bf7856a542e77f1c32180ca4df492e054adb305c6",
+      "previousContentSha256": "52dceeae3ff71476519b34573abe0eed60a09225d3b641a4213cfb08e2beb3a4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-30/index.md",
+      "contentSha256": "def4dcedfaeb258e6af9a55ff732994c275664c98373b4ac51413340e1325d8e",
+      "previousContentSha256": "0e0c18a7ae7f30d3d5e5c9dfdb59597ee8501c10feb197ba5d92223d87e41207"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-01/index.md",
+      "contentSha256": "8cae2df617421b42b8b99789aead5a49ee9f422f8ae30825ba894c770ef010b4",
+      "previousContentSha256": "31b3e2de14d42b1aa05e95faf66a5de8f91bdf72784ccd9e869f924a7e80a265"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-03/index.md",
+      "contentSha256": "8a74b4d3f39d216f9e74558390f147e51fe2b7dc6512586877dbd1f1837bf42b",
+      "previousContentSha256": "951be76668792e4679235ab48ba66c562b97dca729d58cd281efceb78e2b8d20"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-04/index.md",
+      "contentSha256": "32e548733d0c9b51eadcbaa1e39b3c86c3b34c179a0541f8f008e10f99b18a4e",
+      "previousContentSha256": "29dec0287099cdc423e8f87e24a4837b55c129023739a45d18a4855150ffcf4c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-05/index.md",
+      "contentSha256": "658f895a351f59de12dd38791478ae01dc9ae54405db048c416b379162b17f1e",
+      "previousContentSha256": "b355b9727dcab1ef5338bf8cad648bc9afa64cdabc09be2e721cc144a51a4268"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-06/index.md",
+      "contentSha256": "bf1237a15010d033e56723071c2259a1d1473a08957d91ed3427d85db9086aab",
+      "previousContentSha256": "23a74575b9d4243aac180b55d3d070fcc5aa3dde8e014bdcce0092bb9c678dd1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-07/index.md",
+      "contentSha256": "b7b24450e743049d9d6588d41eafb5c70173fb87435168a29d52c9e477c6c87f",
+      "previousContentSha256": "a8ddbee0656dd87f2a291ace52cbaa6fda563d5ca412c5fd81d0aa09dab573f0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-09/index.md",
+      "contentSha256": "2fa0ced5942339970dba88c5e60e72bb5c05af3c08261705e8aaf138b5c0819a",
+      "previousContentSha256": "b3a72d486f50ad59316b4d2a072972acc1ef10cc2c91c4f1268997256e2333b4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-10/index.md",
+      "contentSha256": "dd11ce5edd868d50a57e23fc62a51c4aff820f0a0ca5fc23012e5e354848479a",
+      "previousContentSha256": "fda855eff6e0a72fd7e5fccdaf0c8059d111d9e42e79ae564597ab86cb0b8675"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-11/index.md",
+      "contentSha256": "91dc2aa978d5894879a9061672f43f5be8c2b2c45bbee06c5a04578471bf9111",
+      "previousContentSha256": "85c879a19bf7546d786ed724038ef0829fb010ec0d710f3e7349cdacb594dae6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-12/index.md",
+      "contentSha256": "2469c708282ef6487b9b549d88d27204e3162493d046c543719ebdbc697eba7e",
+      "previousContentSha256": "d4eab150df117ca2c0dd627398965cc17b6726a9aff4e904410fb0de6a95b23d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-13/index.md",
+      "contentSha256": "4a3be8c33dac9db17a0f73c807f900e7c3069bfbee3a16c70bb6d4de1b2b5373",
+      "previousContentSha256": "ae28615fdf08ea223dc0c98f12c830fbd60d72bf8e971af29fab8db2103e799e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-14/index.md",
+      "contentSha256": "77a07ae7549798b51f4c4a4532335e1418e85d2d32b4bce30c282fa6d49e9656",
+      "previousContentSha256": "85be46d2100a5ca2b6daa3d353df09c293fff046e30f8632c21c918e74b80eab"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-15/index.md",
+      "contentSha256": "65f174dbc1e9f05d19045c1c0eb4c37bb37752048c8883171b04bd5bc6244a4d",
+      "previousContentSha256": "12b46b86160fcbec5d6fe9d4f792f7ca6f160ac2ed9f9d0a89780c00ce1f9664"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-16/index.md",
+      "contentSha256": "7eaffe7c7afcd612a89e9d5df3d8674b4e6331ceb3ec1268f5647ce44b7b08f1",
+      "previousContentSha256": "16c87ce87094aac2ec1763e214a7aee7e96bfc59a9f350eaff7f51b37037b584"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-17/index.md",
+      "contentSha256": "83053e1c20db3d8174edc49f2f510e1e8b3d1c119d8595bbe9d0cc8a9c3364c8",
+      "previousContentSha256": "a01d6c1faab9d15e010616d21339087d64e38d5cea7c4df40918549e59dfbfcc"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-18/index.md",
+      "contentSha256": "20fff7f97b7fb54aadf1ddbc59bdbe1a204006ac1268fbaa2b1edb57aa9463c5",
+      "previousContentSha256": "c949a8e68310000faed9cbdb6ab4c97838c2bbbc450f5eccb52f4f8b14f12278"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-19/index.md",
+      "contentSha256": "ebae3fd4704745e33764539625bb064154d34c49d510e3329569e9b15a9df71a",
+      "previousContentSha256": "c9ceb7796a35aecd2390321ef3295093e02725432a5fed4df362d53d267627d2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-20/index.md",
+      "contentSha256": "15d1635b6369d83d8d1a48077d404edcb832bcf965877077dcfcc591f1f6d273",
+      "previousContentSha256": "fa0fe818471d07b5b635787b9913e9383f70a10afa1088af4aac4c87ba43ea39"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-21/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-21/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-21/index.md",
+      "contentSha256": "18c4a6352483507c4481b6026cf67bc98a25d76a37559fe787d47308aadbc05a",
+      "previousContentSha256": "66d3a77935dc926775ed977a7032cc6a80bed05a1dd7a55f66d22844e6b291ad"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-22/index.md",
+      "contentSha256": "85de063b9a6b5cc865bdd352e73473cdadb08c06f3e64ea4454a16c9638bd7b4",
+      "previousContentSha256": "3472c14df30d5ff03868a5390ef1e256edc0b542fa03e302bf27b7399a1b87e8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-23/index.md",
+      "contentSha256": "55a3a84ebe5fab8c37c51c95c590fa0c91abd97d7ef072f9bcce7840f41b976f",
+      "previousContentSha256": "b34f1062a883edca22afa4de58c1f4ebadb122a9e41300d0e6149219be51c7f1"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-24/index.md",
+      "contentSha256": "193b49801031432a461d299592e5032eed2641ea01fce94a4241cf55863b9471",
+      "previousContentSha256": "2f02a59909bdcf3d7f8d99afecfa5e24d057048669b05dab6cb301464e7c9300"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-25/index.md",
+      "contentSha256": "c94a14c4d39f19fb338c9d19795f2b7c45348ceba041560506dc10c66cf92250",
+      "previousContentSha256": "b7e2c2bac95db33a1cc562b1f94ccc110d8437d718a96a7664b9dd7629d01528"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-26/index.md",
+      "contentSha256": "ff635912ae6ffa4003775bf0ecc63f8b7e3595b9b91cbaed3e3bb798f3ecb04f",
+      "previousContentSha256": "ecc6334a168a44aea194aca1c2419f2e238a63355fab88cac5a37a725f7de982"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-27/index.md",
+      "contentSha256": "b320f82b8d955a305c26dbb7eb8cd52cb5fd327566842bea7bfdbc5aac1f584a",
+      "previousContentSha256": "a044d6008e6c3d877902f990af19d211b04595ac41b6ce9d90134e1d6c621f90"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/index.md",
+      "contentSha256": "e774752bb397098a34402cc6a8571957f6fa9723809bbc063cc30d23c8daa7d6",
+      "previousContentSha256": "c8d57f27e333f2dec7561c4380d2e733ad3b99aad8fc9c8115faea5964c3eb5e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/index.md",
+      "contentSha256": "4a6317e73c4d276afe5c3cf95c46103f95db9181460ee4ee43d2b34fa1b1b5f7",
+      "previousContentSha256": "49ceaff5624b762a1d66c23da73381c31784021d5caa77970322b3a9a756ce2d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/index.md",
+      "contentSha256": "c1e817a56939b8ba9f64772b759fec7585288fa44597e0b0893dbf7a1fa976d0",
+      "previousContentSha256": "8b9abd1cb463c855e3fcb397d9f7be6bfbe37dcd2abaee24b1b5f2ab64e9e634"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/index.md",
+      "contentSha256": "14f1b44796df496bda6b65711e09ac2bd85109264bd594cc37cf8cbe1a017c77",
+      "previousContentSha256": "cbe07a27612a88f5d0237c25bfde453c7b5e20ea48b8c1f183d8388fe1e532fb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/index.md",
+      "contentSha256": "91bd244f8dca5d4921d3a39a95b976408a3ac4e29246b564ab0fa16c7c6a1836",
+      "previousContentSha256": "91b771e12e19a30d5748598c29bd8afd968aa86d9bf9b69636e6f294e6db1f5d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/index.md",
+      "contentSha256": "e45b4a46542619bfe6b04d5ebab3f6c55f523e06904276fd4acb152a3537ff35",
+      "previousContentSha256": "9e23947d4f98d447aa0c9fa7fad539eadd8abba9fb29b91b1439b3eeed406bfa"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/index.md",
+      "contentSha256": "310d78df9dc248706191ce1721a55252c2bc46cadb7754c29e31b7013b381ef8",
+      "previousContentSha256": "cc5ab75ef47792e0d65462858eb84f4910debac5f8c41c29269bebc27f37ffd4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/index.md",
+      "contentSha256": "670206dcc771c8a6b270f556c19ab1277b6e32a37d28c150a370a6904675f28e",
+      "previousContentSha256": "5150470683d343cdd58aff653c42e637ed1363aad948d3c5bc9d33d9df1239ca"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-06/index.md",
+      "contentSha256": "46b8af926d870d12f7b64030030d23d1450fa77d231a35cf7aba1d83cf9e1b8d",
+      "previousContentSha256": "71503e1598f2bd12d414bd4954ec8f1b03455b772169f66f5c593ae1347ecf67"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-07/index.md",
+      "contentSha256": "e315ecc5b94cc0957966b50265a886d33e9e2cff5f8c2ce18c8bdb9128b2d6c5",
+      "previousContentSha256": "f000496a9d64d2f4e0cb394341a96cf6a41444a375becf0ad48b2fc05aec8e74"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/index.md",
+      "contentSha256": "e863698411b038471f5f625236c4b7c3efa83f4443265f3a7d7d65fa4c940054",
+      "previousContentSha256": "bdd5bfadb1d5344ab7016792318ad6c95ffb1df34523153ebf5664a6f5d0e55d"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/index.md",
+      "contentSha256": "4a1ff6a708bb87f7a0ed84ed1b6bf46d2930d1b4866c8148b3065174b8d339f9",
+      "previousContentSha256": "d15021166925d8757b29f332024c08b2cff6d432e6a82b1984573070db25147c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/index.md",
+      "contentSha256": "3b996283e62df4fbd03efbeb803bf669644ad5c070eb6e937e2a7c6bf9428afe",
+      "previousContentSha256": "940bcc7f1aa49f8b77893809f91742774aba1442dffcfca176be4b7fc4e1c644"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "022b1c129291b6718ba39dadfb03a5cc371fa10e370c3d93b363d683b174b68c",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/peninsula-hot-springs-vs-alba/index.md",
+      "contentSha256": "158b68d4b2732e4bca4c1861d9465cd5e75fff9ba3cf35d1f65bc6d1fcb88813",
+      "previousContentSha256": "7d92494f824b3e436a51b3ddcb4989c1b26dff3cdd9dcf6a05c2b136d4561ab0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/point-nepean-national-park-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/point-nepean-national-park-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/point-nepean-national-park-guide/index.md",
+      "contentSha256": "f114f6af186469c5737983423377505921c0c36ba2103388f065667cf09172c8",
+      "previousContentSha256": "878de17d5d6821eeb35f3c0264275f3e6af461e2115f6ce5de7dd0aa870c5217"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/index.md",
+      "contentSha256": "cb0d952a91835f6a8ca74a257e3b8d29a2d01490538e60fc83b32d09ec8ff8d3",
+      "previousContentSha256": "d95545e2a36454f7b671426cefec84a4f47fa79fe3573302897b251bc7c9e0f8"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/rainy-day-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/rainy-day-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/rainy-day-peninsula/index.md",
+      "contentSha256": "ad2177821b83c47e3a3ef216f4fa94169ba464b39ffd7409eb9087a1b004b0c7",
+      "previousContentSha256": "8888b5fbbdf40a705cfe4f827c66dc7116acd039141fc7be239c8bf790f6f9c7"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/index.md",
+      "contentSha256": "8fe56f581fc2738ac544050cf73584d2b13f7b4d01b059d5746837f709492d37",
+      "previousContentSha256": "8d35ede26b8ff09f00d6003dd97ed1f22d847c4c6c1670def52d9893e1cc2464"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/spring-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/spring-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/spring-school-holidays-2026/index.md",
+      "contentSha256": "e4f048b95c429e1f8ed84bf5df6189c3d1f073c440d481f19f3bd1e987680cbf",
+      "previousContentSha256": "62867854edc78e2f91921c6f60fe611972d6247eb15864f634da0bce0d09632a"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/st-andrews-beach-golf-course/index.md",
+      "contentSha256": "91d24663c529b812a17a74a0d3fb63e697a7838a7651aebae394af0872262f42",
+      "previousContentSha256": "4f710ccccee2a78393e89a676279895c9980a15988faf6a1376954393147da4c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "b908106c1a409042a04be459ca870bcb175ff88b7014667f0880a8d90c7fcb65",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-peninsula-pantry/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-peninsula-pantry/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-peninsula-pantry/index.md",
+      "contentSha256": "5e4a7fe9ab37997238b25d826fe7a52dd635780b5dfa0975b264cc5f8bd40760",
+      "previousContentSha256": "2e0627667fcce230f132eea0c327edea122f48c9723b30fa9b784f5002b5b05c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-seafood-list/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-seafood-list/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-seafood-list/index.md",
+      "contentSha256": "0c4875f6ffdc1954a4659845631da61b4195238b96a144ded38247dfe50393d5",
+      "previousContentSha256": "ed348bb05b16db7de2198d93187f49837875db62e20d7a304facabe35c54215b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-sunset-drink/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-sunset-drink/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-sunset-drink/index.md",
+      "contentSha256": "45e5e5859b724ea50515e4cbd570e977a754ee9ddf7d4ff623c37a833bdb4186",
+      "previousContentSha256": "8adea5664c8d4b4bf299972670c8064571bfa46b37c5c04d24d6d3e51520484e"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/the-sunset-hour/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/the-sunset-hour/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/the-sunset-hour/index.md",
+      "contentSha256": "1085d6866fce78f258fb9847bcb0f2e4da0daff70da8026244998f6825d8ddaa",
+      "previousContentSha256": "13997879b35ef71b5ccd7765ecaa79936a488af335249b4861b2aa0397dcd2c5"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/three-italian-dinners/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/three-italian-dinners/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/three-italian-dinners/index.md",
+      "contentSha256": "341018ee31b496ecc77076b347173d868ef0134eabc8728af89c545e246e1c6c",
+      "previousContentSha256": "4489ca50a387a64030f1434d92ad79c2a1ab25988f40a58f3b94cb58f2b8f98c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/two-bays-walk-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/two-bays-walk-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/two-bays-walk-mornington-peninsula/index.md",
+      "contentSha256": "c1ca77d4d7db42bdfbc84e493a3e6f1eb262ba78280898e3032c1b84857f93e1",
+      "previousContentSha256": "0919c646cfb39210c2dea10337c5098a3fd177c0c0a75a690822f953301d1e07"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/waterfront-restaurants-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/waterfront-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/waterfront-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "aa29967f24b8d49c0190bd9d8a3d2572ee7df4a6901168f7f6b108055a8624c0",
+      "previousContentSha256": "b8d78ec36dac1bc6dd15fcc97d3f3db31cc0edc8096411eab963d50180e76a01"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/weddings-where-guests-stay-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/weddings-where-guests-stay-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/weddings-where-guests-stay-mornington-peninsula/index.md",
+      "contentSha256": "82e3a24ef04ab8e5de68dc312d953c2bdf74014ff983f89ade9b7a7ab7155dfc",
+      "previousContentSha256": "a2efe1df949719c86de5e0f90cb9ed9288571772c82a0807452e379f1a9c57d4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/where-to-eat-without-a-booking/index.md",
+      "contentSha256": "b29729ec267b555c48b6f7e55c0d4610f051c9743a88bd937006b0cda6cd4bc4",
+      "previousContentSha256": "eaf7b19fca3df0c988e0fe160222c88d90f5f7edeb54ac4d5b3ee652949b36db"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "58faada0aeb6a3688653aeec75d30b5b0cac08248cce21b0dd501725a4f0b08b",
-      "previousContentSha256": "ea2227f09452338c493b1fd54f55c7aeaacf743787ab49170f3747919af4305b"
+      "contentSha256": "37836cb4a209b484ffddbd0f902f9247c500a835ccc0108ae55ada372d3be9b4",
+      "previousContentSha256": "58faada0aeb6a3688653aeec75d30b5b0cac08248cce21b0dd501725a4f0b08b"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/",
+      "id": "https://peninsulainsider.com.au/site-index/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "0cdffba5883cce53f7cae6c393ec0c775f634cbcca4bac32477248ed50c85039",
-      "previousContentSha256": "efa3d6453744611bc9e4f542e61dcb4059850d9f146d7424d5a6a37894a538c2"
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "0da44708d78bf781f3c0e92fd056d214f374082ae5bcd4f15742ac748529e1a5",
+      "previousContentSha256": "464b09c34f2416c24ae791fe986ce16e62df961c776bb8409596cfe392529333"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
+      "id": "https://peninsulainsider.com.au/stay/jackalope/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "fab81c7bc30e4d9b9fbd54126bc549c5b8f730dc83575c356803ea9e1e923427",
-      "previousContentSha256": "ab221fcefc6bb1f0686d3cc59c30b78b79756678e81bd7dd273921d02b48bdfd"
+      "canonicalUrl": "https://peninsulainsider.com.au/stay/jackalope/",
+      "markdownUrl": "https://peninsulainsider.com.au/stay/jackalope/index.md",
+      "contentSha256": "5ea5ed39a0cd4751ddc6ce6856c478a18954b66a071f9c671a84b31c8f9918f2",
+      "previousContentSha256": "678231800c479a26a735d8f1747ff02c5ff490977edc30ba1cab2e6e9af4ae73"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/",
+      "id": "https://peninsulainsider.com.au/wine/red-hill-brewery/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/index.md",
-      "contentSha256": "57b11c4ce36c01bba5f86cdf744650b19d7eb21c73b2f37e57879f760b7588d2",
-      "previousContentSha256": "682e37f0b05782d4b670cee8f30301d5eb27d4a17aae28295c3ea21867334df8"
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/red-hill-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/red-hill-brewery/index.md",
+      "contentSha256": "b62d3b11492f302005fbaca5716a48b6198286f23b4df7850b355043bbb314f4",
+      "previousContentSha256": "210acdd9f45cac3b4209d3a4650d28c9760b05358099d7bfbe54f1252ae84bf4"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "id": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/index.md",
-      "contentSha256": "eebc833de1374a08934d6146d74c841d34979713baeb206aea77ce031b23782e",
-      "previousContentSha256": "284fa2e539531d0bf0e6d30af42c366378381113aa7a40013421022d81f3f5e8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/index.md",
-      "contentSha256": "ef2b292cb5dd5c88bd1fd9619dd6e0a6879789b7f903606da6675f3bc0b4d409",
-      "previousContentSha256": "00686f94a770057cf0e78df2ff867f700918de7bd93e6552ed2e55132f474320"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/index.md",
-      "contentSha256": "808931059b8c05c9027870bffca3421810bc5ca0b46972740cf3aff2caced82f",
-      "previousContentSha256": "82d2653374e4031e64e22cba457824bf5d7c48f1a154a714e5ec108e8b5f2e44"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/index.md",
-      "contentSha256": "874630927915b8307fd4c28c1284ebb1c4c629d5588aeecc1e3104ad65152680",
-      "previousContentSha256": "3a9fc09c5db7b74205668d087eb068b3cd71a9ba0f7d67e625d2decd3d898238"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/index.md",
-      "contentSha256": "d31a7c2184d42476b674ae7a61346c890b89b7bb30fc5c28c2bfb08d99567f22",
-      "previousContentSha256": "a671c13d1f5efb27292ada108eaa83ee6910afe364c00c8c875ab75a8948fa67"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/index.md",
-      "contentSha256": "bbd8436bcffef6a8a1746d32bc8fdc382a43699959473a9eee6090e12f85a01a",
-      "previousContentSha256": "0398f70118e57e42394a0cc3fd903c4cab47e3034ca026050dd76aa7e4e14556"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/index.md",
-      "contentSha256": "eb5f73fcbcf350bba1c90756a4bcdc80b1c46b36f5ac22c0fcc7f75f0b07c546",
-      "previousContentSha256": "beeef9f9c65266fe94dd59b2cc1801c6c4cd8b7cb70af0f4d6ca6006972c3d15"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/index.md",
-      "contentSha256": "8a2de2977884def45daca6daf0c671cbb801d1382c10a210a59ae7afdd9dd995",
-      "previousContentSha256": "fb542d1067ad054acc5b261708f4956b4a4f73ae21d9b13b7bf29d5521fac8a3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/index.md",
-      "contentSha256": "0e9284968b388e8e3dd1122dd2cb6e6bf3fd8665a06dacaae1b88ac510f5b952",
-      "previousContentSha256": "d05301baa6dc062bfa1c14b0f1368e0546399e43d12077af7296ea15738057ea"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "c7059c7346925f74f77d8888b85bd484849e8fa25f329bee9d88096985848e45",
-      "previousContentSha256": "1190a18fc8c575fde9dbc8ee8832c359b6c9e105aebb552f5e1013115789448b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "a11be7e8653441945e5a3edaf2e55bcda93ff5fcb7fc05d5e9f25e7d69ec7653",
-      "previousContentSha256": "01a4401d54d6e703459fd024bd6d927722ce429e7e66fe4866e07f95c8acb627"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/index.md",
-      "contentSha256": "182ebe13cad29e6a361c770aaa0c137922eb1355c5bdfe884c0ae62d3bcc042e",
-      "previousContentSha256": "cbf89ad12a935df4e3369669b10637731f7c9ac440147b78e61823a0bfb45546"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/worth-the-drive/index.md",
-      "contentSha256": "853f25c476e40480b00e866e2eb99daedbd23eb32e79bbd8a347d4fe7a0b487f",
-      "previousContentSha256": "e0b56037cc7bfbbe7fa7e7981b73f7e3e4876bda62e3f99662b1fbd042574acb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/index.md",
-      "contentSha256": "6dc45a1a179d33c5668dc7b3c52642c307dc44937d3708e2721ba9544da77602",
-      "previousContentSha256": "d435abd4157f8e182b11af23f90b48c6e50510a60a9dec6721e4fc0e69a4d58c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/index.md",
-      "contentSha256": "e6af02b43484cbd1bbe849797831a8a091c152b2ec424ba57e7606abf6f0af7b",
-      "previousContentSha256": "628ab910308d30ea3572f5fb280567fe761a493cc7fa53ef6c28b9cb0d8bd0e2"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/index.md",
-      "contentSha256": "31c703999d6a0ad65f1a4277ffab4fe306c28ed48fb75dc5e75b701a852e2f8c",
-      "previousContentSha256": "65dc885bf2731625652603d079170e10c82bb93a1b017d772801bb662d833503"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
-      "contentSha256": "2bfb26f4b5182381ea601fee3d6baf04d7bb0da8a38255867988b952a93f2541",
-      "previousContentSha256": "3e003f067a8c26b21d8594d17c335698007e28e60b60830747243d49bb645c4f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/index.md",
-      "contentSha256": "dfd4893e912d64365e67e82ff65155f52f14c3dcb05f72ba71ec0a7d5e625136",
-      "previousContentSha256": "0757ae4b2a92934787a9b7ef768dbe64eec97b14e54537de8917145a593f3604"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
-      "contentSha256": "12763a45ffcf532f70fd6296174c71b9fac70cf9b51f7204043a6aca915f2b67",
-      "previousContentSha256": "eb868e6f4b5d997018f6634e75ff1e1480f541c6de60c896f16639168d70fe3d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/index.md",
-      "contentSha256": "0ffe8870163e5e2c6b53821434515f011c58ba0d9c0cabd3dbe14358998f719c",
-      "previousContentSha256": "c8ea4ed60d913eb203aa50bebc33713ec0a56287d92d62b48d7519f2963cae20"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/index.md",
-      "contentSha256": "72c963ee1df919550f032d45ad0acfdec53a27b9fe54b99c2fb98ac8330986b2",
-      "previousContentSha256": "40dcdadc33de9777f3780a0ce361cc659266cb4bcc2946d4d5b727fa966e41dc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/index.md",
-      "contentSha256": "7f630fb54f220287c87ea7faaddff2d4703fbc36f2ef375ca37617bfa52a27ea",
-      "previousContentSha256": "870dcb9b168049677783df6c315933d3bf8b58df6e047ec9c0c588ec152ab53b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/index.md",
-      "contentSha256": "dece802045eb9bed38274c84a75014f7fe42b68b20f5932e9fc6646d20dc5097",
-      "previousContentSha256": "e9a6e503e360083d9715db8b58c039a438a64c9c81217141ba696167967ce262"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/index.md",
-      "contentSha256": "4f1d8b42390c6533fddf66c905e3722020ac55b9669cb18e2917dcdd49eb6d8f",
-      "previousContentSha256": "96294fab362707f7577e2424ca4f2af411c3d1e215233b384be073c52cf335ab"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/emu-plains-market/index.md",
-      "contentSha256": "b3f1b62796eea0e8d5c412d1dcb1e1a002ae06912574561cb9625a057f0b7ecf",
-      "previousContentSha256": "25ec6a614b0ec19086ee785ddf2fcbf3fc631432bb86220d4d729a936ab3a414"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/index.md",
-      "contentSha256": "0964d99f0ef24dc7b900b02881d65d9f8f30ceeecb108d8664851fea017e9059",
-      "previousContentSha256": "0144046498e4f23ba3acccf7f51b9df6b23117bc2bcefe17181b83e7e62f3014"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/index.md",
-      "contentSha256": "1180b87c08a94723a8dc46aa8442ae86cd75275d27c142a7ccc31d9eac6ed336",
-      "previousContentSha256": "f5a30b4ef772a4c37f4783ad1146081d0e50e49a5b68488cfa332cee3d22bd95"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/index.md",
-      "contentSha256": "d65835e0dd16aac4fccac944ca66d78deae65a01a7e1c80cf6414f026721faf0",
-      "previousContentSha256": "cb9785b5d666a22cc3f7f46bd89bd932e6495b83d5afd1f1622ae1797ef2f562"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/index.md",
-      "contentSha256": "24fb5e38fb985a8c60c83df0f44a383065cae6dbb727802101e087b35af7000b",
-      "previousContentSha256": "37664559ddb7004fff7ba1d6a82a7e4588cffb18b4329ba3f4f73902f6dd74f6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/index.md",
-      "contentSha256": "3670a1a6b564285c1adf9a00d46382fd3f9ec892a039367a6eb5d5bf8a7f7739",
-      "previousContentSha256": "fe4a97ee589e7884daa3801e6daf411ed1208b233c7bd8724f5ffd9d375ca372"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
-      "contentSha256": "d63e94b7376bf9f8606829927ecb2ec499b9efa89027f40f4b38dd902a34bf3e",
-      "previousContentSha256": "883b47faf7bd0ec5d6c9f177e1b7570422f96f03fb16b79a6f59259fe60e702a"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/index.md",
-      "contentSha256": "ff8fd27d4ed52a1159f0dc4a2b50b4d4825f9eda9fff589391569e0d05a10890",
-      "previousContentSha256": "5dd4721809c8d5849c0e5c912f3288cb074e04361781f3464d280cc4c286db1e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/index.md",
-      "contentSha256": "e3fa7a08e34c18806a1acf0593fffa8a90e476244255d3aa56fd04092701b6d5",
-      "previousContentSha256": "3eb8e9faba5897e3ed6538ff89309c9ed1bd1dc81d286e27e32ca969c1a46730"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/index.md",
-      "contentSha256": "f226db38447f46568a3651cf201c19f88ad74c363c1f9f0b63aed0e75ea249d1",
-      "previousContentSha256": "e1176c599037a1180c3c47ba4cf59b8062e4ab953f06606a3a35be0de9d26735"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/index.md",
-      "contentSha256": "ac5a9172e1144a033f79909da96e58352ccdbccb5ae9798739942557df5c6eb0",
-      "previousContentSha256": "e0bb63e0ee4874ac42c762a810cb513ba7cfb2f35d3ea3be9f31171f5948be89"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/index.md",
-      "contentSha256": "29508647a9c4c2ae9a0ff7d0b1589a85806a3a17d40dcbaa16a7f435d29620aa",
-      "previousContentSha256": "b2367407d95220f4cb591f302a5e608e897859f909b3d1b56be9fcd5f9275cd8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/index.md",
-      "contentSha256": "8a507e4dd71b8ed5b233eb026f5820014b560be3f7fe8a245d3308e301c5261c",
-      "previousContentSha256": "0bfd7fe7aafe5e87d27cdaff9e3d8c777d3642aba99d428545344359df9938a4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/index.md",
-      "contentSha256": "cfd2bd19bea16bd44fec2d0e17431713ea993ea9d17e038ef113d9e48ce6be75",
-      "previousContentSha256": "49fc4b7a32419fcdacb568d6cd17cbd73706d611f6fd2d4e61ec43541871e086"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/index.md",
-      "contentSha256": "56be6cb31c8fd5a1dbe3ea9a38f72de2e218009cdfe35af7363ed2f19e54b496",
-      "previousContentSha256": "887a531e4047d5f29b33273ad756f4dd365e794101aa97110a64903ee870095d"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/index.md",
-      "contentSha256": "e689df8d517afabb32f11aa242cf12bee7a6aed81c4ca7e60c994796c78b56ca",
-      "previousContentSha256": "aca97e49d12a9a0caa0bbcd1d68747d38051feca1397915277e892cea39b0982"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/index.md",
-      "contentSha256": "109e05217f068f65841e7c9aad837099fdbb172c0b99b680b54ea5b168837814",
-      "previousContentSha256": "e1f757fcb244010cea3d6863a1409eb0df0e499da38ed95b7ad40e5e269d3e0e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/index.md",
-      "contentSha256": "d9d50fb15a126d17a34962c2a25070b6c080b45379e846db058d41551381d594",
-      "previousContentSha256": "92b78c9283dd2608a0360caf9b1c4699e148a670e19bc8f842578fdc0ff71706"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/index.md",
-      "contentSha256": "4a0dc59d1b450a6bd8271c52e27940ee092cb756123507a148c5b877a395d144",
-      "previousContentSha256": "9293b31a03ec3824e85f21d0ed9ec01a9e2c2064fed85fc2da680ffe9fc45724"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/index.md",
-      "contentSha256": "c49e3a5d47c6ff2adb2a1a469b40f70abd509f8f22437e8aaf719e001bc4aaf5",
-      "previousContentSha256": "ad6ae9851cf2280582333251683f37d5d30dc00fb39c7f0f339604cb83ed7aa4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "30cb18e0a7535f1538eb825997821ca0923af444e1f238645dd36e2d980f14e6",
-      "previousContentSha256": "3a779f5f8cec1cab69df5ddc0ad54898c35616dd477161740c11b1ba01307232"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/index.md",
-      "contentSha256": "d91c5896db8abecbbe5fcca0272b37541e8410f4df33605bca4c23a2f7333364",
-      "previousContentSha256": "38f0a3556af0ef7647e46f93fcd017c8dbd5d69da81192039e58d538df0d127e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/nancye-wynne-bolton-ola-golf-day-2026/index.md",
-      "contentSha256": "191f81f45fe4ebcc2072d18563910ddbe5960f6093d06055b52812fdbd51f977",
-      "previousContentSha256": "1b1b52de79e602904b5f709711bf8f5648caf1e8719d51b139bcba97fc043f93"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
-      "contentSha256": "7dee4015d9aaaf5d30ded8539447e662cffe17723cf0a8f1319763c9b7b58754",
-      "previousContentSha256": "7cc6de50575b26de91283440a397048f7476c29fc99fcd0f1a71aa7fe0484bcb"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/index.md",
-      "contentSha256": "886e9c08148b2962f5e9647592180ec3fe669af0ba1c342b1e9cd4122ebaee81",
-      "previousContentSha256": "639c0552a0d8db6eaa18da7002694eb7515a9f5496527eafae4c990ceafc84c4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/index.md",
-      "contentSha256": "30b0cd3c47467cc0864627e3b139a963e7754b567518b555d21bf7c1a48bdc12",
-      "previousContentSha256": "3ff83b97fb9016c7140ede6b946a1cedfb8c7bb71c7253ca69a2ac3c61bc2fd1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/index.md",
-      "contentSha256": "3aeb642d744502b3f7d8e2a7e740a023e38130b798622957a342ee6247d73b73",
-      "previousContentSha256": "8a05f9629a68f616ef177a054d36466f2837370e2e2f95d710affe274a9d301c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/index.md",
-      "contentSha256": "402399491449196fb4abd5f26764d4799100e63564681ad7aa0053ec67d05262",
-      "previousContentSha256": "448e724bad4f5a88aa87f360dd4616343c0408257ea34fa8bdb71226b3250105"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/index.md",
-      "contentSha256": "bc0671cc05d45cf3b8f478fc477bc141ad745b573bca10b33342d295e0003a76",
-      "previousContentSha256": "8d259e44ea2db71ee94e8a7aacdc8dc4c3056a0770f4070945ae53c6753c4f6b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/index.md",
-      "contentSha256": "673075c9d41960fc84f4d29555e211abd6a77b94da0b1a1841985001c90d7a0c",
-      "previousContentSha256": "8b79547a2d92a2e426fa648a175d51b613c816f5a439d9d846ac39ab2198a9c3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/index.md",
-      "contentSha256": "a05f29a63cc8b38336ab94aa198c23fe92d016b77611decd88de65a4d046cf4a",
-      "previousContentSha256": "2f3c4964b9db89d40bdc269a087284fada25d03f8dca958e2b17fbf9cc77e234"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/index.md",
-      "contentSha256": "51295022b5f3b63df1850db059359bc28d3f06fbf6b72cb6ca984b027517932e",
-      "previousContentSha256": "ba5b8a63d56f72253fc3f0e20675199a31597cc35a8b70a254e1d5ca8fd60795"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/index.md",
-      "contentSha256": "c1326f2f4e6e7c154699d5e3283ce95d40e16069f687e2dc5f36aecfceb2c524",
-      "previousContentSha256": "3f849320d0de6905ce4ba74d47eb2a37c9b013f4bb8cca039a58044c22f67bf4"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
-      "contentSha256": "a637af33efb831f1a846b43e10153d14d83bdd899aec54f0d0e6e7b3c94a48eb",
-      "previousContentSha256": "e523e61bba5ade157bc8471fd00f3b54ef60bcf8f8157f3f09281783a680ca5b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/index.md",
-      "contentSha256": "25576c0d065cc5d5cf48e754bb8b7f6bf2c09d9126c07c12a3fda599ba7e75e8",
-      "previousContentSha256": "a40886cd6833390ac020d816a13aefcdf56dc9a522cd97b8db80f1f99d2b07c7"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/index.md",
-      "contentSha256": "f537a8b787472617c821d5ef40541f925141df616b528fe1258601bac717267f",
-      "previousContentSha256": "5b78e9816cec655a4e9d1070d1eb3f5aae164b9c24b02cfb6526521276bdef73"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/index.md",
-      "contentSha256": "b09516cbd24b6464502e0a6f4782dc7fa187b57be4fe52ea61b1bb6d877dac92",
-      "previousContentSha256": "872619b881cf0b2ad562aa3ec3e40a1d3d3468e7a9f1e5835ca2c58f3e1d7458"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/index.md",
-      "contentSha256": "1615d7cf51ea3fb631e0259e8c60fe7d9d6675b7c8d0fbba2fa6203496b070a3",
-      "previousContentSha256": "2617225a18e99d396fbbbdef2422a706b94479c04bee20074ca5c84edcfb0a11"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/school-holiday-fun-at-red-gum-bbq-2027-04-09/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/school-holiday-fun-at-red-gum-bbq-2027-04-09/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/school-holiday-fun-at-red-gum-bbq-2027-04-09/index.md",
-      "contentSha256": "24500b78fb8d8739af32543ebe79e3e12fbaf66cd88ce0b432242d71acf1c38d",
-      "previousContentSha256": "47d3888d5486bb3c02e1f5306757c5ce119e3d8357e240141bd1d5e839d0a6e5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/index.md",
-      "contentSha256": "45a8d6e6d3f66a1f73ae4d686cb6b05fdb0beb08a9f44718945477923906335d",
-      "previousContentSha256": "42e0da0561fba232971ab0f9993ccb861f1e00643bad70c479878e29d2502938"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/index.md",
-      "contentSha256": "35e2bc388769e537755c2ec17f6052ab1d30e91ab6169b5988c126448d45e89b",
-      "previousContentSha256": "29963c6cb3ebabc671828de11fb0f450330f39261adb8d61b72047066e08e2a1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/index.md",
-      "contentSha256": "ad9ed89ce45647c3eca23b16c6853a46a3f8c9bc87403abc093c5552c42097be",
-      "previousContentSha256": "fa048828ff568838d860631b183ef3ef7745c6da0cc5462ddebf88adee5338bc"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/index.md",
-      "contentSha256": "28c31763da22f2383ea81f98e7e851b5b623c21ce79febfe46f85d7e7c6cd3de",
-      "previousContentSha256": "f40b5ed8b34ec8760454ebf31e4e522dd5907ed95bba1b00a01c11adbac02d93"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/index.md",
-      "contentSha256": "c701904c8fbef7b3813dd2d9b222e35848fa81470f685eda20d753f90d4156d3",
-      "previousContentSha256": "95807508f48bbca80710a636c0c581511dfb0018fb1707f1b4c0edba88d58269"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/index.md",
-      "contentSha256": "029434a85bb9a5a0007ee044ea4c1a65e32ba0335ca2d94c9d2a19ebb052197c",
-      "previousContentSha256": "7090db163fd8fdf8942a952c524a21664d145eeef6018269a9dadd3861b05f2e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/index.md",
-      "contentSha256": "360e585c3ff470952645b756e8db9fe7382200f3e1b239c25118c1633a12c330",
-      "previousContentSha256": "1e4226b5640fbed2f28a147cded74d7e2cb5369dbd1f6b6d6c3ff57b9ee94650"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/index.md",
-      "contentSha256": "95428130ab80f759e345215f6f5524c5d1cb3309e1d1376a265b860d5317cdf8",
-      "previousContentSha256": "befb65e34e756061f99dfd947e496c2ee5dde00cda4e498e0e76127787969907"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/index.md",
-      "contentSha256": "9092796c32e6b0b96c98a97e21ebcc2cd1852708a6f66459b5b4badd14d8f265",
-      "previousContentSha256": "e365c71ceb63b998e5184c4431297a77d1f9a0386c75a2c1d2e4f7389cfb19df"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/index.md",
-      "contentSha256": "fa55888d61cb4ad4242dc614cf99b3671c5c7897727d4b3252d2b6320e5d976a",
-      "previousContentSha256": "508b31ea45a668078bba5fc23ee5bda721911f768ff68fcfc57553c5fea16fe2"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/index.md",
-      "contentSha256": "847b3ae818ed04168a87391c1d210f844cb219e16c217c29f314ef1e930f91a2",
-      "previousContentSha256": "3185081d6e7f51f2c387c0ff86baad83e6fa440c19e5a67460ef8b5c596f97e9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/index.md",
-      "contentSha256": "99143f10cbca77e8cf6c153f0ac35ba9544d207c38dc756a3d487f1d7e6dd45c",
-      "previousContentSha256": "42b69fff2559f2cd96f5f4b7ae7de41768e5392b6e125007694a52c12773d1ef"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/index.md",
-      "contentSha256": "f28861acfe4e9642548930bfaffa15289a7769abe336815123e89305118a60cf",
-      "previousContentSha256": "5525fbd286c5a253d1ea18bcf13fb005db43d0a62df2f1ee31ebd893650f4e11"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/index.md",
-      "contentSha256": "e20cdca1d45822550e97029ac59ff688a8dc43f0f3d9f729d8d2ca8a4cbf610b",
-      "previousContentSha256": "2e468ed8d89c8b5b025e909996ca7722457bf216f43484a3a2493bc360182dfd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/index.md",
-      "contentSha256": "18b79c7091a62c33b8e1e1173e7428d3cbf8381e052a94e6f537adc240437ddd",
-      "previousContentSha256": "6afb7c1b125a2904a928977446717097f711a81d0ae3857641eed7dedb6f7c02"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/index.md",
-      "contentSha256": "5147d7c3807a779c59afe8db5bbf9e9ea11722e16a739513836051b58d694e60",
-      "previousContentSha256": "05a23142137c535eeafa98de436d90a7e1c659398e71fab8b10d6f5591180a27"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/index.md",
-      "contentSha256": "3f71bf59f674e183c8cf49fce3c7f461f4e2470fd20701fa675ab9e2caf3b956",
-      "previousContentSha256": "0471915b09153298d900d90c3870004518bd148e66a0647bc5c225434953c2c0"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
-      "contentSha256": "11c100006efedc76ec4efb685bfdf7a5140548d40e6c8ec81a72f042dd0de9fb",
-      "previousContentSha256": "88bb9ae647f810f892227621070d4052dd632e356b24babbcb60e06625c52a6f"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/index.md",
-      "contentSha256": "89168cc22d1092de93dd733155c5c2858a67e270631deb8968f84ddef297c809",
-      "previousContentSha256": "7e17d8cd0206221d9e37e388bd1883e726a6a6aea0d26969465fd3847ba3449a"
+      "canonicalUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/",
+      "markdownUrl": "https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/index.md",
+      "contentSha256": "8da06873bd728b8a7f6f18f9c190b33c0b3f21aee387da0a47857e76964dab76",
+      "previousContentSha256": "64d5547b6fd9f8e1ec9ca924259222a271fb95d08819a5fee4774708ad29d1c3"
     }
   ]
 }

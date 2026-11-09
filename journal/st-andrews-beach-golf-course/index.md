@@ -155,13 +155,13 @@ Editor's Letter   8 min
 
 World-ranked public access, serious course architecture, hot springs within fifteen minutes, and a weekend shape that works even if only one person in the group plays.
 
-Venue Guide   6 min
+Service   7 min
 
-### [Arthurs Seat Eagle - The Complete Visitor Guide](<https://peninsulainsider.com.au/journal/arthurs-seat-eagle-visitor-guide/>)
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-22 April 2026
+10 November 2026
 
-The gondola ride to the highest point on the Mornington Peninsula is ticketed - several travel publications still list an outdated fare, so book direct for current prices. Everything else you need to know: hours, the Enchanted Adventure Garden, accessibility, and how to combine the visit.
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
 ## The Insider Note
 

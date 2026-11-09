@@ -245,6 +245,14 @@ Long-form editorial that builds the picture of a place beyond any single visit.
 
  [More in the Journal →](<https://peninsulainsider.com.au/journal/>)
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
 Insider Edit   10 min
 
 ### [Best Spas on the Mornington Peninsula - The Tier Guide](<https://peninsulainsider.com.au/journal/best-spas-mornington-peninsula/>)
@@ -253,6 +261,14 @@ Insider Edit   10 min
 
 The Mornington Peninsula is Australia's most serious wellness destination. This is the tier-ranked guide to hot springs, resort spas, and day spas - which to book, and for which kind of day.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Service   9 min
 
 ### [First Time on the Peninsula: The Honest Starter Guide](<https://peninsulainsider.com.au/journal/first-time-peninsula/>)
@@ -260,22 +276,6 @@ Service   9 min
 10 April 2026
 
 You have never been to the Mornington Peninsula. You have a free weekend. You want to know what is actually good, what is overrated, and what the people who live here would tell you to do. This is that guide.
-
-Service   8 min
-
-### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
-
-10 April 2026
-
-Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
-
-Service   5 min
-
-### [Mornington Peninsula Spa Stays](<https://peninsulainsider.com.au/explore/plans/mornington-peninsula-stay-and-soak/>)
-
-14 April 2026
-
-Sleep beside the springs, choose a base with a drive, or make the hotel spa your destination.
 
 Planning guides
 

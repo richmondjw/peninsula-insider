@@ -143,6 +143,14 @@ Insider Edit   7 min
 
 The bay side goes gold at about five. The ocean side goes pink at about half past. You need a glass in your hand for both versions, and these are the seven places that understand the assignment.
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Insider Edit   7 min
 
 ### [The Sorrento Solstice Festival: A Night When the Peninsula Burns](<https://peninsulainsider.com.au/journal/sorrento-solstice-festival-2026-guide/>)
@@ -158,14 +166,6 @@ Insider Edit   9 min
 7 April 2026
 
 A comparative review of the three most serious dining rooms on the Mornington Peninsula, and a specific case for which one is which occasion.
-
-Service   5 min
-
-### [Waterfront Restaurants on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/waterfront-restaurants-mornington-peninsula/>)
-
-22 April 2026
-
-The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have genuine waterfront positions on Port Phillip Bay. Here is what each actually is, what to order, and when each one makes sense.
 
 ## The Insider Note
 

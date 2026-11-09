@@ -139,6 +139,14 @@ Venue Guide   5 min
 
 Multiple travel websites still list Ashcombe as closed. It is not. The café re-opened January 2025, the maze is fully operating Thursday to Monday, and the lavender labyrinth uses 4,000 plants across 40+ varieties. Here is the accurate guide.
 
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 ## The Insider Note
 
 The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.

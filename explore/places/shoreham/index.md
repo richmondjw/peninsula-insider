@@ -193,6 +193,14 @@ Venue Guide   5 min
 
 Multiple travel websites still list Ashcombe as closed. It is not. The café re-opened January 2025, the maze is fully operating Thursday to Monday, and the lavender labyrinth uses 4,000 plants across 40+ varieties. Here is the accurate guide.
 
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
 Cellar Door Dispatch   6 min
 
 ### [The Cellar Door Short List: Four Producers Worth the Stop](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
@@ -208,14 +216,6 @@ Cellar Door Dispatch   8 min
 9 April 2026
 
 Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
-
-Service   9 min
-
-### [The Peninsula Pantry: A Saturday Shopping List for Anyone Cooking in a Rental](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
-
-9 April 2026
-
-If you've booked a villa with a kitchen, you've booked one of the great food sourcing weekends in Victoria. Here is the shopping circuit - market first, bakery second, wine last - that actually does the region justice.
 
 Planning guides
 

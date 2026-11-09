@@ -155,6 +155,22 @@ Service   5 min
 
 The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have genuine waterfront positions on Port Phillip Bay. Here is what each actually is, what to order, and when each one makes sense.
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   6 min
 
 ### [Dog-Friendly Wineries on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/>)
@@ -178,22 +194,6 @@ Service   9 min
 22 April 2026
 
 Four two-hat venues, seven one-hat tables, and a debut two-hat restaurant that opened in February. The complete Good Food Guide hat list for the Peninsula, with booking realities and what each restaurant actually is.
-
-Service   6 min
-
-### [Red Hill vs Sorrento for a Corporate Offsite](<https://peninsulainsider.com.au/journal/corporate-events-red-hill-vs-sorrento/>)
-
-19 April 2026
-
-The Peninsula's two strongest offsite moods are not interchangeable. Red Hill and Sorrento suit different formats, different teams, and different ideas of premium.
-
-Service   7 min
-
-### [Where Wedding Guests Should Stay on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/weddings-where-guests-stay-mornington-peninsula/>)
-
-19 April 2026
-
-The best towns, hotels, and guest-base logic for a Peninsula wedding weekend, from Red Hill winery weddings to Sorrento coastal celebrations.
 
 ## The Insider Note
 

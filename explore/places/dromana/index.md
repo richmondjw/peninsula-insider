@@ -271,6 +271,14 @@ Hub Guide   8 min
 
 Dromana is the Peninsula's practical gateway - a bay town at the foot of Arthurs Seat with easier edges than the famous villages further south. Come when you want a base that can do beach, ridge and family logistics without pretending to be something rarer than it is.
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
 Service   8 min
 
 ### [How to Plan a Peninsula Weekend: The Decision Framework](<https://peninsulainsider.com.au/explore/plans/how-to-plan-a-peninsula-weekend/>)
@@ -278,14 +286,6 @@ Service   8 min
 10 April 2026
 
 Stop googling. Start here. A step-by-step planning guide that turns 'we should go to the Peninsula' into an actual weekend, with the decisions in the right order.
-
-Insider Edit   3 min
-
-### [Insider Picks: 6 August 2026](<https://peninsulainsider.com.au/journal/insider-picks-2026-08-06/>)
-
-6 August 2026
-
-A Thursday market in Hastings, Friday aperitivo at Trofeo Estate, and two final winter weeks at Mornington Peninsula Regional Gallery.
 
 Planning guides
 

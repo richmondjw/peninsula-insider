@@ -161,6 +161,14 @@ Keep reading
 
 [All stories →](<https://peninsulainsider.com.au/journal/>)
 
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   5 min
 
 ### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
@@ -200,14 +208,6 @@ Service   5 min
 17 April 2026
 
 The stays that genuinely work with a dog on the Peninsula - where fencing, policy clarity, and beach proximity matter more than brochure charm. What the Peninsula's accommodation landscape actually looks like for dog owners.
-
-Service   6 min
-
-### [Where to Walk the Dog on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/where-to-walk-the-dog-mornington-peninsula/>)
-
-17 April 2026
-
-Foreshore walks, coastal scrub, and the one fenced off-leash utility ground that justifies the drive to Briars. Where dog walks actually work on the Peninsula - and where the National Park prohibits them entirely.
 
 Mentioned in this piece
 

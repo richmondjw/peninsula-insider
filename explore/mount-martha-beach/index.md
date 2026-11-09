@@ -107,13 +107,13 @@ Service   5 min
 
 Forget pressing on to the vineyards. A well-built day in Mornington - market, coffee, gallery, foreshore - is one of the cleanest Peninsula visits you can make.
 
-Weekend Picker   3 min
+Service   7 min
 
-### [Peninsula This Weekend - 30 to 31 May](<https://peninsulainsider.com.au/journal/peninsula-this-weekend-may-30/>)
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-24 May 2026
+10 November 2026
 
-Autumn closes and winter opens on the same patch of Main Ridge on Saturday: the Peninsula marking its own calendar.
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
 ## The Insider Note
 

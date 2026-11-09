@@ -165,6 +165,22 @@ Keep reading
 
 Service   7 min
 
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
+Service   6 min
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+10 November 2026
+
+Six weeks, one Peninsula and a car full of children. The calm beaches, the outings worth the drive, the rainy-day backups and the timing that keeps the whole thing pleasant, from 19 December to late January.
+
+Service   7 min
+
 ### [Free Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula/>)
 
 22 April 2026
@@ -194,22 +210,6 @@ Service   4 min
 17 April 2026
 
 What to do when a Peninsula day with the dog goes wrong. Emergency contacts, the PAPP poisoning antidote, after-hours vet access, and the Animal Poisons Helpline. Calm, practical, verified.
-
-Service   6 min
-
-### [Where to Walk the Dog on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/where-to-walk-the-dog-mornington-peninsula/>)
-
-17 April 2026
-
-Foreshore walks, coastal scrub, and the one fenced off-leash utility ground that justifies the drive to Briars. Where dog walks actually work on the Peninsula - and where the National Park prohibits them entirely.
-
-Service   5 min
-
-### [Indoor Play on the Mornington Peninsula: The Four Worth Driving To](<https://peninsulainsider.com.au/journal/indoor-play-mornington-peninsula/>)
-
-7 August 2026
-
-When the weather turns and the kids need to run, there are four indoor play venues on the Peninsula that actually hold up. Here is what each one is good for, and the five things to check before you leave the house.
 
 ## The Insider Note
 

@@ -169,6 +169,14 @@ Service   8 min
 
 Off-leash beaches, vineyard cellar doors that welcome them, pubs that feed them under the table, and a walk that does not end in a hot car. The actual guide to the Peninsula with a dog - and the mistakes that ruin most dog weekends.
 
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
 Service   1 min
 
 ### [A Practical Spring Visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
@@ -200,14 +208,6 @@ Service   3 min
 12 July 2026
 
 Four exhibitions and a children's space at Mornington Peninsula Regional Gallery until 23 August, and how to build a full wet day around them.
-
-Service   5 min
-
-### [Waterfront Restaurants on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/waterfront-restaurants-mornington-peninsula/>)
-
-22 April 2026
-
-The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have genuine waterfront positions on Port Phillip Bay. Here is what each actually is, what to order, and when each one makes sense.
 
 Mentioned in this piece
 

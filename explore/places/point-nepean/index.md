@@ -203,13 +203,13 @@ Insider Edit   4 min
 
 The Portsea Hotel deck in first-spring warmth, the native orchids peaking along Point Nepean's Number 2 Rifle Range track, and the final truffle hunts of the season at Red Hill Truffles in Main Ridge.
 
-Trail Guide   6 min
+Service   7 min
 
-### [Point Nepean National Park - Visitor Guide](<https://peninsulainsider.com.au/journal/point-nepean-national-park-guide/>)
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-22 April 2026
+10 November 2026
 
-Free vehicle and pedestrian entry. Fort Nepean on foot (~3km) or by the ticketed hop-on hop-off shuttle. 50+ heritage-listed buildings. Swimming at the Quarantine Station. Two all-terrain beach wheelchairs free to borrow. Dogs not permitted.
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
 Planning guides
 

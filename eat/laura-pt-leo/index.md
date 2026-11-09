@@ -85,6 +85,14 @@ These pieces give you the context a listing page never does - the when, the why,
 
  [Journal →](<https://peninsulainsider.com.au/journal/>)
 
+Insider Edit   6 min
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+10 November 2026
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+
 Service   7 min
 
 ### [The Peninsula Birthday Weekend: A Two-Night Plan That Actually Feels Celebratory](<https://peninsulainsider.com.au/explore/plans/the-birthday-weekend/>)
@@ -100,14 +108,6 @@ Slow Peninsula   8 min
 10 April 2026
 
 One memorable dinner, a long lunch and an afternoon with no agenda. A slower Mornington Peninsula weekend for two.
-
-Service   6 min
-
-### [The Sunset Hour: Where to Be at the End of the Day](<https://peninsulainsider.com.au/journal/the-sunset-hour/>)
-
-10 April 2026
-
-The Peninsula's evenings are its most under-scheduled hours. Where to stand, sit, drink, or walk in the forty minutes before dark - the guide to the best light on the Mornington Peninsula.
 
 Nearby picks
 

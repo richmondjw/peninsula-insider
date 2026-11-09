@@ -14,25 +14,31 @@ Good places. Interesting people.
 
 **Selected 24 September 2026.** Recent practical stories sit alongside favourites from the archive. Each story keeps its original publication date; selecting it again is not a new check of every detail.
 
-Mornington Peninsula Regional Gallery, Mornington Peninsula. Gallery context photograph; the artworks shown are not verified as part of the current exhibition.   Photo · Robert Blackburn, courtesy of Visit Victoria
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula.   Photo · Courtesy of Visit Victoria
 
-Illustrative image  This image shows Mornington Peninsula Regional Gallery. It does not depict the place described on this page.
+eat
 
-Art & culture
+## [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-## [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-A practical note for a gallery afternoon in Mornington.
+Peninsula Insider · Published 10 Nov 2026 · 7 min read
 
-Peninsula Insider · Published 17 Sept 2026 · 1 min read
-
- [Read the story](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
+ [Read the story](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
 From the editor’s desk
 
 ## Worth your time
 
 More ways into the Peninsula.
+
+mornington
+
+### [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
+
+A practical note for a gallery afternoon in Mornington.
+
+Peninsula Insider · Published 17 Sept 2026
 
 spring
 
@@ -49,14 +55,6 @@ eat
 A Saturday shopping list for anyone cooking in a rental.
 
 Peninsula Insider · Published 9 Apr 2026
-
-boating
-
-### [Boat Moorings and Berths on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/boat-moorings-berths-mornington-peninsula/>)
-
-Annual mooring waiting lists, seasonal moorings you can actually book this season, and the one short-stay berth at Mornington Pier itself - the honest picture of where to put a boat on the Peninsula, and who to actually contact.
-
-Peninsula Insider · Published 21 Aug 2026
 
 [Explore the Journal ↗](<https://peninsulainsider.com.au/journal/#archive>)
 
@@ -186,7 +184,7 @@ The complete collection
 
 ## Find your next read
 
-83 stories & guides
+87 stories & guides
 
 Search the Journal
 
@@ -194,7 +192,31 @@ Browse by theme
 
 Publication month
 
-83 stories
+87 stories
+
+10 Nov 2026
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+ Food & wine
+
+10 Nov 2026
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+ Food & wine
+
+10 Nov 2026
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+ The seasons
+
+10 Nov 2026
+
+### [Summer School Holidays on the Mornington Peninsula, 2026-27](<https://peninsulainsider.com.au/journal/summer-school-holidays-2026/>)
+
+ The seasons
 
 20 Sept 2026
 

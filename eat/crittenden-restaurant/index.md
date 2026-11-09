@@ -85,6 +85,22 @@ Not sure how to build a day around Crittenden Restaurant?
 
  [Search Peninsula Insider](<https://peninsulainsider.com.au/search/>)
 
+In the journal
+
+## Stories that mention Crittenden Restaurant
+
+These pieces give you the context a listing page never does - the when, the why, and the who-it’s-for.
+
+ [Journal →](<https://peninsulainsider.com.au/journal/>)
+
+Service   7 min
+
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
 Nearby picks
 
 ## More from Dromana

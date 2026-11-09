@@ -213,6 +213,14 @@ Service   6 min
 
 The Peninsula's two strongest offsite moods are not interchangeable. Red Hill and Sorrento suit different formats, different teams, and different ideas of premium.
 
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
 Service   8 min
 
 ### [Luxury Hotels on the Mornington Peninsula - The Honest Guide](<https://peninsulainsider.com.au/journal/luxury-hotels-mornington-peninsula/>)
@@ -244,14 +252,6 @@ Service   5 min
 17 April 2026
 
 The stays that genuinely work with a dog on the Peninsula - where fencing, policy clarity, and beach proximity matter more than brochure charm. What the Peninsula's accommodation landscape actually looks like for dog owners.
-
-Service   6 min
-
-### [Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/>)
-
-17 April 2026
-
-Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with official policy links, booking rules and clearly marked unknowns.
 
 ## The Insider Note
 

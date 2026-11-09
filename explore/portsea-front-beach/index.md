@@ -117,13 +117,13 @@ Hub Guide   8 min
 
 Portsea is the Peninsula's quiet final note - more private than Sorrento, less immediately legible, and better for visitors who already know how to read the tip. Come for Point Nepean, the back beaches and one of the most withheld village atmospheres in Victoria.
 
-Trail Guide   6 min
+Service   7 min
 
-### [Point Nepean National Park - Visitor Guide](<https://peninsulainsider.com.au/journal/point-nepean-national-park-guide/>)
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
 
-22 April 2026
+10 November 2026
 
-Free vehicle and pedestrian entry. Fort Nepean on foot (~3km) or by the ticketed hop-on hop-off shuttle. 50+ heritage-listed buildings. Swimming at the Quarantine Station. Two all-terrain beach wheelchairs free to borrow. Dogs not permitted.
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
 
 ## The Insider Note
 

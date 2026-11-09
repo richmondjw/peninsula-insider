@@ -129,6 +129,22 @@ Keep reading
 
 Service   7 min
 
+### [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+
+10 November 2026
+
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+
+Service   7 min
+
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+10 November 2026
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
+Service   7 min
+
 ### [Free Things to Do on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/free-things-to-do-mornington-peninsula/>)
 
 22 April 2026
@@ -158,22 +174,6 @@ Service   5 min
 22 April 2026
 
 The Baths at Sorrento, The Rocks at Mornington, and the Portsea Hotel all have genuine waterfront positions on Port Phillip Bay. Here is what each actually is, what to order, and when each one makes sense.
-
-Service   8 min
-
-### [Dog-Friendly Beaches on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-beaches-mornington-peninsula/>)
-
-17 April 2026
-
-Six confirmed year-round off-leash beaches, the 9am–7pm rule every dog owner gets wrong, and the two active safety alerts that apply right now - including a poison baiting program active across the National Park until October 2026.
-
-Service   6 min
-
-### [Dog-Friendly Cafés, Pubs and Wineries on the Mornington Peninsula](<https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/>)
-
-17 April 2026
-
-Find dog-friendly cafés, pubs, wineries and a brewery on the Mornington Peninsula, with official policy links, booking rules and clearly marked unknowns.
 
 ## The Insider Note
 
