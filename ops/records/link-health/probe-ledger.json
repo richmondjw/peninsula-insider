@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-09T01:01:25.915Z",
+  "updatedAt": "2026-11-09T01:08:29.114Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -34,6 +34,14 @@
       "httpCode": "200",
       "pageTitle": "Weekday Hot Springs Bathing - Alba Thermal Springs &amp; Spa",
       "probedOn": "2026-10-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://albathermalsprings.com.au/alba-experiences/promotions/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Promotions - Alba Thermal Springs &amp; Spa",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -653,6 +661,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Tickets for FELICITY URQUHART &amp; JOSH CUNNINGHAM- Go North Go South Tour",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://events.humanitix.com/glamping-tents-horror-movie-campout-back-from-the-dead-tour-2026",
       "verdict": "blocked",
       "httpCode": "200",
@@ -718,6 +734,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Sorrento Solstice Festival"
+    },
+    {
+      "url": "https://events.humanitix.com/spring-winery-walk-2026",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Spring Winery Walk 2026",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://events.humanitix.com/trivia-night-british-comedy",
@@ -1747,6 +1771,14 @@
       "pageTitle": "Italian Restaurant &amp; Wine Bar Mornington Peninsula"
     },
     {
+      "url": "https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Pardon Our Interruption",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://nazaaray.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -1789,12 +1821,37 @@
       "pageTitle": "Paringa Estate (Aust) PTY LTD"
     },
     {
+      "url": "https://peninsulabeergarden.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Peninsula Beer Garden Home",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://peninsulabeergarden.com.au/live-music/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Live Music - Peninsula Beer Garden",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://peninsulaessence.com.au/",
       "verdict": "ok",
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Peninsula Essence Online - peninsula essence"
+    },
+    {
+      "url": "https://peninsulagourmetcookingschool.com.au/classes",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Classes Page &#8211; Peninsula Gourmet Cooking School",
+      "effectiveUrl": "https://peninsulagourmetcookingschool.com.au/classes/",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://peninsulagroupstays.com.au/properties/chalet-3/",
@@ -1983,6 +2040,14 @@
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "School Holiday Fun at Red Gum BBQ! - Red Gum BBQ",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://redgumbbq.com.au/make-a-booking/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Make A Booking - Red Gum BBQ",
       "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
@@ -2229,6 +2294,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Tar Barrel Brewery &amp; Distillery | Mornington Peninsula"
+    },
+    {
+      "url": "https://tarbarrel.com.au/music/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Music - Tar Barrel",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://tarbarrel.com.au/whats-on/",
@@ -3031,6 +3104,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.chiefsson.com.au/book-experience/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book Experience &#8211; Chief&#039;s Son Distillery",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.chronogolf.com/club/eagle-ridge-golf-club-victoria",
       "verdict": "ok",
       "httpCode": "200",
@@ -3112,6 +3193,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Dexter Wines | Experience Quality Wines – Shop Now"
+    },
+    {
+      "url": "https://www.diggers.com.au/products/festive-wreath-making-dromana-15-nov-2026",
+      "verdict": "blocked",
+      "httpCode": "429",
+      "pageTitle": "Too many requests",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.driftawayondundas.com",
@@ -3598,6 +3687,15 @@
       "replacement": "https://mprg.mornpen.vic.gov.au/"
     },
     {
+      "url": "https://www.improvforlife.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Improv for Life | Join the Fun Today",
+      "effectiveUrl": "https://improvforlife.com.au/",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.instagram.com/foxeyshangout/",
       "verdict": "ok",
       "httpCode": "200",
@@ -3897,6 +3995,15 @@
       "httpCode": "200",
       "pageTitle": "Spike Dining - Moonah Links Resort",
       "probedOn": "2026-11-02",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.moonahlinks.com.au/cms/resort/whats-on/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What&#039;s On - Moonah Links Resort",
+      "effectiveUrl": "https://www.moonahlinks.com.au/cms/whats-on/",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -4866,6 +4973,14 @@
       "pageTitle": "Upcoming Events | Peninsula Hot Springs"
     },
     {
+      "url": "https://www.petesews.com.au/sewing-classes",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Sewing Workshops &amp; Classes Capel Sound | Pete Sews",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.petstock.com.au/blog/articles/summer-travel-our-dog-friendly-guide-to-the-mornington-peninsula",
       "verdict": "blocked",
       "httpCode": "429",
@@ -4975,6 +5090,14 @@
       "httpCode": "200",
       "pageTitle": "Luxury Vineyard Villas Red Hill | Polperro Winery Stays",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.polperrowines.com.au/event/magnum-bonum-nov/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Magnum Bonum | Polperro Wines",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -5181,6 +5304,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Culinary Garden Experience - Pt. Leo Estate",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.racv.com.au/travel-experiences/resorts/cape-schanck/accommodation.html",
@@ -5717,6 +5848,14 @@
       "pageTitle": "Winter Wine Festival – The Ninch"
     },
     {
+      "url": "https://www.thepigandwhistle.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Pig &amp; Whistle | Mornington Peninsula Pub | 365 Purves Road, Main Ridge VIC, Australia",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.theranchmp.com.au/",
       "verdict": "ok",
       "httpCode": "200",
@@ -5829,6 +5968,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Gluten Free Beer | TWØBAYS Brewing Co Dromana, Mornington"
+    },
+    {
+      "url": "https://www.unrivalledevents.com.au/soul-night-market-dromana",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Soul Night Market I Dromana Estate l Unrivalled Events",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.vicfomo.com/mornington_peninsula_shire/",
@@ -6039,6 +6186,22 @@
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula."
     },
     {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18159/sourdough-masterclass-at-peninsula-gourmet-cooking-school",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18355/festive-wreath-making-at-heronswood-house-and-garden",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18370/viral-food-festival-at-mornington-racecourse",
       "verdict": "ok",
       "httpCode": "200",
@@ -6047,11 +6210,195 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18385/whisky-cheese-storytelling-a-spring-distillery-experience-at-chiefs-son-distillery",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18403/soul-night-market-at-dromana-estate",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18412/michael-charles-live-at-the-pig-whistle-tavern",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18458/culinary-garden-experience-at-laura-pt-leo-estate",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18475/not-sew-scary-beginner-sewing-class-with-pete-sews",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18477/beginner-alteration-and-repair-sewing-class-with-pete-sews",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.visitmorningtonpeninsula.org/Whats-On/View/18489/steinfest-at-tar-barrel",
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
       "probedOn": "2026-10-14",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18511/jesse-lewis-live-at-peppers-moonah-links-resort",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18512/will-rounds-live-at-peppers-moonah-links-resort",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18513/sam-oconnell-live-at-peppers-moonah-links-resort",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18518/magnum-bonum-at-polperro-winery",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18529/the-peninsula-retreat-at-alba-thermal-springs-spa",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18535/improv-comedy-show-at-the-bay-hotel-mornington",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18545/books-and-ideas-barrie-cassidy-at-port-phillip-estate",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18556/pitmaster-masterclass-at-red-gum-bbq",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18569/smooth-operators-live-at-peninsula-beer-garden",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18571/felicity-urquhart-josh-cunningham-live-at-the-pig-whistle-tavern",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18574/the-calmer-miles-live-at-peninsula-beer-garden",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18575/bennsong-live-at-peninsula-beer-garden",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18584/spring-winery-walk-at-red-hill-recreation-reserve",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18590/jimmy-niki-live-at-jetty-road-brewery",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18598/jamie-macdowell-live-at-jetty-road-brewery",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18600/oskar-proy-live-at-jetty-road-brewery",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.visitmorningtonpeninsula.org/Whats-On/view/18612/rewind-lane-live-at-tar-barrel",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What's On &mdash; Visit Mornington Peninsula.",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
