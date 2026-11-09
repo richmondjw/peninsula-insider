@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-02T04:21:25.679Z",
+  "updatedAt": "2026-11-09T00:23:48.529Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -3130,12 +3130,36 @@
       "pageTitle": "Mount Martha, Australia Events, Calendar &amp; Tickets | Eventbrite"
     },
     {
+      "url": "https://www.eventbrite.com.au/d/australia--somers/events/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Somers, Australia Events, Calendar &amp; Tickets | Eventbrite",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.eventbrite.com.au/e/archibald-prize-2026-facing-modernity-mitchelton-winery-mprg-art-trip-tickets-1998397283069",
       "verdict": "ok",
       "httpCode": "200",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Archibald Prize 2026, Facing Modernity &amp; Mitchelton Winery: MPRG Art Trip Tickets, Tuesday 15 September • 7 AM - 6 PM | Eventbrite"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/author-talk-anna-downes-naima-brown-mornington-library-tickets-2002983195657",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Author Talk: Anna Downes &amp; Naima Brown - Mornington Library Tickets, Thursday 19 November • 6 PM - 7 PM | Eventbrite",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/author-talk-jane-gilmore-mornington-library-tickets-2003901958702",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Author Talk: Jane Gilmore - Mornington Library Tickets, Thursday 26 November • 6:30 PM - 7:30 PM | Eventbrite",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.eventbrite.com.au/e/author-talk-vikki-petraitis-mornington-library-tickets-1997529018065",
@@ -3151,6 +3175,14 @@
       "httpCode": "200",
       "probedOn": "2026-10-13",
       "probedBy": "manual source review"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "CREATE: Pottery for your table Tickets, Saturday, November 21 • 10 AM - 12 PM | Eventbrite",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.eventbrite.com.au/e/curators-floor-talk-the-making-of-a-prize-exhibition-tickets-1999008509263",
@@ -3214,6 +3246,14 @@
       "httpCode": "200",
       "pageTitle": "Tessellation Folding Workshop with Jacky Cheng Tickets, Saturday, October 17 • 9:30 AM - 12:30 PM | Eventbrite",
       "probedOn": "2026-10-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.eventbrite.com.au/e/the-creators-network-end-of-year-catch-up-for-creatives-tickets-2003902673841",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Creators Network: End of Year Catch-up for Creatives Tickets, Thursday, December 10 • 6 PM - 8:30 PM | Eventbrite",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
