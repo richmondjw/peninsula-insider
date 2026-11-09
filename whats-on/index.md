@@ -41,9 +41,9 @@ Sun, 15 Nov   Boneo   Live Music
 
 ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
-Join us for a conversation on the state of the nation over an informative two-course dinner...
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
 
-Fri, 13 Nov   Red Hill   Writers & Ideas
+Fri, 13 Nov   Red Hill South   Writers & Ideas
 
 - Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
 
@@ -73,9 +73,9 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 - [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
-Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
 
-6.30pm · Red Hill · Writers & Ideas · One-day event
+6.30pm · Red Hill South · Writers & Ideas · One-day event
 
 - [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
@@ -85,13 +85,13 @@ Flinders · Live Music · One-day event
 
 - [Smooth Operators Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
 
-Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.
+Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.
 
 5pm · Boneo · Live Music · One-day event
 
 - [Soul Night Market at Dromana Estate](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/>)
 
-Soul Night Market lights up your Friday night with a warm, vibrant atmosphere!
+A Friday-evening market at Dromana Estate with more than 90 maker and food stalls, an outdoor food lawn and live soul-inspired music. Bring a picnic rug or folding chair if you want to settle on the grass between browsing stalls.
 
 5pm · Tuerong · Markets · One-day event
 
@@ -153,7 +153,7 @@ Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery p
 
 - [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
 
-Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know.
+A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.
 
 8am · Red Hill South · Food & Wine · One-day event
 

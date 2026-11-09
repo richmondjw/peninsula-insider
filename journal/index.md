@@ -742,7 +742,7 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 Capel Sound
 
-Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.
+A small, three-hour introduction to sewing for adults and teens starting from scratch. Pete Sews supplies the machines and class equipment, so this is a practical first step for anyone who has been interested in sewing but unsure where to begin.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
 

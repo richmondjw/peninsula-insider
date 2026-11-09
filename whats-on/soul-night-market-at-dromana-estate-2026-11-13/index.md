@@ -9,7 +9,7 @@ Event     Markets     13 November 2026     One-off date
 
 # Soul Night Market at Dromana Estate
 
-Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.
+A Friday-evening market at Dromana Estate with more than 90 maker and food stalls, an outdoor food lawn and live soul-inspired music. Bring a picnic rug or folding chair if you want to settle on the grass between browsing stalls.
 
 [Book or check details](<https://www.unrivalledevents.com.au/soul-night-market-dromana>)
 
@@ -17,13 +17,19 @@ Illustration · Peninsula Insider
 
 Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Soul Night Market at Dromana Estate.
 
+This is a spread-out winery market rather than a quick row of stalls. The organiser describes more than 90 stalls across a makers pathway and an outdoor food lawn, with food trucks, Dromana Estate wine, beer, champagne and cocktails available. Live soul-inspired music runs through the evening.
+
+The practical detail that matters is seating: bring a picnic blanket or folding chair if you plan to stay. Dogs are welcome on a short lead, and the organiser lists onsite parking for 800 cars. Entry arrangements can change, so check the market page before travelling.
+
+[Check the latest details at the source →](<https://www.unrivalledevents.com.au/soul-night-market-dromana>)
+
 Hosted at
 
 Dromana Estate
 
-Tuerong VIC
+555 Old Moorooduc Road, Tuerong VIC 3915   ,   Tuerong VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Dromana%20Estate%2C%20Tuerong%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Dromana%20Estate%2C%20555%20Old%20Moorooduc%20Road%2C%20Tuerong%20VIC%203915%2C%20Tuerong%2C%20VIC>)
 
 At a glance
 
@@ -47,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.unrivalledevents.com.au/soul-night-market-dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Soul+Night+Market+at+Dromana+Estate&dates=20261113T060000Z%2F20261113T100000Z&details=Soul+Night+Market+lights+up+your+Friday+night+with+a+warm%2C+vibrant+atmosphere%21+Wander+through+a+curated+mix+of+makers+and+food+stalls%2C+grab+a+drink+from+the+bar%2C+and+settle+to+watch+spectacular+sunsets+and+listen+to+Live+Soul+Music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsoul-night-market-at-dromana-estate-2026-11-13%2F&location=Dromana+Estate%2C+Tuerong%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.unrivalledevents.com.au/soul-night-market-dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Soul+Night+Market+at+Dromana+Estate&dates=20261113T060000Z%2F20261113T100000Z&details=A+Friday-evening+market+at+Dromana+Estate+with+more+than+90+maker+and+food+stalls%2C+an+outdoor+food+lawn+and+live+soul-inspired+music.+Bring+a+picnic+rug+or+folding+chair+if+you+want+to+settle+on+the+grass+between+browsing+stalls.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsoul-night-market-at-dromana-estate-2026-11-13%2F&location=Dromana+Estate%2C+555+Old+Moorooduc+Road%2C+Tuerong+VIC+3915%2C+Tuerong%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

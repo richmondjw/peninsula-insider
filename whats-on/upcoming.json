@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-09",
-  "generatedAt": "2026-11-09T12:17:19.169Z",
+  "generatedAt": "2026-11-09T12:37:59.054Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -95,7 +95,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
         "startDate": "2026-11-10",
         "endDate": "2026-11-10",
-        "description": "Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.",
+        "description": "A small, three-hour introduction to sewing for adults and teens starting from scratch. Pete Sews supplies the machines and class equipment, so this is a practical first step for anyone who has been interested in sewing but unsure where to begin.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -121,7 +121,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
         "startDate": "2026-11-13",
         "endDate": "2026-11-13",
-        "description": "Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.",
+        "description": "Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -147,7 +147,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
         "startDate": "2026-11-13",
         "endDate": "2026-11-13",
-        "description": "Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.",
+        "description": "Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -160,7 +160,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
         "startDate": "2026-11-13",
         "endDate": "2026-11-13",
-        "description": "Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.",
+        "description": "A Friday-evening market at Dromana Estate with more than 90 maker and food stalls, an outdoor food lawn and live soul-inspired music. Bring a picnic rug or folding chair if you want to settle on the grass between browsing stalls.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -277,7 +277,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
         "startDate": "2026-11-14",
         "endDate": "2026-11-14",
-        "description": "Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.",
+        "description": "A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -1181,7 +1181,7 @@
       "category": "arts",
       "place": null,
       "venue": null,
-      "summary": "Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.",
+      "summary": "A small, three-hour introduction to sewing for adults and teens starting from scratch. Pete Sews supplies the machines and class equipment, so this is a practical first step for anyone who has been interested in sewing but unsure where to begin.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1213,13 +1213,13 @@
       "startDate": "2026-11-13",
       "endDate": "2026-11-13",
       "id": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
-      "sourceUrl": "https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113",
+      "sourceUrl": "https://www.wheelercentre.com/events-tickets/season-2026/barrie-cassidy-at-port-phillip-estate",
       "factCheckedOn": "2026-11-09",
       "recurrence": "one-off",
       "category": "writers-ideas",
       "place": null,
       "venue": null,
-      "summary": "Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.",
+      "summary": "Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1267,7 +1267,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.",
+      "summary": "Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1291,7 +1291,7 @@
       "category": "market",
       "place": null,
       "venue": null,
-      "summary": "Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.",
+      "summary": "A Friday-evening market at Dromana Estate with more than 90 maker and food stalls, an outdoor food lawn and live soul-inspired music. Bring a picnic rug or folding chair if you want to settle on the grass between browsing stalls.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1507,7 +1507,7 @@
       "category": "food-wine",
       "place": null,
       "venue": null,
-      "summary": "Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.",
+      "summary": "A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {

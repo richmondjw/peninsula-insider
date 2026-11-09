@@ -9,7 +9,7 @@ Event     Food & Wine     14 November 2026     One-off date
 
 # Spring Winery Walk at Red Hill Recreation Reserve
 
-Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.
+A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.
 
 [Book or check details](<https://events.humanitix.com/spring-winery-walk-2026>)
 
@@ -17,13 +17,19 @@ Illustration · Peninsula Insider
 
 Illustrative image  This image shows a glass of white wine with grapes. It does not depict Spring Winery Walk at Red Hill Recreation Reserve.
 
+This is a substantial walk rather than a cellar-door shuttle. The route starts and finishes at Red Hill Recreation Reserve and runs via Foxeys Hangout, a private property where Moorooduc Estate pours, Polperro, Eldridge and Lancemore Lindenderry. Allow about five hours for the circuit.
+
+Departure groups leave at 8am, 8.45am, 9.30am and 10.15am, with arrival requested 15 minutes early. The event runs in all weather. Bring water, a hat and sturdy walking shoes or boots. Parking is at the reserve. The organiser can accommodate vegetarian and gluten-free requirements when noted during booking, but says other dietary requirements cannot be supported.
+
+[Check the latest details at the source →](<https://events.humanitix.com/spring-winery-walk-2026>)
+
 Hosted at
 
 Red Hill Recreation Reserve
 
-Red Hill South VIC
+184 Arthurs Seat Road, Red Hill VIC 3937   ,   Red Hill South VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Red%20Hill%20Recreation%20Reserve%2C%20Red%20Hill%20South%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Red%20Hill%20Recreation%20Reserve%2C%20184%20Arthurs%20Seat%20Road%2C%20Red%20Hill%20VIC%203937%2C%20Red%20Hill%20South%2C%20VIC>)
 
 At a glance
 
@@ -33,7 +39,7 @@ At a glance
 
 **Time**
 
-08:00 to 16:00
+08:00 to 15:30
 
 **Recurrence**
 
@@ -47,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/spring-winery-walk-2026>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Spring+Winery+Walk+at+Red+Hill+Recreation+Reserve&dates=20261113T210000Z%2F20261114T050000Z&details=Winery+owners+are+opening+their+Cellar+Doors+and+private+gates+to+walk+through+the+beautiful+corridors+of+the+Mornington+Peninsula%2C+only+known+to+those+in+the+know.+Walking+through+undulating+vineyards+and+private+tracks%2C+you%E2%80%99ll+need+sturdy+shoes+and+a+zest+for+adventure+along+this+rambling+trail.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fspring-winery-walk-at-red-hill-recreation-reserve-2026-11-14%2F&location=Red+Hill+Recreation+Reserve%2C+Red+Hill+South%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/spring-winery-walk-2026>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Spring+Winery+Walk+at+Red+Hill+Recreation+Reserve&dates=20261113T210000Z%2F20261114T043000Z&details=A+guided+10-kilometre+route+through+Red+Hill+vineyards+and+private+tracks%2C+with+five+winery+stops+pairing+new-release+wines+with+small+snacks.+The+organiser+describes+steep+sections+and+paddock+walking%2C+so+moderate+fitness+and+proper+walking+shoes+are+required.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fspring-winery-walk-at-red-hill-recreation-reserve-2026-11-14%2F&location=Red+Hill+Recreation+Reserve%2C+184+Arthurs+Seat+Road%2C+Red+Hill+VIC+3937%2C+Red+Hill+South%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

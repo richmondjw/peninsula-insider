@@ -19,7 +19,7 @@ Arts  10 Nov
 
 ### [Not Sew Scary Beginner Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
 
-Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula.
+A small, three-hour introduction to sewing for adults and teens starting from scratch.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
 
@@ -31,7 +31,7 @@ Writers & Ideas  13 Nov
 
 ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
-Join us for a conversation on the state of the nation over an informative two-course dinner...
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 

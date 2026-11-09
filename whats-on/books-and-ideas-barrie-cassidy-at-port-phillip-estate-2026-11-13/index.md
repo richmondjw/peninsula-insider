@@ -9,7 +9,7 @@ Event     Writers & Ideas     13 November 2026     One-off date
 
 # Books and Ideas: Barrie Cassidy at Port Phillip Estate
 
-Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
 
 [Book or check details](<https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113>)
 
@@ -17,13 +17,19 @@ Illustration · Peninsula Insider
 
 Illustrative image  This image shows a stack of books with reading glasses. It does not depict Books and Ideas: Barrie Cassidy at Port Phillip Estate.
 
+This is a seated dinner and conversation, not a standard theatre talk. Cassidy will reflect on more than three decades in political journalism, including his time as Bob Hawke's press secretary, an ABC foreign correspondent and the creator and host of Insiders. Erin Vincent, CEO of The Wheeler Centre, hosts the discussion.
+
+The ticket includes a two-course dinner; beverages are charged separately. The organiser says most dietary requirements can be accommodated when details are supplied during booking. Ticket sales are scheduled to close at 5pm on Friday 6 November, so check availability rather than assuming door sales.
+
+[Check the latest details at the source →](<https://www.wheelercentre.com/events-tickets/season-2026/barrie-cassidy-at-port-phillip-estate>)
+
 Hosted at
 
 Port Phillip Estate
 
-Red Hill VIC
+263 Red Hill Road, Red Hill South VIC 3937   ,   Red Hill South VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Port%20Phillip%20Estate%2C%20Red%20Hill%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Port%20Phillip%20Estate%2C%20263%20Red%20Hill%20Road%2C%20Red%20Hill%20South%20VIC%203937%2C%20Red%20Hill%20South%2C%20VIC>)
 
 At a glance
 
@@ -47,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Books+and+Ideas%3A+Barrie+Cassidy+at+Port+Phillip+Estate&dates=20261113T073000Z%2F20261113T103000Z&details=Join+us+for+a+conversation+on+the+state+of+the+nation+over+an+informative+two-course+dinner...+Barrie+Cassidy+is+one+of+Australia%E2%80%99s+most+recognised+and+respected+political+journalists.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbooks-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13%2F&location=Port+Phillip+Estate%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Books+and+Ideas%3A+Barrie+Cassidy+at+Port+Phillip+Estate&dates=20261113T073000Z%2F20261113T103000Z&details=Barrie+Cassidy+joins+Wheeler+Centre+CEO+Erin+Vincent+to+discuss+his+career+and+Australian+politics+over+a+two-course+dinner+at+Port+Phillip+Estate.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbooks-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13%2F&location=Port+Phillip+Estate%2C+263+Red+Hill+Road%2C+Red+Hill+South+VIC+3937%2C+Red+Hill+South%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

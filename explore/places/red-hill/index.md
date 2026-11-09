@@ -539,16 +539,6 @@ Coming up in Red Hill, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 13 Nov
-
-### Books and Ideas: Barrie Cassidy at Port Phillip Estate
-
-Red Hill
-
-Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.
-
- Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
-
 - [Sat, 5 Dec
 
 ### Chris Gogerly Live at Fenian Wines
@@ -568,3 +558,13 @@ Red Hill
 LARGE FORMAT WINES, BIG DISHES, LONG TABLES \* noun. Latin, 'a great good thing'.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+
+- [Sat, 14 Nov
+
+### Mornington Peninsula Wine Spring Winery Walk
+
+Red Hill
+
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+
+ Event · Cellar Doors](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-09T12:26:36.565Z",
-  "snapshotId": "521f79ccfd74d9dedc032e9bbe56c294fcf0b3d80985a43aae0fe0fe7c473db5",
+  "generatedAt": "2026-11-09T12:46:50.397Z",
+  "snapshotId": "756a250c6cf50cdfd7253b7decca76d8de199975e611b008a85a3d5669dbd721",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 332915,
+      "htmlBytes": 336716,
       "markdownBytes": 811
     },
     {
@@ -2206,7 +2206,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/index.md",
-      "contentSha256": "70a3648abf057f20b43e043b213963b372d05eb02b05de536bf460d4bf5419f2",
+      "contentSha256": "907dea25f49b886044f094bb89290f42aa38de38badbae8d336ba820fde6ab1e",
       "citation": {
         "title": "Capel Sound",
         "publisher": "Peninsula Insider",
@@ -2214,8 +2214,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 171606,
-      "markdownBytes": 7076
+      "htmlBytes": 172403,
+      "markdownBytes": 7074
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/crib-point/",
@@ -2512,7 +2512,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/index.md",
-      "contentSha256": "4cb99772a0c8bd53ab1190c49eb830283c4c32e897971edaef8d9fe992f1274e",
+      "contentSha256": "ae239076c680a90b3579156bca372057fb973cb564abacf6807ee12881f6fbb9",
       "citation": {
         "title": "Red Hill South",
         "publisher": "Peninsula Insider",
@@ -2520,8 +2520,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 212190,
-      "markdownBytes": 14625
+      "htmlBytes": 217683,
+      "markdownBytes": 14965
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
@@ -2529,7 +2529,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
-      "contentSha256": "0a0891ecd4e09c37f8e7dfeaa66a02d28d6a42c3b052e080edcc43ff8899b405",
+      "contentSha256": "d0c02104ba142769b316ce19c9746f92dee7b8d6d8bc68e28ca7d75ec13f07a5",
       "citation": {
         "title": "Red Hill",
         "publisher": "Peninsula Insider",
@@ -2537,8 +2537,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 296539,
-      "markdownBytes": 27848
+      "htmlBytes": 296192,
+      "markdownBytes": 27728
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/rosebud/",
@@ -2699,7 +2699,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/tuerong/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/tuerong/index.md",
-      "contentSha256": "29ebf0fda35b554ae3c474ba90d3f4620e4718afad9e75a002bcb4d2b8d158b6",
+      "contentSha256": "6adaa2c8e8fcc6cf84384f70d2063d704e4c9c97f6747874172939253851998e",
       "citation": {
         "title": "Tuerong",
         "publisher": "Peninsula Insider",
@@ -2707,8 +2707,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 193213,
-      "markdownBytes": 11152
+      "htmlBytes": 193991,
+      "markdownBytes": 11149
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/tyabb/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "f771256e91248f13edec5044a1a01854df15213beb9b71e93d0a8311326a3701",
+      "contentSha256": "9b23d33d9be2ef2590153800ea8e3a0ad7312f455d469116a574b5593a8deb5f",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 249978,
-      "markdownBytes": 22566
+      "htmlBytes": 250775,
+      "markdownBytes": 22564
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -7187,7 +7187,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "37836cb4a209b484ffddbd0f902f9247c500a835ccc0108ae55ada372d3be9b4",
+      "contentSha256": "a08d80a57aeb2e45ec746b3f9958311df9ebac12e369395b3dced69c2be4dac1",
       "citation": {
         "title": "Monday 9 November 2026",
         "publisher": "Peninsula Insider",
@@ -9023,7 +9023,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "0cdffba5883cce53f7cae6c393ec0c775f634cbcca4bac32477248ed50c85039",
+      "contentSha256": "1c313ff8aaabac9529efc37012d316e64ce05347cbc1778ed2f0c344c8a5a6d4",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -9031,8 +9031,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-09"
       },
-      "htmlBytes": 275586,
-      "markdownBytes": 18560
+      "htmlBytes": 276460,
+      "markdownBytes": 18896
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9074,7 +9074,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/index.md",
-      "contentSha256": "eebc833de1374a08934d6146d74c841d34979713baeb206aea77ce031b23782e",
+      "contentSha256": "768fab4cf44a2a97e69f9a20a560eddea872977b283cd09a965964dd89f228e3",
       "citation": {
         "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
         "publisher": "Peninsula Insider",
@@ -9082,8 +9082,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141663,
-      "markdownBytes": 3751
+      "htmlBytes": 141672,
+      "markdownBytes": 3799
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
@@ -9091,7 +9091,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/index.md",
-      "contentSha256": "ef2b292cb5dd5c88bd1fd9619dd6e0a6879789b7f903606da6675f3bc0b4d409",
+      "contentSha256": "00375cd1f7709b82d49eaa1df4f035677f882b860e0553384521474aca1a8d0c",
       "citation": {
         "title": "Author Talk: Jane Gilmore - Mornington Library",
         "publisher": "Peninsula Insider",
@@ -9099,8 +9099,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141593,
-      "markdownBytes": 3734
+      "htmlBytes": 141602,
+      "markdownBytes": 3782
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -9176,7 +9176,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/index.md",
-      "contentSha256": "eb5f73fcbcf350bba1c90756a4bcdc80b1c46b36f5ac22c0fcc7f75f0b07c546",
+      "contentSha256": "ae2bb774ad0a919d1127b7656e6aaf2e82535fd71b0068f471315b2096541a93",
       "citation": {
         "title": "Books and Ideas: Barrie Cassidy at Port Phillip Estate",
         "publisher": "Peninsula Insider",
@@ -9184,8 +9184,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141941,
-      "markdownBytes": 3842
+      "htmlBytes": 143116,
+      "markdownBytes": 4714
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/",
@@ -9227,7 +9227,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "c7059c7346925f74f77d8888b85bd484849e8fa25f329bee9d88096985848e45",
+      "contentSha256": "437ef270613d8bf92eef259238eee1793fbce997a75b875830dccca151696d2e",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -9235,8 +9235,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 189310,
-      "markdownBytes": 10068
+      "htmlBytes": 189309,
+      "markdownBytes": 10108
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -9924,7 +9924,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/index.md",
-      "contentSha256": "3aeb642d744502b3f7d8e2a7e740a023e38130b798622957a342ee6247d73b73",
+      "contentSha256": "ec618bb413ede7d650889eae2855c6466d3120daa235bae7efa9740bd0e5dcde",
       "citation": {
         "title": "Not Sew Scary Beginner Sewing Class with Pete Sews",
         "publisher": "Peninsula Insider",
@@ -9932,8 +9932,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 145653,
-      "markdownBytes": 4406
+      "htmlBytes": 146890,
+      "markdownBytes": 5243
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/",
@@ -10145,7 +10145,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/index.md",
-      "contentSha256": "45a8d6e6d3f66a1f73ae4d686cb6b05fdb0beb08a9f44718945477923906335d",
+      "contentSha256": "4c5ab804597e3b4316004802def114500b559110b56957bdf5f46ecd7ce88197",
       "citation": {
         "title": "Smooth Operators Live at Peninsula Beer Garden",
         "publisher": "Peninsula Insider",
@@ -10153,8 +10153,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144915,
-      "markdownBytes": 4120
+      "htmlBytes": 146465,
+      "markdownBytes": 5037
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
@@ -10162,7 +10162,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/index.md",
-      "contentSha256": "35e2bc388769e537755c2ec17f6052ab1d30e91ab6169b5988c126448d45e89b",
+      "contentSha256": "392b907c93a5bae833598e3dbc8439816d2d0f51f337ebd3d4112befae777950",
       "citation": {
         "title": "Soul Night Market at Dromana Estate",
         "publisher": "Peninsula Insider",
@@ -10170,8 +10170,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144733,
-      "markdownBytes": 4267
+      "htmlBytes": 145953,
+      "markdownBytes": 5085
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
@@ -10196,7 +10196,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/index.md",
-      "contentSha256": "28c31763da22f2383ea81f98e7e851b5b623c21ce79febfe46f85d7e7c6cd3de",
+      "contentSha256": "56afbbe6e4752eaafecbd2c660672bea1a460ed9780e44343601c4e32ddd07d1",
       "citation": {
         "title": "Spring Winery Walk at Red Hill Recreation Reserve",
         "publisher": "Peninsula Insider",
@@ -10204,8 +10204,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 145895,
-      "markdownBytes": 4687
+      "htmlBytes": 146972,
+      "markdownBytes": 5515
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/",

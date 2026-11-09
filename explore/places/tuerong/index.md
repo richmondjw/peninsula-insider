@@ -273,6 +273,6 @@ Coming up in Tuerong, pulled from the events registry.
 
 Tuerong
 
-Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.
+A Friday-evening market at Dromana Estate with more than 90 maker and food stalls, an outdoor food lawn and live soul-inspired music. Bring a picnic rug or folding chair if you want to settle on the grass between browsing stalls.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/>)

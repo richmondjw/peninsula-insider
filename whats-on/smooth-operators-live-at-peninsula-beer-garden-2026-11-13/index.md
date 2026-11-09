@@ -9,7 +9,7 @@ Event     Live Music     13 November 2026     One-off date
 
 # Smooth Operators Live at Peninsula Beer Garden
 
-Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.
+Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.
 
 [Book or check details](<https://peninsulabeergarden.com.au/live-music/>)
 
@@ -17,13 +17,19 @@ Illustration · Peninsula Insider
 
 Illustrative image  This image shows a vintage stage microphone. It does not depict Smooth Operators Live at Peninsula Beer Garden.
 
+Smooth Operators is fronted by vocalist Mary Ann Vanderhorst. The venue's musician profile describes a broad covers set spanning jazz and blues through dance hits, rock and pop, so expect familiar songs rather than a single-genre performance.
+
+Peninsula Beer Garden sits at Eagle Ridge Golf Course and serves local beer on tap and wood-fired pizza. The tourism listing marks the venue as wheelchair accessible and says no booking is required for this set. As this is an outdoor beer-garden venue, check the organiser's live-music page if the weather looks uncertain.
+
+[Check the latest details at the source →](<https://peninsulabeergarden.com.au/the-musicians/>)
+
 Hosted at
 
 Peninsula Beer Garden
 
-Boneo VIC
+215 Browns Road, Boneo VIC 3939   ,   Boneo VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Beer%20Garden%2C%20Boneo%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Beer%20Garden%2C%20215%20Browns%20Road%2C%20Boneo%20VIC%203939%2C%20Boneo%2C%20VIC>)
 
 At a glance
 
@@ -47,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulabeergarden.com.au/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Smooth+Operators+Live+at+Peninsula+Beer+Garden&dates=20261113T060000Z%2F20261113T090000Z&details=Looking+for+something+to+kick+your+weekend+into+full+swing%3F+Smooth+Operators+are+a+local+group+of+singers+%26+musicians%2C+who+will+be+sure+to+get+you+warmed+up+for+the+afternoon.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsmooth-operators-live-at-peninsula-beer-garden-2026-11-13%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://peninsulabeergarden.com.au/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Smooth+Operators+Live+at+Peninsula+Beer+Garden&dates=20261113T060000Z%2F20261113T090000Z&details=Local+covers+group+Smooth+Operators+plays+a+three-hour+Friday+set+at+Peninsula+Beer+Garden%2C+moving+through+jazz%2C+blues%2C+dance%2C+rock+and+pop+from+the+1960s+to+current+favourites.+The+venue+says+no+booking+is+required+for+this+performance.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsmooth-operators-live-at-peninsula-beer-garden-2026-11-13%2F&location=Peninsula+Beer+Garden%2C+215+Browns+Road%2C+Boneo+VIC+3939%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

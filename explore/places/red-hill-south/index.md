@@ -347,12 +347,22 @@ BRASA brings the spirit of South America to the Mornington Peninsula! A celebrat
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 
+- [Fri, 13 Nov
+
+### Books and Ideas: Barrie Cassidy at Port Phillip Estate
+
+Red Hill South
+
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
+
+ Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+
 - [Sat, 14 Nov
 
 ### Spring Winery Walk at Red Hill Recreation Reserve
 
 Red Hill South
 
-Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.
+A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)

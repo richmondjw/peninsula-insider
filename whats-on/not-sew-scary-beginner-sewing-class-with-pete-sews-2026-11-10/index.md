@@ -9,7 +9,7 @@ Event     Arts     10 November 2026     One-off date
 
 # Not Sew Scary Beginner Sewing Class with Pete Sews
 
-Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.
+A small, three-hour introduction to sewing for adults and teens starting from scratch. Pete Sews supplies the machines and class equipment, so this is a practical first step for anyone who has been interested in sewing but unsure where to begin.
 
 [Book or check details](<https://www.petesews.com.au/sewing-classes>)
 
@@ -17,13 +17,19 @@ Illustration · Peninsula Insider
 
 Illustrative image  This image shows a classic sewing machine. It does not depict Not Sew Scary Beginner Sewing Class with Pete Sews.
 
+Not Sew Scary is the starting-point class in Pete Sews' Capel Sound workshop. It is designed for complete beginners and people with little time behind a sewing machine. The group is capped at six, which should leave room for hands-on guidance rather than a large demonstration-style session.
+
+The organiser says sewing machines and the equipment needed for this group class are provided. Allow the full three hours, and use the booking page to confirm availability before setting out. If you want to learn on your own machine, Pete Sews lists a separate Sewing Machine Starter class instead.
+
+[Check the latest details at the source →](<https://www.petesews.com.au/beginner-sewing-class>)
+
 Hosted at
 
-1663 Point Nepean Rd
+Pete Sews workshop
 
-Capel Sound VIC
+1663 Point Nepean Road, Capel Sound VIC 3940   ,   Capel Sound VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=1663%20Point%20Nepean%20Rd%2C%20Capel%20Sound%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Pete%20Sews%20workshop%2C%201663%20Point%20Nepean%20Road%2C%20Capel%20Sound%20VIC%203940%2C%20Capel%20Sound%2C%20VIC>)
 
 At a glance
 
@@ -47,7 +53,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.petesews.com.au/sewing-classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Not+Sew+Scary+Beginner+Sewing+Class+with+Pete+Sews&dates=20261110T070000Z%2F20261110T100000Z&details=Learn+to+sew+from+scratch+with+Pete+Sews%E2%80%99+beginner+sewing+class+on+the+Mornington+Peninsula.+Not+Sew+Scary+is+a+practical%2C+hands-on+class+for+adults+and+teens+who+are+completely+new+to+sewing+or+haven%E2%80%99t+spent+much+time+behind+a+sewing+machine.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnot-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10%2F&location=1663+Point+Nepean+Rd%2C+Capel+Sound%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.petesews.com.au/sewing-classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Not+Sew+Scary+Beginner+Sewing+Class+with+Pete+Sews&dates=20261110T070000Z%2F20261110T100000Z&details=A+small%2C+three-hour+introduction+to+sewing+for+adults+and+teens+starting+from+scratch.+Pete+Sews+supplies+the+machines+and+class+equipment%2C+so+this+is+a+practical+first+step+for+anyone+who+has+been+interested+in+sewing+but+unsure+where+to+begin.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnot-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10%2F&location=Pete+Sews+workshop%2C+1663+Point+Nepean+Road%2C+Capel+Sound+VIC+3940%2C+Capel+Sound%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
