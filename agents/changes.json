@@ -1,44 +1,92 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-08T20:17:55.979Z",
+  "generatedAt": "2026-11-09T00:46:43.662Z",
   "baselineAvailable": true,
-  "fromSnapshot": "6d51a316c3a9abc9b910b1e0e873d299c397a84c27e7afb6b99578d336591b5b",
-  "toSnapshot": "3071c38b62c2e3f0da976a7110d7e988513aed42f2a624a10736a739bbe6689c",
-  "previousGeneratedAt": "2026-11-08T19:18:43.762Z",
+  "fromSnapshot": "3071c38b62c2e3f0da976a7110d7e988513aed42f2a624a10736a739bbe6689c",
+  "toSnapshot": "a37e2057512bb84828b5338e90fe301613f8ff409063f6e0afce8fd517f4781f",
+  "previousGeneratedAt": "2026-11-08T20:17:55.979Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 4,
+  "count": 10,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
+      "id": "https://peninsulainsider.com.au/explore/places/mornington/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/st-andrews-beach/index.md",
-      "contentSha256": "f333db9dfc9cfddc8514adb2eb119a269b656d87a420816051817d5ce27fa39f",
-      "previousContentSha256": "0269bd5cf72a14a0fef96801a12e407760aba37257a93d740236ebc22920b86b"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
-      "kind": "representation-added",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/index.md",
-      "contentSha256": "d15021166925d8757b29f332024c08b2cff6d432e6a82b1984573070db25147c",
-      "previousContentSha256": null
-    },
-    {
-      "id": "https://peninsulainsider.com.au/picks/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
-      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "2aee7ef4462ed142eee58beb7bbae3e9a8bdb6179aabd3424a25584f70e1f353",
-      "previousContentSha256": "72de00754d15d6be19f4758511b39522c60f751c875408453c14e47737bbc9ff"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mornington/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mornington/index.md",
+      "contentSha256": "9cc6e8b103c4369c872b7e269b028d5834fc33b9f641a9d54c2082aa94a617e7",
+      "previousContentSha256": "eabc3aece75f6e34933e2591675e96534b9d53cd41da1f566311f06c64e370a1"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "b6da217cbd5e95ee25ba8c63c92340db5ee34b74b1b0b461f8da00612964aaeb",
-      "previousContentSha256": "340a735e8d2b0456f3d9dc146d7a04ba7a88920250aac456d05f08a8c78e6ab7"
+      "contentSha256": "2d2bf06f1e1afcae9dea20201b01f15a79b3b9fcb02b44684ae57fa9ccfdf31e",
+      "previousContentSha256": "b6da217cbd5e95ee25ba8c63c92340db5ee34b74b1b0b461f8da00612964aaeb"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/site-index/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
+      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
+      "contentSha256": "02db368d4ea9c7c4706f54d9543fdb4101ad9c988c229b90f45f3346892a27be",
+      "previousContentSha256": "6eb3779b4f9b816f1891edc7052686771040761cbfbc1fb3daae0cf9283edf61"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "64f04b459f808f31600f375044f18d60cb32d80804c7b8a17a6acdb334fa3787",
+      "previousContentSha256": "c6d8eb4ac84e446d9a73c0b600b8dbbf2fd0f4298e808d04393da7733b31e4dd"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/index.md",
+      "contentSha256": "50124753290c6423a0c0ff81fe1c7fdd21259cec5dc24e12d1b32c1ef788cdba",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/index.md",
+      "contentSha256": "0524bd011508091456d8521278d090cf5a072a852baa4c9a3eaeb6b2e7299693",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
+      "contentSha256": "90d3e8d7c4169c7d8e7e1e636bc0876232178000f0b0f01b7fe302f94a612444",
+      "previousContentSha256": "02384b76f4224b000353423c236573f72c3fff76be386df1f46bf3dc0579a554"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/index.md",
+      "contentSha256": "9c69fc43bbb84c3fdf1da71b3d7fe550f6b494221242c4f98cc782c8ba65b8bf",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
+      "contentSha256": "ba4a869f8bdf77e0eac174c25d8d5ff5582269fd251fd730124f9bb7b0eecf20",
+      "previousContentSha256": "8ed7f494d62b49dc73ef52526b7915f165c9d08a55e88485b7a75a06e6d65191"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/index.md",
+      "contentSha256": "bf034d7fc38122d4d94719c9d4a16ad59668d50f2287b3e720c627f3c4028fd6",
+      "previousContentSha256": null
     }
   ]
 }

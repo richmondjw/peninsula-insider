@@ -389,32 +389,32 @@ Coming up in Mornington, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 14 Nov
+- [Thu, 19 Nov
 
-### ✦ Curators floor talk: The Making of a Prize Exhibition
-
-Mornington
-
-Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were selected for the prize.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
-- [Wed, 11 Nov
-
-### ✦ Mornington Wednesday Market (Main Street Market)
+### Author Talk: Anna Downes & Naima Brown - Mornington Library
 
 Mornington
 
-Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
+Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
 
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+ Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
 
-- [Tue, 10 Nov
+- [Thu, 26 Nov
 
-### ✦ National Works on Paper 2026 (NWOP)
+### Author Talk: Jane Gilmore - Mornington Library
 
 Mornington
 
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
+Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.
 
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+ Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
+
+- [Sat, 21 Nov
+
+### CREATE: Pottery for your table
+
+Mornington
+
+Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)

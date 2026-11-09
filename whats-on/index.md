@@ -169,6 +169,18 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions
 
+- [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+
+Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
+
+10am · Mornington · Exhibitions
+
+- [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
+
+Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.
+
+6pm · Mornington · Exhibitions
+
 ### Major events
 
 - [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)

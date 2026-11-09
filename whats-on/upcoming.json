@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-09",
-  "generatedAt": "2026-11-08T20:09:19.918Z",
+  "generatedAt": "2026-11-09T00:39:28.696Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -21,7 +21,7 @@
     "label": "Fri 13 – Sun 15 November",
     "count": 9
   },
-  "numberOfItems": 15,
+  "numberOfItems": 19,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -143,6 +143,32 @@
       "position": 11,
       "item": {
         "@type": "Event",
+        "name": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
+        "url": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+        "startDate": "2026-11-19",
+        "endDate": "2026-11-19",
+        "description": "Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "CREATE: Pottery for your table",
+        "url": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
+      "item": {
+        "@type": "Event",
         "name": "Emu Plains Market",
         "url": "https://peninsulainsider.com.au/whats-on/emu-plains-market/",
         "startDate": "2026-11-21",
@@ -153,7 +179,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 14,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -166,7 +192,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -179,7 +205,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 16,
+      "item": {
+        "@type": "Event",
+        "name": "Author Talk: Jane Gilmore - Mornington Library",
+        "url": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+        "startDate": "2026-11-26",
+        "endDate": "2026-11-26",
+        "description": "Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 17,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -192,7 +231,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 18,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -202,9 +241,22 @@
         "description": "A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
+      "item": {
+        "@type": "Event",
+        "name": "The Creators Network: End of Year Catch-up for Creatives",
+        "url": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+        "startDate": "2026-12-10",
+        "endDate": "2026-12-10",
+        "description": "Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
     }
   ],
-  "count": 15,
+  "count": 19,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -440,6 +492,44 @@
       "thisWeekend": true
     },
     {
+      "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "id": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/author-talk-anna-downes-naima-brown-mornington-library-tickets-2002983195657",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "writers-ideas",
+      "place": null,
+      "venue": null,
+      "summary": "Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "CREATE: Pottery for your table",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/create-pottery-for-your-table-tickets-2003897868468",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "exhibition",
+      "place": null,
+      "venue": null,
+      "summary": "Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "Emu Plains Market",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -497,6 +587,25 @@
       "thisWeekend": false
     },
     {
+      "title": "Author Talk: Jane Gilmore - Mornington Library",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/author-talk-jane-gilmore-mornington-library-tickets-2003901958702",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "writers-ideas",
+      "place": null,
+      "venue": null,
+      "summary": "Hear journalist and author Jane Gilmore discuss her new book, helping adults talk to kids about consent, relationships and online life.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -530,6 +639,25 @@
       "place": "main-ridge",
       "venue": null,
       "summary": "A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge. The organiser lists Thursday 3, 10 and 17 December, each from 6pm to 10pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "The Creators Network: End of Year Catch-up for Creatives",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "id": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+      "sourceUrl": "https://www.eventbrite.com.au/e/the-creators-network-end-of-year-catch-up-for-creatives-tickets-2003902673841",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "exhibition",
+      "place": null,
+      "venue": null,
+      "summary": "Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

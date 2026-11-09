@@ -1,9 +1,9 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-08T20:17:55.979Z",
-  "snapshotId": "3071c38b62c2e3f0da976a7110d7e988513aed42f2a624a10736a739bbe6689c",
+  "generatedAt": "2026-11-09T00:46:43.662Z",
+  "snapshotId": "a37e2057512bb84828b5338e90fe301613f8ff409063f6e0afce8fd517f4781f",
   "section": "whats-on",
-  "count": 35,
+  "count": 39,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
@@ -11,7 +11,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "c6d8eb4ac84e446d9a73c0b600b8dbbf2fd0f4298e808d04393da7733b31e4dd",
+      "contentSha256": "64f04b459f808f31600f375044f18d60cb32d80804c7b8a17a6acdb334fa3787",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -19,8 +19,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-09"
       },
-      "htmlBytes": 184727,
-      "markdownBytes": 7903
+      "htmlBytes": 189112,
+      "markdownBytes": 8464
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -38,6 +38,40 @@
       },
       "htmlBytes": 144033,
       "markdownBytes": 4334
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/index.md",
+      "contentSha256": "50124753290c6423a0c0ff81fe1c7fdd21259cec5dc24e12d1b32c1ef788cdba",
+      "citation": {
+        "title": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 141559,
+      "markdownBytes": 3609
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+      "title": "Author Talk: Jane Gilmore - Mornington Library",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/index.md",
+      "contentSha256": "0524bd011508091456d8521278d090cf5a072a852baa4c9a3eaeb6b2e7299693",
+      "citation": {
+        "title": "Author Talk: Jane Gilmore - Mornington Library",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 141359,
+      "markdownBytes": 3575
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/",
@@ -62,7 +96,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "02384b76f4224b000353423c236573f72c3fff76be386df1f46bf3dc0579a554",
+      "contentSha256": "90d3e8d7c4169c7d8e7e1e636bc0876232178000f0b0f01b7fe302f94a612444",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -70,8 +104,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 130689,
-      "markdownBytes": 1371
+      "htmlBytes": 138868,
+      "markdownBytes": 2638
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -123,6 +157,23 @@
       },
       "htmlBytes": 145907,
       "markdownBytes": 3925
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+      "title": "CREATE: Pottery for your table",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/index.md",
+      "contentSha256": "9c69fc43bbb84c3fdf1da71b3d7fe550f6b494221242c4f98cc782c8ba65b8bf",
+      "citation": {
+        "title": "CREATE: Pottery for your table",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 139128,
+      "markdownBytes": 3403
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
@@ -249,7 +300,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/index.md",
-      "contentSha256": "8ed7f494d62b49dc73ef52526b7915f165c9d08a55e88485b7a75a06e6d65191",
+      "contentSha256": "ba4a869f8bdf77e0eac174c25d8d5ff5582269fd251fd730124f9bb7b0eecf20",
       "citation": {
         "title": "National Works on Paper 2026 (NWOP)",
         "publisher": "Peninsula Insider",
@@ -257,8 +308,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143700,
-      "markdownBytes": 5204
+      "htmlBytes": 140349,
+      "markdownBytes": 4694
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/",
@@ -361,6 +412,23 @@
       },
       "htmlBytes": 143412,
       "markdownBytes": 4432
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+      "title": "The Creators Network: End of Year Catch-up for Creatives",
+      "section": "whats-on",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/index.md",
+      "contentSha256": "bf034d7fc38122d4d94719c9d4a16ad59668d50f2287b3e720c627f3c4028fd6",
+      "citation": {
+        "title": "The Creators Network: End of Year Catch-up for Creatives",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
+        "publishedAt": null,
+        "modifiedAt": null
+      },
+      "htmlBytes": 139788,
+      "markdownBytes": 3581
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/",
