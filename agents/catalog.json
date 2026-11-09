@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-09T20:14:15.805Z",
-  "snapshotId": "66a1eb9b70cabc855754bb4613f0b872fdc293b647f29bd66374c32cf1c40dff",
+  "generatedAt": "2026-11-09T20:35:54.467Z",
+  "snapshotId": "bc83316f32e8ff8ff0d478222b86a22974fda52165797c51a331f6117807e0f8",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 710,
+  "count": 711,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6315,6 +6315,23 @@
       "markdownBytes": 8430
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/",
+      "title": "Barragunda's market garden table, the Bushranger Bay heathland in full flower, and the NWOP show closing soon at Mornington",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/index.md",
+      "contentSha256": "be74cd8a7f9ad632ae6626583a931b52fd9089922e1472b7820861df6e5cf469",
+      "citation": {
+        "title": "Barragunda's market garden table, the Bushranger Bay heathland in full flower, and the NWOP show closing soon at Mornington",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/",
+        "publishedAt": "2026-11-10T00:00:00.000Z",
+        "modifiedAt": "2026-11-10T00:00:00.000Z"
+      },
+      "htmlBytes": 175409,
+      "markdownBytes": 9285
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7153,7 +7170,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "2aee7ef4462ed142eee58beb7bbae3e9a8bdb6179aabd3424a25584f70e1f353",
+      "contentSha256": "2acb81e66b58f943f2fbe263a95de9c6a5b964ed1434b170e58c93f8d50e6eb2",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7161,8 +7178,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 123673,
-      "markdownBytes": 5760
+      "htmlBytes": 123749,
+      "markdownBytes": 5832
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
@@ -7187,7 +7204,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "9061e3e7c3b92e06ed76e8d02846ae4d1e09838d6734bb77b2da45c893feeacf",
+      "contentSha256": "dac13fdb7e839e453cfa08abc53a08a48e61f5883622b1af5a8e87a70fddc8b8",
       "citation": {
         "title": "Tuesday 10 November 2026",
         "publisher": "Peninsula Insider",

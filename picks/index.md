@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Barragunda's market garden table, the Bushranger Bay heathland in full flower, and the NWOP show closing soon at Mornington](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - A set-menu lunch beside Cape Schanck's market garden, spring wildflowers on the Bushranger Bay heathland trail, and National Works on Paper 2026 closing 22 November at Mornington Peninsula Regional Gallery.
+
 - [St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/>) - A Sunday roast in a converted racehorse stable, spring wildflowers at their densest on the Bushranger Bay heathland trail, and the last Saturday of the Mt Eliza market run.
 
 - [Portsea Hotel fish and chips, the Bushranger Bay snorkel trail, and live music at Moonah Links](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-08/>) - The Portsea Hotel's front-beach deck before the summer crowds, the Bushranger Bay underwater trail at peak spring visibility, and acoustic sets running every Saturday at Peppers Moonah Links through December.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Moke's five-course set menu, the Balnarring horse trails at peak spring green, and the Emu Plains Market craft find](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/>) - Moke Dining's fixed five-course menu in Flinders, the Balnarring horse trails at their most open, and the Emu Plains Market in Balnarring for a local's Saturday circuit.
 
 - [The Bay Hotel's vault room, Greens Bush in flower, and Wine and Cheese Night in Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-29/>) - The Bay Hotel Mornington's private vault dining room earns a booking, Greens Bush trails are at peak wildflower density, and Wine Lovers Warehouse Hastings runs a guided cheese-and-glass night on Friday.
-
-- [Commonfolk Coffee, Cape Schanck Boardwalk, and Wine and Cheese Night at Hastings](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-28/>) - Commonfolk's roastery brunch earns a Mornington morning, the Cape Schanck boardwalk is at its coastal heath peak, and Wine Lovers Warehouse runs a Friday-night pour in Hastings.
 
 ## Planning a particular weekend?
 
