@@ -9,7 +9,7 @@ heroImage:
   alt: "Dromana Pier reaches into Port Phillip Bay beside moored boats at sunset"
   credit: "Peter Tarasiuk, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula. A regional photograph, not a depiction of the restaurants named in this story."
+  caption: "Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula"
   depicts: "Dromana Pier and boats on the bay"
   depictionStatus: "illustrative"
   creator: "Peter Tarasiuk"

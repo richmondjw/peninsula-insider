@@ -9,7 +9,7 @@ heroImage:
   alt: "Two stand-up paddleboarders on calm, softly lit water off Mills Beach, with a channel marker in the distance"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Paddleboarding off Mills Beach, Mornington, Mornington Peninsula."
+  caption: "Paddleboarding off Mills Beach, Mornington, Mornington Peninsula"
   depicts: "SUP at Mills Beach"
   depictionStatus: "actual"
   sourceUrl: "Victoria Content Hub asset 161999, downloaded 2026-09-28"
