@@ -15,6 +15,10 @@ VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way
 
 Worth the drive   First timer
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
+
 Editor's verdict
 
 A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
@@ -93,6 +97,10 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Emu Plains Market.
+
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 
 ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
@@ -102,6 +110,10 @@ Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027
 Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mornington Wednesday Market (Main Street Market).
 
 Markets   Weekly – every Wednesday year-round (weather and wind policy dependent)
 

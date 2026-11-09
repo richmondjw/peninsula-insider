@@ -13,6 +13,10 @@ Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of aut
 
 [Book or check details](<https://redgumbbq.com.au/make-a-booking/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a kettle barbecue with a soft flame. It does not depict Pitmaster Masterclass at Red Gum BBQ.
+
 Hosted at
 
 Red Gum BBQ
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

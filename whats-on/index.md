@@ -27,7 +27,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Sun, 15 Nov · 12pm–4pm · Boneo
+- Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
+
+Sun, 15 Nov · 12pm–4pm · Boneo
 
 ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
@@ -35,13 +37,17 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
 Sun, 15 Nov   Boneo   Live Music
 
-- ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+- Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
+
+### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
 Join us for a conversation on the state of the nation over an informative two-course dinner...
 
 Fri, 13 Nov   Red Hill   Writers & Ideas
 
-- ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+- Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
+
+### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
 Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage.
 
@@ -293,7 +299,7 @@ Ease into the weekend with live music in the Spike Bar at Moonah Links. Enjoy a 
 
 - [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
 
-Brown Sugar - Rolling Stones at The Bay Hotel Mornington. Starts 8.30pm.
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
 
 Mornington · Live Music
 

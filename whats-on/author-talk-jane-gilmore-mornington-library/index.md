@@ -13,6 +13,10 @@ Hear journalist and author Jane Gilmore discuss her new book, helping adults tal
 
 [Book or check details](<https://www.eventbrite.com.au/e/author-talk-jane-gilmore-mornington-library-tickets-2003901958702>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a stack of books with reading glasses. It does not depict Author Talk: Jane Gilmore - Mornington Library.
+
 Hosted at
 
 Mornington Library
@@ -51,6 +55,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a stack of books with reading glasses. It does not depict Author Talk: Anna Downes & Naima Brown - Mornington Library.
+
 Writers & Ideas  19 Nov
 
 ### [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
@@ -58,6 +66,10 @@ Writers & Ideas  19 Nov
 Join authors Anna Downes and Naima Brown as they discuss the art of storytelling and Anna's new book Dark Days Hotel.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a stack of books with reading glasses. It does not depict Books and Ideas: Barrie Cassidy at Port Phillip Estate.
 
 Writers & Ideas  13 Nov
 

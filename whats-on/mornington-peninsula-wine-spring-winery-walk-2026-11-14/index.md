@@ -13,6 +13,10 @@ Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkli
 
 [Book or check details](<https://foxeys-hangout.com.au/events/foxeys-hangout/the-lucky-duck-pinot-lunch-2/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Mornington Peninsula Wine Spring Winery Walk.
+
 Hosted at
 
 Foxeys Hangout
@@ -47,6 +51,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Peninsula VineHop Festival 2026.
+
 Festivals   Annual, November
 
 ### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
@@ -66,6 +74,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
 
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 

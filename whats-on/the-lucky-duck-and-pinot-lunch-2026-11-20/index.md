@@ -13,6 +13,10 @@ One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
 
 [Book or check details](<https://foxeys-hangout.com.au/events/morning-sun/the-lucky-duck-pinot-lunch/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict The Lucky Duck & Pinot Lunch.
+
 Hosted at
 
 Foxeys Hangout
@@ -74,6 +78,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

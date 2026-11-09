@@ -97,6 +97,10 @@ A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
+
 Food & Wine  5 Dec
 
 ### [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
@@ -104,6 +108,10 @@ Food & Wine  5 Dec
 BRASA brings the spirit of South America to the Mornington Peninsula!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a whisk across a mixing bowl. It does not depict Culinary Garden Experience at Laura Pt Leo Estate.
 
 Food & Wine  22 Nov
 

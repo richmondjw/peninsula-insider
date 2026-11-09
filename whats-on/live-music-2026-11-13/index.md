@@ -13,6 +13,10 @@ Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live mu
 
 [Book or check details](<https://flindershotel.com.au/events/live-music/>)
 
+Image · Mattinbgn [Image source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>)
+
+Illustrative image  This image shows Flinders Hotel pub frontage in Flinders, photographed 29 December 2010. It does not depict Live Music at Quarters at Flinders Hotel.
+
 Hosted at
 
 Quarters at Flinders Hotel
@@ -61,6 +65,10 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
+
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
@@ -68,6 +76,10 @@ Live Music  27 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
 
 Live Music  15 Nov
 

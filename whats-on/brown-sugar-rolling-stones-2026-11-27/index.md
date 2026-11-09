@@ -9,9 +9,13 @@ Event     Live Music     27 November 2026     One-off date
 
 # Brown Sugar - Rolling Stones
 
-Brown Sugar - Rolling Stones at The Bay Hotel Mornington. Starts 8.30pm.
+Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.
 
 [Book or check details](<https://www.thebayhotelmornington.com.au/brown-sugar-rolling-stones>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows an acoustic guitar. It does not depict Brown Sugar - Rolling Stones.
 
 Hosted at
 
@@ -39,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.thebayhotelmornington.com.au/brown-sugar-rolling-stones>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Brown+Sugar+-+Rolling+Stones&dates=20261127%2F20261128&details=Brown+Sugar+-+Rolling+Stones+at+The+Bay+Hotel+Mornington.+Starts+8.30pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbrown-sugar-rolling-stones-2026-11-27%2F&location=The+Bay+Hotel+Mornington%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.thebayhotelmornington.com.au/brown-sugar-rolling-stones>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Brown+Sugar+-+Rolling+Stones&dates=20261127%2F20261128&details=Rolling+Stones+tribute+band+Brown+Sugar+plays+the+upstairs+Bandroom+at+The+Bay+Hotel.+Standing+show+from+8.30pm%2C+with+pre-show+dinner+and+drinks+upstairs+from+6pm.+Access+is+by+stairs+only.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbrown-sugar-rolling-stones-2026-11-27%2F&location=The+Bay+Hotel+Mornington%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -61,6 +65,10 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
+
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
@@ -68,6 +76,10 @@ Live Music  27 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
 
 Live Music  15 Nov
 

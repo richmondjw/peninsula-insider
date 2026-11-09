@@ -13,6 +13,10 @@ Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am
 
 [Book or check details](<https://www.mpchoc.com.au/events/deck-the-chocolate-tree/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a broken chocolate bar. It does not depict Deck the Chocolate Tree.
+
 Hosted at
 
 The Chocolateries Mornington Peninsula
@@ -74,6 +78,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

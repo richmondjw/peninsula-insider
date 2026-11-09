@@ -13,6 +13,10 @@ Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
 
 [Book or check details](<https://www.mpchoc.com.au/events/taste-create-gourmet-bar-3/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a broken chocolate bar. It does not depict Taste & Create, Gourmet Bar.
+
 Hosted at
 
 The Chocolateries Mornington Peninsula
@@ -74,6 +78,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

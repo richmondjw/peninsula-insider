@@ -13,6 +13,10 @@ Winery owners are opening their Cellar Doors and private gates to walk through t
 
 [Book or check details](<https://events.humanitix.com/spring-winery-walk-2026>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Spring Winery Walk at Red Hill Recreation Reserve.
+
 Hosted at
 
 Red Hill Recreation Reserve
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

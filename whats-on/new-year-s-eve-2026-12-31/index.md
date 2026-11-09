@@ -9,9 +9,13 @@ Event     Live Music     31 December 2026     One-off date
 
 # New Year’s Eve at Portsea Hotel
 
-New Year’s Eve at Portsea Hotel.
+New Year's Eve by the water at the Portsea Hotel, with Kayla Bruno and Holmes John from 5pm, then Piero and singer Karina Chavez headlining from 10pm through the midnight countdown. Strictly 18+.
 
 [Book or check details](<https://portseahotel.com.au/summer-series-2026/#nye>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a coupe of sparkling wine with a lit sparkler. It does not depict New Year’s Eve at Portsea Hotel.
 
 Hosted at
 
@@ -39,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://portseahotel.com.au/summer-series-2026/#nye>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=New+Year%E2%80%99s+Eve+at+Portsea+Hotel&dates=20261231%2F20270101&details=New+Year%E2%80%99s+Eve+at+Portsea+Hotel.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnew-year-s-eve-2026-12-31%2F&location=Portsea+Hotel%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://portseahotel.com.au/summer-series-2026/#nye>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=New+Year%E2%80%99s+Eve+at+Portsea+Hotel&dates=20261231%2F20270101&details=New+Year%27s+Eve+by+the+water+at+the+Portsea+Hotel%2C+with+Kayla+Bruno+and+Holmes+John+from+5pm%2C+then+Piero+and+singer+Karina+Chavez+headlining+from+10pm+through+the+midnight+countdown.+Strictly+18%2B.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnew-year-s-eve-2026-12-31%2F&location=Portsea+Hotel%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -61,6 +65,10 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
+
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
@@ -68,6 +76,10 @@ Live Music  27 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
 
 Live Music  15 Nov
 

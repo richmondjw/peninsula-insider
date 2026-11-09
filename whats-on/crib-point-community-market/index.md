@@ -65,6 +65,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
+
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
@@ -72,6 +76,10 @@ Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Emu Plains Market.
 
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 
@@ -82,6 +90,10 @@ Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027
 Seasonal makers market at Emu Plains Reserve, Balnarring, with craft, design, vintage, food and live music.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mornington Wednesday Market (Main Street Market).
 
 Markets   Weekly – every Wednesday year-round (weather and wind policy dependent)
 

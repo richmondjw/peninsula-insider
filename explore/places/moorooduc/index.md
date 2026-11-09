@@ -335,6 +335,6 @@ Coming up in Moorooduc, pulled from the events registry.
 
 Moorooduc
 
-Vinehop at Phaedrus Estate.
+Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to 5pm and three food trucks. Festival tickets are sold through Vinehop.
 
  Event · Cellar Doors](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)

@@ -13,6 +13,10 @@ Easter school holiday fun with children’s face painting. Starts 1pm.
 
 [Book or check details](<https://redgumbbq.com.au/free-kids-face-painting-easter-holiday-fun/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a diamond kite flying high. It does not depict School Holiday Fun at Red Gum BBQ!.
+
 Hosted at
 
 Red Gum BBQ
@@ -74,6 +78,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

@@ -51,7 +51,7 @@ Swipe or scroll through the picks
 
 - Illustrative image
 
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
 
 ### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
 
@@ -63,7 +63,7 @@ Event details checked 9 Nov 2026.  [Check organiser](<https://foxeys-hangout.com
 
 - Illustrative image
 
-Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
+Illustration, not a photograph of the event.   Illustration: Peninsula Insider.
 
 ### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
 

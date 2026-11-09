@@ -13,6 +13,10 @@ Delicious, Festive, Exciting! The festive season is the best time to showcase ou
 
 [Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a whisk across a mixing bowl. It does not depict Summer Xmas Seafood Class at Peninsula Gourmet Cooking School.
+
 Hosted at
 
 Peninsula Gourmet Cooking School
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

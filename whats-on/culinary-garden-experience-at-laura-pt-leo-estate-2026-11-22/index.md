@@ -13,6 +13,10 @@ For garden lovers, vegetarians and those with a passion for provenance, experien
 
 [Book or check details](<https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a whisk across a mixing bowl. It does not depict Culinary Garden Experience at Laura Pt Leo Estate.
+
 Hosted at
 
 Laura Pt Leo Estate
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

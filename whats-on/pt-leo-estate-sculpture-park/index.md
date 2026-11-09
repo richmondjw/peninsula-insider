@@ -93,6 +93,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict "Whippy" Griggs Live for a Crackin' Night at The Ranch.
+
 Arts  13 Dec
 
 ### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
@@ -101,6 +105,10 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a classic sewing machine. It does not depict Beginner Alteration and Repair Sewing Class with Pete Sews.
+
 Arts  14 Nov
 
 ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
@@ -108,6 +116,10 @@ Arts  14 Nov
 Love your clothes but wish they fit better-or lasted longer?
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a stack of books with reading glasses. It does not depict Curators floor talk: The Making of a Prize Exhibition.
 
 Arts  14 Nov
 

@@ -13,6 +13,10 @@ Learn to sew from scratch with Pete Sews’ beginner sewing class on the Morning
 
 [Book or check details](<https://www.petesews.com.au/sewing-classes>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a classic sewing machine. It does not depict Not Sew Scary Beginner Sewing Class with Pete Sews.
+
 Hosted at
 
 1663 Point Nepean Rd
@@ -63,6 +67,10 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict "Whippy" Griggs Live for a Crackin' Night at The Ranch.
+
 Arts  13 Dec
 
 ### ["Whippy" Griggs Live for a Crackin' Night at The Ranch](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
@@ -70,6 +78,10 @@ Arts  13 Dec
 World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to The Ranch!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a classic sewing machine. It does not depict Beginner Alteration and Repair Sewing Class with Pete Sews.
 
 Arts  14 Nov
 

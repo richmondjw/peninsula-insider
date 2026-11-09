@@ -13,6 +13,10 @@ Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! W
 
 [Book or check details](<https://www.unrivalledevents.com.au/soul-night-market-dromana>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Soul Night Market at Dromana Estate.
+
 Hosted at
 
 Dromana Estate
@@ -63,6 +67,10 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
+
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
@@ -70,6 +78,10 @@ Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Emu Plains Market.
 
 Markets   Third Saturday October through December 2026, 9am to 2pm. January 2027 is a separately timed twilight market.
 

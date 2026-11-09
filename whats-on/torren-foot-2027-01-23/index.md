@@ -9,9 +9,13 @@ Event     Live Music     23 January 2027     One-off date
 
 # Torren Foot at Portsea Hotel
 
-Torren Foot at Portsea Hotel.
+Torren Foot headlines a summer session at the Portsea Hotel, after house sets from Jake Webb, Bella Backe and Airwolf Paradise from 5pm. His own set runs from 9.30pm to 11pm. Strictly 18+.
 
 [Book or check details](<https://portseahotel.com.au/summer-series-2026/#golden-hour>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows an acoustic guitar. It does not depict Torren Foot at Portsea Hotel.
 
 Hosted at
 
@@ -39,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://portseahotel.com.au/summer-series-2026/#golden-hour>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Torren+Foot+at+Portsea+Hotel&dates=20270123%2F20270124&details=Torren+Foot+at+Portsea+Hotel.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftorren-foot-2027-01-23%2F&location=Portsea+Hotel%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://portseahotel.com.au/summer-series-2026/#golden-hour>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Torren+Foot+at+Portsea+Hotel&dates=20270123%2F20270124&details=Torren+Foot+headlines+a+summer+session+at+the+Portsea+Hotel%2C+after+house+sets+from+Jake+Webb%2C+Bella+Backe+and+Airwolf+Paradise+from+5pm.+His+own+set+runs+from+9.30pm+to+11pm.+Strictly+18%2B.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ftorren-foot-2027-01-23%2F&location=Portsea+Hotel%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -61,6 +65,10 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
+
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
@@ -68,6 +76,10 @@ Live Music  27 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
 
 Live Music  15 Nov
 

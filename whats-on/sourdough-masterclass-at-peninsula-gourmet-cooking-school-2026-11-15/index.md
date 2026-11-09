@@ -13,6 +13,10 @@ Get Your Sourdough Perfect Every Time Your class will take place in our brand ne
 
 [Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a round sourdough loaf. It does not depict Sourdough Masterclass at Peninsula Gourmet Cooking School.
+
 Hosted at
 
 Peninsula Gourmet Cooking School
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

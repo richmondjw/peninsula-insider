@@ -73,6 +73,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
+
 Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
@@ -82,6 +86,10 @@ Wellness   Dates on request
 3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Sunday sessions at Peninsula Hot Springs Eco Lodges.
 
 Wellness  15 Nov
 

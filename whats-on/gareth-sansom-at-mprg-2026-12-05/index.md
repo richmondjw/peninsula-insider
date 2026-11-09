@@ -13,6 +13,10 @@ Gareth Sansom is a pioneering and highly influential figure in Australian contem
 
 [Book or check details](<https://mprg.mornpen.vic.gov.au/Home>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows two picture frames lit by a spotlight. It does not depict Gareth Sansom at MPRG.
+
 Hosted at
 
 MPRG
@@ -61,6 +65,10 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a paintbrush crossing an artist's palette. It does not depict CREATE: Pottery for your table.
+
 Exhibitions  21 Nov
 
 ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
@@ -68,6 +76,10 @@ Exhibitions  21 Nov
 Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict November Cellar Door Opening.
 
 Exhibitions  28 Nov
 

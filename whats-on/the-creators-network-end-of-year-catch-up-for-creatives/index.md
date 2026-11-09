@@ -13,6 +13,10 @@ Come along to meet other MP creatives, join a curator tour of the new Gareth Sam
 
 [Book or check details](<https://www.eventbrite.com.au/e/the-creators-network-end-of-year-catch-up-for-creatives-tickets-2003902673841>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows two picture frames lit by a spotlight. It does not depict The Creators Network: End of Year Catch-up for Creatives.
+
 Hosted at
 
 Mornington Peninsula Regional Gallery
@@ -65,6 +69,10 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a paintbrush crossing an artist's palette. It does not depict CREATE: Pottery for your table.
+
 Exhibitions  21 Nov
 
 ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
@@ -72,6 +80,10 @@ Exhibitions  21 Nov
 Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows two picture frames lit by a spotlight. It does not depict Gareth Sansom at MPRG.
 
 Exhibitions  5 Dec
 

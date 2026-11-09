@@ -9,9 +9,13 @@ Event     Cellar Doors     21 November 2026     One-off date
 
 # Vinehop at Phaedrus Estate
 
-Vinehop at Phaedrus Estate.
+Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to 5pm and three food trucks. Festival tickets are sold through Vinehop.
 
 [Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Vinehop at Phaedrus Estate.
 
 Hosted at
 
@@ -39,13 +43,17 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vinehop+at+Phaedrus+Estate&dates=20261121%2F20261122&details=Vinehop+at+Phaedrus+Estate.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fvinehop-2026-11-21%2F&location=Phaedrus+Estate%2C+Moorooduc%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vinehop+at+Phaedrus+Estate&dates=20261121%2F20261122&details=Phaedrus+Estate+is+a+host+venue+for+the+2026+Vinehop+festival%2C+with+live+music+and+a+DJ+from+Fudge+and+Jinxit+from+11.30am+to+5pm+and+three+food+trucks.+Festival+tickets+are+sold+through+Vinehop.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fvinehop-2026-11-21%2F&location=Phaedrus+Estate%2C+Moorooduc%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
 ## More from What's On
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Peninsula VineHop Festival 2026.
 
 Festivals   Annual, November
 
@@ -66,6 +74,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
 
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 

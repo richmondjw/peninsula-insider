@@ -13,6 +13,10 @@ Embrace the natural beauty of the Peninsula and the healing powers of water and 
 
 [Book or check details](<https://albathermalsprings.com.au/alba-experiences/promotions/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict The Peninsula Retreat at Alba Thermal Springs & Spa.
+
 Hosted at
 
 Alba Thermal Springs & Spa
@@ -74,6 +78,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

@@ -9,9 +9,13 @@ Event     Food & Wine     31 December – 1 January 2027     One-off date
 
 # New Years Eve Event 2026/2027
 
-New Years Eve Event 2026/2027 at The Baths Sorrento.
+A four-course New Year's Eve dinner at The Baths Sorrento, with a cocktail on arrival, drinks through the night and a DJ, from 7.30pm until just after midnight. Over-18s only.
 
 [Book or check details](<https://www.trybooking.com/au/event/1666909>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a coupe of sparkling wine with a lit sparkler. It does not depict New Years Eve Event 2026/2027.
 
 Hosted at
 
@@ -43,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.trybooking.com/au/event/1666909>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=New+Years+Eve+Event+2026%2F2027&dates=20261231T083000Z%2F20261231T130500Z&details=New+Years+Eve+Event+2026%2F2027+at+The+Baths+Sorrento.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnew-years-eve-event-2026-2027-2026-12-31%2F&location=The+Baths+Sorrento%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.trybooking.com/au/event/1666909>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=New+Years+Eve+Event+2026%2F2027&dates=20261231T083000Z%2F20261231T130500Z&details=A+four-course+New+Year%27s+Eve+dinner+at+The+Baths+Sorrento%2C+with+a+cocktail+on+arrival%2C+drinks+through+the+night+and+a+DJ%2C+from+7.30pm+until+just+after+midnight.+Over-18s+only.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fnew-years-eve-event-2026-2027-2026-12-31%2F&location=The+Baths+Sorrento%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

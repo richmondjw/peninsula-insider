@@ -11,6 +11,10 @@ Wet-weather rescue
 
 Indoor events that hold up regardless of the weather. Galleries, cellar doors with proper restaurant tables, hot springs, treatment rooms. The Peninsula has more wet-weather options than people think.
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
+
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 
 ### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)

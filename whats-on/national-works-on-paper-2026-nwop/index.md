@@ -77,6 +77,10 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a paintbrush crossing an artist's palette. It does not depict CREATE: Pottery for your table.
+
 Exhibitions  21 Nov
 
 ### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
@@ -85,6 +89,10 @@ Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows two picture frames lit by a spotlight. It does not depict Gareth Sansom at MPRG.
+
 Exhibitions  5 Dec
 
 ### [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
@@ -92,6 +100,10 @@ Exhibitions  5 Dec
 Gareth Sansom is a pioneering and highly influential figure in Australian contemporary art, a restless innovator whose career spans more than six…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict November Cellar Door Opening.
 
 Exhibitions  28 Nov
 

@@ -23,6 +23,10 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
+
 Wellness   Dates on request
 
 ### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
@@ -101,6 +105,10 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a classic sewing machine. It does not depict Beginner Alteration and Repair Sewing Class with Pete Sews.
+
 Arts  14 Nov
 
 ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
@@ -109,6 +117,10 @@ Love your clothes but wish they fit better-or lasted longer?
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
+
 Live Music  15 Nov
 
 ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
@@ -116,6 +128,10 @@ Live Music  15 Nov
 Enjoy live music at Peninsula Beer Garden!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a stack of books with reading glasses. It does not depict Curators floor talk: The Making of a Prize Exhibition.
 
 Arts  14 Nov
 
@@ -127,6 +143,10 @@ Walk through the National Works on Paper exhibition with MPRG curator and judgin
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a eucalyptus wreath with a coral bow. It does not depict Festive Wreath Making at Heronswood House and Garden.
+
 Arts  15 Nov
 
 ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
@@ -134,6 +154,10 @@ Arts  15 Nov
 Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive…
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Jamie MacDowell Live at Jetty Road Brewery.
 
 Live Music  14 Nov
 

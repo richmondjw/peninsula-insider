@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-09",
-  "generatedAt": "2026-11-09T07:06:12.613Z",
+  "generatedAt": "2026-11-09T08:09:09.932Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -576,7 +576,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
         "startDate": "2026-11-21",
         "endDate": "2026-11-21",
-        "description": "Vinehop at Phaedrus Estate.",
+        "description": "Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to 5pm and three food trucks. Festival tickets are sold through Vinehop.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -667,7 +667,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/",
         "startDate": "2026-11-27",
         "endDate": "2026-11-27",
-        "description": "Brown Sugar - Rolling Stones at The Bay Hotel Mornington. Starts 8.30pm.",
+        "description": "Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -979,7 +979,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
         "startDate": "2026-12-23",
         "endDate": "2026-12-23",
-        "description": "Eve Eve at Portsea Hotel.",
+        "description": "A pre-Christmas night of live music and DJs at the Portsea Hotel, with Sarah Roberts, Minx, Tiff Cornish and Some Sheila playing from 5pm to 11pm. Strictly 18+.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -992,7 +992,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
         "startDate": "2026-12-31",
         "endDate": "2026-12-31",
-        "description": "New Year’s Eve at Portsea Hotel.",
+        "description": "New Year's Eve by the water at the Portsea Hotel, with Kayla Bruno and Holmes John from 5pm, then Piero and singer Karina Chavez headlining from 10pm through the midnight countdown. Strictly 18+.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -1005,7 +1005,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/",
         "startDate": "2026-12-31",
         "endDate": "2027-01-01",
-        "description": "New Years Eve Event 2026/2027 at The Baths Sorrento.",
+        "description": "A four-course New Year's Eve dinner at The Baths Sorrento, with a cocktail on arrival, drinks through the night and a DJ, from 7.30pm until just after midnight. Over-18s only.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -1018,7 +1018,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
         "startDate": "2027-01-23",
         "endDate": "2027-01-23",
-        "description": "Torren Foot at Portsea Hotel.",
+        "description": "Torren Foot headlines a summer session at the Portsea Hotel, after house sets from Jake Webb, Bella Backe and Airwolf Paradise from 5pm. His own set runs from 9.30pm to 11pm. Strictly 18+.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     }
@@ -1994,7 +1994,7 @@
       "category": "cellar-door",
       "place": null,
       "venue": null,
-      "summary": "Vinehop at Phaedrus Estate.",
+      "summary": "Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to 5pm and three food trucks. Festival tickets are sold through Vinehop.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2127,7 +2127,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Brown Sugar - Rolling Stones at The Bay Hotel Mornington. Starts 8.30pm.",
+      "summary": "Rolling Stones tribute band Brown Sugar plays the upstairs Bandroom at The Bay Hotel. Standing show from 8.30pm, with pre-show dinner and drinks upstairs from 6pm. Access is by stairs only.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2583,7 +2583,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Eve Eve at Portsea Hotel.",
+      "summary": "A pre-Christmas night of live music and DJs at the Portsea Hotel, with Sarah Roberts, Minx, Tiff Cornish and Some Sheila playing from 5pm to 11pm. Strictly 18+.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2602,7 +2602,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "New Year’s Eve at Portsea Hotel.",
+      "summary": "New Year's Eve by the water at the Portsea Hotel, with Kayla Bruno and Holmes John from 5pm, then Piero and singer Karina Chavez headlining from 10pm through the midnight countdown. Strictly 18+.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2621,7 +2621,7 @@
       "category": "food-wine",
       "place": null,
       "venue": null,
-      "summary": "New Years Eve Event 2026/2027 at The Baths Sorrento.",
+      "summary": "A four-course New Year's Eve dinner at The Baths Sorrento, with a cocktail on arrival, drinks through the night and a DJ, from 7.30pm until just after midnight. Over-18s only.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -2640,7 +2640,7 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Torren Foot at Portsea Hotel.",
+      "summary": "Torren Foot headlines a summer session at the Portsea Hotel, after house sets from Jake Webb, Bella Backe and Airwolf Paradise from 5pm. His own set runs from 9.30pm to 11pm. Strictly 18+.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

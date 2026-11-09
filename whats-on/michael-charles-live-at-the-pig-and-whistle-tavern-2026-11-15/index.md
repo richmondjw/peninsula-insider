@@ -13,6 +13,10 @@ Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at Th
 
 [Book or check details](<https://www.thepigandwhistle.com.au/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Michael Charles Live at The Pig & Whistle Tavern.
+
 Hosted at
 
 Pig & Whistle Tavern
@@ -65,6 +69,10 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a retro guitar amplifier. It does not depict Ben Smith Live at Jetty Road Brewery.
+
 Live Music  27 Nov
 
 ### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
@@ -72,6 +80,10 @@ Live Music  27 Nov
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a vintage stage microphone. It does not depict Bennsong Live at Peninsula Beer Garden.
 
 Live Music  15 Nov
 

@@ -13,6 +13,10 @@ Mornington Twilight, presented by Barmah Park Make the most of a summer evening 
 
 [Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Mornington Twilight Christmas Series at Mornington Racecourse.
+
 Hosted at
 
 Mornington Racecourse
@@ -78,6 +82,10 @@ Food & Wine   Check session dates
 A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a dinner plate, cutlery and wine glass. It does not depict An Evening at BRASA by Montalto.
 
 Food & Wine  5 Dec
 

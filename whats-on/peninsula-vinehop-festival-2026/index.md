@@ -15,6 +15,10 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 Worth the drive   First timer
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a glass of white wine with grapes. It does not depict Peninsula VineHop Festival 2026.
+
 Editor's verdict
 
 The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
@@ -98,6 +102,10 @@ Markets   Monthly – 2nd Saturday of every month
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows market produce and ceramics beneath a striped canopy. It does not depict Mt Eliza Farmers Market.
 
 Markets   Fourth Sunday October through November 2026, 9am to 1pm.
 

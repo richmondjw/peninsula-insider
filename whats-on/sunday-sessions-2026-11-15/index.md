@@ -13,6 +13,10 @@ Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
 [Book or check details](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au>)
 
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Sunday sessions at Peninsula Hot Springs Eco Lodges.
+
 Hosted at
 
 Peninsula Hot Springs Eco Lodges
@@ -46,6 +50,10 @@ Keep planning
 ## More from What's On
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
+
+Illustration · Peninsula Insider
+
+Illustrative image  This image shows a steaming outdoor bathing pool. It does not depict Restore & Pamper Retreat at Polperro Farmhouse.
 
 Wellness   Dates on request
 
