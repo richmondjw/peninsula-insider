@@ -4,7 +4,7 @@ import { readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { heroIsComplete, loadContext, resolveEventHero } from './event-hero.mjs';
-import { addedWords } from './assert-event-heroes.mjs';
+import { addedWords, hasEditorialReview, needsEditorialReview } from './assert-event-heroes.mjs';
 
 const NEXT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const ctx = await loadContext();
@@ -54,4 +54,30 @@ test('variant choice is stable for a slug', () => {
 test('a summary that restates the title adds no words', () => {
   assert.equal(addedWords({ title: 'Vinehop', venueName: 'Phaedrus Estate', summary: 'Vinehop at Phaedrus Estate.' }).length, 0);
   assert.ok(addedWords({ title: 'Eve Eve', venueName: 'Portsea Hotel', summary: 'A pre-Christmas night of live music and DJs.' }).length >= 3);
+});
+
+test('post-incident auto-published events require a substantive sourced review', () => {
+  const automated = {
+    provenance: 'auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten',
+    publishedAt: '2026-11-10T00:00:00.000Z',
+    officialEventUrl: 'https://example.com/event',
+  };
+  assert.equal(needsEditorialReview(automated), true);
+  assert.equal(hasEditorialReview(automated), false);
+
+  const reviewed = {
+    ...automated,
+    provenance: 'editorially rewritten by Peninsula Insider from the organiser page',
+    primarySourceUrl: 'https://example.com/event',
+    editorNote: Array.from({ length: 75 }, (_, i) => `detail${i}`).join(' '),
+  };
+  assert.equal(needsEditorialReview(reviewed), false);
+  assert.equal(hasEditorialReview(reviewed), true);
+});
+
+test('the ratchet does not retroactively hide the known editorial backlog', () => {
+  assert.equal(needsEditorialReview({
+    provenance: 'auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten',
+    publishedAt: '2026-11-09T01:08:21.831Z',
+  }), false);
 });

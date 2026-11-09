@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Gate: no published, current event may ship without a complete hero image,
-// and no summary may simply restate the title.
+// no summary may simply restate the title, and new automated discoveries must
+// be editorially reviewed before they become reader-facing.
 //
 // Added 2026-11-09 after 46 of 61 published events reached the live site with
 // no image and five carried summaries like "Vinehop at Phaedrus Estate." The
@@ -20,11 +21,25 @@ const PUBLIC = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../pu
 const today = new Date().toISOString().slice(0, 10);
 const STOP = new Set('the a an at of and in on for with to by live starts am pm'.split(' '));
 const words = (s) => String(s ?? '').toLowerCase().match(/[a-z']+/g) ?? [];
+const AUTO_PUBLISH_RATCHET = '2026-11-09T23:59:59.999Z';
 
 /** Words the summary adds beyond the title and venue. Exported for tests. */
 export function addedWords(event) {
   const known = new Set([...words(event.title), ...words(event.venueName), ...STOP]);
   return words(event.summary).filter((w) => !known.has(w));
+}
+
+/** A deliberately small but useful editorial overlay, backed by a primary source. */
+export function hasEditorialReview(event) {
+  return words(event.editorNote).length >= 70
+    && /^https:\/\//.test(String(event.primarySourceUrl ?? event.officialEventUrl ?? ''))
+    && !String(event.provenance ?? '').includes('not editorially rewritten');
+}
+
+/** Existing backlog stays visible, but anything discovered after the incident is fail-closed. */
+export function needsEditorialReview(event) {
+  return String(event.provenance ?? '').includes('auto-published by promote-candidates.mjs')
+    && String(event.publishedAt ?? '') > AUTO_PUBLISH_RATCHET;
 }
 
 async function files(dir) {
@@ -57,10 +72,16 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       }
     }
     if (addedWords(e).length < 3) failures.push(`${e.slug}: summary only restates the title ("${e.summary}")`);
+    if (needsEditorialReview(e) && !hasEditorialReview(e)) {
+      failures.push(`${e.slug}: automated event is reader-facing without a substantive editorial review`);
+    }
+    if (String(e.provenance ?? '').includes('editorially rewritten by Peninsula Insider on 2026-11-09') && !hasEditorialReview(e)) {
+      failures.push(`${e.slug}: editorial review is too thin, lacks a primary source, or still carries unreviewed provenance`);
+    }
   }
   if (failures.length) {
     console.error(`assert:event-heroes FAILED (${failures.length}):\n  ${failures.join('\n  ')}`);
     process.exit(1);
   }
-  console.log(`assert:event-heroes ok: ${checked} current published events, all with a hero and a real summary`);
+  console.log(`assert:event-heroes ok: ${checked} current published events, all with a hero and a real summary; post-incident automation is editorially reviewed`);
 }
