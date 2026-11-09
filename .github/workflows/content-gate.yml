@@ -69,6 +69,7 @@ jobs:
           npm run test:how-we-check
           npm run test:event-safeguards
           npm run test:event-occurrence
+          npm run test:event-heroes
           node --test ../ops/scripts/post-publish-verify.test.mjs
           python3 scripts/recompute-occurrence.py --dry-run --today 2026-10-12 > /tmp/pi-market-occurrence-check.txt
           if grep -F 'mornington-racecourse-market.json ->' /tmp/pi-market-occurrence-check.txt; then
@@ -109,6 +110,7 @@ jobs:
           npm run assert:claim-support
           npm run assert:link-health
           npm run validate:content
+          npm run assert:event-heroes
           node scripts/assert-event-listing-quality.mjs mornington-racecourse-market
 
       - name: Pre-build lints

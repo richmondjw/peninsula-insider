@@ -1,0 +1,207 @@
+{
+  "_about": "House illustration library for event listings. Every published event must carry a hero image (scripts/assert-event-heroes.mjs). scripts/assign-event-heroes.mjs picks, in order: the event's own recorded hero, the listed venue's own verified photograph, then the first motif below whose pattern matches the event title (then summary), then the category default. Patterns are case-insensitive regular expressions tried in list order, so put specific subjects before general ones. To add a motif: generate it in the Coastal Punch style (docs/COASTAL-PUNCH-ILLUSTRATIONS.md), save a 1536x1024 WebP under next/public/images/generated/events/, then add an entry here.",
+  "generated": {
+    "creator": "Peninsula Insider, AI-assisted",
+    "permission": "Original AI-assisted artwork generated for Peninsula Insider event listings on 2026-11-09 (Higgsfield, Nano Banana 2.1, Coastal Punch house references), at James's instruction to fill missing event images. No third-party photographs, logos or artwork were incorporated.",
+    "rightsEstablishedOn": "2026-11-09"
+  },
+  "motifs": [
+    {
+      "id": "golf",
+      "src": "/images/generated/events/golf.webp",
+      "pattern": "\\bgolf\\b",
+      "depicts": "a golf flag pin on a rounded green",
+      "alt": "Conceptual illustration of a golf flag pin standing on a rounded green with a ball"
+    },
+    {
+      "id": "sewing",
+      "src": "/images/generated/events/sewing.webp",
+      "pattern": "\\b(sew|sews|sewing|alteration|quilt\\w*)\\b",
+      "depicts": "a classic sewing machine",
+      "alt": "Conceptual illustration of a classic sewing machine and a spool of thread"
+    },
+    {
+      "id": "wreath",
+      "src": "/images/generated/events/wreath.webp",
+      "pattern": "\\bwreaths?\\b",
+      "depicts": "a eucalyptus wreath with a coral bow",
+      "alt": "Conceptual illustration of a festive eucalyptus wreath tied with a coral ribbon bow"
+    },
+    {
+      "id": "family",
+      "src": "/images/generated/events/family.webp",
+      "pattern": "\\b(kids|children'?s?|family|school holidays?|face painting)\\b",
+      "depicts": "a diamond kite flying high",
+      "alt": "Conceptual illustration of a diamond kite with a ribbon tail flying high in the sky"
+    },
+    {
+      "id": "bread",
+      "src": "/images/generated/events/bread.webp",
+      "pattern": "\\b(sourdough|bread|baking|bakery)\\b",
+      "depicts": "a round sourdough loaf",
+      "alt": "Conceptual illustration of a round scored sourdough loaf resting on a wooden board"
+    },
+    {
+      "id": "barbecue",
+      "src": "/images/generated/events/barbecue.webp",
+      "pattern": "\\b(bbq|barbecue|pitmaster|smokehouse)\\b",
+      "depicts": "a kettle barbecue with a soft flame",
+      "alt": "Conceptual illustration of a round kettle barbecue with a single flame and curl of smoke"
+    },
+    {
+      "id": "chocolate",
+      "src": "/images/generated/events/chocolate.webp",
+      "pattern": "\\b(chocolate\\w*|cacao)\\b",
+      "depicts": "a broken chocolate bar",
+      "alt": "Conceptual illustration of a broken chocolate bar with two squares standing apart"
+    },
+    {
+      "id": "gin",
+      "src": "/images/generated/coastal-punch-gin.webp",
+      "pattern": "\\b(gin|distiller\\w*|whisky|spirits)\\b",
+      "depicts": "a gin glass with citrus peel and juniper",
+      "alt": "Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves.",
+      "rightsEstablishedOn": "2026-10-09",
+      "permission": "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+    },
+    {
+      "id": "celebration",
+      "src": "/images/generated/events/celebration.webp",
+      "pattern": "\\b(new year'?s?|nye|eve eve|countdown|christmas party)\\b",
+      "depicts": "a coupe of sparkling wine with a lit sparkler",
+      "alt": "Conceptual illustration of a coupe glass of sparkling wine beside a single lit sparkler"
+    },
+    {
+      "id": "yoga",
+      "src": "/images/generated/coastal-punch-yoga.webp",
+      "pattern": "\\b(yoga|pilates|meditation)\\b",
+      "depicts": "a yoga mat, towel and eucalyptus",
+      "alt": "Conceptual coral yoga mat, folded towel and eucalyptus in a calm coastal palette.",
+      "rightsEstablishedOn": "2026-10-09",
+      "permission": "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+    },
+    {
+      "id": "thermal-pool",
+      "src": "/images/generated/events/thermal-pool.webp",
+      "pattern": "\\b(thermal|hot springs?|bathing|bath house|spa|retreat|pamper)\\b",
+      "depicts": "a steaming outdoor bathing pool",
+      "alt": "Conceptual illustration of a round outdoor bathing pool with soft curls of steam rising"
+    },
+    {
+      "id": "market",
+      "src": "/images/generated/coastal-punch-produce.webp",
+      "pattern": "\\bmarkets?\\b",
+      "depicts": "market produce and ceramics beneath a striped canopy",
+      "alt": "Conceptual market produce and ceramics beneath a striped canopy.",
+      "rightsEstablishedOn": "2026-10-09",
+      "permission": "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09."
+    },
+    {
+      "id": "comedy",
+      "src": "/images/generated/events/music-microphone.webp",
+      "pattern": "\\b(comedy|comedian|improv|stand[- ]up)\\b",
+      "depicts": "a vintage stage microphone",
+      "alt": "Conceptual illustration of a vintage stage microphone on a slim stand"
+    },
+    {
+      "id": "books-talk",
+      "src": "/images/generated/events/books-talk.webp",
+      "pattern": "\\b(books?|authors?|writers?|talks?|ideas|in conversation|lecture|poetry)\\b",
+      "depicts": "a stack of books with reading glasses",
+      "alt": "Conceptual illustration of a short stack of three books with round reading glasses on top"
+    },
+    {
+      "id": "gallery",
+      "src": "/images/generated/events/gallery.webp",
+      "pattern": "\\b(exhibition|gallery|curator'?s?|prize|works on paper|sculpture)\\b",
+      "depicts": "two picture frames lit by a spotlight",
+      "alt": "Conceptual illustration of two empty picture frames on a wall lit by a single spotlight"
+    },
+    {
+      "id": "art-workshop",
+      "src": "/images/generated/events/art-workshop.webp",
+      "pattern": "\\b(paint\\w*|pottery|ceramics?|craft|workshop|drawing)\\b",
+      "depicts": "a paintbrush crossing an artist's palette",
+      "alt": "Conceptual illustration of a single paintbrush crossing an artist's palette with paint dabs"
+    },
+    {
+      "id": "wine",
+      "src": "/images/generated/events/wine.webp",
+      "pattern": "\\b(wine|winery|wineries|vinehop|cellar door|vineyard|vintage|terroir|tasting)\\b",
+      "depicts": "a glass of white wine with grapes",
+      "alt": "Conceptual illustration of a stemmed glass of white wine beside a bunch of grapes"
+    },
+    {
+      "id": "cooking-class",
+      "src": "/images/generated/events/cooking-class.webp",
+      "pattern": "\\b(cooking|culinary|masterclass|kitchen garden|chef)\\b",
+      "depicts": "a whisk across a mixing bowl",
+      "alt": "Conceptual illustration of a balloon whisk resting across a wide mixing bowl"
+    },
+    {
+      "id": "music",
+      "variants": [
+        {
+          "src": "/images/generated/events/music-microphone.webp",
+          "depicts": "a vintage stage microphone",
+          "alt": "Conceptual illustration of a vintage stage microphone on a slim stand"
+        },
+        {
+          "src": "/images/generated/events/music-guitar.webp",
+          "depicts": "an acoustic guitar",
+          "alt": "Conceptual illustration of an acoustic guitar leaning at a gentle angle"
+        },
+        {
+          "src": "/images/generated/events/music-amp.webp",
+          "depicts": "a retro guitar amplifier",
+          "alt": "Conceptual illustration of a small retro guitar amplifier with a round speaker grille"
+        }
+      ],
+      "pattern": "\\b(live|music|musicians?|band|dj|djs|acoustic|sessions?|gig|concert|singer|songwriters?|jazz|blues|choir)\\b"
+    },
+    {
+      "id": "festival",
+      "src": "/images/generated/events/festival.webp",
+      "pattern": "\\b(festival|fair|carnival|campout|camping|glamping|movie|cinema)\\b",
+      "depicts": "a striped festival tent with bunting",
+      "alt": "Conceptual illustration of a striped festival tent with a short string of triangle bunting"
+    },
+    {
+      "id": "garden-walk",
+      "src": "/images/generated/events/garden-walk.webp",
+      "pattern": "\\b(walk|walks|garden|gardens|trail|hike|bushwalk)\\b",
+      "depicts": "a winding garden path between shrubs",
+      "alt": "Conceptual illustration of a winding garden path between two rounded eucalyptus shrubs"
+    },
+    {
+      "id": "dining",
+      "src": "/images/generated/events/dining.webp",
+      "pattern": "\\b(dinner|lunch|long table|feast|degustation|brunch)\\b",
+      "depicts": "a dinner plate, cutlery and wine glass",
+      "alt": "Conceptual illustration of a dinner plate with knife and fork beside a stemmed wine glass"
+    },
+    {
+      "id": "community",
+      "src": "/images/generated/events/community.webp",
+      "pattern": "\\b(community|picnic|fundraiser|charity)\\b",
+      "depicts": "a folded picnic blanket and basket",
+      "alt": "Conceptual illustration of a folded picnic blanket beside a woven picnic basket"
+    }
+  ],
+  "categoryDefaults": {
+    "food-wine": "dining",
+    "market": "market",
+    "festival": "festival",
+    "cellar-door": "wine",
+    "community": "community",
+    "arts": "art-workshop",
+    "wellness": "thermal-pool",
+    "live-music": "music",
+    "racing-sport": "festival",
+    "family-programs": "family",
+    "exhibition": "gallery",
+    "civic": "community",
+    "nature": "garden-walk",
+    "writers-ideas": "books-talk"
+  }
+}

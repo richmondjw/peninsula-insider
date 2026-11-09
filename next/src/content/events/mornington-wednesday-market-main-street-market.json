@@ -3,6 +3,25 @@
   "eventId": "MP-EVT-0020",
   "title": "Mornington Wednesday Market (Main Street Market)",
   "summary": "Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.",
+  "heroImage": {
+    "src": "/images/generated/coastal-punch-produce.webp",
+    "alt": "Conceptual market produce and ceramics beneath a striped canopy.",
+    "credit": "Illustration: Peninsula Insider",
+    "license": "other-licensed",
+    "caption": "Illustration, not a photograph of the event.",
+    "depicts": "market produce and ceramics beneath a striped canopy",
+    "depictionStatus": "illustrative",
+    "creator": "Peninsula Insider, AI-assisted",
+    "permission": "Original AI-assisted artwork created for Peninsula Insider; website rollout approved by James on 2026-10-09.",
+    "permittedUses": [
+      "website"
+    ],
+    "rightsHolder": "Peninsula Insider",
+    "rightsEstablishedOn": "2026-10-09",
+    "rightsStatus": "recorded",
+    "provenanceReview": "verified",
+    "decorative": false
+  },
   "startDate": "2026-05-06",
   "endDate": "2027-04-28",
   "startTime": "09:00",
@@ -59,11 +78,5 @@
     "locals-know"
   ],
   "place": "mornington",
-  "nextOccurrence": "2026-11-11",
-  "heroImage": {
-    "src": "/images/sourced/category-market-01.webp",
-    "alt": "Community market stalls on Mornington main street",
-    "credit": "Peninsula Insider",
-    "license": "other-licensed"
-  }
+  "nextOccurrence": "2026-11-11"
 }

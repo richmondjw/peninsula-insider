@@ -52,3 +52,7 @@ The card fallback, shared event placeholder and What's On social graphic use aut
 - Planning and travel: `coastal-punch-planning.webp` and `coastal-punch-first-visit.webp`.
 
 The first set is an approved direction, not a requirement to reproduce every shaded surface or landscape detail. Future generations should strengthen simplification and silhouette recognition while keeping this palette and visual family.
+
+## Event illustration library (2026-11-09)
+
+Twenty-one simple single-object illustrations for event listings live in `next/public/images/generated/events/` and are mapped to subjects in `next/src/data/event-illustrations.json`. `next/scripts/assign-event-heroes.mjs` gives every event without a recorded hero either its venue's own verified photograph or the matching illustration, and `npm run assert:event-heroes` blocks any build that leaves a current event bare. Inventory, prompt template and Higgsfield job ids: `ops/records/event-illustrations/inventory-2026-11-09.json`. Page-level scoring: `PAGE-QUALITY-RUBRIC.md`.
