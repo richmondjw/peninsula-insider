@@ -66,12 +66,12 @@ This is locked in `ops/editorial-jobs.json` under `dispatchCadence.titleConventi
 ## Contact / correction lines
 
 ### `contact.correction.line`
-> **Business update or correction? Let us know: [corrections@peninsulainsider.com.au](mailto:corrections@peninsulainsider.com.au)**
+> **Business update or correction? Let us know: [hello@peninsulainsider.com.au](mailto:hello@peninsulainsider.com.au)**
 
 Use on venue, evergreen, place, and journal-guide templates. Live as of commit `ea24895912` (2026-05-10).
 
 ### `contact.correction.short`
-> **Spotted something wrong? [corrections@peninsulainsider.com.au](mailto:corrections@peninsulainsider.com.au)**
+> **Spotted something wrong? [hello@peninsulainsider.com.au](mailto:hello@peninsulainsider.com.au)**
 
 Compact alternative for sidebar / footer / repeated-block surfaces.
 

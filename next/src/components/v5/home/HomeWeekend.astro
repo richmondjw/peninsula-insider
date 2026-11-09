@@ -122,7 +122,7 @@ const cards = await Promise.all(
         <p class="home-weekend__window">{weekend.label}</p>
       </div>
 
-      <p data-event-promotion-empty hidden={cards.length > 0}>No verified event picks remain for this weekend. <a href="/whats-on/?date=next-weekend">Browse next weekend</a> or <a href="/explore/">find a place to explore</a>.</p>
+      <p class="home-weekend__empty" data-event-promotion-empty hidden={cards.length > 0}>No verified event picks remain for {weekend.label}. <a href="/whats-on/">See everything coming up</a> or <a href="/explore/">find a place to explore</a>.</p>
       <div data-event-promotion-content hidden={cards.length === 0}>
       <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={cards.length < 2}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
 
@@ -158,7 +158,7 @@ const cards = await Promise.all(
       </div>
 
       <p class="home-weekend__all">
-        More happening this weekend. <a href="/whats-on/">See all events &rarr;</a>
+        More happening {weekend.label}. <a href="/whats-on/">See all events &rarr;</a>
       </p>
       </div>
 
@@ -171,6 +171,7 @@ const cards = await Promise.all(
 </script>
 
 <style>
+  .home-weekend [data-event-promotion-empty][hidden],.home-weekend [data-event-promotion-content][hidden]{display:none}
   .home-weekend__source{font-size:.8125rem;line-height:1.5;color:var(--soft);margin:.6rem .25rem 0}
   .home-weekend__source>span{display:block}
   .home-weekend__source a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}

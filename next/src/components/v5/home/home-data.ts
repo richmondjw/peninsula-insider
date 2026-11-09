@@ -83,7 +83,14 @@ export function clampVerdict(text: string | undefined | null, maxWords = 25): st
     if (candidate.split(' ').length <= maxWords) out = candidate;
     else break;
   }
-  if (!out) out = `${clean.split(' ').slice(0, maxWords - 1).join(' ')}.`;
+  // First sentence too long: prefer the first later sentence that fits whole,
+  // so a card never ends on a dangling clause ("whiskey and.").
+  if (!out) out = sentences.find((s) => s.split(' ').length <= maxWords) ?? '';
+  if (!out) {
+    const words = clean.split(' ').slice(0, maxWords - 1);
+    while (words.length > 1 && /^(and|or|but|of|the|a|an|to|with|as|in|on|for|at|by|their|its)$/i.test(words[words.length - 1].replace(/[^a-z]/gi, ''))) words.pop();
+    out = `${words.join(' ').replace(/[,;:]+$/, '')}.`;
+  }
   return out;
 }
 

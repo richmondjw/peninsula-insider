@@ -8,6 +8,11 @@ const fieldId=(name:string)=>`intake-${kind}-${name}`;
 ---
 <form class="intake" data-public-intake={kind} aria-label={business ? (adding?'Add my business':'Manage my listing') : `${kind} enquiry`}>
   <input type="hidden" name="enquiry_type" value={kind}/>
+  {kind==='listing-update' && <fieldset class="intake__mode"><legend>What would you like to do?</legend>
+    <label class="intake__check"><input type="radio" name="listing_mode" value="update" checked/>Update my listing (free)</label>
+    <label class="intake__check"><input type="radio" name="listing_mode" value="confirm"/>I confirm my business details are correct</label>
+    <span class="intake__hint">Confirming takes a minute: tell us who you are and we will record that your listing was checked. You can add small corrections if you spot any.</span>
+  </fieldset>}
   {business && <label>Business name<input name="business_name" required maxlength="200" list={fieldId('venues')} autocomplete="organization"/><datalist id={fieldId('venues')}>{venues.map(v=><option value={v.name} data-slug={v.slug}/>)}</datalist></label>}
   {adding && <>
     <label>Category<select name="category" required><option value="">Choose a category</option>{[['food','Food and dining'],['wine','Wineries'],['drink','Bars and drinks'],['experience','Accommodation and experiences'],['shop','Shopping'],['service','Services'],['event','Events'],['other','Other']].map(([value,label])=><option value={value}>{label}</option>)}</select></label>
@@ -20,6 +25,8 @@ const fieldId=(name:string)=>`intake-${kind}-${name}`;
     <label>{adding?'Contact email':'Email'}{correcting?' (optional)':''}<input name="email" type="email" required={!correcting} maxlength="240" autocomplete="email"/></label>
   </div>
   {!business && <label>Page address{correcting?'':' (optional)'}<input name="page" required={correcting} maxlength="500" placeholder="Page URL or title"/></label>}
+  {kind==='listing-update' && <div data-mode="confirm" hidden><label>Corrections (optional)<textarea name="confirm_corrections" maxlength="2000" rows="3" disabled placeholder="Anything that needs changing, e.g. new phone number"/></label></div>}
+  <div data-mode="update">
   <label>{adding?'Short description':business?'What would you like to update':correcting?'What needs fixing?':'Your message'}<textarea name="message" required minlength="10" maxlength="3000" rows="5"/></label>
   {correcting && <>
     <label>What should it say?<textarea name="proposed_correction" required maxlength="2000" rows="3"/></label>
@@ -32,6 +39,7 @@ const fieldId=(name:string)=>`intake-${kind}-${name}`;
     <label class="intake__check"><input type="checkbox" name="photo_rights"/>I have permission to share any photos I attach.</label>
   </>}
   {business && <label>{adding?'Anything else':'Additional notes'}<textarea name="notes" maxlength="2000" rows="3"/></label>}
+  </div>
   <div class="intake__trap" aria-hidden="true"><label>Leave this field empty<input name="company_fax" tabindex="-1" autocomplete="off"/></label></div>
   <button type="submit" class="pi-btn pi-btn--solid">{business?'Send request':'Send message'}</button>
   <p data-intake-status role="status" aria-live="polite" hidden/>
@@ -50,6 +58,13 @@ function initIntake(){
   const venueParam=new URLSearchParams(location.search).get('venue');
   const option=Array.from(form.querySelectorAll<HTMLOptionElement>('datalist option')).find(o=>o.dataset.slug===venueParam);
   if(option)(form.elements.namedItem('business_name') as HTMLInputElement).value=option.value;
+  const modeInputs=form.querySelectorAll<HTMLInputElement>('input[name=listing_mode]');
+  function applyMode(){
+   const mode=form.querySelector<HTMLInputElement>('input[name=listing_mode]:checked')?.value||'update';
+   form.querySelectorAll<HTMLElement>('[data-mode]').forEach(block=>{const on=block.dataset.mode===mode;block.hidden=!on;block.querySelectorAll<HTMLInputElement|HTMLTextAreaElement>('input,textarea,select').forEach(el=>{el.disabled=!on;});});
+   button.textContent=mode==='confirm'?'Confirm my details':'Send request';
+  }
+  if(modeInputs.length){modeInputs.forEach(i=>i.addEventListener('change',applyMode));applyMode();}
   let busy=false;
   const uploads=new Map<File,string>();
   let filedCorrection:string|null=null;
@@ -90,6 +105,15 @@ function initIntake(){
      if(reporter){const {error:contactError}=await client.from('correction_reporters').insert(reporter);if(contactError){report(`Correction received: ${caseRef}. Your contact details could not be saved. Email us with this reference if you want a reply.`,true);return;}}
      form.reset();report(`Correction received. Your reference is ${caseRef}.`);return;
     }
+    const confirming=kind==='listing-update'&&value('listing_mode')==='confirm';
+    if(confirming){
+     const match=Array.from(form.querySelectorAll<HTMLOptionElement>('datalist option')).find(o=>o.value.toLowerCase()===value('business_name').toLowerCase());
+     const confirmedOn=new Date().toISOString().slice(0,10);
+     const corrections=value('confirm_corrections');
+     const details=[`DETAILS CONFIRMED by ${value('name')} on ${confirmedOn}.`,`Business: ${value('business_name')}`,`Contact person: ${value('name')} <${value('email')}>`,`Confirmation date: ${confirmedOn}`,corrections?`Corrections: ${corrections}`:'Corrections: none'].join('\n');
+     const {error}=await client.from('venue_change_requests').insert({id,venue_slug:match?.dataset.slug||'__pending__',venue_name:value('business_name'),change_type:corrections?'correction':'other',proposed_change:details,operator_name:value('name'),operator_email:value('email'),operator_role:'details-confirmation',client_token:id});if(error)throw error;
+     form.reset();applyMode();report(corrections?'Thanks. Your confirmation and corrections have been received for review.':'Thanks. We have recorded that your listing details are correct.');return;
+    }
     if(kind==='listing-update'){
      const match=Array.from(form.querySelectorAll<HTMLOptionElement>('datalist option')).find(o=>o.value.toLowerCase()===value('business_name').toLowerCase());
      const details=[value('message'),value('social')&&`Social links: ${value('social')}`,value('notes')&&`Additional notes: ${value('notes')}`,photoPaths.length&&`Photos (submissions storage): ${photoPaths.join(', ')}`].filter(Boolean).join('\n\n');
@@ -99,7 +123,7 @@ function initIntake(){
      const body=[`Intake type: ${kind}`,value('message'),value('page')&&`Page: ${value('page')}`,value('website')&&`Website: ${value('website')}`,value('notes')&&`Additional notes: ${value('notes')}`].filter(Boolean).join('\n\n');
      const {error}=await client.from('submissions').insert({id,category:adding?value('category'):'other',place_name:value('location'),title:adding?`BUSINESS SUBMISSION: ${value('business_name')}`:`CONTACT (${kind}): ${value('message').slice(0,100)}`,body,submitter_name:value('name'),submitter_email:value('email'),submitter_handle:value('social'),photo_urls:[],client_token:id});if(error)throw error;
     }
-    form.reset();uploads.clear();report(kind==='new-business'?'Business received for review. Submission does not guarantee publication.':kind==='listing-update'?'Your listing update has been received for review.':'Your message has been received. Thank you.');
+    form.reset();uploads.clear();if(modeInputs.length)applyMode();report(kind==='new-business'?'Business received for review. Submission does not guarantee publication.':kind==='listing-update'?'Your listing update has been received for review.':'Your message has been received. Thank you.');
    }catch(error){report(error instanceof Error&&error.message==='photo-upload'?'A photo could not be uploaded. Your request has not been sent. Try again or email us.':"We couldn't send your request. Your entries are still here. Try again or email us.",true);}
    finally{busy=false;button.disabled=false;}
   });
@@ -112,6 +136,6 @@ initIntake();document.addEventListener('astro:page-load',initIntake);
 label{display:grid;gap:.5rem;font-weight:500;line-height:1.5}
 input,select,textarea{font:inherit;color:var(--text);background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:.8rem;min-width:0;width:100%;box-sizing:border-box}
 input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-textarea{resize:vertical}.intake__pair{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}.intake__hint{font-size:.9rem;color:var(--soft);font-weight:400;line-height:1.6;margin:0}.intake__check{display:flex;align-items:flex-start;font-weight:400}.intake__check input{width:auto;margin-top:.3rem}button{justify-self:start;min-height:44px}.intake__trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}[data-intake-status]{padding:1rem;border:1px solid var(--border)}[data-intake-status][data-error=true]{color:var(--text);font-weight:600}
+textarea{resize:vertical}.intake__pair{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}.intake__hint{font-size:.9rem;color:var(--soft);font-weight:400;line-height:1.6;margin:0}.intake__check{display:flex;align-items:flex-start;font-weight:400}.intake__check input{width:auto;margin-top:.3rem}button{justify-self:start;min-height:44px}.intake__mode{border:1px solid var(--border);border-radius:4px;padding:1rem;display:grid;gap:.5rem;margin:0}.intake__mode legend{font-weight:600;padding:0 .25rem}[data-mode]{display:grid;gap:1.25rem}[data-mode][hidden]{display:none}.intake__trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}[data-intake-status]{padding:1rem;border:1px solid var(--border)}[data-intake-status][data-error=true]{color:var(--text);font-weight:600}
 @media(max-width:36rem){.intake__pair{grid-template-columns:1fr}}
 </style>
