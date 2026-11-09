@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-09T07:00:14.748Z",
+  "updatedAt": "2026-11-09T07:27:14.131Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -4372,6 +4372,14 @@
       "pageTitle": "Portsea named Victorian Top Tourism Town winner - Mornington Peninsula Shire"
     },
     {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/Camping/Book-a-campsite",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Book a campsite - Mornington Peninsula Shire",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Acoustic-Saturdays-Peppers-Moonah-Links-Live-Music",
       "verdict": "ok",
       "httpCode": "200",
@@ -4768,6 +4776,14 @@
       "probedOn": "2026-09-30",
       "probedBy": "scripts/probe-link-health.mjs",
       "pageTitle": "Point Nepean National Park"
+    },
+    {
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/things-to-do/shuttle-service",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Shuttle service",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.parks.vic.gov.au/places-to-see/parks/point-nepean-national-park/where-to-stay/point-nepean-discovery-tents",
@@ -5882,6 +5898,15 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.thecontinentalsorrento.com.au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Fine Dining, Lunch Restaurants &amp; Bars | The Continental Sorrento",
+      "effectiveUrl": "https://thecontinentalsorrento.com.au/",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.thedunes.com.au/",
       "verdict": "blocked",
       "httpCode": "202",
@@ -6080,6 +6105,15 @@
       "verdict": "ok",
       "httpCode": "200",
       "pageTitle": "Soul Night Market I Dromana Estate l Unrivalled Events",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.vic.gov.au/school-term-dates-holidays-victoria",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "School term dates and holidays in Victoria | vic.gov.au",
+      "effectiveUrl": "https://www.vic.gov.au/school-term-dates-and-holidays-victoria",
       "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
