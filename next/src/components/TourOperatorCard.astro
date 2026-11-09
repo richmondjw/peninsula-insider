@@ -7,7 +7,6 @@
 import PiSaveActions from './PiSaveActions.astro';
 import { editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
-import MediaProvenanceNote from './MediaProvenanceNote.astro';
 
 export interface Props {
   operator: any;
@@ -56,7 +55,6 @@ const excerpt = data.intro
     </div>
   )}
   <div class="tour-card__body">
-    <MediaProvenanceNote image={hero.override ? null : data.heroImage} subject={data.name} />
     {commonsCredit && (
       <p class="tour-card__photo-credit">
         Photo by <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,

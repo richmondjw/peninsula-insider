@@ -1,5 +1,6 @@
 <script>
   import { journalCredit } from '../../lib/journal-image-policy.mjs';
+  import { cleanCaption, isArtwork } from '../../lib/image-caption.mjs';
   function recover(img: HTMLImageElement) {
     let choices: any[];
     try { choices = JSON.parse(img.dataset.journalRecovery || '[]'); } catch { return; }
@@ -17,9 +18,7 @@
     const credit = figure?.querySelector('[data-journal-image-credit]');
     if (credit) credit.textContent = journalCredit(image);
     const caption = figure?.querySelector('[data-journal-image-caption]');
-    if (caption) caption.textContent = image.caption;
-    // The replacement's caption discloses context; discard the old image's note.
-    figure?.querySelector('[data-pi-media-disclosure]')?.remove();
+    if (caption) caption.textContent = isArtwork(image) ? '' : cleanCaption(image.caption);
     img.src = image.src;
   }
   document.addEventListener('error', event => {

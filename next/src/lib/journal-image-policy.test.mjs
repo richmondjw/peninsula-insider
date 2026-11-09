@@ -40,12 +40,12 @@ test('CMS replacements use their own credit and caption, never those of the prev
   assert.equal(image.caption, 'Uploaded caption');
   assert.equal(image.provenance, null);
 });
-test('an unavailable thematic image falls back to original art, with honest attribution', () => {
+test('an unavailable thematic image falls back to original art, with nothing printed beneath it', () => {
   const image = selectJournalImage({ ...hero, src: '/missing.webp', hasPhoto: false }, data, fallback, src => src === journalIllustration.src, () => true);
   assert.equal(image.src, journalIllustration.src);
-  assert.match(journalCredit(image), /^Illustration/);
-  assert.match(journalCredit({ ...image, src: image.src + '?v=hash' }), /^Illustration/);
-  assert.match(image.caption, /not a photograph/);
+  assert.equal(journalCredit(image), '');
+  assert.equal(journalCredit({ ...image, src: image.src + '?v=hash' }), '');
+  assert.equal(image.caption, '');
   assert.throws(() => selectJournalImage(hero, data, fallback, () => false), /no available image/);
 });
 test('local availability ignores cache parameters and rejects traversal and unsafe schemes', () => {
@@ -55,18 +55,18 @@ test('local availability ignores cache parameters and rejects traversal and unsa
   assert.equal(imageAvailable('//example.com/image.jpg'), false);
   assert.equal(imageAvailable('javascript:alert(1)'), false);
 });
-test('reviewed raster artwork keeps one illustration credit', () => {
+test('artwork prints no credit', () => {
   for (const src of ['/images/generated/coastal-punch-breakfast.webp', '/art.jpg?v=1']) {
-    assert.equal(journalCredit({ src, credit: 'Illustration: Peninsula Insider' }), 'Illustration: Peninsula Insider');
-    assert.equal(journalCredit({ src, credit: 'Illustration · Peninsula Insider' }), 'Illustration · Peninsula Insider');
+    assert.equal(journalCredit({ src, credit: 'Illustration: Peninsula Insider' }), '');
+    assert.equal(journalCredit({ src, credit: 'Illustration · Peninsula Insider' }), '');
   }
 });
 test('fallback attribution survives cache-stamping of the inlined illustration constant', () => {
   const original = journalIllustration.src;
   try {
     journalIllustration.src = original + '?v=asset-hash';
-    assert.equal(journalCredit({ src: original + '?v=asset-hash', credit: 'Peninsula Insider' }), 'Illustration · Peninsula Insider');
-    assert.equal(journalCredit({ src: original, credit: 'Peninsula Insider' }), 'Illustration · Peninsula Insider');
+    assert.equal(journalCredit({ src: original + '?v=asset-hash', credit: 'Peninsula Insider' }), '');
+    assert.equal(journalCredit({ src: original, credit: 'Peninsula Insider' }), '');
     assert.equal(journalCredit(fallback), 'Photo · Creator, courtesy of Visit Victoria');
   } finally {
     journalIllustration.src = original;

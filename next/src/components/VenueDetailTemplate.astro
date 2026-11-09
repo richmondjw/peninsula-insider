@@ -1,4 +1,5 @@
 ---
+import { cleanCaption } from '../lib/image-caption.mjs';
 import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit, isListableVenue, isPermanentlyClosed } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
@@ -10,7 +11,6 @@ import PiArticleActions from './PiArticleActions.astro';
 import { getCollection } from 'astro:content';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import PlayRibbon from './play/PlayRibbon.astro';
-import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import PhotoStage from './PhotoStage.astro';
 import InlinePhoto from './InlinePhoto.astro';
 import { photoPlan, paragraphsOf } from '../lib/photo-set';
@@ -161,8 +161,9 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 // file, and the record says nothing about it - so pass nothing rather
 // than let one image's disclosure stand in for another's. Capturing
 // provenance at upload is the operator flow, which is gated separately.
-const heroProvenance = hero.override ? null : data.heroImage;
 const heroCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
+// Caption rule (lib/image-caption.mjs): place line, then the source.
+const heroPlace = cleanCaption(hero.override ? hero.override.caption : data.heroImage?.caption);
 const flindersCommonsHero = venueSlug === 'flinders-hotel' && !hero.override && hero.hasPhoto;
 const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(data.heroImage?.sourceUrl)) ? data.heroImage.sourceUrl : undefined;
 const heroLicenceUrl = !hero.override ? data.heroImage?.licenseUrl ?? (flindersCommonsHero ? 'https://creativecommons.org/licenses/by-sa/3.0/' : undefined) : undefined;
@@ -409,13 +410,8 @@ const hoursSchema = hasOpeningHours && !isPaused && isCanonicalSurface && sectio
           {!isPaused && !isClosed && <span class="venue-detail__hero-label">{heroLabel}</span>}
         </figure>
         {heroCredit && (
-          <p class="venue-detail__hero-credit">{venueSlug === 'hotel-sorrento' && !hero.override ? 'Exterior photographed in 2006. ' : ''}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label={data.name + " image source"}>Source</a>{heroLicenceUrl && <><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href={heroLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}{flindersCommonsHero && <span> Resized and converted to WebP.</span>}</p>
+          <p class="venue-detail__hero-credit">{heroPlace && formatHeroCredit(heroCredit) && `${heroPlace}. `}{formatHeroCredit(heroCredit)}{heroSourceUrl && <span class="venue-detail__credit-links">{' '}<a class="venue-detail__credit-link" href={heroSourceUrl} aria-label={data.name + " image source"}>Source</a>{heroLicenceUrl && <><span aria-hidden="true">·</span><a class="venue-detail__credit-link" href={heroLicenceUrl} aria-label={data.name + " image licence"}>Licence</a></>}</span>}{flindersCommonsHero && <span> Resized and converted to WebP.</span>}</p>
         )}
-        <MediaProvenanceNote
-          image={heroProvenance}
-          subject={data.name}
-          class="venue-detail__hero-provenance"
-        />
         {photoSet.photos.length >= 3 && <PhotoStage photos={photoSet.photos} subject={data.name} id="photos" variant="strip" />}
       </>
     ) : null}

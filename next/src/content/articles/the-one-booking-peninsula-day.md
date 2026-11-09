@@ -9,7 +9,7 @@ heroImage:
   alt: "The restaurant at Montalto with white umbrellas along its deck, set above a broad sloping lawn under a blue sky with cloud"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula."
+  caption: "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula"
   depicts: "Montalto"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

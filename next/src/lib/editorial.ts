@@ -525,6 +525,8 @@ export function heroBackgroundStyle(data: any): string {
  */
 export function formatHeroCredit(credit: string | undefined | null): string {
   if (!credit) return '';
+  // Our own artwork prints no credit (caption rule, lib/image-caption.mjs).
+  if (/^(?:illustration|ai-assisted artwork)/i.test(credit.trim())) return '';
   if (credit.trim().toLowerCase() === 'jem') return 'Photograph by jem';
   return `Photo · ${credit}`;
 }

@@ -216,11 +216,15 @@ The compact header owns the page H1. `TheSix` uses a native summary for the rema
 - **Do** put a browse-all route and one labelled filter surface early on category pages.
 - **Do** use a full lead choice with compact alternatives, and disclose additional editorial choices with native details.
 - **Do** preserve visible focus, selected-state semantics, result announcements and reduced-motion behavior.
-- **Do** distinguish a recorded factual check, publication date, illustrative image and unknown information.
+- **Do** distinguish a recorded factual check, publication date and unknown information.
+- **Do** caption a photograph of a real place with a short place line and its source, nothing more: `Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula` then `Photo · Two Palms Australia, courtesy of Visit Victoria`. The region stays in the line (Visit Victoria licence). Rule and code: `next/src/lib/image-caption.mjs`; gate: `npm run assert:image-captions`.
+- **Do** print nothing at all beneath our own artwork (illustrations, generated plates, placeholders): no caption, no credit.
 
 ### Don't:
 - **Don’t** apply the dormant Magenta Stone admin palette or the superseded v5 token file as the public default.
 - **Don’t** make a photographic hero compulsory when the category decision is better served by a compact text opening.
 - **Don’t** duplicate FilterBar IDs or make a decorative selection determine the directory’s count.
 - **Don’t** turn an absent field into confirmed suitability, current availability or a new verification date.
+- **Don’t** use an "Illustrative image" badge, or caption sentences such as "This image shows X. It does not depict Y.", "not a view from a listed stay" or "Context photo". Retired 9 November 2026. Alt text still describes the image for screen readers.
+- **Don’t** print the alt sentence as a visible caption.
 - **Don’t** gate reading behind animation or remove guest planning to simplify a layout.

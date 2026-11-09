@@ -9,7 +9,7 @@ heroImage:
   alt: "A family looks out from inside an Arthurs Seat Eagle gondola over the bayside suburbs and Port Phillip below"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Arthurs Seat Eagle, Mornington Peninsula."
+  caption: "Arthurs Seat Eagle, Mornington Peninsula"
   depicts: "Arthurs Seat Eagle"
   depictionStatus: "actual"
   sourceUrl: "Victoria Content Hub asset 167058, downloaded 2026-09-28"

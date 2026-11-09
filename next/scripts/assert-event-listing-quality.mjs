@@ -4,6 +4,7 @@
 // the live page is checked separately after deployment.
 import { readFile, readdir, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { cleanCaption } from '../src/lib/image-caption.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const EVENT_DIR = path.join(ROOT, 'src', 'content', 'events');
@@ -59,9 +60,10 @@ for (const slug of slugs) {
     slug, 'hero creator, permission or rights holder missing');
   requireField(/^\/images\/[a-z0-9/_-]+\.(png|jpe?g|webp)$/i.test(hero.src ?? ''),
     slug, 'hero must be a local image asset');
-  if (hero.depictionStatus === 'illustrative') {
-    requireField(/illustrat/i.test(hero.caption ?? ''), slug, 'illustration disclosure missing');
-  }
+  // Caption rule (src/lib/image-caption.mjs, 9 Nov 2026): no disclosure
+  // sentence beneath an image; artwork carries no caption at all.
+  requireField((hero.caption ?? '').replace(/\.$/, '') === cleanCaption(hero.caption ?? ''),
+    slug, 'hero caption carries retired disclosure wording');
   if (/^\/images\//.test(hero.src ?? '')) {
     try {
       const asset = path.join(PUBLIC_DIR, hero.src.slice(1));

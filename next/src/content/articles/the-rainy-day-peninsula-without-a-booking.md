@@ -9,7 +9,7 @@ heroImage:
   alt: "Four scallops on the half shell with a yellow sauce, orange roe and herbs, served on salt on a timber table"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Merricks General Wine Store, Mornington Peninsula."
+  caption: "Merricks General Wine Store, Mornington Peninsula"
   depicts: "Merricks General Wine Store"
   depictionStatus: "illustrative"
   creator: "Peter Foster"

@@ -176,8 +176,11 @@ async function verifyOne(url) {
 
   // Per-kind checks
   if (kind === 'article' || kind === 'dispatch') {
-    // 11. hero credit visible
-    const creditVisible = /Photograph by jem|Photo · |\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(html);
+    // 11. hero credit visible. Our own artwork carries no caption or credit
+    // (caption rule, next/src/lib/image-caption.mjs, 9 Nov 2026), so an
+    // artwork hero passes without one.
+    const artworkHero = /<figure\b[^>]*>\s*(?:<a\b[^>]*>\s*)?<img\b[^>]*src=["'][^"']*\/images\/(?:generated|illustrations|editorial\/journal-backstop)[^"']*["']/i.test(html);
+    const creditVisible = artworkHero || /Photograph by jem|Photo · |\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(html);
     checks.push(check('hero-credit-visible', creditVisible));
 
     // 12. lastVerified rendered
@@ -236,9 +239,12 @@ async function verifyOne(url) {
         (!expectSourceHost || sourceHost === expectSourceHost),
         sourceHost || 'visible primary-source link missing'));
       if (expectIllustration) {
-        checks.push(check('event-illustration-disclosure',
-          /\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b/i.test(figure) && /data-pi-media-disclosure=["']illustrative["']/i.test(figure),
-          'illustration disclosure in image caption'));
+        // Artwork prints nothing beneath it: no badge, no disclosure, no credit
+        // (caption rule, next/src/lib/image-caption.mjs, 9 Nov 2026).
+        checks.push(check('event-illustration-uncaptioned',
+          /<img\b/i.test(figure) &&
+            !/data-pi-media-disclosure|Illustrative image|\bIllustration\s*(?:·|:|&middot;|&#183;)\s*Peninsula Insider\b|AI-assisted artwork/i.test(figure),
+          'artwork shown with nothing printed beneath it'));
       }
     }
   }

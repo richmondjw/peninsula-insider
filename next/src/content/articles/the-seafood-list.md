@@ -9,7 +9,7 @@ heroImage:
   alt: "Aerial view of Sorrento at soft early light, with the ferry terminal pier reaching into the bay and the town and ocean beyond"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Sorrento Ferry, Mornington Peninsula."
+  caption: "Sorrento Ferry, Mornington Peninsula"
   depicts: "Sorrento Ferry Terminal"
   depictionStatus: "illustrative"
   sourceUrl: "Victoria Content Hub asset 22100103, downloaded 2026-09-28"

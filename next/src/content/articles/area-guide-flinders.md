@@ -9,7 +9,7 @@ heroImage:
   alt: "Two golfers carrying bags across a fairway at Flinders Golf Course towards the sea, with low sun flaring over the clubhouse"
   credit: "Gary Lisbon, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Flinders Golf Club, Mornington Peninsula."
+  caption: "Flinders Golf Club, Mornington Peninsula"
   depicts: "Flinders Golf Course"
   depictionStatus: "actual"
   creator: "Gary Lisbon"

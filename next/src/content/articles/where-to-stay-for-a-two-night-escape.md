@@ -9,7 +9,7 @@ heroImage:
   alt: "Two guests in dark robes stand on a balcony at Jackalope Hotel, looking out over gum trees to vineyard rows"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula."
+  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula"
   depicts: "Jackalope Hotel"
   depictionStatus: "illustrative"
   creator: "Peter Foster"

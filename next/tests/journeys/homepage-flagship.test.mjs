@@ -114,11 +114,11 @@ test('failed AVIF download falls back to the original WebP variants without chan
   const reader=await site.reader();
   try {
     await reader.load('/');
-    const before=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption').textContent}));
+    const before=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption')?.textContent??''}));
     assert.ok(await reader.page.$('.home-cover__plate source[data-pi-avif-source]'));
     await reader.page.$eval('.home-cover__plate source',e=>{e.srcset='/images/missing-avif-regression.avif 800w';});
     await reader.waitFor(()=>{const img=document.querySelector('.home-cover__media');return img.complete&&img.naturalWidth>0&&img.currentSrc.includes('.webp')&&!img.closest('picture').querySelector('source[data-pi-avif-source]');},'native WebP did not recover');
-    const after=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption').textContent}));
+    const after=await reader.page.$eval('.home-cover__plate',e=>({alt:e.querySelector('img').alt,caption:e.querySelector('figcaption')?.textContent??''}));
     assert.deepEqual(after,before);
   }finally{await reader.close();}
 });

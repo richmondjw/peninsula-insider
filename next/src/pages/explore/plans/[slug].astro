@@ -827,7 +827,7 @@ export const prerender = true;
         <div class="itinerary-detail__cover-media">
       {itineraryPhotos?.stage ? (
         <div data-pi-no-hydrate={incompleteItineraryOverride ? 'true' : undefined} {...editableImage({ entityType: 'itinerary', entitySlug: slug, fieldPath: 'heroImage', label: `${data!.title} hero`, purpose: 'hero' })}>
-          <PhotoStage photos={itineraryPhotos.photos} subject={data!.title} id="photos" stageCaption="caption" />
+          <PhotoStage photos={itineraryPhotos.photos} subject={data!.title} id="photos" />
         </div>
       ) : (
         <>

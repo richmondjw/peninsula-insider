@@ -9,7 +9,7 @@ heroImage:
   alt: "Timber tables set for lunch before an open kitchen with hanging woven baskets and shelves of wine at Merricks General Wine Store"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Merricks General Wine Store, Mornington Peninsula."
+  caption: "Merricks General Wine Store, Mornington Peninsula"
   depicts: "Merricks General Wine Store"
   depictionStatus: "illustrative"
   creator: "Peter Foster"

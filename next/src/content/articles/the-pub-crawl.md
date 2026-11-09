@@ -9,7 +9,7 @@ heroImage:
   alt: "A hand pulls a pale beer into a small glass from a row of worn metal taps with a Red Hill Brewery tap badge"
   credit: "Peter Tarasiuk, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Red Hill Brewery, Mornington Peninsula."
+  caption: "Red Hill Brewery, Mornington Peninsula"
   depicts: "Red Hill Brewery"
   depictionStatus: "illustrative"
   creator: "Peter Tarasiuk"

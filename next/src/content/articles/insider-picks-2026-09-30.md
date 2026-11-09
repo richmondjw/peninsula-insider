@@ -9,7 +9,7 @@ heroImage:
   alt: "A small glass fills with frothy beer from a curved chrome spout beside a brass and timber beer engine"
   credit: "Peter Tarasiuk, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Red Hill Brewery, Mornington Peninsula."
+  caption: "Red Hill Brewery, Mornington Peninsula"
   creator: "Peter Tarasiuk"
   sourceUrl: "Victoria Content Hub asset 143824, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026). Embedded usage terms: \"All image usage must be for the positive promotion of Melbourne and Victoria. Images can only be used to promote the region the image has been taken in. All material supplied is owned by Visit Victoria or its respective partners and can not be on sold to Third Parties.\""

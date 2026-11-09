@@ -175,8 +175,9 @@ const imageRef = z.object({
   // a value that cannot be sourced from the image record itself. An inferred
   // rights holder is worse than an absent one.
   //
-  // Enforced by scripts/audit-media-provenance.mjs; the visible disclosure is
-  // rendered by src/components/MediaProvenanceNote.astro.
+  // Enforced by scripts/audit-media-provenance.mjs. What prints beneath an
+  // image (no badge; a place line and credit, or nothing for artwork) is
+  // src/lib/image-caption.mjs.
 
   /** What the photograph actually shows, in the photographer's terms. */
   depicts: z.string().optional(),

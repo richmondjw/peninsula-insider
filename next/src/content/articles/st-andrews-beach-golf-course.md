@@ -9,7 +9,7 @@ heroImage:
   alt: "Elevated view of a golfer driving from a tee at St Andrews Beach Golf Course, a partner by the bags and the green ahead in the dunes"
   credit: "Gary Lisbon, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula."
+  caption: "St Andrews Beach Golf Course, Cape Schanck, Mornington Peninsula"
   depicts: "St Andrews Beach Golf Course - Fingal"
   depictionStatus: "actual"
   creator: "Gary Lisbon"

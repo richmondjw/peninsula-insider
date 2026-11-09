@@ -9,7 +9,7 @@ heroImage:
   alt: "A gravel drive leads between lawns and a row of vines to a cottage shaded by trees in yellow autumn leaf"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Crittenden Estate, Dromana, Mornington Peninsula."
+  caption: "Crittenden Estate, Dromana, Mornington Peninsula"
   depicts: "Crittenden Estate Cellar Door"
   depictionStatus: "actual"
   sourceUrl: "Victoria Content Hub asset 164273, downloaded 2026-09-28"

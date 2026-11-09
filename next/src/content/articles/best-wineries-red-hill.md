@@ -9,7 +9,7 @@ heroImage:
   alt: "Large gum trees shade the lawn and covered terrace at Polperro Winery, with diners outside and vines sloping away beyond"
   credit: "Peter Tarasiuk, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Polperro, Red Hill, Mornington Peninsula."
+  caption: "Polperro, Red Hill, Mornington Peninsula"
   depicts: "Polperro Winery"
   depictionStatus: "actual"
   creator: "Peter Tarasiuk"

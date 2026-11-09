@@ -9,7 +9,7 @@ heroImage:
   alt: "Bunches of pink and white radishes stacked beside fennel bulbs with feathery fronds on a market stall"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Mornington Farmers' Market, Mornington Peninsula."
+  caption: "Mornington Farmers' Market, Mornington Peninsula"
   depicts: "Produce at Mornington Farmers Market"
   depictionStatus: "illustrative"
   sourceUrl: "Victoria Content Hub asset 143098, downloaded 2026-09-28"

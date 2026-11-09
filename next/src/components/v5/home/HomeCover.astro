@@ -1,4 +1,5 @@
 ---
+import { cleanCaption, isArtwork } from '../../../lib/image-caption.mjs';
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
 import { getAustralianSeasonLower } from '../../../lib/season';
@@ -21,7 +22,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
     <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
-    <figcaption>{photo.caption} {creditLine}</figcaption>
+    {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption)} {creditLine}</figcaption>}
   </figure>
   <div class="container home-cover__content">
     <p class="home-cover__eyebrow">{season} on the Peninsula</p>

@@ -9,7 +9,7 @@ heroImage:
   alt: "Visitors walk past the open doors of the weathered timber Brewhouse shed, with brewing tanks visible inside"
   credit: "Peter Tarasiuk, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Red Hill Brewery, Mornington Peninsula."
+  caption: "Red Hill Brewery, Mornington Peninsula"
   depicts: "Red Hill Brewery"
   depictionStatus: "illustrative"
   creator: "Peter Tarasiuk"

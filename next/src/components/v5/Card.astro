@@ -27,6 +27,7 @@
 import { editableImage, type CmsEntityType } from '../../lib/inline-edit/attrs';
 import { freshnessLabel } from '../../lib/freshness';
 import SaveControl from './SaveControl.astro';
+import { cleanCaption, isArtwork } from '../../lib/image-caption.mjs';
 import BookingControl from './BookingControl.astro';
 import type { EditorialPlan } from '../../lib/editorial-plan-import';
 
@@ -249,8 +250,10 @@ const creditLine = (credit: string) => {
       ? `${clean}.`
       : `${/\b(?:illustration|artwork|drawing)\b/i.test(clean) ? 'Illustration' : 'Photo'}: ${clean}.`;
 };
-const imageCaption = image?.caption ?? '';
-const imageCredit = image?.credit ? creditLine(image.credit) : '';
+// Caption rule (lib/image-caption.mjs): artwork prints nothing.
+const imageArtwork = isArtwork(image);
+const imageCaption = imageArtwork ? '' : cleanCaption(image?.caption);
+const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : '';
 ---
 
 {/* `compact-row` is the primitive's `--compact` variant; the other six are

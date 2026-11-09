@@ -19,10 +19,12 @@ for (const viewport of [{ width: 1440, height: 1000 }, { width: 390, height: 844
       const figures = await reader.page.evaluate(() => [...document.querySelectorAll('.story')].map(story => ({
         image: !!story.querySelector('img[data-journal-image]'),
         credit: story.querySelector('[data-journal-image-credit]')?.textContent?.trim(),
+        // Our own artwork carries no credit (src/lib/image-caption.mjs).
+        artwork: !!story.querySelector('[data-journal-artwork]'),
         width: story.querySelector('img')?.getBoundingClientRect().width,
       })));
       assert.ok(figures.length > 0);
-      assert.ok(figures.every(f => f.image && f.credit && f.width > 0 && f.width <= viewport.width));
+      for (const f of figures) assert.ok(f.image && (f.credit || f.artwork) && f.width > 0 && f.width <= viewport.width, JSON.stringify(f));
     } finally { await reader.close(); }
   });
 }
@@ -54,8 +56,8 @@ test('failed article and thematic images recover to original art after client na
     });
     assert.equal(result.slug, slug);
     assert.match(result.alt, /Original illustration/);
-    assert.equal(result.credit, 'Illustration · Peninsula Insider');
-    assert.match(result.caption, /not a photograph/);
+    assert.equal(result.credit, '');
+    assert.equal(result.caption, '');
     assert.doesNotMatch(result.credit, /Visit Victoria/);
   } finally { await reader.close(); }
 });

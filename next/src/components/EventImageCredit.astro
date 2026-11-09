@@ -1,5 +1,6 @@
 ---
 import { publicImageSourceUrl } from '../lib/image-source-url.mjs';
+import { cleanCaption, isArtwork } from '../lib/image-caption.mjs';
 /** Attribution for an event image with recorded provenance. */
 export interface Props {
   image?: any;
@@ -9,7 +10,10 @@ export interface Props {
 const { image, compact = false } = Astro.props;
 const sourceUrl = publicImageSourceUrl(image?.sourceUrl);
 const recorded = image?.rightsStatus === 'recorded';
-const generated = String(image?.src ?? '').startsWith('/images/generated/');
+// Caption rule (lib/image-caption.mjs): artwork prints nothing; a photograph
+// of a real place prints that place, then its source.
+const artwork = isArtwork(image);
+const place = artwork ? '' : cleanCaption(image?.caption);
 const licence = String(image?.permission ?? '');
 const licenceLabel = licence.includes('Attribution-ShareAlike 4.0')
   ? 'CC BY-SA 4.0'
@@ -27,13 +31,12 @@ const licenceUrl = licenceLabel === 'CC BY-SA 4.0'
     : null;
 ---
 
-{recorded && (
+{recorded && !artwork && (
   <p class:list={['event-image-credit', compact && 'event-image-credit--compact']}>
-    {generated ? (
-      <span>Illustration · Peninsula Insider</span>
-    ) : (
+    {(
       <>
-        <span>Image · {image.creator ?? image.credit}</span>
+        {place && <span>{place}</span>}
+        <span>Photo · {image.creator ?? image.credit}</span>
         {licenceLabel && licenceUrl && <a href={licenceUrl} target="_blank" rel="noopener noreferrer">{licenceLabel}</a>}
         {sourceUrl && <a href={sourceUrl} target="_blank" rel="noopener noreferrer">Image source</a>}
         {image.adaptationNote && <span>{image.adaptationNote}</span>}

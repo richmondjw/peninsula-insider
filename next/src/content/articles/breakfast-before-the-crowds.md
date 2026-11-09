@@ -9,7 +9,7 @@ heroImage:
   alt: "Conceptual oversized coffee cup and croissant beside an abstract bay."
   credit: "Illustration: Peninsula Insider"
   license: "other-licensed"
-  caption: "Editorial illustration. A Peninsula morning; not a depiction of a named cafe or its menu."
+  caption: ""
   depicts: "Conceptual oversized coffee cup and croissant beside an abstract bay."
   depictionStatus: "illustrative"
   creator: "Peninsula Insider, AI-assisted"

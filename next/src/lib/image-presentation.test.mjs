@@ -29,7 +29,7 @@ test('real attribution, licences, topical descriptions and missing values are pr
   }
 });
 
-test('reviewed source captions retain depiction caveats and internal generation provenance', () => {
+test('artwork records carry no caption but keep internal generation provenance', () => {
   const records = [
     ['articles', 'breakfast-before-the-crowds', 'md'],
     ['articles', 'first-time-peninsula', 'md'],
@@ -42,9 +42,9 @@ test('reviewed source captions retain depiction caveats and internal generation 
   ];
   for (const [collection, slug, extension] of records) {
     const source = fs.readFileSync(new URL(`../content/${collection}/${slug}.${extension}`, import.meta.url), 'utf8');
-    const caption = source.match(/(?:"caption"|caption):\s*"([^"]+)"/)[1];
-    assert.match(caption, /^Editorial illustration\./, slug);
-    assert.match(caption, /\bnot\b/i, slug);
+    // Caption rule (lib/image-caption.mjs): nothing printed beneath artwork.
+    const caption = source.match(/(?:"caption"|caption):\s*"([^"]*)"/)[1];
+    assert.equal(caption, '', slug);
     assert.match(source, /Peninsula Insider, AI-assisted/, slug);
     assert.match(source, /Original AI-assisted artwork created for Peninsula Insider/, slug);
   }

@@ -9,7 +9,7 @@ heroImage:
   alt: "Long dining tables set between walls of stacked wine barrels under a neon swan sign at The Epicurean, Red Hill"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "The Epicurean, Red Hill, Mornington Peninsula."
+  caption: "The Epicurean, Red Hill, Mornington Peninsula"
   depicts: "The Epicurean - Red Hill"
   depictionStatus: "illustrative"
   creator: "Peter Foster"

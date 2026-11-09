@@ -9,7 +9,7 @@ heroImage:
   alt: "Scallops on the half shell served on salt with bread and glasses of white wine, an open fire glowing behind"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Merricks General Wine Store, Mornington Peninsula."
+  caption: "Merricks General Wine Store, Mornington Peninsula"
   depicts: "Merricks General Wine Store"
   depictionStatus: "illustrative"
   creator: "Peter Foster"

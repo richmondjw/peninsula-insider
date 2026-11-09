@@ -9,7 +9,7 @@ heroImage:
   alt: "A couple walks along a narrow white-railed pier at Sorrento over clear shallow water dotted with moored boats"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Sorrento, Mornington Peninsula."
+  caption: "Sorrento, Mornington Peninsula"
   depicts: "Sorrento Pier"
   depictionStatus: "illustrative"
   sourceUrl: "Victoria Content Hub asset 163876, downloaded 2026-09-28"

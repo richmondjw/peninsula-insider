@@ -9,7 +9,7 @@ heroImage:
   alt: "A man pours white wine for a woman on the terrace at Jackalope Hotel, with rows of vines and a hillside vineyard beyond"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula."
+  caption: "Jackalope Hotel, Merricks North, Mornington Peninsula"
   sourceUrl: "Victoria Content Hub asset 165111, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
   rightsHolder: "Visit Victoria"

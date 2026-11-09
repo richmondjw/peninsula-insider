@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import { stripTypeScriptTypes } from 'node:module';
 import { transform } from '@astrojs/compiler';
 import { isPublicEventRecord } from '../src/lib/event-publication.mjs';
+import { cleanCaption } from '../src/lib/image-caption.mjs';
 const source = await readFile(new URL('../src/pages/whats-on/[slug].astro', import.meta.url), 'utf8');
 test('actual detail route generates approved/public URLs and refuses draft records', async () => {
   const body = source.match(/export async function getStaticPaths\(\) \{([\s\S]*?)\n\}/)?.[1];
@@ -45,13 +46,15 @@ test('actual detail labels only the cancelled edition and preserves noncancelled
 test('homepage event photography requires a recorded rights receipt', async () => {
   const home = await readFile(new URL('../src/components/v5/home/HomeWeekend.astro', import.meta.url), 'utf8');
   const block = home.slice(home.indexOf('    const image ='), home.indexOf('    const dateISO ='));
-  const actual = new Function('contextPhotos', 'slug', 'hero', 'recorded', 'status', `${stripTypeScriptTypes(block)}; return image;`);
+  const fn = new Function('contextPhotos', 'slug', 'hero', 'recorded', 'status', 'cleanCaption', `${stripTypeScriptTypes(block)}; return image;`);
+  const actual = (...args) => fn(...args, cleanCaption);
   const hero = { hasPhoto: true, src: '/event.webp' };
   const photo = { alt: 'Verified subject', credit: 'Photographer' };
   const fallback = actual({}, 'event', hero, photo, 'actual');
   assert.equal(fallback.src, '/images/generated/coastal-punch-plate.svg');
-  assert.match(fallback.caption, /not a depiction of this event/);
-  assert.equal(fallback.credit, 'Illustration: Peninsula Insider');
+  // Caption rule (lib/image-caption.mjs): artwork prints nothing beneath it.
+  assert.equal(fallback.caption, '');
+  assert.equal(fallback.credit, '');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'actual').src, '/event.webp');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'unverified').src, fallback.src);
   assert.equal(actual({event:{src:'/context.webp'}}, 'event', hero, {...photo,rightsStatus:'recorded'}, 'actual').src, '/event.webp');

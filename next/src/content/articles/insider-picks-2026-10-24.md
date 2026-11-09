@@ -9,7 +9,7 @@ heroImage:
   alt: "Flinders Hotel pub frontage in 2010; Quarters accommodation is behind this building"
   credit: "Flinders Hotel frontage, photographed 2010 · Mattinbgn / Wikimedia Commons (CC BY-SA 3.0)"
   license: "wikimedia-cc-by-sa"
-  caption: "Flinders Hotel pub frontage, photographed in 2010; this is not a photograph of the Quarters rooms."
+  caption: "Flinders Hotel, Flinders, Mornington Peninsula"
   creator: "Mattinbgn"
   sourceUrl: "https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG"
   permission: "CC-BY-SA-3.0"

@@ -9,7 +9,7 @@ heroImage:
   alt: "Two people seated at a garden table among vegetable beds, looking out over bushland at Green Olive at Red Hill"
   credit: "Two Palms Australia, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Green Olive at Red Hill, Mornington Peninsula."
+  caption: "Green Olive at Red Hill, Mornington Peninsula"
   depicts: "Green Olive at Red Hill"
   depictionStatus: "illustrative"
   creator: "Two Palms Australia"

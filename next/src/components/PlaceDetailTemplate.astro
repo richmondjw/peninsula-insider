@@ -32,12 +32,12 @@ import ItineraryCard from './ItineraryCard.astro';
 import ArticleCard from './ArticleCard.astro';
 import NewsletterBlock from './NewsletterBlock.astro';
 import CorrectionNote from './CorrectionNote.astro';
-import MediaProvenanceNote from './MediaProvenanceNote.astro';
 import PhotoStage from './PhotoStage.astro';
 import InlinePhoto from './InlinePhoto.astro';
 import { photoPlan, STAGE_MIN } from '../lib/photo-set';
 import { altFor } from '../lib/media-provenance';
 import { titleize, formatHeroCredit } from '../lib/editorial';
+import { cleanCaption } from '../lib/image-caption.mjs';
 import { editableText, editableImage } from '../lib/inline-edit/attrs';
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 
@@ -84,7 +84,6 @@ const heroSourceUrl = !hero.override && /^https?:\/\/\S+$/.test(String(place.dat
 const heroLicenceUrl = !hero.override ? place.data.heroImage?.licenseUrl : undefined;
 // See the note in VenueDetailTemplate: a published CMS override is a
 // different image with no recorded provenance of its own.
-const heroProvenance = hero.override ? null : place.data.heroImage;
 // The photograph rule (src/lib/photo-set.ts). A place opens on its full-bleed
 // cover with the name laid over it, so the photographs arrive as a filmstrip
 // directly under the cover rather than replacing it, and one is set into
@@ -267,13 +266,8 @@ const factual = place.data.factualLede ?? '';
       </a>
     )}
   </div>
-  {editorialHero && !hero.override && place.data.heroImage?.caption && <p class="pdv2-hero__caption">{place.data.heroImage.caption}</p>}
+  {editorialHero && !hero.override && place.data.heroImage?.caption && <p class="pdv2-hero__caption">{cleanCaption(place.data.heroImage.caption)}</p>}
   {heroCredit && <p class="pdv2-hero__credit">{heroCredit}{heroSourceUrl && <span> <a href={heroSourceUrl} aria-label={place.data.name + " image source"}>Source</a>{heroLicenceUrl && <> <span aria-hidden="true">·</span> <a href={heroLicenceUrl} aria-label={place.data.name + " image licence"}>Licence</a></>}</span>}</p>}
-  <MediaProvenanceNote
-    image={heroProvenance}
-    subject={place.data.name}
-    class="pdv2-hero__provenance"
-  />
 </section>
 
 <!-- ═══════════════════════════════════════════════════════════════════════

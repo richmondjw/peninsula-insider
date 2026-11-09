@@ -25,7 +25,6 @@ import {
   assertsActualDepiction,
   depictionStatusOf,
   hasRecordedProvenance,
-  illustrativeDisclosure,
   isDecorative,
   isIllustrative,
   rightsStateOf,
@@ -105,35 +104,10 @@ test('an unrecognised depiction status is never read as actual', () => {
   }
 });
 
-test('only an explicit illustrative mark renders a disclosure', () => {
-  assert.equal(illustrativeDisclosure({ depictionStatus: 'unverified' }, 'Rye Hotel'), null);
-  assert.equal(illustrativeDisclosure({ depictionStatus: 'actual' }, 'Rye Hotel'), null);
-  assert.equal(isIllustrative({ depictionStatus: 'illustrative' }), true);
-});
-
-test('the disclosure names what the photograph shows when the record says', () => {
-  const note = illustrativeDisclosure(
-    { depictionStatus: 'illustrative', depicts: 'a plate of grilled steak and hand-cut chips' },
-    'Rye Hotel',
-  );
-  assert.equal(note.label, 'Illustrative image');
-  assert.match(note.detail, /grilled steak and hand-cut chips/);
-  assert.match(note.detail, /does not depict Rye Hotel/);
-});
-
-test('with no depicts the disclosure withholds the subject rather than inventing one', () => {
-  const note = illustrativeDisclosure({ depictionStatus: 'illustrative' }, 'Rye Hotel');
-  assert.equal(note.detail, 'This image does not depict Rye Hotel.');
-});
-
-test('a decorative image is still illustrative and still discloses', () => {
-  // Decorative is about the frame; illustrative is about the claim. An
-  // atmosphere photograph standing in for a named business is both, and
-  // collapsing the two would silence the disclosure on 20 records.
+test('decorative and illustrative are independent', () => {
   const image = { depictionStatus: 'illustrative', depicts: 'an empty sandy beach', decorative: true, alt: '' };
   assert.equal(isDecorative(image), true);
   assert.equal(isIllustrative(image), true);
-  assert.ok(illustrativeDisclosure(image, 'Rye Hotel'));
 });
 
 // ── hasRecordedProvenance: a credit is not provenance ────────────────────

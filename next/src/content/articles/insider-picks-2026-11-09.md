@@ -9,7 +9,7 @@ heroImage:
   alt: "A glass of pale beer on a timber table at St Andrews Beach Brewery, with a fireplace glowing in the background"
   credit: "Courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "St Andrews Beach Brewery, Fingal, Mornington Peninsula."
+  caption: "St Andrews Beach Brewery, Fingal, Mornington Peninsula"
   sourceUrl: "Victoria Content Hub asset 168545, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."
   rightsHolder: "Visit Victoria"

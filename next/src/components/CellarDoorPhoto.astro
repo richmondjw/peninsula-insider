@@ -1,6 +1,7 @@
 ---
 import { resolveHero } from '../lib/inline-edit/resolve-hero';
 import { reviewedCellarPhoto } from '../lib/cellar-door-media.mjs';
+import { cleanCaption } from '../lib/image-caption.mjs';
 const { venue, eager = false } = Astro.props;
 const photo = reviewedCellarPhoto(venue.data);
 // CMS uploads lack the full rights/subject record required here. Resolve the
@@ -12,7 +13,7 @@ const hero = photo ? await resolveHero('venue', venue.data.slug, {...venue.data,
     {hero && <img src={hero.src} alt={hero.alt} width="1200" height="800" loading={eager ? 'eager' : 'lazy'} fetchpriority={eager ? 'high' : 'auto'} decoding="async" data-pi-avif="true" data-pi-avif-quality="35" data-pi-responsive="(max-width: 700px) calc(100vw - 32px), (max-width: 1200px) 50vw, 600px" data-pi-no-hydrate />}
     <p class="cellar-photo__unavailable" hidden={Boolean(hero)}>Photograph unavailable. Visit details remain below.</p>
   </div>
-  {photo && <figcaption><span>{photo.caption}</span> Photo: {photo.credit}. <a href="/photography/" aria-label={`Credits & rights for ${venue.data.name} photography`}>Credits & rights</a></figcaption>}
+  {photo && <figcaption><span>{cleanCaption(photo.caption) || venue.data.name}</span> Photo: {photo.credit}.</figcaption>}
 </figure>
 <style>
   .cellar-photo { margin:0; min-width:0; }

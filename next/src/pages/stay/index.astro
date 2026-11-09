@@ -160,7 +160,7 @@ const sixItems = SIX
           image: {
             src: '/images/visit-victoria/vv-26070116-jackalope-hotel.webp',
             alt: 'A suite at Jackalope Hotel with a white bed, gold sheer curtains, lounge area and pitched ceiling.',
-            caption: 'A suite at Jackalope Hotel, Merricks North.',
+            caption: 'Jackalope Hotel, Merricks North',
             credit: 'Peter Foster, courtesy of Visit Victoria',
           },
           imageEdit: { entityType: 'venue' as const, entitySlug: 'jackalope', fieldPath: 'gallery[1]' },
@@ -322,7 +322,6 @@ export const prerender = true;
       </div>
       <figure class="stay-hero__visual">
         <img src={stayHero.src} alt={stayHero.alt} width="2000" height="1333" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 1200px" />
-        <figcaption>{stayHero.caption} {stayHero.credit}.</figcaption>
       </figure>
     </div>
   </section>

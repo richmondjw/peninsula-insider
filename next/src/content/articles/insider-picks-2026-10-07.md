@@ -9,7 +9,7 @@ heroImage:
   alt: "Two guests reading menus at a table by rain-streaked windows in the mudbrick dining room at Avani Winery"
   credit: "Peter Foster, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Avani Wines, Red Hill, Mornington Peninsula."
+  caption: "Avani Wines, Red Hill, Mornington Peninsula"
   creator: "Peter Foster"
   sourceUrl: "Victoria Content Hub asset 26070136, downloaded 2026-09-28"
   permission: "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026)."

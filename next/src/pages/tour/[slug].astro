@@ -8,7 +8,6 @@ import CorrectionNote from '../../components/CorrectionNote.astro';
 import { buildTourSchema } from '../../lib/schema';
 import { editableText } from '../../lib/inline-edit/attrs';
 import InlinePhoto from '../../components/InlinePhoto.astro';
-import MediaProvenanceNote from '../../components/MediaProvenanceNote.astro';
 import { photoPlan } from '../../lib/photo-set';
 import { loadOverrides } from '../../lib/inline-edit/overrides';
 
@@ -114,11 +113,10 @@ export const prerender = true;
     </div>
   </SubpageHero>
 
-  <div class="container"><MediaProvenanceNote image={!tourOverrides.image['hero'] && !photoSet.stage ? data.heroImage : null} subject={data.name} /></div>
-
+  
   {data.heroImage.license === 'wikimedia-cc-by-sa' && data.heroImage.sourceUrl ? (
     <p class="container" style="font-size:0.75rem;line-height:1.5;margin-block:0.5rem 1rem">
-      Context photo of Point King Beach, Portsea. This is not the confirmed tour entry point. By <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
+      Point King Beach, Portsea. Photo by <a href={data.heroImage.sourceUrl} rel="external">{data.heroImage.rightsHolder ?? data.heroImage.credit}</a>,
       {' '}<a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="external">CC BY-SA 4.0</a>.
       Resized from the original.
     </p>

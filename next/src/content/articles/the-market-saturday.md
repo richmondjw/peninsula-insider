@@ -9,7 +9,7 @@ heroImage:
   alt: "Shoppers stroll past white and red marquees and a butcher's chalkboard sign at Mornington Farmers Market"
   credit: "Robert Blackburn, courtesy of Visit Victoria"
   license: "visit-victoria"
-  caption: "Mornington Farmers' Market, Mornington Peninsula."
+  caption: "Mornington Farmers' Market, Mornington Peninsula"
   depicts: "Mornington Farmers Market"
   depictionStatus: "illustrative"
   creator: "Robert Blackburn"
