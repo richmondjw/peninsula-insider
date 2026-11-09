@@ -27,25 +27,25 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Sat, 14 Nov · 11:30am–12:30pm · Mornington
+- Sun, 15 Nov · 12pm–4pm · Boneo
 
-### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
+Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
 
-Sat, 14 Nov   Mornington   Arts
+Sun, 15 Nov   Boneo   Live Music
 
-- ### [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+- ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue.
+Join us for a conversation on the state of the nation over an informative two-course dinner...
 
-Fri, 13 Nov   Flinders   Live Music
+Fri, 13 Nov   Red Hill   Writers & Ideas
 
-- ### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+- ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
-Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage.
 
-Sat, 14 Nov   Red Hill   Cellar Doors
+Sun, 15 Nov   Dromana   Arts
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
@@ -65,11 +65,29 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions · Recurring weekly
 
+- [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+
+Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.
+
+6.30pm · Red Hill · Writers & Ideas · One-day event
+
 - [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!
 
 Flinders · Live Music · One-day event
+
+- [Smooth Operators Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
+
+Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.
+
+5pm · Boneo · Live Music · One-day event
+
+- [Soul Night Market at Dromana Estate](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/>)
+
+Soul Night Market lights up your Friday night with a warm, vibrant atmosphere!
+
+5pm · Tuerong · Markets · One-day event
 
 ### Saturday 14 November
 
@@ -91,17 +109,53 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 5pm · Fingal · Live Music · Recurring weekly
 
+- [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+
+1pm · Capel Sound · Arts · One-day event
+
 - [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
 A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
 
 11.30am · Mornington · Arts · One-day event
 
+- [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
+
+6pm · Dromana · Live Music · One-day event
+
+- [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
+
+Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.
+
+4pm · Fingal · Live Music · One-day event
+
 - [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
 
 Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
 
 Red Hill · Cellar Doors · One-day event
+
+- [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
+
+6pm · Mornington · Live Music · One-day event
+
+- [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
+
+Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know.
+
+8am · Red Hill South · Food & Wine · One-day event
+
+- [The Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)
+
+Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.
+
+5pm · Boneo · Live Music · One-day event
 
 ### Sunday 15 November
 
@@ -111,11 +165,53 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions · Recurring weekly
 
-- [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+- [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
+
+12pm · Boneo · Live Music · One-day event
+
+- [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+
+Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage.
+
+10.30am · Dromana · Arts · One-day event
+
+- [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
+
+1pm · Dromana · Live Music · One-day event
+
+- [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+
+LARGE FORMAT WINES, BIG DISHES, LONG TABLES \* noun. Latin, 'a great good thing'.
+
+12pm · Red Hill · Live Music · One-day event
+
+- [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+
+Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle!
+
+2pm · Main Ridge · Live Music · One-day event
+
+- [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
+
+Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
+
+11am · Dromana · Food & Wine · One-day event
+
+- [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
 Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
 Fingal · Wellness · One-day event
+
+- [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
+
+Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat. The retreat includes a guided coastal hike, hot springs bathing across two days, wellness activities and all meals.
+
+Fingal · Food & Wine · On during your dates · runs to Mon, 16 Nov
 
 Choose your own timing
 
@@ -183,13 +279,31 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 5pm · Fingal · Live Music
 
-- [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+- [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
-A participatory carols evening for groups rather than a background music dinner. Choose a Thursday and check Humanitix for current ticket terms.
+Eve Eve at Portsea Hotel.
 
-6pm · Main Ridge · Live Music
+Portsea · Live Music
+
+- [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+
+8pm · Main Ridge · Live Music
+
+- [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
+
+6pm · Dromana · Live Music
 
 ### Food & wine
+
+- [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+
+11.30am · Merricks · Food & Wine
 
 - [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
 
@@ -197,17 +311,11 @@ Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am
 
 Flinders · Food & Wine
 
-- [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+- [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
 
-Eve Eve at Portsea Hotel at Portsea Hotel.
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
 
-Portsea · Food & Wine
-
-- [New Year’s Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/>)
-
-New Year’s Eve at Portsea Hotel at Portsea Hotel.
-
-Portsea · Food & Wine
+Red Hill · Cellar Doors
 
 - [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
 
@@ -223,17 +331,23 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 11am · Mornington · Exhibitions
 
+- [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+
+1pm · Capel Sound · Arts
+
 - [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
 Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
 10am · Mornington · Exhibitions
 
-- [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
+- [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
-Come along to meet other MP creatives, join a curator tour of the new Gareth Samson exhibition and hear from a talented local artist.
+A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
 
-6pm · Mornington · Exhibitions
+11.30am · Mornington · Arts
 
 ### Major events
 

@@ -9,7 +9,7 @@ Event     Cellar Doors     21 November 2026     One-off date
 
 # Vinehop at Phaedrus Estate
 
-Vinehop at Phaedrus Estate at Phaedrus Estate.
+Vinehop at Phaedrus Estate.
 
 [Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vinehop+at+Phaedrus+Estate&dates=20261121%2F20261122&details=Vinehop+at+Phaedrus+Estate+at+Phaedrus+Estate.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fvinehop-2026-11-21%2F&location=Phaedrus+Estate%2C+Moorooduc%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.phaedrus.com.au/vinehop-festival-0>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Vinehop+at+Phaedrus+Estate&dates=20261121%2F20261122&details=Vinehop+at+Phaedrus+Estate.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fvinehop-2026-11-21%2F&location=Phaedrus+Estate%2C+Moorooduc%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

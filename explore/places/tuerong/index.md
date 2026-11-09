@@ -258,3 +258,21 @@ Browse locations as a list
 - [Onannon](<https://peninsulainsider.com.au/wine/onannon/>) · winery
 
 - [Yabby Lake Vineyard](<https://peninsulainsider.com.au/wine/yabby-lake/>) · winery
+
+On the calendar in this place
+
+## Events in Tuerong
+
+Coming up in Tuerong, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Fri, 13 Nov
+
+### Soul Night Market at Dromana Estate
+
+Tuerong
+
+Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.
+
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/>)

@@ -75,13 +75,13 @@ A two-hour guided gin masterclass in Dromana.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Food & Wine  23 Dec
+Food & Wine  22 Nov
 
-### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-Eve Eve at Portsea Hotel at Portsea Hotel.
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

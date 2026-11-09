@@ -103,6 +103,22 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 Arts  14 Nov
 
+### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+Love your clothes but wish they fit better-or lasted longer?
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+Live Music  15 Nov
+
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Enjoy live music at Peninsula Beer Garden!
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Arts  14 Nov
+
 ### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
 [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
@@ -111,21 +127,21 @@ Walk through the National Works on Paper exhibition with MPRG curator and judgin
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
-Cellar Doors  14 Nov
+Arts  15 Nov
 
-### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
-Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive…
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
-Wellness  15 Nov
+Live Music  14 Nov
 
-### [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
 
-Sunday sessions at Bath House Café, complimentary with bathing.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
 
 ## The Insider Note
 

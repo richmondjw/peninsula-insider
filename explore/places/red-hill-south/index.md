@@ -328,3 +328,21 @@ Browse locations as a list
 - [Avani Wines](<https://peninsulainsider.com.au/wine/avani-wines/>) · winery
 
 - [Red Hill Brewery](<https://peninsulainsider.com.au/eat/red-hill-brewery/>) · brewery
+
+On the calendar in this place
+
+## Events in Red Hill South
+
+Coming up in Red Hill South, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 14 Nov
+
+### Spring Winery Walk at Red Hill Recreation Reserve
+
+Red Hill South
+
+Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)

@@ -89,6 +89,14 @@ An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's priv
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
+Food & Wine  22 Nov
+
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
 Food & Wine  5 Dec
 
 ### [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
@@ -96,14 +104,6 @@ Food & Wine  5 Dec
 Decorate a milk couverture Christmas Tree with delicious ingredients.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
-
-Food & Wine  23 Dec
-
-### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
-
-Eve Eve at Portsea Hotel at Portsea Hotel.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

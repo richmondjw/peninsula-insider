@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Event     Wellness     15 November 2026     One-off date
 
-# sunday sessions at Peninsula Hot Springs Eco Lodges
+# Sunday sessions at Peninsula Hot Springs Eco Lodges
 
 Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=sunday+sessions+at+Peninsula+Hot+Springs+Eco+Lodges&dates=20261115%2F20261116&details=Sunday+sessions+at+Bath+House+Caf%C3%A9%2C+complimentary+with+bathing.+Starts+12pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsunday-sessions-2026-11-15%2F&location=Peninsula+Hot+Springs+Eco+Lodges%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sunday+sessions+at+Peninsula+Hot+Springs+Eco+Lodges&dates=20261115%2F20261116&details=Sunday+sessions+at+Bath+House+Caf%C3%A9%2C+complimentary+with+bathing.+Starts+12pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsunday-sessions-2026-11-15%2F&location=Peninsula+Hot+Springs+Eco+Lodges%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

@@ -335,6 +335,6 @@ Coming up in Moorooduc, pulled from the events registry.
 
 Moorooduc
 
-Vinehop at Phaedrus Estate at Phaedrus Estate.
+Vinehop at Phaedrus Estate.
 
  Event · Cellar Doors](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)

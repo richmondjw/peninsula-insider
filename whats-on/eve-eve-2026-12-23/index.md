@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Food & Wine     23 December 2026     One-off date
+Event     Live Music     23 December 2026     One-off date
 
 # Eve Eve at Portsea Hotel
 
-Eve Eve at Portsea Hotel at Portsea Hotel.
+Eve Eve at Portsea Hotel.
 
 [Book or check details](<https://portseahotel.com.au/summer-series-2026/#eve-eve>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://portseahotel.com.au/summer-series-2026/#eve-eve>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Eve+Eve+at+Portsea+Hotel&dates=20261223%2F20261224&details=Eve+Eve+at+Portsea+Hotel+at+Portsea+Hotel.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Feve-eve-2026-12-23%2F&location=Portsea+Hotel%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://portseahotel.com.au/summer-series-2026/#eve-eve>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Eve+Eve+at+Portsea+Hotel&dates=20261223%2F20261224&details=Eve+Eve+at+Portsea+Hotel.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Feve-eve-2026-12-23%2F&location=Portsea+Hotel%2C+Portsea%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -47,41 +47,35 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Image · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
-
-Illustrative image  This image shows Chardonnay grapes at Main Ridge Estate. It does not depict Ten Minutes by Tractor, Terroir Masterclass.
-
-Food & Wine   Check session dates
-
-### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
-[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
-
-An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
-
 Illustration · Peninsula Insider
 
-Illustrative image  This image shows Conceptual gin glass with citrus peel, juniper berries and eucalyptus leaves. It does not depict Bass & Flinders Gin Masterclass.
+Illustrative image  This image shows a conceptual acoustic guitar. It does not depict Acoustic Saturdays at Peppers Moonah Links.
 
-Food & Wine   Check session dates
+Live Music   Every Saturday evening year-round from 5pm
 
-### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-[Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-A two-hour guided gin masterclass in Dromana.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Food & Wine  5 Dec
+Live Music  15 Nov
 
-### [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-Decorate a milk couverture Christmas Tree with delicious ingredients.
+Enjoy live music at Peninsula Beer Garden!
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Live Music  21 Nov
+
+### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

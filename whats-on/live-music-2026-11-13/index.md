@@ -9,7 +9,7 @@ Event     Live Music     13 November 2026     One-off date
 
 # Live Music at Quarters at Flinders Hotel
 
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
 
 [Book or check details](<https://flindershotel.com.au/events/live-music/>)
 
@@ -39,7 +39,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://flindershotel.com.au/events/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Live+Music+at+Quarters+at+Flinders+Hotel&dates=20261113%2F20261114&details=Celebrate+the+Weekend+at+Flinders%21Unwind+with+a+drink+in+hand+and+enjoy+live+music+throughout+the+venue.+Bring+along+family%2C+friends%2C+and+even+your+furry+friends-everyone%E2%80%99s+welcome%21Live+Music+Schedule%3AFriday%3A+7pm%2C+10pmSaturday%3A+6%3A30pm%2C+9%3A30pmMake+it+a+weekend+to+remember+at+Flinders%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Flive-music-2026-11-13%2F&location=Quarters+at+Flinders+Hotel%2C+Flinders%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://flindershotel.com.au/events/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Live+Music+at+Quarters+at+Flinders+Hotel&dates=20261113%2F20261114&details=Celebrate+the+Weekend+at+Flinders%21+Unwind+with+a+drink+in+hand+and+enjoy+live+music+throughout+the+venue.+Bring+along+family%2C+friends%2C+and+even+your+furry+friends-everyone%E2%80%99s+welcome%21+Live+Music+Schedule%3AFriday%3A+7pm%2C+10pmSaturday%3A+6%3A30pm%2C+9%3A30pmMake+it+a+weekend+to+remember+at+Flinders%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Flive-music-2026-11-13%2F&location=Quarters+at+Flinders+Hotel%2C+Flinders%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -61,15 +61,21 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live Music   Thursday 3, 10 and 17 December 2026, 6–10pm; no further dates confirmed.
+Live Music  15 Nov
 
-### [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Enjoy live music at Peninsula Beer Garden!
 
-A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+Live Music  23 Dec
+
+### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+
+Eve Eve at Portsea Hotel.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -378,3 +378,41 @@ Browse locations as a list
 - [Two Bays Brewing Co](<https://peninsulainsider.com.au/eat/two-bays-brewing/>) · brewery
 
 - [Dromana Beach](<https://peninsulainsider.com.au/explore/dromana-beach/>) · beach
+
+On the calendar in this place
+
+## Events in Dromana
+
+Coming up in Dromana, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sun, 15 Nov
+
+### Festive Wreath Making at Heronswood House and Garden
+
+Dromana
+
+Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage. Invite a friend and catch up while learning from a true artist.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+
+- [Sat, 14 Nov
+
+### Jamie MacDowell Live at Jetty Road Brewery
+
+Dromana
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+
+- [Sun, 15 Nov
+
+### Jimmy & Niki Live at Jetty Road Brewery
+
+Dromana
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)

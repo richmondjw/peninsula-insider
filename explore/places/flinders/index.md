@@ -395,7 +395,7 @@ Decorate a milk couverture Christmas Tree with delicious ingredients. Starts 9am
 
 Flinders
 
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 

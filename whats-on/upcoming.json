@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-09",
-  "generatedAt": "2026-11-09T01:04:35.863Z",
+  "generatedAt": "2026-11-09T01:43:29.734Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -19,9 +19,9 @@
     "start": "2026-11-13",
     "end": "2026-11-15",
     "label": "Fri 13 – Sun 15 November",
-    "count": 12
+    "count": 28
   },
-  "numberOfItems": 30,
+  "numberOfItems": 54,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -91,6 +91,19 @@
       "position": 7,
       "item": {
         "@type": "Event",
+        "name": "Not Sew Scary Beginner Sewing Class with Pete Sews",
+        "url": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
+        "startDate": "2026-11-10",
+        "endDate": "2026-11-10",
+        "description": "Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Event",
         "name": "Mornington Wednesday Market (Main Street Market)",
         "url": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
         "startDate": "2026-11-11",
@@ -101,20 +114,59 @@
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 9,
+      "item": {
+        "@type": "Event",
+        "name": "Books and Ideas: Barrie Cassidy at Port Phillip Estate",
+        "url": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
+        "startDate": "2026-11-13",
+        "endDate": "2026-11-13",
+        "description": "Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
       "item": {
         "@type": "Event",
         "name": "Live Music at Quarters at Flinders Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
         "startDate": "2026-11-13",
         "endDate": "2026-11-13",
-        "description": "Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+        "description": "Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 11,
+      "item": {
+        "@type": "Event",
+        "name": "Smooth Operators Live at Peninsula Beer Garden",
+        "url": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
+        "startDate": "2026-11-13",
+        "endDate": "2026-11-13",
+        "description": "Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "Event",
+        "name": "Soul Night Market at Dromana Estate",
+        "url": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
+        "startDate": "2026-11-13",
+        "endDate": "2026-11-13",
+        "description": "Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 13,
       "item": {
         "@type": "Event",
         "name": "Acoustic Saturdays at Peppers Moonah Links",
@@ -127,7 +179,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 10,
+      "position": 14,
+      "item": {
+        "@type": "Event",
+        "name": "Beginner Alteration and Repair Sewing Class with Pete Sews",
+        "url": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 15,
       "item": {
         "@type": "Event",
         "name": "Crib Point Community Market",
@@ -140,7 +205,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 11,
+      "position": 16,
       "item": {
         "@type": "Event",
         "name": "Curators floor talk: The Making of a Prize Exhibition",
@@ -153,7 +218,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 12,
+      "position": 17,
+      "item": {
+        "@type": "Event",
+        "name": "Jamie MacDowell Live at Jetty Road Brewery",
+        "url": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 18,
+      "item": {
+        "@type": "Event",
+        "name": "Jesse Lewis Live at Peppers Moonah Links Resort",
+        "url": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 19,
       "item": {
         "@type": "Event",
         "name": "Mornington Peninsula Wine Spring Winery Walk",
@@ -166,10 +257,127 @@
     },
     {
       "@type": "ListItem",
-      "position": 13,
+      "position": 20,
       "item": {
         "@type": "Event",
-        "name": "sunday sessions at Peninsula Hot Springs Eco Lodges",
+        "name": "REwind Lane Live at Tar Barrel",
+        "url": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. REwind Lane is a Melbourne-based acoustic duo known for their warm harmonies and covers of nostalgic, feel-good hits.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 21,
+      "item": {
+        "@type": "Event",
+        "name": "Spring Winery Walk at Red Hill Recreation Reserve",
+        "url": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 22,
+      "item": {
+        "@type": "Event",
+        "name": "The Calmer Miles Live at Peninsula Beer Garden",
+        "url": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
+        "startDate": "2026-11-14",
+        "endDate": "2026-11-14",
+        "description": "Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 23,
+      "item": {
+        "@type": "Event",
+        "name": "Bennsong Live at Peninsula Beer Garden",
+        "url": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 24,
+      "item": {
+        "@type": "Event",
+        "name": "Festive Wreath Making at Heronswood House and Garden",
+        "url": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage. Invite a friend and catch up while learning from a true artist.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 25,
+      "item": {
+        "@type": "Event",
+        "name": "Jimmy & Niki Live at Jetty Road Brewery",
+        "url": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 26,
+      "item": {
+        "@type": "Event",
+        "name": "Magnum Bonum at Polperro Winery",
+        "url": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "LARGE FORMAT WINES, BIG DISHES, LONG TABLES * noun. Latin, 'a great good thing'.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 27,
+      "item": {
+        "@type": "Event",
+        "name": "Michael Charles Live at The Pig & Whistle Tavern",
+        "url": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle! “Touring his 19th international tour, the “Where to Next?” 2026 tour and known for his expressive guitar work and blistering guitar solos, Australian born, Chicago Blues Hall of Famer, Michael Charles returns to Australia a",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 28,
+      "item": {
+        "@type": "Event",
+        "name": "Sourdough Masterclass at Peninsula Gourmet Cooking School",
+        "url": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-15",
+        "description": "Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula. We’ll start the day talking about sourdough bread and how it differs from instant (yeast raised) bread, and discuss the importance of the flour to use and other ingr",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 29,
+      "item": {
+        "@type": "Event",
+        "name": "Sunday sessions at Peninsula Hot Springs Eco Lodges",
         "url": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
         "startDate": "2026-11-15",
         "endDate": "2026-11-15",
@@ -179,7 +387,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 14,
+      "position": 30,
+      "item": {
+        "@type": "Event",
+        "name": "The Peninsula Retreat at Alba Thermal Springs & Spa",
+        "url": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
+        "startDate": "2026-11-15",
+        "endDate": "2026-11-16",
+        "description": "Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat. The retreat includes a guided coastal hike, hot springs bathing across two days, wellness activities and all meals. Starts 11am.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
@@ -192,7 +413,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 15,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "The Lucky Duck & Pinot Lunch",
@@ -205,7 +426,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 16,
+      "position": 33,
+      "item": {
+        "@type": "Event",
+        "name": "Will Rounds Live at Peppers Moonah Links Resort",
+        "url": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
+        "startDate": "2026-11-20",
+        "endDate": "2026-11-20",
+        "description": "Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "CREATE: Pottery for your table",
@@ -218,7 +452,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 17,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -231,7 +465,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 18,
+      "position": 36,
+      "item": {
+        "@type": "Event",
+        "name": "Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern",
+        "url": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You. Spending multiple weeks at #1 on the ARIA Australian Country Album Chart, Everything Around You is an uplifting collection of songs about hop",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 37,
+      "item": {
+        "@type": "Event",
+        "name": "Oskar Proy Live at Jetty Road Brewery",
+        "url": "https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -244,7 +504,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 19,
+      "position": 39,
+      "item": {
+        "@type": "Event",
+        "name": "Pitmaster Masterclass at Red Gum BBQ",
+        "url": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 40,
+      "item": {
+        "@type": "Event",
+        "name": "Sam O'Connell Live at Peppers Moonah Links Resort",
+        "url": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
+        "startDate": "2026-11-21",
+        "endDate": "2026-11-21",
+        "description": "Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Taste & Create, Gourmet Bar",
@@ -257,20 +543,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 20,
+      "position": 42,
       "item": {
         "@type": "Event",
         "name": "Vinehop at Phaedrus Estate",
         "url": "https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/",
         "startDate": "2026-11-21",
         "endDate": "2026-11-21",
-        "description": "Vinehop at Phaedrus Estate at Phaedrus Estate.",
+        "description": "Vinehop at Phaedrus Estate.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 43,
+      "item": {
+        "@type": "Event",
+        "name": "Culinary Garden Experience at Laura Pt Leo Estate",
+        "url": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
+        "startDate": "2026-11-22",
+        "endDate": "2026-11-22",
+        "description": "For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 44,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -283,7 +582,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 45,
+      "item": {
+        "@type": "Event",
+        "name": "Improv Comedy Show at The Bay Hotel Mornington",
+        "url": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+        "startDate": "2026-11-25",
+        "endDate": "2026-11-25",
+        "description": "Come and finish the year out with our last student showcase of comedy! Before the silly season gets you too busy, relax UPSTAIRS at the Bay Hotel in Mornington for a totally made up improv comedy show.",
+        "eventStatus": "https://schema.org/EventScheduled"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 46,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Jane Gilmore - Mornington Library",
@@ -296,7 +608,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 47,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -309,7 +621,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 48,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -322,7 +634,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 49,
       "item": {
         "@type": "Event",
         "name": "Deck the Chocolate Tree",
@@ -335,7 +647,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 50,
       "item": {
         "@type": "Event",
         "name": "The Creators Network: End of Year Catch-up for Creatives",
@@ -348,33 +660,33 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 51,
       "item": {
         "@type": "Event",
         "name": "Eve Eve at Portsea Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/",
         "startDate": "2026-12-23",
         "endDate": "2026-12-23",
-        "description": "Eve Eve at Portsea Hotel at Portsea Hotel.",
+        "description": "Eve Eve at Portsea Hotel.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 52,
       "item": {
         "@type": "Event",
         "name": "New Year’s Eve at Portsea Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/new-year-s-eve-2026-12-31/",
         "startDate": "2026-12-31",
         "endDate": "2026-12-31",
-        "description": "New Year’s Eve at Portsea Hotel at Portsea Hotel.",
+        "description": "New Year’s Eve at Portsea Hotel.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 53,
       "item": {
         "@type": "Event",
         "name": "New Years Eve Event 2026/2027",
@@ -387,19 +699,19 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 54,
       "item": {
         "@type": "Event",
         "name": "Torren Foot at Portsea Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/torren-foot-2027-01-23/",
         "startDate": "2027-01-23",
         "endDate": "2027-01-23",
-        "description": "Torren Foot at Portsea Hotel at Portsea Hotel.",
+        "description": "Torren Foot at Portsea Hotel.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     }
   ],
-  "count": 30,
+  "count": 54,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -544,6 +856,25 @@
       "thisWeekend": true
     },
     {
+      "title": "Not Sew Scary Beginner Sewing Class with Pete Sews",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
+      "startDate": "2026-11-10",
+      "endDate": "2026-11-10",
+      "id": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
+      "sourceUrl": "https://www.petesews.com.au/sewing-classes",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": null,
+      "venue": null,
+      "summary": "Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "Mornington Wednesday Market (Main Street Market)",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -563,6 +894,30 @@
       "thisWeekend": false
     },
     {
+      "title": "Books and Ideas: Barrie Cassidy at Port Phillip Estate",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "id": "https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/",
+      "sourceUrl": "https://my.wheelercentre.com/11872?mc_cid=fb40f3f446&amp;mc_eid=cd8f4ce113",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "writers-ideas",
+      "place": null,
+      "venue": null,
+      "summary": "Join us for a conversation on the state of the nation over an informative two-course dinner... Barrie Cassidy is one of Australia’s most recognised and respected political journalists.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-13",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Live Music at Quarters at Flinders Hotel",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -576,7 +931,55 @@
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+      "summary": "Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-13",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Smooth Operators Live at Peninsula Beer Garden",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "id": "https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/",
+      "sourceUrl": "https://peninsulabeergarden.com.au/live-music/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-13",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Soul Night Market at Dromana Estate",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-13",
+      "id": "https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/",
+      "sourceUrl": "https://www.unrivalledevents.com.au/soul-night-market-dromana",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "market",
+      "place": null,
+      "venue": null,
+      "summary": "Soul Night Market lights up your Friday night with a warm, vibrant atmosphere! Wander through a curated mix of makers and food stalls, grab a drink from the bar, and settle to watch spectacular sunsets and listen to Live Soul Music.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -601,6 +1004,30 @@
       "place": "fingal",
       "venue": null,
       "summary": "Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Beginner Alteration and Repair Sewing Class with Pete Sews",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
+      "sourceUrl": "https://www.petesews.com.au/sewing-classes",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": null,
+      "venue": null,
+      "summary": "Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -659,6 +1086,54 @@
       "thisWeekend": true
     },
     {
+      "title": "Jamie MacDowell Live at Jetty Road Brewery",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
+      "sourceUrl": "https://www.jettyroad.com.au/dromana",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Jesse Lewis Live at Peppers Moonah Links Resort",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
+      "sourceUrl": "https://www.moonahlinks.com.au/cms/resort/whats-on/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
       "title": "Mornington Peninsula Wine Spring Winery Walk",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -683,7 +1158,223 @@
       "thisWeekend": true
     },
     {
-      "title": "sunday sessions at Peninsula Hot Springs Eco Lodges",
+      "title": "REwind Lane Live at Tar Barrel",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
+      "sourceUrl": "https://tarbarrel.com.au/music/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. REwind Lane is a Melbourne-based acoustic duo known for their warm harmonies and covers of nostalgic, feel-good hits.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Spring Winery Walk at Red Hill Recreation Reserve",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
+      "sourceUrl": "https://events.humanitix.com/spring-winery-walk-2026",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Winery owners are opening their Cellar Doors and private gates to walk through the beautiful corridors of the Mornington Peninsula, only known to those in the know. Walking through undulating vineyards and private tracks, you’ll need sturdy shoes and a zest for adventure along this rambling trail.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "The Calmer Miles Live at Peninsula Beer Garden",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
+      "startDate": "2026-11-14",
+      "endDate": "2026-11-14",
+      "id": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
+      "sourceUrl": "https://peninsulabeergarden.com.au/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-14",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Bennsong Live at Peninsula Beer Garden",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
+      "sourceUrl": "https://peninsulabeergarden.com.au/live-music/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Festive Wreath Making at Heronswood House and Garden",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
+      "sourceUrl": "https://www.diggers.com.au/products/festive-wreath-making-dromana-15-nov-2026",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": null,
+      "venue": null,
+      "summary": "Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage. Invite a friend and catch up while learning from a true artist.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Jimmy & Niki Live at Jetty Road Brewery",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
+      "sourceUrl": "https://www.jettyroad.com.au/dromana",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Magnum Bonum at Polperro Winery",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
+      "sourceUrl": "https://www.polperrowines.com.au/event/magnum-bonum-nov/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "LARGE FORMAT WINES, BIG DISHES, LONG TABLES * noun. Latin, 'a great good thing'.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Michael Charles Live at The Pig & Whistle Tavern",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
+      "sourceUrl": "https://www.thepigandwhistle.com.au/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle! “Touring his 19th international tour, the “Where to Next?” 2026 tour and known for his expressive guitar work and blistering guitar solos, Australian born, Chicago Blues Hall of Famer, Michael Charles returns to Australia a",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Sourdough Masterclass at Peninsula Gourmet Cooking School",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-15",
+      "id": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
+      "sourceUrl": "https://peninsulagourmetcookingschool.com.au/classes",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula. We’ll start the day talking about sourdough bread and how it differs from instant (yeast raised) bread, and discuss the importance of the flour to use and other ingr",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "Sunday sessions at Peninsula Hot Springs Eco Lodges",
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/",
@@ -697,6 +1388,30 @@
       "place": null,
       "venue": null,
       "summary": "Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [
+        {
+          "date": "2026-11-15",
+          "eventStatus": "https://schema.org/EventScheduled"
+        }
+      ],
+      "thisWeekend": true
+    },
+    {
+      "title": "The Peninsula Retreat at Alba Thermal Springs & Spa",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
+      "startDate": "2026-11-15",
+      "endDate": "2026-11-16",
+      "id": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",
+      "sourceUrl": "https://albathermalsprings.com.au/alba-experiences/promotions/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat. The retreat includes a guided coastal hike, hot springs bathing across two days, wellness activities and all meals. Starts 11am.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -745,6 +1460,25 @@
       "thisWeekend": false
     },
     {
+      "title": "Will Rounds Live at Peppers Moonah Links Resort",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "id": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",
+      "sourceUrl": "https://www.moonahlinks.com.au/cms/dining/spike-bar/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "CREATE: Pottery for your table",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -783,6 +1517,44 @@
       "thisWeekend": false
     },
     {
+      "title": "Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
+      "sourceUrl": "https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You. Spending multiple weeks at #1 on the ARIA Australian Country Album Chart, Everything Around You is an uplifting collection of songs about hop",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Oskar Proy Live at Jetty Road Brewery",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/",
+      "sourceUrl": "https://www.jettyroad.com.au/dromana",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
       "title": "Peninsula VineHop Festival 2026",
       "contentKind": "event",
       "dateMeaning": "occurrence",
@@ -797,6 +1569,44 @@
       "place": null,
       "venue": null,
       "summary": "A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music. The event runs from 11am to 7pm and is strictly 18+, with shuttle, general admission and private bus options.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Pitmaster Masterclass at Red Gum BBQ",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/",
+      "sourceUrl": "https://redgumbbq.com.au/make-a-booking/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Sam O'Connell Live at Peppers Moonah Links Resort",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "id": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
+      "sourceUrl": "https://www.moonahlinks.com.au/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "live-music",
+      "place": null,
+      "venue": null,
+      "summary": "Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -834,7 +1644,26 @@
       "category": "cellar-door",
       "place": null,
       "venue": null,
-      "summary": "Vinehop at Phaedrus Estate at Phaedrus Estate.",
+      "summary": "Vinehop at Phaedrus Estate.",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Culinary Garden Experience at Laura Pt Leo Estate",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "id": "https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/",
+      "sourceUrl": "https://www.ptleoestate.com.au/whats-on-event/theproducersseries-gardenexperience/",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "food-wine",
+      "place": null,
+      "venue": null,
+      "summary": "For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -854,6 +1683,25 @@
       "place": null,
       "venue": null,
       "summary": "VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road. The organiser lists 25 October and 22 November 2026, 9am–1pm..",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "weekendOccurrences": [],
+      "thisWeekend": false
+    },
+    {
+      "title": "Improv Comedy Show at The Bay Hotel Mornington",
+      "contentKind": "event",
+      "dateMeaning": "occurrence",
+      "url": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "sourceUrl": "https://www.improvforlife.com.au",
+      "factCheckedOn": "2026-11-09",
+      "recurrence": "one-off",
+      "category": "arts",
+      "place": null,
+      "venue": null,
+      "summary": "Come and finish the year out with our last student showcase of comedy! Before the silly season gets you too busy, relax UPSTAIRS at the Bay Hotel in Mornington for a totally made up improv comedy show.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -964,10 +1812,10 @@
       "sourceUrl": "https://portseahotel.com.au/summer-series-2026/#eve-eve",
       "factCheckedOn": "2026-11-09",
       "recurrence": "one-off",
-      "category": "food-wine",
+      "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Eve Eve at Portsea Hotel at Portsea Hotel.",
+      "summary": "Eve Eve at Portsea Hotel.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -983,10 +1831,10 @@
       "sourceUrl": "https://portseahotel.com.au/summer-series-2026/#nye",
       "factCheckedOn": "2026-11-09",
       "recurrence": "one-off",
-      "category": "food-wine",
+      "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "New Year’s Eve at Portsea Hotel at Portsea Hotel.",
+      "summary": "New Year’s Eve at Portsea Hotel.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false
@@ -1021,10 +1869,10 @@
       "sourceUrl": "https://portseahotel.com.au/summer-series-2026/#golden-hour",
       "factCheckedOn": "2026-11-09",
       "recurrence": "one-off",
-      "category": "food-wine",
+      "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Torren Foot at Portsea Hotel at Portsea Hotel.",
+      "summary": "Torren Foot at Portsea Hotel.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [],
       "thisWeekend": false

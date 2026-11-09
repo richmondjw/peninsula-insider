@@ -51,37 +51,39 @@ Swipe or scroll through the picks
 
 - Illustrative image
 
-Editorial illustration. Conceptual market scene, not an exact depiction of Crib Point Community Market.   Illustration: Peninsula Insider.
+Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+### [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
 
-Crib Point Community House   Market
+Foxeys Hangout   Cellar door
 
-Event details checked 3 Oct 2026.  [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
-
-- Context photo: Mornington Peninsula Regional Gallery, not this exhibition.   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 8 Oct 2026.  [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+Event details checked 9 Nov 2026.  [Check organiser](<https://foxeys-hangout.com.au/events/foxeys-hangout/the-lucky-duck-pinot-lunch-2/>)
 
 - Illustrative image
 
 Conceptual editorial artwork, not a depiction of this event.   Illustration: Peninsula Insider.
 
-### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
 
-A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member.
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
 
-Mornington Peninsula Regional Gallery   Arts
+Tar Barrel   Live music
 
-Event details checked 20 Oct 2026.  [Check organiser](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
+Event details checked 9 Nov 2026.  [Check organiser](<https://tarbarrel.com.au/music/>)
+
+- Illustrative image
+
+Original editorial illustration of an acoustic guitar, not a photograph of Spike Bar or a performing musician.   Illustration: Peninsula Insider.
+
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Peppers Moonah Links   Every Saturday
+
+Event details checked 2 Nov 2026.  [Check organiser](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 

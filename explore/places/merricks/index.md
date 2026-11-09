@@ -400,3 +400,21 @@ Browse locations as a list
 - [Stonier Wines](<https://peninsulainsider.com.au/wine/stonier-wines/>) · winery
 
 - [Pt. Leo Estate Sculpture Park](<https://peninsulainsider.com.au/explore/pt-leo-sculpture-park/>) · gallery
+
+On the calendar in this place
+
+## Events in Merricks
+
+Coming up in Merricks, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sun, 22 Nov
+
+### Culinary Garden Experience at Laura Pt Leo Estate
+
+Merricks
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)

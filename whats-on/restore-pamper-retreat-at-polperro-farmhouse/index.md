@@ -93,7 +93,7 @@ A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, 
 
 Wellness  15 Nov
 
-### [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
 Sunday sessions at Bath House Café, complimentary with bathing.
 

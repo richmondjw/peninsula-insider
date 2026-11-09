@@ -79,13 +79,21 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live Music  13 Nov
+Live Music  15 Nov
 
-### [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue.
+Enjoy live music at Peninsula Beer Garden!
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Live Music  23 Dec
+
+### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
+
+Eve Eve at Portsea Hotel.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

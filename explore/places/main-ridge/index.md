@@ -391,6 +391,26 @@ Coming up in Main Ridge, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
+- [Sat, 21 Nov
+
+### Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern
+
+Main Ridge
+
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You. Spending multiple weeks at #1 on the ARIA Australian Country Album Chart, Everything Around You is an uplifting collection of songs about hop
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+- [Sun, 15 Nov
+
+### Michael Charles Live at The Pig & Whistle Tavern
+
+Main Ridge
+
+Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle! “Touring his 19th international tour, the “Where to Next?” 2026 tour and known for his expressive guitar work and blistering guitar solos, Australian born, Chicago Blues Hall of Famer, Michael Charles returns to Australia a
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+
 - [Thu, 3 Dec
 
 ### ✦ Pub Carols at The Pig & Whistle

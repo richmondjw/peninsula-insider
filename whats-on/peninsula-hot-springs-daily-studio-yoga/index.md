@@ -85,7 +85,7 @@ Wellness   Dates on request
 
 Wellness  15 Nov
 
-### [sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
 Sunday sessions at Bath House Café, complimentary with bathing.
 

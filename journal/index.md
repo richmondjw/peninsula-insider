@@ -714,6 +714,16 @@ National Works on Paper 2026 is MPRG's survey of contemporary Australian art mad
 
  Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
+- [Tue, 10 Nov
+
+### Not Sew Scary Beginner Sewing Class with Pete Sews
+
+Capel Sound
+
+Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
+
 - [Wed, 11 Nov
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
@@ -723,13 +733,3 @@ Mornington
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
-
-- [Fri, 13 Nov
-
-### Live Music at Quarters at Flinders Hotel
-
-Flinders
-
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)

@@ -162,3 +162,31 @@ Loading map…
 Browse locations as a list
 
 - [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>) · town
+
+On the calendar in this place
+
+## Events in Capel Sound
+
+Coming up in Capel Sound, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sat, 14 Nov
+
+### Beginner Alteration and Repair Sewing Class with Pete Sews
+
+Capel Sound
+
+Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+- [Tue, 10 Nov
+
+### Not Sew Scary Beginner Sewing Class with Pete Sews
+
+Capel Sound
+
+Learn to sew from scratch with Pete Sews’ beginner sewing class on the Mornington Peninsula. Not Sew Scary is a practical, hands-on class for adults and teens who are completely new to sewing or haven’t spent much time behind a sewing machine.
+
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)

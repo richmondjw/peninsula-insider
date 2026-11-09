@@ -212,3 +212,41 @@ Browse locations as a list
 - [Boneo](<https://peninsulainsider.com.au/explore/places/boneo/>) · village
 
 - [Eagle Ridge Golf Course](<https://peninsulainsider.com.au/explore/eagle-ridge-golf-course/>) · golf-course
+
+On the calendar in this place
+
+## Events in Boneo
+
+Coming up in Boneo, pulled from the events registry.
+
+[All events →](<https://peninsulainsider.com.au/whats-on/>)
+
+- [Sun, 15 Nov
+
+### Bennsong Live at Peninsula Beer Garden
+
+Boneo
+
+Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+- [Fri, 13 Nov
+
+### Smooth Operators Live at Peninsula Beer Garden
+
+Boneo
+
+Looking for something to kick your weekend into full swing? Smooth Operators are a local group of singers & musicians, who will be sure to get you warmed up for the afternoon.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
+
+- [Sat, 14 Nov
+
+### The Calmer Miles Live at Peninsula Beer Garden
+
+Boneo
+
+Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)

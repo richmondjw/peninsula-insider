@@ -79,23 +79,29 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Live Music  13 Nov
+Live Music  15 Nov
 
-### [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-Celebrate the Weekend at Flinders!Unwind with a drink in hand and enjoy live music throughout the venue.
+Enjoy live music at Peninsula Beer Garden!
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-Live Music   Thursday 3, 10 and 17 December 2026, 6–10pm; no further dates confirmed.
+Live Music  23 Dec
 
-### [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+### [Eve Eve at Portsea Hotel](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
-[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
+Eve Eve at Portsea Hotel.
 
-A group carols night with a live band and two-course meal at The Pig & Whistle in Main Ridge.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/eve-eve-2026-12-23/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
+Live Music  21 Nov
+
+### [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
