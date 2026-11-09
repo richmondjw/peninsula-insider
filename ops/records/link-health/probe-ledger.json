@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-09T00:23:48.529Z",
+  "updatedAt": "2026-11-09T01:01:25.915Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -804,6 +804,22 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://flindershotel.com.au/events/live-music/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Live Music - Flinders Hotel",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://flindershotel.com.au/whats-on/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "What’s On at Flinders Hotel - Weekly Specials &amp; Exciting Events",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://flinderssourdough.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -844,6 +860,22 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/events/foxeys-hangout/the-lucky-duck-pinot-lunch-2/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mornington Peninsula Wine Spring Winery Walk - Foxeys Hangout",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://foxeys-hangout.com.au/events/morning-sun/the-lucky-duck-pinot-lunch/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Lucky Duck &amp; Pinot Lunch - Foxeys Hangout",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://foxeys-hangout.com.au/Morning-Sun/About-Morning-Sun",
@@ -1864,6 +1896,30 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://portseahotel.com.au/summer-series-2026/#eve-eve",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Summer Series 2026 - Portsea Hotel",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://portseahotel.com.au/summer-series-2026/#golden-hour",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Summer Series 2026 - Portsea Hotel",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://portseahotel.com.au/summer-series-2026/#nye",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Summer Series 2026 - Portsea Hotel",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://ptleoestate.com.au",
       "verdict": "blocked",
       "httpCode": "202",
@@ -1913,6 +1969,22 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Homepage - Red Gum BBQ"
+    },
+    {
+      "url": "https://redgumbbq.com.au/following-the-smoke/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Following The Smoke - Red Gum BBQ",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://redgumbbq.com.au/free-kids-face-painting-easter-holiday-fun/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "School Holiday Fun at Red Gum BBQ! - Red Gum BBQ",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://redhillbrewery.com.au",
@@ -4242,6 +4314,14 @@
       "pageTitle": "The Chocolateries Mornington Peninsula | Chocolate, Café &amp; Events"
     },
     {
+      "url": "https://www.mpchoc.com.au/events/deck-the-chocolate-tree/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Deck the Chocolate Tree | The Chocolateries Mornington Peninsula",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.mpchoc.com.au/events/rocky-road-festival-tasting-sessions/",
       "verdict": "dead",
       "httpCode": "404",
@@ -4251,6 +4331,22 @@
       "disposition": "gone",
       "dispositionNote": "404 on the operator's own live site. The event page was removed after the event.",
       "reviewedOn": "2026-09-13"
+    },
+    {
+      "url": "https://www.mpchoc.com.au/events/taste-create-gourmet-bar-3/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Taste &amp; Create - Gourmet Bar | The Chocolateries Mornington Peninsula",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.mpchoc.com.au/whats-on/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Explore Events, Workshops &amp; Classes | The Chocolateries Mornington Peninsula",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.mpchocolaterie.com.au",
@@ -4701,6 +4797,15 @@
       "pageTitle": "Upcoming Events | Peninsula Hot Springs"
     },
     {
+      "url": "https://www.peninsulahotsprings.com/events?hsLang=en-au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Upcoming Events | Peninsula Hot Springs",
+      "effectiveUrl": "https://www.peninsulahotsprings.com/events",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.peninsulahotsprings.com/events/",
       "verdict": "ok",
       "httpCode": "200",
@@ -4716,6 +4821,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Sunday Sessions | Peninsula Hot Springs"
+    },
+    {
+      "url": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Sunday Sessions | Peninsula Hot Springs",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.peninsulahotsprings.com/events/sunday-sessions-at-the-springs",
@@ -4766,6 +4879,22 @@
       "httpCode": "200",
       "pageTitle": "Home Page - Phaedrus Estate",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.phaedrus.com.au/news-and-events",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "News and Events - Phaedrus Estate",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.phaedrus.com.au/vinehop-festival-0",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Vinehop Festival - Phaedrus Estate",
+      "probedOn": "2026-11-09",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
@@ -5675,6 +5804,14 @@
       "httpCode": "202",
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe"
+    },
+    {
+      "url": "https://www.trybooking.com/au/event/1666909",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "NEW YEARS EVE EVENT 2026/2027 Tickets, The Baths Sorrento, sorrento | TryBooking Australia",
+      "probedOn": "2026-11-09",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.trybooking.com/DPNDE",
