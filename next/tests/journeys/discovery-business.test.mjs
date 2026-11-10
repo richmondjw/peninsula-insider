@@ -120,7 +120,9 @@ test('category filters are reachable from the first screen and restore the match
         assert.equal(landed.hash,'#browse-stay');
         assert.ok(landed.top >= 0 && landed.top < 750, 'Stay jump did not reveal filters');
       } else if (route === '/eat/') {
-        const jump = await reader.page.$('.category-browse__links a[href="#directory"]');
+        // 2026-11-10 simplification: the hero's primary "Browse all N places" action is the
+        // first-screen path to the filtered directory (the separate category link row is gone).
+        const jump = await reader.page.$('.eat-entry__primary[href="#directory"], .category-browse__links a[href="#directory"]');
         assert.ok(jump, 'Eat needs a direct first-screen path to filters');
         const bounds = await jump.boundingBox();
         assert.ok(bounds && bounds.y + bounds.height < 750, 'Eat browse action buried');

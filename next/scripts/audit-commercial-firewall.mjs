@@ -174,6 +174,9 @@ const ALLOWED_SORT_KEYS = new Set([
   'editorPick', 'venueTier', 'vetted', 'featured', 'priority', 'rank', 'weight',
   'tier', 'status', 'pinned', 'order', 'sortOrder', 'displayOrder', 'isPinned',
   'editorsPick', 'highlight', 'curated', 'verdict', 'stage', 'confidence',
+  /* 2026-11-10 simplification: What's On "Day by day" is a time-led schedule;
+     rows order by the event's own start time. Calendar fact, never commercial. */
+  'startTime',
   /* plan discovery. Editorial matching, never commercial. `facets` is a plan's
      own taxonomy (date / who / into) and HomePlan orders alternates by whether
      that taxonomy says this-season. `plan` is the plan object inside a

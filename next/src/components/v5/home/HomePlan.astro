@@ -3,9 +3,10 @@
  * A compact chooser (posts to the Plans matcher, works without scripts) sits
  * above three comparable editorial itineraries from the usable catalogue.
  * The first card rotates on a fixed five-day window. Cards carry image,
- * credit, title, one line and one meta line; the whole card is the link.
- * Copy/Save and per-plan booking notes live on the plan pages (2026-11-10,
- * Phase 5 "say it once"); the shared caveat is stated once under the cards.
+ * title, one line, one meta line and a quiet credit; the whole card is the
+ * link. Copy/Save and per-plan booking notes live on the plan pages
+ * (2026-11-10). Round 2: no intro or footer copy; "See all plans" sits in the
+ * heading row; the selects stack full-width below 48em so none truncates.
  */
 import Card from '../Card.astro';
 import { buildPlansModel } from '../plans/plans-data';
@@ -89,20 +90,19 @@ const cards = featured && featuredImage ? [
   <div class="container">
     <div class="home-plan__head">
       <h2 id="home-plan-title" class="home-plan__title">Plan your day</h2>
-      <p class="home-plan__lede">Tell us how long you have and who is coming. We will show the published plans that fit.</p>
+      <a class="home-plan__more" href="/explore/plans/">See all plans <span aria-hidden="true">→</span></a>
     </div>
 
     <form action="/explore/plans/#build" method="get" class="home-choose__form" aria-label="Find a Peninsula plan">
       <label>How long?<select name="length"><option value="">Any length</option><option value="one-day">One day</option><option value="weekend">A weekend</option><option value="longer">Two nights or more</option></select></label>
       <label>Who’s coming?<select name="who"><option value="">Anyone</option>{present('party').map(option => <option value={option.value}>{option.label}</option>)}</select></label>
-      <label>What sounds good?<select name="into"><option value="">A bit of everything</option>{interests.map(option => <option value={option.value}>{option.label}</option>)}</select></label>
+      <label>What sounds good?<select name="into"><option value="">Anything</option>{interests.map(option => <option value={option.value}>{option.label}</option>)}</select></label>
       <button class="pi-btn pi-btn--solid" type="submit">Find my plan</button>
     </form>
 
     {cards.length > 0 && (
       <>
-        <p class="home-plan__subhead">Or start with one of ours</p>
-        <ul class="home-plan__choices" role="list">
+        <ul class="home-plan__choices" role="list" aria-label="Three of our plans">
           {cards.map(({ plan, image, imageEdit, surface }, i) => (
             <li class:list={[i === 0 ? 'home-plan__card' : 'home-plan__alt']}>
               <Card preferAvif={true}
@@ -126,7 +126,6 @@ const cards = featured && featuredImage ? [
             </li>
           ))}
         </ul>
-        <p class="home-plan__note">Each plan lists what to book and what to check before you go. <a href="/explore/plans/">See all plans</a></p>
       </>
     )}
   </div>
@@ -134,7 +133,7 @@ const cards = featured && featuredImage ? [
 
 <style>
   .home-plan { padding: var(--space-7) 0; scroll-margin-top: 9rem; }
-  .home-plan__head { max-width: 46rem; margin-bottom: var(--space-4); }
+  .home-plan__head { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-bottom: var(--space-5); }
   .home-plan__title {
     margin: 0;
     font-family: var(--font-display);
@@ -144,42 +143,46 @@ const cards = featured && featuredImage ? [
     letter-spacing: var(--ls-display);
     color: var(--text);
   }
-  .home-plan__lede { margin: var(--space-2) 0 0; font-size: var(--fs-400); line-height: 1.5; color: var(--soft); }
+  /* The one "more" link style on the homepage: section-head right, text only. */
+  .home-plan__more { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; color: var(--accent); font: 600 var(--fs-300)/1.4 var(--font-ui); text-decoration: none; }
+  .home-plan__more:hover { text-decoration: underline; text-underline-offset: .2em; }
 
-  .home-choose__form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: 1rem; align-items: end; }
-  .home-choose__form label { font-size: var(--fs-200); font-weight: 600; min-width: 0; }
-  .home-choose__form select { display: block; width: 100%; margin-top: .35rem; min-height: 48px; padding: .65rem 2rem .65rem .75rem; background: var(--bg); border: 1px solid var(--border-control); border-radius: var(--radius-s); color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui); }
+  /* Selects never truncate: three equal columns only where each has room,
+     otherwise one full-width column. */
+  .home-choose__form { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; gap: var(--space-4); align-items: end; }
+  .home-choose__form label { font-size: var(--fs-300); font-weight: 600; min-width: 0; }
+  .home-choose__form select { display: block; width: 100%; margin-top: var(--space-2); min-height: 48px; padding: .65rem 2rem .65rem .75rem; background: var(--bg); border: 1px solid var(--border-control); border-radius: var(--radius-s); color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui); }
   .home-choose__form button { min-height: 48px; }
   .home-choose__form select:focus-visible, .home-plan a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
-  .home-plan__subhead { margin: var(--space-7) 0 var(--space-4); font: 600 var(--fs-400)/1.4 var(--font-ui); color: var(--text); }
-  .home-plan__choices { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-5) var(--space-4); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
-  .home-plan__card, .home-plan__alt { display: flex; min-width: 0; }
-  .home-plan__choices :global(.pi-card) { width: 100%; height: 100%; }
-  .home-plan__choices :global(.pi-card__media) { aspect-ratio: 3/2; }
+  /* Same card anatomy as This weekend: 3:2 image, title, one line, meta, then
+     the photo credit as one quiet closing line. */
+  .home-plan__choices { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+  .home-plan__card, .home-plan__alt { min-width: 0; }
+  .home-plan__choices :global(.pi-card) { width: 100%; }
+  .home-plan__choices :global(.pi-card__media) { aspect-ratio: 3/2; height: auto; }
   .home-plan__choices :global(.pi-card__media img) { height: 100%; width: 100%; object-fit: cover; }
-  .home-plan__choices :global(.pi-card__image-note) { font-size: var(--fs-100); line-height: 1.45; }
-  .home-plan__choices :global(.pi-card__dek) { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; }
+  .home-plan__choices :global(.pi-card__body) { display: flex; flex-direction: column; }
+  .home-plan__choices :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.25; text-wrap: balance; }
+  .home-plan__choices :global(.pi-card__dek) { display: block; -webkit-line-clamp: unset; line-clamp: unset; overflow: visible; font-size: var(--fs-400); line-height: var(--lh-body); }
   /* Copy and Save live on each plan page; the card is a single link here. */
   .home-plan__choices :global(.pi-card__actions) { display: none; }
 
-  .home-plan__note { margin: var(--space-5) 0 0; font-size: var(--fs-300); line-height: 1.5; color: var(--soft); }
-  .home-plan__note a { display: inline-flex; align-items: center; min-height: 44px; margin-left: .25rem; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
-
   @media (max-width: 63.99rem) {
-    .home-plan__choices { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-plan__card { grid-column: 1 / -1; }
-    .home-plan__card :global(.pi-card__media) { aspect-ratio: 16 / 9; }
+    .home-choose__form { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .home-choose__form button { grid-column: 1 / -1; justify-self: start; }
+    /* Below the desktop grid the plans scroll sideways with a visible peek,
+       exactly like This weekend. Reader-driven, no motion. */
+    .home-plan__choices { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(21rem, 84vw); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; padding-bottom: var(--space-2); }
+    .home-plan__choices::-webkit-scrollbar { display: none; }
+    .home-plan__choices > li { scroll-snap-align: start; }
   }
   @media (max-width: 47.99em) {
+    .home-plan { padding: var(--space-6) 0; }
     .home-plan__title { font-size: var(--fs-600); }
-    .home-plan__lede { font-size: var(--fs-300); }
-    .home-choose__form { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; }
-    .home-choose__form button { width: 100%; font-size: var(--fs-300); padding-inline: .5rem; }
-  }
-  @media (max-width: 39.99rem) {
-    .home-plan__choices { grid-template-columns: 1fr; gap: var(--space-5); }
-    .home-plan__card { grid-column: auto; }
-    .home-plan__card :global(.pi-card__media) { aspect-ratio: 3 / 2; }
+    .home-choose__form { grid-template-columns: 1fr; gap: var(--space-3); }
+    .home-choose__form button { width: 100%; }
+    .home-plan__choices { margin-top: var(--space-6); margin-right: -1rem; gap: var(--space-4); }
+    .home-plan__choices :global(.pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
   }
 </style>

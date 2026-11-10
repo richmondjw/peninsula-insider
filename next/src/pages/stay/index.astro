@@ -151,8 +151,10 @@ const sixItems = SIX
   .map(({ slug, verdict }) => {
     const v = bySlug.get(slug);
     if (!v) return null;
-    // The check date is said once, at the head of the full list.
-    const item = { ...stayItem(v, { verdict }), freshness: undefined };
+    // The check date is said once, at the head of the full list. The card is
+    // the way in: the stay page carries the operator link, so no second
+    // outbound action sits on the card.
+    const item = { ...stayItem(v, { verdict }), freshness: undefined, booking: undefined };
     return slug === 'jackalope'
       ? {
           ...item,
@@ -212,11 +214,14 @@ const directoryVerdicts: Record<string, string> = {
 // Rows say less: name, one line, type and town. No per-row operator button
 // (each stay page carries it), no repeated check date, and no 'Couples' tag
 // where it is simply the default (the Couples filter still works).
+const sixSlugs = new Set(SIX.map((pick) => pick.slug));
 const directoryItems = allVenues.map((v) => {
   const slug = String(v.id ?? v.data.slug);
   const item = stayItem(v, { verdict: directoryVerdicts[slug] });
   return {
     ...item,
+    // Shown in the shortlist above; the list holds it back until a filter asks.
+    featured: sixSlugs.has(slug),
     meta: item.meta.filter((m) => m !== 'Couples'),
     image: undefined,
     booking: undefined,
@@ -333,6 +338,7 @@ export const prerender = true;
       <div class="stay-hero__copy">
         <h1 id="stay-hero-title">Where you stay shapes the whole trip.</h1>
         <p class="stay-hero__lead">{standfirst}</p>
+        <p class="stay-hero__trust">{stayCount} stays chosen by our editors{directoryChecked ? `, ${directoryChecked.replace(/^(Most )?[Dd]etails checked/, 'checked')}` : ''}. <a href="/about/#how-we-choose">How we choose</a></p>
         <div class="stay-hero__actions">
           <a class="stay-hero__primary" href="#choose-base">Choose your base <span aria-hidden="true">&rarr;</span></a>
           <a class="stay-hero__secondary" href="#browse-stay">Browse all {stayCount} stays <span aria-hidden="true">&darr;</span></a>
@@ -353,54 +359,41 @@ export const prerender = true;
       sub="Six distinct ways in, chosen by our editors."
       surface="stay"
       items={sixItems}
-      layout="grid"
       trip={false}
     />
-
-    <!-- The selection note and the guide cards were two more sections saying
-         "here is how to choose". One quiet line each now. -->
-    <div class="container stay-after-six">
-      <p><a href="/about/#how-we-choose">How we choose and check our picks</a></p>
-      <nav aria-label="Stay guides">
-        <span>Stay guides:</span>
-        {bestOfGuides.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}</a></>))}
-      </nav>
-    </div>
   </div>
 
-  <div id="browse-stay" class="stay-browse">
-    <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays" mapHref="/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay" showLinks={false}>
+  <!-- One filter state, yielding the editorial layer while it narrows. -->
+  <CategoryBrowse directory="stay-directory" count={stayCount} noun="stays" mapHref="/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay" showLinks={false} />
+
+  <!-- The list: heading, then one row of filter and sort controls. -->
+  <div id="browse-stay">
+    <DirectoryRows
+      id="stay-directory"
+      heading={`All ${stayCount} places to stay`}
+      sub={directoryChecked ? `${directoryChecked}.` : undefined}
+      surface="stay"
+      noun="stays"
+      items={directoryItems}
+      desktopColumns={2}
+      fullVerdicts
+      topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay' }}
+      emptyHeading="Nothing matches those filters"
+      emptyBody="Clear a filter to see more places to stay."
+    >
       <FilterBar
+        slot="before-list"
         surface="stay"
         noun="stays"
         label="Filter stays"
         pinnedMore
-        mobileWrap
         moreLabel="All filters"
         facets={['place', 'cat', 'party']}
       >
         <SortControl />
       </FilterBar>
-    </CategoryBrowse>
+    </DirectoryRows>
   </div>
-
-  <DirectoryRows
-    id="stay-directory"
-    heading={`All ${stayCount} places to stay`}
-    sub={`${directoryChecked ? `${directoryChecked}. ` : ''}Open a stay for rooms and the operator link, and confirm rates and inclusions with them.`}
-    surface="stay"
-    noun="stays"
-    items={directoryItems}
-    desktopColumns={2}
-    fullVerdicts
-    topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay' }}
-    emptyHeading="Nothing matches those filters"
-    emptyBody="Clear a filter to see more places to stay."
-  >
-    <a slot="before-list" href="#browse-stay" class="stay-directory-refine">
-      Refine stays <span aria-hidden="true">&uarr;</span>
-    </a>
-  </DirectoryRows>
 
   <JournalModule
     eyebrow=""
@@ -425,6 +418,12 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <!-- Stay guides: one quiet line beside the questions they answer. -->
+  <nav class="container hub-guides" aria-label="Stay guides">
+    <span>Guides:</span>
+    {bestOfGuides.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}</a></>))}
+  </nav>
 
   <!-- 8. Ask band hidden (bug fix in progress) -->
   <div class="container">
@@ -517,104 +516,13 @@ export const prerender = true;
     line-height: 1.45;
   }
   #choose-base, #browse-stay, :global(#stay-directory) { scroll-margin-top: 10rem; }
-  /* After the shortlist: two quiet lines, no rules, no tinted band. */
-  .stay-after-six { padding-bottom: var(--space-6, 2rem); color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
-  .stay-after-six p { margin: 0; }
-  .stay-after-six nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .35rem; }
-  .stay-after-six nav > span:first-child { margin-inline-end: .25rem; }
-  .stay-after-six a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
-  .stay-after-six a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  .stay-browse { padding-top: clamp(2rem, 4vw, 3.25rem); }
-  :global(#stay-directory .stay-directory-refine) { display: none; }
-  @media (max-width: 760px) {
-    :global(#stay-directory .stay-directory-refine) {
-      position: sticky;
-      top: 118px;
-      z-index: 6;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 48px;
-      padding: .55rem .9rem;
-      margin-bottom: .4rem;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-s, 4px);
-      background: var(--white, #fff);
-      color: var(--accent);
-      font-family: var(--font-ui);
-      font-size: var(--fs-300);
-      font-weight: 650;
-      text-decoration: none;
-    }
-    :global(#stay-directory .stay-directory-refine:focus-visible) {
-      outline: 2px solid var(--accent);
-      outline-offset: 2px;
-    }
-  }
-
-  :global(#stay-directory .pi-card.pi-card--compact),
-  :global(#stay-shortlist .pi-card.pi-card--compact) {
-    display: grid;
-    grid-template-columns: 76px minmax(0, 1fr);
-    grid-template-rows: auto auto;
-    align-items: start;
-    gap: 0 .9rem;
-    padding: 1.2rem .75rem;
-    background: transparent;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__media),
-  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__media) {
-    display: block;
-    grid-column: 1;
-    grid-row: 1 / 3;
-    width: 76px;
-    max-width: 76px;
-    height: 76px;
-    flex: none;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
-  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__body) {
-    grid-column: 2;
-    grid-row: 1;
-    min-width: 0;
-    padding: 0;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions),
-  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__actions) {
-    grid-column: 2;
-    grid-row: 2;
-    margin: .55rem 0 0;
-    padding: 0;
-  }
-  :global(#stay-shortlist .pi-card--venue .pi-card__dek) {
-    display: block;
-    overflow: visible;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__dek),
-  :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__dek) {
-    display: block;
-    overflow: visible;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact) {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
-    grid-column: 1;
-  }
-  :global(#stay-shortlist .pi-card.pi-card--compact:not(:has(.pi-card__media))) {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-  :global(#stay-shortlist .pi-card.pi-card--compact:not(:has(.pi-card__media)) .pi-card__body),
-  :global(#stay-shortlist .pi-card.pi-card--compact:not(:has(.pi-card__media)) .pi-card__actions) {
-    grid-column: 1;
-  }
+  .stay-hero__trust { margin: var(--space-4) 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .stay-hero__trust a { color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
+  .stay-hero__trust a:focus-visible, .hub-guides a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  /* Guides: one quiet line of links after the FAQ, no rules. */
+  .hub-guides { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .35rem; padding-block: 0 var(--space-7); color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .hub-guides > span:first-child { margin-inline-end: .25rem; }
+  .hub-guides a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
   @media (max-width: 760px) {
     .stay-hero__grid {
       grid-template-columns: 1fr;
@@ -626,73 +534,6 @@ export const prerender = true;
     .stay-hero__lead { margin-top: .8rem; font-size: var(--fs-400); line-height: 1.5; }
     .stay-hero__actions { margin-top: 1.2rem; }
     .stay-hero__visual img { height: clamp(15.5rem, 60vw, 24rem); }
-  }
-  @media (max-width: 560px) {
-    :global(#stay-directory .pi-card.pi-card--compact),
-    :global(#stay-shortlist .pi-card.pi-card--compact) {
-      grid-template-columns: 64px minmax(0, 1fr);
-      gap: 0 .8rem;
-      padding: 1.15rem .75rem;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .pi-card__media),
-    :global(#stay-shortlist .pi-card.pi-card--compact .pi-card__media) {
-      width: 64px;
-      max-width: 64px;
-      height: 64px;
-    }
-  }
-  :global(#stay-directory .pi-card.pi-card--compact) {
-    grid-template-columns: minmax(0, 1fr);
-    column-gap: 0;
-  }
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__body),
-  :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
-    grid-column: 1;
-  }
-  /* The full directory is a comparison index on small screens. Keep the
-     title, verdict, locality and checked date readable, with Save in the
-     row. The venue detail carries the outbound operator action. */
-  @media (max-width: 560px) {
-    :global(#stay-directory .pi-card.pi-card--compact) {
-      grid-template-columns: minmax(0, 1fr) 48px;
-      grid-template-rows: auto;
-      column-gap: .65rem;
-      align-items: start;
-      padding: .8rem .75rem;
-      background: transparent;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .pi-card__body) {
-      grid-column: 1;
-      grid-row: 1;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .pi-card__actions) {
-      grid-column: 2;
-      grid-row: 1;
-      width: 48px;
-      margin: 0;
-      align-self: start;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .v5-booking) {
-      display: none;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .pi-card__link) {
-      display: inline-flex;
-      align-items: center;
-      min-height: 44px;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact:has(.pi-card__link:focus-visible)) {
-      outline: 2px solid var(--accent);
-      outline-offset: -2px;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .pi-card__link:focus-visible) {
-      outline: none;
-    }
-    :global(#stay-directory .pi-card.pi-card--compact .pi-card__link) {
-      text-decoration: underline;
-      text-decoration-color: rgba(12, 65, 94, .35);
-      text-decoration-thickness: 1px;
-      text-underline-offset: .17em;
-    }
   }
   @media (max-width: 380px) {
     .stay-hero__eyebrow { display: none; }

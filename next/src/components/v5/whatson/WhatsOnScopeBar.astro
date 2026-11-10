@@ -1,14 +1,20 @@
 ---
 /**
- * WhatsOnScopeBar (v5 What's On, T-601) - the date-scope controls that sit
- * directly under the h1: This weekend (default, server-rendered content) /
- * Next weekend / School holidays / Pick dates.
+ * WhatsOnScopeBar (v5 What's On, T-601) - the page's one control system,
+ * directly under the h1: date pills (Today / Tomorrow / This weekend, the
+ * default, server-rendered / Next weekend / School holidays / Pick dates)
+ * and, on the same row, one "Filters" pill that opens the search, town,
+ * category, free and kids panel beneath it (Phase 6, 2026-11-10: the
+ * separate "Search and filter events" disclosure and "Load the month
+ * ahead" button were a second and third control system).
  *
  * Presentational + declarative only: the page script owns behaviour. Scope
  * buttons are real <button aria-pressed>; "Pick dates" is a <details> with
  * two native date inputs (keyboard-complete by the platform, wireframes
  * note 1 / journey-e). School holidays renders only when the VIC term-date
- * table still has a current-or-future range.
+ * table still has a current-or-future range. The filter form stays outside
+ * its <details> so the panel can sit full width under the pill row; it shows
+ * while that disclosure is open.
  *
  * The nav carries the runtime data the client needs (weekend anchor, the
  * school-holiday window) so scope maths lives in one place (_data.ts).
@@ -23,11 +29,15 @@ export interface Props {
   holidays: { startISO: string; endISO: string; label: string; name: string } | null;
   /** min attribute for the date inputs (today, ISO). */
   todayISO: string;
+  /** Filter panel options. */
+  towns?: string[];
+  categories?: { value: string; label: string }[];
 }
 
-const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = Astro.props;
+const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO, towns = [], categories = [] } = Astro.props;
 ---
 
+<div class="wo-controls">
 <nav
   class="wo-scope"
   aria-label="Choose dates"
@@ -40,40 +50,10 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
   <div class="wo-scope__row">
     <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="today" aria-pressed="false" data-evt="wo_date_change">Today</button>
     <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="tomorrow" aria-pressed="false" data-evt="wo_date_change">Tomorrow</button>
-    <button
-      type="button"
-      class="wo-scope__btn"
-      data-wo-scope-btn
-      data-scope="weekend"
-      aria-pressed="true"
-      data-evt="wo_date_change"
-    >
-      This weekend
-      <span class="wo-scope__dates">{weekendLabel}</span>
-    </button>
-    <button
-      type="button"
-      class="wo-scope__btn"
-      data-wo-scope-btn
-      data-scope="next-weekend"
-      aria-pressed="false"
-      data-evt="wo_date_change"
-    >
-      Next weekend
-      <span class="wo-scope__dates">{nextWeekendLabel}</span>
-    </button>
+    <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="weekend" aria-pressed="true" data-evt="wo_date_change" aria-label={`This weekend, ${weekendLabel}`}>This weekend</button>
+    <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="next-weekend" aria-pressed="false" data-evt="wo_date_change" aria-label={`Next weekend, ${nextWeekendLabel}`}>Next weekend</button>
     {holidays && (
-      <button
-        type="button"
-        class="wo-scope__btn"
-        data-wo-scope-btn
-        data-scope="school-holidays"
-        aria-pressed="false"
-        data-evt="wo_date_change"
-      >
-        School holidays
-        <span class="wo-scope__dates">{holidays.label}</span>
-      </button>
+      <button type="button" class="wo-scope__btn" data-wo-scope-btn data-scope="school-holidays" aria-pressed="false" data-evt="wo_date_change" aria-label={`School holidays, ${holidays.label}`}>School holidays</button>
     )}
     <details class="wo-scope__custom" data-wo-custom>
       <summary class="wo-scope__btn wo-scope__btn--summary" data-wo-custom-summary>
@@ -93,39 +73,59 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
         </button>
       </form>
     </details>
+    <details class="wo-filter-disclosure" data-wo-filter-disclosure hidden>
+      <summary class="wo-scope__btn wo-scope__btn--summary">Filters</summary>
+    </details>
   </div>
   <noscript>
     <p class="wo-scope__noscript">Date filters need JavaScript. The current weekend events are listed below, or <a href="/whats-on/this-weekend/">read this weekend’s verified edit</a>.</p>
     <style>.wo-scope__row { display: none !important; }</style>
   </noscript>
 </nav>
+<form class="wo-filters" data-wo-filters role="search" aria-label="Find an event" hidden>
+  <label class="wo-filters__search">Search events
+    <input type="search" name="q" placeholder="Event or venue" autocomplete="off" />
+  </label>
+  <label>Town
+    <select name="town"><option value="">Any town</option>{towns.map((town) => <option value={town}>{town}</option>)}</select>
+  </label>
+  <label>Category
+    <select name="category"><option value="">All categories</option>{categories.map((category) => <option value={category.value}>{category.label}</option>)}</select>
+  </label>
+  <label class="wo-filters__check"><input type="checkbox" name="free" /> Free entry</label>
+  <label class="wo-filters__check"><input type="checkbox" name="kids" /> With kids</label>
+  <button type="button" class="wo-filters__clear" data-wo-filter-reset>Clear filters</button>
+</form>
+</div>
 
 <style>
-  .wo-scope {
+  .wo-controls {
     margin: var(--space-4, 1rem) 0 0;
   }
   .wo-scope__row {
     display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
     gap: var(--space-2, 0.5rem);
   }
+  /* One pill: same element box for buttons and summaries, so every label sits on one baseline. */
   .wo-scope__btn {
     appearance: none;
     display: inline-flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2px;
-    min-height: 48px;
-    padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    min-height: 44px;
+    padding: 0 var(--space-4, 1rem);
     background: var(--surface, var(--bg));
     color: var(--text);
     border: 1px solid var(--border-control);
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-pill);
     font-family: var(--font-ui, inherit);
     font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
-    line-height: var(--lh-ui, 1.4);
+    line-height: 1.2;
+    white-space: nowrap;
     cursor: pointer;
     transition:
       border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
@@ -140,44 +140,42 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
-  .wo-scope__btn[aria-pressed='true'] {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, #fff);
-  }
-  .wo-scope__dates {
-    font-size: var(--fs-100);
-    font-weight: var(--fw-body, 400);
-    color: var(--soft);
-  }
-  /* Say the dates once: the selected range is in the hero line above the pills,
-     so a second date line inside every pill only doubles the first screen. */
-  .wo-scope__btn .wo-scope__dates {
-    display: none;
-  }
-  .wo-scope__btn[aria-pressed='true'] .wo-scope__dates {
-    color: var(--soft-inverse, rgba(250, 247, 240, 0.72));
-  }
-
-  /* Pick dates disclosure */
-  .wo-scope__custom {
-    position: relative;
-  }
-  .wo-scope__btn--summary {
-    list-style: none;
-    justify-content: center;
-  }
-  .wo-scope__btn--summary::-webkit-details-marker {
-    display: none;
-  }
-  .wo-scope__custom[open] .wo-scope__btn--summary {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
+  .wo-scope__btn[aria-pressed='true'],
   .wo-scope__custom[data-active='true'] .wo-scope__btn--summary {
     background: var(--text);
     border-color: var(--text);
     color: var(--white, #fff);
+  }
+
+  /* Disclosures */
+  .wo-scope__custom {
+    position: relative;
+  }
+  .wo-filter-disclosure[hidden] {
+    display: none;
+  }
+  .wo-scope__btn--summary {
+    list-style: none;
+  }
+  .wo-scope__btn--summary::-webkit-details-marker {
+    display: none;
+  }
+  .wo-filter-disclosure .wo-scope__btn--summary::after {
+    content: '';
+    width: 0.45em;
+    height: 0.45em;
+    margin: -0.2em 0 0 0.5em;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg);
+  }
+  .wo-filter-disclosure[open] .wo-scope__btn--summary::after {
+    margin-top: 0.2em;
+    transform: rotate(225deg);
+  }
+  :is(.wo-scope__custom, .wo-filter-disclosure)[open] .wo-scope__btn--summary {
+    border-color: var(--accent);
+    color: var(--accent);
   }
   .wo-scope__form {
     position: absolute;
@@ -199,22 +197,20 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     display: flex;
     flex-direction: column;
     gap: 2px;
-    font-size: var(--fs-200);
+    font-size: var(--fs-300);
     color: var(--soft);
   }
-  .wo-scope__field input {
+  .wo-scope__field input,
+  .wo-filters input[type='search'],
+  .wo-filters select {
     min-height: 44px;
-    padding: 0 var(--space-2, 0.5rem);
+    padding: 0 var(--space-3, 0.75rem);
     border: 1px solid var(--border-control);
     border-radius: var(--radius-s);
     background: var(--bg);
     color: var(--text);
-    font-family: var(--font-ui, inherit);
+    font: inherit;
     font-size: var(--fs-300);
-  }
-  .wo-scope__field input:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
   }
   .wo-scope__apply {
     appearance: none;
@@ -223,37 +219,69 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     background: var(--accent);
     color: var(--white, #fff);
     border: 1px solid var(--accent);
-    border-radius: var(--radius-m);
+    border-radius: var(--radius-pill);
     font-family: var(--font-ui, inherit);
     font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
     cursor: pointer;
   }
-  .wo-scope__apply:focus-visible {
+  :is(.wo-scope__field input, .wo-scope__apply, .wo-filters :is(input, select, button)):focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
 
+  /* The filter panel: in flow under the pill row, shown while "Filters" is open. */
+  .wo-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: var(--space-3, 0.75rem) var(--space-4, 1rem);
+    margin: var(--space-4, 1rem) 0 0;
+    padding: var(--space-4, 1rem) 0 0;
+  }
+  .wo-filters[hidden],
+  .wo-controls:has(.wo-filter-disclosure:not([open])) .wo-filters {
+    display: none;
+  }
+  .wo-filters label:not(.wo-filters__check) {
+    display: grid;
+    gap: var(--space-1, 0.25rem);
+    min-width: 10rem;
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold, 600);
+  }
+  .wo-filters__search { flex: 1 1 15rem; }
+  .wo-filters input[type='search'], .wo-filters select { width: 100%; }
+  .wo-filters__check {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    gap: var(--space-2, 0.5rem);
+    padding-inline: var(--space-1, 0.25rem);
+    font-size: var(--fs-300);
+    white-space: nowrap;
+    cursor: pointer;
+  }
+  .wo-filters__check input { width: 1.25rem; height: 1.25rem; margin: 0; accent-color: var(--accent); }
+  .wo-filters__clear { min-height: 44px; border: 0; background: none; color: var(--accent); font: inherit; font-size: var(--fs-300); text-decoration: underline; cursor: pointer; }
+
   @media (max-width: 47.9375em) {
-    .wo-scope {
-      margin-top: 0.5rem;
+    .wo-controls {
+      margin-top: var(--space-3, 0.75rem);
     }
     .wo-scope__row {
       gap: 0.375rem;
     }
-    .wo-scope__dates {
-      display: none;
-    }
     .wo-scope__btn {
-      flex-direction: row;
-      align-items: center;
-      min-height: 44px;
-      padding-inline: 0.55rem;
-      font-size: var(--fs-300);
+      padding-inline: 0.8rem;
     }
+    /* On a phone the date panel spans the control row instead of hanging off one pill. */
+    .wo-scope { position: relative; }
+    .wo-scope__custom { position: static; }
     .wo-scope__form {
-      left: auto;
       right: 0;
+      min-width: 0;
     }
+    .wo-filters label:not(.wo-filters__check) { flex: 1 1 100%; }
   }
 </style>

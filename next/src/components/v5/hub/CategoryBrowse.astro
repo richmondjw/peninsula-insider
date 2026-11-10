@@ -14,8 +14,9 @@ const { directory, count, noun, mapHref = '/map/', showLinks = true } = Astro.pr
 </div>
 <style>
   .category-browse { padding-block: 0.5rem 1rem; }
+  .category-browse:not(:has(*)) { display: none; }
   .category-browse__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.5rem; }
-  .category-browse__links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--teal-text); font-size: var(--fs-300); font-weight: 600; text-underline-offset: 0.2em; }
+  .category-browse__links a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-size: var(--fs-300); font-weight: 600; text-underline-offset: 0.2em; }
   .category-browse__links a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 </style>
 <script>

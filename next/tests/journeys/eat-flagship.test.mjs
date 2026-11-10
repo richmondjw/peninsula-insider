@@ -35,7 +35,11 @@ test('progressive directory exposes every place and preserves keyboard context',
     await reader.page.$eval('[data-directory-more]', el => el.click());
     assert.equal(await reader.page.evaluate(visibleRows), 16);
     await reader.page.$eval('[data-directory-all]', el => el.click());
-    assert.equal(await reader.page.evaluate(visibleRows), catalogueSize);
+    // Say it once (round 2): the six shortlist picks above are not repeated in
+    // the unfiltered list; they stay countable and return under any filter.
+    const featured = await reader.page.$$eval('#directory [data-featured-row]', rows => rows.length);
+    assert.equal(featured, 6, 'the six shortlist picks are marked in the catalogue');
+    assert.equal(await reader.page.evaluate(visibleRows), catalogueSize - featured);
     assert.equal(await reader.page.evaluate(() => document.activeElement.id), 'directory-heading');
     await reader.page.setJavaScriptEnabled(false);
     await reader.page.reload({waitUntil:'networkidle0'});
@@ -85,8 +89,10 @@ test('six planning notes remain fully readable beside working mobile and desktop
  const notes=await reader.page.$$eval('#the-six .pi-card__planning',els=>els.map(el=>({text:el.textContent.trim(),rect:el.getBoundingClientRect().toJSON(),clipped:el.scrollHeight>el.clientHeight+1,overflow:el.scrollWidth>el.clientWidth+1})));
  assert.equal(notes.length,6,'six complete choices retain their practical planning notes');
  assert.ok(notes.every(note=>note.text.length>0&&note.rect.height>0&&!note.clipped&&!note.overflow),JSON.stringify({width,notes}));
- const actions=await reader.page.$$eval('#the-six .pi-card__actions',els=>els.map(el=>el.getBoundingClientRect().toJSON()));
- assert.ok(actions.every(rect=>rect.left>=0&&rect.right<=width),`${width}: complete action rows fit`);
+ // Round 2: Save sits on the photograph (or the text card's corner) and the
+ // phone shortlist is a swipe row, so each action must fit its own card.
+ const actions=await reader.page.$$eval('#the-six .pi-card',cards=>cards.flatMap(card=>{const c=card.getBoundingClientRect();return [...card.querySelectorAll('.pi-card__actions,.pi-card__save')].map(el=>{const r=el.getBoundingClientRect();return r.left>=c.left-1&&r.right<=c.right+1;});}));
+ assert.ok(actions.length>0&&actions.every(Boolean),`${width}: every card action fits its card`);
  }
  }finally{await reader.close();}
 });
