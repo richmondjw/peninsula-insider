@@ -49,12 +49,12 @@ const creditLine=!credit?'':/^Courtesy of /i.test(credit)?`Photo courtesy of ${c
   .eat-entry__trust a{color:var(--accent);font-weight:600;text-underline-offset:.2em;white-space:nowrap}
   .eat-entry__photo{margin:0}.eat-entry__photo img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:var(--radius-lg,16px)}
   figcaption{font:400 var(--fs-200)/1.5 var(--font-ui);color:var(--soft);padding-top:.5rem}
-  .eat-finder{padding-block:1.25rem;border-block:1px solid var(--border)}
+  .eat-finder{padding-block:1.25rem}
   .eat-finder__heading{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem}
   .eat-finder h2{font:600 var(--fs-600)/1.2 var(--font-display);margin:0}.eat-finder__heading p{font-size:var(--fs-300);color:var(--soft);margin:0}
   .eat-finder__form{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:1rem;align-items:end}
   label{display:block;font-size:var(--fs-200);font-weight:600;margin-bottom:.4rem}
-  input,select{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:.65rem .8rem;color:var(--text);font:400 1rem var(--font-ui)}
+  input,select{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border-control);border-radius:8px;padding:.65rem .8rem;color:var(--text);font:400 1rem var(--font-ui)}
   button{min-height:48px;border:0;border-radius:8px;padding:.65rem 1.2rem;background:var(--accent);color:white;font:600 1rem var(--font-ui);cursor:pointer}
   :is(a,button,input,select):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
   @media(max-width:700px){.eat-entry{grid-template-columns:1fr;gap:1rem;padding-block:1.25rem .75rem}.eat-entry h1{font-size:2rem;max-width:22ch;margin-top:.5rem}.eat-entry__photo{order:-1}.eat-entry__photo img{aspect-ratio:2/1;border-radius:12px}.eat-entry__photo figcaption{font-size:var(--fs-100);padding-top:.35rem}.eat-entry__dek{margin-bottom:0}.eat-entry__links{gap:0 1.25rem;margin-top:1rem}.eat-entry__links .eat-entry__primary{flex:1 0 100%;justify-content:center;margin-bottom:.25rem}.eat-entry__trust{margin-top:.75rem}.eat-finder__heading{display:block}.eat-finder__heading p{display:none}.eat-finder__form{grid-template-columns:1fr 1fr;gap:.75rem}.eat-finder__form>div:first-child{grid-column:1/-1}.eat-finder__form>button{grid-column:1/-1}}

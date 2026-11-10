@@ -119,15 +119,18 @@ const accessibleName = venueName ? `${label}, opens ${venueName} website` : `${l
   /* card-action = secondary weight (the card link is the primary) */
   .v5-booking--card-action .v5-booking__link {
     background: transparent;
-    border: 1px solid var(--border);
-    color: var(--text);
+    border: 0;
+    color: var(--accent);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.25em;
     min-height: 48px;
     font-size: var(--fs-200, 0.8125rem);
     padding: 0 0.75rem;
   }
   .v5-booking--card-action .v5-booking__link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    color: var(--acc-h, var(--accent));
+    text-decoration-thickness: 2px;
   }
 
   .v5-booking__disclosure {

@@ -940,7 +940,7 @@ const hubImage = categoryHero('whats-on');
   }
 
   /* ── Immersive hero: date context is the h1's job ── */
-  .wo-head { padding: clamp(1.5rem, 4vw, 2.75rem) 0 1.2rem; background: var(--bg); color: var(--text); border-bottom: 1px solid var(--border); }
+  .wo-head { padding: clamp(1.5rem, 4vw, 2.75rem) 0 1.2rem; background: var(--bg); color: var(--text); }
   .wo-head__title {
     margin: 0;
     font-family: var(--font-display);
@@ -994,7 +994,7 @@ const hubImage = categoryHero('whats-on');
     width: 100%;
     min-height: 44px;
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border);
+    border: 1px solid var(--border-control);
     border-radius: 7px;
     background: var(--bg);
     color: var(--text);
@@ -1065,12 +1065,10 @@ const hubImage = categoryHero('whats-on');
     list-style: none;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid var(--border);
   }
   .wo-day__empty {
     margin: 0;
     padding: var(--space-2, 0.5rem) 0 var(--space-3, 0.75rem);
-    border-top: 1px solid var(--border);
     color: var(--soft);
     font-style: normal;
     font-size: var(--fs-300, 0.9rem);
@@ -1145,7 +1143,6 @@ const hubImage = categoryHero('whats-on');
     list-style: none;
     margin: 0;
     padding: 0;
-    border-bottom: 1px solid var(--border);
   }
   /* Editorial treatment: a photographic opening, curated cards, then the full calendar. */
   .wo-head { overflow: hidden; padding: 0; background: #0b2e4a; color: #f2efea; border: 0; }
@@ -1172,7 +1169,7 @@ const hubImage = categoryHero('whats-on');
   .wo-picks__all span { font-size: 1.25rem; }
   .wo-picks__all:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
   .wo-days { padding: clamp(2rem, 4vw, 3.5rem) 0; scroll-margin-top: 5rem; }
-  .wo-days__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; max-width: none; padding-bottom: .5rem; border-bottom: 2px solid #0b2e4a; }
+  .wo-days__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; max-width: none; padding-bottom: .5rem; }
   .wo-days__hint { margin: 0 0 .5rem; color: var(--soft); font-size: .9rem; }
   .wo-day__h { color: #0b2e4a; font-family: var(--font-display); font-size: clamp(1.35rem, 2vw, 1.8rem); font-weight: 700; letter-spacing: -.02em; text-transform: none; }
   .wo-shelfnav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; margin-top: 1.25rem; }
@@ -1190,7 +1187,7 @@ const hubImage = categoryHero('whats-on');
   .wo-shelfnav__credit { margin: .35rem .2rem 0; color: var(--soft); font-size: .75rem; line-height: 1.4; }
   @media (min-width: 1024px) {
     .wo-day, .wo-shelf { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-    .wo-day__h, .wo-shelf__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; border-top: 3px solid #f5c177; }
+    .wo-day__h, .wo-shelf__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; }
     .wo-day__list, .wo-day__empty, .wo-shelf__list { grid-column: 2; }
   }
   .wo-picks__dek--mobile { display: none; }
@@ -1320,7 +1317,7 @@ const hubImage = categoryHero('whats-on');
   /* Date scopes added from feed.json do not carry Astro's scoped-style marker. */
   @media (min-width: 1024px) {
     .wo-days .wo-day { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-    .wo-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; border-top: 3px solid #f5c177; }
+    .wo-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; }
     .wo-days .wo-day__list, .wo-days .wo-day__empty { grid-column: 2; }
   }
   @media (max-width: 1023px) {

@@ -686,7 +686,7 @@ export const prerender = true;
   .x-choices__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 1.5rem; }
   .x-choices__head h2, .x-discovery__head h2, .x-shelf__heading, .x-towns__heading, .x-verticals__heading, .x-directory__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 clamp(2rem, 3vw, 3rem)/1.12 var(--font-editorial, Georgia, serif); letter-spacing: -0.025em; text-wrap: balance; }
   .x-choices__head p, .x-discovery__head p { max-width: 30ch; margin: 0; color: var(--soft); font-size: 1rem; line-height: 1.5; }
-  .x-choices__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-block: 1px solid var(--border); }
+  .x-choices__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .x-choices__grid a { position: relative; display: flex; flex-direction: column; gap: 0.35rem; min-height: 9rem; padding: 1.35rem 2rem 1.35rem 1rem; color: var(--text); text-decoration: none; border-right: 1px solid var(--border); transition: background var(--dur-fast, 120ms) ease; }
   .x-choices__grid a:first-child { padding-left: 0; }
   .x-choices__grid a:last-child { border-right: 0; }
@@ -702,12 +702,12 @@ export const prerender = true;
   .x-choices__advice a { color: var(--accent); text-underline-offset: 0.2em; }
   .x-choices :is(a, summary):focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .x-discovery { padding: clamp(2.5rem, 4vw, 4rem) 0 2.5rem; background: var(--paper, #f2efea); border-block: 1px solid var(--border); }
+  .x-discovery { padding: clamp(2.5rem, 4vw, 4rem) 0 2.5rem; background: var(--paper, #f2efea); }
   .x-discovery__head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem 3rem; margin-bottom: 0.5rem; }
   .x-discovery :global(.category-browse__links) { margin-bottom: 0.5rem; }
   .x-discovery :global(.v5-filterbar) { background: transparent; }
 
-  .x-shelf { padding: clamp(3.5rem, 6vw, 5.5rem) 0; scroll-margin-top: 4rem; border-bottom: 1px solid var(--border); }
+  .x-shelf { padding: clamp(3.5rem, 6vw, 5.5rem) 0; scroll-margin-top: 4rem; }
   .x-shelf:nth-of-type(even) { background: var(--paper, #f2efea); }
   .x-shelf__header { display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; margin-bottom: 1.75rem; }
   .x-shelf__heading { max-width: 25ch; }
@@ -729,7 +729,7 @@ export const prerender = true;
   .x-towns__heading { color: var(--white); }
   .x-towns__intro { color: var(--soft-inverse); }
   .x-towns__map { display: inline-flex; align-items: center; min-height: 44px; margin-top: 1.5rem; color: var(--sand, #f5c177); font-weight: 700; text-underline-offset: 0.25em; }
-  .x-towns__details { border-block: 1px solid rgba(255,255,255,0.4); }
+  .x-towns__details { }
   .x-towns__details summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4rem; cursor: pointer; list-style: none; color: var(--white); font: 700 1.05rem/1.35 var(--font-ui); }
   .x-towns__details summary::-webkit-details-marker { display: none; }
   .x-towns__details[open] summary span { transform: rotate(45deg); }
@@ -742,7 +742,7 @@ export const prerender = true;
   .x-towns :is(a, summary):focus-visible { outline: 2px solid var(--sand, #f5c177); outline-offset: 3px; }
 
   .x-verticals { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
-  .x-verticals__rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; list-style: none; margin: 1.75rem 0 0; padding: 0; border-top: 1px solid var(--border); }
+  .x-verticals__rail { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; list-style: none; margin: 1.75rem 0 0; padding: 0; }
   .x-verticals__cell { border-bottom: 1px solid var(--border); }
   .x-verticals__link { display: block; min-height: 6.5rem; padding: 1.2rem 0; text-decoration: none; }
   .x-verticals__label { display: block; color: var(--text); font: 600 1.2rem/1.25 var(--font-display); }
@@ -768,7 +768,7 @@ export const prerender = true;
 
   .x-journal { padding: clamp(3.5rem, 6vw, 5.5rem) 0; }
   .x-faq { padding: clamp(3.5rem, 6vw, 5.5rem) 0; background: var(--paper, #f2efea); }
-  .x-faq__list { max-width: 55rem; margin-top: 1.5rem; border-top: 1px solid var(--border); }
+  .x-faq__list { max-width: 55rem; margin-top: 1.5rem; }
   .x-faq__item { border-bottom: 1px solid var(--border); }
   .x-faq__q { min-height: 48px; padding: 1rem 0; color: var(--text); cursor: pointer; font: 700 1rem/1.45 var(--font-ui); }
   .x-faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }

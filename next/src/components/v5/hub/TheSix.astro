@@ -151,7 +151,7 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
   /* Doubled block class: Card.astro scopes every selector part, so its plate rule ties ours on specificity and loads later. */
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__media--plate) { background: none; border: 0; width: auto; height: auto; max-width: none; flex-basis: auto; aspect-ratio: auto; overflow: visible; }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__plate-monogram) { color: var(--accent); font: var(--fw-display, 600) 2rem/1 var(--font-display); letter-spacing: -0.02em; }
-  .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__planning) { padding-top: var(--space-3, 0.75rem); border-top: 1px solid var(--border); }
+  .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__planning) { padding-top: var(--space-3, 0.75rem); }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__media) { grid-column: 1; grid-row: 1; }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__body) { grid-column: 2; grid-row: 1; align-self: start; }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__actions) { grid-column: 2; grid-row: 2; width: auto; margin: 0; padding: 0; align-self: end; }
@@ -159,7 +159,7 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__media ~ .pi-card__actions) { grid-column: 2; }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact:not(:has(.pi-card__media)) .pi-card__body),
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact:not(:has(.pi-card__media)) .pi-card__actions) { grid-column: 1 / -1; }
-  .v5-six__more { margin-top: 1rem; border-block: 1px solid var(--border); }
+  .v5-six__more { margin-top: var(--space-5); }
   .v5-six__more summary { padding-block: 0.75rem; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--accent); }
   .v5-six__more summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .v5-six__more :global(.v5-card-grid) { grid-template-columns: 1fr; padding-block: 1rem; }

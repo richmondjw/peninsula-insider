@@ -486,7 +486,9 @@
   display: flex;
   flex-direction: column;
   background: var(--white);
-  border: 1px solid var(--border);
+  /* 2026-11-10: no resting outline. The photograph and the gutter define the card; the edge
+     appears only on hover or keyboard focus. */
+  border: 1px solid transparent;
   border-radius: var(--radius-m);
   overflow: hidden;
   box-shadow: none;
@@ -501,7 +503,7 @@
 .tour-card:hover,
 .experience-card:hover,
 .guide-card:hover {
-  border-color: var(--border-strong);
+  border-color: var(--border);
 }
 
 /* --- __media ---------------------------------------------

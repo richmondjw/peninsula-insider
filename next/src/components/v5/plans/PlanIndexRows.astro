@@ -28,13 +28,13 @@ const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a
   </div>
 </section>
 <style>
-  .plan-index{padding:3rem 0;border-top:1px solid var(--border);scroll-margin-top:8rem}
+  .plan-index{padding:3rem 0;scroll-margin-top:8rem}
   .plan-index__heading{display:flex;justify-content:space-between;align-items:end;gap:1rem}
   .plan-index__heading>span{font-size:.8rem;color:var(--soft);white-space:nowrap}
   .plan-index__eyebrow{font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
   h2{font:500 clamp(1.65rem,3vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.04em;margin:0}
   .plan-index__intro{font:.95rem/1.65 var(--font-ui);color:var(--soft);max-width:66ch;margin:1rem 0 1.8rem}
-  .plan-index__row{display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:1.5rem;align-items:start;padding:1.5rem 0;border-top:1px solid color-mix(in srgb,var(--border) 60%,transparent)}
+  .plan-index__row{display:grid;grid-template-columns:3rem minmax(0,1fr) auto;gap:1.5rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border)}
   .plan-index__number{font:400 1.1rem/1.5 var(--font-display);color:var(--soft)}
   h3{font:500 1.2rem/1.35 var(--font-display);letter-spacing:-.025em;margin:0 0 .5rem}h3 a{color:var(--text);text-decoration:none}h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
   .plan-index__copy>p{font:.9rem/1.6 var(--font-ui);max-width:60ch;margin:.45rem 0}
@@ -44,8 +44,8 @@ const guides = model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a
   .plan-index__read{font-size:.8rem;white-space:nowrap;text-underline-offset:.2em}.plan-index__actions .pi-btn{font-size:.8rem;min-height:44px}
   .plan-guides{padding:3rem 0;background:var(--bg-alt);scroll-margin-top:8rem}
   .plan-guides__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem 2rem}
-  .plan-guides__more{margin-top:1.25rem}.plan-guides__more summary{font:600 .85rem/1.5 var(--font-ui);min-height:48px;display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;border-top:1px solid var(--border);padding:.8rem 0}.plan-guides__more summary::-webkit-details-marker{display:none}.plan-guides__more summary span{font-weight:400;color:var(--soft)}.plan-guides__more summary span:last-child{margin-left:auto;font-size:1.4rem}.plan-guides__more summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-  .plan-guide{border-top:1px solid var(--border);padding:1.25rem 0 .75rem;display:flex;flex-direction:column;align-items:start;min-width:0}
+  .plan-guides__more{margin-top:1.25rem}.plan-guides__more summary{font:600 .85rem/1.5 var(--font-ui);min-height:48px;display:flex;align-items:center;gap:.5rem;cursor:pointer;list-style:none;border-top:1px solid var(--border-control);padding:.8rem 0}.plan-guides__more summary::-webkit-details-marker{display:none}.plan-guides__more summary span{font-weight:400;color:var(--soft)}.plan-guides__more summary span:last-child{margin-left:auto;font-size:1.4rem}.plan-guides__more summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+  .plan-guide{padding:1.25rem 0 .75rem;display:flex;flex-direction:column;align-items:start;min-width:0}
   .plan-guide__label{font:600 .65rem/1.5 var(--font-ui);letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin:0 0 .65rem}
   .plan-guide>p:not(.plan-guide__label){font:.87rem/1.6 var(--font-ui);color:var(--soft);margin:.2rem 0 1rem;max-width:45ch}
   .plan-guide__read{margin-top:auto;display:inline-flex;align-items:center;gap:.5rem;font:600 .8rem/1.5 var(--font-ui);min-height:44px;text-underline-offset:.2em}

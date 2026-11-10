@@ -115,10 +115,10 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     min-width: 48px;
     min-height: 48px;
     padding: 0 0.6rem;
-    background: var(--bg, #fff);
+    background: transparent;
     color: var(--soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
     cursor: pointer;
     font-family: var(--font-ui, var(--font-ui));
     font-size: var(--fs-200, 0.8125rem);
@@ -131,7 +131,7 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn:hover {
-    border-color: var(--accent);
+    background: var(--bg-alt);
     color: var(--accent);
   }
 
@@ -141,9 +141,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn[aria-pressed='true'] {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, #fff);
+    background: transparent;
+    color: var(--accent);
   }
 
   .v5-save__btn[aria-pressed='true'] svg path {

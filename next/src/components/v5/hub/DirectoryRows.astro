@@ -284,8 +284,9 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
     display: flex;
     flex-direction: column;
   }
+  /* The compact card draws the row's single bottom rule; the li no longer adds a second. */
   .v5-directory__row {
-    border-bottom: 1px solid var(--border);
+    border-bottom: 0;
   }
   .v5-directory--full-verdicts :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; min-height: 0; max-width: 60ch; }
   /* Phone: a row whose only action is Save is recomposed rather than shrunk.
