@@ -210,8 +210,9 @@ const presets = CHIP_PRESETS[surface] ?? [];
     border-color: var(--accent);
     color: var(--white);
   }
+  /* Same outline as every other chip: a dashed border read as disabled. */
   .v5-filterbar__chip--more {
-    border-style: dashed;
+    border-style: solid;
   }
   .v5-filterbar__more-count {
     margin-left: 0.35rem;

@@ -198,6 +198,7 @@ for (const venue of venues) {
     href: `/eat/${routeSlug(venue)}/`,
     entityType: 'venue',
     entitySlug: routeSlug(venue),
+    image: await cardImage(venue),
     verdict: verdictLine(venue.data.signature),
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     facets: getFacets('venue', venue.data),
@@ -297,7 +298,7 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
-  <EatEntry count={venues.length} categories={categories} towns={towns} image={categoryHero('eat')} />
+  <EatEntry count={venues.length} categories={categories} towns={towns} image={pageImage('eat-hero')} />
   <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" showLinks={false} />
 
   <div data-category-editorial>
@@ -306,22 +307,23 @@ export const prerender = true;
     id="the-six"
     eyebrow="The editorial shortlist"
     heading="Six starting points. Six different days."
-    sub="Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability."
+    sub="A farm lunch, a village coffee, an evening by the bay. Pick the one that fits your day, then check the venue’s current menu and availability."
     surface="eat"
     items={sixItems}
     missingImagePlate
     suppressImageHydration
     lockImageEditing
   />
-  <div class="container eat-method"><p>Chosen for a reason, with no pay-for-coverage. <a href="/about/">How we choose our picks →</a> <a href="/corrections/">Tell us what has changed →</a></p><PlanningHelp /></div>
+  <div class="container eat-method"><PlanningHelp /><p>Something changed at one of these places? <a href="/corrections/">Tell us</a></p></div>
 
   <!-- Best-of rail: the strongest guide lanes, 6 maximum -->
-  <nav class="eat-rail" aria-label="Best-of guides">
+  <nav class="eat-rail" aria-labelledby="eat-rail-title">
     <div class="container">
+      <h2 class="eat-rail__title" id="eat-rail-title">Guides for a particular kind of meal</h2>
       <ul class="eat-rail__list">
         {bestOfRail.map((item) => (
           <li>
-            <a href={item.href} class="eat-rail__link">{item.label} &rarr;</a>
+            <a href={item.href} class="eat-rail__link">{item.label} <span aria-hidden="true">&rarr;</span></a>
           </li>
         ))}
       </ul>
@@ -350,7 +352,7 @@ export const prerender = true;
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
-    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore mobileWrap sticky><SortControl /></FilterBar>
+    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore sticky><SortControl /></FilterBar>
   </DirectoryRows>
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
@@ -373,7 +375,7 @@ export const prerender = true;
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
+        <p class="label eat-faq__eyebrow">Frequently asked</p>
         <h2 class="hub-faq__title">Six honest answers before you plan the day</h2>
       </div>
       <div class="hub-faq__list">
@@ -391,43 +393,53 @@ export const prerender = true;
 </BaseLayout>
 
 <style>
-  .eat-method p{font-size:var(--fs-300);line-height:1.6;color:var(--soft);max-width:75ch}
-  .eat-method a{color:var(--accent);text-underline-offset:.2em;display:inline-flex;min-height:44px;align-items:center;margin-inline-end:1rem}
+  /* One quiet footnote row under the shortlist: the Save/Trip explainer and
+     the corrections prompt share a single rule instead of stacking three. */
+  .eat-method{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:0 var(--space-5,1.5rem);border-bottom:1px solid var(--border)}
+  .eat-method :global(.planning-help){flex:1 1 28rem;border:0;margin:0}
+  .eat-method p{margin:0;padding-block:.75rem;font-size:var(--fs-300);line-height:1.5;color:var(--soft)}
+  .eat-method a{color:var(--accent);font-weight:600;text-underline-offset:.2em;padding-block:.75rem;margin-block:-.75rem}
   .eat-reading :global(.pi-card__media){aspect-ratio:16/9;max-height:180px}
   .eat-rail {
-    padding: var(--space-4, 1rem) 0 var(--space-6, 2rem);
+    padding: var(--space-8, 4rem) 0 var(--space-6, 2rem);
+  }
+  .eat-faq__eyebrow { color: var(--teal-text); }
+  .eat-rail__title {
+    margin: 0 0 var(--space-3, 0.75rem);
+    font: var(--fw-display, 600) var(--fs-500)/1.3 var(--font-display);
+    color: var(--text);
   }
   .eat-rail__list {
     list-style: none;
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2, 0.5rem) var(--space-3, 0.75rem);
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: var(--space-5, 1.5rem);
+    border-top: 1px solid var(--border);
   }
   .eat-rail__link {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    min-height: 48px;
-    padding: 0 var(--space-4, 1rem);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-pill, 999px);
-    background: var(--white);
+    justify-content: space-between;
+    min-height: 52px;
+    border-bottom: 1px solid var(--border);
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-400);
     font-weight: var(--fw-semibold, 600);
     color: var(--text);
     text-decoration: none;
-    transition: border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
-      color var(--dur-fast, 120ms) var(--ease-enter, ease);
+    transition: color var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
   .eat-rail__link:hover {
-    border-color: var(--accent);
     color: var(--accent);
   }
   .eat-rail__link:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
+  }
+  @media (max-width: 700px) {
+    .eat-rail__list { grid-template-columns: 1fr; }
   }
 
   .eat-whatson {

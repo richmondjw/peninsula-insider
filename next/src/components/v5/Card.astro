@@ -72,6 +72,8 @@ export interface Props {
   requireImageMetadata?: boolean;
   /** Omit for text-only compact rows (enforcer HERO_EXEMPT case). */
   image?: CardImage;
+  /** Real display sizes when this card is wider than a third of the row (feature placements). */
+  imageSizes?: string;
   /** Opt-in smaller AVIF delivery; the build retains a native WebP fallback. */
   preferAvif?: boolean;
   /** Verdict line <= 25 words. The named slot `verdict` overrides this. */
@@ -148,6 +150,7 @@ const {
   lockImageEditing = false,
   requireImageMetadata = false,
   preferAvif = false,
+  imageSizes,
   image,
   verdict,
   meta = [],
@@ -271,7 +274,7 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
     <div class="pi-card__media">
       <img
         data-pi-avif={preferAvif ? "true" : undefined}
-        src={image!.src} data-pi-responsive="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
+        src={image!.src} data-pi-responsive={imageSizes ?? "(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"}
         data-pi-no-hydrate={suppressImageHydration ? 'true' : undefined}
         data-pi-requires-image-metadata={requireImageMetadata ? 'true' : undefined}
         alt={image!.alt}

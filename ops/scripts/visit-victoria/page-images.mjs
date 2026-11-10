@@ -25,6 +25,7 @@ const OUT = path.join(REPO, 'next/src/data/visit-victoria-page-images.json');
 // key: [page it serves, role, source entity, asset key (null = the entity's hero)]
 const USES = {
   'eat-hub': ['/eat/', 'link preview', 'venues/trofeo-estate', 'vv-169287'],
+  'eat-hero': ['/eat/', 'hero', 'venues/trofeo-estate', 'vv-169308'],
   'wine-hub': ['/wine/', 'link preview', 'venues/montalto', null],
   'stay-hub': ['/stay/', 'link preview', 'venues/jackalope', null],
   'spas-hub': ['/explore/spas-and-wellness/', 'link preview', 'venues/peninsula-hot-springs', 'vv-160851'],

@@ -161,6 +161,28 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
     border-bottom: 1.5px solid color-mix(in srgb, var(--accent) 40%, transparent);
     padding-bottom: 2px;
   }
+  /* Photo captions differ in length card to card (a context disclosure can
+     run four lines). In a row of cards the caption block reserves four lines,
+     so every title, dek and read time starts level across the row. */
+  @media (min-width: 768px) {
+    .v5-journal :global(.pi-card__body .pi-card__image-note) {
+      min-height: calc(4 * 1.4em);
+    }
+  }
+  /* Deks are written to length; show them whole rather than cut mid-word. */
+  .v5-journal :global(.pi-card__dek) {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+    min-height: 0;
+  }
+  /* Doubled class: refinement.css sets card titles with body[data-v4]. */
+  .v5-journal.v5-journal :global(.pi-card .pi-card__title) {
+    font-size: var(--fs-500);
+    line-height: 1.25;
+    text-wrap: balance;
+  }
   .v5-journal__more:hover {
     text-decoration: underline;
   }
