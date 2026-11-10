@@ -401,10 +401,10 @@ Looking for a truly sweet experience this Christmas? Create the wonder of your o
 
 - [Fri, 13 Nov
 
-### Live Music at Quarters at Flinders Hotel
+### Live Music at Flinders Hotel
 
 Flinders
 
-Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)

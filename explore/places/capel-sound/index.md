@@ -177,7 +177,7 @@ Coming up in Capel Sound, pulled from the events registry.
 
 Capel Sound
 
-Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 

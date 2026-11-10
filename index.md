@@ -47,13 +47,13 @@ The short list
 
 Swipe or scroll through the picks
 
-- ### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
+- ### [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
 
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
+A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks.
 
-Tar Barrel   Live music
+Red Hill Recreation Reserve   Food & wine
 
-Event details checked 9 Nov 2026.  [Check organiser](<https://tarbarrel.com.au/music/>)
+Event details checked 9 Nov 2026.  [Check organiser](<https://events.humanitix.com/spring-winery-walk-2026>)
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 

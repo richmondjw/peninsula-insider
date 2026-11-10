@@ -9,17 +9,23 @@ Event     Arts     14 November 2026     One-off date
 
 # Beginner Alteration and Repair Sewing Class with Pete Sews
 
-Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
 
 [Book or check details](<https://www.petesews.com.au/sewing-classes>)
 
+The Alter-Native is Pete Sews' introductory clothing-alterations class. It is aimed at adults and teens who want practical repair and personalisation skills rather than a general first lesson on how a sewing machine works. The group is capped at six, leaving room for individual help during the three-hour session.
+
+The organiser says its workshop machines and class equipment are supplied for group classes. That makes this useful for someone testing whether alterations are for them before buying equipment. Book through the class page and confirm availability before travelling to the Capel Sound workshop.
+
+[Check the latest details at the source →](<https://www.petesews.com.au/sewing-classes>)
+
 Hosted at
 
-1663 Point Nepean Rd
+Pete Sews workshop
 
-Capel Sound VIC
+1663 Point Nepean Road, Capel Sound VIC 3940   ,   Capel Sound VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=1663%20Point%20Nepean%20Rd%2C%20Capel%20Sound%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Pete%20Sews%20workshop%2C%201663%20Point%20Nepean%20Road%2C%20Capel%20Sound%20VIC%203940%2C%20Capel%20Sound%2C%20VIC>)
 
 At a glance
 
@@ -43,7 +49,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.petesews.com.au/sewing-classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Beginner+Alteration+and+Repair+Sewing+Class+with+Pete+Sews&dates=20261114T020000Z%2F20261114T050000Z&details=Love+your+clothes+but+wish+they+fit+better-or+lasted+longer%3F+Learn+how+to+repair%2C+alter%2C+and+personalise+your+wardrobe+instead+of+replacing+it.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbeginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14%2F&location=1663+Point+Nepean+Rd%2C+Capel+Sound%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.petesews.com.au/sewing-classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Beginner+Alteration+and+Repair+Sewing+Class+with+Pete+Sews&dates=20261114T020000Z%2F20261114T050000Z&details=A+three-hour+beginner+class+for+adults+and+teens+who+want+to+alter%2C+repair+and+personalise+their+own+clothes.+Pete+Sews+keeps+group+classes+to+six+people+and+supplies+the+workshop+machines+and+equipment.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fbeginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14%2F&location=Pete+Sews+workshop%2C+1663+Point+Nepean+Road%2C+Capel+Sound+VIC+3940%2C+Capel+Sound%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

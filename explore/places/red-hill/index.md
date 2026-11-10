@@ -559,12 +559,12 @@ LARGE FORMAT WINES, BIG DISHES, LONG TABLES \* noun. Latin, 'a great good thing'
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
 
-- [Sat, 14 Nov
+- [Sat, 21 Nov
 
-### Mornington Peninsula Wine Spring Winery Walk
+### Pitmaster Masterclass at Red Gum BBQ
 
 Red Hill
 
-Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
+Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.
 
- Event · Cellar Doors](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/>)

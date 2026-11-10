@@ -561,7 +561,7 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 
-- [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+- [Live Music at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
 - [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
@@ -572,8 +572,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
 - [Mornington Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
-
-- [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
 
 - [Mornington Twilight Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
 

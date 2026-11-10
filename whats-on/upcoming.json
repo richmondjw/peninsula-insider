@@ -4,7 +4,7 @@
   "name": "What's on - Mornington Peninsula (upcoming)",
   "description": "Machine-readable feed of upcoming Mornington Peninsula events for AI assistants and agents. Forward-dated; regenerated on each build. See https://peninsulainsider.com.au/llms.txt for the full site map.",
   "generated": "2026-11-10",
-  "generatedAt": "2026-11-09T20:26:08.082Z",
+  "generatedAt": "2026-11-10T00:39:06.102Z",
   "schemaVersion": "1.2",
   "timezone": "Australia/Melbourne",
   "dateSemantics": "Local calendar dates, not midnight timestamps. dateMeaning distinguishes event occurrences, experience availability and offer validity. generatedAt is the build time, not a fact check.",
@@ -19,9 +19,9 @@
     "start": "2026-11-13",
     "end": "2026-11-15",
     "label": "Fri 13 – Sun 15 November",
-    "count": 29
+    "count": 28
   },
-  "numberOfItems": 102,
+  "numberOfItems": 101,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -130,11 +130,11 @@
       "position": 10,
       "item": {
         "@type": "Event",
-        "name": "Live Music at Quarters at Flinders Hotel",
+        "name": "Live Music at Flinders Hotel",
         "url": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
         "startDate": "2026-11-13",
         "endDate": "2026-11-13",
-        "description": "Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+        "description": "Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -186,7 +186,7 @@
         "url": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
         "startDate": "2026-11-14",
         "endDate": "2026-11-14",
-        "description": "Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.",
+        "description": "A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
@@ -238,26 +238,13 @@
         "url": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
         "startDate": "2026-11-14",
         "endDate": "2026-11-14",
-        "description": "Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.",
+        "description": "Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
       "position": 19,
-      "item": {
-        "@type": "Event",
-        "name": "Mornington Peninsula Wine Spring Winery Walk",
-        "url": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-        "startDate": "2026-11-14",
-        "endDate": "2026-11-14",
-        "description": "Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.",
-        "eventStatus": "https://schema.org/EventScheduled"
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 20,
       "item": {
         "@type": "Event",
         "name": "REwind Lane Live at Tar Barrel",
@@ -270,7 +257,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 21,
+      "position": 20,
       "item": {
         "@type": "Event",
         "name": "Spring Winery Walk at Red Hill Recreation Reserve",
@@ -283,20 +270,20 @@
     },
     {
       "@type": "ListItem",
-      "position": 22,
+      "position": 21,
       "item": {
         "@type": "Event",
         "name": "The Calmer Miles Live at Peninsula Beer Garden",
         "url": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
         "startDate": "2026-11-14",
         "endDate": "2026-11-14",
-        "description": "Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.",
+        "description": "Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday set at Peninsula Beer Garden, mixing original songs with folk, pop and rock covers. The venue operates on a walk-in basis.",
         "eventStatus": "https://schema.org/EventScheduled"
       }
     },
     {
       "@type": "ListItem",
-      "position": 23,
+      "position": 22,
       "item": {
         "@type": "Event",
         "name": "Bennsong Live at Peninsula Beer Garden",
@@ -309,7 +296,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 24,
+      "position": 23,
       "item": {
         "@type": "Event",
         "name": "Festive Wreath Making at Heronswood House and Garden",
@@ -322,7 +309,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 25,
+      "position": 24,
       "item": {
         "@type": "Event",
         "name": "Jimmy & Niki Live at Jetty Road Brewery",
@@ -335,7 +322,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 26,
+      "position": 25,
       "item": {
         "@type": "Event",
         "name": "Magnum Bonum at Polperro Winery",
@@ -348,7 +335,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 27,
+      "position": 26,
       "item": {
         "@type": "Event",
         "name": "Michael Charles Live at The Pig & Whistle Tavern",
@@ -361,7 +348,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 28,
+      "position": 27,
       "item": {
         "@type": "Event",
         "name": "Mr Morpheus Live at Tar Barrel",
@@ -374,7 +361,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 29,
+      "position": 28,
       "item": {
         "@type": "Event",
         "name": "Sourdough Masterclass at Peninsula Gourmet Cooking School",
@@ -387,7 +374,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 30,
+      "position": 29,
       "item": {
         "@type": "Event",
         "name": "Sunday sessions at Peninsula Hot Springs Eco Lodges",
@@ -400,7 +387,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 31,
+      "position": 30,
       "item": {
         "@type": "Event",
         "name": "The Peninsula Retreat at Alba Thermal Springs & Spa",
@@ -413,7 +400,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 32,
+      "position": 31,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Anna Downes & Naima Brown - Mornington Library",
@@ -426,7 +413,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 33,
+      "position": 32,
       "item": {
         "@type": "Event",
         "name": "Dee - Calmer Miles Live at Peninsula Beer Garden",
@@ -439,7 +426,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 34,
+      "position": 33,
       "item": {
         "@type": "Event",
         "name": "The Lucky Duck & Pinot Lunch",
@@ -452,7 +439,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 35,
+      "position": 34,
       "item": {
         "@type": "Event",
         "name": "Will Rounds Live at Peppers Moonah Links Resort",
@@ -465,7 +452,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 36,
+      "position": 35,
       "item": {
         "@type": "Event",
         "name": "Coco Michelle Live at Tar Barrel",
@@ -478,7 +465,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 37,
+      "position": 36,
       "item": {
         "@type": "Event",
         "name": "CREATE: Pottery for your table",
@@ -491,7 +478,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 38,
+      "position": 37,
       "item": {
         "@type": "Event",
         "name": "Deja Vu Live at Peninsula Beer Garden",
@@ -504,7 +491,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 39,
+      "position": 38,
       "item": {
         "@type": "Event",
         "name": "Emu Plains Market",
@@ -517,7 +504,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 40,
+      "position": 39,
       "item": {
         "@type": "Event",
         "name": "Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern",
@@ -530,7 +517,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 41,
+      "position": 40,
       "item": {
         "@type": "Event",
         "name": "Oskar Proy Live at Jetty Road Brewery",
@@ -543,7 +530,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 42,
+      "position": 41,
       "item": {
         "@type": "Event",
         "name": "Peninsula VineHop Festival 2026",
@@ -556,7 +543,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 43,
+      "position": 42,
       "item": {
         "@type": "Event",
         "name": "Pitmaster Masterclass at Red Gum BBQ",
@@ -569,7 +556,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 44,
+      "position": 43,
       "item": {
         "@type": "Event",
         "name": "Sam O'Connell Live at Peppers Moonah Links Resort",
@@ -582,7 +569,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 45,
+      "position": 44,
       "item": {
         "@type": "Event",
         "name": "Taste & Create, Gourmet Bar",
@@ -595,7 +582,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 46,
+      "position": 45,
       "item": {
         "@type": "Event",
         "name": "Vinehop at Phaedrus Estate",
@@ -608,7 +595,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 47,
+      "position": 46,
       "item": {
         "@type": "Event",
         "name": "Audio Replica Live at Tar Barrel",
@@ -621,7 +608,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 48,
+      "position": 47,
       "item": {
         "@type": "Event",
         "name": "Culinary Garden Experience at Laura Pt Leo Estate",
@@ -634,7 +621,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 49,
+      "position": 48,
       "item": {
         "@type": "Event",
         "name": "Mt Eliza Farmers Market",
@@ -647,7 +634,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 50,
+      "position": 49,
       "item": {
         "@type": "Event",
         "name": "Tiana V Live at Peninsula Beer Garden",
@@ -660,7 +647,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 51,
+      "position": 50,
       "item": {
         "@type": "Event",
         "name": "Improv Comedy Show at The Bay Hotel Mornington",
@@ -673,7 +660,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 52,
+      "position": 51,
       "item": {
         "@type": "Event",
         "name": "Author Talk: Jane Gilmore - Mornington Library",
@@ -686,7 +673,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 53,
+      "position": 52,
       "item": {
         "@type": "Event",
         "name": "Ben Smith Live at Jetty Road Brewery",
@@ -699,7 +686,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 54,
+      "position": 53,
       "item": {
         "@type": "Event",
         "name": "Brown Sugar - Rolling Stones",
@@ -712,7 +699,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 55,
+      "position": 54,
       "item": {
         "@type": "Event",
         "name": "Emmie Li Live at Peninsula Beer Garden",
@@ -725,7 +712,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 56,
+      "position": 55,
       "item": {
         "@type": "Event",
         "name": "Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern",
@@ -738,7 +725,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 57,
+      "position": 56,
       "item": {
         "@type": "Event",
         "name": "Brad Kennedy Live at Peppers Moonah Links Resort",
@@ -751,7 +738,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 58,
+      "position": 57,
       "item": {
         "@type": "Event",
         "name": "DJ Sophie Joy Live at Jetty Road Brewery",
@@ -764,7 +751,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 59,
+      "position": 58,
       "item": {
         "@type": "Event",
         "name": "Meet The Makers at Hawkes Farm",
@@ -777,7 +764,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 60,
+      "position": 59,
       "item": {
         "@type": "Event",
         "name": "November Cellar Door Opening",
@@ -790,7 +777,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 61,
+      "position": 60,
       "item": {
         "@type": "Event",
         "name": "Summer Xmas Seafood Class at Peninsula Gourmet Cooking School",
@@ -803,7 +790,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 62,
+      "position": 61,
       "item": {
         "@type": "Event",
         "name": "Dave Campbell Live at Peninsula Beer Garden",
@@ -816,7 +803,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 63,
+      "position": 62,
       "item": {
         "@type": "Event",
         "name": "Olivia Mae Live at Jetty Road Brewery",
@@ -829,7 +816,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 64,
+      "position": 63,
       "item": {
         "@type": "Event",
         "name": "\"Nancye Wynne Bolton\" OLA Golf Day 2026",
@@ -842,7 +829,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 65,
+      "position": 64,
       "item": {
         "@type": "Event",
         "name": "Pub Carols at The Pig & Whistle",
@@ -855,7 +842,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 66,
+      "position": 65,
       "item": {
         "@type": "Event",
         "name": "Mornington Christmas Series at Mornington Racecourse",
@@ -868,7 +855,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 67,
+      "position": 66,
       "item": {
         "@type": "Event",
         "name": "An Evening at BRASA by Montalto",
@@ -881,7 +868,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 68,
+      "position": 67,
       "item": {
         "@type": "Event",
         "name": "Chris Gogerly Live at Fenian Wines",
@@ -894,7 +881,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 69,
+      "position": 68,
       "item": {
         "@type": "Event",
         "name": "Coco Michelle Live at Peppers Moonah Links Resort",
@@ -907,7 +894,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 70,
+      "position": 69,
       "item": {
         "@type": "Event",
         "name": "Countdown Classics 70's & 80's Live at Peninsula Beer Garden",
@@ -920,7 +907,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 71,
+      "position": 70,
       "item": {
         "@type": "Event",
         "name": "Deck the Chocolate Tree",
@@ -933,7 +920,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 72,
+      "position": 71,
       "item": {
         "@type": "Event",
         "name": "Deck the Chocolate Tree at The Chocolateries Mornington Peninsula",
@@ -946,7 +933,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 73,
+      "position": 72,
       "item": {
         "@type": "Event",
         "name": "Gareth Sansom at MPRG",
@@ -959,7 +946,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 74,
+      "position": 73,
       "item": {
         "@type": "Event",
         "name": "The Mount Martha Briars Market",
@@ -972,7 +959,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 75,
+      "position": 74,
       "item": {
         "@type": "Event",
         "name": "Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics",
@@ -985,7 +972,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 76,
+      "position": 75,
       "item": {
         "@type": "Event",
         "name": "The Creators Network: End of Year Catch-up for Creatives",
@@ -998,7 +985,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 77,
+      "position": 76,
       "item": {
         "@type": "Event",
         "name": "James Vincent Live at Fenian Wines",
@@ -1011,7 +998,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 78,
+      "position": 77,
       "item": {
         "@type": "Event",
         "name": "\"Whippy\" Griggs Live for a Crackin' Night at The Ranch",
@@ -1024,7 +1011,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 79,
+      "position": 78,
       "item": {
         "@type": "Event",
         "name": "Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern",
@@ -1037,7 +1024,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 80,
+      "position": 79,
       "item": {
         "@type": "Event",
         "name": "Mornington Twilight Christmas Series at Mornington Racecourse",
@@ -1050,7 +1037,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 81,
+      "position": 80,
       "item": {
         "@type": "Event",
         "name": "Soul Night Market at Hastings Foreshore",
@@ -1063,7 +1050,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 82,
+      "position": 81,
       "item": {
         "@type": "Event",
         "name": "Tony J King Live at Fenian Wines",
@@ -1076,7 +1063,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 83,
+      "position": 82,
       "item": {
         "@type": "Event",
         "name": "Twilight Mornington Racecourse Market",
@@ -1089,7 +1076,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 84,
+      "position": 83,
       "item": {
         "@type": "Event",
         "name": "Eve Eve at Portsea Hotel",
@@ -1102,7 +1089,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 85,
+      "position": 84,
       "item": {
         "@type": "Event",
         "name": "Celebrate Christmas Day at Peppers Moonah Links Resort",
@@ -1115,7 +1102,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 86,
+      "position": 85,
       "item": {
         "@type": "Event",
         "name": "Christmas Day at Ember",
@@ -1128,7 +1115,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 87,
+      "position": 86,
       "item": {
         "@type": "Event",
         "name": "Christmas Day Feast at The Conti",
@@ -1141,7 +1128,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 88,
+      "position": 87,
       "item": {
         "@type": "Event",
         "name": "Celebrate with Andrew Farrell Live at Fenian Wines",
@@ -1154,7 +1141,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 89,
+      "position": 88,
       "item": {
         "@type": "Event",
         "name": "The Mount Martha Briars Twilight Market",
@@ -1167,7 +1154,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 90,
+      "position": 89,
       "item": {
         "@type": "Event",
         "name": "New Year's Eve at Orson",
@@ -1180,7 +1167,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 91,
+      "position": 90,
       "item": {
         "@type": "Event",
         "name": "New Year’s Eve at Portsea Hotel",
@@ -1193,7 +1180,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 92,
+      "position": 91,
       "item": {
         "@type": "Event",
         "name": "New Years Eve Event 2026/2027",
@@ -1206,7 +1193,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 93,
+      "position": 92,
       "item": {
         "@type": "Event",
         "name": "NYE at Barlow",
@@ -1219,7 +1206,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 94,
+      "position": 93,
       "item": {
         "@type": "Event",
         "name": "NYE Casa Conti",
@@ -1232,7 +1219,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 95,
+      "position": 94,
       "item": {
         "@type": "Event",
         "name": "New Year's Day at Mornington Racecourse",
@@ -1245,7 +1232,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 96,
+      "position": 95,
       "item": {
         "@type": "Event",
         "name": "Peninsula Summer Music Festival: Charlotte Miles at Port Phillip Estate",
@@ -1258,7 +1245,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 97,
+      "position": 96,
       "item": {
         "@type": "Event",
         "name": "Peninsula Film Festival at Rosebud Cinema",
@@ -1271,7 +1258,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 98,
+      "position": 97,
       "item": {
         "@type": "Event",
         "name": "Peninsula Film Festival under the Big Top",
@@ -1284,7 +1271,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 99,
+      "position": 98,
       "item": {
         "@type": "Event",
         "name": "Peninsula Film Festival: Talks & Workshop at Rosebud Cinema",
@@ -1297,7 +1284,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 100,
+      "position": 99,
       "item": {
         "@type": "Event",
         "name": "Twilight Emu Plains Market",
@@ -1310,7 +1297,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 101,
+      "position": 100,
       "item": {
         "@type": "Event",
         "name": "Summer Camp at The Ranch Adventure Park",
@@ -1323,7 +1310,7 @@
     },
     {
       "@type": "ListItem",
-      "position": 102,
+      "position": 101,
       "item": {
         "@type": "Event",
         "name": "Torren Foot at Portsea Hotel",
@@ -1335,7 +1322,7 @@
       }
     }
   ],
-  "count": 102,
+  "count": 101,
   "events": [
     {
       "title": "Bass & Flinders Gin Masterclass",
@@ -1542,7 +1529,7 @@
       "thisWeekend": true
     },
     {
-      "title": "Live Music at Quarters at Flinders Hotel",
+      "title": "Live Music at Flinders Hotel",
       "contentKind": "event",
       "dateMeaning": "occurrence",
       "url": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
@@ -1550,12 +1537,12 @@
       "endDate": "2026-11-13",
       "id": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
       "sourceUrl": "https://flindershotel.com.au/events/live-music/",
-      "factCheckedOn": "2026-11-09",
+      "factCheckedOn": "2026-11-10",
       "recurrence": "one-off",
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+      "summary": "Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1646,12 +1633,12 @@
       "endDate": "2026-11-14",
       "id": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
       "sourceUrl": "https://www.petesews.com.au/sewing-classes",
-      "factCheckedOn": "2026-11-09",
+      "factCheckedOn": "2026-11-10",
       "recurrence": "one-off",
       "category": "arts",
       "place": null,
       "venue": null,
-      "summary": "Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.",
+      "summary": "A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1742,36 +1729,12 @@
       "endDate": "2026-11-14",
       "id": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
       "sourceUrl": "https://www.moonahlinks.com.au/cms/resort/whats-on/",
-      "factCheckedOn": "2026-11-09",
+      "factCheckedOn": "2026-11-10",
       "recurrence": "one-off",
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.",
-      "eventStatus": "https://schema.org/EventScheduled",
-      "weekendOccurrences": [
-        {
-          "date": "2026-11-14",
-          "eventStatus": "https://schema.org/EventScheduled"
-        }
-      ],
-      "thisWeekend": true
-    },
-    {
-      "title": "Mornington Peninsula Wine Spring Winery Walk",
-      "contentKind": "event",
-      "dateMeaning": "occurrence",
-      "url": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-      "startDate": "2026-11-14",
-      "endDate": "2026-11-14",
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-      "sourceUrl": "https://foxeys-hangout.com.au/events/foxeys-hangout/the-lucky-duck-pinot-lunch-2/",
-      "factCheckedOn": "2026-11-09",
-      "recurrence": "one-off",
-      "category": "cellar-door",
-      "place": null,
-      "venue": null,
-      "summary": "Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.",
+      "summary": "Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {
@@ -1837,13 +1800,13 @@
       "startDate": "2026-11-14",
       "endDate": "2026-11-14",
       "id": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "sourceUrl": "https://peninsulabeergarden.com.au/",
-      "factCheckedOn": "2026-11-09",
+      "sourceUrl": "https://peninsulabeergarden.com.au/the-musicians/",
+      "factCheckedOn": "2026-11-10",
       "recurrence": "one-off",
       "category": "live-music",
       "place": null,
       "venue": null,
-      "summary": "Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.",
+      "summary": "Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday set at Peninsula Beer Garden, mixing original songs with folk, pop and rock covers. The venue operates on a walk-in basis.",
       "eventStatus": "https://schema.org/EventScheduled",
       "weekendOccurrences": [
         {

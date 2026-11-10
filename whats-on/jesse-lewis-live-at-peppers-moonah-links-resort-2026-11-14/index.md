@@ -9,17 +9,23 @@ Event     Live Music     14 November 2026     One-off date
 
 # Jesse Lewis Live at Peppers Moonah Links Resort
 
-Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.
+Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.
 
 [Book or check details](<https://www.moonahlinks.com.au/cms/resort/whats-on/>)
+
+Moonah Links lists Jesse Lewis in its November Acoustic Saturdays program at Spike Bar. The official schedule runs from 5pm to 8pm, correcting the earlier feed record that began at 4pm. It is a casual arrival format rather than a ticketed concert, and the organiser says bookings are not required.
+
+Spike Bar is within the Moonah Links complex at 55 Peter Thomson Drive. The session is promoted as sunset live music, so terrace conditions will shape the experience. Check the resort's What's On page on the day if poor weather could affect the outdoor setting.
+
+[Check the latest details at the source →](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
 Hosted at
 
 Peppers Moonah Links Resort
 
-Fingal VIC
+55 Peter Thomson Drive, Fingal VIC 3939   ,   Fingal VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peppers%20Moonah%20Links%20Resort%2C%20Fingal%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peppers%20Moonah%20Links%20Resort%2C%2055%20Peter%20Thomson%20Drive%2C%20Fingal%20VIC%203939%2C%20Fingal%2C%20VIC>)
 
 At a glance
 
@@ -29,7 +35,7 @@ At a glance
 
 **Time**
 
-16:00 to 20:00
+17:00 to 20:00
 
 **Recurrence**
 
@@ -43,7 +49,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.moonahlinks.com.au/cms/resort/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jesse+Lewis+Live+at+Peppers+Moonah+Links+Resort&dates=20261114T050000Z%2F20261114T090000Z&details=Moonah+Links+is+both+proud+to+have+Jesse+Lewis+performing+live+this+Saturday+on+the+Spike+Terrace%21+Playing+from+5pm+-+8pm%2C+come+along+and+try+the+new+Spike+Bar+menu%2C+and+listen+to+some+chill+live+music.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fjesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.moonahlinks.com.au/cms/resort/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jesse+Lewis+Live+at+Peppers+Moonah+Links+Resort&dates=20261114T060000Z%2F20261114T090000Z&details=Jesse+Lewis+plays+an+acoustic+Saturday+session+on+the+Spike+Bar+terrace+at+Moonah+Links+from+5pm+to+8pm.+The+organiser+says+no+booking+is+required+for+this+sunset+set.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fjesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14%2F&location=Peppers+Moonah+Links+Resort%2C+55+Peter+Thomson+Drive%2C+Fingal+VIC+3939%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

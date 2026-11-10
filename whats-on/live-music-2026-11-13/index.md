@@ -7,27 +7,37 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Event     Live Music     13 November 2026     One-off date
 
-# Live Music at Quarters at Flinders Hotel
+# Live Music at Flinders Hotel
 
-Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!
+Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
 
 [Book or check details](<https://flindershotel.com.au/events/live-music/>)
 
 Quarters at Flinders Hotel  Photo · Mattinbgn [Image source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>)
 
+Flinders Hotel runs live music every Friday and Saturday. This dated Friday listing follows the organiser's 7pm to 10pm schedule; Saturday sessions use a different 6.30pm to 9.30pm slot. The event is at the hotel on Cook Street, not inside the separate Quarters accommodation behind it.
+
+The venue recommends reserving a table to avoid disappointment. Dogs are permitted on the deck when kept on a lead, and minors must remain with a parent or guardian. The organiser notes that the recurring music offer does not run on public holidays, so check its event page before making a special trip.
+
+[Check the latest details at the source →](<https://flindershotel.com.au/events/live-music/>)
+
 Hosted at
 
-Quarters at Flinders Hotel
+Flinders Hotel
 
-Flinders VIC
+23 Cook Street, Flinders VIC 3929   ,   Flinders VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Quarters%20at%20Flinders%20Hotel%2C%20Flinders%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Flinders%20Hotel%2C%2023%20Cook%20Street%2C%20Flinders%20VIC%203929%2C%20Flinders%2C%20VIC>)
 
 At a glance
 
 **When**
 
 13 November 2026
+
+**Time**
+
+19:00 to 22:00
 
 **Recurrence**
 
@@ -41,7 +51,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://flindershotel.com.au/events/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Live+Music+at+Quarters+at+Flinders+Hotel&dates=20261113%2F20261114&details=Celebrate+the+Weekend+at+Flinders%21+Unwind+with+a+drink+in+hand+and+enjoy+live+music+throughout+the+venue.+Bring+along+family%2C+friends%2C+and+even+your+furry+friends-everyone%E2%80%99s+welcome%21+Live+Music+Schedule%3AFriday%3A+7pm%2C+10pmSaturday%3A+6%3A30pm%2C+9%3A30pmMake+it+a+weekend+to+remember+at+Flinders%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Flive-music-2026-11-13%2F&location=Quarters+at+Flinders+Hotel%2C+Flinders%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://flindershotel.com.au/events/live-music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Live+Music+at+Flinders+Hotel&dates=20261113T080000Z%2F20261113T110000Z&details=Friday-night+live+music+at+Flinders+Hotel%2C+running+from+7pm+to+10pm.+The+venue+welcomes+families%2C+friends+and+leashed+dogs+on+the+deck%2C+with+table+bookings+recommended+when+you+want+a+guaranteed+place.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Flive-music-2026-11-13%2F&location=Flinders+Hotel%2C+23+Cook+Street%2C+Flinders+VIC+3929%2C+Flinders%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

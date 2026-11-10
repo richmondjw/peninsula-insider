@@ -67,11 +67,11 @@ Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and A
 
 6.30pm · Red Hill South · Writers & Ideas · One-day event
 
-- [Live Music at Quarters at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+- [Live Music at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
 
-Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome!
+Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
 
-Flinders · Live Music · One-day event
+7pm · Flinders · Live Music · One-day event
 
 - [Smooth Operators Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
 
@@ -107,7 +107,7 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 - [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
-Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
 
 1pm · Capel Sound · Arts · One-day event
 
@@ -125,15 +125,9 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 
 - [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
 
-Moonah Links is both proud to have Jesse Lewis performing live this Saturday on the Spike Terrace! Playing from 5pm - 8pm, come along and try the new Spike Bar menu, and listen to some chill live music.
+Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.
 
-4pm · Fingal · Live Music · One-day event
-
-- [Mornington Peninsula Wine Spring Winery Walk](<https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/>)
-
-Spring Winery Walk stop featuring a freshly prepared slider and glass of sparkling wine.
-
-Red Hill · Cellar Doors · One-day event
+5pm · Fingal · Live Music · One-day event
 
 - [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
 
@@ -149,7 +143,7 @@ A guided 10-kilometre route through Red Hill vineyards and private tracks, with 
 
 - [The Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)
 
-Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.
+Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday set at Peninsula Beer Garden, mixing original songs with folk, pop and rock covers. The venue operates on a walk-in basis.
 
 5pm · Boneo · Live Music · One-day event
 
@@ -341,7 +335,7 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 - [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
-Love your clothes but wish they fit better-or lasted longer? Learn how to repair, alter, and personalise your wardrobe instead of replacing it.
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
 
 1pm · Capel Sound · Arts
 

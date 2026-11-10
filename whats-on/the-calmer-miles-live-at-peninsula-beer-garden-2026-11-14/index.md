@@ -9,17 +9,23 @@ Event     Live Music     14 November 2026     One-off date
 
 # The Calmer Miles Live at Peninsula Beer Garden
 
-Peninsula locals that are regulars on the music scene! The Calmer Miles exhibit a freshness and passion to their music, an ecletic mix that crosses boundaries from folk, country, jazz, blues to pop and rock.
+Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday set at Peninsula Beer Garden, mixing original songs with folk, pop and rock covers. The venue operates on a walk-in basis.
 
-[Book or check details](<https://peninsulabeergarden.com.au/>)
+[Check latest details](<https://peninsulabeergarden.com.au/the-musicians/>)
+
+The Calmer Miles is an acoustic duo made up of Kev and Dee. Peninsula Beer Garden describes their set as a mix of original material and covers ranging from folk to pop and rock, which makes this a broad, relaxed beer-garden session rather than a single-genre show.
+
+The venue is inside Eagle Ridge Golf Course at 215 Browns Road. Its contact page states that normal service is walk-ins only, with enquiries reserved for special occasions and groups of 20 or more. As the performance is in a beer-garden setting, check the venue if weather conditions look likely to affect the session.
+
+[Check the latest details at the source →](<https://peninsulabeergarden.com.au/the-musicians/>)
 
 Hosted at
 
 Peninsula Beer Garden
 
-Boneo VIC
+215 Browns Road, Boneo VIC 3939   ,   Boneo VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Beer%20Garden%2C%20Boneo%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Peninsula%20Beer%20Garden%2C%20215%20Browns%20Road%2C%20Boneo%20VIC%203939%2C%20Boneo%2C%20VIC>)
 
 At a glance
 
@@ -43,7 +49,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulabeergarden.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Calmer+Miles+Live+at+Peninsula+Beer+Garden&dates=20261114T060000Z%2F20261114T090000Z&details=Peninsula+locals+that+are+regulars+on+the+music+scene%21+The+Calmer+Miles+exhibit+a+freshness+and+passion+to+their+music%2C+an+ecletic+mix+that+crosses+boundaries+from+folk%2C+country%2C+jazz%2C+blues+to+pop+and+rock.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-calmer-miles-live-at-peninsula-beer-garden-2026-11-14%2F&location=Peninsula+Beer+Garden%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Check latest details](<https://peninsulabeergarden.com.au/the-musicians/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Calmer+Miles+Live+at+Peninsula+Beer+Garden&dates=20261114T060000Z%2F20261114T090000Z&details=Mornington+Peninsula+acoustic+duo+The+Calmer+Miles+plays+a+three-hour+Saturday+set+at+Peninsula+Beer+Garden%2C+mixing+original+songs+with+folk%2C+pop+and+rock+covers.+The+venue+operates+on+a+walk-in+basis.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-calmer-miles-live-at-peninsula-beer-garden-2026-11-14%2F&location=Peninsula+Beer+Garden%2C+215+Browns+Road%2C+Boneo+VIC+3939%2C+Boneo%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

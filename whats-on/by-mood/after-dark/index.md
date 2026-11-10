@@ -27,6 +27,16 @@ Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and A
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
 
+Quarters at Flinders Hotel  Photo · Mattinbgn [Image source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>)
+
+Live Music  13 Nov
+
+### [Live Music at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+Friday-night live music at Flinders Hotel, running from 7pm to 10pm.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
 Live Music  14 Nov
 
 ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
@@ -164,14 +174,6 @@ Festivals  8 Jan
 The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
-
-Festivals  9 Jan
-
-### [Peninsula Film Festival under the Big Top](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
-
-The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 
 ## The Insider Note
 

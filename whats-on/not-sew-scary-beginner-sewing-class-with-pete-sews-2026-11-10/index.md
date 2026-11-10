@@ -81,7 +81,7 @@ Arts  14 Nov
 
 ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
-Love your clothes but wish they fit better-or lasted longer?
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
