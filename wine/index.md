@@ -13,51 +13,33 @@ Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. F
 
 [Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 44 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
 
-Start with the kind of visit
+## What kind of day in wine country?
 
-## What kind of wine-country day?
-
-Choose the shape of the day first. Then check the producer's current hours and booking details before travelling.
-
-01
+Choose the shape of the day first, then confirm hours and booking with the producer before you travel.
 
 ### A tasting, then move on
 
 Make one cellar door the anchor when you have only part of the day. Choose the wine interest first, then check its tasting format.
 
-Walk-in labels do not promise space today. Confirm hours and availability with the producer.
-
  [Browse tasting-first visits](<https://peninsulainsider.com.au/wine/?mood=tasting-first#browse-wine>)
-
-02
 
 ### Lunch is the main event
 
 Choose a winery with a kitchen, book the meal, then fit the tasting around it. Leave room for the visit itself.
 
-A restaurant reservation and a tasting reservation may be separate.
-
  [Find wineries with lunch](<https://peninsulainsider.com.au/wine/?mood=lunch-attached#browse-wine>)
-
-03
 
 ### Wine worth an appointment
 
 Build the day around a confirmed tasting time. Add another stop only after checking the journey and the available appointment.
 
-Booking policies vary by producer; the guide is a starting point, not live availability.
-
  [Read the appointment guide](<https://peninsulainsider.com.au/wine/appointment-producers/>)
 
-**Plan the return trip first.** Arrange a designated driver or transport before tasting. Use [the winery map](<https://peninsulainsider.com.au/map/?cat=winery>) for location, then check the route and timing.
-
-**Make wine optional.** Pair the area with [art and galleries](<https://peninsulainsider.com.au/explore/?cat=gallery#directory>) or [a rainy-day plan](<https://peninsulainsider.com.au/explore/rainy-day/>). Ask the venue about non-alcoholic options before booking.
-
-The cellar-door shortlist
+**Plan the return trip first.** Arrange a designated driver or transport before tasting, and use [the winery map](<https://peninsulainsider.com.au/map/?cat=winery>) to check the route.
 
 ## Cellar doors to build a day around
 
-An editorial shortlist. Individual check dates describe the recorded research; confirm current hours and bookings with the producer.
+Six rooms worth the drive, chosen by our editors.
 
 - ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 
@@ -77,8 +59,6 @@ Mike Aylward's precise, minimal cellar door turning out some of the Peninsula's 
 
 Shoreham   Check ahead
 
-See 3 more editorial choices
-
 - ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
 
 A sculpture park walk followed by a long bay-view lunch in the glass-walled restaurant.
@@ -97,95 +77,11 @@ The single-block tasting is a practical education in why micro-terroir matters, 
 
 Red Hill South   Walk-in welcome   Kitchen on site
 
-Winery dining
-
-## Winery kitchens
-
-Pair a tasting with a meal at the same estate. Check the dining room’s current service days and book the meal separately where required.
-
- [Restaurants, in Eat & Drink →](<https://peninsulainsider.com.au/eat/>)
-
-- ### [Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)
-
-Sculpture park, cellar door and a bay-view lunch on one estate.
-
-Merricks   Tasting + restaurant
-
-- ### [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>)
-
-Estate-grown pinot noir with a seasonal restaurant visit at Main Ridge.
-
-Main Ridge   Tasting + restaurant
-
-- ### [Willow Creek Vineyard](<https://peninsulainsider.com.au/wine/willow-creek-vineyard/>)
-
-Two dining styles at the vineyard, from a relaxed lunch to a longer evening.
-
-Merricks North   Tasting + restaurant
-
-- ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
-
-A Red Hill cellar door and restaurant terrace suited to a long lunch.
-
-Red Hill South   Tasting + restaurant
-
-- ### [Kooyong](<https://peninsulainsider.com.au/wine/kooyong/>)
-
-A tasting at Kooyong pairs with the shared Port Phillip Estate dining room.
-
-Red Hill South   Tasting + restaurant
-
-- ### [Polperro](<https://peninsulainsider.com.au/wine/polperro/>)
-
-Estate dining tied to its small-production wine program.
-
-Red Hill   Tasting + restaurant
-
-## Read before you book
-
-- ### [Best cellar doors](<https://peninsulainsider.com.au/wine/best-cellar-doors/>)
-
-The ranked list, argued honestly. If you only read one wine page, read this one.
-
-- ### [Appointment producers](<https://peninsulainsider.com.au/wine/appointment-producers/>)
-
-The bookings that repay the effort: smaller pours, longer conversations, back vintages on the bench.
-
-- ### [Peninsula pinot noir](<https://peninsulainsider.com.au/wine/pinot-noir/>)
-
-Why the ridge grows the country’s most consistent cool-climate pinot, and whose to buy.
-
-- ### [The chardonnay case](<https://peninsulainsider.com.au/wine/chardonnay/>)
-
-Who is making the benchmark bottles right now, and what they cellar like.
-
-- ### [Dog-friendly cellar doors](<https://peninsulainsider.com.au/journal/dog-friendly-wineries-mornington-peninsula/>)
-
-The rooms that welcome the dog as readily as the driver.
-
-- ### [Understanding the region](<https://peninsulainsider.com.au/wine/wine-region/>)
-
-How the region fits together: soils, subregions and the drives between them.
-
-Release weekends and winemaker dinners live in [What’s On](<https://peninsulainsider.com.au/whats-on/>).
-
-Sort
-
-Swipe to see more visit filters
-
-Save a possibility or plan a visit?
-
-**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
-
-You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
-
-The full list
-
 ## All 44 wine-country places
 
-Find cellar doors, breweries and distilleries by location and the visit you want.
+ [View the winery map](<https://peninsulainsider.com.au/map/?cat=winery>)
 
- [View the winery map →](<https://peninsulainsider.com.au/map/?cat=winery>)
+Sort
 
 - ### [Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>)
 

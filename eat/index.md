@@ -5,21 +5,15 @@ Modified: 2026-10-08
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Eat & Drink
+# A long lunch, a village coffee, a table by the bay
 
-# Eat & drink on the Mornington Peninsula
+44 places to eat and drink across the Peninsula, from ridge-top farm kitchens to bayside pubs. Find the one that fits your day.
 
-A vineyard lunch. A village coffee. A table by the bay. Find a place for the day you have in mind.
+Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/>)
 
-## Find your kind of place
-
-44 places. Your choice of town, table or coffee stop.
-
-The editorial shortlist
+Trofeo Estate, Dromana, Mornington Peninsula. Photo courtesy of Visit Victoria.
 
 ## Six starting points. Six different days.
-
-Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability.
 
 - Merricks General Wine Store, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
@@ -27,33 +21,19 @@ Six ways to spend your day. Choose the setting that suits you, then check the ve
 
 Breakfast or lunch in Merricks, with local wines and fireside or deck tables. A village stop before exploring the ridge.
 
-Merricks   Restaurant
-
-Breakfast and lunch; reserve online
-
-[Planning & availability](<https://merricksstore.com.au/reservations/>)
+Merricks   Restaurant   Breakfast and lunch; reserve online
 
 - ### [Commonfolk Coffee](<https://peninsulainsider.com.au/eat/commonfolk-coffee/>)
 
 A Mornington cafe beside its roastery, with a full menu and dog-friendly courtyard. Useful for coffee, brunch or a casual family stop.
 
-Mornington   Cafe
-
-Walk-ins or limited reservations
-
-[Planning & availability](<https://www.commonfolkcoffee.com.au/pages/locations/mornington>)
+Mornington   Cafe   Walk-ins or limited reservations
 
 - ### [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>)
 
 A fixed-menu farm lunch in Red Hill. Plan a long sitting and tell the kitchen about dietary needs when booking.
 
-Red Hill   Restaurant
-
-Allow 3½–4 hours; no vegan menu
-
-[Planning & availability](<https://www.tedesca.com.au/book-tedesca>)
-
-See 3 more editorial choices
+Red Hill   Restaurant   Allow 3½–4 hours; no vegan menu
 
 - Jackalope Hotel exterior, Merricks North, Mornington Peninsula   Photo: Peter Foster, courtesy of Visit Victoria.
 
@@ -61,47 +41,25 @@ See 3 more editorial choices
 
 Jackalope’s dining room offers a multi-course tasting menu to guests and visitors. Choose this for an evening occasion.
 
-Merricks North   Restaurant
-
-Evening dining; check availability
-
-[Planning & availability](<https://jackalopehotels.com/drink-dine/>)
+Merricks North   Restaurant   Evening dining; check availability
 
 - ### [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>)
 
 A four-course farm menu in Cape Schanck, built around estate produce. Choose this for a planned farm-to-table meal; reserve ahead.
 
-Cape Schanck   Restaurant
-
-Four-course set menu; reserve ahead
-
-[Planning & availability](<https://www.barragunda.com.au/dining/>)
+Cape Schanck   Restaurant   Four-course set menu; reserve ahead
 
 - ### [Portsea Hotel](<https://peninsulainsider.com.au/eat/portsea-hotel/>)
 
 A seaside pub with dining areas overlooking Port Phillip Bay. Choose it for a coastal meal, then check the calendar for live music.
 
-Portsea   Pub
-
-Pub dining; check table availability
-
-[Planning & availability](<https://portseahotel.com.au/>)
-
-Chosen for a reason, with no pay-for-coverage. [How we choose our picks →](<https://peninsulainsider.com.au/about/>) [Tell us what has changed →](<https://peninsulainsider.com.au/corrections/>)
-
-Save a possibility or plan a visit?
-
-**Save** keeps a shortlist in [Saved places](<https://peninsulainsider.com.au/me/saved/>). **Add to trip** puts a chosen stop into [My trip](<https://peninsulainsider.com.au/me/trip/>), where you can arrange your day.
-
-You can start as a guest on this device. Saving or adding a stop does not reserve a table, room or ticket. Check opening times and bookings with the operator before travelling.
-
-The full list
+Portsea   Pub   Pub dining; check table availability
 
 ## All 44 places to eat
 
-Compare the full list, then narrow it by occasion or town.
+Most details checked September 2026. Confirm hours with the venue before you go.
 
- [Ranked top 15 →](<https://peninsulainsider.com.au/eat/best-restaurants/>)
+Search places
 
 Sort
 
@@ -140,8 +98,6 @@ Balnarring   Bakery
 Balnarring's village pub, in a 1930s heritage home on a two-acre block, with open fires, a sunny deck and a large beer garden.
 
 Balnarring   Pub
-
-Details checked September 2026
 
 - ### [Barmah Park Restaurant & Cellar Door](<https://peninsulainsider.com.au/eat/barmah-park/>)
 
@@ -371,6 +327,8 @@ Australia's first dedicated gluten-free brewery, unexpectedly good beer, a small
 
 Dromana   Brewery
 
+Something changed at one of these places? [Tell us](<https://peninsulainsider.com.au/corrections/>)
+
 Food and wine events coming up on the Peninsula: [see What’s On →](<https://peninsulainsider.com.au/whats-on/>)
 
 The Journal
@@ -402,8 +360,6 @@ A lunch on the ridge, a bay view, and the case for leaving the afternoon open.
 The Peninsula seafood story, from fishmongers near the pier to the bay-view dining rooms worth booking.
 
 7 min read
-
-Frequently asked
 
 ## Six honest answers before you plan the day
 

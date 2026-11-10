@@ -5,178 +5,101 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Stories from the Mornington Peninsula
-
 # The Journal .
 
-Good places. Interesting people.
- And a few reasons to stay a little longer.
-
-**Selected 24 September 2026.** Recent practical stories sit alongside favourites from the archive. Each story keeps its original publication date; selecting it again is not a new check of every detail.
+Good places. Interesting people. And a few reasons to stay a little longer.
 
 Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
-
-eat
 
 ## [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
 Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
 
-Peninsula Insider · Published 10 Nov 2026 · 7 min read
-
- [Read the story](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
-
-From the editor’s desk
+10 Nov 2026
 
 ## Worth your time
-
-More ways into the Peninsula.
-
-mornington
 
 ### [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
 
 A practical note for a gallery afternoon in Mornington.
 
-Peninsula Insider · Published 17 Sept 2026
-
-spring
+17 Sept 2026
 
 ### [The case for a spring weekend](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
 
 Vines coming back into leaf, quieter cellar doors and the first warm afternoons. A good time to see the Peninsula differently.
 
-Peninsula Insider · Published 16 Apr 2026
-
-eat
+16 Apr 2026
 
 ### [The Peninsula pantry](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
 
 A Saturday shopping list for anyone cooking in a rental.
 
-Peninsula Insider · Published 9 Apr 2026
+9 Apr 2026
 
-[Explore the Journal ↗](<https://peninsulainsider.com.au/journal/#archive>)
+## Food & wine
 
-## Behind the wine
-
-The people who shaped what we drink, through our existing cellar-door stories.
+[All food & wine stories](<https://peninsulainsider.com.au/journal/?theme=food-and-wine#archive>)
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-Cellar door dispatch
 
 ### [Quealy, gloriously unpolished](<https://peninsulainsider.com.au/journal/quealy-winemakers-balnarring/>)
 
 A Peninsula pioneer with a point of view.
 
-Peninsula Insider · Published 2 May 2026 · 6 min read
-
-At the table
-
-## Food, wine & good company
-
-[All food & wine ↗](<https://peninsulainsider.com.au/journal/?theme=food-and-wine#archive>)
-
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-The long lunch
-
-### [An afternoon worth making room for](<https://peninsulainsider.com.au/journal/the-long-lunch/>)
-
-The Peninsula’s long-lunch tradition, and the tables that make a weekend of it.
-
-Peninsula Insider · Published 15 Mar 2026 · 8 min read
-
-Start early
+2 May 2026
 
 ### [Breakfast before the crowds](<https://peninsulainsider.com.au/journal/breakfast-before-the-crowds/>)
 
 The first coffee. A good breakfast. The day still ahead.
 
-Peninsula Insider · Published 9 Apr 2026 · 7 min read
+9 Apr 2026
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
+Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit Victoria
 
-Wine country
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
 
-### [The cellar-door short list](<https://peninsulainsider.com.au/journal/the-cellar-door-short-list/>)
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
 
-Five producers worth the appointment.
+10 Nov 2026
 
-Peninsula Insider · Published 6 Apr 2026 · 6 min read
+## Out & about
 
-Out in the open
-
-## A little further, a little slower
+[All places & weekends](<https://peninsulainsider.com.au/journal/?theme=towns-and-places#archive>)
 
 Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-explore
-
-## [The Peninsula's Best Late-Afternoon Walks](<https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/>)
+### [The Peninsula's Best Late-Afternoon Walks](<https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/>)
 
 When lunch is over and the light starts improving, these are the walks that make the region feel larger, wilder, and worth staying for.
 
-Peninsula Insider · Published 8 Apr 2026 · 7 min read
-
- [Read the story](<https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/>)
-
-Make a weekend of it
-
-## A place to settle into
+8 Apr 2026
 
 Flinders Golf Club, Mornington Peninsula   Photo · Gary Lisbon, courtesy of Visit Victoria
-
-Flinders
 
 ### [The quiet side of the Peninsula](<https://peninsulainsider.com.au/journal/a-flinders-weekend/>)
 
 A village, a pier and a different pace.
 
-Peninsula Insider · Published 4 Apr 2026 · 7 min read
+4 Apr 2026
 
 Jackalope Hotel, Merricks North, Mornington Peninsula   Photo · Peter Foster, courtesy of Visit Victoria
-
-Stay a little longer
 
 ### [Two nights. Choose your base well.](<https://peninsulainsider.com.au/journal/where-to-stay-for-a-two-night-escape/>)
 
 A stay that shapes the trip, rather than simply hosts it.
 
-Peninsula Insider · Published 2 Apr 2026 · 6 min read
-
-Sorrento, Mornington Peninsula   Photo · Courtesy of Visit Victoria
-
-Sorrento
-
-### [A weekend beyond the summer strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
-
-Another way to spend a few days at the tip.
-
-Peninsula Insider · Published 12 Apr 2026 · 8 min read
-
-A note from the Peninsula
-
-## The Insider Note
-
-The Peninsula worth knowing. An occasional email.
-
-[Join The Insider Note ↗](<https://peninsulainsider.com.au/dispatch/>)
-
-Independent editorial. Unsubscribe any time.
-
-The complete collection
+2 Apr 2026
 
 ## Find your next read
 
-87 stories & guides
+[Insider Picks archive](<https://peninsulainsider.com.au/picks/>)
 
 Search the Journal
 
-Browse by theme
+Theme
 
-Publication month
+Month
 
 87 stories
 
@@ -702,13 +625,7 @@ Publication month
 
  Food & wine
 
-Looking for previous [Insider Picks](<https://peninsulainsider.com.au/picks/>)? You’ll find them in their own archive.
-
-On the Peninsula
-
 ## Coming up nearby
-
-Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
@@ -722,16 +639,6 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Wed, 11 Nov
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
 - [Fri, 13 Nov
 
 ### Books and Ideas: Barrie Cassidy at Port Phillip Estate
@@ -741,3 +648,13 @@ Red Hill South
 Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
 
  Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+
+- [Fri, 13 Nov
+
+### Live Music at Flinders Hotel
+
+Flinders
+
+Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)

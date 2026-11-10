@@ -5,20 +5,26 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Quick Note
+# Quick Note
 
-# Wednesday 11 November 2026
+Wednesday 11 November 2026
 
-Vol 04 · No 225     0 live briefs     Refreshed every morning     Updated 1:20 am
+Short daily briefs on openings, menu changes, booking windows and weather.
 
-## Today
+No new notes yet this morning, so here is the latest from the Journal.
 
-Posted in the last twenty-four hours, grouped by section.
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-Fresh notes are being assembled for this morning.
+- [### Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It
 
-If the desk is quiet, we still publish weather, one editor's note, and the strongest service update before breakfast.
+Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
 
-Quick Note is Peninsula Insider's daily layer. Editorial briefs about openings, menu changes, booking windows, weather, and one editor's note. Refreshed every morning; older briefs auto-archive after seven days.
+- [### Date Night on the Mornington Peninsula: Where to Book for Two
 
-The full [Journal](<https://peninsulainsider.com.au/journal/>) remains the long-form record.
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+- [### The Mornington Peninsula in Summer: How to Do It Well
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+[See all Journal stories](<https://peninsulainsider.com.au/journal/>)

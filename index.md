@@ -5,27 +5,77 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-spring on the Peninsula
-
 # The Mornington Peninsula, sorted.
 
 Independent local picks for where to eat, stay and explore. Every recommendation has a reason.
 
-  [How we choose our picks](<https://peninsulainsider.com.au/about/#how-we-choose>)
+## Plan your day
 
-## Your time. Your kind of day.
+ [See all plans](<https://peninsulainsider.com.au/explore/plans/>)
 
-Choose what matters. See where our published plans fit, and where they don’t.
+- Cape Schanck, Mornington Peninsula   Photo courtesy of Visit Victoria.
 
-All choices are optional. No account needed. [Browse every plan](<https://peninsulainsider.com.au/explore/plans/>)
+### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
-Find your bearings
+Coastal walks and one excellent meal.
 
-## Three ways into the Peninsula.
+2 days   Flinders & the Ocean Coast   Couples
+
+- Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
+
+### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
+
+Red Hill wine country to the southern coast.
+
+3 days   Red Hill & Merricks   Couples
+
+- Arthurs Seat Eagle Gondola Ride, Mornington Peninsula   Photo courtesy of Visit Victoria.
+
+### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
+
+A gondola, brewery lunch and a bay beach.
+
+One day   Red Hill & Merricks   Family
+
+## This weekend
+
+14–15 November
+
+ [See all events](<https://peninsulainsider.com.au/whats-on/>)
+
+Swipe or scroll through the picks
+
+- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
+
+Sat, 14 Nov   Crib Point Community House   Market
+
+Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
+
+- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sat, 14 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
+
+Sat, 14 Nov   Pete Sews workshop   Arts
+
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.petesews.com.au/sewing-classes>)
+
+## Three ways into the Peninsula
 
 [Open the full map](<https://peninsulainsider.com.au/map/>)
 
-Simplified coastline and town locations, north at top. For roads and other places, open the full map.  Coastline simplified from © Commonwealth of Australia ([Geoscience Australia](<https://services.ga.gov.au/gis/rest/services/Australian_Shoreline/MapServer/0>)) 2016, [CC BY 4.0](<https://creativecommons.org/licenses/by/4.0/>).
+North at top. Coastline simplified from © Commonwealth of Australia ([Geoscience Australia](<https://services.ga.gov.au/gis/rest/services/Australian_Shoreline/MapServer/0>)) 2016, [CC BY 4.0](<https://creativecommons.org/licenses/by/4.0/>).
 
 - ### [Mornington & the bay](<https://peninsulainsider.com.au/explore/places/mornington/>)
 
@@ -39,131 +89,21 @@ Cellar doors and a booked lunch. Arrange transport between stops.
 
 Start with the town, then choose a coastal walk. Check conditions before setting out.
 
-The short list
+Jackalope Hotel, Merricks North, Mornington Peninsula   Photo · Peter Foster, courtesy of Visit Victoria
 
-## This weekend
-
-14–15 November
-
-Swipe or scroll through the picks
-
-- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
-
-Crib Point Community House   Market
-
-Event details checked 3 Oct 2026.  [Check organiser](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
-
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 8 Oct 2026.  [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
-- ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
-
-Pete Sews workshop   Arts
-
-Event details checked 10 Nov 2026.  [Check organiser](<https://www.petesews.com.au/sewing-classes>)
-
-More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
-
-Plan it
-
-## Plans to start with
-
-[All plans →](<https://peninsulainsider.com.au/explore/plans/>)
-
-Featured plan
-
-Cape Schanck, Mornington Peninsula   Photo courtesy of Visit Victoria.
-
-### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
-
-A shorter escape with one village base, two coastal walks and time set aside for the meals.
-
-2 days   Flinders & the Ocean Coast   Couples
-
-Check the stay and restaurant service times first, then fit the walks around your reservations.
-
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
-
-### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
-
-Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
-
-3 days   Red Hill & Merricks   Couples
-
-Book both stays and your lunches. Check the Hill & Ridge organiser for the current market date and weather before including that stop.
-
-Arthurs Seat Eagle Gondola Ride, Mornington Peninsula   Photo courtesy of Visit Victoria.
-
-### [The family day out](<https://peninsulainsider.com.au/explore/plans/the-family-day-out/>)
-
-One gondola ride, one lunch and a bay beach. The final coffee stop can go if the children have had enough.
-
-One day   Red Hill & Merricks   Family
-
-Check Eagle tickets, lunch service and the final cafe opening time for your chosen day.
-
-Want a different combination? [Choose your time and interests](<https://peninsulainsider.com.au/#home-choose>)
-
-## Explore by interest
-
-- [Eat & Drink   Places worth planning lunch around   Trofeo Estate, Dromana, Mornington Peninsula Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/eat/>)
-
-- [Stay   From a weekend shack to a cliff house   Jackalope Hotel, Merricks North, Mornington Peninsula Photo: Peter Foster, courtesy of Visit Victoria](<https://peninsulainsider.com.au/stay/>)
-
-- [Wine   Cellar doors worth taking the turn for   Green Olive at Red Hill, Mornington Peninsula Photo: Two Palms Australia, courtesy of Visit Victoria](<https://peninsulainsider.com.au/wine/>)
-
-- [Explore   Walks, beaches, springs, and the roads between them   Cape Schanck, Mornington Peninsula Photo: Courtesy of Visit Victoria](<https://peninsulainsider.com.au/explore/>)
-
-Montalto, Red Hill South, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
-
-From the Journal  Hub Guide
+From the Journal
 
 ## [Red Hill: The Peninsula Insider Guide](<https://peninsulainsider.com.au/journal/area-guide-red-hill/>)
 
 Red Hill is the Peninsula's food-and-wine centre of gravity, but the best version of it is narrower than most visitors think. This is a place for one market morning, one properly chosen cellar door, and one lunch that gets the whole day.
 
-Play this weekend’s case
-
-## Where in the Peninsula is PI?
-
-Last seen in Red Hill after lunch, PI and the dog had already moved on. Ask the locals, search the scenes, read the land. Find her before sunset and the route you solved is a real day out you can save to your trip.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=home-band>) Six to ten minutes. Free, no account.
-
 ## The Insider Note
 
 The Peninsula worth knowing, in one useful email. What is on, where we would go and what to read next.
 
-Sent when there is something worth knowing.
-
  Email address
 
 Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)
-
-### What lands in your inbox
-
-- **Weekend inspiration** What is worth doing and where we would go.
-
-- **Seasonal picks** Places and experiences worth knowing now.
-
-- **Local notes** Useful observations you might otherwise miss.
-
-- **From the Journal** Selected guides and stories worth reading.
-
- [More about the Note](<https://peninsulainsider.com.au/dispatch/>)
 
 ## Machine-readable name directories
 
