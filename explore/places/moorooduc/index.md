@@ -211,6 +211,14 @@ Insider Edit   4 min
 
 Elgee Park's 1972 Viognier vines hit spring form, the Moorooduc Plains grassland walks with spider orchids in flower, and the Balnarring Farmers' Market for what locals actually buy.
 
+Insider Edit   4 min
+
+### [Moorooduc Estate's Robinson Chardonnay, the Boneo Plains wildflower flush, and a new cellar door opening in Flinders](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>)
+
+11 November 2026
+
+Moorooduc Estate's Robinson Chardonnay at peak vintage release, the Boneo Plains heathland in its brief wildflower window, and Nazaaray Estate's first bookable tasting sessions of spring.
+
 Weekend Picker   3 min
 
 ### [Peninsula This Weekend - 6 to 7 June](<https://peninsulainsider.com.au/journal/peninsula-this-weekend-jun-06/>)
@@ -226,14 +234,6 @@ Cellar Door Dispatch   6 min
 6 April 2026
 
 Not the biggest estates, not the flashiest rooms. The four Peninsula cellar doors where the wines - and the people pouring them - actually change how you think about the region.
-
-Cellar Door Dispatch   8 min
-
-### [The Chardonnay Case: Why the Peninsula's Second Wine Deserves Top Billing](<https://peninsulainsider.com.au/journal/the-chardonnay-case/>)
-
-9 April 2026
-
-Everyone sells the Mornington Peninsula as a pinot noir region. They are half right. The quiet argument of the last three vintages is that the chardonnay is now the more interesting bottle on the table, and the one worth cellaring.
 
 Planning guides
 

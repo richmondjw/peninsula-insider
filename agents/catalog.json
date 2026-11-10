@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-10T20:18:06.552Z",
-  "snapshotId": "9bc7571fb619c3f14a53687d6c7633379821130197d24c3848dd037cae35806a",
+  "generatedAt": "2026-11-10T20:32:07.951Z",
+  "snapshotId": "ba2b170d76e8c8292f585f4eb2a415d7a665d8df269f8ce1f69939e0b1e32ab8",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 709,
+  "count": 710,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -2393,7 +2393,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "3ce3055ffa4c64c1678d38dc7d44aef89cdf1d9429af229baa1a3d478317d6e3",
+      "contentSha256": "56142f8248b94763a692763509d850a5e7ab489054ace1e58e012a7616877b8f",
       "citation": {
         "title": "Moorooduc",
         "publisher": "Peninsula Insider",
@@ -2401,7 +2401,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 203028,
+      "htmlBytes": 203123,
       "markdownBytes": 13861
     },
     {
@@ -6332,6 +6332,23 @@
       "markdownBytes": 9285
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
+      "title": "Moorooduc Estate's Robinson Chardonnay, the Boneo Plains wildflower flush, and a new cellar door opening in Flinders",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/index.md",
+      "contentSha256": "ae7293646b4a5e0bca51de97040e214754bc5ff9d3693b0d9a41f6ea6af0148e",
+      "citation": {
+        "title": "Moorooduc Estate's Robinson Chardonnay, the Boneo Plains wildflower flush, and a new cellar door opening in Flinders",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
+        "publishedAt": "2026-11-11T00:00:00.000Z",
+        "modifiedAt": "2026-11-11T00:00:00.000Z"
+      },
+      "htmlBytes": 165049,
+      "markdownBytes": 8786
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7170,7 +7187,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "2acb81e66b58f943f2fbe263a95de9c6a5b964ed1434b170e58c93f8d50e6eb2",
+      "contentSha256": "93e2a0ca2769cd1411639f66e0dc09a375b7c5761552bcba8362f32dc37a4322",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7178,8 +7195,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 121009,
-      "markdownBytes": 5832
+      "htmlBytes": 121025,
+      "markdownBytes": 5844
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",

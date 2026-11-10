@@ -1,11 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-10T20:18:06.552Z",
+  "generatedAt": "2026-11-10T20:32:07.951Z",
   "baselineAvailable": true,
   "fromSnapshot": "9bc7571fb619c3f14a53687d6c7633379821130197d24c3848dd037cae35806a",
-  "toSnapshot": "9bc7571fb619c3f14a53687d6c7633379821130197d24c3848dd037cae35806a",
-  "previousGeneratedAt": "2026-11-10T19:21:51.837Z",
+  "toSnapshot": "ba2b170d76e8c8292f585f4eb2a415d7a665d8df269f8ce1f69939e0b1e32ab8",
+  "previousGeneratedAt": "2026-11-10T20:18:06.552Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 3,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
+      "contentSha256": "56142f8248b94763a692763509d850a5e7ab489054ace1e58e012a7616877b8f",
+      "previousContentSha256": "3ce3055ffa4c64c1678d38dc7d44aef89cdf1d9429af229baa1a3d478317d6e3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/index.md",
+      "contentSha256": "ae7293646b4a5e0bca51de97040e214754bc5ff9d3693b0d9a41f6ea6af0148e",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "93e2a0ca2769cd1411639f66e0dc09a375b7c5761552bcba8362f32dc37a4322",
+      "previousContentSha256": "2acb81e66b58f943f2fbe263a95de9c6a5b964ed1434b170e58c93f8d50e6eb2"
+    }
+  ]
 }
