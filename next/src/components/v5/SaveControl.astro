@@ -116,7 +116,7 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     min-height: 48px;
     padding: 0 0.6rem;
     background: transparent;
-    color: var(--soft);
+    color: inherit; /* follows the card: ink on light, white on dark grounds */
     border: 1px solid transparent;
     border-radius: var(--radius-s);
     cursor: pointer;
@@ -131,8 +131,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn:hover {
-    background: var(--bg-alt);
-    color: var(--accent);
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    color: inherit;
   }
 
   .v5-save__btn:focus-visible {
