@@ -1,0 +1,48 @@
+---
+/**
+ * EatSearch - the directory's one text search (Phase 5, 2026-11-10).
+ *
+ * The /eat/ hero used to carry a separate "Find your kind of place" finder
+ * (search + type + town + button) above the shortlist. Type and town were the
+ * same facets the directory FilterBar already offers, so the page had two
+ * browse tools. Only the free-text search was unique; it now sits with the
+ * list it narrows. `data-directory-search` opts the page into local search
+ * (lib/v5-filter-state) and keeps the editorial layer yielding while a query
+ * is active (CategoryBrowse).
+ */
+interface Props { noun?: string; }
+const { noun = 'places' } = Astro.props;
+---
+<div class="eat-search" data-eat-search>
+  <label for="eat-find">Search {noun}</label>
+  <input id="eat-find" name="find" type="search" placeholder="Name, town or type" data-directory-search autocomplete="off" />
+</div>
+<style>
+  .eat-search{max-width:28rem;margin-bottom:1rem}
+  label{display:block;font-size:var(--fs-200);font-weight:600;margin-bottom:.4rem}
+  input{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border-control);border-radius:var(--radius-s);padding:.65rem .8rem;color:var(--text);font:400 var(--fs-400) var(--font-ui)}
+  input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+</style>
+<noscript><style>[data-eat-search]{display:none!important}</style></noscript>
+<script>
+  import {commit,getState} from '../../../lib/v5-filter-state';
+  function paint(){
+    const input=document.querySelector<HTMLInputElement>('[data-eat-search] [data-directory-search]');
+    if(input && document.activeElement!==input) input.value=new URLSearchParams(location.search).get('find')||'';
+  }
+  function init(){
+    const root=document.querySelector<HTMLElement>('[data-eat-search]');
+    if(!root || root.dataset.initialized) return;
+    root.dataset.initialized='true';paint();
+    const input=root.querySelector<HTMLInputElement>('[data-directory-search]')!;
+    input.addEventListener('input',()=>{
+      const url=new URL(location.href);const query=input.value.trim();
+      if(query)url.searchParams.set('find',query);else url.searchParams.delete('find');
+      history.replaceState(history.state,'',url.pathname+url.search+url.hash);
+      commit(getState(),{source:'search',noun:'places'});
+    });
+  }
+  document.addEventListener('pi:filters-changed',paint);
+  document.addEventListener('astro:page-load',init);
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+</script>

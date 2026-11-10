@@ -11,7 +11,7 @@
  */
 import { getCollection } from 'astro:content';
 import { isJournalDiscovery } from '../../../lib/journal-curation.mjs';
-import { routeSlug, formatLabel } from '../../../lib/editorial';
+import { routeSlug } from '../../../lib/editorial';
 import { resolveJournalImage } from '../../../lib/journal-image';
 import { journalCredit, journalRecoveryAttrs } from '../../../lib/journal-image-policy.mjs';
 import JournalImageRecovery from '../../journal/JournalImageRecovery.astro';
@@ -31,7 +31,6 @@ const imageryData = lead && slug === 'area-guide-red-hill'
   ? { ...lead.data, heroImage: redHill.heroImage }
   : lead?.data;
 const hero = lead ? await resolveJournalImage(slug, imageryData) : null;
-const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (lead ? (formatLabel[lead.data.format] ?? 'Feature') : '');
 
 ---
 
@@ -57,7 +56,7 @@ const kicker = lead?.data.tags.includes('insider-picks') ? 'Insider Picks' : (le
       <figcaption><span data-journal-image-caption>{hero.caption}</span>{' '}<span data-journal-image-credit>{journalCredit(hero)}</span></figcaption>
     </figure>
     <div class="home-journal__body">
-      <p class="home-journal__kicker">From the Journal <span aria-hidden="true">&middot;</span> {kicker}</p>
+      <p class="home-journal__kicker">From the Journal</p>
       <h2 id="home-journal-title" class="home-journal__headline">
         <a
           href={`/journal/${slug}/`}

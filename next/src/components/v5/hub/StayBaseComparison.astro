@@ -21,8 +21,7 @@ const photos = [
 ---
 <section class="base-comparison container" aria-labelledby="base-heading">
   <div class="base-comparison__intro">
-    <div><h2 id="base-heading">First, choose your corner of the Peninsula</h2><p>Pick the days you want, then the bed. These are area comparisons; check each property's address and transport before booking.</p></div>
-    <a class="base-comparison__all-map" href="/map/">Compare stays on the map</a>
+    <div><h2 id="base-heading">First, choose your corner of the Peninsula</h2><p>Pick the days you want, then the bed.</p></div>
   </div>
 
   <p class="base-comparison__swipe">Swipe to compare Red Hill and Sorrento</p>
@@ -37,7 +36,7 @@ const photos = [
           <h3><a href={'/explore/places/' + base.town + '/'}>{base.name}</a></h3>
           <p class="base-comparison__lead">{base.go}</p>
           <div class="base-comparison__practical"><p><strong>For the evening</strong>{base.evening}</p><p><strong>Getting around</strong>{base.trade}</p></div>
-          <div class="base-comparison__actions"><a class="base-comparison__find" href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays</a><a href={'/map/?place=' + base.places} aria-label={'See ' + base.name + ' on the map'}>Area map</a></div>
+          <div class="base-comparison__actions"><a class="base-comparison__find" href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays <span aria-hidden="true">&rarr;</span></a></div>
         </div>
       </article>
     ))}
@@ -55,7 +54,6 @@ const photos = [
             {listedStaysFor(base.places) > 0
               ? <a href={'/stay/?place=' + base.places + '#browse-stay'} aria-label={'Find stays in ' + base.name}>Find stays</a>
               : <a href={'/explore/places/' + base.town + '/'} aria-label={'Explore ' + base.name + ' before choosing accommodation'}>Explore the town</a>}
-            <a href={'/map/?place=' + base.places} aria-label={'See ' + base.name + ' on the map'}>Area map</a>
           </div>
           {listedStaysFor(base.places) === 0 && <p class="base-comparison__availability">No stays currently listed for {base.name}; check accommodation separately.</p>}
         </article>
@@ -73,14 +71,13 @@ const photos = [
   .base-comparison__intro p { max-width: 62ch; margin: 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.6; }
   a { color: var(--teal-text); text-underline-offset: 0.2em; }
   a:focus-visible, .base-comparison__featured:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .base-comparison__all-map { flex: none; min-height: 44px; display: inline-flex; align-items: center; font-size: var(--fs-300); font-weight: 700; }
   .base-comparison__swipe { display: none; }
   .base-comparison__featured { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-  .base-comparison__feature { min-width: 0; display: flex; flex-direction: column; overflow: hidden; background: var(--bg-alt); border: 1px solid var(--border); border-radius: var(--radius-m); }
+  .base-comparison__feature { min-width: 0; display: flex; flex-direction: column; }
   figure { margin: 0; }
-  figure img { display: block; width: 100%; height: clamp(12rem, 23vw, 18rem); object-fit: cover; }
-  figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.15rem 0.75rem; padding: 0.55rem 1.25rem; color: var(--soft); font-size: var(--fs-100); line-height: 1.4; }
-  .base-comparison__feature-body { display: flex; flex: 1; flex-direction: column; padding: 0.55rem 1.5rem 1.5rem; }
+  figure img { display: block; width: 100%; height: clamp(12rem, 23vw, 18rem); object-fit: cover; border-radius: var(--radius-m); }
+  figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.15rem 0.75rem; padding: 0.55rem 0; color: var(--soft); font-size: var(--fs-100); line-height: 1.4; }
+  .base-comparison__feature-body { display: flex; flex: 1; flex-direction: column; padding: 0.55rem 0 0; }
   .base-comparison__feature h3 { margin: 0 0 0.45rem; font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.025em; }
   .base-comparison__feature h3 a, .base-comparison__other h4 a { color: var(--text); text-decoration: none; }
   .base-comparison__feature h3 a:hover, .base-comparison__other h4 a:hover { color: var(--accent); text-decoration: underline; }
@@ -91,18 +88,17 @@ const photos = [
   .base-comparison__actions, .base-comparison__other-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
   .base-comparison__actions { margin-top: auto; }
   .base-comparison__actions a, .base-comparison__other-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-size: var(--fs-300); font-weight: 700; }
-  .base-comparison__find { padding: 0.55rem 1.15rem; border-radius: var(--radius-s); background: var(--accent); color: #fff; text-decoration: none; }
-  .base-comparison__find:hover { background: var(--harbour-h); color: #fff; }
+  .base-comparison__find { gap: 0.4rem; color: var(--accent); }
   .base-comparison__others { margin-top: 2.75rem; }
   .base-comparison__others h3 { margin: 0 0 1.1rem; font: 600 var(--fs-500)/1.25 var(--font-display); }
   .base-comparison__other-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
-  .base-comparison__other { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem; min-width: 0; padding: 1.35rem 1.5rem; border: 1px solid var(--border); border-radius: var(--radius-m); }
+  .base-comparison__other { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem 1.25rem; min-width: 0; }
   .base-comparison__other > div:first-child { grid-row: span 2; }
   .base-comparison__other h4 { margin: 0 0 0.5rem; font: 600 var(--fs-500)/1.25 var(--font-display); }
   .base-comparison__other div > p { margin: 0; line-height: 1.5; }
   .base-comparison__other-actions { grid-column: 1 / -1; padding-top: 0.35rem; }
   .base-comparison__availability { grid-column: 1 / -1; max-width: 44ch; margin: 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
-  .base-comparison__foot { max-width: 70ch; margin: 1.75rem 0 0; padding-top: 1.2rem; color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
+  .base-comparison__foot { max-width: 70ch; margin: 1.75rem 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
   @media (max-width: 64em) {
     .base-comparison__practical, .base-comparison__other { grid-template-columns: 1fr; }
     .base-comparison__practical { gap: 0.8rem; }
@@ -111,17 +107,14 @@ const photos = [
   }
   @media (max-width: 48em) {
     .base-comparison__intro { display: block; margin-bottom: 1rem; }
-    .base-comparison__all-map { margin-top: 0.75rem; }
     .base-comparison__swipe { display: block; margin: 0 0 0.65rem; color: var(--soft); font-size: var(--fs-200); line-height: 1.4; }
     .base-comparison__featured { display: flex; gap: 0.75rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding-inline: 0.5rem; padding: 0 0.5rem 0.65rem; }
     .base-comparison__featured::-webkit-scrollbar { display: none; }
     .base-comparison__feature { flex: 0 0 calc(100% - 2rem); scroll-snap-align: start; }
     figure img { height: 13rem; }
-    figcaption { padding-inline: 1rem; }
-    .base-comparison__feature-body { padding: 0.55rem 1.1rem 1.2rem; }
-    .base-comparison__practical { margin-block: 0.9rem 1rem; padding-top: 0.9rem; }
+    .base-comparison__practical { margin-block: 0.9rem 1rem; }
     .base-comparison__others { margin-top: 2rem; }
     .base-comparison__other-grid { grid-template-columns: 1fr; gap: 0; }
-    .base-comparison__other { padding: 1.25rem 0; border: 0; border-radius: 0; }
+    .base-comparison__other { padding: 1.25rem 0; }
   }
 </style>

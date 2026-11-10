@@ -3,11 +3,12 @@
 The homepage helps a visitor choose a useful Peninsula outing. PRODUCT.md and the shared anchor-page typography remain authoritative. For conceptual artwork, follow docs/COASTAL-PUNCH-ILLUSTRATIONS.md, including disclosure, provenance and crop rules.
 
 - Keep one static, credited welcome image and one h1. Do not add automatic video, rotating copy, carousels or reveal animations.
-- Place the optional native trip chooser immediately after the welcome. It submits to the existing Plans matcher; do not create a second planning state or fabricate results.
+- Six sections, each said once (2026-11-10): welcome, Plan your day, This weekend, Three ways into the Peninsula, one Journal feature, the Insider Note. The welcome carries one primary action and one text link.
+- Plan your day is the single planning route: the optional native chooser sits directly above three plan cards in the same section. It submits to the existing Plans matcher; do not create a second planning state or fabricate results.
 - Derive audience and interest choices from published usable itineraries. Retain an optional blank choice, the full catalogue, keyboard operation and use without JavaScript.
-- Show geographic orientation early. The town diagram uses recorded coordinates, names its limitations and links to the full map. Never infer road routes, drive times or distances from the diagram.
-- Show the current weekend before the longer plan comparison. Date eligibility and cancellations come from the shared publication model, not hardcoded homepage dates.
-- Use the same card anatomy and image proportions for comparable plans. Show an editorial reason, duration/audience metadata and recorded booking considerations. Keep Copy plan tied to the existing trip importer.
+- The town diagram uses recorded coordinates, names its limitations and links to the full map. Never infer road routes, drive times or distances from the diagram.
+- Weekend date eligibility and cancellations come from the shared publication model, not hardcoded homepage dates. Each pick keeps its recorded check date and organiser link on one quiet line; Save and + Trip live on the event page.
+- Use the same card anatomy and image proportions for comparable plans: image and credit, title, one line, one meta line; the whole card is the link. Booking considerations and Copy plan live on the plan pages; state the shared caveat once under the cards.
 - Use Sora headings, Figtree copy and shared Harbour colour tokens. Cap the homepage h1 at 64px on desktop and 32px on mobile. Keep form controls at least 48px high and avoid horizontal page overflow at 320px.
 - A replacement photograph must carry its own alt text, credit and applicable rights record. Never inherit the previous image's caption or imply that a contextual or generated image depicts an actual event.
 - Journal imagery uses the shared rights, availability and recovery policy. A failed photograph must recover with the replacement's matching caption and credit, ending with the original editorial illustration if necessary.

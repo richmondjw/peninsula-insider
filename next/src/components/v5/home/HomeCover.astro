@@ -30,10 +30,8 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <p class="home-cover__promise">Independent local picks for where to eat, stay and explore. Every recommendation has a reason.</p>
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
       <a class="pi-btn pi-btn--solid pi-btn--inverse" href="#home-choose">Find your day out <span aria-hidden="true">↓</span></a>
-      <a class="pi-btn pi-btn--ghost pi-btn--inverse" href="/whats-on/this-weekend/">This weekend</a>
-      <a class="home-cover__search" href="/search/" data-open-search data-surface="home-intents">Search the Peninsula <span aria-hidden="true">↗</span></a>
+      <a class="home-cover__link" href="/whats-on/this-weekend/">What’s on this weekend <span aria-hidden="true">→</span></a>
     </nav>
-    <a class="home-cover__method" href="/about/#how-we-choose">How we choose our picks <span aria-hidden="true">→</span></a>
   </div>
 </section>
 <style>
@@ -46,10 +44,9 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   .home-cover__eyebrow{font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow, .1em);text-transform:uppercase;color:var(--sand,#f5c177);margin:0 0 .8rem}
   .home-cover__statement{font-weight:600;line-height:1.12;font-family:var(--font-display);letter-spacing:-.045em;max-width:17ch;margin:0;text-wrap:balance;color:white}
   .home-cover__promise{max-width:52ch;font:400 var(--fs-400)/1.5 var(--font-ui);margin:1rem 0 1.2rem}
-  .home-cover__actions{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem}
+  .home-cover__actions{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem}
   .home-cover__actions .pi-btn{min-height:48px}
-  .home-cover__search,.home-cover__method{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:white;font:600 var(--fs-300)/1.4 var(--font-ui);text-underline-offset:.25em}
-  .home-cover__method{margin-top:.65rem;font-size:var(--fs-200)}
+  .home-cover__link{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:white;font:600 var(--fs-300)/1.4 var(--font-ui);text-underline-offset:.25em}
   a:focus-visible{outline:3px solid var(--sand,#f5c177);outline-offset:4px}
-  @media(max-width:47.99em){.home-cover__media[data-home-art="true"]{object-position:left center}.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{max-width:19ch}.home-cover__promise{font-size:var(--fs-400);margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:var(--fs-300)}.home-cover__search{font-size:var(--fs-300)}.home-cover__method{margin:0}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:var(--fs-200)}}
+  @media(max-width:47.99em){.home-cover__media[data-home-art="true"]{object-position:left center}.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{max-width:19ch}.home-cover__promise{font-size:var(--fs-400);margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem 1.25rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:var(--fs-300)}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:var(--fs-200)}}
 </style>

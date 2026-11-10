@@ -90,6 +90,9 @@ const metaText = [meta.join(' · '), spanLabel, statusLabel].filter(Boolean).joi
     justify-content: space-between;
     gap: var(--space-4, 1rem);
     padding: var(--space-3, 0.75rem) 0;
+  }
+  /* One hairline between rows only: a day or list boundary is carried by space, not a doubled rule. */
+  .wo-row + .wo-row {
     border-top: 1px solid var(--border);
   }
   .wo-row__body {

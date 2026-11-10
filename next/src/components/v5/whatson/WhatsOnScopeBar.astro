@@ -150,6 +150,11 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     font-weight: var(--fw-body, 400);
     color: var(--soft);
   }
+  /* Say the dates once: the selected range is in the hero line above the pills,
+     so a second date line inside every pill only doubles the first screen. */
+  .wo-scope__btn .wo-scope__dates {
+    display: none;
+  }
   .wo-scope__btn[aria-pressed='true'] .wo-scope__dates {
     color: var(--soft-inverse, rgba(250, 247, 240, 0.72));
   }

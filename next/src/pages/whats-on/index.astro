@@ -1,7 +1,6 @@
 ---
 import {occurrenceData} from '../../lib/intelligence-series.mjs';
 import { categoryHero } from '../../lib/category-heroes';
-import { pageImage } from '../../lib/page-images';
 import { eventContentKind } from '../../lib/event-publication.mjs';
 /**
  * /whats-on/ - the canonical When front door (v5 rebuild, T-601).
@@ -13,20 +12,19 @@ import { eventContentKind } from '../../lib/event-publication.mjs';
  *   3. PI's picks: up to 3 recently checked choices, Local voice verdicts
  *   4. Day-grouped compact rows for the current scope (weekend is fully
  *      server-rendered; other scopes render client-side from feed.json)
- *   5. Shelf anchor links + category shelves (Markets, Live music,
- *      Food & wine, Openings, Major events)
+ *   5. One row of category links that open the month ahead, filtered
+ *      (Phase 5, 2026-11-10: replaced the category tiles + five shelves,
+ *      which repeated events already in the calendar)
  *   6. Month+ on demand via the JSON island at /whats-on/feed.json
  *      (HUB-11 closed: zero hidden pre-rendered cards)
  *
  * Event JSON-LD kept; NO price offers are emitted (house rule).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import WhatsOnScopeBar from '../../components/v5/whatson/WhatsOnScopeBar.astro';
 import WhatsOnRow from '../../components/v5/whatson/WhatsOnRow.astro';
-import TrustNote from '../../components/v5/hub/TrustNote.astro';
 import {
   loadLiveEvents,
   isDatedCalendarEvent,
@@ -34,12 +32,12 @@ import {
   schoolHolidayWindow,
   groupByDay,
   getPicks,
-  getShelves,
   isoDate,
   startOfDay,
+  addDays,
+  occursInWindow,
   type OccurrenceState,
 } from './_data';
-import { getAustralianSeasonLower } from '../../lib/season';
 import { eventCategoryLabel } from '../../lib/editorial';
 
 export const prerender = true;
@@ -58,35 +56,48 @@ const pickHeading = ['A reason to go', 'A reason to go', 'Two reasons to go', 'T
 const pickSlugs = new Set(picks.map((p) => p.live.slug));
 
 const dayGroups = groupByDay(calendarEvents, weekend, now);
-const weekendCount = dayGroups.reduce((n, g) => n + g.items.length, 0);
 
-const shelves = getShelves(calendarEvents, now, pickSlugs).filter((s) => s.items.length > 0);
-const shelfVisuals = shelves.map((shelf, index) => {
-  // Prefer an actual listed venue. A vetted regional category image may set
-  // the scene, with its subject named in the caption, but never presents
-  // itself as artwork for a specific event in the shelf.
-  const source = shelf.items.find((item) => {
-    const photo = (item.event.data as Record<string, any>).heroImage;
-    return photo?.src && photo?.alt && photo?.credit && photo?.rightsStatus === 'recorded' && photo?.depictionStatus === 'actual';
+// Phase 5 ("say it once"): the default by-day list shows each event once.
+// A short-list pick is not repeated below it, and an event on several days of
+// the weekend sits under its first day with "Also Sat & Sun" on its meta line.
+// A later day keeps its own row when that day's state differs (sold out,
+// cancelled this time), so no occurrence-level status is hidden.
+const weekdayShort = (iso: string) => new Date(`${iso}T00:00:00Z`).toLocaleDateString('en-AU', { weekday: 'short', timeZone: 'UTC' });
+const firstSeen = new Map<string, { status: string; phase: string; also: string[] }>();
+const dayView = dayGroups.map((g) => {
+  let heldForPick = 0;
+  const items = g.items.filter((it) => {
+    if (pickSlugs.has(it.live.slug)) { heldForPick += 1; return false; }
+    const seen = firstSeen.get(it.live.slug);
+    if (seen && seen.status === String(it.statusLabel ?? '') && seen.phase === String(it.phase ?? '')) {
+      seen.also.push(weekdayShort(g.iso));
+      return false;
+    }
+    if (!seen) firstSeen.set(it.live.slug, { status: String(it.statusLabel ?? ''), phase: String(it.phase ?? ''), also: [] });
+    return true;
   });
-  const photo = source ? (source.event.data as Record<string, any>).heroImage : null;
-  // The old markets hero depicts a venue whose current operation is unresolved.
-  // Do not imply that it is a current featured event in this discovery rail.
-  const regionalKey = ({ 'food-wine': 'wine-hub' } as Record<string, string>)[shelf.id];
-  const regional = !photo && regionalKey ? pageImage(regionalKey) : null;
-  return {
-    id: shelf.id,
-    label: shelf.label,
-    count: shelf.items.length,
-    index: String(index + 1).padStart(2, '0'),
-    photo: photo || regional ? {
-      src: String(photo?.src ?? regional!.src),
-      alt: String(photo?.alt ?? regional!.alt),
-      caption: String(photo?.caption ?? photo?.depicts ?? regional?.caption ?? source?.title),
-      credit: String(photo?.credit ?? regional!.credit),
-    } : null,
-  };
+  const emptyMessage = items.length > 0 || g.items.length === 0
+    ? g.emptyMessage
+    : heldForPick > 0
+      ? 'This day’s event is in the short list above.'
+      : 'Everything on this day began earlier in the weekend and is listed above.';
+  return { ...g, items, emptyMessage };
 });
+const rowSpan = (it: (typeof dayGroups)[number]['items'][number]) => {
+  const also = firstSeen.get(it.live.slug)?.also ?? [];
+  return [it.spanLabel === 'One-day event' ? '' : it.spanLabel, also.length ? `Also ${also.join(' & ')}` : '']
+    .filter(Boolean)
+    .join(' · ');
+};
+const weekendUniqueCount = new Set(dayGroups.flatMap((g) => g.items.map((it) => it.live.slug))).size;
+
+// The old "Browse the next two months" tiles and five category shelves repeated
+// events already in the calendar. They are now one row of links that open the
+// month ahead filtered to a category (the same filter the page already offers).
+const monthWindow = { start: startOfDay(now), end: addDays(startOfDay(now), 31), label: '' };
+const browseCategories = ['market', 'live-music', 'food-wine', 'exhibition', 'festival']
+  .filter((value) => calendarEvents.some((entry) => entry.event.data.category === value && occursInWindow(entry.rule, monthWindow)))
+  .map((value) => ({ value, label: eventCategoryLabel[value] ?? value }));
 
 // ── JSON-LD: Event nodes for everything server-rendered (picks + weekend
 // rows), deduped. Deliberately no offers: pricing never ships in schema
@@ -201,7 +212,6 @@ const pickCards = picks.map((p, i) => {
   };
 });
 
-const season = getAustralianSeasonLower(now);
 const todayISO = isoDate(startOfDay(now));
 const townOptions = [...new Set(calendarEvents.map((entry) => entry.event.data.suburb).filter((town): town is string => typeof town === 'string' && town.trim().length > 0))].sort((a, b) => a.localeCompare(b));
 const categoryOptions = [...new Set(calendarEvents.map((entry) => entry.event.data.category))]
@@ -226,11 +236,9 @@ const hubImage = categoryHero('whats-on');
   <header class="wo-head">
     <div class="container wo-head__inner">
       <div class="wo-head__copy">
-        <p class="wo-head__eyebrow">The Peninsula, in motion <span aria-hidden="true">✳</span> {season} edition</p>
         <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
-        <a class="wo-head__calendar-link" href="#wo-calendar">Browse events by day <span aria-hidden="true">↘</span></a>
       </div>
       <figure class="wo-head__figure">
         <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 640px) 320px, (max-width: 1023px) 600px, 720px" />
@@ -270,20 +278,12 @@ const hubImage = categoryHero('whats-on');
       <button type="button" class="wo-filters__clear" data-wo-filter-reset>Clear filters</button>
     </form>
     </details>
-    <TrustNote surface="whatson" />
   </div>
 
   {picks.length > 0 && (
-    <section class="wo-picks" aria-labelledby="wo-picks-h">
+    <section class="wo-picks" id="wo-picks" aria-labelledby="wo-picks-h">
       <div class="container">
-        <div class="wo-picks__head">
-          <div>
-            <p class="wo-section-kicker">The short list / {weekend.label}</p>
-            <h2 class="wo-picks__title" id="wo-picks-h">{pickHeading}</h2>
-          </div>
-          <p class="wo-picks__dek wo-picks__dek--desktop">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
-        </div>
-        {picks.length > 1 && <p class="wo-picks__swipe">More picks to the right <span aria-hidden="true">→</span></p>}
+        <h2 class="wo-picks__title" id="wo-picks-h">{pickHeading}</h2>
         <CardGrid label="PI's picks for this weekend">
           {pickCards.map((c) => (
             <Card
@@ -306,8 +306,6 @@ const hubImage = categoryHero('whats-on');
             />
           ))}
         </CardGrid>
-        <p class="wo-picks__dek wo-picks__dek--mobile">Our edit of the weekend. Open an event for the details, then confirm with its organiser.</p>
-        <a class="wo-picks__all" href="#wo-calendar">Explore the full calendar <span aria-hidden="true">↘</span></a>
       </div>
     </section>
   )}
@@ -315,15 +313,11 @@ const hubImage = categoryHero('whats-on');
   <section class="wo-days" id="wo-calendar" aria-label="Everything on for the selected dates">
     <div class="container">
       <div class="wo-days__head">
-        <div>
-          <p class="wo-section-kicker">Make a day of it</p>
-          <h2 class="wo-days__title">Everything on, by day</h2>
-        </div>
-        <p class="wo-days__hint">Browse by date and save what catches your eye.</p>
+        <h2 class="wo-days__title">Day by day</h2>
         <p id="pi-results-status" class="wo-vh" role="status" aria-live="polite"></p>
       </div>
-      <div data-wo-days data-wo-default-count={weekendCount}>
-        {dayGroups.map((g) => (
+      <div data-wo-days data-wo-default-count={weekendUniqueCount}>
+        {dayView.map((g) => (
           <section class="wo-day">
             <h3 class="wo-day__h">{g.heading}</h3>
             {g.items.length > 0 ? (
@@ -335,7 +329,7 @@ const hubImage = categoryHero('whats-on');
                     slug={it.live.slug}
                     oneLiner={it.live.oneLiner}
                     meta={it.live.meta}
-                    spanLabel={it.spanLabel}
+                    spanLabel={rowSpan(it)}
                     statusLabel={it.statusLabel}
                     phase={it.phase}
                     bookable={it.bookable}
@@ -348,76 +342,44 @@ const hubImage = categoryHero('whats-on');
           </section>
         ))}
       </div>
-      <p class="wo-more">
+      <div class="wo-more">
         <button type="button" class="pi-btn pi-btn--ghost" data-wo-month data-evt="wo_date_change" hidden>
           Load the month ahead
         </button>
+        {browseCategories.length > 0 && (
+          <nav class="wo-browse" aria-label="The month ahead, by category">
+            <span class="wo-browse__label">The month ahead:</span>
+            <ul role="list">
+              {browseCategories.map((c) => (
+                <li><a href={`/whats-on/?date=this-month&category=${c.value}#wo-calendar`} data-evt="wo_date_change">{c.label}</a></li>
+              ))}
+            </ul>
+          </nav>
+        )}
         <noscript>
           <span class="wo-more__noscript">
             Longer horizons load with JavaScript on; the weekend above is the complete current edit.
           </span>
         </noscript>
-      </p>
+      </div>
     </div>
   </section>
 
   {flexibleExperiences.length > 0 && (
     <section class="wo-flexible" aria-labelledby="wo-flexible-h">
-      <div class="container">
-        <p class="wo-section-kicker">Choose your own timing</p>
-        <h2 class="wo-shelves__title" id="wo-flexible-h">Experiences to check</h2>
-        <p class="wo-flexible__intro">These are not confirmed sessions for the dates above. Check the operator's dates or opening hours before making a plan.</p>
-        <ul class="wo-shelf__list" role="list">
+      <div class="container wo-flexible__inner">
+        <div>
+          <h2 class="wo-flexible__title" id="wo-flexible-h">Experiences to check</h2>
+          <p class="wo-flexible__intro">Not confirmed sessions for the dates above. Check the operator's dates and hours before you plan.</p>
+        </div>
+        <ul class="wo-flexible__list" role="list">
           {flexibleExperiences.map((live) => (
-            <WhatsOnRow title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={['Check dates and hours', live.placeLabel, live.categoryLabel].filter(Boolean)} />
+            <WhatsOnRow title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={[live.placeLabel, live.categoryLabel].filter(Boolean)} />
           ))}
         </ul>
       </div>
     </section>
   )}
-
-  {shelves.length > 0 && (
-    <section class="wo-shelves" aria-labelledby="wo-shelves-h">
-      <div class="container">
-        <h2 class="wo-shelves__title" id="wo-shelves-h">Browse the next two months</h2>
-        <nav class="wo-shelfnav" aria-label="Explore event categories">
-          {shelfVisuals.map((s) => (
-            <div class="wo-shelfnav__tile">
-              <a class="wo-shelfnav__link" href={`#${s.id}`} aria-label={`Explore ${s.label}, ${s.count} featured events`}>
-                <span class="wo-shelfnav__media" aria-hidden="true">
-                  {s.photo ? (
-                    <img src={s.photo.src} alt="" loading="lazy" decoding="async" width="400" height="300" data-pi-responsive="(max-width: 767px) 55vw, 20vw" />
-                  ) : (
-                    <span class="wo-shelfnav__mark">{s.index}</span>
-                  )}
-                </span>
-                <span class="wo-shelfnav__info"><strong>{s.label}</strong><span>{s.count} featured <span aria-hidden="true">↗</span></span></span>
-              </a>
-              {s.photo && <p class="wo-shelfnav__credit">{s.photo.caption} · Photo: {s.photo.credit}.</p>}
-            </div>
-          ))}
-        </nav>
-        {shelves.map((s) => (
-          <section class="wo-shelf" id={s.id} aria-labelledby={`${s.id}-h`}>
-            <h3 class="wo-shelf__h" id={`${s.id}-h`}>{s.label}</h3>
-            <ul class="wo-shelf__list" role="list">
-              {s.items.map((live) => (
-                <WhatsOnRow
-                  title={live.title}
-                  href={live.href}
-                  slug={live.slug}
-                  oneLiner={live.oneLiner}
-                  meta={live.meta}
-                />
-              ))}
-            </ul>
-          </section>
-        ))}
-      </div>
-    </section>
-  )}
-
-  <NewsletterBlock />
 
   {/* Row template for client-side scope rendering: cloned by the script
       below, never displayed. Template content is inert (not hidden DOM
@@ -1018,21 +980,11 @@ const hubImage = categoryHero('whats-on');
   .wo-picks {
     padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem);
   }
-  .wo-picks__head {
-    margin-bottom: var(--space-5, 1.5rem);
-    max-width: 48rem;
-  }
   .wo-picks__title {
-    margin: 0;
+    margin: 0 0 var(--space-5, 1.5rem);
     font-family: var(--font-display);
     font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
     line-height: var(--lh-heading, 1.2);
-  }
-  .wo-picks__dek {
-    margin: var(--space-1, 0.25rem) 0 0;
-    color: var(--soft);
-    font-size: var(--fs-300, 0.9rem);
-    line-height: var(--lh-dek, 1.45);
   }
 
   /* ── Day groups ── */
@@ -1073,147 +1025,85 @@ const hubImage = categoryHero('whats-on');
     font-size: var(--fs-300, 0.9rem);
   }
   .wo-more {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3, 0.75rem) var(--space-5, 1.5rem);
     margin: var(--space-6, 2rem) 0 0;
   }
+  .wo-browse { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3, 0.75rem); font-size: var(--fs-300); }
+  .wo-browse__label { color: var(--soft); }
+  .wo-browse ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-3, 0.75rem); margin: 0; padding: 0; list-style: none; }
+  .wo-browse a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: var(--fw-semibold, 600); text-underline-offset: .2em; }
+  .wo-browse a:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
   .wo-more__noscript {
     color: var(--soft);
     font-size: var(--fs-300, 0.9rem);
     font-style: normal;
   }
 
+  /* Same list grammar as the calendar: label in the left column, rows on the right. */
   .wo-flexible {
-    padding: clamp(1.75rem, 3vw, 2.75rem) 0;
-    background: #f4f0e9;
+    padding: 0 0 clamp(2rem, 4vw, 3.5rem);
   }
-  .wo-flexible__intro {
-    max-width: 54ch;
-    margin: 0 0 1.25rem;
-    color: var(--soft);
-    line-height: 1.55;
-  }
-
-  /* ── Shelves ── */
-  .wo-shelves {
-    padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem);
-  }
-  .wo-shelves__title {
-    margin: 0 0 var(--space-3, 0.75rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
-    line-height: var(--lh-heading, 1.2);
-  }
-  .wo-shelfnav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2, 0.5rem);
-    margin-bottom: var(--space-5, 1.5rem);
-  }
-  .wo-shelfnav__link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 44px;
-    padding: 0 var(--space-4, 1rem);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-pill);
-    color: var(--text);
-    text-decoration: none;
-    font-size: var(--fs-200, 0.8rem);
-    font-weight: var(--fw-semibold, 600);
-  }
-  .wo-shelfnav__link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .wo-shelfnav__link:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .wo-shelf {
-    margin-top: var(--space-6, 2rem);
-    scroll-margin-top: 80px;
-  }
-  .wo-shelf__h {
+  .wo-flexible__title {
     margin: 0 0 var(--space-2, 0.5rem);
     font-family: var(--font-display);
-    font-size: var(--fs-600, 1.35rem);
+    font-size: var(--fs-600);
     line-height: var(--lh-heading, 1.2);
   }
-  .wo-shelf__list {
+  .wo-flexible__intro {
+    max-width: 40ch;
+    margin: 0 0 var(--space-3, 0.75rem);
+    color: var(--soft);
+    font-size: var(--fs-300);
+    line-height: 1.5;
+  }
+  .wo-flexible__list {
     list-style: none;
     margin: 0;
     padding: 0;
   }
+  @media (min-width: 1024px) {
+    .wo-flexible__inner { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+    .wo-flexible__inner > div { position: sticky; top: 5rem; padding-top: .75rem; }
+  }
+
   /* Editorial treatment: a photographic opening, curated cards, then the full calendar. */
   .wo-head { overflow: hidden; padding: 0; background: #0b2e4a; color: #f2efea; border: 0; }
   .wo-head__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .82fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: stretch; min-height: 22rem; }
   .wo-head__copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 4.5rem) 0; }
-  .wo-head__eyebrow, .wo-section-kicker { margin: 0 0 .8rem; color: #a9552a; font-size: var(--fs-100); font-weight: 600; letter-spacing: var(--ls-eyebrow, .1em); line-height: 1.4; text-transform: uppercase; }
-  .wo-head__eyebrow { color: #f5c177; }
-  .wo-head__eyebrow span { margin: 0 .35rem; font-size: var(--fs-400); }
   .wo-head__title { color: #f2efea; }
   .wo-head__context { color: #f5c177; }
   .wo-head__rule { color: #e5e5e0; line-height: 1.5; max-width: 38ch; }
-  .wo-head__calendar-link { display: inline-flex; align-items: center; gap: .45rem; width: fit-content; min-height: 44px; margin-top: .8rem; color: #f5c177; font-size: var(--fs-300); font-weight: 700; text-decoration: underline; text-underline-offset: .2rem; }
-  .wo-head__calendar-link:hover { color: #fff; }
-  .wo-head__calendar-link:focus-visible { outline: 3px solid #f5c177; outline-offset: 3px; }
   .wo-head__figure { position: relative; margin: 0; min-height: 100%; }
   .wo-head__figure::before { content: ''; position: absolute; z-index: 1; inset: 0 auto 0 0; width: 22%; background: linear-gradient(90deg, #0b2e4a, transparent); pointer-events: none; }
   .wo-head__figure img { display: block; width: 100%; height: 100%; min-height: 22rem; object-fit: cover; object-position: right center; }
   .wo-head__figure figcaption { position: absolute; z-index: 2; right: .5rem; bottom: .5rem; max-width: calc(100% - 1rem); padding: .25rem .4rem; border-radius: var(--radius-s); background: rgba(11, 46, 74, .8); color: white; font-size: var(--fs-100); line-height: 1.3; }
   .wo-head__credit-mobile { display: none; }
   .wo-picks { padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(2rem, 4vw, 3.25rem); background: #f2efea; }
-  .wo-picks__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem 2rem; max-width: none; }
-  .wo-picks__dek { max-width: 26ch; margin: 0 0 .2rem; }
-  .wo-picks__all { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; margin-top: 1rem; color: #0b2e4a; font-weight: 750; text-decoration-thickness: 1px; text-underline-offset: .2rem; }
-  .wo-picks__all span { font-size: var(--fs-500); }
-  .wo-picks__all:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
   .wo-days { padding: clamp(2rem, 4vw, 3.5rem) 0; scroll-margin-top: 5rem; }
-  .wo-days__head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; max-width: none; padding-bottom: .5rem; }
-  .wo-days__hint { margin: 0 0 .5rem; color: var(--soft); font-size: var(--fs-300); }
+  .wo-days__head { max-width: none; padding-bottom: .5rem; }
   .wo-day__h { color: #0b2e4a; font-family: var(--font-display); font-size: var(--fs-600); font-weight: 700; letter-spacing: -.02em; text-transform: none; }
-  .wo-shelfnav { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: .8rem; margin-top: 1.25rem; }
-  .wo-shelfnav__tile { min-width: 0; }
-  .wo-shelfnav__link { display: block; width: 100%; height: auto; min-height: 0; padding: 0; overflow: hidden; border: 1px solid #0b2e4a; border-radius: var(--radius-m); background: #0b2e4a; color: #fff; text-decoration: none; transition: transform 160ms ease, border-color 160ms ease; }
-  .wo-shelfnav__link:hover { transform: translateY(-2px); border-color: #a9552a; color: #fff; }
-  .wo-shelfnav__link:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 3px; }
-  .wo-shelfnav__media { display: block; width: 100%; aspect-ratio: 4 / 3; overflow: hidden; background: radial-gradient(circle at 80% 20%, #10527e, #0b2e4a 70%); }
-  .wo-shelfnav__media img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 180ms ease; }
-  .wo-shelfnav__link:hover img { transform: scale(1.04); }
-  .wo-shelfnav__mark { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; color: #f5c177; font-family: var(--font-display); font-size: var(--fs-950); font-weight: 700; line-height: 1; }
-  .wo-shelfnav__info { display: flex; min-height: 4.75rem; flex-direction: column; justify-content: center; gap: .2rem; padding: .7rem .85rem; }
-  .wo-shelfnav__info strong { font-family: var(--font-display); font-size: var(--fs-400); line-height: 1.15; }
-  .wo-shelfnav__info > span { color: #f5c177; font-size: var(--fs-100); font-weight: 650; }
-  .wo-shelfnav__credit { margin: .35rem .2rem 0; color: var(--soft); font-size: var(--fs-100); line-height: 1.4; }
   @media (min-width: 1024px) {
-    .wo-day, .wo-shelf { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-    .wo-day__h, .wo-shelf__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; }
-    .wo-day__list, .wo-day__empty, .wo-shelf__list { grid-column: 2; }
-  }
-  .wo-picks__dek--mobile { display: none; }
-  @media (max-width: 1023px) {
-    .wo-shelfnav { display: flex; flex-wrap: nowrap; overflow-x: auto; gap: .75rem; padding: 0 .15rem .75rem; scroll-snap-type: x mandatory; overscroll-behavior-inline: contain; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
-    .wo-shelfnav::-webkit-scrollbar { display: none; }
-    .wo-shelfnav__tile { flex: 0 0 12rem; scroll-snap-align: start; }
+    .wo-day { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
+    .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; }
+    .wo-day__list, .wo-day__empty { grid-column: 2; }
   }
   @media (max-width: 640px) {
-    .wo-head__inner { position: relative; display: block; min-height: 13rem; }
+    /* .container clips overflow-x site-wide (mobile-fixes.css); .wo-head already hides overflow,
+       so the hero lifts the clip to let the image bleed to both edges. */
+    .wo-head__inner { position: relative; display: block; min-height: 13rem; overflow-x: visible; }
     .wo-head__copy { position: relative; z-index: 2; min-height: 13rem; padding: 1rem 0 .6rem; }
-    .wo-head__eyebrow { margin-bottom: .35rem; font-size: var(--fs-100); }
     .wo-head__context { margin-top: .45rem; font-size: var(--fs-200); }
     .wo-head__rule { display: none; }
-    .wo-head__calendar-link { margin-top: .5rem; }
     .wo-head__figure { position: absolute; inset: 0 calc(50% - 50vw); margin: 0; }
     .wo-head__figure::before { inset: 0; width: auto; background: linear-gradient(90deg, rgba(11, 46, 74, .96) 0%, rgba(11, 46, 74, .9) 58%, rgba(11, 46, 74, .72) 100%); }
     .wo-head__figure img { height: 100%; min-height: 0; object-position: 66% center; }
     .wo-head__figure figcaption { display: none; }
     .wo-head__credit-mobile { display: block; margin: .25rem 0 0; color: #ced8dc; font-size: var(--fs-100); line-height: 1.2; }
-    .wo-picks__head, .wo-days__head { display: block; }
-    .wo-picks { padding-top: .5rem; }
-    .wo-picks__head { margin-bottom: .25rem; }
-    .wo-picks .wo-section-kicker { margin-bottom: .4rem; }
-    .wo-picks__dek--desktop { display: none; }
-    .wo-picks__dek--mobile { display: block; max-width: 34rem; margin: .4rem 0 .7rem; }
-    .wo-days__hint { display: none; }
+    .wo-picks { padding-top: 1rem; }
+    .wo-picks__title { margin-bottom: .75rem; }
   }
 </style>
 <style is:global>
@@ -1266,7 +1156,6 @@ const hubImage = categoryHero('whats-on');
     line-clamp: unset;
     min-height: 0;
   }
-  .wo-picks__swipe { display: none; }
   @media (min-width: 1024px) {
     .wo-picks .v5-card-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1319,30 +1208,15 @@ const hubImage = categoryHero('whats-on');
     .wo-days .wo-day__list, .wo-days .wo-day__empty { grid-column: 2; }
   }
   @media (max-width: 1023px) {
-    .wo-picks__swipe { display: block; margin: .45rem 0 .65rem; color: #4b5862; font-size: var(--fs-300); }
     .wo-picks .v5-card-grid {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      overflow-x: auto;
-      overscroll-behavior-inline: contain;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: thin;
-      scrollbar-color: #5c6b75 transparent;
-      padding-bottom: .75rem;
-    }
-    .wo-picks .v5-card-grid > .pi-card {
-      flex: 0 0 min(22rem, calc(100vw - 5.5rem));
-      scroll-snap-align: start;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: .75rem;
     }
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media,
     .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note { display: none; }
     .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media { aspect-ratio: auto; height: 7rem; min-height: 0; }
     .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate { padding: .75rem 1rem .75rem 5rem; }
     .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic { font-size: var(--fs-400); }
-  }
-  @media (max-width: 640px) {
-    .wo-picks__swipe { margin: .2rem 0 .35rem; }
-    .wo-picks .v5-card-grid > .pi-card { flex-basis: min(23.5rem, calc(100vw - 3rem)); }
   }
 </style>

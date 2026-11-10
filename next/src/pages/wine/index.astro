@@ -2,10 +2,11 @@
 /**
  * /wine/ - v5 Wine hub (T-502, page-redesigns-hubs.md section 4 + wireframes #wine).
  *
- * The sole home of wine. Structure: image-led introduction, visit choices,
- * (CHIP_PRESETS.wine), The Six, Winery kitchens reciprocal module (bridge to
- * /eat/), best-of rail, full directory (every wine venue as a server-rendered
- * compact row with data-facets), one Journal module, retained FAQ, Ask band.
+ * The sole home of wine. Structure (Phase 5, 2026-11-10: say it once):
+ * image-led introduction, visit choices, The Six as six equal cards, one line
+ * of guide links + What's On / Eat & Drink line, filters, full directory
+ * (every wine venue as a server-rendered compact row with data-facets; winery
+ * lunch is the "Lunch attached" chip), one Journal module, retained FAQ.
  *
  * Protect-list page: <title>, meta description, canonical and FAQ schema are
  * UNCHANGED from v4. No venue pages touched, no redirects added here.
@@ -21,15 +22,13 @@ import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Card from '../../components/v5/Card.astro';
-import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
-import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import { freshnessLabel } from '../../lib/freshness';
 import WineVisitChooser from '../../components/v5/hub/WineVisitChooser.astro';
 import { routeSlug, isListableVenue } from '../../lib/editorial';
 import { getFacets, FACET_OPTIONS } from '../../lib/facets';
@@ -154,37 +153,45 @@ const sixSource = [
   ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick === true),
   ...venues.filter((v) => v.data.type === 'winery' && v.data.editorPick !== true),
 ].slice(0, 6);
-const theSixItems = sixSource.map((v) => venueItem(v));
+// The check date is said once, at the head of the full list.
+const theSixItems = sixSource.map((v) => ({ ...venueItem(v), freshness: undefined }));
 
-// ── Winery kitchens: reciprocal module, the HUB-01 bridge with /eat/ ──────
-const kitchens = venues
-  .filter((v) => v.data.type === 'winery' && hasKitchen(v.data))
-  .sort(
-    (a, b) =>
-      Number(b.data.restaurant?.hats ?? 0) - Number(a.data.restaurant?.hats ?? 0) ||
-      score(b) - score(a),
-  )
-  .slice(0, 6);
-const kitchenLines: Record<string, string> = {
-  'pt-leo-estate': 'Sculpture park, cellar door and a bay-view lunch on one estate.',
-  'ten-minutes-by-tractor': 'Estate-grown pinot noir with a seasonal restaurant visit at Main Ridge.',
-  'willow-creek-vineyard': 'Two dining styles at the vineyard, from a relaxed lunch to a longer evening.',
-  'paringa-estate': 'A Red Hill cellar door and restaurant terrace suited to a long lunch.',
-  kooyong: 'A tasting at Kooyong pairs with the shared Port Phillip Estate dining room.',
-  polperro: 'Estate dining tied to its small-production wine program.',
-};
-const kitchenItems = kitchens.map((v) => {
+// The "Winery kitchens" module that sat here (2026-11-10, Phase 5) repeated
+// six venues already in the shortlist and the full list (Paringa Estate and
+// Polperro appeared three times). Winery lunch is now the "Lunch attached"
+// filter on the full list (WineVisitChooser links straight to it), rows
+// with a kitchen keep their "Kitchen on site" tag, and the /eat/ bridge is
+// a text link beside the What's On line.
+
+// ── Directory: every wine venue, one row each, server-rendered. Rows say
+//    less: no thumbnail or placeholder plate, no per-row check date, and no
+//    generic "check hours" line standing in for a missing verdict. ────────
+const GENERIC_VERDICTS = new Set([
+  'Choose your tasting format, then check current hours and booking arrangements with the producer.',
+  'Check the current visitor offering and opening days before planning a stop.',
+]);
+const directoryItems = venues.map((v) => {
   const item = venueItem(v);
-  const dining = firstSentence(v.data.restaurant?.description);
   return {
     ...item,
-    verdict: kitchenLines[routeSlug(v)] ?? (dining && wordCount(dining) <= 25 ? dining : item.verdict),
-    meta: [areaOf(v.data), 'Tasting + restaurant'].filter(Boolean) as string[],
+    image: undefined,
+    freshness: undefined,
+    verdict: item.verdict && GENERIC_VERDICTS.has(item.verdict) ? undefined : item.verdict,
   };
 });
 
-// ── Directory: every wine venue, one row each, server-rendered ────────────
-const directoryItems = venues.map((v) => venueItem(v));
+/** Say the check date once, at the head of the list, instead of on every row. */
+function checkedSpan(dates: Array<string | undefined>): string {
+  const sorted = dates.filter((d): d is string => Boolean(d)).sort();
+  const first = freshnessLabel(sorted[0])?.replace('Reviewed ', '');
+  const last = freshnessLabel(sorted[sorted.length - 1])?.replace('Reviewed ', '');
+  if (!first || !last) return '';
+  const lead = sorted.length === dates.length ? 'Details checked' : 'Most details checked';
+  if (first === last) return `${lead} ${first}`;
+  const [fm, fy] = first.split(' ');
+  return `${lead} between ${fy === last.split(' ')[1] ? fm : first} and ${last}`;
+}
+const directoryChecked = checkedSpan(venues.map((v) => iso(informationCheckedOn(v.data))));
 
 // ── Best-of rail (canonical guides only; absorbed dupes not linked) ───────
 const bestOfRail = [
@@ -321,57 +328,24 @@ const faqSchema = {
   <!-- 2. The Six -->
   <TheSix
     id="the-six"
-    eyebrow="The cellar-door shortlist"
     heading="Cellar doors to build a day around"
-    sub="An editorial shortlist. Individual check dates describe the recorded research; confirm current hours and bookings with the producer."
+    sub="Six rooms worth the drive, chosen by our editors."
     surface="wine"
     items={theSixItems}
+    layout="grid"
+    trip={false}
   />
 
-  <!-- 4. Winery kitchens: reciprocal module, fixes HUB-01 both directions.
-       Every kitchen is also a row in the directory below, so this module
-       filters but does not count (countable={false}). -->
-  <DirectoryRows
-    id="winery-kitchens"
-    eyebrow="Winery dining"
-    heading="Winery kitchens"
-    sub="Pair a tasting with a meal at the same estate. Check the dining room’s current service days and book the meal separately where required."
-    surface="wine"
-    noun="winery kitchens"
-    items={kitchenItems}
-    topLink={{ label: 'Restaurants, in Eat & Drink', href: '/eat/' }}
-    countable={false}
-    missingImagePlate
-    fullVerdicts
-  />
-
+  <!-- The six guide cards ("Read before you book") and the Journal row were
+       two reading lists. The guides are now one line of links; the Journal
+       keeps the photographs. -->
   <div class="wine-mid container">
-    <!-- 5. Best-of rail (canonical guides; cellar-doors + best-wineries
-         absorb into best-cellar-doors per the sitemap, handled elsewhere) -->
-    <section class="wine-rail" aria-labelledby="wine-rail-h">
-      <h2 id="wine-rail-h" class="wine-rail__heading">Read before you book</h2>
-      {/* The section eyebrow already reads "The guides"; the cards drop the
-          per-card GUIDE stamp. Text-only rail, so no media fallback. */}
-      <CardGrid label="Wine guides" layout="grid" maxCols={3}>
-        {bestOfRail.map((guide, i) => (
-          <Card
-            variant="guide"
-            title={guide.title}
-            href={guide.href}
-            entityType="page"
-            entitySlug={guide.entitySlug}
-            showEyebrow={false}
-            verdict={guide.verdict}
-            surface="wine"
-            position={i + 1}
-          />
-        ))}
-      </CardGrid>
-    </section>
-
-    <!-- Events: one line + link, not a strip (spec point 17) -->
+    <nav class="wine-guides" aria-label="Wine guides">
+      <span>Read before you book:</span>
+      {bestOfRail.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={guide.href}>{guide.title}</a></>))}
+    </nav>
     <p class="wine-events-line">
-      Release weekends and winemaker dinners live in <a href="/whats-on/">What&rsquo;s On</a>.
+      Release weekends and winemaker dinners live in <a href="/whats-on/">What&rsquo;s On</a>. Restaurants away from the vineyards are in <a href="/eat/">Eat &amp; Drink</a>.
     </p>
   </div>
 
@@ -383,22 +357,20 @@ const faqSchema = {
         <SortControl />
       </FilterBar>
       <p class="wine-filter-hint">Swipe to see more visit filters <span aria-hidden="true">&rarr;</span></p>
-      <PlanningHelp />
     </CategoryBrowse>
   </div>
 
   <!-- 6. Directory: every wine venue as a server-rendered compact row with
        data-facets. Breweries and distilleries are type facets in the sheet,
-       not separate one-card grids (HUB-13). -->
+       not separate one-card grids (HUB-13). Winery lunch is the "Lunch
+       attached" chip in the filter bar above. -->
   <DirectoryRows
     id="wine-directory"
-    eyebrow="The full list"
     heading={`All ${venues.length} wine-country places`}
-    sub="Find cellar doors, breweries and distilleries by location and the visit you want."
+    sub={directoryChecked ? `${directoryChecked}.` : undefined}
     surface="wine"
     noun="cellar doors"
     items={directoryItems}
-    missingImagePlate
     desktopColumns={2}
     fullVerdicts
     topLink={{ label: "View the winery map", href: "/map/?cat=winery" }}
@@ -446,29 +418,24 @@ const faqSchema = {
   .wine-mid {
     display: flex;
     flex-direction: column;
-    gap: var(--space-5, 1.5rem);
-    padding: var(--space-6, 2rem) 0;
+    gap: var(--space-2, 0.5rem);
+    padding: 0 0 var(--space-6, 2rem);
   }
 
-  /* Best-of rail */
-  .wine-rail__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
+  /* Guides: one quiet line of links under the shortlist, no cards, no rules. */
+  .wine-guides {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0 .35rem;
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: var(--ls-eyebrow, .1em);
-    text-transform: uppercase;
-    color: var(--teal-text);
+    font-size: var(--fs-300);
+    line-height: 1.5;
+    color: var(--soft);
   }
-  .wine-rail__heading {
-    margin: 0 0 var(--space-5, 1.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.75rem, 1.5rem + 1.2vw, 2.25rem));
-    font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.14);
-    letter-spacing: -0.01em;
-    color: var(--text);
-  }
+  .wine-guides > span:first-child { margin-inline-end: .25rem; }
+  .wine-guides a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
+  .wine-guides a:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
 
   /* Events one-liner */
   .wine-events-line {

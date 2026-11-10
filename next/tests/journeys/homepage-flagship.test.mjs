@@ -20,6 +20,7 @@ test('homepage first visit offers a visible action, early orientation and no mot
         action:document.querySelector('.home-cover__actions a').getBoundingClientRect().bottom,
         chooser:document.querySelector('#home-choose').getBoundingClientRect().top,
         orientation:document.querySelector('.home-orientation').getBoundingClientRect().top,
+        journal:document.querySelector('.home-journal')?.getBoundingClientRect().top ?? Infinity,
         heroSize:parseFloat(getComputedStyle(document.querySelector('main h1')).fontSize),
         motion:document.querySelectorAll('main video').length,
         cookie:document.querySelector('#cookie-banner')?.getAttribute('data-state'),
@@ -29,7 +30,9 @@ test('homepage first visit offers a visible action, early orientation and no mot
       assert.equal(layout.cookie,'visible');
       assert.ok(layout.action < 720,`primary action obscured at ${width}: ${JSON.stringify(layout)}`);
       assert.ok(layout.chooser < 844,`chooser starts below first screen at ${width}`);
-      assert.ok(layout.orientation < 1688,`orientation starts beyond two screens at ${width}`);
+      // 2026-11-10 (Phase 5): orientation follows Plan your day and This weekend;
+      // it must still precede the Journal feature rather than sit within two screens.
+      assert.ok(layout.orientation < layout.journal,`orientation falls below the Journal feature at ${width}`);
       assert.ok(layout.heroSize <= 64);
       assert.equal(layout.motion,0);
       assert.deepEqual(videos,[]);

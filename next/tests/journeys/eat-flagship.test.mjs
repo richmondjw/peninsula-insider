@@ -8,9 +8,9 @@ const visibleRows = () => [...document.querySelectorAll('#directory .v5-director
 test('Eat search composes with category and town, survives reload and clears', async () => {
   const reader = await site.reader();
   try {
-    await reader.load('/eat/');
-    await reader.page.select('#eat-category', 'cafe');
-    await reader.page.select('#eat-town', 'mornington');
+    // Phase 5: type and town come from the directory filter state (the hero
+    // finder's duplicate selects were removed); search sits beside the filters.
+    await reader.load('/eat/?cat=cafe&place=mornington');
     await reader.page.type('#eat-find', 'commonfolk');
     await reader.waitFor(() => [...document.querySelectorAll('#directory .v5-directory__row')].filter(el => !el.hidden && el.getBoundingClientRect().height > 0).length === 1, 'combined search');
     assert.match(await reader.page.$eval('#directory .v5-directory__row:not([hidden]):not([data-page-hidden])', el => el.textContent), /Commonfolk/);
@@ -61,7 +61,7 @@ test('all eight anchor pages share readable mobile typography without overflow',
       const proseFonts = await reader.page.$$eval('main p', ps => ps.filter(p => p.getBoundingClientRect().height > 0).map(p => getComputedStyle(p).fontFamily));
       assert.ok(proseFonts.every(font => font.includes('Figtree')), `${route}: ${proseFonts.join(', ')}`);
       if(route !== '/') assert.equal(style.size,32,route);
-      if(route === '/eat/') assert.ok(await reader.page.$eval('.eat-finder__form button', el => el.getBoundingClientRect().bottom <= innerHeight), 'first-visit finder action fits the mobile screen');
+      if(route === '/eat/') assert.ok(await reader.page.$eval('.eat-entry__primary', el => el.getBoundingClientRect().bottom <= innerHeight), 'first-visit browse action fits the mobile screen');
     }
   } finally { await reader.close(); }
 });
@@ -82,7 +82,6 @@ test('six planning notes remain fully readable beside working mobile and desktop
  const reader=await site.reader();try{
  for(const width of [390,1440]){
  await reader.page.setViewport({width,height:844});await reader.load('/eat/');
- await reader.page.$eval('.v5-six__more',el=>el.open=true);
  const notes=await reader.page.$$eval('#the-six .pi-card__planning',els=>els.map(el=>({text:el.textContent.trim(),rect:el.getBoundingClientRect().toJSON(),clipped:el.scrollHeight>el.clientHeight+1,overflow:el.scrollWidth>el.clientWidth+1})));
  assert.equal(notes.length,6,'six complete choices retain their practical planning notes');
  assert.ok(notes.every(note=>note.text.length>0&&note.rect.height>0&&!note.clipped&&!note.overflow),JSON.stringify({width,notes}));

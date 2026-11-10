@@ -23,15 +23,13 @@ import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import Card from '../../components/v5/Card.astro';
-import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import DirectoryRows from '../../components/v5/hub/DirectoryRows.astro';
 import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
-import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import { freshnessLabel } from '../../lib/freshness';
 import StayBaseComparison from '../../components/v5/hub/StayBaseComparison.astro';
 import { getFacets, type FacetKey } from '../../lib/facets';
 import { routeSlug, isStayVenue, typeLabel, titleize, isListableVenue } from '../../lib/editorial';
@@ -153,7 +151,8 @@ const sixItems = SIX
   .map(({ slug, verdict }) => {
     const v = bySlug.get(slug);
     if (!v) return null;
-    const item = stayItem(v, { verdict });
+    // The check date is said once, at the head of the full list.
+    const item = { ...stayItem(v, { verdict }), freshness: undefined };
     return slug === 'jackalope'
       ? {
           ...item,
@@ -169,11 +168,10 @@ const sixItems = SIX
   })
   .filter((x): x is NonNullable<typeof x> => Boolean(x));
 
-// ── Directory: the FULL corpus, The Six first, then town/name order ─────────
-const sixSlugs = new Set(SIX.map((s) => s.slug));
-const sixVenues = SIX.map(({ slug }) => bySlug.get(slug)).filter(Boolean);
-const restVenues = venues
-  .filter((v) => !sixSlugs.has((v.id ?? v.data.slug) as string))
+// ── Directory: the FULL corpus in town/name order. The shortlist is no
+//    longer repeated at its head (say it once); its stays keep their place
+//    in town order, so a filtered list still holds every result. ──────────
+const allVenues = [...venues]
   .sort((a, b) => {
     const townA = String(a.data.place?.id ?? a.data.place ?? '');
     const townB = String(b.data.place?.id ?? b.data.place ?? '');
@@ -211,13 +209,33 @@ const directoryVerdicts: Record<string, string> = {
   'mantons-creek-estate': 'Shoreham vineyard accommodation with lunch and a cellar door.',
   'the-continental-sorrento': 'Heritage Sorrento hotel beside The Continental dining precinct.',
 };
-const directoryItems = [...sixVenues, ...restVenues].map((v) => {
+// Rows say less: name, one line, type and town. No per-row operator button
+// (each stay page carries it), no repeated check date, and no 'Couples' tag
+// where it is simply the default (the Couples filter still works).
+const directoryItems = allVenues.map((v) => {
   const slug = String(v.id ?? v.data.slug);
+  const item = stayItem(v, { verdict: directoryVerdicts[slug] });
   return {
-    ...stayItem(v, { verdict: directoryVerdicts[slug] }),
+    ...item,
+    meta: item.meta.filter((m) => m !== 'Couples'),
     image: undefined,
+    booking: undefined,
+    freshness: undefined,
   };
 });
+
+/** Say the check date once, at the head of the list, instead of on every row. */
+function checkedSpan(dates: Array<string | undefined>): string {
+  const sorted = dates.filter((d): d is string => Boolean(d)).sort();
+  const first = freshnessLabel(sorted[0])?.replace('Reviewed ', '');
+  const last = freshnessLabel(sorted[sorted.length - 1])?.replace('Reviewed ', '');
+  if (!first || !last) return '';
+  const lead = sorted.length === dates.length ? 'Details checked' : 'Most details checked';
+  if (first === last) return `${lead} ${first}`;
+  const [fm, fy] = first.split(' ');
+  return `${lead} between ${fy === last.split(' ')[1] ? fm : first} and ${last}`;
+}
+const directoryChecked = checkedSpan(venues.map((v) => iso(informationCheckedOn(v.data))));
 
 // ── Best-of rail (guide cards to existing /stay/ list pages) ────────────────
 const bestOfGuides = [
@@ -332,47 +350,22 @@ export const prerender = true;
     <TheSix
       id="stay-shortlist"
       heading="Stays worth building a weekend around"
-      sub="Six distinct ways in. Check the current room, inclusions and dates with each operator."
+      sub="Six distinct ways in, chosen by our editors."
       surface="stay"
       items={sixItems}
+      layout="grid"
+      trip={false}
     />
 
-    <div class="container stay-selection-note">
-      <p>Our shortlist compares different settings and stay formats. Use each stay guide for the detail behind the choice, then confirm rooms and inclusions with the operator.</p>
-      <a href="/about/#how-we-choose">How we choose and check our picks <span aria-hidden="true">&rarr;</span></a>
+    <!-- The selection note and the guide cards were two more sections saying
+         "here is how to choose". One quiet line each now. -->
+    <div class="container stay-after-six">
+      <p><a href="/about/#how-we-choose">How we choose and check our picks</a></p>
+      <nav aria-label="Stay guides">
+        <span>Stay guides:</span>
+        {bestOfGuides.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}</a></>))}
+      </nav>
     </div>
-
-    <section class="stay-guides" aria-labelledby="stay-guides-heading">
-      <div class="container">
-        <div class="stay-guides__head">
-          <h2 id="stay-guides-heading">Find the stay that fits</h2>
-          <p>Start with a broad edit, or follow the kind of weekend you have in mind.</p>
-        </div>
-        <CardGrid label="Featured stay guides" layout="grid" maxCols={3}>
-          {[bestOfGuides[0], bestOfGuides[3], bestOfGuides[5]].map((guide, i) => (
-            <Card
-              variant="guide"
-              title={guide.title}
-              href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}
-              entityType="page"
-              entitySlug={`stay-${guide.slug}`}
-              showEyebrow={false}
-              verdict={guide.verdict}
-              surface="stay"
-              position={i + 1}
-            />
-          ))}
-        </CardGrid>
-        <details class="stay-guides__more">
-          <summary>Explore more stay guides <span aria-hidden="true">&rarr;</span></summary>
-          <nav aria-label="More stay guides">
-            {bestOfGuides.filter((_, i) => ![0, 3, 5].includes(i)).map((guide) => (
-              <a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}<span aria-hidden="true">&rarr;</span></a>
-            ))}
-          </nav>
-        </details>
-      </div>
-    </section>
   </div>
 
   <div id="browse-stay" class="stay-browse">
@@ -388,20 +381,18 @@ export const prerender = true;
       >
         <SortControl />
       </FilterBar>
-      <PlanningHelp />
     </CategoryBrowse>
   </div>
 
   <DirectoryRows
     id="stay-directory"
     heading={`All ${stayCount} places to stay`}
-    sub="Compare the locality and stay format. Open a stay for room details and the operator link."
+    sub={`${directoryChecked ? `${directoryChecked}. ` : ''}Open a stay for rooms and the operator link, and confirm rates and inclusions with them.`}
     surface="stay"
     noun="stays"
     items={directoryItems}
     desktopColumns={2}
     fullVerdicts
-    detailActionFallback
     topLink={{ label: 'View the stay map', href: '/map/?cat=hotel,villa,suite,accommodation,cottage,lodge,glamping,farm-stay' }}
     emptyHeading="Nothing matches those filters"
     emptyBody="Clear a filter to see more places to stay."
@@ -453,7 +444,7 @@ export const prerender = true;
     gap: clamp(2rem, 4vw, 4.5rem);
     padding-block: clamp(2rem, 4.5vw, 4.5rem);
   }
-  .stay-hero__eyebrow, .stay-guides__eyebrow {
+  .stay-hero__eyebrow {
     margin: 0 0 1rem;
     color: var(--accent);
     font-family: var(--font-ui);
@@ -506,7 +497,7 @@ export const prerender = true;
   .stay-hero__primary:hover { background: #1c4962; }
   .stay-hero__secondary { color: var(--accent); }
   .stay-hero__secondary:hover { text-decoration: underline; text-underline-offset: .2em; }
-  .stay-hero__actions a:focus-visible, .stay-guides a:focus-visible, .stay-guides summary:focus-visible {
+  .stay-hero__actions a:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 3px;
   }
@@ -526,62 +517,13 @@ export const prerender = true;
     line-height: 1.45;
   }
   #choose-base, #browse-stay, :global(#stay-directory) { scroll-margin-top: 10rem; }
-  .stay-selection-note { padding-bottom: 2rem; }
-  .stay-selection-note p { max-width: 75ch; margin: 0 0 .5rem; color: var(--soft); line-height: 1.55; }
-  .stay-selection-note a { display: inline-flex; align-items: center; gap: .5rem; min-height: 44px; color: var(--teal-text); font-weight: 650; text-underline-offset: .2em; }
-  .stay-guides {
-    padding: clamp(3rem, 6vw, 5rem) 0;
-    background: #f2eee6;
-  }
-  .stay-guides__head { margin-bottom: 1.5rem; }
-  .stay-guides__eyebrow { margin-bottom: .55rem; }
-  .stay-guides h2 {
-    margin: 0;
-    color: var(--text);
-    font-family: var(--font-display);
-    font-size: var(--fs-700);
-    line-height: 1.15;
-    letter-spacing: -.035em;
-    text-wrap: balance;
-  }
-  .stay-guides__head > p:last-child {
-    margin: .75rem 0 0;
-    color: var(--soft);
-    font-size: var(--fs-400);
-    line-height: 1.55;
-  }
-  .stay-guides__more {
-    margin-top: 1.4rem;
-  }
-  .stay-guides__more summary {
-    display: flex;
-    align-items: center;
-    gap: .75rem;
-    min-height: 50px;
-    width: fit-content;
-    cursor: pointer;
-    color: var(--teal-text);
-    font-weight: 700;
-  }
-  .stay-guides__more nav {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: .15rem 1.5rem;
-    padding-block: .35rem 1rem;
-  }
-  .stay-guides__more nav a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: .75rem;
-    min-height: 44px;
-    border-bottom: 1px solid var(--border);
-    color: var(--text);
-    font-size: var(--fs-300);
-    font-weight: 650;
-    text-decoration: none;
-  }
-  .stay-guides__more nav a:hover { color: var(--accent); }
+  /* After the shortlist: two quiet lines, no rules, no tinted band. */
+  .stay-after-six { padding-bottom: var(--space-6, 2rem); color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .stay-after-six p { margin: 0; }
+  .stay-after-six nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0 .35rem; }
+  .stay-after-six nav > span:first-child { margin-inline-end: .25rem; }
+  .stay-after-six a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: 600; text-underline-offset: .2em; }
+  .stay-after-six a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
   .stay-browse { padding-top: clamp(2rem, 4vw, 3.25rem); }
   :global(#stay-directory .stay-directory-refine) { display: none; }
   @media (max-width: 760px) {
@@ -684,10 +626,8 @@ export const prerender = true;
     .stay-hero__lead { margin-top: .8rem; font-size: var(--fs-400); line-height: 1.5; }
     .stay-hero__actions { margin-top: 1.2rem; }
     .stay-hero__visual img { height: clamp(15.5rem, 60vw, 24rem); }
-    .stay-guides__more nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 560px) {
-    .stay-guides__more nav { grid-template-columns: 1fr; }
     :global(#stay-directory .pi-card.pi-card--compact),
     :global(#stay-shortlist .pi-card.pi-card--compact) {
       grid-template-columns: 64px minmax(0, 1fr);
