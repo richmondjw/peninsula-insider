@@ -23,8 +23,6 @@ import { ClientRouter } from 'astro:transitions';
 import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
 // The conditions strip and issue stamp (visual design review finding #1,
 // P0-1 / P0-2). Sits above the masthead in normal flow, site-wide.
-import UtilityBar from '../components/UtilityBar.astro';
-import SiteUpdateBanner from '../components/SiteUpdateBanner.astro';
 
 
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
@@ -358,14 +356,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  <SiteUpdateBanner />
-
-  {/* Conditions strip + issue stamp. Deliberately above the masthead and
-      deliberately NOT sticky: it reads as a printed dateline and scrolls
-      away, leaving the sticky masthead (and its --masthead-h measurement
-      below) exactly as they were. */}
-  <UtilityBar landmarkLabel={normalizedPath === '/wine/best-cellar-doors/' ? 'Peninsula conditions and edition' : undefined} />
-
+  {/* 2026-11-10: the "Under update" notice and the conditions/edition dateline now sit inside
+      the masthead row (V5Masthead), so the header is two bands, not four. */}
   <V5Masthead section={section} />
 
   {/* Measure the masthead height and publish it as --masthead-h on

@@ -3,8 +3,7 @@
  * TheSix (v5 hub module) - the verdict layer: six cards worth planning
  * around this month (page-redesigns section 2 block 9.3; wireframes #eat
  * note 3). Editorially pinned, never algorithmic; each card is a Card(venue)
- * with a Critic verdict of 25 words or fewer, freshness label, Save and
- * "+ Trip".
+ * with a verdict of 25 words or fewer.
  *
  * One filter state governs the whole page: every item here carries a
  * `data-facets` payload (values from lib/facets getFacets) on its `li`, so
@@ -12,11 +11,14 @@
  * Editorial order is fixed: no data-sort-container on this list.
  *
  * Filterable, never countable: every pick here is pinned FROM the directory
- * below and is rendered a second time, so these `li`s deliberately omit
- * `data-filter-countable` (COUNTABLE_ATTR in lib/v5-filter-state). Counting
- * them is what put "Showing all 60 places" under "All 53 places to eat".
+ * below, so these `li`s deliberately omit `data-filter-countable`
+ * (COUNTABLE_ATTR in lib/v5-filter-state). The directory hides its copies of
+ * these picks while the shortlist is on screen (DirectoryRows `featured`).
  *
- * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
+ * Round 2 (2026-11-10): six equal cards in one grid, the one card style. A
+ * pick without a rights-cleared photograph is a typographic card on paper,
+ * never a stand-in illustration. On a phone the six become one swipe row, so
+ * the shortlist costs a screen of scroll rather than six.
  */
 import Card from '../Card.astro';
 import CardGrid from '../CardGrid.astro';
@@ -30,10 +32,12 @@ export interface SixItem {
   entityType: CmsEntityType;
   entitySlug: string;
   image?: CardImage;
+  /** Retired with the house plate. Accepted, ignored. */
   plateLabel?: string;
   imageEdit?: { entityType: CmsEntityType; entitySlug: string; fieldPath: string };
   /** Critic voice, 25 words maximum (Card warns over). */
   verdict?: string;
+  /** Joins the card's one meta line. */
   planningNote?: string;
   /** Up to 3 plain-text chips. */
   meta?: string[];
@@ -48,137 +52,110 @@ export interface SixItem {
 }
 
 export interface Props {
-  /** h2, e.g. "Six tables worth planning around this month". */
   heading: string;
-  /** Uppercase eyebrow above the heading (teal). */
   eyebrow?: string;
-  /** Optional one-line support under the heading. */
   sub?: string;
   /** Analytics surface (eat, wine, stay, explore). */
   surface: string;
   /** Exactly six editorially pinned items (build warns off-count). */
   items: SixItem[];
   id?: string;
-  /**
-   * Type eyebrow on each card. Off by default: every item here is a venue
-   * and the section heading already says so ("Six tables worth planning
-   * around this month"), so six identical VENUE stamps add nothing.
-   */
+  /** Type eyebrow on each card. Off by default: the heading says what they are. */
   showEyebrow?: boolean;
-  /** Show the house plate where a documented image is unavailable. */
+  /** Retired: a pick without a photograph is always a text card now. Accepted, ignored. */
   missingImagePlate?: boolean;
   /** Keep documented listing photography fixed when the public CMS hydrates image slots. */
   suppressImageHydration?: boolean;
   lockImageEditing?: boolean;
+  /** Retired: 'feature' now renders the same grid. Accepted for compatibility. */
+  layout?: 'feature' | 'grid';
+  /** Render "+ Trip" on each pick. Hubs turn it off (Save is the one card action). */
+  trip?: boolean;
 }
 
-const { heading, eyebrow, sub, surface, items, id, showEyebrow = false, missingImagePlate = false, suppressImageHydration = false, lockImageEditing = false } = Astro.props;
+const { heading, eyebrow, sub, surface, items, id, showEyebrow = false, suppressImageHydration = false, lockImageEditing = false, trip = true } = Astro.props;
 
 if (items.length !== 6) {
   console.warn(`[v5 TheSix] expected 6 items for surface "${surface}", got ${items.length}`);
 }
 const six = items.slice(0, 6);
-
-/* A missing lead image gets the editorial house plate when the set has
-   photography. Other missing images stay text-first unless a parent asks
-   for plates throughout. An entirely image-free set stays text-only. */
+/* In a set with photography, a pick without one becomes a text card. */
 const anyImage = six.some((item) => Boolean(item.image?.src));
+const headingId = `${id ?? `six-${surface}`}-heading`;
 ---
 
-<section class:list={["v5-six", { "v5-six--image-locked": lockImageEditing }]} id={id} aria-labelledby={`${id ?? `six-${surface}`}-heading`}>
+<section class="v5-six" id={id} aria-labelledby={headingId}>
   <div class="container">
     <div class="v5-six__header">
       {eyebrow && <p class="v5-six__eyebrow">{eyebrow}</p>}
-      <h2 class="v5-six__heading" id={`${id ?? `six-${surface}`}-heading`}>{heading}</h2>
+      <h2 class="v5-six__heading" id={headingId}>{heading}</h2>
       {sub && <p class="v5-six__sub">{sub}</p>}
     </div>
-    {[six.slice(0, 3), six.slice(3)].map((group, groupIndex) => {
-      const Content = (
-        <CardGrid label={groupIndex === 0 ? heading : 'More editorial choices'}>
-          {group.map((item, i) => (
-            <li class="v5-six__item" data-facets={item.facets ? JSON.stringify(item.facets) : undefined} data-title={item.title}>
-              <Card as="div" variant={groupIndex === 0 && i === 0 ? 'venue' : 'compact-row'}
-                title={item.title} href={item.href} entityType={item.entityType} entitySlug={item.entitySlug}
-                image={item.image} imageEdit={item.imageEdit} suppressImageHydration={suppressImageHydration} lockImageEditing={lockImageEditing} mediaFallback={anyImage && (missingImagePlate || (groupIndex === 0 && i === 0))}
-                mediaFallbackMark={lockImageEditing ? String(groupIndex * 3 + i + 1).padStart(2, '0') : undefined} planningNote={item.planningNote} mediaFallbackLabel={item.plateLabel ?? item.meta?.[1]} showEyebrow={showEyebrow} verdict={item.verdict} meta={item.meta}
-                priceBand={item.priceBand} freshness={item.freshness} freshnessKind="checked"
-                booking={item.booking} partnerLabel={item.partnerLabel} saveSection={item.saveSection}
-                trip={true} surface={surface} position={groupIndex * 3 + i + 1} />
-            </li>
-          ))}
-        </CardGrid>
-      );
-      return groupIndex === 0
-        ? <div class="v5-six__lead">{Content}</div>
-        : group.length > 0 && <details class="v5-six__more"><summary>See {group.length} more editorial choices</summary>{Content}</details>;
-    })}
+    <CardGrid label={heading} layout="grid" maxCols={3}>
+      {six.map((item, i) => (
+        <li class="v5-six__item" data-facets={item.facets ? JSON.stringify(item.facets) : undefined} data-title={item.title}>
+          <Card as="div" variant="venue"
+            title={item.title} href={item.href} entityType={item.entityType} entitySlug={item.entitySlug}
+            image={item.image} imageSizes="(max-width: 767px) 82vw, (max-width: 1023px) 50vw, 400px" imageEdit={item.imageEdit}
+            suppressImageHydration={suppressImageHydration} lockImageEditing={lockImageEditing} mediaFallback={anyImage}
+            planningNote={item.planningNote} showEyebrow={showEyebrow} verdict={item.verdict} meta={item.meta}
+            priceBand={item.priceBand} freshness={item.freshness} freshnessKind="checked"
+            booking={item.booking} partnerLabel={item.partnerLabel} saveSection={item.saveSection}
+            trip={trip} surface={surface} position={i + 1} />
+        </li>
+      ))}
+    </CardGrid>
   </div>
 </section>
 
 <style>
-  .v5-six {
-    padding: var(--space-5, 1.5rem) 0 var(--space-6, 2rem);
-  }
-  .v5-six__lead :global(.v5-card-grid) { grid-template-columns: 1fr; }
-  .v5-six__lead :global(.pi-card--venue .pi-card__media--plate) { background: radial-gradient(circle at 80% 24%, rgba(255,255,255,.12), transparent 30%), linear-gradient(145deg, #123e53, #0d2f48); }
-  .v5-six__lead :global(.pi-card--venue .pi-card__media--plate::after) { content: "01"; position: absolute; right: 6%; bottom: -0.18em; color: rgba(255,255,255,.11); font: 700 clamp(8rem, 18vw, 17rem)/1 var(--font-display); pointer-events: none; }
-  .v5-six--image-locked :global(.pi-card--compact) { flex-wrap: wrap; }
-  .v5-six--image-locked :global(.pi-card--compact .pi-card__body) { flex: 1 1 70%; min-width: 0; }
-  .v5-six--image-locked :global(.pi-card--compact .pi-card__actions) { width: 100%; margin-left: 0; flex-wrap: wrap; }
-  .v5-six--image-locked :global(.pi-card__dek) { display: block; -webkit-line-clamp: unset; overflow: visible; }
-  .v5-six--image-locked :global(.pi-card--compact .pi-card__meta) { white-space: normal; flex-wrap: wrap; }
-  .v5-six--image-locked :global(.pi-card--compact .pi-card__body) { align-self: center; }
-  .v5-six--image-locked :global(.pi-card__planning) { margin: .6rem 0 0; font-size: var(--fs-300); line-height: 1.5; color: var(--text); }
-  .v5-six__more { margin-top: 1rem; border-block: 1px solid var(--border); }
-  .v5-six__more summary { padding-block: 0.75rem; min-height: 44px; cursor: pointer; font-weight: 600; color: var(--teal-text); }
-  .v5-six__more summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .v5-six__more :global(.v5-card-grid) { grid-template-columns: 1fr; padding-block: 1rem; }
-  @media (min-width: 64em) {
-    .v5-six__lead :global(.v5-card-grid) { grid-template-columns: 1.2fr 1fr; }
-    .v5-six__lead .v5-six__item:first-child { grid-row: span 2; }
-    .v5-six__lead :global(.pi-card--venue .pi-card__media) { aspect-ratio: 16 / 9; }
-  }
-  @media (max-width: 22.5em) {
-    .v5-six--image-locked :global(.pi-card--compact) { flex-wrap: wrap; }
-    .v5-six--image-locked :global(.pi-card--compact .pi-card__body) { flex: 1 1 calc(100% - 68px); min-width: 0; }
-    .v5-six--image-locked :global(.pi-card--compact .pi-card__actions) { flex: 1 0 100%; justify-content: flex-end; margin-left: 0; }
-  }
-  .v5-six__header {
-    margin-bottom: var(--space-5, 1.5rem);
-  }
+  .v5-six { padding-block: var(--space-7); }
+  .v5-six__header { margin-bottom: var(--space-5); }
   .v5-six__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    margin: 0 0 var(--space-2);
+    font: 600 var(--fs-100)/var(--lh-label) var(--font-ui);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
-    color: var(--teal-text);
+    color: var(--soft);
   }
   .v5-six__heading {
     margin: 0;
+    max-width: 22ch;
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-size: var(--fs-700);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.14);
     letter-spacing: -0.01em;
     color: var(--text);
-    max-width: 22ch;
     text-wrap: balance;
   }
   .v5-six__sub {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    line-height: var(--lh-ui, 1.4);
-    color: var(--soft);
+    margin: var(--space-2) 0 0;
     max-width: var(--measure-dek, 52ch);
+    font-size: var(--fs-400);
+    line-height: var(--lh-dek);
+    color: var(--soft);
   }
-  .v5-six__item {
-    list-style: none;
-    display: flex;
-  }
-  .v5-six__item > :global(.pi-card) {
-    flex: 1;
+  .v5-six__item { list-style: none; display: flex; }
+  .v5-six__item > :global(.pi-card) { flex: 1; }
+  /* Rows of three share one row gap with the cards' own rhythm. */
+  .v5-six :global(.v5-card-grid) { row-gap: var(--space-7); column-gap: var(--space-5); }
+  /* Phone: one swipe row of the same cards, bleeding to the screen edge. */
+  @media (max-width: 47.99em) {
+    .v5-six :global(.v5-card-grid) {
+      grid-template-columns: none;
+      grid-auto-flow: column;
+      grid-auto-columns: min(82%, 20rem);
+      gap: var(--space-4);
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 16px;
+      margin-inline: -16px;
+      padding: 0 16px var(--space-2);
+      scrollbar-width: none;
+    }
+    .v5-six :global(.v5-card-grid)::-webkit-scrollbar { display: none; }
+    .v5-six__item { scroll-snap-align: start; }
   }
 </style>

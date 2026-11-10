@@ -8,14 +8,10 @@ const initial = matchPlans(model.plans, {});
 const recommended = initial.ids.map(id => model.plans.find(plan => plan.id === id)!);
 const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, plan])), contexts: model.contexts };
 ---
-<section class="plan-engine" aria-labelledby="plan-engine-heading">
-  <div class="container">
-    <div class="plan-engine__intro">
-      <div><p class="plan-engine__eyebrow">Chosen by Peninsula Insider</p><h2 id="plan-engine-heading" tabindex="-1" data-plan-results-heading>A good place to start</h2></div>
-      <a href="#all-plans">See every itinerary <span aria-hidden="true">↓</span></a>
-    </div>
-    <p class="plan-engine__explanation" data-plan-results-note>A weekend with a bit of everything, plus two other ways to spend your time.</p>
-    <p id="pi-results-status" class="plan-engine__sr" role="status" aria-live="polite" aria-atomic="true"></p>
+<p id="pi-results-status" class="plan-engine__sr" role="status" aria-live="polite" aria-atomic="true"></p>
+<section class="plan-engine" aria-labelledby="plan-engine-heading" data-plan-results hidden>
+    <h3 id="plan-engine-heading" tabindex="-1" data-plan-results-heading>A good place to start</h3>
+    <p class="plan-engine__explanation" data-plan-results-note>Our editorial order, below.</p>
     <div class="plan-engine__answer" data-plan-answer>
       {recommended.map((plan, index) => <PlanRecommendation plan={plan} index={index} />)}
     </div>
@@ -29,8 +25,6 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
       <div><p class="plan-engine__eyebrow">A planning guide, to help you choose</p><h3><a data-guide-title></a></h3><p>Wet-weather ideas to read and adapt. This guide does not include a ready-made itinerary.</p></div>
       <a class="pi-btn pi-btn--ghost" data-guide-link>Read guide <span aria-hidden="true">↗</span></a>
     </aside>
-    <p class="plan-engine__assurance">Editorial choices. No sign-in needed to use an itinerary. <a href="/me/trip/">Open My Trip</a></p>
-  </div>
 </section>
 <script type="application/json" id="pi-plans-data" set:html={JSON.stringify(payload).replace(/</g, '\\u003c')} />
 <script>
@@ -89,6 +83,7 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
     const status = document.getElementById('pi-results-status');
     const pending = document.querySelector<HTMLElement>('[data-plan-selection-note]');
     const empty = document.querySelector<HTMLElement>('[data-plan-empty]');
+    const results = document.querySelector<HTMLElement>('[data-plan-results]');
     let query: MatchQuery = {};
     const slot = <T extends HTMLElement = HTMLElement>(el: HTMLElement, name: string) => el.querySelector<T>(`[data-slot="${name}"]`);
     const text = (el: HTMLElement, name: string, value: string) => { const target = slot(el, name); if (target) target.textContent = value; };
@@ -197,12 +192,15 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
       }
       const title = !result.asked ? 'A good place to start' : result.exact ? 'Your matching itineraries' : result.ids.length ? 'Your closest itineraries' : 'Let’s try another shape';
       if (heading) heading.textContent = title;
+      // The ready-made list below already is the editorial answer; this block only appears for a choice.
+      if (results) results.hidden = !result.asked;
       if (explanation) explanation.textContent = !result.asked
-        ? 'A weekend with a bit of everything, plus two other ways to spend your time.'
+        ? 'Our editorial order, below.'
         : `${describeQuery(query, labels)}. ${result.exact ? 'Your best match comes first. Any compromises are shown with each alternative.' : result.ids.length ? 'No itinerary meets every choice. Check the differences beside each suggestion.' : 'No published itinerary has a confirmed match for these choices yet.'}`;
-      if (pending) pending.textContent = result.asked ? 'These choices are reflected below.' : 'All choices are optional.';
-      if (announce && status) {
-        status.textContent = `${title}. ${result.ids.length} itinerar${result.ids.length === 1 ? 'y' : 'ies'} shown. ${result.asked && !result.exact ? 'No itinerary meets every choice.' : ''}`;
+      if (pending) pending.textContent = result.asked ? 'These choices are reflected below.' : '';
+      if (announce && status && !result.asked) status.textContent = 'Choices cleared. Showing every ready-made itinerary.';
+      else if (announce && status) {
+        status.textContent = `${title}. ${result.ids.length} itinerar${result.ids.length === 1 ? 'y' : 'ies'} shown. ${!result.exact ? 'No itinerary meets every choice.' : ''}`;
         heading?.focus({ preventScroll: true });
         heading?.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start' });
       }
@@ -263,22 +261,20 @@ const payload = { plans: Object.fromEntries(model.plans.map(plan => [plan.id, pl
   document.addEventListener('astro:page-load', initPlans);
 </script>
 <style>
-  .plan-engine{padding:0 0 3.5rem}
-  .plan-engine__intro{display:flex;align-items:end;justify-content:space-between;gap:1rem}
-  .plan-engine__eyebrow{font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
-  h2{font:500 clamp(1.65rem,3vw,2.2rem)/1.2 var(--font-display);letter-spacing:-.04em;margin:0;scroll-margin-top:8rem}
-  h2:focus{outline:none}h2:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-  .plan-engine__intro>a{font-size:.85rem;white-space:nowrap;text-underline-offset:.2em}
-  .plan-engine__explanation{font:.95rem/1.65 var(--font-ui);color:var(--soft);max-width:78ch;margin:.9rem 0 1.8rem}
+  .plan-engine{padding:1.5rem 0 3rem}
+  .plan-engine[hidden]{display:none}
+  .plan-engine__eyebrow{font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow, .1em);text-transform:uppercase;color:var(--accent);margin:0 0 .5rem}
+  #plan-engine-heading{font:500 var(--fs-600)/1.2 var(--font-display);letter-spacing:-.035em;margin:0;scroll-margin-top:8rem}
+  #plan-engine-heading:focus{outline:none}#plan-engine-heading:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+  .plan-engine__explanation{font:var(--fs-300)/1.65 var(--font-ui);color:var(--soft);max-width:78ch;margin:.6rem 0 1.25rem}
   .plan-engine__answer{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2rem}
-  .plan-engine__assurance{font:.8rem/1.6 var(--font-ui);color:var(--soft);margin:1.5rem 0 0}.plan-engine__assurance a{margin-left:.25rem}
-  .plan-engine__guide-suggestion{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.5rem;border:1px solid var(--border);margin-top:1.5rem}
+  .plan-engine__guide-suggestion{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;padding:1.5rem 0;margin-top:1.5rem}
   .plan-engine__guide-suggestion[hidden]{display:none}
-  .plan-engine__guide-suggestion h3{font:500 1.15rem/1.4 var(--font-display);margin:.5rem 0}.plan-engine__guide-suggestion h3 a{color:var(--text)}
-  .plan-engine__guide-suggestion div>p:last-child{font-size:.85rem;color:var(--soft);margin:0;max-width:60ch}.plan-engine__guide-suggestion>a{flex-shrink:0}
-  .plan-engine__empty{padding:2rem;background:var(--bg-alt);border-block:1px solid var(--border)}
-  .plan-engine__empty h3{font:500 1.5rem/1.3 var(--font-display);max-width:30ch;margin:0 0 .8rem}
+  .plan-engine__guide-suggestion h3{font:500 var(--fs-400)/1.4 var(--font-display);margin:.5rem 0}.plan-engine__guide-suggestion h3 a{color:var(--text)}
+  .plan-engine__guide-suggestion div>p:last-child{font-size:var(--fs-200);color:var(--soft);margin:0;max-width:60ch}.plan-engine__guide-suggestion>a{flex-shrink:0}
+  .plan-engine__empty{padding:2rem;background:var(--bg-alt)}
+  .plan-engine__empty h3{font:500 var(--fs-600)/1.3 var(--font-display);max-width:30ch;margin:0 0 .8rem}
   .plan-engine__empty p{max-width:55ch}
   .plan-engine__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-  @media(max-width:45rem){.plan-engine__answer{grid-template-columns:1fr;gap:1.5rem}.plan-engine__intro{align-items:start;flex-direction:column;gap:.7rem}.plan-engine__explanation{margin-bottom:1.25rem}.plan-engine{padding-bottom:2rem}.plan-engine__guide-suggestion{align-items:start;flex-direction:column}}
+  @media(max-width:45rem){.plan-engine__answer{grid-template-columns:1fr;gap:1.5rem}.plan-engine{padding-bottom:2rem}.plan-engine__guide-suggestion{align-items:start;flex-direction:column}}
 </style>

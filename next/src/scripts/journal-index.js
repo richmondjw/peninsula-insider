@@ -12,18 +12,28 @@ function initJournal() {
   const clear = root.querySelector("#clear-filters");
   const count = root.querySelector("#result-count");
   let limit = 8;
-  function apply(reset = false, persist = true) {
-    if (reset) limit = 8;
+  // Unfiltered, the list skips stories already featured above it (rows
+  // marked data-featured); any search, theme or month brings them back.
+  function matching() {
     const q = search.value.trim().toLocaleLowerCase();
-    const matches = rows.filter(
+    const filtering = Boolean(q || topic.value || month.value);
+    return rows.filter(
       (r) =>
+        (filtering || !r.hasAttribute("data-featured")) &&
         (!q || r.dataset.title.includes(q)) &&
         (!topic.value || JSON.parse(r.dataset.topics).includes(topic.value)) &&
         (!month.value || r.dataset.month === month.value),
     );
+  }
+  function apply(reset = false, persist = true) {
+    if (reset) limit = 8;
+    const q = search.value.trim().toLocaleLowerCase();
+    const matches = matching();
+    const filtering = Boolean(q || topic.value || month.value);
     rows.forEach((r) => (r.hidden = true));
     matches.slice(0, limit).forEach((r) => (r.hidden = false));
-    count.textContent = `${matches.length} ${matches.length === 1 ? "story" : "stories"}${matches.length > limit ? ` · showing ${limit}` : ""}`;
+    const total = filtering ? matches.length : rows.length;
+    count.textContent = `${total} ${total === 1 ? "story" : "stories"}`;
     more.hidden = matches.length <= limit;
     root.querySelector("#empty-state").hidden = matches.length !== 0;
     clear.hidden = !(q || topic.value || month.value);
@@ -58,14 +68,7 @@ function initJournal() {
     search.focus();
   });
   more.addEventListener("click", () => {
-    const firstHidden = rows.find(
-      (r) =>
-        r.hidden &&
-        (!search.value ||
-          r.dataset.title.includes(search.value.trim().toLowerCase())) &&
-        (!topic.value || JSON.parse(r.dataset.topics).includes(topic.value)) &&
-        (!month.value || r.dataset.month === month.value),
-    );
+    const firstHidden = matching().find((r) => r.hidden);
     limit += 8;
     apply();
     if (firstHidden) {

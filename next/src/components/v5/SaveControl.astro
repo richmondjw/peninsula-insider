@@ -75,8 +75,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     data-v5-save-btn
   >
     <svg
-      width="16"
-      height="16"
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -115,13 +115,13 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
     min-width: 48px;
     min-height: 48px;
     padding: 0 0.6rem;
-    background: var(--bg, #fff);
-    color: var(--soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
+    background: transparent;
+    color: inherit; /* follows the card: ink on light, white on dark grounds */
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
     cursor: pointer;
     font-family: var(--font-ui, var(--font-ui));
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
     line-height: var(--lh-ui, 1.4);
     transition:
@@ -131,8 +131,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    color: inherit;
   }
 
   .v5-save__btn:focus-visible {
@@ -141,9 +141,8 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn[aria-pressed='true'] {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, #fff);
+    background: transparent;
+    color: var(--accent);
   }
 
   .v5-save__btn[aria-pressed='true'] svg path {
@@ -151,7 +150,7 @@ const accessibleName = isFork ? `Copy this plan: ${title}` : `Save ${title}`;
   }
 
   .v5-save__btn--fork {
-    border-radius: var(--radius-s, 4px);
+    border-radius: var(--radius-s);
   }
 
   /* Icon-only mode keeps the label for screen readers. */

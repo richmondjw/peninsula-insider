@@ -30,10 +30,10 @@ const { surface } = Astro.props;
     margin: 0 0 var(--space-4, 1rem);
     padding: 0.5rem 0.85rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius-s, 8px);
+    border-radius: var(--radius-s);
     background: var(--bg-alt, var(--bg));
     font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     line-height: var(--lh-ui, 1.4);
     color: var(--soft);
   }
@@ -45,10 +45,10 @@ const { surface } = Astro.props;
     width: 1.5rem;
     height: 1.5rem;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     font-family: var(--font-display);
     font-weight: var(--fw-display, 600);
-    font-size: 0.68rem;
+    font-size: var(--fs-100);
     color: var(--gold-text);
     background: var(--bg, #fff);
   }

@@ -467,14 +467,15 @@
 /* =========================================================
    CARD  -  .pi-card
    ---------------------------------------------------------
-   No box-shadow, by design (P0-4). Definition comes from the
-   --border hairline, which measures 3.45:1 on #FFFFFF.
+   One card style site-wide (2026-11-10, simplification round 2):
+   no fill, no frame, no shadow. The photograph (rounded) and the
+   gutter define the card; the text runs flush with the photograph's
+   edge. A card with no photograph in an image row is type on paper
+   (.pi-card--text). Hover and focus never add a box.
    ========================================================= */
 
 /* .place-card is deliberately NOT in this group. See global.css: the place
-   tile is a photograph with a caption under it, not a contained card, and its
-   body carries no horizontal padding. Giving it the hairline ran the border
-   straight into the text. */
+   tile is a photograph with a caption under it, not a contained card. */
 .pi-card,
 .venue-card,
 .event-card,
@@ -485,34 +486,19 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-m);
-  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   box-shadow: none;
-  transition:
-    border-color var(--dur-med) var(--ease-enter),
-    transform var(--dur-med) var(--ease-enter);
-}
-.pi-card:hover,
-.venue-card:hover,
-.event-card:hover,
-.itinerary-card:hover,
-.tour-card:hover,
-.experience-card:hover,
-.guide-card:hover {
-  border-color: var(--border-strong);
 }
 
-/* --- __media ---------------------------------------------
-   The card clips its own corners, so the media needs no
-   radius of its own. Standalone editorial images that are
-   NOT inside a card carry --radius-m directly. */
+/* --- __media ---------------------------------------------- */
 .pi-card__media {
   position: relative;
   flex: 0 0 auto;
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  border-radius: var(--radius-m);
   background: var(--bg-alt);
 }
 .pi-card__media img,
@@ -524,38 +510,45 @@
   object-fit: cover;
 }
 
-/* --- __body ---------------------------------------------- */
-/* Padding is --space-4, matching the v5 card this primitive replaced.
-   The refactor is meant to be visually neutral: --space-5 added 16px of
-   height to every card, which compounded to roughly 800px on the hub
-   pages and pulled the dek into an earlier wrap. */
+/* --- __body: flush with the photograph, one 8px step ------ */
 .pi-card__body {
   display: flex;
   flex: 1;
   flex-direction: column;
   gap: var(--space-2);
-  padding: var(--space-4);
+  padding: var(--space-3) 0 0;
 }
+.pi-card__body:first-child { padding-top: 0; }
+
+/* --- text card: type on paper, never a stand-in picture --- */
+.pi-card--text {
+  background: var(--bg-alt);
+  border-radius: var(--radius-m);
+}
+.pi-card--text .pi-card__body { padding: var(--space-5); }
+.pi-card--text .pi-card__title { font-size: var(--fs-600); }
+.pi-card--text .pi-card__actions { padding: 0 var(--space-5) var(--space-5); }
 
 /* --- __eyebrow ------------------------------------------- */
 .pi-card__eyebrow {
   font-family: var(--font-ui);
   font-size: var(--fs-100);
-  font-weight: var(--fw-semibold);
+  font-weight: 600;
   line-height: var(--lh-label);
-  letter-spacing: var(--ls-eyebrow);
+  letter-spacing: var(--ls-eyebrow, .1em);
   text-transform: uppercase;
   color: var(--soft);
 }
 
-/* --- __title --------------------------------------------- */
+/* --- __title: one card-title size ------------------------ */
 .pi-card__title {
   font-family: var(--font-display);
-  font-size: var(--fs-600);
+  font-size: var(--fs-500);
   font-weight: var(--fw-display);
-  line-height: var(--lh-heading);
+  line-height: 1.25;
   letter-spacing: var(--ls-display);
   color: var(--text);
+  text-wrap: balance;
 }
 .pi-card__title a {
   color: inherit;
@@ -565,108 +558,64 @@
   color: var(--accent);
 }
 
-/* --- __dek ------------------------------------------------
-   Two-line clamp. The height reservation is in em, not px or
-   rem, so it tracks the element's own font-size and therefore
-   still scales with the reader text-size control
-   (html[data-text-scale]). A px floor would freeze the box
-   while the type grew and clip the second line. */
+/* --- __dek: body size, written to length, never cut ------ */
 .pi-card__dek {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  line-clamp: 2;
-  overflow: hidden;
-  min-height: calc(2em * var(--lh-dek));
   max-width: var(--measure-card);
-  /* --fs-300 matches .venue-card__signature (0.96rem), which is what the
-     284 converted page cards used. v5/Card.astro's verdict line ran at
-     --fs-500 and restores that in its own scoped block: the two card
-     families genuinely disagreed, and the larger population wins the
-     default. */
-  font-size: var(--fs-300);
+  font-size: var(--fs-400);
   line-height: var(--lh-dek);
   color: var(--soft);
+  text-wrap: pretty;
 }
 
-/* --- __meta -----------------------------------------------
-   Pinned to the foot so card bottoms resolve on a common
-   baseline regardless of how long the title runs. */
+/* --- __meta: the one meta line, pinned to the foot -------- */
 .pi-card__meta {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  gap: var(--space-1) var(--space-3);
+  align-items: baseline;
+  gap: var(--space-1) var(--space-2);
   margin-top: auto;
-  /* No padding-top: __body already separates its children with a gap,
-     and adding one here stacked 12px onto every card, which compounded
-     to roughly 690px on the hub grids. */
-  /* One-line floor so a row with three chips and a row with one still
-     land on the same baseline (the P0-5 metadata reservation). */
-  min-height: calc(1em * var(--lh-ui));
   font-family: var(--font-ui);
-  font-size: var(--fs-200);
+  font-size: var(--fs-300);
   line-height: var(--lh-ui);
   color: var(--soft);
 }
 
-/* --- __actions --------------------------------------------
-   Also pinned to the foot: a card whose foot is an actions row
-   with no meta row above it still has to land on the common
-   baseline. The adjacent-sibling rule below hands the pin back
-   to __meta whenever both are present, so only one of the two
-   ever consumes the free space. */
+/* --- __actions: quiet, flush, never a footer band --------- */
 .pi-card__actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: var(--space-3);
-  margin-top: auto;
   padding-top: var(--space-2);
-}
-.pi-card__meta + .pi-card__actions {
-  margin-top: 0;
 }
 
 /* --- variant: compact (horizontal row) --------------------- */
 .pi-card--compact {
   flex-direction: row;
-  align-items: stretch;
+  align-items: flex-start;
+  gap: var(--space-4);
 }
 .pi-card--compact .pi-card__media {
-  flex: 0 0 38%;
-  max-width: 38%;
+  flex: 0 0 32%;
+  max-width: 32%;
   aspect-ratio: 1 / 1;
+  border-radius: var(--radius-s);
 }
 .pi-card--compact .pi-card__body {
   gap: var(--space-1);
-  padding: var(--space-4);
+  padding: 0;
 }
 .pi-card--compact .pi-card__title {
-  font-size: var(--fs-500);
+  font-size: var(--fs-400);
 }
 .pi-card--compact .pi-card__dek {
-  font-size: var(--fs-200);
-}
-
-@media (max-width: 480px) {
-  .pi-card--compact .pi-card__media {
-    flex-basis: 32%;
-    max-width: 32%;
-  }
+  font-size: var(--fs-300);
 }
 
 /* --- variant: feature (larger) ----------------------------- */
 .pi-card--feature .pi-card__media {
   aspect-ratio: 16 / 9;
 }
-.pi-card--feature .pi-card__body {
-  gap: var(--space-3);
-  padding: var(--space-6);
-}
 .pi-card--feature .pi-card__title {
-  font-size: var(--fs-700);
-}
-.pi-card--feature .pi-card__dek {
-  font-size: var(--fs-500);
+  font-size: var(--fs-600);
 }

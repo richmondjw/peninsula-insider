@@ -47,19 +47,17 @@ test('eight hub and ranked pages expose every structured FAQ question and answer
     }
   } finally { await reader.close(); }
 });
-test('homepage offers three working intent routes within narrow-screen width', async () => {
+test('homepage offers one primary and one secondary working route within narrow-screen width', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
     const targets = await reader.page.$$eval('.home-cover__actions a', links => links.map(a => a.getAttribute('href')));
-    assert.deepEqual(targets, ['#home-choose', '/whats-on/this-weekend/', '/search/']);
+    assert.deepEqual(targets, ['#home-choose', '/whats-on/this-weekend/']);
     for (const width of [320, 390, 1280]) {
       await reader.page.setViewport({width, height: 900});
       assert.ok(await reader.page.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), `overflow at ${width}`);
     }
-    await reader.page.click('.home-cover__actions [data-open-search]');
-    await reader.waitFor(() => document.querySelector('[role="dialog"][aria-modal="true"]') || location.pathname === '/search/', 'search did not open');
-    for (const route of targets.slice(0, 2)) {
+    for (const route of targets) {
       await reader.load(route.startsWith('#') ? '/' + route : route);
       assert.ok(await reader.page.$('main h1'), route);
     }
@@ -122,7 +120,9 @@ test('category filters are reachable from the first screen and restore the match
         assert.equal(landed.hash,'#browse-stay');
         assert.ok(landed.top >= 0 && landed.top < 750, 'Stay jump did not reveal filters');
       } else if (route === '/eat/') {
-        const jump = await reader.page.$('.category-browse__links a[href="#directory"]');
+        // 2026-11-10 simplification: the hero's primary "Browse all N places" action is the
+        // first-screen path to the filtered directory (the separate category link row is gone).
+        const jump = await reader.page.$('.eat-entry__primary[href="#directory"], .category-browse__links a[href="#directory"]');
         assert.ok(jump, 'Eat needs a direct first-screen path to filters');
         const bounds = await jump.boundingBox();
         assert.ok(bounds && bounds.y + bounds.height < 750, 'Eat browse action buried');
@@ -153,10 +153,8 @@ test('category filters are reachable from the first screen and restore the match
     assert.equal(await reader.page.$eval('[data-category-editorial]',el=>el.hidden),true);
     await reader.page.click('[data-filter-clear]');
     await reader.waitFor(()=>!document.querySelector('[data-category-editorial]').hidden,'clear did not restore editorial');
-    const more = await reader.page.$('.v5-six__more');
-    assert.ok(more);
-    await reader.page.click('.v5-six__more summary');
-    assert.equal(await more.evaluate(el=>el.open),true);
+    // Phase 5: all six picks are visible cards; nothing sits behind a disclosure.
+    assert.equal(await reader.page.$$eval('#the-six .v5-six__item', els => els.filter(el => el.getBoundingClientRect().height > 0).length), 6);
   } finally { await reader.close(); }
 });
 
@@ -204,13 +202,13 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
   } finally { await reader.close(); }
 });
 
-test('homepage alternate plan actions retain usable itineraries and the cover is a single still image', async () => {
+test('homepage plan cards link to usable itineraries and the cover is a single still image', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
-    const copiedKinds = await reader.page.$$eval('.home-plan [data-variant="fork"]',els=>els.map(el=>el.dataset.kind));
-    assert.ok(copiedKinds.length>=1);
-    assert.ok(copiedKinds.every(kind=>kind==='itinerary'));
+    const planLinks = await reader.page.$$eval('.home-plan .pi-card__link',els=>els.map(el=>el.getAttribute('href')));
+    assert.ok(planLinks.length>=1);
+    assert.ok(planLinks.every(href=>/^\/explore\/plans\/[^/]+\/$/.test(href??'')),JSON.stringify(planLinks));
     assert.equal(await reader.page.$$eval('[data-cover-motion]', els => els.length), 0);
     assert.equal(await reader.page.$$eval('.home-cover__media', els => els.length), 1);
     assert.ok(await reader.page.$eval('.home-cover__media', image => image.complete && image.naturalWidth > 0));

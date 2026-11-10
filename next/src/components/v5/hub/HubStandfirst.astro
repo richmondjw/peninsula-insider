@@ -102,7 +102,7 @@ if (/!/.test(standfirst)) {
     font-family: var(--font-ui);
     font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--mint);
   }
@@ -142,13 +142,13 @@ if (/!/.test(standfirst)) {
   .v5-standfirst--compact:not(.v5-standfirst--photo)::before { display: none; }
   .v5-standfirst--compact .v5-standfirst__title {
     font-family: var(--font-display);
-    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-size: var(--fs-800);
     line-height: 1.08;
     max-width: 24ch;
     color: var(--text);
   }
   .v5-standfirst--compact .v5-standfirst__dek {
-    font-size: 1rem;
+    font-size: var(--fs-400);
     line-height: 1.6;
     max-width: 70ch;
     color: var(--soft);

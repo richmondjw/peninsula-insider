@@ -61,6 +61,12 @@ test('homepage event photography requires a recorded rights receipt', async () =
 });
 test('event discovery shelf photography requires recorded rights and actual depiction', async () => {
   const hub = await readFile(new URL('../src/pages/whats-on/index.astro', import.meta.url), 'utf8');
+  // 2026-11-10: the category shelves (and their photography) were removed from the hub in the
+  // simplification programme. The rule still binds any shelf that comes back.
+  if (!hub.includes('  const source = shelf.items.find')) {
+    assert.doesNotMatch(hub, /shelf\.items/, 'shelf photography reintroduced without the rights check');
+    return;
+  }
   const block = hub.slice(hub.indexOf('  const source = shelf.items.find'), hub.indexOf('  const photo = source ?'));
   const actual = new Function('shelf', `${stripTypeScriptTypes(block)}; return source;`);
   const item = rightsStatus => ({ event: { data: { heroImage: { src: '/event.webp', alt: 'Subject', credit: 'Photographer', depictionStatus: 'actual', rightsStatus } } } });

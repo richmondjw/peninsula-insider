@@ -15,8 +15,14 @@
  * kitchens bridge module that used to sit above the directory was removed
  * 2026-09-13 (PI-009); it filtered `venuesAll` for a type that filter had
  * already excluded, so it always rendered an empty shell while its container
- * div carried data-facets and inflated the result count by one. The
- * reciprocal module on /wine/ still points here.
+ * div carried data-facets and inflated the result count by one. /wine/ links
+ * here from its What's On line.
+ *
+ * Phase 5 (2026-11-10, say it once): the hero finder's type/town selects
+ * duplicated the directory filters, so only its search survives, beside the
+ * filter bar (EatSearch). The Six shows all six picks as equal cards; the
+ * guide-lane rail is one line of links; the Save/Trip explainer is gone; the
+ * check date is said once at the head of the list, not on every row.
  */
 import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
@@ -32,7 +38,8 @@ import JournalModule from '../../components/v5/hub/JournalModule.astro';
 import type { JournalItem } from '../../components/v5/hub/JournalModule.astro';
 import { resolveJournalImage } from '../../lib/journal-image';
 import CategoryBrowse from '../../components/v5/hub/CategoryBrowse.astro';
-import PlanningHelp from '../../components/v5/hub/PlanningHelp.astro';
+import EatSearch from '../../components/v5/hub/EatSearch.astro';
+import { freshnessLabel } from '../../lib/freshness';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { hasWebsitePhotoEvidence } from '../../lib/media-provenance';
@@ -75,9 +82,6 @@ const typeLabel: Record<string, string> = {
   providore: 'Providore',
   winery: 'Winery',
 };
-const pluralType: Record<string, string> = { Cafe: 'Cafes', Bakery: 'Bakeries', Brewery: 'Breweries', Distillery: 'Distilleries' };
-const categories = Object.entries(typeLabel).filter(([value]) => venues.some(v => v.data.type === value)).map(([value,label]) => ({value,label:pluralType[label] ?? `${label}s`,count:venues.filter(v=>v.data.type===value).length}));
-const towns = [...new Map(venues.map(v=>[typeof v.data.place==='string'?v.data.place:v.data.place?.id,{value:typeof v.data.place==='string'?v.data.place:v.data.place?.id,label:placeLabel(v)}])).values()].filter(t=>t.value).sort((a,b)=>a.label.localeCompare(b.label));
 
 /** Directory and Six cards may show only images with their own recorded
  *  subject and rights evidence. CMS replacements have no per-image permission
@@ -172,9 +176,10 @@ for (const pick of sixPicks) {
     plateLabel: pick.plateLabel,
     verdict: pick.verdict,
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
+    // The practical line joins the card's one meta line. The operator link
+    // (pick.source, the evidence for that line) lives on the venue page: the
+    // whole card is the way in, with no second outbound action on it.
     planningNote: pick.planning,
-    booking: {url: pick.source, label: 'Planning & availability'},
-    freshness: isoDate(informationCheckedOn(venue.data)),
     facets: getFacets('venue', venue.data),
     saveSection: 'eat',
   });
@@ -190,7 +195,11 @@ const bestOfRail = [
   { href: '/eat/bakeries/', label: 'Bakeries' },
 ];
 
-// ── Directory rows: every non-winery venue, server-rendered in full. ─────────
+// ── Directory rows: every non-winery venue, server-rendered in full. Rows are
+//    text (one row style across the hubs): no thumbnail, so no credit line
+//    per row. The six picks above are marked `featured`, so the list does not
+//    repeat them until a filter or search asks for every match. ─────────────
+const sixSlugs = new Set(sixItems.map((item) => item.entitySlug));
 const directoryItems: DirectoryRowItem[] = [];
 for (const venue of venues) {
   directoryItems.push({
@@ -198,14 +207,26 @@ for (const venue of venues) {
     href: `/eat/${routeSlug(venue)}/`,
     entityType: 'venue',
     entitySlug: routeSlug(venue),
+    featured: sixSlugs.has(routeSlug(venue)),
     verdict: verdictLine(venue.data.signature),
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
     facets: getFacets('venue', venue.data),
     partnerLabel: venue.data.featuredPartner ? 'Sponsored placement' : undefined,
-    freshness: isoDate(informationCheckedOn(venue.data)),
-    freshnessKind: 'checked',
   });
 }
+
+/** Say the check date once, at the head of the list, instead of on every row. */
+function checkedSpan(dates: Array<string | undefined>): string {
+  const sorted = dates.filter((d): d is string => Boolean(d)).sort();
+  const first = freshnessLabel(sorted[0])?.replace('Reviewed ', '');
+  const last = freshnessLabel(sorted[sorted.length - 1])?.replace('Reviewed ', '');
+  if (!first || !last) return '';
+  const lead = sorted.length === dates.length ? 'Details checked' : 'Most details checked';
+  if (first === last) return `${lead} ${first}`;
+  const [fm, fy] = first.split(' ');
+  return `${lead} between ${fy === last.split(' ')[1] ? fm : first} and ${last}`;
+}
+const directoryChecked = checkedSpan(venues.map((venue) => isoDate(informationCheckedOn(venue.data))));
 
 // ── From the Journal (3 maximum). Keep this seasonal selection current. ────
 const articlesAll = (await getCollection('articles', ({ data }) => data.status === 'published'))
@@ -297,60 +318,41 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
   <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
-  <EatEntry count={venues.length} categories={categories} towns={towns} image={categoryHero('eat')} />
+  <EatEntry count={venues.length} image={pageImage('eat-hero')} />
   <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" showLinks={false} />
 
   <div data-category-editorial>
-  <!-- 2. The verdict layer -->
+  <!-- 2. The verdict layer: six equal cards, all visible. Picks without a
+       rights-cleared photograph are text cards; nothing stands in for one. -->
   <TheSix
     id="the-six"
-    eyebrow="The editorial shortlist"
     heading="Six starting points. Six different days."
-    sub="Six ways to spend your day. Choose the setting that suits you, then check the venue’s current menu and availability."
     surface="eat"
     items={sixItems}
-    missingImagePlate
+    trip={false}
     suppressImageHydration
     lockImageEditing
   />
-  <div class="container eat-method"><p>Chosen for a reason, with no pay-for-coverage. <a href="/about/">How we choose our picks →</a> <a href="/corrections/">Tell us what has changed →</a></p><PlanningHelp /></div>
-
-  <!-- Best-of rail: the strongest guide lanes, 6 maximum -->
-  <nav class="eat-rail" aria-label="Best-of guides">
-    <div class="container">
-      <ul class="eat-rail__list">
-        {bestOfRail.map((item) => (
-          <li>
-            <a href={item.href} class="eat-rail__link">{item.label} &rarr;</a>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </nav>
-
   </div>
 
   <!-- 4. The catalogue layer: every non-winery venue, one render, in-DOM.
-       One filter bar sits beside the results it changes, below The Six.
+       Search, filters and sort sit together above the list they change.
        ONE URL-persisted state still governs The Six AND the directory. -->
   <DirectoryRows
     id="directory"
-    eyebrow="The full list"
     heading={`All ${directoryItems.length} places to eat`}
-    sub="Compare the full list, then narrow it by occasion or town."
+    sub={`${directoryChecked ? `${directoryChecked}. ` : ''}Confirm hours with the venue before you go.`}
     noun="places"
     surface="eat"
     items={directoryItems}
-    suppressImageHydration
-    lockImageEditing
     fullVerdicts
     desktopColumns={2}
     initialLimit={8}
-    topLink={{ label: 'Ranked top 15', href: '/eat/best-restaurants/' }}
     emptyHeading="Nothing matches those filters yet"
     emptyBody="Loosen one and the list comes back."
   >
-    <FilterBar slot="before-list" surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore mobileWrap sticky><SortControl /></FilterBar>
+    <Fragment slot="before-list"><EatSearch /><FilterBar surface="eat" noun="places" label="Filter places to eat" facets={['cat', 'place', 'mood', 'party']} pinnedMore sticky><SortControl /></FilterBar></Fragment>
+    <p slot="after-list" class="eat-correction">Something changed at one of these places? <a href="/corrections/">Tell us</a></p>
   </DirectoryRows>
 
   <!-- What's On, one line + link (spec block 18: strip becomes a line) -->
@@ -373,7 +375,6 @@ export const prerender = true;
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <p class="label label--accent">Frequently asked</p>
         <h2 class="hub-faq__title">Six honest answers before you plan the day</h2>
       </div>
       <div class="hub-faq__list">
@@ -387,48 +388,23 @@ export const prerender = true;
     </div>
   </section>
 
+  <!-- Guide lanes: one quiet line beside the questions they answer. -->
+  <nav class="container hub-guides" aria-label="Eat guides">
+    <span>Guides:</span>
+    {bestOfRail.map((item, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={item.href}>{item.label}</a></>))}
+  </nav>
+
   <!-- 7. Ask PI band hidden (bug fix in progress) -->
 </BaseLayout>
 
 <style>
-  .eat-method p{font-size:var(--fs-300);line-height:1.6;color:var(--soft);max-width:75ch}
-  .eat-method a{color:var(--accent);text-underline-offset:.2em;display:inline-flex;min-height:44px;align-items:center;margin-inline-end:1rem}
-  .eat-reading :global(.pi-card__media){aspect-ratio:16/9;max-height:180px}
-  .eat-rail {
-    padding: var(--space-4, 1rem) 0 var(--space-6, 2rem);
-  }
-  .eat-rail__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-2, 0.5rem) var(--space-3, 0.75rem);
-  }
-  .eat-rail__link {
-    display: inline-flex;
-    align-items: center;
-    min-height: 48px;
-    padding: 0 var(--space-4, 1rem);
-    border: 1.5px solid var(--border);
-    border-radius: var(--radius-pill, 999px);
-    background: var(--white);
-    font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
-    font-weight: var(--fw-semibold, 600);
-    color: var(--text);
-    text-decoration: none;
-    transition: border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
-      color var(--dur-fast, 120ms) var(--ease-enter, ease);
-  }
-  .eat-rail__link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .eat-rail__link:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
+  /* Guide lanes: one quiet line of links after the FAQ, no rules. */
+  .hub-guides{display:flex;flex-wrap:wrap;align-items:center;gap:0 .35rem;padding-block:0 var(--space-7);font:400 var(--fs-300)/1.5 var(--font-ui);color:var(--soft)}
+  .hub-guides > span:first-child{margin-inline-end:.25rem}
+  .hub-guides a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
+  .hub-guides a:focus-visible,.eat-correction a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  .eat-correction{margin:var(--space-5) 0 0;font:400 var(--fs-300)/1.5 var(--font-ui);color:var(--soft)}
+  .eat-correction a{color:var(--accent);font-weight:600;text-underline-offset:.2em}
 
   .eat-whatson {
     margin: 0 auto var(--space-5, 1.5rem);

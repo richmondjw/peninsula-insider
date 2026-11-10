@@ -2,8 +2,9 @@
 /**
  * DirectoryRows (v5 hub module) - the catalogue layer: the full corpus as
  * compact rows, server-rendered once for SEO (page-redesigns section 2
- * block 9.5; wireframes #eat note 4). Rows, not cards: 2 interactive
- * elements per row (row link + save; stays add Book via `booking`).
+ * block 9.5; wireframes #eat note 4). Rows, not cards: content height, one
+ * hairline, the title is the link (stretched over the row), Save inline at
+ * the right of the title line.
  *
  * Filter contract (lib/v5-filter-state.ts): every row `li` carries
  * `data-facets`, `data-title` and, unless `countable={false}`,
@@ -13,9 +14,15 @@
  * zero results and its Clear action commits an empty filter state. The page
  * FilterBar owns counts and the live region.
  *
+ * Say it once: rows marked `featured` are the shortlist shown above the list.
+ * While no filter or search is active they are hidden here (the shortlist is
+ * on screen); the moment one is, the shortlist yields (CategoryBrowse) and
+ * these rows return, so every match is still listed. They stay countable, so
+ * the "All N" heading and the filter counts describe the whole catalogue.
+ * Without JavaScript every row shows.
+ *
  * Generic and prop-driven for the Eat / Wine / Stay / Explore hub agents.
- * Slots: `before-list` (e.g. a cross-link module such as Eat's "Winery
- * kitchens") and `after-list`.
+ * Slots: `before-list` (the page's search / FilterBar) and `after-list`.
  */
 import Card from '../Card.astro';
 import EmptyState from '../EmptyState.astro';
@@ -44,12 +51,13 @@ export interface DirectoryRowItem {
   partnerLabel?: string;
   /** A-to-Z sort key override (defaults to title). */
   sortTitle?: string;
+  /** Shown in the page's shortlist above; hidden here until a filter is active. */
+  featured?: boolean;
 }
 
 export interface Props {
   /** h2, e.g. "All 87 places to eat". */
   heading: string;
-  /** Uppercase eyebrow above the heading (teal). */
   eyebrow?: string;
   sub?: string;
   /** Plural noun used in empty-state copy, e.g. "places". */
@@ -64,11 +72,8 @@ export interface Props {
   emptyBody?: string;
   /**
    * Do these rows stand for distinct results the page's counts describe?
-   *
-   * True for the catalogue layer, which is the default use. Pass false for a
-   * secondary module built from rows the catalogue already lists (Wine's
-   * "Winery kitchens" bridge): those rows must still filter, but counting
-   * them again would report more results than the page holds.
+   * True for the catalogue layer (the default). Pass false for a secondary
+   * module built from rows the catalogue already lists.
    */
   countable?: boolean;
   missingImagePlate?: boolean;
@@ -104,18 +109,24 @@ const {
 } = Astro.props;
 
 const headingId = `${id ?? `directory-${surface}`}-heading`;
+const featuredCount = items.filter((item) => item.featured).length;
+const words = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+const featuredWord = words[featuredCount] ?? String(featuredCount);
+const featuredNote = featuredCount > 0
+  ? `${featuredWord[0]?.toUpperCase()}${featuredWord.slice(1)} are featured above; the other ${items.length - featuredCount} follow.`
+  : '';
 ---
 
-<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun} data-directory-limit={initialLimit}>
+<section class:list={["v5-directory", { "v5-directory--columns-2": desktopColumns === 2, "v5-directory--full-verdicts": fullVerdicts }]} id={id} aria-labelledby={headingId} data-directory-rows data-noun={noun} data-directory-limit={initialLimit} data-directory-featured={featuredCount > 0 ? 'true' : undefined}>
   <div class="container">
     <div class="v5-directory__header">
       <div>
         {eyebrow && <p class="v5-directory__eyebrow">{eyebrow}</p>}
         <h2 class="v5-directory__heading" id={headingId} tabindex="-1">{heading}</h2>
-        {sub && <p class="v5-directory__sub">{sub}</p>}
+        {(sub || featuredNote) && <p class="v5-directory__sub">{featuredNote && <span data-featured-note hidden>{featuredNote} </span>}{sub}</p>}
       </div>
       {topLink && (
-        <a href={topLink.href} class="v5-directory__toplink">{topLink.label} &rarr;</a>
+        <a href={topLink.href} class="v5-directory__toplink">{topLink.label} <span aria-hidden="true">&rarr;</span></a>
       )}
     </div>
 
@@ -127,6 +138,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
           class="v5-directory__row"
           data-facets={item.facets ? JSON.stringify(item.facets) : undefined}
           data-filter-countable={countable && item.facets ? 'true' : undefined}
+          data-featured-row={item.featured ? 'true' : undefined}
           data-title={item.sortTitle ?? item.title}
           data-search-text={`${item.title} ${(item.meta ?? []).join(' ')} ${item.verdict ?? ''}`}
         >
@@ -156,7 +168,7 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
       ))}
     </ul>
 
-    {initialLimit && <div class="directory-progress" data-directory-progress hidden><p data-directory-progress-count></p><button type="button" data-directory-more>Show more places</button><button type="button" data-directory-all>Show all places</button></div>}
+    {initialLimit && <div class="directory-progress" data-directory-progress hidden><p data-directory-progress-count></p><button type="button" data-directory-more>Show more {noun}</button><button type="button" data-directory-all>Show all {noun}</button></div>}
 
     <div data-filter-empty hidden>
       <EmptyState
@@ -172,107 +184,119 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
 </section>
 
 <script>
-  function update(section:HTMLElement,reset=false){
-    const limit=Number(section.dataset.directoryLimit);if(!limit)return;
-    if(reset)section.dataset.directoryShown=String(limit);
-    const shown=Number(section.dataset.directoryShown)||limit;
-    const rows=[...section.querySelectorAll<HTMLElement>('[data-filter-countable]')].filter(row=>row.dataset.filteredOut!=='1');
-    section.querySelectorAll<HTMLElement>('[data-filter-countable]').forEach(row=>row.removeAttribute('data-page-hidden'));
-    rows.forEach((row,index)=>row.toggleAttribute('data-page-hidden',index>=shown));
-    const progress=section.querySelector<HTMLElement>('[data-directory-progress]')!;
-    progress.hidden=rows.length===0;
-    progress.querySelector('[data-directory-progress-count]')!.textContent=`${Math.min(shown,rows.length)} of ${rows.length} matching places shown`;
-    progress.querySelectorAll<HTMLButtonElement>('button').forEach(button=>button.hidden=shown>=rows.length);
+  import { commit, isEmptyState, parseFilters } from '../../../lib/v5-filter-state';
+
+  /** A filter or a local search narrows the page: the shortlist yields and every match is listed. */
+  function narrowing(): boolean {
+    const searching = !!document.querySelector('[data-directory-search]') && !!new URLSearchParams(location.search).get('find')?.trim();
+    return searching || !isEmptyState(parseFilters(location.search));
   }
-  function init(){document.querySelectorAll<HTMLElement>('[data-directory-limit]').forEach(section=>{
-    if(section.dataset.pagerReady)return;section.dataset.pagerReady='true';
-    section.querySelector('[data-directory-more]')?.addEventListener('click',()=>{
-      const limit=Number(section.dataset.directoryLimit),previous=Number(section.dataset.directoryShown)||limit;
-      section.dataset.directoryShown=String(previous+limit);update(section);
-      const rows=[...section.querySelectorAll<HTMLElement>('[data-filter-countable]')].filter(row=>row.dataset.filteredOut!=='1');
-      rows[previous]?.querySelector<HTMLAnchorElement>('h3 a')?.focus({preventScroll:false});
+
+  function update(section: HTMLElement, reset = false) {
+    const narrowed = narrowing();
+    section.querySelectorAll<HTMLElement>('[data-featured-row]').forEach((row) => row.toggleAttribute('data-featured-hidden', !narrowed));
+    const note = section.querySelector<HTMLElement>('[data-featured-note]');
+    if (note) note.hidden = narrowed;
+    const limit = Number(section.dataset.directoryLimit);
+    if (!limit) return;
+    if (reset) section.dataset.directoryShown = String(limit);
+    const shown = Number(section.dataset.directoryShown) || limit;
+    const all = [...section.querySelectorAll<HTMLElement>('[data-filter-countable]')];
+    const rows = all.filter((row) => row.dataset.filteredOut !== '1' && !row.hasAttribute('data-featured-hidden'));
+    all.forEach((row) => row.removeAttribute('data-page-hidden'));
+    rows.forEach((row, index) => row.toggleAttribute('data-page-hidden', index >= shown));
+    const progress = section.querySelector<HTMLElement>('[data-directory-progress]')!;
+    progress.hidden = rows.length === 0;
+    progress.querySelector('[data-directory-progress-count]')!.textContent = `Showing ${Math.min(shown, rows.length)} of ${rows.length} ${section.dataset.noun || 'places'}`;
+    progress.querySelectorAll<HTMLButtonElement>('button').forEach((button) => (button.hidden = shown >= rows.length));
+  }
+
+  function init() {
+    document.querySelectorAll<HTMLElement>('[data-directory-rows]').forEach((section) => {
+      if (section.dataset.pagerReady) return;
+      section.dataset.pagerReady = 'true';
+      section.querySelector('[data-directory-more]')?.addEventListener('click', () => {
+        const limit = Number(section.dataset.directoryLimit), previous = Number(section.dataset.directoryShown) || limit;
+        section.dataset.directoryShown = String(previous + limit);
+        update(section);
+        const rows = [...section.querySelectorAll<HTMLElement>('[data-filter-countable]')].filter((row) => row.dataset.filteredOut !== '1' && !row.hasAttribute('data-featured-hidden'));
+        rows[previous]?.querySelector<HTMLAnchorElement>('h3 a')?.focus({ preventScroll: false });
+      });
+      section.querySelector('[data-directory-all]')?.addEventListener('click', () => {
+        section.dataset.directoryShown = '100000';
+        update(section);
+        section.querySelector<HTMLElement>('.v5-directory__heading')?.focus({ preventScroll: true });
+      });
+      // EmptyState's "Clear filters" carries data-action="clear-filters".
+      section.addEventListener('click', (e) => {
+        if (!(e.target as HTMLElement | null)?.closest('[data-action="clear-filters"]')) return;
+        commit({}, { source: 'clear', noun: section.dataset.noun || 'results' });
+        // The empty-state button disappears; orient focus at the restored list.
+        window.requestAnimationFrame(() => section.querySelector<HTMLElement>('.v5-directory__heading')?.focus({ preventScroll: true }));
+      });
+      update(section, true);
     });
-    section.querySelector('[data-directory-all]')?.addEventListener('click',()=>{
-      section.dataset.directoryShown='100000';update(section);
-      section.querySelector<HTMLElement>('.v5-directory__heading')?.focus({preventScroll:true});
-    });update(section,true);
-  });}
-  document.addEventListener('pi:filters-changed',()=>document.querySelectorAll<HTMLElement>('[data-directory-limit]').forEach(section=>update(section,true)));
-  document.addEventListener('pi:sort-changed',()=>document.querySelectorAll<HTMLElement>('[data-directory-limit]').forEach(section=>update(section,true)));
-  document.addEventListener('astro:page-load',init);
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});else init();
+  }
+  const refresh = () => document.querySelectorAll<HTMLElement>('[data-directory-rows]').forEach((section) => update(section, true));
+  document.addEventListener('pi:filters-changed', refresh);
+  document.addEventListener('pi:sort-changed', refresh);
+  document.addEventListener('astro:page-load', init);
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
+  else init();
 </script>
 
 <style>
   .v5-directory {
-    padding: var(--space-6, 2rem) 0;
+    padding-block: var(--space-7);
     scroll-margin-top: calc(var(--masthead-h, 0px) + 1rem);
   }
-  [data-page-hidden]{display:none!important}
-  .directory-progress{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:1.5rem;border-top:1px solid var(--border);padding-top:1.25rem}
-  .directory-progress p{flex:1 1 100%;margin:0;color:var(--soft);font-size:var(--fs-300)}
-  .directory-progress button{min-height:44px;border:1px solid var(--accent);border-radius:8px;padding:.65rem 1rem;background:var(--white);color:var(--accent);font:600 1rem var(--font-ui);cursor:pointer}
-  .directory-progress button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+  [data-page-hidden], [data-featured-hidden] { display: none !important; }
   .v5-directory__header {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: var(--space-4, 1rem);
+    gap: var(--space-2) var(--space-4);
     flex-wrap: wrap;
-    margin-bottom: var(--space-5, 1.5rem);
+    margin-bottom: var(--space-4);
   }
   .v5-directory__eyebrow {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    margin: 0 0 var(--space-2);
+    font: 600 var(--fs-100)/var(--lh-label) var(--font-ui);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
-    color: var(--teal-text);
+    color: var(--soft);
   }
   .v5-directory__heading {
     margin: 0;
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-size: var(--fs-700);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.14);
     letter-spacing: -0.01em;
     color: var(--text);
     text-wrap: balance;
   }
-  .v5-directory__sub {
-    margin: var(--space-3, 0.75rem) 0 0;
-    font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
+  /* Doubled class: refinement.css sets this sub at body size with body[data-v4]. */
+  .v5-directory__sub.v5-directory__sub {
+    margin: var(--space-2) 0 0;
+    max-width: var(--measure-dek, 52ch);
+    font-size: var(--fs-300);
     line-height: var(--lh-ui, 1.4);
     color: var(--soft);
-    max-width: var(--measure-dek, 52ch);
   }
+  /* A section cross-link is a plain arrow link: no rule beneath it. */
   .v5-directory__toplink {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
     gap: 0.4rem;
-    padding: 0.6rem 1.1rem;
-    border: 1.5px solid var(--accent);
-    border-radius: var(--radius-pill, 999px);
-    font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
-    font-weight: var(--fw-semibold, 600);
+    font: var(--fw-semibold, 600) var(--fs-300) var(--font-ui);
     color: var(--accent);
     text-decoration: none;
     white-space: nowrap;
-    transition: background var(--dur-fast, 120ms) var(--ease-enter, ease),
-      color var(--dur-fast, 120ms) var(--ease-enter, ease);
   }
-  .v5-directory__toplink:hover {
-    background: var(--accent);
-    color: var(--white);
-  }
-  .v5-directory__toplink:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
+  .v5-directory__toplink:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .v5-directory__toplink:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
   .v5-directory__list {
     list-style: none;
     margin: 0;
@@ -280,53 +304,32 @@ const headingId = `${id ?? `directory-${surface}`}-heading`;
     display: flex;
     flex-direction: column;
   }
-  .v5-directory__row {
-    border-bottom: 1px solid var(--border);
+  /* The compact card draws the row's one hairline. Doubled class: refinement.css
+     pads every row 24px top and bottom with body[data-v4], on top of the card's own. */
+  .v5-directory__row.v5-directory__row { padding-block: 0; border-bottom: 0; }
+  .v5-directory__row > :global(.pi-card.pi-card--compact:hover) { background: transparent; }
+  .v5-directory--full-verdicts :global(.pi-card__dek) { max-width: 60ch; }
+  /* Phone: the text takes the full width and Save sits beside the title,
+     with the body padded clear of it so text never runs underneath. */
+  @media (max-width: 599px) {
+    .v5-directory__row.v5-directory__row :global(.pi-card.pi-card--compact:has(.pi-card__actions > :only-child)) { position: relative; display: block; }
+    .v5-directory__row.v5-directory__row :global(.pi-card.pi-card--compact:has(.pi-card__actions > :only-child) .pi-card__media) { display: none; }
+    .v5-directory__row.v5-directory__row :global(.pi-card.pi-card--compact:has(.pi-card__actions > :only-child) .pi-card__body) { padding-right: 56px; }
+    .v5-directory__row.v5-directory__row :global(.pi-card.pi-card--compact .pi-card__actions:has(> :only-child)) { position: absolute; top: var(--space-1); right: 0; margin: 0; }
   }
-  .v5-directory--full-verdicts :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; min-height: 0; }
   @media (min-width: 900px) {
-    .v5-directory--columns-2 .v5-directory__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+    .v5-directory--columns-2 .v5-directory__list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: var(--space-6); }
     .v5-directory--columns-2 .v5-directory__row > :global(.pi-card) { height: 100%; }
   }
-  .v5-directory__row:last-child {
-    border-bottom: none;
-  }
-  /* Rows sit flush in the list; the Card compact-row brings its own layout. */
-  .v5-directory__row > :global(.pi-card) {
-    border: none;
-    border-radius: 0;
-  }
-  .v5-directory__row > :global(.pi-card:hover) {
-    box-shadow: none;
-    background: var(--bg-alt);
-  }
+  .directory-progress { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); margin-top: var(--space-5); }
+  /* A paginated list states its count once, at the pager. The filter bar
+     count stays in the accessibility tree but is not shown twice. */
+  [data-directory-limit] :global([data-filter-count]) { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+  .directory-progress p { flex: 1 1 100%; margin: 0; color: var(--soft); font-size: var(--fs-300); }
+  .directory-progress button { min-height: 48px; border: 1px solid var(--accent); border-radius: var(--radius-s); padding: 0 var(--space-5); background: transparent; color: var(--accent); font: 600 var(--fs-300) var(--font-ui); cursor: pointer; }
+  .directory-progress button:hover { background: var(--accent); color: var(--white); }
+  /* One primary pager action; "Show all" is the quieter text link. */
+  .directory-progress button[data-directory-all] { border-color: transparent; padding-inline: var(--space-1); text-decoration: underline; text-underline-offset: .2em; }
+  .directory-progress button[data-directory-all]:hover { background: transparent; color: var(--acc-h, var(--accent)); }
+  .directory-progress button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 </style>
-
-<script>
-  // EmptyState's "Clear filters" button carries data-action="clear-filters";
-  // wire it to the shared filter state so one tap restores a working list.
-  import { commit } from '../../../lib/v5-filter-state';
-
-  function init() {
-    document.querySelectorAll<HTMLElement>('[data-directory-rows]').forEach((section) => {
-      if ((section as any)._piDirInit) return;
-      (section as any)._piDirInit = true;
-      const noun = section.dataset.noun || 'results';
-      section.addEventListener('click', (e) => {
-        const target = e.target as HTMLElement | null;
-        if (target && target.closest('[data-action="clear-filters"]')) {
-          commit({}, { source: 'clear', noun });
-          // The empty-state button disappears; orient focus at the restored list.
-          window.requestAnimationFrame(() => {
-            const heading = section.querySelector<HTMLElement>('.v5-directory__heading');
-            heading?.setAttribute('tabindex', '-1');
-            heading?.focus({ preventScroll: true });
-          });
-        }
-      });
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-  document.addEventListener('astro:page-load', init);
-</script>

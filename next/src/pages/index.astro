@@ -1,18 +1,17 @@
 ---
-/** Static welcome, native trip chooser, geographic orientation, comparable plans,
- * current weekend picks, interest doors, Journal, Play and the Insider Note.
+/** Home, six sections (Phase 5 "say it once", 2026-11-10):
+ * welcome → plan your day (chooser + three plans) → this weekend →
+ * three ways in (orientation map) → one Journal feature → the Insider Note.
+ * Interest doors were removed (they repeated the header nav and the plan
+ * photographs); Play lives in the masthead and footer.
  * Published image overrides retain their own metadata. SEO identity is preserved.
  */
 import ImageFormatFallback from '../components/ImageFormatFallback.astro';
 import HomeCover from '../components/v5/home/HomeCover.astro';
-import HomeChooser from '../components/v5/home/HomeChooser.astro';
-import PlayCard from '../components/play/PlayCard.astro';
 import HomeWeekend from '../components/v5/home/HomeWeekend.astro';
-import HomeDoors from '../components/v5/home/HomeDoors.astro';
 import HomeOrientation from '../components/v5/home/HomeOrientation.astro';
 import HomePlan from '../components/v5/home/HomePlan.astro';
 import HomeJournalFeature from '../components/v5/home/HomeJournalFeature.astro';
-import HomeAsk from '../components/v5/home/HomeAsk.astro';
 import HomeDispatch from '../components/v5/home/HomeDispatch.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
@@ -27,18 +26,9 @@ export const prerender = true;
 >
   <ImageFormatFallback />
   <HomeCover />
-  <HomeChooser />
-  <HomeOrientation />
-  <HomeWeekend />
   <HomePlan />
-  <HomeDoors />
+  <HomeWeekend />
+  <HomeOrientation />
   <HomeJournalFeature />
-  {/* TEMP (2026-07): Ask PI chat band hidden from the main screen per request.
-      Code is preserved (HomeAsk.astro + import above are untouched); re-enable
-      by restoring the <HomeAsk /> line below. */}
-  {/* <HomeAsk /> */}
-  <div class="container home-play"><PlayCard variant="band" /></div>
   <HomeDispatch />
 </BaseLayout>
-
-<style>.home-play{padding-block:2rem}</style>

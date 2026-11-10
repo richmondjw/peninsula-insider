@@ -16,7 +16,8 @@ test('matcher retains independent constraints and explains each partial recommen
   const reader = await site.reader();
   try {
     await reader.load('/explore/plans/');
-    assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), true, 'chooser starts open');
+    assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), false, 'chooser starts as a one-line toggle');
+    await reader.page.click('[data-plan-matcher] summary');
     await reader.page.select('select[name="length"]','one-day');
     await reader.page.select('select[name="who"]','family');
     await reader.page.select('select[name="weather"]','rainy-day');
@@ -98,7 +99,8 @@ test('recommendation image swaps preserve the right original and never retain an
     assert.ok(initial[0].srcset,'featured image should have responsive build variants');
     const familyImage=initial.find(image=>image.slug==='the-family-day-out');
     assert.ok(familyImage?.srcset,'family image should be available for reuse in another card slot');
-    assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), true, 'chooser starts open');
+    assert.equal(await reader.page.$eval('[data-plan-matcher]', e => e.open), false, 'chooser starts as a one-line toggle');
+    await reader.page.click('[data-plan-matcher] summary');
     await reader.page.click('input[name="into"][value="golf"]');
     await activateMatcherControl(reader,'[data-build-go]');
     await reader.waitFor(()=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug==='the-peninsula-golf-weekend','golf image did not replace the default');
@@ -124,10 +126,9 @@ test('guide actions stay read-only and itinerary route previews show the actual 
     assert.equal(await reader.page.$$eval('[data-plan-guide]',els=>els.length),count.guides);
     assert.equal(await reader.page.$$eval('[data-plan-guide] [data-plan-fork]',els=>els.length),0);
     assert.equal(await reader.page.$$eval('[data-plan-row]',els=>els.length),count.itineraries);
-    await reader.page.click('[data-plan-card="0"] [data-slot="route"] summary');
-    const days=await reader.page.$$eval('[data-plan-card="0"] [data-slot="days"] li',els=>els.map(e=>e.textContent));
-    assert.ok(days.length>=1);
-    assert.ok(days.every(text=>text.includes('Day')));
+    // The "At a glance" disclosure was removed (Phase 5); the matcher answer's route preview carries the stops.
+    assert.match(await reader.page.$eval('[data-plan-card="0"] [data-slot="route-preview"]',e=>e.textContent),/Day 1:/);
+    assert.equal(await reader.page.$eval('[data-plan-results]',e=>e.hidden),true,'no answer block repeats the list until a choice is made');
     assert.deepEqual(await reader.errors(),[]);
   } finally { await reader.close(); }
 });
@@ -143,6 +144,7 @@ test('pointer reset restores the original picks after matcher result scrolling',
   try{
     await reader.load('/explore/plans/');await reader.page.evaluate(()=>document.fonts.ready);
     const original=await reader.page.$eval('[data-plan-card="0"] img',e=>e.dataset.piEntitySlug);
+    await reader.page.click('[data-plan-matcher] summary');
     await reader.page.click('input[name="into"][value="golf"]');await reader.page.click('[data-build-go]');
     await reader.waitFor(()=>document.querySelector('[data-plan-card="0"] img')?.dataset.piEntitySlug==='the-peninsula-golf-weekend','pointer submit did not select golf');
     await waitForScroll();

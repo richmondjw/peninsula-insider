@@ -6,7 +6,7 @@
  * cannot cover a hero action or image credit. Explicitly reopened preferences
  * use the compact corner card near the control that requested them.
  *
- * Two-tier consent (Accept all / Manage preferences). Strictly necessary
+ * Two-tier consent (Accept all / Preferences). Strictly necessary
  * storage for sign-in and consent preferences is always on; analytics (Google Analytics)
  * is opt-in.
  *
@@ -42,7 +42,7 @@
     <div class="cookie-banner__copy">
       <p class="cookie-banner__title">A note on cookies</p>
       <p class="cookie-banner__body">
-        Sign-in storage is essential. Analytics is optional.
+        <span class="cookie-banner__essential">Sign-in storage is essential.</span> Analytics is optional.
         <a href="/privacy/">Privacy policy.</a>
       </p>
     </div>
@@ -52,7 +52,7 @@
         Accept all
       </button>
       <button type="button" class="pi-btn pi-btn--ghost pi-btn--sm" id="cookie-manage">
-        Manage preferences
+        Preferences
       </button>
     </div>
 
@@ -306,7 +306,6 @@
     z-index: auto;
     background: var(--paper-warm);
     border: 0;
-    border-bottom: 1px solid var(--border-strong);
     border-radius: 0;
     box-shadow: none;
     opacity: 1;
@@ -325,30 +324,53 @@
     align-items: center;
     gap: var(--space-5);
   }
+  /* Round 2 (2026-11-10): one slim line. The heading stays in the DOM as
+     the note's name but is not drawn; the region label already says it. */
   .cookie-banner[data-mode='initial'] .cookie-banner__title {
-    font-size: var(--fs-200);
-    margin-bottom: 0;
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
   }
   .cookie-banner[data-mode='initial'] .cookie-banner__body {
     font-size: var(--fs-200);
+  }
+  .cookie-banner[data-mode='initial'] .cookie-banner__actions {
+    flex-wrap: nowrap;
+    gap: var(--space-1);
+  }
+  .cookie-banner[data-mode='initial'] .cookie-banner__actions .pi-btn {
+    white-space: nowrap;
+  }
+  /* The secondary choice reads as a text link: one solid button per view. */
+  .cookie-banner[data-mode='initial'] #cookie-manage {
+    border-color: transparent;
+    background: transparent;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    padding-inline: var(--space-3);
   }
   .cookie-banner[data-mode='initial'] .cookie-banner__manage {
     grid-column: 1 / -1;
   }
   @media (max-width: 760px) {
     .cookie-banner[data-mode='initial'] .cookie-banner__inner {
-      padding: var(--space-2) 16px;
-      grid-template-columns: minmax(0, 1fr);
-      gap: var(--space-2);
+      padding: var(--space-1) 16px;
+      gap: var(--space-3);
     }
-    .cookie-banner[data-mode='initial'] .cookie-banner__actions {
-      display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: var(--space-2);
+    .cookie-banner[data-mode='initial'] .cookie-banner__essential {
+      display: none;
     }
     .cookie-banner[data-mode='initial'] .cookie-banner__actions .pi-btn {
-      white-space: nowrap;
       padding-inline: var(--space-3);
+    }
+  }
+  @media (max-width: 380px) {
+    .cookie-banner[data-mode='initial'] .cookie-banner__inner {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 0;
     }
   }
 

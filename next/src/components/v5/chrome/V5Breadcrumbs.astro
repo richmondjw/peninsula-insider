@@ -166,14 +166,15 @@ const crumbs: Crumb[] = show
 </script>
 
 <style>
+  /* Round 2 (2026-11-10): no band and no rules. The trail is one quiet line
+     that sits on the page ground directly above the page's own heading. */
   .v5-breadcrumbs {
-    background: var(--bg);
-    border-bottom: 1px solid var(--border);
+    background: transparent;
   }
   .v5-breadcrumbs__container {
     max-width: var(--max-w);
     margin: 0 auto;
-    padding: var(--space-2) var(--space-5);
+    padding: var(--space-3) var(--space-5) 0;
   }
   .v5-breadcrumbs__list {
     list-style: none;
@@ -208,6 +209,10 @@ const crumbs: Crumb[] = show
     transition: color var(--dur-fast) var(--ease-enter);
   }
   .v5-breadcrumbs__item a:hover { color: var(--accent); }
+  @media (max-width: 767px) {
+    /* 44px touch target without growing the visible line. */
+    .v5-breadcrumbs__item a { padding: var(--space-3) var(--space-1); margin: calc(var(--space-3) * -1) calc(var(--space-1) * -1); }
+  }
   .v5-breadcrumbs__item a:focus-visible {
     outline: var(--focus-ring);
     outline-offset: 2px;

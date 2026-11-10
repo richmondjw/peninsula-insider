@@ -1,16 +1,17 @@
 ---
 /**
- * WhatsOnRow (v5 What's On, T-601) - the compact day-group row.
+ * WhatsOnRow (v5 What's On, T-601) - one line of the day schedule.
  *
- * Text-only by design (HUB-11: the row layer carries zero image weight);
- * title link + one-liner + meta line, with Save and "+ Trip" in an actions
- * cluster. Mirrors the Card compact-row anatomy but stays purpose-built so
- * fifty of them cost a fraction of fifty cards.
+ * Text-only by design (HUB-11: the row layer carries zero image weight).
+ * Read as a timetable: start time first, then the title, its one-liner and
+ * one quiet "place · category" line, with a single Save icon at the row's
+ * right. "+ Trip" lives on the pick cards and the event page, not on fifty
+ * rows (Phase 6, 2026-11-10).
  *
  * The page's client script clones this exact markup (via a <template>) when
  * it renders other date scopes from the JSON island, so keep the class and
- * data-attribute surface stable: .wo-row__link / .wo-row__dek /
- * .wo-row__meta / [data-v5-save-control] / .wo-row__trip.
+ * data-attribute surface stable: .wo-row__time / .wo-row__link /
+ * .wo-row__dek / .wo-row__meta / [data-v5-save-control].
  */
 import SaveControl from '../SaveControl.astro';
 
@@ -18,6 +19,10 @@ export interface Props {
   title: string;
   href: string;
   slug: string;
+  /** Start time label ("9am", "6.30pm"); empty when the listing has none. */
+  time?: string;
+  /** false for undated listings (experiences), which have no time column. */
+  schedule?: boolean;
   oneLiner?: string;
   meta?: string[];
   /** e.g. "runs to Sun 13 Jul" for multi-day ranges. */
@@ -26,10 +31,10 @@ export interface Props {
   /**
    * PI-008. The occurrence's own state, not the record's: "Ended", "Sold out",
    * "Cancelled this time". It joins the meta line rather than arriving as a new
-   * badge, so the client island that clones this markup keeps working and the
-   * CSS budget is untouched. `bookable` is exposed as a data attribute only;
-   * the row has no booking affordance of its own, and the attribute is what
-   * lets a listing be checked from the built HTML.
+   * badge, so the client island that clones this markup keeps working.
+   * `bookable` is exposed as a data attribute only; the row has no booking
+   * affordance of its own, and the attribute is what lets a listing be
+   * checked from the built HTML.
    */
   statusLabel?: string | null;
   phase?: 'upcoming' | 'running' | 'past';
@@ -40,6 +45,8 @@ const {
   title,
   href,
   slug,
+  time = '',
+  schedule = true,
   oneLiner = '',
   meta = [],
   spanLabel = '',
@@ -51,7 +58,8 @@ const {
 const metaText = [meta.join(' · '), spanLabel, statusLabel].filter(Boolean).join(' · ');
 ---
 
-<li class="wo-row" data-occurrence-phase={phase} data-occurrence-bookable={String(bookable)}>
+<li class:list={['wo-row', { 'wo-row--undated': !schedule }]} data-occurrence-phase={phase} data-occurrence-bookable={String(bookable)}>
+  {schedule && <p class="wo-row__time">{time}</p>}
   <div class="wo-row__body">
     <a
       class="wo-row__link"
@@ -68,121 +76,85 @@ const metaText = [meta.join(' · '), spanLabel, statusLabel].filter(Boolean).joi
   </div>
   <div class="wo-row__actions">
     <SaveControl kind="event" slug={slug} title={title} href={href} dek={oneLiner} />
-    <button
-      type="button"
-      class="wo-row__trip"
-      data-evt="trip_add"
-      data-entity-type="event"
-      data-entity-slug={slug}
-      data-entity-title={title}
-      data-entity-href={href}
-      aria-label={`Add ${title} to trip`}
-    >
-      + Trip
-    </button>
   </div>
 </li>
 
 <style>
+  /* time | title, one-liner, meta | save. The list column is capped by the page,
+     so the Save icon sits beside its text, not across an empty channel. */
   .wo-row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: var(--space-4, 1rem);
+    display: grid;
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+    column-gap: var(--space-4, 1rem);
+    align-items: start;
     padding: var(--space-3, 0.75rem) 0;
-    border-top: 1px solid var(--border);
+  }
+  .wo-row--undated {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  .wo-row__time {
+    margin: 0;
+    padding-top: 0.15em;
+    color: var(--text);
+    font-family: var(--font-ui, inherit);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-semibold, 600);
+    font-variant-numeric: tabular-nums;
+    line-height: var(--lh-ui, 1.4);
+    white-space: nowrap;
   }
   .wo-row__body {
     min-width: 0;
   }
   .wo-row__link {
     display: inline-block;
+    padding-block: 0.15rem;
     color: var(--text);
     text-decoration: none;
     font-family: var(--font-display, Georgia, serif);
-    font-size: var(--fs-500, 1.15rem);
+    font-size: var(--fs-400);
     font-weight: var(--fw-display, 600);
-    line-height: var(--lh-heading, 1.2);
+    line-height: 1.35;
   }
   .wo-row__link:hover {
     color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
   }
   .wo-row__link:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
     outline-offset: 2px;
   }
   .wo-row .wo-row__dek {
-    display: block;
-    overflow: visible;
-    -webkit-line-clamp: unset;
-    line-clamp: unset;
-    margin: 2px 0 0;
+    margin: var(--space-1, 0.25rem) 0 0;
     color: var(--text);
-    font-style: normal;
-    font-size: var(--fs-300, 0.9rem);
-    line-height: var(--lh-dek, 1.45);
-    max-width: var(--measure-dek, 52ch);
+    font-size: var(--fs-300);
+    line-height: 1.5;
+    max-width: 60ch;
   }
-  .wo-row__dek:empty {
-    display: none;
-  }
-  .wo-row__meta {
-    margin: 4px 0 0;
-    color: var(--soft);
-    font-size: var(--fs-200, 0.8rem);
-    line-height: var(--lh-ui, 1.4);
-  }
+  .wo-row__dek:empty,
   .wo-row__meta:empty {
     display: none;
   }
+  .wo-row__meta {
+    margin: var(--space-1, 0.25rem) 0 0;
+    color: var(--soft);
+    font-size: var(--fs-300);
+    line-height: var(--lh-ui, 1.4);
+  }
   .wo-row__actions {
     display: flex;
-    flex: 0 0 auto;
-    align-items: center;
-    gap: var(--space-2, 0.5rem);
-  }
-  .wo-row__trip {
-    appearance: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    min-width: 48px;
-    padding: 0 var(--space-3, 0.75rem);
-    background: var(--bg);
-    color: var(--soft);
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    font-family: var(--font-ui, inherit);
-    font-size: var(--fs-200, 0.8rem);
-    font-weight: var(--fw-semibold, 600);
-    cursor: pointer;
-    white-space: nowrap;
-    transition:
-      border-color var(--dur-fast, 120ms) var(--ease-enter, ease),
-      color var(--dur-fast, 120ms) var(--ease-enter, ease);
-  }
-  .wo-row__trip:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .wo-row__trip:focus-visible {
-    outline: var(--focus-ring, 2px solid var(--accent));
-    outline-offset: 2px;
-  }
-  .wo-row__trip[data-added='true'] {
-    background: var(--text);
-    border-color: var(--text);
-    color: var(--white, #fff);
+    align-items: flex-start;
+    margin-top: -0.6rem;
   }
 
   @media (max-width: 47.9375em) {
     .wo-row {
-      flex-direction: column;
-      gap: var(--space-2, 0.5rem);
+      grid-template-columns: 4rem minmax(0, 1fr) auto;
+      column-gap: var(--space-3, 0.75rem);
     }
-    .wo-row__actions {
-      align-self: flex-start;
+    .wo-row--undated {
+      grid-template-columns: minmax(0, 1fr) auto;
     }
   }
 </style>
