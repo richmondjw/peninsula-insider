@@ -47,24 +47,30 @@ import { dirname, join } from 'node:path';
 // is further decomposed: every meaningful reduction should be followed by
 // lowering TOTAL_BUDGET to the new measured figure plus 5 percent, so the
 // ceiling tracks reality instead of drifting above it.
-const TOTAL_BUDGET = 16100;
+// Ratcheted down 2026-11-10 after the dead-CSS removal: measured 13556 lines, ceiling = measured + 100.
+const TOTAL_BUDGET = 13656;
 
 // Measured line counts at the time the budget was set. Used only to make
 // the failure message actionable ("global.css grew by N lines"). Files
 // absent here are reported as newly added.
 const BASELINE = {
   'account.css': 304,
+  'anchor-pages.css': 24,
   'concierge.css': 1025,
-  'edition.css': 506,
-  'global.css': 10765,
-  'inline-edit.css': 875,
+  'editorial-shell.css': 42,
+  'global.css': 9171,
+  'inline-edit.css': 878,
+  'journal-article.css': 20,
+  'journal-editorial.css': 18,
+  'journal-fonts.css': 56,
   'magenta-stone.css': 170,
-  'primitives.css': 649,
-  'search.css': 697,
+  'photo-headers.css': 69,
+  'primitives.css': 672,
+  'refinement.css': 108,
+  'search-results.css': 409,
+  'search.css': 305,
   'tailwind.css': 14,
-  'v4.css': 1,
-  'v5-tokens.css': 112,
-  'v6-tokens.css': 193,
+  'v6-tokens.css': 271,
 };
 
 const HERE = dirname(fileURLToPath(import.meta.url));
