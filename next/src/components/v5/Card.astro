@@ -2,10 +2,22 @@
 /**
  * Card (v5) - THE one card primitive (component spec 2.15).
  *
- * Seven variants, one anatomy: media / type-mark / title / verdict / meta /
- * provenance / actions / stretched link. Replaces VenueCard, PlaceCard,
- * EventCard, ArticleCard, ItineraryCard, PlanCard, TourCard and friends as
- * pages migrate (page agents do the swapping; this file is the target).
+ * Seven variants, one anatomy: media / title / dek / one meta line /
+ * stretched link. Replaces VenueCard, PlaceCard, EventCard, ArticleCard,
+ * ItineraryCard, PlanCard, TourCard and friends.
+ *
+ * One card style site-wide (simplification round 2, 2026-11-10):
+ *  - No fill, no frame, no footer band. The photograph and the gutter define
+ *    the card; the text runs flush with the photograph's edge.
+ *  - Image, title, one dek, ONE meta line (chips, practical note, check date
+ *    and any partner disclosure share it). The whole card is the link.
+ *  - Save is a small icon over the photograph's top-right corner. A card
+ *    without a photograph carries it at the top right of the text.
+ *  - Licence credits stay, as one quiet line laid over the photograph's foot,
+ *    so every title in a row starts on the same line.
+ *  - No stand-in art. A card asked to hold a photo slot it has no photograph
+ *    for (`mediaFallback`) becomes a typographic card on paper. Its empty CMS
+ *    slot stays in the DOM for editors and appears only in edit mode.
  *
  * Content rules enforced here (spec 0.1): title <= 60 chars, verdict <= 25
  * words, meta <= 3 chips, priceBand chips only (never dollar figures),
@@ -15,10 +27,9 @@
  *  - Root is an `li` by default (cards live in labelled lists); use
  *    `as="article"` for standalone placements.
  *  - The title anchor is the ONLY link; a ::after stretches it over the
- *    card. SaveControl / trip / booking sit in an actions layer ABOVE the
- *    stretched link and are never nested inside it.
- *  - Verdict is a <p> in the Critic voice style, never a heading.
- *  - Save target >= 48px; focus-visible ring on the link.
+ *    card. SaveControl / trip / booking sit ABOVE the stretched link and are
+ *    never nested inside it. The focus ring is drawn around the whole card.
+ *  - Verdict is a <p>, never a heading. Save target >= 44px.
  *
  * Analytics: link carries data-evt="card_click" plus entity attrs; the
  * "+ Trip" affordance carries data-evt="trip_add" and writes to the shared
@@ -78,7 +89,9 @@ export interface Props {
   preferAvif?: boolean;
   /** Verdict line <= 25 words. The named slot `verdict` overrides this. */
   verdict?: string;
+  /** Practical line; joins the meta line rather than taking a row of its own. */
   planningNote?: string;
+  /** Retired with the house plate (no stand-in art). Accepted, ignored. */
   mediaFallbackMark?: string;
   /** Up to 3 plain-text chips, joined with a middot separator. */
   meta?: string[];
@@ -92,18 +105,15 @@ export interface Props {
   /**
    * Render the type eyebrow. Set false from a section whose heading already
    * declares the type ("This weekend" over three event cards stamped EVENT).
-   * The card stays reusable: in a mixed grid the label still carries
-   * information, so the default is on and the parent opts out.
    */
   showEyebrow?: boolean;
   /**
-   * Render a typographic plate in place of the media block when no image is
-   * supplied. Set true from image-bearing grids so one entry missing a photo
-   * does not open a hole in the row. Leave false for grids that are text-only
-   * by design (guide rails, compact rows), where a plate would be noise.
+   * This card sits in an image-bearing row. When it has no photograph it
+   * becomes a typographic card on paper (never a stand-in illustration), so
+   * the row still reads as designed. Leave false for text-only lists.
    */
   mediaFallback?: boolean;
-  /** Short category label for a text plate when this placement has no photo. */
+  /** Retired with the house plate. Accepted, ignored. */
   mediaFallbackLabel?: string;
   /** Region eyebrow for the place variant (replaces typeMark when set). */
   eyebrow?: string;
@@ -113,11 +123,13 @@ export interface Props {
   readTime?: string;
   /** Event start date or article publish date, ISO. */
   dateISO?: string;
+  /** Event variant: show the day/month tile on the photograph. Default on. */
+  showDate?: boolean;
   /** Plan variant: renders the day-count chip. */
   dayCount?: number;
   /** Full itinerary used by the Copy action on a plan card. */
   plan?: EditorialPlan;
-  /** Give compact layouts a full-width photo attribution row. */
+  /** Set the photo credit as a row below the photograph instead of over it. */
   separateImageNote?: boolean;
   /** Partner label; mandatory when the placement is commercial. */
   partnerLabel?: string;
@@ -127,6 +139,12 @@ export interface Props {
   detailActionLabel?: string;
   /** Render the "+ Trip" affordance backed by the shared trip store. */
   trip?: boolean;
+  /**
+   * Render the card's actions (Save, + Trip, booking, detail link). Default
+   * on. Set false where the surface is a pure way in (home rails): the whole
+   * card is still the link.
+   */
+  actions?: boolean;
   /** Save metadata overrides. saveKind defaults from entityType. */
   saveKind?: SaveKind;
   saveSection?: string;
@@ -160,13 +178,12 @@ const {
   typeMark,
   showEyebrow = true,
   mediaFallback = false,
-  mediaFallbackLabel,
-  mediaFallbackMark,
   planningNote,
   eyebrow,
   byline,
   readTime,
   dateISO,
+  showDate = true,
   dayCount,
   plan,
   separateImageNote = false,
@@ -174,6 +191,7 @@ const {
   booking,
   detailActionLabel,
   trip = false,
+  actions = true,
   saveKind,
   saveSection,
   saveDek,
@@ -192,7 +210,7 @@ if (verdict && verdict.trim().split(/\s+/).length > 25) {
 if (meta.length > 3) {
   console.warn(`[v5 Card] more than 3 meta chips for "${entitySlug}"; rendering the first 3`);
 }
-if (/\u2014/.test(`${title} ${verdict ?? ''} ${meta.join(' ')}`)) {
+if (/—/.test(`${title} ${verdict ?? ''} ${meta.join(' ')}`)) {
   console.warn(`[v5 Card] em-dash in card copy for "${entitySlug}" (house rule: none, ever)`);
 }
 
@@ -215,9 +233,9 @@ const band =
 
 const metaChips = meta.slice(0, 3);
 
-/* Event date block (day + short month) */
+/* Event date tile (day + short month) */
 const eventDate =
-  variant === 'event' && dateISO
+  variant === 'event' && dateISO && showDate
     ? {
         day: new Date(dateISO).toLocaleDateString('en-AU', { day: 'numeric' }),
         month: new Date(dateISO).toLocaleDateString('en-AU', { month: 'short' }),
@@ -233,18 +251,28 @@ const articleDate =
 const freshnessBase = freshness ? freshnessLabel(freshness) : null;
 const freshnessText = freshnessKind === 'checked' ? freshnessBase?.replace('Reviewed ', 'Details checked ') : freshnessBase;
 
+const isCompact = variant === 'compact-row';
 const isEditorial = variant === 'article' || variant === 'guide';
 const showMedia = !!image;
-/* A parent can request the house plate when a photo is unavailable, keeping
-   media height consistent within image-bearing card rows. */
-const showPlate = !image && mediaFallback;
+/* An image-bearing row asked for a slot this card has no photograph for:
+   the card is set as type on paper, and the empty CMS slot is kept for
+   editors only. */
+const showSlot = !image && mediaFallback;
+const textCard = showSlot && !isCompact;
 const hasVerdictSlot = Astro.slots.has('verdict');
 
 /* Save kind: entityType maps 1:1 except page/region, which are not saveable. */
 const resolvedSaveKind: SaveKind | null =
-  saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null);
+  actions && (saveKind ?? (entityType !== 'page' && entityType !== 'region' ? (entityType as SaveKind) : null)) || null;
+/* A plan's labelled "Copy this plan" stays in the action row. */
+const forkPlan = variant === 'plan' && !!plan;
+const saveOnImage = !!resolvedSaveKind && showMedia && !isCompact && !forkPlan;
+const otherActions = actions && (trip || !!booking || !!detailActionLabel);
+const saveInRow = !!resolvedSaveKind && !saveOnImage;
+const hasActions = saveInRow || otherActions;
+/* Save alone, no photograph: it sits at the top right of the text. */
+const saveCorner = saveInRow && !otherActions && !isCompact && !forkPlan;
 
-const hasActions = !!resolvedSaveKind || trip || !!booking || !!detailActionLabel;
 const creditLine = (credit: string) => {
   const clean = credit.trim().replace(/\.$/, '');
   return /^Courtesy of /i.test(clean)
@@ -257,6 +285,19 @@ const creditLine = (credit: string) => {
 const imageArtwork = isArtwork(image);
 const imageCaption = imageArtwork ? '' : cleanCaption(image?.caption);
 const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : '';
+const hasNote = Boolean(imageCaption || imageCredit);
+/* Compact rows keep their small credit beside the thumbnail; every other
+   card lays it over the photograph's foot unless asked for a separate row. */
+const noteOnImage = hasNote && showMedia && !isCompact && !separateImageNote;
+
+const editAttrs = lockImageEditing ? {} : editableImage({
+  entityType: imageEdit?.entityType ?? entityType,
+  entitySlug: imageEdit?.entitySlug ?? entitySlug,
+  fieldPath: imageEdit?.fieldPath ?? fieldPath,
+  label: `${title} image`,
+  purpose: 'card',
+});
+
 ---
 
 {/* `compact-row` is the primitive's `--compact` variant; the other six are
@@ -264,9 +305,11 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
 <Tag
   class:list={[
     'pi-card',
-    variant === 'compact-row' ? 'pi-card--compact' : `pi-card--${variant}`,
+    isCompact ? 'pi-card--compact' : `pi-card--${variant}`,
     isEditorial && 'pi-card--editorial',
     lockImageEditing && 'pi-card--image-locked',
+    textCard && 'pi-card--text',
+    saveCorner && 'pi-card--save-corner',
   ]}
   data-variant={variant}
 >
@@ -280,13 +323,7 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
         alt={image!.alt}
         loading="lazy"
         decoding="async"
-        {...(lockImageEditing ? {} : editableImage({
-          entityType: imageEdit?.entityType ?? entityType,
-          entitySlug: imageEdit?.entitySlug ?? entitySlug,
-          fieldPath: imageEdit?.fieldPath ?? fieldPath,
-          label: `${title} image`,
-          purpose: 'card',
-        }))}
+        {...editAttrs}
       />
       {eventDate && (
         <span class="pi-card__date-block" aria-hidden="true">
@@ -295,42 +332,30 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
         </span>
       )}
       {variant === 'event' && <slot name="badges" />}
+      {noteOnImage && (
+        <p class="pi-card__image-note pi-card__image-note--overlay">
+          {imageCaption && <span>{imageCaption}</span>}
+          {imageCaption && imageCredit && ' '}
+          {imageCredit && <span class="pi-card__image-credit">{image?.sourceUrl ? <a href={image.sourceUrl}>{imageCredit}</a> : imageCredit}{image?.licenceUrl && <>{' · '}<a href={image.licenceUrl}>CC BY-SA 3.0 licence</a></>}{image?.changeNote && <>{' · '}{image.changeNote}</>}</span>}
+        </p>
+      )}
+      {saveOnImage && resolvedSaveKind && <div class="pi-card__save"><SaveControl kind={resolvedSaveKind} slug={entitySlug} title={title} href={href} section={saveSection} dek={saveDek ?? verdict} imageUrl={image?.src} variant={forkPlan ? 'fork' : 'save'} plan={plan} labelled={variant === 'plan'} /></div>}
     </div>
   )}
 
-  {showPlate && (
+  {showSlot && (
     <div
       class="pi-card__media pi-card__media--plate"
       data-pi-no-hydrate={suppressImageHydration ? 'true' : undefined}
       data-pi-requires-image-metadata={requireImageMetadata ? 'true' : undefined}
-      {...(lockImageEditing ? {} : editableImage({
-        entityType: imageEdit?.entityType ?? entityType,
-        entitySlug: imageEdit?.entitySlug ?? entitySlug,
-        fieldPath: imageEdit?.fieldPath ?? fieldPath,
-        label: `${title} image`,
-        purpose: 'card',
-      }))}
+      {...editAttrs}
     >
-      <span class="pi-card__plate" aria-hidden="true">
-        <span class="pi-card__plate-rule"></span>
-        {variant === "compact-row" ? (mediaFallbackMark && <span class="pi-card__plate-monogram">{mediaFallbackMark}</span>) : mediaFallbackLabel ? (
-          <>
-            <span class="pi-card__plate-topic">{mediaFallbackLabel}</span>
-            <span class="pi-card__plate-brand">Peninsula Insider</span>
-          </>
-        ) : <span class="pi-card__plate-mark">Peninsula Insider</span>}
-      </span>
-      {eventDate && (
-        <span class="pi-card__date-block" aria-hidden="true">
-          <span class="pi-card__date-day">{eventDate.day}</span>
-          <span class="pi-card__date-month">{eventDate.month}</span>
-        </span>
-      )}
+      <span class="pi-card__plate" aria-hidden="true"></span>
       {variant === 'event' && <slot name="badges" />}
     </div>
   )}
 
-  {separateImageNote && (imageCaption || imageCredit) && (
+  {hasNote && showMedia && !isCompact && separateImageNote && (
     <p class="pi-card__image-note pi-card__image-note--separate">
       {imageCaption && <span>{imageCaption}</span>}
       {imageCaption && imageCredit && ' '}
@@ -339,13 +364,14 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
   )}
 
   <div class="pi-card__body">
-    {!separateImageNote && (imageCaption || imageCredit) && (
+    {hasNote && isCompact && showMedia && (
       <p class="pi-card__image-note">
         {imageCaption && <span>{imageCaption}</span>}
         {imageCaption && imageCredit && ' '}
         {imageCredit && <span class="pi-card__image-credit">{image?.sourceUrl ? <a href={image.sourceUrl}>{imageCredit}</a> : imageCredit}{image?.licenceUrl && <>{' · '}<a href={image.licenceUrl}>CC BY-SA 3.0 licence</a></>}{image?.changeNote && <>{' · '}{image.changeNote}</>}</span>}
       </p>
     )}
+    {eventDate && !showMedia && <p class="pi-card__eyebrow pi-card__date-line">{eventDate.day} {eventDate.month}</p>}
     {showEyebrow && markText && <p class="pi-card__eyebrow">{markText}</p>}
 
     <h3 class="pi-card__title">
@@ -372,26 +398,17 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
     {variant === 'article' ? (
       <p class="pi-card__meta">
         <span class="pi-card__byline">{byline ?? 'Peninsula Insider'}</span>
-        {articleDate && (
-          <>
-            <span class="pi-card__sep" aria-hidden="true">&middot;</span>
-            <span>{articleDate}</span>
-          </>
-        )}
-        {readTime && (
-          <>
-            <span class="pi-card__sep" aria-hidden="true">&middot;</span>
-            <span>{readTime}</span>
-          </>
-        )}
+        {articleDate && <><span class="pi-card__sep" aria-hidden="true">&middot;</span><span>{articleDate}</span></>}
+        {readTime && <><span class="pi-card__sep" aria-hidden="true">&middot;</span><span>{readTime}</span></>}
+        {partnerLabel && <><span class="pi-card__sep" aria-hidden="true">&middot;</span><span class="pi-card__partner">{partnerLabel}</span></>}
       </p>
     ) : (
-      (metaChips.length > 0 || band > 0 || (variant === 'guide' && readTime) || (variant === 'plan' && dayCount)) && (
+      (metaChips.length > 0 || band > 0 || (variant === 'guide' && readTime) || (variant === 'plan' && dayCount) || planningNote || freshnessText || partnerLabel) && (
         <p class="pi-card__meta">
           {variant === 'plan' && dayCount && (
             <>
               <span class="pi-card__chip">{dayCount} {dayCount === 1 ? 'day' : 'days'}</span>
-              <span class="pi-card__sep" aria-hidden="true">&middot;</span>
+              {(metaChips.length > 0 || band > 0) && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}
             </>
           )}
           {metaChips.map((chip, i) => (
@@ -414,40 +431,20 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
               <span class="pi-card__chip">{readTime}</span>
             </>
           )}
+          {planningNote && <>{(metaChips.length > 0 || band > 0) && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}<span class="pi-card__planning">{planningNote}</span></>}
+          {freshnessText && <>{(metaChips.length > 0 || band > 0 || planningNote) && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}<span class="pi-card__provenance">{freshnessText}</span></>}
+          {partnerLabel && <>{(metaChips.length > 0 || band > 0 || planningNote || freshnessText) && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}<span class="pi-card__partner">{partnerLabel}</span></>}
         </p>
       )
     )}
-
-    {planningNote && <p class="pi-card__planning">{planningNote}</p>}
-
-    {(freshnessText || partnerLabel) && (
-      <p class="pi-card__provenance">
-        {freshnessText && <span>{freshnessText}</span>}
-        {freshnessText && partnerLabel && <span class="pi-card__sep" aria-hidden="true">&middot;</span>}
-        {partnerLabel && <span class="pi-card__partner">{partnerLabel}</span>}
-      </p>
-    )}
   </div>
 
-  {hasActions && <div class="pi-card__actions">
-    {resolvedSaveKind && (
-      <SaveControl
-        kind={resolvedSaveKind}
-        slug={entitySlug}
-        title={title}
-        href={href}
-        section={saveSection}
-        dek={saveDek ?? verdict}
-        imageUrl={image?.src}
-        variant={variant === 'plan' && plan ? 'fork' : 'save'}
-        plan={plan}
-        labelled={variant === 'plan'}
-      />
-    )}
-    {trip && (
+  {hasActions && <div class:list={['pi-card__actions', saveCorner && 'pi-card__actions--corner']}>
+    {saveInRow && resolvedSaveKind && <SaveControl kind={resolvedSaveKind} slug={entitySlug} title={title} href={href} section={saveSection} dek={saveDek ?? verdict} imageUrl={image?.src} variant={forkPlan ? 'fork' : 'save'} plan={plan} labelled={variant === 'plan'} />}
+    {actions && trip && (
       <button
         type="button"
-        class="pi-btn pi-btn--ghost pi-btn--sm"
+        class="pi-card__text-action"
         data-evt="trip_add"
         data-card-trip
         data-save-kind={resolvedSaveKind}
@@ -461,14 +458,14 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
         + Trip
       </button>
     )}
-    {detailActionLabel && (
-      <a href={href} class="pi-card__detail-action" aria-label={`${detailActionLabel} for ${title}`}
+    {actions && detailActionLabel && (
+      <a href={href} class="pi-card__text-action pi-card__detail-action" aria-label={`${detailActionLabel} for ${title}`}
         data-evt="card_click" data-entity-type={entityType} data-entity-slug={entitySlug}
         data-variant={variant} data-surface={surface} data-position={position}>
         {detailActionLabel} <span aria-hidden="true">&rarr;</span>
       </a>
     )}
-    {booking && (
+    {actions && booking && (
       <BookingControl
         url={booking.url}
         label={booking.label}
@@ -523,292 +520,117 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
 </script>
 
 <style>
-  .pi-card__actions [data-card-trip] { min-height: 44px; }
-  .pi-card__image-note { margin: 0 0 0.5rem; font-size: var(--fs-200); line-height: 1.4; color: var(--soft); }
-  .pi-card__image-credit { display: block; }
-  .pi-card__image-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-  .pi-card__image-credit a:focus-visible { outline: 2px solid var(--teal-text); outline-offset: 2px; }
-  .pi-card__image-note--separate { margin: 0; padding: .65rem var(--space-4); border-bottom: 1px solid var(--border); }
-  /* Only what the shared primitive does NOT provide lives here.
-     Ground, hairline, radius, body/eyebrow/title/dek/meta typography,
-     the two-line dek clamp and the --compact row direction all come from
-     .pi-card in primitives.css. Deleting the local copies is the point:
-     the card had been re-declaring the frame it was already inheriting,
-     including a resting/hover box-shadow that contradicts the primitive's
-     deliberate no-shadow rule. */
+  /* Frame, ground, body rhythm and the type scale come from .pi-card in
+     primitives.css (no fill, no frame, text flush with the photograph).
+     Only what is specific to this component lives here. */
+  .pi-card { list-style: none; }
+  /* refinement.css (body[data-v4]) still carries the older card scale
+     (26px titles, 13px meta). The doubled class keeps the one scale here:
+     21px card title, 26px on a text card, 15px meta. */
+  .pi-card.pi-card:not(.pi-card--compact) .pi-card__title { font-size: var(--fs-500); line-height: 1.25; }
+  .pi-card.pi-card.pi-card--text .pi-card__title { font-size: var(--fs-600); }
+  .pi-card.pi-card .pi-card__meta { font-size: var(--fs-300); line-height: var(--lh-ui); }
 
-  /* Hover: the primitive shifts the hairline; the media and the title
-     respond too, which is specific to this card having a photograph. */
-  .pi-card:hover .pi-card__media img {
-    transform: scale(1.03);
+  /* Focus: one ring around the whole card, not a box round the title text. */
+  .pi-card:has(.pi-card__link:focus-visible) {
+    outline: var(--focus-ring, 2px solid var(--accent));
+    outline-offset: 4px;
+    border-radius: var(--radius-s);
   }
-  .pi-card:hover .pi-card__link {
-    color: var(--accent);
-  }
-  /* This card family runs 3/2, unlike the converted page cards the
-     primitive defaults to (16/10). Stated explicitly rather than
-     inherited so the two cannot drift apart again silently. */
-  .pi-card__media {
-    aspect-ratio: 3 / 2;
-  }
-  .pi-card__media img {
-    transition: transform var(--dur-slow) var(--ease-enter);
-  }
+  .pi-card__link { color: inherit; text-decoration: none; transition: color var(--dur-fast) var(--ease-enter); }
+  .pi-card__link:focus-visible,
+  .pi-card.pi-card .pi-card__link:focus-visible::after { outline: none; }
+  .pi-card:hover .pi-card__link { color: var(--accent); }
+  /* Stretched link: the whole card navigates; actions sit above it. */
+  .pi-card__link::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 
-  /* Cards are list items by default, so the marker has to go. */
-  .pi-card {
-    list-style: none;
-  }
+  .pi-card__media img { transition: transform var(--dur-slow) var(--ease-enter); }
+  .pi-card:hover .pi-card__media img { transform: scale(1.02); }
 
-  /* ---- media fallback: the house plate ----
-     A card with no photograph used to render a blank slot inside an
-     image-bearing row. Instead we set the masthead on the signature
-     evergreen ground, at exactly the media block's 3:2 ratio, so the grid
-     stays level and the absence reads as a deliberate typographic tile.
-     Colour is tokens only: --bg-dark ground, --white type (about 13:1),
-     rule at 42% white (decorative, not text). No placeholder photography. */
-  .pi-card__media--plate {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: #102D42;
-    background-image: url("/images/generated/coastal-punch-plate.svg");
-    background-size: cover;
-    background-position: center;
+  /* Credit: one quiet line over the photograph's foot, on its own scrim. */
+  .pi-card__image-note { margin: 0; font-size: var(--fs-100); line-height: 1.4; color: var(--soft); }
+  .pi-card__image-credit a { position: relative; z-index: 2; color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+  .pi-card__image-credit a:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+  .pi-card__image-note--overlay {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: var(--space-6) var(--space-3) var(--space-2);
+    background: linear-gradient(to top, rgba(12, 28, 40, 0.8), rgba(12, 28, 40, 0));
+    color: #fff;
+    text-wrap: pretty;
   }
+  .pi-card__image-note--separate { padding-top: var(--space-2); }
 
-  .pi-card__plate {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-    padding: var(--space-4) var(--space-5);
+  /* Save: a small icon on the photograph's corner, or the text's top right. */
+  .pi-card__actions { position: relative; z-index: 2; }
+  .pi-card__save { position: absolute; top: var(--space-2); right: var(--space-2); z-index: 2; }
+  .pi-card__save :global(.v5-save__btn) {
+    width: 44px; min-width: 44px; height: 44px; min-height: 44px; padding: 0;
+    border-radius: 50%;
+    background: rgba(253, 252, 250, 0.92);
+    color: var(--text);
   }
+  .pi-card__save :global(.v5-save__btn:hover) { background: var(--white); color: var(--accent); }
+  .pi-card .pi-card__actions--corner { position: absolute; top: 0; right: 0; z-index: 2; padding: 0; margin: 0; }
+  .pi-card--save-corner .pi-card__title { padding-right: 2.75rem; }
+  .pi-card--text.pi-card--save-corner .pi-card__actions--corner { top: var(--space-2); right: var(--space-2); }
 
-  .pi-card__plate-rule {
-    display: block;
-    width: 2.25rem;
-    height: 2px;
-    background: var(--sage);
+  /* Secondary actions are text links (DESIGN.md: actions are quiet). */
+  .pi-card__text-action {
+    display: inline-flex; align-items: center; gap: .35rem; min-height: 44px; padding: 0;
+    border: 0; background: none; cursor: pointer;
+    color: var(--accent); font: var(--fw-medium) var(--fs-300)/var(--lh-ui) var(--font-ui);
+    text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em;
   }
-
-  .pi-card__plate-mark {
-    display: block;
-    max-width: 7ch;
-    font-family: var(--font-display);
-    font-size: var(--fs-600);
-    font-weight: var(--fw-display);
-    line-height: var(--lh-heading);
-    letter-spacing: var(--ls-display);
-    color: var(--white);
-  }
-
-  .pi-card__plate-topic {
-    max-width: 11ch;
-    color: var(--white);
-    font: var(--fw-display) var(--fs-700)/1.08 var(--font-display);
-    letter-spacing: var(--ls-display);
-    text-wrap: balance;
-  }
-
-  .pi-card__plate-brand {
-    color: var(--white);
-    font: var(--fw-semibold) var(--fs-100)/var(--lh-ui) var(--font-ui);
-    letter-spacing: var(--ls-eyebrow);
-    text-transform: uppercase;
-  }
+  .pi-card__text-action:hover { color: var(--acc-h, var(--accent)); }
+  .pi-card__text-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
   .pi-card__date-block {
-    position: absolute;
-    top: var(--space-3);
-    left: var(--space-3);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-width: 2.75rem;
-    padding: 0.3rem 0.45rem;
-    background: var(--white);
-    border-radius: var(--radius-s);
-    font-family: var(--font-ui);
-    line-height: var(--lh-label);
+    position: absolute; top: var(--space-2); left: var(--space-2);
+    display: flex; flex-direction: column; align-items: center;
+    min-width: 2.75rem; padding: .3rem .45rem;
+    background: var(--white); border-radius: var(--radius-s);
+    font-family: var(--font-ui); line-height: var(--lh-label);
   }
-  .pi-card__date-day {
-    font-size: var(--fs-500);
-    font-weight: var(--fw-bold);
-    color: var(--text);
-  }
-  .pi-card__date-month {
-    font-size: var(--fs-100);
-    text-transform: uppercase;
-    letter-spacing: var(--ls-eyebrow);
-    color: var(--teal-text);
-  }
+  .pi-card__date-day { font-size: var(--fs-500); font-weight: var(--fw-bold); color: var(--text); }
+  .pi-card__date-month { font-size: var(--fs-100); text-transform: uppercase; letter-spacing: var(--ls-eyebrow); color: var(--soft); }
 
-  /* The eyebrow is the entity type mark, so it takes the teal the rest of
-     the masthead uses for entity labels rather than the primitive's --soft. */
-  .pi-card__eyebrow {
-    color: var(--teal-text);
-  }
+  .pi-card__sep { color: var(--border-strong); }
+  .pi-card__chip--price { letter-spacing: .08em; }
+  .pi-card__partner { color: var(--text); font-weight: var(--fw-semibold); }
+  .pi-card--article .pi-card__byline { font-weight: var(--fw-semibold); color: var(--text); }
 
-  .pi-card__link {
-    color: inherit;
-    text-decoration: none;
-    transition: color var(--dur-fast) var(--ease-enter);
-  }
-  /* Stretched link: whole card navigates; actions layer sits above. */
-  .pi-card__link::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-  }
-  .pi-card__link:focus-visible {
-    outline: var(--focus-ring);
-    /* Inset ring: the card clips overflow, so a positive offset would hide
-       the focus outline at the card edge. Draw it just inside instead. */
-    outline-offset: -3px;
-  }
+  /* No stand-in art: the empty CMS slot shows only while an editor works. */
+  :global(body:not([data-pi-edit-mode="on"])) .pi-card__media--plate { display: none; }
+  .pi-card__media--plate { background: var(--bg-alt); }
 
-  /* The verdict is this masthead's product line, so it runs one step up
-     from the primitive's dek and in the UI face at medium weight. */
-  .pi-card__dek {
-    font-size: var(--fs-500);
-    font-weight: var(--fw-medium);
-  }
-
-  /* Provenance is a second metadata row (freshness + partner) that the
-     primitive has no element for. It matches __meta but never pins. */
-  .pi-card__provenance {
-    margin: 0;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-    gap: 0.35rem;
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    line-height: var(--lh-ui);
-    color: var(--soft);
-  }
-  .pi-card__sep {
-    color: var(--border-strong);
-  }
-  .pi-card__chip--price {
-    letter-spacing: 0.08em;
-  }
-  .pi-card__partner {
-    text-transform: uppercase;
-    font-size: var(--fs-100);
-    letter-spacing: var(--ls-eyebrow);
-    color: var(--teal-text);
-  }
-
-  /* Actions sit outside __body, above the stretched link, so they need the
-     body's horizontal gutter restored and a stacking context of their own. */
-  .pi-card__detail-action {
-    display: inline-flex;
-    align-items: center;
-    gap: .35rem;
-    min-height: 48px;
-    padding: 0;
-    border: 0;
-    color: var(--accent);
-    text-decoration: underline;
-    text-decoration-thickness: 1px;
-    text-underline-offset: 0.25em;
-    font-family: var(--font-ui);
-    font-size: var(--fs-200);
-    text-decoration: none;
-  }
-  .pi-card__detail-action:hover { color: var(--acc-h, var(--accent)); text-decoration-thickness: 2px; }
-  .pi-card__detail-action:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-  .pi-card__actions {
-    position: relative;
-    z-index: 2;
-    padding: 0 var(--space-5) var(--space-5);
-  }
-
-  /* ---- variant: compact ----
-     The primitive's --compact is a horizontal media card. This surface uses
-     it as a directory list row: no frame, a square thumb, a bottom rule.
-     Selectors repeat the block class so they beat the primitive regardless
-     of bundle order. */
+  /* ---- compact: the one directory row ----
+     Content height, one hairline, title as the link, Save inline at the
+     right of the title line. Doubled block class beats the primitive. */
   .pi-card.pi-card--compact {
-    align-items: center;
-    gap: var(--space-3);
-    border: none;
-    border-bottom: 1px solid var(--border);
-    border-radius: 0;
-    overflow: visible;
-    padding: var(--space-3) 0;
-  }
-  .pi-card.pi-card--compact:hover {
-    background: var(--bg-alt);
+    flex-direction: row; align-items: flex-start; gap: var(--space-4);
+    padding: var(--space-4) 0;
+    border: 0; border-bottom: 1px solid var(--border); border-radius: 0;
+    background: transparent; overflow: visible;
   }
   .pi-card.pi-card--compact .pi-card__media {
-    flex: 0 0 56px;
-    max-width: 56px;
-    width: 56px;
-    height: 56px;
-    aspect-ratio: 1;
+    flex: 0 0 56px; width: 56px; max-width: 56px; height: 56px; aspect-ratio: 1;
     border-radius: var(--radius-s);
   }
-  /* A row with no rights-cleared photo shows the house pattern, not a lettered stand-in tile. */
-  .pi-card.pi-card--compact .pi-card__media--plate { background-position: center; background-size: cover; }
-  .pi-card.pi-card--compact .pi-card__media--plate:has(.pi-card__plate-monogram) { background: #e9eef0; }
-  .pi-card.pi-card--compact .pi-card__media--plate .pi-card__plate { align-items: center; justify-content: center; width: 100%; padding: 0; }
-  .pi-card.pi-card--compact .pi-card__plate-rule { display: none; }
-  .pi-card__plate-monogram { color: #174861; font-family: var(--font-display); font-size: var(--fs-400); font-weight: 750; letter-spacing: -.04em; }
-  .pi-card.pi-card--compact .pi-card__body {
-    padding: 0;
-  }
-  .pi-card.pi-card--compact.pi-card--image-locked .pi-card__image-note {
-    order: 1;
-    margin: 0;
-    font-size: var(--fs-100);
-    line-height: 1.35;
-  }
-  .pi-card.pi-card--compact .pi-card__title {
-    font-size: var(--fs-400);
-  }
-  .pi-card.pi-card--compact .pi-card__dek {
-    font-size: var(--fs-300);
-  }
-  .pi-card.pi-card--compact .pi-card__actions {
-    padding: 0;
-    margin-left: auto;
-  }
+  .pi-card.pi-card--compact .pi-card__body { flex: 1 1 auto; min-width: 0; padding: 0; gap: var(--space-1); }
+  .pi-card.pi-card--compact .pi-card__title { font-size: var(--fs-400); font-weight: var(--fw-semibold, 600); line-height: var(--lh-ui); }
+  .pi-card.pi-card--compact .pi-card__dek { font-size: var(--fs-300); }
+  .pi-card.pi-card--compact .pi-card__meta { margin-top: 0; min-height: 0; }
+  .pi-card.pi-card--compact .pi-card__actions { flex: 0 0 auto; margin: calc(-1 * var(--space-3)) calc(-1 * var(--space-2)) 0 0; padding: 0; }
+  .pi-card.pi-card--compact .pi-card__image-note { order: 9; }
   @media (max-width: 22.5em) {
-    /* Default compact cards stay text-first at narrow widths. Reviewed Eat photos remain beside their credits. */
-    .pi-card.pi-card--compact .pi-card__media {
-      display: none;
-    }
-    .pi-card.pi-card--compact.pi-card--image-locked .pi-card__media:not(.pi-card__media--plate) {
-      display: block;
-    }
-  }
-
-  /* ---- variant: place (region eyebrow, evergreen to distinguish) ---- */
-  .pi-card--place .pi-card__eyebrow {
-    color: var(--accent);
-  }
-
-  /* ---- variants: article + guide (editorial surface, HUB-08 fix) ----
-     Distinct at a glance: sea-fog surface, no venue chip cosmetics.
-     Titles already render in Sora. An article never wears venue clothing. */
-  .pi-card--editorial {
-    background: var(--bg-alt);
-    border-color: transparent;
-  }
-  .pi-card--article .pi-card__byline {
-    font-weight: var(--fw-semibold);
-    color: var(--text);
+    /* Default compact rows stay text-first at narrow widths. Reviewed photos remain beside their credits. */
+    .pi-card.pi-card--compact .pi-card__media { display: none; }
+    .pi-card.pi-card--compact.pi-card--image-locked .pi-card__media:not(.pi-card__media--plate) { display: block; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .pi-card__media img {
-      transition: none;
-    }
-    .pi-card:hover .pi-card__media img {
-      transform: none;
-    }
+    .pi-card__media img { transition: none; }
+    .pi-card:hover .pi-card__media img { transform: none; }
   }
 </style>

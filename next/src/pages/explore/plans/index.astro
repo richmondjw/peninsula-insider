@@ -22,25 +22,18 @@ export const prerender = true;
 ---
 <BaseLayout title="Mornington Peninsula Plans · Peninsula Insider" description="Choose a Peninsula day or weekend, with editorial itineraries, clear routes and practical planning guides. Use an itinerary in My Trip and make it yours." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage={pageImage('plans-hub').src}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
-  <!-- Opening → the itineraries (one collection; the matcher is a one-line toggle inside it) → guides → quiet close. -->
-  <header class="plans-hero">
-    <div class="container">
-      <div class="plans-hero__row">
-        <h1>Don’t plan.<br />Pick one of ours.</h1>
-        <p class="plans-hero__intro">A good day starts with a few good decisions. We’ve put the stops in order. Choose the one that suits you, then make it your own.</p>
-      </div>
-    </div>
-  </header>
+  <!-- One opening (headline, standfirst, matcher, editor's pick), then the other itineraries, guides and a quiet close. -->
   <PlanIndexRows model={model}>
-    <PlanBuilder model={model} />
+    <Fragment slot="intro">
+      <h1>Don’t plan.<br />Pick one of ours.</h1>
+      <p class="plans-intro">A good day starts with a few good decisions. We’ve put the stops in order: choose the one that suits you, check transport and bookings, then make it your own.</p>
+    </Fragment>
+    <PlanBuilder slot="matcher" model={model} />
     <PlanContextEngine model={model} />
   </PlanIndexRows>
   <PlanNextStep />
 </BaseLayout>
 <style>
-  .plans-hero{padding:clamp(1.5rem,3vw,2.5rem) 0 1.5rem}
-  .plans-hero__row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:end}
   h1{font-weight:500;line-height:1.05;font-family:var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
-  .plans-hero__intro{max-width:39ch;margin:0;padding-bottom:.25rem;font:var(--fs-400)/1.7 var(--font-ui);color:var(--soft)}
-  @media(max-width:45rem){.plans-hero{padding:1.6rem 0 1rem}.plans-hero__row{grid-template-columns:1fr;gap:1rem}.plans-hero__intro{max-width:43ch;font-size:var(--fs-300)}}
+  .plans-intro{max-width:44ch;margin:var(--space-4) 0 var(--space-2);font:var(--fs-400)/1.6 var(--font-ui);color:var(--text)}
 </style>

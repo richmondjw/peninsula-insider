@@ -81,8 +81,25 @@ const dayView = dayGroups.map((g) => {
     : heldForPick > 0
       ? 'This day’s event is in the short list above.'
       : 'Everything on this day began earlier in the weekend and is listed above.';
+  // Phase 6: a day reads as a schedule, so rows run by start time. Untimed
+  // listings follow the timed ones, in the editorial (appeal) order they arrived in.
+  items.sort((a, b) => startMinutes(a.live.event.data.startTime) - startMinutes(b.live.event.data.startTime));
   return { ...g, items, emptyMessage };
 });
+function startMinutes(value: unknown): number {
+  const m = typeof value === 'string' ? /^(\d{1,2}):(\d{2})/.exec(value) : null;
+  return m && Number(m[1]) < 24 ? Number(m[1]) * 60 + Number(m[2]) : 24 * 60;
+}
+function startLabel(value: unknown): string {
+  const minutes = startMinutes(value);
+  if (minutes >= 24 * 60) return '';
+  const h = Math.floor(minutes / 60);
+  const mm = minutes % 60;
+  return `${h % 12 || 12}${mm ? `.${String(mm).padStart(2, '0')}` : ''}${h >= 12 ? 'pm' : 'am'}`;
+}
+// The time leads the row, so it leaves the meta line: what remains is place · category.
+const rowMeta = (meta: string[], startTime: unknown) =>
+  meta.filter((part) => part !== startLabel(startTime) && !/^\d{1,2}:\d{2}$/.test(part));
 const rowSpan = (it: (typeof dayGroups)[number]['items'][number]) => {
   const also = firstSeen.get(it.live.slug)?.also ?? [];
   return [it.spanLabel === 'One-day event' ? '' : it.spanLabel, also.length ? `Also ${also.join(' & ')}` : '']
@@ -202,12 +219,10 @@ const pickCards = picks.map((p, i) => {
           caption: data.heroImage.caption as string | undefined, credit: data.heroImage.credit as string | undefined }
       : undefined,
     verdict: p.verdict,
-    categoryLabel: p.live.categoryLabel,
+    // Say the date once per card: day, time and place in the one line above the
+    // title (no date tile on the image, no second date in the meta line).
     leadMark: [p.dayLabel, compactEventTime(data.startTime, data.endTime), p.live.placeLabel].filter(Boolean).join(' · '),
-    meta: [p.dayLabel, p.live.placeLabel, p.live.accessLabel ?? p.live.categoryLabel]
-      .filter(Boolean)
-      .slice(0, 3),
-    dateISO: p.dateISO,
+    meta: [p.live.accessLabel ?? p.live.categoryLabel].filter(Boolean),
     position: i + 1,
   };
 });
@@ -241,7 +256,7 @@ const hubImage = categoryHero('whats-on');
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
       </div>
       <figure class="wo-head__figure">
-        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 640px) 320px, (max-width: 1023px) 600px, 720px" />
+        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 767px) 320px, 44vw" />
       </figure>
     </div>
   </header>
@@ -260,24 +275,9 @@ const hubImage = categoryHero('whats-on');
           }
         : null}
       todayISO={todayISO}
+      towns={townOptions}
+      categories={categoryOptions}
     />
-    <details class="wo-filter-disclosure" data-wo-filter-disclosure hidden>
-      <summary>Search and filter events</summary>
-    <form class="wo-filters" data-wo-filters role="search" aria-label="Find an event" hidden>
-      <label class="wo-filters__search">Search events
-        <input type="search" name="q" placeholder="Event or venue" autocomplete="off" />
-      </label>
-      <label>Town
-        <select name="town"><option value="">Any town</option>{townOptions.map((town) => <option value={town}>{town}</option>)}</select>
-      </label>
-      <label>Category
-        <select name="category"><option value="">All categories</option>{categoryOptions.map((category) => <option value={category.value}>{category.label}</option>)}</select>
-      </label>
-      <label class="wo-filters__check"><input type="checkbox" name="free" /> Free entry</label>
-      <label class="wo-filters__check"><input type="checkbox" name="kids" /> With kids</label>
-      <button type="button" class="wo-filters__clear" data-wo-filter-reset>Clear filters</button>
-    </form>
-    </details>
   </div>
 
   {picks.length > 0 && (
@@ -295,11 +295,9 @@ const hubImage = categoryHero('whats-on');
               image={c.image}
               verdict={c.verdict}
               meta={c.meta}
-              dateISO={c.dateISO}
-              showEyebrow={c.position === 1}
+              showEyebrow={true}
               typeMark={c.leadMark}
-              mediaFallback={true}
-              mediaFallbackLabel={c.categoryLabel}
+              mediaFallback={false}
               trip={true}
               surface="whatson"
               position={c.position}
@@ -327,8 +325,9 @@ const hubImage = categoryHero('whats-on');
                     title={it.live.title}
                     href={it.live.href}
                     slug={it.live.slug}
+                    time={startLabel(it.live.event.data.startTime)}
                     oneLiner={it.live.oneLiner}
-                    meta={it.live.meta}
+                    meta={rowMeta(it.live.meta, it.live.event.data.startTime)}
                     spanLabel={rowSpan(it)}
                     statusLabel={it.statusLabel}
                     phase={it.phase}
@@ -342,20 +341,18 @@ const hubImage = categoryHero('whats-on');
           </section>
         ))}
       </div>
+      {/* One quiet line onward: the month ahead, whole or by category (the old
+          "Load the month ahead" button repeated its first link). */}
       <div class="wo-more">
-        <button type="button" class="pi-btn pi-btn--ghost" data-wo-month data-evt="wo_date_change" hidden>
-          Load the month ahead
-        </button>
-        {browseCategories.length > 0 && (
-          <nav class="wo-browse" aria-label="The month ahead, by category">
-            <span class="wo-browse__label">The month ahead:</span>
-            <ul role="list">
-              {browseCategories.map((c) => (
-                <li><a href={`/whats-on/?date=this-month&category=${c.value}#wo-calendar`} data-evt="wo_date_change">{c.label}</a></li>
-              ))}
-            </ul>
-          </nav>
-        )}
+        <nav class="wo-browse" aria-label="The month ahead">
+          <span class="wo-browse__label">The month ahead:</span>
+          <ul role="list">
+            <li><a href="/whats-on/?date=this-month#wo-calendar" data-evt="wo_date_change">Everything</a></li>
+            {browseCategories.map((c) => (
+              <li><a href={`/whats-on/?date=this-month&category=${c.value}#wo-calendar`} data-evt="wo_date_change">{c.label}</a></li>
+            ))}
+          </ul>
+        </nav>
         <noscript>
           <span class="wo-more__noscript">
             Longer horizons load with JavaScript on; the weekend above is the complete current edit.
@@ -369,12 +366,12 @@ const hubImage = categoryHero('whats-on');
     <section class="wo-flexible" aria-labelledby="wo-flexible-h">
       <div class="container wo-flexible__inner">
         <div>
-          <h2 class="wo-flexible__title" id="wo-flexible-h">Experiences to check</h2>
-          <p class="wo-flexible__intro">Not confirmed sessions for the dates above. Check the operator's dates and hours before you plan.</p>
+          <h2 class="wo-flexible__title" id="wo-flexible-h">Book ahead</h2>
+          <p class="wo-flexible__intro">No set dates. Check sessions and hours with the operator before you plan.</p>
         </div>
         <ul class="wo-flexible__list" role="list">
           {flexibleExperiences.map((live) => (
-            <WhatsOnRow title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={[live.placeLabel, live.categoryLabel].filter(Boolean)} />
+            <WhatsOnRow schedule={false} title={live.title} href={live.href} slug={live.slug} oneLiner={live.oneLiner} meta={[live.placeLabel, live.categoryLabel].filter(Boolean)} />
           ))}
         </ul>
       </div>
@@ -396,7 +393,6 @@ const hubImage = categoryHero('whats-on');
   // fetches /whats-on/feed.json once and renders compact rows from it:
   // the month+ horizon is a JSON island, never hidden DOM (HUB-11).
   import { initV5Analytics } from '../../lib/v5-analytics';
-  import { tripAdd } from '../../lib/v5-store';
   import { startOfDay, addDays, rangeLabel, weekendWindow, occursOnDay, isoDate } from '../../lib/event-schedule';
   import { resolveListingOccurrence, listingDateLabel } from '../../lib/whatson-listing.mjs';
   import { emptyDayMessage } from '../../lib/whatson-empty-state.mjs';
@@ -404,25 +400,26 @@ const hubImage = categoryHero('whats-on');
 
   initV5Analytics();
 
-  // "+ Trip" wiring (rows + pick cards). data-evt="trip_add" analytics fires
-  // via the delegated v5-analytics listener; this adds the store behaviour.
-  document.addEventListener('click', (ev) => {
-    const btn = (ev.target as HTMLElement).closest<HTMLButtonElement>('[data-evt="trip_add"]:not([data-card-trip])');
-    if (!btn || btn.dataset.added === 'true') return;
-    const slug = btn.dataset.entitySlug;
-    if (!slug) return;
-    const title = btn.dataset.entityTitle || slug;
-    const href = btn.dataset.entityHref || `/whats-on/${slug}/`;
-    if (!tripAdd({ kind: 'event', slug, title, href })) {
-      // The write did not land; say so rather than painting "In trip".
-      const previous = btn.textContent;
-      btn.textContent = 'Not added';
-      setTimeout(() => { btn.textContent = previous; }, 2000);
-      return;
-    }
-    btn.dataset.added = 'true';
-    btn.textContent = 'In trip';
-  });
+  // "+ Trip" is carried by the pick cards (Card wires its own [data-card-trip]);
+  // schedule rows carry Save only.
+
+  // Schedule order and the time column, for rows rendered from the feed.
+  const TIME = /^(\d{1,2})(?:[.:](\d{2}))?\s*(am|pm)$/i;
+  const minutesOf = (value: string | undefined): number => {
+    if (!value) return 24 * 60;
+    const clock = /^(\d{1,2}):(\d{2})/.exec(value);
+    if (clock && Number(clock[1]) < 24) return Number(clock[1]) * 60 + Number(clock[2]);
+    const label = TIME.exec(value);
+    if (!label) return 24 * 60;
+    const hour = (Number(label[1]) % 12) + (label[3].toLowerCase() === 'pm' ? 12 : 0);
+    return hour * 60 + Number(label[2] ?? 0);
+  };
+  const labelOf = (minutes: number): string => {
+    if (minutes >= 24 * 60) return '';
+    const h = Math.floor(minutes / 60);
+    const mm = minutes % 60;
+    return `${h % 12 || 12}${mm ? `.${String(mm).padStart(2, '0')}` : ''}${h >= 12 ? 'pm' : 'am'}`;
+  };
 
   interface FeedEntry {
     slug: string;
@@ -462,7 +459,6 @@ const hubImage = categoryHero('whats-on');
   const headingEl = document.querySelector<HTMLElement>('[data-wo-heading]');
   const rangeEl = document.querySelector<HTMLElement>('[data-wo-range]');
   const statusEl = document.getElementById('pi-results-status');
-  const monthBtn = document.querySelector<HTMLButtonElement>('[data-wo-month]');
   const custom = document.querySelector<HTMLDetailsElement>('[data-wo-custom]');
   const customForm = document.querySelector<HTMLFormElement>('[data-wo-custom-form]');
   const rowTpl = document.querySelector<HTMLTemplateElement>('[data-wo-row-template]');
@@ -476,7 +472,6 @@ const hubImage = categoryHero('whats-on');
     history.replaceState({ ...history.state, piWhatsOnScope: true }, '');
     const defaultHTML = daysEl.innerHTML;
     const defaultRange = rangeEl?.textContent ?? '';
-    if (monthBtn) monthBtn.hidden = false;
     if (filterForm) filterForm.hidden = false;
     if (filterDisclosure) {
       filterDisclosure.hidden = false;
@@ -572,8 +567,12 @@ const hubImage = categoryHero('whats-on');
       link.textContent = e.t;
       link.dataset.entitySlug = e.slug;
       row.querySelector<HTMLElement>('.wo-row__dek')!.textContent = e.d;
+      // The start time leads the row; the meta line keeps place · category.
+      const chips = occurrence?.data ? [occurrence.data.venueName].filter(Boolean) : e.m.filter((part) => minutesOf(part) >= 24 * 60);
+      const time = row.querySelector<HTMLElement>('.wo-row__time');
+      if (time) time.textContent = labelOf(startOf(e, occurrence));
       row.querySelector<HTMLElement>('.wo-row__meta')!.textContent = [
-        (occurrence?.data ? [occurrence.data.venueName, occurrence.data.startTime].filter(Boolean) : e.m).join(' · '),
+        chips.join(' · '),
         spanLabel,
         occurrence ? (occurrence.label ?? '') : (e.x ?? ''),
       ]
@@ -588,15 +587,13 @@ const hubImage = categoryHero('whats-on');
         const saveBtn = save.querySelector<HTMLElement>('[data-v5-save-btn]');
         saveBtn?.setAttribute('aria-label', `Save ${e.t}`);
       }
-      const trip = row.querySelector<HTMLElement>('.wo-row__trip');
-      if (trip) {
-        trip.dataset.entitySlug = e.slug;
-        trip.dataset.entityTitle = e.t;
-        trip.dataset.entityHref = e.href;
-        trip.setAttribute('aria-label', `Add ${e.t} to trip`);
-      }
       return row;
     };
+    // Minutes past midnight for a listing's start on `day`; untimed sorts last.
+    const startOf = (e: FeedEntry, occurrence: ReturnType<typeof resolveListingOccurrence> | null): number =>
+      minutesOf(occurrence?.data?.startTime ?? e.statusData?.startTime ?? e.m.find((part) => minutesOf(part) < 24 * 60));
+    const occurrenceOn = (e: FeedEntry, day: Date) => e.statusData ? resolveListingOccurrence(e.statusData,
+      { kind: e.k, start: parseISO(e.s), end: parseISO(e.e) }, isoDate(day)) : null;
 
     const renderWindow = (entries: FeedEntry[], start: Date, end: Date): number => {
       const dayCount = Math.min(
@@ -631,6 +628,7 @@ const hubImage = categoryHero('whats-on');
           }
         }
         if (matches.length === 0 && !showEmptyDays) continue;
+        matches.sort((a, b) => startOf(a.e, occurrenceOn(a.e, day)) - startOf(b.e, occurrenceOn(b.e, day)));
         const section = document.createElement('section');
         section.className = 'wo-day';
         const h = document.createElement('h3');
@@ -809,7 +807,6 @@ const hubImage = categoryHero('whats-on');
       applyScope('custom', from, to);
     });
 
-    monthBtn?.addEventListener('click', () => applyScope('month'));
 
     let searchTimer: ReturnType<typeof setTimeout> | null = null;
     filterForm?.addEventListener('input', (event) => {
@@ -901,254 +898,84 @@ const hubImage = categoryHero('whats-on');
     border: 0;
   }
 
-  /* ── Immersive hero: date context is the h1's job ── */
-  .wo-head { padding: clamp(1.5rem, 4vw, 2.75rem) 0 1.2rem; background: var(--bg); color: var(--text); }
+  /* ── Hero: a navy band, one colour of type; the illustration runs to the right
+     bleed with a hard edge (no gradient seam, no navy overhang past the art). ── */
+  .wo-head { position: relative; overflow: hidden; background: #0b2e4a; color: #f2efea; }
+  .wo-head__copy { position: relative; z-index: 1; max-width: min(36rem, 52%); padding: var(--space-8) 0; }
   .wo-head__title {
     margin: 0;
+    color: #f2efea;
     font-family: var(--font-display);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-display, 1.02);
     letter-spacing: var(--ls-display, -0.02em);
-    color: var(--text);
     text-wrap: balance;
   }
-  .wo-head__context {
-    margin: var(--space-3, 0.75rem) 0 0;
-    color: var(--text);
-    font-size: var(--fs-400, 1rem);
-  }
-  .wo-head__rule {
-    margin: var(--space-1, 0.25rem) 0 0;
-    color: var(--soft);
-    font-size: var(--fs-300, 0.9rem);
-    font-style: normal;
-  }
-  .wo-scope-wrap {
-    padding-top: 1rem;
-  }
-  .wo-filters {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: end;
-    gap: 0.75rem;
-    margin: 0.5rem 0 0;
-    padding: 1rem;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-m, 10px);
-    background: var(--surface, var(--bg));
-  }
-  .wo-filters[hidden] { display: none; }
-  .wo-filter-disclosure { margin-top: 0.75rem; }
-  .wo-filter-disclosure[hidden] { display: none; }
-  .wo-filter-disclosure > summary { min-height: 44px; display: flex; align-items: center; width: fit-content; color: var(--accent); font-weight: var(--fw-semibold, 600); cursor: pointer; }
-  .wo-filter-disclosure > summary::after { content: '⌄'; margin-left: 0.5rem; font-size: var(--fs-500); line-height: 1; }
-  .wo-filter-disclosure > summary:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
-  .wo-filters label:not(.wo-filters__check) {
-    display: grid;
-    gap: 0.25rem;
-    min-width: 10rem;
-    font-size: var(--fs-200, 0.8rem);
-    font-weight: var(--fw-semibold, 600);
-  }
-  .wo-filters__search { flex: 1 1 15rem; }
-  .wo-filters input[type='search'], .wo-filters select {
-    width: 100%;
-    min-height: 44px;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid var(--border-control);
-    border-radius: var(--radius-s);
-    background: var(--bg);
-    color: var(--text);
-    font: inherit;
-  }
-  .wo-filters__check { display: inline-flex; align-items: center; min-height: 44px; gap: 0.4rem; white-space: nowrap; }
-  .wo-filters__check input { width: 1.15rem; height: 1.15rem; accent-color: var(--accent); }
-  .wo-filters__clear { min-height: 44px; border: 0; background: none; color: var(--accent); font: inherit; text-decoration: underline; cursor: pointer; }
-  .wo-filters :is(input, select, button):focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
-  @media (max-width: 640px) {
-    .wo-head { padding: 0.5rem 0 0.75rem; }
-    .wo-head__rule + .wo-head__rule { display: none; }
-    .wo-scope-wrap { padding-top: 0.5rem; }
-    .wo-filter-disclosure { margin-top: 0.25rem; }
-    .wo-days { padding-top: 0.75rem; }
-    .wo-days__title { margin-bottom: 0.5rem; }
-    .wo-day { margin-top: 0.75rem; }
-    .wo-filters label:not(.wo-filters__check) { flex: 1 1 100%; }
-  }
+  .wo-head__context { margin: var(--space-3) 0 0; color: #f2efea; font-size: var(--fs-400); }
+  .wo-head__rule { margin: var(--space-1) 0 0; color: #d7e4e8; font-size: var(--fs-300); line-height: 1.5; max-width: 40ch; }
+  .wo-head__figure { position: absolute; inset: 0 0 0 auto; width: 44%; margin: 0; }
+  .wo-head__figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+  .wo-scope-wrap { padding-top: var(--space-2); }
 
-  /* ── PI's picks ── */
-  .wo-picks {
-    padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(1rem, 2vw, 1.5rem);
-  }
-  .wo-picks__title {
-    margin: 0 0 var(--space-5, 1.5rem);
+  /* ── Sections share one rhythm: space-7 above and below, space-5 under a title ── */
+  .wo-picks { padding: var(--space-7) 0; background: #f2efea; }
+  .wo-picks__title,
+  .wo-days__title,
+  .wo-flexible__title {
+    margin: 0 0 var(--space-5);
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
+    font-size: var(--fs-700);
     line-height: var(--lh-heading, 1.2);
   }
-
-  /* ── Day groups ── */
-  .wo-days {
-    padding: clamp(1.5rem, 3vw, 2.5rem) 0;
-  }
-  .wo-days__head {
-    max-width: 48rem;
-  }
-  .wo-days__title {
-    margin: 0 0 var(--space-4, 1rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 3vw, 2.4rem));
-    line-height: var(--lh-heading, 1.2);
-  }
-  .wo-day {
-    margin-top: var(--space-5, 1.5rem);
-  }
-  .wo-day__h {
-    margin: 0 0 var(--space-2, 0.5rem);
-    color: var(--teal-text);
-    font-family: var(--font-ui, inherit);
-    font-size: var(--fs-200, 0.8rem);
-    font-weight: var(--fw-semibold, 600);
-    letter-spacing: var(--ls-eyebrow, 0.12em);
-    text-transform: uppercase;
-  }
-  .wo-day__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .wo-day__empty {
-    margin: 0;
-    padding: var(--space-2, 0.5rem) 0 var(--space-3, 0.75rem);
-    color: var(--soft);
-    font-style: normal;
-    font-size: var(--fs-300, 0.9rem);
-  }
-  .wo-more {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--space-3, 0.75rem) var(--space-5, 1.5rem);
-    margin: var(--space-6, 2rem) 0 0;
-  }
-  .wo-browse { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3, 0.75rem); font-size: var(--fs-300); }
+  .wo-days { padding: var(--space-7) 0; scroll-margin-top: 5rem; }
+  .wo-more { margin: var(--space-6) 0 0; }
+  .wo-browse { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--space-3); font-size: var(--fs-300); }
   .wo-browse__label { color: var(--soft); }
-  .wo-browse ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-3, 0.75rem); margin: 0; padding: 0; list-style: none; }
+  .wo-browse ul { display: flex; flex-wrap: wrap; gap: 0 var(--space-3); margin: 0; padding: 0; list-style: none; }
   .wo-browse a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); font-weight: var(--fw-semibold, 600); text-underline-offset: .2em; }
   .wo-browse a:focus-visible { outline: var(--focus-ring, 2px solid var(--accent)); outline-offset: 2px; }
-  .wo-more__noscript {
-    color: var(--soft);
-    font-size: var(--fs-300, 0.9rem);
-    font-style: normal;
+  .wo-more__noscript { color: var(--soft); font-size: var(--fs-300); }
+
+  /* Same grammar as the calendar: label in the left column, rows on the right. */
+  .wo-flexible { padding: 0 0 var(--space-7); }
+  .wo-flexible__intro { max-width: 40ch; margin: calc(-1 * var(--space-3)) 0 var(--space-3); color: var(--soft); font-size: var(--fs-300); line-height: 1.5; }
+  .wo-flexible__list { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+  @media (min-width: 1024px) {
+    .wo-flexible__inner { display: grid; grid-template-columns: 16rem minmax(0, 1fr); column-gap: var(--space-8); align-items: start; }
+    .wo-flexible__title { font-size: var(--fs-500); margin-bottom: var(--space-5); padding-top: var(--space-3); }
   }
 
-  /* Same list grammar as the calendar: label in the left column, rows on the right. */
-  .wo-flexible {
-    padding: 0 0 clamp(2rem, 4vw, 3.5rem);
-  }
-  .wo-flexible__title {
-    margin: 0 0 var(--space-2, 0.5rem);
-    font-family: var(--font-display);
-    font-size: var(--fs-600);
-    line-height: var(--lh-heading, 1.2);
-  }
-  .wo-flexible__intro {
-    max-width: 40ch;
-    margin: 0 0 var(--space-3, 0.75rem);
-    color: var(--soft);
-    font-size: var(--fs-300);
-    line-height: 1.5;
-  }
-  .wo-flexible__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  @media (min-width: 1024px) {
-    .wo-flexible__inner { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-    .wo-flexible__inner > div { position: sticky; top: 5rem; padding-top: .75rem; }
-  }
-
-  /* Editorial treatment: a photographic opening, curated cards, then the full calendar. */
-  .wo-head { overflow: hidden; padding: 0; background: #0b2e4a; color: #f2efea; border: 0; }
-  .wo-head__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(18rem, .82fr); gap: clamp(1.5rem, 5vw, 5rem); align-items: stretch; min-height: 22rem; }
-  .wo-head__copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 4.5rem) 0; }
-  .wo-head__title { color: #f2efea; }
-  .wo-head__context { color: #f5c177; }
-  .wo-head__rule { color: #e5e5e0; line-height: 1.5; max-width: 38ch; }
-  .wo-head__figure { position: relative; margin: 0; min-height: 100%; }
-  .wo-head__figure::before { content: ''; position: absolute; z-index: 1; inset: 0 auto 0 0; width: 22%; background: linear-gradient(90deg, #0b2e4a, transparent); pointer-events: none; }
-  .wo-head__figure img { display: block; width: 100%; height: 100%; min-height: 22rem; object-fit: cover; object-position: right center; }
-  .wo-head__figure figcaption { position: absolute; z-index: 2; right: .5rem; bottom: .5rem; max-width: calc(100% - 1rem); padding: .25rem .4rem; border-radius: var(--radius-s); background: rgba(11, 46, 74, .8); color: white; font-size: var(--fs-100); line-height: 1.3; }
-  .wo-head__credit-mobile { display: none; }
-  .wo-picks { padding: clamp(1.75rem, 4vw, 3rem) 0 clamp(2rem, 4vw, 3.25rem); background: #f2efea; }
-  .wo-days { padding: clamp(2rem, 4vw, 3.5rem) 0; scroll-margin-top: 5rem; }
-  .wo-days__head { max-width: none; padding-bottom: .5rem; }
-  .wo-day__h { color: #0b2e4a; font-family: var(--font-display); font-size: var(--fs-600); font-weight: 700; letter-spacing: -.02em; text-transform: none; }
-  @media (min-width: 1024px) {
-    .wo-day { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-    .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; }
-    .wo-day__list, .wo-day__empty { grid-column: 2; }
-  }
-  @media (max-width: 640px) {
-    /* .container clips overflow-x site-wide (mobile-fixes.css); .wo-head already hides overflow,
-       so the hero lifts the clip to let the image bleed to both edges. */
-    .wo-head__inner { position: relative; display: block; min-height: 13rem; overflow-x: visible; }
-    .wo-head__copy { position: relative; z-index: 2; min-height: 13rem; padding: 1rem 0 .6rem; }
-    .wo-head__context { margin-top: .45rem; font-size: var(--fs-200); }
-    .wo-head__rule { display: none; }
-    .wo-head__figure { position: absolute; inset: 0 calc(50% - 50vw); margin: 0; }
-    .wo-head__figure::before { inset: 0; width: auto; background: linear-gradient(90deg, rgba(11, 46, 74, .96) 0%, rgba(11, 46, 74, .9) 58%, rgba(11, 46, 74, .72) 100%); }
-    .wo-head__figure img { height: 100%; min-height: 0; object-position: 66% center; }
-    .wo-head__figure figcaption { display: none; }
-    .wo-head__credit-mobile { display: block; margin: .25rem 0 0; color: #ced8dc; font-size: var(--fs-100); line-height: 1.2; }
-    .wo-picks { padding-top: 1rem; }
-    .wo-picks__title { margin-bottom: .75rem; }
+  @media (max-width: 47.9375em) {
+    .wo-head__copy { max-width: none; padding: var(--space-5) 0; }
+    .wo-head__figure { display: none; }
+    .wo-picks { padding: var(--space-5) 0 var(--space-6); }
+    .wo-picks__title, .wo-days__title, .wo-flexible__title { margin-bottom: var(--space-3); }
+    .wo-days { padding: var(--space-6) 0; }
   }
 </style>
 <style is:global>
-  /* The lead is a typographic cover; the two supporting picks carry photos.
-     Keep the first decision close to the top on a phone. */
-  .wo-picks .v5-card-grid > .pi-card:first-of-type { background: #0b2e4a; border-color: #0b2e4a; color: #f2efea; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__body { display: flex; flex-direction: column; justify-content: center; padding: clamp(1rem, 2.5vw, 2rem); }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__eyebrow { color: #f5c177; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title,
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link { color: #f2efea; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__dek,
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__meta { color: #d7e4e8; }
-  /* Pick order changes with the calendar; a credited illustration can become the dark lead. */
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note,
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-credit,
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-credit a { color: #d7e4e8; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-credit a:focus-visible { outline-color: #f5c177; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link:hover { color: #f5c177; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__link:focus-visible { outline-color: #f5c177; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip] { background: #f5c177; border-color: #f5c177; color: #0b2e4a; font-weight: 700; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip]:hover { background: #fff1d1; border-color: #fff1d1; color: #0b2e4a; }
-  .wo-picks .v5-card-grid > .pi-card:first-of-type [data-card-trip]:focus-visible { outline: 2px solid #f5c177; outline-offset: 3px; }
-  /* An event without a rights-cleared photo gets a compact category cover.
-     The shorter, varied plates retain visual rhythm without implying a photo
-     of the event or delaying the title behind a large house-brand block. */
-  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate {
-    aspect-ratio: auto;
-    min-height: 9rem;
-    background: #102D42 url("/images/generated/coastal-punch-plate.svg") center / cover;
+  /* Day groups. Global because rows for other dates are built from feed.json
+     without Astro's scoped-style marker. The day is a schedule: heading in the
+     left column (one line), time-led rows capped at a readable measure. */
+  .wo-days .wo-day { margin-top: var(--space-6); }
+  .wo-days .wo-day__h {
+    margin: 0 0 var(--space-2);
+    color: #0b2e4a;
+    font-family: var(--font-display);
+    font-size: var(--fs-500);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    line-height: 1.25;
   }
-  .wo-picks .v5-card-grid > .pi-card:nth-of-type(3) .pi-card__media--plate {
-    background: #102D42 url("/images/generated/coastal-punch-plate.svg") center / cover;
+  .wo-days .wo-day__list { list-style: none; margin: 0; padding: 0; max-width: 46rem; }
+  .wo-days .wo-day__empty { margin: 0; padding: var(--space-2) 0 var(--space-3); color: var(--soft); font-size: var(--fs-300); }
+  @media (min-width: 1024px) {
+    .wo-days .wo-day { display: grid; grid-template-columns: 16rem minmax(0, 1fr); column-gap: var(--space-8); align-items: start; }
+    .wo-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: var(--space-3); }
+    .wo-days .wo-day__list, .wo-days .wo-day__empty { grid-column: 2; }
   }
-  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate {
-    padding: 1rem 1.1rem 1rem 6rem;
-  }
-  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-rule {
-    background: #f5c177;
-  }
-  .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic {
-    max-width: none;
-    font-size: var(--fs-600);
-  }
-  /* The short list keeps a complete sentence visible and gives the lead image
-     the breadth it needs. Smaller choices follow without empty equal-height cards. */
+
+  /* Three picks, one card style. The short list keeps a complete sentence visible. */
   .wo-picks .v5-card-grid .pi-card__dek {
     display: block;
     overflow: visible;
@@ -1156,67 +983,14 @@ const hubImage = categoryHero('whats-on');
     line-clamp: unset;
     min-height: 0;
   }
-  @media (min-width: 1024px) {
-    .wo-picks .v5-card-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      align-items: start;
-      gap: 1rem;
-    }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
-    }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media {
-      grid-column: 1;
-      grid-row: 1 / span 2;
-      aspect-ratio: auto;
-      height: 100%;
-      min-height: 0;
-    }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__body { grid-column: 2; grid-row: 1; }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__actions { grid-column: 2; grid-row: 2; }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__title {
-      font-size: var(--fs-700);
-      line-height: 1.1;
-    }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate { min-height: 7rem; }
-  }
-  @media (min-width: 1024px) {
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) {
-      display: grid;
-      grid-template-columns: minmax(8rem, 30%) minmax(0, 1fr);
-    }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media {
-      grid-column: 1;
-      grid-row: 1 / span 2;
-      aspect-ratio: auto;
-      height: 100%;
-      min-height: 0;
-    }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__body { grid-column: 2; grid-row: 1; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__actions { grid-column: 2; grid-row: 2; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__body { padding: 1rem; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__title { font-size: var(--fs-500); }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate { padding: 3.7rem .75rem .75rem; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic { font-size: var(--fs-500); }
-  }
-  /* Date scopes added from feed.json do not carry Astro's scoped-style marker. */
-  @media (min-width: 1024px) {
-    .wo-days .wo-day { display: grid; grid-template-columns: minmax(10rem, 13rem) minmax(0, 1fr); column-gap: clamp(1.5rem, 4vw, 4rem); align-items: start; }
-    .wo-days .wo-day__h { position: sticky; top: 5rem; margin: 0; padding-top: .75rem; }
-    .wo-days .wo-day__list, .wo-days .wo-day__empty { grid-column: 2; }
-  }
-  @media (max-width: 1023px) {
-    .wo-picks .v5-card-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: .75rem;
-    }
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__media,
-    .wo-picks .v5-card-grid > .pi-card:first-of-type .pi-card__image-note { display: none; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media { aspect-ratio: auto; height: 7rem; min-height: 0; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate { padding: .75rem 1rem .75rem 5rem; }
-    .wo-picks .v5-card-grid > .pi-card:not(:first-of-type) .pi-card__media--plate .pi-card__plate-topic { font-size: var(--fs-400); }
+  /* On a phone the same card sits as a row (thumbnail beside the words), so the
+     first pick's date and title stay in the first screen. */
+  @media (max-width: 47.9375em) {
+    .wo-picks .v5-card-grid { gap: var(--space-4); }
+    .wo-picks .v5-card-grid > .pi-card { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); column-gap: var(--space-4); align-items: start; }
+    .wo-picks .v5-card-grid > .pi-card > .pi-card__media { grid-column: 1; grid-row: 1 / span 2; aspect-ratio: 1; height: auto; min-height: 0; border-radius: var(--radius-s); }
+    .wo-picks .v5-card-grid > .pi-card > :not(.pi-card__media) { grid-column: 2; }
+    .wo-picks .v5-card-grid > .pi-card:not(:has(> .pi-card__media)) { grid-template-columns: minmax(0, 1fr); }
+    .wo-picks .v5-card-grid > .pi-card:not(:has(> .pi-card__media)) > * { grid-column: 1; }
   }
 </style>

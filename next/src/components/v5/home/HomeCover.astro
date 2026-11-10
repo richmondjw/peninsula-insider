@@ -2,7 +2,6 @@
 import { cleanCaption, isArtwork } from '../../../lib/image-caption.mjs';
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
-import { getAustralianSeasonLower } from '../../../lib/season';
 import deck from '../../../data/home-cover-deck.json';
 const original = deck.slides[0] ?? {
   src: '/images/visit-victoria/vv-143799-cape-schanck.webp',
@@ -15,7 +14,6 @@ const published = overrides.image['cover.image'];
 const replacement = published?.src && published.alt?.trim() && published.credit?.trim() ? published : undefined;
 const photo = replacement ?? original;
 const statement = overrides.text['cover.statement'] ?? 'The Mornington Peninsula, sorted.';
-const season = getAustralianSeasonLower(new Date());
 const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
 const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
 ---
@@ -25,11 +23,10 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption)} {creditLine}</figcaption>}
   </figure>
   <div class="container home-cover__content">
-    <p class="home-cover__eyebrow">{season} on the Peninsula</p>
     <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement}</h1>
     <p class="home-cover__promise">Independent local picks for where to eat, stay and explore. Every recommendation has a reason.</p>
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
-      <a class="pi-btn pi-btn--solid pi-btn--inverse" href="#home-choose">Find your day out <span aria-hidden="true">↓</span></a>
+      <a class="pi-btn pi-btn--solid" href="#home-choose">Find my plan <span aria-hidden="true">↓</span></a>
       <a class="home-cover__link" href="/whats-on/this-weekend/">What’s on this weekend <span aria-hidden="true">→</span></a>
     </nav>
   </div>
@@ -41,7 +38,6 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   .home-cover__media{width:100%;height:100%;object-fit:cover;object-position:center 30%}
   figcaption{position:absolute;right:max(1rem,calc((100vw - 1280px)/2));bottom:1rem;z-index:1;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 var(--fs-200)/1.45 var(--font-ui);color:white}
   .home-cover__content{padding-block:2.5rem 3rem}
-  .home-cover__eyebrow{font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow, .1em);text-transform:uppercase;color:var(--sand,#f5c177);margin:0 0 .8rem}
   .home-cover__statement{font-weight:600;line-height:1.12;font-family:var(--font-display);letter-spacing:-.045em;max-width:17ch;margin:0;text-wrap:balance;color:white}
   .home-cover__promise{max-width:52ch;font:400 var(--fs-400)/1.5 var(--font-ui);margin:1rem 0 1.2rem}
   .home-cover__actions{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem}

@@ -9007,10 +9007,6 @@ figcaption {
    specificity (0,2,0) so this wins wherever the bundles land. The clean
    fix is one edit in HomeWeekend.astro - see the hand-off note.
    ========================================================= */
-.home-weekend .home-weekend__window {
-  background: color-mix(in srgb, var(--accent) 10%, var(--white));
-  color: var(--accent);
-}
 
 /* Shared editorial frame, with narrow prose retained by its own measure. */
 @media(max-width:1100px){.container{width:calc(100% - 48px)}}

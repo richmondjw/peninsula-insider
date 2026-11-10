@@ -1,75 +1,60 @@
 ---
-import PlayBeacon from '../../play/PlayBeacon.astro';
 import V5MegaPanel from './V5MegaPanel.astro';
 import { v5Pillars, v5DrawerItems, v5DrawerCta } from '../../../lib/v5-nav';
+import { PLAY, playUrl } from '../../../lib/play';
 import '../../../styles/editorial-shell.css';
-import { getConditionsStrip } from '../../../lib/conditions';
 const { section = 'home' } = Astro.props;
 const path = Astro.url.pathname;
 const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 'plans' : path.startsWith('/events') ? 'whats-on' : section;
-/* 2026-11-10 simplification: the separate "Under update" bar and the navy conditions strip
-   are folded into this row as one quiet dateline. The edition stamp and sunset are derived,
-   never guessed (src/lib/conditions.ts). The cellar-door route keeps its named landmark. */
-const strip = getConditionsStrip();
+/* 2026-11-10 round 2: one calm band - wordmark, the seven pillars, search and one
+   personal menu. The edition and sunset dateline moved to the footer (V5Footer keeps
+   the cellar-door named region). The Insider Note and Play live in the personal
+   menu and the mobile drawer. The site notice stays, as quiet text (owner decision). */
 const SITE_UPDATING = true;
-const datelineLandmark = path === '/wine/best-cellar-doors/' ? 'Peninsula conditions and edition' : undefined;
 ---
 <header class="masthead site-header pi-shell" data-v5-masthead>
 <div class="masthead-row wrap">
 <div class="brand-lockup">
-<a aria-label="Peninsula Insider home" class="brand" href="/">Peninsula <span>Insider</span>
-</a>
-{SITE_UPDATING && <span class="masthead-update masthead-update--mobile">Under update</span>}
-</div>
-<div class="brand-note" role={datelineLandmark ? 'region' : undefined} aria-label={datelineLandmark}>
-<span class="brand-note__issue">{strip.issue}</span>{strip.sunset && <span class="brand-note__sunset">Sunset {strip.sunset}</span>}{SITE_UPDATING && <span class="masthead-update">Under update</span>}
-</div>
-<div class="header-actions">
-<a class="search-link" data-open-search data-evt="search_open" href="/search/" aria-label="Search the Peninsula">
-<svg aria-hidden="true" fill="none" height="17" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="17">
-<circle cx="10.5" cy="10.5" r="6.5">
-</circle>
-<path d="m16 16 5 5">
-</path>
-</svg>
-<span>Search</span>
-</a>
-<PlayBeacon />
-<a class="note-link" href="/dispatch/">The Insider Note <span aria-hidden="true">↗</span>
-</a>
-<button type="button" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open navigation" class="mobile-menu">
-<svg aria-hidden="true" height="22" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="22">
-<path d="M3 7h18M3 12h18M3 17h18">
-</path>
-</svg>
-</button>
-</div>
+<a aria-label="Peninsula Insider home" class="brand" href="/">Peninsula <span>Insider</span></a>
+{SITE_UPDATING && <span class="masthead-update">Under update</span>}
 </div>
 <nav aria-label="Main navigation" class="site-nav" id="site-nav">
-<div class="wrap">{v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
+{v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
 <div class="pillar-menu__trigger">
 <a href={p.hub} aria-current={active === p.key ? 'page' : undefined}>{p.label}</a>
 <button class="pillar-menu__toggle" type="button" aria-label={`Open ${p.label} menu`} aria-expanded="false" aria-controls={`v5-panel-${p.key}`} data-pillar-toggle>
-<svg aria-hidden="true" viewBox="0 0 16 16" width="14" height="14" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<svg aria-hidden="true" viewBox="0 0 16 16" width="12" height="12" fill="none"><path d="m3.5 6 4.5 4 4.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </button>
 </div>
 <V5MegaPanel pillar={p} />
-</div>)}<details class="personal-menu">
-<summary>Your Peninsula <span aria-hidden="true">⌄</span>
+</div>)}
+<a class="mobile-search" data-open-search href="/search/">Search the site</a>
+<a class="mobile-note" href="/dispatch/">The Insider Note</a>
+</nav>
+<div class="header-actions">
+<a class="search-link" data-open-search data-evt="search_open" href="/search/" aria-label="Search the Peninsula">
+<svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="19"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
+<span>Search</span>
+</a>
+<details class="personal-menu">
+<summary>
+<svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"/><path d="M4.5 20.5c1.3-3.6 4.2-5.5 7.5-5.5s6.2 1.9 7.5 5.5" stroke-linecap="round"/></svg>
+<span class="personal-menu__label">Your Peninsula</span>
 </summary>
 <div class="personal-panel">
-<span class="v2-util__links">
-</span>
 <a href="/me/saved/">Saved places</a>
 <a href="/me/trip/">My trip</a>
 <a href="/account/">Account</a>
 <a href="/map/">Open the map</a>
+<a class="personal-panel__sep" href="/dispatch/">The Insider Note</a>
+{PLAY.enabled && <a href={playUrl('masthead')} data-evt="pi_play_promo" data-surface="masthead">Play: find PI <span aria-hidden="true">↗</span></a>}
 </div>
 </details>
-<a class="mobile-search" data-open-search href="/search/">Search the site ↗</a>
-<a class="mobile-note" href="/dispatch/">The Insider Note ↗</a>
+<button type="button" aria-controls="mobile-drawer" aria-expanded="false" aria-label="Open navigation" class="mobile-menu">
+<svg aria-hidden="true" height="22" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="22"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
+</button>
 </div>
-</nav>
+</div>
 <dialog class="mobile-drawer" id="mobile-drawer" aria-label="Mobile navigation">
   <div class="mobile-drawer__top">
     <a class="mobile-drawer__brand" href="/" aria-label="Peninsula Insider home">Peninsula <span>Insider</span></a>
@@ -85,14 +70,13 @@ const datelineLandmark = path === '/wine/best-cellar-doors/' ? 'Peninsula condit
     <a class="mobile-drawer__search" data-open-search data-evt="search_open" href="/search/">
       <svg aria-hidden="true" fill="none" height="19" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" width="19"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg>
       <span>Search places, plans &amp; stories</span>
-      <span class="mobile-drawer__search-arrow" aria-hidden="true">↗</span>
     </a>
     <div class="mobile-drawer__columns">
       <section class="mobile-drawer__section" aria-labelledby="mobile-drawer-explore">
         <h2 class="mobile-drawer__group-label" id="mobile-drawer-explore">Explore</h2>
         <ul class="mobile-drawer__primary">
-          {v5DrawerItems.filter(item => item.group === 'pillars').map((item, index) => (
-            <li><a href={item.href} aria-current={active === item.key ? 'page' : undefined}><span class="mobile-drawer__index" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><span>{item.label}</span><span class="mobile-drawer__arrow" aria-hidden="true">↗</span></a></li>
+          {v5DrawerItems.filter(item => item.group === 'pillars').map(item => (
+            <li><a href={item.href} aria-current={active === item.key ? 'page' : undefined}><span>{item.label}</span><span class="mobile-drawer__arrow" aria-hidden="true">→</span></a></li>
           ))}
         </ul>
       </section>
@@ -101,24 +85,24 @@ const datelineLandmark = path === '/wine/best-cellar-doors/' ? 'Peninsula condit
           <h2 class="mobile-drawer__group-label" id="mobile-drawer-yours">Your Peninsula</h2>
           <ul class="mobile-drawer__secondary">
             {v5DrawerItems.filter(item => item.group === 'mine').map(item => (
-              <li><a href={item.href}><span>{item.label}</span><span aria-hidden="true">↗</span></a></li>
+              <li><a href={item.href}><span>{item.label}</span></a></li>
             ))}
-            <li><a href="/map/"><span>Open the map</span><span aria-hidden="true">↗</span></a></li>
+            <li><a href="/map/"><span>Open the map</span></a></li>
+            {PLAY.enabled && <li><a href={playUrl('drawer')} data-evt="pi_play_promo" data-surface="drawer"><span>Play: find PI</span><span aria-hidden="true">↗</span></a></li>}
           </ul>
         </section>
         <section class="mobile-drawer__section mobile-drawer__section--about" aria-labelledby="mobile-drawer-about">
           <h2 class="mobile-drawer__group-label" id="mobile-drawer-about">About us</h2>
           <ul class="mobile-drawer__secondary">
             {v5DrawerItems.filter(item => item.group === 'trust').map(item => (
-              <li><a href={item.href}><span>{item.label}</span><span aria-hidden="true">↗</span></a></li>
+              <li><a href={item.href}><span>{item.label}</span></a></li>
             ))}
           </ul>
         </section>
         <a class="mobile-drawer__dispatch" href={v5DrawerCta.href}>
-          <span class="mobile-drawer__dispatch-kicker">A note from here</span>
           <strong>{v5DrawerCta.label}</strong>
           <span class="mobile-drawer__dispatch-dek">{v5DrawerCta.dek}</span>
-          <span class="mobile-drawer__dispatch-action">{v5DrawerCta.ctaLabel} <span aria-hidden="true">↗</span></span>
+          <span class="mobile-drawer__dispatch-action">{v5DrawerCta.ctaLabel} <span aria-hidden="true">→</span></span>
         </a>
       </div>
     </div>
@@ -127,8 +111,9 @@ const datelineLandmark = path === '/wine/best-cellar-doors/' ? 'Peninsula condit
 </header>
 <noscript>
   <style is:inline>
-    @media (max-width: 1100px) {
-      .pi-shell.site-header .site-nav { display: block !important; }
+    @media (max-width: 1279px) {
+      .pi-shell.site-header .masthead-row { flex-wrap: wrap; }
+      .pi-shell.site-header .site-nav { display: flex !important; flex-wrap: wrap; flex-basis: 100%; }
       .pi-shell.site-header .mobile-menu { display: none !important; }
     }
   </style>
@@ -136,6 +121,9 @@ const datelineLandmark = path === '/wine/best-cellar-doors/' ? 'Peninsula condit
 <script>
 let shellCleanup:(()=>void)|undefined;
 document.addEventListener('astro:before-swap',()=>shellCleanup?.());
+/* Desktop navigation (inline pillars + hover panels) starts at 1280px; below that the drawer takes over. */
+const DESKTOP='(min-width: 1280px)';
+const COMPACT='(max-width: 1279px)';
 function initEditorialShell(){
  const header=document.querySelector<HTMLElement>('.site-header');
  if(!header || header.dataset.bound)return;
@@ -176,16 +164,17 @@ function initEditorialShell(){
   const toggle=menu.querySelector<HTMLButtonElement>('[data-pillar-toggle]')!;
   let hoverTimer:number|undefined;
   menu.addEventListener('pointerenter',e=>{
-   if(e.pointerType!=='mouse' || !window.matchMedia('(min-width: 1101px)').matches)return;
+   if(e.pointerType!=='mouse' || !window.matchMedia(DESKTOP).matches)return;
    // Give a direct chevron click priority over hover-opening the panel.
    if(toggle.contains(document.elementFromPoint(e.clientX,e.clientY)))hoverTimer=window.setTimeout(()=>openPanel(menu),550);
    else openPanel(menu);
   });
-  menu.addEventListener('pointerleave',e=>{window.clearTimeout(hoverTimer);if(e.pointerType==='mouse' && window.matchMedia('(min-width: 1101px)').matches)closeTimer=window.setTimeout(()=>closePanels(),180);});
+  menu.addEventListener('pointerleave',e=>{window.clearTimeout(hoverTimer);if(e.pointerType==='mouse' && window.matchMedia(DESKTOP).matches)closeTimer=window.setTimeout(()=>closePanels(),180);});
   toggle.addEventListener('pointerdown',()=>window.clearTimeout(hoverTimer));
   menu.addEventListener('focusout',e=>{if(!menu.contains(e.relatedTarget as Node))window.setTimeout(()=>closeMenu(menu),0);});
   toggle.addEventListener('click',()=>{menu.classList.contains('is-open')?closePanels():openPanel(menu);});
  });
+ personal.addEventListener('toggle',()=>{if(personal.open)closePanels();});
 
  function unlockPage(){
   if(!savedBodyStyle)return;
@@ -202,10 +191,10 @@ function initEditorialShell(){
   unlockPage();
   button.setAttribute('aria-expanded','false');
   button.setAttribute('aria-label','Open navigation');
-  if(restoreFocus && button.isConnected && window.matchMedia('(max-width: 1100px)').matches)button.focus();
+  if(restoreFocus && button.isConnected && window.matchMedia(COMPACT).matches)button.focus();
  }
  function openDrawer(){
-  if(!window.matchMedia('(max-width: 1100px)').matches || drawer.open)return;
+  if(!window.matchMedia(COMPACT).matches || drawer.open)return;
   closePanels();
   personal.open=false;
   savedScrollY=window.scrollY;
@@ -233,7 +222,7 @@ function initEditorialShell(){
  drawer.addEventListener('click',e=>{if((e.target as Element).closest('a'))closeDrawer(false);});
  const onKeydown=(e:KeyboardEvent)=>{if(e.key!=='Escape')return;if(drawer.open){e.preventDefault();closeDrawer();return;}const open=menus.find(menu=>menu.classList.contains('is-open'));if(open){closePanels();open.querySelector<HTMLButtonElement>('[data-pillar-toggle]')?.focus();}else if(personal.open){personal.open=false;personal.querySelector('summary')?.focus();}};
  const onClick=(e:MouseEvent)=>{if(!personal.contains(e.target as Node))personal.open=false;if(!nav.contains(e.target as Node))closePanels();};
- const onResize=()=>{if(drawer.open && !window.matchMedia('(max-width: 1100px)').matches)closeDrawer(false);};
+ const onResize=()=>{if(drawer.open && !window.matchMedia(COMPACT).matches)closeDrawer(false);};
  document.addEventListener('keydown',onKeydown);
  document.addEventListener('click',onClick);
  window.addEventListener('resize',onResize);
@@ -242,77 +231,69 @@ function initEditorialShell(){
 initEditorialShell();document.addEventListener('astro:page-load',initEditorialShell);
 </script>
 <style>
- .pi-shell .masthead-row{min-height:82px!important}
- .site-header{padding-top:env(safe-area-inset-top)}
- .brand-lockup{display:flex;flex-direction:column;align-items:flex-start;gap:2px}
- .pi-shell .brand-note{display:flex;align-items:center;gap:14px;border:0;padding-left:8px;font-size:var(--fs-100);line-height:1.4;letter-spacing:.06em;text-transform:uppercase;color:#5d6a72;white-space:nowrap}
- .brand-note__issue{color:#14202A;font-weight:600}
- .masthead-update{display:inline-block;padding:2px 8px;border-radius:999px;background:#F5C177;color:#14202A;font-size:var(--fs-100);font-weight:600;letter-spacing:.04em;text-transform:none;line-height:1.5}
- .masthead-update--mobile{display:none}
- @media(max-width:1100px){.pi-shell .brand-note{display:none}}
- @media(max-width:1100px){.masthead-update--mobile{display:inline-block;font-size:var(--fs-100);padding:1px 7px}}
- .site-nav{position:relative}
- .pillar-menu__trigger{display:flex;align-items:center}
- .pillar-menu__toggle{display:flex;align-items:center;justify-content:center;width:25px;height:44px;margin-left:-2px;padding:0;border:0;background:transparent;color:#53636d;cursor:pointer}
- .pillar-menu__toggle svg{transition:transform .18s ease}
+ /* One band. The header itself is the positioning context for the mega panels
+    (it is sticky, from global.css), so a panel spans the page, not the nav. */
+ .site-header{padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--border)}
+ .masthead-row{display:flex;align-items:center;gap:var(--space-6);min-height:72px}
+ .brand-lockup{display:flex;align-items:baseline;gap:var(--space-3);flex:none}
+ .masthead-update{font:var(--fw-medium) var(--fs-100)/var(--lh-label) var(--font-ui);color:var(--soft);white-space:nowrap}
+ .site-nav{display:flex;align-self:stretch;align-items:stretch;gap:var(--space-5);margin-inline:auto}
+ .pillar-menu,.pillar-menu__trigger{display:flex;align-items:stretch}
+ .site-nav .pillar-menu__trigger>a{display:flex;align-items:center;min-height:44px;font:var(--fw-medium) var(--fs-300)/var(--lh-ui) var(--font-ui);color:var(--text);white-space:nowrap;text-decoration:none}
+ .site-nav .pillar-menu__trigger>a:hover,.pillar-menu.is-open .pillar-menu__trigger>a{color:var(--accent)}
+ .site-nav .pillar-menu__trigger>a[aria-current=page]{color:var(--accent);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:8px}
+ .pillar-menu__toggle{display:flex;align-items:center;justify-content:center;width:22px;padding:0;border:0;background:transparent;color:var(--soft);cursor:pointer}
+ .pillar-menu__toggle svg{transition:transform var(--dur-fast) ease}
  .pillar-menu.is-open .pillar-menu__toggle svg{transform:rotate(180deg)}
- .pillar-menu.is-open .pillar-menu__trigger>a{color:#10527e}
- .pillar-menu__toggle:focus-visible{outline:3px solid #11309c;outline-offset:2px}
+ .site-nav .mobile-search,.site-nav .mobile-note{display:none}
+ .header-actions{display:flex;align-items:center;gap:var(--space-2);flex:none;margin-left:auto}
+ .search-link,.personal-menu summary,.mobile-menu{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;border:0;background:transparent;color:var(--text);cursor:pointer;font:var(--fw-medium) var(--fs-300)/1 var(--font-ui);list-style:none;border-radius:50%}
+ .search-link:hover,.personal-menu summary:hover,.personal-menu[open] summary{color:var(--accent);background:var(--bg-alt)}
+ .search-link span,.personal-menu__label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+ .personal-menu{position:relative}
+ .personal-menu summary::-webkit-details-marker{display:none}
+ .personal-panel{position:absolute;right:0;top:calc(100% + var(--space-2));z-index:var(--z-sticky);display:flex;flex-direction:column;min-width:220px;padding:var(--space-2) 0;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-s);box-shadow:var(--elev-3)}
+ .personal-panel a{display:flex;align-items:center;gap:var(--space-2);min-height:44px;padding:0 var(--space-4);font:var(--fs-300)/var(--lh-ui) var(--font-ui);color:var(--text);text-decoration:none}
+ .personal-panel a:hover{color:var(--accent);background:var(--bg-alt)}
+ .personal-panel .personal-panel__sep{margin-top:var(--space-2);border-top:1px solid var(--border)}
+ .mobile-menu{display:none}
+ .site-header a:focus-visible,.site-header summary:focus-visible,.site-header button:focus-visible{outline:var(--focus-ring);outline-offset:2px}
  .mobile-drawer{display:none}
- @media(max-width:1100px){
-  .pi-shell .masthead-row{min-height:72px!important}
-  .site-nav{display:none}
-  .mobile-menu{display:flex;align-items:center;justify-content:center;cursor:pointer;width:44px!important;height:44px;flex:none}
-  .mobile-drawer[open]{display:block;position:fixed;inset:0;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:#f7f4ed;color:#172d3f;overflow-y:auto;overscroll-behavior:contain;z-index:10000}
-  .mobile-drawer::backdrop{background:#0b2e4a}
-  .mobile-drawer__top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:70px;padding:10px max(24px,calc((100vw - 920px)/2));background:#fff;border-bottom:1px solid #d8d8d5}
-  .mobile-drawer__brand{display:flex;align-items:center;gap:.18em;min-height:44px;font:700 var(--fs-600)/1.05 var(--font-display);letter-spacing:-.025em;color:#14202a;white-space:nowrap}
-  .mobile-drawer__brand span{color:#10527e}
-  .mobile-drawer__close{display:grid;place-items:center;width:44px;height:44px;flex:none;border:1px solid #bfc8cc;border-radius:50%;background:#fff;color:#0b2e4a;cursor:pointer}
-  .mobile-drawer__close:hover{background:#e7eef1}
-  .mobile-drawer__body{width:min(920px,calc(100% - 48px));margin:0 auto;padding:26px 0 max(48px,env(safe-area-inset-bottom))}
-  .mobile-drawer__eyebrow,.mobile-drawer__group-label,.mobile-drawer__dispatch-kicker{margin:0;font:600 var(--fs-100)/1.5 var(--font-ui);letter-spacing:var(--ls-eyebrow, .1em);text-transform:uppercase;color:#10527e}
-  .mobile-drawer__title{margin:5px 0 20px;font:600 var(--fs-800)/1.1 var(--font-display);letter-spacing:-.025em;color:#0b2e4a}
-  .mobile-drawer__search{display:flex;align-items:center;gap:13px;min-height:54px;padding:0 16px;background:#fff;border:1px solid #bfc8cc;border-radius:var(--radius-s);font:500 var(--fs-300)/1.3 var(--font-ui);color:#314653;text-decoration:none}
-  .mobile-drawer__search:hover{border-color:#10527e;color:#10527e}
-  .mobile-drawer__search-arrow{margin-left:auto;font-size:var(--fs-500);color:#10527e}
-  .mobile-drawer__columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(255px,.85fr);gap:64px;margin-top:31px}
-  .mobile-drawer__group-label{margin:0 0 8px;color:#5a686d}
+ @media(max-width:1279px){
+  .masthead-row{min-height:64px;gap:var(--space-3)}
+  .site-nav,.personal-menu{display:none}
+  .mobile-menu{display:flex;flex:none}
+  .mobile-drawer[open]{display:block;position:fixed;inset:0;width:100%;height:100dvh;max-width:none;max-height:none;margin:0;padding:0;border:0;background:var(--bg-alt);color:var(--text);overflow-y:auto;overscroll-behavior:contain;z-index:10000}
+  .mobile-drawer::backdrop{background:var(--bg-deep)}
+  .mobile-drawer__top{position:sticky;top:0;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:var(--space-5);min-height:64px;padding:var(--space-2) max(24px,calc((100vw - 920px)/2));background:var(--white);border-bottom:1px solid var(--border)}
+  .mobile-drawer__brand{display:flex;align-items:center;gap:.18em;min-height:44px;font:700 var(--fs-600)/1.05 var(--font-display);letter-spacing:-.025em;color:var(--text);white-space:nowrap}
+  .mobile-drawer__brand span{color:var(--accent)}
+  .mobile-drawer__close{display:grid;place-items:center;width:44px;height:44px;flex:none;border:0;border-radius:50%;background:var(--bg-alt);color:var(--text);cursor:pointer}
+  .mobile-drawer__body{width:min(920px,calc(100% - 48px));margin:0 auto;padding:var(--space-5) 0 max(48px,env(safe-area-inset-bottom))}
+  .mobile-drawer__eyebrow,.mobile-drawer__group-label{margin:0;font:var(--fw-semibold) var(--fs-100)/1.5 var(--font-ui);letter-spacing:var(--ls-eyebrow);text-transform:uppercase;color:var(--soft)}
+  .mobile-drawer__title{margin:var(--space-1) 0 var(--space-5);font:var(--fw-display) var(--fs-700)/1.1 var(--font-display);letter-spacing:-.025em;color:var(--text)}
+  .mobile-drawer__search{display:flex;align-items:center;gap:var(--space-3);min-height:52px;padding:0 var(--space-4);background:var(--white);border:1px solid var(--border-control,var(--border-strong));border-radius:var(--radius-s);font:var(--fw-medium) var(--fs-300)/1.3 var(--font-ui);color:var(--soft);text-decoration:none}
+  .mobile-drawer__columns{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(255px,.85fr);gap:var(--space-8);margin-top:var(--space-6)}
+  .mobile-drawer__group-label{margin-bottom:var(--space-2)}
   .mobile-drawer__primary,.mobile-drawer__secondary{list-style:none;margin:0;padding:0}
-  .mobile-drawer__primary li,.mobile-drawer__secondary li{margin:0}
-  .mobile-drawer__primary a{display:flex;align-items:center;gap:13px;min-height:56px;border-bottom:1px solid #cfd5d5;color:#0b2e4a;font:400 var(--fs-600)/1.1 var(--font-ui);letter-spacing:-.018em;text-decoration:none}
-  .mobile-drawer__primary a:hover,.mobile-drawer__primary a[aria-current=page]{color:#10527e;background:#e7eef1}
-  .mobile-drawer__index{width:29px;flex:none;color:#5a686d;font:600 var(--fs-100)/1 var(--font-ui);letter-spacing:.08em}
-  .mobile-drawer__arrow{margin-left:auto;font:400 var(--fs-400)/1 var(--font-ui);color:#10527e}
-  .mobile-drawer__secondary a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:47px;border-bottom:1px solid #cfd5d5;color:#172d3f;font:600 var(--fs-200)/1.3 var(--font-ui);text-decoration:none}
-  .mobile-drawer__secondary a:hover{color:#10527e;background:#e7eef1}
-  .mobile-drawer__secondary a span:last-child{font-size:var(--fs-400);font-weight:400;color:#10527e}
-  .mobile-drawer__section--about{margin-top:25px}
-  .mobile-drawer__dispatch{display:flex;flex-direction:column;align-items:flex-start;gap:11px;margin-top:28px;padding:22px 24px;background:#0b2e4a;color:#fff;text-decoration:none}
-  .mobile-drawer__dispatch:hover{background:#144364;color:#fff}
-  .mobile-drawer__dispatch-kicker{color:#b9d7e3}
-  .mobile-drawer__dispatch strong{font:600 var(--fs-600)/1.1 var(--font-display);letter-spacing:-.02em}
-  .mobile-drawer__dispatch-dek{max-width:40ch;color:#e0e9eb;font:400 var(--fs-100)/1.55 var(--font-ui)}
-  .mobile-drawer__dispatch-action{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;margin-top:5px;padding-top:10px;border-top:1px solid #6d91a5;color:#fff;font:700 var(--fs-100)/1.3 var(--font-ui)}
-  .mobile-drawer__dispatch-action span{font-size:var(--fs-500);font-weight:400}
-  .mobile-drawer a:focus-visible,.mobile-drawer button:focus-visible,.mobile-menu:focus-visible{outline:3px solid #11309c;outline-offset:3px}
-  .mobile-drawer__dispatch:focus-visible{outline-color:#eac47c;outline-offset:3px}
- }
- @media(max-width:699px){
-  .mobile-drawer__columns{display:block;margin-top:28px}
-  .mobile-drawer__aside{margin-top:32px}
+  .mobile-drawer__primary a,.mobile-drawer__secondary a{display:flex;align-items:center;justify-content:space-between;gap:var(--space-3);min-height:52px;border-bottom:1px solid var(--border);color:var(--text);font:var(--fw-medium) var(--fs-500)/1.2 var(--font-ui);text-decoration:none}
+  .mobile-drawer__secondary a{min-height:48px;font-size:var(--fs-300)}
+  .mobile-drawer__primary a:hover,.mobile-drawer__primary a[aria-current=page],.mobile-drawer__secondary a:hover{color:var(--accent)}
+  .mobile-drawer__arrow{color:var(--soft)}
+  .mobile-drawer__section--about{margin-top:var(--space-5)}
+  .mobile-drawer__dispatch{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-2);margin-top:var(--space-6);padding:var(--space-5);background:var(--bg-deep);color:var(--white);border-radius:var(--radius-m);text-decoration:none}
+  .mobile-drawer__dispatch strong{font:var(--fw-display) var(--fs-600)/1.1 var(--font-display);letter-spacing:-.02em}
+  .mobile-drawer__dispatch-dek{max-width:40ch;color:var(--soft-inverse);font:var(--fs-300)/1.5 var(--font-ui)}
+  .mobile-drawer__dispatch-action{margin-top:var(--space-1);color:var(--sand);font:var(--fw-semibold) var(--fs-300)/1.3 var(--font-ui)}
+  .mobile-drawer a:focus-visible,.mobile-drawer button:focus-visible{outline:var(--focus-ring);outline-offset:3px}
+  .mobile-drawer__dispatch:focus-visible{outline-color:var(--sand)}
  }
  @media(max-width:767px){
-  .pi-shell .masthead-row{min-height:68px!important}
-  .pi-shell .header-actions .search-link{display:flex;align-items:center;justify-content:center;width:44px;min-height:44px}
-  .pi-shell .header-actions .search-link span{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-  .pi-shell :global(.v5-play__link){min-width:44px!important;justify-content:center}
-  .pi-shell .masthead-row{gap:4px}
-  .pi-shell.site-header .brand{display:flex;align-items:center;gap:.25em;min-height:44px;font-size:var(--fs-600)}
-  .mobile-drawer__top{padding:10px 16px;min-height:68px}
-  .mobile-drawer__brand{font-size:var(--fs-600)}
-  .mobile-drawer__body{width:calc(100% - 32px);padding-top:23px}
-  .mobile-drawer__title{font-size:var(--fs-700);margin-bottom:18px}
-  .mobile-drawer__primary a{min-height:54px;font-size:var(--fs-500)}
+  .brand-lockup{flex-direction:column;align-items:flex-start;gap:0}
+  .header-actions{gap:0}
+  .mobile-drawer__top{padding:var(--space-2) var(--space-4)}
+  .mobile-drawer__body{width:calc(100% - 32px)}
+  .mobile-drawer__columns{display:block}
+  .mobile-drawer__aside{margin-top:var(--space-6)}
  }
 </style>

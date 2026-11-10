@@ -7,13 +7,22 @@
    - When nothing is live, the page says so in one line and offers the
      newest Journal stories already published on the site, plus one next
      step, instead of dead-ending. Nothing is invented: every item listed
-     is an existing published note or article. */
+     is an existing published note or article.
+   Round 2 (2026-11-10): the page is titled "Quick Note" with the date as a
+   small dateline; an empty desk is one sentence under the intro; the first
+   screen carries the lead Journal story's photograph only when it is a
+   credited, rights-cleared photo (never artwork); Journal rows drop the
+   repeated "Journal · date" line. */
 
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { routeSlug } from '../../lib/editorial';
 import { isJournalDiscovery } from '../../lib/journal-curation.mjs';
+import { resolveJournalImage } from '../../lib/journal-image';
+import { journalCredit, journalRecoveryAttrs } from '../../lib/journal-image-policy.mjs';
+import { isArtwork, cleanCaption } from '../../lib/image-caption.mjs';
+import JournalImageRecovery from '../../components/journal/JournalImageRecovery.astro';
 
 const all = await getCollection('quickNotes', ({ data }) => data.status === 'published');
 const now = new Date();
@@ -80,6 +89,9 @@ const otherSections = Object.keys(restBySection).filter((s) => !sections.include
 const latestStories = live.length > 0 ? [] : (await getCollection('articles', ({ data }) => isJournalDiscovery(data)))
   .sort((a, b) => b.data.publishedAt.getTime() - a.data.publishedAt.getTime())
   .slice(0, 3);
+const leadStory = latestStories[0];
+const leadStoryImage = leadStory ? await resolveJournalImage(routeSlug(leadStory), leadStory.data) : null;
+const leadPhoto = leadStoryImage && !isArtwork(leadStoryImage) && journalCredit(leadStoryImage) ? leadStoryImage : null;
 
 function noteHref(n: any): string {
   return `/quick-note/${n.id.replace(/\.md$/, '')}/`;
@@ -97,12 +109,22 @@ export const prerender = true;
 
   <div class="qn">
     <header class="qn__head">
-      <div class="container">
-        <p class="qn__eyebrow">Quick Note</p>
-        <h1 class="qn__dateline">{dateline}</h1>
-        <p class="qn__sub">Short daily briefs on openings, menu changes, booking windows and weather. Each one archives after seven days.</p>
+      <div class:list={['container', leadPhoto && 'qn__head-grid']}>
+        <div class="qn__head-copy">
+          <h1 class="qn__title">Quick Note</h1>
+          <p class="qn__dateline"><time datetime={now.toISOString()}>{dateline}</time></p>
+          <p class="qn__sub">Short daily briefs on openings, menu changes, booking windows and weather.</p>
+          {live.length === 0 && <p class="qn__sub qn__empty-line">No new notes yet this morning, so here is the latest from the Journal.</p>}
+        </div>
+        {leadPhoto && leadStory && (
+          <figure class="qn__photo">
+            <img src={leadPhoto.src} alt={leadPhoto.alt} width="1200" height="800" loading="eager" decoding="async" data-pi-responsive="(max-width: 767px) 100vw, 40vw" {...journalRecoveryAttrs(leadPhoto)} />
+            <figcaption><span data-journal-image-caption>{cleanCaption(leadPhoto.caption)}</span> <span data-journal-image-credit>{journalCredit(leadPhoto)}</span></figcaption>
+          </figure>
+        )}
       </div>
     </header>
+    {leadPhoto && <JournalImageRecovery />}
 
     <div class="container qn__body">
       {lead && (
@@ -163,19 +185,13 @@ export const prerender = true;
       )}
 
       {live.length === 0 && (
-        <section class="qn__empty" aria-labelledby="qn-empty-title">
-          <h2 class="qn__empty-title" id="qn-empty-title">No new notes yet this morning.</h2>
+        <section class="qn__empty" aria-label="Latest from the Journal">
           {latestStories.length > 0 && (
             <>
-              <p class="qn__empty-copy">While the desk is quiet, here is the latest from the Journal.</p>
               <ul class="qn__week-list" role="list">
                 {latestStories.map((a) => (
                   <li>
                     <a href={`/journal/${routeSlug(a)}/`} class="qn__brief qn__brief--row">
-                      <div class="qn__brief-meta">
-                        <span class="qn__brief-section">Journal</span>
-                        <time class="qn__brief-time" datetime={a.data.publishedAt.toISOString()}>{a.data.publishedAt.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', timeZone: TZ })}</time>
-                      </div>
                       <h3 class="qn__brief-headline">{a.data.title}</h3>
                       {a.data.dek && <p class="qn__brief-dek">{a.data.dek}</p>}
                     </a>
@@ -184,7 +200,7 @@ export const prerender = true;
               </ul>
             </>
           )}
-          <p class="qn__next"><a class="pi-btn pi-btn--solid" href="/journal/">Read the Journal</a></p>
+          <p class="qn__next"><a href="/journal/">See all Journal stories <span aria-hidden="true">→</span></a></p>
         </section>
       )}
     </div>
@@ -194,32 +210,33 @@ export const prerender = true;
 <style is:global>
   .qn { background: var(--bg); padding-bottom: clamp(3rem, 6vw, 5rem); }
 
-  .qn__head { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(1.5rem, 3vw, 2.5rem); }
-  .qn__eyebrow {
-    display: inline-block;
-    font-size: var(--fs-100);
-    font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, .1em);
-    text-transform: uppercase;
-    color: var(--accent);
-    margin: 0 0 0.7rem;
-  }
-  .qn__dateline {
+  .qn__head { padding: var(--space-8) 0 var(--space-7); }
+  .qn__head-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: center; }
+  .qn__title {
     font-family: var(--font-display);
     font-size: var(--fs-800);
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.02em;
     color: var(--dark);
-    margin: 0 0 0.8rem;
-    text-wrap: balance;
+    margin: 0;
   }
+  .qn__dateline { margin: var(--space-2) 0 var(--space-4); font-size: var(--fs-200); font-weight: 600; color: var(--soft); font-variant-numeric: tabular-nums; }
   .qn__sub {
     max-width: 56ch;
     font-size: var(--fs-400);
     line-height: 1.55;
     color: var(--soft);
     margin: 0;
+  }
+  .qn__empty-line { margin-top: var(--space-3); color: var(--text); }
+  .qn__photo { margin: 0; min-width: 0; }
+  .qn__photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; border-radius: var(--radius-m); }
+  .qn__photo [data-journal-image-caption]:not(:empty)::after { content: '.'; }
+  .qn__photo figcaption { margin-top: var(--space-2); font-size: var(--fs-100); line-height: 1.45; color: var(--soft); }
+  @media (max-width: 47.99em) {
+    .qn__head { padding: var(--space-6) 0 var(--space-6); }
+    .qn__head-grid { grid-template-columns: 1fr; gap: var(--space-5); }
   }
 
   /* One reading column on the same left edge as the date. */
@@ -260,21 +277,12 @@ export const prerender = true;
   .qn__week { padding-top: 2.5rem; }
   .qn__week-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.4rem; }
 
-  .qn__empty { padding-top: 0.5rem; }
-  .qn__empty-title {
-    font-family: var(--font-display);
-    font-size: var(--fs-600);
-    font-weight: 500;
-    color: var(--dark);
-    margin: 0 0 0.4rem;
-  }
-  .qn__empty-copy {
-    font-size: var(--fs-400);
-    color: var(--soft);
-    line-height: 1.55;
-    margin: 0 0 1.6rem;
-  }
-  .qn__next { margin: 2rem 0 0; }
+  .qn__empty { padding-top: 0; }
+  .qn__empty .qn__week-list { gap: var(--space-6); }
+  .qn__next { margin: var(--space-7) 0 0; }
+  .qn__next a { display: inline-flex; align-items: center; gap: .4em; min-height: 44px; color: var(--accent); font: 600 var(--fs-300)/1.4 var(--font-ui); text-decoration: none; }
+  .qn__next a:hover { text-decoration: underline; text-underline-offset: .2em; }
+  .qn__next a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
   /* Brief, base */
   .qn__brief {
@@ -303,9 +311,10 @@ export const prerender = true;
     margin: 0 0 0.4rem;
     color: var(--dark);
     font-size: var(--fs-500);
+    text-wrap: balance;
   }
   .qn__brief-dek {
-    font-size: var(--fs-300);
+    font-size: var(--fs-400);
     line-height: 1.55;
     color: var(--soft);
     margin: 0 0 0.4rem;

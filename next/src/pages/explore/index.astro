@@ -6,7 +6,11 @@ import { pageImage } from '../../lib/page-images';
  *
  * 2026-11-10 (Phase 5 "say it once"): one browse route. Hero → the full
  * directory with its filter chips directly above it → "Where to start"
- * (three short rows) → "More ways in" (one link list) → Journal → FAQ.
+ * (three short rows) → "More ways in" → Journal → FAQ.
+ * Round 2: the directory renders open (no "Show the full list" disclosure),
+ * so the hero action lands on the list the chips filter; directory rows show
+ * name and meta only (each reason lives on the shelves and detail pages);
+ * "More ways in" keeps only the guides no menu, footer or hub links to.
  * Removed: the "What kind of day" tiles, the seasonal and golf shelves, the
  * navy towns band (now one link), the Save/Trip explainer and the search band.
  *
@@ -258,7 +262,7 @@ const shelfBeaches = await buildShelf(
 const shelfCulture = await buildShelf(
   'culture',
   'Galleries & attractions',
-  'The indoor and culture layer',
+  'Galleries and attractions',
   rows.filter((r) => hasCat(r, CULTURE_CATS)),
   { cat: CULTURE_CATS },
 );
@@ -275,28 +279,19 @@ const shelfGuides: Record<string, { href: string; label: string }> = {
   culture: { href: '/explore/rainy-day/', label: 'Rainy-day plans' },
 };
 
-// ── More ways in: one list of interest guides, towns and planning basics ─────
+// ── More ways in: only the guides nothing else links to ─────────────────────
+// Round 2 (2026-11-10): the 19-link list repeated the nav, the chips and the
+// footer. Golf, spas, hot springs, dogs, fishing, boating, tours, markets,
+// things to do, plans, stays and What's On all have routes from the masthead,
+// footer or hub pages; these six did not, so they stay (link graph).
 const places = await getCollection('places');
 const moreWays = [
-  { href: '/explore/places/', label: `All ${places.length} towns and localities` },
-  { href: '/explore/golf/', label: 'Golf courses, ranked' },
-  { href: '/explore/spas-and-wellness/', label: 'Spa and springs' },
-  { href: '/explore/hot-springs/', label: 'Hot springs' },
-  { href: '/dog-friendly/', label: 'Dog-friendly' },
-  { href: '/fishing/', label: 'Fishing' },
-  { href: '/boating/', label: 'Boating' },
-  { href: '/tour/', label: 'Tours' },
-  { href: '/explore/markets/', label: 'Markets' },
-  { href: '/explore/family-friendly/', label: 'With kids' },
-  { href: '/journal/free-things-to-do-mornington-peninsula/', label: 'Free things to do' },
-  { href: '/explore/things-to-do/', label: 'Things to do, ranked' },
+  { href: '/explore/places/', label: `All ${places.length} towns` },
   { href: '/explore/day-trips/', label: 'Day trips' },
   { href: '/explore/weekend-trips/', label: 'Weekend trips' },
-  { href: '/explore/plans/', label: 'Our escape plans' },
-  { href: '/stay/best-accommodation/', label: 'Where to base yourself' },
+  { href: '/explore/family-friendly/', label: 'With kids' },
   { href: '/explore/getting-here/', label: 'Getting here' },
   { href: '/explore/getting-around/', label: 'Getting around' },
-  { href: '/whats-on/', label: 'What’s on this week' },
 ];
 
 // ── From the Journal (<=3) ───────────────────────────────────────────────────
@@ -386,7 +381,6 @@ export const prerender = true;
     <div class="container">
       <div class="x-directory__head">
         <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
-        <p class="x-directory__intro">Filter by type, town, who is coming or price.</p>
       </div>
       <FilterBar
         surface="explore"
@@ -394,8 +388,7 @@ export const prerender = true;
         label="Filter experiences"
         facets={['cat', 'place', 'party', 'price']}
       />
-      <details class="x-directory__disclosure" data-directory-disclosure>
-        <summary>Show the full list <span aria-hidden="true">+</span></summary>
+      <div class="x-directory__list">
         <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
           {directoryRows.map((r, i) => (
             <li
@@ -423,7 +416,7 @@ export const prerender = true;
         <div data-filter-empty hidden>
           <EmptyState variant="filter-zero" surface="explore" />
         </div>
-      </details>
+      </div>
     </div>
   </section>
 
@@ -472,7 +465,7 @@ export const prerender = true;
     <section class="x-more" aria-labelledby="more-heading">
       <div class="container">
         <h2 class="x-more__heading" id="more-heading">More ways in</h2>
-        <ul class="x-more__list">
+        <ul class="x-more__list" role="list">
           {moreWays.map((link) => <li><a href={link.href}>{link.label}</a></li>)}
         </ul>
       </div>
@@ -513,7 +506,7 @@ export const prerender = true;
   <!-- FAQ (retained, schema unchanged) -->
   <section class="x-faq" aria-labelledby="faq-heading">
     <div class="container">
-      <h2 class="x-faq__heading" id="faq-heading">Five honest answers about Peninsula geography and access</h2>
+      <h2 class="x-faq__heading" id="faq-heading">Before you come</h2>
       <div class="x-faq__list">
         {faqSchema.mainEntity.map((item) => (
           <details class="x-faq__item">
@@ -528,12 +521,13 @@ export const prerender = true;
 
 <style>
   .x-hero { background: var(--paper, #f2efea); }
-  .x-hero__grid { display: grid; grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr); gap: clamp(2rem, 5vw, 5rem); height: clamp(32rem, 42vw, 39rem); }
-  .x-hero__copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: clamp(3rem, 6vw, 6rem) 0; }
+  .x-hero__grid { display: grid; grid-template-columns: minmax(0, 0.93fr) minmax(0, 1.07fr); gap: clamp(2rem, 5vw, 5rem); height: clamp(28rem, 36vw, 34rem); }
+  .x-hero__copy { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; padding: var(--space-8) 0; }
   .x-hero h1 { max-width: 16ch; margin: 0; color: var(--text); font-weight:600;line-height:1.04;font-family:var(--font-editorial, Georgia, serif); letter-spacing: -0.03em; text-wrap: balance; }
-  .x-hero__copy > p { max-width: 47ch; margin: 1.5rem 0 0; color: var(--soft); font: 400 var(--fs-400)/1.55 var(--font-ui); }
-  .x-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; margin-top: 2rem; }
-  .x-hero__actions a { display: inline-flex; align-items: center; justify-content: center; gap: 0.85rem; min-height: 48px; font-family: var(--font-ui); font-weight: 700; text-decoration: none; }
+  .x-hero__copy > p { max-width: 47ch; margin: var(--space-5) 0 0; color: var(--soft); font: 400 var(--fs-400)/1.55 var(--font-ui); }
+  .x-hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); margin-top: var(--space-6); }
+  .x-hero__actions a { display: inline-flex; align-items: center; justify-content: center; gap: 0.85rem; min-height: 48px; font: 600 var(--fs-400)/1.3 var(--font-ui); text-decoration: none; }
+  /* One action colour at every viewport: harbour blue, white text. */
   .x-hero__primary { padding: 0.75rem 1.25rem; background: var(--accent); color: var(--white); border-radius: var(--radius-s); }
   .x-hero__primary:hover { background: var(--harbour-hover, #0c4166); }
   .x-hero__secondary { color: var(--accent); text-decoration: underline !important; text-underline-offset: 0.25em; }
@@ -545,75 +539,84 @@ export const prerender = true;
   .x-hero__media { position: relative; height: 100%; min-height: 0; margin: 0; overflow: hidden; background: var(--bg-dark); }
   .x-hero__media img { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 40%; }
 
-  /* One section rhythm: space separates sections, no rules or alternating tints. */
-  .x-directory, .x-picks, .x-more, .x-journal, .x-faq { padding: clamp(3rem, 5vw, 5rem) 0; }
-  .x-directory__heading, .x-picks__heading, .x-more__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 var(--fs-800)/1.12 var(--font-editorial, Georgia, serif); letter-spacing: -0.025em; text-wrap: balance; }
+  /* One section rhythm from the spacing scale; space separates sections. */
+  .x-directory, .x-picks, .x-more, .x-journal, .x-faq { padding: var(--space-7) 0; }
+  .x-directory__heading, .x-picks__heading, .x-more__heading, .x-journal__heading, .x-faq__heading { margin: 0; color: var(--text); font: 600 var(--fs-700)/1.15 var(--font-editorial, Georgia, serif); letter-spacing: -0.025em; text-wrap: balance; }
 
   .x-directory { scroll-margin-top: 4rem; }
-  .x-directory__head { margin-bottom: 1rem; }
-  .x-directory__intro { max-width: 56ch; margin: 0.6rem 0 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.55; }
+  .x-directory__head { margin-bottom: var(--space-4); }
   .x-directory :global(.v5-filterbar) { background: transparent; }
-  /* One disclosure style on the page: a hairline row with a quiet "+". */
-  .x-directory__disclosure, .x-picks__advice, .x-faq__item { border-bottom: 1px solid var(--border); }
-  .x-directory__disclosure { margin-top: 0.5rem; }
-  .x-directory__disclosure > summary, .x-picks__advice > summary, .x-faq__q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 48px; padding: 0.9rem 0; color: var(--text); cursor: pointer; list-style: none; font: 600 var(--fs-400)/1.45 var(--font-ui); }
-  :is(.x-directory__disclosure, .x-picks__advice) > summary::-webkit-details-marker, .x-faq__q::-webkit-details-marker { display: none; }
-  .x-directory__disclosure > summary span { color: var(--accent); font-size: var(--fs-600); font-weight: 400; line-height: 1; }
-  .x-directory__disclosure[open] > summary span { transform: rotate(45deg); }
+  /* The directory is open: a calm list of names and one meta line that the
+     chips above filter in place. Reasons live on the shelves and detail pages. */
+  .x-directory__list { margin-top: var(--space-5); }
+  .x-directory :global(.v5-card-grid--rows) { display: grid; grid-template-columns: 1fr; gap: 0 var(--space-6); margin: 0; padding: 0; }
+  .x-directory__row { list-style: none; min-width: 0; }
+  .x-directory__row :global(.pi-card__dek) { display: none; }
+  @media (min-width: 40em) { .x-directory :global(.v5-card-grid--rows) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (min-width: 64em) { .x-directory :global(.v5-card-grid--rows) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+  /* One disclosure style, one measure: a hairline row with a quiet "+". */
+  .x-picks__advice, .x-faq__item { border-bottom: 1px solid var(--border); }
+  .x-picks__advice, .x-faq__list { max-width: 48rem; }
+  .x-picks__advice > summary, .x-faq__q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 48px; padding: var(--space-3) 0; color: var(--text); cursor: pointer; list-style: none; font: 600 var(--fs-400)/1.45 var(--font-ui); }
+  .x-picks__advice > summary::-webkit-details-marker, .x-faq__q::-webkit-details-marker { display: none; }
   .x-picks__advice > summary::after, .x-faq__q::after { content: '+'; color: var(--accent); font-size: var(--fs-600); font-weight: 400; line-height: 1; }
   .x-picks__advice[open] > summary::after, .x-faq__item[open] .x-faq__q::after { transform: rotate(45deg); }
-  :is(.x-directory__disclosure, .x-picks__advice) > summary:focus-visible, .x-faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .x-directory :global(.v5-card-grid--rows) { display: grid; grid-template-columns: 1fr; gap: 0 2.5rem; margin: 0; padding: 0 0 1rem; }
-  .x-directory__row { list-style: none; min-width: 0; }
-  @media (min-width: 64em) { .x-directory :global(.v5-card-grid--rows) { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .x-picks__advice > summary:focus-visible, .x-faq__q:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .x-picks__advice { max-width: 72ch; margin: 1rem 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
-  .x-picks__advice > summary { font-size: var(--fs-300); }
-  .x-picks__advice p { margin: 0 0 0.75rem; }
+  .x-picks__advice { margin: var(--space-4) 0 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.6; }
+  .x-picks__advice p { margin: 0 0 var(--space-3); }
   .x-picks__advice a { color: var(--accent); text-underline-offset: 0.2em; }
-  .x-shelf { margin-top: clamp(2.5rem, 4vw, 3.5rem); scroll-margin-top: 4rem; }
-  .x-shelf__header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 0.25rem 2rem; margin-bottom: 1.25rem; }
+  .x-shelf { margin-top: var(--space-7); scroll-margin-top: 4rem; }
+  .x-shelf__header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: var(--space-1) var(--space-6); margin-bottom: var(--space-4); }
   .x-shelf__heading { margin: 0; color: var(--text); font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.02em; }
-  .x-shelf__all { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 0.35rem; min-height: 44px; color: var(--accent); font: 600 var(--fs-300)/1.3 var(--font-ui); text-decoration: underline; text-underline-offset: 0.25em; }
+  /* The one "more" link style: text, underline on hover. */
+  .x-shelf__all { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 0.4em; min-height: 44px; color: var(--accent); font: 600 var(--fs-300)/1.3 var(--font-ui); text-decoration: none; }
+  .x-shelf__all:hover { text-decoration: underline; text-underline-offset: 0.2em; }
   .x-shelf__all:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
-  .x-shelf__row { display: flex; gap: 1.5rem; overflow-x: auto; list-style: none; margin: 0; padding: 2px 1.5rem 0.5rem 2px; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+  .x-shelf__row { display: flex; gap: var(--space-5); overflow-x: auto; list-style: none; margin: 0; padding: 2px 1.5rem 0.5rem 2px; scroll-snap-type: x proximity; scrollbar-width: none; -webkit-overflow-scrolling: touch; align-items: flex-start; }
   .x-shelf__row::-webkit-scrollbar { display: none; }
   .x-shelf__row > :global(li) { flex: 0 0 min(82vw, 21rem); min-width: 0; scroll-snap-align: start; }
-  .x-shelf__row :global(.pi-card__media) { aspect-ratio: 3 / 2; }
   @media (min-width: 64em) {
     .x-shelf__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); overflow: visible; padding-right: 2px; }
     .x-shelf__row > :global(li) { flex: initial; }
   }
+  /* Venue and story cards share one anatomy on this page: 3:2 image, title,
+     the full one-line reason, one meta line. No byline on our own stories. */
+  .x-shelf__row :global(.pi-card__media), .x-journal :global(.pi-card__media) { aspect-ratio: 3 / 2; }
+  .x-shelf__row :global(.pi-card__title), .x-journal :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.25; text-wrap: balance; }
+  .x-shelf__row :global(.pi-card__dek), .x-journal :global(.pi-card__dek) { display: block; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; }
+  .x-journal :global(.v5-card-grid) { align-items: start; }
+  .x-journal :global(.pi-card__byline), .x-journal :global(.pi-card__byline + .pi-card__sep) { display: none; }
 
-  .x-more__list { list-style: none; margin: 1.5rem 0 0; padding: 0; columns: 3 14rem; column-gap: 2.5rem; }
-  .x-more__list li { break-inside: avoid; }
+  .x-more__list { list-style: none; margin: var(--space-4) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 0 var(--space-6); }
   .x-more__list a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); font: 500 var(--fs-400)/1.35 var(--font-ui); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 0.25em; }
   .x-more__list a:hover { color: var(--accent); text-decoration-color: currentColor; }
   .x-more__list a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
-  .x-faq__list { max-width: 55rem; margin-top: 1.5rem; }
-  .x-faq__a { max-width: 70ch; padding-bottom: 1rem; color: var(--soft); }
+  .x-faq__list { margin-top: var(--space-5); }
+  .x-faq__a { max-width: 70ch; padding-bottom: var(--space-4); color: var(--soft); }
 
   @media (max-width: 47.99em) {
     .x-hero { position: relative; isolation: isolate; overflow: hidden; background: var(--bg-deep); }
     .x-hero__grid { display: block; height: auto; min-height: 24rem; }
-    .x-hero__copy { position: relative; z-index: 1; min-height: 24rem; padding: 1.5rem 0 1.25rem; justify-content: flex-end; }
+    .x-hero__copy { position: relative; z-index: 1; min-height: 24rem; padding: var(--space-5) 0; justify-content: flex-end; }
     .x-hero h1 { max-width: 13ch; color: var(--white); }
-    .x-hero__copy > p { margin-top: 1.1rem; color: var(--white); font-size: var(--fs-400); line-height: 1.5; }
+    .x-hero__copy > p { margin-top: var(--space-4); color: var(--white); font-size: var(--fs-400); line-height: 1.5; }
+    .x-hero__actions { margin-top: var(--space-5); }
     .x-hero__media { position: absolute; inset: 0; z-index: 0; min-height: 0; }
-    .x-hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 31, 47, 0.96) 8%, rgba(11, 31, 47, 0.69) 62%, rgba(11, 31, 47, 0.25)); }
+    /* Darkest behind the words only; the sun and sea stay bright above. */
+    .x-hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(11, 31, 47, 0.94) 10%, rgba(11, 31, 47, 0.62) 60%, rgba(11, 31, 47, 0.12)); }
     .x-hero__media img { object-position: 50% 36%; }
-    .x-hero__primary { background: var(--sand, #f5c177); color: var(--bg-deep); }
-    .x-hero__primary:hover { background: var(--white); }
     .x-hero__secondary { color: var(--white); }
     .x-hero__actions a:focus-visible { outline-color: var(--sand, #f5c177); }
-    .x-directory { padding-top: 2rem; }
-    .x-directory__heading, .x-picks__heading, .x-more__heading, .x-journal__heading, .x-faq__heading { font-size: var(--fs-700); }
+    .x-directory, .x-picks, .x-more, .x-journal, .x-faq { padding: var(--space-6) 0; }
+    .x-shelf { margin-top: var(--space-6); }
   }
   @media (max-width: 24em) {
-    .x-hero__copy { min-height: 0; padding: 1rem 0; }
-    .x-hero__copy > p { margin-top: 0.75rem; }
-    .x-hero__actions { margin-top: 0.75rem; display: block; }
+    .x-hero__copy { min-height: 0; padding: var(--space-4) 0; }
+    .x-hero__copy > p { margin-top: var(--space-3); }
+    .x-hero__actions { margin-top: var(--space-3); display: block; }
     .x-hero__actions a { margin: 0 0 0.35rem; }
   }
 </style>
@@ -627,31 +630,15 @@ export const prerender = true;
     document
       .querySelectorAll<HTMLElement>('[data-browse-layer]')
       .forEach((el) => el.toggleAttribute('hidden', hide));
-    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
-    if (directory) directory.open = hide;
   }
 
-  // Both document listeners are registered here rather than from init(),
-  // which re-runs on every astro:page-load. The `bound` flag used to hold
-  // that line; module scope runs exactly once, so it no longer has to. Both
-  // handlers resolve their targets at fire time and so need nothing from the
-  // page that was current when they were registered.
+  // Registered at module scope rather than from init(), which re-runs on
+  // every astro:page-load; the handler resolves its targets at fire time.
+  // The directory is always open (round 2), so nothing has to be expanded
+  // before the hero anchor scrolls to it.
   document.addEventListener('pi:filters-changed', ((e: CustomEvent) => {
     setBrowseHidden(!isEmptyState(e.detail?.filters ?? {}));
   }) as EventListener);
-
-  // Delegation survives Astro navigation and opens the server-rendered list
-  // before a same-page anchor scrolls to its summary.
-  document.addEventListener('click', (ev) => {
-    if (!(ev.target as HTMLElement).closest('a[href="#directory"]')) return;
-    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
-    if (directory) directory.open = true;
-  });
-  window.addEventListener('hashchange', () => {
-    if (window.location.hash !== '#directory') return;
-    const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
-    if (directory) directory.open = true;
-  });
 
   // EmptyState's "Clear filters" primary action.
   document.addEventListener('click', (ev) => {
@@ -663,10 +650,6 @@ export const prerender = true;
     // Server renders everything visible; the browse layer yields to the
     // filtered directory whenever any facet is active (URL or interaction).
     setBrowseHidden(!isEmptyState(parseFilters(window.location.search)));
-    if (window.location.hash === '#directory') {
-      const directory = document.querySelector<HTMLDetailsElement>('[data-directory-disclosure]');
-      if (directory) directory.open = true;
-    }
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

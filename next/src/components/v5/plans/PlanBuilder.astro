@@ -36,10 +36,10 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
 <style>
   /* One quiet line until opened: the itineraries, not the form, own the first screen. */
   .plan-builder{margin:0 0 .5rem;scroll-margin-top:8rem}
-  summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;min-height:44px;font:600 var(--fs-200)/1.4 var(--font-ui);color:var(--accent)}
+  summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem;min-height:44px;font:600 var(--fs-300)/1.4 var(--font-ui);color:var(--accent)}
   summary::-webkit-details-marker{display:none}
   summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-  .plan-builder__toggle{font-size:var(--fs-500);line-height:1;transition:transform 150ms ease}
+  .plan-builder__toggle{font-size:var(--fs-400);line-height:1;transition:transform 150ms ease}
   details[open] .plan-builder__toggle{transform:rotate(45deg)}
   .plan-builder__form{padding:1rem 0 1.5rem}
   .plan-builder__fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}

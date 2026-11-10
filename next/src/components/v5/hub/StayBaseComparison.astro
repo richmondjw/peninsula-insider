@@ -69,7 +69,7 @@ const photos = [
   .base-comparison__intro > div { max-width: 68ch; }
   h2 { margin: 0 0 0.85rem; font: 600 var(--fs-700)/1.14 var(--font-display); letter-spacing: -0.025em; text-wrap: balance; }
   .base-comparison__intro p { max-width: 62ch; margin: 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.6; }
-  a { color: var(--teal-text); text-underline-offset: 0.2em; }
+  a { color: var(--accent); text-underline-offset: 0.2em; }
   a:focus-visible, .base-comparison__featured:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .base-comparison__swipe { display: none; }
   .base-comparison__featured { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
@@ -78,13 +78,13 @@ const photos = [
   figure img { display: block; width: 100%; height: clamp(12rem, 23vw, 18rem); object-fit: cover; border-radius: var(--radius-m); }
   figcaption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.15rem 0.75rem; padding: 0.55rem 0; color: var(--soft); font-size: var(--fs-100); line-height: 1.4; }
   .base-comparison__feature-body { display: flex; flex: 1; flex-direction: column; padding: 0.55rem 0 0; }
-  .base-comparison__feature h3 { margin: 0 0 0.45rem; font: 600 var(--fs-600)/1.2 var(--font-display); letter-spacing: -0.025em; }
+  .base-comparison__feature h3 { margin: 0 0 0.45rem; font: 600 var(--fs-500)/1.25 var(--font-display); letter-spacing: -0.02em; }
   .base-comparison__feature h3 a, .base-comparison__other h4 a { color: var(--text); text-decoration: none; }
   .base-comparison__feature h3 a:hover, .base-comparison__other h4 a:hover { color: var(--accent); text-decoration: underline; }
   .base-comparison__lead { margin: 0; font-size: var(--fs-400); line-height: 1.5; }
   .base-comparison__practical { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; margin-block: 1.15rem 1.4rem; }
   .base-comparison__practical p, .base-comparison__detail { margin: 0; color: var(--soft); font-size: var(--fs-300); line-height: 1.52; }
-  strong { display: block; margin-bottom: 0.3rem; color: var(--text); font-size: var(--fs-200); font-weight: 700; }
+  strong { display: block; margin-bottom: 0.3rem; color: var(--text); font-size: var(--fs-300); font-weight: 700; }
   .base-comparison__actions, .base-comparison__other-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 0.75rem 1.25rem; }
   .base-comparison__actions { margin-top: auto; }
   .base-comparison__actions a, .base-comparison__other-actions a { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; font-size: var(--fs-300); font-weight: 700; }
@@ -107,7 +107,7 @@ const photos = [
   }
   @media (max-width: 48em) {
     .base-comparison__intro { display: block; margin-bottom: 1rem; }
-    .base-comparison__swipe { display: block; margin: 0 0 0.65rem; color: var(--soft); font-size: var(--fs-200); line-height: 1.4; }
+    .base-comparison__swipe { display: block; margin: 0 0 0.65rem; color: var(--soft); font-size: var(--fs-300); line-height: 1.4; }
     .base-comparison__featured { display: flex; gap: 0.75rem; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: x mandatory; scrollbar-width: none; scroll-padding-inline: 0.5rem; padding: 0 0.5rem 0.65rem; }
     .base-comparison__featured::-webkit-scrollbar { display: none; }
     .base-comparison__feature { flex: 0 0 calc(100% - 2rem); scroll-snap-align: start; }

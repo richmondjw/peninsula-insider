@@ -18,9 +18,10 @@ const { noun = 'places' } = Astro.props;
   <input id="eat-find" name="find" type="search" placeholder="Name, town or type" data-directory-search autocomplete="off" />
 </div>
 <style>
-  .eat-search{max-width:28rem;margin-bottom:1rem}
-  label{display:block;font-size:var(--fs-200);font-weight:600;margin-bottom:.4rem}
-  input{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border-control);border-radius:var(--radius-s);padding:.65rem .8rem;color:var(--text);font:400 var(--fs-400) var(--font-ui)}
+  .eat-search{max-width:28rem;margin-bottom:var(--space-2)}
+  /* The placeholder says what to type; the label stays for assistive tech. */
+  label{position:absolute;width:1px;height:1px;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  input{width:100%;min-height:44px;background:var(--white);border:1px solid var(--border-control);border-radius:var(--radius-s);padding:.65rem .8rem;color:var(--text);font:400 var(--fs-400) var(--font-ui)}
   input:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 </style>
 <noscript><style>[data-eat-search]{display:none!important}</style></noscript>
