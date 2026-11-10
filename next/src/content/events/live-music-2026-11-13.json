@@ -1,8 +1,8 @@
 {
   "slug": "live-music-2026-11-13",
   "eventId": "MP-EVT-0122",
-  "title": "Live Music at Quarters at Flinders Hotel",
-  "summary": "Celebrate the Weekend at Flinders! Unwind with a drink in hand and enjoy live music throughout the venue. Bring along family, friends, and even your furry friends-everyone’s welcome! Live Music Schedule:Friday: 7pm, 10pmSaturday: 6:30pm, 9:30pmMake it a weekend to remember at Flinders!",
+  "title": "Live Music at Flinders Hotel",
+  "summary": "Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.",
   "heroImage": {
     "src": "/images/sourced/venue-flinders-hotel-01.webp",
     "alt": "Flinders Hotel pub frontage in 2010; Quarters accommodation is behind this building",
@@ -28,16 +28,21 @@
   },
   "startDate": "2026-11-13",
   "endDate": "2026-11-13",
-  "venueName": "Quarters at Flinders Hotel",
+  "startTime": "19:00",
+  "endTime": "22:00",
+  "venueName": "Flinders Hotel",
   "suburb": "Flinders",
+  "streetAddress": "23 Cook Street, Flinders VIC 3929",
   "category": "live-music",
   "recurrence": "one-off",
   "bookingUrl": "https://flindershotel.com.au/events/live-music/",
   "officialEventUrl": "https://flindershotel.com.au/events/live-music/",
+  "primarySourceUrl": "https://flindershotel.com.au/events/live-music/",
   "source": "venue:flinders-hotel",
   "sourceUrl": "https://flindershotel.com.au/whats-on/",
   "discoveredAt": "2026-11-09T00:47:50.828Z",
   "publishedAt": "2026-11-09T01:01:23.556Z",
-  "lastCheckedDate": "2026-11-09",
-  "provenance": "auto-published by promote-candidates.mjs from JSON-LD event feed; not editorially rewritten"
+  "lastCheckedDate": "2026-11-10",
+  "editorNote": "Flinders Hotel runs live music every Friday and Saturday. This dated Friday listing follows the organiser's 7pm to 10pm schedule; Saturday sessions use a different 6.30pm to 9.30pm slot. The event is at the hotel on Cook Street, not inside the separate Quarters accommodation behind it.\n\nThe venue recommends reserving a table to avoid disappointment. Dogs are permitted on the deck when kept on a lead, and minors must remain with a parent or guardian. The organiser notes that the recurring music offer does not run on public holidays, so check its event page before making a special trip.",
+  "provenance": "editorially rewritten by Peninsula Insider on 2026-11-10 from Flinders Hotel's live-music page, contact page and FAQs"
 }
