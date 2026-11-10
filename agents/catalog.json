@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-10T00:45:34.371Z",
-  "snapshotId": "bd9bcffd7ae323ac57db2fc1b9a3c04672ffe5f68211f2b6d8f485db1adf05a9",
+  "generatedAt": "2026-11-10T03:43:03.397Z",
+  "snapshotId": "5196e076cbea47546f5109c393f74b5e21799f7bc9ede89835a30ed19d9c22e9",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "f425264b653009a061b913ce0afbe962216c253754b3c1a08b5eed7c475db5e2",
+      "contentSha256": "9f16dea95a989d52a147cddef2d9f96a684b82fd79725f7b6e7ac05540620330",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 199030,
-      "markdownBytes": 8649
+      "htmlBytes": 201836,
+      "markdownBytes": 8743
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 385931,
+      "htmlBytes": 384248,
       "markdownBytes": 811
     },
     {
@@ -2308,7 +2308,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
-      "contentSha256": "cd72b68e99c70fc707fd9e5d657b75e11442b31b05b7494090f6470d888d1121",
+      "contentSha256": "ae12125d4373938b0b2bd3d28c0fb9643ed0ce9804da011e61f894e4416889cf",
       "citation": {
         "title": "Main Ridge",
         "publisher": "Peninsula Insider",
@@ -2316,8 +2316,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 232598,
-      "markdownBytes": 19137
+      "htmlBytes": 231958,
+      "markdownBytes": 18817
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/mccrae/",
@@ -2444,7 +2444,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
-      "contentSha256": "b8f73584e6559d948c99fb550df010e819bf0cd8421308cebbd7b673b5672fcd",
+      "contentSha256": "b0694c62e7a953c8f4ec902a7833a3b77410c3722ab49edfe70d864cb796ecc0",
       "citation": {
         "title": "Mount Martha",
         "publisher": "Peninsula Insider",
@@ -2452,8 +2452,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 194650,
-      "markdownBytes": 10970
+      "htmlBytes": 194344,
+      "markdownBytes": 10817
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/point-leo/",
@@ -7204,7 +7204,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "27d8e9c3f86ff7d8e9df4f880a310bad30faf6f8c4237601ee5833558b3c6add",
+      "contentSha256": "b0e6bc70aa1150f247aa1aebc365e23335b73ac7add584dee64b2e3cba4bd860",
       "citation": {
         "title": "Tuesday 10 November 2026",
         "publisher": "Peninsula Insider",
@@ -7212,8 +7212,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 114417,
-      "markdownBytes": 983
+      "htmlBytes": 114416,
+      "markdownBytes": 982
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -9040,7 +9040,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "752d16acf8d9db132a8b18fd9b1c30058edb7334cc16a392fdafec907e36abbb",
+      "contentSha256": "bae6668595c821925d9caf640f9fca2691319371472a276d1bd8f9c651045fe0",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
@@ -9048,8 +9048,8 @@
         "publishedAt": null,
         "modifiedAt": "2026-11-10"
       },
-      "htmlBytes": 280435,
-      "markdownBytes": 19256
+      "htmlBytes": 280596,
+      "markdownBytes": 19391
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9082,7 +9082,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142741,
+      "htmlBytes": 142566,
       "markdownBytes": 3769
     },
     {
@@ -9150,7 +9150,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143078,
+      "htmlBytes": 142903,
       "markdownBytes": 4302
     },
     {
@@ -9269,7 +9269,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 193874,
+      "htmlBytes": 193732,
       "markdownBytes": 9088
     },
     {
@@ -9329,7 +9329,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/index.md",
-      "contentSha256": "489da0a8775e06c828c6e41197bdf24194df59b936efd9abb4072afde5aaa597",
+      "contentSha256": "b01c051532cf9e3ef65e9401bf7d9c2b49beb20b2c2b684ce91740fe260a9f46",
       "citation": {
         "title": "Celebrate Christmas Day at Peppers Moonah Links Resort",
         "publisher": "Peninsula Insider",
@@ -9337,8 +9337,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143723,
-      "markdownBytes": 4064
+      "htmlBytes": 142667,
+      "markdownBytes": 3708
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/celebrate-with-andrew-farrell-live-at-fenian-wines-2026-12-27/",
@@ -9380,7 +9380,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/index.md",
-      "contentSha256": "20431a5b7ee01def0d0b73e38e01b97d30d46be8cbfb65b914e126c3d0270335",
+      "contentSha256": "7c7e476d4a20119485e0266425697b0725bb9e8571e6ac97eda04bc825a60cfe",
       "citation": {
         "title": "Christmas Day at Ember",
         "publisher": "Peninsula Insider",
@@ -9388,8 +9388,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143589,
-      "markdownBytes": 4300
+      "htmlBytes": 142371,
+      "markdownBytes": 3890
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/",
@@ -9397,7 +9397,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/index.md",
-      "contentSha256": "fd66986f465b26d1a787afb8aac054e3c2dbd8c3e8ac35d3700ddacac2ffff18",
+      "contentSha256": "d5e6dc00f046c2f2017141d00ffc9d88b555fd68458176eedb1caa65c2cee4a4",
       "citation": {
         "title": "Christmas Day Feast at The Conti",
         "publisher": "Peninsula Insider",
@@ -9405,8 +9405,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143239,
-      "markdownBytes": 3954
+      "htmlBytes": 143483,
+      "markdownBytes": 4042
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-peppers-moonah-links-resort-2026-12-05/",
@@ -9686,7 +9686,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/index.md",
-      "contentSha256": "29fc702a715b97c4f89f481be5949b66008766932b60f026d80496a9ad7080a8",
+      "contentSha256": "af2297ef959d66d7f65e74ab79e265e0a42bbe363c10782f8314204f3cc58cc0",
       "citation": {
         "title": "Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern",
         "publisher": "Peninsula Insider",
@@ -9694,8 +9694,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 144803,
-      "markdownBytes": 4501
+      "htmlBytes": 143947,
+      "markdownBytes": 4213
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
@@ -9907,7 +9907,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/index.md",
-      "contentSha256": "ce9c63cb81ba3356f1474f43ac3916cbd735af1919975bf54980fe632cbc885a",
+      "contentSha256": "e159f9803310d93037f41504e21346ee09488286d0a2d08ee2547d548814719a",
       "citation": {
         "title": "Meet The Makers at Hawkes Farm",
         "publisher": "Peninsula Insider",
@@ -9915,8 +9915,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142607,
-      "markdownBytes": 3747
+      "htmlBytes": 141985,
+      "markdownBytes": 3537
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
@@ -9924,7 +9924,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/index.md",
-      "contentSha256": "bc8f01203b0030ec4403a5a8b922c21477b9515bbce9ab5cac6c592054022180",
+      "contentSha256": "6517e838c246320dfbee86b9dc407cd07bf58500621e948b78d75e04659e164a",
       "citation": {
         "title": "Michael Charles Live at The Pig & Whistle Tavern",
         "publisher": "Peninsula Insider",
@@ -9932,8 +9932,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143551,
-      "markdownBytes": 3911
+      "htmlBytes": 142451,
+      "markdownBytes": 3523
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",
@@ -9941,7 +9941,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/index.md",
-      "contentSha256": "e27d9ab5bcb7cf68e9d675669ca90236c6ec4e83776016dabdc0ea626eb016e3",
+      "contentSha256": "16755a6470d6a8c5e3f5c8869a71798bb5c34991960667b326f5d5dcf6c171f4",
       "citation": {
         "title": "Mornington Christmas Series at Mornington Racecourse",
         "publisher": "Peninsula Insider",
@@ -9949,8 +9949,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143747,
-      "markdownBytes": 4082
+      "htmlBytes": 143101,
+      "markdownBytes": 3864
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/",
@@ -9958,7 +9958,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/index.md",
-      "contentSha256": "5f10426aae7fa78721329ae1b9ba74e28e3361e8550cf10966c201c788004633",
+      "contentSha256": "1c498ff76d5673692c79283472381e39cf637dc7b261f68d5e8041639501cdc6",
       "citation": {
         "title": "Mornington Twilight Christmas Series at Mornington Racecourse",
         "publisher": "Peninsula Insider",
@@ -9966,8 +9966,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143914,
-      "markdownBytes": 4124
+      "htmlBytes": 142972,
+      "markdownBytes": 3806
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
@@ -10298,7 +10298,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07/index.md",
-      "contentSha256": "a540b128ee0336f4dd4608f27d1f38dee7453f64f348b1c1b3c251b95bb4fb77",
+      "contentSha256": "2fde0ebb28a5bf511e106245036fc5fa4ecadbe555825befae2cd8214e4645aa",
       "citation": {
         "title": "Peninsula Summer Music Festival: Charlotte Miles at Port Phillip Estate",
         "publisher": "Peninsula Insider",
@@ -10306,8 +10306,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143944,
-      "markdownBytes": 3873
+      "htmlBytes": 142828,
+      "markdownBytes": 3497
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/",
@@ -10519,7 +10519,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/index.md",
-      "contentSha256": "55f4786c75dd468a8698f34ebc99873c72b1153c652a1e41b3d84d294f7d1309",
+      "contentSha256": "1c97c8248b0e41070c0ca98b6edc7c73e0673da3417a189a4b9d0d244f368118",
       "citation": {
         "title": "Sourdough Masterclass at Peninsula Gourmet Cooking School",
         "publisher": "Peninsula Insider",
@@ -10527,8 +10527,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143849,
-      "markdownBytes": 4120
+      "htmlBytes": 142829,
+      "markdownBytes": 3772
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
@@ -10646,7 +10646,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 143513,
+      "htmlBytes": 143338,
       "markdownBytes": 4233
     },
     {
@@ -10706,7 +10706,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/index.md",
-      "contentSha256": "9014613efd4a1bda6d57f8508e9ce996e33317652540616e8b9b3d90b37a6f78",
+      "contentSha256": "97c1d28d7a2c611ae4c2a619ea59b096321cfa82933572bec346f9cb10a88c35",
       "citation": {
         "title": "The Mount Martha Briars Market",
         "publisher": "Peninsula Insider",
@@ -10714,8 +10714,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142606,
-      "markdownBytes": 3749
+      "htmlBytes": 141678,
+      "markdownBytes": 3433
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/",
@@ -10723,7 +10723,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/index.md",
-      "contentSha256": "3ab1c816696ecbcf1ac8c4db470f744d074dfc6067ca06bb8865f467cff542ff",
+      "contentSha256": "f154bc2152bfa37e917ed61328c00ee3d5066edd58f5d7d9a7f1a0c791812e6a",
       "citation": {
         "title": "The Mount Martha Briars Twilight Market",
         "publisher": "Peninsula Insider",
@@ -10731,8 +10731,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142806,
-      "markdownBytes": 3787
+      "htmlBytes": 141878,
+      "markdownBytes": 3471
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/",

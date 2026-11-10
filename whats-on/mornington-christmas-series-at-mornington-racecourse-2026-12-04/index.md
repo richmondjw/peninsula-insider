@@ -9,7 +9,7 @@ Event     Food & Wine     4 December 2026     One-off date
 
 # Mornington Christmas Series at Mornington Racecourse
 
-Mornington Christmas Series, presented by Barmah Park Vineyard This December, swap the office Christmas party for an afternoon at the races with the Mornington Christmas Series, presented by Barmah Park Vineyard. The series brings together two festive race days at Mornington Racecourse, Mornington Christmas, presented
+Mornington Christmas Series, presented by Barmah Park Vineyard This December, swap the office Christmas party for an afternoon at the races with the Mornington Christmas Series, presented by Barmah Park Vineyard.
 
 [Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Christmas+Series+at+Mornington+Racecourse&dates=20261204T010000Z%2F20261204T060000Z&details=Mornington+Christmas+Series%2C+presented+by+Barmah+Park+Vineyard+This+December%2C+swap+the+office+Christmas+party+for+an+afternoon+at+the+races+with+the+Mornington+Christmas+Series%2C+presented+by+Barmah+Park+Vineyard.+The+series+brings+together+two+festive+race+days+at+Mornington+Racecourse%2C+Mornington+Christmas%2C+presented%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-christmas-series-at-mornington-racecourse-2026-12-04%2F&location=Mornington+Racecourse%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Christmas+Series+at+Mornington+Racecourse&dates=20261204T010000Z%2F20261204T060000Z&details=Mornington+Christmas+Series%2C+presented+by+Barmah+Park+Vineyard+This+December%2C+swap+the+office+Christmas+party+for+an+afternoon+at+the+races+with+the+Mornington+Christmas+Series%2C+presented+by+Barmah+Park+Vineyard.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-christmas-series-at-mornington-racecourse-2026-12-04%2F&location=Mornington+Racecourse%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

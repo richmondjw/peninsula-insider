@@ -9,7 +9,7 @@ Event     Food & Wine     25 December 2026     One-off date
 
 # Christmas Day at Ember
 
-Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for a relaxed afternoon of festive dining. Settle in for a generous shared Christmas feast, beginning with an abundant selection of Australian seafood and charcuterie, followed by honey roasted Christmas ham, slow roasted sirloin and Humpty Doo
+Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for a relaxed afternoon of festive dining.
 
 [Book or check details](<https://www.sevenrooms.com/experiences/embersorrento/ember-christmas-day-lunch-6681719213244416?_gl=1*1my014i*_gcl_au*MTc2ODkxNjM0MS4xNzkwODk4MTc2*_ga*MTUwMDcxNzkxLjE3OTA4OTgxNzc.*_ga_FRF9H3EGL4*czE3OTExNTcyNjAkbzckZzEkdDE3OTExNTk0MzYkajU3JGwwJGgxNjI0NDQwNDc0>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.sevenrooms.com/experiences/embersorrento/ember-christmas-day-lunch-6681719213244416?_gl=1*1my014i*_gcl_au*MTc2ODkxNjM0MS4xNzkwODk4MTc2*_ga*MTUwMDcxNzkxLjE3OTA4OTgxNzc.*_ga_FRF9H3EGL4*czE3OTExNTcyNjAkbzckZzEkdDE3OTExNTk0MzYkajU3JGwwJGgxNjI0NDQwNDc0>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Christmas+Day+at+Ember&dates=20261225T010000Z%2F20261225T030000Z&details=Gather+the+family+and+celebrate+Christmas+Day+in+Ember%2C+with+a+12pm+sitting+for+a+relaxed+afternoon+of+festive+dining.+Settle+in+for+a+generous+shared+Christmas+feast%2C+beginning+with+an+abundant+selection+of+Australian+seafood+and+charcuterie%2C+followed+by+honey+roasted+Christmas+ham%2C+slow+roasted+sirloin+and+Humpty+Doo%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fchristmas-day-at-ember-2026-12-25%2F&location=Ember%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.sevenrooms.com/experiences/embersorrento/ember-christmas-day-lunch-6681719213244416?_gl=1*1my014i*_gcl_au*MTc2ODkxNjM0MS4xNzkwODk4MTc2*_ga*MTUwMDcxNzkxLjE3OTA4OTgxNzc.*_ga_FRF9H3EGL4*czE3OTExNTcyNjAkbzckZzEkdDE3OTExNTk0MzYkajU3JGwwJGgxNjI0NDQwNDc0>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Christmas+Day+at+Ember&dates=20261225T010000Z%2F20261225T030000Z&details=Gather+the+family+and+celebrate+Christmas+Day+in+Ember%2C+with+a+12pm+sitting+for+a+relaxed+afternoon+of+festive+dining.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fchristmas-day-at-ember-2026-12-25%2F&location=Ember%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

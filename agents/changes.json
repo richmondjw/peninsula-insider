@@ -1,188 +1,148 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-10T00:45:34.371Z",
+  "generatedAt": "2026-11-10T03:43:03.397Z",
   "baselineAvailable": true,
-  "fromSnapshot": "bc83316f32e8ff8ff0d478222b86a22974fda52165797c51a331f6117807e0f8",
-  "toSnapshot": "bd9bcffd7ae323ac57db2fc1b9a3c04672ffe5f68211f2b6d8f485db1adf05a9",
-  "previousGeneratedAt": "2026-11-09T20:35:54.467Z",
+  "fromSnapshot": "bd9bcffd7ae323ac57db2fc1b9a3c04672ffe5f68211f2b6d8f485db1adf05a9",
+  "toSnapshot": "5196e076cbea47546f5109c393f74b5e21799f7bc9ede89835a30ed19d9c22e9",
+  "previousGeneratedAt": "2026-11-10T00:45:34.371Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 22,
+  "count": 17,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "f425264b653009a061b913ce0afbe962216c253754b3c1a08b5eed7c475db5e2",
-      "previousContentSha256": "b134d25fd274a46d19d31f58763fb5bdf5717c9bdd40ef646c651a37a0bb3920"
+      "contentSha256": "9f16dea95a989d52a147cddef2d9f96a684b82fd79725f7b6e7ac05540620330",
+      "previousContentSha256": "f425264b653009a061b913ce0afbe962216c253754b3c1a08b5eed7c475db5e2"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/capel-sound/",
+      "id": "https://peninsulainsider.com.au/explore/places/main-ridge/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/index.md",
-      "contentSha256": "ebf62f94b714d0915c77d56a01dfe7bc28735716f1fde217fc4093a75459d5b4",
-      "previousContentSha256": "f774caff82cff186c0a2ddeaf197096c4c974ee6e38a4121b72e623d9d4bca7d"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/main-ridge/index.md",
+      "contentSha256": "ae12125d4373938b0b2bd3d28c0fb9643ed0ce9804da011e61f894e4416889cf",
+      "previousContentSha256": "cd72b68e99c70fc707fd9e5d657b75e11442b31b05b7494090f6470d888d1121"
     },
     {
-      "id": "https://peninsulainsider.com.au/explore/places/flinders/",
+      "id": "https://peninsulainsider.com.au/explore/places/mount-martha/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/flinders/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/flinders/index.md",
-      "contentSha256": "85db0947ab7183f355a275afc54e17d5edfb1c8c035b4c01c93ad8d1507baf7f",
-      "previousContentSha256": "067dbfe6244f54eecf2e99c1531702f271f97f8ec44c8e9cdedcee9f6cbbfe96"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
-      "contentSha256": "1b72ee651bbb2a2998759599e070ce2dfc8f75f3034c0e4d9275e4591f0a8a83",
-      "previousContentSha256": "56928d2b45aa4fdbe7fdb61b7665144c51677bd5c34ad5b8e020479e666c66f4"
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/mount-martha/index.md",
+      "contentSha256": "b0694c62e7a953c8f4ec902a7833a3b77410c3722ab49edfe70d864cb796ecc0",
+      "previousContentSha256": "b8f73584e6559d948c99fb550df010e819bf0cd8421308cebbd7b673b5672fcd"
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "27d8e9c3f86ff7d8e9df4f880a310bad30faf6f8c4237601ee5833558b3c6add",
-      "previousContentSha256": "dac13fdb7e839e453cfa08abc53a08a48e61f5883622b1af5a8e87a70fddc8b8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/site-index/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
-      "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "ac0e0ec293f607af205570a3a4d7063f6d019d9b4790efd79d0df1407b417304",
-      "previousContentSha256": "b57cab90931023831048111eed923995a04f153d0e876cc7d45969f6bc40eebe"
+      "contentSha256": "b0e6bc70aa1150f247aa1aebc365e23335b73ac7add584dee64b2e3cba4bd860",
+      "previousContentSha256": "27d8e9c3f86ff7d8e9df4f880a310bad30faf6f8c4237601ee5833558b3c6add"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "752d16acf8d9db132a8b18fd9b1c30058edb7334cc16a392fdafec907e36abbb",
-      "previousContentSha256": "c444e63e85c4dba2e4a58712ddd1b847dcf484647d159e721cc1a800ca1952ea"
+      "contentSha256": "bae6668595c821925d9caf640f9fca2691319371472a276d1bd8f9c651045fe0",
+      "previousContentSha256": "752d16acf8d9db132a8b18fd9b1c30058edb7334cc16a392fdafec907e36abbb"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
+      "id": "https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/index.md",
-      "contentSha256": "9e8b30a9d2920f37a70d8ecd9f72007ab59b3a4b6eaed3ccb8aa29e8b1c59c6e",
-      "previousContentSha256": "e721375ddaa5e2049964654fac57601a7af4308953031e8aa37a3cabb06d43d2"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/celebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25/index.md",
+      "contentSha256": "b01c051532cf9e3ef65e9401bf7d9c2b49beb20b2c2b684ce91740fe260a9f46",
+      "previousContentSha256": "489da0a8775e06c828c6e41197bdf24194df59b936efd9abb4072afde5aaa597"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
+      "id": "https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "71b01b267d9e7ede7644640236c5bdb48a54adf83ed2eed182b08802328995e7",
-      "previousContentSha256": "cceda3b5415370128649450ab1199e9a0d545cc2ad39e7f8670c51000fec08ba"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-at-ember-2026-12-25/index.md",
+      "contentSha256": "7c7e476d4a20119485e0266425697b0725bb9e8571e6ac97eda04bc825a60cfe",
+      "previousContentSha256": "20431a5b7ee01def0d0b73e38e01b97d30d46be8cbfb65b914e126c3d0270335"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
+      "id": "https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "18df6c6b9e4f50e6aead5ec54929c48894488a1c82ff07791ecd49c4ee4ca0bd",
-      "previousContentSha256": "433e1959aabf35ad7db9239d940aea3c7d621d35f9b13c609dca1871ce1c61bf"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/index.md",
+      "contentSha256": "d5e6dc00f046c2f2017141d00ffc9d88b555fd68458176eedb1caa65c2cee4a4",
+      "previousContentSha256": "fd66986f465b26d1a787afb8aac054e3c2dbd8c3e8ac35d3700ddacac2ffff18"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "id": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
-      "contentSha256": "1a6f4d714c9bd40f67772065400041d4d769b5ba5374e2918771e5cfc0fc03b0",
-      "previousContentSha256": "34406fe4ee24a64b0a4fcb099c7f7028ea727616324b91619239c72dcc61192a"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/index.md",
+      "contentSha256": "af2297ef959d66d7f65e74ab79e265e0a42bbe363c10782f8314204f3cc58cc0",
+      "previousContentSha256": "29fc702a715b97c4f89f481be5949b66008766932b60f026d80496a9ad7080a8"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
+      "id": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/index.md",
-      "contentSha256": "dcfab3739c10562058789318e011cf2147b4966b79a6398c0475fb44ecdf62b8",
-      "previousContentSha256": "bbeb6aa43a83cfb786004aa3b57b3fe99205bbf9f571360944f4cea65ff75f7e"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/index.md",
+      "contentSha256": "e159f9803310d93037f41504e21346ee09488286d0a2d08ee2547d548814719a",
+      "previousContentSha256": "ce9c63cb81ba3356f1474f43ac3916cbd735af1919975bf54980fe632cbc885a"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
+      "id": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/index.md",
-      "contentSha256": "9b713ab2bd437d000b6d707a75f85fb11eaf3df7290e2ad7c75567b776e081ee",
-      "previousContentSha256": "fafc662a8c0e6e7ac22b10812fb26210a1bc2e7f841771f50a9f76a9fd506e92"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/index.md",
+      "contentSha256": "6517e838c246320dfbee86b9dc407cd07bf58500621e948b78d75e04659e164a",
+      "previousContentSha256": "bc8f01203b0030ec4403a5a8b922c21477b9515bbce9ab5cac6c592054022180"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
-      "contentSha256": "a2ab3f676c6055aff2cde3908cbbd13726759b1e2176d4cf84646443e6a8805b",
-      "previousContentSha256": "a9e063a3a9c494bb8db5b4560ae4c955c20b60d58b70bd9832e088c7fc893f86"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/index.md",
+      "contentSha256": "16755a6470d6a8c5e3f5c8869a71798bb5c34991960667b326f5d5dcf6c171f4",
+      "previousContentSha256": "e27d9ab5bcb7cf68e9d675669ca90236c6ec4e83776016dabdc0ea626eb016e3"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
+      "id": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/index.md",
-      "contentSha256": "84592e21eb6ad5a896607501e78a49a2bbbbe80578272fa62bcb76323b25430a",
-      "previousContentSha256": "56819150d21c5dcd6f9ccce3c5c8ef5927d8537df3c377f3dc236dd732dcc150"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/index.md",
+      "contentSha256": "1c498ff76d5673692c79283472381e39cf637dc7b261f68d5e8041639501cdc6",
+      "previousContentSha256": "5f10426aae7fa78721329ae1b9ba74e28e3361e8550cf10966c201c788004633"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
+      "id": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/index.md",
-      "contentSha256": "71f16d1df038ffbbb1211dbd59d071f5bf2b24b3eb8451f597dd8ec57b69ab8d",
-      "previousContentSha256": "6d083d8775e9250b5abb6c568657bb25a0a0db3a7ab4494c0815deb9d7697445"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/peninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07/index.md",
+      "contentSha256": "2fde0ebb28a5bf511e106245036fc5fa4ecadbe555825befae2cd8214e4645aa",
+      "previousContentSha256": "a540b128ee0336f4dd4608f27d1f38dee7453f64f348b1c1b3c251b95bb4fb77"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
+      "id": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/index.md",
-      "contentSha256": "2c5e8fd7bb8445ecbc47c4a54c0b81cfb9d77446d5afd0dcf45b023f65258a62",
-      "previousContentSha256": "98bd89c2191f66c31a2df467d12b30b02323fc6db39b35b80bb7ae783212cb86"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/index.md",
+      "contentSha256": "1c97c8248b0e41070c0ca98b6edc7c73e0673da3417a189a4b9d0d244f368118",
+      "previousContentSha256": "55f4786c75dd468a8698f34ebc99873c72b1153c652a1e41b3d84d294f7d1309"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
+      "id": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
-      "contentSha256": "aac826478a8fb78349cd7e5840e6b78e4d7e7d281508a2bc4a97e8c60aed2bcc",
-      "previousContentSha256": "d23c80ad9d4e7cd3fc38ab1947d79356551975ba1dcb1e133a1ea35dc25a9150"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/index.md",
+      "contentSha256": "97c1d28d7a2c611ae4c2a619ea59b096321cfa82933572bec346f9cb10a88c35",
+      "previousContentSha256": "9014613efd4a1bda6d57f8508e9ce996e33317652540616e8b9b3d90b37a6f78"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
+      "id": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/index.md",
-      "contentSha256": "5d51b45bd45b00b4d8bc0dced7e5a20af1fc9d974823a1e292bf2005dab6aae8",
-      "previousContentSha256": "20868950b361c06e656aeb45290f0bd46c45475a5337bab5b6968d877f1c26b9"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/index.md",
-      "contentSha256": "3d67b943788601a0fba53de876691e56174f29cf672a6a7b1eec07026c161dbd",
-      "previousContentSha256": "5753791e8661dbd347923b0d68cbd6daa34faa3d13f8d4962e30e23481c39b4c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
-      "contentSha256": "4c928880d03bbbecc6601914c7e3f53743c634a53571805b00d3ace89248437f",
-      "previousContentSha256": "9b243250af3f3a15dc92f35bac153a375e4f42884ceda9cd151f301bf5f7a0c7"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-      "kind": "representation-removed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-peninsula-wine-spring-winery-walk-2026-11-14/",
-      "markdownUrl": null,
-      "contentSha256": null,
-      "previousContentSha256": "577cbe99aca784ec9f20b03bc3e60f09c510ea0344e55d7bd63ff83601e7f819"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-twilight-market-2026-12-27/index.md",
+      "contentSha256": "f154bc2152bfa37e917ed61328c00ee3d5066edd58f5d7d9a7f1a0c791812e6a",
+      "previousContentSha256": "3ab1c816696ecbcf1ac8c4db470f744d074dfc6067ca06bb8865f467cff542ff"
     }
   ]
 }

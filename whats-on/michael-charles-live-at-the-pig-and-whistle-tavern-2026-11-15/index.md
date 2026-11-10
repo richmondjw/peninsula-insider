@@ -9,7 +9,7 @@ Event     Live Music     15 November 2026     One-off date
 
 # Michael Charles Live at The Pig & Whistle Tavern
 
-Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle! “Touring his 19th international tour, the “Where to Next?” 2026 tour and known for his expressive guitar work and blistering guitar solos, Australian born, Chicago Blues Hall of Famer, Michael Charles returns to Australia a
+Michael Charles is scheduled to perform at The Pig & Whistle Tavern on 15 November. Check the organiser for current performance and booking details.
 
 [Book or check details](<https://www.thepigandwhistle.com.au/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.thepigandwhistle.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Michael+Charles+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261115T030000Z%2F20261115T050000Z&details=Grammy+elected+guitarist%2C+Chicago+Blues+Hall+of+Famer+Michael+Charles+Live+at+The+Pig+%26+Whistle%21+%E2%80%9CTouring+his+19th+international+tour%2C+the+%E2%80%9CWhere+to+Next%3F%E2%80%9D+2026+tour+and+known+for+his+expressive+guitar+work+and+blistering+guitar+solos%2C+Australian+born%2C+Chicago+Blues+Hall+of+Famer%2C+Michael+Charles+returns+to+Australia+a%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmichael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.thepigandwhistle.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Michael+Charles+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261115T030000Z%2F20261115T050000Z&details=Michael+Charles+is+scheduled+to+perform+at+The+Pig+%26+Whistle+Tavern+on+15+November.+Check+the+organiser+for+current+performance+and+booking+details.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmichael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

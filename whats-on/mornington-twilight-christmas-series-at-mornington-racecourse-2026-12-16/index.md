@@ -9,7 +9,7 @@ Event     Food & Wine     16 December 2026     One-off date
 
 # Mornington Twilight Christmas Series at Mornington Racecourse
 
-Mornington Twilight, presented by Barmah Park Make the most of a summer evening at Mornington Twilight, presented by Barmah Park Vineyard, on Wednesday 16 December. Perfectly timed for a midweek catch-up before Christmas, Mornington Twilight brings together live racing, great food and wine, and a relaxed Peninsula atmo
+Mornington Twilight, presented by Barmah Park Make the most of a summer evening at Mornington Twilight, presented by Barmah Park Vineyard, on Wednesday 16 December.
 
 [Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Twilight+Christmas+Series+at+Mornington+Racecourse&dates=20261216T040000Z%2F20261216T100000Z&details=Mornington+Twilight%2C+presented+by+Barmah+Park+Make+the+most+of+a+summer+evening+at+Mornington+Twilight%2C+presented+by+Barmah+Park+Vineyard%2C+on+Wednesday+16+December.+Perfectly+timed+for+a+midweek+catch-up+before+Christmas%2C+Mornington+Twilight+brings+together+live+racing%2C+great+food+and+wine%2C+and+a+relaxed+Peninsula+atmo%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16%2F&location=Mornington+Racecourse%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://mrc.racing.com/calendar/2026/12/04/mornington-christmas>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mornington+Twilight+Christmas+Series+at+Mornington+Racecourse&dates=20261216T040000Z%2F20261216T100000Z&details=Mornington+Twilight%2C+presented+by+Barmah+Park+Make+the+most+of+a+summer+evening+at+Mornington+Twilight%2C+presented+by+Barmah+Park+Vineyard%2C+on+Wednesday+16+December.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16%2F&location=Mornington+Racecourse%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

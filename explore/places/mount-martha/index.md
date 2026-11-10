@@ -257,6 +257,6 @@ A one-day craft drinks festival across seven Mornington Peninsula venues on Satu
 
 Mount Martha
 
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out. Visitors will discover a range of homemade, home-grown products while exploring the beautiful grounds, wildlife, walking trails, galleries, and heritage
+Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/the-mount-martha-briars-market-2026-12-05/>)

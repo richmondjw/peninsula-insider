@@ -9,7 +9,7 @@ Event     Markets     27 December 2026     One-off date
 
 # The Mount Martha Briars Twilight Market
 
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out. Visitors will discover a range of home-made, home-grown products, all while exploring the beautiful grounds, wildlife, walking trails, galleries and her
+Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
 
 [Book or check details](<https://www.craftmarkets.com.au/mount-martha>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.craftmarkets.com.au/mount-martha>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Mount+Martha+Briars+Twilight+Market&dates=20261227T040000Z%2F20261227T090000Z&details=Situated+at+one+of+the+Mornington+Peninsula%E2%80%99s+most+beloved+and+iconic+locations%2C+the+upcoming+Briars+Craft+and+Produce+Market+will+no+doubt+be+a+lovely+family+day+out.+Visitors+will+discover+a+range+of+home-made%2C+home-grown+products%2C+all+while+exploring+the+beautiful+grounds%2C+wildlife%2C+walking+trails%2C+galleries+and+her%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-mount-martha-briars-twilight-market-2026-12-27%2F&location=450+Nepean+Hwy%2C+Mount+Martha%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.craftmarkets.com.au/mount-martha>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Mount+Martha+Briars+Twilight+Market&dates=20261227T040000Z%2F20261227T090000Z&details=Situated+at+one+of+the+Mornington+Peninsula%E2%80%99s+most+beloved+and+iconic+locations%2C+the+upcoming+Briars+Craft+and+Produce+Market+will+no+doubt+be+a+lovely+family+day+out.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-mount-martha-briars-twilight-market-2026-12-27%2F&location=450+Nepean+Hwy%2C+Mount+Martha%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

@@ -181,7 +181,7 @@ LARGE FORMAT WINES, BIG DISHES, LONG TABLES \* noun. Latin, 'a great good thing'
 
 - [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
-Grammy elected guitarist, Chicago Blues Hall of Famer Michael Charles Live at The Pig & Whistle!
+Michael Charles is scheduled to perform at The Pig & Whistle Tavern on 15 November. Check the organiser for current performance and booking details.
 
 2pm · Main Ridge · Live Music · One-day event
 
@@ -315,7 +315,7 @@ Gather the family and celebrate Christmas Day in Ember, with a 12pm sitting for 
 
 - [Christmas Day Feast at The Conti](<https://peninsulainsider.com.au/whats-on/christmas-day-feast-at-the-conti-2026-12-25/>)
 
-Gather the family and celebrate Christmas Day across the beautiful surrounds of CeeCee’s, Halcyon Hall and The Gallery.
+The Continental Sorrento hosts Christmas Day lunch in Halcyon Hall, the Grand Ballroom and CeeCee’s. The shared feast includes seafood and charcuterie, followed by Christmas ham, sirloin and barramundi.
 
 11.30am · Sorrento · Food & Wine
 

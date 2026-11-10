@@ -9,7 +9,7 @@ Event     Live Music     21 November 2026     One-off date
 
 # Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern
 
-Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You. Spending multiple weeks at #1 on the ARIA Australian Country Album Chart, Everything Around You is an uplifting collection of songs about hop
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
 
 [Book or check details](<https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Felicity+Urquhart+%26+Josh+Cunningham+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261121T090000Z%2F20261121T110000Z&details=Multi-Award-winning+singer-songwriters+Felicity+Urquhart+%26+Josh+Cunningham+are+hitting+the+road+again+to+celebrate+their+chart-topping%2C+third+studio+album%2C+Everything+Around+You.+Spending+multiple+weeks+at+%231+on+the+ARIA+Australian+Country+Album+Chart%2C+Everything+Around+You+is+an+uplifting+collection+of+songs+about+hop%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffelicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://events.humanitix.com/felicity-urquhart-and-josh-cunningham-go-north-go-south-tour-vmywstka/tickets?fbclid=IwY2xjawVXVDdleHRuA2FlbQIxMABwZG9mAWJyaWQRMW53enpXazVpcnRMUEttdU9zcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEfovC_arQeFoFji3FwDuu7-8BhsvgLaIeObhmJW6wiGJ-bu4khdisSr85gr0c_aem_IM1YqQU9WAVYwOZM4u2sXA>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Felicity+Urquhart+%26+Josh+Cunningham+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261121T090000Z%2F20261121T110000Z&details=Multi-Award-winning+singer-songwriters+Felicity+Urquhart+%26+Josh+Cunningham+are+hitting+the+road+again+to+celebrate+their+chart-topping%2C+third+studio+album%2C+Everything+Around+You.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffelicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

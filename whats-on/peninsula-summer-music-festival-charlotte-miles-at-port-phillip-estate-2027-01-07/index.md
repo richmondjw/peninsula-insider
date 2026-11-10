@@ -9,7 +9,7 @@ Event     Festivals     7 January 2027     One-off date
 
 # Peninsula Summer Music Festival: Charlotte Miles at Port Phillip Estate
 
-A solo cello takes centre stage at Port Phillip Estate as Charlotte Miles presents a recital exploring the instrument’s remarkable range. The Melbourne-born musician was the first Australian student at Germany’s prestigious Kronberg Academy and has performed with orchestras and chamber ensembles across Australia and Eu
+A solo cello takes centre stage at Port Phillip Estate as Charlotte Miles presents a recital exploring the instrument’s remarkable range.
 
 [Book or check details](<https://www.trybooking.com/au/event/1662747>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.trybooking.com/au/event/1662747>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Summer+Music+Festival%3A+Charlotte+Miles+at+Port+Phillip+Estate&dates=20270107T063000Z%2F20270107T100000Z&details=A+solo+cello+takes+centre+stage+at+Port+Phillip+Estate+as+Charlotte+Miles+presents+a+recital+exploring+the+instrument%E2%80%99s+remarkable+range.+The+Melbourne-born+musician+was+the+first+Australian+student+at+Germany%E2%80%99s+prestigious+Kronberg+Academy+and+has+performed+with+orchestras+and+chamber+ensembles+across+Australia+and+Eu%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07%2F&location=Port+Phillip+Estate%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.trybooking.com/au/event/1662747>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Peninsula+Summer+Music+Festival%3A+Charlotte+Miles+at+Port+Phillip+Estate&dates=20270107T063000Z%2F20270107T100000Z&details=A+solo+cello+takes+centre+stage+at+Port+Phillip+Estate+as+Charlotte+Miles+presents+a+recital+exploring+the+instrument%E2%80%99s+remarkable+range.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fpeninsula-summer-music-festival-charlotte-miles-at-port-phillip-estate-2027-01-07%2F&location=Port+Phillip+Estate%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

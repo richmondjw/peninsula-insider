@@ -9,7 +9,7 @@ Event     Food & Wine     15 November 2026     One-off date
 
 # Sourdough Masterclass at Peninsula Gourmet Cooking School
 
-Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula. We’ll start the day talking about sourdough bread and how it differs from instant (yeast raised) bread, and discuss the importance of the flour to use and other ingr
+Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
 
 [Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sourdough+Masterclass+at+Peninsula+Gourmet+Cooking+School&dates=20261115T000000Z%2F20261115T043000Z&details=Get+Your+Sourdough+Perfect+Every+Time+Your+class+will+take+place+in+our+brand+new%2C+purpose+built+facility+in+Dromana+on+the+gorgeous+Mornington+Peninsula.+We%E2%80%99ll+start+the+day+talking+about+sourdough+bread+and+how+it+differs+from+instant+%28yeast+raised%29+bread%2C+and+discuss+the+importance+of+the+flour+to+use+and+other+ingr%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15%2F&location=Peninsula+Gourmet+Cooking+School%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://peninsulagourmetcookingschool.com.au/classes>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Sourdough+Masterclass+at+Peninsula+Gourmet+Cooking+School&dates=20261115T000000Z%2F20261115T043000Z&details=Get+Your+Sourdough+Perfect+Every+Time+Your+class+will+take+place+in+our+brand+new%2C+purpose+built+facility+in+Dromana+on+the+gorgeous+Mornington+Peninsula.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fsourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15%2F&location=Peninsula+Gourmet+Cooking+School%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

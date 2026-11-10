@@ -9,7 +9,7 @@ Event     Food & Wine     25 December 2026     One-off date
 
 # Celebrate Christmas Day at Peppers Moonah Links Resort
 
-Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year. Settle in with family and friends and let us take care of everything, from fresh seafood and traditional Christmas favourites to wood fired pizza, roast pork on the spit, fre
+Join us for a relaxed and memorable Christmas Day lunch at Peppers Moonah Links Resort, with our festive buffet feast returning for another year.
 
 [Book or check details](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.moonahlinks.com.au/cms/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebrate+Christmas+Day+at+Peppers+Moonah+Links+Resort&dates=20261225T000000Z%2F20261225T050000Z&details=Join+us+for+a+relaxed+and+memorable+Christmas+Day+lunch+at+Peppers+Moonah+Links+Resort%2C+with+our+festive+buffet+feast+returning+for+another+year.+Settle+in+with+family+and+friends+and+let+us+take+care+of+everything%2C+from+fresh+seafood+and+traditional+Christmas+favourites+to+wood+fired+pizza%2C+roast+pork+on+the+spit%2C+fre%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcelebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.moonahlinks.com.au/cms/whats-on/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Celebrate+Christmas+Day+at+Peppers+Moonah+Links+Resort&dates=20261225T000000Z%2F20261225T050000Z&details=Join+us+for+a+relaxed+and+memorable+Christmas+Day+lunch+at+Peppers+Moonah+Links+Resort%2C+with+our+festive+buffet+feast+returning+for+another+year.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcelebrate-christmas-day-at-peppers-moonah-links-resort-2026-12-25%2F&location=Peppers+Moonah+Links+Resort%2C+Fingal%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

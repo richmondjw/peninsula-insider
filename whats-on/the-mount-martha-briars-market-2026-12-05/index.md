@@ -9,7 +9,7 @@ Event     Markets     5 December 2026     One-off date
 
 # The Mount Martha Briars Market
 
-Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out. Visitors will discover a range of homemade, home-grown products while exploring the beautiful grounds, wildlife, walking trails, galleries, and heritage
+Situated at one of the Mornington Peninsula’s most beloved and iconic locations, the upcoming Briars Craft and Produce Market will no doubt be a lovely family day out.
 
 [Book or check details](<https://www.craftmarkets.com.au/mount-martha>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.craftmarkets.com.au/mount-martha>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Mount+Martha+Briars+Market&dates=20261204T220000Z%2F20261205T040000Z&details=Situated+at+one+of+the+Mornington+Peninsula%E2%80%99s+most+beloved+and+iconic+locations%2C+the+upcoming+Briars+Craft+and+Produce+Market+will+no+doubt+be+a+lovely+family+day+out.+Visitors+will+discover+a+range+of+homemade%2C+home-grown+products+while+exploring+the+beautiful+grounds%2C+wildlife%2C+walking+trails%2C+galleries%2C+and+heritage%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-mount-martha-briars-market-2026-12-05%2F&location=450+Nepean+Hwy%2C+Mount+Martha%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.craftmarkets.com.au/mount-martha>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=The+Mount+Martha+Briars+Market&dates=20261204T220000Z%2F20261205T040000Z&details=Situated+at+one+of+the+Mornington+Peninsula%E2%80%99s+most+beloved+and+iconic+locations%2C+the+upcoming+Briars+Craft+and+Produce+Market+will+no+doubt+be+a+lovely+family+day+out.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fthe-mount-martha-briars-market-2026-12-05%2F&location=450+Nepean+Hwy%2C+Mount+Martha%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

@@ -9,7 +9,7 @@ Event     Food & Wine     25 December 2026     One-off date
 
 # Christmas Day Feast at The Conti
 
-Gather the family and celebrate Christmas Day across the beautiful surrounds of CeeCee’s, Halcyon Hall and The Gallery. Settle in for a generous shared Christmas feast, beginning with an abundant selection of Australian seafood and charcuterie, followed by honey roasted Christmas ham, slow roasted sirloin and Humpty Do
+The Continental Sorrento hosts Christmas Day lunch in Halcyon Hall, the Grand Ballroom and CeeCee’s. The shared feast includes seafood and charcuterie, followed by Christmas ham, sirloin and barramundi. The organiser lists an 11:30am sitting in Halcyon Hall and the Grand Ballroom, and a 1pm sitting at CeeCee’s; check the venue for current booking details.
 
 [Book or check details](<https://thecontinentalsorrento.com.au/discover/christmas-day/>)
 
@@ -43,7 +43,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://thecontinentalsorrento.com.au/discover/christmas-day/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Christmas+Day+Feast+at+The+Conti&dates=20261225T003000Z%2F20261225T030000Z&details=Gather+the+family+and+celebrate+Christmas+Day+across+the+beautiful+surrounds+of+CeeCee%E2%80%99s%2C+Halcyon+Hall+and+The+Gallery.+Settle+in+for+a+generous+shared+Christmas+feast%2C+beginning+with+an+abundant+selection+of+Australian+seafood+and+charcuterie%2C+followed+by+honey+roasted+Christmas+ham%2C+slow+roasted+sirloin+and+Humpty+Do%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fchristmas-day-feast-at-the-conti-2026-12-25%2F&location=Conti%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://thecontinentalsorrento.com.au/discover/christmas-day/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Christmas+Day+Feast+at+The+Conti&dates=20261225T003000Z%2F20261225T030000Z&details=The+Continental+Sorrento+hosts+Christmas+Day+lunch+in+Halcyon+Hall%2C+the+Grand+Ballroom+and+CeeCee%E2%80%99s.+The+shared+feast+includes+seafood+and+charcuterie%2C+followed+by+Christmas+ham%2C+sirloin+and+barramundi.+The+organiser+lists+an+11%3A30am+sitting+in+Halcyon+Hall+and+the+Grand+Ballroom%2C+and+a+1pm+sitting+at+CeeCee%E2%80%99s%3B+check+the+venue+for+current+booking+details.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fchristmas-day-feast-at-the-conti-2026-12-25%2F&location=Conti%2C+Sorrento%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
