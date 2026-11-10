@@ -47,14 +47,6 @@ The short list
 
 Swipe or scroll through the picks
 
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Peppers Moonah Links   Every Saturday
-
-Event details checked 2 Nov 2026.  [Check organiser](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
-
 - ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
 Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
@@ -72,6 +64,14 @@ Start with the award-winning works, then take time with the wider survey of cont
 Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 8 Oct 2026.  [Check organiser](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
+
+Pete Sews workshop   Arts
+
+Event details checked 10 Nov 2026.  [Check organiser](<https://www.petesews.com.au/sewing-classes>)
 
 More happening this weekend. [See all events →](<https://peninsulainsider.com.au/whats-on/>)
 

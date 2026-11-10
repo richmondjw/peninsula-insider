@@ -180,13 +180,3 @@ Capel Sound
 A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-- [Tue, 10 Nov
-
-### Not Sew Scary Beginner Sewing Class with Pete Sews
-
-Capel Sound
-
-A small, three-hour introduction to sewing for adults and teens starting from scratch. Pete Sews supplies the machines and class equipment, so this is a practical first step for anyone who has been interested in sewing but unsure where to begin.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)

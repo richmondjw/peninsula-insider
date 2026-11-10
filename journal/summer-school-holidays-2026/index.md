@@ -319,7 +319,7 @@ Mornington's long-running artisan market fills Main Street every Wednesday, 9am 
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
 
-- [Tue, 10 Nov
+- [Wed, 11 Nov
 
 ### ✦ National Works on Paper 2026 (NWOP)
 

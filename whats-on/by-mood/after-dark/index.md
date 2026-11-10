@@ -11,14 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Arts  10 Nov
-
-### [Not Sew Scary Beginner Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
-
-A small, three-hour introduction to sewing for adults and teens starting from scratch.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
-
 Writers & Ideas  13 Nov
 
 ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)

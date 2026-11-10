@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-10T04:54:24.128Z",
-  "snapshotId": "df490ceb876b77af8f87e2510391d4c6d6b55421ec14c67292eba2e766645a15",
+  "generatedAt": "2026-11-10T14:28:18.232Z",
+  "snapshotId": "5ed4877032a2786fd2d477cad689cff15c2e2dad407ebe27ded3482d1215d69a",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 710,
+  "count": 709,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "9f16dea95a989d52a147cddef2d9f96a684b82fd79725f7b6e7ac05540620330",
+      "contentSha256": "850f2135d0dd494ea6ed0fd22be28573e36021586075e6ab9479b2ce8cc108e8",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 201836,
-      "markdownBytes": 8743
+      "htmlBytes": 200382,
+      "markdownBytes": 8751
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -72,7 +72,7 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 387924,
+      "htmlBytes": 385431,
       "markdownBytes": 811
     },
     {
@@ -2206,7 +2206,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/index.md",
-      "contentSha256": "ebf62f94b714d0915c77d56a01dfe7bc28735716f1fde217fc4093a75459d5b4",
+      "contentSha256": "a4525829f503fc4a3790800838afb226c417fe31f4057616902fa36dbc355ad8",
       "citation": {
         "title": "Capel Sound",
         "publisher": "Peninsula Insider",
@@ -2214,8 +2214,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 172767,
-      "markdownBytes": 7094
+      "htmlBytes": 168156,
+      "markdownBytes": 6638
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/crib-point/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "5ff4c9416956402026b7a5373c0563a98012ca97715213f94939da94c518d4f0",
+      "contentSha256": "b26690dc037f767714071215080d2b5fe398e64107e607c059972881b2ea9533",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 244592,
-      "markdownBytes": 21404
+      "htmlBytes": 244644,
+      "markdownBytes": 21327
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -4807,7 +4807,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "b04a0aacede63b4d993939c95b792c8f58e9a2e019501c4d8107bc6a9d9697f9",
+      "contentSha256": "0a53a98051a3864901350a08c5a73e52d3cec236368bc5cdf86e4ef7246cba27",
       "citation": {
         "title": "Date Night on the Mornington Peninsula: Where to Book for Two",
         "publisher": "Peninsula Insider",
@@ -6405,7 +6405,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
-      "contentSha256": "6c254fa6e818d668ce40a3071e82c2f80813f0af178b61dc4f490c8fa376b012",
+      "contentSha256": "8002d2eed2bfda069bb233a6bd6e7b9c7cfbcd3f53b3f89028f9ca07be421ae8",
       "citation": {
         "title": "The Mornington Peninsula in Summer: How to Do It Well",
         "publisher": "Peninsula Insider",
@@ -6660,7 +6660,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
-      "contentSha256": "9b0f73c23190fb561bdd977a7a5a02dfa606296187903f116498e1ab6bd0a6c4",
+      "contentSha256": "73a081d2b05420ae268b104668848ecb812e8e9a40c06c8f5855a47a7057c0e5",
       "citation": {
         "title": "Summer School Holidays on the Mornington Peninsula, 2026-27",
         "publisher": "Peninsula Insider",
@@ -7200,20 +7200,20 @@
     },
     {
       "id": "https://peninsulainsider.com.au/quick-note/",
-      "title": "Tuesday 10 November 2026",
+      "title": "Wednesday 11 November 2026",
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "1de6ea400f79e2154d4c3cd83d04b3e10eb8629d17b69ee9bb8ef23c7a85c914",
+      "contentSha256": "14501d86da9990f052229a507925f110a391c690599e814a1993023a6158f7dd",
       "citation": {
-        "title": "Tuesday 10 November 2026",
+        "title": "Wednesday 11 November 2026",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/quick-note/",
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 114416,
-      "markdownBytes": 982
+      "htmlBytes": 114424,
+      "markdownBytes": 984
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -7221,7 +7221,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "ac0e0ec293f607af205570a3a4d7063f6d019d9b4790efd79d0df1407b417304",
+      "contentSha256": "01cc38d6c1028b7f25d826f752341a13abe60d2595ad94fe670e3c377945deb4",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -7229,8 +7229,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 145830,
-      "markdownBytes": 39377
+      "htmlBytes": 145684,
+      "markdownBytes": 39214
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -9040,16 +9040,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "3daed61691844808a8d9b056237bbec5983947879aeb4daca9690b1b460a861a",
+      "contentSha256": "efe7385274c32910e57c03887a363202c272e47b4cd10dda2c10351126e149bb",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-10"
+        "modifiedAt": "2026-11-11"
       },
-      "htmlBytes": 280528,
-      "markdownBytes": 19251
+      "htmlBytes": 280523,
+      "markdownBytes": 19246
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9261,7 +9261,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "a2034e1e3ddd164b0ace119d5f947e908f837d09150f8148ede884acc69f6ebc",
+      "contentSha256": "417dbcb20828a3a6ad4725c4fe934725ca9dfef9ab29d53b9833741d05c0f17f",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -9269,8 +9269,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 193799,
-      "markdownBytes": 9074
+      "htmlBytes": 190423,
+      "markdownBytes": 8683
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -10121,23 +10121,6 @@
       },
       "htmlBytes": 142344,
       "markdownBytes": 3679
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
-      "title": "Not Sew Scary Beginner Sewing Class with Pete Sews",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/index.md",
-      "contentSha256": "2c5e8fd7bb8445ecbc47c4a54c0b81cfb9d77446d5afd0dcf45b023f65258a62",
-      "citation": {
-        "title": "Not Sew Scary Beginner Sewing Class with Pete Sews",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 144946,
-      "markdownBytes": 4768
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/",

@@ -585,8 +585,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [New Years Eve Event 2026/2027](<https://peninsulainsider.com.au/whats-on/new-years-eve-event-2026-2027-2026-12-31/>)
 
-- [Not Sew Scary Beginner Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
-
 - [November Cellar Door Opening](<https://peninsulainsider.com.au/whats-on/november-cellar-door-opening-2026-11-28/>)
 
 - [NYE at Barlow](<https://peninsulainsider.com.au/whats-on/nye-at-barlow-2026-12-31/>)

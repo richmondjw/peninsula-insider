@@ -712,26 +712,6 @@ Current events, experiences and offers, alongside our stories.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Tue, 10 Nov
-
-### ✦ National Works on Paper 2026 (NWOP)
-
-Mornington
-
-National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
-
- Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-- [Tue, 10 Nov
-
-### Not Sew Scary Beginner Sewing Class with Pete Sews
-
-Capel Sound
-
-A small, three-hour introduction to sewing for adults and teens starting from scratch. Pete Sews supplies the machines and class equipment, so this is a practical first step for anyone who has been interested in sewing but unsure where to begin.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/not-sew-scary-beginner-sewing-class-with-pete-sews-2026-11-10/>)
-
 - [Wed, 11 Nov
 
 ### ✦ Mornington Wednesday Market (Main Street Market)
@@ -741,3 +721,23 @@ Mornington
 Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
 
  Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
+
+- [Wed, 11 Nov
+
+### ✦ National Works on Paper 2026 (NWOP)
+
+Mornington
+
+National Works on Paper 2026 is MPRG's survey of contemporary Australian art made on and with paper. Visit 5 September to 22 November, Tuesday to Sunday, 11am to 4pm; the gallery is closed Mondays.
+
+ Event · Exhibitions](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+- [Fri, 13 Nov
+
+### Books and Ideas: Barrie Cassidy at Port Phillip Estate
+
+Red Hill South
+
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
+
+ Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)

@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-10
+Modified: 2026-11-11
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -23,15 +23,9 @@ Our edit of the weekend. Open an event for the details, then confirm with its or
 
 More picks to the right
 
-- Fri, 13 Nov · 6:30pm–9:30pm · Red Hill South
+- Sun, 15 Nov · 10:30am–12:30pm · Dromana
 
-### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
-
-Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
-
-Fri, 13 Nov   Red Hill South   Writers & Ideas
-
-- ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
 A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
 
@@ -42,6 +36,12 @@ Sun, 15 Nov   Dromana   Arts
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 Sat, 14 Nov   Dromana   Live Music
+
+- ### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+
+Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
+
+Fri, 13 Nov   Red Hill South   Writers & Ideas
 
 Our edit of the weekend. Open an event for the details, then confirm with its organiser.
 
