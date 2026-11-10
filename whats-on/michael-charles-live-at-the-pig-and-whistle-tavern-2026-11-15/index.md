@@ -9,27 +9,29 @@ Event     Live Music     15 November 2026     One-off date
 
 # Michael Charles Live at The Pig & Whistle Tavern
 
-Michael Charles is scheduled to perform at The Pig & Whistle Tavern on 15 November. Check the organiser for current performance and booking details.
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
 
-[Book or check details](<https://www.thepigandwhistle.com.au/>)
+[Book or check details](<https://www.thepigandwhistle.com.au/what-s-on>)
+
+Michael Charles is appearing in the Pig & Whistle's 100-capacity Shed Theatre with Dylan Walker supporting. The organiser bills this as the Australian-born guitarist's nineteenth international tour and describes a set spanning contemporary blues, blues-based rock and related styles.
+
+Doors open at 2.30pm; the organiser does not state the performance or finish time, so neither is inferred here. The theatre and its restrooms are described as wheelchair accessible. It is a historic shed with limited insulation, so the venue recommends dressing for the weather. This is a ticketed show: use the official What's On page for availability before travelling to Main Ridge.
+
+[Check the latest details at the source →](<https://www.thepigandwhistle.com.au/what-s-on>)
 
 Hosted at
 
 Pig & Whistle Tavern
 
-Main Ridge VIC
+365 Purves Road, Main Ridge VIC 3928   ,   Main Ridge VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Pig%20%26%20Whistle%20Tavern%2C%20Main%20Ridge%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Pig%20%26%20Whistle%20Tavern%2C%20365%20Purves%20Road%2C%20Main%20Ridge%20VIC%203928%2C%20Main%20Ridge%2C%20VIC>)
 
 At a glance
 
 **When**
 
 15 November 2026
-
-**Time**
-
-14:00 to 16:00
 
 **Recurrence**
 
@@ -43,7 +45,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.thepigandwhistle.com.au/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Michael+Charles+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261115T030000Z%2F20261115T050000Z&details=Michael+Charles+is+scheduled+to+perform+at+The+Pig+%26+Whistle+Tavern+on+15+November.+Check+the+organiser+for+current+performance+and+booking+details.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmichael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15%2F&location=Pig+%26+Whistle+Tavern%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.thepigandwhistle.com.au/what-s-on>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Michael+Charles+Live+at+The+Pig+%26+Whistle+Tavern&dates=20261115%2F20261116&details=Chicago+Blues+Hall+of+Fame+inductee+Michael+Charles+brings+his+Where+To+Next%3F+tour+to+the+Pig+%26+Whistle%27s+intimate+Shed+Theatre%2C+supported+by+Dylan+Walker.+Doors+open+at+2.30pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmichael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15%2F&location=Pig+%26+Whistle+Tavern%2C+365+Purves+Road%2C+Main+Ridge+VIC+3928%2C+Main+Ridge%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

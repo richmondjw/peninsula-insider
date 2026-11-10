@@ -5,21 +5,27 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Event     Live Music     15 November 2026     One-off date
+Event     Food & Wine     15 November 2026     One-off date
 
 # Magnum Bonum at Polperro Winery
 
-LARGE FORMAT WINES, BIG DISHES, LONG TABLES \* noun. Latin, 'a great good thing'.
+A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
 
 [Book or check details](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>)
+
+Magnum Bonum is Polperro's warm-weather Sunday session on the lawn: a long table, large-format bottles and substantial dishes rather than a formal seated tasting. The organiser says it is entirely casual, with no booking required: arrive, choose a glass and stay for as much of the midday-to-3pm session as suits.
+
+The event is outdoors at 150 Red Hill Road and is built around food and wine rather than a staged performance. The official event page is the best source for any weather-related change or service update, particularly if the forecast looks unsettled.
+
+[Check the latest details at the source →](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>)
 
 Hosted at
 
 Polperro Winery
 
-Red Hill VIC
+150 Red Hill Road, Red Hill VIC 3937   ,   Red Hill VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Polperro%20Winery%2C%20Red%20Hill%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Polperro%20Winery%2C%20150%20Red%20Hill%20Road%2C%20Red%20Hill%20VIC%203937%2C%20Red%20Hill%2C%20VIC>)
 
 At a glance
 
@@ -29,7 +35,7 @@ At a glance
 
 **Time**
 
-12:00 to 17:00
+12:00 to 15:00
 
 **Recurrence**
 
@@ -43,7 +49,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Magnum+Bonum+at+Polperro+Winery&dates=20261115T010000Z%2F20261115T060000Z&details=LARGE+FORMAT+WINES%2C+BIG+DISHES%2C+LONG+TABLES+*+noun.+Latin%2C+%27a+great+good+thing%27.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmagnum-bonum-at-polperro-winery-2026-11-15%2F&location=Polperro+Winery%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Magnum+Bonum+at+Polperro+Winery&dates=20261115T010000Z%2F20261115T040000Z&details=A+casual+Sunday+long-table+session+on+the+Polperro+lawn%2C+pairing+large-format+wines+with+generous+shared+dishes.+It+is+a+walk-in+event+running+from+midday+to+3pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmagnum-bonum-at-polperro-winery-2026-11-15%2F&location=Polperro+Winery%2C+150+Red+Hill+Road%2C+Red+Hill+VIC+3937%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 
@@ -51,31 +57,35 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Live Music   Every Saturday evening year-round from 5pm
+Main Ridge Estate, Red Hill, Mornington Peninsula  Photo · CSIRO ScienceImage [CC BY 3.0](<https://creativecommons.org/licenses/by/3.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)
 
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+Food & Wine   Check session dates
 
-[Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
+### [Ten Minutes by Tractor, Terroir Masterclass](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+[Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+An intimate hosted tasting listed at 11am daily in Ten Minutes by Tractor's private room.
 
-Live Music  22 Nov
+[Plan this →](<https://peninsulainsider.com.au/whats-on/ten-minutes-by-tractor-terroir-masterclass/>)
 
-### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+Food & Wine   Check session dates
 
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their…
+### [Bass & Flinders Gin Masterclass](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
+[Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
 
-Live Music  27 Nov
+A two-hour guided gin masterclass in Dromana.
 
-### [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/bass-flinders-gin-masterclass/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Food & Wine  5 Dec
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
+### [An Evening at BRASA by Montalto](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
+
+BRASA brings the spirit of South America to the Mornington Peninsula!
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

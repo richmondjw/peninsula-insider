@@ -413,6 +413,6 @@ Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly br
 
 Dromana
 
-Prepare for the festive season with Domenica Vavala, floral designer and artist as she guides you through the making of a festive wreath using both dried and fresh locally sourced flora and foliage. Invite a friend and catch up while learning from a true artist.
+A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)

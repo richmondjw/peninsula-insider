@@ -555,9 +555,9 @@ There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food 
 
 Red Hill
 
-LARGE FORMAT WINES, BIG DISHES, LONG TABLES \* noun. Latin, 'a great good thing'.
+A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
 
 - [Sat, 21 Nov
 

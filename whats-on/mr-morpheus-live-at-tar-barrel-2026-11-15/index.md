@@ -9,17 +9,23 @@ Event     Live Music     15 November 2026     One-off date
 
 # Mr Morpheus Live at Tar Barrel
 
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
+Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
 
 [Book or check details](<https://tarbarrel.com.au/music/>)
+
+Tar Barrel's official program places Mr Morpheus in the Sunday 15 November slot from 1.30pm to 4.30pm. The set is part of the venue's regular weekend music program rather than a separate ticketed concert, making it an easy fit for a late lunch or afternoon drink.
+
+The brewery is open from midday to 7pm on Sundays, with the published Sunday kitchen close at 6pm. Leashed dogs are welcome at the outside tables and there is on-site parking. Check the venue's music page before setting out in case the artist schedule changes.
+
+[Check the latest details at the source →](<https://tarbarrel.com.au/music/>)
 
 Hosted at
 
 Tar Barrel
 
-Mornington VIC
+72 Watt Road, Mornington VIC 3931   ,   Mornington VIC
 
-- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Tar%20Barrel%2C%20Mornington%2C%20VIC>)
+- [Get directions →](<https://www.google.com/maps/search/?api=1&query=Tar%20Barrel%2C%2072%20Watt%20Road%2C%20Mornington%20VIC%203931%2C%20Mornington%2C%20VIC>)
 
 At a glance
 
@@ -29,7 +35,7 @@ At a glance
 
 **Time**
 
-15:00 to 18:00
+13:30 to 16:30
 
 **Recurrence**
 
@@ -43,7 +49,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://tarbarrel.com.au/music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mr+Morpheus+Live+at+Tar+Barrel&dates=20261115T040000Z%2F20261115T070000Z&details=Located+in+the+Mornington+Industrial+Estate%2C+Tar+Barrel+Brewery+and+Distillery+produce+award-winning+craft+beers+alongside+diverse+tastes+as+part+of+their+whiskey+and+gin+distillery.+Have+a+drink%2C+enjoy+the+menu+and+experience+live+music+on+the+weekends%21%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmr-morpheus-live-at-tar-barrel-2026-11-15%2F&location=Tar+Barrel%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+[Book or check details](<https://tarbarrel.com.au/music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mr+Morpheus+Live+at+Tar+Barrel&dates=20261115T023000Z%2F20261115T053000Z&details=Mr+Morpheus+plays+Tar+Barrel%27s+Sunday+live-music+session+from+1.30pm+to+4.30pm+at+the+Mornington+brewery+and+distillery.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmr-morpheus-live-at-tar-barrel-2026-11-15%2F&location=Tar+Barrel%2C+72+Watt+Road%2C+Mornington+VIC+3931%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
 
 Keep planning
 

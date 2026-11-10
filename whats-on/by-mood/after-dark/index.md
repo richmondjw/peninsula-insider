@@ -45,14 +45,6 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
 
-Live Music  14 Nov
-
-### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
-
 Writers & Ideas  19 Nov
 
 ### [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)
@@ -174,6 +166,14 @@ Festivals  8 Jan
 The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-at-rosebud-cinema-2027-01-08/>)
+
+Festivals  9 Jan
+
+### [Peninsula Film Festival under the Big Top](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
+
+The Peninsula Film Festival is Mornington Peninsula's iconic film festival running across three days in January.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-film-festival-under-the-big-top-2027-01-09/>)
 
 ## The Insider Note
 

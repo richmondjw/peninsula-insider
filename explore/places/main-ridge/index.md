@@ -415,6 +415,6 @@ Get ready, Main Ridge! Two of the most respected names in Australian country mus
 
 Main Ridge
 
-Michael Charles is scheduled to perform at The Pig & Whistle Tavern on 15 November. Check the organiser for current performance and booking details.
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
