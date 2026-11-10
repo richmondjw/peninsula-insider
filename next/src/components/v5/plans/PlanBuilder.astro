@@ -43,27 +43,27 @@ const labels = { length: Object.fromEntries(lengths.map(o => [o.value, o.label])
   summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:1.5rem;padding:1.25rem 1.5rem;min-height:64px}
   summary::-webkit-details-marker{display:none}
   summary:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-  .plan-builder__eyebrow{display:block;font:600 .68rem/1.4 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-bottom:.2rem}
-  .plan-builder__heading{font:500 1.5rem/1.2 var(--font-display)}
-  .plan-builder__summary-note{margin-left:auto;font-size:.9rem;color:var(--soft)}
-  .plan-builder__toggle{font-size:1.8rem;line-height:1;width:2rem;text-align:center;color:var(--accent);transition:transform 150ms ease}
+  .plan-builder__eyebrow{display:block;font:600 var(--fs-100)/1.4 var(--font-ui);letter-spacing:var(--ls-eyebrow, .1em);text-transform:uppercase;color:var(--soft);margin-bottom:.2rem}
+  .plan-builder__heading{font:500 var(--fs-600)/1.2 var(--font-display)}
+  .plan-builder__summary-note{margin-left:auto;font-size:var(--fs-300);color:var(--soft)}
+  .plan-builder__toggle{font-size:var(--fs-700);line-height:1;width:2rem;text-align:center;color:var(--accent);transition:transform 150ms ease}
   details[open] .plan-builder__toggle{transform:rotate(45deg)}
   .plan-builder__form{padding:0 1.5rem 1.5rem}
-  .plan-builder__intro{margin:0 0 1.5rem;max-width:65ch;font-size:.95rem;color:var(--soft);line-height:1.6}
+  .plan-builder__intro{margin:0 0 1.5rem;max-width:65ch;font-size:var(--fs-300);color:var(--soft);line-height:1.6}
   .plan-builder__fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.25rem}
-  .plan-builder__fields label,legend{font-size:.85rem;font-weight:600;color:var(--text)}
-  select{display:block;width:100%;margin-top:.5rem;padding:.7rem 2rem .7rem .8rem;border:1px solid var(--border-control);background:var(--bg);color:var(--text);font:400 .95rem/1.5 var(--font-ui);border-radius:3px;min-height:46px}
+  .plan-builder__fields label,legend{font-size:var(--fs-200);font-weight:600;color:var(--text)}
+  select{display:block;width:100%;margin-top:.5rem;padding:.7rem 2rem .7rem .8rem;border:1px solid var(--border-control);background:var(--bg);color:var(--text);font:400 var(--fs-300)/1.5 var(--font-ui);border-radius:var(--radius-s);min-height:46px}
   select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
   .plan-builder__interests{padding:0;margin:1.5rem 0;border:0;min-width:0}
   legend{margin-bottom:.6rem;padding:0}legend span{font-weight:400;color:var(--soft);margin-left:.4rem}
   .plan-builder__chips{display:flex;flex-wrap:wrap;gap:.5rem}
   .plan-builder__chip{position:relative;display:inline-flex;cursor:pointer}
   .plan-builder__chip input{position:absolute;opacity:0;width:1px;height:1px}
-  .plan-builder__chip span{display:flex;align-items:center;border:1px solid var(--border);border-radius:999px;padding:.5rem .85rem;min-height:44px;background:var(--bg);font-size:.85rem;line-height:1.25}
+  .plan-builder__chip span{display:flex;align-items:center;border:1px solid var(--border);border-radius:var(--radius-pill);padding:.5rem .85rem;min-height:44px;background:var(--bg);font-size:var(--fs-200);line-height:1.25}
   .plan-builder__chip input:checked+span{background:var(--accent);color:var(--white);border-color:var(--accent)}
   .plan-builder__chip input:focus-visible+span{outline:2px solid var(--accent);outline-offset:3px}
-  .plan-builder__actions{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}.plan-builder__actions>span{margin-left:auto;font-size:.8rem;color:var(--soft)}
-  .plan-builder__season{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;font-size:.85rem;min-height:44px}.plan-builder__season[hidden]{display:none}.plan-builder__season span{color:var(--soft);font-size:.75rem}
+  .plan-builder__actions{display:flex;gap:.8rem;align-items:center;flex-wrap:wrap}.plan-builder__actions>span{margin-left:auto;font-size:var(--fs-200);color:var(--soft)}
+  .plan-builder__season{display:flex;align-items:center;gap:.5rem;margin-bottom:1rem;font-size:var(--fs-200);min-height:44px}.plan-builder__season[hidden]{display:none}.plan-builder__season span{color:var(--soft);font-size:var(--fs-100)}
   @media(max-width:45rem){.plan-builder__summary-note{display:none}.plan-builder__toggle{margin-left:auto}.plan-builder__fields{grid-template-columns:1fr}.plan-builder__actions>span{flex-basis:100%;margin:0}summary{padding:1rem}.plan-builder__form{padding:0 1rem 1.2rem}}
   @media(prefers-reduced-motion:reduce){.plan-builder__toggle{transition:none}}
 </style>

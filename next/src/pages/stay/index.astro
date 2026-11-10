@@ -457,9 +457,9 @@ export const prerender = true;
     margin: 0 0 1rem;
     color: var(--accent);
     font-family: var(--font-ui);
-    font-size: .75rem;
-    font-weight: 750;
-    letter-spacing: .13em;
+    font-size: var(--fs-100);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
   }
   .stay-hero h1 {
@@ -467,7 +467,6 @@ export const prerender = true;
     margin: 0;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: clamp(3.1rem, 4.8vw, 5.2rem);
     font-weight: 650;
     line-height: 1.04;
     letter-spacing: -.045em;
@@ -477,7 +476,7 @@ export const prerender = true;
     max-width: 43ch;
     margin: 1.5rem 0 0;
     color: var(--text);
-    font-size: clamp(1.02rem, 1.24vw, 1.19rem);
+    font-size: var(--fs-400);
     line-height: 1.58;
   }
   .stay-hero__actions {
@@ -493,14 +492,14 @@ export const prerender = true;
     justify-content: space-between;
     gap: .9rem;
     min-height: 48px;
-    font-size: .94rem;
+    font-size: var(--fs-300);
     font-weight: 750;
     text-decoration: none;
   }
   .stay-hero__primary {
     padding: .7rem 1.15rem;
     border: 1px solid var(--text);
-    border-radius: .4rem;
+    border-radius: var(--radius-s);
     background: var(--text);
     color: #fff;
   }
@@ -518,12 +517,12 @@ export const prerender = true;
     height: clamp(27rem, 43vw, 38rem);
     object-fit: cover;
     object-position: 50% 48%;
-    border-radius: .5rem;
+    border-radius: var(--radius-s);
   }
   .stay-hero__visual figcaption {
     margin-top: .55rem;
     color: var(--soft);
-    font-size: .75rem;
+    font-size: var(--fs-100);
     line-height: 1.45;
   }
   #choose-base, #browse-stay, :global(#stay-directory) { scroll-margin-top: 10rem; }
@@ -540,7 +539,7 @@ export const prerender = true;
     margin: 0;
     color: var(--text);
     font-family: var(--font-display);
-    font-size: clamp(1.85rem, 3vw, 2.6rem);
+    font-size: var(--fs-700);
     line-height: 1.15;
     letter-spacing: -.035em;
     text-wrap: balance;
@@ -548,7 +547,7 @@ export const prerender = true;
   .stay-guides__head > p:last-child {
     margin: .75rem 0 0;
     color: var(--soft);
-    font-size: 1rem;
+    font-size: var(--fs-400);
     line-height: 1.55;
   }
   .stay-guides__more {
@@ -578,7 +577,7 @@ export const prerender = true;
     min-height: 44px;
     border-bottom: 1px solid var(--border);
     color: var(--text);
-    font-size: .91rem;
+    font-size: var(--fs-300);
     font-weight: 650;
     text-decoration: none;
   }
@@ -601,10 +600,9 @@ export const prerender = true;
       background: var(--white, #fff);
       color: var(--accent);
       font-family: var(--font-ui);
-      font-size: .875rem;
+      font-size: var(--fs-300);
       font-weight: 650;
       text-decoration: none;
-      box-shadow: 0 4px 14px rgba(12, 43, 61, .08);
     }
     :global(#stay-directory .stay-directory-refine:focus-visible) {
       outline: 2px solid var(--accent);
@@ -682,8 +680,8 @@ export const prerender = true;
       padding-block: 1.3rem 2.3rem;
     }
     .stay-hero__eyebrow { margin-bottom: .6rem; }
-    .stay-hero h1 { max-width: 13ch; font-size: clamp(2.35rem, 9vw, 3.8rem); }
-    .stay-hero__lead { margin-top: .8rem; font-size: 1rem; line-height: 1.5; }
+    .stay-hero h1 { max-width: 13ch; }
+    .stay-hero__lead { margin-top: .8rem; font-size: var(--fs-400); line-height: 1.5; }
     .stay-hero__actions { margin-top: 1.2rem; }
     .stay-hero__visual img { height: clamp(15.5rem, 60vw, 24rem); }
     .stay-guides__more nav { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -758,7 +756,6 @@ export const prerender = true;
   }
   @media (max-width: 380px) {
     .stay-hero__eyebrow { display: none; }
-    .stay-hero h1 { font-size: 2.2rem; }
     .stay-hero__actions { align-items: flex-start; flex-direction: column; gap: .2rem; }
   }
 </style>

@@ -37,11 +37,11 @@ export const prerender = true;
 </BaseLayout>
 <style>
   .plans-hero{padding:clamp(1.5rem,3vw,2.5rem) 0 1.5rem}
-  .plans-hero__eyebrow{font:600 .7rem/1.5 var(--font-ui);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 1.15rem}
+  .plans-hero__eyebrow{font:600 var(--fs-100)/1.5 var(--font-ui);letter-spacing: var(--ls-eyebrow, .1em);text-transform:uppercase;color:var(--accent);margin:0 0 1.15rem}
   .plans-hero__row{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:2rem;align-items:end}
-  h1{font:500 clamp(2.5rem,5.4vw,4.8rem)/1.05 var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
+  h1{font-weight:500;line-height:1.05;font-family:var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
   .plans-hero__intro{max-width:39ch;padding-bottom:.25rem}
-  .plans-hero__intro p{font:1.05rem/1.7 var(--font-ui);margin:0 0 1rem;color:var(--soft)}
-  .plans-hero__intro a{font-size:.85rem;font-weight:600;text-underline-offset:.2em}
-  @media(max-width:45rem){.plans-hero{padding:1.6rem 0 1.7rem}.plans-hero__row{grid-template-columns:1fr;gap:1.1rem}.plans-hero__eyebrow{font-size:.62rem;margin-bottom:.8rem}h1{font-size:2.65rem}.plans-hero__intro{max-width:43ch}.plans-hero__intro p{font-size:.95rem;margin-bottom:.8rem}}
+  .plans-hero__intro p{font:var(--fs-400)/1.7 var(--font-ui);margin:0 0 1rem;color:var(--soft)}
+  .plans-hero__intro a{font-size:var(--fs-200);font-weight:600;text-underline-offset:.2em}
+  @media(max-width:45rem){.plans-hero{padding:1.6rem 0 1.7rem}.plans-hero__row{grid-template-columns:1fr;gap:1.1rem}.plans-hero__eyebrow{font-size:var(--fs-100);margin-bottom:.8rem}.plans-hero__intro{max-width:43ch}.plans-hero__intro p{font-size:var(--fs-300);margin-bottom:.8rem}}
 </style>

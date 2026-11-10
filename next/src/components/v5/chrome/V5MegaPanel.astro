@@ -159,16 +159,16 @@ const pinVerdictAttrs = editableText({
     transition: color var(--dur-fast) var(--ease-enter);
   }
   .v5-mega__curated a:hover { color: var(--accent); }
-  .v5-mega__icon { width: 34px; height: 34px; flex: none; display: grid; place-items: center; color: var(--accent); background: var(--bg-alt); border-radius: 10px; }
+  .v5-mega__icon { width: 34px; height: 34px; flex: none; display: grid; place-items: center; color: var(--accent); background: var(--bg-alt); border-radius: var(--radius-s); }
   .v5-mega__icon svg { width: 19px; height: 19px; }
-  .v5-mega__arrow { margin-left: auto; font-size: 18px; color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity .18s ease, transform .18s ease; }
+  .v5-mega__arrow { margin-left: auto; font-size: var(--fs-400); color: var(--accent); opacity: 0; transform: translateX(-4px); transition: opacity .18s ease, transform .18s ease; }
   .v5-mega__curated a:hover .v5-mega__arrow, .v5-mega__curated a:focus-visible .v5-mega__arrow { opacity: 1; transform: translateX(0); }
 
   .v5-mega__eyebrow {
     font-family: var(--font-ui);
     font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     /* Was --teal-text. That measures 5.05:1 on white but only 4.45:1 on
        --bg-alt, and this same class is used inside .v5-mega__pin, which

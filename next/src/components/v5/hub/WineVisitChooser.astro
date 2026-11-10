@@ -32,17 +32,17 @@ const visits = [
 <style>
   .wine-choices { padding-block: clamp(3rem, 5vw, 5rem); background: #0e3249; color: #fff; scroll-margin-top: 10rem; }
   .wine-choices__intro { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: .7rem 2.5rem; align-items: end; margin-bottom: 2rem; }
-  .wine-choices__eyebrow { grid-column: 1 / -1; margin: 0; color: #edbc79; font-size: .75rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; }
-  .wine-choices h2 { max-width: 14ch; margin: 0; color: #fff; font-family: var(--font-display); font-size: clamp(2.3rem, 3.8vw, 3.8rem); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
-  .wine-choices__intro > p:last-child { max-width: 48ch; margin: 0 0 .25rem; color: #dce9ee; font-size: 1.03rem; line-height: 1.58; }
+  .wine-choices__eyebrow { grid-column: 1 / -1; margin: 0; color: #edbc79; font-size: var(--fs-100); font-weight: 600; letter-spacing: var(--ls-eyebrow, .1em); text-transform: uppercase; }
+  .wine-choices h2 { max-width: 14ch; margin: 0; color: #fff; font-family: var(--font-display); font-size: var(--fs-700); line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; }
+  .wine-choices__intro > p:last-child { max-width: 48ch; margin: 0 0 .25rem; color: #dce9ee; font-size: var(--fs-400); line-height: 1.58; }
   .wine-choices__rows { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; }
-  .wine-choices__row { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.25rem, 2vw, 1.85rem); border-radius: .25rem; background: #fff; color: var(--text); }
-  .wine-choices__number { color: #8d5a2b; font-size: .77rem; font-weight: 750; letter-spacing: .12em; }
-  .wine-choices h3 { max-width: 17ch; margin: .7rem 0 1rem; font-family: var(--font-display); font-size: clamp(1.55rem, 2vw, 2rem); line-height: 1.12; letter-spacing: -.025em; }
-  .wine-choices__row p { margin: 0; font-size: .96rem; line-height: 1.55; }
-  .wine-choices__row .wine-choices__constraint { margin-top: .8rem; color: var(--soft); font-size: .84rem; }
-  .wine-choices__row a { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; align-self: flex-start; margin-top: auto; padding-top: 1rem; color: #89531d; font-size: .91rem; font-weight: 750; text-underline-offset: .2em; }
-  .wine-choices__foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 2.2rem; padding-top: 1.4rem; color: #dce9ee; font-size: .9rem; line-height: 1.6; }
+  .wine-choices__row { display: flex; flex-direction: column; min-width: 0; padding: clamp(1.25rem, 2vw, 1.85rem); border-radius: var(--radius-s); background: #fff; color: var(--text); }
+  .wine-choices__number { color: #8d5a2b; font-size: var(--fs-100); font-weight: 750; letter-spacing: .12em; }
+  .wine-choices h3 { max-width: 17ch; margin: .7rem 0 1rem; font-family: var(--font-display); font-size: var(--fs-600); line-height: 1.12; letter-spacing: -.025em; }
+  .wine-choices__row p { margin: 0; font-size: var(--fs-300); line-height: 1.55; }
+  .wine-choices__row .wine-choices__constraint { margin-top: .8rem; color: var(--soft); font-size: var(--fs-200); }
+  .wine-choices__row a { display: inline-flex; align-items: center; gap: .6rem; min-height: 44px; align-self: flex-start; margin-top: auto; padding-top: 1rem; color: #89531d; font-size: var(--fs-300); font-weight: 750; text-underline-offset: .2em; }
+  .wine-choices__foot { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; margin-top: 2.2rem; padding-top: 1.4rem; color: #dce9ee; font-size: var(--fs-300); line-height: 1.6; }
   .wine-choices__foot p { max-width: 62ch; margin: 0; }
   .wine-choices__foot strong { color: #fff; }
   .wine-choices__foot a { color: #fff; text-underline-offset: .2em; }

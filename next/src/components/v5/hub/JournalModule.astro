@@ -126,16 +126,16 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
   .v5-journal__eyebrow {
     margin: 0 0 var(--space-2, 0.5rem);
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--teal-text);
   }
   .v5-journal__heading {
     margin: 0;
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-size: var(--fs-700);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.14);
     letter-spacing: -0.01em;
@@ -145,7 +145,7 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
   .v5-journal__sub {
     margin: var(--space-3, 0.75rem) 0 0;
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     color: var(--soft);
   }
   .v5-journal__more {
@@ -153,7 +153,7 @@ const anyImage = shown.some((item) => Boolean(item.image?.src));
     align-items: center;
     min-height: 44px;
     font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     font-weight: var(--fw-semibold, 600);
     color: var(--accent);
     text-decoration: none;

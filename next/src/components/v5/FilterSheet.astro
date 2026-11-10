@@ -111,7 +111,7 @@ const groups = facets
     flex-direction: column;
     max-height: 85vh; /* bottom sheet cap on mobile */
     background: var(--white);
-    border-radius: 16px 16px 0 0;
+    border-radius: var(--radius-m) var(--radius-m) 0 0;
     box-shadow: 0 -8px 30px rgb(0 0 0 / 0.18);
     padding-bottom: env(safe-area-inset-bottom, 0);
     transition: transform 0.2s var(--ease);
@@ -127,7 +127,7 @@ const groups = facets
     display: block;
     width: 44px;
     height: 4px;
-    border-radius: 2px;
+    border-radius: var(--radius-s);
     background: var(--border);
     margin: 0 auto;
   }
@@ -140,14 +140,14 @@ const groups = facets
   }
   .v5-sheet__title {
     font-family: var(--font-ui);
-    font-size: 1.05rem;
+    font-size: var(--fs-400);
     margin: 0;
     color: var(--text);
   }
   .v5-sheet__close {
     background: none;
     border: none;
-    font-size: 1.5rem;
+    font-size: var(--fs-600);
     line-height: 1;
     color: var(--soft);
     cursor: pointer;
@@ -172,7 +172,7 @@ const groups = facets
   }
   .v5-sheet__legend {
     font-family: var(--font-ui);
-    font-size: 0.8rem;
+    font-size: var(--fs-200);
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.06em;
@@ -187,11 +187,11 @@ const groups = facets
   }
   .v5-sheet__option {
     font-family: var(--font-ui);
-    font-size: 0.85rem;
+    font-size: var(--fs-200);
     color: var(--text);
     background: var(--white);
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     padding: 0 0.9rem;
     min-height: 48px;
     cursor: pointer;
@@ -219,7 +219,7 @@ const groups = facets
     border: none;
     color: var(--accent);
     font-family: var(--font-ui);
-    font-size: 0.9rem;
+    font-size: var(--fs-300);
     text-decoration: underline;
     cursor: pointer;
     min-height: 48px;
@@ -228,12 +228,12 @@ const groups = facets
   .v5-sheet__apply {
     flex: 1 1 auto;
     font-family: var(--font-ui);
-    font-size: 0.95rem;
+    font-size: var(--fs-300);
     font-weight: 600;
     background: var(--accent);
     color: var(--white);
     border: none;
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     min-height: 48px;
     padding: 0 1.25rem;
     cursor: pointer;
@@ -257,7 +257,7 @@ const groups = facets
       transform: translateX(-50%);
       width: min(560px, 92vw);
       max-height: 70vh;
-      border-radius: 12px;
+      border-radius: var(--radius-m);
       border: 1px solid var(--border);
     }
     .v5-sheet__handle {

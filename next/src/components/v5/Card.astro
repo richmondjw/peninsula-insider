@@ -524,7 +524,7 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
 
 <style>
   .pi-card__actions [data-card-trip] { min-height: 44px; }
-  .pi-card__image-note { margin: 0 0 0.5rem; font-size: 0.8125rem; line-height: 1.4; color: var(--soft); }
+  .pi-card__image-note { margin: 0 0 0.5rem; font-size: var(--fs-200); line-height: 1.4; color: var(--soft); }
   .pi-card__image-credit { display: block; }
   .pi-card__image-credit a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
   .pi-card__image-credit a:focus-visible { outline: 2px solid var(--teal-text); outline-offset: 2px; }
@@ -605,7 +605,7 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
   .pi-card__plate-topic {
     max-width: 11ch;
     color: var(--white);
-    font: var(--fw-display) clamp(1.5rem, 2.5vw, 2.25rem)/1.08 var(--font-display);
+    font: var(--fw-display) var(--fs-700)/1.08 var(--font-display);
     letter-spacing: var(--ls-display);
     text-wrap: balance;
   }
@@ -756,14 +756,14 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
   .pi-card.pi-card--compact .pi-card__media--plate:has(.pi-card__plate-monogram) { background: #e9eef0; }
   .pi-card.pi-card--compact .pi-card__media--plate .pi-card__plate { align-items: center; justify-content: center; width: 100%; padding: 0; }
   .pi-card.pi-card--compact .pi-card__plate-rule { display: none; }
-  .pi-card__plate-monogram { color: #174861; font-family: var(--font-display); font-size: 1rem; font-weight: 750; letter-spacing: -.04em; }
+  .pi-card__plate-monogram { color: #174861; font-family: var(--font-display); font-size: var(--fs-400); font-weight: 750; letter-spacing: -.04em; }
   .pi-card.pi-card--compact .pi-card__body {
     padding: 0;
   }
   .pi-card.pi-card--compact.pi-card--image-locked .pi-card__image-note {
     order: 1;
     margin: 0;
-    font-size: 0.6875rem;
+    font-size: var(--fs-100);
     line-height: 1.35;
   }
   .pi-card.pi-card--compact .pi-card__title {

@@ -144,13 +144,13 @@ const alternateSummary: Record<string, string> = {
 )}
 
 <style>
-  .home-plan__next{margin:1.2rem 0 0;font-size:.9375rem;color:var(--soft)}
+  .home-plan__next{margin:1.2rem 0 0;font-size:var(--fs-300);color:var(--soft)}
   .home-plan__next a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
   .home-plan__card,.home-plan__alt{flex-direction:column}
   .home-plan__choices :global(.pi-card__media){aspect-ratio:3/2}
   .home-plan__choices :global(.pi-card__media img){height:100%;width:100%;object-fit:cover}
-  .home-plan__choices :global(.pi-card__image-note){font-size:.75rem;line-height:1.45;min-height:3.3rem}
-  .home-plan__practical{margin:.65rem .25rem 0;font-size:.8125rem;line-height:1.5;color:var(--soft)}
+  .home-plan__choices :global(.pi-card__image-note){font-size:var(--fs-100);line-height:1.45;min-height:3.3rem}
+  .home-plan__practical{margin:.65rem .25rem 0;font-size:var(--fs-200);line-height:1.5;color:var(--soft)}
   .home-plan__choices :global(.pi-card){height:100%}
 
   .home-plan {
@@ -178,7 +178,7 @@ const alternateSummary: Record<string, string> = {
     pointer-events: none;
     padding: 0.35rem 0.65rem;
     border: 1px solid var(--border);
-    border-radius: 999px;
+    border-radius: var(--radius-pill);
     background: var(--bg);
     color: var(--harbour-deep);
     font-family: var(--font-ui);
@@ -226,8 +226,8 @@ const alternateSummary: Record<string, string> = {
     margin: 0;
     font-family: var(--font-ui);
     font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--teal-text);
   }

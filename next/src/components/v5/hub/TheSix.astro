@@ -121,7 +121,7 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
   }
   .v5-six__lead :global(.v5-card-grid) { grid-template-columns: 1fr; }
   .v5-six__lead :global(.pi-card--venue .pi-card__media--plate) { background: radial-gradient(circle at 80% 24%, rgba(255,255,255,.12), transparent 30%), linear-gradient(145deg, #123e53, #0d2f48); }
-  .v5-six__lead :global(.pi-card--venue .pi-card__media--plate::after) { content: "01"; position: absolute; right: 6%; bottom: -0.18em; color: rgba(255,255,255,.11); font: 700 clamp(8rem, 18vw, 17rem)/1 var(--font-display); pointer-events: none; }
+  .v5-six__lead :global(.pi-card--venue .pi-card__media--plate::after) { content: "01"; position: absolute; right: 6%; bottom: -0.18em; color: rgba(255,255,255,.11); font: 700 var(--fs-950)/1 var(--font-display); pointer-events: none; }
   .v5-six--image-locked :global(.pi-card--compact) { flex-wrap: wrap; }
   .v5-six--image-locked :global(.pi-card--compact .pi-card__body) { flex: 1 1 70%; min-width: 0; }
   .v5-six--image-locked :global(.pi-card--compact .pi-card__actions) { width: 100%; margin-left: 0; flex-wrap: wrap; }
@@ -150,7 +150,7 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
      not a grey tile that reads as a missing image. */
   /* Doubled block class: Card.astro scopes every selector part, so its plate rule ties ours on specificity and loads later. */
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__media--plate) { background: none; border: 0; width: auto; height: auto; max-width: none; flex-basis: auto; aspect-ratio: auto; overflow: visible; }
-  .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__plate-monogram) { color: var(--accent); font: var(--fw-display, 600) 2rem/1 var(--font-display); letter-spacing: -0.02em; }
+  .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__plate-monogram) { color: var(--accent); font: var(--fw-display, 600) var(--fs-700)/1 var(--font-display); letter-spacing: -0.02em; }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__planning) { padding-top: var(--space-3, 0.75rem); }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__media) { grid-column: 1; grid-row: 1; }
   .v5-six.v5-six--image-locked :global(.pi-card.pi-card--compact .pi-card__body) { grid-column: 2; grid-row: 1; align-self: start; }
@@ -184,16 +184,16 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
   .v5-six__eyebrow {
     margin: 0 0 var(--space-2, 0.5rem);
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--teal-text);
   }
   .v5-six__heading {
     margin: 0;
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-size: var(--fs-700);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.14);
     letter-spacing: -0.01em;
@@ -204,7 +204,7 @@ const anyImage = six.some((item) => Boolean(item.image?.src));
   .v5-six__sub {
     margin: var(--space-3, 0.75rem) 0 0;
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     line-height: var(--lh-ui, 1.4);
     color: var(--soft);
     max-width: var(--measure-dek, 52ch);

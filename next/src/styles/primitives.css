@@ -543,9 +543,9 @@
 .pi-card__eyebrow {
   font-family: var(--font-ui);
   font-size: var(--fs-100);
-  font-weight: var(--fw-semibold);
+  font-weight: 600;
   line-height: var(--lh-label);
-  letter-spacing: var(--ls-eyebrow);
+  letter-spacing: var(--ls-eyebrow, .1em);
   text-transform: uppercase;
   color: var(--soft);
 }

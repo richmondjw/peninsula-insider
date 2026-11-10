@@ -38,26 +38,26 @@ const creditLine=!credit?'':/^Courtesy of /i.test(credit)?`Photo courtesy of ${c
 </section>
 <style>
   .eat-entry{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(2rem,5vw,5rem);align-items:center;padding-block:2rem 1.5rem}
-  .eat-entry h1{font:600 var(--fs-800)/1.1 var(--font-display);letter-spacing:var(--ls-display);max-width:22ch;margin:.75rem 0 1rem;text-wrap:balance}
+  .eat-entry h1{font-weight:600;line-height:1.1;font-family:var(--font-display);letter-spacing:var(--ls-display);max-width:22ch;margin:.75rem 0 1rem;text-wrap:balance}
   .eat-entry__dek{font-size:var(--fs-400);line-height:1.6;max-width:49ch;color:var(--soft)}
   .eat-entry__links{display:flex;flex-wrap:wrap;align-items:center;gap:.5rem 1.5rem;margin-top:1.5rem}
   .eat-entry__eyebrow{color:var(--teal-text)}
   .eat-entry__links a{min-height:48px;display:inline-flex;align-items:center;gap:.4rem;color:var(--accent);font-weight:500;font-size:var(--fs-300);text-underline-offset:.2em}
-  .eat-entry__links .eat-entry__primary{padding:0 1.35rem;border-radius:8px;background:var(--accent);color:var(--white);font-weight:600;font-size:var(--fs-400);text-decoration:none;margin-inline-end:.25rem}
+  .eat-entry__links .eat-entry__primary{padding:0 1.35rem;border-radius:var(--radius-s);background:var(--accent);color:var(--white);font-weight:600;font-size:var(--fs-400);text-decoration:none;margin-inline-end:.25rem}
   .eat-entry__links .eat-entry__primary:hover{background:var(--text)}
   .eat-entry__trust{margin:1.25rem 0 0;font:400 var(--fs-300)/1.5 var(--font-ui);color:var(--soft)}
   .eat-entry__trust a{color:var(--accent);font-weight:600;text-underline-offset:.2em;white-space:nowrap}
-  .eat-entry__photo{margin:0}.eat-entry__photo img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:var(--radius-lg,16px)}
+  .eat-entry__photo{margin:0}.eat-entry__photo img{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover;border-radius:var(--radius-m)}
   figcaption{font:400 var(--fs-200)/1.5 var(--font-ui);color:var(--soft);padding-top:.5rem}
   .eat-finder{padding-block:1.25rem}
   .eat-finder__heading{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1rem}
   .eat-finder h2{font:600 var(--fs-600)/1.2 var(--font-display);margin:0}.eat-finder__heading p{font-size:var(--fs-300);color:var(--soft);margin:0}
   .eat-finder__form{display:grid;grid-template-columns:1.2fr 1fr 1fr auto;gap:1rem;align-items:end}
   label{display:block;font-size:var(--fs-200);font-weight:600;margin-bottom:.4rem}
-  input,select{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border-control);border-radius:8px;padding:.65rem .8rem;color:var(--text);font:400 1rem var(--font-ui)}
-  button{min-height:48px;border:0;border-radius:8px;padding:.65rem 1.2rem;background:var(--accent);color:white;font:600 1rem var(--font-ui);cursor:pointer}
+  input,select{width:100%;min-height:48px;background:var(--white);border:1px solid var(--border-control);border-radius:var(--radius-s);padding:.65rem .8rem;color:var(--text);font:400 var(--fs-400) var(--font-ui)}
+  button{min-height:48px;border:0;border-radius:var(--radius-s);padding:.65rem 1.2rem;background:var(--accent);color:white;font:600 var(--fs-400) var(--font-ui);cursor:pointer}
   :is(a,button,input,select):focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-  @media(max-width:700px){.eat-entry{grid-template-columns:1fr;gap:1rem;padding-block:1.25rem .75rem}.eat-entry h1{font-size:2rem;max-width:22ch;margin-top:.5rem}.eat-entry__photo{order:-1}.eat-entry__photo img{aspect-ratio:2/1;border-radius:12px}.eat-entry__photo figcaption{font-size:var(--fs-100);padding-top:.35rem}.eat-entry__dek{margin-bottom:0}.eat-entry__links{gap:0 1.25rem;margin-top:1rem}.eat-entry__links .eat-entry__primary{flex:1 0 100%;justify-content:center;margin-bottom:.25rem}.eat-entry__trust{margin-top:.75rem}.eat-finder__heading{display:block}.eat-finder__heading p{display:none}.eat-finder__form{grid-template-columns:1fr 1fr;gap:.75rem}.eat-finder__form>div:first-child{grid-column:1/-1}.eat-finder__form>button{grid-column:1/-1}}
+  @media(max-width:700px){.eat-entry{grid-template-columns:1fr;gap:1rem;padding-block:1.25rem .75rem}.eat-entry h1{max-width:22ch;margin-top:.5rem}.eat-entry__photo{order:-1}.eat-entry__photo img{aspect-ratio:2/1;border-radius:var(--radius-m)}.eat-entry__photo figcaption{font-size:var(--fs-100);padding-top:.35rem}.eat-entry__dek{margin-bottom:0}.eat-entry__links{gap:0 1.25rem;margin-top:1rem}.eat-entry__links .eat-entry__primary{flex:1 0 100%;justify-content:center;margin-bottom:.25rem}.eat-entry__trust{margin-top:.75rem}.eat-finder__heading{display:block}.eat-finder__heading p{display:none}.eat-finder__form{grid-template-columns:1fr 1fr;gap:.75rem}.eat-finder__form>div:first-child{grid-column:1/-1}.eat-finder__form>button{grid-column:1/-1}}
 </style>
 <script>
   import {commit,getState,type FilterKey} from '../../../lib/v5-filter-state';

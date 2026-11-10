@@ -13,7 +13,8 @@
   "paper-warm": "#F2EFEA"
   "ink": "#14202A"
   "muted": "#4B5862"
-  "rule": "#83857E"
+  "rule": "#DCD9D1"
+  "control-border": "#83857E"
   "control-rule": "#5C6B75"
   "error": "#C0392B"
 "typography":
@@ -177,13 +178,13 @@ Category controls follow the compact heading. `CategoryBrowse` supplies immediat
 
 ## Elevation & Depth
 
-Cards use a single hairline and no resting shadow. Paper changes and rules carry most structural depth. Source elevation tokens remain available for raised utility surfaces and dialogs; the sidecar records their exact values. Do not add floating-card shadows to category comparison rows.
+Cards have no resting outline and no resting shadow: the photograph, the gutter and paper changes carry structure, and a soft edge appears only on hover or keyboard focus. Rules are the soft `rule` colour and appear at most once between items; a tinted band never also carries rules. Source elevation tokens remain available for raised utility surfaces and dialogs; the sidecar records their exact values. Do not add floating-card shadows to category comparison rows.
 
 Focus is a functional outline, not decorative elevation: shared controls use the Harbour ring, and inverse controls use the Sand ring. Search has one wrapper focus indicator rather than two nested outlines. Most feedback uses short color and border transitions; token durations collapse under reduced motion, and the refinement disables reveal delays and perpetual image movement.
 
 ## Shapes
 
-Shared buttons and fields use the small radius; image cards use the medium radius; panels and sheets use the large radius. Pills belong to filters and small controls. Native disclosure and comparison rows use rules rather than rounded containers. Journal’s square editorial images and compact archive rows are deliberate scoped exceptions.
+Shared buttons, fields and thumbnails use the small radius; cards, tiles, media and panels use the medium radius; the large radius is reserved for modals, sheets and drawers. Pills belong to filters only. Native disclosure and comparison rows use rules rather than rounded containers. Journal’s square editorial images and compact archive rows are deliberate scoped exceptions.
 
 ## Components
 
@@ -228,3 +229,16 @@ The compact header owns the page H1. `TheSix` uses a native summary for the rema
 - **Don’t** use an "Illustrative image" badge, or caption sentences such as "This image shows X. It does not depict Y.", "not a view from a listed stay" or "Context photo". Retired 9 November 2026. Alt text still describes the image for screen readers.
 - **Don’t** print the alt sentence as a visible caption.
 - **Don’t** gate reading behind animation or remove guest planning to simplify a layout.
+
+## Simplicity rules (2026-11-10)
+
+Adopted after the November 2026 simplification programme found the site had drifted into busyness (hundreds of border lines per page, 564 font sizes, outlined pills on every row). Every change should leave a page calmer, not add to it.
+
+- **One line, or none.** Decorative rules use `--border` (soft, #DCD9D1). Use at most one hairline between list items and none between sections; whitespace separates sections. Never a rule plus a tint.
+- **Controls keep their edge.** Inputs, selects, filter chips and toggles use `--border-control` (#83857E, 3.74:1) so they meet WCAG 1.4.11. Nothing decorative uses it.
+- **Actions are quiet.** Save is a borderless icon with a 48px target; secondary actions ("+ Trip", "View details", card booking) are text links. One solid button per view at most.
+- **One type scale.** Font sizes come from `--fs-100` to `--fs-950`; nothing below 12px. A page should use no more than about seven steps.
+- **Three shapes.** `--radius-s`, `--radius-m`, `--radius-pill` (and 50% circles). `--radius-l` for modals and sheets only.
+- **No resting shadows.** Shadows belong to things that float: dialogs, drawers, menus, popovers, sticky bars.
+- **Two header bands.** Logo row (with the edition dateline and any site notice) and the nav. Do not add strips above the masthead.
+- **Say it once.** A place, plan or event appears once per page; shortlists and full lists should not repeat each other.

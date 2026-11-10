@@ -235,16 +235,16 @@ export const prerender = true;
   .qn__head { padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem); border-bottom: 4px solid var(--dark); }
   .qn__eyebrow {
     display: inline-block;
-    font-size: 0.66rem;
-    font-weight: 700;
-    letter-spacing: 0.28em;
+    font-size: var(--fs-100);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--accent);
     margin: 0 0 0.7rem;
   }
   .qn__dateline {
     font-family: var(--font-display);
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    font-size: var(--fs-800);
     font-weight: 500;
     line-height: 1.05;
     letter-spacing: -0.02em;
@@ -255,7 +255,7 @@ export const prerender = true;
   .qn__sub {
     display: flex; flex-wrap: wrap;
     gap: 0.4rem 0.8rem;
-    font-size: 0.82rem;
+    font-size: var(--fs-200);
     color: #2b443e;
     margin: 0;
     font-style: normal;
@@ -268,7 +268,7 @@ export const prerender = true;
   .qn__band-head:first-child { border-top: 0; margin-top: 0; }
   .qn__band-title {
     font-family: var(--font-display);
-    font-size: clamp(1.6rem, 3.2vw, 2.2rem);
+    font-size: var(--fs-700);
     font-weight: 500;
     margin: 0 0 0.3rem;
     color: var(--dark);
@@ -292,7 +292,7 @@ export const prerender = true;
     font-family: var(--font-display);
     font-style: normal;
     color: var(--soft);
-    font-size: 0.95rem;
+    font-size: var(--fs-300);
     margin: 0;
   }
 
@@ -310,7 +310,7 @@ export const prerender = true;
     grid-row: 1 / span 4;
     background: #fff;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--radius-s);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -322,7 +322,7 @@ export const prerender = true;
     padding-top: 1.4rem;
   }
   .qn__brief--lead .qn__brief-headline {
-    font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+    font-size: var(--fs-700);
     line-height: 1.12;
   }
   .qn__brief-image {
@@ -345,9 +345,9 @@ export const prerender = true;
     .qn__today .qn__sect { grid-template-columns: 1fr; gap: 0.6rem; }
   }
   .qn__sect-label {
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.22em;
+    font-size: var(--fs-100);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--accent);
     padding-top: 0.2rem;
@@ -368,12 +368,12 @@ export const prerender = true;
     margin: 0;
   }
   .qn__empty-title {
-    font-size: 1.1rem;
+    font-size: var(--fs-400);
     color: var(--dark);
     margin-bottom: 0.35rem;
   }
   .qn__empty-copy {
-    font-size: 0.96rem;
+    font-size: var(--fs-300);
     color: var(--soft);
     line-height: 1.55;
   }
@@ -391,7 +391,7 @@ export const prerender = true;
 
   .qn__brief-meta {
     display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem;
-    font-size: 0.7rem;
+    font-size: var(--fs-100);
     margin: 0 0 0.5rem;
     align-items: baseline;
   }
@@ -402,18 +402,18 @@ export const prerender = true;
     color: var(--accent);
   }
   .qn__brief-tag {
-    font-size: 0.66rem;
+    font-size: var(--fs-100);
     letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--soft);
     background: var(--bg-alt);
     padding: 0.18rem 0.5rem;
-    border-radius: 2px;
+    border-radius: var(--radius-s);
   }
   .qn__brief-time {
     color: var(--soft);
     font-variant-numeric: tabular-nums;
-    font-size: 0.74rem;
+    font-size: var(--fs-100);
     margin-left: auto;
   }
   .qn__brief-headline {
@@ -423,15 +423,15 @@ export const prerender = true;
     letter-spacing: -0.01em;
     margin: 0 0 0.5rem;
     color: var(--dark);
-    font-size: 1.18rem;
+    font-size: var(--fs-400);
   }
-  .qn__brief--std .qn__brief-headline { font-size: 1.05rem; }
-  .qn__brief--row .qn__brief-headline { font-size: 1.08rem; }
-  .qn__brief--card .qn__brief-headline { font-size: 1rem; }
+  .qn__brief--std .qn__brief-headline { font-size: var(--fs-400); }
+  .qn__brief--row .qn__brief-headline { font-size: var(--fs-400); }
+  .qn__brief--card .qn__brief-headline { font-size: var(--fs-400); }
 
   .qn__brief-dek {
     font-family: var(--font-display);
-    font-size: 0.96rem;
+    font-size: var(--fs-300);
     line-height: 1.55;
     color: #2b443e;
     margin: 0 0 0.6rem;
@@ -439,7 +439,7 @@ export const prerender = true;
   .qn__brief-verdict {
     font-family: var(--font-display);
     font-style: normal;
-    font-size: 0.92rem;
+    font-size: var(--fs-300);
     line-height: 1.45;
     color: var(--accent);
     margin: 0 0 0.5rem;
@@ -447,7 +447,7 @@ export const prerender = true;
     padding-left: 0.6rem;
   }
   .qn__brief-byline {
-    font-size: 0.72rem;
+    font-size: var(--fs-100);
     color: var(--soft);
     margin: 0;
     font-style: normal;
@@ -463,7 +463,7 @@ export const prerender = true;
     padding: 1rem;
     background: #fff;
     border: 1px solid rgba(74, 90, 87, 0.10);
-    border-radius: 3px;
+    border-radius: var(--radius-s);
   }
 
   /* About foot */
@@ -476,7 +476,7 @@ export const prerender = true;
     font-family: var(--font-display);
     font-style: normal;
     color: var(--soft);
-    font-size: 0.9rem;
+    font-size: var(--fs-300);
     line-height: 1.6;
     max-width: 56ch;
     margin: 0 0 0.6rem;

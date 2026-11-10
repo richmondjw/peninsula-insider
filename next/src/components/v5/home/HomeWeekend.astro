@@ -168,20 +168,20 @@ const cards = await Promise.all(
 </script>
 
 <style>
-  .home-weekend__source{font-size:.8125rem;line-height:1.5;color:var(--soft);margin:.6rem .25rem 0}
+  .home-weekend__source{font-size:var(--fs-200);line-height:1.5;color:var(--soft);margin:.6rem .25rem 0}
   .home-weekend__source>span{display:block}
   .home-weekend__source a{display:inline-flex;align-items:center;min-height:44px;color:var(--accent);font-weight:600;text-underline-offset:.2em}
   .home-weekend__scroller :global(.v5-card-grid){align-items:stretch}
   .home-weekend__scroller :global(.v5-card-grid>li){display:flex;flex-direction:column;min-width:0}
   .home-weekend__scroller :global(.pi-card){width:100%;height:100%}
   .home-weekend__scroller :global(.pi-card__media){aspect-ratio:3/2}
-  .home-weekend__scroller :global(.pi-card__image-note){min-height:4.5rem;font-size:.8125rem;line-height:1.45}
+  .home-weekend__scroller :global(.pi-card__image-note){min-height:4.5rem;font-size:var(--fs-200);line-height:1.45}
 
   .home-weekend { scroll-margin-top: 9rem; }
   @media (min-width: 64em) {
     .home-weekend__scroller :global(.v5-card-grid--grid) { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .home-weekend__scroller :global(.v5-card-grid--grid.v5-card-grid--two) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: 1.875rem; }
+    .home-weekend__scroller :global(.pi-card:first-child .pi-card__title) { font-size: var(--fs-700); }
   }
   .home-weekend__scroller :global(.pi-card__media) { height: 14.375rem; aspect-ratio: auto; }
   .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-400); line-height: var(--lh-body); display: block; overflow: visible; -webkit-line-clamp: unset; }
@@ -209,8 +209,8 @@ const cards = await Promise.all(
     margin: 0;
     font-family: var(--font-ui);
     font-size: var(--fs-100);
-    font-weight: var(--fw-semibold);
-    letter-spacing: var(--ls-eyebrow);
+    font-weight: 600;
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--teal-text);
   }
@@ -312,7 +312,7 @@ const cards = await Promise.all(
     .home-weekend__scroller :global(.pi-card__body) { padding: 1rem; }
     .home-weekend__scroller :global(.pi-card__title) { font-size: var(--fs-500); line-height: 1.22; }
     .home-weekend__scroller :global(.pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
-    .home-weekend__scroller :global(.pi-card__image-note) { min-height: 0; font-size: .8125rem; line-height: 1.4; }
+    .home-weekend__scroller :global(.pi-card__image-note) { min-height: 0; font-size: var(--fs-200); line-height: 1.4; }
     .home-weekend__scroller :global(.pi-card__actions) { padding: 0 1rem 1rem; }
   }
 </style>

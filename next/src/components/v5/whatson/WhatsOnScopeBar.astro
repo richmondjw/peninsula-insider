@@ -121,9 +121,9 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     background: var(--surface, var(--bg));
     color: var(--text);
     border: 1px solid var(--border-control);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-m);
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
     line-height: var(--lh-ui, 1.4);
     cursor: pointer;
@@ -146,7 +146,7 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     color: var(--white, #fff);
   }
   .wo-scope__dates {
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     font-weight: var(--fw-body, 400);
     color: var(--soft);
   }
@@ -186,7 +186,7 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     padding: var(--space-4, 1rem);
     background: var(--surface, var(--bg));
     border: 1px solid var(--border-control);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-m);
     box-shadow: var(--elev-2);
     min-width: min(320px, 82vw);
   }
@@ -194,18 +194,18 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     display: flex;
     flex-direction: column;
     gap: 2px;
-    font-size: var(--fs-200, 0.8rem);
+    font-size: var(--fs-200);
     color: var(--soft);
   }
   .wo-scope__field input {
     min-height: 44px;
     padding: 0 var(--space-2, 0.5rem);
     border: 1px solid var(--border-control);
-    border-radius: var(--radius-s, 4px);
+    border-radius: var(--radius-s);
     background: var(--bg);
     color: var(--text);
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300);
   }
   .wo-scope__field input:focus-visible {
     outline: var(--focus-ring, 2px solid var(--accent));
@@ -218,9 +218,9 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
     background: var(--accent);
     color: var(--white, #fff);
     border: 1px solid var(--accent);
-    border-radius: var(--radius-m, 10px);
+    border-radius: var(--radius-m);
     font-family: var(--font-ui, inherit);
-    font-size: var(--fs-300, 0.9rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-semibold, 600);
     cursor: pointer;
   }
@@ -244,7 +244,7 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO } = 
       align-items: center;
       min-height: 44px;
       padding-inline: 0.55rem;
-      font-size: 0.875rem;
+      font-size: var(--fs-300);
     }
     .wo-scope__form {
       left: auto;

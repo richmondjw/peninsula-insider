@@ -48,39 +48,39 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
   .plan-recommendation{display:grid;grid-template-columns:minmax(0,1fr) 112px;column-gap:1.1rem;align-content:start;padding:1.5rem 0 0;min-width:0}
   .plan-recommendation[hidden]{display:none}
   .plan-recommendation__body{min-width:0}
-  .plan-recommendation__mark{font:600 .68rem/1.4 var(--font-ui);text-transform:uppercase;letter-spacing:.13em;color:var(--accent);margin:0 0 .7rem}
-  .plan-recommendation h3{font:500 clamp(1.35rem,2vw,1.7rem)/1.25 var(--font-display);letter-spacing:-.035em;margin:0 0 .75rem;max-width:23ch}
+  .plan-recommendation__mark{font:600 var(--fs-100)/1.4 var(--font-ui);text-transform:uppercase;letter-spacing:.13em;color:var(--accent);margin:0 0 .7rem}
+  .plan-recommendation h3{font:500 var(--fs-600)/1.25 var(--font-display);letter-spacing:-.035em;margin:0 0 .75rem;max-width:23ch}
   .plan-recommendation h3 a{color:var(--text);text-decoration:none}
   .plan-recommendation h3 a:hover{text-decoration:underline;text-underline-offset:.15em}
-  .plan-recommendation__reason{font:.96rem/1.65 var(--font-ui);margin:0 0 .9rem;color:var(--text);max-width:58ch}
-  .plan-recommendation__facts{font:.79rem/1.6 var(--font-ui);color:var(--soft);margin:0 0 1rem}
+  .plan-recommendation__reason{font:var(--fs-300)/1.65 var(--font-ui);margin:0 0 .9rem;color:var(--text);max-width:58ch}
+  .plan-recommendation__facts{font:var(--fs-200)/1.6 var(--font-ui);color:var(--soft);margin:0 0 1rem}
   .plan-recommendation__media{align-self:start;aspect-ratio:1;overflow:hidden;background:var(--bg-alt)}
   .plan-recommendation__media img{height:100%;width:100%;object-fit:cover;display:block}
-  .plan-recommendation__credit{grid-column:1/-1;margin:.45rem 0 0;color:var(--soft);font:400 .72rem/1.45 var(--font-ui)}
+  .plan-recommendation__credit{grid-column:1/-1;margin:.45rem 0 0;color:var(--soft);font:400 var(--fs-100)/1.45 var(--font-ui)}
   .plan-recommendation__credit[hidden]{display:none}
-  .plan-recommendation__preview{padding:.6rem 0;margin:0 0 1rem;font:.8rem/1.6 var(--font-ui);max-width:65ch}.plan-recommendation__preview p{margin:.35rem 0}.plan-recommendation__preview p:last-child{color:var(--soft)}
+  .plan-recommendation__preview{padding:.6rem 0;margin:0 0 1rem;font:var(--fs-200)/1.6 var(--font-ui);max-width:65ch}.plan-recommendation__preview p{margin:.35rem 0}.plan-recommendation__preview p:last-child{color:var(--soft)}
   .plan-recommendation__actions{display:flex;align-items:center;gap:.45rem .7rem;flex-wrap:wrap}
-  .plan-recommendation__actions .pi-btn{font-size:.82rem;min-height:44px}
-  .plan-recommendation__copy{font:.73rem/1.5 var(--font-ui);color:var(--soft);margin:.8rem 0 0}
-  .plan-recommendation__fit{margin:0 0 1rem;padding:.2rem 0;font:.8rem/1.55 var(--font-ui)}
+  .plan-recommendation__actions .pi-btn{font-size:var(--fs-200);min-height:44px}
+  .plan-recommendation__copy{font:var(--fs-100)/1.5 var(--font-ui);color:var(--soft);margin:.8rem 0 0}
+  .plan-recommendation__fit{margin:0 0 1rem;padding:.2rem 0;font:var(--fs-200)/1.55 var(--font-ui)}
   .plan-recommendation__fit p{margin:0}.plan-recommendation__missing{color:var(--soft);margin-top:.2rem!important}
   .plan-recommendation__route{grid-column:1/-1;margin-top:1.2rem}
-  .plan-recommendation__route summary{display:flex;justify-content:space-between;gap:1rem;list-style:none;cursor:pointer;padding:.8rem 0;font:600 .79rem/1.5 var(--font-ui)}
+  .plan-recommendation__route summary{display:flex;justify-content:space-between;gap:1rem;list-style:none;cursor:pointer;padding:.8rem 0;font:600 var(--fs-200)/1.5 var(--font-ui)}
   .plan-recommendation__route summary::-webkit-details-marker{display:none}
   .plan-recommendation__route summary>span:last-child{font-weight:400;color:var(--soft)}
   .plan-recommendation__route summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
   .plan-recommendation__route-inner{padding:.25rem 0 1rem}
   .plan-recommendation__days{list-style:none;padding:0;margin:0;display:grid;gap:.7rem}
-  .plan-recommendation__days li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:.4rem;font:.82rem/1.6 var(--font-ui)}
+  .plan-recommendation__days li{display:grid;grid-template-columns:3.4rem minmax(0,1fr);gap:.4rem;font:var(--fs-200)/1.6 var(--font-ui)}
   .plan-recommendation__days li>span{font-weight:600;color:var(--accent)}
   .plan-recommendation__days p{margin:0;color:var(--soft)}
-  .plan-recommendation__practical{font:.78rem/1.6 var(--font-ui);color:var(--soft);margin:.9rem 0 0}
+  .plan-recommendation__practical{font:var(--fs-100)/1.6 var(--font-ui);color:var(--soft);margin:.9rem 0 0}
   .plan-recommendation--featured{grid-column:1/-1;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0 2.5rem;border:0;background:var(--bg-alt);padding:2rem}
-  .plan-recommendation--featured h3{font-size:clamp(1.9rem,3.5vw,2.85rem);max-width:17ch;line-height:1.13;margin-bottom:1rem}
-  .plan-recommendation--featured .plan-recommendation__reason{font-size:1rem}
+  .plan-recommendation--featured h3{font-size:var(--fs-800);max-width:17ch;line-height:1.13;margin-bottom:1rem}
+  .plan-recommendation--featured .plan-recommendation__reason{font-size:var(--fs-400)}
   .plan-recommendation--featured .plan-recommendation__media{aspect-ratio:4/3;align-self:center}
   .plan-recommendation--featured .plan-recommendation__credit{grid-column:2}
-  .plan-recommendation--featured .plan-recommendation__facts{font-size:.85rem}
+  .plan-recommendation--featured .plan-recommendation__facts{font-size:var(--fs-200)}
   .plan-recommendation--featured .plan-recommendation__route{margin-top:1.5rem}
   .plan-recommendation--featured .plan-recommendation__route summary{padding-bottom:0}
   .plan-recommendation--featured .plan-recommendation__route[open] summary{padding-bottom:1rem}
@@ -92,7 +92,7 @@ const checked = plan.verifiedAt ? new Date(plan.verifiedAt).toLocaleDateString('
     .plan-recommendation--featured .plan-recommendation__media{order:0;margin-bottom:1.2rem;aspect-ratio:2.3}
     .plan-recommendation--featured .plan-recommendation__credit{grid-column:1;order:1;margin:-.8rem 0 .7rem}
     .plan-recommendation--featured .plan-recommendation__route{order:3}
-    .plan-recommendation--featured h3{font-size:1.85rem;max-width:22ch}
+    .plan-recommendation--featured h3{font-size:var(--fs-700);max-width:22ch}
     .plan-recommendation__actions .pi-btn{padding-inline:.8rem}
   }
 </style>

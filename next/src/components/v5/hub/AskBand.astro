@@ -123,16 +123,16 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
   .v5-askband__eyebrow {
     margin: 0 0 var(--space-3, 0.75rem);
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     font-weight: 600;
-    letter-spacing: var(--ls-eyebrow, 0.12em);
+    letter-spacing: var(--ls-eyebrow, .1em);
     text-transform: uppercase;
     color: var(--mint);
   }
   .v5-askband__heading {
     margin: 0;
     font-family: var(--font-display);
-    font-size: var(--fs-700, clamp(1.6rem, 1.35rem + 1.2vw, 2.1rem));
+    font-size: var(--fs-700);
     font-weight: var(--fw-display, 600);
     line-height: var(--lh-heading, 1.14);
     letter-spacing: -0.01em;
@@ -142,7 +142,7 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
   .v5-askband__body {
     margin: var(--space-3, 0.75rem) 0 0;
     font-family: var(--font-ui);
-    font-size: var(--fs-400, 1.0625rem);
+    font-size: var(--fs-400);
     line-height: var(--lh-ui, 1.5);
     color: var(--soft-inverse);
   }
@@ -166,9 +166,9 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
     min-height: 48px;
     padding: 0 var(--space-4, 1rem);
     border: 1.5px solid color-mix(in srgb, var(--mint) 55%, transparent);
-    border-radius: var(--radius-pill, 999px);
+    border-radius: var(--radius-pill);
     font-family: var(--font-ui);
-    font-size: var(--fs-200, 0.8125rem);
+    font-size: var(--fs-200);
     font-weight: var(--fw-medium, 500);
     color: var(--white);
     text-decoration: none;
@@ -193,9 +193,9 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
     padding: 0 var(--space-5, 1.5rem);
     background: var(--mint);
     color: var(--bg-deep);
-    border-radius: var(--radius-s, 8px);
+    border-radius: var(--radius-s);
     font-family: var(--font-ui);
-    font-size: var(--fs-300, 0.9375rem);
+    font-size: var(--fs-300);
     font-weight: var(--fw-bold, 700);
     text-decoration: none;
     transition: filter var(--dur-fast, 120ms) var(--ease-enter, ease);
@@ -211,7 +211,7 @@ const headingId = `${id ?? `ask-${surface ?? 'hub'}`}-heading`;
   .v5-askband__disclosure {
     margin: 0;
     font-family: var(--font-ui);
-    font-size: var(--fs-100, 0.75rem);
+    font-size: var(--fs-100);
     color: var(--soft-inverse);
   }
 </style>
