@@ -313,7 +313,7 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
     >
       <span class="pi-card__plate" aria-hidden="true">
         <span class="pi-card__plate-rule"></span>
-        {variant === "compact-row" ? <span class="pi-card__plate-monogram">{mediaFallbackMark ?? 'PI'}</span> : mediaFallbackLabel ? (
+        {variant === "compact-row" ? (mediaFallbackMark && <span class="pi-card__plate-monogram">{mediaFallbackMark}</span>) : mediaFallbackLabel ? (
           <>
             <span class="pi-card__plate-topic">{mediaFallbackLabel}</span>
             <span class="pi-card__plate-brand">Peninsula Insider</span>
@@ -749,7 +749,9 @@ const imageCredit = !imageArtwork && image?.credit ? creditLine(image.credit) : 
     aspect-ratio: 1;
     border-radius: var(--radius-s);
   }
-  .pi-card.pi-card--compact .pi-card__media--plate { background: #e9eef0; border: 1px solid #ced9dd; }
+  /* A row with no rights-cleared photo shows the house pattern, not a lettered stand-in tile. */
+  .pi-card.pi-card--compact .pi-card__media--plate { background-position: 30% 60%; background-size: 260%; }
+  .pi-card.pi-card--compact .pi-card__media--plate:has(.pi-card__plate-monogram) { background: #e9eef0; }
   .pi-card.pi-card--compact .pi-card__media--plate .pi-card__plate { align-items: center; justify-content: center; width: 100%; padding: 0; }
   .pi-card.pi-card--compact .pi-card__plate-rule { display: none; }
   .pi-card__plate-monogram { color: #174861; font-family: var(--font-display); font-size: 1rem; font-weight: 750; letter-spacing: -.04em; }
