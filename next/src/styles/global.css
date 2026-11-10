@@ -323,21 +323,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .masthead__signin:hover { color: var(--accent); }
 .masthead__signin[hidden] { display: none; }
 
-/* ── Conditions strip (utility row, left). The publication's "heartbeat":
-   thin live line, agent-written later. Sits on the left of the utility row,
-   edition marker + login pulled to the right via .masthead__utility-right.
-   Hidden on narrow screens (handled in the mobile block further down). */
-.masthead__conditions {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  letter-spacing: 0.04em;
-  color: var(--soft);
-  min-width: 0;
-  overflow: hidden;
-}
 .masthead__conditions-item {
   white-space: nowrap;
 }
@@ -346,14 +331,7 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   font-weight: 600;
   margin-right: 0.3rem;
 }
-.masthead__conditions-sep { color: rgba(74, 90, 87, 0.4); }
 
-.masthead__utility-right {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.1rem;
-  flex-shrink: 0;
-}
 
 /* ── Brand row (middle) ── */
 .masthead__brand-inner {
@@ -401,13 +379,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   justify-content: flex-start;
   height: 46px;
   gap: 1rem;
-}
-/* Push the search icon (and everything after it: Subscribe) to the
-   far right edge in one move. Keeps a tight visual cluster of
-   search + Subscribe instead of the previous space-between layout
-   that wedged a big gap between them. */
-.masthead__nav-inner .masthead__search-icon {
-  margin-left: auto;
 }
 .masthead__nav-inner .masthead__cta {
   margin-left: 0.6rem;  /* tight gap between search icon and Subscribe pill */
@@ -687,13 +658,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
 .cover {
   padding: clamp(2.4rem, 7vw, 4.8rem) 0 0;
 }
-.cover__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(3rem, 6vw, 6rem);
-  align-items: end;
-  padding-bottom: clamp(3rem, 6vw, 5rem);
-}
 .cover__meta {
   display: flex;
   align-items: center;
@@ -701,7 +665,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   margin-bottom: 1.75rem;
 }
 .cover__meta .label { color: var(--accent); }
-.cover__meta-rule { flex: 1; height: 1px; background: var(--border); }
 .cover__headline {
   font-size: clamp(3rem, 6.5vw, 5.5rem);
   font-weight: 600;
@@ -726,24 +689,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   background: linear-gradient(135deg,#14608F 0%,#1E86B0 50%,#0B2E4A 100%);
   background-size: cover;
   background-position: center;
-}
-.cover__visual-fog {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom, rgba(245,241,235,0.18) 0%, transparent 40%, rgba(0, 54, 44,0.25) 100%);
-}
-.cover__visual-label {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.25rem;
-  color: rgba(253,252,250,0.75);
-  font-size: 0.6rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-weight: 500;
-}
-.cover__band {
-  display: none;
 }
 
 /* =========================================================
@@ -856,10 +801,6 @@ hr.rule { border: none; border-top: 1px solid var(--border); }
   grid-template-columns: 1fr 2fr;
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: start;
-}
-.editorial-promise__lead .label {
-  margin-bottom: 0.75rem;
-  display: block;
 }
 .editorial-promise__title {
   font-size: clamp(1.3rem, 2.2vw, 1.7rem);
@@ -1389,35 +1330,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
 .venue-card__actions .venue-card__cta {
   margin-top: 0;
 }
-/* P3-2: fully absorbed by .pi-btn --solid. */
-/* Editorial-freshness chip on venue cards. Three tiers, colour-coded:
-   fresh (≤35 days, accent), recent (36–120 days, soft), stale (older or
-   unknown, muted). The aim is an honest signal, not a precise age. */
-.venue-card__verified {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  margin: 0.6rem 0 0;
-  font-family: var(--font-ui);
-  font-size: 0.68rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-.venue-card__verified-dot {
-  display: inline-block;
-  width: 0.45rem;
-  height: 0.45rem;
-  border-radius: 50%;
-  background: currentColor;
-}
-.venue-card__verified--fresh { color: var(--accent); }
-.venue-card__verified--recent { color: var(--soft); }
-.venue-card__verified--stale {
-  color: var(--soft);
-  opacity: 0.7;
-}
 
 .venue-card__book:hover {
   border-color: var(--accent);
@@ -1681,18 +1593,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   background: none;
   pointer-events: none;
 }
-.subpage-hero__caption {
-  position: absolute;
-  bottom: 1rem;
-  left: 1.1rem;
-  font-family: var(--font-ui);
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: #fff;
-  text-shadow: 0 1px 4px rgb(0 0 0 / .6);
-}
 
 @media (max-width: 860px) {
   .subpage-hero__inner {
@@ -1899,20 +1799,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   margin-bottom: 2.5rem;
 }
 
-.article__byline {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 0;
-  margin-bottom: 2.5rem;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.article__byline-name {
-  font-size: 0.78rem;
-  font-weight: 500;
-  color: var(--text);
-}
 
 .article__hero {
   position: relative;
@@ -2263,78 +2149,14 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   color: var(--accent);
 }
 
-/* =========================================================
-   WHY INSIDER (homepage closing pitch)
-   ========================================================= */
-.why-insider {
-  background: var(--bg-dark);
-  color: var(--white);
-  padding: clamp(4.5rem, 9vw, 7rem) 0;
-}
 .why-insider__inner {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: clamp(3rem, 6vw, 6rem);
   align-items: start;
 }
-.why-insider__lead {
-  margin-bottom: 1.75rem;
-}
-.why-insider__lead .label {
-  display: block;
-  color: var(--gold);
-  margin-bottom: 0.85rem;
-}
-.why-insider__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.2vw, 2.8rem);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-  color: var(--white);
-}
-.why-insider__body {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.why-insider__body p {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  color: rgba(253, 252, 250, 0.6);
-}
-.why-insider__stats {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  padding-top: 0.5rem;
-}
-.why-insider__stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-.why-insider__stat-number {
-  font-family: var(--font-display);
-  font-size: clamp(2.8rem, 5vw, 3.8rem);
-  font-weight: 600;
-  line-height: 1;
-  color: var(--gold);
-}
-.why-insider__stat-label {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(253, 252, 250, 0.4);
-}
 @media (max-width: 768px) {
   .why-insider__inner { grid-template-columns: 1fr; }
-  .why-insider__stats {
-    flex-direction: row;
-    gap: clamp(2rem, 6vw, 3.5rem);
-    padding-top: 1.5rem;
-  }
 }
 
 /* =========================================================
@@ -2606,49 +2428,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   letter-spacing: -0.005em;
 }
 
-/* ── 3. What you get - numbered four-up ── */
-/* ── Editions - editorial rhythms within The Insider publication ── */
-.news-editions {
-  padding: clamp(2.8rem, 6vw, 4.5rem) 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.news-editions__inner {
-  max-width: 520px;
-}
-.news-editions__list {
-  list-style: none;
-  margin: 1.2rem 0 1.4rem;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-.news-editions__item {
-  font-family: var(--font-display);
-  font-size: clamp(1.1rem, 2.2vw, 1.3rem);
-  font-weight: 500;
-  color: var(--dark);
-  padding-left: 1.1rem;
-  position: relative;
-}
-.news-editions__item::before {
-  content: ' - ';
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: 400;
-}
-.news-editions__note {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 0.95rem;
-  color: var(--soft);
-  line-height: 1.5;
-  margin: 0;
-}
 
 .news-promise {
   padding: clamp(3.5rem, 8vw, 6rem) 0;
@@ -2808,7 +2587,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .news-hero__dek { font-size: 1.08rem; }
   .news-hero__form { padding: 1.2rem 1rem; }
   .news-hero__proof { gap: 0.7rem 1.6rem; font-size: 0.7rem; }
-  .news-editions__item { font-size: 1.05rem; }
   .news-promise__grid { grid-template-columns: 1fr; }
   .news-trust__grid { grid-template-columns: 1fr; gap: 1.4rem; }
 }
@@ -2831,14 +2609,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   max-width: 620px;
   margin: 0 auto;
   text-align: center;
-}
-.newsletter__label {
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 1rem;
 }
 .newsletter__title {
   font-family: var(--font-display);
@@ -2867,37 +2637,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   margin-bottom: 2.5rem;
   align-items: center;
 }
-.newsletter__fallback {
-  width: 100%;
-  max-width: 560px;
-  padding: 1rem 1.1rem;
-  border: 1px solid rgba(253,252,250,0.12);
-  border-radius: 1rem;
-  background: rgba(253,252,250,0.04);
-  text-align: center;
-}
-.newsletter__fallback-title {
-  margin: 0 0 0.35rem;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  color: var(--white);
-}
-.newsletter__fallback-body {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: rgba(253,252,250,0.72);
-}
-.newsletter__fallback-link {
-  display: inline-flex;
-  margin-top: 0.7rem;
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--gold);
-}
 .newsletter__embed {
   width: 100%;
   min-height: 120px;
@@ -2910,13 +2649,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   margin-left: auto;
   margin-right: auto;
   border-radius: var(--radius-card-sm);
-}
-.newsletter__stack .newsletter__proofs {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  text-align: left;
-  margin-top: 0;
 }
 .newsletter__disclaimer {
   font-size: 0.72rem;
@@ -2945,31 +2677,10 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
 }
 /* P3-2: fully absorbed by .pi-btn --solid. */
 .newsletter__submit:hover { background: var(--acc-h); }
-.newsletter__proofs {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
 .proof {
   display: flex;
   gap: 1rem;
   align-items: flex-start;
-}
-.proof__icon {
-  font-size: 1.1rem;
-  opacity: 0.5;
-  flex-shrink: 0;
-  margin-top: 0.1rem;
-}
-.proof__text {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: rgba(253,252,250,0.6);
-}
-.proof__text strong {
-  color: rgba(253,252,250,0.85);
-  font-weight: 500;
-  display: block;
 }
 
 /* =========================================================
@@ -2978,20 +2689,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
 .stack-sm > * + * { margin-top: 0.75rem; }
 .stack-md > * + * { margin-top: 1.5rem; }
 
-/* Preview banner that signals the rebuild is non-production */
-.preview-banner {
-  background: var(--bg-dark);
-  color: rgba(253,252,250,0.85);
-  text-align: center;
-  font-size: 0.66rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  padding: 0.55rem 1rem;
-}
-.preview-banner strong { color: var(--gold); font-weight: 600; }
-.preview-banner a { color: var(--gold); border-bottom: 1px solid rgba(7, 158, 165,0.4); }
-.preview-banner a:hover { color: var(--white); }
 
 /* =========================================================
    RESPONSIVE
@@ -3001,7 +2698,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .venue-detail__grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 768px) {
-  .cover__inner { grid-template-columns: 1fr; }
   .cover__visual { aspect-ratio: 16 / 9; }
   .section-hero__inner { grid-template-columns: 1fr; gap: 2.5rem; }
   .section-hero__visual { aspect-ratio: 16 / 9; }
@@ -3009,7 +2705,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .venues__grid { grid-template-columns: 1fr; }
   .places__grid { grid-template-columns: 1fr; }
   .newsletter__inner { grid-template-columns: 1fr; }
-  .newsletter__stack .newsletter__proofs { grid-template-columns: 1fr; }
   .masthead__nav { display: none; }
   /* V4 emergency mobile header kill-switch:
      hide Ask PI / subscribe header actions on small screens.
@@ -3017,7 +2712,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .v4-mobile-actions .v4-ask-pill { display: none !important; }
   .v4-actions { display: none !important; }
   .v4-actions .v4-ask-pill { display: none !important; }
-  .v4-actions .v4-subscribe-cta { display: none !important; }
 }
 
 /* =========================================================
@@ -3057,14 +2751,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
 .breadcrumbs__item a:hover { color: var(--accent); }
 .breadcrumbs__item span[aria-current] { color: var(--text); font-weight: 500; }
 
-/* =========================================================
-   FEATURE COMPACT VARIANT + GRADIENT VARIANTS
-   ========================================================= */
-.feature--compact {
-  padding: clamp(3rem, 6vw, 5rem) 0;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg-alt);
-}
 .feature__image-block--bay {
   background: linear-gradient(160deg, #B8D4E8 0%, #7BACCB 40%, #4A7FA3 80%, #2F5A80 100%);
 }
@@ -3292,21 +2978,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   font-style: normal;
   flex: 1;
   margin-bottom: 1.25rem;
-}
-.itinerary-card__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.5rem;
-}
-.itinerary-card__chips span {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--soft);
-  padding: 0.25rem 0.6rem;
-  border: 1px solid var(--border);
 }
 .itinerary-card__actions {
   display: flex;
@@ -3583,13 +3254,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   flex-wrap: wrap;
   margin: 1.5rem 0 2rem;
 }
-/* P3-2: fully absorbed by .pi-btn --solid. */
-.itinerary-detail__cta-note {
-  font-size: 0.72rem;
-  color: var(--soft);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
 
 /* Where you sleep tonight - slot 2 */
 .where-you-sleep {
@@ -3850,7 +3514,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .experience-grid { grid-template-columns: 1fr; }
   .itinerary-grid { grid-template-columns: 1fr; }
   .zone-intro__grid { grid-template-columns: 1fr; }
-  .zone-intro__grid--four { grid-template-columns: 1fr; }
   .stop-item { grid-template-columns: 4rem 1fr; gap: 1rem; }
 }
 
@@ -3868,28 +3531,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   gap: 1.5rem;
   flex-wrap: wrap;
 }
-.issue-ribbon__label { flex-shrink: 0; }
-.issue-ribbon__stats {
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 3.5rem);
-  flex-wrap: wrap;
-  list-style: none;
-}
-.issue-ribbon__stats > div { display: flex; flex-direction: column; gap: 0.15rem; }
-.issue-ribbon__stats dt {
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-.issue-ribbon__stats dd {
-  font-family: var(--font-display);
-  font-size: 1.45rem;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--dark);
-}
 
 /* =========================================================
    INTENT STRIP  -  reader-intent discovery row.
@@ -3899,12 +3540,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   padding: clamp(3.5rem, 7vw, 5rem) 0;
   border-bottom: 1px solid var(--border);
   background: var(--bg);
-}
-.intent-strip--alt { background: var(--bg-alt); }
-.intent-chips {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
 }
 .intent-chip {
   display: flex;
@@ -3921,139 +3556,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   border-color: var(--accent);
   box-shadow: 0 10px 24px rgba(0, 54, 44, 0.06);
 }
-.intent-chip:hover .intent-chip__label { color: var(--accent); }
-.intent-chip__label {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.005em;
-  color: var(--dark);
-}
-.intent-chip__note {
-  font-size: 0.78rem;
-  line-height: 1.5;
-  color: var(--soft);
-}
 
-/* =========================================================
-   EDITOR'S DESK  -  seasonal framing block on the Journal hub.
-   Two-column note with a hand-ruled feel: headline + body on the
-   left, format key on the right. Sits between the section hero
-   and the feature story so the hub reads like an issue, not an
-   archive.
-   ========================================================= */
-.editors-desk {
-  padding: clamp(3.25rem, 6vw, 4.75rem) 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-.editors-desk__inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
-  align-items: start;
-  padding-top: 2.25rem;
-  border-top: 1px solid var(--border);
-  position: relative;
-}
-.editors-desk__inner::before {
-  content: '';
-  position: absolute;
-  top: -1px;
-  left: 0;
-  width: 3.25rem;
-  height: 3px;
-  background: var(--accent);
-}
-.editors-desk__col {
-  min-width: 0;
-}
-.editors-desk__col .label {
-  display: block;
-  margin-bottom: 1.1rem;
-}
-.editors-desk__title {
-  font-size: clamp(1.75rem, 3.3vw, 2.45rem);
-  font-weight: 600;
-  letter-spacing: -0.015em;
-  line-height: 1.08;
-  margin-bottom: 1.35rem;
-  max-width: 22ch;
-}
-.editors-desk__body {
-  font-size: 0.97rem;
-  line-height: 1.75;
-  color: var(--text);
-  max-width: 58ch;
-}
-.editors-desk__body + .editors-desk__body { margin-top: 1rem; }
-.editors-desk__body em {
-  font-family: var(--font-display);
-  font-style: normal;
-  color: var(--accent);
-  font-size: 1.05em;
-}
-.editors-desk__formats {
-  padding: 1.75rem 1.75rem 1.9rem;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-top: 3px solid var(--gold);
-  border-radius: var(--radius-m);
-}
-.editors-desk__formats .label {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  color: var(--gold-text);
-  margin-bottom: 1.25rem;
-}
-.editors-desk__format-list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-.editors-desk__format-list li {
-  font-size: 0.85rem;
-  line-height: 1.45;
-  color: var(--soft);
-  padding: 0.65rem 0 0.65rem 0;
-  border-bottom: 1px solid var(--border);
-  position: relative;
-}
-.editors-desk__format-list li:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.editors-desk__format-list strong {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  font-weight: 600;
-  font-style: normal;
-  color: var(--dark);
-  letter-spacing: -0.01em;
-  margin-bottom: 0.15rem;
-}
-.editors-desk__format-list strong::before {
-  content: '';
-  display: inline-block;
-  width: 1.1rem;
-  height: 1px;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-@media (max-width: 760px) {
-  .editors-desk__inner {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 2.25rem;
-  }
-  .editors-desk__formats {
-    padding: 1.4rem 1.35rem 1.5rem;
-  }
-}
 
 /* =========================================================
    PLANNING GUIDES  -  curated service-page index on journal hub.
@@ -4066,70 +3569,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
-}
-.planning-guides__header {
-  max-width: 680px;
-  margin: 0 auto 2.5rem;
-  text-align: center;
-}
-.planning-guides__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.75rem, 3vw, 2.4rem);
-  font-weight: 500;
-  line-height: 1.1;
-  letter-spacing: -0.005em;
-  color: var(--dark);
-  margin: 0.6rem 0 0.9rem;
-}
-.planning-guides__dek {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: var(--soft);
-  margin: 0;
-}
-.planning-guides__grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--border);
-  border-left: 1px solid var(--border);
-}
-.planning-guides__grid li {
-  border-right: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.planning-guides__grid a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.45rem;
-  padding: 1.25rem 1.5rem;
-  min-height: 110px;
-  justify-content: center;
-  text-decoration: none;
-  color: var(--dark);
-  background: var(--white);
-  transition: background .25s var(--ease);
-}
-.planning-guides__grid a:hover {
-  background: rgba(11, 90, 72, 0.04);
-}
-.planning-guides__eyebrow {
-  font-family: var(--font-ui);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--accent);
-}
-.planning-guides__name {
-  font-family: var(--font-display);
-  font-size: 1.12rem;
-  font-weight: 500;
-  line-height: 1.25;
-  color: var(--dark);
 }
 
 /* =========================================================
@@ -4168,28 +3607,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   text-transform: uppercase;
   color: inherit;
 }
-.format-chip__count {
-  font-size: 0.66rem;
-  font-weight: 600;
-  color: var(--soft);
-  background: var(--bg-alt);
-  padding: 0.1rem 0.45rem;
-  border-radius: var(--radius-pill);
-}
 
-/* =========================================================
-   VENUES  -  additional modifiers and supplementary bits.
-   ========================================================= */
-.venues--alt { background: var(--bg); }
-.venues--alt + .venues--alt { border-top: none; }
-.venues__count {
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--soft);
-  padding-top: 0.25rem;
-}
 
 /* Places index & homepage  -  section footer link + sub lede */
 .places__sub {
@@ -4200,17 +3618,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   max-width: 58ch;
   margin-top: 0.7rem;
 }
-.places__footer {
-  margin-top: 2rem;
-  text-align: right;
-}
 
-/* Four-up variant for place-hub snapshot cards */
-.zone-intro__grid--four {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.25rem;
-}
 
 /* Three-up + two-up variants used by WineSubregionTemplate.
    Mobile collapses to a single column via the existing
@@ -4306,54 +3714,9 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
 }
-.seasonal-shelf__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  margin-top: 2rem;
-}
-.seasonal-shelf__col { display: flex; flex-direction: column; gap: 1rem; }
-.seasonal-shelf__list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-}
-.seasonal-shelf__list li { border-top: 1px solid var(--border); }
-.seasonal-shelf__list li:last-child { border-bottom: 1px solid var(--border); }
-.seasonal-shelf__list a {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
-  padding: 1rem 0;
-  transition: color .18s var(--ease);
-}
-.seasonal-shelf__list a:hover { color: var(--accent); }
-.seasonal-shelf__list a:hover .seasonal-shelf__name { color: var(--accent); }
-.seasonal-shelf__name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  line-height: 1.2;
-  color: var(--dark);
-}
-.seasonal-shelf__note {
-  font-size: 0.82rem;
-  line-height: 1.5;
-  color: var(--soft);
-  font-style: normal;
-}
 
 @media (max-width: 900px) {
-  .intent-chips { grid-template-columns: repeat(2, 1fr); }
-  .zone-intro__grid--four { grid-template-columns: repeat(2, 1fr); }
   .issue-ribbon__inner { flex-direction: column; align-items: flex-start; }
-  .seasonal-shelf__grid { grid-template-columns: 1fr; }
-}
-@media (max-width: 560px) {
-  .intent-chips { grid-template-columns: 1fr; }
 }
 
 /* =========================================================
@@ -4918,15 +4281,6 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   background-color: var(--bg-alt);
   border-radius: var(--radius-m);
   filter: saturate(0.92) contrast(1.02);
-}
-.letter__image-cap {
-  margin-top: 0.75rem;
-  font-family: var(--font-display);
-  font-style: normal;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  color: var(--soft);
-  max-width: 40ch;
 }
 
 /* =========================================================
@@ -5521,152 +4875,8 @@ p.has-drop-cap::first-letter {
   letter-spacing: -0.02em;
 }
 
-/* =========================================================
-   SECTION STANDFIRST  -  italic accented intro paragraph for
-   selected sections. Larger than body, set in serif italic, soft
-   gold. Creates a magazine-spread voice moment.
-   ========================================================= */
-.section-standfirst,
-.venues__sub--standfirst {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-size: clamp(1.1rem, 1.55vw, 1.32rem);
-  line-height: 1.5;
-  color: #336b5e;
-  max-width: 56ch;
-  margin: 0.4rem 0 1rem;
-  font-weight: 500;
-  letter-spacing: 0.005em;
-}
 
-/* =========================================================
-   HUB FORMATS  -  compact format-finder grid used at the foot
-   of hub pages (eat, stay, wine, escape) as the "or jump to
-   format" lane. Gold-hairline cell grid with an editorial
-   sub-line per chip.
-   ========================================================= */
-.hub-formats {
-  padding: clamp(2.5rem, 5vw, 4rem) 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-.hub-formats__intro {
-  max-width: 60ch;
-  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
-}
-.hub-formats__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.85rem, 3.4vw, 2.4rem);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.012em;
-  color: var(--dark);
-  margin-top: 0.6rem;
-  margin-bottom: 0.7rem;
-}
-.hub-formats__dek {
-  font-family: var(--font-display);
-  font-style: normal;
-  font-weight: 500;
-  font-size: 1.1rem;
-  line-height: 1.55;
-  color: #336b5e;
-  max-width: 56ch;
-}
-.hub-formats__grid {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 1px;
-  background: rgba(74, 90, 87, 0.18);
-  border: 1px solid rgba(74, 90, 87, 0.18);
-  border-radius: var(--radius-card-sm);
-  overflow: hidden;
-}
-.hub-formats__cell {
-  background: linear-gradient(180deg, var(--white) 0%, var(--bg-alt) 100%);
-  transition: background 0.18s var(--ease);
-}
-.hub-formats__cell:hover { background: rgba(92, 165, 148, 0.06); }
-.hub-formats__link {
-  display: block;
-  padding: 1.15rem 1.35rem;
-  text-decoration: none;
-  color: inherit;
-}
-.hub-formats__label {
-  display: block;
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: var(--dark);
-  margin-bottom: 0.25rem;
-  letter-spacing: -0.005em;
-}
-.hub-formats__sub {
-  display: block;
-  font-size: 0.7rem;
-  color: var(--soft);
-  letter-spacing: 0.04em;
-  line-height: 1.4;
-}
-.hub-formats__cell:hover .hub-formats__label { color: var(--accent); }
 
-/* =========================================================
-   HUB FAQ  -  native-disclosure accordion used at the foot
-   of hub pages. No JS - uses <details>/<summary>. The +/−
-   indicator is built with ::after.
-   ========================================================= */
-/* ── Hub Notebook module ─────────────────────────────────────────────────────
-   One contextual Notebook observation per hub. No feed, no rail.
-   Used on: What’s On, Plans, Explore. */
-.hub-notebook {
-  padding: clamp(1.75rem, 3.5vw, 2.5rem) 0;
-  border-top: 1px solid var(--border);
-}
-.hub-notebook__inner {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 0.35rem 2rem;
-  align-items: start;
-}
-.hub-notebook__inner .label {
-  grid-column: 1 / -1;
-  margin-bottom: 0.1rem;
-}
-.hub-notebook__headline {
-  font-family: var(--font-display);
-  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
-  font-weight: 500;
-  line-height: 1.3;
-  color: var(--text);
-  text-decoration: none;
-  display: block;
-}
-.hub-notebook__headline:hover { color: var(--accent); }
-.hub-notebook__verdict {
-  font-size: 0.84rem;
-  line-height: 1.6;
-  color: var(--soft);
-  margin: 0.3rem 0 0;
-  grid-column: 1;
-}
-.hub-notebook__link {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  color: var(--soft);
-  text-decoration: none;
-  white-space: nowrap;
-  align-self: center;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 1px;
-}
-.hub-notebook__link:hover { color: var(--text); border-color: var(--text); }
-@media (max-width: 640px) {
-  .hub-notebook__inner { grid-template-columns: 1fr; gap: 0.5rem 0; }
-  .hub-notebook__link { justify-self: start; margin-top: 0.25rem; }
-}
 
 .hub-faq {
   padding: clamp(3rem, 6vw, 4.5rem) 0;
@@ -5772,112 +4982,8 @@ p.has-drop-cap::first-letter {
 }
 .guide-callout__body a { color: var(--accent); text-decoration: underline; }
 
-/* Events lens chips  -  reader-intent filter strip on whats-on index */
-.events-lens {
-  padding: clamp(3rem, 6vw, 4.5rem) 0;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-.events-lens__chips {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin-top: 2rem;
-}
-.events-lens__chip {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto;
-  gap: 0.2rem 0.6rem;
-  padding: 1.05rem 1.1rem;
-  background: var(--white);
-  border: 1px solid var(--border-control);
-  border-radius: var(--radius-s);
-  transition: transform .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease);
-}
-.events-lens__chip:hover {
-  transform: translateY(-2px);
-  border-color: var(--accent);
-  box-shadow: 0 10px 24px rgba(0, 54, 44, 0.06);
-}
-.events-lens__chip.is-empty { opacity: 0.4; pointer-events: none; }
-.events-lens__chip-label {
-  font-family: var(--font-display);
-  font-size: 1.18rem;
-  font-weight: 600;
-  line-height: 1.1;
-  color: var(--dark);
-  grid-column: 1;
-  grid-row: 1;
-}
-.events-lens__chip-note {
-  font-size: 0.76rem;
-  color: var(--soft);
-  line-height: 1.5;
-  grid-column: 1;
-  grid-row: 2;
-}
-.events-lens__chip-count {
-  grid-column: 2;
-  grid-row: 1 / span 2;
-  align-self: center;
-  font-size: 0.7rem;
-  font-weight: 600;
-  color: var(--accent);
-  background: var(--bg-alt);
-  padding: 0.18rem 0.55rem;
-  border-radius: var(--radius-pill);
-  min-width: 1.6rem;
-  text-align: center;
-}
 
-/* Events stats sub-bar */
-.events-stats {
-  padding: 2.25rem 0;
-  background: var(--bg-alt);
-  border-bottom: 1px solid var(--border);
-}
-.events-stats__list {
-  display: flex;
-  gap: clamp(1.5rem, 4vw, 3rem);
-  flex-wrap: wrap;
-}
-.events-stats__list > div { display: flex; flex-direction: column; gap: 0.15rem; }
-.events-stats__list dt {
-  font-size: 0.58rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-.events-stats__list dd {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--dark);
-}
-.events-stats__note {
-  margin-top: 1.4rem;
-  font-size: 0.85rem;
-  color: var(--soft);
-  font-style: normal;
-  max-width: 72ch;
-}
-.events-stats__note a { color: var(--accent); border-bottom: 1px solid currentColor; }
 
-/* In-page nav strip for category jumps */
-.events-nav {
-  padding: 2rem 0 2.25rem;
-  background: var(--bg);
-  border-bottom: 1px solid var(--border);
-}
-.events-nav__label { margin-bottom: 0.9rem; }
-.events-nav__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
 
 /* Event grid + EventCard */
 .event-grid {
@@ -6163,54 +5269,6 @@ p.has-drop-cap::first-letter {
   color: #cdf2e9;
 }
 
-/* Skip-this block  -  monthly editorial honesty */
-.skip-block {
-  padding: clamp(3rem, 6vw, 4.5rem) 0;
-  background: var(--bg-deep);
-  color: var(--white);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-.skip-block__inner {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: clamp(2rem, 4vw, 4rem);
-  align-items: start;
-}
-.skip-block .label--accent { color: #cdf2e9; }
-.skip-block__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 600;
-  line-height: 1.15;
-  margin: 0.6rem 0 0.6rem;
-}
-.skip-block__body {
-  font-size: 0.85rem;
-  color: rgba(233, 244, 240, 0.55);
-  font-style: normal;
-}
-.skip-block__list {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.skip-entry {
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 1.2rem;
-}
-.skip-entry__title {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-.skip-entry__title a { color: #cdf2e9; transition: color .18s var(--ease); }
-.skip-entry__title a:hover { color: var(--white); }
-.skip-entry__reason {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(233, 244, 240, 0.85);
-}
 
 /* Event detail page */
 .event-detail {
@@ -6471,15 +5529,12 @@ p.has-drop-cap::first-letter {
 }
 
 @media (max-width: 980px) {
-  .events-lens__chips { grid-template-columns: repeat(2, 1fr); }
   .event-grid { grid-template-columns: repeat(2, 1fr); }
   .weekend-picker__inner { grid-template-columns: 1fr; gap: 1.6rem; }
   .weekend-picker__actions { padding-left: 0; border-left: 0; }
-  .skip-block__inner { grid-template-columns: 1fr; gap: 1.6rem; }
   .event-detail__body { grid-template-columns: 1fr; }
 }
 @media (max-width: 600px) {
-  .events-lens__chips { grid-template-columns: 1fr; }
   .event-grid { grid-template-columns: 1fr; }
 }
 
@@ -6564,49 +5619,10 @@ p.has-drop-cap::first-letter {
   color: var(--soft);
 }
 
-.about-coverage {
-  padding: 4rem 0;
-}
 .about-coverage__inner {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
-}
-.about-coverage__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  line-height: 1.06;
-  color: var(--dark);
-  margin: 0.8rem 0 1rem;
-}
-.about-coverage__dek {
-  font-size: 0.92rem;
-  line-height: 1.7;
-  color: var(--soft);
-  max-width: 580px;
-  margin: 0 auto 2.5rem;
-}
-.about-coverage__stats {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  text-align: center;
-}
-.about-coverage__stats dd {
-  font-family: var(--font-display);
-  font-size: clamp(2.4rem, 4vw, 3.4rem);
-  line-height: 1;
-  color: var(--accent);
-  font-weight: 600;
-}
-.about-coverage__stats dt {
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--soft);
-  margin-top: 0.4rem;
 }
 
 /* (.about-build and .about-masthead padding/background handled by the
@@ -6653,7 +5669,6 @@ p.has-drop-cap::first-letter {
   .about-mission__grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .about-mission__lead { position: static; }
   .about-principles__grid { grid-template-columns: 1fr; }
-  .about-coverage__stats { grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
 }
 
 /* =========================================================
@@ -6691,21 +5706,6 @@ p.has-drop-cap::first-letter {
   line-height: 1.7;
   color: var(--soft);
   flex: 1;
-}
-/* A route, not a mailbox. Sits above the email address on cards where the
-   site has a structured intake (/corrections/, /partners/#enquire) so the
-   faster path reads first and the mailbox stays as the fallback. */
-.contact-card__action {
-  font-family: var(--font-ui);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--dark);
-  border-bottom: 1px solid var(--accent);
-  align-self: flex-start;
-  margin-bottom: 0.35rem;
-}
-.contact-card__action:hover {
-  color: var(--accent);
 }
 .contact-card__email {
   font-family: var(--font-ui);
@@ -6749,54 +5749,6 @@ p.has-drop-cap::first-letter {
   margin-bottom: 0;
 }
 
-/* Editorial storytelling sections (Peninsula Days, People Behind the Peninsula) */
-.contact-editorial {
-  padding: 3.6rem 0;
-  border-top: 1px solid var(--border);
-}
-.contact-editorial--people {
-  border-top: 1px solid var(--border);
-  background: var(--bg-alt);
-}
-.contact-editorial__inner {
-  max-width: 680px;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-.contact-editorial__header {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-.contact-editorial__icon {
-  font-size: 1.6rem;
-  line-height: 1;
-}
-.contact-editorial__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.55rem, 3vw, 2rem);
-  font-weight: 600;
-  line-height: 1.15;
-  color: var(--dark);
-}
-.contact-editorial__lead {
-  font-family: var(--font-display);
-  font-size: clamp(1.05rem, 2vw, 1.2rem);
-  line-height: 1.5;
-  color: var(--soft);
-  font-style: normal;
-}
-.contact-editorial__body {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-}
-.contact-editorial__body p {
-  font-size: 0.92rem;
-  line-height: 1.75;
-  color: var(--soft);
-}
 
 @media (max-width: 768px) {
   .contact-reasons {
@@ -6819,78 +5771,12 @@ p.has-drop-cap::first-letter {
   .contact-expectations {
     padding: 1.8rem 0 2.6rem;
   }
-  .contact-editorial {
-    padding: 2.4rem 0;
-  }
 }
 
-/* =========================================================
-   ARTICLE TAGS & NAVIGATION
-   ========================================================= */
-.article__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 1.2rem;
-  margin-bottom: 1.8rem;
-}
-.article__tag {
-  font-family: var(--font-ui);
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft);
-  background: var(--bg-alt);
-  padding: 0.3rem 0.65rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-}
 
-.article__byline-updated {
-  font-size: 0.75rem;
-  color: var(--soft);
-  margin-left: 0.6rem;
-  font-style: normal;
-}
 
-/* =========================================================
-   ARTICLE SHARE BAR
-   ========================================================= */
-.article__share {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-  padding: 1.5rem 0;
-  margin-top: 2.5rem;
-  border-top: 1px solid var(--border);
-}
-.article__share-label {
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--soft);
-  flex-shrink: 0;
-}
-.article__share-actions {
-  display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
-}
-/* P3-2: fully absorbed by .pi-btn --ghost --sm. */
-/* KEPT: copied-confirmation state. The primitive has no success state. */
-.article__share-btn.is-copied {
-  border-color: var(--gold-text);
-  color: var(--gold-text);
-  background: rgba(7, 158, 165,0.06);
-}
 @media (max-width: 600px) {
-  .article__share { gap: 0.85rem; }
   .article__share-btn-label { display: none; }
-  .article__share-btn { padding: var(--space-1) var(--space-3); }
 }
 
 .article-nav {
@@ -6939,29 +5825,6 @@ p.has-drop-cap::first-letter {
   .article-nav__link--next { text-align: left; }
 }
 
-/* =========================================================
-   VENUE DETAIL TAGS
-   ========================================================= */
-.venue-detail__tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-.venue-detail__tag {
-  font-family: var(--font-ui);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft);
-  background: var(--bg-alt);
-  padding: 0.28rem 0.6rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border);
-}
 .venue-detail__price-band {
   font-weight: 500;
   color: var(--accent);
@@ -7064,43 +5927,13 @@ p.has-drop-cap::first-letter {
   color: var(--accent);
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   NEWSLETTER STANDALONE PAGE
-   ═══════════════════════════════════════════════════════════════════ */
-.newsletter-signup {
-  padding: 4rem 0;
-}
 .newsletter-signup__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem;
   align-items: start;
 }
-.newsletter-signup__title {
-  font-family: var(--serif);
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  margin-bottom: 1.5rem;
-}
-.newsletter-signup__list {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-.newsletter-signup__list li {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: rgba(0, 40, 34, 0.75);
-}
-.newsletter-signup__list strong {
-  color: var(--ink);
-  font-weight: 600;
-}
 .newsletter__form--standalone {
-  position: sticky;
-  top: 6rem;
-}
-.newsletter__embed-wrap--standalone {
   position: sticky;
   top: 6rem;
 }
@@ -7116,30 +5949,13 @@ p.has-drop-cap::first-letter {
 }
 
 @media (max-width: 768px) {
-  .newsletter-signup { padding: 2rem 0 3rem; }
   .newsletter-signup__inner {
     grid-template-columns: 1fr;
     gap: 2.25rem;
     min-width: 0;
   }
-  .newsletter-signup__form-block {
-    order: -1;
-    min-width: 0;
-    max-width: 100%;
-  }
-  .newsletter-signup__pitch {
-    min-width: 0;
-    max-width: 100%;
-  }
   .newsletter-proof__promises { grid-template-columns: 1fr; }
   .newsletter__form--standalone { position: static; }
-  .newsletter__embed-wrap--standalone {
-    position: static;
-    max-width: 100%;
-    width: 100%;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
   .newsletter__embed {
     width: 100% !important;
     max-width: 100% !important;
@@ -7170,42 +5986,6 @@ p.has-drop-cap::first-letter {
   display: none;
 }
 
-/* --- Mobile-only concierge pill in the masthead nav row ---
-   Editorial-brand pill: white surface, accent-coloured border,
-   sparkle icon + "Ask" label. Hidden on desktop where the floating
-   bottom-right bubble does the same job. Calls window.openConcierge
-   via the data-pi-trigger handler in Masthead.astro. */
-.masthead__concierge-mobile {
-  display: none;
-  align-items: center;
-  gap: 0;
-  padding: 0.42rem 0.85rem;
-  background: var(--bg);
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: var(--radius-pill);
-  font-family: var(--font-ui);
-  font-size: 0.74rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: background .18s var(--ease), color .18s var(--ease);
-  line-height: 1;
-  white-space: nowrap;
-}
-.masthead__concierge-mobile:hover,
-.masthead__concierge-mobile:active {
-  background: var(--accent);
-  color: var(--white);
-}
-.masthead__concierge-mobile svg {
-  flex-shrink: 0;
-  display: block;
-}
-.masthead__concierge-mobile__label {
-  display: inline-block;
-}
 
 .masthead__burger {
   display: none;
@@ -7267,17 +6047,6 @@ p.has-drop-cap::first-letter {
   flex-direction: column;
   padding: 0 clamp(1.25rem, 5vw, 2rem);
   min-height: calc(100vh - clamp(4rem, 10vh, 4.75rem));
-}
-.mobile-nav__eyebrow {
-  font-family: Outfit, system-ui, sans-serif;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent);
-  padding: 1.25rem 0 1rem;
-  border-bottom: 1px solid var(--border);
-  margin: 0;
 }
 .mobile-nav__link {
   display: flex;
@@ -7463,7 +6232,6 @@ p.has-drop-cap::first-letter {
   .masthead__nav { display: none; }
   .masthead__cta { display: none; }
   .masthead__cta-mobile { display: none; }
-  .masthead__concierge-mobile { display: inline-flex !important; }
   .masthead__logo-mobile { display: block !important; }
   .masthead__brand { display: none; }
 
@@ -7507,14 +6275,6 @@ p.has-drop-cap::first-letter {
     margin-left: -4px;   /* nudge to the left edge */
     margin-right: 0;
   }
-  .masthead__nav-inner .masthead__search-icon {
-    order: 1;
-    flex: 0 0 auto;
-    display: inline-flex;
-    align-items: center;
-    margin-left: 0;
-  }
-  .masthead__concierge-mobile { order: 3; flex: 0 0 auto; }
   .masthead__burger          { order: 4; flex: 0 0 auto; margin-right: 0; }
 
   /* Floating bottom-right "Ask The Insider" bubble stays visible on
@@ -7523,10 +6283,8 @@ p.has-drop-cap::first-letter {
 
   /* Tighten utility row */
   .masthead__weather { display: none; }
-  .masthead__conditions { display: none; }
   .masthead__edition-mark { display: none; }
   .masthead__edition-label { font-size: 0.8rem; }
-  .masthead__utility-right { gap: 0.7rem; }
   .masthead__utility-links {
     font-size: 0.58rem;
     gap: 0.85rem;
@@ -7546,11 +6304,6 @@ p.has-drop-cap::first-letter {
   .cover__dek {
     font-size: 0.95rem;
     max-width: none;
-  }
-  .cover__inner {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-bottom: 2.5rem;
   }
   .cover__visual { aspect-ratio: 16 / 9; }
 
@@ -7616,13 +6369,6 @@ p.has-drop-cap::first-letter {
     word-break: break-word;
   }
 
-  /* Footer: 2-col is fine at tablet, logo above */
-  .footer__grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .footer__brand {
-    grid-column: 1 / -1;
-  }
 
   /* Pillar nav: bigger touch targets */
   .pillar {
@@ -7684,13 +6430,6 @@ p.has-drop-cap::first-letter {
     padding: 1.5rem 0.75rem;
     gap: 0.8rem;
   }
-  .pillar__icon {
-    width: 26px;
-    height: 26px;
-  }
-  .pillar__name {
-    font-size: 1.2rem;
-  }
 
   /* Featured article */
   .feature {
@@ -7737,10 +6476,6 @@ p.has-drop-cap::first-letter {
     font-size: clamp(1.4rem, 4.5vw, 2rem);
   }
 
-  /* Intent chips: stack full width */
-  .intent-chips {
-    grid-template-columns: 1fr;
-  }
 
   /* Zone cards: single column */
   .zone-intro__grid {
@@ -7748,11 +6483,6 @@ p.has-drop-cap::first-letter {
     gap: 1rem;
   }
 
-  /* Footer: single column */
-  .footer__grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
 
   /* Venue detail */
   .venue-detail__title,
@@ -7770,10 +6500,6 @@ p.has-drop-cap::first-letter {
     font-size: 1.8rem;
   }
 
-  /* About coverage stats */
-  .about-coverage__stats {
-    grid-template-columns: 1fr 1fr;
-  }
 }
 
 /* --- Touch target enforcement (all sizes) --- */
@@ -7788,10 +6514,6 @@ p.has-drop-cap::first-letter {
   align-items: center;
 }
 
-.footer__col a {
-  padding: 0.4rem 0;
-  display: inline-block;
-}
 
 .masthead__cta {
   padding: 0.6rem 1rem;
@@ -7902,45 +6624,11 @@ p.has-drop-cap::first-letter {
     transform: translateY(10px);
     transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
   }
-  .newsletter--visible .newsletter__label {
-    opacity: 1;
-    transform: none;
-  }
-  .newsletter--visible .newsletter__title {
-    opacity: 1;
-    transform: none;
-    transition-delay: 0.13s;
-  }
-  .newsletter--visible .newsletter__body {
-    opacity: 1;
-    transform: none;
-    transition-delay: 0.26s;
-  }
 }
 
 
-.newsletter__embed-wrap--restored {
-  gap: 1rem;
-}
 
-.newsletter__form-frame {
-  position: relative;
-  width: min(100%, 30rem);
-  margin: 0 auto;
-  padding: 0.55rem;
-  border-radius: var(--radius-card-lg);
-  background: linear-gradient(180deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.06) 100%);
-  border: 1px solid rgba(154, 214, 200, 0.24);
-  box-shadow: 0 24px 50px rgba(0,0,0,0.24);
-  overflow: hidden;
-}
 
-.newsletter__form-glow {
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(123, 193, 177, 0.18), transparent 58%);
-  pointer-events: none;
-}
 
 .newsletter__embed {
   position: relative;
@@ -7955,28 +6643,8 @@ p.has-drop-cap::first-letter {
   overflow: hidden;
 }
 
-.newsletter__proof-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem 1.15rem;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(222, 244, 239, 0.68);
-}
 
-.newsletter__proof-row span {
-  position: relative;
-}
 
-.newsletter__proof-row span:not(:last-child)::after {
-  content: '•';
-  position: absolute;
-  right: -0.75rem;
-  color: rgba(123, 193, 177, 0.55);
-}
 
 .newsletter__disclaimer {
   text-align: center;
@@ -8008,11 +6676,6 @@ p.has-drop-cap::first-letter {
     gap: 0.85rem;
   }
 
-  .newsletter__form-frame {
-    width: min(100%, 23rem);
-    padding: 0.45rem;
-    border-radius: var(--radius-card-md);
-  }
 
   .newsletter__embed {
     min-height: 112px !important;
@@ -8021,11 +6684,6 @@ p.has-drop-cap::first-letter {
     border-radius: var(--radius-card-sm);
   }
 
-  .newsletter__proof-row {
-    gap: 0.55rem 0.9rem;
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-  }
 
   .newsletter__disclaimer {
     margin-top: 0.15rem;
@@ -8037,161 +6695,25 @@ p.has-drop-cap::first-letter {
     padding: 2rem 0 1.25rem;
   }
 
-  .footer__grid {
-    gap: 1.5rem;
-  }
 
-  .footer__brand {
-    gap: 0.8rem;
-  }
 
-  .footer__tagline,
-  .footer__dispatch-note {
-    max-width: 24rem;
-  }
 
-  .footer__col ul {
-    gap: 0.65rem;
-  }
 
-  .footer__col li a {
-    display: inline-block;
-    padding: 0.1rem 0;
-  }
 
-  .footer__bottom {
-    gap: 0.45rem;
-    padding-top: 1rem;
-  }
 }
 
 
-.newsletter__embed-wrap--cta {
-  gap: 1rem;
-}
 
-.newsletter__cta-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.9rem;
-  width: min(100%, 30rem);
-  margin: 0 auto;
-  padding: 1.4rem 1.25rem;
-  border-radius: var(--radius-card-lg);
-  background: linear-gradient(180deg, rgba(36, 31, 28, 0.94) 0%, rgba(24, 21, 19, 0.92) 100%);
-  border: 1px solid rgba(123, 193, 177, 0.24);
-  box-shadow: 0 24px 52px rgba(0,0,0,0.24), inset 0 1px 0 rgba(255,255,255,0.05);
-  text-align: center;
-  overflow: hidden;
-}
 
-.newsletter__cta-card::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at top, rgba(123, 193, 177, 0.14), transparent 58%);
-  pointer-events: none;
-}
 
-.newsletter__cta-kicker,
-.newsletter__cta-title,
-.newsletter__cta-body,
-.newsletter__cta-button {
-  position: relative;
-}
 
-.newsletter__cta-kicker {
-  margin: 0;
-  font-size: 0.64rem;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(222, 244, 239, 0.58);
-}
 
-.newsletter__cta-title {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: clamp(1.7rem, 3vw, 2.35rem);
-  line-height: 1.04;
-  letter-spacing: -0.015em;
-  color: #def4ef;
-}
 
-.newsletter__cta-body {
-  margin: 0;
-  max-width: 24rem;
-  font-size: 0.98rem;
-  line-height: 1.65;
-  color: rgba(222, 244, 239, 0.78);
-}
 
-/* P3-2: this sits on the dark newsletter ground, so it is
-   .pi-btn --solid --inverse: a flat --mint fill with a --text label
-   (14.38:1) in place of the old two-stop gradient and drop shadow. */
 
-.newsletter__cta-card:hover .newsletter__cta-button {
-  transform: translateY(-1px);
-  filter: brightness(1.03);
-  box-shadow: 0 16px 28px rgba(0,0,0,0.22);
-}
 
-.newsletter__proof-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.8rem 1.15rem;
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(222, 244, 239, 0.68);
-}
 
-.newsletter__proof-row span {
-  position: relative;
-}
 
-.newsletter__proof-row span:not(:last-child)::after {
-  content: '•';
-  position: absolute;
-  right: -0.75rem;
-  color: rgba(123, 193, 177, 0.55);
-}
-
-@media (max-width: 768px) {
-  .newsletter__cta-card {
-    width: min(100%, 23rem);
-    gap: 0.75rem;
-    padding: 1rem 0.95rem;
-    border-radius: 1rem;
-  }
-
-  .newsletter__cta-title {
-    font-size: clamp(1.4rem, 7vw, 1.85rem);
-  }
-
-  .newsletter__cta-body {
-    font-size: 0.9rem;
-    line-height: 1.55;
-  }
-
-  .newsletter__cta-button {
-    width: 100%;
-    min-height: 2.85rem;
-    padding: 0.85rem 1rem;
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-  }
-
-  .newsletter__proof-row {
-    gap: 0.55rem 0.9rem;
-    font-size: 0.58rem;
-    letter-spacing: 0.14em;
-  }
-}
 
 /* ─── Tour vertical ─────────────────────────────────────────────────────── */
 /* P3-4: fully absorbed by .pi-card. */
@@ -8210,7 +6732,6 @@ p.has-drop-cap::first-letter {
 .tour-card__name a:hover { color: var(--accent); }
 .tour-card__operator { font-size: 0.8rem; color: var(--body-light, #888); margin-bottom: 0.5rem; }
 .tour-card__excerpt { font-size: 0.875rem; color: var(--body); line-height: 1.65; flex: 1; margin-bottom: 1rem; }
-.tour-card__price { font-size: 0.8rem; color: var(--body); }
 /* P3-2: .pi-btn --text owns everything except the card-foot pin. */
 .tour-card__cta { margin-top: auto; }
 .tour-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
@@ -8240,10 +6761,6 @@ p.has-drop-cap::first-letter {
       own wordmark is not double-stacked. */
 .mobile-nav { z-index: calc(var(--z-drawer) + 1) !important; }
 
-/* 2) When the mobile-nav is open, hide the masthead so the wordmark
-      doesn't ghost through the overlay. body.menu-open is toggled
-      by the burger script in BaseLayout. */
-body.menu-open .masthead { visibility: hidden; }
 
 /* When the concierge drawer is full-screen on MOBILE, hide every piece
    of sticky site chrome so the chat panel owns the viewport top-to-
@@ -8390,16 +6907,6 @@ body[data-path^="/ask"] .concierge-fab {
     border-radius: var(--radius-m);
     background: var(--bg);
   }
-  .pillar__icon {
-    width: 22px !important;
-    height: 22px !important;
-    margin: 0 0 0.4rem !important;
-  }
-  .pillar__name {
-    font-size: 0.95rem !important;
-    line-height: 1.15;
-  }
-  .pillar__sub { display: none; }
 
   /* ---- Phase 2 - Make the surviving sections punch ---- */
 
@@ -8443,27 +6950,7 @@ body[data-path^="/ask"] .concierge-fab {
   .letter__frame { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
   .letter__side { order: -1; max-width: 280px; }
   .letter__image { aspect-ratio: 16 / 10; }
-  .letter__image-cap { font-size: 0.82rem; }
 
-  /* Dining showcase: horizontal scroll-snap rail. One card visible
-     at a time, swipe through. Saves ~1600px of vertical. */
-  .venues--scroll-mobile .venues__grid {
-    display: flex !important;
-    overflow-x: auto;
-    overflow-y: hidden;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 1rem;
-    padding: 0.25rem 1rem 0.5rem;
-    margin: 0 -1rem;
-  }
-  .venues--scroll-mobile .venues__grid::-webkit-scrollbar { display: none; }
-  .venues--scroll-mobile .venues__grid > .venue-card,
-  .venues--scroll-mobile .venues__grid > * {
-    flex: 0 0 82vw;
-    scroll-snap-align: start;
-  }
 }
 
 /* =========================================================
@@ -8744,127 +7231,9 @@ body.concierge-open .subscribe-pill {
   text-underline-offset: 3px;
 }
 
-/* ============================================================================
-   WHAT'S ON TEMPORAL TABS (Phase 2 WS2B)
-   Time-window discovery on /whats-on/. Today / Weekend / Week / Month.
-   Pre-rendered panels swap visibility via aria-selected. Keyboard arrows
-   move between tabs.
-   ============================================================================ */
 
-.whatson-temporal {
-  padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(1.5rem, 3vw, 2.5rem);
-}
-.whatson-temporal__header {
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
-  max-width: 720px;
-}
-.whatson-temporal__title {
-  font-family: var(--font-display);
-  font-size: clamp(1.65rem, 3vw, 2.3rem);
-  font-weight: 500;
-  color: var(--text);
-  margin: 0.5rem 0 0.75rem;
-  letter-spacing: -0.01em;
-  line-height: 1.1;
-}
-.whatson-temporal__sub {
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--soft);
-  margin: 0;
-}
 
-.whatson-temporal__tabs {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin: clamp(1rem, 2vw, 1.5rem) 0 clamp(1.25rem, 2.5vw, 1.75rem);
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0;
-}
-.whatson-temporal__tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.6rem 1rem;
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  background: transparent;
-  border: 1px solid transparent;
-  border-bottom: 2px solid transparent;
-  color: var(--soft);
-  cursor: pointer;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  margin-bottom: -1px;
-}
-.whatson-temporal__tab:hover { color: var(--accent); }
-.whatson-temporal__tab[aria-selected="true"] {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-  font-weight: 600;
-}
-.whatson-temporal__tab:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
-}
-.whatson-temporal__tab-count {
-  display: inline-block;
-  min-width: 1.5em;
-  text-align: center;
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  padding: 0.1rem 0.4rem;
-  background: var(--paper);
-  border: 1px solid var(--border-control);
-  border-radius: var(--radius-pill);
-  color: var(--soft);
-}
-.whatson-temporal__tab[aria-selected="true"] .whatson-temporal__tab-count {
-  color: var(--accent);
-  border-color: var(--accent);
-}
 
-.whatson-temporal__panel[hidden] { display: none; }
-.whatson-temporal__blurb {
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  color: var(--soft);
-  margin: 0 0 clamp(1rem, 2vw, 1.5rem);
-}
-.whatson-temporal__empty {
-  margin: 1rem 0 0;
-  padding: 1.5rem;
-  border: 1px dashed var(--border);
-  text-align: center;
-  font-family: var(--font-ui);
-  font-size: 0.95rem;
-  color: var(--soft);
-}
-
-/* ============================================================================
-   SAVE / SHORTLIST (Phase 2 WS2E)
-   Save button on cards, masthead Saved link, and /saved/ page.
-   ============================================================================ */
-
-/* P3-2: ground, border, radius, type, hover and focus come from
-   .pi-btn --ghost --sm.
-   KEPT: the aria-pressed saved state. The primitive has no toggle state. */
-.save-button[aria-pressed="true"] {
-  color: var(--accent);
-  border-color: var(--accent);
-  background: rgba(7, 158, 165, 0.08);
-}
-.save-button[aria-pressed="true"] .save-button__icon path {
-  fill: currentColor;
-}
-.save-button__icon {
-  display: inline-block;
-  flex-shrink: 0;
-}
 
 /* Masthead "Saved (N)" link - hidden until at least one item saved. */
 .masthead__saved-link {
@@ -9101,47 +7470,7 @@ body.concierge-open .subscribe-pill {
   margin-top: 0;
 }
 
-/* ============================================================================
-   THE INSIDER MAP (Phase 2 WS2D)
-   Map-led discovery on /map/. Leaflet + markercluster from CDN; everything
-   below is the page chrome around the map canvas.
-   ============================================================================ */
 
-.map-page {
-  padding: 0 0 clamp(2rem, 4vw, 3rem);
-}
-.map-page__intro {
-  padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1rem, 2vw, 1.5rem);
-  border-bottom: 1px solid var(--border);
-}
-.map-page__title {
-  font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.05;
-  color: var(--text);
-  margin: 0.4rem 0 0.7rem;
-}
-.map-page__sub {
-  font-family: var(--font-ui);
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--soft);
-  max-width: 760px;
-  margin: 0;
-}
-
-.map-page__chrome {
-  padding-top: clamp(1rem, 2vw, 1.5rem);
-}
-.map-page__filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem;
-  padding: 0 clamp(1rem, 2vw, 1.5rem) clamp(0.85rem, 1.5vw, 1.1rem);
-  border-bottom: 1px solid var(--border);
-}
 
 .map-pin-toggle {
   display: inline-flex;
@@ -9186,193 +7515,15 @@ body.concierge-open .subscribe-pill {
   padding-left: 0.2rem;
 }
 
-/* List/Map tab bar - retired 2026-06-11: mobile is map-only (the list
-   is hidden on phones per James), desktop always shows both panels, so
-   the bar has no remaining job. Markup + controller kept for an easy
-   revert. */
-.map-page__tabs {
-  display: none;
-  border-bottom: 2px solid var(--border);
-  background: var(--paper);
-}
-.map-page__tab {
-  flex: 1;
-  background: transparent;
-  border: 0;
-  border-bottom: 2px solid transparent;
-  margin-bottom: -2px;
-  padding: 0.75rem 1rem;
-  font-family: var(--font-ui);
-  font-size: 0.82rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--soft);
-  cursor: pointer;
-  transition: color .15s ease, border-color .15s ease;
-}
-.map-page__tab--active {
-  color: var(--accent);
-  border-bottom-color: var(--accent);
-}
 @media (min-width: 880px) {
-  .map-page__tabs { display: none; }
   /* On desktop, always show both panels */
   [data-map-panel] { display: flex !important; }
   [data-map-panel][hidden] { display: flex !important; }
 }
 
-.map-page__layout {
-  display: grid;
-  grid-template-columns: 1fr;
-  min-height: 70vh;
-}
-@media (min-width: 880px) {
-  .map-page__layout {
-    grid-template-columns: 320px 1fr;
-    min-height: 75vh;
-  }
-}
 
-@media (max-width: 879px) {
-  /* Mobile is map-only - hide the list panel (James 2026-06-11). */
-  .map-page__list { display: none !important; }
-}
-.map-page__list {
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  flex-direction: column;
-  background: var(--paper);
-}
-@media (min-width: 880px) {
-  .map-page__list {
-    border-right: 1px solid var(--border);
-    border-bottom: 0;
-    max-height: 75vh;
-    overflow-y: auto;
-  }
-}
-.map-page__list-header {
-  padding: 0.85rem 1rem;
-  border-bottom: 1px solid var(--border);
-  background: var(--paper);
-  position: sticky;
-  top: 0;
-  z-index: 1;
-}
-.map-page__search {
-  width: 100%;
-  font-family: var(--font-ui);
-  font-size: 0.92rem;
-  padding: 0.55rem 0.7rem;
-  border: 1px solid var(--border-control);
-  background: var(--bg, #fff);
-  color: var(--dark);
-  margin-bottom: 0.5rem;
-}
-.map-page__search:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
-}
-.map-page__list-count {
-  font-family: var(--font-ui);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--soft);
-  margin: 0;
-}
 
-.map-page__entries {
-  list-style: none;
-  margin: 0;
-  padding: 0.4rem 0;
-}
-.map-page__entry-button {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: 0;
-  border-bottom: 1px solid var(--border-control);
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-  transition: background 0.12s ease;
-}
-.map-page__entry-button:hover,
-.map-page__entry-button:focus-visible {
-  background: rgba(7, 158, 165, 0.08);
-  outline: none;
-}
-.map-page__entry-dot {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 0.4rem;
-  border: 2px solid var(--bg, #fff);
-  box-shadow: 0 0 0 1px rgba(14, 40, 34, 0.25);
-}
-.map-page__entry-dot--place      { background: #2c6b5c; }
-.map-page__entry-dot--eat        { background: #2cb192; }
-.map-page__entry-dot--wine       { background: var(--wine); }
-.map-page__entry-dot--stay       { background: #4a6a4f; }
-.map-page__entry-dot--experience { background: #2f6e8a; }
-.map-page__entry-text {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 0;
-  flex: 1;
-}
-.map-page__entry-name {
-  font-family: var(--font-display);
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  color: var(--text);
-  line-height: 1.2;
-}
-.map-page__entry-meta {
-  font-family: var(--font-ui);
-  font-size: 0.72rem;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--soft);
-}
-.map-page__list-empty {
-  margin: 0.85rem 1rem;
-  padding: 1rem;
-  border: 1px dashed var(--border);
-  text-align: center;
-  font-family: var(--font-ui);
-  font-size: 0.9rem;
-  color: var(--soft);
-}
 
-.map-page__canvas {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-.map-page__map {
-  flex: 1;
-  min-height: 65vh;
-  /* Leaflet resets some box-sizing locally; ensure a sane base. */
-  z-index: 0;
-}
-.map-page__attribution-note {
-  font-family: var(--font-ui);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  color: var(--soft);
-  text-align: right;
-  padding: 0.45rem 1rem 0.7rem;
-  margin: 0;
-  border-top: 1px solid var(--border);
-}
 
 /* Custom Leaflet pins. DivIcon-based - no external image assets. */
 .map-pin {
@@ -10711,45 +8862,6 @@ body.concierge-open .subscribe-pill {
   border-color: var(--text, #1a1a1a);
 }
 
-/* What's On hierarchy refinement - 2026-05-12 */
-.whatson-weekend-hero .weekend-picker {
-  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2.75rem, 5vw, 4.5rem);
-  background: linear-gradient(180deg, var(--bg-alt) 0%, var(--bg) 100%);
-}
-.whatson-weekend-hero .weekend-picker__inner {
-  border-color: var(--accent);
-  box-shadow: 0 24px 60px rgba(0, 40, 34, 0.09);
-}
-.whatson-weekend-hero .weekend-picker__title {
-  font-size: clamp(2.2rem, 4.6vw, 3.5rem);
-}
-.whatson-temporal {
-  padding: clamp(1.75rem, 3vw, 2.75rem) 0 clamp(2rem, 3.5vw, 3rem);
-}
-.whatson-temporal .event-grid {
-  gap: 1.1rem;
-}
-.whatson-temporal .event-card__summary {
-  line-height: 1.5;
-}
-.hub-faq--compact {
-  padding: clamp(2rem, 4vw, 3rem) 0;
-}
-.hub-faq--compact .hub-faq__list {
-  max-width: 680px;
-}
-@media (max-width: 760px) {
-  .whatson-weekend-hero .weekend-picker__inner {
-    border-radius: 1rem;
-  }
-  .whatson-temporal__tabs {
-    gap: 0.2rem;
-    margin-bottom: 1rem;
-  }
-  .whatson-temporal__tab {
-    padding: 0.5rem 0.72rem;
-  }
-}
 
 /* ── Editorial Surface wrapper ─────────────────────────────────────────────
    Consistent vertical breathing room for EditorialSurface.astro instances
@@ -10859,9 +8971,6 @@ figcaption {
   overflow: hidden;
 }
 
-/* Reserve the two lines so a one-line dek occupies the same block as a
-   two-line one. Each value is 2 x the element's own line-height, in em. */
-.v5-card .v5-card__verdict            { min-height: calc(2em * var(--lh-dek)); }
 /* box-sizing is border-box sitewide, so this one adds back its own
    0.9rem padding-top and 1px rule on top of the two text lines. */
 .venue-card .venue-card__signature    { min-height: calc(3.24em + 0.9rem + 1px); } /* 2 x 1.62 */
@@ -10871,34 +8980,9 @@ figcaption {
 .place-card .place-card__intro        { min-height: 3.3em; }
 .tour-card .tour-card__excerpt        { min-height: 3.3em; }
 .guide-card .guide-card__dek          { min-height: 3.1em; }  /* 2 x 1.55 */
-
-/* The What's On rows are a list, not a grid, so they clamp without
-   reserving - an empty reservation would only add air between rows. */
-
-/* ── 2. Metadata rows: consistent height, pinned to the card bottom ──── */
-
-/* The dek absorbs the card's slack, so metadata and provenance always
-   resolve against the bottom edge instead of trailing the copy. */
-.v5-card .v5-card__verdict { margin-bottom: auto; }
 /* Cards with no dek pin from the title instead. */
 .v5-card .v5-card__body:not(:has(.v5-card__verdict)) .v5-card__title {
   margin-bottom: auto;
-}
-/* A metadata row occupies one line whether it carries three chips, one
-   chip, or only a price band. */
-.v5-card .v5-card__meta,
-.v5-card .v5-card__provenance {
-  min-height: calc(1em * var(--lh-ui));
-}
-/* The compact row variant is a horizontal list item, not a grid card:
-   nothing needs pinning and a reservation would only pad it out. */
-.v5-card--compact-row .v5-card__verdict {
-  margin-bottom: 0;
-  min-height: 0;
-}
-.v5-card--compact-row .v5-card__meta,
-.v5-card--compact-row .v5-card__provenance {
-  min-height: 0;
 }
 
 /* Legacy grids: the same bottom-pin, applied to the row that trails the
