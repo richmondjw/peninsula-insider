@@ -1,6 +1,6 @@
 ---
-title: "Barragunda's market garden table, the Bushranger Bay heathland in full flower, and the NWOP show closing soon at Mornington"
-dek: A set-menu lunch beside Cape Schanck's market garden, spring wildflowers on the Bushranger Bay heathland trail, and National Works on Paper 2026 closing 22 November at Mornington Peninsula Regional Gallery.
+title: "Barragunda Dining and the Bushrangers Bay Walk"
+dek: Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-10
@@ -16,51 +16,37 @@ relatedExperiences: []
 readingTimeMinutes: 4
 featured: false
 status: "published"
-lastVerified: 2026-11-10
+lastVerified: 2026-11-11
 agentRun: 2026-11-10-daily
 clusterLinks:
   - label: "Where to Eat on the Mornington Peninsula"
     href: "/journal/where-to-eat-mornington-peninsula/"
   - label: "Best Walks on the Mornington Peninsula"
     href: "/explore/best-walks/"
-  - label: "Things to Do on the Mornington Peninsula"
-    href: "/journal/things-to-do-mornington-peninsula/"
 faq:
   - question: "How do I book at Barragunda Dining?"
-    answer: "Book through the Barragunda Dining website. The restaurant operates a set-menu format with limited sittings, so book well ahead, especially for Saturday and Sunday. The venue is at RACV Cape Schanck Resort, Trent Jones Drive, Cape Schanck."
-  - question: "When does National Works on Paper 2026 close at Mornington Peninsula Regional Gallery?"
-    answer: "The exhibition closes Sunday 22 November 2026. Gallery hours are 11am–4pm. Mornington Peninsula Regional Gallery is at Civic Reserve, Dunns Road, Mornington. Free entry. The curator's floor talk is Saturday 14 November, 11.30am–12.30pm; book through the MPRG website."
-  - question: "Where does the Bushranger Bay heathland walk start?"
-    answer: "Park at the Bushranger Bay car park off Boneo Road near Cape Schanck. The heathland loop connects to the coastal trail. Allow 1.5–2 hours for the full loop. No booking required. Dogs on leads are permitted on some sections - check Parks Victoria before you go."
+    answer: "Use Barragunda Dining's official reservation page for current sittings and availability. The restaurant is at 113 Cape Schanck Road, Cape Schanck."
+  - question: "Where does the Bushrangers Bay Walk start?"
+    answer: "Parks Victoria says the walk begins at the eastern carpark at Cape Schanck Lighthouse. It is a 5.4-kilometre return walk that takes about two hours; dogs are not allowed."
 ---
 
 ## Eat - Barragunda Dining, Cape Schanck
 
-Simone Watts runs a kitchen that takes the estate's market garden seriously, and right now - when the garden is producing faster than the team can pick - that matters more than any other time of year. The set menu at Barragunda shifts with what comes in each week, so a November sitting won't look like a March one. The 1,000-acre Cape Schanck estate gives the room an unusual sense of remove from the rest of the Peninsula, and the dining room beside the garden earns that setting rather than just borrowing it. Plan for a long lunch rather than a quick stop; the meal is built to take time. The drive down Trent Jones Drive past the golf course is part of the transition.
+Barragunda Dining's [official dining page](https://www.barragunda.com.au/dining/) lists the restaurant at 113 Cape Schanck Road, Cape Schanck. Use its [reservation page](https://www.barragunda.com.au/reservations/) to check current sittings, availability and any conditions before making a special trip.
 
-**Practical:** Barragunda Dining, RACV Cape Schanck Resort, Trent Jones Drive, Cape Schanck. Bookings essential - check the current reservation calendar on the Barragunda website and use the waiting list if your preferred sitting is full. Allow at least two and a half hours.
+The restaurant's operating details are managed by the venue, so this edition does not assume a particular set menu, garden produce or booking availability. The official page is the source for practical details that can change.
 
-Pair the afternoon with a walk along the Cape Schanck boardwalk to the lighthouse before or after the meal.
-
----
-
-## Experience - Bushranger Bay Heathland, Cape Schanck
-
-The Bushranger Bay heathland is at its best in the two weeks either side of mid-November, when the coastal tea-tree and native wax flowers are open and the track smells distinctly different from every other month. The loop from the Bushranger Bay car park to the heathland ridge and back connects low coastal heath with a clifftop section above the bay, and on a clear morning the Bass Strait light is sharp enough to make distances feel deceptive. By January, the same track is dry and bleached. Go now. The heathland section peaks before the exposed coastal scrub browns off in the first sustained heat; the junction where the ridge track splits toward the bay is where the density of flowering banksias is highest.
-
-**Practical:** Park at the Bushranger Bay car park, Boneo Road, Cape Schanck. No booking, no fee. Allow 1.5–2 hours for the full loop. Carry water. Check Parks Victoria for current track conditions before you leave.
-
-Combining this walk with lunch at Barragunda Dining, ten minutes up Trent Jones Drive, makes a full Cape Schanck day without backtracking.
+**Practical:** Barragunda Dining, 113 Cape Schanck Road, Cape Schanck VIC 3939. Check the venue's reservation page for current service and booking information.
 
 ---
 
-## Discovery - National Works on Paper 2026, Mornington Peninsula Regional Gallery
+## Experience - Bushrangers Bay Walk, Cape Schanck
 
-National Works on Paper 2026 closes on Sunday 22 November - twelve days from today. This annual acquisitive prize show at Mornington Peninsula Regional Gallery is the most useful single exhibition for getting a read on where drawing, printmaking, and mixed-media work on paper sits in Australian practice right now. It runs every year, but the 2026 selection is worth seeing specifically for the breadth between the shortlisted works; the range of technique is wider than recent years. If you've been meaning to get there since September, this is the week. The curator's floor talk on Saturday 14 November at 11.30am adds context that the wall labels can't carry - book that separately through the MPRG website if you can align your timing.
+For the walk, rely on the official [Parks Victoria Bushrangers Bay Walk information](https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk). Parks Victoria says the track starts at the eastern carpark at Cape Schanck Lighthouse, descends to Bushrangers Bay and returns by the same track.
 
-**Practical:** Mornington Peninsula Regional Gallery, Civic Reserve, Dunns Road, Mornington. Open 11am–4pm. Free entry. Exhibition closes 22 November 2026. Curator's floor talk: Saturday 14 November, 11.30am–12.30pm; book at mprg.mornpen.vic.gov.au.
+The published route is 5.4 kilometres return and takes approximately two hours. Expect sandy, narrow unsealed paths and steep stairs in places. Parks Victoria says dogs are not allowed. It also warns that Bushrangers Bay is an unpatrolled beach with unpredictable rips, currents, rocky reefs and large waves; swimming is not recommended.
 
-Walk the Mornington foreshore along Schnapper Point afterward - the jacarandas along the Esplanade are open this week.
+**Practical:** Start at the eastern carpark at Cape Schanck Lighthouse. Allow about two hours for the 5.4km return walk and check Parks Victoria for current conditions and closures before setting out.
 
 ---
 
@@ -68,6 +54,5 @@ Walk the Mornington foreshore along Schnapper Point afterward - the jacarandas a
 
 | Pick | Venue | Key detail |
 |---|---|---|
-| **Eat** | Barragunda Dining | RACV Cape Schanck Resort, Trent Jones Drive, Cape Schanck - bookings essential via website |
-| **Experience** | Bushranger Bay Heathland | Boneo Road car park, Cape Schanck - no booking, allow 1.5–2 hrs |
-| **Discovery** | National Works on Paper 2026, MPRG | Civic Reserve, Dunns Road, Mornington - free, closes 22 Nov; floor talk 14 Nov 11.30am, book online |
+| **Eat** | Barragunda Dining | 113 Cape Schanck Road; use the official reservations page for current availability |
+| **Experience** | Bushrangers Bay Walk | Start at Cape Schanck Lighthouse's eastern carpark; 5.4km return, around two hours |
