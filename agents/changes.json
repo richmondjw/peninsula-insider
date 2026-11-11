@@ -1,76 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-11T14:25:47.544Z",
+  "generatedAt": "2026-11-11T19:19:57.744Z",
   "baselineAvailable": true,
-  "fromSnapshot": "0004e8b1d6a887e8c0af1a782e148345b97c8a10a52df6a9ad5052bfe7a55fa8",
-  "toSnapshot": "b03b9fc76c251584bdc7f51a5ea0d16b57933e333b92e060e66348265b8919e0",
-  "previousGeneratedAt": "2026-11-11T02:08:18.209Z",
+  "fromSnapshot": "b03b9fc76c251584bdc7f51a5ea0d16b57933e333b92e060e66348265b8919e0",
+  "toSnapshot": "5b86d4912127012acb1bdedc4727fc3e1fcaaf37993c1c1f1ec09f5e81f571ee",
+  "previousGeneratedAt": "2026-11-11T14:25:47.544Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 8,
+  "count": 1,
   "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "8a82b4824ad660dc4813e4bf921a95683f27cbb50384dea1538baa6aaa371ac2",
-      "previousContentSha256": "56d478d45adc14846b9bff3c7cc8fcdef61006001c7c7bcae303d84f532a9991"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "512a5d7ceae39f47b92082c147bd3f10813a09be823ab0541edcedb0b597faa1",
-      "previousContentSha256": "3972200d091a49b78ce6f9824863722b707bf207c8e62e5e04917b2c7f77a709"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "f6233e42af2bceb464844c2a7bd86e15556a1a922eba45a2b2b93c739960252f",
-      "previousContentSha256": "0a53a98051a3864901350a08c5a73e52d3cec236368bc5cdf86e4ef7246cba27"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
-      "contentSha256": "3917bcb9340a86b9948e04405ccf155aca4d790db40c932e64d4c00cdac19aa8",
-      "previousContentSha256": "8002d2eed2bfda069bb233a6bd6e7b9c7cfbcd3f53b3f89028f9ca07be421ae8"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
-      "contentSha256": "4a4572ccf120e4aebcd5f7f5991361cc534303ca841f78a623bf624356397a88",
-      "previousContentSha256": "73a081d2b05420ae268b104668848ecb812e8e9a40c06c8f5855a47a7057c0e5"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/quick-note/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
-      "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "480a10cf6eabfacf45b932d6b2882718ce3aa2e8a62549c5f906d20a3b9bc17d",
-      "previousContentSha256": "8c072e2a2706feddef1f1be1915735548be69011997df680da2e9045c2584568"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "b1ff49c3e4aac22924271d850d13a6197cedef6ea349b98e38faedff0b7678ab",
-      "previousContentSha256": "e4f82da41f6ea047ec56d12dedb536fb5f69eb7c5fe343ecaec16a0d68ec4ac0"
-    },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "4039cb0e876e16a29d1d4e8130c8e64c29bb482f8e01c2b98357899a0680ee3d",
-      "previousContentSha256": "9d3ea25f3cbb372612dcb9cf870506ae0013e96706a091addd357d54a1837bc3"
+      "contentSha256": "5b7f7b850c0a5e3c92e3dc8bc1be53d46c22b8fa7373c9059ed6f020d0ea264c",
+      "previousContentSha256": "4039cb0e876e16a29d1d4e8130c8e64c29bb482f8e01c2b98357899a0680ee3d"
     }
   ]
 }
