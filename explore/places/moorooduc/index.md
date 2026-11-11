@@ -213,11 +213,11 @@ Elgee Park's 1972 Viognier vines hit spring form, the Moorooduc Plains grassland
 
 Insider Edit   4 min
 
-### [Moorooduc Estate's Robinson Chardonnay, the Boneo Plains wildflower flush, and a new cellar door opening in Flinders](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>)
+### [Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>)
 
 11 November 2026
 
-Moorooduc Estate's Robinson Chardonnay at peak vintage release, the Boneo Plains heathland in its brief wildflower window, and Nazaaray Estate's first bookable tasting sessions of spring.
+Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 
 Weekend Picker   3 min
 

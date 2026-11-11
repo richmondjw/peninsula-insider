@@ -1,27 +1,43 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-10T20:32:07.951Z",
+  "generatedAt": "2026-11-11T02:08:18.209Z",
   "baselineAvailable": true,
   "fromSnapshot": "9bc7571fb619c3f14a53687d6c7633379821130197d24c3848dd037cae35806a",
-  "toSnapshot": "ba2b170d76e8c8292f585f4eb2a415d7a665d8df269f8ce1f69939e0b1e32ab8",
+  "toSnapshot": "0004e8b1d6a887e8c0af1a782e148345b97c8a10a52df6a9ad5052bfe7a55fa8",
   "previousGeneratedAt": "2026-11-10T20:18:06.552Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 3,
+  "count": 5,
   "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "56d478d45adc14846b9bff3c7cc8fcdef61006001c7c7bcae303d84f532a9991",
+      "previousContentSha256": "ab9dcae55dd155f1dcb9f9a213c2d38e02624dfebaddff403fcd0adb2974a103"
+    },
     {
       "id": "https://peninsulainsider.com.au/explore/places/moorooduc/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/moorooduc/index.md",
-      "contentSha256": "56142f8248b94763a692763509d850a5e7ab489054ace1e58e012a7616877b8f",
+      "contentSha256": "9d9cdf59c7c71efc4f1074b877cafbf862dc63c7943956da1045bbd1b353b3ca",
       "previousContentSha256": "3ce3055ffa4c64c1678d38dc7d44aef89cdf1d9429af229baa1a3d478317d6e3"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/index.md",
+      "contentSha256": "7a7c0af705d285eecd37864e0f000ff5de1cfe675c4014e92ef51cdb41fcdcf2",
+      "previousContentSha256": "be74cd8a7f9ad632ae6626583a931b52fd9089922e1472b7820861df6e5cf469"
     },
     {
       "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
       "kind": "representation-added",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/index.md",
-      "contentSha256": "ae7293646b4a5e0bca51de97040e214754bc5ff9d3693b0d9a41f6ea6af0148e",
+      "contentSha256": "8990284cc9f85a9ee3457ed704679a66567e508c99a285d30be57716ff52cea8",
       "previousContentSha256": null
     },
     {
@@ -29,7 +45,7 @@
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "93e2a0ca2769cd1411639f66e0dc09a375b7c5761552bcba8362f32dc37a4322",
+      "contentSha256": "7152f95f7d8b65258cac70d0c7615c6718edab30b4ec7de17e553b2fd52487f5",
       "previousContentSha256": "2acb81e66b58f943f2fbe263a95de9c6a5b964ed1434b170e58c93f8d50e6eb2"
     }
   ]

@@ -7,9 +7,9 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 Insider Edit  11 November 2026  4 min read
 
-# Moorooduc Estate's Robinson Chardonnay, the Boneo Plains wildflower flush, and a new cellar door opening in Flinders
+# Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray
 
-Moorooduc Estate's Robinson Chardonnay at peak vintage release, the Boneo Plains heathland in its brief wildflower window, and Nazaaray Estate's first bookable tasting sessions of spring.
+Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 
 Keep this for later
 
@@ -17,47 +17,41 @@ Keep this for later
 
 Insider Picks  Spring
 
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
+Sorrento Ferry, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-**Moorooduc Estate - Robinson Chardonnay, now poured at the counter**
+**Moorooduc Estate - cellar door, Moorooduc**
 
-Richard McIntyre has been making the Robinson Vineyard Chardonnay long enough that the vines have opinions of their own. Right now, the new vintage is on the counter at the Moorooduc cellar door, and spring is exactly when it shows best - the acidity is still taut, the fruit hasn’t settled into the comfort of bottle age, and the contrast with the Garden Pinot Noir beside it is as instructive as any tasting flight on the Peninsula.
+Moorooduc Estate’s cellar door is in the original winery building at 501 Derril Road, Moorooduc. The estate describes it as a place to taste and buy its wines, rather than a café, restaurant or wine bar. Its [cellar-door page](<https://moorooducestate.com.au/cellar-door/>) says tastings and sales run seven days a week from 10am to 5pm, with listed holiday closures.
 
-Ask for both the Robinson Chardonnay and the Garden Pinot side by side. McIntyre’s wild-yeast approach gives both wines a texture that most people don’t expect from this part of the state. Take your time. If McIntyre is in the room, ask about fermentation.
+The estate asks groups of six or more to enquire before visiting because the tasting space is small. Check its current booking guidance and holiday hours before travelling; those are operator-controlled details and can change.
 
-Moorooduc Estate, 501 Derril Road, Moorooduc. Open weekends; check moorooduc.com.au for hours and bookings. Allow 45 minutes minimum.
+**Practical:** Moorooduc Estate, 501 Derril Road, Moorooduc VIC 3933. Tastings and sales: 10am–5pm daily, subject to the operator’s listed closures. Phone: (03) 5971 8506.
 
-Pair this with lunch at Barmah Park Farm Kitchen, ten minutes north.
+**Bushrangers Bay Walk - Cape Schanck**
 
-**Boneo Plains heathland - the wildflower window closes by month’s end**
+For a coast-and-scrub walk, use the official [Parks Victoria Bushrangers Bay Walk information](<https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk>) rather than a seasonal flowering or track-condition claim. Parks Victoria says the walk begins at the eastern carpark at Cape Schanck Lighthouse, drops to Bushrangers Bay, and returns by the same track.
 
-The strip of coastal heathland between Boneo Road and the Cape Schanck cliffs runs through its annual wildflower sequence from October into mid-November. This week sits inside the best part of that window. Swamp paperbark, common heath, and yellow buttons are flowering simultaneously along the Cape Schanck–Bushranger Bay trail, and the track is dry enough underfoot after the recent warm spell to walk without mud above the ankle.
+The stated route is 5.4 kilometres return and takes about two hours. Parks Victoria notes sandy, narrow unsealed paths and steep stairs in places. It also warns that Bushrangers Bay is an unpatrolled, dangerous swimming beach; swimming is not recommended. Stay on marked paths and observe wildlife and closure notices.
 
-Start at the Cape Schanck Road car park. The loop out to Bushranger Bay and back via the clifftop track is around 5 kilometres. Early morning gives you the light and nobody else. The heathland reads completely differently from the beach-and-bluff sections - tighter, quieter, and genuinely surprising if you’ve only done the lighthouse walk before.
+**Practical:** Start at the eastern carpark at Cape Schanck Lighthouse. Allow around two hours for the 5.4km return walk. Check Parks Victoria for current conditions, fire restrictions and safety guidance before leaving.
 
-Cape Schanck Road car park, off Boneo Road. No booking required. Allow 1.5–2 hours. Parks Victoria parking fees apply; check parks.vic.gov.au.
+**Nazaaray Estate - cellar door, Flinders**
 
-Pair this with a post-walk coffee at Flinders General Store, fifteen minutes south on the Bass Highway.
+Nazaaray’s [cellar-door page](<https://nazaaray.com.au/cellar-door/>) lists seated tastings on weekends between 11am and 3:45pm. The operator says bookings are preferred, not required. Wine tastings and sales are listed for Saturday and Sunday, 11am–4pm; Monday visits are by appointment.
 
-**Nazaaray Estate - first spring tasting sessions now bookable**
+The page also lists shared food plates from noon to 2:30pm. Treat those hours, prices and availability as current operator information: confirm them with Nazaaray before a special trip or a group visit.
 
-Nazaaray is the Peninsula cellar door that most visitors don’t find, and that suits it perfectly. The tiny Flinders estate runs wild-yeast natural ferments from a few acres of vines, sells out quickly, and operates on a call-ahead, booked-tasting model that has no equivalent on the Peninsula. The 1930s train carriages on-site are still the strangest overnight offer within an hour of the city.
-
-This spring the estate has opened its first bookable tasting sessions for the season. The wines are genuinely eccentric in the best sense - low-intervention, small-batch, nothing here tastes like anyone else’s cellar door flight. If you’re serious about understanding the outer edges of what Peninsula viticulture produces, this is the visit the mainstream properties won’t replicate.
-
-Nazaaray Estate, 196 Beswick Road, Flinders. Book ahead by phone or email; check nazaaray.com.au for spring session availability. Call ahead - walk-ins are rarely accommodated.
-
-Pair this with a walk down to Flinders Blowhole Reserve, five minutes away, before or after.
+**Practical:** Nazaaray Estate, 266 Meakins Road, Flinders. Weekend tastings: 11am–3:45pm; bookings preferred. The cellar door is open Saturday and Sunday, 11am–4pm, with Mondays by appointment.
 
 **Quick reference**
 
 Pick | Address | Key practical info |
 
-Moorooduc Estate | 501 Derril Road, Moorooduc | Open weekends; book via moorooduc.com.au |
+Moorooduc Estate | 501 Derril Road, Moorooduc | Operator lists daily tastings and sales, 10am–5pm |
 
-Boneo Plains heathland | Cape Schanck Road car park, off Boneo Road | No booking; Parks Victoria fees apply; 1.5–2 hrs |
+Bushrangers Bay Walk | Eastern carpark, Cape Schanck Lighthouse | Parks Victoria: 5.4km return, around two hours |
 
-Nazaaray Estate | 196 Beswick Road, Flinders | Bookings essential; call ahead; check nazaaray.com.au |
+Nazaaray Estate | 266 Meakins Road, Flinders | Weekend tastings 11am–3:45pm; bookings preferred |
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
@@ -67,15 +61,15 @@ Questions readers actually ask
 
 When is Moorooduc Estate open for tastings?
 
-Moorooduc Estate is at 501 Derril Road, Moorooduc. Open weekends and public holidays; check moorooduc.com.au for current hours and to book a tasting session.
+Moorooduc Estate is at 501 Derril Road, Moorooduc. Its cellar door says it is open for tastings and sales seven days a week, 10am–5pm, subject to listed holiday closures.
 
-Where exactly do the Boneo Plains wildflowers bloom and when is peak season?
+Where does the Bushrangers Bay Walk start and how long is it?
 
-The heathland along Boneo Road and around the Cape Schanck–Bushranger Bay trail corridor typically peaks in October–November. Access via the Cape Schanck Road car park off Boneo Road. No booking required; allow 1.5–2 hours for the full loop.
+Parks Victoria says the walk begins at the eastern carpark at Cape Schanck Lighthouse. It is a 5.4-kilometre return walk that takes about two hours; check the official page for conditions before setting out.
 
 How do I book a tasting at Nazaaray Estate?
 
-Nazaaray Estate is at 196 Beswick Road, Flinders. Bookings are by phone or email; check nazaaray.com.au for current tasting availability and spring session details.
+Nazaaray Estate is at 266 Meakins Road, Flinders. Its cellar door says tastings run on weekends from 11am–3:45pm; bookings are preferred rather than required.
 
 Or let PI plan your day
 

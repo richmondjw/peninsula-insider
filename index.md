@@ -45,14 +45,6 @@ One day   Red Hill & Merricks   Family
 
 Swipe or scroll through the picks
 
-- ### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
-
-Sat, 14 Nov   Crib Point Community House   Market
-
-Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.mornpen.vic.gov.au/Things-to-do/Events/Whats-on/Crib-Point-Community-Market-1-1>)
-
 - Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
@@ -70,6 +62,14 @@ A three-hour beginner class for adults and teens who want to alter, repair and p
 Sat, 14 Nov   Pete Sews workshop   Arts
 
 Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.petesews.com.au/sewing-classes>)
+
+- ### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
+A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member.
+
+Sat, 14 Nov   Mornington Peninsula Regional Gallery   Arts
+
+Event details checked 20 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
 
 ## Three ways into the Peninsula
 

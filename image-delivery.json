@@ -8979,68 +8979,6 @@
       ]
     },
     {
-      "source": "/images/generated/coastal-punch-crib.webp",
-      "format": "webp",
-      "originalBytes": 133362,
-      "variants": [
-        {
-          "src": "/_media/7f7bfd271f1bd449b49b-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 23912
-        },
-        {
-          "src": "/_media/7f7bfd271f1bd449b49b-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 41724
-        },
-        {
-          "src": "/_media/7f7bfd271f1bd449b49b-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 65680
-        },
-        {
-          "src": "/_media/7f7bfd271f1bd449b49b-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 86324
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/coastal-punch-crib.webp",
-      "format": "avif",
-      "originalBytes": 133362,
-      "variants": [
-        {
-          "src": "/_media/f9a6b07db2ef42641a8d-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 14679
-        },
-        {
-          "src": "/_media/f9a6b07db2ef42641a8d-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 22323
-        },
-        {
-          "src": "/_media/f9a6b07db2ef42641a8d-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 31346
-        },
-        {
-          "src": "/_media/f9a6b07db2ef42641a8d-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 39712
-        }
-      ]
-    },
-    {
       "source": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
       "format": "avif",
       "originalBytes": 52460,
@@ -9124,6 +9062,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 15787
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/books-talk.webp",
+      "format": "webp",
+      "originalBytes": 34566,
+      "variants": [
+        {
+          "src": "/_media/90f61e720b59f551b258-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8574
+        },
+        {
+          "src": "/_media/90f61e720b59f551b258-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14852
+        },
+        {
+          "src": "/_media/90f61e720b59f551b258-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 24344
+        },
+        {
+          "src": "/_media/90f61e720b59f551b258-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 32110
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/books-talk.webp",
+      "format": "avif",
+      "originalBytes": 34566,
+      "variants": [
+        {
+          "src": "/_media/fb5a0891b8ea5426ab68-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 4097
+        },
+        {
+          "src": "/_media/fb5a0891b8ea5426ab68-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 5846
+        },
+        {
+          "src": "/_media/fb5a0891b8ea5426ab68-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 7776
+        },
+        {
+          "src": "/_media/fb5a0891b8ea5426ab68-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 10824
         }
       ]
     },
@@ -14044,37 +14044,6 @@
           "width": 1536,
           "height": 1024,
           "bytes": 34318
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/books-talk.webp",
-      "format": "webp",
-      "originalBytes": 34566,
-      "variants": [
-        {
-          "src": "/_media/90f61e720b59f551b258-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 8574
-        },
-        {
-          "src": "/_media/90f61e720b59f551b258-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 14852
-        },
-        {
-          "src": "/_media/90f61e720b59f551b258-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 24344
-        },
-        {
-          "src": "/_media/90f61e720b59f551b258-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 32110
         }
       ]
     },

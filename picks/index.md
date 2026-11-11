@@ -15,9 +15,9 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
-- [Moorooduc Estate's Robinson Chardonnay, the Boneo Plains wildflower flush, and a new cellar door opening in Flinders](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Moorooduc Estate's Robinson Chardonnay at peak vintage release, the Boneo Plains heathland in its brief wildflower window, and Nazaaray Estate's first bookable tasting sessions of spring.
+- [Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 
-- [Barragunda's market garden table, the Bushranger Bay heathland in full flower, and the NWOP show closing soon at Mornington](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - A set-menu lunch beside Cape Schanck's market garden, spring wildflowers on the Bushranger Bay heathland trail, and National Works on Paper 2026 closing 22 November at Mornington Peninsula Regional Gallery.
+- [Barragunda Dining and the Bushrangers Bay Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
 
 - [St Andrews Beach Brewery, the Cape Schanck heathland, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-09/>) - A Sunday roast in a converted racehorse stable, spring wildflowers at their densest on the Bushranger Bay heathland trail, and the last Saturday of the Mt Eliza market run.
 
