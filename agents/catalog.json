@@ -1,7 +1,7 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-11T02:08:18.209Z",
-  "snapshotId": "0004e8b1d6a887e8c0af1a782e148345b97c8a10a52df6a9ad5052bfe7a55fa8",
+  "generatedAt": "2026-11-11T14:25:47.544Z",
+  "snapshotId": "b03b9fc76c251584bdc7f51a5ea0d16b57933e333b92e060e66348265b8919e0",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "56d478d45adc14846b9bff3c7cc8fcdef61006001c7c7bcae303d84f532a9991",
+      "contentSha256": "8a82b4824ad660dc4813e4bf921a95683f27cbb50384dea1538baa6aaa371ac2",
       "citation": {
         "title": "The Mornington Peninsula, sorted.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 175832,
-      "markdownBytes": 5902
+      "htmlBytes": 171770,
+      "markdownBytes": 5740
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "3972200d091a49b78ce6f9824863722b707bf207c8e62e5e04917b2c7f77a709",
+      "contentSha256": "512a5d7ceae39f47b92082c147bd3f10813a09be823ab0541edcedb0b597faa1",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 229070,
-      "markdownBytes": 19210
+      "htmlBytes": 227838,
+      "markdownBytes": 19270
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -4807,7 +4807,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "0a53a98051a3864901350a08c5a73e52d3cec236368bc5cdf86e4ef7246cba27",
+      "contentSha256": "f6233e42af2bceb464844c2a7bd86e15556a1a922eba45a2b2b93c739960252f",
       "citation": {
         "title": "Date Night on the Mornington Peninsula: Where to Book for Two",
         "publisher": "Peninsula Insider",
@@ -6422,7 +6422,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
-      "contentSha256": "8002d2eed2bfda069bb233a6bd6e7b9c7cfbcd3f53b3f89028f9ca07be421ae8",
+      "contentSha256": "3917bcb9340a86b9948e04405ccf155aca4d790db40c932e64d4c00cdac19aa8",
       "citation": {
         "title": "The Mornington Peninsula in Summer: How to Do It Well",
         "publisher": "Peninsula Insider",
@@ -6677,7 +6677,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
-      "contentSha256": "73a081d2b05420ae268b104668848ecb812e8e9a40c06c8f5855a47a7057c0e5",
+      "contentSha256": "4a4572ccf120e4aebcd5f7f5991361cc534303ca841f78a623bf624356397a88",
       "citation": {
         "title": "Summer School Holidays on the Mornington Peninsula, 2026-27",
         "publisher": "Peninsula Insider",
@@ -7221,7 +7221,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "8c072e2a2706feddef1f1be1915735548be69011997df680da2e9045c2584568",
+      "contentSha256": "480a10cf6eabfacf45b932d6b2882718ce3aa2e8a62549c5f906d20a3b9bc17d",
       "citation": {
         "title": "Quick Note",
         "publisher": "Peninsula Insider",
@@ -7229,8 +7229,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 118471,
-      "markdownBytes": 1706
+      "htmlBytes": 118467,
+      "markdownBytes": 1705
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -9057,15 +9057,15 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "e4f82da41f6ea047ec56d12dedb536fb5f69eb7c5fe343ecaec16a0d68ec4ac0",
+      "contentSha256": "b1ff49c3e4aac22924271d850d13a6197cedef6ea349b98e38faedff0b7678ab",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-11"
+        "modifiedAt": "2026-11-12"
       },
-      "htmlBytes": 199371,
+      "htmlBytes": 199340,
       "markdownBytes": 9835
     },
     {
@@ -9992,7 +9992,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "9d3ea25f3cbb372612dcb9cf870506ae0013e96706a091addd357d54a1837bc3",
+      "contentSha256": "4039cb0e876e16a29d1d4e8130c8e64c29bb482f8e01c2b98357899a0680ee3d",
       "citation": {
         "title": "Mornington Wednesday Market (Main Street Market)",
         "publisher": "Peninsula Insider",
@@ -10000,8 +10000,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141530,
-      "markdownBytes": 4397
+      "htmlBytes": 139983,
+      "markdownBytes": 3679
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/",

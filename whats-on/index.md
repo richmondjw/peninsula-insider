@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-11
+Modified: 2026-11-12
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,14 +13,6 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Three reasons to go
 
-- Sun, 15 Nov · 10:30am–12:30pm · Dromana
-
-### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
-
-Arts
-
 - Sat, 14 Nov · 6pm–9pm · Dromana
 
 ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
@@ -28,6 +20,14 @@ Arts
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
 Live Music
+
+- Sat, 14 Nov · 11:30am–12:30pm · Mornington
+
+### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+
+A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
+
+Arts
 
 - Fri, 13 Nov · 6:30pm–9:30pm · Red Hill South
 
@@ -91,14 +91,6 @@ Indoor and outdoor community market at Crib Point Community House on the second 
 
 Crib Point · Markets · Recurring monthly
 
-- 11.30am
-
-[Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
-A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
-
-Mornington · Arts
-
 - 1pm
 
 [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
@@ -140,6 +132,14 @@ Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday s
 Boneo · Live Music
 
 ### Sunday 15 November
+
+- 10.30am
+
+[Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+
+A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
+
+Dromana · Arts
 
 - 11am
 

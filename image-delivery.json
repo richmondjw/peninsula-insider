@@ -8979,31 +8979,6 @@
       ]
     },
     {
-      "source": "/images/visit-victoria/vv-143144-mornington-peninsula-regional-gallery.webp",
-      "format": "avif",
-      "originalBytes": 52460,
-      "variants": [
-        {
-          "src": "/_media/710a38e7545a24e2c966-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 7247
-        },
-        {
-          "src": "/_media/710a38e7545a24e2c966-800.avif",
-          "width": 800,
-          "height": 534,
-          "bytes": 13581
-        },
-        {
-          "src": "/_media/710a38e7545a24e2c966-1280.avif",
-          "width": 1280,
-          "height": 854,
-          "bytes": 27334
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/sewing.webp",
       "format": "webp",
       "originalBytes": 42742,
@@ -9124,6 +9099,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 10824
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-amp.webp",
+      "format": "webp",
+      "originalBytes": 36502,
+      "variants": [
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8956
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 15504
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 25322
+        },
+        {
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 34318
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-amp.webp",
+      "format": "avif",
+      "originalBytes": 36502,
+      "variants": [
+        {
+          "src": "/_media/04c2144199f6c2986695-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 4252
+        },
+        {
+          "src": "/_media/04c2144199f6c2986695-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 6268
+        },
+        {
+          "src": "/_media/04c2144199f6c2986695-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 8411
+        },
+        {
+          "src": "/_media/04c2144199f6c2986695-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 11087
         }
       ]
     },
@@ -13982,68 +14019,6 @@
           "width": 1536,
           "height": 1024,
           "bytes": 40544
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/wreath.webp",
-      "format": "webp",
-      "originalBytes": 44838,
-      "variants": [
-        {
-          "src": "/_media/dd8bd2ec92aa988e7ae4-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 10660
-        },
-        {
-          "src": "/_media/dd8bd2ec92aa988e7ae4-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 18750
-        },
-        {
-          "src": "/_media/dd8bd2ec92aa988e7ae4-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 30948
-        },
-        {
-          "src": "/_media/dd8bd2ec92aa988e7ae4-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 42046
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/music-amp.webp",
-      "format": "webp",
-      "originalBytes": 36502,
-      "variants": [
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 8956
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 15504
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 25322
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 34318
         }
       ]
     },

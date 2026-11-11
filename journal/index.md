@@ -629,16 +629,6 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Wed, 11 Nov
-
-### ✦ Mornington Wednesday Market (Main Street Market)
-
-Mornington
-
-Mornington's long-running artisan market fills Main Street every Wednesday, 9am to 3pm. Expect local makers, produce and food; severe weather can cancel the market or limit stalls.
-
- Event · Markets](<https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/>)
-
 - [Fri, 13 Nov
 
 ### Books and Ideas: Barrie Cassidy at Port Phillip Estate
@@ -658,3 +648,13 @@ Flinders
 Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+
+- [Fri, 13 Nov
+
+### Smooth Operators Live at Peninsula Beer Garden
+
+Boneo
+
+Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)

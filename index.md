@@ -45,16 +45,6 @@ One day   Red Hill & Merricks   Family
 
 Swipe or scroll through the picks
 
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Sat, 14 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
 - ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
 A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
@@ -70,6 +60,14 @@ A useful way into the National Works on Paper exhibition if you want to understa
 Sat, 14 Nov   Mornington Peninsula Regional Gallery   Arts
 
 Event details checked 20 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
+
+- ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+
+Sat, 14 Nov   Jetty Road Brewery   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
 
 ## Three ways into the Peninsula
 
