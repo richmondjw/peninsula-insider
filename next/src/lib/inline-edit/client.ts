@@ -39,6 +39,7 @@ let isAdmin = false;
 let authSubscriptionInstalled = false;
 let toggleEl: HTMLButtonElement | null = null;
 let themeToggleEl: HTMLButtonElement | null = null;
+let adminToolsEl: HTMLDivElement | null = null;
 let menuEl: HTMLDivElement | null = null;
 let toastEl: HTMLDivElement | null = null;
 let toastTimer: ReturnType<typeof setTimeout> | null = null;
@@ -119,6 +120,7 @@ export async function bootInlineEditor(): Promise<void> {
   // <body> on soft navigations, so any DOM we appended is gone - we
   // re-render on every page-load event. Delegation is installed at module
   // load above, so no per-boot install needed here.
+  mountAdminTools();
   mountToggle();
   mountThemeToggle();
 
@@ -152,8 +154,36 @@ export async function bootInlineEditor(): Promise<void> {
 }
 
 function ensureToggleRemoved() {
+  document.querySelectorAll('.pi-admin-tools').forEach((n) => n.remove());
+  adminToolsEl = null;
   document.querySelectorAll('.pi-edit-toggle').forEach((n) => n.remove());
   toggleEl = null;
+}
+
+// A compact, closed-by-default disclosure keeps editorial chrome out of the
+// reading experience. It is mounted only after the existing allowlist gate.
+function mountAdminTools() {
+  const existing = document.querySelector<HTMLDivElement>('.pi-admin-tools');
+  if (existing) { adminToolsEl = existing; return; }
+  adminToolsEl = document.createElement('div');
+  adminToolsEl.className = 'pi-admin-tools';
+  adminToolsEl.innerHTML = '<button type="button" class="pi-admin-tools__tab" aria-expanded="false" aria-controls="pi-admin-tools-panel" aria-label="Open admin tools">Admin</button><section id="pi-admin-tools-panel" class="pi-admin-tools__panel" aria-label="Admin tools" hidden><div class="pi-admin-tools__heading"><span>Admin tools</span><button type="button" class="pi-admin-tools__close" aria-label="Close admin tools">×</button></div></section>';
+  adminToolsEl.querySelector('.pi-admin-tools__tab')!.addEventListener('click', () => {
+    setAdminToolsOpen(adminToolsEl?.querySelector('button')?.getAttribute('aria-expanded') !== 'true');
+  });
+  adminToolsEl.querySelector('.pi-admin-tools__close')!.addEventListener('click', () => setAdminToolsOpen(false, true));
+  document.body.appendChild(adminToolsEl);
+}
+
+function setAdminToolsOpen(open: boolean, restoreFocus = false) {
+  const tab = adminToolsEl?.querySelector<HTMLButtonElement>('.pi-admin-tools__tab');
+  const panel = adminToolsEl?.querySelector<HTMLElement>('.pi-admin-tools__panel');
+  if (!tab || !panel) return;
+  tab.setAttribute('aria-expanded', String(open));
+  tab.setAttribute('aria-label', open ? 'Close admin tools' : 'Open admin tools');
+  panel.hidden = !open;
+  if (open) panel.querySelector<HTMLButtonElement>('.pi-edit-toggle')?.focus();
+  else if (restoreFocus) tab.focus();
 }
 
 // --------------------------------------------------------------------------
@@ -204,7 +234,7 @@ function mountThemeToggle() {
   themeToggleEl.addEventListener('click', () => {
     applyTheme(currentTheme() === MAGENTA_STONE ? 'classic' : MAGENTA_STONE);
   });
-  document.body.appendChild(themeToggleEl);
+  adminToolsEl?.querySelector('.pi-admin-tools__panel')?.appendChild(themeToggleEl);
   updateThemeToggleLabel(currentTheme() === MAGENTA_STONE);
 }
 
@@ -228,11 +258,13 @@ function mountToggle() {
   toggleEl.setAttribute('aria-label', 'Toggle inline edit mode');
   toggleEl.innerHTML = '<span class="pi-edit-toggle__dot" aria-hidden="true"></span><span class="pi-edit-toggle__label">Edit mode</span>';
   toggleEl.addEventListener('click', () => setEditMode(!editMode, 'click'));
-  document.body.appendChild(toggleEl);
+  adminToolsEl?.querySelector('.pi-admin-tools__panel')?.appendChild(toggleEl);
 }
 
 function setEditMode(on: boolean, source: 'click' | 'restore' = 'restore') {
   editMode = on;
+  toggleEl?.setAttribute('aria-pressed', String(on));
+  adminToolsEl?.classList.toggle('pi-admin-tools--editing', on);
   document.body.dataset.piEditMode = on ? 'on' : 'off';
   sessionStorage.setItem(EDIT_MODE_FLAG, on ? '1' : '0');
   if (!on) closeMenu();
@@ -257,6 +289,7 @@ function installDelegation() {
 }
 
 function onDocumentClick(event: MouseEvent) {
+  if (adminToolsEl && !adminToolsEl.contains(event.target as Node)) setAdminToolsOpen(false);
   // Close menu on any unrelated click.
   if (menuEl && !menuEl.contains(event.target as Node)) closeMenu();
 
@@ -371,6 +404,11 @@ function onContextMenu(event: MouseEvent) {
 }
 
 function onKeyDown(event: KeyboardEvent) {
+  if (event.key === 'Escape' && adminToolsEl?.querySelector('.pi-admin-tools__tab')?.getAttribute('aria-expanded') === 'true') {
+    setAdminToolsOpen(false, true);
+    event.preventDefault();
+    return;
+  }
   if (event.key === 'Escape') {
     closeMenu();
     closeLinkPopover();

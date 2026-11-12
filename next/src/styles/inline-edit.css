@@ -5,7 +5,76 @@
  * is off, none of this CSS applies and the public site is byte-identical.
  */
 
-/* -- Edit-mode toggle (always rendered when signed-in admin, top-right) ----- */
+/* -- Admin-only disclosure: quiet when closed, usable on touch screens. -- */
+.pi-admin-tools {
+  position: fixed;
+  right: max(0.75rem, env(safe-area-inset-right));
+  bottom: 40vh;
+  z-index: var(--z-editor);
+  font-family: var(--font-ui);
+}
+.pi-admin-tools__tab {
+  min-height: 44px;
+  padding: 0.6rem 0.85rem;
+  border: 1px solid rgba(20, 32, 42, 0.2);
+  border-radius: 12px;
+  background: #faf7f0;
+  color: #14202a;
+  font: 600 12px/1 var(--font-ui);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.pi-admin-tools--editing .pi-admin-tools__tab::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  margin-right: 6px;
+  border-radius: 50%;
+  background: #10527e;
+}
+.pi-admin-tools__panel {
+  position: absolute;
+  right: calc(100% + 0.5rem);
+  bottom: 0;
+  width: min(240px, calc(100vw - 6rem));
+  padding: 0.75rem;
+  border: 1px solid rgba(20,32,42,0.15);
+  border-radius: 16px;
+  background: #faf7f0;
+  box-shadow: 0 12px 32px rgba(11,46,74,0.15);
+}
+.pi-admin-tools__panel[hidden] { display: none; }
+.pi-admin-tools__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #14202a;
+  font: 600 14px/1.4 var(--font-ui);
+}
+.pi-admin-tools__close {
+  min-width: 44px;
+  min-height: 44px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font-size: 24px;
+  cursor: pointer;
+}
+.pi-admin-tools button:focus-visible {
+  outline: 2px solid #10527e;
+  outline-offset: 3px;
+}
+.pi-admin-tools .pi-edit-toggle,
+.pi-admin-tools .pi-theme-toggle {
+  position: static;
+  width: 100%;
+  min-height: 44px;
+  margin-top: 0.5rem;
+  box-shadow: none;
+  justify-content: flex-start;
+}
+/* -- Existing mode/theme control appearance inside the disclosure. -- */
 
 .pi-edit-toggle {
   position: fixed;
