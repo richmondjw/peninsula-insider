@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/>) - Red Hill estate gardens at their spring peak, the National Works on Paper closing Sunday at Mornington Peninsula Regional Gallery, and acoustic sets at Peppers Moonah Links in Fingal.
+
 - [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat-milk gelato at a working farmgate, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
 
 - [Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Rye Hotel's deck in spring, the Cape Schanck heathland walk, and Elan Vineyard's current show](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/>) - The Rye Hotel earns a long afternoon on its foreshore deck, Cape Schanck's heathland boardwalk hits peak colour this week, and Elan Vineyard & Gallery in Balnarring is showing new work worth the detour.
 
 - [Balnarring Bakehouse, Greens Bush in Flower, and Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/>) - Balnarring Bakehouse's beef-and-mushroom pie, Greens Bush at peak wildflower density, and the Emu Plains Market at Balnarring Reserve on Saturday.
-
-- [Avani's Syrah, Western Port Wildflowers, and the Emu Plains Market in Full Spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/>) - Avani Wines pours the skin-contact white that earns a detour, the coastal scrub above Balnarring is carpeted in wax lip orchids, and the Emu Plains Market at Balnarring Reserve runs until mid-December.
 
 ## Planning a particular weekend?
 

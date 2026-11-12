@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-12T19:25:10.479Z",
-  "snapshotId": "79dc42113614e70f1bf8e45319abf7e852510de0d1683c59f916bd6773e0d49e",
+  "generatedAt": "2026-11-12T20:21:54.152Z",
+  "snapshotId": "ab56cf20a691090ce6f4c97ecb08c624839db31ed3b70df011aaf35c3185da34",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 711,
+  "count": 712,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6366,6 +6366,23 @@
       "markdownBytes": 8974
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/",
+      "title": "Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/index.md",
+      "contentSha256": "99ff8a68629abc9f85862316bfa9fa0f0776f9e2c015d78342a4bb6b12ddeec1",
+      "citation": {
+        "title": "Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/",
+        "publishedAt": "2026-11-13T00:00:00.000Z",
+        "modifiedAt": "2026-11-13T00:00:00.000Z"
+      },
+      "htmlBytes": 166358,
+      "markdownBytes": 9462
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7204,7 +7221,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "7191cb6d6ce2ff0b480f958a676353fd4ad807f6449ebe45e4025f081c89b6b2",
+      "contentSha256": "f0ba889cd6dced8512fa95ee3272e2c4bee3fda092078b889498180158d0d54a",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7212,8 +7229,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 118535,
-      "markdownBytes": 5538
+      "htmlBytes": 118517,
+      "markdownBytes": 5516
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
