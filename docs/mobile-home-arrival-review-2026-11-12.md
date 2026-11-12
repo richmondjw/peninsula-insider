@@ -49,3 +49,19 @@ Scope: two homepage components, two browser regressions, this review log. All so
 
 ## Independent final visual review
 Reviewer assessed arrival 22/25, mobile hierarchy 18/20 and brand 18/20: 58/65 visually assessed. No material visual blocker. Real recommendation before inputs and crisp desktop art address prior critique. Accessibility and performance weights (35 total) were deliberately not independently scored; the automated checks above are evidence, not an independent accessibility audit or speed benchmark. Optional future polish: a small mobile invitation chevron and a less sparse desktop invitation. Neither is a release blocker. Do not convert the assessed 58/65 into an unsupported 100-point score.
+
+## Direction C approved implementation
+
+James approved the mobile Direction C concept with “Merge commit and publish” after viewing the cinematic preview. This supersedes the initial illustration-led direction for the homepage only.
+
+- Full-bleed, already licensed Cape Schanck image with descriptive alt text and preserved photographer credit.
+- Large Sora headline, single primary planning action, a real Flinders itinerary and four direct discovery routes.
+- Native planning form, no-JavaScript navigation, CMS image/text override metadata and all other homepage sections retained.
+- No video, animation, extra framework or new third-party dependency; responsive AVIF/WebP pipeline retained.
+- Mobile crop exposes lighthouse; credit has an opaque navy backing above the scrim.
+- Featured itinerary removed from lower cards to prevent duplicate promotion.
+- AI concierge remains disabled; this release does not imply service readiness.
+
+Independent prototype review: 59/65 visually assessed (arrival23/25, mobile18/20, brand18/20); accessibility20 and performance15 were not scored. Production implementation checks must be recorded separately; no overall score or real-world conversion outcome is claimed.
+
+Release checks: final full build passed (deterministic checked-in CMS snapshot; two prior full live-read builds also passed). Final11/11 homepage journeys passed, including AVIF fallback, native/no-JavaScript planner, newsletter fixtures, keyboard navigation, 200% text reflow and320/390/1440 layouts. Editable coverage and diff whitespace checks passed. No production outcome claimed before deployment verification.

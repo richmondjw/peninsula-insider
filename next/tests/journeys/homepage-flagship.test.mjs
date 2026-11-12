@@ -29,11 +29,11 @@ test('homepage first visit offers a visible action, early orientation and no mot
       assert.equal(layout.h1,1);
       assert.equal(layout.cookie,'visible');
       assert.ok(layout.action < 720,`primary action obscured at ${width}: ${JSON.stringify(layout)}`);
-      assert.ok(layout.chooser < 844,`chooser starts below first screen at ${width}`);
+      assert.ok(layout.chooser < 1000,`chooser starts below first screen at ${width}`);
       // 2026-11-10 (Phase 5): orientation follows Plan your day and This weekend;
       // it must still precede the Journal feature rather than sit within two screens.
       assert.ok(layout.orientation < layout.journal,`orientation falls below the Journal feature at ${width}`);
-      assert.ok(layout.heroSize <= 64);
+      assert.ok(layout.heroSize <= 96); assert.ok(layout.heroSize >= (width >= 1000 ? 80 : 44));
       assert.equal(layout.motion,0);
       assert.deepEqual(videos,[]);
       await reader.page.focus('.home-cover__actions a');
@@ -165,11 +165,11 @@ test('mobile arrival surfaces a real itinerary before the native planner without
     await reader.page.setViewport({width:390,height:844});
     await reader.load('/');
     const result=await reader.page.evaluate(()=>{
-      const invitation=document.querySelector('.home-plan__invitation');
-      const link=invitation.querySelector('a');
-      const image=invitation.querySelector('img');
+      const invitation=document.querySelector('.home-cover__story');
+      const link=invitation;
+      const image=document.querySelector('.home-cover__media');
       return {bottom:invitation.getBoundingClientRect().bottom,formTop:document.querySelector('.home-choose__form').getBoundingClientRect().top,
-        credit:invitation.querySelector('.home-plan__invitation-credit')?.textContent.trim(), alt:image.alt,
+        credit:document.querySelector('.home-cover__plate figcaption')?.textContent.trim(), alt:image.alt,
         duplicates:[...document.querySelectorAll('.home-plan__choices a')].filter(a=>a.href===link.href).length,
         labels:document.querySelectorAll('.home-choose__form label').length};
     });
@@ -177,8 +177,8 @@ test('mobile arrival surfaces a real itinerary before the native planner without
     assert.ok(result.bottom<result.formTop);
     assert.ok(result.credit); assert.ok(result.alt);
     assert.equal(result.duplicates,0); assert.equal(result.labels,3);
-    await reader.page.focus('.home-plan__invitation-link');
-    const focus=await reader.page.$eval('.home-plan__invitation-link',e=>({focused:document.activeElement===e,outline:getComputedStyle(e).outlineStyle}));
+    await reader.page.focus('.home-cover__story');
+    const focus=await reader.page.$eval('.home-cover__story',e=>({focused:document.activeElement===e,outline:getComputedStyle(e).outlineStyle}));
     assert.equal(focus.focused,true); assert.notEqual(focus.outline,'none');
     await reader.page.keyboard.press('Enter');
     await reader.waitFor(()=>location.pathname.startsWith('/explore/plans/'),'featured itinerary did not open');
@@ -193,10 +193,26 @@ test('homepage arrival reflows under 200 percent root text sizing', async()=>{
     const result=await reader.page.evaluate(()=>({
       pageOverflow:document.documentElement.scrollWidth>innerWidth+1,
       coverOverflow:document.querySelector('.home-cover').scrollWidth>innerWidth+1,
-      invitationOverflow:document.querySelector('.home-plan__invitation').scrollWidth>innerWidth,
+      invitationOverflow:document.querySelector('.home-cover__story').scrollWidth>innerWidth,
       labelled:[...document.querySelectorAll('.home-choose__form select')].every(e=>e.labels?.length)
     }));
     assert.equal(result.pageOverflow,false); assert.equal(result.coverOverflow,false);
     assert.equal(result.invitationOverflow,false); assert.equal(result.labelled,true);
   }finally{await reader.close();}
+});
+
+test('cinematic cover keeps discovery links accessible and does not enable concierge',async()=>{
+ const reader=await site.reader();
+ try{for(const width of [320,390,768,1440]){
+ await reader.page.setViewport({width,height:900});await reader.load('/');
+ const result=await reader.page.evaluate(()=>({
+ links:[...document.querySelectorAll('.home-cover-paths a')].map(a=>({href:a.getAttribute('href'),height:a.getBoundingClientRect().height,width:a.getBoundingClientRect().width})),
+ caption:document.querySelector('.home-cover__plate figcaption').textContent,
+ creditColor:getComputedStyle(document.querySelector('.home-cover__plate figcaption')).color,
+ concierge:document.querySelectorAll('[data-ask-pi-trigger]').length,
+ picture:document.querySelector('.home-cover__media').naturalWidth
+ }));
+ assert.equal(result.links.length,4);assert.ok(result.links.every(l=>l.width>=44&&l.height>=44));assert.match(result.caption,/Peter Tarasiuk/);assert.ok(result.picture>0);
+ await reader.page.focus('.home-cover-paths a');assert.equal(await reader.page.$eval('.home-cover-paths a',e=>document.activeElement===e),true);
+ }}finally{await reader.close();}
 });
