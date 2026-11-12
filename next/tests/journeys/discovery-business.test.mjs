@@ -47,11 +47,11 @@ test('eight hub and ranked pages expose every structured FAQ question and answer
     }
   } finally { await reader.close(); }
 });
-test('homepage offers one primary and one secondary working route within narrow-screen width', async () => {
+test('homepage planning action and weekend discovery route work within narrow-screen width', async () => {
   const reader = await site.reader();
   try {
     await reader.load('/');
-    const targets = await reader.page.$$eval('.home-cover__actions a', links => links.map(a => a.getAttribute('href')));
+    const targets = await reader.page.$$eval('.home-cover__actions a, .home-cover-paths a[href="/whats-on/this-weekend/"]', links => links.map(a => a.getAttribute('href')));
     assert.deepEqual(targets, ['#home-choose', '/whats-on/this-weekend/']);
     for (const width of [320, 390, 1280]) {
       await reader.page.setViewport({width, height: 900});
