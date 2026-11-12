@@ -5,21 +5,21 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# The Mornington Peninsula, sorted.
+Cape Schanck, Mornington Peninsula Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
-Independent local picks for where to eat, stay and explore. Every recommendation has a reason.
+Mornington Peninsula / Your local guide
+
+# Make a day
+of the
+Peninsula.
+
+The places worth finding. The days worth making.
+
+ [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
 ## Plan your day
 
  [See all plans](<https://peninsulainsider.com.au/explore/plans/>)
-
-- Cape Schanck, Mornington Peninsula   Photo courtesy of Visit Victoria.
-
-### [Flinders and the Cape](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
-
-Coastal walks and one excellent meal.
-
-2 days   Flinders & the Ocean Coast   Couples
 
 - Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
