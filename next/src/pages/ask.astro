@@ -33,8 +33,11 @@ const examples = [
 >
   <div class="ask container" data-ask data-api={API_URL}>
     <header class="ask__head">
-      <h1 class="ask__title">Ask PI</h1>
-      <p class="ask__dek">Ask a question about the Peninsula. PI answers from our own reviews and guides, and links you to the places.</p>
+      <img class="ask__portrait" src="/images/pi/pi-portrait-320.webp" srcset="/images/pi/pi-portrait-320.webp 320w, /images/pi/pi-portrait-640.webp 640w" sizes="(min-width: 48em) 176px, 128px" alt="PI, the Peninsula Insider: a woman in a wide sun hat, seen from the side" width="176" height="176" />
+      <div>
+        <h1 class="ask__title">Ask PI</h1>
+        <p class="ask__dek">Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly cafe, a rainy Sunday with kids. The more specific you are, the sharper my answer.</p>
+      </div>
     </header>
 
     <form class="ask__form" action="/ask/" method="get" data-ask-form>
@@ -57,6 +60,7 @@ const examples = [
 
     <article class="ask__answer" data-ask-answer hidden aria-labelledby="ask-question">
       <h2 class="ask__question" id="ask-question" tabindex="-1" data-ask-question></h2>
+      <p class="ask__by"><img src="/images/pi/pi-avatar-48.webp" alt="" width="24" height="24" /> <span>PI</span></p>
       <p class="ask__status" role="status" aria-live="polite" data-ask-status hidden></p>
       <div class="ask__prose" data-ask-prose></div>
 
@@ -76,12 +80,7 @@ const examples = [
 </BaseLayout>
 
 <script>
-  type Rec = { title?: string; slug?: string; href?: string; why?: string; region?: string };
-
-  const SECTIONS: Record<string, string> = {
-    eat: 'Eat & Drink', stay: 'Stay', wine: 'Wine', explore: 'Explore', plans: 'Plans',
-    'whats-on': "What's On", events: "What's On", journal: 'Journal', places: 'Explore', escape: 'Plans',
-  };
+  import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR } from '../lib/ask-client';
 
   // Back/forward between questions. Registered once at module scope (listener
   // hygiene gate); boot() points it at the current page's handler.
@@ -107,26 +106,6 @@ const examples = [
     const nextList = root.querySelector<HTMLElement>('[data-ask-next-list]')!;
     const searchLink = root.querySelector<HTMLAnchorElement>('[data-ask-search-link]')!;
 
-    let sessionId = '';
-    try {
-      sessionId = sessionStorage.getItem('pi-ask-session') || '';
-      if (!sessionId) { sessionId = crypto.randomUUID(); sessionStorage.setItem('pi-ask-session', sessionId); }
-    } catch { sessionId = crypto.randomUUID(); }
-
-    // Every public path, so links in an answer are always live pages.
-    let pages: Promise<Set<string>> | null = null;
-    const loadPages = () => (pages ??= fetch('/ask/pages.json').then((r) => (r.ok ? r.json() : [])).then((l: string[]) => new Set(l)).catch(() => new Set<string>()));
-
-    function resolveHref(rec: Rec, known: Set<string>): string | null {
-      const raw = (rec.href || '').trim();
-      const path = raw.startsWith('/') ? raw.replace(/[?#].*$/, '').replace(/\/?$/, '/') : '';
-      if (path && known.has(path)) return path;
-      const slug = (path.split('/').filter(Boolean).pop() || rec.slug || '').toLowerCase();
-      if (!slug) return null;
-      const matches = [...known].filter((p) => p.endsWith(`/${slug}/`));
-      return matches.length === 1 ? matches[0] : null;
-    }
-
     let controller: AbortController | null = null;
 
     function setStatus(text: string) {
@@ -134,45 +113,34 @@ const examples = [
       status.hidden = !text;
     }
 
-    function paragraphs(text: string) {
-      prose.replaceChildren(...text.split(/\n{2,}/).map((t) => t.trim()).filter(Boolean).map((t) => {
+    function showProse(text: string, cls = '') {
+      prose.replaceChildren(...paragraphs(text).map((t) => {
         const p = document.createElement('p');
+        if (cls) p.className = cls;
         p.textContent = t;
         return p;
       }));
     }
 
-    async function renderPlaces(recs: Rec[]) {
-      const known = await loadPages();
-      const rows: HTMLElement[] = [];
-      const seen = new Set<string>();
-      for (const rec of recs) {
-        const href = known.size ? resolveHref(rec, known) : null;
-        if (!href || seen.has(href) || !rec.title) continue;
-        seen.add(href);
+    async function renderPlaces(recs: Parameters<typeof placeLinks>[0]) {
+      const rows = (await placeLinks(recs)).map((place) => {
         const li = document.createElement('li');
         li.className = 'ask__place';
         const a = document.createElement('a');
         a.className = 'ask__place-link';
-        a.href = href;
-        a.textContent = rec.title;
+        a.href = place.href;
+        a.textContent = place.title;
         li.append(a);
-        if (rec.why) {
-          const why = document.createElement('p');
-          why.className = 'ask__place-why';
-          why.textContent = rec.why;
-          li.append(why);
+        for (const [cls, text] of [['ask__place-why', place.why], ['ask__place-meta', place.section]]) {
+          if (!text) continue;
+          const p = document.createElement('p');
+          p.className = cls;
+          p.textContent = text;
+          li.append(p);
         }
-        const section = SECTIONS[href.split('/').filter(Boolean)[0] || ''];
-        if (section) {
-          const meta = document.createElement('p');
-          meta.className = 'ask__place-meta';
-          meta.textContent = section;
-          li.append(meta);
-        }
-        rows.push(li);
-      }
-      placeList.replaceChildren(...rows.slice(0, 5));
+        return li;
+      });
+      placeList.replaceChildren(...rows);
       places.hidden = rows.length === 0;
     }
 
@@ -189,34 +157,6 @@ const examples = [
       }));
       next.hidden = items.length === 0;
     }
-
-    async function* sse(res: Response) {
-      const reader = res.body!.getReader();
-      const decoder = new TextDecoder();
-      let buf = '';
-      for (;;) {
-        const { value, done } = await reader.read();
-        if (done) break;
-        buf += decoder.decode(value, { stream: true });
-        let i;
-        while ((i = buf.indexOf('\n\n')) >= 0) {
-          const block = buf.slice(0, i);
-          buf = buf.slice(i + 2);
-          let event = 'message';
-          let data = '';
-          for (const line of block.split('\n')) {
-            if (line.startsWith('event:')) event = line.slice(6).trim();
-            else if (line.startsWith('data:')) data += line.slice(5).trim();
-          }
-          try { yield { event, data: data ? JSON.parse(data) : {} }; } catch { /* skip malformed */ }
-        }
-      }
-    }
-
-    const STAGES: Record<string, string> = {
-      received: 'Reading your question…', retrieving: 'Looking through our guides…', reranking: 'Choosing the best fits…',
-      generating: 'Writing an answer…', enriching: 'Checking the links…',
-    };
 
     async function ask(q: string, push = true) {
       const query = q.trim();
@@ -236,42 +176,22 @@ const examples = [
       places.hidden = true;
       next.hidden = true;
       submit.disabled = true;
-      setStatus(STAGES.received);
-      loadPages();
+      setStatus(STAGE_LINES.received);
 
-      let text = '';
+      let started = false;
+      let meta: { recommendations: Parameters<typeof placeLinks>[0]; follow_on: string[] } = { recommendations: [], follow_on: [] };
       try {
-        const res = await fetch(`${api}/concierge/ask/stream`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream', 'X-Session-Id': sessionId, 'X-Current-Page': location.pathname },
-          body: JSON.stringify({ query }),
-          signal: controller.signal,
-        });
-        if (res.status === 429) throw new Error("You've asked a lot in the last hour. Try again later, or search the site.");
-        if (!res.ok || !res.body) throw new Error('');
-        for await (const { event, data } of sse(res)) {
-          if (event === 'status' && STAGES[data.stage]) setStatus(STAGES[data.stage]);
-          else if (event === 'text' && typeof data.delta === 'string') {
-            if (!text) setStatus('');
-            text += data.delta;
-            paragraphs(text);
-          } else if (event === 'meta') {
-            await renderPlaces(Array.isArray(data.recommendations) ? data.recommendations : []);
-            renderNext(Array.isArray(data.follow_on) ? data.follow_on : []);
-          } else if (event === 'error') {
-            throw new Error(typeof data.message === 'string' ? data.message : '');
-          }
-        }
-        if (!text) throw new Error('');
+        await askPI(api, query, {
+          onStage: (s) => { if (!started && STAGE_LINES[s]) setStatus(STAGE_LINES[s]); },
+          onText: (full) => { if (!started) { started = true; setStatus(''); } showProse(full); },
+          onMeta: (m) => { meta = m; },
+        }, controller.signal);
+        await renderPlaces(meta.recommendations);
+        renderNext(meta.follow_on);
         setStatus('');
       } catch (err) {
         if ((err as Error).name === 'AbortError') return;
-        const msg = (err as Error).message || "Ask PI can't answer right now. Try search, or ask again in a minute.";
-        prose.replaceChildren();
-        const p = document.createElement('p');
-        p.className = 'ask__error';
-        p.textContent = msg;
-        prose.append(p);
+        showProse((err as Error).message || READER_ERROR, 'ask__error');
         setStatus('');
       } finally {
         answer.removeAttribute('aria-busy');
@@ -303,11 +223,15 @@ const examples = [
   document.addEventListener('astro:page-load', boot);
 </script>
 
+
 <!-- Global (every selector is under .ask): the answer, places and follow-ons
      are created by script, so Astro's scoped attribute never reaches them. -->
 <style is:global>
   .ask { max-width: 46rem; padding-block: var(--space-8) var(--space-9); }
-  .ask__head { margin-bottom: var(--space-6); }
+  .ask__head { display: flex; align-items: center; gap: var(--space-5); margin-bottom: var(--space-6); }
+  .ask__portrait { flex: none; width: 176px; height: 176px; margin: calc(-1 * var(--space-4)) 0; }
+  .ask__by { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-3); font: 600 var(--fs-300)/1 var(--font-ui); }
+  .ask__by img { width: 24px; height: 24px; border-radius: 50%; background: #F4EADB; }
   .ask__title {
     margin: 0;
     font-family: var(--font-display);
@@ -377,6 +301,8 @@ const examples = [
   @media (max-width: 47.99em) {
     .ask { padding-block: var(--space-6) var(--space-8); }
     .ask__title { font-size: var(--fs-700); }
+    .ask__head { flex-direction: column; align-items: flex-start; gap: var(--space-3); }
+    .ask__portrait { width: 128px; height: 128px; margin: 0; }
     .ask__dek { font-size: var(--fs-400); }
     .ask__field { flex-direction: column; }
     .ask__submit { width: 100%; }

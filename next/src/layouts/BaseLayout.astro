@@ -26,6 +26,7 @@ import V5Masthead from '../components/v5/chrome/V5Masthead.astro';
 import V5Breadcrumbs from '../components/v5/chrome/V5Breadcrumbs.astro';
 import V5Footer from '../components/v5/chrome/V5Footer.astro';
 import SearchOverlay from '../components/SearchOverlay.astro';
+import PiChat from '../components/PiChat.astro';
 import AuthModal from '../components/v2/AuthModal.astro';
 import ProfileDropdown from '../components/v2/ProfileDropdown.astro';
 import CookieBanner from '../components/CookieBanner.astro';
@@ -445,6 +446,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <!-- Site search overlay - instant Pagefind dropdown, opened by any
        [data-open-search] trigger or the `/` keyboard shortcut. -->
   <SearchOverlay />
+  <PiChat />
 
   <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
        per week, waits for consent and stands down if the Insider Note

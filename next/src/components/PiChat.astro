@@ -1,0 +1,601 @@
+---
+/**
+ * PiChat - PI, the Peninsula Insider, as a chat on every page (2026-11-13).
+ *
+ * Brings back the July 2026 concierge drawer in the simplified design:
+ * her hat portrait, her greeting, answers that stream in her voice, picture
+ * tiles that link to the pages she recommends, and "ask me next" chips.
+ *
+ *   Closed      a small pill at the corner: her avatar and "Ask PI".
+ *   Open        desktop: docks to the right and pushes the page over, or
+ *               floats as a card (the reader's choice, remembered).
+ *               phone: a full-height sheet.
+ *   Minimised   back to the pill; the conversation is kept for the visit.
+ *
+ * Any link to /ask/?q=... and any Ask PI form on the site opens the chat
+ * instead of leaving the page. /ask/ itself stays as the shareable page,
+ * and the chat hides there. The character is specified in BRAND-PI.md.
+ */
+import { SHOW_ASK_PI } from '../lib/features';
+import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
+
+const starters = [
+  'A long lunch in Red Hill that works with kids',
+  'Dog-friendly breakfast near Sorrento',
+  'A rainy Sunday for two, no driving after lunch',
+];
+---
+
+{SHOW_ASK_PI && (
+  <div class="pi-chat" id="pi-chat" data-api={API_URL} data-state="closed" data-mode="dock" transition:persist="pi-chat" data-pagefind-ignore>
+    <button type="button" class="pi-chat__launch" id="pi-chat-launch" aria-controls="pi-chat-panel" aria-expanded="false">
+      <img class="pi-chat__launch-face" src="/images/pi/pi-avatar-96.webp" alt="" width="44" height="44" decoding="async" />
+      <span class="pi-chat__launch-text">
+        <span class="pi-chat__launch-name">Ask PI</span>
+        <span class="pi-chat__launch-sub">Your Peninsula local</span>
+      </span>
+      <span class="pi-chat__launch-dot" aria-hidden="true"></span>
+    </button>
+
+    <section class="pi-chat__panel" id="pi-chat-panel" aria-labelledby="pi-chat-name" hidden>
+      <header class="pi-chat__head">
+        <img class="pi-chat__head-face" src="/images/pi/pi-avatar-96.webp" alt="" width="40" height="40" decoding="async" />
+        <div class="pi-chat__head-id">
+          <h2 class="pi-chat__name" id="pi-chat-name">PI</h2>
+          <p class="pi-chat__role">Your Peninsula local</p>
+        </div>
+        <div class="pi-chat__tools">
+          <button type="button" class="pi-chat__tool pi-chat__tool--mode" id="pi-chat-mode" aria-label="Float the chat over the page" title="Float over the page">
+            <svg class="pi-chat__icon-float" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><rect x="10" y="9" width="5.5" height="5.5" rx="1" fill="currentColor" stroke="none"/></svg>
+            <svg class="pi-chat__icon-dock" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3.5" width="15" height="13" rx="2"/><path d="M12 3.5v13"/><rect x="12" y="3.5" width="5.5" height="13" fill="currentColor" stroke="none"/></svg>
+          </button>
+          <button type="button" class="pi-chat__tool" id="pi-chat-new" aria-label="Start a new conversation" title="New conversation">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 10a6 6 0 1 0 1.8-4.3"/><path d="M4 3.5v3h3"/></svg>
+          </button>
+          <button type="button" class="pi-chat__tool" id="pi-chat-min" aria-label="Minimise the chat" title="Minimise">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M5 10h10"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <div class="pi-chat__thread" id="pi-chat-thread" data-lenis-prevent>
+        <div class="pi-chat__hello" id="pi-chat-hello">
+          <img class="pi-chat__portrait" src="/images/pi/pi-portrait-320.webp" srcset="/images/pi/pi-portrait-320.webp 320w, /images/pi/pi-portrait-640.webp 640w" sizes="168px" alt="" width="168" height="168" decoding="async" />
+          <p class="pi-chat__hello-lead">Tell me what you're after.</p>
+          <p class="pi-chat__hello-body">A long lunch, a hatted dinner, a dog-friendly cafe, a rainy Sunday with kids. The more specific you are, the sharper my answer.</p>
+          <ul class="pi-chat__chips" role="list" aria-label="Try asking">
+            {starters.map((q) => <li><button type="button" class="pi-chat__chip" data-pi-q={q}>{q}</button></li>)}
+          </ul>
+        </div>
+        <ol class="pi-chat__log" id="pi-chat-log" role="list" aria-live="polite"></ol>
+      </div>
+
+      <footer class="pi-chat__foot">
+        <form class="pi-chat__form" id="pi-chat-form" action="/ask/" method="get">
+          <label class="pi-chat__sr" for="pi-chat-input">Ask PI a question</label>
+          <textarea id="pi-chat-input" name="q" rows="1" maxlength="500" enterkeyhint="send" placeholder="Ask PI anything about the Peninsula" required></textarea>
+          <button type="submit" class="pi-chat__send" id="pi-chat-send" aria-label="Send">
+            <svg viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 16V4M5 9l5-5 5 5"/></svg>
+          </button>
+        </form>
+        <p class="pi-chat__fine">PI answers from Peninsula Insider's own reviews. Check hours and bookings before you go.</p>
+      </footer>
+    </section>
+  </div>
+)}
+
+<script>
+  import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR, type Place } from '../lib/ask-client';
+
+  type Turn =
+    | { role: 'you'; text: string }
+    | { role: 'pi'; text: string; places: Place[]; next: string[]; error?: boolean };
+
+  const HISTORY = 'pi-chat-history';
+  const STATE = 'pi-chat-state';
+  const MODE = 'pi-chat-mode';
+  const DESKTOP = window.matchMedia('(min-width: 64em)');
+
+  const store = {
+    get(area: Storage, key: string) { try { return area.getItem(key); } catch { return null; } },
+    set(area: Storage, key: string, v: string) { try { area.setItem(key, v); } catch { /* private mode */ } },
+    del(area: Storage, key: string) { try { area.removeItem(key); } catch { /* private mode */ } },
+  };
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, text?: string) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  const root = document.getElementById('pi-chat');
+  if (root && !root.dataset.booted) {
+    root.dataset.booted = '1';
+    const api = root.dataset.api || '';
+    const launch = document.getElementById('pi-chat-launch') as HTMLButtonElement;
+    const panel = document.getElementById('pi-chat-panel') as HTMLElement;
+    const thread = document.getElementById('pi-chat-thread') as HTMLElement;
+    const hello = document.getElementById('pi-chat-hello') as HTMLElement;
+    const log = document.getElementById('pi-chat-log') as HTMLOListElement;
+    const form = document.getElementById('pi-chat-form') as HTMLFormElement;
+    const input = document.getElementById('pi-chat-input') as HTMLTextAreaElement;
+    const send = document.getElementById('pi-chat-send') as HTMLButtonElement;
+    const modeBtn = document.getElementById('pi-chat-mode') as HTMLButtonElement;
+
+    let turns: Turn[] = [];
+    try { turns = JSON.parse(store.get(sessionStorage, HISTORY) || '[]'); } catch { turns = []; }
+    let controller: AbortController | null = null;
+
+    const onAskPage = () => location.pathname.replace(/\/?$/, '/') === '/ask/';
+
+    /* ---------- layout state ---------- */
+
+    function applyChrome() {
+      const state = root!.dataset.state;
+      const docked = state === 'open' && root!.dataset.mode === 'dock' && DESKTOP.matches;
+      document.documentElement.classList.toggle('pi-chat-docked', docked);
+      document.documentElement.classList.toggle('pi-chat-sheet', state === 'open' && !DESKTOP.matches);
+      root!.hidden = onAskPage();
+      launch.classList.toggle('has-thread', turns.length > 0);
+    }
+
+    function setMode(mode: string) {
+      root!.dataset.mode = mode === 'float' ? 'float' : 'dock';
+      store.set(localStorage, MODE, root!.dataset.mode);
+      const toFloat = root!.dataset.mode === 'dock';
+      modeBtn.setAttribute('aria-label', toFloat ? 'Float the chat over the page' : 'Dock the chat beside the page');
+      modeBtn.title = toFloat ? 'Float over the page' : 'Dock beside the page';
+      applyChrome();
+    }
+
+    function open(focus = true) {
+      if (onAskPage()) return;
+      root!.dataset.state = 'open';
+      store.set(sessionStorage, STATE, 'open');
+      panel.hidden = false;
+      launch.setAttribute('aria-expanded', 'true');
+      applyChrome();
+      requestAnimationFrame(() => {
+        root!.classList.add('is-in');
+        if (focus) input.focus({ preventScroll: true });
+      });
+    }
+
+    function minimise() {
+      root!.classList.remove('is-in');
+      root!.dataset.state = 'closed';
+      store.set(sessionStorage, STATE, 'closed');
+      launch.setAttribute('aria-expanded', 'false');
+      applyChrome();
+      window.setTimeout(() => { if (root!.dataset.state !== 'open') panel.hidden = true; }, 220);
+      launch.focus({ preventScroll: true });
+    }
+
+    /* ---------- rendering ---------- */
+
+    function byline() {
+      const b = el('p', 'pi-msg__by');
+      const face = el('img', 'pi-msg__face') as HTMLImageElement;
+      face.src = '/images/pi/pi-avatar-48.webp';
+      face.alt = '';
+      face.width = 24;
+      face.height = 24;
+      b.append(face, el('span', 'pi-msg__name', 'PI'));
+      return b;
+    }
+
+    /** Prose with the recommended places linked where PI names them. */
+    function proseNodes(text: string, places: Place[]) {
+      return paragraphs(text).map((para) => {
+        const p = el('p');
+        const linked = new Set<string>();
+        let rest = para;
+        while (rest) {
+          let hit: { i: number; place: Place } | null = null;
+          for (const place of places) {
+            if (linked.has(place.href)) continue;
+            const i = rest.indexOf(place.title);
+            if (i >= 0 && (!hit || i < hit.i)) hit = { i, place };
+          }
+          if (!hit) { p.append(rest); break; }
+          p.append(rest.slice(0, hit.i));
+          const a = el('a', 'pi-msg__inline', hit.place.title) as HTMLAnchorElement;
+          a.href = hit.place.href;
+          p.append(a);
+          linked.add(hit.place.href);
+          rest = rest.slice(hit.i + hit.place.title.length);
+        }
+        return p;
+      });
+    }
+
+    function tiles(places: Place[]) {
+      const list = el('ul', 'pi-tiles');
+      list.setAttribute('role', 'list');
+      list.setAttribute('aria-label', 'Places PI recommends');
+      for (const place of places) {
+        const li = el('li');
+        const a = el('a', 'pi-tile') as HTMLAnchorElement;
+        a.href = place.href;
+        const media = el('span', 'pi-tile__media');
+        if (place.image) {
+          const img = el('img') as HTMLImageElement;
+          img.src = place.image;
+          img.alt = '';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.addEventListener('error', () => { img.remove(); media.classList.add('is-empty'); }, { once: true });
+          media.append(img);
+        } else {
+          media.classList.add('is-empty');
+        }
+        const body = el('span', 'pi-tile__body');
+        if (place.section) body.append(el('span', 'pi-tile__section', place.section));
+        body.append(el('span', 'pi-tile__title', place.title));
+        if (place.why) body.append(el('span', 'pi-tile__why', place.why));
+        a.append(media, body);
+        li.append(a);
+        list.append(li);
+      }
+      return list;
+    }
+
+    function nextChips(items: string[]) {
+      const wrap = el('div', 'pi-msg__next');
+      wrap.append(el('p', 'pi-msg__next-label', 'Ask me next'));
+      const ul = el('ul', 'pi-chat__chips');
+      ul.setAttribute('role', 'list');
+      for (const q of items.slice(0, 3)) {
+        const li = el('li');
+        const b = el('button', 'pi-chat__chip', q) as HTMLButtonElement;
+        b.type = 'button';
+        b.dataset.piQ = q;
+        li.append(b);
+        ul.append(li);
+      }
+      wrap.append(ul);
+      return wrap;
+    }
+
+    function youNode(text: string) {
+      const li = el('li', 'pi-msg pi-msg--you');
+      li.append(el('p', 'pi-msg__bubble', text));
+      return li;
+    }
+
+    function piNode(turn: Extract<Turn, { role: 'pi' }>, question?: string) {
+      const li = el('li', 'pi-msg pi-msg--pi');
+      const prose = el('div', 'pi-msg__prose');
+      if (turn.error) prose.append(el('p', 'pi-msg__error', turn.text));
+      else prose.append(...proseNodes(turn.text, turn.places));
+      li.append(byline(), prose);
+      if (turn.places.length) li.append(tiles(turn.places));
+      if (turn.next.length) li.append(nextChips(turn.next));
+      if (question && !turn.error) {
+        const pg = el('a', 'pi-msg__page', 'Open as a page') as HTMLAnchorElement;
+        pg.href = `/ask/?q=${encodeURIComponent(question)}`;
+        pg.dataset.piPage = '1';
+        li.append(pg);
+      }
+      return li;
+    }
+
+    function render() {
+      hello.hidden = turns.length > 0;
+      const nodes: HTMLElement[] = [];
+      let lastQ = '';
+      for (const t of turns) {
+        if (t.role === 'you') { lastQ = t.text; nodes.push(youNode(t.text)); }
+        else nodes.push(piNode(t, lastQ));
+      }
+      log.replaceChildren(...nodes);
+      applyChrome();
+    }
+
+    function save() {
+      store.set(sessionStorage, HISTORY, JSON.stringify(turns.slice(-12)));
+    }
+
+    function scrollToMsg(node: HTMLElement) {
+      requestAnimationFrame(() => {
+        thread.scrollTo({ top: Math.max(0, node.offsetTop - 12), behavior: 'smooth' });
+      });
+    }
+
+    /* ---------- asking ---------- */
+
+    async function ask(raw: string) {
+      const q = raw.trim().slice(0, 500);
+      if (q.length < 3) return;
+      open(false);
+      controller?.abort();
+      controller = new AbortController();
+      input.value = '';
+      autoGrow();
+      turns.push({ role: 'you', text: q });
+      save();
+      render();
+
+      const live = el('li', 'pi-msg pi-msg--pi is-live');
+      const prose = el('div', 'pi-msg__prose');
+      const status = el('p', 'pi-msg__status', STAGE_LINES.received);
+      status.setAttribute('role', 'status');
+      prose.append(status);
+      live.append(byline(), prose);
+      log.append(live);
+      scrollToMsg(live);
+      send.disabled = true;
+
+      let text = '';
+      let meta: { recommendations: Parameters<typeof placeLinks>[0]; follow_on: string[] } = { recommendations: [], follow_on: [] };
+      try {
+        text = await askPI(api, q, {
+          onStage: (s) => { if (!text && STAGE_LINES[s]) status.textContent = STAGE_LINES[s]; },
+          onText: (full) => {
+            text = full;
+            prose.replaceChildren(...paragraphs(full).map((t) => el('p', '', t)));
+          },
+          onMeta: (m) => { meta = m; },
+        }, controller.signal);
+        const places = await placeLinks(meta.recommendations);
+        const turn: Turn = { role: 'pi', text, places, next: meta.follow_on };
+        turns.push(turn);
+        save();
+        live.replaceWith(piNode(turn, q));
+      } catch (err) {
+        if ((err as Error).name === 'AbortError') { live.remove(); return; }
+        const turn: Turn = { role: 'pi', text: (err as Error).message || READER_ERROR, places: [], next: [], error: true };
+        turns.push(turn);
+        save();
+        live.replaceWith(piNode(turn));
+      } finally {
+        send.disabled = false;
+        applyChrome();
+      }
+    }
+
+    function autoGrow() {
+      input.style.height = 'auto';
+      input.style.height = `${Math.min(input.scrollHeight, 132)}px`;
+    }
+
+    /* ---------- wiring (each listener bound once; this script runs once) ---------- */
+
+    launch.addEventListener('click', () => open());
+    document.getElementById('pi-chat-min')!.addEventListener('click', minimise);
+    document.getElementById('pi-chat-new')!.addEventListener('click', () => {
+      controller?.abort();
+      turns = [];
+      store.del(sessionStorage, HISTORY);
+      render();
+      input.focus();
+    });
+    modeBtn.addEventListener('click', () => setMode(root.dataset.mode === 'dock' ? 'float' : 'dock'));
+    form.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
+    input.addEventListener('input', autoGrow);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); ask(input.value); }
+    });
+    panel.addEventListener('keydown', (e) => { if (e.key === 'Escape') { e.stopPropagation(); minimise(); } });
+    panel.addEventListener('click', (e) => {
+      const chip = (e.target as HTMLElement).closest<HTMLElement>('[data-pi-q]');
+      if (chip) ask(chip.dataset.piQ || '');
+    });
+    DESKTOP.addEventListener('change', applyChrome);
+
+    // Hand-offs from the rest of the site: links to /ask/?q=..., Ask PI
+    // forms, and the search overlay's "Ask PI" row. Modified clicks and the
+    // chat's own "Open as a page" link still navigate.
+    document.addEventListener('click', (e) => {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || onAskPage()) return;
+      const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
+      if (!a || a.dataset.piPage || a.target === '_blank') return;
+      const url = new URL(a.href, location.href);
+      if (url.origin !== location.origin || url.pathname !== '/ask/') return;
+      e.preventDefault();
+      (window as any).__piSearchClose?.();
+      const q = url.searchParams.get('q');
+      if (q) ask(q); else open();
+    });
+    document.addEventListener('submit', (e) => {
+      const f = e.target as HTMLFormElement;
+      if (f === form || onAskPage() || !f.matches('form[action="/ask/"]')) return;
+      const q = (new FormData(f).get('q') || '').toString();
+      if (q.trim().length < 3) return;
+      e.preventDefault();
+      ask(q);
+    });
+
+    // The router swaps <html> attributes on navigation; restore ours.
+    document.addEventListener('astro:after-swap', applyChrome);
+    document.addEventListener('astro:page-load', applyChrome);
+
+    (window as any).PIChat = { open, ask, minimise };
+
+    setMode(store.get(localStorage, MODE) || 'dock');
+    render();
+    if (store.get(sessionStorage, STATE) === 'open' && !onAskPage()) open(false);
+  }
+</script>
+
+<style is:global>
+  /* Every selector is under .pi-chat or html.pi-chat-*: messages are made by
+     script, so Astro's scoped attribute never reaches them. */
+  .pi-chat {
+    --pi-w: 25rem;
+    --pi-cream: #F4EADB;
+    --pi-terracotta: #B4532F;
+    position: relative;
+    z-index: calc(var(--z-chrome) + 100);
+  }
+  .pi-chat[hidden] { display: none; }
+  .pi-chat__sr { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
+  /* Launcher */
+  .pi-chat__launch {
+    position: fixed; right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom));
+    display: inline-flex; align-items: center; gap: var(--space-3);
+    min-height: 56px; padding: 6px var(--space-5) 6px 6px;
+    background: var(--white); color: var(--text);
+    border: 1px solid var(--border); border-radius: var(--radius-pill);
+    box-shadow: 0 10px 30px -12px rgba(20, 32, 42, .35), 0 2px 6px -2px rgba(20, 32, 42, .12);
+    cursor: pointer; text-align: left;
+    transition: transform var(--dur-fast) var(--ease-enter), box-shadow var(--dur-fast) var(--ease-enter), opacity var(--dur-fast);
+  }
+  .pi-chat__launch:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -14px rgba(20, 32, 42, .42), 0 2px 6px -2px rgba(20, 32, 42, .12); }
+  .pi-chat__launch:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .pi-chat[data-state="open"] .pi-chat__launch { opacity: 0; pointer-events: none; transform: translateY(8px); }
+  .pi-chat__launch-face { width: 44px; height: 44px; border-radius: 50%; background: var(--pi-cream); }
+  .pi-chat__launch-text { display: grid; line-height: 1.15; }
+  .pi-chat__launch-name { font: var(--fw-display) var(--fs-500)/1.1 var(--font-display); letter-spacing: var(--ls-display); }
+  .pi-chat__launch-sub { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  .pi-chat__launch-dot {
+    position: absolute; top: 6px; left: 40px; width: 10px; height: 10px; border-radius: 50%;
+    background: var(--pi-terracotta); box-shadow: 0 0 0 2px var(--white);
+    opacity: 0; transform: scale(.4); transition: opacity var(--dur-fast), transform var(--dur-fast);
+  }
+  .pi-chat__launch.has-thread .pi-chat__launch-dot { opacity: 1; transform: none; }
+
+  /* Panel: phone sheet by default */
+  .pi-chat__panel {
+    position: fixed; inset: 0; display: flex; flex-direction: column;
+    background: var(--white); color: var(--text);
+    opacity: 0; transform: translateY(24px);
+    transition: opacity var(--dur-med) var(--ease-enter), transform var(--dur-med) var(--ease-enter);
+  }
+  .pi-chat.is-in .pi-chat__panel { opacity: 1; transform: none; }
+  .pi-chat__panel[hidden] { display: none; }
+  html.pi-chat-sheet { overflow: hidden; }
+
+  @media (min-width: 64em) {
+    .pi-chat[data-mode="dock"] .pi-chat__panel {
+      inset: 0 0 0 auto; width: var(--pi-w);
+      border-left: 1px solid var(--border);
+      transform: translateX(24px);
+    }
+    .pi-chat[data-mode="float"] .pi-chat__panel {
+      inset: auto 24px 24px auto; width: var(--pi-w); height: min(44rem, calc(100dvh - 48px));
+      border: 1px solid var(--border); border-radius: var(--radius-l); overflow: hidden;
+      box-shadow: 0 30px 60px -24px rgba(20, 32, 42, .38), 0 4px 12px -4px rgba(20, 32, 42, .12);
+      transform: translateY(16px) scale(.98); transform-origin: bottom right;
+    }
+    .pi-chat.is-in .pi-chat__panel { transform: none; }
+  }
+  /* Push the page aside only where the masthead still fits beside the panel. */
+  @media (min-width: 100em) {
+    html.pi-chat-docked body { margin-right: var(--pi-w, 25rem); transition: margin-right var(--dur-med) var(--ease-enter); }
+  }
+
+  /* Header */
+  .pi-chat__head {
+    display: flex; align-items: center; gap: var(--space-3);
+    padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+    padding-top: max(var(--space-3), env(safe-area-inset-top));
+    border-bottom: 1px solid var(--border);
+  }
+  .pi-chat__head-face { width: 40px; height: 40px; border-radius: 50%; background: var(--pi-cream); flex: none; }
+  .pi-chat__head-id { flex: 1; min-width: 0; }
+  .pi-chat__name { margin: 0; font: var(--fw-display) var(--fs-500)/1.1 var(--font-display); letter-spacing: var(--ls-display); }
+  .pi-chat__role { margin: 2px 0 0; color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  .pi-chat__tools { display: flex; gap: 2px; }
+  .pi-chat__tool {
+    display: grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: var(--radius-s);
+    background: transparent; color: var(--soft); cursor: pointer;
+  }
+  .pi-chat__tool:hover { color: var(--text); background: var(--bg-alt); }
+  .pi-chat__tool:focus-visible, .pi-chat__chip:focus-visible, .pi-chat__send:focus-visible,
+  .pi-chat a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+  @media (max-width: 63.99em) { .pi-chat .pi-chat__tool--mode { display: none; } }
+  .pi-chat[data-mode="dock"] .pi-chat__icon-dock, .pi-chat[data-mode="float"] .pi-chat__icon-float { display: none; }
+
+  /* Thread */
+  .pi-chat__thread { flex: 1; min-height: 0; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; padding: var(--space-5) var(--space-4) var(--space-6); }
+  .pi-chat__hello { text-align: center; padding: var(--space-4) var(--space-2) 0; }
+  .pi-chat__hello[hidden] { display: none; }
+  .pi-chat__portrait { display: block; width: 168px; height: 168px; margin: 0 auto var(--space-4); }
+  .pi-chat__hello-lead { margin: 0; font: italic var(--fw-display) var(--fs-600)/1.15 var(--font-display); letter-spacing: var(--ls-display); }
+  .pi-chat__hello-body { margin: var(--space-2) auto var(--space-5); max-width: 21rem; color: var(--soft); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
+  .pi-chat__hello .pi-chat__chips { justify-content: center; }
+
+  .pi-chat__chips { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+  .pi-chat__chip {
+    max-width: 100%; min-height: 40px; padding: 8px 14px; text-align: left;
+    background: var(--white); color: var(--text);
+    border: 1px solid var(--border-control); border-radius: var(--radius-pill);
+    font: 400 var(--fs-300)/1.3 var(--font-ui); cursor: pointer;
+    transition: background var(--dur-fast), border-color var(--dur-fast);
+  }
+  .pi-chat__chip:hover { background: var(--bg-alt); border-color: var(--text); }
+
+  .pi-chat__log { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6); }
+  .pi-msg { min-width: 0; }
+  .pi-msg--you { display: flex; justify-content: flex-end; }
+  .pi-msg__bubble {
+    margin: 0; max-width: 85%; padding: 10px 14px;
+    background: var(--bg-alt); border-radius: 18px 18px 4px 18px;
+    font: 400 var(--fs-400)/1.45 var(--font-ui); text-wrap: pretty;
+  }
+  .pi-msg__by { display: flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-2); }
+  .pi-msg__face { width: 24px; height: 24px; border-radius: 50%; background: var(--pi-cream); }
+  .pi-msg__name { font: 600 var(--fs-300)/1 var(--font-ui); }
+  .pi-msg__prose p { margin: 0 0 var(--space-3); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
+  .pi-msg__prose p:last-child { margin-bottom: 0; }
+  .pi-msg__inline { color: var(--accent); font-weight: 600; text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .2em; }
+  .pi-msg__inline:hover { text-decoration-color: currentColor; }
+  .pi-msg__status { color: var(--soft); font-style: italic; }
+  .pi-msg.is-live .pi-msg__face { animation: pi-think 1.6s ease-in-out infinite; }
+  @keyframes pi-think { 50% { transform: rotate(-8deg) scale(1.06); } }
+  .pi-msg__error { color: var(--soft); }
+
+  /* Picture tiles */
+  .pi-tiles {
+    list-style: none; margin: var(--space-4) calc(-1 * var(--space-4)) 0; padding: 0 var(--space-4) var(--space-1);
+    display: grid; grid-auto-flow: column; grid-auto-columns: 11.5rem; gap: var(--space-3);
+    overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--space-4); scrollbar-width: none;
+  }
+  .pi-tiles::-webkit-scrollbar { display: none; }
+  .pi-tiles > li { scroll-snap-align: start; }
+  .pi-tile { display: flex; flex-direction: column; height: 100%; color: inherit; text-decoration: none; }
+  .pi-tile__media { display: block; aspect-ratio: 4 / 3; border-radius: var(--radius-m); overflow: hidden; background: var(--pi-cream); }
+  .pi-tile__media img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-med) var(--ease-enter); }
+  .pi-tile:hover .pi-tile__media img { transform: scale(1.03); }
+  .pi-tile__media.is-empty { background: var(--pi-cream) url('/images/pi/pi-avatar-96.webp') center / 44px no-repeat; }
+  .pi-tile__body { display: grid; gap: 2px; padding-top: var(--space-2); }
+  .pi-tile__section { color: var(--soft); font: 400 var(--fs-200)/1.3 var(--font-ui); }
+  .pi-tile__title { font: var(--fw-display) var(--fs-400)/1.2 var(--font-display); }
+  .pi-tile:hover .pi-tile__title { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  .pi-tile__why { color: var(--soft); font: 400 var(--fs-300)/1.4 var(--font-ui); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  .pi-msg__next { margin-top: var(--space-5); }
+  .pi-msg__next-label { margin: 0 0 var(--space-2); color: var(--soft); font: 400 var(--fs-300)/1.3 var(--font-ui); }
+  .pi-msg__page { display: inline-block; margin-top: var(--space-4); color: var(--soft); font: 400 var(--fs-300)/1.3 var(--font-ui); text-underline-offset: .2em; }
+  .pi-msg__page:hover { color: var(--accent); }
+
+  /* Composer */
+  .pi-chat__foot { padding: var(--space-3) var(--space-4) max(var(--space-3), env(safe-area-inset-bottom)); border-top: 1px solid var(--border); }
+  .pi-chat__form {
+    display: flex; align-items: flex-end; gap: var(--space-2);
+    padding: 6px 6px 6px var(--space-4);
+    border: 1px solid var(--border-control); border-radius: 26px; background: var(--white);
+  }
+  .pi-chat__form:focus-within { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .pi-chat__form textarea {
+    flex: 1; min-width: 0; min-height: 40px; max-height: 132px; padding: 9px 0; resize: none;
+    border: 0; background: transparent; color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui);
+  }
+  .pi-chat .pi-chat__form textarea:focus, .pi-chat .pi-chat__form textarea:focus-visible { outline: none; box-shadow: none; }
+  .pi-chat__form textarea::placeholder { color: var(--soft); }
+  .pi-chat__send {
+    flex: none; display: grid; place-items: center; width: 40px; height: 40px; border: 0; border-radius: 50%;
+    background: var(--accent); color: var(--white); cursor: pointer;
+  }
+  .pi-chat__send:disabled { opacity: .5; cursor: progress; }
+  .pi-chat__fine { margin: var(--space-2) 0 0; color: var(--soft); font: 400 var(--fs-200)/1.4 var(--font-ui); text-align: center; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .pi-chat__panel, .pi-chat__launch, .pi-tile__media img, html.pi-chat-docked body { transition: none; }
+    .pi-msg.is-live .pi-msg__face { animation: none; }
+  }
+  @media print { .pi-chat { display: none; } }
+</style>

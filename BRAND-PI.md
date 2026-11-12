@@ -27,12 +27,14 @@ This is the brand voice doc for **PI**, the editorial concierge persona that fro
 
 ## The visual mark
 
-Two SVG marks live in `next/public/images/`:
+**Current mark (since May 2026): the hat illustration.** A woman in profile under a wide orange sun hat, hair blowing out from under the brim, on a cream disc. Source: `next/public/images/pi-concierge.svg` (a 660 KB trace, never served directly). `next/scripts/build-pi-avatar.mjs` renders the sizes pages use:
 
 | File | Use |
 |------|-----|
-| `pi-avatar.svg` | The full disc avatar. 200×200, sand background, full silhouette with akubra hat + popped collar + notebook in pocket. For hero sections, profile blocks, About page. |
-| `pi-mark.svg` | Compact 64×64 monogram — hat + collar only, on dark disc. For chat avatars, nav, favicons. |
+| `images/pi/pi-avatar-{48,96,160}.webp` | Round crop on her cream disc. Chat launcher (44 px), chat header (40 px), message byline (24 px). |
+| `images/pi/pi-portrait-{320,640}.webp` | Full illustration on a transparent ground, the hat breaking the circle. Chat greeting and the `/ask` page header. |
+
+Older marks, kept for reference only: `pi-avatar.svg` (geometric disc, blue bay) and `pi-mark.svg` (monogram).
 
 **Design language:** Carmen-Sandiego silhouette restaged for the Australian coast. A wide-brimmed hat (akubra, not fedora — functional, not glamorous). Collar up against the wind off the bay. Notebook in the pocket — she's working. Profile turned slightly away — she's already moving on to the next place.
 
@@ -42,7 +44,13 @@ Single-tone silhouette. No face. Lets the reader project. The mystery is the poi
 
 ## Voice rules — codified in the LLM prompt
 
-These are baked into `apps/api/src/lib/openai.ts` (the system prompt for `gpt-4o`). Update there if you change them.
+The running version lives in the platform repo at `apps/api/src/lib/persona.ts` (`PERSONA_PROMPT`, with `PERSONA_VERSION`). It has three layers:
+
+1. **The character prompt**: who she is, how she talks, what she never says, how she handles not knowing, and one worked example.
+2. **Opener stripping**: a chatbot opener ("Great question!") is removed before the reader sees it.
+3. **Voice checks**: every answer is checked for tourism-board words, chatbot lines, em dashes, prices and list formatting. Flags are logged with the answer in `concierge_queries`, and `npm run voice:eval` (20 fixed questions, in and out of scope) must pass 90 percent before a persona change ships.
+
+Change this file and `persona.ts` together, bump `PERSONA_VERSION`, and run the eval.
 
 ### DO
 
@@ -96,7 +104,8 @@ In an Editor's Letter or About page:
 
 | Surface | Treatment |
 |---------|-----------|
-| `/ask/` concierge | Full character, full voice. Avatar in the dialog. |
+| Chat (every page) | Full character, full voice. `components/PiChat.astro`: launcher pill with her avatar, docks beside the page or floats on desktop, full sheet on phones. Any link to `/ask/?q=` opens it. |
+| `/ask/` page | Full character, full voice. The shareable, linkable version of a question. Portrait in the header. |
 | Newsletter sign-off | "PI" signature, mark as a small monogram. |
 | 404 page | "PI hasn't been here yet. Try one of these instead..." |
 | Notification copy / micro-UI | Voice still present, dialled down. ("PI saved this to your trip.") |

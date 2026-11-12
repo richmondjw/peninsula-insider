@@ -426,7 +426,12 @@
           e.preventDefault();
           const els2 = getEls();
           const q = (els2 && els2.input && els2.input.value || '').trim();
-          if (q && isQuestion(q)) { window.location.href = '/ask/?q=' + encodeURIComponent(q); return; }
+          if (q && isQuestion(q)) {
+            // PI answers in the chat drawer when it is on the page.
+            if (window.PIChat && location.pathname !== '/ask/') { closeOverlay(); window.PIChat.ask(q); return; }
+            window.location.href = '/ask/?q=' + encodeURIComponent(q);
+            return;
+          }
           window.location.href = q ? '/search/?q=' + encodeURIComponent(q) : '/search/';
         });
       }
@@ -437,6 +442,8 @@
     // the DOM each time, so the overlay reference is always fresh.
     if (!window.__piSearchBound) {
       window.__piSearchBound = true;
+      // PI chat closes search before it answers a question handed over from here.
+      window.__piSearchClose = closeOverlay;
 
       document.addEventListener('click', (e) => {
         const trigger = e.target && e.target.closest && e.target.closest('[data-open-search]');
