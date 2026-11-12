@@ -339,7 +339,7 @@ const editAttrs = lockImageEditing ? {} : editableImage({
           {imageCredit && <span class="pi-card__image-credit">{image?.sourceUrl ? <a href={image.sourceUrl}>{imageCredit}</a> : imageCredit}{image?.licenceUrl && <>{' · '}<a href={image.licenceUrl}>CC BY-SA 3.0 licence</a></>}{image?.changeNote && <>{' · '}{image.changeNote}</>}</span>}
         </p>
       )}
-      {saveOnImage && resolvedSaveKind && <div class="pi-card__save"><SaveControl kind={resolvedSaveKind} slug={entitySlug} title={title} href={href} section={saveSection} dek={saveDek ?? verdict} imageUrl={image?.src} variant={forkPlan ? 'fork' : 'save'} plan={plan} labelled={variant === 'plan'} /></div>}
+      {saveOnImage && resolvedSaveKind && <div class="pi-card__save"><SaveControl kind={resolvedSaveKind} slug={entitySlug} title={title} href={href} section={saveSection} dek={saveDek ?? verdict} imageUrl={image?.src} variant={forkPlan ? 'fork' : 'save'} plan={plan} labelled={false} /></div>}
     </div>
   )}
 
