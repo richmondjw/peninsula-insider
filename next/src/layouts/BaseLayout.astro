@@ -356,8 +356,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 
   <a href="#main-content" class="skip-link">Skip to content</a>
 
-  {/* 2026-11-10: the "Under update" notice and the conditions/edition dateline now sit inside
-      the masthead row (V5Masthead), so the header is two bands, not four. */}
+  {/* 2026-11-10: the header is one band (V5Masthead); the edition dateline sits in the footer. */}
   <V5Masthead section={section} />
 
   {/* Measure the masthead height and publish it as --masthead-h on

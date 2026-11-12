@@ -9,14 +9,12 @@ const active = path.startsWith('/explore/plans') || path.startsWith('/plans') ? 
 /* 2026-11-10 round 2: one calm band - wordmark, the seven pillars, search and one
    personal menu. The edition and sunset dateline moved to the footer (V5Footer keeps
    the cellar-door named region). The Insider Note and Play live in the personal
-   menu and the mobile drawer. The site notice stays, as quiet text (owner decision). */
-const SITE_UPDATING = true;
+   menu and the mobile drawer. */
 ---
 <header class="masthead site-header pi-shell" data-v5-masthead>
 <div class="masthead-row wrap">
 <div class="brand-lockup">
 <a aria-label="Peninsula Insider home" class="brand" href="/">Peninsula <span>Insider</span></a>
-{SITE_UPDATING && <span class="masthead-update">Under update</span>}
 </div>
 <nav aria-label="Main navigation" class="site-nav" id="site-nav">
 {v5Pillars.map(p => <div class="pillar-menu" data-pillar-menu>
@@ -235,7 +233,6 @@ initEditorialShell();document.addEventListener('astro:page-load',initEditorialSh
  .site-header{padding-top:env(safe-area-inset-top);border-bottom:1px solid var(--border)}
  .masthead-row{display:flex;align-items:center;gap:var(--space-6);min-height:72px}
  .brand-lockup{display:flex;align-items:baseline;gap:var(--space-3);flex:none}
- .masthead-update{font:var(--fw-medium) var(--fs-100)/var(--lh-label) var(--font-ui);color:var(--soft);white-space:nowrap}
  .site-nav{display:flex;align-self:stretch;align-items:stretch;gap:var(--space-5);margin-inline:auto}
  .pillar-menu,.pillar-menu__trigger{display:flex;align-items:stretch}
  .site-nav .pillar-menu__trigger>a{display:flex;align-items:center;min-height:44px;font:var(--fw-medium) var(--fs-300)/var(--lh-ui) var(--font-ui);color:var(--text);white-space:nowrap;text-decoration:none}
