@@ -386,3 +386,7 @@ Use the Dog-friendly party filter to find possibilities recorded in our director
 What is the signature food experience on the Mornington Peninsula?
 
 A long lunch is one way into the Peninsula’s dining scene. Our long-lunch and cellar-door-lunch guides give you a starting shortlist. For tasting-led visits rather than a meal, continue to the Wine guide.
+
+## Still deciding? Ask PI
+
+Tell PI who's coming and what you feel like. You'll get two or three places that fit, with the reasons.

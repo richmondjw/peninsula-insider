@@ -321,4 +321,8 @@ Is one night enough on the Mornington Peninsula?
 
 One night works for a focused escape: arrive Friday evening, spend Saturday on the ridge and return home that evening. Two nights is better: it allows a beach day, a second area to explore, and the slower pace the Peninsula rewards. Choose a base close to the one or two activities you can realistically fit in.
 
+## Still deciding? Ask PI
+
+Tell PI who's travelling, when and what matters, and get the stays that fit.
+
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.

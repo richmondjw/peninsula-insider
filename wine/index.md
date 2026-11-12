@@ -378,3 +378,7 @@ Booking arrangements differ by winery and tasting. Main Ridge Estate requires a 
 How many wineries are on the Mornington Peninsula?
 
 The Mornington Peninsula has over 200 vineyards and approximately 50–60 cellar doors open to visitors. Most are concentrated on the Red Hill plateau between Dromana, Red Hill, and Main Ridge. The region is compact, you can visit three cellar doors in an afternoon without rushing if you stay on the ridge.
+
+## Still deciding? Ask PI
+
+Tell PI what you like to drink and how you're getting around.

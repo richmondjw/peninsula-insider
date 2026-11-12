@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-12
+Modified: 2026-11-13
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,11 +13,11 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Three reasons to go
 
-- Sat, 14 Nov · 6pm–9pm · Dromana
+- Sat, 14 Nov · 5pm–8pm · Fingal
 
-### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+### [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm.
 
 Live Music
 
@@ -117,19 +117,19 @@ Fingal · Live Music · Recurring weekly
 
 - 5pm
 
-[Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
-
-Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.
-
-Fingal · Live Music
-
-- 5pm
-
 [The Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)
 
 Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday set at Peninsula Beer Garden, mixing original songs with folk, pop and rock covers. The venue operates on a walk-in basis.
 
 Boneo · Live Music
+
+- 6pm
+
+[Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
+
+Dromana · Live Music
 
 ### Sunday 15 November
 
@@ -226,3 +226,7 @@ Main Ridge · Food & Wine
 The most hands-on spirits experience on the Peninsula, and a bottle to take home.
 
 Dromana · Food & Wine
+
+## Still deciding? Ask PI
+
+Tell PI when you're coming and who's with you.

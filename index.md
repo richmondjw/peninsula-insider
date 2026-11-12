@@ -21,6 +21,8 @@ The places worth finding. The days worth making.
 
  [See all plans](<https://peninsulainsider.com.au/explore/plans/>)
 
+Something more specific? [Ask PI](<https://peninsulainsider.com.au/ask/>)
+
 - Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo: Two Palms Australia, courtesy of Visit Victoria.
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
@@ -45,14 +47,6 @@ One day   Red Hill & Merricks   Family
 
 Swipe or scroll through the picks
 
-- ### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
-A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member.
-
-Sat, 14 Nov   Mornington Peninsula Regional Gallery   Arts
-
-Event details checked 20 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
-
 - ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
 
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
@@ -68,6 +62,14 @@ Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moona
 Sat, 14 Nov   Peppers Moonah Links Resort   Live music
 
 Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
+
+- ### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
+
+Melbourne acoustic duo Rewind Lane plays a two-hour Saturday afternoon set at Tar Barrel, built around close harmonies and nostalgic, feel-good covers.
+
+Sat, 14 Nov   Tar Barrel   Live music
+
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
 
 ## Three ways into the Peninsula
 

@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Quick Note
 
-Thursday 12 November 2026
+Friday 13 November 2026
 
 Short daily briefs on openings, menu changes, booking windows and weather.
 

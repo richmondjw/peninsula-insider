@@ -549,6 +549,16 @@ There will be live music by Chris Gogerly and yummy pizza by Forno Di Casa food 
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/chris-gogerly-live-at-fenian-wines-2026-12-05/>)
 
+- [Sat, 12 Dec
+
+### James Vincent Live at Fenian Wines
+
+Red Hill
+
+There will be live music by James Vincent and amazing catering by Three Little Chefs. Enjoy a weekend for all the family, great wine, delicious food and live music all in the relaxed space of Fenian Wines.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
+
 - [Sun, 15 Nov
 
 ### Magnum Bonum at Polperro Winery
@@ -558,13 +568,3 @@ Red Hill
 A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
-
-- [Sat, 21 Nov
-
-### Pitmaster Masterclass at Red Gum BBQ
-
-Red Hill
-
-Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/>)

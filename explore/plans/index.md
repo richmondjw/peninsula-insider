@@ -168,4 +168,4 @@ Sleep beside the springs, choose a base with a drive, or make the hotel spa your
 
 ## None of these fit?
 
-Choose your own places and days out. My Trip keeps your stops together, ready to share or print, with no sign-in needed. [Open My Trip](<https://peninsulainsider.com.au/me/trip/>)
+[Ask PI for a day built around you](<https://peninsulainsider.com.au/ask/?q=Plan%20a%20day%20for%20us%20on%20the%20Peninsula>), or choose your own places in My Trip, ready to share or print with no sign-in needed. [Open My Trip](<https://peninsulainsider.com.au/me/trip/>)

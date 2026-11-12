@@ -5,20 +5,16 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula Insider · Field notes
+# Ask PI
 
-# Ask The Insider
+Ask a question about the Peninsula. PI answers from our own reviews and guides, and links you to the places.
 
-The local who's been everywhere on the Peninsula and has opinions about all of it. Tell me what you're after.
+## Try asking
 
-The Insider
+- [A long lunch in Red Hill that works with kids](<https://peninsulainsider.com.au/ask/?q=A%20long%20lunch%20in%20Red%20Hill%20that%20works%20with%20kids>)
 
-Local · usually responds in seconds
+- [Somewhere dog friendly for breakfast near Sorrento](<https://peninsulainsider.com.au/ask/?q=Somewhere%20dog%20friendly%20for%20breakfast%20near%20Sorrento>)
 
-The Insider
+- [A rainy Sunday for two with no driving after lunch](<https://peninsulainsider.com.au/ask/?q=A%20rainy%20Sunday%20for%20two%20with%20no%20driving%20after%20lunch>)
 
-Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly café, a rainy Sunday with kids. The more specific you are, the sharper my answer.
-
-Try one of these
-
-The Insider works from Peninsula Insider editorial research. Verify hours and bookings before you go.
+- [Where to stay for a quiet anniversary weekend](<https://peninsulainsider.com.au/ask/?q=Where%20to%20stay%20for%20a%20quiet%20anniversary%20weekend>)

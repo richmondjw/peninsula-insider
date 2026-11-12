@@ -8917,68 +8917,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/books-talk.webp",
-      "format": "webp",
-      "originalBytes": 34566,
-      "variants": [
-        {
-          "src": "/_media/90f61e720b59f551b258-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 8574
-        },
-        {
-          "src": "/_media/90f61e720b59f551b258-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 14852
-        },
-        {
-          "src": "/_media/90f61e720b59f551b258-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 24344
-        },
-        {
-          "src": "/_media/90f61e720b59f551b258-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 32110
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/books-talk.webp",
-      "format": "avif",
-      "originalBytes": 34566,
-      "variants": [
-        {
-          "src": "/_media/fb5a0891b8ea5426ab68-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 4097
-        },
-        {
-          "src": "/_media/fb5a0891b8ea5426ab68-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 5846
-        },
-        {
-          "src": "/_media/fb5a0891b8ea5426ab68-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 7776
-        },
-        {
-          "src": "/_media/fb5a0891b8ea5426ab68-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 10824
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/music-amp.webp",
       "format": "webp",
       "originalBytes": 36502,
@@ -9099,6 +9037,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 7828
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-guitar.webp",
+      "format": "webp",
+      "originalBytes": 34712,
+      "variants": [
+        {
+          "src": "/_media/d99f4b127e474f53ee3d-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8456
+        },
+        {
+          "src": "/_media/d99f4b127e474f53ee3d-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14884
+        },
+        {
+          "src": "/_media/d99f4b127e474f53ee3d-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 24198
+        },
+        {
+          "src": "/_media/d99f4b127e474f53ee3d-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 32618
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-guitar.webp",
+      "format": "avif",
+      "originalBytes": 34712,
+      "variants": [
+        {
+          "src": "/_media/09e4870ae78911b27e44-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 4271
+        },
+        {
+          "src": "/_media/09e4870ae78911b27e44-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 6142
+        },
+        {
+          "src": "/_media/09e4870ae78911b27e44-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 8092
+        },
+        {
+          "src": "/_media/09e4870ae78911b27e44-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 11225
         }
       ]
     },
@@ -13926,6 +13926,37 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/books-talk.webp",
+      "format": "webp",
+      "originalBytes": 34566,
+      "variants": [
+        {
+          "src": "/_media/90f61e720b59f551b258-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 8574
+        },
+        {
+          "src": "/_media/90f61e720b59f551b258-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 14852
+        },
+        {
+          "src": "/_media/90f61e720b59f551b258-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 24344
+        },
+        {
+          "src": "/_media/90f61e720b59f551b258-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 32110
         }
       ]
     },
