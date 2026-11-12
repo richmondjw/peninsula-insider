@@ -1,7 +1,7 @@
 /* Photo-header overlays follow the copy position. The home cover uses a
    coastal-blue light wash; inner-page headers retain neutral feathering. */
 :root {
-  --photo-shade-x: calc(max(40px, (100vw - 1280px) / 2) + 245px);
+  --photo-shade-x: calc(max(40px, (var(--page-vw, 100vw) - 1280px) / 2) + 245px);
   --photo-shade-cover: radial-gradient(ellipse 760px 490px at var(--photo-shade-x) 54%,
     rgb(235 246 252 / .96) 0%, rgb(235 246 252 / .92) 42%,
     rgb(235 246 252 / .52) 72%, rgb(235 246 252 / 0) 100%);

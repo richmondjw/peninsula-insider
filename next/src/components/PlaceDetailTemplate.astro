@@ -1038,7 +1038,7 @@ const factual = place.data.factualLede ?? '';
     row-gap: 0;
     align-items: start;
     min-height: 0;
-    padding: clamp(2.5rem, 5vw, 5rem) max(1.5rem, calc((100vw - 80rem) / 2));
+    padding: clamp(2.5rem, 5vw, 5rem) max(1.5rem, calc((var(--page-vw, 100vw) - 80rem) / 2));
     background: var(--bg-alt);
     color: var(--dark);
     overflow: visible;
