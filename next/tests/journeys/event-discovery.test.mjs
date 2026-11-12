@@ -17,6 +17,44 @@ const snapshot = (reader) => reader.page.evaluate(() => ({
   param: new URL(location.href).searchParams.get('date'),
 }));
 
+test('calendar introduction stays text-only and uses the shared light reading surface', async () => {
+  const reader = await site.reader();
+  try {
+    for (const width of [390, 1440]) {
+      await reader.page.setViewport({ width, height: 1000 });
+      await reader.load('/whats-on/');
+      const header = await reader.page.evaluate(() => {
+        const head = document.querySelector('.wo-head');
+        const copy = head.querySelector('.wo-head__copy');
+        const title = head.querySelector('h1');
+        const style = getComputedStyle(head);
+        const titleStyle = getComputedStyle(title);
+        return {
+          images: head.querySelectorAll('img, picture, figure').length,
+          backgroundImage: style.backgroundImage,
+          background: style.backgroundColor,
+          bodyBackground: getComputedStyle(document.body).backgroundColor,
+          titleColor: titleStyle.color,
+          color: getComputedStyle(document.body).color,
+          font: titleStyle.fontFamily,
+          copyWidth: copy.getBoundingClientRect().width,
+          containerWidth: head.querySelector('.container').getBoundingClientRect().width,
+          headingCount: document.querySelectorAll('h1').length,
+          overflow: document.documentElement.scrollWidth > innerWidth + 1,
+        };
+      });
+      assert.equal(header.images, 0, 'no decorative header artwork');
+      assert.equal(header.backgroundImage, 'none');
+      assert.equal(header.background, header.bodyBackground, 'same light reading surface as the page');
+      assert.equal(header.titleColor, header.color, 'shared dark text token');
+      assert.match(header.font, /Sora/);
+      assert.equal(header.headingCount, 1);
+      assert.equal(header.overflow, false);
+      assert.ok(header.copyWidth > header.containerWidth * .55, 'no empty image column reserves half the header');
+    }
+  } finally { await reader.close(); }
+});
+
 test('first phone screen offers a dated event link with the cookie note visible', async (t) => {
   const reader = await site.reader();
   try {
