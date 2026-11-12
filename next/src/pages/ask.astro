@@ -1,569 +1,384 @@
 ---
 /**
- * /ask - Peninsula Insider Concierge
- * "PI's Notebook": editorial chat with dropcap prose, postcard tiles,
- * filed-under tags. Designed as a magazine column, not a chatbot.
+ * /ask - Ask PI (2026-11-12 rebuild for the simplified site).
+ *
+ * One question, one answer. The answer comes from the concierge API
+ * (peninsula-insider-platform, Cohere), which retrieves from PI's own
+ * reviews and guides. The page keeps the site's grammar: a plain title,
+ * one input with a control edge, one solid button, prose at reading
+ * measure, then the places as text rows with one hairline between them.
+ *
+ * Links are checked against /ask/pages.json (every public URL, written
+ * after the build by scripts/generate-ask-pages.mjs), so an answer can
+ * never send a reader to a retired page; a stale path is corrected by its
+ * slug, otherwise the row is dropped.
+ *
+ * ?q= asks on load, so search, hubs and plans can hand a question over.
  */
 import BaseLayout from '../layouts/BaseLayout.astro';
-import {getCollection} from 'astro:content';
-import {publicPlanningCatalog} from '../lib/event-planning.mjs';
-const eventCatalogJson=JSON.stringify(publicPlanningCatalog(await getCollection('events'))).replace(/</g,'\\u003c');
-
 import { CONCIERGE_API_URL as API_URL } from '../lib/concierge-config';
 export const prerender = true;
+
+const examples = [
+  'A long lunch in Red Hill that works with kids',
+  'Somewhere dog friendly for breakfast near Sorrento',
+  'A rainy Sunday for two with no driving after lunch',
+  'Where to stay for a quiet anniversary weekend',
+];
 ---
 
 <BaseLayout
-  title="Ask The Insider - Your Peninsula Concierge"
-  description="Ask Peninsula Insider anything about the Mornington Peninsula. Cellar doors, dining, stays, rainy days, dog-friendly spots. Local knowledge, editorial taste."
+  title="Ask PI"
+  description="Ask a question about the Mornington Peninsula. PI answers from Peninsula Insider's own reviews and guides, and links you to the places."
 >
+  <div class="ask container" data-ask data-api={API_URL}>
+    <header class="ask__head">
+      <h1 class="ask__title">Ask PI</h1>
+      <p class="ask__dek">Ask a question about the Peninsula. PI answers from our own reviews and guides, and links you to the places.</p>
+    </header>
 
-  <div class="ask-page">
-
-    <!-- Hero -->
-    <section class="ask-hero">
-      <div class="ask-hero__inner">
-        <div class="ask-hero__avatar" aria-hidden="true">
-          <span class="pi-avatar pi-avatar--xl">
-            <span class="pi-avatar__fallback">PI</span>
-            <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
-          </span>
-        </div>
-        <p class="ask-hero__eyebrow">Peninsula Insider · Field notes</p>
-        <h1 class="ask-hero__heading">Ask <em>The Insider</em></h1>
-        <p class="ask-hero__sub">
-          The local who's been everywhere on the Peninsula and has opinions about all of it. Tell me what you're after.
-        </p>
+    <form class="ask__form" action="/ask/" method="get" data-ask-form>
+      <label class="ask__label" for="ask-q">Your question</label>
+      <div class="ask__field">
+        <input id="ask-q" name="q" type="text" maxlength="500" autocomplete="off" enterkeyhint="send"
+          placeholder="A long lunch or a rainy day" required minlength="3" data-ask-input />
+        <button class="pi-btn pi-btn--solid ask__submit" type="submit" data-ask-submit>Ask</button>
       </div>
+    </form>
+
+    <section class="ask__examples" aria-labelledby="ask-examples-title" data-ask-examples>
+      <h2 class="ask__subhead" id="ask-examples-title">Try asking</h2>
+      <ul class="ask__example-list" role="list">
+        {examples.map((q) => (
+          <li><a class="ask__example" href={`/ask/?q=${encodeURIComponent(q)}`} data-ask-example={q}>{q}</a></li>
+        ))}
+      </ul>
     </section>
 
-    <!-- Chat dialog: PI's open notebook -->
-    <section class="ask-chat-section">
-      <div class="ask-dialog" role="region" aria-label="Conversation with PI">
+    <article class="ask__answer" data-ask-answer hidden aria-labelledby="ask-question">
+      <h2 class="ask__question" id="ask-question" tabindex="-1" data-ask-question></h2>
+      <p class="ask__status" role="status" aria-live="polite" data-ask-status hidden></p>
+      <div class="ask__prose" data-ask-prose></div>
 
-        <!-- Notebook header -->
-        <div class="ask-dialog__header">
-          <div class="ask-dialog__id">
-            <span class="pi-avatar pi-avatar--md" aria-hidden="true">
-              <span class="pi-avatar__fallback">PI</span>
-              <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
-            </span>
-            <div class="ask-dialog__id-text">
-              <p class="ask-dialog__name">The Insider <span class="ask-dialog__name-mark" aria-hidden="true">✦</span></p>
-              <p class="ask-dialog__status">
-                <span class="ask-dialog__pulse" aria-hidden="true"></span>
-                Local · usually responds in seconds
-              </p>
-            </div>
-          </div>
-          <button type="button" class="ask-dialog__reset" id="ask-reset" aria-label="Start over" hidden>
-            New chat
-          </button>
-        </div>
+      <section class="ask__places" data-ask-places hidden aria-labelledby="ask-places-title">
+        <h3 class="ask__subhead" id="ask-places-title">Where to go</h3>
+        <ol class="ask__place-list" role="list" data-ask-place-list></ol>
+      </section>
 
-        <!-- Notebook body - paper grain, editorial column width -->
-        <!-- data-lenis-prevent: keep native scroll inside the chat (Lenis runs page-level) -->
-        <div class="ask-dialog__body" id="ask-thread" aria-live="polite" data-lenis-prevent>
+      <section class="ask__next" data-ask-next hidden aria-labelledby="ask-next-title">
+        <h3 class="ask__subhead" id="ask-next-title">Ask next</h3>
+        <ul class="ask__example-list" role="list" data-ask-next-list></ul>
+      </section>
 
-          <!-- Greeting -->
-          <article class="ask-msg ask-msg--pi">
-            <div class="ask-msg__byline">
-              <span class="pi-avatar pi-avatar--sm" aria-hidden="true">
-                <span class="pi-avatar__fallback">PI</span>
-                <img src="/images/pi-concierge.svg" alt="" onerror="this.remove()" />
-              </span>
-              <span class="ask-msg__byline-name">The Insider</span>
-              <span class="ask-msg__byline-rule" aria-hidden="true"></span>
-            </div>
-            <div class="ask-msg__prose ask-msg__prose--greeting">
-              <p>Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly café, a rainy Sunday with kids. The more specific you are, the sharper my answer.</p>
-            </div>
-            <div class="ask-msg__followup" id="ask-suggestions-wrap">
-              <p class="ask-msg__followup-label">
-                <span>Try one of these</span>
-              </p>
-              <div class="ask-msg__chips" id="ask-suggestions">
-                <button class="pi-chip" data-query="Quiet wineries open this weekend">
-                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-                  <span>Quiet wineries this weekend</span>
-                </button>
-                <button class="pi-chip" data-query="Rainy day long lunch on the Peninsula">
-                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-                  <span>Rainy-day long lunch</span>
-                </button>
-                <button class="pi-chip" data-query="One-night winter escape from Melbourne">
-                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-                  <span>One-night winter escape</span>
-                </button>
-                <button class="pi-chip" data-query="Midweek Peninsula itinerary, two days">
-                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-                  <span>Midweek Peninsula itinerary</span>
-                </button>
-                <button class="pi-chip" data-query="Dog-friendly beaches near Sorrento">
-                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-                  <span>Dog-friendly beaches near Sorrento</span>
-                </button>
-                <button class="pi-chip" data-query="Best cellar door lunch near Red Hill">
-                  <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-                  <span>Cellar door lunch, Red Hill</span>
-                </button>
-              </div>
-            </div>
-          </article>
-
-        </div>
-
-        <!-- Composer -->
-        <form class="ask-dialog__composer" id="ask-form" autocomplete="off">
-          <textarea
-            id="ask-input"
-            class="ask-composer__input"
-            placeholder="Ask The Insider…"
-            rows="1"
-            maxlength="500"
-            aria-label="Your question"
-          ></textarea>
-          <a
-            href="/contact/"
-            class="ask-composer__contact"
-            target="_blank"
-            rel="noopener"
-            aria-label="Get in touch with the Peninsula Insider editors"
-            title="Get in touch with a human editor"
-          >
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <rect x="2.5" y="4.5" width="15" height="11" rx="1.5" stroke="currentColor" stroke-width="1.5"/>
-              <path d="M3 5l7 5.5L17 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-          <button type="submit" class="ask-composer__send" id="ask-send" aria-label="Send message">
-            <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-              <path d="M2 10L18 2L12 18L10 11L2 10Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
-            </svg>
-          </button>
-        </form>
-
-        <p class="ask-dialog__disclaimer">
-          The Insider works from Peninsula Insider editorial research. Verify hours and bookings before you go.
-        </p>
-
-      </div>
-    </section>
-
+      <p class="ask__note">Answers come from Peninsula Insider's reviews and guides. Opening hours and bookings change, so check with the place before you go. Prefer to browse? <a href="/search/" data-ask-search-link>Search the site</a>.</p>
+    </article>
   </div>
-
-  <script type="application/json" id="pi-ask-event-catalog" set:html={eventCatalogJson}></script>
 </BaseLayout>
 
 <script>
-  import {gateRemoteRecommendations} from '../lib/event-planning.mjs';
-  import {refreshVerifiedPriceElements} from '../lib/event-publication.mjs';
-  const catalog=JSON.parse(document.getElementById('pi-ask-event-catalog')?.textContent||'[]');
-  (window as any).piGateEventRecommendations=(recommendations:unknown)=>gateRemoteRecommendations(recommendations,catalog);
-  let priceTimer:ReturnType<typeof setTimeout>|undefined;function refreshPrices(){clearTimeout(priceTimer);const next=refreshVerifiedPriceElements(document);if(next)priceTimer=setTimeout(refreshPrices,Math.min(2147483647,Math.max(1,next-Date.now())));}
-  (window as any).piRefreshRecommendationPrices=refreshPrices;
-  document.addEventListener('visibilitychange',refreshPrices);window.addEventListener('pageshow',refreshPrices);
-</script>
+  type Rec = { title?: string; slug?: string; href?: string; why?: string; region?: string };
 
-
-<script define:vars={{ API_URL }}>
-  const form = document.getElementById('ask-form');
-  const input = document.getElementById('ask-input');
-  const sendBtn = document.getElementById('ask-send');
-  const thread = document.getElementById('ask-thread');
-  const greetingWrap = document.getElementById('ask-suggestions-wrap');
-  const resetBtn = document.getElementById('ask-reset');
-
-  const sessionId = `pi-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
-  let askInFlight = false;
-
-  // ---------- Helpers ----------
-  const escapeHtml = (s) => String(s ?? '')
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
-
-  const titleCase = (s) => String(s ?? '').replace(/[-_]/g, ' ')
-    .replace(/\b\w/g, (c) => c.toUpperCase());
-
-  const VENUE_TYPE_LABEL = {
-    restaurant: 'Restaurant', winery: 'Cellar Door', cafe: 'Café',
-    bakery: 'Bakery', pub: 'Pub', brewery: 'Brewery',
-    distillery: 'Distillery', producer: 'Producer', market: 'Market',
-    accommodation: 'Stay', hotel: 'Hotel', spa: 'Spa',
-    experience: 'Experience',
+  const SECTIONS: Record<string, string> = {
+    eat: 'Eat & Drink', stay: 'Stay', wine: 'Wine', explore: 'Explore', plans: 'Plans',
+    'whats-on': "What's On", events: "What's On", journal: 'Journal', places: 'Explore', escape: 'Plans',
   };
 
-  // Avatar markup with graceful fallback. Explicit width/height attrs
-  // prevent the SVG rendering at its intrinsic (huge) size before CSS lands.
-  const AVATAR_PX = { xl: 96, md: 42, sm: 22 };
-  function avatarMarkup(size) {
-    const px = AVATAR_PX[size] || 22;
-    return `
-      <span class="pi-avatar pi-avatar--${size}" aria-hidden="true">
-        <span class="pi-avatar__fallback">PI</span>
-        <img src="/images/pi-concierge.svg" alt="" width="${px}" height="${px}" onerror="this.remove()" />
-      </span>
-    `;
-  }
+  // Back/forward between questions. Registered once at module scope (listener
+  // hygiene gate); boot() points it at the current page's handler.
+  let onPop: (() => void) | null = null;
+  window.addEventListener('popstate', () => onPop?.());
 
-  // ---------- Composer behaviour ----------
-  function autoGrow() {
-    input.style.height = 'auto';
-    input.style.height = Math.min(input.scrollHeight, 130) + 'px';
-  }
-  input.addEventListener('input', autoGrow);
-  input.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      form.requestSubmit();
-    }
-  });
+  function boot() {
+    const root = document.querySelector<HTMLElement>('[data-ask]');
+    if (!root || root.dataset.booted) return;
+    root.dataset.booted = '1';
+    const api = root.dataset.api || '';
+    const form = root.querySelector<HTMLFormElement>('[data-ask-form]')!;
+    const input = root.querySelector<HTMLInputElement>('[data-ask-input]')!;
+    const submit = root.querySelector<HTMLButtonElement>('[data-ask-submit]')!;
+    const examples = root.querySelector<HTMLElement>('[data-ask-examples]')!;
+    const status = root.querySelector<HTMLElement>('[data-ask-status]')!;
+    const answer = root.querySelector<HTMLElement>('[data-ask-answer]')!;
+    const question = root.querySelector<HTMLElement>('[data-ask-question]')!;
+    const prose = root.querySelector<HTMLElement>('[data-ask-prose]')!;
+    const places = root.querySelector<HTMLElement>('[data-ask-places]')!;
+    const placeList = root.querySelector<HTMLElement>('[data-ask-place-list]')!;
+    const next = root.querySelector<HTMLElement>('[data-ask-next]')!;
+    const nextList = root.querySelector<HTMLElement>('[data-ask-next-list]')!;
+    const searchLink = root.querySelector<HTMLAnchorElement>('[data-ask-search-link]')!;
 
-  // ---------- Render ----------
-  function appendUserMessage(text) {
-    const el = document.createElement('article');
-    el.className = 'ask-msg ask-msg--user';
-    el.innerHTML = `
-      <div class="ask-msg__meta">You</div>
-      <div class="ask-msg__bubble">${escapeHtml(text)}</div>
-    `;
-    thread.appendChild(el);
-    scrollToBottom();
-  }
-
-  function appendTyping() {
-    const el = document.createElement('article');
-    el.className = 'ask-msg ask-msg--pi ask-msg--typing';
-    el.id = 'ask-typing-indicator';
-    el.innerHTML = `
-      <div class="ask-msg__byline">
-        ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">The Insider is writing</span>
-        <span class="ask-msg__byline-rule"></span>
-      </div>
-      <div class="ask-msg__prose">
-        <div class="ask-typing"><span></span><span></span><span></span></div>
-      </div>
-    `;
-    thread.appendChild(el);
-    scrollToBottom();
-  }
-
-  function removeTyping() {
-    const el = document.getElementById('ask-typing-indicator');
-    if (el) el.remove();
-  }
-
-  function appendPiMessage(data) {
-    data={...data,recommendations:window.piGateEventRecommendations?window.piGateEventRecommendations(data.recommendations):[]};
-    const el = document.createElement('article');
-    el.className = 'ask-msg ask-msg--pi';
-
-    // Split answer into paragraphs (LLM should produce 2-3)
-    const paragraphs = String(data.answer || '').split(/\n\s*\n+/).filter(Boolean);
-    const paragraphsHtml = paragraphs.map((p) => `<p>${escapeHtml(p)}</p>`).join('');
-
-    // Recommendation rail
-    let railHtml = '';
-    if (Array.isArray(data.recommendations) && data.recommendations.length > 0) {
-      const tiles = data.recommendations.map((rec, i) => renderTile(rec, i + 1, i)).join('');
-      railHtml = `
-        <div class="ask-rail" role="list" aria-label="Peninsula Insider recommendations">
-          ${tiles}
-        </div>
-      `;
-    }
-
-    // Follow-on filed-under tags
-    let followupHtml = '';
-    if (Array.isArray(data.follow_on) && data.follow_on.length > 0) {
-      const chips = data.follow_on.map((q) => `
-        <button class="pi-chip" data-query="${escapeHtml(q)}">
-          <span class="pi-chip__bullet" aria-hidden="true">♦</span>
-          <span>${escapeHtml(q)}</span>
-        </button>
-      `).join('');
-      followupHtml = `
-        <div class="ask-msg__followup">
-          <p class="ask-msg__followup-label"><span>More from The Insider's notebook</span></p>
-          <div class="ask-msg__chips">${chips}</div>
-        </div>
-      `;
-    }
-
-    el.innerHTML = `
-      <div class="ask-msg__byline">
-        ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">The Insider</span>
-        <span class="ask-msg__byline-rule"></span>
-      </div>
-      <div class="ask-msg__prose">${paragraphsHtml}</div>
-      ${railHtml}
-      ${followupHtml}
-    `;
-    thread.appendChild(el);
-    // Land the reader at the TOP of PI's response, not the bottom (chips/recs).
-    if(window.piRefreshRecommendationPrices)window.piRefreshRecommendationPrices();
-    scrollMsgToTop(el);
-  }
-
-  function renderTile(rec, rank, idx) {
-    const heroSrc = rec.hero_image ? escapeHtml(rec.hero_image) : null;
-    const heroStyle = heroSrc ? `background-image: url('${heroSrc}')` : '';
-    const heroClass = heroSrc ? 'ask-tile__hero' : 'ask-tile__hero ask-tile__hero--placeholder';
-    const priceHtml = rec.kind==='event'&&rec.price_band?`<span data-verified-price data-price-checked="${escapeHtml(rec.price_checked_at||'')}" data-price-expiry="${escapeHtml(rec.price_expires_at||'')}"><span class="ask-tile__price" data-price-current hidden>${escapeHtml(rec.price_band)}</span><span data-price-fallback>Check organiser for pricing</span></span>`:rec.price_band ? `<span class="ask-tile__price">${escapeHtml(rec.price_band)}</span>` : '';
-    const typeLabel = VENUE_TYPE_LABEL[rec.venue_type] || titleCase(rec.venue_type || rec.category || 'Pick');
-    const region = rec.region ? titleCase(rec.region) : '';
-    const href = escapeHtml(rec.href || rec.slug || '#');
-    const why = escapeHtml(rec.why || '');
-    const signature = rec.signature ? escapeHtml(rec.signature) : '';
-
-    return `
-      <a href="${href}" class="ask-tile" role="listitem" style="--idx:${idx};">
-        <div class="${heroClass}" style="${heroStyle}" aria-hidden="true">
-          <span class="ask-tile__rank">${rank}</span>
-          ${priceHtml}
-        </div>
-        <div class="ask-tile__body">
-          <div class="ask-tile__top">
-            <span class="ask-tile__type">${escapeHtml(typeLabel)}</span>
-            ${region ? `<span class="ask-tile__region">${escapeHtml(region)}</span>` : ''}
-          </div>
-          <h3 class="ask-tile__name">${escapeHtml(rec.title || 'Untitled')}</h3>
-          ${why ? `<p class="ask-tile__why">${why}</p>` : ''}
-          ${signature ? `<p class="ask-tile__signature">${signature}</p>` : ''}
-          <span class="ask-tile__cta">
-            <span>Read PI's notes</span>
-            <span class="ask-tile__cta-arrow" aria-hidden="true">→</span>
-          </span>
-        </div>
-      </a>
-    `;
-  }
-
-  function appendErrorMessage(message) {
-    const el = document.createElement('article');
-    el.className = 'ask-msg ask-msg--pi ask-msg--error';
-    el.innerHTML = `
-      <div class="ask-msg__byline">
-        ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">The Insider</span>
-        <span class="ask-msg__byline-rule"></span>
-      </div>
-      <div class="ask-msg__prose">
-        <p>${escapeHtml(message)}</p>
-      </div>
-    `;
-    thread.appendChild(el);
-    scrollMsgToTop(el);
-  }
-
-  function scrollToBottom() {
-    requestAnimationFrame(() => {
-      thread.scrollTop = thread.scrollHeight;
-    });
-  }
-
-  /**
-   * Scroll a newly-added message so its TOP sits at the top of the visible
-   * chat area. Used for PI responses so long answers read top-to-bottom
-   * naturally instead of dropping the user at the chips/recs at the bottom.
-   */
-  function scrollMsgToTop(messageEl) {
-    if (!messageEl) return;
-    requestAnimationFrame(() => {
-      const threadRect = thread.getBoundingClientRect();
-      const msgRect = messageEl.getBoundingClientRect();
-      const target = msgRect.top - threadRect.top + thread.scrollTop - 12;
-      thread.scrollTo({ top: Math.max(0, target), behavior: 'smooth' });
-    });
-  }
-
-  // ---------- Streaming SSE parser ----------
-  // Parses an SSE response one event at a time. Yields { event, data } pairs.
-  // Tolerates partial chunks across network reads.
-  async function* parseSSE(response) {
-    if (!response.body) throw new Error('No response body');
-    const reader = response.body.getReader();
-    const decoder = new TextDecoder();
-    let buf = '';
+    let sessionId = '';
     try {
-      while (true) {
-        const { done, value } = await reader.read();
+      sessionId = sessionStorage.getItem('pi-ask-session') || '';
+      if (!sessionId) { sessionId = crypto.randomUUID(); sessionStorage.setItem('pi-ask-session', sessionId); }
+    } catch { sessionId = crypto.randomUUID(); }
+
+    // Every public path, so links in an answer are always live pages.
+    let pages: Promise<Set<string>> | null = null;
+    const loadPages = () => (pages ??= fetch('/ask/pages.json').then((r) => (r.ok ? r.json() : [])).then((l: string[]) => new Set(l)).catch(() => new Set<string>()));
+
+    function resolveHref(rec: Rec, known: Set<string>): string | null {
+      const raw = (rec.href || '').trim();
+      const path = raw.startsWith('/') ? raw.replace(/[?#].*$/, '').replace(/\/?$/, '/') : '';
+      if (path && known.has(path)) return path;
+      const slug = (path.split('/').filter(Boolean).pop() || rec.slug || '').toLowerCase();
+      if (!slug) return null;
+      const matches = [...known].filter((p) => p.endsWith(`/${slug}/`));
+      return matches.length === 1 ? matches[0] : null;
+    }
+
+    let controller: AbortController | null = null;
+
+    function setStatus(text: string) {
+      status.textContent = text;
+      status.hidden = !text;
+    }
+
+    function paragraphs(text: string) {
+      prose.replaceChildren(...text.split(/\n{2,}/).map((t) => t.trim()).filter(Boolean).map((t) => {
+        const p = document.createElement('p');
+        p.textContent = t;
+        return p;
+      }));
+    }
+
+    async function renderPlaces(recs: Rec[]) {
+      const known = await loadPages();
+      const rows: HTMLElement[] = [];
+      const seen = new Set<string>();
+      for (const rec of recs) {
+        const href = known.size ? resolveHref(rec, known) : null;
+        if (!href || seen.has(href) || !rec.title) continue;
+        seen.add(href);
+        const li = document.createElement('li');
+        li.className = 'ask__place';
+        const a = document.createElement('a');
+        a.className = 'ask__place-link';
+        a.href = href;
+        a.textContent = rec.title;
+        li.append(a);
+        if (rec.why) {
+          const why = document.createElement('p');
+          why.className = 'ask__place-why';
+          why.textContent = rec.why;
+          li.append(why);
+        }
+        const section = SECTIONS[href.split('/').filter(Boolean)[0] || ''];
+        if (section) {
+          const meta = document.createElement('p');
+          meta.className = 'ask__place-meta';
+          meta.textContent = section;
+          li.append(meta);
+        }
+        rows.push(li);
+      }
+      placeList.replaceChildren(...rows.slice(0, 5));
+      places.hidden = rows.length === 0;
+    }
+
+    function renderNext(items: string[]) {
+      nextList.replaceChildren(...items.slice(0, 3).map((q) => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className = 'ask__example';
+        a.href = `/ask/?q=${encodeURIComponent(q)}`;
+        a.dataset.askExample = q;
+        a.textContent = q;
+        li.append(a);
+        return li;
+      }));
+      next.hidden = items.length === 0;
+    }
+
+    async function* sse(res: Response) {
+      const reader = res.body!.getReader();
+      const decoder = new TextDecoder();
+      let buf = '';
+      for (;;) {
+        const { value, done } = await reader.read();
         if (done) break;
         buf += decoder.decode(value, { stream: true });
-        let idx;
-        while ((idx = buf.indexOf('\n\n')) !== -1) {
-          const block = buf.slice(0, idx);
-          buf = buf.slice(idx + 2);
-          if (!block.trim()) continue;
-          let evt = 'message';
-          let dataStr = '';
+        let i;
+        while ((i = buf.indexOf('\n\n')) >= 0) {
+          const block = buf.slice(0, i);
+          buf = buf.slice(i + 2);
+          let event = 'message';
+          let data = '';
           for (const line of block.split('\n')) {
-            if (line.startsWith('event: ')) evt = line.slice(7).trim();
-            else if (line.startsWith('data: ')) dataStr += line.slice(6);
+            if (line.startsWith('event:')) event = line.slice(6).trim();
+            else if (line.startsWith('data:')) data += line.slice(5).trim();
           }
-          if (!dataStr) continue;
-          let payload;
-          try { payload = JSON.parse(dataStr); }
-          catch { continue; }
-          yield { event: evt, data: payload };
+          try { yield { event, data: data ? JSON.parse(data) : {} }; } catch { /* skip malformed */ }
         }
       }
-    } finally {
-      try { reader.releaseLock(); } catch {}
     }
-  }
 
-  // Replace the typing indicator with a streaming PI message and return the
-  // <p> we'll append text deltas into. The post-stream meta event will swap
-  // this for the final tile rail + chips.
-  function startStreamingPiMessage() {
-    removeTyping();
-    const el = document.createElement('article');
-    el.className = 'ask-msg ask-msg--pi ask-msg--streaming';
-    el.id = 'ask-streaming-message';
-    el.innerHTML = `
-      <div class="ask-msg__byline">
-        ${avatarMarkup('sm')}
-        <span class="ask-msg__byline-name">The Insider</span>
-        <span class="ask-msg__byline-rule"></span>
-      </div>
-      <div class="ask-msg__prose ask-msg__prose--streaming">
-        <p class="ask-stream-prose"></p>
-      </div>
-    `;
-    thread.appendChild(el);
-    scrollMsgToTop(el);
-    return el.querySelector('.ask-stream-prose');
-  }
+    const STAGES: Record<string, string> = {
+      received: 'Reading your question…', retrieving: 'Looking through our guides…', reranking: 'Choosing the best fits…',
+      generating: 'Writing an answer…', enriching: 'Checking the links…',
+    };
 
-  function finaliseStreamingMessage(composite) {
-    const streaming = document.getElementById('ask-streaming-message');
-    if (streaming) streaming.remove();
-    appendPiMessage(composite);
-  }
+    async function ask(q: string, push = true) {
+      const query = q.trim();
+      if (query.length < 3) return;
+      controller?.abort();
+      controller = new AbortController();
+      input.value = query;
+      if (push) history.pushState({ q: query }, '', `/ask/?q=${encodeURIComponent(query)}`);
+      document.title = `${query} - Ask PI - Peninsula Insider`;
+      searchLink.href = `/search/?q=${encodeURIComponent(query)}`;
 
-  // ---------- Submit ----------
-  async function ask(query) {
-    if (!query || query.length < 3 || askInFlight) return;
-    askInFlight = true;
+      examples.hidden = true;
+      answer.hidden = false;
+      answer.setAttribute('aria-busy', 'true');
+      question.textContent = query;
+      prose.replaceChildren();
+      places.hidden = true;
+      next.hidden = true;
+      submit.disabled = true;
+      setStatus(STAGES.received);
+      loadPages();
 
-    if (greetingWrap) greetingWrap.style.display = 'none';
-    resetBtn.hidden = false;
-
-    appendUserMessage(query);
-    input.value = '';
-    autoGrow();
-    sendBtn.disabled = true;
-    appendTyping();
-
-    let accumulatedText = '';
-    let metaPayload = null;
-    let proseEl = null;
-    let streamErrored = false;
-
-    try {
-      const res = await fetch(`${API_URL}/concierge/ask/stream`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'text/event-stream',
-          'X-Session-Id': sessionId,
-        },
-        body: JSON.stringify({ query }),
-      });
-
-      if (!res.ok) {
-        let msg = 'Something went wrong. Try again in a moment.';
-        try {
-          const ct = res.headers.get('content-type') || '';
-          if (ct.includes('application/json')) {
-            const errJson = await res.json();
-            if (errJson && errJson.error) msg = errJson.error;
+      let text = '';
+      try {
+        const res = await fetch(`${api}/concierge/ask/stream`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'text/event-stream', 'X-Session-Id': sessionId, 'X-Current-Page': location.pathname },
+          body: JSON.stringify({ query }),
+          signal: controller.signal,
+        });
+        if (res.status === 429) throw new Error("You've asked a lot in the last hour. Try again later, or search the site.");
+        if (!res.ok || !res.body) throw new Error('');
+        for await (const { event, data } of sse(res)) {
+          if (event === 'status' && STAGES[data.stage]) setStatus(STAGES[data.stage]);
+          else if (event === 'text' && typeof data.delta === 'string') {
+            if (!text) setStatus('');
+            text += data.delta;
+            paragraphs(text);
+          } else if (event === 'meta') {
+            await renderPlaces(Array.isArray(data.recommendations) ? data.recommendations : []);
+            renderNext(Array.isArray(data.follow_on) ? data.follow_on : []);
+          } else if (event === 'error') {
+            throw new Error(typeof data.message === 'string' ? data.message : '');
           }
-        } catch {}
-        removeTyping();
-        appendErrorMessage(msg);
-        return;
-      }
-
-      for await (const { event, data } of parseSSE(res)) {
-        if (event === 'text' && data && typeof data.delta === 'string') {
-          if (!proseEl) proseEl = startStreamingPiMessage();
-          accumulatedText += data.delta;
-          proseEl.textContent = accumulatedText;
-        } else if (event === 'meta' && data) {
-          metaPayload = data;
-        } else if (event === 'error') {
-          streamErrored = true;
-          removeTyping();
-          const streaming = document.getElementById('ask-streaming-message');
-          if (streaming) streaming.remove();
-          appendErrorMessage((data && data.message) || 'Something went wrong mid-response.');
-          break;
-        } else if (event === 'done') {
-          break;
         }
-        // 'ack' is informational; no UI effect.
+        if (!text) throw new Error('');
+        setStatus('');
+      } catch (err) {
+        if ((err as Error).name === 'AbortError') return;
+        const msg = (err as Error).message || "Ask PI can't answer right now. Try search, or ask again in a minute.";
+        prose.replaceChildren();
+        const p = document.createElement('p');
+        p.className = 'ask__error';
+        p.textContent = msg;
+        prose.append(p);
+        setStatus('');
+      } finally {
+        answer.removeAttribute('aria-busy');
+        submit.disabled = false;
       }
-
-      if (!streamErrored) {
-        const composite = {
-          answer: accumulatedText,
-          recommendations: (metaPayload && metaPayload.recommendations) || [],
-          follow_on: (metaPayload && metaPayload.follow_on) || [],
-          provenance_footer: (metaPayload && metaPayload.provenance_footer) || '',
-        };
-        finaliseStreamingMessage(composite);
-      }
-    } catch (err) {
-      removeTyping();
-      const streaming = document.getElementById('ask-streaming-message');
-      if (streaming) streaming.remove();
-      appendErrorMessage("I couldn't reach the server. Mind trying that again?");
-    } finally {
-      askInFlight = false;
-      sendBtn.disabled = false;
-      input.focus();
     }
+
+    form.addEventListener('submit', (e) => { e.preventDefault(); ask(input.value); });
+    root.addEventListener('click', (e) => {
+      const link = (e.target as HTMLElement).closest<HTMLAnchorElement>('[data-ask-example]');
+      if (!link || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault();
+      ask(link.dataset.askExample || '');
+      question.focus({ preventScroll: true });
+      root.scrollIntoView({ block: 'start' });
+    });
+    onPop = () => {
+      if (!root.isConnected) return;
+      const q = new URLSearchParams(location.search).get('q');
+      if (q) ask(q, false);
+      else { controller?.abort(); answer.hidden = true; examples.hidden = false; setStatus(''); input.value = ''; }
+    };
+
+    const initial = new URLSearchParams(location.search).get('q') || new URLSearchParams(location.hash.slice(1)).get('q');
+    if (initial) ask(initial, false);
   }
 
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    ask(input.value.trim());
-  });
-
-  // Auto-fire if the URL has a `?q=…` (used as a fallback path from CTA links)
-  (function() {
-    const params = new URLSearchParams(window.location.search);
-    const q = params.get('q');
-    if (q && q.length >= 3) {
-      input.value = q;
-      autoGrow();
-      ask(q);
-    }
-  })();
-
-  // Delegated chip clicks (handles greeting + follow-on chips)
-  document.addEventListener('click', (e) => {
-    const chip = e.target.closest('.pi-chip');
-    if (!chip) return;
-    const q = chip.dataset.query;
-    if (q) {
-      input.value = q;
-      ask(q);
-    }
-  });
-
-  // Reset
-  resetBtn.addEventListener('click', () => {
-    const greeting = thread.querySelector('.ask-msg');
-    thread.innerHTML = '';
-    if (greeting) thread.appendChild(greeting);
-    if (greetingWrap) greetingWrap.style.display = '';
-    resetBtn.hidden = true;
-    input.value = '';
-    input.focus();
-  });
+  boot();
+  document.addEventListener('astro:page-load', boot);
 </script>
+
+<!-- Global (every selector is under .ask): the answer, places and follow-ons
+     are created by script, so Astro's scoped attribute never reaches them. -->
+<style is:global>
+  .ask { max-width: 46rem; padding-block: var(--space-8) var(--space-9); }
+  .ask__head { margin-bottom: var(--space-6); }
+  .ask__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-800);
+    line-height: var(--lh-heading);
+    letter-spacing: var(--ls-display);
+    color: var(--text);
+  }
+  .ask__dek { margin: var(--space-3) 0 0; max-width: 38rem; color: var(--soft); font: 400 var(--fs-500)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
+
+  .ask__label { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .ask__field { display: flex; gap: var(--space-3); }
+  .ask__field input {
+    flex: 1 1 auto; min-width: 0; min-height: 52px; padding: 0 var(--space-4);
+    background: var(--white); border: 1px solid var(--border-control); border-radius: var(--radius-s);
+    color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui);
+  }
+  .ask__field input::placeholder { color: var(--soft); }
+  .ask__field input:focus-visible, .ask a:focus-visible, .ask__question:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+  .ask__submit { min-height: 52px; padding-inline: var(--space-6); }
+  .ask__submit:disabled { opacity: .6; cursor: progress; }
+
+  .ask__subhead { margin: 0 0 var(--space-3); color: var(--text); font: 600 var(--fs-300)/var(--lh-ui) var(--font-ui); }
+  .ask__examples { margin-top: var(--space-7); }
+  .ask__example-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
+  .ask__example {
+    display: inline-flex; align-items: center; min-height: 44px;
+    color: var(--accent); font: 400 var(--fs-400)/1.4 var(--font-ui);
+    text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .25em;
+  }
+  .ask__example:hover { text-decoration-color: currentColor; }
+
+  .ask__status { margin: 0 0 var(--space-4); color: var(--soft); font: 400 var(--fs-300)/var(--lh-ui) var(--font-ui); }
+
+  .ask__answer { margin-top: var(--space-7); }
+  .ask__answer[aria-busy="true"] .ask__note { visibility: hidden; }
+  .ask__question {
+    margin: 0 0 var(--space-4);
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-600);
+    line-height: var(--lh-heading);
+    color: var(--text);
+    text-wrap: balance;
+  }
+  .ask__prose { max-width: 38rem; }
+  .ask__prose p { margin: 0 0 var(--space-4); color: var(--text); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); text-wrap: pretty; }
+  .ask__error { color: var(--soft); }
+
+  .ask__places { margin-top: var(--space-7); }
+  .ask__place-list { list-style: none; margin: 0; padding: 0; }
+  .ask__place { padding: var(--space-4) 0; }
+  .ask__place + .ask__place { border-top: 1px solid var(--border); }
+  .ask__place-link {
+    display: inline-block; color: var(--text); text-decoration: none;
+    font: 600 var(--fs-500)/1.25 var(--font-display);
+  }
+  .ask__place-link:hover { color: var(--accent); text-decoration: underline; text-underline-offset: .2em; }
+  .ask__place-why { margin: var(--space-1) 0 0; max-width: 38rem; color: var(--soft); font: 400 var(--fs-400)/var(--lh-body) var(--font-ui); }
+  .ask__place-meta { margin: var(--space-1) 0 0; color: var(--soft); font: 400 var(--fs-300)/var(--lh-ui) var(--font-ui); }
+
+  .ask__next { margin-top: var(--space-7); }
+  .ask__note { margin: var(--space-8) 0 0; max-width: 38rem; color: var(--soft); font: 400 var(--fs-300)/var(--lh-body) var(--font-ui); }
+  .ask__note a { color: var(--accent); }
+
+  @media (max-width: 47.99em) {
+    .ask { padding-block: var(--space-6) var(--space-8); }
+    .ask__title { font-size: var(--fs-700); }
+    .ask__dek { font-size: var(--fs-400); }
+    .ask__field { flex-direction: column; }
+    .ask__submit { width: 100%; }
+  }
+</style>

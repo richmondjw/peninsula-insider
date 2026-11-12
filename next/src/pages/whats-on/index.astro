@@ -21,6 +21,7 @@ import { eventContentKind } from '../../lib/event-publication.mjs';
  * Event JSON-LD kept; NO price offers are emitted (house rule).
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import WhatsOnScopeBar from '../../components/v5/whatson/WhatsOnScopeBar.astro';
@@ -374,6 +375,8 @@ const hubImage = categoryHero('whats-on');
       </div>
     </section>
   )}
+
+  <AskLine dek="Tell PI when you're coming and who's with you." placeholder="On this weekend for kids" />
 
   {/* Row template for client-side scope rendering: cloned by the script
       below, never displayed. Template content is inert (not hidden DOM

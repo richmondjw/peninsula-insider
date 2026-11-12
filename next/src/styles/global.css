@@ -2706,12 +2706,8 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
   .places__grid { grid-template-columns: 1fr; }
   .newsletter__inner { grid-template-columns: 1fr; }
   .masthead__nav { display: none; }
-  /* V4 emergency mobile header kill-switch:
-     hide Ask PI / subscribe header actions on small screens.
-     The floating concierge bubble remains separate. */
-  .v4-mobile-actions .v4-ask-pill { display: none !important; }
+  /* V4 emergency mobile header kill-switch: hide subscribe header actions on small screens. */
   .v4-actions { display: none !important; }
-  .v4-actions .v4-ask-pill { display: none !important; }
 }
 
 /* =========================================================
@@ -6762,17 +6758,6 @@ p.has-drop-cap::first-letter {
 .mobile-nav { z-index: calc(var(--z-drawer) + 1) !important; }
 
 
-/* When the concierge drawer is full-screen on MOBILE, hide every piece
-   of sticky site chrome so the chat panel owns the viewport top-to-
-   bottom. On desktop the drawer is a floating panel in the corner - the masthead must stay visible. The 640px breakpoint matches the
-   one in ConciergeDrawer.astro that switches the drawer between
-   floating (desktop) and full-screen (mobile). */
-@media (max-width: 640px) {
-  body.concierge-open .masthead,
-  body.concierge-open .subscribe-pill { visibility: hidden; }
-  body.concierge-open { overflow: hidden; }
-}
-
 /* 3) Article hero meta + byline rows: stack cleanly on mobile.
       Hairline separators stop making sense once wrapped. */
 @media (max-width: 720px) {
@@ -6787,75 +6772,6 @@ p.has-drop-cap::first-letter {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
-  }
-}
-
-/* 4) Mobile concierge floater - compact circular icon-only button.
-      The wide pill is too heavy on phones. The circle gives an
-      iOS-app feel and keeps a 52px tap target. Sits above the iOS
-      home bar via env(safe-area-inset-bottom). */
-@media (max-width: 720px) {
-  .pi-concierge-trigger,
-  .concierge-trigger,
-  .concierge-drawer__trigger,
-  .pi-concierge__trigger,
-  .pi-concierge-fab,
-  .concierge-fab {
-    width: 52px !important;
-    height: 52px !important;
-    min-width: 52px !important;
-    padding: 0 !important;
-    border-radius: 50% !important;
-    bottom: calc(env(safe-area-inset-bottom, 0px) + 0.85rem) !important;
-    right: 0.85rem !important;
-    overflow: hidden !important;
-    box-shadow: 0 8px 24px rgba(0, 40, 34, 0.18) !important;
-  }
-  /* Hide any descendant text labels - keep only the avatar/icon. */
-  .pi-concierge-trigger > *:not(img):not(svg):not(.concierge-trigger__avatar):not(.pi-concierge__avatar),
-  .concierge-trigger > *:not(img):not(svg):not(.concierge-trigger__avatar),
-  .pi-concierge-fab > *:not(img):not(svg),
-  .concierge-fab > *:not(img):not(svg) {
-    display: none !important;
-  }
-}
-
-/* 5) On the /ask/ page itself, suppress the floater entirely - the
-      affordance IS the page. Targets via data-path which BaseLayout
-      sets on the <body> from the current pathname. */
-body[data-path^="/ask"] .pi-concierge-trigger,
-body[data-path^="/ask"] .concierge-trigger,
-body[data-path^="/ask"] .concierge-drawer__trigger,
-body[data-path^="/ask"] .pi-concierge-fab,
-body[data-path^="/ask"] .concierge-fab {
-  display: none !important;
-}
-
-/* 6) /ask/ page on mobile - drop the drop-cap (unusual on a small
-      screen), bigger chip touch targets, prominent input. */
-@media (max-width: 720px) {
-  /* Drop-cap removal - match common selectors used by the ask page. */
-  .ask-msg__prose--greeting::first-letter,
-  .ask-stream-prose::first-letter,
-  .ask-page__intro::first-letter {
-    font-size: inherit !important;
-    float: none !important;
-    color: inherit !important;
-    padding: 0 !important;
-    line-height: inherit !important;
-  }
-  /* Suggested-query chips: bigger tap target and breathing room. */
-  .ask-tile,
-  .ask-msg__chip,
-  .ask-msg__followup-chip {
-    min-height: 48px;
-    padding: 0.85rem 1.1rem !important;
-  }
-  /* Input: full width, larger font, gold focus ring. */
-  .ask-composer__input,
-  .ask-composer__contact {
-    font-size: 1rem !important;
-    padding: 0.95rem 1.1rem !important;
   }
 }
 

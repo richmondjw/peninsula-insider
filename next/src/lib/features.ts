@@ -10,7 +10,7 @@
 import expiryState from '../data/event-expiry-state.json';
 import { occurrenceModelEnabled } from './event-occurrence.mjs';
 
-export const SHOW_ASK_PI = false;
+export const SHOW_ASK_PI = true;
 
 /**
  * PUBLIC_EVENT_OCCURRENCE_MODEL: the PI-008 occurrence model, three-state.

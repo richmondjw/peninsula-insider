@@ -48,7 +48,8 @@ import { dirname, join } from 'node:path';
 // lowering TOTAL_BUDGET to the new measured figure plus 5 percent, so the
 // ceiling tracks reality instead of drifting above it.
 // Ratcheted down 2026-11-10 after the dead-CSS removal: measured 13556 lines, ceiling = measured + 100.
-const TOTAL_BUDGET = 13656;
+// Ratcheted again 2026-11-12 when Ask PI moved into search and the drawer (concierge.css) was deleted: measured 12361 + 100.
+const TOTAL_BUDGET = 12461;
 
 // Measured line counts at the time the budget was set. Used only to make
 // the failure message actionable ("global.css grew by N lines"). Files
@@ -56,7 +57,6 @@ const TOTAL_BUDGET = 13656;
 const BASELINE = {
   'account.css': 304,
   'anchor-pages.css': 24,
-  'concierge.css': 1025,
   'editorial-shell.css': 42,
   'global.css': 9171,
   'inline-edit.css': 878,

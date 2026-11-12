@@ -172,9 +172,29 @@
       }
     }
 
+    // A question (or a long phrase) goes to Ask PI; a name or keyword to search.
+    var QUESTION = /^(what|where|which|who|how|when|why|can|could|is|are|should|do|does|any|best|recommend|suggest|plan|find|looking|i want|we want|i need|we need|somewhere|something)\b/i;
+    function isQuestion(q) {
+      var t = (q || '').trim();
+      return /\?$/.test(t) || QUESTION.test(t) || t.split(/\s+/).length >= 5;
+    }
+
+    function updateAsk(els, query) {
+      var ask = document.getElementById('siteSearchOverlayAsk');
+      if (!ask) return;
+      var q = (query || '').trim();
+      if (q.length < 3) { ask.hidden = true; return; }
+      ask.hidden = false;
+      ask.href = '/ask/?q=' + encodeURIComponent(q);
+      ask.classList.toggle('is-primary', isQuestion(q));
+      var label = ask.querySelector('[data-ask-q]');
+      if (label) label.textContent = '\u201C' + q + '\u201D';
+    }
+
     function showSuggestions(els) {
       // Cleared or reopened search must not receive an older query's results.
       state.searchToken += 1;
+      updateAsk(els, '');
       if (els.suggestions) els.suggestions.hidden = false;
       if (els.status) { els.status.hidden = true; els.status.textContent = ''; }
       if (els.list) els.list.hidden = true;
@@ -206,7 +226,7 @@
           els.list.innerHTML =
             '<li class="site-search-overlay__result site-search-overlay__result--empty">' +
               '<p class="site-search-overlay__result-empty-title">Nothing matched "' + escapeHtml(query) + '".</p>' +
-              '<p class="site-search-overlay__result-empty-hint">Hit Enter to try the full results page.</p>' +
+              '<p class="site-search-overlay__result-empty-hint">Ask PI above, or open the full results page.</p>' +
             '</li>';
         } else {
           els.list.innerHTML = results.slice(0, 6).map((item, index) => {
@@ -385,6 +405,9 @@
           if (!els2) return;
           const inputToken = ++state.searchToken;
           if (!input.value.trim()) { showSuggestions(els2); return; }
+          updateAsk(els2, input.value);
+          // Typing replaces the example questions; Ask PI leads.
+          if (els2.suggestions) els2.suggestions.hidden = true;
           if (els2.cta) {
             els2.cta.hidden = false;
             els2.cta.href = '/search/?q=' + encodeURIComponent(input.value.trim());
@@ -403,6 +426,7 @@
           e.preventDefault();
           const els2 = getEls();
           const q = (els2 && els2.input && els2.input.value || '').trim();
+          if (q && isQuestion(q)) { window.location.href = '/ask/?q=' + encodeURIComponent(q); return; }
           window.location.href = q ? '/search/?q=' + encodeURIComponent(q) : '/search/';
         });
       }
