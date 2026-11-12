@@ -234,7 +234,7 @@ const categoryOptions = [...new Set(calendarEvents.map((entry) => entry.event.da
   .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
 const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
-// A conceptual illustration introduces the calendar without depicting a current event.
+// Keep the conceptual artwork for link previews; the page header is text-only.
 const hubImage = categoryHero('whats-on');
 ---
 
@@ -255,9 +255,6 @@ const hubImage = categoryHero('whats-on');
         <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
         <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
       </div>
-      <figure class="wo-head__figure">
-        <img src={hubImage.src} alt={hubImage.alt} width="960" height="640" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 767px) 320px, 44vw" />
-      </figure>
     </div>
   </header>
 
@@ -898,23 +895,20 @@ const hubImage = categoryHero('whats-on');
     border: 0;
   }
 
-  /* ── Hero: a navy band, one colour of type; the illustration runs to the right
-     bleed with a hard edge (no gradient seam, no navy overhang past the art). ── */
-  .wo-head { position: relative; overflow: hidden; background: #0b2e4a; color: #f2efea; }
-  .wo-head__copy { position: relative; z-index: 1; max-width: min(36rem, 52%); padding: var(--space-8) 0; }
+  /* Text-led introduction using the same reading surface and type as the other anchors. */
+  .wo-head { background: var(--bg); color: var(--text); }
+  .wo-head__copy { max-width: 52rem; padding: var(--space-6) 0 var(--space-5); }
   .wo-head__title {
     margin: 0;
-    color: #f2efea;
+    color: var(--text);
     font-family: var(--font-display);
     font-weight: var(--fw-display, 600);
-    line-height: var(--lh-display, 1.02);
+    line-height: 1.1;
     letter-spacing: var(--ls-display, -0.02em);
     text-wrap: balance;
   }
-  .wo-head__context { margin: var(--space-3) 0 0; color: #f2efea; font-size: var(--fs-400); }
-  .wo-head__rule { margin: var(--space-1) 0 0; color: #d7e4e8; font-size: var(--fs-300); line-height: 1.5; max-width: 40ch; }
-  .wo-head__figure { position: absolute; inset: 0 0 0 auto; width: 44%; margin: 0; }
-  .wo-head__figure img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+  .wo-head__context { margin: var(--space-3) 0 0; color: var(--soft); font-size: var(--fs-400); }
+  .wo-head__rule { margin: var(--space-2) 0 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.6; max-width: 68ch; }
   .wo-scope-wrap { padding-top: var(--space-2); }
 
   /* ── Sections share one rhythm: space-7 above and below, space-5 under a title ── */
@@ -947,7 +941,6 @@ const hubImage = categoryHero('whats-on');
 
   @media (max-width: 47.9375em) {
     .wo-head__copy { max-width: none; padding: var(--space-5) 0; }
-    .wo-head__figure { display: none; }
     .wo-picks { padding: var(--space-5) 0 var(--space-6); }
     .wo-picks__title, .wo-days__title, .wo-flexible__title { margin-bottom: var(--space-3); }
     .wo-days { padding: var(--space-6) 0; }
