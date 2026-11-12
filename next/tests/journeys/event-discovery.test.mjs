@@ -55,6 +55,55 @@ test('calendar introduction stays text-only and uses the shared light reading su
   } finally { await reader.close(); }
 });
 
+test('calendar controls retain breathing room through wrapped rows and expanded filters', async () => {
+  const reader = await site.reader();
+  try {
+    for (const width of [320, 390, 768, 1440]) {
+      await reader.page.setViewport({ width, height: 900 });
+      await reader.load('/whats-on/');
+      for (const expanded of [false, true, false]) {
+        await reader.page.evaluate((open) => {
+          document.querySelector('[data-wo-filter-disclosure]').open = open;
+        }, expanded);
+        const layout = await reader.page.evaluate(() => {
+          const wrap = document.querySelector('.wo-scope-wrap').getBoundingClientRect();
+          const controls = document.querySelector('.wo-controls').getBoundingClientRect();
+          const panel = document.querySelector('[data-wo-filters]');
+          const visibleControls = [...document.querySelectorAll('.wo-controls button, .wo-controls summary, .wo-controls input, .wo-controls select')]
+            .filter(el => el.checkVisibility({ visibilityProperty: true }));
+          return {
+            bottomSpace: wrap.bottom - controls.bottom,
+            panelVisible: panel.getClientRects().length > 0,
+            targets: visibleControls.filter(el => el.type !== 'checkbox').map(el => {
+              const box = el.getBoundingClientRect();
+              return { label: el.textContent.trim() || el.name, height: box.height, left: box.left, right: box.right };
+            }),
+            overflow: document.documentElement.scrollWidth > innerWidth + 1,
+          };
+        });
+        assert.ok(layout.bottomSpace >= (width < 768 ? 24 : 32) - 1, `${width}px: controls need space before the next section`);
+        assert.equal(layout.panelVisible, expanded);
+        assert.equal(layout.overflow, false, `${width}px: the full page must fit`);
+        for (const target of layout.targets) {
+          assert.ok(target.height >= 43, `${width}px: ${target.label} needs a touch target`);
+          assert.ok(target.left >= 0 && target.right <= width + 1, `${width}px: ${target.label} must stay inside the viewport`);
+        }
+      }
+      await reader.page.click('[data-wo-custom-summary]');
+      const dates = await reader.page.$eval('.wo-scope__form', el => {
+        const box = el.getBoundingClientRect();
+        return { left: box.left, right: box.right };
+      });
+      assert.ok(dates.left >= 0 && dates.right <= width + 1, `${width}px: custom dates must stay inside the viewport`);
+      await reader.page.click('[data-wo-custom-summary]');
+      await clickScope(reader, 'next-weekend');
+      await nextReady(reader);
+      const gap = await reader.page.evaluate(() => document.querySelector('.wo-days').getBoundingClientRect().top - document.querySelector('.wo-controls').getBoundingClientRect().bottom);
+      assert.ok(gap >= 23, `${width}px: spacing survives a scope with no featured picks`);
+    }
+  } finally { await reader.close(); }
+});
+
 test('first phone screen offers a dated event link with the cookie note visible', async (t) => {
   const reader = await site.reader();
   try {

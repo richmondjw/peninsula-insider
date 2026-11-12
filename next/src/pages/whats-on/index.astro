@@ -909,7 +909,8 @@ const hubImage = categoryHero('whats-on');
   }
   .wo-head__context { margin: var(--space-3) 0 0; color: var(--soft); font-size: var(--fs-400); }
   .wo-head__rule { margin: var(--space-2) 0 0; color: var(--soft); font-size: var(--fs-400); line-height: 1.6; max-width: 68ch; }
-  .wo-scope-wrap { padding-top: var(--space-2); }
+  /* Keep the controls clear of the next surface, including when filters expand. */
+  .wo-scope-wrap { padding-top: var(--space-2); padding-bottom: var(--space-6); }
 
   /* ── Sections share one rhythm: space-7 above and below, space-5 under a title ── */
   .wo-picks { padding: var(--space-7) 0; background: #f2efea; }
@@ -941,6 +942,7 @@ const hubImage = categoryHero('whats-on');
 
   @media (max-width: 47.9375em) {
     .wo-head__copy { max-width: none; padding: var(--space-5) 0; }
+    .wo-scope-wrap { padding-bottom: var(--space-5); }
     .wo-picks { padding: var(--space-5) 0 var(--space-6); }
     .wo-picks__title, .wo-days__title, .wo-flexible__title { margin-bottom: var(--space-3); }
     .wo-days { padding: var(--space-6) 0; }
