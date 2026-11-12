@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Main Ridge Dairy, the Arthurs Seat wildflower loop, and the NWOP's last weekend](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/>) - Goat-milk gelato at a working farmgate, spring orchids on the Arthurs Seat Eagle trail network, and the National Works on Paper exhibition closing Sunday at Mornington Peninsula Regional Gallery.
+
 - [Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-11/>) - Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 
 - [Barragunda Dining and the Bushrangers Bay Walk](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-10/>) - Verified practical information for a Cape Schanck meal and the Bushrangers Bay Walk.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Balnarring Bakehouse, Greens Bush in Flower, and Emu Plains Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-02/>) - Balnarring Bakehouse's beef-and-mushroom pie, Greens Bush at peak wildflower density, and the Emu Plains Market at Balnarring Reserve on Saturday.
 
 - [Avani's Syrah, Western Port Wildflowers, and the Emu Plains Market in Full Spring](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-01/>) - Avani Wines pours the skin-contact white that earns a detour, the coastal scrub above Balnarring is carpeted in wax lip orchids, and the Emu Plains Market at Balnarring Reserve runs until mid-December.
-
-- [Moke's five-course set menu, the Balnarring horse trails at peak spring green, and the Emu Plains Market craft find](<https://peninsulainsider.com.au/journal/insider-picks-2026-10-31/>) - Moke Dining's fixed five-course menu in Flinders, the Balnarring horse trails at their most open, and the Emu Plains Market in Balnarring for a local's Saturday circuit.
 
 ## Planning a particular weekend?
 

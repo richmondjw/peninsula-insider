@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 339,
+  "pages": 340,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -8979,68 +8979,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/sewing.webp",
-      "format": "webp",
-      "originalBytes": 42742,
-      "variants": [
-        {
-          "src": "/_media/3f1ed284f35bf7ab845a-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 10794
-        },
-        {
-          "src": "/_media/3f1ed284f35bf7ab845a-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 18708
-        },
-        {
-          "src": "/_media/3f1ed284f35bf7ab845a-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 30590
-        },
-        {
-          "src": "/_media/3f1ed284f35bf7ab845a-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 40174
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/sewing.webp",
-      "format": "avif",
-      "originalBytes": 42742,
-      "variants": [
-        {
-          "src": "/_media/64725b046d1cdd0501c3-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 5870
-        },
-        {
-          "src": "/_media/64725b046d1cdd0501c3-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 8799
-        },
-        {
-          "src": "/_media/64725b046d1cdd0501c3-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 12033
-        },
-        {
-          "src": "/_media/64725b046d1cdd0501c3-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 15787
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/books-talk.webp",
       "format": "webp",
       "originalBytes": 34566,
@@ -9161,6 +9099,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 11087
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-microphone.webp",
+      "format": "webp",
+      "originalBytes": 24324,
+      "variants": [
+        {
+          "src": "/_media/5781c0117d3ea0b19129-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 6096
+        },
+        {
+          "src": "/_media/5781c0117d3ea0b19129-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 10726
+        },
+        {
+          "src": "/_media/5781c0117d3ea0b19129-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 17142
+        },
+        {
+          "src": "/_media/5781c0117d3ea0b19129-1536.webp",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 22550
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/events/music-microphone.webp",
+      "format": "avif",
+      "originalBytes": 24324,
+      "variants": [
+        {
+          "src": "/_media/45df31974e99f7576b60-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 2994
+        },
+        {
+          "src": "/_media/45df31974e99f7576b60-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 4256
+        },
+        {
+          "src": "/_media/45df31974e99f7576b60-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 5675
+        },
+        {
+          "src": "/_media/45df31974e99f7576b60-1536.avif",
+          "width": 1536,
+          "height": 1024,
+          "bytes": 7828
         }
       ]
     },

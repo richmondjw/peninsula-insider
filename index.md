@@ -45,14 +45,6 @@ One day   Red Hill & Merricks   Family
 
 Swipe or scroll through the picks
 
-- ### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
-
-Sat, 14 Nov   Pete Sews workshop   Arts
-
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.petesews.com.au/sewing-classes>)
-
 - ### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
 A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member.
@@ -68,6 +60,14 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 Sat, 14 Nov   Jetty Road Brewery   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
+
+- ### [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
+
+Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm.
+
+Sat, 14 Nov   Peppers Moonah Links Resort   Live music
+
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
 ## Three ways into the Peninsula
 

@@ -1,20 +1,36 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-11T19:19:57.744Z",
+  "generatedAt": "2026-11-12T01:11:49.310Z",
   "baselineAvailable": true,
-  "fromSnapshot": "b03b9fc76c251584bdc7f51a5ea0d16b57933e333b92e060e66348265b8919e0",
-  "toSnapshot": "5b86d4912127012acb1bdedc4727fc3e1fcaaf37993c1c1f1ec09f5e81f571ee",
-  "previousGeneratedAt": "2026-11-11T14:25:47.544Z",
+  "fromSnapshot": "5b86d4912127012acb1bdedc4727fc3e1fcaaf37993c1c1f1ec09f5e81f571ee",
+  "toSnapshot": "b5e082a4acbb823694fb8cd5d605462ff67735d89677d9b6a330a0e2fc962a3d",
+  "previousGeneratedAt": "2026-11-11T19:19:57.744Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 3,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mornington-wednesday-market-main-street-market/index.md",
-      "contentSha256": "5b7f7b850c0a5e3c92e3dc8bc1be53d46c22b8fa7373c9059ed6f020d0ea264c",
-      "previousContentSha256": "4039cb0e876e16a29d1d4e8130c8e64c29bb482f8e01c2b98357899a0680ee3d"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "748f4f34c361e6b509666fefdb1afd7c483d2588fdd3120f5bd324df4370efb7",
+      "previousContentSha256": "8a82b4824ad660dc4813e4bf921a95683f27cbb50384dea1538baa6aaa371ac2"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-12/index.md",
+      "contentSha256": "b6159610f1fe964290fb5775c87bef400f9997d5c63420a9c713d168389a95fc",
+      "previousContentSha256": null
+    },
+    {
+      "id": "https://peninsulainsider.com.au/picks/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "7191cb6d6ce2ff0b480f958a676353fd4ad807f6449ebe45e4025f081c89b6b2",
+      "previousContentSha256": "7152f95f7d8b65258cac70d0c7615c6718edab30b4ec7de17e553b2fd52487f5"
     }
   ]
 }
