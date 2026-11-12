@@ -116,12 +116,13 @@
   justify-content: space-between;
   padding: 0.85rem 1.25rem 0.5rem;
 }
-.site-search-overlay__eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--soft);
-  font-weight: 600;
+.site-search-overlay__title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-weight: var(--fw-display);
+  font-size: var(--fs-500);
+  line-height: var(--lh-heading);
+  color: var(--text);
 }
 .site-search-overlay__close {
   display: inline-flex;
@@ -150,9 +151,9 @@
   align-items: center;
   margin: 0 1.25rem;
   padding: 0.85rem 1rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
+  border: 1px solid var(--border-control);
   border-radius: var(--radius-s);
-  background: #fff;
+  background: var(--white);
   transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
 }
 .site-search-overlay__form:focus-within {
@@ -184,30 +185,6 @@
   min-width: 0;
 }
 .site-search-overlay__input::placeholder { color: var(--soft); }
-.site-search-overlay__kbd {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.7rem;
-  color: var(--soft);
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: var(--radius-s);
-  padding: 0.1rem 0.4rem;
-  margin-left: 0.65rem;
-  background: rgba(0, 0, 0, 0.03);
-}
-
-.site-search-overlay__hint {
-  padding: 0.45rem 1.25rem 0;
-  font-size: 0.78rem;
-  color: var(--soft);
-}
-.site-search-overlay__hint kbd {
-  font-family: ui-monospace, monospace;
-  font-size: 0.7rem;
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  border-radius: var(--radius-s);
-  padding: 0 0.3rem;
-  background: rgba(0, 0, 0, 0.03);
-}
 
 .site-search-overlay__body {
   flex: 1;
@@ -216,18 +193,34 @@
 }
 
 .site-search-overlay__suggestions-label {
-  font-size: 0.75rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin: 0 0 var(--space-2);
   color: var(--soft);
-  margin: 0.4rem 0 0.7rem;
-  font-weight: 600;
+  font: 400 var(--fs-300)/var(--lh-ui) var(--font-ui);
 }
-.site-search-overlay__chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+.site-search-overlay__examples { list-style: none; margin: 0; padding: 0; }
+.site-search-overlay__example {
+  display: inline-flex; align-items: center; min-height: 44px;
+  color: var(--accent); font: 400 var(--fs-400)/1.4 var(--font-ui);
+  text-decoration: underline; text-decoration-color: color-mix(in srgb, currentColor 35%, transparent); text-underline-offset: .25em;
 }
+.site-search-overlay__example:hover { text-decoration-color: currentColor; }
+
+/* Ask PI row: offered once there is a query; leads when the query reads as
+   a question, in which case Enter asks too. */
+.site-search-overlay__ask {
+  display: flex; align-items: baseline; gap: var(--space-3);
+  margin: 0 0 var(--space-3); padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text); text-decoration: none;
+  font: 400 var(--fs-400)/1.4 var(--font-ui);
+}
+.site-search-overlay__ask[hidden] { display: none; }
+.site-search-overlay__ask-label { flex: none; font-weight: 600; color: var(--accent); }
+.site-search-overlay__ask-q { flex: 1 1 auto; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--soft); }
+.site-search-overlay__ask-go { flex: none; color: var(--accent); }
+.site-search-overlay__ask.is-primary .site-search-overlay__ask-q { color: var(--text); }
+.site-search-overlay__ask:hover .site-search-overlay__ask-label,
+.site-search-overlay__ask:focus-visible .site-search-overlay__ask-label { text-decoration: underline; text-underline-offset: .2em; }
 
 .site-search-overlay__results {
   list-style: none;
@@ -250,15 +243,12 @@
 }
 .site-search-overlay__result-link:hover,
 .site-search-overlay__result-link:focus-visible {
-  background: rgba(7, 158, 165, 0.08);
+  background: var(--bg-alt);
   outline: none;
 }
 .site-search-overlay__result-kind {
-  font-size: 0.65rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  font-weight: 700;
+  color: var(--soft);
+  font: 400 var(--fs-200)/var(--lh-ui) var(--font-ui);
 }
 .site-search-overlay__result-title {
   font-family: var(--font-display);
@@ -289,16 +279,18 @@
   margin: 0;
 }
 
-/* P3-2: .pi-btn --ghost --sm owns the control. KEPT: the gap above it. */
-.site-search-overlay__cta {
-  margin-top: 0.85rem;
+/* "See all results": a text link, like every secondary action. */
+.site-search-overlay__all {
+  display: inline-flex; align-items: center; gap: .4em; min-height: 44px; margin-top: var(--space-2);
+  color: var(--accent); font: 600 var(--fs-300)/1.4 var(--font-ui); text-decoration: none;
 }
+.site-search-overlay__all:hover { text-decoration: underline; text-underline-offset: .2em; }
 
 /* The author display rules above override the UA [hidden] rule, which left
    the empty "See all results" pill visible before any query was typed (the
    "weird box"). Restore hidden's meaning explicitly. */
 .site-search-overlay__results[hidden],
-.site-search-overlay__cta[hidden] {
+.site-search-overlay__all[hidden] {
   display: none;
 }
 

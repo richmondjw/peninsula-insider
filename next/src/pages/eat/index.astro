@@ -28,6 +28,7 @@ import { categoryHero } from '../../lib/category-heroes';
 import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import EatEntry from '../../components/v5/hub/EatEntry.astro';
 import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
@@ -394,7 +395,7 @@ export const prerender = true;
     {bestOfRail.map((item, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={item.href}>{item.label}</a></>))}
   </nav>
 
-  <!-- 7. Ask PI band hidden (bug fix in progress) -->
+  <AskLine dek="Tell PI who's coming and what you feel like. You'll get two or three places that fit, with the reasons." placeholder="Long lunch with a view, kids too" />
 </BaseLayout>
 
 <style>

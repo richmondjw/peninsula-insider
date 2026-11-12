@@ -30,7 +30,7 @@ import searchOverlayBootUrl from '../scripts/search-overlay-boot.js?url&no-inlin
 
   <div class="site-search-overlay__panel" role="document">
     <header class="site-search-overlay__header">
-      <span id="siteSearchOverlayTitle" class="site-search-overlay__eyebrow">Explore Peninsula Insider</span>
+      <h2 id="siteSearchOverlayTitle" class="site-search-overlay__title">Search or ask</h2>
       <button
         type="button"
         class="site-search-overlay__close"
@@ -54,37 +54,32 @@ import searchOverlayBootUrl from '../scripts/search-overlay-boot.js?url&no-inlin
         type="search"
         id="siteSearchOverlayInput"
         class="site-search-overlay__input"
-        placeholder="Search the Peninsula Insider…"
-        aria-label="Search query"
+        placeholder="Search places, or ask PI a question"
+        aria-label="Search or ask a question"
       />
-      <kbd class="site-search-overlay__kbd" aria-hidden="true">esc</kbd>
     </form>
-
-    <div class="site-search-overlay__hint">
-      <p>Press <kbd>Enter</kbd> to open full search, or choose a suggestion.</p>
-    </div>
 
     <div class="site-search-overlay__body" id="siteSearchOverlayBody">
       <div class="site-search-overlay__suggestions" data-default-suggestions>
-        <p class="site-search-overlay__suggestions-label">Try one of these</p>
-        <div class="site-search-overlay__chips">
-          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=rainy+day"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Rainy day</span></button>
-          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=long+lunch"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Long lunch</span></button>
-          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=spring+cellar+doors"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Spring cellar doors</span></button>
-          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=coming+from+melbourne"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Coming from Melbourne</span></button>
-          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=weekend+escape"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Weekend escape</span></button>
-          <button type="button" class="pi-chip" data-search-suggestion-href="/search/?q=dog+friendly"><span class="pi-chip__bullet" aria-hidden="true">♦</span><span>Dog friendly</span></button>
-        </div>
+        <p class="site-search-overlay__suggestions-label">Type a place, or ask PI a question:</p>
+        <ul class="site-search-overlay__examples" role="list">
+          <li><a class="site-search-overlay__example" href="/ask/?q=A%20long%20lunch%20in%20Red%20Hill%20with%20kids">A long lunch in Red Hill with kids</a></li>
+          <li><a class="site-search-overlay__example" href="/ask/?q=Dog-friendly%20breakfast%20near%20Sorrento">Dog-friendly breakfast near Sorrento</a></li>
+          <li><a class="site-search-overlay__example" href="/ask/?q=A%20rainy%20Sunday%20for%20two">A rainy Sunday for two</a></li>
+        </ul>
       </div>
+
+      <a class="site-search-overlay__ask" id="siteSearchOverlayAsk" href="/ask/" hidden>
+        <span class="site-search-overlay__ask-label">Ask PI</span>
+        <span class="site-search-overlay__ask-q" data-ask-q></span>
+        <span class="site-search-overlay__ask-go" aria-hidden="true">→</span>
+      </a>
 
       <p class="site-search-overlay__status" id="siteSearchOverlayStatus" role="status" aria-live="polite" hidden></p>
       <ul class="site-search-overlay__results" id="siteSearchOverlayResults" aria-label="Search suggestions" hidden></ul>
 
-      <a class="pi-btn pi-btn--ghost" id="siteSearchOverlayCTA" href="/search/">
-        <span>Open full search</span>
-        <svg width="14" height="14" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 10h10M11 5l5 5-5 5" />
-        </svg>
+      <a class="site-search-overlay__all" id="siteSearchOverlayCTA" href="/search/" hidden>
+        <span>Open full search</span> <span aria-hidden="true">→</span>
       </a>
     </div>
   </div>

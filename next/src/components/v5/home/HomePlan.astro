@@ -13,6 +13,7 @@ import { buildPlansModel } from '../plans/plans-data';
 import { compareEditorialPlans } from '../plans/plan-curation';
 import { FACET_OPTIONS } from '../../../lib/facets';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { SHOW_ASK_PI } from '../../../lib/features';
 
 const ROTATION_WINDOW_DAYS = 5;
 const FAMILY_PLAN_SLUG = 'the-family-day-out';
@@ -99,6 +100,7 @@ const cards = featured && featuredImage ? [
       <label>What sounds good?<select name="into"><option value="">Anything</option>{interests.map(option => <option value={option.value}>{option.label}</option>)}</select></label>
       <button class="pi-btn pi-btn--solid" type="submit">Find my plan</button>
     </form>
+    {SHOW_ASK_PI && <p class="home-plan__ask">Something more specific? <a class="home-plan__ask-link" href="/ask/">Ask PI <span aria-hidden="true">→</span></a></p>}
 
     {cards.length > 0 && (
       <>
@@ -153,6 +155,9 @@ const cards = featured && featuredImage ? [
   .home-choose__form label { font-size: var(--fs-300); font-weight: 600; min-width: 0; }
   .home-choose__form select { display: block; width: 100%; margin-top: var(--space-2); min-height: 48px; padding: .65rem 2rem .65rem .75rem; background: var(--bg); border: 1px solid var(--border-control); border-radius: var(--radius-s); color: var(--text); font: 400 var(--fs-400)/1.4 var(--font-ui); }
   .home-choose__form button { min-height: 48px; }
+  .home-plan__ask { margin: var(--space-3) 0 0; color: var(--soft); font: 400 var(--fs-300)/1.4 var(--font-ui); }
+  .home-plan__ask-link { display: inline-flex; align-items: center; gap: .3em; min-height: 44px; color: var(--accent); font-weight: 600; text-decoration: none; }
+  .home-plan__ask-link:hover { text-decoration: underline; text-underline-offset: .2em; }
   .home-choose__form select:focus-visible, .home-plan a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
   /* Same card anatomy as This weekend: 3:2 image, title, one line, meta, then

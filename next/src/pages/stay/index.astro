@@ -22,6 +22,7 @@ import { getCollection } from 'astro:content';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
@@ -425,7 +426,7 @@ export const prerender = true;
     {bestOfGuides.map((guide, i) => (<>{i > 0 && <span aria-hidden="true"> · </span>}<a href={'href' in guide ? guide.href : `/stay/${guide.slug}/`}>{guide.title}</a></>))}
   </nav>
 
-  <!-- 8. Ask band hidden (bug fix in progress) -->
+  <AskLine dek="Tell PI who's travelling, when and what matters, and get the stays that fit." placeholder="A quiet weekend for two" />
   <div class="container">
     <CorrectionNote surface="stay-hub" />
   </div>

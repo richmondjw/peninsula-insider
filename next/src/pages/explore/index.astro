@@ -34,6 +34,7 @@ import { pageImage } from '../../lib/page-images';
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import Card from '../../components/v5/Card.astro';
 import CardGrid from '../../components/v5/CardGrid.astro';
 import FilterBar from '../../components/v5/FilterBar.astro';
@@ -517,6 +518,8 @@ export const prerender = true;
       </div>
     </div>
   </section>
+
+  <AskLine title="Didn't see your question? Ask PI" dek="PI answers from our own guides to the coast, the walks and the towns." placeholder="An easy coastal walk" />
 </BaseLayout>
 
 <style>
