@@ -2,6 +2,7 @@
 import { cleanCaption, isArtwork } from '../../../lib/image-caption.mjs';
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
+import { SHOW_ASK_PI } from '../../../lib/features';
 const original = {
   src: '/images/visit-victoria/vv-143799-cape-schanck.webp',
   alt: 'Scrubby cliffs at Cape Schanck falling to a rocky shore and sunlit sea, with the lighthouse on the headland above',
@@ -27,6 +28,21 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <p class="home-cover__promise">The places worth finding. The days worth making.</p>
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find your kind of day <span aria-hidden="true">&#8599;</span></a></nav>
   </div>
+  {SHOW_ASK_PI && (
+    <a class="home-cover__ask" href="/ask/" aria-label="Ask PI, your Peninsula local">
+      <svg class="home-cover__ask-art" viewBox="0 0 310 310" width="46" height="46" fill="currentColor" aria-hidden="true">
+        <path d="M100 143C88 88 118 44 162 42c40-2 66 18 70 44-22 14-62 29-132 57z"/>
+        <path d="M28 205c10-27 62-55 122-73 45-14 85-40 112-60 16-10 28-2 24 20-6 38-22 70-46 92-10-16-26-26-42-26-48 12-108 37-153 54-13 4-20-1-17-7z"/>
+        <path d="M60 214c-14 22 6 34-6 56 16 6 30-6 30-20 6 14 22 22 36 12-12-12-2-26-8-40 12 12 30 14 40 4-10-8-8-22-4-32-28 4-60 12-88 20z"/>
+        <path d="M196 166c8 20 0 38-12 48 14 0 26 8 30 22" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"/>
+        <path d="M120 282c30-42 85-68 142-62-12 10-57 20-112 64z"/>
+        <path class="home-cover__spark" d="M292 18l4.5 13.5L310 36l-13.5 4.5L292 54l-4.5-13.5L274 36l13.5-4.5z"/>
+        <path class="home-cover__spark" d="M104 6l3 9 9 3-9 3-3 9-3-9-9-3 9-3z"/>
+        <path class="home-cover__spark" d="M20 150l2.5 7.5L30 160l-7.5 2.5L20 170l-2.5-7.5L10 160l7.5-2.5z"/>
+      </svg>
+      <span class="home-cover__ask-text"><span>Ask PI</span><small>Your Peninsula local</small></span>
+    </a>
+  )}
   <a class="home-cover__story" href="/explore/plans/flinders-and-cape-reset/">
     <span class="home-cover__story-label">Start with the coast</span>
     <strong>Flinders &amp; the Cape</strong>
@@ -40,6 +56,19 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   <a href="/explore/">Get outside <span aria-hidden="true">&#8599;</span></a>
   <a href="/whats-on/this-weekend/">This weekend <span aria-hidden="true">&#8599;</span></a>
 </nav>
+<script>
+  // The corner "Ask PI" pill steps aside while the cover badge is on screen.
+  let seen: IntersectionObserver | null = null;
+  function watchAskBadge() {
+    seen?.disconnect();
+    document.documentElement.classList.remove('pi-hero-ask');
+    const badge = document.querySelector('.home-cover__ask');
+    if (!badge || !('IntersectionObserver' in window)) return;
+    seen = new IntersectionObserver(([e]) => document.documentElement.classList.toggle('pi-hero-ask', e.isIntersecting));
+    seen.observe(badge);
+  }
+  document.addEventListener('astro:page-load', watchAskBadge);
+</script>
 <style>
 .home-cover{padding:0;position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#0b2e4a;color:white;overflow:hidden;min-height:39.5rem}
 .home-cover__plate{position:absolute;inset:0;margin:0;z-index:-2}.home-cover__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
@@ -66,6 +95,8 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
    toward the lighthouse, sun haze that breathes as thin cloud crosses it, a soft cloud shadow
    sliding over the cliff, and parallax as the page scrolls. Transform and opacity only, so it
    stays on the compositor. Reduced-motion readers get the still photograph. */
+/* Clip the moving layers at the plate so they never count as page overflow. */
+.home-cover__plate{overflow:clip}
 @media (prefers-reduced-motion: no-preference){
 .home-cover__media{transform-origin:80% 32%;animation:hc-push 26s cubic-bezier(.45,0,.55,1) .2s infinite alternate both;will-change:transform}
 /* Sun on the figure (painted after the photo, under the scrim); cloud shadow inside the picture. */
@@ -81,4 +112,25 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 @keyframes hc-parallax{to{transform:translate3d(0,9%,0)}}
 }
 }
+/* Ask PI badge (2026-11-13): a white line drawing of PI under her hat, floating in the cover's
+   top-right. It bobs, and three sparkles twinkle around the brim; a sheen crosses it now and then.
+   While it is on screen the corner "Ask PI" pill steps aside (html.pi-hero-ask, PiChat.astro). */
+.home-cover__ask{position:absolute;z-index:2;top:1.5rem;right:max(2rem,calc((100vw - 1280px)/2));display:inline-flex;align-items:center;gap:.75rem;padding:.3125rem 1.25rem .3125rem .375rem;border:1px solid rgba(255,255,255,.72);border-radius:100px;background:rgba(4,27,39,.58);-webkit-backdrop-filter:blur(10px) saturate(1.2);backdrop-filter:blur(10px) saturate(1.2);color:#fff;text-decoration:none;overflow:hidden;box-shadow:0 10px 30px -14px rgba(0,0,0,.55);transition:background .25s,border-color .25s}
+.home-cover__ask:hover{background:rgba(4,27,39,.72);border-color:#fff}
+.home-cover__ask-art{flex:none;display:block;overflow:visible}
+.home-cover__ask-text{display:grid;line-height:1.15;white-space:nowrap}
+.home-cover__ask-text span{font:600 1.1875rem/1.1 var(--font-display);letter-spacing:-.02em}
+.home-cover__ask-text small{font:400 .75rem/1.3 var(--font-ui);opacity:.92}
+.home-cover__spark{transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion: no-preference){
+.home-cover__ask{animation:hc-float 5.5s ease-in-out infinite alternate}
+.home-cover__ask:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent 35%,rgba(255,255,255,.28) 50%,transparent 65%);transform:translateX(-120%);animation:hc-sheen 7s ease-in-out 1.5s infinite;pointer-events:none}
+.home-cover__spark{animation:hc-twinkle 3.6s ease-in-out infinite both}
+.home-cover__spark:nth-of-type(7){animation-delay:1.2s}.home-cover__spark:nth-of-type(8){animation-delay:2.4s}
+.home-cover__ask:hover .home-cover__spark{animation-duration:1.2s}
+@keyframes hc-float{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+@keyframes hc-twinkle{0%,100%{transform:scale(0) rotate(0);opacity:0}18%{transform:scale(1.25) rotate(45deg);opacity:1}36%{transform:scale(.9) rotate(90deg);opacity:.9}55%{transform:scale(0) rotate(135deg);opacity:0}}
+@keyframes hc-sheen{0%,70%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+}
+@media(max-width:47.99em){.home-cover__ask{top:1rem;right:1rem;gap:.5rem;padding:.25rem 1rem .25rem .25rem}.home-cover__ask-art{width:38px;height:38px}.home-cover__ask-text span{font-size:1.0625rem}.home-cover__ask-text small{display:none}}
 </style>
