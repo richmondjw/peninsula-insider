@@ -45,6 +45,27 @@ test('homepage first visit offers a visible action, early orientation and no mot
   }
 });
 
+test('homepage hero CTA accepts pointer clicks and mobile taps on repeated visits', async () => {
+  for (const mobile of [false, true]) {
+    const reader = await site.reader();
+    try {
+      await reader.page.setViewport({ width: mobile ? 390 : 1440, height: 844, isMobile: mobile, hasTouch: mobile });
+      for (let attempt = 0; attempt < 2; attempt++) {
+        await reader.load('/');
+        const exposed = await reader.page.$eval('.home-cover__actions a', link => {
+          const box = link.getBoundingClientRect();
+          return link.contains(document.elementFromPoint(box.x + box.width / 2, box.y + box.height / 2));
+        });
+        assert.equal(exposed, true, 'decorative hero layer intercepts primary CTA');
+        if (mobile) await reader.page.tap('.home-cover__actions a');
+        else await reader.page.click('.home-cover__actions a');
+        await reader.waitFor(() => location.hash === '#home-choose', 'pointer did not activate chooser');
+        const top = await reader.page.$eval('#home-choose', e => e.getBoundingClientRect().top);
+        assert.ok(top >= 80 && top < 250, `chooser obscured after pointer navigation: ${top}`);
+      }
+    } finally { await reader.close(); }
+  }
+});
 test('native homepage chooser carries independent choices to the existing matcher and its usable family itinerary',async()=>{
   const reader=await site.reader();
   try {
