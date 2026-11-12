@@ -2,8 +2,7 @@
 import { cleanCaption, isArtwork } from '../../../lib/image-caption.mjs';
 import { editableText, editableImage } from '../../../lib/inline-edit/attrs';
 import { loadOverrides } from '../../../lib/inline-edit/overrides';
-import deck from '../../../data/home-cover-deck.json';
-const original = deck.slides[0] ?? {
+const original = {
   src: '/images/visit-victoria/vv-143799-cape-schanck.webp',
   alt: 'Scrubby cliffs at Cape Schanck falling to a rocky shore and sunlit sea, with the lighthouse on the headland above',
   caption: 'Cape Schanck, Mornington Peninsula.',
@@ -13,36 +12,54 @@ const overrides = await loadOverrides('page', 'home');
 const published = overrides.image['cover.image'];
 const replacement = published?.src && published.alt?.trim() && published.credit?.trim() ? published : undefined;
 const photo = replacement ?? original;
-const statement = overrides.text['cover.statement'] ?? 'The Mornington Peninsula, sorted.';
+const statement = overrides.text['cover.statement'] ?? 'Make a day of the Peninsula.';
 const credit = photo.credit?.trim().replace(/\.$/, '') ?? '';
 const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /i.test(credit) ? 'Photo courtesy of ' + credit.slice('Courtesy of '.length) + '.' : 'Photo: ' + credit + '.';
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
-    <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
+    <img class="home-cover__media" data-pi-avif="true" src={photo.src} data-pi-responsive="(max-width: 767px) 1200px, 100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
     {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption)} {creditLine}</figcaption>}
   </figure>
-  <div class="container home-cover__content">
-    <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement}</h1>
-    <p class="home-cover__promise">Independent local picks for where to eat, stay and explore. Every recommendation has a reason.</p>
-    <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit">
-      <a class="pi-btn pi-btn--solid" href="#home-choose">Find my plan <span aria-hidden="true">↓</span></a>
-      <a class="home-cover__link" href="/whats-on/this-weekend/">What’s on this weekend <span aria-hidden="true">→</span></a>
-    </nav>
+  <div class="home-cover__content">
+    <p class="home-cover__eyebrow">Mornington Peninsula / Your local guide</p>
+    <h1 class="home-cover__statement" {...editableText({entityType:'page',entitySlug:'home',fieldPath:'cover.statement',label:'Cover statement'})}>{statement === 'Make a day of the Peninsula.' ? <>Make a day<br />of the<br />Peninsula.</> : statement}</h1>
+    <p class="home-cover__promise">The places worth finding. The days worth making.</p>
+    <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find your kind of day <span aria-hidden="true">&#8599;</span></a></nav>
   </div>
+  <a class="home-cover__story" href="/explore/plans/flinders-and-cape-reset/">
+    <span class="home-cover__story-label">Start with the coast</span>
+    <strong>Flinders &amp; the Cape</strong>
+    <span>Coastal walks and one excellent meal.</span>
+    <b aria-hidden="true">&#8599;</b>
+  </a>
 </section>
+<nav class="home-cover-paths" aria-label="Find your Peninsula">
+  <a href="/eat/">Eat &amp; drink <span aria-hidden="true">&#8599;</span></a>
+  <a href="/wine/">Wine country <span aria-hidden="true">&#8599;</span></a>
+  <a href="/explore/">Get outside <span aria-hidden="true">&#8599;</span></a>
+  <a href="/whats-on/this-weekend/">This weekend <span aria-hidden="true">&#8599;</span></a>
+</nav>
 <style>
-  .home-cover{position:relative;isolation:isolate;background:var(--navy,#0b2e4a);color:white;overflow:hidden}
-  .home-cover__plate{position:absolute;inset:0;margin:0;z-index:-1}
-  .home-cover__plate::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,30,47,.95),rgba(7,30,47,.84) 45%,rgba(7,30,47,.22))}
-  .home-cover__media{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-  figcaption{position:absolute;right:max(1rem,calc((100vw - 1280px)/2));bottom:1rem;z-index:1;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 var(--fs-200)/1.45 var(--font-ui);color:white}
-  .home-cover__content{padding-block:2.5rem 3rem}
-  .home-cover__statement{font-weight:600;line-height:1.12;font-family:var(--font-display);letter-spacing:-.045em;max-width:17ch;margin:0;text-wrap:balance;color:white}
-  .home-cover__promise{max-width:52ch;font:400 var(--fs-400)/1.5 var(--font-ui);margin:1rem 0 1.2rem}
-  .home-cover__actions{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem}
-  .home-cover__actions .pi-btn{min-height:48px}
-  .home-cover__link{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:white;font:600 var(--fs-300)/1.4 var(--font-ui);text-underline-offset:.25em}
-  a:focus-visible{outline:3px solid var(--sand,#f5c177);outline-offset:4px}
-  @media(max-width:47.99em){.home-cover__media[data-home-art="true"]{object-position:left center}.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{max-width:19ch}.home-cover__promise{font-size:var(--fs-400);margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem 1.25rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:var(--fs-300)}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:var(--fs-200)}}
+.home-cover{padding:0;position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);background:#0b2e4a;color:white;overflow:hidden;min-height:39.5rem}
+.home-cover__plate{position:absolute;inset:0;margin:0;z-index:-2}.home-cover__media{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.home-cover:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(4,27,39,.85),rgba(4,27,39,.58) 43%,transparent 78%),linear-gradient(0deg,rgba(4,27,39,.35),transparent 50%)}
+.home-cover__content{padding:3.75rem 1.5rem 4.75rem max(2rem,calc((100vw - 1280px)/2));min-width:0;align-self:center}
+.home-cover__eyebrow{font:600 .6875rem/1.6 var(--font-ui);letter-spacing:.09em;text-transform:uppercase;margin:0 0 1.625rem;color:#fff}
+:global(body[data-anchor-page][data-path="/"] #main-content) .home-cover__statement{font:600 clamp(4rem,6.4vw,5.75rem)/1.02 var(--font-display);letter-spacing:-.065em;max-width:11ch;margin:0 0 1.625rem;color:white;text-wrap:initial;overflow-wrap:anywhere}
+.home-cover__promise{font:400 1.3125rem/1.45 var(--font-ui);max-width:30ch;margin:0 0 1.5rem;color:white}
+.home-cover__actions a{display:inline-flex;align-items:center;justify-content:space-between;gap:1.75rem;min-height:3.25rem;padding:.875rem 1.5rem;border-radius:100px;background:white;color:#0b2e4a;text-decoration:none;font:600 1rem/1.4 var(--font-ui)}.home-cover__actions span{font-size:1.5rem}
+.home-cover__story{position:relative;align-self:end;justify-self:end;margin:0 max(2rem,calc((100vw - 1280px)/2)) 4rem 1.5rem;max-width:21rem;display:grid;gap:.375rem;padding:1.375rem 3.25rem 1.375rem 1.5rem;background:#f2efea;color:#0b2e4a;border-radius:6px;text-decoration:none;min-width:0}
+.home-cover__story-label{font:600 .6875rem/1.4 var(--font-ui);letter-spacing:.1em;text-transform:uppercase;color:#10527e}.home-cover__story strong{font:600 1.5rem/1.2 var(--font-display);letter-spacing:-.035em}.home-cover__story>span:last-of-type{font:400 .9375rem/1.4 var(--font-ui)}.home-cover__story b{position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);font:400 1.75rem/1 var(--font-ui)}
+.home-cover__plate figcaption{position:absolute;right:1rem;bottom:.5rem;z-index:2;background:#0b2e4a;color:white;font:400 .6875rem/1.4 var(--font-ui);padding:.375rem .5625rem;max-width:45ch}
+/* Attribution stays above the decorative scrim, rather than darkening with it. */
+.home-cover__plate{z-index:auto}.home-cover__media{z-index:-2}.home-cover__plate :global(picture){position:absolute;inset:0;z-index:-2}.home-cover__plate :global(picture img){z-index:auto}
+.home-cover a:focus-visible,.home-cover-paths a:focus-visible{outline:3px solid #f5c177;outline-offset:4px}.home-cover__story:focus-visible{outline-color:white}.home-cover a:hover strong{text-decoration:underline;text-underline-offset:.2em}
+.home-cover-paths{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));background:#0b2e4a;padding:0 max(2rem,calc((100vw - 1280px)/2))}.home-cover-paths a{display:flex;justify-content:space-between;align-items:center;gap:.75rem;padding:1.375rem 1.25rem;color:white;text-decoration:none;font:600 1rem/1.4 var(--font-ui);border-right:1px solid #315268;min-height:3.25rem}.home-cover-paths a:first-child{padding-left:0}.home-cover-paths a:last-child{border:0;padding-right:0}.home-cover-paths a:hover{text-decoration:underline}
+@media(max-width:47.99em){
+.home-cover{grid-template-columns:minmax(0,1fr);min-height:41.25rem;padding-bottom:3.5rem;gap:4.75rem}.home-cover__content{padding:2.5rem 1.5rem 0;align-self:start}.home-cover__eyebrow{font-size:.625rem;max-width:27ch;margin-bottom:1.75rem}:global(body[data-anchor-page][data-path="/"] #main-content) .home-cover__statement{font-size:clamp(2.75rem,13.85vw,3.375rem);line-height:1.03;max-width:10.5ch;margin-bottom:1.25rem}.home-cover__promise{font-size:1.125rem;line-height:1.5;max-width:25ch;margin-bottom:1.125rem}.home-cover__actions a{font-size:.9375rem;padding:.75rem 1.25rem;min-height:3.125rem;gap:1.5rem}
+.home-cover__media{height:calc(100% + 100px);top:-100px;object-position:100% top}.home-cover:before{background:linear-gradient(90deg,rgba(4,27,39,.84),rgba(4,27,39,.65) 54%,rgba(4,27,39,.48)),linear-gradient(0deg,rgba(4,27,39,.3),transparent 50%)}
+.home-cover__story{justify-self:stretch;margin:0 1.5rem;max-width:none;padding:1.1875rem 3rem 1.1875rem 1.25rem}.home-cover__story strong{font-size:1.4375rem}.home-cover__story-label{font-size:.625rem}.home-cover__story>span:last-of-type{font-size:.8125rem}.home-cover__plate figcaption{left:0;right:0;bottom:0;max-width:none;font-size:.625rem;padding:.5rem .75rem}
+.home-cover-paths{grid-template-columns:repeat(2,minmax(0,1fr));padding:0 1.25rem}.home-cover-paths a,.home-cover-paths a:first-child,.home-cover-paths a:last-child{font-size:.875rem;padding:1.125rem .625rem;min-height:3.625rem;border-right:1px solid #315268;border-bottom:1px solid #315268}.home-cover-paths a:nth-child(even){border-right:0}.home-cover-paths a:nth-child(n+3){border-bottom:0}
+}
 </style>

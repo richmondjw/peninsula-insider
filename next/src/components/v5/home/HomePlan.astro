@@ -102,8 +102,8 @@ const cards = featured && featuredImage ? [
 
     {cards.length > 0 && (
       <>
-        <ul class="home-plan__choices" role="list" aria-label="Three of our plans">
-          {cards.map(({ plan, image, imageEdit, surface }, i) => (
+        <ul class="home-plan__choices" role="list" aria-label="More plans to explore">
+          {cards.filter(({ plan }) => plan.slug !== 'flinders-and-cape-reset').map(({ plan, image, imageEdit, surface }, i) => (
             <li class:list={[i === 0 ? 'home-plan__card' : 'home-plan__alt']}>
               <Card preferAvif={true}
                 as="article"
@@ -157,7 +157,7 @@ const cards = featured && featuredImage ? [
 
   /* Same card anatomy as This weekend: 3:2 image, title, one line, meta, then
      the photo credit as one quiet closing line. */
-  .home-plan__choices { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+  .home-plan__choices { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
   .home-plan__card, .home-plan__alt { min-width: 0; }
   .home-plan__choices :global(.pi-card) { width: 100%; }
   .home-plan__choices :global(.pi-card__media) { aspect-ratio: 3/2; height: auto; }
