@@ -93,6 +93,20 @@ const cards = featured && featuredImage ? [
       <a class="home-plan__more" href="/explore/plans/">See all plans <span aria-hidden="true">→</span></a>
     </div>
 
+    {featured && featuredImage && (
+      <article class="home-plan__invitation" aria-label="Featured day-out plan">
+        <a href={featured.href} class="home-plan__invitation-link">
+          <img data-pi-avif="true" data-pi-responsive="112px" src={featuredImage.src} alt={featuredImage.alt} width="240" height="160" loading="lazy" decoding="async" />
+          <span class="home-plan__invitation-copy">
+            <span class="home-plan__invitation-label">A good place to start</span>
+            <strong>{featured.displayTitle}</strong>
+            <span>{alternateSummary[featured.slug] ?? featured.editorialReason ?? featured.verdict}</span>
+          </span>
+          <span class="home-plan__invitation-arrow" aria-hidden="true">→</span>
+        </a>
+        {featuredImage.credit && <p class="home-plan__invitation-credit">{featuredImage.credit}</p>}
+      </article>
+    )}
     <form action="/explore/plans/#build" method="get" class="home-choose__form" aria-label="Find a Peninsula plan">
       <label>How long?<select name="length"><option value="">Any length</option><option value="one-day">One day</option><option value="weekend">A weekend</option><option value="longer">Two nights or more</option></select></label>
       <label>Who’s coming?<select name="who"><option value="">Anyone</option>{present('party').map(option => <option value={option.value}>{option.label}</option>)}</select></label>
@@ -102,8 +116,8 @@ const cards = featured && featuredImage ? [
 
     {cards.length > 0 && (
       <>
-        <ul class="home-plan__choices" role="list" aria-label="Three of our plans">
-          {cards.map(({ plan, image, imageEdit, surface }, i) => (
+        <ul class="home-plan__choices" role="list" aria-label="More plans to explore">
+          {cards.slice(1).map(({ plan, image, imageEdit, surface }, i) => (
             <li class:list={[i === 0 ? 'home-plan__card' : 'home-plan__alt']}>
               <Card preferAvif={true}
                 as="article"
@@ -157,7 +171,7 @@ const cards = featured && featuredImage ? [
 
   /* Same card anatomy as This weekend: 3:2 image, title, one line, meta, then
      the photo credit as one quiet closing line. */
-  .home-plan__choices { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: start; }
+  .home-plan__choices { list-style: none; margin: var(--space-7) 0 0; padding: 0; display: grid; gap: var(--space-5); grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
   .home-plan__card, .home-plan__alt { min-width: 0; }
   .home-plan__choices :global(.pi-card) { width: 100%; }
   .home-plan__choices :global(.pi-card__media) { aspect-ratio: 3/2; height: auto; }
@@ -185,4 +199,19 @@ const cards = featured && featuredImage ? [
     .home-plan__choices { margin-top: var(--space-6); margin-right: -1rem; gap: var(--space-4); }
     .home-plan__choices :global(.pi-card__dek) { font-size: var(--fs-300); line-height: 1.45; }
   }
-</style>
+  .home-plan__invitation { margin: 0 0 var(--space-5); }
+  .home-plan__invitation-link { display:grid; grid-template-columns:7rem minmax(0,1fr) auto; align-items:center; gap:var(--space-4); padding:var(--space-3); border:1px solid var(--border); border-radius:var(--radius-s); background:var(--bg-alt); color:var(--text); text-decoration:none; }
+  .home-plan__invitation-link:hover strong { text-decoration:underline; text-underline-offset:.2em; }
+  .home-plan__invitation-link img { width:100%; height:6rem; object-fit:cover; border-radius:var(--radius-s); }
+  .home-plan__invitation-copy { display:grid; gap:.3rem; min-width:0; font:400 var(--fs-300)/1.4 var(--font-ui); }
+  .home-plan__invitation-copy strong { font:600 var(--fs-500)/1.25 var(--font-display); }
+  .home-plan__invitation-label { color:var(--accent); font-size:var(--fs-200); font-weight:600; }
+  .home-plan__invitation-arrow { color:var(--accent); }
+  .home-plan__invitation-credit { margin:.3rem 0 0; font:400 var(--fs-200)/1.4 var(--font-ui); color:var(--soft); }
+  @media(max-width:47.99em) {
+    .home-plan__head { margin-bottom:var(--space-3); }
+    .home-plan__invitation-link { grid-template-columns:5rem minmax(0,1fr); gap:var(--space-3); padding:var(--space-2); }
+    .home-plan__invitation-link img { height:6rem; }
+    .home-plan__invitation-arrow { display:none; }
+    .home-plan__invitation-copy strong { font-size:var(--fs-400); }
+  }</style>

@@ -19,7 +19,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
-    <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="(max-width: 767px) 1600px, 100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
+    <img data-pi-avif="true" class="home-cover__media" data-home-art={photo.src === '/images/generated/coastal-punch-hero.webp' ? 'true' : undefined} src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="2400" height="1350" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
     {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption)} {creditLine}</figcaption>}
   </figure>
   <div class="container home-cover__content">
@@ -32,17 +32,28 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
   </div>
 </section>
 <style>
-  .home-cover{position:relative;isolation:isolate;background:var(--navy,#0b2e4a);color:white;overflow:hidden}
-  .home-cover__plate{position:absolute;inset:0;margin:0;z-index:-1}
-  .home-cover__plate::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,rgba(7,30,47,.95),rgba(7,30,47,.84) 45%,rgba(7,30,47,.22))}
-  .home-cover__media{width:100%;height:100%;object-fit:cover;object-position:center 30%}
-  figcaption{position:absolute;right:max(1rem,calc((100vw - 1280px)/2));bottom:1rem;z-index:1;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 var(--fs-200)/1.45 var(--font-ui);color:white}
-  .home-cover__content{padding-block:2.5rem 3rem}
-  .home-cover__statement{font-weight:600;line-height:1.12;font-family:var(--font-display);letter-spacing:-.045em;max-width:17ch;margin:0;text-wrap:balance;color:white}
-  .home-cover__promise{max-width:52ch;font:400 var(--fs-400)/1.5 var(--font-ui);margin:1rem 0 1.2rem}
+  /* Editorial cover: legible type on a quiet ground, full-colour art beside it.
+     No autoplay, extra assets or client JavaScript. */
+  .home-cover{position:relative;isolation:isolate;padding:0;background:var(--cream,#F2EFEA);color:var(--text);overflow:hidden;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+  .home-cover__plate{grid-column:2;grid-row:1;margin:0;position:relative;min-height:26rem}
+  .home-cover__media{width:100%;height:100%;object-fit:cover;object-position:left center;position:absolute;inset:0}
+  figcaption{position:absolute;right:1rem;bottom:1rem;max-width:32ch;background:rgba(7,30,47,.9);padding:.35rem .5rem;font:400 var(--fs-200)/1.45 var(--font-ui);color:white}
+  .home-cover__content{grid-column:1;grid-row:1;min-width:0;width:auto;margin:0;padding:3rem max(1.5rem,calc((100vw - 1280px)/2));padding-right:2rem;align-self:center}
+  .home-cover__statement{font-weight:600;font-size:clamp(2.25rem,4.3vw,4rem);line-height:1.08;font-family:var(--font-display);letter-spacing:-.045em;max-width:17ch;margin:0;text-wrap:balance;overflow-wrap:anywhere;color:var(--navy,#0b2e4a)}
+  .home-cover__promise{max-width:43ch;font:400 var(--fs-400)/1.5 var(--font-ui);margin:1.2rem 0 1.5rem}
   .home-cover__actions{display:flex;align-items:center;flex-wrap:wrap;gap:.75rem 1.5rem}
   .home-cover__actions .pi-btn{min-height:48px}
-  .home-cover__link{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:white;font:600 var(--fs-300)/1.4 var(--font-ui);text-underline-offset:.25em}
-  a:focus-visible{outline:3px solid var(--sand,#f5c177);outline-offset:4px}
-  @media(max-width:47.99em){.home-cover__media[data-home-art="true"]{object-position:left center}.home-cover__content{padding-block:1.5rem 4.6rem}.home-cover__plate::after{background:linear-gradient(180deg,rgba(7,30,47,.8),rgba(7,30,47,.68) 70%,rgba(7,30,47,.5))}.home-cover__statement{max-width:19ch}.home-cover__promise{font-size:var(--fs-400);margin:.8rem 0 1rem}.home-cover__actions{gap:.5rem 1.25rem}.home-cover__actions .pi-btn{padding-inline:.9rem;font-size:var(--fs-300)}figcaption{right:1rem;left:1rem;bottom:.7rem;max-width:none;font-size:var(--fs-200)}}
+  .home-cover__link{display:inline-flex;align-items:center;gap:.35rem;min-height:44px;color:var(--accent);font:600 var(--fs-300)/1.4 var(--font-ui);text-underline-offset:.25em}
+  a:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+  @media(max-width:47.99em){
+    .home-cover{grid-template-columns:minmax(0,1fr)}
+    .home-cover__content{grid-column:1;grid-row:1;padding:1.5rem 1rem 1.25rem}
+    .home-cover__plate{grid-column:1;grid-row:2;min-height:0;height:clamp(8rem,37vw,13rem)}
+    .home-cover__media[data-home-art="true"]{object-position:center 60%}
+    .home-cover__statement{font-size:clamp(2rem,8.4vw,3rem);max-width:19ch}
+    .home-cover__promise{font-size:var(--fs-400);margin:.9rem 0 1rem;max-width:38ch}
+    .home-cover__actions{gap:.35rem 1.25rem}
+    .home-cover__actions .pi-btn{padding-inline:.9rem;font-size:var(--fs-300)}
+    figcaption{right:.75rem;bottom:.5rem;max-width:36ch;font-size:var(--fs-200)}
+  }
 </style>

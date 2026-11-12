@@ -158,3 +158,45 @@ test('homepage weekend picks show the recorded check dates and direct official s
     assert.doesNotMatch(hint.text,/all three/i);
   }finally{await reader.close();}
 });
+
+test('mobile arrival surfaces a real itinerary before the native planner without duplicating it', async()=>{
+  const reader=await site.reader();
+  try {
+    await reader.page.setViewport({width:390,height:844});
+    await reader.load('/');
+    const result=await reader.page.evaluate(()=>{
+      const invitation=document.querySelector('.home-plan__invitation');
+      const link=invitation.querySelector('a');
+      const image=invitation.querySelector('img');
+      return {bottom:invitation.getBoundingClientRect().bottom,formTop:document.querySelector('.home-choose__form').getBoundingClientRect().top,
+        credit:invitation.querySelector('.home-plan__invitation-credit')?.textContent.trim(), alt:image.alt,
+        duplicates:[...document.querySelectorAll('.home-plan__choices a')].filter(a=>a.href===link.href).length,
+        labels:document.querySelectorAll('.home-choose__form label').length};
+    });
+    assert.ok(result.bottom<844,JSON.stringify(result));
+    assert.ok(result.bottom<result.formTop);
+    assert.ok(result.credit); assert.ok(result.alt);
+    assert.equal(result.duplicates,0); assert.equal(result.labels,3);
+    await reader.page.focus('.home-plan__invitation-link');
+    const focus=await reader.page.$eval('.home-plan__invitation-link',e=>({focused:document.activeElement===e,outline:getComputedStyle(e).outlineStyle}));
+    assert.equal(focus.focused,true); assert.notEqual(focus.outline,'none');
+    await reader.page.keyboard.press('Enter');
+    await reader.waitFor(()=>location.pathname.startsWith('/explore/plans/'),'featured itinerary did not open');
+  } finally {await reader.close();}
+});
+
+test('homepage arrival reflows under 200 percent root text sizing', async()=>{
+  const reader=await site.reader();
+  try {
+    await reader.page.setViewport({width:390,height:844}); await reader.load('/');
+    await reader.page.addStyleTag({content:'html{font-size:200%!important}'});
+    const result=await reader.page.evaluate(()=>({
+      pageOverflow:document.documentElement.scrollWidth>innerWidth+1,
+      coverOverflow:document.querySelector('.home-cover').scrollWidth>innerWidth+1,
+      invitationOverflow:document.querySelector('.home-plan__invitation').scrollWidth>innerWidth,
+      labelled:[...document.querySelectorAll('.home-choose__form select')].every(e=>e.labels?.length)
+    }));
+    assert.equal(result.pageOverflow,false); assert.equal(result.coverOverflow,false);
+    assert.equal(result.invitationOverflow,false); assert.equal(result.labelled,true);
+  }finally{await reader.close();}
+});
