@@ -1,20 +1,11 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-12T22:33:20.905Z",
+  "generatedAt": "2026-11-12T23:31:13.146Z",
   "baselineAvailable": true,
-  "fromSnapshot": "ab56cf20a691090ce6f4c97ecb08c624839db31ed3b70df011aaf35c3185da34",
+  "fromSnapshot": "5fc667ca529a6c640e4741c6c5460518e1402bfc39f03db5eaa09445702b748e",
   "toSnapshot": "5fc667ca529a6c640e4741c6c5460518e1402bfc39f03db5eaa09445702b748e",
-  "previousGeneratedAt": "2026-11-12T20:21:54.152Z",
+  "previousGeneratedAt": "2026-11-12T22:33:20.905Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
-  "changes": [
-    {
-      "id": "https://peninsulainsider.com.au/ask/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/ask/",
-      "markdownUrl": "https://peninsulainsider.com.au/ask/index.md",
-      "contentSha256": "2bdd7387863369236bd63ba3c91d3f65d1d4b7b8072b88a1d1d179b67f151d2d",
-      "previousContentSha256": "fcae7a6cc3e0847fb88435616c090a76f5cf54508acc76741324a0c1f1d7f461"
-    }
-  ]
+  "count": 0,
+  "changes": []
 }
