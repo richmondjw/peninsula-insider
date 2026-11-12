@@ -70,7 +70,7 @@ test('calendar controls retain breathing room through wrapped rows and expanded 
           const controls = document.querySelector('.wo-controls').getBoundingClientRect();
           const panel = document.querySelector('[data-wo-filters]');
           const visibleControls = [...document.querySelectorAll('.wo-controls button, .wo-controls summary, .wo-controls input, .wo-controls select')]
-            .filter(el => el.getClientRects().length && getComputedStyle(el).visibility !== 'hidden');
+            .filter(el => el.checkVisibility({ visibilityProperty: true }));
           return {
             bottomSpace: wrap.bottom - controls.bottom,
             panelVisible: panel.getClientRects().length > 0,
