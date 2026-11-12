@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Ask PI
 
-Ask a question about the Peninsula. PI answers from our own reviews and guides, and links you to the places.
+Tell me what you're after. A long lunch, a hatted dinner, a dog-friendly cafe, a rainy Sunday with kids. The more specific you are, the sharper my answer.
 
 ## Try asking
 
