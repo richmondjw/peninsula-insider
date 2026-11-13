@@ -499,8 +499,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-- [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
-
 - [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
 - [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
@@ -561,8 +559,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 
-- [Live Music at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
-
 - [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
 - [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
@@ -614,10 +610,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Sam O'Connell Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/>)
 
 - [School Holiday Fun at Red Gum BBQ!](<https://peninsulainsider.com.au/whats-on/school-holiday-fun-at-red-gum-bbq-2027-04-09/>)
-
-- [Smooth Operators Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
-
-- [Soul Night Market at Dromana Estate](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/>)
 
 - [Soul Night Market at Hastings Foreshore](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)
 

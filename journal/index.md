@@ -629,32 +629,32 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Fri, 13 Nov
+- [Sat, 14 Nov
 
-### Books and Ideas: Barrie Cassidy at Port Phillip Estate
+### ✦ Acoustic Saturdays at Peppers Moonah Links
 
-Red Hill South
+Fingal
 
-Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
+Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
- Event · Writers & Ideas](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-- [Fri, 13 Nov
+- [Sat, 14 Nov
 
-### Live Music at Flinders Hotel
+### Beginner Alteration and Repair Sewing Class with Pete Sews
 
-Flinders
+Capel Sound
 
-Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
-- [Fri, 13 Nov
+- [Sat, 14 Nov
 
-### Smooth Operators Live at Peninsula Beer Garden
+### Crib Point Community Market
 
-Boneo
+Crib Point
 
-Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
+ Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)

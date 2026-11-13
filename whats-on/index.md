@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-13
+Modified: 2026-11-14
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,11 +13,19 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Three reasons to go
 
+- Sun, 15 Nov · 12pm–3pm · Red Hill
+
+### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+
+A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
+
+Food & Wine
+
 - Sat, 14 Nov · 5pm–8pm · Fingal
 
-### [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
+### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm.
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Live Music
 
@@ -29,49 +37,7 @@ A useful way into the National Works on Paper exhibition if you want to understa
 
 Arts
 
-- Fri, 13 Nov · 6:30pm–9:30pm · Red Hill South
-
-### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
-
-Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip Estate.
-
-Writers & Ideas
-
 ## Day by day
-
-### Friday 13 November
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
-
-- 5pm
-
-[Smooth Operators Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/smooth-operators-live-at-peninsula-beer-garden-2026-11-13/>)
-
-Local covers group Smooth Operators plays a three-hour Friday set at Peninsula Beer Garden, moving through jazz, blues, dance, rock and pop from the 1960s to current favourites. The venue says no booking is required for this performance.
-
-Boneo · Live Music
-
-- 5pm
-
-[Soul Night Market at Dromana Estate](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-dromana-estate-2026-11-13/>)
-
-A Friday-evening market at Dromana Estate with more than 90 maker and food stalls, an outdoor food lawn and live soul-inspired music. Bring a picnic rug or folding chair if you want to settle on the grass between browsing stalls.
-
-Tuerong · Markets
-
-- 7pm
-
-[Live Music at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
-
-Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
-
-Flinders · Live Music
 
 ### Saturday 14 November
 
@@ -97,7 +63,7 @@ Crib Point · Markets · Recurring monthly
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Mornington · Exhibitions · Recurring weekly
+Mornington · Exhibitions · Recurring weekly · Also Sun
 
 - 1pm
 
@@ -117,11 +83,11 @@ Mornington · Live Music
 
 - 5pm
 
-[Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+[Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
 
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.
 
-Fingal · Live Music · Recurring weekly
+Fingal · Live Music
 
 - 5pm
 
@@ -151,14 +117,6 @@ Dromana · Arts
 
 - 11am
 
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
-
-- 11am
-
 [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
 
 Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
@@ -172,14 +130,6 @@ Dromana · Food & Wine
 Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
 
 Boneo · Live Music
-
-- 12pm
-
-[Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
-
-A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
-
-Red Hill · Food & Wine
 
 - 1pm
 

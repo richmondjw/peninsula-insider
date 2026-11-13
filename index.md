@@ -47,14 +47,6 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- ### [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
-
-Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm.
-
-Sat, 14 Nov   Peppers Moonah Links Resort   Live music
-
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
-
 - ### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
 
 Melbourne acoustic duo Rewind Lane plays a two-hour Saturday afternoon set at Tar Barrel, built around close harmonies and nostalgic, feel-good covers.
@@ -70,6 +62,14 @@ A guided 10-kilometre route through Red Hill vineyards and private tracks, with 
 Sat, 14 Nov   Red Hill Recreation Reserve   Food & wine
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://events.humanitix.com/spring-winery-walk-2026>)
+
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Sat, 14 Nov   Peppers Moonah Links   Every Saturday
+
+Event details checked 2 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
 ## Three ways into the Peninsula
 

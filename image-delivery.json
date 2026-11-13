@@ -8917,68 +8917,6 @@
       ]
     },
     {
-      "source": "/images/generated/events/music-microphone.webp",
-      "format": "webp",
-      "originalBytes": 24324,
-      "variants": [
-        {
-          "src": "/_media/5781c0117d3ea0b19129-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 6096
-        },
-        {
-          "src": "/_media/5781c0117d3ea0b19129-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 10726
-        },
-        {
-          "src": "/_media/5781c0117d3ea0b19129-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 17142
-        },
-        {
-          "src": "/_media/5781c0117d3ea0b19129-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 22550
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/music-microphone.webp",
-      "format": "avif",
-      "originalBytes": 24324,
-      "variants": [
-        {
-          "src": "/_media/45df31974e99f7576b60-480.avif",
-          "width": 480,
-          "height": 320,
-          "bytes": 2994
-        },
-        {
-          "src": "/_media/45df31974e99f7576b60-800.avif",
-          "width": 800,
-          "height": 533,
-          "bytes": 4256
-        },
-        {
-          "src": "/_media/45df31974e99f7576b60-1280.avif",
-          "width": 1280,
-          "height": 853,
-          "bytes": 5675
-        },
-        {
-          "src": "/_media/45df31974e99f7576b60-1536.avif",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 7828
-        }
-      ]
-    },
-    {
       "source": "/images/generated/events/music-guitar.webp",
       "format": "webp",
       "originalBytes": 34712,
@@ -9099,6 +9037,68 @@
           "width": 1536,
           "height": 1024,
           "bytes": 11265
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/acoustic-saturdays-peppers-moonah-links-2026.webp",
+      "format": "webp",
+      "originalBytes": 34208,
+      "variants": [
+        {
+          "src": "/_media/3fccf8623b52556a75bf-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 6278
+        },
+        {
+          "src": "/_media/3fccf8623b52556a75bf-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 10954
+        },
+        {
+          "src": "/_media/3fccf8623b52556a75bf-1280.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 18346
+        },
+        {
+          "src": "/_media/3fccf8623b52556a75bf-1680.webp",
+          "width": 1680,
+          "height": 1120,
+          "bytes": 26326
+        }
+      ]
+    },
+    {
+      "source": "/images/generated/acoustic-saturdays-peppers-moonah-links-2026.webp",
+      "format": "avif",
+      "originalBytes": 34208,
+      "variants": [
+        {
+          "src": "/_media/1924d4c086060a2f5387-480.avif",
+          "width": 480,
+          "height": 320,
+          "bytes": 3044
+        },
+        {
+          "src": "/_media/1924d4c086060a2f5387-800.avif",
+          "width": 800,
+          "height": 533,
+          "bytes": 4474
+        },
+        {
+          "src": "/_media/1924d4c086060a2f5387-1280.avif",
+          "width": 1280,
+          "height": 853,
+          "bytes": 6070
+        },
+        {
+          "src": "/_media/1924d4c086060a2f5387-1680.avif",
+          "width": 1680,
+          "height": 1120,
+          "bytes": 8456
         }
       ]
     },

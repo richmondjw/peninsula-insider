@@ -393,12 +393,12 @@ Looking for a truly sweet experience this Christmas? Create the wonder of your o
 
  Event · Arts](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
 
-- [Fri, 13 Nov
+- [Sat, 21 Nov
 
-### Live Music at Flinders Hotel
+### Taste & Create, Gourmet Bar
 
 Flinders
 
-Friday-night live music at Flinders Hotel, running from 7pm to 10pm. The venue welcomes families, friends and leashed dogs on the deck, with table bookings recommended when you want a guaranteed place.
+Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)

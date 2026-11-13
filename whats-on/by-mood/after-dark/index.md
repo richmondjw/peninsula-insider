@@ -11,24 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Writers & Ideas  13 Nov
-
-### [Books and Ideas: Barrie Cassidy at Port Phillip Estate](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
-
-Barrie Cassidy joins Wheeler Centre CEO Erin Vincent to discuss his career and Australian politics over a two-course dinner at Port Phillip…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/books-and-ideas-barrie-cassidy-at-port-phillip-estate-2026-11-13/>)
-
-Quarters at Flinders Hotel  Photo · Mattinbgn [Image source](<https://commons.wikimedia.org/wiki/File:Flinders_Hotel_001.JPG>)
-
-Live Music  13 Nov
-
-### [Live Music at Flinders Hotel](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
-
-Friday-night live music at Flinders Hotel, running from 7pm to 10pm.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/live-music-2026-11-13/>)
-
 Live Music  14 Nov
 
 ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)

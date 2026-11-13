@@ -393,6 +393,16 @@ Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are h
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
+- [Sun, 13 Dec
+
+### Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern
+
+Main Ridge
+
+Featuring the cream of Australian Artists Sunbury was touted as “The Rock Happening of its time”. SUNBURY POP FESTIVAL 72’ to 75’ was often regarded as a major milestone in Australian Music history.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
+
 - [Fri, 27 Nov
 
 ### Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern
@@ -402,13 +412,3 @@ Main Ridge
 Get ready, Main Ridge! Two of the most respected names in Australian country music, Luke O’Shea and Lyn Bowtell, are coming with their highly anticipated ‘Love and Laughter Tour’!
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
-
-- [Sun, 15 Nov
-
-### Michael Charles Live at The Pig & Whistle Tavern
-
-Main Ridge
-
-Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
