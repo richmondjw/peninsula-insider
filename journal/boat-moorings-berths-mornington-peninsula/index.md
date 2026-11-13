@@ -87,16 +87,6 @@ Is there anywhere to just tie up at Mornington short-term?
 
 Mornington Pier has one short-stay berth, used mainly by visitors calling in to The Rocks Restaurant on the pier. It is not a general-purpose visitor berth and isn't a substitute for a proper mooring or marina berth if you need to leave a boat unattended for any length of time.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

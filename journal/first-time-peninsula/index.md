@@ -141,16 +141,6 @@ What is the best season to visit the Mornington Peninsula for the first time?
 
 Autumn (March–May) is the best for a first visit - warm enough for outdoor activities, vineyard colour in the landscape, and significantly lower crowds after mid-March. Winter is excellent for value and quiet restaurants. Summer (December–February) is the busiest and the hardest to navigate for first-timers.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

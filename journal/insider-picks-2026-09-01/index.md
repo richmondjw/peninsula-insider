@@ -77,16 +77,6 @@ Is the Bushrangers Bay Track accessible from Cape Schanck in winter and early sp
 
 The track is open year-round but the first half of September is prime timing: whipstick wattle is flowering along the ridgeline, the coastal heath is low after winter, and offshore swell tends to be cleanest early in the week. Allow about two hours return, with extra time for stops. The trailhead is at Cape Schanck eastern carpark, Cape Schanck Road.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

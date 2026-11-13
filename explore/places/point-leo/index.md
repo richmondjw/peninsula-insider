@@ -9,12 +9,6 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Point Leo
 
-Where in the Peninsula is PI?
-
-PI passed through here. Case 02, Took the long way to dinner. Twenty minutes ahead of you, as usual.
-
-[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
-
 Point Leo is a small coastal locality on the Mornington Peninsula's Western Port coast, 85 km from Melbourne, anchored by a long-standing surf break, the Point Leo Foreshore Reserve camp ground and Point Leo Estate's sculpture park, restaurant and cellar door.
 
 Point Leo is a beach, a surf break, and one of the most ambitious privately held sculpture parks in the country - and almost nothing else. The village barely qualifies as a village - a foreshore camping ground, a surf life-saving club, a quiet residential pocket - but pull off the road into Point Leo Estate and you find sixteen and a half acres of contemporary sculpture rolling toward the bay, a hatted dining room with one of the great Australian wine lists, and a cellar door that takes itself only as seriously as it should. The break out front is the Peninsula's most consistent right-hander, and the longboard contest that turns up here each year is the real local calendar. People come to Point Leo for a quiet morning at the beach, an unhurried afternoon among the sculptures, and a long dinner with a Pinot Noir flight. That sequence is the entire reason to come.

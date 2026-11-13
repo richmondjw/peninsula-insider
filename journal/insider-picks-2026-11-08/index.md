@@ -73,16 +73,6 @@ What time do the Acoustic Saturdays sessions run at Peppers Moonah Links?
 
 Acoustic Saturdays run every Saturday from 5:00 pm to 8:00 pm at the Spike Bar, Peppers Moonah Links, 55 Peter Thomson Drive, Fingal. The series continues until 26 December 2026. Check the Moonah Links website for the current artist lineup.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

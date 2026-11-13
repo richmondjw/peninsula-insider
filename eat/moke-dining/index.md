@@ -15,12 +15,6 @@ Known for   Bocuse d'Or Chef Michael Cole Weekly-Changing Set Menu 20-Seat Cook 
 
 [Reserve a table](<https://mokedining.com.au/>)  +61 458 418 524
 
-Where in the Peninsula is PI?
-
-PI was found here. Case 02, Took the long way to dinner. Solve it and this is where the day ends.
-
-[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-found>)
-
 Why we’d go
 
 A 20-seat room, a fixed menu, and a chef who placed fourteenth in the world at Bocuse d'Or, Moke is the most serious cooking in Flinders and it isn't close.

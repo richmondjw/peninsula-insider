@@ -13,12 +13,6 @@ Chardonnay grapes at Main Ridge Estate in nearby Red Hill, Mornington Peninsula
 
 Photo · CSIRO / Wikimedia Commons (CC BY 3.0); resized to WebP by Peninsula Insider [Source](<https://commons.wikimedia.org/wiki/File:CSIRO_ScienceImage_1961_Chardonnay_grapes_at_the_Main_Ridge_Estate.jpg>)   [Licence](<https://creativecommons.org/licenses/by/3.0/>)
 
-Where in the Peninsula is PI?
-
-PI passed through here. Case 01, Took her coffee to go. Twenty minutes ahead of you, as usual.
-
-[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
-
 Main Ridge is a rural locality on the Mornington Peninsula's elevated wine-country plateau, with cellar doors and farm-gate stops along its winding roads.
 
 Main Ridge is an elevated, unhurried stretch of Peninsula wine country: cellar doors, farm gates and bushland roads rather than a dense village centre. Ten Minutes by Tractor and Red Hill Estate both list Main Ridge addresses. Book a tasting or lunch before heading up, then leave time for the quieter side roads. Nearby Red Hill and Red Hill South widen the food-and-wine circuit, but each is a separate locality.

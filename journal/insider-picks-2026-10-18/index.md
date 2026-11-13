@@ -67,16 +67,6 @@ Where is The Pig & Whistle Tavern and how do I book for British Comedy Trivia on
 
 The Pig & Whistle Tavern is on Mornington-Flinders Road, Main Ridge. British Comedy Trivia runs Thursday 22 October from 6:00 pm to 9:30 pm. Book via events.humanitix.com/trivia-night-british-comedy.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

@@ -145,16 +145,6 @@ What is the Peninsula dog beach rule during daylight saving?
 
 On most Mornington Peninsula Shire-managed beaches, dogs are prohibited from the sand between 9am and 7pm during daylight saving (roughly November to April). Outside those hours - before 9am and after 7pm - on-leash access applies. Six beaches are exempt and allow off-leash year-round. Always check current Shire signage, as zone rules are updated seasonally.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

@@ -13,12 +13,6 @@ A grassy path between vine rows leads to the glass-fronted restaurant and umbrel
 
 Photo · Two Palms Australia, courtesy of Visit Victoria
 
-Where in the Peninsula is PI?
-
-PI passed through here. Case 02, Took the long way to dinner. Twenty minutes ahead of you, as usual.
-
-[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
-
 Red Hill in 10 photographs
 
 1  / 10

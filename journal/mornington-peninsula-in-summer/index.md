@@ -137,16 +137,6 @@ Do I need to book restaurants on the Peninsula in summer?
 
 Yes for anything you care about, especially weekend lunches and sunset tables. Some pubs change their policy in peak season: our records show the Portsea Hotel takes walk-ins only from 23 December to 31 January. Check each venue directly for your dates.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

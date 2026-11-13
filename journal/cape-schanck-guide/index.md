@@ -105,16 +105,6 @@ What is Bushrangers Bay and how do I get there?
 
 Bushrangers Bay is a remote ocean beach accessed via a 5.4km return walk (approximately 2 hours) from the Cape Schanck eastern carpark. The walk passes coastal heathland and clifftop. Swimming is not recommended - unpredictable rips, strong currents, rocky reefs. Dogs are not permitted (Mornington Peninsula National Park). Check Parks Victoria for current access status - possible secondary closures due to fox control.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

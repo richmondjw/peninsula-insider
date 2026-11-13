@@ -109,16 +109,6 @@ Can you swim at the Mornington Peninsula in spring?
 
 Bay beaches (Mount Martha, Mornington foreshore) are swimmable from late October when the water nudges above 16–17°C. Ocean back beaches (Sorrento, Gunnamatta) are too cold and exposed for casual swimming until December; walk them in spring instead.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

@@ -123,16 +123,6 @@ Which side of the Peninsula is better for sunset - bay or ocean?
 
 Bay side for the warm golden sunset - the water reflects the colour, the limestone buildings glow, and the light is photogenic. Ocean (back beach) side for the cooler afterglow - a wide sky and a more dramatic, quieter version of the evening light. Faces south, so the sun is behind you; better for walking than drinking. Most of the Peninsula's sunset drink venues are on the bay side or the ridge.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal

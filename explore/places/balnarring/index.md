@@ -13,12 +13,6 @@ Balnarring village street, general store, and the surrounding farmland of the ea
 
 Photo · Wikimedia Commons
 
-Where in the Peninsula is PI?
-
-PI passed through here. Case 02, Took the long way to dinner. Twenty minutes ahead of you, as usual.
-
-[Play the case](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=ribbon-route>)
-
 Balnarring is a hinterland village on the Mornington Peninsula's eastern wine country, 80 km from Melbourne, near the Coolart wetlands and the monthly Emu Plains Market.
 
 Balnarring is the village that locals still treat as their own - a cluster of shops, the Emu Plains Market on the third Saturday of the month through the warmer months, a village pub in a 1930s heritage home, and a road network that somehow always seems to lead back to a cellar door. It sits on the eastern edge of the Peninsula's wine country, closer to Western Port than Port Phillip, and that changes the character: the light is softer, the crowds are thinner, and the vineyards here tend to be smaller family operations rather than destination estates. Balnarring is where you go when you want a Peninsula weekend that feels like the way things used to work before the region became a brand. The beach is genuine and quiet, the coffee is unpretentious, and the drive in from Tedesca or Montalto takes fifteen minutes of roads you've mostly never seen.

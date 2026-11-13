@@ -95,16 +95,6 @@ How do you structure a weekend in a Peninsula vineyard villa?
 
 One booking per day, maximum. Friday: arrive before dark, provisions stop at Merricks General or Flinders Sourdough, light the fire, eat simply. Saturday: one serious lunch booking, a walk beforehand if the weather allows, then back to the villa for the afternoon, bath, fire, dinner in the kitchen. Sunday: slow breakfast, late-morning walk, one coffee on the way home. The aim is two bookings across three days and no check-out queue.
 
-Or let PI plan your day
-
-## Where in the Peninsula is PI?
-
-An illustrated Peninsula, three witnesses a stop, and the sun for a clock. Find PI before sunset and her route becomes a day you can drive.
-
-Find her and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.[Draw terms and prize details](<https://play.peninsulainsider.com.au/terms>)
-
-[Play Case 02](<https://play.peninsulainsider.com.au/?case=02&utm_source=peninsulainsider.com.au&utm_medium=site&utm_campaign=where-is-pi-case-02&utm_content=journal-inline>) Six to ten minutes. Free, no account.
-
 Keep reading
 
 ## More from the Journal
