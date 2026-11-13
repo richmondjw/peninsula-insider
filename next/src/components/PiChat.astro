@@ -156,6 +156,7 @@ const starters = [
     }
 
     function setMode(mode: string) {
+      delete root!.dataset.anchor;
       root!.dataset.mode = mode === 'float' ? 'float' : 'dock';
       store.set(localStorage, MODE, root!.dataset.mode);
       const toFloat = root!.dataset.mode === 'dock';
@@ -177,13 +178,33 @@ const starters = [
       });
     }
 
+    // Opens as a pop-up dialogue in the place of the element that asked for it (the
+    // cover's Ask PI badge), dropping down from its top-right corner. This opening
+    // only: the reader's saved dock/float choice is restored on minimise.
+    function popUpFrom(el: HTMLElement) {
+      if (!DESKTOP.matches) { open(); return; }
+      const r = el.getBoundingClientRect();
+      root!.style.setProperty('--pi-pop-top', `${Math.max(16, Math.round(r.top))}px`);
+      root!.style.setProperty('--pi-pop-right', `${Math.max(16, Math.round(window.innerWidth - r.right))}px`);
+      root!.dataset.mode = 'float';
+      root!.dataset.anchor = 'badge';
+      open();
+    }
+
     function minimise() {
       root!.classList.remove('is-in');
       root!.dataset.state = 'closed';
       store.set(sessionStorage, STATE, 'closed');
       launch.setAttribute('aria-expanded', 'false');
       applyChrome();
-      window.setTimeout(() => { if (root!.dataset.state !== 'open') panel.hidden = true; }, 220);
+      window.setTimeout(() => {
+        if (root!.dataset.state === 'open') return;
+        panel.hidden = true;
+        if (root!.dataset.anchor) {
+          delete root!.dataset.anchor;
+          root!.dataset.mode = store.get(localStorage, MODE) === 'float' ? 'float' : 'dock';
+        }
+      }, 220);
       launch.focus({ preventScroll: true });
     }
 
@@ -404,7 +425,8 @@ const starters = [
 
     // Hand-offs from the rest of the site: links to /ask/?q=..., Ask PI
     // forms, and the search overlay's "Ask PI" row. Modified clicks and the
-    // chat's own "Open as a page" link still navigate.
+    // chat's own "Open as a page" link still navigate. Both listeners capture,
+    // because Astro's ClientRouter claims same-site links and forms on the way up.
     document.addEventListener('click', (e) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || onAskPage()) return;
       const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
@@ -414,8 +436,10 @@ const starters = [
       e.preventDefault();
       (window as any).__piSearchClose?.();
       const q = url.searchParams.get('q');
-      if (q) ask(q); else open();
-    });
+      if (q) ask(q);
+      else if (a.hasAttribute('data-pi-popup')) popUpFrom(a);
+      else open();
+    }, true); // capture: run before the page router claims the link
     document.addEventListener('submit', (e) => {
       const f = e.target as HTMLFormElement;
       if (f === form || onAskPage() || !f.matches('form[action="/ask/"]')) return;
@@ -423,7 +447,7 @@ const starters = [
       if (q.trim().length < 3) return;
       e.preventDefault();
       ask(q);
-    });
+    }, true); // capture, as above
 
     // The router swaps <html> attributes on navigation; restore ours.
     document.addEventListener('astro:after-swap', applyChrome);
@@ -508,6 +532,14 @@ const starters = [
       box-shadow: 0 30px 60px -24px rgba(20, 32, 42, .38), 0 4px 12px -4px rgba(20, 32, 42, .12);
       transform: translateY(16px) scale(.98); transform-origin: bottom right;
     }
+    /* Opened from the cover badge: a pop-up dialogue that grows from the badge's corner. */
+    .pi-chat[data-anchor="badge"] .pi-chat__panel {
+      inset: var(--pi-pop-top, 24px) var(--pi-pop-right, 24px) auto auto;
+      height: min(40rem, calc(100dvh - var(--pi-pop-top, 24px) - 24px));
+      transform: translateY(-10px) scale(.96); transform-origin: top right;
+    }
+    .pi-chat[data-anchor="badge"] .pi-chat__portrait { width: 120px; height: 120px; margin-bottom: var(--space-3); }
+    .pi-chat[data-anchor="badge"] .pi-chat__hello { padding-top: 0; }
     .pi-chat.is-in .pi-chat__panel { transform: none; }
   }
 
