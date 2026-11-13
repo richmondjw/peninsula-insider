@@ -1,0 +1,55 @@
+{
+  "status": "DRAFT_NOT_LAUNCHED",
+  "currency": "AUD",
+  "market": "Australia",
+  "network": "Google Search only; no Display expansion or Search Partners at launch",
+  "locationOption": "Presence: people in or regularly in Australia; verify in account preview",
+  "language": "English",
+  "averageDailyBudgetAud": 9.86,
+  "monthlyBilledCeilingAud": 300,
+  "bidStrategy": "Maximise Clicks with a cautious account-previewed maximum CPC limit; hold if unavailable or reach is implausible",
+  "matchTypes": ["exact", "phrase"],
+  "utmTemplate": "utm_source=google&utm_medium=cpc&utm_campaign=pi_au_search_pilot_2026_10&utm_content={adgroupid}",
+  "negativeConceptsForHumanReview": ["accommodation", "hotel", "jobs", "employment", "real estate", "property for sale", "coach tour", "package tour", "map only", "off-region destination"],
+  "adGroups": [
+    {
+      "name": "Day trip",
+      "capAud": 150,
+      "status": "HOLD_EDITORIAL_AND_ANALYTICS",
+      "landing": "https://peninsulainsider.com.au/journal/mornington-peninsula-day-trip/",
+      "keywords": [
+        {"text":"mornington peninsula day trip","match":"exact"},
+        {"text":"mornington peninsula day trip","match":"phrase"},
+        {"text":"day trip mornington peninsula","match":"exact"},
+        {"text":"melbourne to mornington peninsula day trip","match":"exact"},
+        {"text":"melbourne to mornington peninsula day trip","match":"phrase"}
+      ],
+      "headlines": ["Plan a Peninsula Day Trip", "Mornington Peninsula Routes", "A Day Out From Melbourne", "Choose Your Stops", "Peninsula Insider Guide"],
+      "descriptions": [
+        "Compare a focused day route, travel notes and places to stop before you leave Melbourne.",
+        "Plan a hinterland or coast visit with practical stops and time to enjoy the day."
+      ]
+    },
+    {
+      "name": "Dog friendly",
+      "capAud": 150,
+      "status": "HOLD_VENUE_POLICY_VERIFICATION",
+      "landing": "https://peninsulainsider.com.au/journal/dog-friendly-cafes-pubs-wineries-mornington-peninsula/",
+      "keywords": [
+        {"text":"dog friendly mornington peninsula","match":"exact"},
+        {"text":"dog friendly mornington peninsula","match":"phrase"},
+        {"text":"dog friendly wineries mornington peninsula","match":"exact"},
+        {"text":"dog friendly restaurants mornington peninsula","match":"exact"}
+      ],
+      "headlines": ["Dog Friendly Peninsula Guide", "Plan a Visit With Your Dog", "Cafes, Pubs and Wineries", "Check Access Before You Go", "Peninsula Insider Guide"],
+      "descriptions": [
+        "Explore places to consider with your dog. Confirm current venue access before you visit.",
+        "Find a starting point for a Peninsula outing with your dog and check each venue's rules."
+      ]
+    }
+  ],
+  "primaryConversion": "newsletter_signup_succeeded after positive provider receipt",
+  "secondaryConversions": ["save_add", "trip_add"],
+  "handoffOnly": "booking_outbound_clicked is not a booking",
+  "reviewThresholdsAud": [75, 150, 300]
+}
