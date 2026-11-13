@@ -47,14 +47,6 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- ### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
-
-Sat, 14 Nov   Jetty Road Brewery   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
-
 - ### [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
 
 Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm.
@@ -70,6 +62,14 @@ Melbourne acoustic duo Rewind Lane plays a two-hour Saturday afternoon set at Ta
 Sat, 14 Nov   Tar Barrel   Live music
 
 Event details checked 10 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
+
+- ### [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
+
+A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks.
+
+Sat, 14 Nov   Red Hill Recreation Reserve   Food & wine
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://events.humanitix.com/spring-winery-walk-2026>)
 
 ## Three ways into the Peninsula
 
