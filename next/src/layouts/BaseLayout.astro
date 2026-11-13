@@ -448,9 +448,8 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <SearchOverlay />
   <PiChat />
 
-  <!-- Where in the Peninsula is PI? corner peek. Content pages only, once
-       per week, waits for consent and stands down if the Insider Note
-       popup is up. Master switch: PLAY.enabled in lib/play.ts. -->
+  {/* Game corner peek (off: PLAY.enabled in lib/play.ts). Content pages only, once
+      per week, waits for consent and stands down if the Insider Note popup is up. */}
   {!isPlanningJourney && <PlayPeek />}
 
   <!-- Save / share-list controller (Phase 2 WS2E). Site-wide; binds save
