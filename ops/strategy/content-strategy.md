@@ -4,9 +4,9 @@
 
 **Loop health:** 🟢 healthy — Actions recorded but none re-measured yet — learning signal not flowing (expected until GSC re-crawls the actioned pages).
 
-**Generated:** 2026-11-13 07:05 AEDT  
+**Generated:** 2026-11-14 07:05 AEDT  
 **Season:** Spring  
-**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:98-upcoming, seasonal-calendar:spring  
+**Inputs used:** gsc-search-analytics, gsc-coverage, sitemap-inventory, events-calendar:94-upcoming, seasonal-calendar:spring  
 
 ## Where we stand
 
@@ -19,11 +19,11 @@
 | Pages indexed by Google | 0 |
 | Pages known-not-indexed | 26 |
 | Pages in sitemap | 408 |
-| Open opportunities | 139 |
+| Open opportunities | 136 |
 
 ## Day-over-day (is the strategy improving?)
 
-_Compared with 2026-11-12._
+_Compared with 2026-11-13._
 
 - Average position held by 0.00.
 - Clicks flat 0 vs last snapshot.
@@ -83,39 +83,39 @@ Ranked by the strategy model (performance + season + coverage + effort). The orc
 - **Why:** 'mornington cup 2026 date' ranks avg position 8.8 on 23 impressions — small, targeted improvement could reach page 1 and start earning clicks.
 - **Do:** Strengthen the ranking page for this exact query: expand the relevant section, add an FAQ answer, tighten the H1/intro, add internal links from related hub pages.
 
-### 6. [EVENT · score 2.992] Preview: Summer Xmas Seafood Class at Peninsula Gourmet Cooking School (15d out)
+### 6. [EVENT · score 2.992] Preview: Dave Campbell Live at Peninsula Beer Garden (15d out)
 - **Desk:** dispatch-desk
-- **Why:** Summer Xmas Seafood Class at Peninsula Gourmet Cooking School is 15 days out (2026-11-28, Dromana) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Dave Campbell Live at Peninsula Beer Garden is 15 days out (2026-11-29, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 7. [EVENT · score 2.992] Preview: November Cellar Door Opening (15d out)
+### 7. [EVENT · score 2.992] Preview: Olivia Mae Live at Jetty Road Brewery (15d out)
 - **Desk:** dispatch-desk
-- **Why:** November Cellar Door Opening is 15 days out (2026-11-28, Merricks North) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Olivia Mae Live at Jetty Road Brewery is 15 days out (2026-11-29, Dromana) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 8. [EVENT · score 2.992] Preview: DJ Sophie Joy Live at Jetty Road Brewery (15d out)
+### 8. [EVENT · score 2.992] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (16d out)
 - **Desk:** dispatch-desk
-- **Why:** DJ Sophie Joy Live at Jetty Road Brewery is 15 days out (2026-11-28, Dromana) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 16 days out (2026-11-30, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 9. [EVENT · score 2.992] Preview: Brad Kennedy Live at Peppers Moonah Links Resort (15d out)
+### 9. [EVENT · score 2.992] Preview: Mornington Christmas Series at Mornington Racecourse (20d out)
 - **Desk:** dispatch-desk
-- **Why:** Brad Kennedy Live at Peppers Moonah Links Resort is 15 days out (2026-11-28, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Mornington Christmas Series at Mornington Racecourse is 20 days out (2026-12-04, Mornington) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 10. [EVENT · score 2.992] Preview: Dave Campbell Live at Peninsula Beer Garden (16d out)
+### 10. [EVENT · score 2.992] Preview: Coco Michelle Live at Peppers Moonah Links Resort (21d out)
 - **Desk:** dispatch-desk
-- **Why:** Dave Campbell Live at Peninsula Beer Garden is 16 days out (2026-11-29, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Coco Michelle Live at Peppers Moonah Links Resort is 21 days out (2026-12-05, Fingal) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 11. [EVENT · score 2.992] Preview: Olivia Mae Live at Jetty Road Brewery (16d out)
+### 11. [EVENT · score 2.992] Preview: Countdown Classics 70's & 80's Live at Peninsula Beer Garden (21d out)
 - **Desk:** dispatch-desk
-- **Why:** Olivia Mae Live at Jetty Road Brewery is 16 days out (2026-11-29, Dromana) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** Countdown Classics 70's & 80's Live at Peninsula Beer Garden is 21 days out (2026-12-05, Boneo) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
-### 12. [EVENT · score 2.992] Preview: "Nancye Wynne Bolton" OLA Golf Day 2026 (17d out)
+### 12. [EVENT · score 2.992] Preview: An Evening at BRASA by Montalto (21d out)
 - **Desk:** dispatch-desk
-- **Why:** "Nancye Wynne Bolton" OLA Golf Day 2026 is 17 days out (2026-11-30, Sorrento) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
+- **Why:** An Evening at BRASA by Montalto is 21 days out (2026-12-05, Red Hill South) — prime window. Advance-planning searches build now; a preview page needs lead time to index and rank by event week.
 - **Do:** Ensure a dedicated, indexable preview page exists with dates, booking link, what-to-expect and internal links from the town hub and What's On — published now, not event week.
 
 ## Coverage snapshot
