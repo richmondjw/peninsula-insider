@@ -95,6 +95,7 @@ const starters = [
   const STATE = 'pi-chat-state';
   const MODE = 'pi-chat-mode';
   const DESKTOP = window.matchMedia('(min-width: 64em)');
+  const WIDE = window.matchMedia('(min-width: 80em)'); // room to dock beside the page
 
   const store = {
     get(area: Storage, key: string) { try { return area.getItem(key); } catch { return null; } },
@@ -131,10 +132,24 @@ const starters = [
 
     /* ---------- layout state ---------- */
 
+    // The docked sidebar starts at the masthead's bottom edge, so the masthead keeps
+    // the full width and nothing in it is covered.
+    let pinFrame = 0;
+    function placeUnderMasthead() {
+      pinFrame = 0;
+      if (!document.documentElement.classList.contains('pi-chat-docked')) return;
+      const mast = document.querySelector('[data-v5-masthead]');
+      const top = mast ? Math.max(0, Math.round(mast.getBoundingClientRect().bottom)) : 0;
+      root!.style.setProperty('--pi-top', `${top}px`);
+    }
+
     function applyChrome() {
       const state = root!.dataset.state;
-      const docked = state === 'open' && root!.dataset.mode === 'dock' && DESKTOP.matches;
+      const docked = state === 'open' && root!.dataset.mode === 'dock' && WIDE.matches;
       document.documentElement.classList.toggle('pi-chat-docked', docked);
+      document.documentElement.classList.toggle('pi-chat-open', state === 'open');
+      panel.classList.toggle('is-docked', docked);
+      placeUnderMasthead();
       document.documentElement.classList.toggle('pi-chat-sheet', state === 'open' && !DESKTOP.matches);
       root!.hidden = onAskPage();
       launch.classList.toggle('has-thread', turns.length > 0);
@@ -383,6 +398,9 @@ const starters = [
       if (chip) ask(chip.dataset.piQ || '');
     });
     DESKTOP.addEventListener('change', applyChrome);
+    WIDE.addEventListener('change', applyChrome);
+    window.addEventListener('scroll', () => { if (!pinFrame) pinFrame = requestAnimationFrame(placeUnderMasthead); }, { passive: true });
+    window.addEventListener('resize', placeUnderMasthead, { passive: true });
 
     // Hand-offs from the rest of the site: links to /ask/?q=..., Ask PI
     // forms, and the search overlay's "Ask PI" row. Modified clicks and the
@@ -469,23 +487,28 @@ const starters = [
   .pi-chat__panel[hidden] { display: none; }
   html.pi-chat-sheet { overflow: hidden; }
 
-  @media (min-width: 64em) {
+  /* Desktop. Docked (80em and up): a sidebar under the masthead; the page content moves
+     aside and the masthead keeps the full width. Below 80em there isn't room for both,
+     so "dock" opens as the floating card. */
+  @media (min-width: 80em) {
     .pi-chat[data-mode="dock"] .pi-chat__panel {
-      inset: 0 0 0 auto; width: var(--pi-w);
+      inset: var(--pi-top, 0px) 0 0 auto; width: var(--pi-w);
       border-left: 1px solid var(--border);
       transform: translateX(24px);
     }
-    .pi-chat[data-mode="float"] .pi-chat__panel {
+    html.pi-chat-docked .pi-chat { z-index: calc(var(--z-chrome) - 1); }
+    html.pi-chat-docked body { margin-right: var(--pi-w, 25rem); transition: margin-right var(--dur-med) var(--ease-enter); }
+    html.pi-chat-docked [data-v5-masthead] { margin-right: calc(-1 * var(--pi-w, 25rem)); }
+  }
+  @media (min-width: 64em) {
+    .pi-chat[data-mode="float"] .pi-chat__panel,
+    .pi-chat[data-mode="dock"] .pi-chat__panel:not(.is-docked) {
       inset: auto 24px 24px auto; width: var(--pi-w); height: min(44rem, calc(100dvh - 48px));
       border: 1px solid var(--border); border-radius: var(--radius-l); overflow: hidden;
       box-shadow: 0 30px 60px -24px rgba(20, 32, 42, .38), 0 4px 12px -4px rgba(20, 32, 42, .12);
       transform: translateY(16px) scale(.98); transform-origin: bottom right;
     }
     .pi-chat.is-in .pi-chat__panel { transform: none; }
-  }
-  /* Push the page aside only where the masthead still fits beside the panel. */
-  @media (min-width: 100em) {
-    html.pi-chat-docked body { margin-right: var(--pi-w, 25rem); transition: margin-right var(--dur-med) var(--ease-enter); }
   }
 
   /* Header */
@@ -507,7 +530,7 @@ const starters = [
   .pi-chat__tool:hover { color: var(--text); background: var(--bg-alt); }
   .pi-chat__tool:focus-visible, .pi-chat__chip:focus-visible, .pi-chat__send:focus-visible,
   .pi-chat a:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
-  @media (max-width: 63.99em) { .pi-chat .pi-chat__tool--mode { display: none; } }
+  @media (max-width: 79.99em) { .pi-chat .pi-chat__tool--mode { display: none; } }
   .pi-chat[data-mode="dock"] .pi-chat__icon-dock, .pi-chat[data-mode="float"] .pi-chat__icon-float { display: none; }
 
   /* Thread */

@@ -50,6 +50,9 @@
        --accent -> harbour blue (primary), --gold -> bronze (decorative),
        --sage -> tide (decorative). Named tokens live in v6-tokens.css,
      where the Evergreen names are kept as aliases. */
+  /* Width the page content actually has: the viewport, less the PI chat when it is docked
+     beside the page (PiChat.astro). Use it instead of 100vw for gutters and fluid type. */
+  --page-vw:    100vw;
   --bg:         #FFFFFF;
   --bg-alt:     #F2EFEA;   /* warm paper tint - the one warm ground */
   --bg-dark:    var(--harbour-deep);
@@ -9085,4 +9088,8 @@ figcaption {
 html:has(.cookie-banner[data-state='visible']) .subscribe-pill {
   visibility: hidden;
   pointer-events: none;
+}
+
+@media (min-width: 80em) {
+  html.pi-chat-docked { --page-vw: calc(100vw - 25rem); }
 }
