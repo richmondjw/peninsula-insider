@@ -29,7 +29,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
     <nav class="home-cover__actions" aria-label="Start planning your Peninsula visit"><a href="#home-choose">Find your kind of day <span aria-hidden="true">&#8599;</span></a></nav>
   </div>
   {SHOW_ASK_PI && (
-    <a class="home-cover__ask" href="/ask/" aria-label="Ask PI, your Peninsula local">
+    <a class="home-cover__ask" href="/ask/" data-pi-popup aria-haspopup="dialog" aria-label="Ask PI, your Peninsula local">
       <svg class="home-cover__ask-art" viewBox="0 0 310 310" width="46" height="46" fill="currentColor" aria-hidden="true">
         <path d="M100 143C88 88 118 44 162 42c40-2 66 18 70 44-22 14-62 29-132 57z"/>
         <path d="M28 205c10-27 62-55 122-73 45-14 85-40 112-60 16-10 28-2 24 20-6 38-22 70-46 92-10-16-26-26-42-26-48 12-108 37-153 54-13 4-20-1-17-7z"/>
