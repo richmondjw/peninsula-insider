@@ -15,7 +15,7 @@ Peninsula.
 
 The places worth finding. The days worth making.
 
- [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
+ [Ask PI Your Peninsula local](<https://peninsulainsider.com.au/ask/>) [Start with the coast  **Flinders & the Cape**  Coastal walks and one excellent meal.](<https://peninsulainsider.com.au/explore/plans/flinders-and-cape-reset/>)
 
 ## Plan your day
 
