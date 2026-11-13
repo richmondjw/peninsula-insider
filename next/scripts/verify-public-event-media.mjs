@@ -15,6 +15,44 @@ const routes = ['/', '/whats-on/', '/whats-on/mornington-racecourse-market/', '/
 const report = { observedAt: new Date().toISOString(), base, expectedSourceSha: expected || null, checks: [], cmsReads: [], ok: false };
 let browser;
 
+async function verifyCmsReachability(page, route) {
+  const result = await page.evaluate(async () => {
+    const config = window.__PI_SB;
+    if (!config?.url || !config?.key) return { error: 'public Supabase configuration is unavailable' };
+    const url = new URL('/rest/v1/cms_image_slots', config.url);
+    url.searchParams.set('select', 'entity_type,entity_slug,field_path,public_url,alt_text,credit');
+    url.searchParams.set('status', 'eq.published');
+    const attempts = [];
+    for (let attempt = 1; attempt <= 3; attempt += 1) {
+      const startedAt = performance.now();
+      try {
+        const response = await fetch(url, {
+          headers: {
+            apikey: config.key,
+            Authorization: `Bearer ${config.key}`,
+            'Accept-Profile': 'pi',
+          },
+          signal: AbortSignal.timeout(15000),
+        });
+        const rows = await response.json();
+        attempts.push({ attempt, status: response.status, elapsedMs: Math.round(performance.now() - startedAt) });
+        if (response.ok && Array.isArray(rows)) return { attempts, rows };
+      } catch (error) {
+        attempts.push({ attempt, error: error.message, elapsedMs: Math.round(performance.now() - startedAt) });
+      }
+      if (attempt < 3) await new Promise(resolve => setTimeout(resolve, attempt * 500));
+    }
+    return { attempts, error: 'CMS media endpoint did not return a published-slot array' };
+  });
+  assert.ok(!result.error, `${route}: ${result.error || ''}`);
+  report.cmsReads.push({
+    route,
+    publishedRows: result.rows.length,
+    eventRows: result.rows.filter(row => row.entity_type === 'event').length,
+    attempts: result.attempts,
+  });
+}
+
 async function verifyRevision() {
   if (!expected) return;
   const response = await fetch(new URL('/deployment.json', base), { cache: 'no-store', signal: AbortSignal.timeout(15000) });
@@ -28,35 +66,16 @@ async function verifyRevision() {
 async function snapshot(route, javascript) {
   const page = await browser.newPage();
   try {
-    const slotReads = [];
-    // networkidle2 permits two in-flight requests, including a slow CMS read.
-    // Wait for the actual data response before evaluating its page effects.
-    const firstSlotResponse = javascript ? page.waitForResponse(response =>
-      response.url().includes('/rest/v1/cms_image_slots') && response.request().method() === 'GET',
-      { timeout: 20000 },
-    ).catch(error => ({ error: error.message })) : null;
-    if (javascript) page.on('response', response => {
-      if (!response.url().includes('/rest/v1/cms_image_slots') || response.request().method() !== 'GET') return;
-      slotReads.push(response.json().then(rows => ({ status: response.status(), rows })).catch(error => ({ status: response.status(), error: error.message })));
-    });
     await page.setViewport({ width: 390, height: 844 });
     await page.setJavaScriptEnabled(javascript);
     const response = await page.goto(new URL(route, base).href, { waitUntil: 'networkidle2', timeout: 45000 });
     assert.equal(response.status(), 200, `${route} returns 200`);
     if (javascript) {
-      const remaining = await page.$$eval('[data-pi-entity-type="event"][data-pi-field-path]', elements => elements.length);
-      if (remaining) {
-        const slotResponse = await firstSlotResponse;
-        assert.ok(!slotResponse.error, `${route}: CMS media response did not arrive: ${slotResponse.error || ''}`);
-        const reads = await Promise.all(slotReads);
-        assert.ok(reads.length > 0, `${route}: CMS media request was observed`);
-        assert.ok(reads.every(read => read.status === 200 && Array.isArray(read.rows)), `${route}: CMS media request must succeed for live acceptance`);
-        report.cmsReads.push({ route, publishedRows: reads[0].rows.length, eventRows: reads[0].rows.filter(row => row.entity_type === 'event').length });
-      } else {
-        // A dated promotion may expire after the static build. With no event
-        // media left to hydrate, the page correctly makes no CMS slot read.
-        report.cmsReads.push({ route, skipped: 'no-visible-event-media' });
-      }
+      // Event slots are intentionally static (`data-pi-no-hydrate`) so their
+      // reviewed image and attribution cannot be changed by a CMS response.
+      // Check the CMS transport independently: a page may correctly make no
+      // automatic slot read when every visible event is non-hydratable.
+      await verifyCmsReachability(page, route);
     }
     return await page.evaluate(() => [...document.querySelectorAll('[data-pi-entity-type="event"][data-pi-field-path]')].map(el => {
       const promotion = el.closest('[data-event-promotion]');

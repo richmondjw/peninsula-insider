@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 test('public media verifier waits for a delayed CMS response and still detects substitutions', async () => {
   let mutate = false;
   const server = createServer((req, res) => {
-    if (req.url === '/rest/v1/cms_image_slots') {
+    if (req.url.startsWith('/rest/v1/cms_image_slots')) {
       setTimeout(() => {
         res.writeHead(200, { 'content-type': 'application/json' });
         res.end(JSON.stringify([{ entity_type: 'event' }]));
@@ -15,7 +15,7 @@ test('public media verifier waits for a delayed CMS response and still detects s
       return;
     }
     res.writeHead(200, { 'content-type': 'text/html' });
-    res.end(`<div data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="fixture"></div>
+    res.end(`<script>window.__PI_SB={url:location.origin,key:'fixture'};</script><div data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="fixture"></div>
       <script>fetch('/rest/v1/cms_image_slots').then(r => r.json()).then(() => {
         ${mutate ? `document.querySelector('[data-pi-entity-type]').style.backgroundImage='url(/unreviewed.jpg)';` : ''}
       });</script>`);
@@ -36,6 +36,7 @@ test('public media verifier waits for a delayed CMS response and still detects s
     assert.equal(safe.code, 0, JSON.stringify(safe));
     assert.equal(safe.report.checks.length, 4);
     assert.equal(safe.report.cmsReads.length, 4);
+    assert.ok(safe.report.cmsReads.every(read => read.publishedRows === 1 && read.attempts.length === 1));
     mutate = true;
     const unsafe = await run();
     assert.equal(unsafe.code, 1);
@@ -57,13 +58,13 @@ test('public media verifier permits expired promotion removal but protects curre
   };
   let removeCurrent = false;
   const server = createServer((req, res) => {
-    if (req.url === '/rest/v1/cms_image_slots') {
+    if (req.url.startsWith('/rest/v1/cms_image_slots')) {
       res.writeHead(200, { 'content-type': 'application/json' });
       res.end(JSON.stringify([{ entity_type: 'event' }]));
       return;
     }
     res.writeHead(200, { 'content-type': 'text/html' });
-    res.end(`${promotion('expired', '2026-10-10')}${promotion('current', future)}
+    res.end(`<script>window.__PI_SB={url:location.origin,key:'fixture'};</script>${promotion('expired', '2026-10-10')}${promotion('current', future)}
       <script>fetch('/rest/v1/cms_image_slots').then(r => r.json()).then(() => {
         document.querySelector('[data-pi-entity-slug="expired"]').closest('li').remove();
         ${removeCurrent ? `document.querySelector('[data-pi-entity-slug="current"]').closest('li').remove();` : ''}
@@ -92,7 +93,7 @@ test('public media verifier permits expired promotion removal but protects curre
   } finally { await new Promise(resolve => server.close(resolve)); }
 });
 
-test('public media verifier does not require a CMS read after the last promotion expires', async () => {
+test('public media verifier checks CMS reachability even after the last promotion expires', async () => {
   const entry = { id: 'expired', data: {
     slug: 'expired', title: 'Expired fixture', status: 'published',
     venueName: 'Fixture venue', suburb: 'Mornington', place: 'mornington',
@@ -100,18 +101,18 @@ test('public media verifier does not require a CMS read after the last promotion
     startTime: '10:00', endTime: '13:00',
   } };
   const server = createServer((req, res) => {
-    if (req.url === '/rest/v1/cms_image_slots') {
+    if (req.url.startsWith('/rest/v1/cms_image_slots')) {
       res.writeHead(200, { 'content-type': 'application/json' });
       res.end(JSON.stringify([{ entity_type: 'event' }]));
       return;
     }
     res.writeHead(200, { 'content-type': 'text/html' });
     if (req.url === '/whats-on/') {
-      res.end(`<li data-event-promotion="${JSON.stringify(entry).replaceAll('"', '&quot;')}" data-event-promotion-day="2026-10-10">
+      res.end(`<script>window.__PI_SB={url:location.origin,key:'fixture'};</script><li data-event-promotion="${JSON.stringify(entry).replaceAll('"', '&quot;')}" data-event-promotion-day="2026-10-10">
         <img data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="expired" src="/expired.webp" alt="Reviewed fixture">
       </li><script>document.querySelector('[data-event-promotion]').remove();</script>`);
     } else {
-      res.end(`<div data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="current"></div>
+      res.end(`<script>window.__PI_SB={url:location.origin,key:'fixture'};</script><div data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="current"></div>
         <script>fetch('/rest/v1/cms_image_slots').then(r => r.json());</script>`);
     }
   });
@@ -127,9 +128,33 @@ test('public media verifier does not require a CMS read after the last promotion
     assert.deepEqual(report.checks.find(check => check.route === '/whats-on/'), {
       route: '/whats-on/', eventMediaSlots: 0, expiredPromotionSlots: 1, unchangedAfterScripts: true,
     });
-    assert.deepEqual(report.cmsReads.find(read => read.route === '/whats-on/'), {
-      route: '/whats-on/', skipped: 'no-visible-event-media',
-    });
-    assert.equal(report.cmsReads.filter(read => read.publishedRows === 1).length, 3);
+    const expiredRead = report.cmsReads.find(read => read.route === '/whats-on/');
+    assert.equal(expiredRead.publishedRows, 1, 'the CMS reachability check is independent of a dated promotion remaining visible');
+    assert.equal(expiredRead.eventRows, 1);
+    assert.equal(expiredRead.attempts[0].status, 200);
+    assert.equal(report.cmsReads.filter(read => read.publishedRows === 1).length, 4);
+  } finally { await new Promise(resolve => server.close(resolve)); }
+});
+
+test('public media verifier rejects an unavailable CMS endpoint even when static event media is unchanged', async () => {
+  const server = createServer((req, res) => {
+    if (req.url.startsWith('/rest/v1/cms_image_slots')) {
+      res.writeHead(503, { 'content-type': 'application/json' });
+      res.end(JSON.stringify({ message: 'fixture outage' }));
+      return;
+    }
+    res.writeHead(200, { 'content-type': 'text/html' });
+    res.end(`<script>window.__PI_SB={url:location.origin,key:'fixture'};</script>
+      <img data-pi-entity-type="event" data-pi-field-path="heroImage" data-pi-entity-slug="fixture" data-pi-no-hydrate src="/reviewed.webp" alt="Reviewed fixture">`);
+  });
+  await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
+  try {
+    const child = spawn(process.execPath, [fileURLToPath(new URL('./verify-public-event-media.mjs', import.meta.url)), `--base-url=http://127.0.0.1:${server.address().port}`]);
+    let stdout = '';
+    child.stdout.on('data', chunk => stdout += chunk);
+    const code = await new Promise((resolve, reject) => { child.on('error', reject); child.on('close', resolve); });
+    const report = JSON.parse(stdout);
+    assert.equal(code, 1);
+    assert.match(report.error, /CMS media endpoint did not return a published-slot array/);
   } finally { await new Promise(resolve => server.close(resolve)); }
 });
