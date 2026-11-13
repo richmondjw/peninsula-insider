@@ -35,8 +35,9 @@ const CASES = [
 export type PlayCase = (typeof CASES)[number];
 
 export const PLAY = {
-  /** Master switch. False removes every surface at build time. */
-  enabled: true,
+  /** Master switch. False removes every surface at build time.
+   *  Off since 13 Nov 2026: the October draw closed and James asked for every competition reference to go. */
+  enabled: false,
   url: 'https://play.peninsulainsider.com.au/',
   cases: CASES,
   /** The case every promo surface leads with: the newest one. */
