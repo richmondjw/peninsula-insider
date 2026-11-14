@@ -493,8 +493,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Author Talk: Jane Gilmore - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-jane-gilmore-mornington-library/>)
 
-- [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
 - [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
 - [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
@@ -523,8 +521,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-- [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
 - [Dave Campbell Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
 
 - [Deck the Chocolate Tree](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-2026-12-05/>)
@@ -550,10 +546,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
 - [James Vincent Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
-
-- [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-- [Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
 
 - [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
 
@@ -605,8 +597,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Pub Carols at The Pig & Whistle](<https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/>)
 
-- [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
-
 - [Sam O'Connell Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/>)
 
 - [School Holiday Fun at Red Gum BBQ!](<https://peninsulainsider.com.au/whats-on/school-holiday-fun-at-red-gum-bbq-2027-04-09/>)
@@ -614,8 +604,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Soul Night Market at Hastings Foreshore](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)
 
 - [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
-
-- [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
 
 - [Summer Camp at The Ranch Adventure Park](<https://peninsulainsider.com.au/whats-on/summer-camp-at-the-ranch-adventure-park-2027-01-18/>)
 
@@ -626,8 +614,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 - [Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 
 - [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
-
-- [The Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)
 
 - [The Creators Network: End of Year Catch-up for Creatives](<https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/>)
 

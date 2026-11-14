@@ -629,32 +629,32 @@ Month
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 14 Nov
+- [Sun, 15 Nov
 
-### ✦ Acoustic Saturdays at Peppers Moonah Links
+### Bennsong Live at Peninsula Beer Garden
 
-Fingal
+Boneo
 
-Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
+Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
-- [Sat, 14 Nov
+- [Sun, 15 Nov
 
-### Beginner Alteration and Repair Sewing Class with Pete Sews
-
-Capel Sound
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-- [Sat, 14 Nov
-
-### Jamie MacDowell Live at Jetty Road Brewery
+### Festive Wreath Making at Heronswood House and Garden
 
 Dromana
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
+A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+ Event · Arts](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+
+- [Sun, 15 Nov
+
+### Jimmy & Niki Live at Jetty Road Brewery
+
+Dromana
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)

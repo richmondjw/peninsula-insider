@@ -346,13 +346,3 @@ Red Hill South
 BRASA brings the spirit of South America to the Mornington Peninsula! A celebration of fire, flavour, theatre and the joy of gathering around the table.
 
  Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/>)
-
-- [Sat, 14 Nov
-
-### Spring Winery Walk at Red Hill Recreation Reserve
-
-Red Hill South
-
-A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.
-
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)

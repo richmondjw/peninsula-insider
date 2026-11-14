@@ -11,14 +11,6 @@ Evening on the Peninsula
 
 Concerts, twilight cellar doors, evening bathing sessions, dinners that count as events. The Peninsula is sometimes accused of closing at five; this is the counter-argument.
 
-Live Music  14 Nov
-
-### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
 Writers & Ideas  19 Nov
 
 ### [Author Talk: Anna Downes & Naima Brown - Mornington Library](<https://peninsulainsider.com.au/whats-on/author-talk-anna-downes-naima-brown-mornington-library/>)

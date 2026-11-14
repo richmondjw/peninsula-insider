@@ -162,21 +162,3 @@ Loading map…
 Browse locations as a list
 
 - [Capel Sound](<https://peninsulainsider.com.au/explore/places/capel-sound/>) · town
-
-On the calendar in this place
-
-## Events in Capel Sound
-
-Coming up in Capel Sound, pulled from the events registry.
-
-[All events →](<https://peninsulainsider.com.au/whats-on/>)
-
-- [Sat, 14 Nov
-
-### Beginner Alteration and Repair Sewing Class with Pete Sews
-
-Capel Sound
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)

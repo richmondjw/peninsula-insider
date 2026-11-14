@@ -9,7 +9,7 @@ Peninsula This Weekend   Fri 13 – Sun 15 November
 
 # What’s on this weekend
 
-2 source-checked events for Fri 13 – Sun 15 November. Confirm details with the organiser before travelling.
+1 source-checked events for Fri 13 – Sun 15 November. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -18,16 +18,6 @@ Dates we could verify
 ## Confirmed for this weekend
 
 These dated listings had recent source checks. Confirm opening times and bookings with the organiser before travelling.
-
-Date confirmed · Arts
-
-### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
-Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were selected for the prize.
-
-Saturday 14 November   11:30am–12:30pm   Mornington   Checked 20 Oct 2026
-
-[View details](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>) [Check organiser details](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
 
 Date confirmed · Live Music
 

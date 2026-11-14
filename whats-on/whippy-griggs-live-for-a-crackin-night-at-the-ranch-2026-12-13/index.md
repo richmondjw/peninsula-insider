@@ -63,23 +63,21 @@ An outdoor sculpture park spanning 16.5 acres, with more than 70 contemporary wo
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/>)
 
-Arts  14 Nov
+Arts  5 Dec
 
-### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+### [Deck the Chocolate Tree at The Chocolateries Mornington Peninsula](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
 
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
+Looking for a truly sweet experience this Christmas?
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/>)
 
-Arts  14 Nov
+Arts  15 Nov
 
-### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to…
 
-Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

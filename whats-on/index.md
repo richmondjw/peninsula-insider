@@ -1,7 +1,7 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-14
+Modified: 2026-11-15
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
@@ -13,6 +13,22 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Three reasons to go
 
+- Sun, 15 Nov · 12pm–4pm · Boneo
+
+### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+
+Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
+
+Live Music
+
+- Sun, 15 Nov · 10:30am–12:30pm · Dromana
+
+### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+
+A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
+
+Arts
+
 - Sun, 15 Nov · 12pm–3pm · Red Hill
 
 ### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
@@ -21,75 +37,9 @@ A casual Sunday long-table session on the Polperro lawn, pairing large-format wi
 
 Food & Wine
 
-- Sat, 14 Nov · 5pm–8pm · Fingal
-
-### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Live Music
-
-- Sat, 14 Nov · 1pm–4pm · Capel Sound
-
-### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
-
-Arts
-
 ## Day by day
 
-### Saturday 14 November
-
-- 8am
-
-[Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
-
-A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks. The organiser describes steep sections and paddock walking, so moderate fitness and proper walking shoes are required.
-
-Red Hill South · Food & Wine
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
-
-- 5pm
-
-[Jesse Lewis Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/>)
-
-Jesse Lewis plays an acoustic Saturday session on the Spike Bar terrace at Moonah Links from 5pm to 8pm. The organiser says no booking is required for this sunset set.
-
-Fingal · Live Music
-
-- 5pm
-
-[The Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/>)
-
-Mornington Peninsula acoustic duo The Calmer Miles plays a three-hour Saturday set at Peninsula Beer Garden, mixing original songs with folk, pop and rock covers. The venue operates on a walk-in basis.
-
-Boneo · Live Music
-
-- 6pm
-
-[Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
-
-Dromana · Live Music
-
 ### Sunday 15 November
-
-- 10.30am
-
-[Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
-
-Dromana · Arts
 
 - 11am
 
@@ -106,14 +56,6 @@ Mornington · Exhibitions · Recurring weekly
 Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
 
 Dromana · Food & Wine
-
-- 12pm
-
-[Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
-Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
-
-Boneo · Live Music
 
 - 1pm
 

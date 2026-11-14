@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-14T04:19:54.767Z",
-  "snapshotId": "9040246960c83edbb06e6942677acfd501b04d9bd804682d0f7f3defccb6b457",
+  "generatedAt": "2026-11-14T14:23:15.514Z",
+  "snapshotId": "87d41285f5e3729f19d890c348d000b46265767db0bce9d863c832b7ee3c2b6b",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 709,
+  "count": 702,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -13,7 +13,7 @@
       "section": "home",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "0d54a78e8c98b27910fbaec730170af024ee5300329649d4cbdd9b2f2fc2286d",
+      "contentSha256": "220974c3e31ed57961c9391b1a9b9e1bd450b7bd7ce0e0798148964ae402d95c",
       "citation": {
         "title": "Make a day of the Peninsula.",
         "publisher": "Peninsula Insider",
@@ -21,8 +21,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 176547,
-      "markdownBytes": 6024
+      "htmlBytes": 173992,
+      "markdownBytes": 6046
     },
     {
       "id": "https://peninsulainsider.com.au/about/",
@@ -2206,7 +2206,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/capel-sound/index.md",
-      "contentSha256": "a4525829f503fc4a3790800838afb226c417fe31f4057616902fa36dbc355ad8",
+      "contentSha256": "1c0d22b09059fa2f4a1e6956de94f7a97ff3cb3636d9d296edd85268bfd21364",
       "citation": {
         "title": "Capel Sound",
         "publisher": "Peninsula Insider",
@@ -2214,8 +2214,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 165720,
-      "markdownBytes": 6638
+      "htmlBytes": 160353,
+      "markdownBytes": 6028
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/crib-point/",
@@ -2257,7 +2257,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/fingal/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/fingal/index.md",
-      "contentSha256": "4295b871a2fafd5f458723f11fc9ca0fcfdcf4b76d57d9e3b2facd8eaaf1b7e8",
+      "contentSha256": "637d321a5d3ee8b1781704bf4fd435f303b3004736894299f4c8ec113a475f62",
       "citation": {
         "title": "Fingal",
         "publisher": "Peninsula Insider",
@@ -2512,7 +2512,7 @@
       "section": "explore",
       "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/",
       "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill-south/index.md",
-      "contentSha256": "d418cfd9162ddb11600bfc2535a36881d69ae1e233b0a1bdb8db8f67fc8e8753",
+      "contentSha256": "9b95cf2c66d84e2a05e78d2e35b616ce8e4e4e5de85fa2590894373daaeadfbd",
       "citation": {
         "title": "Red Hill South",
         "publisher": "Peninsula Insider",
@@ -2520,8 +2520,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 209968,
-      "markdownBytes": 14586
+      "htmlBytes": 205203,
+      "markdownBytes": 14106
     },
     {
       "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
@@ -4467,7 +4467,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "443141d6cb11dcebe01510370ee4fc67c0a9b99ca51c10cbdabdb88c43b5a53a",
+      "contentSha256": "96051c10f00797acee2065fb8c8a7c76726ce80cd8021c0a6bcb93a4e1925048",
       "citation": {
         "title": "The Journal .",
         "publisher": "Peninsula Insider",
@@ -4475,8 +4475,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 228915,
-      "markdownBytes": 19170
+      "htmlBytes": 226419,
+      "markdownBytes": 19178
     },
     {
       "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
@@ -4688,7 +4688,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/index.md",
-      "contentSha256": "bfd802d36e8e472c3947d1516404fb5ecbf027708ed6dc6da7389fce0fb22af7",
+      "contentSha256": "364687608426c119a7e23980a86804ce105b589c04f78ca9955be99a5a6cd8e2",
       "citation": {
         "title": "Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It",
         "publisher": "Peninsula Insider",
@@ -4807,7 +4807,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "25cbf5caf71d75e984d6a684ca76ad3d7739a9f8de9fba9b28f783c69d59fb1d",
+      "contentSha256": "3aaf43619fb6955f2ce2ebbd127203452e0951d10b2e03e970334256b0c1ec1e",
       "citation": {
         "title": "Date Night on the Mornington Peninsula: Where to Book for Two",
         "publisher": "Peninsula Insider",
@@ -6473,7 +6473,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
-      "contentSha256": "8d36f4110cac9e6062b9147df2ad428af1f8bfe51bbd5cfa0f40c51aff32a9df",
+      "contentSha256": "0b5573a0c59d83dc142d6daf8af7c14ed6a92835a86cfedab24e475750b58039",
       "citation": {
         "title": "The Mornington Peninsula in Summer: How to Do It Well",
         "publisher": "Peninsula Insider",
@@ -6728,7 +6728,7 @@
       "section": "journal",
       "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
-      "contentSha256": "afb413a919e05447c0367a374526fbe7cdfb6cf856e5a18b1dd825b2a472deaf",
+      "contentSha256": "abef8ea3471e8011a32ca61003c243e9963bfa3eabb940130920ae27cf7e7c46",
       "citation": {
         "title": "Summer School Holidays on the Mornington Peninsula, 2026-27",
         "publisher": "Peninsula Insider",
@@ -7272,7 +7272,7 @@
       "section": "quick-note",
       "canonicalUrl": "https://peninsulainsider.com.au/quick-note/",
       "markdownUrl": "https://peninsulainsider.com.au/quick-note/index.md",
-      "contentSha256": "90a26d1c52cd26828afb152456e92b6c901b03a7d2ef27c83de88e52ccc00b44",
+      "contentSha256": "d60bd521217cf0542abe20d33cfe1165e9085c3c2f753d1f8e63c75fd80a0b09",
       "citation": {
         "title": "Quick Note",
         "publisher": "Peninsula Insider",
@@ -7280,8 +7280,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 118787,
-      "markdownBytes": 1705
+      "htmlBytes": 118779,
+      "markdownBytes": 1703
     },
     {
       "id": "https://peninsulainsider.com.au/site-index/",
@@ -7289,7 +7289,7 @@
       "section": "site-index",
       "canonicalUrl": "https://peninsulainsider.com.au/site-index/",
       "markdownUrl": "https://peninsulainsider.com.au/site-index/index.md",
-      "contentSha256": "e791090aee22f821e58410c94623ef45082c36aaabee87e03104e2309fe4703a",
+      "contentSha256": "4f49dca08f0a450021959fd41c0e2e4b4019a49bec4f311ec19e3bf600e342a0",
       "citation": {
         "title": "Site Index",
         "publisher": "Peninsula Insider",
@@ -7297,8 +7297,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142773,
-      "markdownBytes": 38655
+      "htmlBytes": 141818,
+      "markdownBytes": 37581
     },
     {
       "id": "https://peninsulainsider.com.au/stay/",
@@ -9108,16 +9108,16 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "ed5443aac6eaa27ce8bbbe49e84f1d416e593abb12341cad1c90a8367c30908e",
+      "contentSha256": "2de8fecff2339252d866220c0be09f7080712b76c6552b487c1cc961f38693fa",
       "citation": {
         "title": "What's on this weekend",
         "publisher": "Peninsula Insider",
         "url": "https://peninsulainsider.com.au/whats-on/",
         "publishedAt": null,
-        "modifiedAt": "2026-11-14"
+        "modifiedAt": "2026-11-15"
       },
-      "htmlBytes": 183276,
-      "markdownBytes": 7552
+      "htmlBytes": 163921,
+      "markdownBytes": 5092
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
@@ -9125,7 +9125,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "846df356604b6c17d8dee5ab93e6f45584f7ac840a0979f1389246c81801c325",
+      "contentSha256": "6aebe6ef9b19a9ef401c994d56ab1e1cfe9005dfe5c97db23bec0f5c78cee170",
       "citation": {
         "title": "Acoustic Saturdays at Peppers Moonah Links",
         "publisher": "Peninsula Insider",
@@ -9133,8 +9133,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141472,
-      "markdownBytes": 4035
+      "htmlBytes": 139917,
+      "markdownBytes": 3345
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/an-evening-at-brasa-by-montalto-2026-12-05/",
@@ -9222,23 +9222,6 @@
       "markdownBytes": 4302
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
-      "title": "Beginner Alteration and Repair Sewing Class with Pete Sews",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/index.md",
-      "contentSha256": "9e8b30a9d2920f37a70d8ecd9f72007ab59b3a4b6eaed3ccb8aa29e8b1c59c6e",
-      "citation": {
-        "title": "Beginner Alteration and Repair Sewing Class with Pete Sews",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 142365,
-      "markdownBytes": 4787
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/",
       "title": "Ben Smith Live at Jetty Road Brewery",
       "section": "whats-on",
@@ -9312,7 +9295,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/after-dark/index.md",
-      "contentSha256": "a017cf01dca6e10f9a6db94ede5a6070666dd78d2db70416a3fe51c6d4b18a77",
+      "contentSha256": "61921e85cc774594f36aea5b2caa43c5432c9a7ecb5b77169eb350d71dd49fec",
       "citation": {
         "title": "Things that start after the sun goes down",
         "publisher": "Peninsula Insider",
@@ -9320,8 +9303,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 181345,
-      "markdownBytes": 7809
+      "htmlBytes": 178102,
+      "markdownBytes": 7408
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
@@ -9329,7 +9312,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/by-mood/this-weekend/index.md",
-      "contentSha256": "8ea9a034f5ecfcb486ced525325e9cdd949e0ffe25e73b3f2281a602239c9a9e",
+      "contentSha256": "82c7a5c08b76a016c154b10b5f94165e044b916246e41f8d46a5ba318176e72d",
       "citation": {
         "title": "What we would actually go to this weekend",
         "publisher": "Peninsula Insider",
@@ -9337,8 +9320,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 165273,
-      "markdownBytes": 6643
+      "htmlBytes": 164840,
+      "markdownBytes": 6453
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/by-mood/when-it-rains/",
@@ -9562,23 +9545,6 @@
       "markdownBytes": 3746
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "title": "Curators floor talk: The Making of a Prize Exhibition",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
-      "contentSha256": "ca5cd378e8200ba65061b5efe3adf622ce3a9b50c4403eab0bad4c3d87e6b762",
-      "citation": {
-        "title": "Curators floor talk: The Making of a Prize Exhibition",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 141022,
-      "markdownBytes": 4086
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/",
       "title": "Dave Campbell Live at Peninsula Beer Garden",
       "section": "whats-on",
@@ -9618,7 +9584,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05/index.md",
-      "contentSha256": "dcfab3739c10562058789318e011cf2147b4966b79a6398c0475fb44ecdf62b8",
+      "contentSha256": "ed5e590cc8b29258e6c101338a21c816a61a57c225d674c0b1657e38b515f7e3",
       "citation": {
         "title": "Deck the Chocolate Tree at The Chocolateries Mornington Peninsula",
         "publisher": "Peninsula Insider",
@@ -9626,8 +9592,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141065,
-      "markdownBytes": 3854
+      "htmlBytes": 140987,
+      "markdownBytes": 3876
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/",
@@ -9754,7 +9720,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/index.md",
-      "contentSha256": "95e692ee15eaa57d4aa55c9f4c2e07334ad5103c05f1361b5bc38151ec4b1370",
+      "contentSha256": "cf5e35316807823eea8e0261e53d0aa699bc449b7ca1458c0cd9018e5f0f31fd",
       "citation": {
         "title": "Festive Wreath Making at Heronswood House and Garden",
         "publisher": "Peninsula Insider",
@@ -9762,8 +9728,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 142289,
-      "markdownBytes": 4781
+      "htmlBytes": 142276,
+      "markdownBytes": 4744
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/",
@@ -9805,7 +9771,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/index.md",
-      "contentSha256": "a2ab3f676c6055aff2cde3908cbbd13726759b1e2176d4cf84646443e6a8805b",
+      "contentSha256": "6d2a0ca3d1222a9826ebdae29c38a1c615eb7a11505322d98bad8fc9ad3a4ccd",
       "citation": {
         "title": "Improv Comedy Show at The Bay Hotel Mornington",
         "publisher": "Peninsula Insider",
@@ -9813,8 +9779,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 140934,
-      "markdownBytes": 3788
+      "htmlBytes": 140921,
+      "markdownBytes": 3751
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/",
@@ -9832,40 +9798,6 @@
       },
       "htmlBytes": 139945,
       "markdownBytes": 3541
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
-      "title": "Jamie MacDowell Live at Jetty Road Brewery",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/index.md",
-      "contentSha256": "18c1937b340ea7f5b26011fea877c2c0a8221d062d3518d0354140226a4fd26d",
-      "citation": {
-        "title": "Jamie MacDowell Live at Jetty Road Brewery",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 140005,
-      "markdownBytes": 3542
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
-      "title": "Jesse Lewis Live at Peppers Moonah Links Resort",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/index.md",
-      "contentSha256": "84592e21eb6ad5a896607501e78a49a2bbbbe80578272fa62bcb76323b25430a",
-      "citation": {
-        "title": "Jesse Lewis Live at Peppers Moonah Links Resort",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/jesse-lewis-live-at-peppers-moonah-links-resort-2026-11-14/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 141323,
-      "markdownBytes": 4388
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
@@ -10383,7 +10315,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/pt-leo-estate-sculpture-park/index.md",
-      "contentSha256": "aac826478a8fb78349cd7e5840e6b78e4d7e7d281508a2bc4a97e8c60aed2bcc",
+      "contentSha256": "da249dfeb267a7f1d9d68d7cf269b33c12520b9fbaa931e6de21b2b95f4c25a5",
       "citation": {
         "title": "Pt. Leo Estate Sculpture Park",
         "publisher": "Peninsula Insider",
@@ -10391,8 +10323,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141958,
-      "markdownBytes": 4653
+      "htmlBytes": 141954,
+      "markdownBytes": 4576
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/pub-carols-pig-whistle-main-ridge-2026/",
@@ -10427,23 +10359,6 @@
       },
       "htmlBytes": 137557,
       "markdownBytes": 3990
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
-      "title": "REwind Lane Live at Tar Barrel",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/index.md",
-      "contentSha256": "fe4281f8c4fdc5040d36bd7aca15c918cbee2089d0501c5417aa2c23212d9e19",
-      "citation": {
-        "title": "REwind Lane Live at Tar Barrel",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 139243,
-      "markdownBytes": 3595
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/",
@@ -10514,23 +10429,6 @@
       "markdownBytes": 3772
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
-      "title": "Spring Winery Walk at Red Hill Recreation Reserve",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/index.md",
-      "contentSha256": "a583b85dc61020b96a3ed9c9a350e8c0648b430ac4ba1a11b5f274cbd631052a",
-      "citation": {
-        "title": "Spring Winery Walk at Red Hill Recreation Reserve",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 142200,
-      "markdownBytes": 4878
-    },
-    {
       "id": "https://peninsulainsider.com.au/whats-on/summer-camp-at-the-ranch-adventure-park-2027-01-18/",
       "title": "Summer Camp at The Ranch Adventure Park",
       "section": "whats-on",
@@ -10587,7 +10485,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/index.md",
-      "contentSha256": "5d51b45bd45b00b4d8bc0dced7e5a20af1fc9d974823a1e292bf2005dab6aae8",
+      "contentSha256": "3e8dfbe89d19e77bd729aa49ae5e63af5985b7f45443b014f835620644c5c121",
       "citation": {
         "title": "Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics",
         "publisher": "Peninsula Insider",
@@ -10595,8 +10493,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 140694,
-      "markdownBytes": 3839
+      "htmlBytes": 140681,
+      "markdownBytes": 3802
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/",
@@ -10631,23 +10529,6 @@
       },
       "htmlBytes": 140918,
       "markdownBytes": 4233
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "title": "The Calmer Miles Live at Peninsula Beer Garden",
-      "section": "whats-on",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/index.md",
-      "contentSha256": "3d67b943788601a0fba53de876691e56174f29cf672a6a7b1eec07026c161dbd",
-      "citation": {
-        "title": "The Calmer Miles Live at Peninsula Beer Garden",
-        "publisher": "Peninsula Insider",
-        "url": "https://peninsulainsider.com.au/whats-on/the-calmer-miles-live-at-peninsula-beer-garden-2026-11-14/",
-        "publishedAt": null,
-        "modifiedAt": null
-      },
-      "htmlBytes": 141332,
-      "markdownBytes": 4430
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/the-creators-network-end-of-year-catch-up-for-creatives/",
@@ -10740,7 +10621,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/this-weekend/index.md",
-      "contentSha256": "50b9f20618fb2d7adecabf56735381fddf41006a68df2b9afe0493cb5bcc2acf",
+      "contentSha256": "093adf238036977c0afa05cdcaeb2cb1543ad21318761fd64ecab3d3c7fb1019",
       "citation": {
         "title": "What’s on this weekend",
         "publisher": "Peninsula Insider",
@@ -10748,8 +10629,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 139359,
-      "markdownBytes": 4867
+      "htmlBytes": 136062,
+      "markdownBytes": 4215
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/this-weekend/archive/2026-04-24/",
@@ -11080,7 +10961,7 @@
       "section": "whats-on",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/index.md",
-      "contentSha256": "4c928880d03bbbecc6601914c7e3f53743c634a53571805b00d3ace89248437f",
+      "contentSha256": "abb6c769a5dc796d3a533b7e8f70bce9784097a623f6bdf1579cf984f3b18764",
       "citation": {
         "title": "\"Whippy\" Griggs Live for a Crackin' Night at The Ranch",
         "publisher": "Peninsula Insider",
@@ -11088,8 +10969,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 141229,
-      "markdownBytes": 3953
+      "htmlBytes": 141225,
+      "markdownBytes": 3876
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/",

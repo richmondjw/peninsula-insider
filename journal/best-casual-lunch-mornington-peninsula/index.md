@@ -293,7 +293,7 @@ On the calendar
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 14 Nov
+- [Sat, 21 Nov
 
 ### ✦ Acoustic Saturdays at Peppers Moonah Links
 

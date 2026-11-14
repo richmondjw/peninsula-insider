@@ -85,14 +85,6 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Arts  14 Nov
-
-### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
 Live Music  15 Nov
 
 ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
@@ -100,16 +92,6 @@ Live Music  15 Nov
 Enjoy live music at Peninsula Beer Garden!
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
-Arts  14 Nov
-
-### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
-
-[Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were…
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
 
 Arts  15 Nov
 
@@ -119,13 +101,29 @@ A two-hour workshop with botanical designer Domenica Vavala, using fresh and dri
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
-Live Music  14 Nov
+Live Music  15 Nov
 
-### [Jamie MacDowell Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+### [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
 
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+
+Food & Wine  15 Nov
+
+### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+
+A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+
+Live Music  15 Nov
+
+### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next?
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
 ## The Insider Note
 
