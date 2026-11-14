@@ -40,3 +40,5 @@ for (const [label, element, inside, expected] of [
   });
   assert.equal(skipped, expected);
 });
+
+test('closed panel releases hit testing before delayed hiding', () => assert.match(source, /\.pi-chat\[data-state="closed"\] \.pi-chat__panel \{ pointer-events: none;/));

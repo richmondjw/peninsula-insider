@@ -529,6 +529,8 @@ const starters = [
   }
   .pi-chat.is-in .pi-chat__panel { opacity: 1; transform: none; }
   .pi-chat__panel[hidden] { display: none; }
+  /* A closing sheet must stop swallowing taps before its exit animation ends. */
+  .pi-chat[data-state="closed"] .pi-chat__panel { pointer-events: none; }
   html.pi-chat-sheet { overflow: hidden; }
 
   /* Desktop. Docked (80em and up): a sidebar under the masthead; the page content moves
