@@ -85,6 +85,7 @@ const starters = [
 )}
 
 <script>
+  import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR, type Place } from '../lib/ask-client';
 
   type Turn =
@@ -456,6 +457,17 @@ const starters = [
       e.preventDefault();
       ask(q);
     }, true); // capture, as above
+
+    // A navigation snapshot can sit above the persisted chat and swallow taps
+    // and swipes even after the destination is visible. Chat recommendations
+    // need an immediately usable destination, not a decorative page fade.
+    // Use the actual navigation source, so cancelled/external links cannot
+    // accidentally disable a later, unrelated transition.
+    document.addEventListener('astro:before-swap', (event: TransitionBeforeSwapEvent) => {
+      if (event.sourceElement && panel.contains(event.sourceElement)) {
+        event.viewTransition.skipTransition();
+      }
+    });
 
     // The router swaps <html> attributes on navigation; restore ours.
     document.addEventListener('astro:after-swap', applyChrome);

@@ -185,11 +185,20 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
         sessionStorage.setItem('pi-chat-state', 'open');
         sessionStorage.setItem('pi-chat-history', JSON.stringify([
           { role: 'you', text: 'Where should we eat?' },
-          { role: 'pi', text: 'Browse Eat', places: [{ title: 'Eat', href: '/eat/' }], next: [] },
+          { role: 'pi', text: 'Browse Eat. ' + 'A useful recommendation to read while planning your day. '.repeat(35), places: [{ title: 'Eat', href: '/eat/' }], next: [] },
         ]));
       });
       await reader.load('/');
       await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
+      // Amplify the overlay lifetime so an accidental wait or quick CI animation
+      // cannot hide this regression. Only the recommendation transition is skipped.
+      await reader.page.evaluate(() => {
+        document.addEventListener('astro:before-swap', event => {
+          const style = event.newDocument.createElement('style');
+          style.textContent = '::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation-duration: 5s !important; }';
+          event.newDocument.head.append(style);
+        });
+      });
       const history = await reader.page.evaluate(() => sessionStorage.getItem('pi-chat-history'));
       const pageLoads = await reader.page.evaluate(() => window.__J.pageLoads);
       await reader.page.click('.pi-tile__title');
@@ -213,14 +222,37 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
         const style = getComputedStyle(button);
         return style.visibility === 'visible' && style.pointerEvents !== 'none' && Number(style.opacity) === 1;
       }, 'launcher is ready after destination settles');
-      await reader.waitFor(() => !document.documentElement.hasAttribute('data-astro-transition'), 'Astro transition overlay finishes before the next interaction');
-      await reader.page.click('#pi-chat-launch');
+      await reader.page.waitForFunction(() => {
+        const button = document.querySelector('#pi-chat-launch'), r = button.getBoundingClientRect();
+        return button.contains(document.elementFromPoint(r.x + r.width / 2, r.y + r.height / 2));
+      }, { timeout: 1500 });
+      if (viewport.hasTouch) await reader.page.tap('#pi-chat-launch');
+      else await reader.page.click('#pi-chat-launch');
       await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open' && !document.querySelector('#pi-chat-panel')?.hidden && !!document.querySelector('.pi-tile'), 'chat reopens with saved recommendations', null, { describe: () => {
         const root = document.querySelector('#pi-chat'), panel = document.querySelector('#pi-chat-panel'), launch = document.querySelector('#pi-chat-launch');
         const r = launch.getBoundingClientRect();
         return { state: root?.dataset.state, classes: root?.className, booted: root?.dataset.booted, panelHidden: panel?.hidden, tiles: document.querySelectorAll('.pi-tile').length, stored: sessionStorage.getItem('pi-chat-state'), hit: document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML, errors: window.__J.pageErrors, roots: document.querySelectorAll('#pi-chat').length };
       } });
       assert.equal(await reader.page.$eval('.pi-msg--you', el => el.textContent), 'Where should we eat?');
+      // Scroll real overflowing content after reopening, not just scrollTop assignment.
+      await reader.page.$eval('#pi-chat-thread', el => el.scrollTop = 0);
+      const box = await reader.page.$eval('#pi-chat-thread', el => {
+        const r = el.getBoundingClientRect();
+        return { x: r.x + r.width / 2, y: r.y + r.height * .75, height: r.height };
+      });
+      if (viewport.hasTouch) {
+        const cdp = await reader.page.createCDPSession();
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchStart', touchPoints: [{ x: box.x, y: box.y }] });
+        for (let i = 1; i <= 8; i++) {
+          await cdp.send('Input.dispatchTouchEvent', { type: 'touchMove', touchPoints: [{ x: box.x, y: box.y - Math.min(240, box.height / 2) * i / 8 }] });
+        }
+        await cdp.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
+        await cdp.detach();
+      } else {
+        await reader.page.mouse.move(box.x, box.y);
+        await reader.page.mouse.wheel({ deltaY: 240 });
+      }
+      await reader.page.waitForFunction(() => document.querySelector('#pi-chat-thread').scrollTop > 30, { timeout: 1500 });
       await reader.page.click('#pi-chat-min');
       await reader.waitFor(() => document.querySelector('#pi-chat-panel')?.hidden, 'manual minimise still works');
       await reader.page.click('#pi-chat-launch');
@@ -228,7 +260,7 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
       await reader.page.$eval('.pi-tile', a => { a.href = '/explore/'; });
       const secondLoads = await reader.page.evaluate(() => window.__J.pageLoads);
       await reader.page.click('.pi-tile__title');
-      await reader.waitFor(n => window.__J.pageLoads > n && location.pathname === '/explore/' && !document.documentElement.hasAttribute('data-astro-transition'), 'second recommendation navigation completes', secondLoads);
+      await reader.waitFor(n => window.__J.pageLoads > n && location.pathname === '/explore/', 'second recommendation navigation completes', secondLoads);
       assert.equal(await reader.page.evaluate(() => document.querySelector('#pi-chat').dataset.state), 'closed');
       await reader.page.click('#pi-chat-launch');
       await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open', 'chat reopens after second navigation');
