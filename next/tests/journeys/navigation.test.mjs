@@ -175,3 +175,43 @@ test('walking the journeys raises no uncaught error', async () => {
     await reader.close();
   }
 });
+
+for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
+  test(`Ask PI recommendation minimises and preserves conversation at ${viewport.width}px`, async () => {
+    const reader = await site.reader();
+    try {
+      await reader.page.setViewport(viewport);
+      await reader.page.evaluateOnNewDocument(() => {
+        sessionStorage.setItem('pi-chat-state', 'open');
+        sessionStorage.setItem('pi-chat-history', JSON.stringify([
+          { role: 'you', text: 'Where should we eat?' },
+          { role: 'pi', text: 'Browse Eat', places: [{ title: 'Eat', href: '/eat/' }], next: [] },
+        ]));
+      });
+      await reader.load('/');
+      await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
+      const history = await reader.page.evaluate(() => sessionStorage.getItem('pi-chat-history'));
+      await reader.page.click('.pi-tile__title');
+      await reader.page.waitForFunction(() => location.pathname === '/eat/' && document.querySelector('#pi-chat')?.dataset.state === 'closed');
+      await reader.page.waitForFunction(() => document.querySelector('#pi-chat-panel')?.hidden);
+      const state = await reader.page.evaluate(() => ({
+        stored: sessionStorage.getItem('pi-chat-state'),
+        history: sessionStorage.getItem('pi-chat-history'),
+        expanded: document.querySelector('#pi-chat-launch').getAttribute('aria-expanded'),
+        locked: document.documentElement.classList.contains('pi-chat-sheet'),
+        docked: document.documentElement.classList.contains('pi-chat-docked'),
+      }));
+      assert.equal(state.stored, 'closed');
+      assert.equal(state.history, history);
+      assert.equal(state.expanded, 'false');
+      assert.equal(state.locked, false);
+      assert.equal(state.docked, false);
+      await reader.page.click('#pi-chat-launch');
+      await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
+      assert.equal(await reader.page.$eval('.pi-msg--you', el => el.textContent), 'Where should we eat?');
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+}
