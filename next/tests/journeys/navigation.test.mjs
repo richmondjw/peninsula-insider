@@ -191,7 +191,9 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
       await reader.load('/');
       await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
       const history = await reader.page.evaluate(() => sessionStorage.getItem('pi-chat-history'));
+      const pageLoads = await reader.page.evaluate(() => window.__J.pageLoads);
       await reader.page.click('.pi-tile__title');
+      await reader.waitFor(n => window.__J.pageLoads > n, 'recommendation finishes Astro navigation', pageLoads);
       await reader.page.waitForFunction(() => location.pathname === '/eat/' && document.querySelector('#pi-chat')?.dataset.state === 'closed');
       await reader.page.waitForFunction(() => document.querySelector('#pi-chat-panel')?.hidden);
       const state = await reader.page.evaluate(() => ({
@@ -206,6 +208,11 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
       assert.equal(state.expanded, 'false');
       assert.equal(state.locked, false);
       assert.equal(state.docked, false);
+      await reader.waitFor(() => {
+        const button = document.querySelector('#pi-chat-launch');
+        const style = getComputedStyle(button);
+        return style.visibility === 'visible' && style.pointerEvents !== 'none' && Number(style.opacity) === 1;
+      }, 'launcher is ready after destination settles');
       await reader.page.click('#pi-chat-launch');
       await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
       assert.equal(await reader.page.$eval('.pi-msg--you', el => el.textContent), 'Where should we eat?');
