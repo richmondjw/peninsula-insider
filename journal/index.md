@@ -651,10 +651,10 @@ A three-hour beginner class for adults and teens who want to alter, repair and p
 
 - [Sat, 14 Nov
 
-### Crib Point Community Market
+### Jamie MacDowell Live at Jetty Road Brewery
 
-Crib Point
+Dromana
 
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jamie McDowell will be live from 7pm.
 
- Event · Markets](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/jamie-macdowell-live-at-jetty-road-brewery-2026-11-14/>)

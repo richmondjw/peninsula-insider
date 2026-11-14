@@ -47,21 +47,13 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- ### [REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
+- ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
 
-Melbourne acoustic duo Rewind Lane plays a two-hour Saturday afternoon set at Tar Barrel, built around close harmonies and nostalgic, feel-good covers.
+A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
 
-Sat, 14 Nov   Tar Barrel   Live music
+Sun, 15 Nov   Heronswood House and Garden   Arts
 
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
-
-- ### [Spring Winery Walk at Red Hill Recreation Reserve](<https://peninsulainsider.com.au/whats-on/spring-winery-walk-at-red-hill-recreation-reserve-2026-11-14/>)
-
-A guided 10-kilometre route through Red Hill vineyards and private tracks, with five winery stops pairing new-release wines with small snacks.
-
-Sat, 14 Nov   Red Hill Recreation Reserve   Food & wine
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://events.humanitix.com/spring-winery-walk-2026>)
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.diggers.com.au/products/festive-wreath-making-dromana-15-nov-2026>)
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
@@ -70,6 +62,16 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 Sat, 14 Nov   Peppers Moonah Links   Every Saturday
 
 Event details checked 2 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
+
+- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sat, 14 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 ## Three ways into the Peninsula
 

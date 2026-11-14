@@ -29,11 +29,11 @@ Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop a
 
 Live Music
 
-- Sat, 14 Nov · 11:30am–12:30pm · Mornington
+- Sat, 14 Nov · 1pm–4pm · Capel Sound
 
-### [Curators floor talk: The Making of a Prize Exhibition](<https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/>)
+### [Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
 
-A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
+A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes.
 
 Arts
 
@@ -49,37 +49,13 @@ A guided 10-kilometre route through Red Hill vineyards and private tracks, with 
 
 Red Hill South · Food & Wine
 
-- 9am
-
-[Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
-
-Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm. Expect produce, plants, food and a children's treasure hunt.
-
-Crib Point · Markets · Recurring monthly
-
 - 11am
 
 [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Mornington · Exhibitions · Recurring weekly · Also Sun
-
-- 1pm
-
-[Beginner Alteration and Repair Sewing Class with Pete Sews](<https://peninsulainsider.com.au/whats-on/beginner-alteration-and-repair-sewing-class-with-pete-sews-2026-11-14/>)
-
-A three-hour beginner class for adults and teens who want to alter, repair and personalise their own clothes. Pete Sews keeps group classes to six people and supplies the workshop machines and equipment.
-
-Capel Sound · Arts
-
-- 1pm
-
-[REwind Lane Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/>)
-
-Melbourne acoustic duo Rewind Lane plays a two-hour Saturday afternoon set at Tar Barrel, built around close harmonies and nostalgic, feel-good covers.
-
-Mornington · Live Music
+Mornington · Exhibitions · Recurring weekly
 
 - 5pm
 
@@ -114,6 +90,14 @@ Dromana · Live Music
 A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
 
 Dromana · Arts
+
+- 11am
+
+[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington · Exhibitions · Recurring weekly
 
 - 11am
 

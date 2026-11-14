@@ -1,11 +1,92 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-13T22:23:51.172Z",
+  "generatedAt": "2026-11-14T04:19:54.767Z",
   "baselineAvailable": true,
   "fromSnapshot": "b132380e70ef50707392350b78ad2065e3b92b70a70828fefdee37c4939de1f0",
-  "toSnapshot": "b132380e70ef50707392350b78ad2065e3b92b70a70828fefdee37c4939de1f0",
-  "previousGeneratedAt": "2026-11-13T20:16:46.863Z",
+  "toSnapshot": "9040246960c83edbb06e6942677acfd501b04d9bd804682d0f7f3defccb6b457",
+  "previousGeneratedAt": "2026-11-13T22:23:51.172Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 0,
-  "changes": []
+  "count": 10,
+  "changes": [
+    {
+      "id": "https://peninsulainsider.com.au/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "0d54a78e8c98b27910fbaec730170af024ee5300329649d4cbdd9b2f2fc2286d",
+      "previousContentSha256": "42749445464889f28551f164586fba8d4e68ded2c3de8760d1e9207403fb0e68"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/crib-point/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/crib-point/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/crib-point/index.md",
+      "contentSha256": "889a58a62f995f2d71b18b446100c6c2adedd97ca3ca25580807d98998e52e51",
+      "previousContentSha256": "f856815a4272e331defe3053ec49010ffab5cc047fb52f79e8370f5f379756e9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "443141d6cb11dcebe01510370ee4fc67c0a9b99ca51c10cbdabdb88c43b5a53a",
+      "previousContentSha256": "da53370b218038d89b503fc80c6865b75746dcf4d0fbd0f3fc3575f3e7e756b9"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
+      "contentSha256": "25cbf5caf71d75e984d6a684ca76ad3d7739a9f8de9fba9b28f783c69d59fb1d",
+      "previousContentSha256": "35069a60a9519fbc8e556d8d65fad2aa0184e0079d0184ae2a13a61c1d363590"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "8d36f4110cac9e6062b9147df2ad428af1f8bfe51bbd5cfa0f40c51aff32a9df",
+      "previousContentSha256": "94edb87cbfff6a403cddf5e34c1f33f536d497422c6b2d12d8d29ea1f6982d6b"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "afb413a919e05447c0367a374526fbe7cdfb6cf856e5a18b1dd825b2a472deaf",
+      "previousContentSha256": "cef63586e61434838a9edd19eb121cfaac735f85f649858c0fe0a743d1bc1561"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "ed5443aac6eaa27ce8bbbe49e84f1d416e593abb12341cad1c90a8367c30908e",
+      "previousContentSha256": "4e6a99270a415d26f4e7a62cc63987b72c6ed0202a3ccb181f4e2215695a2159"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
+      "contentSha256": "e6dff249447bfa6f4bc40c8a916c483ae352d418056fe22de5cf6d33967eea3c",
+      "previousContentSha256": "d45829d68762a9b119742de26782ab45078023ed8176afe742a69492854cf3c4"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/curators-floor-talk-making-of-a-prize-mprg-2026/index.md",
+      "contentSha256": "ca5cd378e8200ba65061b5efe3adf622ce3a9b50c4403eab0bad4c3d87e6b762",
+      "previousContentSha256": "1a6f4d714c9bd40f67772065400041d4d769b5ba5374e2918771e5cfc0fc03b0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/rewind-lane-live-at-tar-barrel-2026-11-14/index.md",
+      "contentSha256": "fe4281f8c4fdc5040d36bd7aca15c918cbee2089d0501c5417aa2c23212d9e19",
+      "previousContentSha256": "9ee549105c33ad63f80470f5710faf9ea2b24ff24bedfce3c5aa0eac42e74624"
+    }
+  ]
 }

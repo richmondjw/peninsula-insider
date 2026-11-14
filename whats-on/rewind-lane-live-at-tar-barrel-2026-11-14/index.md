@@ -11,8 +11,6 @@ Event     Live Music     14 November 2026     One-off date
 
 Melbourne acoustic duo Rewind Lane plays a two-hour Saturday afternoon set at Tar Barrel, built around close harmonies and nostalgic, feel-good covers.
 
-[Book or check details](<https://tarbarrel.com.au/music/>)
-
 Tar Barrel's own music schedule lists Rewind Lane from 1pm to 3pm on Saturday 14 November. The venue describes its live-music program as part of a brewery and distillery visit in Mornington's industrial precinct, so this works as an afternoon stop rather than an evening show.
 
 Tar Barrel opens from midday on Saturdays. Its music page says leashed dogs are welcome at the outside tables, and the venue has on-site parking. A table booking is useful if the set is the reason for your visit; check the official music page again before travelling because artist schedules can change.
@@ -49,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://tarbarrel.com.au/music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=REwind+Lane+Live+at+Tar+Barrel&dates=20261114T020000Z%2F20261114T040000Z&details=Melbourne+acoustic+duo+Rewind+Lane+plays+a+two-hour+Saturday+afternoon+set+at+Tar+Barrel%2C+built+around+close+harmonies+and+nostalgic%2C+feel-good+covers.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Frewind-lane-live-at-tar-barrel-2026-11-14%2F&location=Tar+Barrel%2C+72+Watt+Road%2C+Mornington+VIC+3931%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

@@ -11,8 +11,6 @@ Event     Arts     14 November 2026     One-off date
 
 Walk through the National Works on Paper exhibition with MPRG curator and judging-panel member Rebecca Owens, who will discuss how works were selected for the prize.
 
-[Book or check details](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>)
-
 Editor's verdict
 
 A useful way into the National Works on Paper exhibition if you want to understand the judging decisions, with the curator and panel member leading the conversation.
@@ -57,7 +55,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://mprg.mornpen.vic.gov.au/Events/Curators-floor-talk-The-Making-of-a-Prize-Exhibition>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Curators+floor+talk%3A+The+Making+of+a+Prize+Exhibition&dates=20261114T003000Z%2F20261114T013000Z&details=Walk+through+the+National+Works+on+Paper+exhibition+with+MPRG+curator+and+judging-panel+member+Rebecca+Owens%2C+who+will+discuss+how+works+were+selected+for+the+prize.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fcurators-floor-talk-making-of-a-prize-mprg-2026%2F&location=Mornington+Peninsula+Regional+Gallery%2C+Civic+Reserve%2C+Dunns+Road%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

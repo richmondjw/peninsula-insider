@@ -163,7 +163,7 @@ Coming up in Crib Point, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sat, 14 Nov
+- [Sat, 12 Dec
 
 ### Crib Point Community Market
 
