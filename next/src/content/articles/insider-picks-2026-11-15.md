@@ -1,6 +1,6 @@
 ---
-title: "Barragunda's market garden table, waratahs at Bushrangers Bay, and the Peninsula VineHop Festival"
-dek: A set-menu dinner beside Barragunda's Cape Schanck market garden, waratah season on the Bushrangers Bay coastal walk, and six linked venues on the Peninsula VineHop Festival route this Saturday.
+title: "Barragunda Dining, Bushrangers Bay and planning for VineHop"
+dek: Book directly with Barragunda, check Parks Victoria's coastal-walk guidance, and plan transport for VineHop on 21 November.
 author: "editorial"
 houseByline: true
 publishedAt: 2026-11-15
@@ -16,7 +16,7 @@ relatedExperiences: []
 readingTimeMinutes: 4
 featured: false
 status: "published"
-lastVerified: 2026-11-15
+lastVerified: 2026-11-14
 agentRun: 2026-11-15-daily
 clusterLinks:
   - label: "Where to Eat on the Mornington Peninsula"
@@ -27,53 +27,55 @@ clusterLinks:
     href: "/journal/how-to-plan-a-peninsula-weekend/"
 faq:
   - question: "How do I book Barragunda Dining at Cape Schanck?"
-    answer: "Check the online reservation calendar at the RACV Cape Schanck Resort website. Barragunda Dining is in the Cape Schanck estate. Book ahead - sitting numbers are limited and spring weekends fill early."
-  - question: "What is the Peninsula VineHop Festival and when does it run?"
-    answer: "Peninsula VineHop Festival 2026 runs Saturday 21 November 2026 from 11am to 7pm. The festival hub is at The Briars, Mount Martha, with six linked venues. Tickets are via Humanitix at events.humanitix.com/peninsula-vinehop-festival-2026/tickets."
-  - question: "Where does the Bushrangers Bay Walk start and how long does it take?"
-    answer: "The Bushrangers Bay Walk starts from the Cape Schanck Lighthouse car park on Boneo Road. The return loop to Bushrangers Bay is roughly 4–5 km and takes about 90 minutes at an easy pace. No booking required; Parks Victoria manages the site."
+    answer: "Barragunda Dining is at 113 Cape Schanck Road, Cape Schanck. Book through Barragunda's official dining page; confirm available sittings and dietary arrangements in its reservation process. Current table availability has not been verified."
+  - question: "What does a Peninsula VineHop Festival ticket cover?"
+    answer: "For Saturday 21 November 2026, North or South Shuttle tickets cover four venues on the selected route; GA covers all seven venues, with transport arranged separately; a Festival Hub ticket covers The Briars only. Smaller venues have no parking. Groups of 12 or more must use VineHop Private or Shuttle Buses. Use the organiser's website to choose tickets and transport."
+  - question: "Where does the Bushrangers Bay Track start?"
+    answer: "Parks Victoria identifies the eastern Cape Schanck carpark as the trailhead for its 5 km return walk. Bushrangers Bay Picnic Area off Boneo Road is a separate access point. Follow the signed track and return by the same route. Expect steep stairs and narrow, sandy, unsealed paths. The coast is unpatrolled and high-risk; swimming is not recommended."
 ---
 
 **EAT - Barragunda Dining, Cape Schanck**
 
-Barragunda runs a seasonal set menu, and in November the kitchen is working with what the market garden outside the dining room windows is actually producing right now. That is not marketing copy - head chef Simone Watts has designed the room's menu around the estate's harvest schedule, and late spring is when the garden is at its most productive before the heat arrives. The difference between eating here in July and eating here this week is on the plate.
+Barragunda Dining overlooks its market garden at 113 Cape Schanck Road, Cape Schanck. The restaurant describes a seasonal set menu built around the farm and local producers. That makes the menu the starting point for planning a meal here; the ingredients being harvested this week have not been verified.
 
-Reserve the lunch sitting if you want time to walk the Cape Schanck grounds before or after. The dining room faces the market garden. Allow two and a half hours minimum. Book ahead through the RACV Cape Schanck Resort website - spring Saturdays close out fast and the waiting list is real. Dietary requirements need to go through the operator before you arrive, not on the day.
-
-Pair the afternoon with a walk to the Cape Schanck Lighthouse before you drive home.
+Book directly through [Barragunda's dining page](https://www.barragunda.com.au/dining/). The operator lists Friday, Sunday and Monday service from noon to 5.30pm, and Saturday from noon to 7pm; it is closed Tuesday to Thursday. Confirm your sitting and dietary arrangements through the reservation process. These opening hours do not establish current table availability.
 
 ---
 
 **WALK - Bushrangers Bay, Cape Schanck**
 
-Waratah season on the Mornington Peninsula runs through November, and the coastal scrub between the Cape Schanck Lighthouse car park and Bushrangers Bay is one of the more reliable spots to see them in flower without driving deep into the hinterland. The Telopea speciosissima don't last - a hot northerly can brown the flowerheads in a day - so this week's mild forecast is the window.
+[Parks Victoria describes the Bushrangers Bay Track](https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/Bushrangers-Bay-Track) as a 5 km return walk from Cape Schanck, with steep stairs and narrow, sandy, unsealed paths. Start at the eastern Cape Schanck carpark, follow the signed track and return by it. The Bushrangers Bay Picnic Area off Boneo Road is a separate access point.
 
-The return walk from the lighthouse car park on Boneo Road to Bushrangers Bay is roughly 4–5 km. Take the clifftop track out and the lower coastal path back. The basalt platform at Bushrangers Bay is exposed at low tide and worth pausing at. Allow 90 minutes for the loop at an easy pace. No booking needed; Parks Victoria manages the site. Carry water - there is no tap at the trailhead.
+The terrain matters when deciding whether this walk suits your day: Parks Victoria says the track is unsuitable for wheelchairs and strollers. Carry drinking water and check the official page for current conditions before setting out.
 
-The walk pairs directly with lunch at Barragunda, which is two minutes from the same car park.
+Bushrangers Bay is an unpatrolled, high-risk coast. Tidal changes, unexpected waves, strong currents and slippery rocks are hazards; swimming is not recommended. Stay on the signed track and follow local warnings.
 
 ---
 
-**DISCOVERY - Peninsula VineHop Festival, Mount Martha (Saturday 21 November)**
+**DISCOVERY - Peninsula VineHop Festival (Saturday 21 November)**
 
-The Peninsula VineHop Festival is not a cellar-door passport with a lanyard. It is a one-day roving format: the festival hub sits at The Briars in Mount Martha, and six linked venues are part of the loop on the same ticket. Saturday 21 November, 11am to 7pm. The format rewards a plan - work out which three or four venues matter to you before you arrive, because doing all six properly in eight hours requires a driver and a timetable.
+Plan VineHop around your ticket and transport. The festival opens at 11am on Saturday 21 November 2026. The Briars hub closes at 7pm; the six smaller venues close at 5.30pm.
 
-The event draws smaller producers alongside the well-known names, and that is where the VineHop's value lies. You will pour wines in a tasting room that does not ordinarily pull weekend visitors. Tickets are on Humanitix at events.humanitix.com/peninsula-vinehop-festival-2026/tickets - check availability now, the Saturday sitting is the only session. Designated driver arrangements are worth sorting before Saturday morning.
+A North or South Shuttle ticket includes four venues on its route and shuttle transport. General Admission covers all seven venues, with transport arranged separately. A Festival Hub ticket covers The Briars only, without bus transport.
 
-Pair the festival with an overnight stay on the Peninsula rather than a long drive home.
+There is no parking at the smaller venues. Use a festival shuttle, an eligible private bus, taxi or rideshare. Groups of 12 or more must use VineHop Private or Shuttle Buses; independently arranged private buses are permitted only for groups of 11 or fewer under the organiser's transport rules. Parking is available at The Briars for hub visitors.
+
+The event is 18+. Use the [organiser's website ticket navigation](https://vinehopfestival.com.au/faqs/) to select the ticket and transport that fit your plan. Current ticket availability has not been verified.
 
 ---
 
 **Quick Reference**
 
 **Barragunda Dining**
-RACV Cape Schanck Resort, 71 Trent Jones Drive, Cape Schanck VIC 3939
-Lunch and dinner; book ahead via the RACV Cape Schanck Resort website. Seasonal set menu - check the current sitting times and dietary requirements with the operator before your visit.
+113 Cape Schanck Road, Cape Schanck.
+Seasonal set menu. Book directly through [Barragunda Dining](https://www.barragunda.com.au/dining/); confirm your sitting and dietary arrangements.
 
-**Bushrangers Bay Walk**
-Cape Schanck Lighthouse car park, Boneo Road, Cape Schanck VIC 3939
-4–5 km return loop, ~90 minutes. No booking. Waratahs in flower through November - go before a northerly forecast. Parks Victoria site.
+**Bushrangers Bay Track**
+Eastern Cape Schanck carpark; Boneo Road picnic-area access is separate.
+5 km return, with steep stairs and narrow, sandy, unsealed paths. Return by the same signed track. Carry water and check [Parks Victoria's conditions and safety guidance](https://www.parks.vic.gov.au/places-to-see/parks/mornington-peninsula-national-park/things-to-do/Bushrangers-Bay-Track). Unpatrolled, high-risk coast; swimming is not recommended.
 
 **Peninsula VineHop Festival 2026**
-Festival hub: The Briars, 450 Nepean Highway, Mount Martha VIC 3934
-Saturday 21 November 2026, 11am–7pm. Six linked venues. Tickets: events.humanitix.com/peninsula-vinehop-festival-2026/tickets. Book ahead.
+Saturday 21 November: 11am opening; smaller venues close 5.30pm, The Briars hub 7pm.
+18+. Ticket access varies; no parking at smaller venues. Groups of 12 or more must use VineHop buses. Choose tickets and transport through the [official festival website](https://vinehopfestival.com.au/faqs/).
+
+*Correction prepared 14 November 2026 (UTC): this edition has been revised to correct Barragunda's address and booking route, Bushrangers Bay walking and coastal-safety advice, and VineHop ticket access and transport. Unsupported flowering, weather, harvest, availability and travel-time claims have been removed. This is a targeted correction, not a full re-verification of the edition.*

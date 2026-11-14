@@ -249,6 +249,65 @@ jobs:
           cd next
           npm run test:journeys
 
+      - name: Capture November 15 correction for review
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 734
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          node --input-type=module <<'JS'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs/promises';
+          import { Site } from './tests/journeys/harness.mjs';
+          const out = 'review/picks-20261115';
+          await fs.mkdir(out, { recursive: true });
+          const site = await Site.open();
+          const report = { head: process.env.REVIEW_HEAD_SHA, route: '/journal/insider-picks-2026-11-15/', viewports: [] };
+          try {
+            for (const viewport of [{ width: 390, height: 844 }, { width: 1440, height: 1000 }]) {
+              const page = await site.browser.newPage();
+              try {
+                await page.setViewport(viewport);
+                const response = await page.goto(site.origin + report.route, { waitUntil: 'networkidle0' });
+                assert.equal(response.status(), 200);
+                await page.evaluate(async () => {
+                  document.querySelectorAll('main img').forEach(img => { img.loading = 'eager'; });
+                  await document.fonts.ready;
+                });
+                await page.waitForFunction(() => [...document.querySelectorAll('main img')].every(img => img.complete && img.naturalWidth > 0));
+                const observed = await page.evaluate(() => ({
+                  title: document.querySelector('h1')?.textContent.trim(),
+                  text: document.querySelector('main')?.innerText,
+                  overflow: document.documentElement.scrollWidth > innerWidth,
+                  images: [...document.querySelectorAll('main img')].map(img => ({ src: img.currentSrc, alt: img.alt, width: img.naturalWidth, height: img.naturalHeight })),
+                  faq: [...document.querySelectorAll('script[type="application/ld+json"]')].map(el => JSON.parse(el.textContent)).filter(data => data['@type'] === 'FAQPage'),
+                }));
+                await page.screenshot({ path: out + '/' + viewport.width + '.png', fullPage: true });
+                report.viewports.push({ viewport, ...observed });
+                assert.equal(observed.title, 'Barragunda Dining, Bushrangers Bay and planning for VineHop');
+                assert.equal(observed.overflow, false, 'Horizontal overflow');
+                assert.match(observed.text, /113 Cape Schanck Road/);
+                assert.match(observed.text, /unexpected waves/);
+                assert.match(observed.text, /Correction prepared 14 November 2026/);
+                assert.doesNotMatch(observed.text, /RACV|waratah|basalt platform|90 minutes|lower coastal|humanitix/i);
+                assert.equal(observed.faq[0]?.mainEntity.length, 3);
+              } finally { await page.close(); }
+            }
+          } finally {
+            await fs.writeFile(out + '/report.json', JSON.stringify(report, null, 2));
+            await site.close();
+          }
+          JS
+
+      - name: Upload November 15 correction review
+        if: always() && github.event_name == 'pull_request' && github.event.pull_request.number == 734
+        uses: actions/upload-artifact@v4
+        with:
+          name: picks-20261115-review-${{ github.event.pull_request.head.sha }}
+          path: next/review/picks-20261115/
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Explain failure
         if: failure()
         run: |
