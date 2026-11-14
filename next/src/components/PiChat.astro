@@ -85,6 +85,7 @@ const starters = [
 )}
 
 <script>
+  import type { TransitionBeforeSwapEvent } from 'astro:transitions/client';
   import { askPI, placeLinks, paragraphs, STAGE_LINES, READER_ERROR, type Place } from '../lib/ask-client';
 
   type Turn =
@@ -457,6 +458,17 @@ const starters = [
       ask(q);
     }, true); // capture, as above
 
+    // A navigation snapshot can sit above the persisted chat and swallow taps
+    // and swipes even after the destination is visible. Chat recommendations
+    // need an immediately usable destination, not a decorative page fade.
+    // Use the actual navigation source, so cancelled/external links cannot
+    // accidentally disable a later, unrelated transition.
+    document.addEventListener('astro:before-swap', (event: TransitionBeforeSwapEvent) => {
+      if (event.sourceElement && panel.contains(event.sourceElement)) {
+        event.viewTransition.skipTransition();
+      }
+    });
+
     // The router swaps <html> attributes on navigation; restore ours.
     document.addEventListener('astro:after-swap', applyChrome);
     document.addEventListener('astro:page-load', applyChrome);
@@ -517,6 +529,8 @@ const starters = [
   }
   .pi-chat.is-in .pi-chat__panel { opacity: 1; transform: none; }
   .pi-chat__panel[hidden] { display: none; }
+  /* A closing sheet must stop swallowing taps before its exit animation ends. */
+  .pi-chat[data-state="closed"] .pi-chat__panel { pointer-events: none; }
   html.pi-chat-sheet { overflow: hidden; }
 
   /* Desktop. Docked (80em and up): a sidebar under the masthead; the page content moves

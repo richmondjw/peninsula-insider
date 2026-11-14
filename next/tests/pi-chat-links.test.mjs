@@ -26,3 +26,19 @@ test('minimise persists closed state and releases responsive chrome without dele
   assert.match(fn, /if \(focus\) launch.focus/);
 });
 test('queued open animation cannot reopen a just-minimised chat', () => assert.match(source, /requestAnimationFrame\(\(\) => \{\s*if \(root!\.dataset\.state !== 'open'\) return;/));
+
+const swap = source.split("document.addEventListener('astro:before-swap', (event: TransitionBeforeSwapEvent) => {")[1].split('});')[0];
+for (const [label, element, inside, expected] of [
+  ['chat recommendation', {}, true, 1],
+  ['unrelated navigation', {}, false, 0],
+  ['history or programmatic navigation without source', undefined, false, 0],
+]) test(`only chat-origin navigation skips the blocking snapshot: ${label}`, () => {
+  let skipped = 0;
+  vm.runInNewContext(`(function(event) {${swap}})(event)`, {
+    event: { sourceElement: element, viewTransition: { skipTransition() { skipped++; } } },
+    panel: { contains: () => inside },
+  });
+  assert.equal(skipped, expected);
+});
+
+test('closed panel releases hit testing before delayed hiding', () => assert.match(source, /\.pi-chat\[data-state="closed"\] \.pi-chat__panel \{ pointer-events: none;/));
