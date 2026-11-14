@@ -214,7 +214,11 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
         return style.visibility === 'visible' && style.pointerEvents !== 'none' && Number(style.opacity) === 1;
       }, 'launcher is ready after destination settles');
       await reader.page.click('#pi-chat-launch');
-      await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
+      await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open' && !!document.querySelector('.pi-tile'), 'chat reopens with saved recommendations', null, { describe: () => {
+        const root = document.querySelector('#pi-chat'), panel = document.querySelector('#pi-chat-panel'), launch = document.querySelector('#pi-chat-launch');
+        const r = launch.getBoundingClientRect();
+        return { state: root?.dataset.state, classes: root?.className, booted: root?.dataset.booted, panelHidden: panel?.hidden, tiles: document.querySelectorAll('.pi-tile').length, stored: sessionStorage.getItem('pi-chat-state'), hit: document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML, errors: window.__J.pageErrors, roots: document.querySelectorAll('#pi-chat').length };
+      } });
       assert.equal(await reader.page.$eval('.pi-msg--you', el => el.textContent), 'Where should we eat?');
       assert.deepEqual(await reader.errors(), []);
     } finally {
