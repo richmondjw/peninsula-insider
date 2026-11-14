@@ -7,7 +7,7 @@ const click = source.split("document.addEventListener('click', (e) => {")[1].spl
 function run({ inside = true, href = 'https://pi.test/eat/venue/', ...overrides } = {}) {
   const calls = [];
   const a = {href, dataset: {}, target: '', hasAttribute: () => false};
-  const e = {button: 0, target: {closest: () => a}, preventDefault() {calls.push('prevent');}, ...overrides};
+  const e = {button: 0, target: {closest: (selector) => selector === 'a[href]' ? a : null}, preventDefault() {calls.push('prevent');}, ...overrides};
   vm.runInNewContext(`(function(e) {${click}})(e)`, {e, panel: {contains: () => inside}, minimise: (focus) => calls.push(['minimise', focus]), onAskPage: () => false, location: {origin: 'https://pi.test', href:'https://pi.test/'}, URL, window: {}, ask: () => calls.push('ask'), open: () => calls.push('open'), popUpFrom: () => calls.push('popup')});
   return calls;
 }
