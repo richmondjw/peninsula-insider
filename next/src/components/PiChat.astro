@@ -399,6 +399,7 @@ const starters = [
 
     /* ---------- wiring (each listener bound once; this script runs once) ---------- */
 
+    launch.addEventListener('click', () => open());
     document.getElementById('pi-chat-min')!.addEventListener('click', () => minimise());
     document.getElementById('pi-chat-new')!.addEventListener('click', () => {
       controller?.abort();
@@ -428,9 +429,7 @@ const starters = [
     // chat's own "Open as a page" link still navigate. Both listeners capture,
     // because Astro's ClientRouter claims same-site links and forms on the way up.
     document.addEventListener('click', (e) => {
-      if (e.defaultPrevented || e.button !== 0 || onAskPage()) return;
-      if ((e.target as HTMLElement).closest('#pi-chat-launch')) { open(); return; }
-      if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || onAskPage()) return;
       const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
       if (!a) return;
       // Close before ClientRouter navigation so the persisted chat does not cover

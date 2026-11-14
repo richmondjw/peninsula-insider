@@ -213,19 +213,28 @@ for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844,
         const style = getComputedStyle(button);
         return style.visibility === 'visible' && style.pointerEvents !== 'none' && Number(style.opacity) === 1;
       }, 'launcher is ready after destination settles');
-      await reader.page.evaluate(() => {
-        window.__chatClicks = [];
-        document.addEventListener('click', e => window.__chatClicks.push({ target: e.target?.outerHTML, prevented: e.defaultPrevented, button: e.button, meta: e.metaKey, ctrl: e.ctrlKey, shift: e.shiftKey, alt: e.altKey }), { capture: true });
-      });
+      await reader.waitFor(() => !document.documentElement.hasAttribute('data-astro-transition'), 'Astro transition overlay finishes before the next interaction');
       await reader.page.click('#pi-chat-launch');
       await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open' && !document.querySelector('#pi-chat-panel')?.hidden && !!document.querySelector('.pi-tile'), 'chat reopens with saved recommendations', null, { describe: () => {
         const root = document.querySelector('#pi-chat'), panel = document.querySelector('#pi-chat-panel'), launch = document.querySelector('#pi-chat-launch');
         const r = launch.getBoundingClientRect();
-        const before = {state: root?.dataset.state, stored: sessionStorage.getItem('pi-chat-state')};
-        window.PIChat?.open(false);
-        return { before, clicks: window.__chatClicks, state: root?.dataset.state, classes: root?.className, booted: root?.dataset.booted, panelHidden: panel?.hidden, tiles: document.querySelectorAll('.pi-tile').length, stored: sessionStorage.getItem('pi-chat-state'), hit: document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML, errors: window.__J.pageErrors, roots: document.querySelectorAll('#pi-chat').length };
+        return { state: root?.dataset.state, classes: root?.className, booted: root?.dataset.booted, panelHidden: panel?.hidden, tiles: document.querySelectorAll('.pi-tile').length, stored: sessionStorage.getItem('pi-chat-state'), hit: document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML, errors: window.__J.pageErrors, roots: document.querySelectorAll('#pi-chat').length };
       } });
       assert.equal(await reader.page.$eval('.pi-msg--you', el => el.textContent), 'Where should we eat?');
+      await reader.page.click('#pi-chat-min');
+      await reader.waitFor(() => document.querySelector('#pi-chat-panel')?.hidden, 'manual minimise still works');
+      await reader.page.click('#pi-chat-launch');
+      await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open', 'manual reopen still works');
+      await reader.page.$eval('.pi-tile', a => { a.href = '/explore/'; });
+      const secondLoads = await reader.page.evaluate(() => window.__J.pageLoads);
+      await reader.page.click('.pi-tile__title');
+      await reader.waitFor(n => window.__J.pageLoads > n && location.pathname === '/explore/' && !document.documentElement.hasAttribute('data-astro-transition'), 'second recommendation navigation completes', secondLoads);
+      assert.equal(await reader.page.evaluate(() => document.querySelector('#pi-chat').dataset.state), 'closed');
+      await reader.page.click('#pi-chat-launch');
+      await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open', 'chat reopens after second navigation');
+      await reader.page.click('#pi-chat-new');
+      await reader.waitFor(() => document.querySelector('#pi-chat-log')?.children.length === 0, 'new conversation control still works');
+
       assert.deepEqual(await reader.errors(), []);
     } finally {
       await reader.close();
