@@ -175,3 +175,69 @@ test('walking the journeys raises no uncaught error', async () => {
     await reader.close();
   }
 });
+
+for (const viewport of [{ width: 1440, height: 900 }, { width: 390, height: 844, isMobile: true, hasTouch: true }]) {
+  test(`Ask PI recommendation minimises and preserves conversation at ${viewport.width}px`, async () => {
+    const reader = await site.reader();
+    try {
+      await reader.page.setViewport(viewport);
+      await reader.page.evaluateOnNewDocument(() => {
+        sessionStorage.setItem('pi-chat-state', 'open');
+        sessionStorage.setItem('pi-chat-history', JSON.stringify([
+          { role: 'you', text: 'Where should we eat?' },
+          { role: 'pi', text: 'Browse Eat', places: [{ title: 'Eat', href: '/eat/' }], next: [] },
+        ]));
+      });
+      await reader.load('/');
+      await reader.page.waitForSelector('#pi-chat[data-state="open"] .pi-tile', { visible: true });
+      const history = await reader.page.evaluate(() => sessionStorage.getItem('pi-chat-history'));
+      const pageLoads = await reader.page.evaluate(() => window.__J.pageLoads);
+      await reader.page.click('.pi-tile__title');
+      await reader.waitFor(n => window.__J.pageLoads > n, 'recommendation finishes Astro navigation', pageLoads);
+      await reader.page.waitForFunction(() => location.pathname === '/eat/' && document.querySelector('#pi-chat')?.dataset.state === 'closed');
+      await reader.page.waitForFunction(() => document.querySelector('#pi-chat-panel')?.hidden);
+      const state = await reader.page.evaluate(() => ({
+        stored: sessionStorage.getItem('pi-chat-state'),
+        history: sessionStorage.getItem('pi-chat-history'),
+        expanded: document.querySelector('#pi-chat-launch').getAttribute('aria-expanded'),
+        locked: document.documentElement.classList.contains('pi-chat-sheet'),
+        docked: document.documentElement.classList.contains('pi-chat-docked'),
+      }));
+      assert.equal(state.stored, 'closed');
+      assert.equal(state.history, history);
+      assert.equal(state.expanded, 'false');
+      assert.equal(state.locked, false);
+      assert.equal(state.docked, false);
+      await reader.waitFor(() => {
+        const button = document.querySelector('#pi-chat-launch');
+        const style = getComputedStyle(button);
+        return style.visibility === 'visible' && style.pointerEvents !== 'none' && Number(style.opacity) === 1;
+      }, 'launcher is ready after destination settles');
+      await reader.waitFor(() => !document.documentElement.hasAttribute('data-astro-transition'), 'Astro transition overlay finishes before the next interaction');
+      await reader.page.click('#pi-chat-launch');
+      await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open' && !document.querySelector('#pi-chat-panel')?.hidden && !!document.querySelector('.pi-tile'), 'chat reopens with saved recommendations', null, { describe: () => {
+        const root = document.querySelector('#pi-chat'), panel = document.querySelector('#pi-chat-panel'), launch = document.querySelector('#pi-chat-launch');
+        const r = launch.getBoundingClientRect();
+        return { state: root?.dataset.state, classes: root?.className, booted: root?.dataset.booted, panelHidden: panel?.hidden, tiles: document.querySelectorAll('.pi-tile').length, stored: sessionStorage.getItem('pi-chat-state'), hit: document.elementFromPoint(r.x+r.width/2,r.y+r.height/2)?.outerHTML, errors: window.__J.pageErrors, roots: document.querySelectorAll('#pi-chat').length };
+      } });
+      assert.equal(await reader.page.$eval('.pi-msg--you', el => el.textContent), 'Where should we eat?');
+      await reader.page.click('#pi-chat-min');
+      await reader.waitFor(() => document.querySelector('#pi-chat-panel')?.hidden, 'manual minimise still works');
+      await reader.page.click('#pi-chat-launch');
+      await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open', 'manual reopen still works');
+      await reader.page.$eval('.pi-tile', a => { a.href = '/explore/'; });
+      const secondLoads = await reader.page.evaluate(() => window.__J.pageLoads);
+      await reader.page.click('.pi-tile__title');
+      await reader.waitFor(n => window.__J.pageLoads > n && location.pathname === '/explore/' && !document.documentElement.hasAttribute('data-astro-transition'), 'second recommendation navigation completes', secondLoads);
+      assert.equal(await reader.page.evaluate(() => document.querySelector('#pi-chat').dataset.state), 'closed');
+      await reader.page.click('#pi-chat-launch');
+      await reader.waitFor(() => document.querySelector('#pi-chat')?.dataset.state === 'open', 'chat reopens after second navigation');
+      await reader.page.click('#pi-chat-new');
+      await reader.waitFor(() => document.querySelector('#pi-chat-log')?.children.length === 0, 'new conversation control still works');
+
+      assert.deepEqual(await reader.errors(), []);
+    } finally {
+      await reader.close();
+    }
+  });
+}
