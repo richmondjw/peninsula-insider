@@ -1,28 +1,28 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-14T19:24:30.644Z",
+  "generatedAt": "2026-11-14T20:18:17.801Z",
   "baselineAvailable": true,
-  "fromSnapshot": "87d41285f5e3729f19d890c348d000b46265767db0bce9d863c832b7ee3c2b6b",
-  "toSnapshot": "179443e2e216142e77f0fe25d8ade3e5f38337d1e7913d303d28cdf45da1d929",
-  "previousGeneratedAt": "2026-11-14T16:44:11.689Z",
+  "fromSnapshot": "179443e2e216142e77f0fe25d8ade3e5f38337d1e7913d303d28cdf45da1d929",
+  "toSnapshot": "cb9e1453ff035fb39c080b1c08884a254754ace55b629338ccb63606dbd1edf2",
+  "previousGeneratedAt": "2026-11-14T19:24:30.644Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 2,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/index.md",
-      "contentSha256": "35ec1497f5a9c68333966fc612b557435069d79391bbb73cdc921c2602eb50f7",
-      "previousContentSha256": "6aebe6ef9b19a9ef401c994d56ab1e1cfe9005dfe5c97db23bec0f5c78cee170"
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/",
+      "kind": "representation-added",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/index.md",
+      "contentSha256": "e992eab33f006fbd16c8a790f92e1cf95158322529155e743717e9c25f2b9390",
+      "previousContentSha256": null
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
+      "id": "https://peninsulainsider.com.au/picks/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/crib-point-community-market/index.md",
-      "contentSha256": "901a9f5a8d1ffb023f3b85b52cd535864a41dbf2bf578469a2cafc50e4a55d18",
-      "previousContentSha256": "e6dff249447bfa6f4bc40c8a916c483ae352d418056fe22de5cf6d33967eea3c"
+      "canonicalUrl": "https://peninsulainsider.com.au/picks/",
+      "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
+      "contentSha256": "0abce72e3e3c56134c71598df6e0a22235b2ac33b7a04e37a661b26796b33f2d",
+      "previousContentSha256": "715f219d09f89f80eacccb7741d6321339ff889316135a0a2058bab8a336fe62"
     }
   ]
 }

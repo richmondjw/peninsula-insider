@@ -15,6 +15,8 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
+- [Barragunda's market garden table, waratahs at Bushrangers Bay, and the Peninsula VineHop Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/>) - A set-menu dinner beside Barragunda's Cape Schanck market garden, waratah season on the Bushrangers Bay coastal walk, and six linked venues on the Peninsula VineHop Festival route this Saturday.
+
 - [Two Bays on tap, waratahs on the Bushrangers Bay track, and the VineHop Festival this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-14/>) - A gluten-free pale ale that holds up without the qualifier at Two Bays in Dromana, waratah season on the Bushrangers Bay Walk near Flinders, and what to know before Saturday's Peninsula VineHop Festival.
 
 - [Lindenderry's garden walk, the NWOP's final weekend, and live music at Fingal](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-13/>) - Red Hill estate gardens at their spring peak, the National Works on Paper closing Sunday at Mornington Peninsula Regional Gallery, and acoustic sets at Peppers Moonah Links in Fingal.
@@ -36,8 +38,6 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 - [Green Olive in the grove, the coastal heath in full flower, and the Works on Paper closing window](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-05/>) - Green Olive at Red Hill's wood-fired lamb under the olive grove, the Boneo heathland orchids at peak density, and the National Works on Paper show at MPRG closing 22 November.
 
 - [Red Hill Brewery's tasting paddle, the Boneo Plains wildflower flush, and the Mt Eliza Farmers Market](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-04/>) - Red Hill Brewery's Belgian-style paddle in the hop yard, the grassland orchid bloom on Boneo Plains, and the Mt Eliza Farmers Market running until 22 November.
-
-- [Rye Hotel's deck in spring, the Cape Schanck heathland walk, and Elan Vineyard's current show](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-03/>) - The Rye Hotel earns a long afternoon on its foreshore deck, Cape Schanck's heathland boardwalk hits peak colour this week, and Elan Vineyard & Gallery in Balnarring is showing new work worth the detour.
 
 ## Planning a particular weekend?
 

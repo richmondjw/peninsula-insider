@@ -1,11 +1,11 @@
 {
   "schemaVersion": "2.0",
-  "generatedAt": "2026-11-14T19:24:30.644Z",
-  "snapshotId": "179443e2e216142e77f0fe25d8ade3e5f38337d1e7913d303d28cdf45da1d929",
+  "generatedAt": "2026-11-14T20:18:17.801Z",
+  "snapshotId": "cb9e1453ff035fb39c080b1c08884a254754ace55b629338ccb63606dbd1edf2",
   "scope": "All canonical indexable pages in the published sitemap. Private, account, redirect and non-indexable pages are excluded.",
   "documentation": "https://peninsulainsider.com.au/agents/",
   "dateSemantics": "generatedAt is conversion time, not source verification. Citation dates retain the page metadata meaning and may be null. contentSha256 covers the Markdown representation.",
-  "count": 702,
+  "count": 703,
   "records": [
     {
       "id": "https://peninsulainsider.com.au/",
@@ -6400,6 +6400,23 @@
       "markdownBytes": 8222
     },
     {
+      "id": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/",
+      "title": "Barragunda's market garden table, waratahs at Bushrangers Bay, and the Peninsula VineHop Festival",
+      "section": "journal",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/index.md",
+      "contentSha256": "e992eab33f006fbd16c8a790f92e1cf95158322529155e743717e9c25f2b9390",
+      "citation": {
+        "title": "Barragunda's market garden table, waratahs at Bushrangers Bay, and the Peninsula VineHop Festival",
+        "publisher": "Peninsula Insider",
+        "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/",
+        "publishedAt": "2026-11-15T00:00:00.000Z",
+        "modifiedAt": "2026-11-15T00:00:00.000Z"
+      },
+      "htmlBytes": 163391,
+      "markdownBytes": 8400
+    },
+    {
       "id": "https://peninsulainsider.com.au/journal/local-secrets/",
       "title": "The Peninsula our readers see.",
       "section": "journal",
@@ -7238,7 +7255,7 @@
       "section": "picks",
       "canonicalUrl": "https://peninsulainsider.com.au/picks/",
       "markdownUrl": "https://peninsulainsider.com.au/picks/index.md",
-      "contentSha256": "715f219d09f89f80eacccb7741d6321339ff889316135a0a2058bab8a336fe62",
+      "contentSha256": "0abce72e3e3c56134c71598df6e0a22235b2ac33b7a04e37a661b26796b33f2d",
       "citation": {
         "title": "Insider Picks",
         "publisher": "Peninsula Insider",
@@ -7246,8 +7263,8 @@
         "publishedAt": null,
         "modifiedAt": null
       },
-      "htmlBytes": 121078,
-      "markdownBytes": 5601
+      "htmlBytes": 121066,
+      "markdownBytes": 5597
     },
     {
       "id": "https://peninsulainsider.com.au/privacy/",
