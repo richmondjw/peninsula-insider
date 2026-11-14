@@ -15,7 +15,7 @@ Insider Picks is a short selection of places, experiences and discoveries, with 
 
 ## Recent selections
 
-- [Barragunda's market garden table, waratahs at Bushrangers Bay, and the Peninsula VineHop Festival](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/>) - A set-menu dinner beside Barragunda's Cape Schanck market garden, waratah season on the Bushrangers Bay coastal walk, and six linked venues on the Peninsula VineHop Festival route this Saturday.
+- [Barragunda Dining, Bushrangers Bay and planning for VineHop](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-15/>) - Book directly with Barragunda, check Parks Victoria's coastal-walk guidance, and plan transport for VineHop on 21 November.
 
 - [Two Bays on tap, waratahs on the Bushrangers Bay track, and the VineHop Festival this Saturday](<https://peninsulainsider.com.au/journal/insider-picks-2026-11-14/>) - A gluten-free pale ale that holds up without the qualifier at Two Bays in Dromana, waratah season on the Bushrangers Bay Walk near Flinders, and what to know before Saturday's Peninsula VineHop Festival.
 
