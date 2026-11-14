@@ -173,6 +173,7 @@ const starters = [
       launch.setAttribute('aria-expanded', 'true');
       applyChrome();
       requestAnimationFrame(() => {
+        if (root!.dataset.state !== 'open') return;
         root!.classList.add('is-in');
         if (focus) input.focus({ preventScroll: true });
       });
@@ -191,7 +192,7 @@ const starters = [
       open();
     }
 
-    function minimise() {
+    function minimise(focus = true) {
       root!.classList.remove('is-in');
       root!.dataset.state = 'closed';
       store.set(sessionStorage, STATE, 'closed');
@@ -205,7 +206,7 @@ const starters = [
           root!.dataset.mode = store.get(localStorage, MODE) === 'float' ? 'float' : 'dock';
         }
       }, 220);
-      launch.focus({ preventScroll: true });
+      if (focus) launch.focus({ preventScroll: true });
     }
 
     /* ---------- rendering ---------- */
@@ -399,7 +400,7 @@ const starters = [
     /* ---------- wiring (each listener bound once; this script runs once) ---------- */
 
     launch.addEventListener('click', () => open());
-    document.getElementById('pi-chat-min')!.addEventListener('click', minimise);
+    document.getElementById('pi-chat-min')!.addEventListener('click', () => minimise());
     document.getElementById('pi-chat-new')!.addEventListener('click', () => {
       controller?.abort();
       turns = [];
@@ -430,7 +431,14 @@ const starters = [
     document.addEventListener('click', (e) => {
       if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || onAskPage()) return;
       const a = (e.target as HTMLElement).closest<HTMLAnchorElement>('a[href]');
-      if (!a || a.dataset.piPage || a.target === '_blank') return;
+      if (!a) return;
+      // Close before ClientRouter navigation so the persisted chat does not cover
+      // the destination. Keep the conversation and leave normal link behaviour alone.
+      if (panel.contains(a)) {
+        minimise(false);
+        return;
+      }
+      if (a.dataset.piPage || a.target === '_blank') return;
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin || url.pathname !== '/ask/') return;
       e.preventDefault();
