@@ -247,6 +247,10 @@ test('weekend keeps three visible slots and unique loaded event imagery at deskt
       await reader.page.setViewport({width,height:900,deviceScaleFactor:width===390?2:1});
       await reader.load('/');
       await reader.page.$eval('#home-weekend', el=>el.scrollIntoView());
+      for(const card of await reader.page.$$('#home-weekend [data-event-promotion]:not([hidden])')) {
+        await card.evaluate(el=>el.scrollIntoView({block:'center',inline:'center',behavior:'instant'}));
+        await reader.page.waitForFunction(el=>{const img=el.querySelector('img');return img.complete&&img.naturalWidth>0;},{},card);
+      }
       await reader.page.waitForFunction(()=>[...document.querySelectorAll('#home-weekend [data-event-promotion]:not([hidden]) img')].every(img=>img.complete && img.naturalWidth>0));
       const result=await reader.page.$eval('#home-weekend',section=>{
         const events=[...section.querySelectorAll('[data-event-promotion]:not([hidden])')];
