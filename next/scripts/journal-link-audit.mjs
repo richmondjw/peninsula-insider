@@ -94,7 +94,8 @@ export function contextualMentions(page, entities, pages) {
       let at = value.indexOf(alias);
       while (at !== -1) {
         const end = at + alias.length;
-        if (!/[\p{L}\p{N}]/u.test(value[at-1] ?? '') && !/[\p{L}\p{N}]/u.test(value[end] ?? '')) matches.push({entity,alias,at,end});
+        const boundary = entity.kind === 'place' ? /[\p{L}\p{N}-]/u : /[\p{L}\p{N}]/u;
+        if (!boundary.test(value[at-1] ?? '') && !boundary.test(value[end] ?? '')) matches.push({entity,alias,at,end});
         at = value.indexOf(alias, at + 1);
       }
     }

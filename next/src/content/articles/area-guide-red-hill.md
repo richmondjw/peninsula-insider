@@ -86,7 +86,7 @@ If you can stay overnight, do. Red Hill improves dramatically when lunch is not 
 
 ### The supporting cast that matters
 
-**[Foxeys Hangout](/wine/foxeys-hangout/)** is worth knowing for a looser tasting. **[Paringa Estate](/wine/paringa-estate/)** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in Balnarring.
+**[Foxeys Hangout](/wine/foxeys-hangout/)** is worth knowing for a looser tasting. **[Paringa Estate](/wine/paringa-estate/)** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in [Balnarring](/explore/places/balnarring/).
 
 The basic rule: one major lunch, one meaningful cellar door, one or two incidental stops. More than that and quality drops faster than quantity rises.
 
@@ -94,7 +94,7 @@ The basic rule: one major lunch, one meaningful cellar door, one or two incident
 
 **[Lindenderry at Red Hill](/stay/lindenderry/)** is the easiest recommendation because it understands the brief: regional, comfortable, low-theatre, and close to the action without trying to outshine it.
 
-Private villas and vineyard cottages around Red Hill South, Merricks North and [Main Ridge](/explore/places/main-ridge/) are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's orbit.
+Private villas and vineyard cottages around [Red Hill South](/explore/places/red-hill-south/), [Merricks North](/explore/places/merricks-north/) and [Main Ridge](/explore/places/main-ridge/) are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's orbit.
 
 Staying in [Dromana](/explore/places/dromana/) to save money can make sense if you accept the trade. You get easier bay access and cheaper accommodation, but you lose the ability to let lunch run long without consequence.
 

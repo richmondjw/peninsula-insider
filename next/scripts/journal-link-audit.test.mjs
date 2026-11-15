@@ -68,3 +68,7 @@ test('all approved pilot links have exact aliases and matching canonical resolve
   assert.equal(result.mentions[0].status,status);
  }
 });
+
+test('a hyphenated street name does not assert a town mention',()=>{
+ assert.equal(audit('<p>1175 Mornington-Flinders Road</p>',[{...entity,kind:'place',aliases:['Mornington','Flinders']}]).mentions.length,0);
+});
