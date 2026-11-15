@@ -641,16 +641,6 @@ Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? to
 
 - [Sun, 15 Nov
 
-### Mr Morpheus Live at Tar Barrel
-
-Mornington
-
-Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
-
-- [Sun, 15 Nov
-
 ### Sunday sessions at Peninsula Hot Springs Eco Lodges
 
 Fingal
@@ -658,3 +648,13 @@ Fingal
 Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
  Event · Wellness](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
+- [Sun, 15 Nov
+
+### The Peninsula Retreat at Alba Thermal Springs & Spa
+
+Fingal
+
+Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat. The retreat includes a guided coastal hike, hot springs bathing across two days, wellness activities and all meals. Starts 11am.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)

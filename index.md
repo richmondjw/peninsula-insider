@@ -47,13 +47,13 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- ### [Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
+- ### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
-Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next?
 
-Sun, 15 Nov   Tar Barrel   Live music
+Sun, 15 Nov   Pig & Whistle Tavern   Live music
 
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.thepigandwhistle.com.au/what-s-on>)
 
 - ### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
@@ -63,7 +63,9 @@ Sun, 15 Nov   Peninsula Hot Springs Eco Lodges   Wellness
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au>)
 
-- ### [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
+- Alba Thermal Springs & Spa, Fingal, Mornington Peninsula   Photo courtesy of Visit Victoria.
+
+### [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
 
 Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat.
 

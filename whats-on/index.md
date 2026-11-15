@@ -11,7 +11,7 @@ Fri 13 – Sun 15 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
-## Three reasons to go
+## Two reasons to go
 
 - Sun, 15 Nov · Main Ridge
 
@@ -28,14 +28,6 @@ Live Music
 Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
 Wellness
-
-- Sun, 15 Nov · 1:30pm–4:30pm · Mornington
-
-### [Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
-
-Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
-
-Live Music
 
 ## Day by day
 

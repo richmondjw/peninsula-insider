@@ -221,16 +221,6 @@ Coming up in Boneo, pulled from the events registry.
 
 [All events →](<https://peninsulainsider.com.au/whats-on/>)
 
-- [Sun, 15 Nov
-
-### Bennsong Live at Peninsula Beer Garden
-
-Boneo
-
-Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
 - [Sat, 5 Dec
 
 ### Countdown Classics 70's & 80's Live at Peninsula Beer Garden
@@ -250,3 +240,13 @@ Boneo
 Live Music at Peninsula Beer Garden! Join Dave Campbell for your music fix.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dave-campbell-live-at-peninsula-beer-garden-2026-11-29/>)
+
+- [Fri, 20 Nov
+
+### Dee - Calmer Miles Live at Peninsula Beer Garden
+
+Boneo
+
+Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)

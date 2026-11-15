@@ -9017,64 +9017,64 @@
       ]
     },
     {
-      "source": "/images/generated/events/music-microphone.webp",
+      "source": "/images/generated/events/music-amp.webp",
       "format": "webp",
-      "originalBytes": 24324,
+      "originalBytes": 36502,
       "variants": [
         {
-          "src": "/_media/5781c0117d3ea0b19129-480.webp",
+          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
           "width": 480,
           "height": 320,
-          "bytes": 6096
+          "bytes": 8956
         },
         {
-          "src": "/_media/5781c0117d3ea0b19129-800.webp",
+          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
           "width": 800,
           "height": 533,
-          "bytes": 10726
+          "bytes": 15504
         },
         {
-          "src": "/_media/5781c0117d3ea0b19129-1280.webp",
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
           "width": 1280,
           "height": 853,
-          "bytes": 17142
+          "bytes": 25322
         },
         {
-          "src": "/_media/5781c0117d3ea0b19129-1536.webp",
+          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
           "width": 1536,
           "height": 1024,
-          "bytes": 22550
+          "bytes": 34318
         }
       ]
     },
     {
-      "source": "/images/generated/events/music-microphone.webp",
+      "source": "/images/generated/events/music-amp.webp",
       "format": "avif",
-      "originalBytes": 24324,
+      "originalBytes": 36502,
       "variants": [
         {
-          "src": "/_media/45df31974e99f7576b60-480.avif",
+          "src": "/_media/04c2144199f6c2986695-480.avif",
           "width": 480,
           "height": 320,
-          "bytes": 2994
+          "bytes": 4252
         },
         {
-          "src": "/_media/45df31974e99f7576b60-800.avif",
+          "src": "/_media/04c2144199f6c2986695-800.avif",
           "width": 800,
           "height": 533,
-          "bytes": 4256
+          "bytes": 6268
         },
         {
-          "src": "/_media/45df31974e99f7576b60-1280.avif",
+          "src": "/_media/04c2144199f6c2986695-1280.avif",
           "width": 1280,
           "height": 853,
-          "bytes": 5675
+          "bytes": 8411
         },
         {
-          "src": "/_media/45df31974e99f7576b60-1536.avif",
+          "src": "/_media/04c2144199f6c2986695-1536.avif",
           "width": 1536,
           "height": 1024,
-          "bytes": 7828
+          "bytes": 11087
         }
       ]
     },
@@ -9137,6 +9137,31 @@
           "width": 1536,
           "height": 1024,
           "bytes": 20469
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp",
+      "format": "avif",
+      "originalBytes": 111506,
+      "variants": [
+        {
+          "src": "/_media/1a9942c30fe1d375abe4-480.avif",
+          "width": 480,
+          "height": 281,
+          "bytes": 12458
+        },
+        {
+          "src": "/_media/1a9942c30fe1d375abe4-800.avif",
+          "width": 800,
+          "height": 469,
+          "bytes": 27300
+        },
+        {
+          "src": "/_media/1a9942c30fe1d375abe4-1280.avif",
+          "width": 1280,
+          "height": 750,
+          "bytes": 68790
         }
       ]
     },
@@ -13964,37 +13989,6 @@
           "width": 1920,
           "height": 1280,
           "bytes": 108626
-        }
-      ]
-    },
-    {
-      "source": "/images/generated/events/music-amp.webp",
-      "format": "webp",
-      "originalBytes": 36502,
-      "variants": [
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 8956
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-800.webp",
-          "width": 800,
-          "height": 533,
-          "bytes": 15504
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-1280.webp",
-          "width": 1280,
-          "height": 853,
-          "bytes": 25322
-        },
-        {
-          "src": "/_media/1ca6d7e14fc7e30d6a68-1536.webp",
-          "width": 1536,
-          "height": 1024,
-          "bytes": 34318
         }
       ]
     },

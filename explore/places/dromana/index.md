@@ -407,12 +407,12 @@ Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly br
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/dj-sophie-joy-live-at-jetty-road-brewery-2026-11-28/>)
 
-- [Sun, 15 Nov
+- [Sun, 29 Nov
 
-### Jimmy & Niki Live at Jetty Road Brewery
+### Olivia Mae Live at Jetty Road Brewery
 
 Dromana
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
+Live music every weekend at Jetty Road Brewery! Settle in with a cold craft brew, delicious food and the sounds of talented local artists bringing the brewery to life every weekend.
 
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/olivia-mae-live-at-jetty-road-brewery-2026-11-29/>)

@@ -11,8 +11,6 @@ Event     Live Music     15 November 2026     One-off date
 
 Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
 
-[Book or check details](<https://tarbarrel.com.au/music/>)
-
 Tar Barrel's official program places Mr Morpheus in the Sunday 15 November slot from 1.30pm to 4.30pm. The set is part of the venue's regular weekend music program rather than a separate ticketed concert, making it an easy fit for a late lunch or afternoon drink.
 
 The brewery is open from midday to 7pm on Sundays, with the published Sunday kitchen close at 6pm. Leashed dogs are welcome at the outside tables and there is on-site parking. Check the venue's music page before setting out in case the artist schedule changes.
@@ -49,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://tarbarrel.com.au/music/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mr+Morpheus+Live+at+Tar+Barrel&dates=20261115T023000Z%2F20261115T053000Z&details=Mr+Morpheus+plays+Tar+Barrel%27s+Sunday+live-music+session+from+1.30pm+to+4.30pm+at+the+Mornington+brewery+and+distillery.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmr-morpheus-live-at-tar-barrel-2026-11-15%2F&location=Tar+Barrel%2C+72+Watt+Road%2C+Mornington+VIC+3931%2C+Mornington%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 
