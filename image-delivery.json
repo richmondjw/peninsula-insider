@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "pages": 343,
+  "pages": 344,
   "images": [
     {
       "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/page/eat-bakeries/hero-1784719891530.jpg",
@@ -61,6 +61,37 @@
           "width": 1920,
           "height": 1280,
           "bytes": 302704
+        }
+      ]
+    },
+    {
+      "source": "/images/visit-victoria/vv-168568-st-andrews-beach-brewery.webp",
+      "format": "webp",
+      "originalBytes": 231694,
+      "variants": [
+        {
+          "src": "/_media/519dbbd5f9de2237d27e-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 30536
+        },
+        {
+          "src": "/_media/519dbbd5f9de2237d27e-800.webp",
+          "width": 800,
+          "height": 534,
+          "bytes": 66910
+        },
+        {
+          "src": "/_media/519dbbd5f9de2237d27e-1280.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 128412
+        },
+        {
+          "src": "/_media/519dbbd5f9de2237d27e-1920.webp",
+          "width": 1920,
+          "height": 1281,
+          "bytes": 203998
         }
       ]
     },
@@ -4813,37 +4844,6 @@
           "width": 1280,
           "height": 853,
           "bytes": 153494
-        }
-      ]
-    },
-    {
-      "source": "/images/visit-victoria/vv-168568-st-andrews-beach-brewery.webp",
-      "format": "webp",
-      "originalBytes": 231694,
-      "variants": [
-        {
-          "src": "/_media/519dbbd5f9de2237d27e-480.webp",
-          "width": 480,
-          "height": 320,
-          "bytes": 30536
-        },
-        {
-          "src": "/_media/519dbbd5f9de2237d27e-800.webp",
-          "width": 800,
-          "height": 534,
-          "bytes": 66910
-        },
-        {
-          "src": "/_media/519dbbd5f9de2237d27e-1280.webp",
-          "width": 1280,
-          "height": 854,
-          "bytes": 128412
-        },
-        {
-          "src": "/_media/519dbbd5f9de2237d27e-1920.webp",
-          "width": 1920,
-          "height": 1281,
-          "bytes": 203998
         }
       ]
     },

@@ -1,20 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-15T02:41:04.715Z",
+  "generatedAt": "2026-11-15T02:58:37.488Z",
   "baselineAvailable": true,
-  "fromSnapshot": "6fc602437a87351b02712177f7a1eb5391001b65ba6dd0d4be47fec8abdd5c67",
-  "toSnapshot": "96e7121ec366eb30daa369d93964eb3598e901391a0a701aea7e843fcb55e83b",
-  "previousGeneratedAt": "2026-11-15T02:10:31.005Z",
+  "fromSnapshot": "96e7121ec366eb30daa369d93964eb3598e901391a0a701aea7e843fcb55e83b",
+  "toSnapshot": "bb4e2f80b1dd3b325f3c216b5f775f6f503bae6e27738f5af157a4dca3793b1c",
+  "previousGeneratedAt": "2026-11-15T02:41:04.715Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/eat/",
+      "id": "https://peninsulainsider.com.au/eat/breweries/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
-      "contentSha256": "aee8c6c9de5f3888e6076c7c652df3d469f04b916d55602fc77a28a377d0c860",
-      "previousContentSha256": "e22953be9f1186cffd4614d79b93109a6402b4b919b81bcc7faccb75dff67eb9"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/breweries/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/breweries/index.md",
+      "contentSha256": "085db0c0d7621932ebdf7cdaa1ecfe8e6997cff877ded9fa44fb50fab84c58fb",
+      "previousContentSha256": "fed5bfa5fba36383a192d3f349d67e4550ac77fb0c63108573a1b0d414fcf855"
     }
   ]
 }

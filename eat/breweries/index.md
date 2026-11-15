@@ -5,86 +5,90 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Breweries on the Mornington Peninsula
+Eat & drink · Mornington Peninsula
 
-Independent brewing is part of the Peninsula's drinks story alongside the wineries. These are the taprooms and brewpubs worth planning an afternoon or a dinner around.
+# Find your brewery afternoon.
 
-Peninsula breweries
+A taproom, a beer garden or a table for lunch. Explore 5 breweries and choose the stop that fits your day.
 
-## 5 breweries on the Peninsula
+[Find a brewery](<https://peninsulainsider.com.au/eat/breweries/#breweries>)
 
-Taprooms and brewpubs, by where they sit on the Peninsula.
+Grouped by place, with direct links to current menus and visiting information.
 
- [All dining venues →](<https://peninsulainsider.com.au/eat/>)
+Food and beer at St Andrews Beach Brewery, Fingal. Courtesy of Visit Victoria. [Image credits](<https://peninsulainsider.com.au/photography/>)
 
-Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Choose your patch
+
+## 5 breweries. 4 places.
+
+Jump to a place, or browse the full list below.
+
+## Dromana
+
+[Explore Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+
+Menu, tap list and a table
 
 ### [Jetty Road Brewery](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>)
 
-12-14 Brasser Ave, Dromana VIC 3936
+The Dromana venue at 12–14 Brasser Avenue brings its food menu, beers on tap and table bookings together on one visiting page.
 
-A Dromana brewery with a beer hall, food menu and core and seasonal beers.
+[Read brewery guide](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>)[Plan your visit](<https://www.jettyroad.com.au/dromana>)
 
-big group  family
-
-[Read notes](<https://peninsulainsider.com.au/wine/jetty-road-brewery/>) [Book](<https://www.jettyroad.com.au/dromana>)
-
-Brewery  [Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
-
-### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
-
-72 Watt Rd, Mornington VIC 3931
-
-The brewery and distillery at 72 Watt Road, with beer and spirit paddles and wood-fired pizza.
-
-big group  garden
-
-[Read notes](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>) [Book](<https://tarbarrel.com.au/>)
-
-Photo: Peter Tarasiuk, courtesy of Visit Victoria
-
-Brewery  [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
-
-### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
-
-88 Shoreham Rd, Red Hill South VIC 3937
-
-A brewery in Red Hill South with its own on-site hop yard, a deck and beer garden.
-
-cellar door  garden
-
-[Read notes](<https://peninsulainsider.com.au/wine/red-hill-brewery/>) [Book](<https://redhillbrewery.com.au/>)
-
-Photo: Courtesy of Visit Victoria
-
-Brewery  [Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
-
-### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
-
-160 Sandy Rd, Fingal VIC 3939
-
-A Fingal brewery in former horse-training stables, with indoor and outdoor dining and a current seasonal menu.
-
-big group  family
-
-[Read notes](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>) [Book](<https://www.standrewsbeachbrewery.com.au/>)
-
-Brewery  [Dromana](<https://peninsulainsider.com.au/explore/places/dromana/>)
+Gluten-free beer and pizza
 
 ### [Two Bays Brewing Co](<https://peninsulainsider.com.au/wine/two-bays-brewing/>)
 
-2/4 Brasser Ave, Dromana VIC 3936
+TWØBAYS describes its Dromana taproom as gluten-free, with wood-fired pizzas. Its visiting page lists the taproom at Unit 1, 2 Trewhitt Court.
 
-Australia's first dedicated gluten-free brewery, unexpectedly good beer, a small unfussy taproom, and worth the drive to Dromana.
+[Read brewery guide](<https://peninsulainsider.com.au/wine/two-bays-brewing/>)[Plan your visit](<https://www.twobays.beer/pages/taproom>)
 
-slow
+## Fingal
 
-[Read notes](<https://peninsulainsider.com.au/wine/two-bays-brewing/>) [Book](<https://www.twobays.beer/>)
+[Explore Fingal](<https://peninsulainsider.com.au/explore/places/fingal/>)
 
-## The Insider Note
+Former stables and a beer garden
 
-The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
+### [St Andrews Beach Brewery](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)
 
-Independent editorial. Sent when there is something worth knowing.
+The Fingal taproom occupies former horse-training stables, with indoor dining and a beer garden. The venue page explains the different spaces and booking options.
 
-Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)
+[Read brewery guide](<https://peninsulainsider.com.au/wine/st-andrews-beach-brewery/>)[Plan your visit](<https://standrewsbeachbrewery.com.au/fingal-brewery/>)
+
+## Mornington
+
+[Explore Mornington](<https://peninsulainsider.com.au/explore/places/mornington/>)
+
+Beer, spirits and wood-fired pizza
+
+### [Tar Barrel Brewery & Distillery](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)
+
+A brewery and distillery at 72 Watt Road. Tar Barrel lists beer and spirit tasting paddles alongside wood-fired pizzas.
+
+[Read brewery guide](<https://peninsulainsider.com.au/wine/mornington-peninsula-brewery/>)[Plan your visit](<https://tarbarrel.com.au/>)
+
+## Red Hill South
+
+[Explore Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>)
+
+A deck, beer garden and hop vines
+
+### [Red Hill Brewery](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)
+
+Red Hill South’s brewery has outdoor spaces overlooking its hops. Check the kitchen arrangements as well as the bar hours before planning a late arrival.
+
+[Read brewery guide](<https://peninsulainsider.com.au/wine/red-hill-brewery/>)[Plan your visit](<https://www.redhillbrewery.com.au/whats-on/>)
+
+ [More places to eat & drink](<https://peninsulainsider.com.au/eat/>)
+
+Before you go
+
+## Make one brewery your anchor.
+
+### Check the kitchen
+
+Bar and food service can finish at different times. Use the venue’s own menu and visiting page when planning a meal.
+
+### Bring the right questions
+
+Confirm group bookings, access needs, dietary requirements and non-alcoholic options directly. Arrange transport before setting out.
