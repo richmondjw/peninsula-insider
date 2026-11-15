@@ -184,7 +184,10 @@ export const prerender = true;
         <section class="bh-water" aria-labelledby={`water-${water.key}`}>
           <div class="bh-water__head">
             <h3 id={`water-${water.key}`}>{water.name}</h3>
-            <p>{water.note} Tide station: <strong>{water.station}</strong>.</p>
+            <p>
+              {water.note} Tide station: <strong>{water.station}</strong>.
+              <a class="bh-tides" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Today's tides<span class="sr-only"> for {water.station}, on the Bureau of Meteorology site</span> <span aria-hidden="true">↗</span></a>
+            </p>
           </div>
           <div class="bh-cols" aria-hidden="true">
             <span>Ramp</span><span>Launch at</span><span>Lanes</span><span>Parking pressure</span>
@@ -242,10 +245,11 @@ export const prerender = true;
   </section>
 
   <section class="bh-noboat" id="no-boat" aria-labelledby="noboat-title">
+    <div class="container">
+      <h2 id="noboat-title">No boat? Hire one, or go with a skipper</h2>
+    </div>
     <div class="container bh-noboat__grid">
       <div class="bh-noboat__body">
-        <h2 id="noboat-title">No boat? Hire one, or go with a skipper</h2>
-
         {hire && (
           <div class="bh-option">
             <h3>Self-drive hire</h3>
@@ -260,7 +264,25 @@ export const prerender = true;
           </div>
         )}
 
-        <div class="bh-option">
+        <figure class="bh-noboat__photo">
+          <img
+            src={pier.src}
+            srcset={`${pierBase}-800.webp 800w, ${pier.src} 1280w`}
+            sizes="(min-width: 1100px) 45vw, 100vw"
+            width="1280"
+            height="854"
+            alt={pier.alt}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption class="bh-caption">
+            <span>{pier.caption}</span>
+            <span>Photo · {pier.credit}</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="bh-option bh-option--charters">
           <h3>Skippered fishing charters</h3>
           <p class="bh-option__lead">The skipper handles the boat and finds the fish. These four are reviewed in our fishing guide.</p>
           <ul class="bh-charters" role="list">
@@ -271,25 +293,7 @@ export const prerender = true;
               </li>
             ))}
           </ul>
-        </div>
       </div>
-
-      <figure class="bh-noboat__photo">
-        <img
-          src={pier.src}
-          srcset={`${pierBase}-800.webp 800w, ${pier.src} 1280w`}
-          sizes="(min-width: 1100px) 40vw, 100vw"
-          width="1280"
-          height="854"
-          alt={pier.alt}
-          loading="lazy"
-          decoding="async"
-        />
-        <figcaption class="bh-caption">
-          <span>{pier.caption}</span>
-          <span>Photo · {pier.credit}</span>
-        </figcaption>
-      </figure>
     </div>
   </section>
 
@@ -332,28 +336,28 @@ export const prerender = true;
           <span class="bh-range__title">How far the water moves</span>
           <span class="bh-range__sub">Typical rise and fall between low and high tide</span>
         </figcaption>
-        <svg viewBox="0 0 320 214" role="img" aria-labelledby="range-desc" focusable="false">
+        <svg viewBox="0 0 360 214" width="360" height="214" role="img" aria-labelledby="range-desc" focusable="false">
           <desc id="range-desc">Port Phillip Bay rises and falls about 0.5 to 1.0 metres. Western Port rises and falls about 2.5 to 2.8 metres, several times as much.</desc>
           <g class="bh-range__grid">
-            <line x1="44" x2="310" y1="180" y2="180" />
-            <line x1="44" x2="310" y1="130" y2="130" />
-            <line x1="44" x2="310" y1="80" y2="80" />
-            <line x1="44" x2="310" y1="30" y2="30" />
+            <line x1="40" x2="350" y1="180" y2="180" />
+            <line x1="40" x2="350" y1="130" y2="130" />
+            <line x1="40" x2="350" y1="80" y2="80" />
+            <line x1="40" x2="350" y1="30" y2="30" />
           </g>
           <g class="bh-range__axis">
-            <text x="36" y="184">0 m</text>
-            <text x="36" y="134">1 m</text>
-            <text x="36" y="84">2 m</text>
-            <text x="36" y="34">3 m</text>
+            <text x="32" y="184">0 m</text>
+            <text x="32" y="134">1 m</text>
+            <text x="32" y="84">2 m</text>
+            <text x="32" y="34">3 m</text>
           </g>
-          <rect class="bh-range__ppb" x="80" y="155" width="64" height="25" rx="4" />
-          <rect class="bh-range__ppb bh-range__ppb--max" x="80.75" y="130.75" width="62.5" height="23.5" rx="4" />
-          <rect class="bh-range__wp" x="210" y="55" width="64" height="125" rx="4" />
-          <rect class="bh-range__wp bh-range__wp--max" x="210.75" y="40.75" width="62.5" height="13.5" rx="4" />
-          <text class="bh-range__val" x="112" y="120">0.5 to 1.0 m</text>
-          <text class="bh-range__val" x="242" y="30">2.5 to 2.8 m</text>
-          <text class="bh-range__name" x="112" y="204">Port Phillip Bay</text>
-          <text class="bh-range__name" x="242" y="204">Western Port</text>
+          <rect class="bh-range__bar" x="54" y="155" width="52" height="25" rx="4" />
+          <rect class="bh-range__max" x="54.75" y="130.75" width="50.5" height="23.5" rx="4" />
+          <rect class="bh-range__bar" x="206" y="55" width="52" height="125" rx="4" />
+          <rect class="bh-range__max" x="206.75" y="40.75" width="50.5" height="13.5" rx="4" />
+          <text class="bh-range__val" x="114" y="148">0.5 to 1.0 m</text>
+          <text class="bh-range__val" x="266" y="56">2.5 to 2.8 m</text>
+          <text class="bh-range__name" x="80" y="204">Port Phillip Bay</text>
+          <text class="bh-range__name" x="232" y="204">Western Port</text>
         </svg>
         <p class="bh-range__note">
           The dashed top of each bar is the spread between a small tide and a big one. Western
@@ -578,10 +582,15 @@ export const prerender = true;
 
   /* No boat */
   .bh-noboat { padding: var(--space-8) 0 var(--space-9); }
-  .bh-noboat__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: start; }
-  .bh-noboat__photo { margin: 0; position: sticky; top: var(--space-8); }
-  .bh-noboat__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 35% 88%; border-radius: var(--radius-m); }
+  .bh-noboat__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .bh-noboat__photo { margin: var(--space-6) 0 0; }
+  .bh-noboat__photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 35% 80%; border-radius: var(--radius-m); }
   .bh-option { margin-top: var(--space-6); }
+  .bh-ramp__name .bh-link,
+  .bh-charters .bh-link,
+  .bh-onward .bh-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .bh-tides { display: inline-flex; align-items: center; gap: 0.2em; min-height: 44px; margin-left: var(--space-2); color: var(--harbour); font-weight: var(--fw-semibold); text-underline-offset: 0.2em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .bh-option h3 { margin: 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-600); color: var(--ink); }
   .bh-option__lead { margin: var(--space-3) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--ink); max-width: var(--measure-prose); }
   .bh-option__meta { margin: var(--space-2) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--muted); max-width: var(--measure-prose); }
@@ -631,17 +640,14 @@ export const prerender = true;
   .bh-range figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin-bottom: var(--space-4); }
   .bh-range__title { font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-500); color: var(--white); }
   .bh-range__sub { font-size: var(--fs-300); color: rgba(255, 255, 255, 0.88); }
-  .bh-range svg { display: block; width: 100%; height: auto; overflow: visible; }
+  /* Drawn at 1:1 (never scaled up), so its text lands on the type scale: 15 and 13 px. */
+  .bh-range svg { display: block; width: 100%; max-width: 360px; margin: 0 auto; height: auto; overflow: visible; }
   .bh-range__grid line { stroke: rgba(255, 255, 255, 0.22); stroke-width: 1; }
   .bh-range__axis text { fill: rgba(255, 255, 255, 0.88); font-family: var(--font-ui); font-size: 13px; font-weight: 500; text-anchor: end; }
-  .bh-range__ppb { fill: var(--white); }
-  .bh-range__wp { fill: var(--sand); }
-  .bh-range__ppb--max,
-  .bh-range__wp--max { fill: none; stroke-width: 1.5; stroke-dasharray: 4 3; }
-  .bh-range__ppb--max { stroke: var(--white); }
-  .bh-range__wp--max { stroke: var(--sand); }
-  .bh-range__val { fill: var(--white); font-family: var(--font-ui); font-size: 15px; font-weight: 600; text-anchor: middle; paint-order: stroke; stroke: var(--harbour); stroke-width: 6px; stroke-linejoin: round; }
-  .bh-range__name { fill: var(--white); font-family: var(--font-ui); font-size: 14px; font-weight: 500; text-anchor: middle; }
+  .bh-range__bar { fill: var(--white); }
+  .bh-range__max { fill: none; stroke: var(--white); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .bh-range__val { fill: var(--white); font-family: var(--font-ui); font-size: 15px; font-weight: 600; text-anchor: start; }
+  .bh-range__name { fill: var(--white); font-family: var(--font-ui); font-size: 13px; font-weight: 500; text-anchor: middle; }
   .bh-range__note { margin: var(--space-4) 0 0; font-size: var(--fs-300); line-height: 1.6; color: rgba(255, 255, 255, 0.9); }
 
   .bh-onward { padding: var(--space-9) 0 var(--space-7); }
@@ -655,8 +661,6 @@ export const prerender = true;
     .bh-cover__text { padding: var(--space-6) var(--space-6) var(--space-7); }
     .bh-cover__dek { max-width: 48ch; }
     .bh-safety__grid, .bh-noboat__grid { grid-template-columns: 1fr; gap: var(--space-7); }
-    .bh-noboat__photo { position: static; }
-    .bh-noboat__photo img { aspect-ratio: 16 / 9; }
     .bh-cols, .bh-ramp { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr) minmax(0, 0.5fr) minmax(0, 0.9fr); }
   }
   @media (max-width: 767px) {
