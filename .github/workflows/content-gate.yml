@@ -238,11 +238,29 @@ jobs:
         # same.
         run: |
           cd next
-          if [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-restoration-20261115" ]; then
+          if [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-restoration-20261115" ] || [ "${GITHUB_HEAD_REF:-}" = "fix/home-weekend-selection-20261115" ]; then
             npm run build
           else
             npx astro build
           fi
+
+      - name: Review homepage weekend selection
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/home-weekend-selection-20261115'
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          node --test src/lib/event-discovery.test.mjs scripts/event-detail-publication.test.mjs
+          node scripts/review-home-weekend.mjs
+
+      - name: Upload homepage weekend review
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'fix/home-weekend-selection-20261115'
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-weekend-review-${{ github.event.pull_request.head.sha }}
+          path: next/review/home-weekend/
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Review restored Eat featured photographs
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/eat-featured-photo-restoration-20261115'
