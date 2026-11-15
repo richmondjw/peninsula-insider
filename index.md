@@ -47,6 +47,16 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
+- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Sun, 15 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+
+Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
 - ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
 Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
@@ -62,14 +72,6 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 Sun, 15 Nov   Jetty Road Brewery   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
-
-- ### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
-
-Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next?
-
-Sun, 15 Nov   Pig & Whistle Tavern   Live music
-
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.thepigandwhistle.com.au/what-s-on>)
 
 ## Three ways into the Peninsula
 

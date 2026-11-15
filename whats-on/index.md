@@ -21,14 +21,6 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
 Live Music
 
-- Sun, 15 Nov · 11am–3:30pm · Dromana
-
-### [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
-
-Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
-
-Food & Wine
-
 - Sun, 15 Nov · Fingal
 
 ### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
@@ -36,6 +28,14 @@ Food & Wine
 Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
 Wellness
+
+- Sun, 15 Nov · 1pm–4pm · Dromana
+
+### [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+
+Live Music
 
 ## Day by day
 
@@ -48,14 +48,6 @@ Wellness
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Mornington · Exhibitions · Recurring weekly
-
-- 1pm
-
-[Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
-
-Dromana · Live Music
 
 - 1.30pm
 

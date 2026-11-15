@@ -19,7 +19,7 @@ Hatted Restaurants  Fine Dining  Food Guide  Mornington Peninsula
 
 Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula   Photo · Two Palms Australia, courtesy of Visit Victoria
 
-The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. The Peninsula’s hatted scene has changed significantly: Barragunda Dining debuted at two hats in February, Ten Minutes by Tractor has a new head chef (Craig Lunn, ex-Michelin UK), and Tedesca Osteria won Regional Restaurant of the Year. What follows is the accurate hat count, what each restaurant actually is, and the booking reality at each.
+The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. The Peninsula’s hatted scene has changed significantly: [Barragunda Dining](<https://peninsulainsider.com.au/eat/barragunda-dining/>) debuted at two hats in February, [Ten Minutes by Tractor](<https://peninsulainsider.com.au/wine/ten-minutes-by-tractor/>) has a new head chef (Craig Lunn, ex-Michelin UK), and [Tedesca Osteria](<https://peninsulainsider.com.au/eat/tedesca-osteria/>) won Regional Restaurant of the Year. What follows is the accurate hat count, what each restaurant actually is, and the booking reality at each.
 
 ## The current hat table
 
@@ -27,31 +27,31 @@ The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. T
 
 Venue | Town | Chef | Price guide |
 
-Barragunda Dining | Cape Schanck | Simone Watts | Degustation only |
+Barragunda Dining | [Cape Schanck](<https://peninsulainsider.com.au/explore/places/cape-schanck/>) | Simone Watts | Degustation only |
 
-Laura | Merricks (Pt. Leo Estate) | Josep Espuga | $$$$, tasting menus |
+[Laura](<https://peninsulainsider.com.au/eat/laura-pt-leo/>) | [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>) ([Pt. Leo Estate](<https://peninsulainsider.com.au/wine/pt-leo-estate/>)) | Josep Espuga | $$$$, tasting menus |
 
-Tedesca Osteria | Red Hill | Brigitte Hafner | Set menu, lunch only |
+Tedesca Osteria | [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>) | Brigitte Hafner | Set menu, lunch only |
 
-Ten Minutes by Tractor | Main Ridge | Craig Lunn | Two tasting formats |
+Ten Minutes by Tractor | [Main Ridge](<https://peninsulainsider.com.au/explore/places/main-ridge/>) | Craig Lunn | Two tasting formats |
 
 ### One-hat restaurants
 
 Venue | Town | Service |
 
-Doot Doot Doot | Merricks North (Jackalope Hotel) | Dinner only |
+[Doot Doot Doot](<https://peninsulainsider.com.au/eat/doot-doot-doot/>) | [Merricks North](<https://peninsulainsider.com.au/explore/places/merricks-north/>) ([Jackalope Hotel](<https://peninsulainsider.com.au/stay/jackalope/>)) | Dinner only |
 
-Many Little Bar & Dining | Red Hill South | Thu–Sun evenings + weekend lunch |
+[Many Little Bar & Dining](<https://peninsulainsider.com.au/eat/many-little/>) | [Red Hill South](<https://peninsulainsider.com.au/explore/places/red-hill-south/>) | Thu–Sun evenings + weekend lunch |
 
-Moke Dining | Flinders | Thu–Sun dinner, Sat–Sun lunch |
+[Moke Dining](<https://peninsulainsider.com.au/eat/moke-dining/>) | [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>) | Thu–Sun dinner, Sat–Sun lunch |
 
-Montalto | Red Hill South | Lunch Fri–Mon, Piazza daily |
+[Montalto](<https://peninsulainsider.com.au/wine/montalto/>) | Red Hill South | Lunch Fri–Mon, Piazza daily |
 
-Polperro Restaurant | Red Hill | Wed–Sun |
+[Polperro Restaurant](<https://peninsulainsider.com.au/wine/polperro/>) | Red Hill | Wed–Sun |
 
-Port Phillip Estate | Red Hill South | Lunch daily; Fri–Sat dinner |
+[Port Phillip Estate](<https://peninsulainsider.com.au/wine/port-phillip-estate/>) | Red Hill South | Lunch daily; Fri–Sat dinner |
 
-Rare Hare | Merricks North (Jackalope Hotel) | Walk-in only |
+[Rare Hare](<https://peninsulainsider.com.au/eat/rare-hare/>) | Merricks North (Jackalope Hotel) | Walk-in only |
 
 ### AGFG additional recognition (not in the GFG top 11)
 
@@ -59,7 +59,7 @@ Venue | Town | AGFG Hats |
 
 Lancemore Lindenderry Dining Room | Red Hill | 2 hats (AGFG) |
 
-Paringa Estate | Red Hill South | 1 hat (AGFG) |
+[Paringa Estate](<https://peninsulainsider.com.au/wine/paringa-estate/>) | Red Hill South | 1 hat (AGFG) |
 
 ## The two-hat restaurants in detail
 
@@ -141,7 +141,7 @@ One hat. Sri Lankan-inspired cooking in a low-key Red Hill South setting. Dog-fr
 
 ## How to approach a hatted Peninsula day
 
-The Peninsula’s hatted restaurants are concentrated in the Red Hill–Main Ridge–Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.
+The Peninsula’s hatted restaurants are concentrated in the Red Hill–Main Ridge–Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: [Stonier](<https://peninsulainsider.com.au/wine/stonier-wines/>), Port Phillip Estate, Montalto, [Foxeys Hangout](<https://peninsulainsider.com.au/wine/foxeys-hangout/>), and [Yabby Lake](<https://peninsulainsider.com.au/wine/yabby-lake/>) are all nearby.
 
 Barragunda and RACV Cape Schanck are the southern outliers. Combine Barragunda with Cape Schanck lighthouse and a night at the Resort if you’re making the full drive.
 
