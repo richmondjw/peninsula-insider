@@ -158,7 +158,8 @@
         "all six card links navigate correctly",
         "no horizontal page overflow"
       ],
-      "artifacts": "report.json and desktop/mobile screenshots"
+      "artifacts": "report.json and desktop/mobile screenshots",
+      "productionBuild": "The branch-scoped journey build runs unmodified npm run build before screenshots on the exact PR head."
     }
   },
   "limitations": [

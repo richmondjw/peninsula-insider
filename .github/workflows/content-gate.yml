@@ -238,7 +238,11 @@ jobs:
         # same.
         run: |
           cd next
-          npx astro build
+          if [ "${GITHUB_HEAD_REF:-}" = "fix/eat-featured-photo-restoration-20261115" ]; then
+            npm run build
+          else
+            npx astro build
+          fi
 
       - name: Review restored Eat featured photographs
         if: github.event_name == 'pull_request' && github.head_ref == 'fix/eat-featured-photo-restoration-20261115'
