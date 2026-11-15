@@ -17,13 +17,13 @@ All weather
 
 Editor's verdict
 
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
-The resort places its live music at Spike Bar, with no booking required.
+Moonah Links names Sam O’Connell for Saturday 21 November, from 5pm to 8pm at Spike Bar, with no booking required. The venue lists Brad Kennedy for 28 November, so use the organiser’s current programme for later Saturdays.
 
 This is an easy evening stop after a Fingal or Cape Schanck day. Check the organiser before travelling in case the programme changes.
 
-[Check the latest details at the source →](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
+[Check the latest details at the source →](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
 Hosted at
 

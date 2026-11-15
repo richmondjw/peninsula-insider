@@ -49,11 +49,11 @@ Swipe or scroll through the picks
 
 - ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
 Sat, 21 Nov   Peppers Moonah Links   Every Saturday
 
-Event details checked 2 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
 
 - ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
@@ -61,7 +61,7 @@ Emu Plains is the artisan market that actually feels like the Peninsula: stringy
 
 Sat, 21 Nov   Emu Plains Reserve   Market
 
-Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.emuplainsmarket.com.au/>)
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.emuplainsmarket.com.au/markets/november>)
 
 - Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
@@ -71,7 +71,7 @@ Start with the award-winning works, then take time with the wider survey of cont
 
 Sat, 21 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
-Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 ## Three ways into the Peninsula
 
