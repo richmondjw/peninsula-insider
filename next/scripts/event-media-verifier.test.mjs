@@ -4,12 +4,13 @@ import { createServer } from 'node:http';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
-test('public media verifier waits for slow automatic hydration even when its independent probe is immediate', async () => {
+test('public media verifier waits for a slow automatic JSON body even when headers and independent probe are immediate', async () => {
   let mutate = false;
   const server = createServer((req, res) => {
     if (req.url.startsWith('/rest/v1/cms_image_slots')) {
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.flushHeaders();
       setTimeout(() => {
-        res.writeHead(200, { 'content-type': 'application/json' });
         res.end(JSON.stringify([{ entity_type: 'event' }]));
       }, req.url === '/rest/v1/cms_image_slots' ? 3000 : 0);
       return;

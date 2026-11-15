@@ -66,6 +66,28 @@ async function verifyRevision() {
 async function snapshot(route, javascript) {
   const page = await browser.newPage();
   try {
+    // Track requests from before navigation, including responses whose headers
+    // arrive immediately but whose JSON body is still downloading. Puppeteer's
+    // network-idle counter alone stops counting at response headers.
+    const cmsRequests = new Map();
+    if (javascript) {
+      page.on('request', request => {
+        if (request.method() !== 'GET' || !request.url().includes('/rest/v1/cms_image_slots')) return;
+        let resolve;
+        const body = new Promise(done => { resolve = done; });
+        cmsRequests.set(request, { body, resolve });
+      });
+      page.on('response', response => {
+        const tracked = cmsRequests.get(response.request());
+        if (tracked) response.json().then(
+          () => tracked.resolve({}),
+          error => tracked.resolve({ error: error.message }),
+        );
+      });
+      page.on('requestfailed', request => {
+        cmsRequests.get(request)?.resolve({ error: request.failure()?.errorText || 'CMS request failed' });
+      });
+    }
     await page.setViewport({ width: 390, height: 844 });
     await page.setJavaScriptEnabled(javascript);
     const response = await page.goto(new URL(route, base).href, { waitUntil: 'networkidle2', timeout: 45000 });
@@ -76,11 +98,24 @@ async function snapshot(route, javascript) {
       // Check the CMS transport independently: a page may correctly make no
       // automatic slot read when every visible event is non-hydratable.
       await verifyCmsReachability(page, route);
-      // A direct probe can finish before an automatic hydration request. Wait
-      // for all observed network work to finish before comparing media; unlike
-      // networkidle2 this permits no pending CMS response to escape the check.
       await page.waitForNetworkIdle({ concurrency: 0, idleTime: 500, timeout: 20000 });
-      await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+      let timer;
+      try {
+        await Promise.race([
+          (async () => {
+            let count;
+            do {
+              count = cmsRequests.size;
+              const bodies = await Promise.all([...cmsRequests.values()].map(read => read.body));
+              assert.ok(bodies.every(body => !body.error), `${route}: a CMS response body failed`);
+              // Let fetch/json continuations apply their DOM changes, and
+              // include any additional CMS reads they started before comparing.
+              await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+            } while (count !== cmsRequests.size);
+          })(),
+          new Promise((_, reject) => { timer = setTimeout(() => reject(new Error(`${route}: CMS response body did not complete`)), 20000); }),
+        ]);
+      } finally { clearTimeout(timer); }
     }
     return await page.evaluate(() => [...document.querySelectorAll('[data-pi-entity-type="event"][data-pi-field-path]')].map(el => {
       const promotion = el.closest('[data-event-promotion]');
