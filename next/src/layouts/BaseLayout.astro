@@ -407,6 +407,7 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
 
   <main
     id="main-content"
+    tabindex="-1"
     data-pagefind-body={searchExclude ? undefined : ''}
     data-pagefind-filter={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
     data-pagefind-meta={searchExclude ? undefined : `kind:${resolvedSearchKind}`}
