@@ -50,18 +50,22 @@ jobs:
           while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
             ATTEMPT=$((ATTEMPT + 1))
             echo "Freshness check attempt ${ATTEMPT}/${MAX_ATTEMPTS} for ${EXPECTED_DATE}"
-            python engine/publication_freshness.py \
+            # Capture failure in a conditional so Bash -e reaches retry handling.
+            if python engine/publication_freshness.py \
               --expected-date "$EXPECTED_DATE" \
               --article "next/src/content/articles/insider-picks-${EXPECTED_DATE}.md" \
-              --url "https://peninsulainsider.com.au/journal/insider-picks-${EXPECTED_DATE}/"
-            EXIT_CODE=$?
+              --url "https://peninsulainsider.com.au/journal/insider-picks-${EXPECTED_DATE}/"; then
+              EXIT_CODE=0
+            else
+              EXIT_CODE=$?
+            fi
             if [ $EXIT_CODE -eq 0 ]; then
               echo "Freshness check passed on attempt ${ATTEMPT}."
               break
             elif [ $EXIT_CODE -eq 2 ]; then
               echo "Source record failure (exit 2) — not retriable."
               break
-            else
+            elif [ $EXIT_CODE -eq 1 ]; then
               # Exit code 1: live-page transient failure — wait and retry.
               if [ $ATTEMPT -lt $MAX_ATTEMPTS ]; then
                 echo "Live-page transient failure (exit 1) — sleeping 5 minutes before retry..."
@@ -69,6 +73,9 @@ jobs:
               else
                 echo "Live-page failure persists after ${MAX_ATTEMPTS} attempts."
               fi
+            else
+              echo "Unexpected freshness failure (exit ${EXIT_CODE}) — not retriable."
+              break
             fi
           done
           exit $EXIT_CODE
