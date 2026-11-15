@@ -39,12 +39,12 @@ try {
         const inset = document.querySelector('.brew-finder__intro').getBoundingClientRect().left - panel.left;
         const figure = document.querySelector('.brew-cover__figure').getBoundingClientRect();
         const caption = document.querySelector('.brew-cover__figure figcaption'); const credit = caption.getBoundingClientRect();
-        return { planningInset: inset, captionVisible: credit.height > 0 && credit.bottom <= figure.bottom + 1 && getComputedStyle(caption).visibility !== 'hidden', caption: caption.textContent.trim() };
+        return { finderInset: inset, captionVisible: credit.height > 0 && credit.bottom <= figure.bottom + 1 && getComputedStyle(caption).visibility !== 'hidden', caption: caption.textContent.trim() };
       });
       report.viewports.push({ viewport, ...observed, contrast, composition });
-      assert.ok(composition.brew-finderInset >= 20, 'Place finder has an internal gutter');
-      assert.ok(composition.captionVisible && /Courtesy of Visit Victoria/i.test(composition.caption), 'Named photograph credit is visible');
       await page.screenshot({ path: `${out}/${viewport.width}.png`, fullPage: true });
+      assert.ok(composition.finderInset >= 20, 'Place finder has an internal gutter');
+      assert.ok(composition.captionVisible && /Courtesy of Visit Victoria/i.test(composition.caption), 'Named photograph credit is visible');
       assert.equal(await page.$eval('#cookie-banner', x => x.dataset.state), 'visible', 'First-visit cookie note is visible');
       assert.ok(contrast.length > 0 && contrast.every(x => x.ratio >= x.minimum), JSON.stringify(contrast.filter(x => x.ratio < x.minimum)));
       assert.equal(observed.overflow, false);
@@ -56,7 +56,8 @@ try {
       assert.doesNotMatch(observed.cards.map(x => x.text).join(' '), /Australia.s first|unexpectedly good|2\/4 Brasser/);
       const list = observed.schema.find(x => x['@type'] === 'ItemList');
       assert.equal(list.itemListElement.length, observed.cards.length);
-      for (const card of observed.cards) for (const link of card.links.filter(x => x.startsWith('/'))) {
+      const internalLinks = await page.$$eval('.brewery-guide a[href^="/"]', links => [...new Set(links.map(x => x.getAttribute('href')))]);
+      for (const link of internalLinks) {
         const response = await fetch(site.origin + link);
         assert.equal(response.status, 200, link);
       }
@@ -68,7 +69,7 @@ try {
       await page.screenshot({ path: `${out}/${viewport.width}-reading.png`, fullPage: true });
       await page.focus('.brew-cover .pi-btn');
       await page.keyboard.press('Enter');
-      await page.waitForFunction(() => location.hash === '#producers');
+      await page.waitForFunction(() => location.hash === '#breweries');
       await page.focus('.brew-jumps a');
       await page.keyboard.press('Enter');
       await page.waitForFunction(() => location.hash === '#brew-dromana');

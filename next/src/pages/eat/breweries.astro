@@ -33,7 +33,7 @@ export const prerender = true;
   <div class="brewery-guide">
     <section class="brew-cover container" aria-labelledby="brew-title">
       <div class="brew-cover__copy"><p class="brew-kicker">Eat & drink · Mornington Peninsula</p><h1 id="brew-title">Find your brewery afternoon.</h1><p class="brew-dek">A taproom, a beer garden or a table for lunch. Explore {venues.length} breweries and choose the stop that fits your day.</p><a class="pi-btn pi-btn--solid" href="#breweries">Find a brewery <span aria-hidden="true">↓</span></a><p class="brew-cover__note">Grouped by place, with direct links to current menus and visiting information.</p></div>
-      {hasCover && <figure class="brew-cover__figure"><img src={cover.src} alt={cover.alt} width="2000" height="1334" fetchpriority="high" data-pi-responsive="(max-width: 700px) calc(100vw - 32px), 560px" /><figcaption>Food and beer at St Andrews Beach Brewery, Fingal. {cover.credit}. <a href="/photography-credits/">Image credits</a></figcaption></figure>}
+      {hasCover && <figure class="brew-cover__figure"><img src={cover.src} alt={cover.alt} width="2000" height="1334" fetchpriority="high" data-pi-responsive="(max-width: 700px) calc(100vw - 32px), 560px" /><figcaption>Food and beer at St Andrews Beach Brewery, Fingal. {cover.credit}. <a href="/photography/">Image credits</a></figcaption></figure>}
     </section>
 
     <section class="brew-browse container" id="breweries" aria-labelledby="brew-browse-title">
