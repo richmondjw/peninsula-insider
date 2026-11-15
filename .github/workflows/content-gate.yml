@@ -230,6 +230,10 @@ jobs:
           cd next
           npm run lint:listener-hygiene
 
+      - name: Public event media verifier regressions
+        working-directory: next
+        run: node --test scripts/event-media-verifier.test.mjs
+
       - name: Build the site the journeys are driven against
         # `astro build` rather than `npm run build`: the harness needs dist/,
         # not the twenty content and SEO ratchets the full build also runs.

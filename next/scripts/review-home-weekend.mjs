@@ -1,11 +1,31 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import puppeteer from 'puppeteer';
 import {Site} from '../tests/journeys/harness.mjs';
 const out='review/home-weekend';
 await fs.mkdir(out,{recursive:true});
-const site=await Site.open();
-const report={observedAt:new Date().toISOString(),candidate:process.env.REVIEW_HEAD_SHA,views:[]};
+const publicBase=process.env.REVIEW_BASE_URL;
+const expected=process.env.REVIEW_HEAD_SHA;
+if(publicBase) assert.ok(expected, 'Public acceptance requires an exact deployment SHA');
+const browser=publicBase ? await puppeteer.launch({headless:true,args:['--no-sandbox','--disable-setuid-sandbox']}) : null;
+// Public acceptance uses a fresh browser with no harness interception or CMS fixtures.
+const site=browser ? {
+ reader:async()=>{const page=await browser.newPage();return {page,load:async route=>{
+  const response=await page.goto(new URL(route,publicBase).href,{waitUntil:'networkidle2',timeout:45000});
+  assert.equal(response.status(),200);
+  await page.waitForNetworkIdle({concurrency:0,idleTime:500,timeout:20000});
+ },close:()=>page.close()};},close:()=>browser.close(),
+} : await Site.open();
+const report={observedAt:new Date().toISOString(),candidate:expected,base:publicBase??'built-site',views:[],ok:false};
+async function verifyRevision(){
+ if(!publicBase) return;
+ const response=await fetch(new URL('/deployment.json',publicBase),{cache:'no-store',signal:AbortSignal.timeout(15000)});
+ assert.equal(response.status,200);
+ const manifest=await response.json();assert.equal(manifest.sourceSha,expected,'Public screenshot must match the reviewed deployment');
+ report.deployment=manifest;
+}
 try {
+ await verifyRevision();
  for(const width of [390,1440]) {
   const reader=await site.reader();
   try {
@@ -38,6 +58,8 @@ try {
    report.views.push({width,scenario:'after-edition',...rollover});
   } finally {await reader.close();}
  }
+ await verifyRevision();
+ report.ok=true;
 } catch(error) {report.error=String(error);throw error;}
 finally {await fs.writeFile(out+'/report.json',JSON.stringify(report,null,2));await site.close();}
 console.log(JSON.stringify(report,null,2));
