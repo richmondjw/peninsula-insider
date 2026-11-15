@@ -41,12 +41,19 @@ const RAMP_ORDER = [
 ];
 const RAMP_NOTES: Record<string, string> = {
   'sorrento-boat-ramp': 'Breakwater shelter and the shortest run to the southern snapper grounds and the Heads.',
-  'rye-boat-ramp': 'The biggest car park on the bay side, with about 127 trailer spaces and fish-cleaning facilities.',
+  'rye-boat-ramp': 'The biggest car park on the bay side, with about 127 trailer spaces and fish‑cleaning facilities.',
   'safety-beach-boat-ramp': 'Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide arrival.',
   'mornington-park-boat-ramp': 'Central bay shore. The car park is shared with the pier and the yacht club, so it is tight.',
   'hastings-boat-ramp': 'Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The base for Western Port charters.',
   'warneet-boat-ramp': 'Smaller and quieter, with a central pontoon, for the whiting and flathead grounds of the northern arm.',
 };
+// Launch windows stated in the ramp records' own text (high water at the ramp's station).
+const RAMP_WINDOWS: Record<string, string> = {
+  'rye-boat-ramp': '1 to 2 hours either side of high water',
+  'safety-beach-boat-ramp': 'About 2 hours either side of high water',
+  'warneet-boat-ramp': '2 hours either side of high water for boats over 4.5 m',
+};
+const BOM_PENINSULA_FORECAST = 'http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml';
 const TIDE: Record<string, { label: string; low: boolean; mid: boolean; high: boolean }> = {
   'all-tide': { label: 'Any tide', low: true, mid: true, high: true },
   'mid-to-high': { label: 'Mid to high tide', low: false, mid: true, high: true },
@@ -176,7 +183,8 @@ export const prerender = true;
         <h2 id="ramps-title">Choose your ramp</h2>
         <p class="bh-head__dek">
           All {allRamps.length} are free to launch. The tide decides more than the drive does:
-          {anyTideCount} work at any tide, the rest need the water up.
+          {anyTideCount} work at any tide, the rest need the water up. Heading for the Heads?
+          Read <a class="bh-inline" href="#before-you-launch">Before you launch</a> first.
         </p>
       </div>
 
@@ -186,7 +194,7 @@ export const prerender = true;
             <h3 id={`water-${water.key}`}>{water.name}</h3>
             <p>
               {water.note} Tide station: <strong>{water.station}</strong>.
-              <a class="bh-tides" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Today's tides<span class="sr-only"> for {water.station}, on the Bureau of Meteorology site</span> <span aria-hidden="true">↗</span></a>
+              <a class="bh-tides" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Tide predictions<span class="sr-only">, Bureau of Meteorology</span> <span aria-hidden="true">↗</span></a>
             </p>
           </div>
           <div class="bh-cols" aria-hidden="true">
@@ -210,7 +218,10 @@ export const prerender = true;
                           <rect x="1" y="10.75" width="12" height="8.5" rx="2" class={t.mid ? 'on' : 'off'} />
                           <rect x="1" y="20.5" width="12" height="8.5" rx="2" class={t.low ? 'on' : 'off'} />
                         </svg>
-                        {t.label}
+                        <span>
+                          {t.label}
+                          {RAMP_WINDOWS[ramp.data.slug] && <span class="bh-window">{RAMP_WINDOWS[ramp.data.slug]}</span>}
+                        </span>
                       </dd>
                     </div>
                     {ramp.data.laneCount && (
@@ -247,6 +258,22 @@ export const prerender = true;
   <section class="bh-noboat" id="no-boat" aria-labelledby="noboat-title">
     <div class="container">
       <h2 id="noboat-title">No boat? Hire one, or go with a skipper</h2>
+      <figure class="bh-noboat__photo">
+        <img
+          src={pier.src}
+          srcset={`${pierBase}-800.webp 800w, ${pier.src} 1280w`}
+          sizes="(min-width: 1280px) 1280px, 100vw"
+          width="1280"
+          height="854"
+          alt={pier.alt}
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="bh-caption">
+          <span>{pier.caption}</span>
+          <span>Photo · {pier.credit}</span>
+        </figcaption>
+      </figure>
     </div>
     <div class="container bh-noboat__grid">
       <div class="bh-noboat__body">
@@ -258,28 +285,22 @@ export const prerender = true;
               polycraft for the protected bay from {hire.data.departurePoint}.
               {!hire.data.licenceRequired && ' No marine licence needed.'}
             </p>
-            {hire.data.seasonalityNote && (
-              <p class="bh-option__meta">Open year-round when the weather allows. Book ahead in the summer holidays and on long weekends.</p>
-            )}
+            <p class="bh-option__meta">
+              The boats stay in the mid-bay, roughly Mount Martha to Dromana, and never go near the
+              Rip. Expect a same-day cancellation if a strong southerly is forecast.
+              {hire.data.seasonalityNote && ' Open year-round when the weather allows; book ahead in the summer holidays and on long weekends.'}
+            </p>
           </div>
         )}
 
-        <figure class="bh-noboat__photo">
-          <img
-            src={pier.src}
-            srcset={`${pierBase}-800.webp 800w, ${pier.src} 1280w`}
-            sizes="(min-width: 1100px) 45vw, 100vw"
-            width="1280"
-            height="854"
-            alt={pier.alt}
-            loading="lazy"
-            decoding="async"
-          />
-          <figcaption class="bh-caption">
-            <span>{pier.caption}</span>
-            <span>Photo · {pier.credit}</span>
-          </figcaption>
-        </figure>
+        <div class="bh-option">
+          <h3>Fish from a pier</h3>
+          <p class="bh-option__lead">
+            No boat at all? Flinders, Mornington, Portsea, Rye and Stony Point piers all put a line
+            in deep water, and our <a class="bh-link" href="/fishing/locations/">fishing spots guide</a> says
+            which tide each one fishes best on.
+          </p>
+        </div>
       </div>
 
       <div class="bh-option bh-option--charters">
@@ -298,9 +319,11 @@ export const prerender = true;
   </section>
 
   <section class="bh-safety" id="before-you-launch" aria-labelledby="safety-title">
+    <div class="container">
+      <h2 id="safety-title">Before you launch</h2>
+    </div>
     <div class="container bh-safety__grid">
       <div class="bh-safety__lead">
-        <h2 id="safety-title">Before you launch</h2>
         <p class="bh-safety__rip">
           <strong>Respect the Rip.</strong> South and south-westerly swell running into Port
           Phillip Heads stands up into dangerous waves. Do not cross in unsuitable conditions,
@@ -310,8 +333,8 @@ export const prerender = true;
           <li>
             <h3>Read the forecast twice</h3>
             <p>
-              Check the <a href={BF_EXTERNAL.bom} rel="external">Bureau of Meteorology</a> marine
-              forecast the night before and again on the morning you go.
+              Check the <a href={BOM_PENINSULA_FORECAST} rel="external">Bureau of Meteorology forecast for the Peninsula</a>,
+              wind included, the night before and again on the morning you go.
             </p>
           </li>
           <li>
@@ -367,15 +390,6 @@ export const prerender = true;
       </figure>
     </div>
   </section>
-
-  <nav class="bh-onward container" aria-labelledby="onward-title">
-    <h2 id="onward-title">More on the water</h2>
-    <ul role="list">
-      <li><a class="bh-link" href="/boating/ramps/">Boat ramps</a><p>Lanes, parking, tide windows and the nearest alternative for each</p></li>
-      <li><a class="bh-link" href="/boating/tides-safety/">Tides and safety</a><p>Tide stations, the Rip and the checks before every trip</p></li>
-      <li><a class="bh-link" href="/fishing/">Fishing</a><p>What's biting, where, and on which tide</p></li>
-    </ul>
-  </nav>
 
   <AskLine
     id="boating-ask"
@@ -532,8 +546,7 @@ export const prerender = true;
   .bh-head { max-width: var(--measure-prose); margin-bottom: var(--space-7); }
   .bh-head h2,
   .bh-noboat h2,
-  .bh-safety h2,
-  .bh-onward h2 {
+  .bh-safety h2 {
     margin: 0;
     font-family: var(--font-display);
     font-weight: var(--fw-display);
@@ -570,7 +583,8 @@ export const prerender = true;
   .bh-fact { margin: 0; }
   .bh-fact dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .bh-fact dd { margin: 0; font-size: var(--fs-400); color: var(--ink); font-variant-numeric: tabular-nums; }
-  .bh-fact--tide dd { display: flex; align-items: center; gap: var(--space-3); }
+  .bh-fact--tide dd { display: flex; align-items: flex-start; gap: var(--space-3); }
+  .bh-window { display: block; margin-top: 2px; font-size: var(--fs-300); line-height: 1.45; color: var(--muted); }
   .bh-gauge { flex: none; }
   .bh-gauge .on { fill: var(--harbour); }
   .bh-gauge .off { fill: none; stroke: var(--border-strong); stroke-width: 1; }
@@ -584,12 +598,13 @@ export const prerender = true;
   .bh-noboat { padding: var(--space-8) 0 var(--space-9); }
   .bh-noboat__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-8); align-items: start; }
   .bh-noboat__photo { margin: var(--space-6) 0 0; }
-  .bh-noboat__photo img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; object-fit: cover; object-position: 35% 80%; border-radius: var(--radius-m); }
+  .bh-noboat__photo img { display: block; width: 100%; height: auto; aspect-ratio: 21 / 8; object-fit: cover; object-position: 50% 78%; border-radius: var(--radius-m); }
   .bh-option { margin-top: var(--space-6); }
   .bh-ramp__name .bh-link,
-  .bh-charters .bh-link,
-  .bh-onward .bh-link { display: inline-flex; align-items: center; min-height: 44px; }
-  .bh-tides { display: inline-flex; align-items: center; gap: 0.2em; min-height: 44px; margin-left: var(--space-2); color: var(--harbour); font-weight: var(--fw-semibold); text-underline-offset: 0.2em; }
+  .bh-charters .bh-link { display: inline-flex; align-items: center; min-height: 44px; }
+  .bh-tides { position: relative; margin-left: var(--space-2); color: var(--harbour); font-weight: var(--fw-semibold); text-underline-offset: 0.2em; white-space: nowrap; }
+  .bh-tides::after { content: ''; position: absolute; inset: -12px -6px; }
+  .bh-inline { color: var(--harbour); font-weight: var(--fw-semibold); text-underline-offset: 0.2em; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .bh-option h3 { margin: 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-600); color: var(--ink); }
   .bh-option__lead { margin: var(--space-3) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--ink); max-width: var(--measure-prose); }
@@ -602,15 +617,15 @@ export const prerender = true;
 
   /* Safety: the one dark band, so it reads as the serious part of the page. */
   .bh-safety { background: var(--harbour-deep); color: var(--white); padding: var(--space-9) 0; }
-  .bh-safety__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: center; }
+  .bh-safety__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: start; margin-top: var(--space-6); }
   .bh-safety h2 { color: var(--white); }
   .bh-safety a { color: var(--white); text-decoration: underline; text-decoration-color: var(--sand); text-underline-offset: 0.2em; }
   .bh-safety a:focus-visible { outline: 2px solid var(--sand); outline-offset: 2px; }
   .bh-safety__rip {
-    margin: var(--space-5) 0 0;
+    margin: 0;
     padding: var(--space-5);
     border-radius: var(--radius-m);
-    background: var(--harbour);
+    background: color-mix(in srgb, var(--harbour-deep) 55%, var(--harbour));
     font-size: var(--fs-500);
     line-height: var(--lh-dek);
     max-width: 52ch;
@@ -636,7 +651,7 @@ export const prerender = true;
   .bh-checks p { margin: var(--space-1) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: rgba(255, 255, 255, 0.88); }
   .bh-safety__more { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; margin-top: var(--space-5); font-weight: var(--fw-semibold); font-size: var(--fs-400); }
 
-  .bh-range { margin: 0; padding: var(--space-6); border-radius: var(--radius-m); background: var(--harbour); }
+  .bh-range { margin: 0; padding: var(--space-6); border-radius: var(--radius-m); background: color-mix(in srgb, var(--harbour-deep) 72%, var(--harbour)); }
   .bh-range figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin-bottom: var(--space-4); }
   .bh-range__title { font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-500); color: var(--white); }
   .bh-range__sub { font-size: var(--fs-300); color: rgba(255, 255, 255, 0.88); }
@@ -650,10 +665,6 @@ export const prerender = true;
   .bh-range__name { fill: var(--white); font-family: var(--font-ui); font-size: 13px; font-weight: 500; text-anchor: middle; }
   .bh-range__note { margin: var(--space-4) 0 0; font-size: var(--fs-300); line-height: 1.6; color: rgba(255, 255, 255, 0.9); }
 
-  .bh-onward { padding: var(--space-9) 0 var(--space-7); }
-  .bh-onward ul { list-style: none; margin: var(--space-5) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
-  .bh-onward .bh-link { font-size: var(--fs-500); }
-  .bh-onward p { margin: var(--space-1) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--muted); }
 
   @media (max-width: 1100px) {
     .bh-cover__panel { grid-template-columns: 1fr; min-height: 0; }
@@ -667,21 +678,22 @@ export const prerender = true;
     .bh-cover { margin-top: var(--space-3); }
     .bh-cover__media { aspect-ratio: 16 / 11; }
     .bh-cover__media img { object-position: 55% 62%; }
-    .bh-cover__caption { justify-content: flex-start; flex-direction: column; padding: var(--space-5) var(--space-4) var(--space-2); font-size: var(--fs-100); }
+    .bh-cover__caption { justify-content: flex-start; flex-direction: column; padding: var(--space-5) var(--space-4) var(--space-2); font-size: var(--fs-200); }
     .bh-cover__text { gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-6); }
     .bh-cover__dek { font-size: var(--fs-400); }
     .bh-cover__actions { flex-direction: column; align-items: stretch; gap: var(--space-2); }
     .bh-cover__primary, .bh-cover__secondary { justify-content: center; }
     .bh-ramps, .bh-safety { padding: var(--space-8) 0; }
     .bh-noboat { padding: var(--space-7) 0 var(--space-8); }
-    .bh-onward { padding: var(--space-8) 0 var(--space-6); }
     .bh-cols { display: none; }
     .bh-ramp { display: block; }
     .bh-ramp__facts { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.6fr) minmax(0, 1fr); gap: var(--space-4); margin-top: var(--space-3); padding: 0; }
-    .bh-fact dt { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; font-size: var(--fs-100); color: var(--muted); margin-bottom: 2px; }
+    .bh-fact dt { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; font-size: var(--fs-200); color: var(--muted); margin-bottom: 2px; }
     .bh-fact--tide dd { gap: var(--space-2); }
     .bh-safety__rip { padding: var(--space-4); font-size: var(--fs-400); }
-    .bh-range { padding: var(--space-5); }
-    .bh-onward ul { grid-template-columns: 1fr; gap: var(--space-5); }
+    .bh-range { padding: var(--space-4); }
+    .bh-range__axis text, .bh-range__name { font-size: 14px; }
+    .bh-range__val { font-size: 16px; }
+    .bh-noboat__photo img { aspect-ratio: 3 / 2; }
   }
 </style>
