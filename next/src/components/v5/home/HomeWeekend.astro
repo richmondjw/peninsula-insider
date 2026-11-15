@@ -1,4 +1,6 @@
 ---
+import { distinctWeekendCards } from '../../../lib/home-weekend.mjs';
+import alba from '../../../content/venues/alba-thermal-springs.json';
 import { publicEventData } from '../../../lib/event-publication.mjs';
 /**
  * HomeWeekend - block 3, the homepage's ONLY temporal module
@@ -26,6 +28,7 @@ import { depictionStatusOf } from '../../../lib/media-provenance';
 import { cleanCaption } from '../../../lib/image-caption.mjs';
 import {
   selectWeekendPicks,
+  weekendPickOccurrences,
   categoryLabel,
   placeLabel,
   pickDateISO,
@@ -35,7 +38,9 @@ import {
 const events = await getCollection('events');
 const picksEntries = await getCollection('weekend-picks');
 const now = new Date();
-const { picks, window: weekend } = selectWeekendPicks(picksEntries, events, now);
+const { picks: rankedPicks, window: weekend } = selectWeekendPicks(picksEntries, events, now, Infinity);
+
+const picks = weekendPickOccurrences(rankedPicks, now);
 
 const slugOf = (e: any) => e.data.slug ?? e.id;
 
@@ -79,7 +84,7 @@ const cards = await Promise.all(
     const subcategory = String(event.data.subcategory ?? '').trim();
     const plateLabel = subcategory && subcategory.length <= 20 && !subcategory.includes('/')
       ? subcategory : categoryLabel(event.data.category);
-    const image = contextPhotos[slug] && status !== 'actual' ? {
+    let image = contextPhotos[slug] && status !== 'actual' ? {
       ...contextPhotos[slug],
     } : !hero.override && hero.hasPhoto && recorded?.alt && recorded?.credit && recorded?.rightsStatus === 'recorded' && status !== 'unverified' ? {
       src: hero.src,
@@ -87,6 +92,16 @@ const cards = await Promise.all(
       caption: cleanCaption(recorded.caption),
       credit: recorded.credit,
     } : { src: '/images/generated/coastal-punch-plate.svg', alt: 'Conceptual coastal artwork in Peninsula Insider colours', caption: '', credit: '' };
+    // An existing licensed Alba venue photograph distinguishes this retreat from
+    // the Hot Springs pool illustration. Bind to the exact source artwork so a
+    // later editor-owned replacement is preserved. No event facts are rewritten.
+    const albaPhoto = alba.gallery.find(photo => photo.src === '/images/visit-victoria/vv-172661-alba-thermal-springs-and-spa.webp');
+    if (slug === 'the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15'
+      && !hero.override && recorded?.src?.split(/[?#]/)[0] === '/images/generated/events/thermal-pool.webp'
+      && albaPhoto?.rightsStatus === 'recorded' && albaPhoto.provenanceReview === 'verified'
+      && albaPhoto.depictionStatus === 'actual' && albaPhoto.permittedUses.includes('website')) {
+      image = { src: albaPhoto.src, alt: albaPhoto.alt, caption: albaPhoto.caption, credit: albaPhoto.credit };
+    }
     const dateISO = pickDateISO(event, now);
     const dateLabel = dateISO ? new Date(dateISO + 'T00:00:00Z').toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }) : '';
     const fullTitle = String(event.data.title);
@@ -110,27 +125,34 @@ const cards = await Promise.all(
     };
   }),
 );
+const selected = new Set(distinctWeekendCards(cards));
+const discoveries = [
+  { title: 'Browse the events calendar', href: '/whats-on/', text: 'Choose your dates and check the latest event details.' },
+  { title: 'Find a place to explore', href: '/explore/', text: 'Browse walks, beaches and places across the Peninsula.' },
+  { title: 'Plan a Peninsula day', href: '/explore/plans/', text: 'Find an itinerary to suit your time and interests.' },
+];
 ---
 
-
-  <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title" data-event-promotions-section>
+  <section id="home-weekend" class="home-weekend" aria-labelledby="home-weekend-title" data-event-promotions-section data-home-weekend={weekend.satISO}>
     <div class="container">
       <div class="home-weekend__head">
         <div>
-          <h2 id="home-weekend-title" class="home-weekend__title">This weekend</h2>
+          <h2 id="home-weekend-title" class="home-weekend__title" data-weekend-heading>This weekend</h2>
           <p class="home-weekend__window">{weekend.label}</p>
         </div>
         <a class="home-weekend__more" href="/whats-on/">See all events <span aria-hidden="true">→</span></a>
       </div>
 
-      <p data-event-promotion-empty hidden={cards.length > 0}>No verified event picks remain for this weekend. <a href="/whats-on/?date=next-weekend">Browse next weekend</a> or <a href="/explore/">find a place to explore</a>.</p>
-      <div data-event-promotion-content hidden={cards.length === 0}>
-      <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={cards.length < 2}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
+      <p data-event-promotion-empty hidden={selected.size > 0}>No verified event picks remain for these dates. <a href="/whats-on/?date=next-weekend">Browse next weekend</a> or <a href="/explore/">find a place to explore</a>.</p>
+      <noscript><p>Selection for {weekend.label} {weekend.saturday.getUTCFullYear()}. Check event dates and organiser details before travelling.</p></noscript>
+      <p data-weekend-sparse hidden={selected.size === 3}>More ways to plan: the discovery links below are not dated event picks.</p>
+      <div data-event-promotion-content>
+      <p class="home-weekend__scroll-hint" data-event-promotion-multi-hint hidden={false}>Swipe or scroll through the picks <span aria-hidden="true">&rarr;</span></p>
 
       <div class="home-weekend__scroller">
-        <CardGrid label="This weekend's picks" maxCols={cards.length === 2 ? 2 : 3}>
+        <CardGrid label="Weekend events and discovery links">
           {cards.map((card, i) => (
-            <li data-event-promotion={JSON.stringify({id:card.promotion.id,data:publicEventData(card.promotion.data)})} data-event-promotion-day={card.dateISO}>
+            <li hidden={!selected.has(card)} data-weekend-slug={card.slug} data-weekend-image={card.image.src} data-event-promotion={JSON.stringify({id:card.promotion.id,data:publicEventData(card.promotion.data)})} data-event-promotion-day={card.dateISO}>
             <Card preferAvif={true} as="article"
               variant="event"
               title={card.title}
@@ -151,6 +173,15 @@ const cards = await Promise.all(
             >
             </Card>
             {card.sourceUrl?.startsWith('https://') && <p class="home-weekend__source">{card.checkedOn && <span>Event details checked {new Date(card.checkedOn).toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'})} · </span>}<a href={card.sourceUrl}>Organiser’s page</a></p>}
+            </li>
+          ))}
+          {discoveries.map((item, i) => (
+            <li data-weekend-discovery hidden={i >= 3 - selected.size}>
+              <article class="home-weekend__discovery">
+                <p class="home-weekend__discovery-label">Explore more</p>
+                <h3><a href={item.href}>{item.title}</a></h3>
+                <p>{item.text}</p>
+              </article>
             </li>
           ))}
         </CardGrid>
@@ -180,6 +211,11 @@ const cards = await Promise.all(
   /* The visible card peek says "swipe"; the hint stays for assistive tech. */
   .home-weekend__scroll-hint { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
+  .home-weekend :global([hidden]) { display: none !important; }
+  .home-weekend__discovery { padding: var(--space-5); border: 1px solid var(--line); border-radius: var(--radius-m); background: var(--surface); min-height: 16rem; }
+  .home-weekend__discovery-label { color: var(--soft); font-size: var(--fs-200); }
+  .home-weekend__discovery h3 { font-size: var(--fs-500); }
+  .home-weekend__discovery a { display: inline-flex; align-items: center; min-height: 44px; color: var(--accent); }
   .home-weekend__scroller :global(.v5-card-grid) { align-items: start; }
   .home-weekend__scroller :global(.v5-card-grid>li) { min-width: 0; }
   .home-weekend__scroller :global(.pi-card) { width: 100%; }

@@ -26,7 +26,7 @@ test('browser recheck hides the swipe hint when a lunchtime pick ends but retain
 let home = stripTypeScriptTypes(readFileSync(new URL('../components/v5/home/home-data.ts',import.meta.url),'utf8'));
 home=home.replace(/import \{ USE_OCCURRENCE_MODEL \} from '[^']+';/,"const USE_OCCURRENCE_MODEL=false;");
 home=home.replace(/from '([^']+)'/g,(_,path)=>`from '${new URL(path+(path.endsWith('.mjs')?'':'.ts'),new URL('../components/v5/home/home-data.ts',import.meta.url)).href}'`);
-const {selectWeekendPicks,pickDateISO}=await import('data:text/javascript;base64,'+Buffer.from(home).toString('base64'));
+const {selectWeekendPicks,pickDateISO,weekendPickOccurrences}=await import('data:text/javascript;base64,'+Buffer.from(home).toString('base64'));
 test('actual homepage selector honours editorial order only among eligible approved weekend sessions',()=>{const a=fixture(),b=fixture({slug:'second'}),cancel=fixture({slug:'cancelled',cancelled:true});const picks=[{data:{weekendStart:new Date('2026-10-10'),picks:[{eventSlug:'cancelled',position:0},{eventSlug:'second',position:1,editorVerdict:'Fixture verdict'},{eventSlug:a.id,position:2}]}}];const result=selectWeekendPicks(picks,[a,b,cancel],now);assert.deepEqual(result.picks.map(p=>p.event.data.slug),['second','synthetic-session']);assert.equal(pickDateISO(result.picks[0].event,now),'2026-10-10');});
 test('actual homepage refuses post-approval public content drift even with occurrence flag off',()=>{const e=approved();e.data.summary='Changed without approval';assert.equal(selectWeekendPicks([], [e],now).picks.length,0);});
 
@@ -42,4 +42,96 @@ test('actual Journal contextual selector uses explicit references, never title s
 test('an emptied homepage retains a truthful dated fallback instead of fabricated picks',()=>{
  const empty={hidden:true},content={hidden:false},section={hidden:false,querySelectorAll:q=>q==='[data-event-promotion-empty]'?[empty]:q==='[data-event-promotion-content]'?[content]:[]};
  const root={querySelectorAll:q=>q==='[data-event-promotions-section]'?[section]:[]};refreshEventPromotions(root,now);assert.equal(section.hidden,false);assert.equal(empty.hidden,false);assert.equal(content.hidden,true);
+});
+
+
+// Homepage-specific selection is re-evaluated after the shared fail-closed gate.
+const { homeWeekendWindow, distinctWeekendCards, weekendImageIdentity } = await import('./home-weekend.mjs');
+function homeDOM(entries, edition = '2026-10-10') {
+  const nodes = entries.map(([event, image, day = '2026-10-10']) => ({
+    hidden: false,
+    getAttribute: key => ({'data-event-promotion': JSON.stringify(event), 'data-event-promotion-day': day, 'data-weekend-slug':event.data.slug, 'data-weekend-image':image})[key],
+    remove() { nodes.splice(nodes.indexOf(this), 1); },
+  }));
+  const discoveries = Array.from({length:3}, () => ({hidden:true}));
+  const empty = {hidden:true}, sparse = {hidden:true}, content = {hidden:false}, heading = {textContent:'This weekend'};
+  const section = {
+    hidden:false, hasAttribute: key => key === 'data-home-weekend', getAttribute: () => edition,
+    querySelectorAll: key => ({'[data-event-promotion]':nodes, '[data-weekend-discovery]':discoveries, '[data-event-promotion-empty]':[empty], '[data-weekend-sparse]':[sparse], '[data-event-promotion-content]':[content], '[data-weekend-heading]':[heading]})[key] ?? [],
+  };
+  return { nodes, discoveries, empty, sparse, content, heading, section, querySelectorAll:key => key === '[data-event-promotion]' ? [...nodes] : [section] };
+}
+
+test('Melbourne weekend rolls on Monday midnight including DST and year boundaries', () => {
+  for (const [stamp, expected] of [
+    ['2026-11-15T12:59:59Z','2026-11-14'], ['2026-11-15T13:00:00Z','2026-11-21'],
+    ['2026-10-03T15:59:59Z','2026-10-03'], ['2026-10-03T16:00:00Z','2026-10-03'],
+    ['2026-04-04T15:59:59Z','2026-04-04'], ['2026-04-04T16:00:00Z','2026-04-04'],
+    ['2026-12-31T13:00:00Z','2027-01-02'],
+  ]) assert.equal(homeWeekendWindow(new Date(stamp)).satISO, expected);
+});
+
+test('image identity ignores cache versions, fragments and responsive sizes', () => {
+  const card = (slug, src) => ({slug,image:{src}});
+  assert.deepEqual(distinctWeekendCards([
+    card('one','/images/pool.webp?v=1'), card('two','https://peninsulainsider.com.au/images/pool.webp?v=2#crop'),
+    card('three','/images/amp.webp'), card('four','/images/venue.webp'),
+  ]).map(c => c.slug), ['one','three','four']);
+  assert.equal(weekendImageIdentity('/_media/abc-480.webp'), weekendImageIdentity('/_media/abc-1280.avif'));
+});
+
+test('homepage fills three distinct images from reserves after an occurrence ends', () => {
+  const dom = homeDOM([
+    [fixture({slug:'lunch',endTime:'13:00'}),'/images/lunch.webp'],
+    [fixture({slug:'pool-one'}),'/images/pool.webp?v=1'],
+    [fixture({slug:'pool-two'}),'/images/pool.webp?v=2'],
+    [fixture({slug:'amp'}),'/images/amp.webp'],
+    [fixture({slug:'venue'}),'/images/venue.webp'],
+  ]);
+  refreshEventPromotions(dom,new Date('2026-10-10T01:59:00Z'));
+  assert.deepEqual(dom.nodes.filter(n=>!n.hidden).map(n=>n.getAttribute('data-weekend-slug')),['lunch','pool-one','amp']);
+  refreshEventPromotions(dom,new Date('2026-10-10T02:01:00Z'));
+  assert.deepEqual(dom.nodes.filter(n=>!n.hidden).map(n=>n.getAttribute('data-weekend-slug')),['pool-one','amp','venue']);
+  assert.equal(dom.discoveries.filter(n=>!n.hidden).length,0);
+});
+
+test('zero, one and two eligible cards get labelled discovery slots, never fabricated events', () => {
+  for (let count=0;count<3;count++) {
+    const dom = homeDOM(Array.from({length:count},(_,i)=>[fixture({slug:'event-'+i}),'/images/'+i+'.webp']));
+    refreshEventPromotions(dom,now);
+    assert.equal(dom.nodes.filter(n=>!n.hidden).length,count);
+    assert.equal(dom.discoveries.filter(n=>!n.hidden).length,3-count);
+    assert.equal(dom.sparse.hidden,false);
+    assert.equal(dom.empty.hidden,count>0);
+    assert.equal(dom.content.hidden,false);
+  }
+});
+
+test('old edition cannot relabel a continuing event as next weekend at Melbourne Monday rollover', () => {
+  const dom = homeDOM([[fixture({endDate:new Date('2026-10-13')}),'/images/pool.webp']]);
+  refreshEventPromotions(dom,new Date('2026-10-11T13:00:00Z'));
+  assert.equal(dom.nodes.filter(n=>!n.hidden).length,0);
+  assert.equal(dom.discoveries.filter(n=>!n.hidden).length,3);
+  assert.equal(dom.heading.textContent,'Weekend picks');
+});
+
+test('reserve selection retains more than nine candidates without admitting next-weekend or draft events', () => {
+  const entries=Array.from({length:12},(_,i)=>fixture({slug:'eligible-'+i}));
+  const result=selectWeekendPicks([], [...entries, fixture({slug:'draft',status:'review'}), fixture({slug:'later',startDate:new Date('2026-10-17'),endDate:new Date('2026-10-17')})], now, Infinity);
+  assert.equal(result.picks.length,12);
+  assert.ok(result.picks.every(p=>p.event.data.slug.startsWith('eligible-')));
+});
+
+
+test('Saturday to Sunday keeps a continuing approved event with its Sunday date and no duplicate slot', () => {
+  const event=fixture({endDate:new Date('2026-10-11')});
+  const picks=weekendPickOccurrences(selectWeekendPicks([], [event], now, Infinity).picks, now);
+  assert.deepEqual(picks.map(p=>p.event.data._promotionDay),['2026-10-10','2026-10-11']);
+  const dom=homeDOM(picks.map(p=>[p.event.data._promotionOriginal,'/images/pool.webp',p.event.data._promotionDay]));
+  refreshEventPromotions(dom,now);
+  assert.equal(dom.nodes.filter(n=>!n.hidden).length,1);
+  assert.equal(dom.nodes.find(n=>!n.hidden).getAttribute('data-event-promotion-day'),'2026-10-10');
+  refreshEventPromotions(dom,new Date('2026-10-10T23:00:00Z'));
+  assert.equal(dom.nodes.filter(n=>!n.hidden).length,1);
+  assert.equal(dom.nodes.find(n=>!n.hidden).getAttribute('data-event-promotion-day'),'2026-10-11');
 });

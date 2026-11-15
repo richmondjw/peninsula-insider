@@ -320,6 +320,22 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
+      - name: Verify homepage weekend on the exact public release
+        working-directory: next
+        env:
+          REVIEW_BASE_URL: https://peninsulainsider.com.au
+          REVIEW_HEAD_SHA: ${{ github.sha }}
+        run: node scripts/review-home-weekend.mjs
+
+      - name: Retain homepage weekend live verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: home-weekend-live-${{ github.run_id }}-${{ github.run_attempt }}
+          path: next/review/home-weekend/
+          retention-days: 90
+          if-no-files-found: warn
+
       - name: Verify Dominion event detail while the one-off show is current
         env:
           SOURCE_SHA: ${{ github.sha }}

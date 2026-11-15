@@ -1,3 +1,4 @@
+import { homeWeekendWindow } from '../../../lib/home-weekend.mjs';
 import { eventPromotionEntries } from '../../../lib/event-discovery.mjs';
 import {isPublicEventRecord} from '../../../lib/event-publication.mjs';
 import {hasExplicitSeries,occurrenceData} from '../../../lib/intelligence-series.mjs';
@@ -13,7 +14,7 @@ import {resolveListingOccurrence} from '../../../lib/whatson-listing.mjs';
  * weekend-picks entry for the upcoming weekend into event entries, and
  * when no entry exists for that weekend (the common case between
  * editorial pushes) fall back to a ranked read of the events collection
- * so the module never renders empty.
+ * with a truthful discovery fallback when eligible inventory is sparse.
  */
 
 import { rotateByMelbourneHours } from '../../../lib/daily-rotation';
@@ -52,20 +53,7 @@ function isoOf(d: Date): string {
 
 /** The homepage names Saturday–Sunday and only promotes those actual dates. */
 export function weekendWindow(now: Date = new Date()): WeekendWindow {
-  const mel = melbourneNow(now);
-  const day = mel.getDay(); // 0 Sun .. 6 Sat
-  const offset = day === 0 ? -1 : 6 - day;
-  const saturday = new Date(mel.getFullYear(), mel.getMonth(), mel.getDate() + offset);
-  const friday = new Date(saturday.getFullYear(), saturday.getMonth(), saturday.getDate() - 1);
-  const sunday = new Date(saturday.getFullYear(), saturday.getMonth(), saturday.getDate() + 1);
-  const monthFmt = new Intl.DateTimeFormat('en-AU', { month: 'long' });
-  const satMonth = monthFmt.format(saturday);
-  const sunMonth = monthFmt.format(sunday);
-  const label =
-    satMonth === sunMonth
-      ? `${saturday.getDate()}–${sunday.getDate()} ${sunMonth}`
-      : `${saturday.getDate()} ${satMonth} – ${sunday.getDate()} ${sunMonth}`;
-  return { satISO: isoOf(saturday), friday, saturday, sunday, label };
+  return homeWeekendWindow(now);
 }
 
 /**
@@ -158,6 +146,7 @@ export function selectWeekendPicks(
   picksEntries: any[],
   events: any[],
   now: Date = new Date(),
+  limit = 3,
 ): { picks: WeekendPick[]; window: WeekendWindow } {
   const win = weekendWindow(now);
   events = eventPromotionEntries(events, {now, windowStart: new Date(win.satISO + 'T00:00:00Z'), windowDays: 2});
@@ -185,11 +174,11 @@ export function selectWeekendPicks(
     for (const candidate of editorialCandidates) {
       used.add(slugOf(candidate.event));
       out.push(candidate);
-      if (out.length === 3) break;
+      if (out.length === limit) break;
     }
   }
 
-  if (out.length < 3) {
+  if (out.length < limit) {
     const mel = melbourneNow(now);
     const ranked = events
       .filter((e) => isLiveEvent(e, now))
@@ -207,17 +196,28 @@ export function selectWeekendPicks(
     // through the top of the ranking twice per Melbourne day. The deploy
     // workflow rebuilds at each 12-hour boundary over Saturday and Sunday.
     // Editorial picks above are untouched: only this fallback rotates.
-    for (const ev of rotateByMelbourneHours(ranked, now, 12)) {
+    const rotated = rotateByMelbourneHours(ranked, now, 12);
+    const pool = [...rotated, ...ranked.filter(ev => !rotated.includes(ev))];
+    for (const ev of pool) {
       used.add(slugOf(ev));
       out.push({
         event: ev,
         verdict: clampVerdict(ev.data.editorVerdict ?? ev.data.whyWeCare ?? ev.data.summary),
       });
-      if (out.length === 3) break;
+      if (out.length === limit) break;
     }
   }
 
   return { picks: out, window: win };
+}
+
+/** Pre-render each actual day so Sunday can replace Saturday without changing card facts. */
+export function weekendPickOccurrences(picks: WeekendPick[], now: Date = new Date()): WeekendPick[] {
+  const win = weekendWindow(now);
+  return picks.flatMap(pick => [win.saturday, win.sunday].flatMap(day =>
+    eventPromotionEntries([pick.event], { now, windowStart: day, windowDays: 1 })
+      .map(event => ({ event, verdict: pick.verdict })),
+  ));
 }
 
 /** Pretty label for an event category slug. */
