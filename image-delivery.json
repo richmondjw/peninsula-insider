@@ -657,6 +657,62 @@
       ]
     },
     {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/commonfolk-coffee/heroImage-1780004538243.jpg",
+      "format": "webp",
+      "originalBytes": 366479,
+      "variants": [
+        {
+          "src": "/_media/6cc72981025d7d31df9c-480.webp",
+          "width": 480,
+          "height": 480,
+          "bytes": 64888
+        },
+        {
+          "src": "/_media/6cc72981025d7d31df9c-800.webp",
+          "width": 800,
+          "height": 800,
+          "bytes": 164906
+        },
+        {
+          "src": "/_media/6cc72981025d7d31df9c-900.webp",
+          "width": 900,
+          "height": 900,
+          "bytes": 213590
+        }
+      ]
+    },
+    {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/tedesca-osteria/heroImage-1781253504049.jpg",
+      "format": "webp",
+      "originalBytes": 586886,
+      "variants": [
+        {
+          "src": "/_media/da4fb3b8026e9e8eb0fe-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 24918
+        },
+        {
+          "src": "/_media/da4fb3b8026e9e8eb0fe-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 58570
+        },
+        {
+          "src": "/_media/da4fb3b8026e9e8eb0fe-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 126700
+        },
+        {
+          "src": "/_media/da4fb3b8026e9e8eb0fe-1920.webp",
+          "width": 1920,
+          "height": 1080,
+          "bytes": 244278
+        }
+      ]
+    },
+    {
       "source": "/images/visit-victoria/vv-26070118-jackalope-hotel.webp",
       "format": "webp",
       "originalBytes": 85358,
@@ -678,6 +734,50 @@
           "width": 1280,
           "height": 853,
           "bytes": 83348
+        }
+      ]
+    },
+    {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/barragunda-dining/heroImage-1780004515078.jpg",
+      "format": "webp",
+      "originalBytes": 690363,
+      "variants": [
+        {
+          "src": "/_media/51db9a66e5eab2b33ea2-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 23840
+        },
+        {
+          "src": "/_media/51db9a66e5eab2b33ea2-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 51320
+        },
+        {
+          "src": "/_media/51db9a66e5eab2b33ea2-1280.webp",
+          "width": 1280,
+          "height": 854,
+          "bytes": 100484
+        },
+        {
+          "src": "/_media/51db9a66e5eab2b33ea2-1920.webp",
+          "width": 1920,
+          "height": 1280,
+          "bytes": 177160
+        }
+      ]
+    },
+    {
+      "source": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/portsea-hotel/hero-1778598174247.jpg",
+      "format": "webp",
+      "originalBytes": 46132,
+      "variants": [
+        {
+          "src": "/_media/7ae171a8e7673d2bb53c-400.webp",
+          "width": 400,
+          "height": 400,
+          "bytes": 26816
         }
       ]
     },

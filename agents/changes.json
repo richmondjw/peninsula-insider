@@ -1,60 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-15T02:10:31.005Z",
+  "generatedAt": "2026-11-15T02:41:04.715Z",
   "baselineAvailable": true,
-  "fromSnapshot": "95cb82f01927faa3259ac8381c55c06c86aed43cacf0c60231f24e13830005f8",
-  "toSnapshot": "6fc602437a87351b02712177f7a1eb5391001b65ba6dd0d4be47fec8abdd5c67",
-  "previousGeneratedAt": "2026-11-15T00:01:10.303Z",
+  "fromSnapshot": "6fc602437a87351b02712177f7a1eb5391001b65ba6dd0d4be47fec8abdd5c67",
+  "toSnapshot": "96e7121ec366eb30daa369d93964eb3598e901391a0a701aea7e843fcb55e83b",
+  "previousGeneratedAt": "2026-11-15T02:10:31.005Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/",
+      "id": "https://peninsulainsider.com.au/eat/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "03910c9114ab466cafb8a1cd33bcfb2916bd66adcfcc5351cb6fa3624d8ebae0",
-      "previousContentSha256": "220974c3e31ed57961c9391b1a9b9e1bd450b7bd7ce0e0798148964ae402d95c"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
-      "contentSha256": "b5b82eb7eccec9928c58a131322fcf661e4c5aa6e118057eb8b6c6de15f97db1",
-      "previousContentSha256": "1f51e66f58240ae154832d14acf27f2ed5bb80974df71a98fa7419c24d5a2c90"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "548c57906e4f46c77195a04839be025b9073ef39019871b7fea91b357970d2a6",
-      "previousContentSha256": "96051c10f00797acee2065fb8c8a7c76726ce80cd8021c0a6bcb93a4e1925048"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "426dbbd3ea282e0af505074d7573b70a102154c5e70e4c7b5cf8993f82165bed",
-      "previousContentSha256": "2de8fecff2339252d866220c0be09f7080712b76c6552b487c1cc961f38693fa"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/index.md",
-      "contentSha256": "9faa67757c0f8519fc949b2ffc51c2fe2d41040e634e8186546f178bf6f0350c",
-      "previousContentSha256": "cf5e35316807823eea8e0261e53d0aa699bc449b7ca1458c0cd9018e5f0f31fd"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/wine/appointment-producers/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/wine/appointment-producers/",
-      "markdownUrl": "https://peninsulainsider.com.au/wine/appointment-producers/index.md",
-      "contentSha256": "4d43504883f0494042d4ecb039eaa1cab087b1895ab7f13d86e74d5370cec006",
-      "previousContentSha256": "9f2bb94b5122a27980c0c770eb11bf95db72896d93ff8d4ecf9f8af42fbc9db7"
+      "canonicalUrl": "https://peninsulainsider.com.au/eat/",
+      "markdownUrl": "https://peninsulainsider.com.au/eat/index.md",
+      "contentSha256": "aee8c6c9de5f3888e6076c7c652df3d469f04b916d55602fc77a28a377d0c860",
+      "previousContentSha256": "e22953be9f1186cffd4614d79b93109a6402b4b919b81bcc7faccb75dff67eb9"
     }
   ]
 }
