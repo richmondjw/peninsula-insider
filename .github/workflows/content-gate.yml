@@ -55,6 +55,7 @@ jobs:
         # exits non-zero, removes it. If this passes silently the gate is dead.
         run: |
           cd next
+          python3 -m unittest discover -s ../engine -p 'test_publication_freshness*.py'
           npm run test:content-admission
           npm run test:firsthand-claims
           npm run test:corrections
