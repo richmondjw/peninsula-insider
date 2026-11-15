@@ -1,68 +1,20 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-15T10:24:35.789Z",
+  "generatedAt": "2026-11-15T11:13:34.898Z",
   "baselineAvailable": true,
-  "fromSnapshot": "6b79ae8b91e3f9f1b8566c0b2fb8e2c5b9b9599cfb5859d80133b487c2540041",
-  "toSnapshot": "bb2d745e81fce984a6d5aed17aefa7ab00d3a7aeab2ff3434a22b10b970569e4",
-  "previousGeneratedAt": "2026-11-15T05:08:53.388Z",
+  "fromSnapshot": "bb2d745e81fce984a6d5aed17aefa7ab00d3a7aeab2ff3434a22b10b970569e4",
+  "toSnapshot": "068dba64b8fb7d0177cac9e48033f0baf3e1bb2128d9f1b964e506dbe14edecf",
+  "previousGeneratedAt": "2026-11-15T10:24:35.789Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 7,
+  "count": 1,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/",
+      "id": "https://peninsulainsider.com.au/boating/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/",
-      "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "78e45bd0907f42bc839617c97dceea7f4e0cb55afea246587d754ee16cdd1647",
-      "previousContentSha256": "bcfeac7c5e5165979cf194bfdf8e3038299bcd20b33f21544c5b917991bff7e3"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/boneo/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/boneo/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/boneo/index.md",
-      "contentSha256": "27f37fbf97f465636546192539b39c8b37a9e49769a1478774ff5b3b796cd3ad",
-      "previousContentSha256": "22f8b2bbed4345ec9950945a8fe6aabedc21b16b41d32e1229859940398ff741"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/dromana/",
-      "markdownUrl": "https://peninsulainsider.com.au/explore/places/dromana/index.md",
-      "contentSha256": "466959809c00c60f7895bda47264ad1fc5c10786f9223d1712bf86aca003d3e3",
-      "previousContentSha256": "b5b82eb7eccec9928c58a131322fcf661e4c5aa6e118057eb8b6c6de15f97db1"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
-      "contentSha256": "1234e690dca7df4777f892d55c2940c64d8f95563adaae317713e854ae49b4cb",
-      "previousContentSha256": "c5416a89a50715bffe9584525b3649fbfeb56b9b9b2f7dcc8152f1de8d4de777"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/index.md",
-      "contentSha256": "04acc8ec26aa40f913fe11bc38e0db9ffc8ff41d02c4820d66716c40cce89e9c",
-      "previousContentSha256": "3aaf43619fb6955f2ce2ebbd127203452e0951d10b2e03e970334256b0c1ec1e"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "9aba35c78d242b6bc15924903be4bd5fcab4fa844d75255b384dfcc57abdc440",
-      "previousContentSha256": "f52a60f0fba0d1394d9e473ac2b1e440b7452be254d80f439ba88361466e71e6"
-    },
-    {
-      "id": "https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/",
-      "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/index.md",
-      "contentSha256": "c8f6dfcbaa00fe212bc265bab67fa42978080749753d4edf4c7acc2c8072e73e",
-      "previousContentSha256": "e4e5dc0f50ad8e8c56fc221bf834a23cdf336727c0d3eaaac78856e75fb2f85f"
+      "canonicalUrl": "https://peninsulainsider.com.au/boating/",
+      "markdownUrl": "https://peninsulainsider.com.au/boating/index.md",
+      "contentSha256": "45a5b682d5a6e92565d4c3179a0e6b618cb054cda8a5a86d9e589d373ee03c09",
+      "previousContentSha256": "19a7e4c98b5d293ac6852e863dcd9e7e787aa060ed2ecc72f98cfab7ba94be5d"
     }
   ]
 }
