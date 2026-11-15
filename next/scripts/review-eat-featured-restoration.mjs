@@ -16,7 +16,7 @@ try {
     { width: 1440, height: 1000, deviceScaleFactor: 1 },
     { width: 390, height: 844, deviceScaleFactor: 3, isMobile: true, hasTouch: true },
   ]) {
-    const reader = await site.reader();
+    const reader = await site.reader({ seedStorage: { 'pi-consent-v1': '' } });
     const { page } = reader;
     const observed = { viewport, cards: [] };
     report.viewports.push(observed);
@@ -24,6 +24,7 @@ try {
       await page.setViewport(viewport);
       await page.emulateMediaFeatures([{ name: 'prefers-reduced-motion', value: 'reduce' }]);
       await reader.load('/eat/');
+      assert.equal(await page.$eval('#cookie-banner', el => el.dataset.state), 'visible', 'First-visit cookie note remains present');
       await page.evaluate(async () => {
         document.querySelectorAll('#the-six img').forEach(img => { img.loading = 'eager'; });
         await document.fonts.ready;
@@ -92,3 +93,4 @@ try {
   await fs.writeFile(`${out}/report.json`, JSON.stringify(report, null, 2));
   if (site) await site.close();
 }
+
