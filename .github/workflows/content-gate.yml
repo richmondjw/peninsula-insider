@@ -244,11 +244,6 @@ jobs:
           cd next
           node scripts/check-search-opportunities.mjs
 
-      - name: Journeys
-        run: |
-          cd next
-          npm run test:journeys
-
       - name: Review appointment producer redesign
         if: github.event_name == 'pull_request' && github.head_ref == 'codex/appointment-producers-editorial'
         working-directory: next
@@ -264,6 +259,11 @@ jobs:
           path: next/review/appointment-producers/
           if-no-files-found: error
           retention-days: 14
+
+      - name: Journeys
+        run: |
+          cd next
+          npm run test:journeys
 
       - name: Capture November 15 correction for review
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 734

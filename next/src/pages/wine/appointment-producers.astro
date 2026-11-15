@@ -52,22 +52,22 @@ export const prerender = true;
 
 <BaseLayout
   title="Small-Production Wine Producers · Mornington Peninsula · Peninsula Insider"
-  description="Explore eight Mornington Peninsula wine producers, from Merricks to Flinders. Find producer guides and direct links to plan your visit."
+  description={`Explore ${venues.length} Mornington Peninsula wine producers, from Merricks to Flinders. Find producer guides and direct links to plan your visit.`}
   section="wine" canonical={canonical}
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Wine Country', href: '/wine/' }, { label: 'Small-production producers' }]} />
   <div class="producer-guide">
-    <section class="guide-hero container" aria-labelledby="guide-title">
-      <div class="guide-hero__copy">
+    <section class="producer-hero container" aria-labelledby="guide-title">
+      <div class="producer-hero__copy">
         <p class="eyebrow">Wine country · The producer shortlist</p>
         <h1 id="guide-title">Small producers.<br />A little planning.</h1>
         <p class="standfirst">Go beyond the familiar cellar-door circuit. Explore {venues.length} Peninsula producers and make the visiting arrangements part of the plan.</p>
         <a class="pi-btn pi-btn--solid" href="#producers">Explore the producers <span aria-hidden="true">↓</span></a>
         <p class="hero-note">Some visits need an appointment. Others have regular cellar-door hours.</p>
       </div>
-      <figure class="guide-hero__image">
+      <figure class="producer-hero__image">
         <img src={hero.src} alt={hero.alt} width="1536" height="1024" fetchpriority="high" />
         <figcaption>{hero.credit} · Conceptual artwork</figcaption>
       </figure>
@@ -110,14 +110,14 @@ export const prerender = true;
   .producer-guide { color: var(--text); }
   .producer-guide .container { max-width: 1200px; }
   .eyebrow { color: var(--accent); font-size: var(--fs-100); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 var(--space-4); }
-  .guide-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-7); align-items: center; padding-top: var(--space-6); padding-bottom: var(--space-8); }
-  .guide-hero h1 { font-size: var(--fs-800); line-height: 1.12; letter-spacing: -.035em; margin: 0 0 var(--space-5); }
+  .producer-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-7); align-items: center; padding-top: var(--space-6); padding-bottom: var(--space-8); }
+  .producer-hero h1 { font-size: var(--fs-800); line-height: 1.12; letter-spacing: -.035em; margin: 0 0 var(--space-5); }
   .standfirst { max-width: 48ch; font-size: var(--fs-500); line-height: 1.5; margin: 0 0 var(--space-5); }
   .hero-note { font-size: var(--fs-300); line-height: 1.5; max-width: 40ch; margin: var(--space-4) 0 0; }
-  .guide-hero__image { margin: 0; min-width: 0; }
-  .guide-hero__image img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; border-radius: var(--space-3); }
-  .guide-hero__image figcaption { font-size: var(--fs-200); margin-top: var(--space-3); }
-  .planning { background: var(--bg-alt); border-block: 1px solid var(--border); padding-block: var(--space-7); display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-7); }
+  .producer-hero__image { margin: 0; min-width: 0; }
+  .producer-hero__image img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; border-radius: var(--space-3); }
+  .producer-hero__image figcaption { font-size: var(--fs-200); margin-top: var(--space-3); }
+  .planning { background: var(--bg-alt); border-block: 1px solid var(--border); padding: var(--space-7) var(--space-6); display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-7); }
   .producer-guide h2 { font-size: 2rem; line-height: 1.2; letter-spacing: -.025em; margin: 0; }
   .planning__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
   .planning h3 { font-size: 1.0625rem; line-height: 1.4; margin: 0 0 var(--space-3); }
@@ -131,27 +131,27 @@ export const prerender = true;
   .producer-card { border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--space-2); background: var(--white); padding: var(--space-6); display: flex; flex-direction: column; min-width: 0; }
   .producer-place { font-size: var(--fs-200); font-weight: 600; align-self: start; display: inline-flex; min-height: 44px; align-items: center; }
   .producer-card h3 { font-size: var(--fs-600); line-height: 1.25; margin: var(--space-2) 0 var(--space-4); }
-  .producer-card h3 a { color: var(--text) !important; text-decoration: none; }
+  .producer-card h3 a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text) !important; text-decoration: none; }
   .producer-card h3 a:hover { text-decoration: underline; }
   .producer-card > p { font-size: var(--fs-400); line-height: 1.65; margin: 0 0 var(--space-5); max-width: 48ch; }
   .producer-card__links { margin-top: auto; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
   .producer-card__links a, .directory-heading > a { display: inline-flex; gap: var(--space-2); min-height: 44px; align-items: center; font-size: var(--fs-300); font-weight: 600; }
   .producer-card__save { border-top: 1px solid var(--border); margin-top: var(--space-5); padding-top: var(--space-4); }
   .producer-card__save :global(.pi-actions__btn) { width: auto; max-width: none; padding-inline: 14px; gap: 8px; }
-  .producer-card__save :global(.pi-actions__label) { position: static; opacity: 1; width: auto; max-width: none; clip: auto; overflow: visible; transform: none; }
+  .producer-card__save :global(.pi-actions__label) { font-size: var(--fs-100); position: static; opacity: 1; width: auto; max-width: none; clip: auto; overflow: visible; transform: none; }
   .visiting-note { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-7); border-top: 1px solid var(--border); padding-block: var(--space-7) var(--space-8); }
   .visiting-note p:not(.eyebrow) { font-size: var(--fs-400); line-height: 1.65; margin: 0 0 var(--space-4); }
   @media (max-width: 800px) {
-    .guide-hero { gap: var(--space-5); }
+    .producer-hero { gap: var(--space-5); }
     .planning { grid-template-columns: 1fr; gap: var(--space-5); }
     .producer-card { padding: var(--space-5); }
   }
   @media (max-width: 600px) {
-    .guide-hero { grid-template-columns: 1fr; padding-top: var(--space-4); padding-bottom: var(--space-6); }
-    .guide-hero h1 { font-size: 2rem; }
+    .producer-hero { grid-template-columns: 1fr; padding-top: var(--space-4); padding-bottom: var(--space-6); }
+    .producer-hero h1 { font-size: 2rem; }
     .standfirst { font-size: var(--fs-400); }
-    .guide-hero__image { margin-top: var(--space-2); }
-    .planning { padding-block: var(--space-6); }
+    .producer-hero__image { margin-top: var(--space-2); }
+    .planning { padding-block: var(--space-6); padding-inline: var(--space-5); }
     .planning__steps, .producer-grid, .visiting-note { grid-template-columns: 1fr; }
     .planning__steps { gap: var(--space-5); }
     .producer-guide h2 { font-size: 1.75rem; }
