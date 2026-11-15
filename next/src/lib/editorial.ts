@@ -27,7 +27,7 @@ export function clipExcerpt(text: string | undefined | null, maxChars: number): 
  * Set ASTRO_BASE=/V2/ at build time; without it, paths stay root-relative.
  */
 export function baseHref(path: string): string {
-  const raw = import.meta.env.BASE_URL || '/';
+  const raw = import.meta.env?.BASE_URL || '/';
   const base = raw.endsWith('/') ? raw : raw + '/';
   if (path === '/' || path === '') return base;
   const clean = path.startsWith('/') ? path.slice(1) : path;

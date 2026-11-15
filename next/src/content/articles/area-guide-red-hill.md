@@ -48,7 +48,7 @@ aiSummary:
   - "Planning note: Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser’s calendar for your visit date and current hours. Book hatted restaurants 4–8 weeks ahead on weekends."
 ---
 
-Red Hill is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.
+[Red Hill](/explore/places/red-hill/) is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.
 
 Red Hill is at its best when you treat it like a precinct, not a scavenger hunt. Choose deliberately, leave air between bookings, and let lunch dominate. That is what the area is built for.
 
@@ -74,29 +74,29 @@ If you can stay overnight, do. Red Hill improves dramatically when lunch is not 
 
 ### If lunch is the point
 
-**Ten Minutes by Tractor** is the clearest expression of what Red Hill does at the top end. Refined without feeling imported, serious about wine because it should be, and worth building the day around. Give it room rather than sandwiching it between other major bookings.
+**[Ten Minutes by Tractor](/wine/ten-minutes-by-tractor/)** is the clearest expression of what Red Hill does at the top end. Refined without feeling imported, serious about wine because it should be, and worth building the day around. Give it room rather than sandwiching it between other major bookings.
 
 ### If you want the all-round estate
 
-**Montalto** is one of the most complete single-address plays in the district. Tasting, grounds, sculpture, a strong restaurant, and enough room to absorb a weekend crowd without collapsing into noise. If you only have one vineyard stop in you, this can carry the whole day.
+**[Montalto](/wine/montalto/)** is one of the most complete single-address plays in the district. Tasting, grounds, sculpture, a strong restaurant, and enough room to absorb a weekend crowd without collapsing into noise. If you only have one vineyard stop in you, this can carry the whole day.
 
 ### If you prefer focus over scale
 
-**Polperro** suits people who want one precise cellar-door-and-lunch move rather than a broader estate experience. The room is intimate, the wines are serious, and the atmosphere feels tuned to adults who came for the actual product.
+**[Polperro](/wine/polperro/)** suits people who want one precise cellar-door-and-lunch move rather than a broader estate experience. The room is intimate, the wines are serious, and the atmosphere feels tuned to adults who came for the actual product.
 
 ### The supporting cast that matters
 
-**Foxeys Hangout** is worth knowing for a looser tasting. **Paringa Estate** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in Balnarring.
+**[Foxeys Hangout](/wine/foxeys-hangout/)** is worth knowing for a looser tasting. **[Paringa Estate](/wine/paringa-estate/)** is a dependable answer if you want a benchmark producer. **Red Hill Cheese** and **Johnny Ripe** are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker's former village shop is closed; its sole current location is in [Balnarring](/explore/places/balnarring/).
 
 The basic rule: one major lunch, one meaningful cellar door, one or two incidental stops. More than that and quality drops faster than quantity rises.
 
 ## Stay
 
-**Lindenderry at Red Hill** is the easiest recommendation because it understands the brief: regional, comfortable, low-theatre, and close to the action without trying to outshine it.
+**[Lindenderry at Red Hill](/stay/lindenderry/)** is the easiest recommendation because it understands the brief: regional, comfortable, low-theatre, and close to the action without trying to outshine it.
 
-Private villas and vineyard cottages around Red Hill South, Merricks North and Main Ridge are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's orbit.
+Private villas and vineyard cottages around [Red Hill South](/explore/places/red-hill-south/), [Merricks North](/explore/places/merricks-north/) and [Main Ridge](/explore/places/main-ridge/) are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region's orbit.
 
-Staying in Dromana to save money can make sense if you accept the trade. You get easier bay access and cheaper accommodation, but you lose the ability to let lunch run long without consequence.
+Staying in [Dromana](/explore/places/dromana/) to save money can make sense if you accept the trade. You get easier bay access and cheaper accommodation, but you lose the ability to let lunch run long without consequence.
 
 ## What to do
 
@@ -110,7 +110,7 @@ This is not a region for a six-cellar-door crawl. Choose a producer whose wines 
 
 ### Use the roads properly
 
-The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.
+The drive between Red Hill, Main Ridge and [Merricks](/explore/places/merricks/) is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.
 
 ### Shop for produce only if you will use it
 
@@ -120,7 +120,7 @@ A box of local apples or a tart from Johnny Ripe makes sense if you are staying 
 
 The cellar-door crawl. Red Hill is not the Yarra in party mode.
 
-Trying to do Red Hill, Flinders and Sorrento properly in a single day. You can drive it. You cannot experience it.
+Trying to do Red Hill, [Flinders](/explore/places/flinders/) and [Sorrento](/explore/places/sorrento/) properly in a single day. You can drive it. You cannot experience it.
 
 Late, heavy lunches if you still need to drive home to Melbourne. Stay over, or eat earlier.
 

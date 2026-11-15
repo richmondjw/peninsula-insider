@@ -1,0 +1,2146 @@
+{
+  "mode": "diagnostic-only",
+  "completeBuild": false,
+  "releaseEligible": false,
+  "base": "829d2f6a6b7db647a853e36aaccf4c36f1ff976f",
+  "reason": "Astro render killed before completion; absent destinations may reflect incomplete output. Current sources have subsequent review fixes. Not an exact-final-head acceptance receipt.",
+  "generatedAt": "2026-11-15T03:59:57.504Z",
+  "buildPagesSeen": 1077,
+  "pilotArticles": [
+    {
+      "url": "/journal/a-flinders-weekend/",
+      "excluded": false,
+      "overrideCount": 0,
+      "mentions": [
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "linked",
+          "href": "/explore/places/red-hill/",
+          "first": true,
+          "block": 0,
+          "blockId": "bc6be801648",
+          "context": "Most people who talk about the Peninsula mean Red Hill and Sorrento.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:sorrento",
+          "name": "Sorrento",
+          "target": "/explore/places/sorrento/",
+          "status": "linked",
+          "href": "/explore/places/sorrento/",
+          "first": true,
+          "block": 0,
+          "blockId": "bc6be801648",
+          "context": "Most people who talk about the Peninsula mean Red Hill and Sorrento.",
+          "candidates": [
+            "place:sorrento"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "linked",
+          "href": "/explore/places/flinders/",
+          "first": true,
+          "block": 2,
+          "blockId": "ba8294109d4",
+          "context": "But there is another version of the Peninsula. It runs south of both of those places, keeps closer to the ocean side than the bay, and treats the weekend as a rhythm rather than a checklist. That version runs through Flinders, and it is worth the drive on its own terms.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 3,
+          "blockId": "b7260a7195c",
+          "context": "What Flinders actually is",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 4,
+          "blockId": "b41bdc22d3d",
+          "context": "Flinders is a village, with a bakery, a pub, a handful of shops, a pier, and a cliff walk that takes you past one of the prettiest stretches of ocean coast in Victoria. The population sits around 700. Everyone who lives here knows each other. The weekend visitors get absorbed into the rhythm rather than dominating it.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:sorrento",
+          "name": "Sorrento",
+          "target": "/explore/places/sorrento/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 5,
+          "blockId": "b86f5af93dc",
+          "context": "Geographically it sits on the southern tip of the Peninsula, facing Bass Strait rather than Port Phillip. That matters more than it sounds. Everything is two degrees cooler, the wind has more weight, and the light is harder and cleaner than the bay-side light most visitors remember. The back beaches at Sorrento are technically further west, but Flinders feels more like the actual ocean, because it is.",
+          "candidates": [
+            "place:sorrento"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 5,
+          "blockId": "b86f5af93dc",
+          "context": "Geographically it sits on the southern tip of the Peninsula, facing Bass Strait rather than Port Phillip. That matters more than it sounds. Everything is two degrees cooler, the wind has more weight, and the light is harder and cleaner than the bay-side light most visitors remember. The back beaches at Sorrento are technically further west, but Flinders feels more like the actual ocean, because it is.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 6,
+          "blockId": "bebda41880e",
+          "context": "The three-move Flinders day",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 7,
+          "blockId": "beba54a5bc6",
+          "context": "A proper Flinders weekend does three things. Nothing more.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "venue:flinders-sourdough",
+          "name": "Flinders Sourdough",
+          "target": "/eat/flinders-sourdough/",
+          "status": "linked",
+          "href": "/eat/flinders-sourdough/",
+          "first": true,
+          "block": 8,
+          "blockId": "b6604890978",
+          "context": "One: start at Flinders Sourdough. The bakery opens at 7am and the good loaves are gone by lunchtime. Order a morning bun, a long black, and one of whatever pastry is in season. Eat it on the low wall outside. Watch the village wake up. This is the move that orients the whole day around daylight rather than dinner reservations.",
+          "candidates": [
+            "venue:flinders-sourdough"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 9,
+          "blockId": "b3f6465ea9d",
+          "context": "Two: walk the cliff track toward West Head. The track runs from the end of Cook Street along the coast, past Flinders Pier, and eventually out toward West Head with views straight across to Phillip Island. A long morning walk on the southern Peninsula, almost always empty. Allow ninety minutes return. Bring a jacket even in summer; the wind off Bass Strait respects no forecast.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "venue:georgie-bass",
+          "name": "Georgie Bass",
+          "target": "/eat/georgie-bass/",
+          "status": "closed-or-paused",
+          "href": null,
+          "first": true,
+          "block": 10,
+          "blockId": "bdc2cb19e3f",
+          "context": "Three: lunch at Georgie Bass. The cafe is open until 2:30pm on weekdays and 3pm on weekends, which means you have time to do the walk properly before arriving for food. The all-day menu runs on regional produce from the owners\u2019 own farm: seasonal egg dishes, proper sourdough, vegetable preparations that understand what they are. The outdoor courtyard works in most weather. Coffee is Commonfolk. It is a cafe rather than a restaurant, and the difference matters less than you would expect when the produce is this considered.",
+          "candidates": [
+            "venue:georgie-bass"
+          ]
+        },
+        {
+          "entityId": "venue:commonfolk-coffee",
+          "name": "Commonfolk",
+          "target": "/eat/commonfolk-coffee/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 10,
+          "blockId": "bdc2cb19e3f",
+          "context": "Three: lunch at Georgie Bass. The cafe is open until 2:30pm on weekdays and 3pm on weekends, which means you have time to do the walk properly before arriving for food. The all-day menu runs on regional produce from the owners\u2019 own farm: seasonal egg dishes, proper sourdough, vegetable preparations that understand what they are. The outdoor courtyard works in most weather. Coffee is Commonfolk. It is a cafe rather than a restaurant, and the difference matters less than you would expect when the produce is this considered.",
+          "candidates": [
+            "venue:commonfolk-coffee"
+          ]
+        },
+        {
+          "entityId": "experience:cape-schanck-boardwalk",
+          "name": "Cape Schanck and the boardwalk",
+          "target": "/explore/cape-schanck-boardwalk/",
+          "status": "linked",
+          "href": "/explore/cape-schanck-boardwalk/",
+          "first": true,
+          "block": 11,
+          "blockId": "b259a45256f",
+          "context": "That is the whole day. If you finish by 3pm, drive fifteen minutes inland for a cellar door tasting or fifteen minutes west for Cape Schanck and the boardwalk. If you don\u2019t, stay in the village and walk the pier again at dusk.",
+          "candidates": [
+            "experience:cape-schanck-boardwalk"
+          ]
+        },
+        {
+          "entityId": "ambiguous:Flinders Hotel",
+          "name": "Flinders Hotel",
+          "target": null,
+          "status": "ambiguous",
+          "href": null,
+          "first": true,
+          "block": 13,
+          "blockId": "befc71724c6",
+          "context": "Flinders Hotel is the default, and it is a better default than its reputation suggests. The rooms are clean, contemporary, and well-sized. The location puts you inside the village rather than on the edge of it. The attached pub gives the whole place a useful looseness: you can come back from a walk, sit at the bar for an hour, and not feel like you are performing a hotel stay.",
+          "candidates": [
+            "ambiguous:Flinders Hotel"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 14,
+          "blockId": "b951babf862",
+          "context": "For a step up, the handful of short-term villa rentals in the farmland around the village are often better than they look on listing sites. Search for properties within a five-minute drive of Cook Street and you will mostly find cottages with paddock views, wood fires, and genuine kitchens. In Flinders, self-catering is not a compromise; it is often the point.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 16,
+          "blockId": "bed25b0fd93",
+          "context": "The real argument for Flinders is that it gives the weekend one of the things the busier parts of the Peninsula struggle to offer: space between events. A Red Hill weekend is structured around bookings (lunch at 12.30, tasting at 3, dinner at 7) and that structure is part of what makes it work. A Flinders weekend runs on the opposite logic. You have one booking, maybe two, and everything else is weather and coastline and walking.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 16,
+          "blockId": "bed25b0fd93",
+          "context": "The real argument for Flinders is that it gives the weekend one of the things the busier parts of the Peninsula struggle to offer: space between events. A Red Hill weekend is structured around bookings (lunch at 12.30, tasting at 3, dinner at 7) and that structure is part of what makes it work. A Flinders weekend runs on the opposite logic. You have one booking, maybe two, and everything else is weather and coastline and walking.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 16,
+          "blockId": "bed25b0fd93",
+          "context": "The real argument for Flinders is that it gives the weekend one of the things the busier parts of the Peninsula struggle to offer: space between events. A Red Hill weekend is structured around bookings (lunch at 12.30, tasting at 3, dinner at 7) and that structure is part of what makes it work. A Flinders weekend runs on the opposite logic. You have one booking, maybe two, and everything else is weather and coastline and walking.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 17,
+          "blockId": "b7cab466d33",
+          "context": "It suits anyone recovering from a hard week, anyone who wants to stop making decisions for forty-eight hours, anyone whose idea of a good trip is not a sequence of expensive tables. Flinders is the version of the Peninsula weekend that is the most restorative.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:sorrento",
+          "name": "Sorrento",
+          "target": "/explore/places/sorrento/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 18,
+          "blockId": "bbc32854224",
+          "context": "The trade is simple: you give up some of the fine dining, some of the cellar-door variety, and some of the social theatre of Sorrento. In exchange you get a village, a coastline, and a tempo you cannot buy from a hotel brand.",
+          "candidates": [
+            "place:sorrento"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "/journal/area-guide-red-hill/",
+      "excluded": false,
+      "overrideCount": 0,
+      "mentions": [
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "linked",
+          "href": "/explore/places/red-hill/",
+          "first": true,
+          "block": 0,
+          "blockId": "bacb21fd732",
+          "context": "Red Hill is where Peninsula weekends become expensive very quickly. Not because the place is cynical, but because it is concentrated. The winery restaurants are close enough together to make over-stacking feel feasible. People pile on tastings, add a market, squeeze in produce stops, then wonder why the day ends in logistical fatigue instead of pleasure.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 1,
+          "blockId": "ba1e685b792",
+          "context": "Red Hill is at its best when you treat it like a precinct, not a scavenger hunt. Choose deliberately, leave air between bookings, and let lunch dominate. That is what the area is built for.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 3,
+          "blockId": "be99bde8f0d",
+          "context": "What Red Hill actually is",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 4,
+          "blockId": "bfd4d089d09",
+          "context": "Red Hill is not one postcard village with everything in strolling distance. It is a cool-climate plateau and a cluster of roads, vineyards, orchards, cellar doors and restaurants loosely organised around a small township. That matters because your idea of the place needs to shift from \u201ctown\u201d to \u201cterritory\u201d. You are moving through a food landscape, not checking off a main street.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 6,
+          "blockId": "b2a29db2f96",
+          "context": "Red Hill rewards appetite and discipline in equal measure. Bring both.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 8,
+          "blockId": "b103e8c980d",
+          "context": "Arrive with your first booking no earlier than mid-morning unless a market date is confirmed. The original Red Hill Community Market is temporarily closed. The separate Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser\u2019s calendar for your visit date and current hours.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 8,
+          "blockId": "b103e8c980d",
+          "context": "Arrive with your first booking no earlier than mid-morning unless a market date is confirmed. The original Red Hill Community Market is temporarily closed. The separate Hill & Ridge Community Market takes place at Red Hill Recreation Reserve. Its published season runs from September to May, generally on the first Saturday of the month, with exceptions. Check the organiser\u2019s calendar for your visit date and current hours.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 9,
+          "blockId": "b84c61ee7f7",
+          "context": "Autumn is the cleanest version of Red Hill: vines turning, roads dry, lunch terraces at full usefulness. Spring is close behind, with greener hills and slightly sharper air. Winter works well if your priorities are fireplaces, tasting rooms and heavier lunches. Summer is fine but not essential. This is not a beach town.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 10,
+          "blockId": "badb8a02f82",
+          "context": "If you can stay overnight, do. Red Hill improves dramatically when lunch is not followed by a drive back to Melbourne. One night gives you the soft edges the region needs.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:ten-minutes-by-tractor",
+          "name": "Ten Minutes by Tractor",
+          "target": "/wine/ten-minutes-by-tractor/",
+          "status": "absent",
+          "href": "/wine/ten-minutes-by-tractor/",
+          "first": true,
+          "block": 13,
+          "blockId": "bf565871056",
+          "context": "Ten Minutes by Tractor is the clearest expression of what Red Hill does at the top end. Refined without feeling imported, serious about wine because it should be, and worth building the day around. Give it room rather than sandwiching it between other major bookings.",
+          "candidates": [
+            "venue:ten-minutes-by-tractor"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 13,
+          "blockId": "bf565871056",
+          "context": "Ten Minutes by Tractor is the clearest expression of what Red Hill does at the top end. Refined without feeling imported, serious about wine because it should be, and worth building the day around. Give it room rather than sandwiching it between other major bookings.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:montalto",
+          "name": "Montalto",
+          "target": "/wine/montalto/",
+          "status": "absent",
+          "href": "/wine/montalto/",
+          "first": true,
+          "block": 15,
+          "blockId": "bc1c06f377e",
+          "context": "Montalto is one of the most complete single-address plays in the district. Tasting, grounds, sculpture, a strong restaurant, and enough room to absorb a weekend crowd without collapsing into noise. If you only have one vineyard stop in you, this can carry the whole day.",
+          "candidates": [
+            "venue:montalto"
+          ]
+        },
+        {
+          "entityId": "venue:polperro",
+          "name": "Polperro",
+          "target": "/wine/polperro/",
+          "status": "absent",
+          "href": "/wine/polperro/",
+          "first": true,
+          "block": 17,
+          "blockId": "b3aa7969ed6",
+          "context": "Polperro suits people who want one precise cellar-door-and-lunch move rather than a broader estate experience. The room is intimate, the wines are serious, and the atmosphere feels tuned to adults who came for the actual product.",
+          "candidates": [
+            "venue:polperro"
+          ]
+        },
+        {
+          "entityId": "venue:foxeys-hangout",
+          "name": "Foxeys Hangout",
+          "target": "/wine/foxeys-hangout/",
+          "status": "absent",
+          "href": "/wine/foxeys-hangout/",
+          "first": true,
+          "block": 19,
+          "blockId": "befb827e2cf",
+          "context": "Foxeys Hangout is worth knowing for a looser tasting. Paringa Estate is a dependable answer if you want a benchmark producer. Red Hill Cheese and Johnny Ripe are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker\u2019s former village shop is closed; its sole current location is in Balnarring.",
+          "candidates": [
+            "venue:foxeys-hangout"
+          ]
+        },
+        {
+          "entityId": "venue:paringa-estate",
+          "name": "Paringa Estate",
+          "target": "/wine/paringa-estate/",
+          "status": "absent",
+          "href": "/wine/paringa-estate/",
+          "first": true,
+          "block": 19,
+          "blockId": "befb827e2cf",
+          "context": "Foxeys Hangout is worth knowing for a looser tasting. Paringa Estate is a dependable answer if you want a benchmark producer. Red Hill Cheese and Johnny Ripe are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker\u2019s former village shop is closed; its sole current location is in Balnarring.",
+          "candidates": [
+            "venue:paringa-estate"
+          ]
+        },
+        {
+          "entityId": "venue:red-hill-cheese",
+          "name": "Red Hill Cheese",
+          "target": "/eat/red-hill-cheese/",
+          "status": "closed-or-paused",
+          "href": null,
+          "first": true,
+          "block": 19,
+          "blockId": "befb827e2cf",
+          "context": "Foxeys Hangout is worth knowing for a looser tasting. Paringa Estate is a dependable answer if you want a benchmark producer. Red Hill Cheese and Johnny Ripe are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker\u2019s former village shop is closed; its sole current location is in Balnarring.",
+          "candidates": [
+            "venue:red-hill-cheese"
+          ]
+        },
+        {
+          "entityId": "venue:johnny-ripe",
+          "name": "Johnny Ripe",
+          "target": "/eat/johnny-ripe/",
+          "status": "closed-or-paused",
+          "href": null,
+          "first": true,
+          "block": 19,
+          "blockId": "befb827e2cf",
+          "context": "Foxeys Hangout is worth knowing for a looser tasting. Paringa Estate is a dependable answer if you want a benchmark producer. Red Hill Cheese and Johnny Ripe are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker\u2019s former village shop is closed; its sole current location is in Balnarring.",
+          "candidates": [
+            "venue:johnny-ripe"
+          ]
+        },
+        {
+          "entityId": "venue:red-hill-bakery",
+          "name": "The Red Hill Baker",
+          "target": "/eat/red-hill-bakery/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 19,
+          "blockId": "befb827e2cf",
+          "context": "Foxeys Hangout is worth knowing for a looser tasting. Paringa Estate is a dependable answer if you want a benchmark producer. Red Hill Cheese and Johnny Ripe are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker\u2019s former village shop is closed; its sole current location is in Balnarring.",
+          "candidates": [
+            "venue:red-hill-bakery"
+          ]
+        },
+        {
+          "entityId": "place:balnarring",
+          "name": "Balnarring",
+          "target": "/explore/places/balnarring/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 19,
+          "blockId": "befb827e2cf",
+          "context": "Foxeys Hangout is worth knowing for a looser tasting. Paringa Estate is a dependable answer if you want a benchmark producer. Red Hill Cheese and Johnny Ripe are the kind of supporting stops that work if you have not already over-programmed yourself. The Red Hill Baker\u2019s former village shop is closed; its sole current location is in Balnarring.",
+          "candidates": [
+            "place:balnarring"
+          ]
+        },
+        {
+          "entityId": "venue:lindenderry",
+          "name": "Lindenderry at Red Hill",
+          "target": "/stay/lindenderry/",
+          "status": "linked",
+          "href": "/stay/lindenderry/",
+          "first": true,
+          "block": 22,
+          "blockId": "be8564561ab",
+          "context": "Lindenderry at Red Hill is the easiest recommendation because it understands the brief: regional, comfortable, low-theatre, and close to the action without trying to outshine it.",
+          "candidates": [
+            "venue:lindenderry"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 23,
+          "blockId": "bb965c9b009",
+          "context": "Private villas and vineyard cottages around Red Hill South, Merricks North and Main Ridge are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region\u2019s orbit.",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "place:merricks-north",
+          "name": "Merricks North",
+          "target": "/explore/places/merricks-north/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 23,
+          "blockId": "bb965c9b009",
+          "context": "Private villas and vineyard cottages around Red Hill South, Merricks North and Main Ridge are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region\u2019s orbit.",
+          "candidates": [
+            "place:merricks-north"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "linked",
+          "href": "/explore/places/main-ridge/",
+          "first": true,
+          "block": 23,
+          "blockId": "bb965c9b009",
+          "context": "Private villas and vineyard cottages around Red Hill South, Merricks North and Main Ridge are often the better option if you are travelling with friends or want the evening to stay self-contained. Prioritise proximity over novelty. A beautiful house twenty minutes away is less useful than a good one that keeps you inside the region\u2019s orbit.",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "place:dromana",
+          "name": "Dromana",
+          "target": "/explore/places/dromana/",
+          "status": "linked",
+          "href": "/explore/places/dromana/",
+          "first": true,
+          "block": 24,
+          "blockId": "bf41df248ad",
+          "context": "Staying in Dromana to save money can make sense if you accept the trade. You get easier bay access and cheaper accommodation, but you lose the ability to let lunch run long without consequence.",
+          "candidates": [
+            "place:dromana"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 29,
+          "blockId": "bd237af4d7b",
+          "context": "This is not a region for a six-cellar-door crawl. Choose a producer whose wines you actually want to understand and give them your attention. Red Hill rewards slower tasting better than almost anywhere else in Victoria.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 31,
+          "blockId": "b431ab43a09",
+          "context": "The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 31,
+          "blockId": "b431ab43a09",
+          "context": "The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "place:merricks",
+          "name": "Merricks",
+          "target": "/explore/places/merricks/",
+          "status": "linked",
+          "href": "/explore/places/merricks/",
+          "first": true,
+          "block": 31,
+          "blockId": "b431ab43a09",
+          "context": "The drive between Red Hill, Main Ridge and Merricks is part of the pleasure. Fern-lined gullies, vineyard openings, quick altitude shifts. These are not dead kilometres between reservations. Leave some daylight for them.",
+          "candidates": [
+            "place:merricks"
+          ]
+        },
+        {
+          "entityId": "venue:johnny-ripe",
+          "name": "Johnny Ripe",
+          "target": "/eat/johnny-ripe/",
+          "status": "closed-or-paused",
+          "href": null,
+          "first": false,
+          "block": 33,
+          "blockId": "bff40764981",
+          "context": "A box of local apples or a tart from Johnny Ripe makes sense if you are staying nearby. It makes less sense if it is going to sweat in the boot while you power through another tasting.",
+          "candidates": [
+            "venue:johnny-ripe"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 35,
+          "blockId": "b300fb5e058",
+          "context": "The cellar-door crawl. Red Hill is not the Yarra in party mode.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 36,
+          "blockId": "b3c5ae5528b",
+          "context": "Trying to do Red Hill, Flinders and Sorrento properly in a single day. You can drive it. You cannot experience it.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "linked",
+          "href": "/explore/places/flinders/",
+          "first": true,
+          "block": 36,
+          "blockId": "b3c5ae5528b",
+          "context": "Trying to do Red Hill, Flinders and Sorrento properly in a single day. You can drive it. You cannot experience it.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:sorrento",
+          "name": "Sorrento",
+          "target": "/explore/places/sorrento/",
+          "status": "linked",
+          "href": "/explore/places/sorrento/",
+          "first": true,
+          "block": 36,
+          "blockId": "b3c5ae5528b",
+          "context": "Trying to do Red Hill, Flinders and Sorrento properly in a single day. You can drive it. You cannot experience it.",
+          "candidates": [
+            "place:sorrento"
+          ]
+        },
+        {
+          "entityId": "venue:polperro",
+          "name": "Polperro",
+          "target": "/wine/polperro/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 40,
+          "blockId": "bfaca0bc2b9",
+          "context": "If the market is on, start there at opening. Coffee first, one loop only, buy something worth taking home, then leave while everyone else is still circling. Head next to a cellar door with a proper booking: Polperro if you want intimacy, Montalto if you want scale and range.",
+          "candidates": [
+            "venue:polperro"
+          ]
+        },
+        {
+          "entityId": "venue:montalto",
+          "name": "Montalto",
+          "target": "/wine/montalto/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 40,
+          "blockId": "bfaca0bc2b9",
+          "context": "If the market is on, start there at opening. Coffee first, one loop only, buy something worth taking home, then leave while everyone else is still circling. Head next to a cellar door with a proper booking: Polperro if you want intimacy, Montalto if you want scale and range.",
+          "candidates": [
+            "venue:montalto"
+          ]
+        },
+        {
+          "entityId": "venue:ten-minutes-by-tractor",
+          "name": "Ten Minutes by Tractor",
+          "target": "/wine/ten-minutes-by-tractor/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 41,
+          "blockId": "b113ae79b70",
+          "context": "Make lunch the centrepiece. Ten Minutes by Tractor if you care most about the meal. Montalto if you want the full estate version. After lunch, let the afternoon breathe. A short drive through Main Ridge, maybe one produce stop, then back to your accommodation or down to the bay if you are based lower on the hill.",
+          "candidates": [
+            "venue:ten-minutes-by-tractor"
+          ]
+        },
+        {
+          "entityId": "venue:montalto",
+          "name": "Montalto",
+          "target": "/wine/montalto/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 41,
+          "blockId": "b113ae79b70",
+          "context": "Make lunch the centrepiece. Ten Minutes by Tractor if you care most about the meal. Montalto if you want the full estate version. After lunch, let the afternoon breathe. A short drive through Main Ridge, maybe one produce stop, then back to your accommodation or down to the bay if you are based lower on the hill.",
+          "candidates": [
+            "venue:montalto"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 41,
+          "blockId": "b113ae79b70",
+          "context": "Make lunch the centrepiece. Ten Minutes by Tractor if you care most about the meal. Montalto if you want the full estate version. After lunch, let the afternoon breathe. A short drive through Main Ridge, maybe one produce stop, then back to your accommodation or down to the bay if you are based lower on the hill.",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 42,
+          "blockId": "bc3f20f0c0b",
+          "context": "The right end to a Red Hill day is calm. A glass of wine where you are staying, not a desperate search for one more thing.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 44,
+          "blockId": null,
+          "context": "In short: Red Hill is the Peninsula\u2019s food-and-wine centre of gravity and the natural place to centre a lunch-led weekend.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 50,
+          "blockId": null,
+          "context": "Avoid: overbooking. Red Hill rewards a composed day more than a stacked one.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        }
+      ]
+    },
+    {
+      "url": "/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "excluded": false,
+      "overrideCount": 0,
+      "mentions": [
+        {
+          "entityId": "venue:barragunda-dining",
+          "name": "Barragunda Dining",
+          "target": "/eat/barragunda-dining/",
+          "status": "linked",
+          "href": "/eat/barragunda-dining/",
+          "first": true,
+          "block": 0,
+          "blockId": "bdcd2149f0d",
+          "context": "The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. The Peninsula\u2019s hatted scene has changed significantly: Barragunda Dining debuted at two hats in February, Ten Minutes by Tractor has a new head chef (Craig Lunn, ex-Michelin UK), and Tedesca Osteria won Regional Restaurant of the Year. What follows is the accurate hat count, what each restaurant actually is, and the booking reality at each.",
+          "candidates": [
+            "venue:barragunda-dining"
+          ]
+        },
+        {
+          "entityId": "venue:ten-minutes-by-tractor",
+          "name": "Ten Minutes by Tractor",
+          "target": "/wine/ten-minutes-by-tractor/",
+          "status": "absent",
+          "href": "/wine/ten-minutes-by-tractor/",
+          "first": true,
+          "block": 0,
+          "blockId": "bdcd2149f0d",
+          "context": "The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. The Peninsula\u2019s hatted scene has changed significantly: Barragunda Dining debuted at two hats in February, Ten Minutes by Tractor has a new head chef (Craig Lunn, ex-Michelin UK), and Tedesca Osteria won Regional Restaurant of the Year. What follows is the accurate hat count, what each restaurant actually is, and the booking reality at each.",
+          "candidates": [
+            "venue:ten-minutes-by-tractor"
+          ]
+        },
+        {
+          "entityId": "venue:tedesca-osteria",
+          "name": "Tedesca Osteria",
+          "target": "/eat/tedesca-osteria/",
+          "status": "linked",
+          "href": "/eat/tedesca-osteria/",
+          "first": true,
+          "block": 0,
+          "blockId": "bdcd2149f0d",
+          "context": "The Good Food Guide awarded 15 hats to Peninsula restaurants across 11 venues. The Peninsula\u2019s hatted scene has changed significantly: Barragunda Dining debuted at two hats in February, Ten Minutes by Tractor has a new head chef (Craig Lunn, ex-Michelin UK), and Tedesca Osteria won Regional Restaurant of the Year. What follows is the accurate hat count, what each restaurant actually is, and the booking reality at each.",
+          "candidates": [
+            "venue:tedesca-osteria"
+          ]
+        },
+        {
+          "entityId": "venue:barragunda-dining",
+          "name": "Barragunda Dining",
+          "target": "/eat/barragunda-dining/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 7,
+          "blockId": null,
+          "context": "Barragunda Dining",
+          "candidates": [
+            "venue:barragunda-dining"
+          ]
+        },
+        {
+          "entityId": "place:cape-schanck",
+          "name": "Cape Schanck",
+          "target": "/explore/places/cape-schanck/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 8,
+          "blockId": null,
+          "context": "Cape Schanck",
+          "candidates": [
+            "place:cape-schanck"
+          ]
+        },
+        {
+          "entityId": "venue:laura-pt-leo",
+          "name": "Laura",
+          "target": "/eat/laura-pt-leo/",
+          "status": "linked",
+          "href": "/eat/laura-pt-leo/",
+          "first": true,
+          "block": 11,
+          "blockId": null,
+          "context": "Laura",
+          "candidates": [
+            "venue:laura-pt-leo"
+          ]
+        },
+        {
+          "entityId": "place:merricks",
+          "name": "Merricks",
+          "target": "/explore/places/merricks/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 12,
+          "blockId": null,
+          "context": "Merricks (Pt. Leo Estate)",
+          "candidates": [
+            "place:merricks"
+          ]
+        },
+        {
+          "entityId": "venue:pt-leo-estate",
+          "name": "Pt. Leo Estate",
+          "target": "/wine/pt-leo-estate/",
+          "status": "absent",
+          "href": null,
+          "first": true,
+          "block": 12,
+          "blockId": null,
+          "context": "Merricks (Pt. Leo Estate)",
+          "candidates": [
+            "venue:pt-leo-estate"
+          ]
+        },
+        {
+          "entityId": "venue:tedesca-osteria",
+          "name": "Tedesca Osteria",
+          "target": "/eat/tedesca-osteria/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 15,
+          "blockId": null,
+          "context": "Tedesca Osteria",
+          "candidates": [
+            "venue:tedesca-osteria"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 16,
+          "blockId": null,
+          "context": "Red Hill",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:ten-minutes-by-tractor",
+          "name": "Ten Minutes by Tractor",
+          "target": "/wine/ten-minutes-by-tractor/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 19,
+          "blockId": null,
+          "context": "Ten Minutes by Tractor",
+          "candidates": [
+            "venue:ten-minutes-by-tractor"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 20,
+          "blockId": null,
+          "context": "Main Ridge",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "venue:doot-doot-doot",
+          "name": "Doot Doot Doot",
+          "target": "/eat/doot-doot-doot/",
+          "status": "linked",
+          "href": "/eat/doot-doot-doot/",
+          "first": true,
+          "block": 27,
+          "blockId": null,
+          "context": "Doot Doot Doot",
+          "candidates": [
+            "venue:doot-doot-doot"
+          ]
+        },
+        {
+          "entityId": "place:merricks-north",
+          "name": "Merricks North",
+          "target": "/explore/places/merricks-north/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 28,
+          "blockId": null,
+          "context": "Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "place:merricks-north"
+          ]
+        },
+        {
+          "entityId": "venue:jackalope",
+          "name": "Jackalope Hotel",
+          "target": "/stay/jackalope/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 28,
+          "blockId": null,
+          "context": "Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "venue:jackalope"
+          ]
+        },
+        {
+          "entityId": "venue:many-little",
+          "name": "Many Little Bar & Dining",
+          "target": "/eat/many-little/",
+          "status": "linked",
+          "href": "/eat/many-little/",
+          "first": true,
+          "block": 30,
+          "blockId": null,
+          "context": "Many Little Bar & Dining",
+          "candidates": [
+            "venue:many-little"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 31,
+          "blockId": null,
+          "context": "Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "venue:moke-dining",
+          "name": "Moke Dining",
+          "target": "/eat/moke-dining/",
+          "status": "linked",
+          "href": "/eat/moke-dining/",
+          "first": true,
+          "block": 33,
+          "blockId": null,
+          "context": "Moke Dining",
+          "candidates": [
+            "venue:moke-dining"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 34,
+          "blockId": null,
+          "context": "Flinders",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "venue:montalto",
+          "name": "Montalto",
+          "target": "/wine/montalto/",
+          "status": "absent",
+          "href": "/wine/montalto/",
+          "first": true,
+          "block": 36,
+          "blockId": null,
+          "context": "Montalto",
+          "candidates": [
+            "venue:montalto"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 37,
+          "blockId": null,
+          "context": "Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "venue:polperro",
+          "name": "Polperro Restaurant",
+          "target": "/wine/polperro/",
+          "status": "absent",
+          "href": "/wine/polperro/",
+          "first": true,
+          "block": 39,
+          "blockId": null,
+          "context": "Polperro Restaurant",
+          "candidates": [
+            "venue:polperro"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 40,
+          "blockId": null,
+          "context": "Red Hill",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:port-phillip-estate",
+          "name": "Port Phillip Estate",
+          "target": "/wine/port-phillip-estate/",
+          "status": "absent",
+          "href": "/wine/port-phillip-estate/",
+          "first": true,
+          "block": 42,
+          "blockId": null,
+          "context": "Port Phillip Estate",
+          "candidates": [
+            "venue:port-phillip-estate"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 43,
+          "blockId": null,
+          "context": "Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "venue:rare-hare",
+          "name": "Rare Hare",
+          "target": "/eat/rare-hare/",
+          "status": "linked",
+          "href": "/eat/rare-hare/",
+          "first": true,
+          "block": 45,
+          "blockId": null,
+          "context": "Rare Hare",
+          "candidates": [
+            "venue:rare-hare"
+          ]
+        },
+        {
+          "entityId": "place:merricks-north",
+          "name": "Merricks North",
+          "target": "/explore/places/merricks-north/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 46,
+          "blockId": null,
+          "context": "Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "place:merricks-north"
+          ]
+        },
+        {
+          "entityId": "venue:jackalope",
+          "name": "Jackalope Hotel",
+          "target": "/stay/jackalope/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 46,
+          "blockId": null,
+          "context": "Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "venue:jackalope"
+          ]
+        },
+        {
+          "entityId": "ambiguous:Lancemore Lindenderry Dining Room",
+          "name": "Lancemore Lindenderry Dining Room",
+          "target": null,
+          "status": "ambiguous",
+          "href": null,
+          "first": true,
+          "block": 52,
+          "blockId": null,
+          "context": "Lancemore Lindenderry Dining Room",
+          "candidates": [
+            "ambiguous:Lancemore Lindenderry Dining Room"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 53,
+          "blockId": null,
+          "context": "Red Hill",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:paringa-estate",
+          "name": "Paringa Estate",
+          "target": "/wine/paringa-estate/",
+          "status": "absent",
+          "href": "/wine/paringa-estate/",
+          "first": true,
+          "block": 55,
+          "blockId": null,
+          "context": "Paringa Estate",
+          "candidates": [
+            "venue:paringa-estate"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 56,
+          "blockId": null,
+          "context": "Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "venue:barragunda-dining",
+          "name": "Barragunda Dining",
+          "target": "/eat/barragunda-dining/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 59,
+          "blockId": "b3cd217f75b",
+          "context": "Barragunda Dining: Cape Schanck",
+          "candidates": [
+            "venue:barragunda-dining"
+          ]
+        },
+        {
+          "entityId": "place:cape-schanck",
+          "name": "Cape Schanck",
+          "target": "/explore/places/cape-schanck/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 59,
+          "blockId": "b3cd217f75b",
+          "context": "Barragunda Dining: Cape Schanck",
+          "candidates": [
+            "place:cape-schanck"
+          ]
+        },
+        {
+          "entityId": "place:cape-schanck",
+          "name": "Cape Schanck",
+          "target": "/explore/places/cape-schanck/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 63,
+          "blockId": "bdf70119c94",
+          "context": "113 Cape Schanck Road, Cape Schanck. barragunda.com.au",
+          "candidates": [
+            "place:cape-schanck"
+          ]
+        },
+        {
+          "entityId": "place:cape-schanck",
+          "name": "Cape Schanck",
+          "target": "/explore/places/cape-schanck/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 63,
+          "blockId": "bdf70119c94",
+          "context": "113 Cape Schanck Road, Cape Schanck. barragunda.com.au",
+          "candidates": [
+            "place:cape-schanck"
+          ]
+        },
+        {
+          "entityId": "venue:laura-pt-leo",
+          "name": "Laura",
+          "target": "/eat/laura-pt-leo/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 64,
+          "blockId": "b4748170ddc",
+          "context": "Laura: Merricks (Pt. Leo Estate)",
+          "candidates": [
+            "venue:laura-pt-leo"
+          ]
+        },
+        {
+          "entityId": "place:merricks",
+          "name": "Merricks",
+          "target": "/explore/places/merricks/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 64,
+          "blockId": "b4748170ddc",
+          "context": "Laura: Merricks (Pt. Leo Estate)",
+          "candidates": [
+            "place:merricks"
+          ]
+        },
+        {
+          "entityId": "venue:pt-leo-estate",
+          "name": "Pt. Leo Estate",
+          "target": "/wine/pt-leo-estate/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 64,
+          "blockId": "b4748170ddc",
+          "context": "Laura: Merricks (Pt. Leo Estate)",
+          "candidates": [
+            "venue:pt-leo-estate"
+          ]
+        },
+        {
+          "entityId": "venue:laura-pt-leo",
+          "name": "Laura at Pt. Leo",
+          "target": "/eat/laura-pt-leo/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 65,
+          "blockId": "b60596d74f5",
+          "context": "Two hats for seven consecutive years. Laura at Pt. Leo Estate sits within the sculpture park and has a Relais & Ch\u00e2teaux membership: the Peninsula\u2019s most internationally credentialled restaurant. Josep Espuga is now Culinary Director, succeeding Phil Wood. The menu runs to eight-course chef\u2019s journeys and four-course signature formats. Southern Rock lobster with white asparagus and wagyu with yuzu apple are anchor dishes.",
+          "candidates": [
+            "venue:laura-pt-leo"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 68,
+          "blockId": "b709e6f0d7a",
+          "context": "3649 Frankston-Flinders Road, Merricks. ptleoestate.com.au",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:merricks",
+          "name": "Merricks",
+          "target": "/explore/places/merricks/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 68,
+          "blockId": "b709e6f0d7a",
+          "context": "3649 Frankston-Flinders Road, Merricks. ptleoestate.com.au",
+          "candidates": [
+            "place:merricks"
+          ]
+        },
+        {
+          "entityId": "venue:tedesca-osteria",
+          "name": "Tedesca Osteria",
+          "target": "/eat/tedesca-osteria/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 69,
+          "blockId": "b2c0753ad10",
+          "context": "Tedesca Osteria: Red Hill",
+          "candidates": [
+            "venue:tedesca-osteria"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 69,
+          "blockId": "b2c0753ad10",
+          "context": "Tedesca Osteria: Red Hill",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 70,
+          "blockId": "bdd7c1db65d",
+          "context": "Regional Restaurant of the Year. Brigitte Hafner\u2019s agriturismo restaurant in a converted 1940s house on a biodynamic farm in Red Hill is the most personal restaurant on the Peninsula: chickens, beehives, and Wiltshire Horn sheep supply the kitchen alongside the on-site garden. The format is a five-course set menu with hand-rolled pasta, seafood, and meat, cooked on an open wood-fired grill.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:mornington",
+          "name": "Mornington",
+          "target": "/explore/places/mornington/",
+          "status": "missing",
+          "href": null,
+          "first": true,
+          "block": 73,
+          "blockId": "bbfbb8a01c8",
+          "context": "1175 Mornington-Flinders Road, Red Hill. tedesca.com.au",
+          "candidates": [
+            "place:mornington"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 73,
+          "blockId": "bbfbb8a01c8",
+          "context": "1175 Mornington-Flinders Road, Red Hill. tedesca.com.au",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 73,
+          "blockId": "bbfbb8a01c8",
+          "context": "1175 Mornington-Flinders Road, Red Hill. tedesca.com.au",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:ten-minutes-by-tractor",
+          "name": "Ten Minutes by Tractor",
+          "target": "/wine/ten-minutes-by-tractor/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 74,
+          "blockId": "bf8f6dec872",
+          "context": "Ten Minutes by Tractor: Main Ridge",
+          "candidates": [
+            "venue:ten-minutes-by-tractor"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 74,
+          "blockId": "bf8f6dec872",
+          "context": "Ten Minutes by Tractor: Main Ridge",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "place:mornington",
+          "name": "Mornington",
+          "target": "/explore/places/mornington/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 77,
+          "blockId": "bc7d0a0930d",
+          "context": "1333 Mornington-Flinders Road, Main Ridge. tenminutesbytractor.com.au",
+          "candidates": [
+            "place:mornington"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 77,
+          "blockId": "bc7d0a0930d",
+          "context": "1333 Mornington-Flinders Road, Main Ridge. tenminutesbytractor.com.au",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 77,
+          "blockId": "bc7d0a0930d",
+          "context": "1333 Mornington-Flinders Road, Main Ridge. tenminutesbytractor.com.au",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "venue:doot-doot-doot",
+          "name": "Doot Doot Doot",
+          "target": "/eat/doot-doot-doot/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 79,
+          "blockId": "b99744d0071",
+          "context": "Doot Doot Doot: Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "venue:doot-doot-doot"
+          ]
+        },
+        {
+          "entityId": "place:merricks-north",
+          "name": "Merricks North",
+          "target": "/explore/places/merricks-north/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 79,
+          "blockId": "b99744d0071",
+          "context": "Doot Doot Doot: Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "place:merricks-north"
+          ]
+        },
+        {
+          "entityId": "venue:jackalope",
+          "name": "Jackalope Hotel",
+          "target": "/stay/jackalope/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 79,
+          "blockId": "b99744d0071",
+          "context": "Doot Doot Doot: Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "venue:jackalope"
+          ]
+        },
+        {
+          "entityId": "venue:jackalope",
+          "name": "Jackalope Hotel",
+          "target": "/stay/jackalope/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 80,
+          "blockId": "b369f9d10c3",
+          "context": "One hat. Guy Stanaway\u2019s dining room at Jackalope Hotel is dinner-only and built around the 10,000-globe chandelier that defines the space. A5 Wagyu MB12, Skull Island tiger prawn, appellation oysters. Eighty seats; open to non-hotel guests. The most interior-design-forward fine dining room on the Peninsula.",
+          "candidates": [
+            "venue:jackalope"
+          ]
+        },
+        {
+          "entityId": "venue:rare-hare",
+          "name": "Rare Hare",
+          "target": "/eat/rare-hare/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 82,
+          "blockId": "beb6979b05f",
+          "context": "Rare Hare: Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "venue:rare-hare"
+          ]
+        },
+        {
+          "entityId": "place:merricks-north",
+          "name": "Merricks North",
+          "target": "/explore/places/merricks-north/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 82,
+          "blockId": "beb6979b05f",
+          "context": "Rare Hare: Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "place:merricks-north"
+          ]
+        },
+        {
+          "entityId": "venue:jackalope",
+          "name": "Jackalope Hotel",
+          "target": "/stay/jackalope/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 82,
+          "blockId": "beb6979b05f",
+          "context": "Rare Hare: Merricks North (Jackalope Hotel)",
+          "candidates": [
+            "venue:jackalope"
+          ]
+        },
+        {
+          "entityId": "venue:doot-doot-doot",
+          "name": "Doot Doot Doot",
+          "target": "/eat/doot-doot-doot/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 83,
+          "blockId": "b846568bc7c",
+          "context": "One hat. Walk-in only: no reservations taken. The informal outdoor dining counterpart to Doot Doot Doot, built around a wood-fired oven. The Classic Hare Share feast is the anchor format, at mid-range set-menu pricing. Dog-friendly on the outdoor lawn. Walk-ins Monday to Friday from 5pm; Saturday and Sunday from 2pm.",
+          "candidates": [
+            "venue:doot-doot-doot"
+          ]
+        },
+        {
+          "entityId": "venue:moke-dining",
+          "name": "Moke Dining",
+          "target": "/eat/moke-dining/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 84,
+          "blockId": "b17dd2af35c",
+          "context": "Moke Dining: Flinders",
+          "candidates": [
+            "venue:moke-dining"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 84,
+          "blockId": "b17dd2af35c",
+          "context": "Moke Dining: Flinders",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 85,
+          "blockId": "b2ca9f0de77",
+          "context": "One hat. Michael Cole\u2019s family-owned restaurant in Flinders village. Dinner Thursday to Sunday; lunch Saturday and Sunday. Intimate fine dining in a village setting.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "venue:montalto",
+          "name": "Montalto",
+          "target": "/wine/montalto/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 86,
+          "blockId": "bd84fd17a10",
+          "context": "Montalto: Red Hill South",
+          "candidates": [
+            "venue:montalto"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 86,
+          "blockId": "bd84fd17a10",
+          "context": "Montalto: Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "venue:polperro",
+          "name": "Polperro Restaurant",
+          "target": "/wine/polperro/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 88,
+          "blockId": "be195f84913",
+          "context": "Polperro Restaurant: Red Hill",
+          "candidates": [
+            "venue:polperro"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 88,
+          "blockId": "be195f84913",
+          "context": "Polperro Restaurant: Red Hill",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:many-little",
+          "name": "Many Little Bar & Dining",
+          "target": "/eat/many-little/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 89,
+          "blockId": "b0688792263",
+          "context": "One hat. Chef\u2019s tasting menu; tea-smoked Aylesbury duck breast. Ancient Angophora trees over the vineyard. Wednesday to Sunday. Sister venue to Many Little Bar & Dining.",
+          "candidates": [
+            "venue:many-little"
+          ]
+        },
+        {
+          "entityId": "venue:port-phillip-estate",
+          "name": "Port Phillip Estate",
+          "target": "/wine/port-phillip-estate/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 90,
+          "blockId": "b44ad3136d9",
+          "context": "Port Phillip Estate: Red Hill South",
+          "candidates": [
+            "venue:port-phillip-estate"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 90,
+          "blockId": "b44ad3136d9",
+          "context": "Port Phillip Estate: Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "place:flinders",
+          "name": "Flinders",
+          "target": "/explore/places/flinders/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 91,
+          "blockId": "b3db5388819",
+          "context": "One hat. Hatted dining in a striking rammed-earth building with panoramic vineyard-to-bay views. Six accommodation suites on-site. Flinders mussels, farm-fresh lamb. Lunch daily; Friday and Saturday dinner.",
+          "candidates": [
+            "place:flinders"
+          ]
+        },
+        {
+          "entityId": "venue:many-little",
+          "name": "Many Little Bar & Dining",
+          "target": "/eat/many-little/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 92,
+          "blockId": "b446a324ea1",
+          "context": "Many Little Bar & Dining: Red Hill South",
+          "candidates": [
+            "venue:many-little"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 92,
+          "blockId": "b446a324ea1",
+          "context": "Many Little Bar & Dining: Red Hill South",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 93,
+          "blockId": "b0161173e88",
+          "context": "One hat. Sri Lankan-inspired cooking in a low-key Red Hill South setting. Dog-friendly outdoor seating. Thursday to Sunday from 4pm; Saturday and Sunday from 12pm.",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "ambiguous:Lancemore Lindenderry Dining Room",
+          "name": "Lancemore Lindenderry Dining Room",
+          "target": null,
+          "status": "ambiguous",
+          "href": null,
+          "first": false,
+          "block": 95,
+          "blockId": "b45c2517317",
+          "context": "Lancemore Lindenderry Dining Room (Red Hill) holds two AGFG hats and the Readers\u2019 Choice Award for several consecutive years. Nick McGonigal leads the kitchen. Dinner Thursday to Saturday, lunch Friday to Sunday. This is a strong destination in its own right despite not appearing in the GFG top 11.",
+          "candidates": [
+            "ambiguous:Lancemore Lindenderry Dining Room"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 95,
+          "blockId": "b45c2517317",
+          "context": "Lancemore Lindenderry Dining Room (Red Hill) holds two AGFG hats and the Readers\u2019 Choice Award for several consecutive years. Nick McGonigal leads the kitchen. Dinner Thursday to Saturday, lunch Friday to Sunday. This is a strong destination in its own right despite not appearing in the GFG top 11.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "venue:paringa-estate",
+          "name": "Paringa Estate",
+          "target": "/wine/paringa-estate/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 96,
+          "blockId": "bfdb82c49ef",
+          "context": "Paringa Estate (Red Hill South) holds one AGFG hat. Lunch Wednesday to Sunday, Saturday dinner. The Garden Dining format (shared plates, walk-in Wednesday to Sunday 12\u20133pm) provides a more casual entry point.",
+          "candidates": [
+            "venue:paringa-estate"
+          ]
+        },
+        {
+          "entityId": "place:red-hill-south",
+          "name": "Red Hill South",
+          "target": "/explore/places/red-hill-south/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 96,
+          "blockId": "bfdb82c49ef",
+          "context": "Paringa Estate (Red Hill South) holds one AGFG hat. Lunch Wednesday to Sunday, Saturday dinner. The Garden Dining format (shared plates, walk-in Wednesday to Sunday 12\u20133pm) provides a more casual entry point.",
+          "candidates": [
+            "place:red-hill-south"
+          ]
+        },
+        {
+          "entityId": "place:red-hill",
+          "name": "Red Hill",
+          "target": "/explore/places/red-hill/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "place:red-hill"
+          ]
+        },
+        {
+          "entityId": "place:main-ridge",
+          "name": "Main Ridge",
+          "target": "/explore/places/main-ridge/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "place:main-ridge"
+          ]
+        },
+        {
+          "entityId": "place:merricks",
+          "name": "Merricks",
+          "target": "/explore/places/merricks/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "place:merricks"
+          ]
+        },
+        {
+          "entityId": "venue:stonier-wines",
+          "name": "Stonier",
+          "target": "/wine/stonier-wines/",
+          "status": "absent",
+          "href": "/wine/stonier-wines/",
+          "first": true,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "venue:stonier-wines"
+          ]
+        },
+        {
+          "entityId": "venue:port-phillip-estate",
+          "name": "Port Phillip Estate",
+          "target": "/wine/port-phillip-estate/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "venue:port-phillip-estate"
+          ]
+        },
+        {
+          "entityId": "venue:montalto",
+          "name": "Montalto",
+          "target": "/wine/montalto/",
+          "status": "absent",
+          "href": null,
+          "first": false,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "venue:montalto"
+          ]
+        },
+        {
+          "entityId": "venue:foxeys-hangout",
+          "name": "Foxeys Hangout",
+          "target": "/wine/foxeys-hangout/",
+          "status": "absent",
+          "href": "/wine/foxeys-hangout/",
+          "first": true,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "venue:foxeys-hangout"
+          ]
+        },
+        {
+          "entityId": "venue:yabby-lake",
+          "name": "Yabby Lake",
+          "target": "/wine/yabby-lake/",
+          "status": "absent",
+          "href": "/wine/yabby-lake/",
+          "first": true,
+          "block": 98,
+          "blockId": "b94c87e7e6c",
+          "context": "The Peninsula\u2019s hatted restaurants are concentrated in the Red Hill\u2013Main Ridge\u2013Merricks triangle. The most productive pattern for a single Peninsula day: arrive at a 12pm lunch sitting at one of the two-hat venues, allow three hours at the table, then spend the afternoon at cellar doors within 15 minutes: Stonier, Port Phillip Estate, Montalto, Foxeys Hangout, and Yabby Lake are all nearby.",
+          "candidates": [
+            "venue:yabby-lake"
+          ]
+        },
+        {
+          "entityId": "place:cape-schanck",
+          "name": "Cape Schanck",
+          "target": "/explore/places/cape-schanck/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 99,
+          "blockId": "b590c9e286b",
+          "context": "Barragunda and RACV Cape Schanck are the southern outliers. Combine Barragunda with Cape Schanck lighthouse and a night at the Resort if you\u2019re making the full drive.",
+          "candidates": [
+            "place:cape-schanck"
+          ]
+        },
+        {
+          "entityId": "place:cape-schanck",
+          "name": "Cape Schanck",
+          "target": "/explore/places/cape-schanck/",
+          "status": "missing",
+          "href": null,
+          "first": false,
+          "block": 99,
+          "blockId": "b590c9e286b",
+          "context": "Barragunda and RACV Cape Schanck are the southern outliers. Combine Barragunda with Cape Schanck lighthouse and a night at the Resort if you\u2019re making the full drive.",
+          "candidates": [
+            "place:cape-schanck"
+          ]
+        }
+      ]
+    }
+  ]
+}
