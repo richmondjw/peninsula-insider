@@ -19,7 +19,7 @@ const creditLine = /illustration/i.test(credit) ? credit + '.' : /^Courtesy of /
 ---
 <section class="home-cover" aria-label="Your Peninsula starts here">
   <figure class="home-cover__plate">
-    <img class="home-cover__media" data-pi-avif="true" src={photo.src} data-pi-responsive="(max-width: 767px) 1200px, 100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
+    <img class="home-cover__media" data-pi-avif="true" src={photo.src} data-pi-responsive="100vw" alt={photo.alt} width="1280" height="853" fetchpriority="high" loading="eager" decoding="async" data-pi-no-hydrate="true" data-pi-requires-image-metadata="true" {...editableImage({entityType:'page',entitySlug:'home',fieldPath:'cover.image',label:'Cover image',purpose:'hero'})} />
     {!isArtwork(photo) && <figcaption>{cleanCaption(photo.caption)} {creditLine}</figcaption>}
   </figure>
   <div class="home-cover__content">

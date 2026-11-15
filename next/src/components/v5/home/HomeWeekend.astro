@@ -38,7 +38,9 @@ import {
 const events = await getCollection('events');
 const picksEntries = await getCollection('weekend-picks');
 const now = new Date();
-const { picks: rankedPicks, window: weekend } = selectWeekendPicks(picksEntries, events, now, Infinity);
+// Three visible picks plus three already-qualified fallbacks are enough for a
+// reader-clock recheck without serialising every eligible event into the page.
+const { picks: rankedPicks, window: weekend } = selectWeekendPicks(picksEntries, events, now, 6);
 
 const picks = weekendPickOccurrences(rankedPicks, now);
 
