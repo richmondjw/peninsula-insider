@@ -249,6 +249,22 @@ jobs:
           cd next
           npm run test:journeys
 
+      - name: Review appointment producer redesign
+        if: github.event_name == 'pull_request' && github.head_ref == 'codex/appointment-producers-editorial'
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/review-appointment-producers.mjs
+
+      - name: Upload appointment producer review
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'codex/appointment-producers-editorial'
+        uses: actions/upload-artifact@v4
+        with:
+          name: appointment-producers-review-${{ github.event.pull_request.head.sha }}
+          path: next/review/appointment-producers/
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Capture November 15 correction for review
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 734
         working-directory: next
