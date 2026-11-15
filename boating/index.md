@@ -7,7 +7,7 @@ Dates and caveats below retain their page meaning; this format is not a new fact
 
 # Boating the Mornington Peninsula
 
-Two coastlines, two very different tides. Bring your own boat and pick the ramp that suits the water today, or leave the trailer at home and hire one or go out with a skipper.
+Two coastlines, two very different tides. Pick the ramp that suits the water today, or leave the trailer at home and hire a boat or go out with a skipper.
 
 [Find a ramp](<https://peninsulainsider.com.au/boating/#ramps>) [No boat? Hire or charter](<https://peninsulainsider.com.au/boating/#no-boat>)
 
@@ -17,11 +17,11 @@ Dromana Pier, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit 
 
 ## Choose your ramp
 
-All 6 are free to launch. The tide decides more than the drive does: 3 work at any tide, the rest need the water up.
+All 6 are free to launch. The tide decides more than the drive does: 3 work at any tide, the rest need the water up. Heading for the Heads? Read [Before you launch](<https://peninsulainsider.com.au/boating/#before-you-launch>) first.
 
 ### Port Phillip Bay
 
-Calmer water and a small tidal range. Tide station: **Portsea**. [Today's tides for Portsea, on the Bureau of Meteorology site](<http://www.bom.gov.au/australia/tides/>)
+Calmer water and a small tidal range. Tide station: **Portsea**. [Tide predictions on the Bureau of Meteorology site; choose Portsea for Port Phillip Bay](<http://www.bom.gov.au/australia/tides/>)
 
 - #### [Sorrento](<https://peninsulainsider.com.au/boating/ramps/sorrento-boat-ramp/>)
 
@@ -41,11 +41,11 @@ High
 
 - #### [Rye](<https://peninsulainsider.com.au/boating/ramps/rye-boat-ramp/>)
 
-The biggest car park on the bay side, with about 127 trailer spaces and fish-cleaning facilities.
+The biggest car park on the bay side, with about 127 trailer spaces and fish‑cleaning facilities.
 
 **Launch at**
 
-Mid to high tide
+Mid to high tide  1 to 2 hours either side of high water
 
 **Lanes**
 
@@ -61,7 +61,7 @@ Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide 
 
 **Launch at**
 
-High tide only
+High tide only  About 2 hours either side of high water
 
 **Lanes**
 
@@ -89,7 +89,7 @@ High
 
 ### Western Port
 
-Strongly tidal. Time your launch and your return. Tide station: **Stony Point**. [Today's tides for Stony Point, on the Bureau of Meteorology site](<http://www.bom.gov.au/australia/tides/>)
+Strongly tidal. Time your launch and your return. Tide station: **Stony Point**. [Tide predictions on the Bureau of Meteorology site; choose Stony Point for Western Port](<http://www.bom.gov.au/australia/tides/>)
 
 - #### [Hastings](<https://peninsulainsider.com.au/boating/ramps/hastings-boat-ramp/>)
 
@@ -113,7 +113,7 @@ Smaller and quieter, with a central pontoon, for the whiting and flathead ground
 
 **Launch at**
 
-Mid to high tide
+Mid to high tide  2 hours either side of high water for boats over 4.5 m
 
 **Lanes**
 
@@ -123,19 +123,23 @@ Mid to high tide
 
 Medium
 
-Lanes, tide access and parking are checked against [Better Boating Victoria](<https://www.betterboating.vic.gov.au/>) and the [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/>).
+Parking pressure is our own rating. Lanes and tide access are checked against [Better Boating Victoria](<https://www.betterboating.vic.gov.au/>) and the [Mornington Peninsula Shire](<https://www.mornpen.vic.gov.au/>).
 
  [Every ramp in detail](<https://peninsulainsider.com.au/boating/ramps/>)
 
 ## No boat? Hire one, or go with a skipper
 
+Sorrento Long Pier, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
+
 ### Self-drive hire
 
 [Mornington Boat Hire](<https://peninsulainsider.com.au/boating/hire/mornington-boat-hire/>) runs tinnies and polycraft for the protected bay from Schnapper Point Drive, Mornington. No marine licence needed.
 
-Open year-round when the weather allows. Book ahead in the summer holidays and on long weekends.
+The boats stay in the mid-bay, roughly Mount Martha to Dromana, and never go near the Rip. Expect a same-day cancellation if a strong southerly is forecast. Open year-round when the weather allows; book ahead in the summer holidays and on long weekends.
 
-Sorrento Long Pier, Mornington Peninsula   Photo · Robert Blackburn, courtesy of Visit Victoria
+### Fish from a pier
+
+No boat at all? Our [fishing spots guide](<https://peninsulainsider.com.au/fishing/locations/>) covers 8 piers and jetties, with tide notes for each and any current closure.
 
 ### Skippered fishing charters
 
@@ -147,11 +151,11 @@ From Sorrento Pier since 1991, on two of the largest charter boats in Victoria.
 
 - [Western Port Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/western-port-fishing-charters/>)
 
-A 50-foot flybridge out of Westernport Marina at Hastings. Western Port only.
+A 15-metre (50-foot) flybridge out of Westernport Marina at Hastings. Western Port only.
 
 - [I'm Hooked Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/im-hooked-fishing-charters/>)
 
-A 24-foot catamaran from several Peninsula ramps. Wheelchair-accessible.
+A 7-metre (24-foot) catamaran from several Peninsula ramps. Wheelchair-accessible.
 
 - [Reel Time Fishing Charters](<https://peninsulainsider.com.au/fishing/charters/reel-time-fishing-charters/>)
 
@@ -163,7 +167,7 @@ Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.
 
 - ### Read the forecast twice
 
-Check the [Bureau of Meteorology](<http://www.bom.gov.au/australia/tides/>) marine forecast the night before and again on the morning you go.
+Check the [Bureau of Meteorology forecast for the Peninsula](<http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml>), wind included, the night before and again on the morning you go.
 
 - ### Use the right tide station
 

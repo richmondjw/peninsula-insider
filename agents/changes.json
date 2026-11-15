@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-15T11:13:34.898Z",
+  "generatedAt": "2026-11-15T11:45:25.338Z",
   "baselineAvailable": true,
-  "fromSnapshot": "bb2d745e81fce984a6d5aed17aefa7ab00d3a7aeab2ff3434a22b10b970569e4",
-  "toSnapshot": "068dba64b8fb7d0177cac9e48033f0baf3e1bb2128d9f1b964e506dbe14edecf",
-  "previousGeneratedAt": "2026-11-15T10:24:35.789Z",
+  "fromSnapshot": "068dba64b8fb7d0177cac9e48033f0baf3e1bb2128d9f1b964e506dbe14edecf",
+  "toSnapshot": "28da6861e8dbb2cfd2396a02b6786ec321d7acf934ae97be9a69a0739a93f9a9",
+  "previousGeneratedAt": "2026-11-15T11:13:34.898Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
   "count": 1,
   "changes": [
@@ -13,8 +13,8 @@
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/boating/",
       "markdownUrl": "https://peninsulainsider.com.au/boating/index.md",
-      "contentSha256": "45a5b682d5a6e92565d4c3179a0e6b618cb054cda8a5a86d9e589d373ee03c09",
-      "previousContentSha256": "19a7e4c98b5d293ac6852e863dcd9e7e787aa060ed2ecc72f98cfab7ba94be5d"
+      "contentSha256": "afff4ff2bc653b29fd0edf12c562bd553b62b3802698ae2c637142249bbdb1c4",
+      "previousContentSha256": "45a5b682d5a6e92565d4c3179a0e6b618cb054cda8a5a86d9e589d373ee03c09"
     }
   ]
 }
