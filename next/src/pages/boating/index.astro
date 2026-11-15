@@ -18,6 +18,7 @@ import { BF_EXTERNAL } from '../../lib/bf';
 const allRamps = await getCollection('boatRamps', ({ data }) => data.status === 'published');
 const allHire = await getCollection('boatHire', ({ data }) => data.status === 'published');
 const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
+const pierCount = (await getCollection('fishingLocations', ({ data }) => data.status === 'published' && (data.locationType === 'pier' || data.locationType === 'jetty'))).length;
 
 // PI-004: the stamp is derived from the records this page is about, never
 // declared. "Last fact-verified" only when every record has live supporting
@@ -76,8 +77,8 @@ const anyTideCount = allRamps.filter((r) => r.data.tideDependence === 'all-tide'
 const CHARTER_ORDER = ['proline-charters', 'western-port-fishing-charters', 'im-hooked-fishing-charters', 'reel-time-fishing-charters'];
 const CHARTER_NOTES: Record<string, string> = {
   'proline-charters': 'From Sorrento Pier since 1991, on two of the largest charter boats in Victoria.',
-  'western-port-fishing-charters': 'A 50-foot flybridge out of Westernport Marina at Hastings. Western Port only.',
-  'im-hooked-fishing-charters': 'A 24-foot catamaran from several Peninsula ramps. Wheelchair-accessible.',
+  'western-port-fishing-charters': 'A 15-metre (50-foot) flybridge out of Westernport Marina at Hastings. Western Port only.',
+  'im-hooked-fishing-charters': 'A 7-metre (24-foot) catamaran from several Peninsula ramps. Wheelchair-accessible.',
   'reel-time-fishing-charters': 'Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.',
 };
 const charters = [
@@ -145,9 +146,8 @@ export const prerender = true;
       <div class="bh-cover__text">
         <h1 class="bh-cover__title" id="bh-title">Boating the Mornington Peninsula</h1>
         <p class="bh-cover__dek">
-          Two coastlines, two very different tides. Bring your own boat and pick the ramp
-          that suits the water today, or leave the trailer at home and hire one or go out
-          with a skipper.
+          Two coastlines, two very different tides. Pick the ramp that suits the water today,
+          or leave the trailer at home and hire a boat or go out with a skipper.
         </p>
         <div class="bh-cover__actions">
           <a class="bh-cover__primary" href="#ramps">Find a ramp</a>
@@ -194,7 +194,7 @@ export const prerender = true;
             <h3 id={`water-${water.key}`}>{water.name}</h3>
             <p>
               {water.note} Tide station: <strong>{water.station}</strong>.
-              <a class="bh-tides" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Tide predictions<span class="sr-only">, Bureau of Meteorology</span> <span aria-hidden="true">↗</span></a>
+              <a class="bh-tides" href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating-chooser">Tide predictions<span class="sr-only"> on the Bureau of Meteorology site; choose {water.station} for {water.name}</span> <span aria-hidden="true">↗</span></a>
             </p>
           </div>
           <div class="bh-cols" aria-hidden="true">
@@ -246,7 +246,7 @@ export const prerender = true;
 
       <div class="bh-source">
         <p>
-          Lanes, tide access and parking are checked against
+          Parking pressure is our own rating. Lanes and tide access are checked against
           <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> and the
           <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
         </p>
@@ -281,7 +281,7 @@ export const prerender = true;
           <div class="bh-option">
             <h3>Self-drive hire</h3>
             <p class="bh-option__lead">
-              <a class="bh-link" href={`/boating/hire/${hire.data.slug}/`}>{hire.data.name}</a> runs tinnies and
+              <a class="bh-inline" href={`/boating/hire/${hire.data.slug}/`}>{hire.data.name}</a> runs tinnies and
               polycraft for the protected bay from {hire.data.departurePoint}.
               {!hire.data.licenceRequired && ' No marine licence needed.'}
             </p>
@@ -296,9 +296,8 @@ export const prerender = true;
         <div class="bh-option">
           <h3>Fish from a pier</h3>
           <p class="bh-option__lead">
-            No boat at all? Flinders, Mornington, Portsea, Rye and Stony Point piers all put a line
-            in deep water, and our <a class="bh-link" href="/fishing/locations/">fishing spots guide</a> says
-            which tide each one fishes best on.
+            No boat at all? Our <a class="bh-inline" href="/fishing/locations/">fishing spots guide</a> covers
+            {pierCount} piers and jetties, with tide notes for each and any current closure.
           </p>
         </div>
       </div>
@@ -586,7 +585,7 @@ export const prerender = true;
   .bh-fact--tide dd { display: flex; align-items: flex-start; gap: var(--space-3); }
   .bh-window { display: block; margin-top: 2px; font-size: var(--fs-300); line-height: 1.45; color: var(--muted); }
   .bh-gauge { flex: none; }
-  .bh-gauge .on { fill: var(--harbour); }
+  .bh-gauge .on { fill: var(--harbour-deep); }
   .bh-gauge .off { fill: none; stroke: var(--border-strong); stroke-width: 1; }
 
   .bh-source { margin-top: var(--space-6); max-width: var(--measure-prose); }
@@ -676,10 +675,11 @@ export const prerender = true;
   }
   @media (max-width: 767px) {
     .bh-cover { margin-top: var(--space-3); }
-    .bh-cover__media { aspect-ratio: 16 / 11; }
+    .bh-cover__media { aspect-ratio: 16 / 10; }
     .bh-cover__media img { object-position: 55% 62%; }
     .bh-cover__caption { justify-content: flex-start; flex-direction: column; padding: var(--space-5) var(--space-4) var(--space-2); font-size: var(--fs-200); }
-    .bh-cover__text { gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-6); }
+    .bh-cover__text { gap: var(--space-3); padding: var(--space-5) var(--space-5) var(--space-5); }
+    .bh-cover__actions { margin-top: var(--space-2); }
     .bh-cover__dek { font-size: var(--fs-400); }
     .bh-cover__actions { flex-direction: column; align-items: stretch; gap: var(--space-2); }
     .bh-cover__primary, .bh-cover__secondary { justify-content: center; }
@@ -687,7 +687,9 @@ export const prerender = true;
     .bh-noboat { padding: var(--space-7) 0 var(--space-8); }
     .bh-cols { display: none; }
     .bh-ramp { display: block; }
-    .bh-ramp__facts { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.6fr) minmax(0, 1fr); gap: var(--space-4); margin-top: var(--space-3); padding: 0; }
+    .bh-ramp__facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-3) var(--space-4); margin-top: var(--space-3); padding: 0; }
+    .bh-fact--tide { grid-column: 1 / -1; }
+    .bh-noboat__grid { gap: 0; }
     .bh-fact dt { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; font-size: var(--fs-200); color: var(--muted); margin-bottom: 2px; }
     .bh-fact--tide dd { gap: var(--space-2); }
     .bh-safety__rip { padding: var(--space-4); font-size: var(--fs-400); }
