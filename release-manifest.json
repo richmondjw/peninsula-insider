@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "releaseId": "c03da848ab7b-43722810578",
+  "releaseId": "c03da848ab7b-43723157564",
   "sourceSha": "c03da848ab7ba4cf3aaa17e5b101f15299ba85cb",
-  "buildRunId": "43722810578",
-  "generatedAt": "2026-11-15T14:27:37.278Z",
-  "trigger": "push",
+  "buildRunId": "43723157564",
+  "generatedAt": "2026-11-15T14:44:37.050Z",
+  "trigger": "schedule",
   "authority": {
     "mode": "github-protected-release",
     "actor": "richmondjw",
@@ -34,7 +34,7 @@
     {
       "path": "/whats-on/upcoming.json",
       "bytes": 133439,
-      "sha256": "a1db5daea8661e4d12a2005b509bd879ed2e1d2b114f1f2ea553fa3521adf05f"
+      "sha256": "f56965553937d0d6e603274a93415d896cd48b68c00753192f70a1675008856b"
     }
   ],
   "verification": {
