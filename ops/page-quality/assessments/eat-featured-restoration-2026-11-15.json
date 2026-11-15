@@ -168,5 +168,11 @@
     "Remote storage URLs are exact known identities but remote contents can change; downloaded hashes provide the review baseline."
   ],
   "nextStep": "Run draft PR Content Gate acceptance on the exact PR head, independently inspect screenshot artifacts and report, and reconcile main again before merge. Do not deploy until acceptance passes.",
-  "currentMainSha": "40344d08af4378ff7725a1d4189a5fc2fbffad45"
+  "currentMainSha": "9f84ffcd700d9cc5e8bac3e3fd819c0f4652c8cf",
+  "reconciliation": {
+    "mainSha": "9f84ffcd700d9cc5e8bac3e3fd819c0f4652c8cf",
+    "mergedPR": 737,
+    "detail": "Preserved the merged producer files and capture steps. Added Eat capture before Search opportunity contracts; shared exact-head checkout retained.",
+    "productionBuildBaseline": "40344d08af4378ff7725a1d4189a5fc2fbffad45"
+  }
 }

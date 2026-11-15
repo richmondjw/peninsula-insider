@@ -1,7 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import WineHubTemplate from '../../components/WineHubTemplate.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import PiSaveActions from '../../components/PiSaveActions.astro';
+import { categoryHero } from '../../lib/category-heroes';
 import { buildItemListSchema, buildBreadcrumbSchema } from '../../lib/schema';
 import { routeSlug, isListableVenue } from '../../lib/editorial';
 
@@ -19,10 +21,23 @@ const allVenues = (await getCollection('venues')).filter(isListableVenue);
 const venues = appointmentSlugs
   .map((s) => allVenues.find((v) => routeSlug(v) === s))
   .filter(Boolean) as typeof allVenues;
+venues.sort((a, b) => a.data.name.localeCompare(b.data.name));
+const hero = categoryHero('wine');
+const notes: Record<string, string> = {
+  'onannon': 'Explore Onannon’s Pinot Noir and Chardonnay, then check the producer’s current visiting arrangements.',
+  'eldridge-estate': 'A Red Hill cellar door with guided tasting options. Eldridge recommends booking, particularly on weekends and public holidays.',
+  'paradigm-hill': 'Plan ahead for this Merricks producer: the cellar door opens only by appointment.',
+  'nazaaray-estate': 'A Flinders producer to explore at the southern end of wine country. Start with the producer’s website for current visiting information.',
+  'baillieu-vineyard': 'Baillieu wines have a cellar-door home at Merricks General Wine Store. Follow the store link for tasting and visiting information.',
+  'elan-vineyard': 'A Balnarring vineyard to add to your shortlist. Check the producer’s website before arranging a visit.',
+  'phaedrus-estate': 'A Moorooduc estate with a cellar door and a range spanning Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.',
+  'hurley-vineyard': 'A Balnarring Pinot Noir producer with regular cellar-door opening times. Hurley says bookings are not required during those hours; appointments are available at other times.',
+};
+const placeName = (v: typeof venues[number]) => String(v.data.place?.id ?? v.data.place ?? '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
 const itemListSchema = buildItemListSchema({
-  name: 'Appointment-only and small-production Mornington Peninsula wineries',
-  description: 'The boutique and appointment-only producers on the Mornington Peninsula worth planning a dedicated visit for.',
+  name: 'Small-production Mornington Peninsula wine producers',
+  description: 'A shortlist of Mornington Peninsula wine producers, with links and guidance to plan a visit.',
   listPath: '/wine/appointment-producers',
   items: venues.map((v) => ({ name: v.data.name, path: `/wine/${routeSlug(v)}/`, itemType: 'Winery' })),
 });
@@ -36,37 +51,113 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Appointment-Only Wineries · Mornington Peninsula · Peninsula Insider"
-  description="The small-production and appointment-only wineries on the Mornington Peninsula that are worth planning a dedicated visit for - Garagiste, Onannon, Eldridge, and more."
-  section="wine"
-  canonical={canonical}
+  title="Small-Production Wine Producers · Mornington Peninsula · Peninsula Insider"
+  description={`Explore ${venues.length} Mornington Peninsula wine producers, from Merricks to Flinders. Find producer guides and direct links to plan your visit.`}
+  section="wine" canonical={canonical}
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  <Breadcrumbs items={[{ label: 'Home', href: '/' }, { label: 'Wine Country', href: '/wine/' }, { label: 'Small-production producers' }]} />
+  <div class="producer-guide">
+    <section class="producer-hero container" aria-labelledby="guide-title">
+      <div class="producer-hero__copy">
+        <p class="eyebrow">Wine country · The producer shortlist</p>
+        <h1 id="guide-title">Small producers.<br />A little planning.</h1>
+        <p class="standfirst">Go beyond the familiar cellar-door circuit. Explore {venues.length} Peninsula producers and make the visiting arrangements part of the plan.</p>
+        <a class="pi-btn pi-btn--solid" href="#producers">Explore the producers <span aria-hidden="true">↓</span></a>
+        <p class="hero-note">Some visits need an appointment. Others have regular cellar-door hours.</p>
+      </div>
+      <figure class="producer-hero__image">
+        <img src={hero.src} alt={hero.alt} width="1536" height="1024" fetchpriority="high" />
+        <figcaption>{hero.credit} · Conceptual artwork</figcaption>
+      </figure>
+    </section>
 
-  <WineHubTemplate
-    h1="Appointment-Only Producers"
-    badgeLabel="Access type · By appointment"
-    introText={`These are the producers that don't have a roadside sign and don't need one. Small yields, limited production, and a preference for visitors who arrive with intent rather than habit. Most require a booking - some several weeks in advance for popular releases.
+    <section class="planning container" aria-labelledby="planning-title">
+      <div class="planning__intro"><p class="eyebrow">Before you set out</p><h2 id="planning-title">Start with one visit.</h2></div>
+      <div class="planning__steps">
+        <div><h3>Confirm the format</h3><p>Appointment, open cellar door or a special tasting: use the producer’s own site to find the current options.</p></div>
+        <div><h3>Leave room in the day</h3><p>Ask how long your chosen session runs before adding another stop. There is no single tasting duration across this list.</p></div>
+        <div><h3>Make it work for your group</h3><p>Confirm group size, access needs and non-drinking options directly, and arrange transport before you go.</p></div>
+      </div>
+    </section>
 
-The reward for the extra planning is disproportionate. Appointments at producers like Garagiste, Onannon, and Eldridge Estate mean time with the winemaker, access to library vintages, and wine that rarely appears in retail distribution. These visits are among the best Peninsula experiences for people who are serious about what's in the glass.
+    <section class="producer-directory container" id="producers" aria-labelledby="producers-title">
+      <header class="directory-heading"><div><p class="eyebrow">Your shortlist</p><h2 id="producers-title">{venues.length} producers to explore</h2><p>Listed alphabetically. Visiting arrangements vary by producer.</p></div><a href="/wine/">Browse all wine country <span aria-hidden="true">↗</span></a></header>
+      <div class="producer-grid">
+        {venues.map((venue) => {
+          const slug = routeSlug(venue);
+          const href = `/wine/${slug}/`;
+          return <article class="producer-card">
+            <a class="producer-place" href={`/explore/places/${venue.data.place?.id ?? venue.data.place}/`}>{placeName(venue)}</a>
+            <h3><a href={href}>{venue.data.name}</a></h3>
+            <p>{notes[slug] ?? 'Explore the producer guide and confirm current visiting arrangements directly.'}</p>
+            <div class="producer-card__links"><a href={href}>Read producer guide <span aria-hidden="true">→</span></a>{venue.data.website && <a href={venue.data.website} rel="noopener noreferrer">{slug === 'baillieu-vineyard' ? 'Wine store website' : 'Producer website'} <span aria-hidden="true">↗</span></a>}</div>
+            <div class="producer-card__save"><PiSaveActions kind="venue" slug={slug} title={venue.data.name} href={href} dek={notes[slug]} floating={false} /></div>
+          </article>;
+        })}
+      </div>
+    </section>
 
-Contact each producer directly. Booking windows vary; some open seasonally. Most are happy to accommodate small groups.`}
-    venues={venues}
-    breadcrumbs={[
-      { label: 'Home', href: '/' },
-      { label: 'Wine Country', href: '/wine/' },
-      { label: 'Appointment Producers' },
-    ]}
-    faqItems={[
-      {
-        q: 'How do I book an appointment at a Mornington Peninsula winery?',
-        a: 'Contact the winery directly - most have an email address or booking form on their website. Some use Cellar Door by Vinsight or similar booking systems. Lead time varies: popular producers in peak season (March–May, October–November) may be booked weeks in advance. Being specific about what you want to taste - a library vertical, a current release flight - helps the winery plan.',
-      },
-      {
-        q: 'Are appointment-only wineries more expensive?',
-        a: 'Not necessarily. Some charge a tasting fee, often refundable against purchase. Others charge nothing. The real expense is time: these visits reward you most if you set aside two to three hours rather than treating them as a quick stop. Confirm current rates with the producer when you book.',
-      },
-    ]}
-  />
+    <section class="visiting-note container" aria-labelledby="visiting-title">
+      <div><p class="eyebrow">A note on appointments</p><h2 id="visiting-title">Booking advice is specific to the producer.</h2></div>
+      <div><p><a href="https://www.paradigmhill.com.au/">Paradigm Hill</a> says its cellar door opens only by appointment. <a href="https://www.eldridge-estate.com.au/cellar-door/">Eldridge Estate</a> recommends bookings, particularly on weekends and public holidays. An appointment-only label would miss that distinction.</p><p>Use the direct links above for current sessions and contact details. A listing here does not confirm availability or a meeting with the winemaker.</p></div>
+    </section>
+  </div>
 </BaseLayout>
+
+<style>
+  .producer-guide { color: var(--text); }
+  .producer-guide .container { max-width: 1200px; }
+  .eyebrow { color: var(--accent); font-size: var(--fs-100); font-weight: 700; letter-spacing: .1em; text-transform: uppercase; margin: 0 0 var(--space-4); }
+  .producer-hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: var(--space-7); align-items: center; padding-top: var(--space-6); padding-bottom: var(--space-8); }
+  .producer-hero h1 { font-size: var(--fs-800); line-height: 1.12; letter-spacing: -.035em; margin: 0 0 var(--space-5); }
+  .standfirst { max-width: 48ch; font-size: var(--fs-500); line-height: 1.5; margin: 0 0 var(--space-5); }
+  .hero-note { font-size: var(--fs-300); line-height: 1.5; max-width: 40ch; margin: var(--space-4) 0 0; }
+  .producer-hero__image { margin: 0; min-width: 0; }
+  .producer-hero__image img { display: block; width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; border-radius: var(--space-3); }
+  .producer-hero__image figcaption { font-size: var(--fs-200); margin-top: var(--space-3); }
+  .planning { background: var(--bg-alt); border-block: 1px solid var(--border); padding: var(--space-7) var(--space-6); display: grid; grid-template-columns: 1fr 2fr; gap: var(--space-7); }
+  .producer-guide h2 { font-size: 2rem; line-height: 1.2; letter-spacing: -.025em; margin: 0; }
+  .planning__steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
+  .planning h3 { font-size: 1.0625rem; line-height: 1.4; margin: 0 0 var(--space-3); }
+  .planning p:not(.eyebrow) { font-size: var(--fs-300); line-height: 1.6; margin: 0; }
+  .producer-directory { padding-block: var(--space-8); scroll-margin-top: 120px; }
+  .directory-heading { display: flex; align-items: end; justify-content: space-between; gap: var(--space-5); margin-bottom: var(--space-6); }
+  .directory-heading p:not(.eyebrow) { margin: var(--space-4) 0 0; font-size: var(--fs-400); }
+  .producer-guide a:not(.pi-btn) { color: var(--accent); text-underline-offset: .22em; }
+  .producer-guide a:focus-visible, .producer-guide :global(button:focus-visible) { outline: 3px solid var(--accent); outline-offset: 5px; }
+  .producer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-5); }
+  .producer-card { border: 1px solid var(--border); border-top: 3px solid var(--accent); border-radius: var(--space-2); background: var(--white); padding: var(--space-6); display: flex; flex-direction: column; min-width: 0; }
+  .producer-place { font-size: var(--fs-200); font-weight: 600; align-self: start; display: inline-flex; min-height: 44px; align-items: center; }
+  .producer-card h3 { font-size: var(--fs-600); line-height: 1.25; margin: var(--space-2) 0 var(--space-4); }
+  .producer-card h3 a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text) !important; text-decoration: none; }
+  .producer-card h3 a:hover { text-decoration: underline; }
+  .producer-card > p { font-size: var(--fs-400); line-height: 1.65; margin: 0 0 var(--space-5); max-width: 48ch; }
+  .producer-card__links { margin-top: auto; display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); }
+  .producer-card__links a, .directory-heading > a { display: inline-flex; gap: var(--space-2); min-height: 44px; align-items: center; font-size: var(--fs-300); font-weight: 600; }
+  .producer-card__save { border-top: 1px solid var(--border); margin-top: var(--space-5); padding-top: var(--space-4); }
+  .producer-card__save :global(.pi-actions__btn) { width: auto; max-width: none; padding-inline: 14px; gap: 8px; }
+  .producer-card__save :global(.pi-actions__label) { font-size: var(--fs-100); position: static; opacity: 1; width: auto; max-width: none; clip: auto; overflow: visible; transform: none; }
+  .visiting-note { display: grid; grid-template-columns: 1fr 1.4fr; gap: var(--space-7); border-top: 1px solid var(--border); padding-block: var(--space-7) var(--space-8); }
+  .visiting-note p:not(.eyebrow) { font-size: var(--fs-400); line-height: 1.65; margin: 0 0 var(--space-4); }
+  @media (max-width: 800px) {
+    .producer-hero { gap: var(--space-5); }
+    .planning { grid-template-columns: 1fr; gap: var(--space-5); }
+    .producer-card { padding: var(--space-5); }
+  }
+  @media (max-width: 600px) {
+    .producer-hero { grid-template-columns: 1fr; padding-top: var(--space-4); padding-bottom: var(--space-6); }
+    .producer-hero h1 { font-size: 2rem; }
+    .standfirst { font-size: var(--fs-400); }
+    .producer-hero__image { margin-top: var(--space-2); }
+    .planning { padding-block: var(--space-6); padding-inline: var(--space-5); }
+    .planning__steps, .producer-grid, .visiting-note { grid-template-columns: 1fr; }
+    .planning__steps { gap: var(--space-5); }
+    .producer-guide h2 { font-size: 1.75rem; }
+    .directory-heading { display: block; }
+    .directory-heading > a { margin-top: var(--space-4); }
+    .producer-directory { padding-block: var(--space-7); }
+    .visiting-note { gap: var(--space-5); }
+  }
+</style>
