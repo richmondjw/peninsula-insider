@@ -26,7 +26,7 @@ test('browser recheck hides the swipe hint when a lunchtime pick ends but retain
 let home = stripTypeScriptTypes(readFileSync(new URL('../components/v5/home/home-data.ts',import.meta.url),'utf8'));
 home=home.replace(/import \{ USE_OCCURRENCE_MODEL \} from '[^']+';/,"const USE_OCCURRENCE_MODEL=false;");
 home=home.replace(/from '([^']+)'/g,(_,path)=>`from '${new URL(path+(path.endsWith('.mjs')?'':'.ts'),new URL('../components/v5/home/home-data.ts',import.meta.url)).href}'`);
-const {selectWeekendPicks,pickDateISO}=await import('data:text/javascript;base64,'+Buffer.from(home).toString('base64'));
+const {selectWeekendPicks,pickDateISO,weekendPickOccurrences}=await import('data:text/javascript;base64,'+Buffer.from(home).toString('base64'));
 test('actual homepage selector honours editorial order only among eligible approved weekend sessions',()=>{const a=fixture(),b=fixture({slug:'second'}),cancel=fixture({slug:'cancelled',cancelled:true});const picks=[{data:{weekendStart:new Date('2026-10-10'),picks:[{eventSlug:'cancelled',position:0},{eventSlug:'second',position:1,editorVerdict:'Fixture verdict'},{eventSlug:a.id,position:2}]}}];const result=selectWeekendPicks(picks,[a,b,cancel],now);assert.deepEqual(result.picks.map(p=>p.event.data.slug),['second','synthetic-session']);assert.equal(pickDateISO(result.picks[0].event,now),'2026-10-10');});
 test('actual homepage refuses post-approval public content drift even with occurrence flag off',()=>{const e=approved();e.data.summary='Changed without approval';assert.equal(selectWeekendPicks([], [e],now).picks.length,0);});
 
@@ -48,9 +48,9 @@ test('an emptied homepage retains a truthful dated fallback instead of fabricate
 // Homepage-specific selection is re-evaluated after the shared fail-closed gate.
 const { homeWeekendWindow, distinctWeekendCards, weekendImageIdentity } = await import('./home-weekend.mjs');
 function homeDOM(entries, edition = '2026-10-10') {
-  const nodes = entries.map(([event, image]) => ({
+  const nodes = entries.map(([event, image, day = '2026-10-10']) => ({
     hidden: false,
-    getAttribute: key => ({'data-event-promotion': JSON.stringify(event), 'data-event-promotion-day': '2026-10-10', 'data-weekend-slug':event.data.slug, 'data-weekend-image':image})[key],
+    getAttribute: key => ({'data-event-promotion': JSON.stringify(event), 'data-event-promotion-day': day, 'data-weekend-slug':event.data.slug, 'data-weekend-image':image})[key],
     remove() { nodes.splice(nodes.indexOf(this), 1); },
   }));
   const discoveries = Array.from({length:3}, () => ({hidden:true}));
@@ -120,4 +120,18 @@ test('reserve selection retains more than nine candidates without admitting next
   const result=selectWeekendPicks([], [...entries, fixture({slug:'draft',status:'review'}), fixture({slug:'later',startDate:new Date('2026-10-17'),endDate:new Date('2026-10-17')})], now, Infinity);
   assert.equal(result.picks.length,12);
   assert.ok(result.picks.every(p=>p.event.data.slug.startsWith('eligible-')));
+});
+
+
+test('Saturday to Sunday keeps a continuing approved event with its Sunday date and no duplicate slot', () => {
+  const event=fixture({endDate:new Date('2026-10-11')});
+  const picks=weekendPickOccurrences(selectWeekendPicks([], [event], now, Infinity).picks, now);
+  assert.deepEqual(picks.map(p=>p.event.data._promotionDay),['2026-10-10','2026-10-11']);
+  const dom=homeDOM(picks.map(p=>[p.event.data._promotionOriginal,'/images/pool.webp',p.event.data._promotionDay]));
+  refreshEventPromotions(dom,now);
+  assert.equal(dom.nodes.filter(n=>!n.hidden).length,1);
+  assert.equal(dom.nodes.find(n=>!n.hidden).getAttribute('data-event-promotion-day'),'2026-10-10');
+  refreshEventPromotions(dom,new Date('2026-10-10T23:00:00Z'));
+  assert.equal(dom.nodes.filter(n=>!n.hidden).length,1);
+  assert.equal(dom.nodes.find(n=>!n.hidden).getAttribute('data-event-promotion-day'),'2026-10-11');
 });

@@ -251,10 +251,11 @@ test('weekend keeps three visible slots and unique loaded event imagery at deskt
       const result=await reader.page.$eval('#home-weekend',section=>{
         const events=[...section.querySelectorAll('[data-event-promotion]:not([hidden])')];
         const discovery=[...section.querySelectorAll('[data-weekend-discovery]:not([hidden])')];
-        return { images:events.map(el=>el.getAttribute('data-weekend-image').split(/[?#]/)[0]), count:events.length+discovery.length, overflow:document.documentElement.scrollWidth>innerWidth+1, discoveryIsDated:discovery.some(el=>el.querySelector('[data-event-promotion],time,[data-v5-save-control]')), sparseHidden:section.querySelector('[data-weekend-sparse]').hidden };
+        return { loadedImages:events.map(el=>el.querySelector('img').currentSrc.split(/[?#]/)[0].replace(/-\d+\.(avif|webp)$/, '')), images:events.map(el=>el.getAttribute('data-weekend-image').split(/[?#]/)[0]), count:events.length+discovery.length, overflow:document.documentElement.scrollWidth>innerWidth+1, discoveryIsDated:discovery.some(el=>el.querySelector('[data-event-promotion],time,[data-v5-save-control]')), sparseHidden:section.querySelector('[data-weekend-sparse]').hidden };
       });
       assert.equal(result.count,3);
       assert.equal(new Set(result.images).size,result.images.length);
+      assert.equal(new Set(result.loadedImages).size,result.loadedImages.length);
       assert.equal(result.overflow,false);
       assert.equal(result.discoveryIsDated,false);
       assert.equal(result.sparseHidden,result.images.length===3);

@@ -211,6 +211,15 @@ export function selectWeekendPicks(
   return { picks: out, window: win };
 }
 
+/** Pre-render each actual day so Sunday can replace Saturday without changing card facts. */
+export function weekendPickOccurrences(picks: WeekendPick[], now: Date = new Date()): WeekendPick[] {
+  const win = weekendWindow(now);
+  return picks.flatMap(pick => [win.saturday, win.sunday].flatMap(day =>
+    eventPromotionEntries([pick.event], { now, windowStart: day, windowDays: 1 })
+      .map(event => ({ event, verdict: pick.verdict })),
+  ));
+}
+
 /** Pretty label for an event category slug. */
 const CATEGORY_LABELS: Record<string, string> = {
   'food-wine': 'Food & wine',
