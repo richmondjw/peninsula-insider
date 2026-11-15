@@ -1,3 +1,4 @@
+import { refreshHomeWeekend } from './home-weekend.mjs';
 import { startOfDay, addDays, isoDate, ruleFor, occursOnDay } from './event-schedule.ts';
 import { eventContentKind, isPublicEventRecord, currentVerifiedPrice } from './event-publication.mjs';
 import { recordDisposition } from './event-occurrence.mjs';
@@ -81,6 +82,10 @@ export function refreshEventPromotions(root, now = new Date()) {
     } catch { element.remove(); }
   }
   for (const section of root.querySelectorAll('[data-event-promotions-section]')) {
+    if (section.hasAttribute?.('data-home-weekend')) {
+      refreshHomeWeekend(section, now);
+      continue;
+    }
     const remaining = section.querySelectorAll('[data-event-promotion]').length;
     const placeholders=section.querySelectorAll('[data-event-promotion-empty]');
     section.hidden=!remaining&&!placeholders.length;

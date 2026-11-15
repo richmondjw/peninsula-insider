@@ -164,18 +164,19 @@ test('homepage weekend picks show the recorded check dates and direct official s
   const reader=await site.reader();
   try {
     await reader.load('/');
-    const sources=await reader.page.$$eval('.home-weekend [data-event-promotion]',els=>els.map(card=>({text:card.querySelector('.home-weekend__source')?.textContent.trim(),url:card.querySelector('.home-weekend__source a')?.href})));
+    const sources=await reader.page.$$eval('.home-weekend [data-event-promotion]:not([hidden])',els=>els.map(card=>({text:card.querySelector('.home-weekend__source')?.textContent.trim(),url:card.querySelector('.home-weekend__source a')?.href})));
     assert.ok(sources.length<=3,JSON.stringify(sources));
     if(!sources.length){
       const empty=await reader.page.$eval('[data-event-promotion-empty]',node=>({hidden:node.hidden,text:node.textContent,href:node.querySelector('a')?.getAttribute('href')}));
-      assert.equal(empty.hidden,false);assert.match(empty.text,/No verified event picks remain for this weekend/);assert.equal(empty.href,'/whats-on/?date=next-weekend');
-      assert.equal(await reader.page.$eval('[data-event-promotion-content]',node=>node.hidden),true);return;
+      assert.equal(empty.hidden,false);assert.match(empty.text,/No verified event picks remain for these dates/);assert.equal(empty.href,'/whats-on/?date=next-weekend');
+      assert.equal(await reader.page.$$eval('[data-weekend-discovery]:not([hidden])',nodes=>nodes.length),3);
+      assert.equal(await reader.page.$eval('[data-event-promotion-content]',node=>node.hidden),false);return;
     }
     assert.equal(await reader.page.$eval('[data-event-promotion-empty]',node=>node.hidden),true);
     assert.ok(sources.every(s=>/Event details checked \d{1,2} \w+ \d{4}/.test(s.text??'')),JSON.stringify(sources));
     assert.ok(sources.every(s=>s.url?.startsWith('https://')&&!new URL(s.url).hostname.endsWith('peninsulainsider.com.au')),JSON.stringify(sources));
     const hint=await reader.page.$eval('[data-event-promotion-multi-hint]',el=>({hidden:el.hidden,text:el.textContent.trim()}));
-    assert.equal(hint.hidden,sources.length<2);
+    assert.equal(hint.hidden,false);
     assert.doesNotMatch(hint.text,/all three/i);
   }finally{await reader.close();}
 });
@@ -236,4 +237,66 @@ test('cinematic cover keeps discovery links accessible and does not enable conci
  assert.equal(result.links.length,4);assert.ok(result.links.every(l=>l.width>=44&&l.height>=44));assert.match(result.caption,/Peter Tarasiuk/);assert.ok(result.picture>0);
  await reader.page.focus('.home-cover-paths a');assert.equal(await reader.page.$eval('.home-cover-paths a',e=>document.activeElement===e),true);
  }}finally{await reader.close();}
+});
+
+
+test('weekend keeps three visible slots and unique loaded event imagery at desktop and mobile', async () => {
+  for (const width of [390,1440]) {
+    const reader=await site.reader();
+    try {
+      await reader.page.setViewport({width,height:900,deviceScaleFactor:width===390?2:1});
+      await reader.load('/');
+      await reader.page.$eval('#home-weekend', el=>el.scrollIntoView());
+      await reader.page.waitForFunction(()=>[...document.querySelectorAll('#home-weekend [data-event-promotion]:not([hidden]) img')].every(img=>img.complete && img.naturalWidth>0));
+      const result=await reader.page.$eval('#home-weekend',section=>{
+        const events=[...section.querySelectorAll('[data-event-promotion]:not([hidden])')];
+        const discovery=[...section.querySelectorAll('[data-weekend-discovery]:not([hidden])')];
+        return { images:events.map(el=>el.getAttribute('data-weekend-image').split(/[?#]/)[0]), count:events.length+discovery.length, overflow:document.documentElement.scrollWidth>innerWidth+1, discoveryIsDated:discovery.some(el=>el.querySelector('[data-event-promotion],time,[data-v5-save-control]')), sparseHidden:section.querySelector('[data-weekend-sparse]').hidden };
+      });
+      assert.equal(result.count,3);
+      assert.equal(new Set(result.images).size,result.images.length);
+      assert.equal(result.overflow,false);
+      assert.equal(result.discoveryIsDated,false);
+      assert.equal(result.sparseHidden,result.images.length===3);
+    } finally { await reader.close(); }
+  }
+});
+
+test('weekend replaces expired rendered cards and shows discovery after Melbourne rollover',async()=>{
+  const reader=await site.reader();
+  try {
+    // Keep this browser fixture independent of when CI runs and of the current inventory.
+    await reader.page.evaluateOnNewDocument(()=>{
+      const NativeDate=Date;
+      window.__weekendClock='2026-10-10T01:59:00Z';
+      window.Date=class extends NativeDate { constructor(...args){super(...(args.length?args:[window.__weekendClock]));} static now(){return +new NativeDate(window.__weekendClock);} };
+    });
+    await reader.load('/');
+    await reader.page.evaluate(()=>{
+      const section=document.querySelector('#home-weekend');
+      const list=section.querySelector('ul');
+      section.setAttribute('data-home-weekend','2026-10-10');
+      section.querySelectorAll('[data-event-promotion]').forEach(node=>node.remove());
+      for(const [slug,endTime,image] of [['lunch','13:00','lunch'],['pool','17:00','pool'],['duplicate','17:00','pool'],['amp','17:00','amp'],['reserve','17:00','venue']]){
+        const node=document.createElement('li');
+        node.textContent=slug;
+        node.setAttribute('data-weekend-slug',slug);
+        node.setAttribute('data-weekend-image','/images/'+image+'.webp');
+        node.setAttribute('data-event-promotion-day','2026-10-10');
+        node.setAttribute('data-event-promotion',JSON.stringify({id:slug,data:{slug,title:'Synthetic browser fixture',status:'published',venueName:'Synthetic venue',suburb:'Mornington',startDate:'2026-10-10',endDate:'2026-10-10',startTime:'10:00',endTime}}));
+        list.prepend(node);
+      }
+      // Fixture order is explicit, as an editor's ordered shortlist would be.
+      for(const slug of ['lunch','pool','duplicate','amp','reserve']) list.append(section.querySelector('[data-weekend-slug="'+slug+'"]'));
+      window.dispatchEvent(new Event('pageshow'));
+    });
+    const visible=()=>reader.page.$$eval('#home-weekend [data-event-promotion]:not([hidden])',nodes=>nodes.map(n=>n.getAttribute('data-weekend-slug')));
+    assert.deepEqual(await visible(),['lunch','pool','amp']);
+    await reader.page.evaluate(()=>{window.__weekendClock='2026-10-10T02:01:00Z';window.dispatchEvent(new Event('pageshow'));});
+    assert.deepEqual(await visible(),['pool','amp','reserve']);
+    await reader.page.evaluate(()=>{window.__weekendClock='2026-10-11T13:00:00Z';window.dispatchEvent(new Event('pageshow'));});
+    assert.deepEqual(await visible(),[]);
+    assert.equal(await reader.page.$$eval('[data-weekend-discovery]:not([hidden])',nodes=>nodes.length),3);
+    assert.equal(await reader.page.$eval('#home-weekend-title',node=>node.textContent),'Weekend picks');
+  } finally {await reader.close();}
 });

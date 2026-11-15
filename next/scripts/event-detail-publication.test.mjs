@@ -45,9 +45,10 @@ test('actual detail labels only the cancelled edition and preserves noncancelled
 
 test('homepage event photography requires a recorded rights receipt', async () => {
   const home = await readFile(new URL('../src/components/v5/home/HomeWeekend.astro', import.meta.url), 'utf8');
-  const block = home.slice(home.indexOf('    const image ='), home.indexOf('    const dateISO ='));
-  const fn = new Function('contextPhotos', 'slug', 'hero', 'recorded', 'status', 'cleanCaption', `${stripTypeScriptTypes(block)}; return image;`);
-  const actual = (...args) => fn(...args, cleanCaption);
+  const block = home.slice(home.indexOf('    let image ='), home.indexOf('    const dateISO ='));
+  const fn = new Function('contextPhotos', 'slug', 'hero', 'recorded', 'status', 'cleanCaption', 'alba', `${stripTypeScriptTypes(block)}; return image;`);
+  const alba = JSON.parse(await readFile(new URL('../src/content/venues/alba-thermal-springs.json', import.meta.url), 'utf8'));
+  const actual = (...args) => fn(...args, cleanCaption, alba);
   const hero = { hasPhoto: true, src: '/event.webp' };
   const photo = { alt: 'Verified subject', credit: 'Photographer' };
   const fallback = actual({}, 'event', hero, photo, 'actual');
@@ -57,6 +58,11 @@ test('homepage event photography requires a recorded rights receipt', async () =
   assert.equal(fallback.credit, '');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'actual').src, '/event.webp');
   assert.equal(actual({}, 'event', hero, { ...photo, rightsStatus: 'recorded' }, 'unverified').src, fallback.src);
+  const retreat = 'the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15';
+  const recorded = {...photo,rightsStatus:'recorded',src:'/images/generated/events/thermal-pool.webp'};
+  assert.equal(actual({}, retreat, hero, recorded, 'illustrative').src, alba.gallery[0].src);
+  assert.equal(actual({}, retreat, hero, {...recorded,src:'/images/editor-choice.webp'}, 'actual').src, hero.src);
+  assert.equal(fn({},retreat,hero,recorded,'illustrative',cleanCaption,{gallery:[{...alba.gallery[0],rightsStatus:'unknown'}]}).src,hero.src);
   assert.equal(actual({event:{src:'/context.webp'}}, 'event', hero, {...photo,rightsStatus:'recorded'}, 'actual').src, '/event.webp');
 });
 test('event discovery shelf photography requires recorded rights and actual depiction', async () => {
