@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "1.0",
+  "checkedOn": "2026-11-15",
+  "baseSha": "40344d08af4378ff7725a1d4189a5fc2fbffad45",
+  "scope": "/eat/#the-six",
+  "status": "prepared-for-independent-review-not-published",
+  "authorization": {
+    "source": "Owner instruction received 2026-11-15",
+    "instruction": "disregard the specific permissions, and let's get the images that were previously there",
+    "interpretation": "Scoped owner-directed restoration of these four historical files. No claim of image-rights clearance or permission to alter global safeguards."
+  },
+  "historicalEvidence": {
+    "file": "ops/page-quality/assessments/eat-image-inventory-2026-10-03.json",
+    "observedAt": "2026-10-03",
+    "sourceSha": "90e5e54d059308fd767c07d230a9b2c14cf01136",
+    "meaning": "Original URLs rendered on historical Eat directory. This does not establish current CMS slots or per-asset rights."
+  },
+  "currentEvidence": {
+    "publicFiles": "All four downloaded successfully on 2026-11-15 and visually inspected; SHA-256 hashes agree with independent parent readback.",
+    "cmsSlots": {
+      "outcome": "unavailable",
+      "operation": "GET public REST cms_image_slots filtered to four venue slugs, published status, existing project publishable access",
+      "errorCode": "PGRST205",
+      "message": "Could not find the table public.cms_image_slots in the schema cache",
+      "limitation": "No current slot ID, timestamp or upload record established. No credential or access changes attempted."
+    },
+    "quarantine": "None of these exact four storage paths occurs in base cms-image-quarantine.json; candidate continues to check quarantine at render time."
+  },
+  "assets": [
+    {
+      "slug": "commonfolk-coffee",
+      "publicUrl": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/commonfolk-coffee/heroImage-1780004538243.jpg",
+      "storagePath": "venue/commonfolk-coffee/heroImage-1780004538243.jpg",
+      "sha256": "2a2d01e016eeca013ae6ca53fa16f8f3013c1d9ce8b93855858e5edd8eeac21b",
+      "width": 900,
+      "height": 900,
+      "format": "jpeg",
+      "visualInspection": "Two people crouch beside drying coffee cherries beneath a timber-framed shelter",
+      "subjectStatus": "Coffee production context, not a Mornington cafe interior. People and location not identified.",
+      "rightsStatus": "unresolved",
+      "creator": null,
+      "rightsHolder": null,
+      "permissionRecord": null,
+      "websiteUseGrant": null
+    },
+    {
+      "slug": "tedesca-osteria",
+      "publicUrl": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/tedesca-osteria/heroImage-1781253504049.jpg",
+      "storagePath": "venue/tedesca-osteria/heroImage-1781253504049.jpg",
+      "sha256": "bbefeb1be1065e01d0974c7f780f9540a11b05fa2b9eb4fa9d534bdf92097d3f",
+      "width": 2000,
+      "height": 1125,
+      "format": "jpeg",
+      "visualInspection": "A timber-lined dining room with white-clothed tables and a central wood-burning fireplace",
+      "subjectStatus": "Pixels inspected; exact venue identity not independently established beyond historical CMS assignment.",
+      "rightsStatus": "unresolved",
+      "creator": null,
+      "rightsHolder": null,
+      "permissionRecord": null,
+      "websiteUseGrant": null
+    },
+    {
+      "slug": "barragunda-dining",
+      "publicUrl": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/barragunda-dining/heroImage-1780004515078.jpg",
+      "storagePath": "venue/barragunda-dining/heroImage-1780004515078.jpg",
+      "sha256": "c914900ad7699b4d52928133c440df076552f21f838b92c34f2ab1f0feedd9c4",
+      "width": 2560,
+      "height": 1707,
+      "format": "jpeg",
+      "visualInspection": "Pale timber tables and chairs beside full-height windows looking onto trees",
+      "subjectStatus": "Pixels inspected; exact venue identity not independently established beyond historical CMS assignment.",
+      "rightsStatus": "unresolved",
+      "creator": null,
+      "rightsHolder": null,
+      "permissionRecord": null,
+      "websiteUseGrant": null
+    },
+    {
+      "slug": "portsea-hotel",
+      "publicUrl": "https://tjjhpvslpysfklwpqmgz.supabase.co/storage/v1/object/public/cms-assets/venue/portsea-hotel/hero-1778598174247.jpg",
+      "storagePath": "venue/portsea-hotel/hero-1778598174247.jpg",
+      "sha256": "4e199523ed51a29136f59378f33b4182f9ac4368301ee0b3fd7e0303accccf98",
+      "width": 400,
+      "height": 400,
+      "format": "jpeg",
+      "visualInspection": "Dining tables on a white-columned terrace overlooking blue water",
+      "subjectStatus": "Pixels inspected; exact venue identity not independently established beyond historical CMS assignment.",
+      "rightsStatus": "unresolved",
+      "creator": null,
+      "rightsHolder": null,
+      "permissionRecord": null,
+      "websiteUseGrant": null
+    }
+  ],
+  "implementation": {
+    "files": [
+      "next/src/pages/eat/index.astro",
+      "next/src/lib/eat-featured-restoration.mjs",
+      "next/src/lib/eat-featured-restoration.test.mjs",
+      "next/scripts/review-eat-featured-restoration.mjs",
+      ".github/workflows/content-gate.yml"
+    ],
+    "details": "Exact historical URLs pinned only in the Six construction. Shared resolveHero still resolves the chosen source, with overrides ignored. Default directory cardImage, venue records, global rights gates and CMS hydration/edit locks unchanged. No invented credit or inherited fallback permission. Commonfolk receives factual Coffee production caption."
+  },
+  "verification": {
+    "nodeTests": {
+      "passed": 64,
+      "failed": 0,
+      "command": "node --test src/lib/eat-featured-restoration.test.mjs src/lib/media-provenance.test.mjs scripts/media-rights.test.mjs"
+    },
+    "astroCompile": {
+      "errors": 0,
+      "diagnostics": 2
+    },
+    "notPerformed": [
+      "Browser desktop/mobile rendered acceptance",
+      "Deployment verification"
+    ],
+    "productionBuild": {
+      "command": "npm run build",
+      "exitCode": 0,
+      "mode": "Unmodified production script, isolated candidate, normal required network access",
+      "responsiveSources": 544,
+      "responsivePages": 343,
+      "logSha256": "3f6cab8e8f094932b670514477105ab0f6dd81fe4b77b05a5726dedf97723e86"
+    },
+    "builtReadback": {
+      "photos": 6,
+      "restoredOriginalUrls": 4,
+      "hydrationLocksPreserved": true,
+      "portseaDerivativeWidth": 400,
+      "meaning": "Read generated HTML and responsive derivative records. This is not a browser naturalWidth observation."
+    },
+    "browser": {
+      "status": "blocked",
+      "operation": "node verify-render.mjs using existing tests/journeys/harness.mjs under normal sandbox",
+      "error": "Failed to launch the browser process: Code 3221225506 (access denied)",
+      "retry": "None; no security or socket restrictions altered",
+      "screenshots": 0,
+      "naturalWidthObserved": false,
+      "saveAndNavigationVerified": false
+    },
+    "ciAcceptance": {
+      "status": "prepared-not-yet-run",
+      "branch": "fix/eat-featured-photo-restoration-20261115",
+      "workflow": "Content Gate",
+      "job": "journeys",
+      "viewports": [
+        "1440x1000 DPR1",
+        "390x844 DPR3 mobile with touch"
+      ],
+      "checks": [
+        "all six photos complete with naturalWidth greater than zero",
+        "four exact original source identities",
+        "hydration locks",
+        "Commonfolk Coffee production caption",
+        "Save toggles without navigation",
+        "all six card links navigate correctly",
+        "no horizontal page overflow"
+      ],
+      "artifacts": "report.json and desktop/mobile screenshots",
+      "productionBuild": "The branch-scoped journey build runs unmodified npm run build before screenshots on the exact PR head."
+    }
+  },
+  "limitations": [
+    "Portsea original is 400x400; it will remain visibly lower resolution on dense displays.",
+    "Subject geography for the dining-room/terrace photographs is not independently proven beyond their historical slot association.",
+    "No per-image creator, rights holder or website-use grant was located. Missing metadata is not a finding of infringement.",
+    "Remote storage URLs are exact known identities but remote contents can change; downloaded hashes provide the review baseline."
+  ],
+  "nextStep": "Run draft PR Content Gate acceptance on the exact PR head, independently inspect screenshot artifacts and report, and reconcile main again before merge. Do not deploy until acceptance passes.",
+  "currentMainSha": "9f84ffcd700d9cc5e8bac3e3fd819c0f4652c8cf",
+  "reconciliation": {
+    "mainSha": "9f84ffcd700d9cc5e8bac3e3fd819c0f4652c8cf",
+    "mergedPR": 737,
+    "detail": "Preserved the merged producer files and capture steps. Added Eat capture before Search opportunity contracts; shared exact-head checkout retained.",
+    "productionBuildBaseline": "40344d08af4378ff7725a1d4189a5fc2fbffad45"
+  }
+}
