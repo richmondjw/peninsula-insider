@@ -361,6 +361,10 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
   <script is:inline>
     (function () {
       function setMastheadH() {
+        // The homepage has no sticky element that consumes --masthead-h.
+        // Avoid a synchronous layout read during its critical first paint;
+        // astro:page-load will measure normally after an inner-page navigation.
+        if (document.body && document.body.dataset.path === '/') return;
         var m = document.querySelector('.masthead');
         if (!m) return;
         var h = Math.round(m.getBoundingClientRect().height);
@@ -583,6 +587,12 @@ const showNewsletterPopup = !isPlanningJourney && !isPlaceGuide && normalizedPat
       function check() {
         var body = document.body;
         if (!body) return;
+        // These routes suppress the pill in CSS. Skip the geometry reads too,
+        // so their first paint does not pay for an invisible control.
+        if (['/', '/newsletter/', '/ask/', '/account/'].includes(body.dataset.path || '')) {
+          if (body.classList.contains('show-subscribe-pill')) body.classList.remove('show-subscribe-pill');
+          return;
+        }
         var max = document.documentElement.scrollHeight - window.innerHeight;
         if (max <= 0) {
           body.classList.remove('show-subscribe-pill');
