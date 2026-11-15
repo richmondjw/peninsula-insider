@@ -262,6 +262,26 @@ jobs:
           if-no-files-found: error
           retention-days: 14
 
+      - name: Journal contextual link review
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: |
+          npm run test:journal-links
+          node scripts/audit-link-graph.mjs --dist dist --json review/journal-link-graph.json
+          node scripts/review-journal-links.mjs
+
+      - name: Upload journal contextual link review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: journal-links-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            next/review/journal-links/
+            next/review/journal-link-graph.json
+          if-no-files-found: error
+          retention-days: 14
+
       - name: Search opportunity page contracts
         run: |
           cd next

@@ -1,0 +1,188 @@
+{
+  "version": 1,
+  "pilots": [
+    "area-guide-red-hill",
+    "a-flinders-weekend",
+    "hatted-restaurants-mornington-peninsula-2025"
+  ],
+  "aliases": {
+    "ten-minutes-by-tractor": [
+      "Ten Minutes by Tractor"
+    ],
+    "polperro": [
+      "Polperro Restaurant",
+      "Polperro"
+    ],
+    "lindenderry": [
+      "Lindenderry at Red Hill"
+    ],
+    "laura-pt-leo": [
+      "Laura"
+    ],
+    "many-little": [
+      "Many Little Bar & Dining"
+    ],
+    "stonier-wines": [
+      "Stonier"
+    ],
+    "commonfolk-coffee": [
+      "Commonfolk"
+    ],
+    "cape-schanck-boardwalk": [
+      "Cape Schanck and the boardwalk"
+    ],
+    "red-hill-cheese": [
+      "Red Hill Cheese"
+    ],
+    "georgie-bass": [
+      "Georgie Bass"
+    ],
+    "montalto": [
+      "Montalto"
+    ],
+    "yabby-lake": [
+      "Yabby Lake"
+    ]
+  },
+  "ambiguous": [
+    "Flinders Hotel",
+    "Lancemore Lindenderry Dining Room"
+  ],
+  "notes": "Aliases are exact, case-sensitive and reviewed; no fuzzy matching or year substitution. Ambiguous names always require contextual editorial review. Catalogue matches are candidates, not publication authority.",
+  "required": {
+    "area-guide-red-hill": [
+      {
+        "name": "Red Hill",
+        "href": "/explore/places/red-hill/"
+      },
+      {
+        "name": "Ten Minutes by Tractor",
+        "href": "/wine/ten-minutes-by-tractor/"
+      },
+      {
+        "name": "Montalto",
+        "href": "/wine/montalto/"
+      },
+      {
+        "name": "Polperro",
+        "href": "/wine/polperro/"
+      },
+      {
+        "name": "Foxeys Hangout",
+        "href": "/wine/foxeys-hangout/"
+      },
+      {
+        "name": "Paringa Estate",
+        "href": "/wine/paringa-estate/"
+      },
+      {
+        "name": "Lindenderry at Red Hill",
+        "href": "/stay/lindenderry/"
+      },
+      {
+        "name": "Main Ridge",
+        "href": "/explore/places/main-ridge/"
+      },
+      {
+        "name": "Dromana",
+        "href": "/explore/places/dromana/"
+      },
+      {
+        "name": "Merricks",
+        "href": "/explore/places/merricks/"
+      },
+      {
+        "name": "Flinders",
+        "href": "/explore/places/flinders/"
+      },
+      {
+        "name": "Sorrento",
+        "href": "/explore/places/sorrento/"
+      }
+    ],
+    "a-flinders-weekend": [
+      {
+        "name": "Red Hill",
+        "href": "/explore/places/red-hill/"
+      },
+      {
+        "name": "Sorrento",
+        "href": "/explore/places/sorrento/"
+      },
+      {
+        "name": "Flinders",
+        "href": "/explore/places/flinders/"
+      },
+      {
+        "name": "Flinders Sourdough",
+        "href": "/eat/flinders-sourdough/"
+      },
+      {
+        "name": "Cape Schanck and the boardwalk",
+        "href": "/explore/cape-schanck-boardwalk/"
+      }
+    ],
+    "hatted-restaurants-mornington-peninsula-2025": [
+      {
+        "name": "Barragunda Dining",
+        "href": "/eat/barragunda-dining/"
+      },
+      {
+        "name": "Ten Minutes by Tractor",
+        "href": "/wine/ten-minutes-by-tractor/"
+      },
+      {
+        "name": "Tedesca Osteria",
+        "href": "/eat/tedesca-osteria/"
+      },
+      {
+        "name": "Laura",
+        "href": "/eat/laura-pt-leo/"
+      },
+      {
+        "name": "Doot Doot Doot",
+        "href": "/eat/doot-doot-doot/"
+      },
+      {
+        "name": "Many Little Bar & Dining",
+        "href": "/eat/many-little/"
+      },
+      {
+        "name": "Moke Dining",
+        "href": "/eat/moke-dining/"
+      },
+      {
+        "name": "Montalto",
+        "href": "/wine/montalto/"
+      },
+      {
+        "name": "Polperro Restaurant",
+        "href": "/wine/polperro/"
+      },
+      {
+        "name": "Port Phillip Estate",
+        "href": "/wine/port-phillip-estate/"
+      },
+      {
+        "name": "Rare Hare",
+        "href": "/eat/rare-hare/"
+      },
+      {
+        "name": "Paringa Estate",
+        "href": "/wine/paringa-estate/"
+      },
+      {
+        "name": "Stonier",
+        "href": "/wine/stonier-wines/"
+      },
+      {
+        "name": "Foxeys Hangout",
+        "href": "/wine/foxeys-hangout/"
+      },
+      {
+        "name": "Yabby Lake",
+        "href": "/wine/yabby-lake/"
+      }
+    ]
+  }
+}

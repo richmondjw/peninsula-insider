@@ -38,6 +38,7 @@ import { readFile, readdir, stat } from 'node:fs/promises';
 import { join, resolve, relative, extname, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parse as parseYaml } from 'yaml';
+import { venueHref, isListableVenue } from '../src/lib/editorial.ts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const NEXT_ROOT = resolve(__dirname, '..');
@@ -90,11 +91,6 @@ const WINE_TYPES = ['winery', 'producer', 'brewery', 'distillery'];
 const ROUTABLE_VENUE_TYPES = [...new Set([...EAT_TYPES, ...STAY_TYPES, ...WINE_TYPES])];
 const NON_PUBLIC_STATUSES = new Set(['draft', 'review', 'archived']);
 
-function venueHrefPrefix(type) {
-  if (STAY_TYPES.includes(type)) return '/stay/';
-  if (WINE_TYPES.includes(type)) return '/wine/';
-  return '/eat/';
-}
 
 const COLLECTIONS = [
   // hrefPrefix=null on venues → derived per-row via venueHrefPrefix(entry.type)
@@ -206,12 +202,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
   if (NON_PUBLIC_STATUSES.has(status)) return null;
   if (entityType === 'venue') {
     if (!ROUTABLE_VENUE_TYPES.includes(entry.type)) return null;
-    // Both fields that carry permanent closure - mirrors isListableVenue in
-    // next/src/lib/editorial.ts. This script reads the JSON directly, so it
-    // cannot import it. Keep the two in step.
-    if (status === 'permanently_closed') return null;
-    if (status === 'paused') return null;
-    if (entry.operatingStatus === 'permanently-closed') return null;
+    if (!isListableVenue(entry)) return null;
   }
   const title = entry[titleField] || entry.title || entry.name || slug;
   const dek = entry.dek || entry.summary || entry.editorNote || null;
@@ -241,7 +232,7 @@ function buildIndexRow({ entry, entityType, folder, hrefPrefix, titleField, face
     coordinates: coords,
     starts_at:    startsAt ? new Date(startsAt).toISOString() : null,
     ends_at:      endsAt ? new Date(endsAt).toISOString() : null,
-    href:         (hrefPrefix ?? venueHrefPrefix(entry.type)) + slug + '/',
+    href:         entityType === 'venue' ? venueHref({ id: slug, data: entry }) : hrefPrefix + slug + '/',
     hero_image:   entry.heroImage || null,
     taxonomy_version: String(taxonomy.version || '0'),
     refreshed_at: new Date().toISOString(),
