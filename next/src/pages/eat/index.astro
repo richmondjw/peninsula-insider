@@ -44,6 +44,7 @@ import { freshnessLabel } from '../../lib/freshness';
 import { informationCheckedOn } from '../../lib/verification-date.mjs';
 import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import { hasWebsitePhotoEvidence } from '../../lib/media-provenance';
+import { eatFeaturedRestoration } from '../../lib/eat-featured-restoration.mjs';
 import { cleanCaption, isArtwork } from '../../lib/image-caption.mjs';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import { routeSlug, eatTypes, isListableVenue } from '../../lib/editorial';
@@ -84,7 +85,7 @@ const typeLabel: Record<string, string> = {
   winery: 'Winery',
 };
 
-/** Directory and Six cards may show only images with their own recorded
+/** Default directory and Six cards show only images with their own recorded
  *  subject and rights evidence. CMS replacements have no per-image permission
  *  fields; a different frontmatter photo cannot lend them its provenance. */
 async function cardImage(venue: any): Promise<{ src: string; alt: string; caption?: string; credit?: string } | undefined> {
@@ -168,12 +169,18 @@ const sixItems: SixItem[] = [];
 for (const pick of sixPicks) {
   const venue = venues.find((v) => routeSlug(v) === pick.slug);
   if (!venue) continue;
+  const restored = eatFeaturedRestoration(pick.slug, '/eat/#the-six');
+  const restoredHero = restored
+    ? await resolveHero('venue', pick.slug, { heroImage: restored }, 'heroImage', { ignoreOverride: true })
+    : undefined;
   sixItems.push({
     title: venue.data.name,
     href: `/eat/${routeSlug(venue)}/`,
     entityType: 'venue',
     entitySlug: routeSlug(venue),
-    image: await cardImage(venue),
+    image: restored && restoredHero?.hasPhoto && restoredHero.src === restored.src
+      ? { ...restored, src: restoredHero.src, alt: restoredHero.alt }
+      : await cardImage(venue),
     plateLabel: pick.plateLabel,
     verdict: pick.verdict,
     meta: [placeLabel(venue), typeLabel[venue.data.type] ?? venue.data.type],
@@ -323,8 +330,7 @@ export const prerender = true;
   <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" showLinks={false} />
 
   <div data-category-editorial>
-  <!-- 2. The verdict layer: six equal cards, all visible. Picks without a
-       rights-cleared photograph are text cards; nothing stands in for one. -->
+  <!-- 2. The verdict layer: six equal cards, all visible. -->
   <TheSix
     id="the-six"
     heading="Six starting points. Six different days."

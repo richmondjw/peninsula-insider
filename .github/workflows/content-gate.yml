@@ -209,6 +209,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -238,6 +239,24 @@ jobs:
         run: |
           cd next
           npx astro build
+
+      - name: Review restored Eat featured photographs
+        if: github.event_name == 'pull_request' && github.head_ref == 'fix/eat-featured-photo-restoration-20261115'
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          node --test src/lib/eat-featured-restoration.test.mjs src/lib/media-provenance.test.mjs scripts/media-rights.test.mjs
+          node scripts/review-eat-featured-restoration.mjs
+
+      - name: Upload Eat featured photograph review
+        if: always() && github.event_name == 'pull_request' && github.head_ref == 'fix/eat-featured-photo-restoration-20261115'
+        uses: actions/upload-artifact@v4
+        with:
+          name: eat-featured-restoration-review-${{ github.event.pull_request.head.sha }}
+          path: next/review/eat-featured-restoration/
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Search opportunity page contracts
         run: |
