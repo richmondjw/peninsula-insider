@@ -1,10 +1,12 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs/promises';
+import { pageFacts, targetState, catalogue } from './journal-link-audit.mjs';
 import { Site } from '../tests/journeys/harness.mjs';
 import policy from './journal-link-policy.json' with {type:'json'};
 const out='review/journal-links';
 await fs.mkdir(out,{recursive:true});
 const report={head:process.env.REVIEW_HEAD_SHA ?? null,mode:'built-site with harness CMS fixtures; live CMS acceptance still required',pages:[]};
+const entities=await catalogue(new URL('../src/content/',import.meta.url),policy);
 const site=await Site.open();
 try {
  for(const slug of policy.pilots) for(const width of [390,1440]) {
@@ -21,8 +23,10 @@ try {
    for(const link of internal) {
     assert.ok(link.text.trim(),'Descriptive link text');
     const url=new URL(link.href,site.origin); const response=await fetch(url); assert.equal(response.status,200,link.href);
-    const html=await response.text(); assert.doesNotMatch(html,/<title>Redirecting/i,link.href);
-    assert.ok(html.includes(`https://peninsulainsider.com.au${url.pathname}`),'Destination canonical present');
+    const facts=pageFacts(await response.text(),url.pathname);
+    const candidates=entities.filter(e=>e.href===link.href);
+    assert.ok(candidates.length>0, `Uncatalogued destination ${link.href}`);
+    assert.ok(candidates.some(e=>targetState(e,new Map([[url.pathname,facts]]))==='eligible'), `Ineligible canonical/status/fragment: ${link.href}`);
    }
    await page.screenshot({path:`${out}/${slug}-${width}.png`,fullPage:true});
    const first=internal[0];

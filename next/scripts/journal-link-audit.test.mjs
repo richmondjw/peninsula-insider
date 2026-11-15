@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { pageFacts, contextualMentions, targetState } from './journal-link-audit.mjs';
+import { pageFacts, contextualMentions, targetState, catalogue } from './journal-link-audit.mjs';
 import { venueHref, venueHrefForSlug, isListableVenue } from '../src/lib/editorial.ts';
 const entity = { id:'venue:test', name:'Test Venue', aliases:['Test Venue'], href:'/eat/test/' };
 const html = (body, tail='') => `<link rel="canonical" href="https://peninsulainsider.com.au/journal/test/"><div data-pi-prose-root>${body}</div>${tail}`;
@@ -50,4 +50,21 @@ test('shared routing keeps restaurant override, fragments, brewery and distiller
  assert.equal(venueHrefForSlug('port-phillip-estate-restaurant'),'/wine/port-phillip-estate/');
  assert.equal(venueHrefForSlug('alba-thermal-springs'),'/explore/spas-and-wellness/#alba-thermal-springs');
  assert.equal(isListableVenue({status:'paused'}),false);
+});
+
+test('nested lists retain parent text and do not count child text twice',()=>{
+ const a=audit('<ul><li>Test Venue<ul><li>Test Venue again</li></ul></li></ul>');
+ assert.equal(a.mentions.length,2); assert.equal(a.mentions[0].first,true); assert.equal(a.mentions[1].first,false);
+});
+
+test('all approved pilot links have exact aliases and matching canonical resolver targets',async()=>{
+ const {default:policy}=await import('./journal-link-policy.json',{with:{type:'json'}});
+ const entities=await catalogue(new URL('../src/content/',import.meta.url),policy);
+ for(const required of Object.values(policy.required).flat()) assert.ok(entities.some(e=>e.aliases.includes(required.name) && e.href===required.href),JSON.stringify(required));
+ const rare=entities.find(e=>e.slug==='rare-hare');
+ const pages=new Map([[rare.href,pageFacts(`<link rel="canonical" href="${rare.href}">`,rare.href)]]);
+ for(const [markup,status] of [['Rare Hare','missing'],[`<a href="${rare.href}">Rare Hare</a>`,'linked'],['<a href="/stay/hotel/">Rare Hare</a>','wrong']]) {
+  const result=contextualMentions(pageFacts(html(`<p>${markup}</p>`),'/journal/test/'),[rare],pages);
+  assert.equal(result.mentions[0].status,status);
+ }
 });

@@ -59,10 +59,11 @@ export async function catalogue(contentRoot, policy, now = new Date()) {
   for (const name of policy.ambiguous) result.push({id:'ambiguous:'+name, name, aliases:[name], href:null, hold:'ambiguous', kind:'unresolved'});
   return result;
 }
+const BLOCKS = new Set(['p','li','td','th','h2','h3','h4','h5','h6']);
 function runs(block) {
   let value = ''; const spans = [];
   const visit = (node, anchor = null) => {
-    if (['script','style','code','pre'].includes(node.tagName)) return;
+    if (['script','style','code','pre'].includes(node.tagName) || (node !== block && BLOCKS.has(node.tagName))) return;
     if (node.tagName === 'a') anchor = attr(node, 'href');
     if (node.nodeName === '#text') { const start = value.length; value += node.value; spans.push({ start, end:value.length, anchor }); }
     else for (const child of node.childNodes ?? []) visit(child, anchor);
@@ -85,8 +86,7 @@ export function contextualMentions(page, entities, pages) {
       }
     }
   }
-  const blocks = descendants(root).filter(n => ['p','li','td','th','h2','h3','h4','h5','h6'].includes(n.tagName) &&
-    !descendants(n).slice(1).some(c => ['p','li','td','th','h2','h3','h4','h5','h6'].includes(c.tagName)));
+  const blocks = descendants(root).filter(n => BLOCKS.has(n.tagName));
   const mentions = []; const seen = new Set();
   for (const [index, block] of blocks.entries()) {
     const { value, spans } = runs(block); const matches = [];
@@ -122,11 +122,15 @@ export async function auditJournalLinks(pageInventory, contentRoot, policy) {
   const pages = new Map();
   for (const [url,p] of pageInventory) {
     const facts = pageFacts(p.html,url);
-    if (!url.startsWith('/journal/')) delete facts.dom;
+    delete facts.dom;
     pages.set(url,facts);
   }
   const articles = [];
-  for (const [url,page] of pages) if (url.startsWith('/journal/')) articles.push({url,...contextualMentions(page,entities,pages)});
+  for (const [url,page] of pages) if (url.startsWith('/journal/')) {
+    page.dom = parse(pageInventory.get(url).html);
+    articles.push({url,...contextualMentions(page,entities,pages)});
+    delete page.dom;
+  }
   const totals = {};
   for (const a of articles) for (const m of a.mentions.filter(m => m.first)) totals[m.status] = (totals[m.status] ?? 0) + 1;
   return {version:1, mode:'audit-only', policy:'Exact names; first contextual occurrence; related cards excluded. Every change requires editorial review. No claim re-verification.', catalogue:entities.map(e => ({...e,targetState:targetState(e,pages)})), totals, articles};
