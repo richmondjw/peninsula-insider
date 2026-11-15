@@ -501,6 +501,7 @@ const hubImage = categoryHero('whats-on');
     let requestVersion = 0;
     let readingUrl = false;
     let activeScope = 'weekend';
+    let shownWeekendStart = scopeNav.dataset.weekendStart ?? '';
     let activeCustomRange: { from: string; to: string } | null = null;
     const filters = () => {
       const fields = filterForm ? new FormData(filterForm) : new FormData();
@@ -698,9 +699,21 @@ const hubImage = categoryHero('whats-on');
       if (headingEl) headingEl.textContent = headline;
       if (rangeEl) rangeEl.textContent = label;
     };
+    const defaultWeekendIsCurrent = () =>
+      scopeNav.dataset.weekendStart === isoDate(weekendWindow(new Date()).start);
+    const refreshDateControls = () => {
+      const current = weekendWindow(new Date());
+      const next = weekendWindow(new Date(), 1);
+      scopeNav.querySelector('[data-scope="weekend"]')?.setAttribute('aria-label', `This weekend, ${current.label}`);
+      scopeNav.querySelector('[data-scope="next-weekend"]')?.setAttribute('aria-label', `Next weekend, ${next.label}`);
+      customForm?.querySelectorAll<HTMLInputElement>('input[type="date"]').forEach((input) => {
+        input.min = isoDate(startOfDay(new Date()));
+      });
+    };
 
     const applyDefault = () => {
-      if (hasFilters()) {
+      if (hasFilters() || !defaultWeekendIsCurrent()) {
+        refreshDateControls();
         const win = weekendWindow(new Date());
         applyWindow('weekend', win.start, win.end, "What's on this weekend", null, 'this weekend');
         return;
@@ -708,6 +721,7 @@ const hubImage = categoryHero('whats-on');
       requestVersion += 1;
       showDefaultContent(true);
       daysEl.innerHTML = defaultHTML;
+      shownWeekendStart = scopeNav.dataset.weekendStart ?? '';
       setPressed('weekend');
       setHeading("What's on this weekend", defaultRange);
       syncUrl(null);
@@ -734,9 +748,15 @@ const hubImage = categoryHero('whats-on');
         const entries = await loadFeed();
         if (version !== requestVersion) return;
         const shown = renderWindow(entries, start, end);
+        if (scope === 'weekend') shownWeekendStart = isoDate(start);
         announce(shown, announceLabel);
       } catch {
         if (version !== requestVersion) return;
+        if (!defaultWeekendIsCurrent()) {
+          daysEl.textContent = 'Current events could not be loaded. Please try again shortly.';
+          if (statusEl) statusEl.textContent = 'Current events could not be loaded.';
+          return;
+        }
         filterForm?.reset();
         activeScope = 'weekend';
         activeCustomRange = null;
@@ -860,8 +880,12 @@ const hubImage = categoryHero('whats-on');
       applyFromUrl();
     };
     scopeHistoryHandler = onScopeHistory;
-    disposeScope = () => { requestVersion += 1; if (freeExpiryTimer !== null) clearTimeout(freeExpiryTimer); if (searchTimer !== null) clearTimeout(searchTimer); };
+    const currentnessTimer = setInterval(() => {
+      if (activeScope === 'weekend' && shownWeekendStart !== isoDate(weekendWindow(new Date()).start)) applyDefault();
+    }, 60_000);
+    disposeScope = () => { requestVersion += 1; clearInterval(currentnessTimer); if (freeExpiryTimer !== null) clearTimeout(freeExpiryTimer); if (searchTimer !== null) clearTimeout(searchTimer); };
     if ([...new URLSearchParams(window.location.search).keys()].some((key) => ['date', 'q', 'town', 'category', 'free', 'kids'].includes(key))) applyFromUrl();
+    else if (!defaultWeekendIsCurrent()) applyDefault();
   }
   }
   document.addEventListener('astro:page-load', initEventScopes);

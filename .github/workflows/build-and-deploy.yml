@@ -30,8 +30,9 @@ on:
       - '.github/workflows/build-and-deploy.yml'
   schedule:
     # The event feed and rolling weekend page are generated at build time.
-    # Rebuild daily just after midnight in Melbourne so yesterday's
-    # occurrences cannot remain published until the next editorial deploy.
+    # Cover midnight in both Melbourne time zones: 13:10 UTC is 00:10 AEDT,
+    # and 14:10 UTC is 00:10 AEST. The extra run is before midnight in winter.
+    - cron: '10 13 * * *'
     - cron: '10 14 * * *'
     # Rebuild twice per Melbourne weekend day. UTC remains safely within the
     # weekend when DST shifts (08:00/14:00 AEST, 09:00/15:00 AEDT).
