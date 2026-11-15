@@ -63,13 +63,13 @@ Sun, 15 Nov   Jetty Road Brewery   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
 
-- ### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+- ### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
-A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next?
 
-Sun, 15 Nov   Polperro Winery   Food & wine
+Sun, 15 Nov   Pig & Whistle Tavern   Live music
 
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>)
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.thepigandwhistle.com.au/what-s-on>)
 
 ## Three ways into the Peninsula
 

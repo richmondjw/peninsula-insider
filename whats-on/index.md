@@ -21,11 +21,11 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
 Live Music
 
-- Sun, 15 Nov · 12pm–3pm · Red Hill
+- Sun, 15 Nov · 11am–3:30pm · Dromana
 
-### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+### [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
 
-A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
+Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
 
 Food & Wine
 
@@ -48,14 +48,6 @@ Wellness
 Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
 Mornington · Exhibitions · Recurring weekly
-
-- 11am
-
-[Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
-
-Get Your Sourdough Perfect Every Time Your class will take place in our brand new, purpose built facility in Dromana on the gorgeous Mornington Peninsula.
-
-Dromana · Food & Wine
 
 - 1pm
 

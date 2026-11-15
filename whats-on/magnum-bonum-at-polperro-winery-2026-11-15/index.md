@@ -11,8 +11,6 @@ Event     Food & Wine     15 November 2026     One-off date
 
 A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
 
-[Book or check details](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>)
-
 Magnum Bonum is Polperro's warm-weather Sunday session on the lawn: a long table, large-format bottles and substantial dishes rather than a formal seated tasting. The organiser says it is entirely casual, with no booking required: arrive, choose a glass and stay for as much of the midday-to-3pm session as suits.
 
 The event is outdoors at 150 Red Hill Road and is built around food and wine rather than a staged performance. The official event page is the best source for any weather-related change or service update, particularly if the forecast looks unsettled.
@@ -49,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Magnum+Bonum+at+Polperro+Winery&dates=20261115T010000Z%2F20261115T040000Z&details=A+casual+Sunday+long-table+session+on+the+Polperro+lawn%2C+pairing+large-format+wines+with+generous+shared+dishes.+It+is+a+walk-in+event+running+from+midday+to+3pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fmagnum-bonum-at-polperro-winery-2026-11-15%2F&location=Polperro+Winery%2C+150+Red+Hill+Road%2C+Red+Hill+VIC+3937%2C+Red+Hill%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

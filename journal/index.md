@@ -651,10 +651,10 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 
 - [Sun, 15 Nov
 
-### Magnum Bonum at Polperro Winery
+### Michael Charles Live at The Pig & Whistle Tavern
 
-Red Hill
+Main Ridge
 
-A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
 
- Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)

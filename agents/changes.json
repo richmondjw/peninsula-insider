@@ -1,20 +1,52 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-15T02:58:37.488Z",
+  "generatedAt": "2026-11-15T04:25:35.341Z",
   "baselineAvailable": true,
-  "fromSnapshot": "96e7121ec366eb30daa369d93964eb3598e901391a0a701aea7e843fcb55e83b",
-  "toSnapshot": "bb4e2f80b1dd3b325f3c216b5f775f6f503bae6e27738f5af157a4dca3793b1c",
-  "previousGeneratedAt": "2026-11-15T02:41:04.715Z",
+  "fromSnapshot": "bb4e2f80b1dd3b325f3c216b5f775f6f503bae6e27738f5af157a4dca3793b1c",
+  "toSnapshot": "ceb08e144eb173fe57c5061e58712d2dbaa825055e166d898e1d4e90c2a94cb1",
+  "previousGeneratedAt": "2026-11-15T02:58:37.488Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 1,
+  "count": 5,
   "changes": [
     {
-      "id": "https://peninsulainsider.com.au/eat/breweries/",
+      "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/eat/breweries/",
-      "markdownUrl": "https://peninsulainsider.com.au/eat/breweries/index.md",
-      "contentSha256": "085db0c0d7621932ebdf7cdaa1ecfe8e6997cff877ded9fa44fb50fab84c58fb",
-      "previousContentSha256": "fed5bfa5fba36383a192d3f349d67e4550ac77fb0c63108573a1b0d414fcf855"
+      "canonicalUrl": "https://peninsulainsider.com.au/",
+      "markdownUrl": "https://peninsulainsider.com.au/index.md",
+      "contentSha256": "4b817f655c3f0bfa52eede2f7803a9b3dc76d5d3502d801c5f90dd6c17f8dc48",
+      "previousContentSha256": "03910c9114ab466cafb8a1cd33bcfb2916bd66adcfcc5351cb6fa3624d8ebae0"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/explore/places/red-hill/",
+      "markdownUrl": "https://peninsulainsider.com.au/explore/places/red-hill/index.md",
+      "contentSha256": "3ba9892941de57903a7870b73639c3d7e6f0254ec728b3fed6b760aaa52836d3",
+      "previousContentSha256": "050aee9c019039ea767bce4091a20dab7599fd3964c8c73e572f5c6a144eec47"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "9d092221e9be668aaa6dca6fa23e0d35cce103a0ef2214833f49c59856db5df3",
+      "previousContentSha256": "548c57906e4f46c77195a04839be025b9073ef39019871b7fea91b357970d2a6"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
+      "contentSha256": "52bd27e25ba791501d45ad7c49df10613722c54f321b950095e1173a4aeb9736",
+      "previousContentSha256": "426dbbd3ea282e0af505074d7573b70a102154c5e70e4c7b5cf8993f82165bed"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/index.md",
+      "contentSha256": "400e05382cc24560a221470c6c8a806aa4ce25607bcd183fe122e849fe7dedfa",
+      "previousContentSha256": "be7767aaa54f65a1aa99843f330c7563ade8562583d6af38fc2b4afd84eedb57"
     }
   ]
 }
