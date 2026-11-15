@@ -21,14 +21,6 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
 Live Music
 
-- Sun, 15 Nov · 10:30am–12:30pm · Dromana
-
-### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
-
-Arts
-
 - Sun, 15 Nov · 12pm–3pm · Red Hill
 
 ### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
@@ -36,6 +28,14 @@ Arts
 A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
 
 Food & Wine
+
+- Sun, 15 Nov · Fingal
+
+### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+
+Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
+
+Wellness
 
 ## Day by day
 
@@ -78,12 +78,6 @@ Mornington · Live Music
 Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
 
 Main Ridge · Live Music
-
-- [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
-
-Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
-
-Fingal · Wellness
 
 - [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
 

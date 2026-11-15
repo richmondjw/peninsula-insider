@@ -641,16 +641,6 @@ Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile 
 
 - [Sun, 15 Nov
 
-### Festive Wreath Making at Heronswood House and Garden
-
-Dromana
-
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
-
- Event · Arts](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
-- [Sun, 15 Nov
-
 ### Jimmy & Niki Live at Jetty Road Brewery
 
 Dromana
@@ -658,3 +648,13 @@ Dromana
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+
+- [Sun, 15 Nov
+
+### Magnum Bonum at Polperro Winery
+
+Red Hill
+
+A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes. It is a walk-in event running from midday to 3pm.
+
+ Event · Food & Wine](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)

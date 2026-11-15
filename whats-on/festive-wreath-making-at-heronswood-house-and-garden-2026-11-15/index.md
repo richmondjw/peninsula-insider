@@ -11,8 +11,6 @@ Event     Arts     15 November 2026     One-off date
 
 A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
 
-[Book or check details](<https://www.diggers.com.au/products/festive-wreath-making-dromana-15-nov-2026>)
-
 Domenica Vavala, founder of Lupini Floral, leads this two-hour wreath-making session at Heronswood. Her practice combines floriculture, natural history, sustainability and East Asian floral-design traditions. Participants work with fresh and dried locally sourced material and leave with a completed festive wreath.
 
 The class runs from 10.30am to 12.30pm at Heronswood Gardens and Nursery. The organiser suggests pairing it with lunch at the cafe, but that is separate from the workshop booking. Heronswood is on a steep historic property and notes limited access for wheelchairs and walking frames in some garden areas, so contact the venue before booking if route accessibility matters.
@@ -49,7 +47,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.diggers.com.au/products/festive-wreath-making-dromana-15-nov-2026>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Festive+Wreath+Making+at+Heronswood+House+and+Garden&dates=20261114T233000Z%2F20261115T013000Z&details=A+two-hour+workshop+with+botanical+designer+Domenica+Vavala%2C+using+fresh+and+dried+locally+sourced+foliage+to+make+a+sustainable+festive+wreath+to+take+home.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Ffestive-wreath-making-at-heronswood-house-and-garden-2026-11-15%2F&location=Heronswood+House+and+Garden%2C+105+Latrobe+Parade%2C+Dromana+VIC+3936%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

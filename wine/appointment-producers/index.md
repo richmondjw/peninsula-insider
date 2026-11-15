@@ -5,134 +5,111 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Access type · By appointment
+Wine country · The producer shortlist
 
-# Appointment-Only Producers
+# Small producers.
+A little planning.
 
-These are the producers that don't have a roadside sign and don't need one. Small yields, limited production, and a preference for visitors who arrive with intent rather than habit. Most require a booking - some several weeks in advance for popular releases.
+Go beyond the familiar cellar-door circuit. Explore 8 Peninsula producers and make the visiting arrangements part of the plan.
 
-The reward for the extra planning is disproportionate. Appointments at producers like Garagiste, Onannon, and Eldridge Estate mean time with the winemaker, access to library vintages, and wine that rarely appears in retail distribution. These visits are among the best Peninsula experiences for people who are serious about what's in the glass.
+ [Explore the producers](<https://peninsulainsider.com.au/wine/appointment-producers/#producers>)
 
-Contact each producer directly. Booking windows vary; some open seasonally. Most are happy to accommodate small groups.
+Some visits need an appointment. Others have regular cellar-door hours.
 
-Editorial ranking · 2026
+Illustration: Peninsula Insider · Conceptual artwork
 
-## 8 producers
+Before you set out
 
-Ordered by editorial authority and Halliday score.
+## Start with one visit.
 
- [All producers →](<https://peninsulainsider.com.au/wine/>)
+### Confirm the format
 
-Winery  [Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
+Appointment, open cellar door or a special tasting: use the producer’s own site to find the current options.
 
-### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
+### Leave room in the day
 
-110 Tuerong Rd, Tuerong VIC 3933
+Ask how long your chosen session runs before adding another stop. There is no single tasting duration across this list.
 
-Three winemakers, small-batch Pinot Noir and Chardonnay, and cult-favourite status among Australia's best sommeliers.
+### Make it work for your group
 
-cellar door  slow
+Confirm group size, access needs and non-drinking options directly, and arrange transport before you go.
 
-[Read notes](<https://peninsulainsider.com.au/wine/onannon/>) [Book](<https://www.onannon.com.au/>)
+Your shortlist
 
-Winery  [Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+## 8 producers to explore
 
-### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
+Listed alphabetically. Visiting arrangements vary by producer.
 
-120 Arthurs Seat Rd, Red Hill VIC 3937
+[Browse all wine country](<https://peninsulainsider.com.au/wine/>)
 
-David Lloyd's tiny cult estate, single-clone Pinot Noirs from individual rows, plus Gamay, made for the Burgundy obsessives.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/eldridge-estate/>) [Book](<https://www.eldridge-estate.com.au/cellar-door/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
-
-### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
-
-26 Merricks Rd, Merricks VIC 3916
-
-George Mihaly's fastidiously farmed single-site Pinot Noir estate, appointment-only tastings, often led by George himself.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/paradigm-hill/>) [Book](<https://www.paradigmhill.com.au/>)
-
-Winery  [Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
-
-### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
-
-266 Meakins Rd, Flinders VIC 3929
-
-A tiny Flinders estate with naturally fermented wines and guesthouses inside reconverted 1930s railway carriages.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/nazaaray-estate/>) [Book](<https://nazaaray.com.au/>)
-
-Winery  [Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
+[Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
 ### [Baillieu Vineyard](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)
 
-51 Stanleys Rd, Merricks VIC 3916
+Baillieu wines have a cellar-door home at Merricks General Wine Store. Follow the store link for tasting and visiting information.
 
-A thoughtfully managed Merricks estate making elegant Chardonnay and Pinot Noir that rewards the drive to find it.
+[Read producer guide](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>)[Wine store website](<https://merricksstore.com.au/>)
 
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/baillieu-vineyard/>) [Book](<https://merricksstore.com.au/>)
-
-Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [Elan Vineyard & Gallery](<https://peninsulainsider.com.au/wine/elan-vineyard/>)
 
-17 Turners Rd, Bittern VIC 3918
+A Balnarring vineyard to add to your shortlist. Check the producer’s website before arranging a visit.
 
-Selma and Jonathan Lowther's 1981 planting, one of the oldest on the Peninsula, with a cellar door that doubles as a small contemporary art gallery.
+[Read producer guide](<https://peninsulainsider.com.au/wine/elan-vineyard/>)[Producer website](<https://elanvineyard.com.au/>)
 
-cellar door  slow
+[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
 
-[Read notes](<https://peninsulainsider.com.au/wine/elan-vineyard/>) [Book](<https://elanvineyard.com.au/>)
+### [Eldridge Estate](<https://peninsulainsider.com.au/wine/eldridge-estate/>)
 
-Winery  [Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+A Red Hill cellar door with guided tasting options. Eldridge recommends booking, particularly on weekends and public holidays.
 
-### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
+[Read producer guide](<https://peninsulainsider.com.au/wine/eldridge-estate/>)[Producer website](<https://www.eldridge-estate.com.au/>)
 
-220 Mornington-Tyabb Rd, Moorooduc VIC 3933
-
-A family wine estate and cellar door in Moorooduc with Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
-
-cellar door  slow
-
-[Read notes](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
-
-Winery  [Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
+[Balnarring](<https://peninsulainsider.com.au/explore/places/balnarring/>)
 
 ### [Hurley Vineyard](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)
 
-101 Balnarring Rd, Balnarring VIC 3926
+A Balnarring Pinot Noir producer with regular cellar-door opening times. Hurley says bookings are not required during those hours; appointments are available at other times.
 
-Kevin Bell's boutique single-vineyard Pinot project, three tiny blocks (Lodestone, Garamond, Hommage) and some of the Peninsula's most sought-after bottles.
+[Read producer guide](<https://peninsulainsider.com.au/wine/hurley-vineyard/>)[Producer website](<https://www.hurleyvineyard.com.au/>)
 
-cellar door  slow
+[Flinders](<https://peninsulainsider.com.au/explore/places/flinders/>)
 
-[Read notes](<https://peninsulainsider.com.au/wine/hurley-vineyard/>) [Book](<https://www.hurleyvineyard.com.au/>)
+### [Nazaaray Estate](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)
 
-## Frequently asked questions
+A Flinders producer to explore at the southern end of wine country. Start with the producer’s website for current visiting information.
 
-### How do I book an appointment at a Mornington Peninsula winery?
+[Read producer guide](<https://peninsulainsider.com.au/wine/nazaaray-estate/>)[Producer website](<https://nazaaray.com.au/>)
 
-Contact the winery directly - most have an email address or booking form on their website. Some use Cellar Door by Vinsight or similar booking systems. Lead time varies: popular producers in peak season (March–May, October–November) may be booked weeks in advance. Being specific about what you want to taste - a library vertical, a current release flight - helps the winery plan.
+[Tuerong](<https://peninsulainsider.com.au/explore/places/tuerong/>)
 
-### Are appointment-only wineries more expensive?
+### [Onannon](<https://peninsulainsider.com.au/wine/onannon/>)
 
-Not necessarily. Some charge a tasting fee, often refundable against purchase. Others charge nothing. The real expense is time: these visits reward you most if you set aside two to three hours rather than treating them as a quick stop. Confirm current rates with the producer when you book.
+Explore Onannon’s Pinot Noir and Chardonnay, then check the producer’s current visiting arrangements.
 
-## The Insider Note
+[Read producer guide](<https://peninsulainsider.com.au/wine/onannon/>)[Producer website](<https://www.onannon.com.au/>)
 
-The Peninsula worth knowing. An occasional email. What's on, where we'd go and what's worth knowing next.
+[Merricks](<https://peninsulainsider.com.au/explore/places/merricks/>)
 
-Independent editorial. Sent when there is something worth knowing.
+### [Paradigm Hill](<https://peninsulainsider.com.au/wine/paradigm-hill/>)
 
-Unsubscribe any time  [Privacy](<https://peninsulainsider.com.au/privacy/>)
+Plan ahead for this Merricks producer: the cellar door opens only by appointment.
+
+[Read producer guide](<https://peninsulainsider.com.au/wine/paradigm-hill/>)[Producer website](<https://www.paradigmhill.com.au/>)
+
+[Moorooduc](<https://peninsulainsider.com.au/explore/places/moorooduc/>)
+
+### [Phaedrus Estate](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)
+
+A Moorooduc estate with a cellar door and a range spanning Fiano, Pinot Gris, Chardonnay, Pinot Noir and Shiraz.
+
+[Read producer guide](<https://peninsulainsider.com.au/wine/phaedrus-estate/>)[Producer website](<https://www.phaedrus.com.au/>)
+
+A note on appointments
+
+## Booking advice is specific to the producer.
+
+[Paradigm Hill](<https://www.paradigmhill.com.au/>) says its cellar door opens only by appointment. [Eldridge Estate](<https://www.eldridge-estate.com.au/cellar-door/>) recommends bookings, particularly on weekends and public holidays. An appointment-only label would miss that distinction.
+
+Use the direct links above for current sessions and contact details. A listing here does not confirm availability or a meeting with the winemaker.

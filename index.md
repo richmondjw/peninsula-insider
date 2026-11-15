@@ -47,16 +47,6 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
-
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Sun, 15 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
-
-Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
-
 - ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
 
 Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
@@ -65,13 +55,21 @@ Sun, 15 Nov   Peninsula Beer Garden   Live music
 
 Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
 
-- ### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+- ### [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
 
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
 
-Sun, 15 Nov   Heronswood House and Garden   Arts
+Sun, 15 Nov   Jetty Road Brewery   Live music
 
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.diggers.com.au/products/festive-wreath-making-dromana-15-nov-2026>)
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
+
+- ### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+
+A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
+
+Sun, 15 Nov   Polperro Winery   Food & wine
+
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.polperrowines.com.au/event/magnum-bonum-nov/>)
 
 ## Three ways into the Peninsula
 

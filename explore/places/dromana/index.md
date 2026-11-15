@@ -409,10 +409,10 @@ Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly br
 
 - [Sun, 15 Nov
 
-### Festive Wreath Making at Heronswood House and Garden
+### Jimmy & Niki Live at Jetty Road Brewery
 
 Dromana
 
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to take home.
+Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
 
- Event · Arts](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
