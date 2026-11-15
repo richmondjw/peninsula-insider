@@ -60,7 +60,7 @@
         if (s && s.analytics) loadGtag();
       });
     })();
-  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.zIK-MuHx.js"></script><link rel="stylesheet" href="/_astro/global.D8RNvKh4.css">
+  </script><script type="module" src="/_astro/BaseLayout.astro_astro_type_script_index_0_lang.C-_8wCbw.js"></script><link rel="stylesheet" href="/_astro/global.D8RNvKh4.css">
 <link rel="stylesheet" href="/_astro/BaseLayout.BD7P-gmW.css">
 <link rel="stylesheet" href="/_astro/NewsletterBlock.QUqf8gUv.css">
 <style>.species-plate[data-astro-cid-rqdtzlim]{display:block;aspect-ratio:16 / 9;background:#f2efea}.species-plate[data-astro-cid-rqdtzlim] img[data-astro-cid-rqdtzlim]{object-fit:contain}
@@ -73,6 +73,10 @@
   </style> </noscript> <script type="module">let k,p=-1,h={x:0,y:0};document.addEventListener("astro:before-swap",()=>k?.());const q="(min-width: 1280px)",b="(max-width: 1279px)";function x(){const l=document.querySelector(".site-header");if(!l||l.dataset.bound)return;l.dataset.bound="true";const d=l.querySelector(".mobile-menu"),A=l.querySelector("#site-nav"),n=l.querySelector("#mobile-drawer"),g=n.querySelector("[data-mobile-drawer-close]"),r=l.querySelector(".personal-menu"),w=[...l.querySelectorAll("[data-pillar-menu]")];let f,m=0,a;function E(e){const t=e.querySelector("[data-v5-mega]"),i=e.querySelector("[data-pillar-toggle]");t.hidden=!0,i.setAttribute("aria-expanded","false"),i.setAttribute("aria-label",`Open ${e.querySelector(".pillar-menu__trigger a")?.textContent?.trim()} menu`),e.classList.remove("is-open")}function s(e){window.clearTimeout(f),w.forEach(t=>{t!==e&&E(t)})}function y(e){s(e);const t=e.querySelector("[data-v5-mega]"),i=e.querySelector("[data-pillar-toggle]");t.hidden=!1,i.setAttribute("aria-expanded","true"),i.setAttribute("aria-label",`Close ${e.querySelector(".pillar-menu__trigger a")?.textContent?.trim()} menu`),e.classList.add("is-open"),r.open=!1}w.forEach((e,t)=>{const i=e.querySelector("[data-pillar-toggle]");let u;e.addEventListener("pointerenter",o=>{o.pointerType!=="mouse"||!window.matchMedia(q).matches||p===t||(i.contains(document.elementFromPoint(o.clientX,o.clientY))?u=window.setTimeout(()=>y(e),550):y(e))}),e.addEventListener("pointerleave",o=>{p===t&&Math.hypot(o.clientX-h.x,o.clientY-h.y)>24&&(p=-1),window.clearTimeout(u),o.pointerType==="mouse"&&window.matchMedia(q).matches&&(f=window.setTimeout(()=>s(),180))}),i.addEventListener("pointerdown",()=>window.clearTimeout(u)),e.addEventListener("focusout",o=>{e.contains(o.relatedTarget)||window.setTimeout(()=>E(e),0)}),i.addEventListener("click",()=>{e.classList.contains("is-open")?s():y(e)}),e.addEventListener("click",o=>{const v=o.target.closest("a[href]");!v||!e.contains(v)||(window.clearTimeout(u),s(),p=t,h={x:o.clientX,y:o.clientY},v.blur())})}),r.addEventListener("toggle",()=>{r.open&&s()});function C(){a&&(document.body.style.position=a.position,document.body.style.top=a.top,document.body.style.width=a.width,document.body.style.overflow=a.overflow,document.documentElement.style.overflow=a.htmlOverflow,a=void 0,window.scrollTo(0,m))}function c(e=!0){n.open&&n.close(),C(),d.setAttribute("aria-expanded","false"),d.setAttribute("aria-label","Open navigation"),e&&d.isConnected&&window.matchMedia(b).matches&&d.focus()}function M(){!window.matchMedia(b).matches||n.open||(s(),r.open=!1,m=window.scrollY,a={position:document.body.style.position,top:document.body.style.top,width:document.body.style.width,overflow:document.body.style.overflow,htmlOverflow:document.documentElement.style.overflow},document.body.style.position="fixed",document.body.style.top=`-${m}px`,document.body.style.width="100%",document.body.style.overflow="hidden",document.documentElement.style.overflow="hidden",n.showModal(),d.setAttribute("aria-expanded","true"),d.setAttribute("aria-label","Close navigation"),g.focus({preventScroll:!0}),n.scrollTop=0)}d.addEventListener("click",()=>n.open?c():M()),g.addEventListener("click",()=>c()),n.addEventListener("cancel",e=>{e.preventDefault(),c()}),n.addEventListener("click",e=>{e.target.closest("a")&&c(!1)});const L=e=>{if(e.key!=="Escape")return;if(n.open){e.preventDefault(),c();return}const t=w.find(i=>i.classList.contains("is-open"));t?(s(),t.querySelector("[data-pillar-toggle]")?.focus()):r.open&&(r.open=!1,r.querySelector("summary")?.focus())},S=e=>{r.contains(e.target)||(r.open=!1),A.contains(e.target)||s()},T=()=>{n.open&&!window.matchMedia(b).matches&&c(!1)};document.addEventListener("keydown",L),document.addEventListener("click",S),window.addEventListener("resize",T),k=()=>{c(!1),window.clearTimeout(f),document.removeEventListener("keydown",L),document.removeEventListener("click",S),window.removeEventListener("resize",T)}}x();document.addEventListener("astro:page-load",x);</script>  <script>
     (function () {
       function setMastheadH() {
+        // The homepage has no sticky element that consumes --masthead-h.
+        // Avoid a synchronous layout read during its critical first paint;
+        // astro:page-load will measure normally after an inner-page navigation.
+        if (document.body && document.body.dataset.path === '/') return;
         var m = document.querySelector('.masthead');
         if (!m) return;
         var h = Math.round(m.getBoundingClientRect().height);
@@ -647,6 +651,12 @@ const __IMAGE_QUARANTINE = [{"key":"venue/doot-doot-doot","fieldPath":"heroImage
       function check() {
         var body = document.body;
         if (!body) return;
+        // These routes suppress the pill in CSS. Skip the geometry reads too,
+        // so their first paint does not pay for an invisible control.
+        if (['/', '/newsletter/', '/ask/', '/account/'].includes(body.dataset.path || '')) {
+          if (body.classList.contains('show-subscribe-pill')) body.classList.remove('show-subscribe-pill');
+          return;
+        }
         var max = document.documentElement.scrollHeight - window.innerHeight;
         if (max <= 0) {
           body.classList.remove('show-subscribe-pill');
