@@ -65,6 +65,7 @@ try {
       await page.focus('#cookie-manage');
       await page.keyboard.press('Escape');
       await page.waitForFunction(() => document.querySelector('#cookie-banner')?.dataset.state !== 'visible');
+      await page.screenshot({ path: `${out}/${viewport.width}-reading.png`, fullPage: true });
       await page.focus('.producer-hero .pi-btn');
       await page.keyboard.press('Enter');
       await page.waitForFunction(() => location.hash === '#producers');
