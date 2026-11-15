@@ -2746,7 +2746,7 @@ body[data-page="stay"] .venue-card__hero--placeholder::after { content: 'Peninsu
 }
 .breadcrumbs__item { display: flex; align-items: center; gap: 0.5rem; }
 .breadcrumbs__item + .breadcrumbs__item::before { content: '›'; opacity: 0.4; }
-.breadcrumbs__item a { color: var(--soft); transition: color .18s var(--ease); }
+.breadcrumbs__item a { display: inline-flex; align-items: center; min-height: 24px; color: var(--soft); transition: color .18s var(--ease); }
 .breadcrumbs__item a:hover { color: var(--accent); }
 .breadcrumbs__item span[aria-current] { color: var(--text); font-weight: 500; }
 

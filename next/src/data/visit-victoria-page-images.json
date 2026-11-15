@@ -778,6 +778,52 @@
       "page": "/wine/best-cellar-doors/",
       "role": "selection",
       "entity": "venues/merricks-general-wine-store"
+    },
+    "boating-hero": {
+      "page": "/boating/",
+      "role": "hero",
+      "entity": "places/dromana",
+      "src": "/images/visit-victoria/vv-143757-dromana-boats-at-sunset.webp",
+      "alt": "Yachts and small boats moored off Dromana Pier at sunrise, the sun low over calm, glassy water and the pier running out on the left",
+      "credit": "Peter Tarasiuk, courtesy of Visit Victoria",
+      "caption": "Dromana Pier, Mornington Peninsula",
+      "depicts": "Dromana Pier and moorings",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 143757, downloaded 2026-09-28",
+      "license": "visit-victoria",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
+    },
+    "boating-pier": {
+      "page": "/boating/",
+      "role": "inline",
+      "entity": "places/sorrento",
+      "src": "/images/visit-victoria/vv-131819-sorrento-long-pier.webp",
+      "alt": "Sorrento Long Pier running out over calm, pale water in late light, with a motor cruiser at anchor off the end",
+      "credit": "Robert Blackburn, courtesy of Visit Victoria",
+      "caption": "Sorrento Long Pier, Mornington Peninsula",
+      "depicts": "Sorrento Long Pier",
+      "depictionStatus": "actual",
+      "sourceUrl": "Victoria Content Hub asset 131819, downloaded 2026-09-28",
+      "license": "visit-victoria",
+      "permission": "Licensed at download (2026-09-28) under the Victoria Content Hub Terms and Conditions (last modified 21 Sep 2026).",
+      "permittedUses": [
+        "website",
+        "social"
+      ],
+      "rightsHolder": "Visit Victoria",
+      "rightsEstablishedOn": "2026-09-29",
+      "rightsStatus": "recorded",
+      "decorative": false,
+      "provenanceReview": "verified"
     }
   }
 }

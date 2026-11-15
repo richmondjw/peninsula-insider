@@ -519,6 +519,12 @@ const starters = [
     opacity: 0; transform: scale(.4); transition: opacity var(--dur-fast), transform var(--dur-fast);
   }
   .pi-chat__launch.has-thread .pi-chat__launch-dot { opacity: 1; transform: none; }
+  /* Phones: the launcher shrinks to her portrait so it never sits over a page's text.
+     The name stays in the accessibility tree. */
+  @media (max-width: 47.99em) {
+    .pi-chat__launch { padding: 5px; gap: 0; }
+    .pi-chat__launch-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  }
 
   /* Panel: phone sheet by default */
   .pi-chat__panel {
