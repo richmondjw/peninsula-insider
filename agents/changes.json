@@ -1,60 +1,76 @@
 {
   "schemaVersion": "1.0",
-  "generatedAt": "2026-11-15T04:50:57.214Z",
+  "generatedAt": "2026-11-15T05:08:53.388Z",
   "baselineAvailable": true,
-  "fromSnapshot": "ceb08e144eb173fe57c5061e58712d2dbaa825055e166d898e1d4e90c2a94cb1",
-  "toSnapshot": "f7e0a97dd5c6eda60df61987731984d35afbf96569d3616d12f36f25bd2e885a",
-  "previousGeneratedAt": "2026-11-15T04:25:35.341Z",
+  "fromSnapshot": "f7e0a97dd5c6eda60df61987731984d35afbf96569d3616d12f36f25bd2e885a",
+  "toSnapshot": "6b79ae8b91e3f9f1b8566c0b2fb8e2c5b9b9599cfb5859d80133b487c2540041",
+  "previousGeneratedAt": "2026-11-15T04:50:57.214Z",
   "semantics": "Changes in public representations since the named prior snapshot. Added is not newly opened; removed is not confirmed closed. Inspect the canonical page or source for the reason. Clients with another snapshot must compare the full catalogue.",
-  "count": 6,
+  "count": 8,
   "changes": [
     {
       "id": "https://peninsulainsider.com.au/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/",
       "markdownUrl": "https://peninsulainsider.com.au/index.md",
-      "contentSha256": "d711fd180e81a9292c0ea010f0fde998c13e99d950d05e9db6f2874e64c36251",
-      "previousContentSha256": "4b817f655c3f0bfa52eede2f7803a9b3dc76d5d3502d801c5f90dd6c17f8dc48"
+      "contentSha256": "bcfeac7c5e5165979cf194bfdf8e3038299bcd20b33f21544c5b917991bff7e3",
+      "previousContentSha256": "d711fd180e81a9292c0ea010f0fde998c13e99d950d05e9db6f2874e64c36251"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
+      "id": "https://peninsulainsider.com.au/about/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/a-flinders-weekend/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/a-flinders-weekend/index.md",
-      "contentSha256": "27a98de873e2b2510b8e77292f24127446fafbe8f50a9e12cdfea2d289666de6",
-      "previousContentSha256": "6e865b31a5da7365d3d3ef59c9fec85f955071f69024167a3d398835f8a94450"
+      "canonicalUrl": "https://peninsulainsider.com.au/about/",
+      "markdownUrl": "https://peninsulainsider.com.au/about/index.md",
+      "contentSha256": "e55b8fe36da53fc94d53ec70ca61e196eaf4328c4548c673ef4848347f13439d",
+      "previousContentSha256": "e960ecc83583eda843a58b528d06e5030ba55b970a84db0cd86905bcbdea2030"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/area-guide-red-hill/",
+      "id": "https://peninsulainsider.com.au/journal/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/area-guide-red-hill/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/area-guide-red-hill/index.md",
-      "contentSha256": "4e1a146210b28418d3dff4c9e88dc27c2c80c4ec1f78ca90197e6186a9afffb1",
-      "previousContentSha256": "100954d52653ffc35fd7d62addae8a83f3f577f1fd6f3cf1974a62736a53f3d4"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/index.md",
+      "contentSha256": "c5416a89a50715bffe9584525b3649fbfeb56b9b9b2f7dcc8152f1de8d4de777",
+      "previousContentSha256": "9d092221e9be668aaa6dca6fa23e0d35cce103a0ef2214833f49c59856db5df3"
     },
     {
-      "id": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/",
+      "id": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/",
-      "markdownUrl": "https://peninsulainsider.com.au/journal/hatted-restaurants-mornington-peninsula-2025/index.md",
-      "contentSha256": "892d78b609318ed3e226a6d3add6b1980185af38455b1f3f88e9cf1e315a0cca",
-      "previousContentSha256": "dbcc1a0c388c5cfecbfffab85e509dad7d8f669ee288fb224a06318fd0dd3635"
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/index.md",
+      "contentSha256": "28beadd9ba3aa6b59587973520f43d4fc7597f32495a6976e8d99031da3957f2",
+      "previousContentSha256": "0b5573a0c59d83dc142d6daf8af7c14ed6a92835a86cfedab24e475750b58039"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/",
+      "markdownUrl": "https://peninsulainsider.com.au/journal/summer-school-holidays-2026/index.md",
+      "contentSha256": "a24c5fd5daf493e7ab12f8681d929d05b892d0cf3043ec551b36ac8ec1650bdc",
+      "previousContentSha256": "abef8ea3471e8011a32ca61003c243e9963bfa3eabb940130920ae27cf7e7c46"
     },
     {
       "id": "https://peninsulainsider.com.au/whats-on/",
       "kind": "representation-changed",
       "canonicalUrl": "https://peninsulainsider.com.au/whats-on/",
       "markdownUrl": "https://peninsulainsider.com.au/whats-on/index.md",
-      "contentSha256": "bebce8d6a26b17b80ce76e37e251055f14243dea7043845d19f00f5aa1eee0ed",
-      "previousContentSha256": "52bd27e25ba791501d45ad7c49df10613722c54f321b950095e1173a4aeb9736"
+      "contentSha256": "f52a60f0fba0d1394d9e473ac2b1e440b7452be254d80f439ba88361466e71e6",
+      "previousContentSha256": "bebce8d6a26b17b80ce76e37e251055f14243dea7043845d19f00f5aa1eee0ed"
     },
     {
-      "id": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
+      "id": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
       "kind": "representation-changed",
-      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/",
-      "markdownUrl": "https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/index.md",
-      "contentSha256": "fc5c328b5c2c0381ded61481ef7b294e7bcd919b58f68682879e6091412c1cc6",
-      "previousContentSha256": "1c97c8248b0e41070c0ca98b6edc7c73e0673da3417a189a4b9d0d244f368118"
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/index.md",
+      "contentSha256": "d8ba4d8a749bd54d5a7f10e6d58aa30ecfad9f59df2c2431914c1e4f1dd7ab3c",
+      "previousContentSha256": "d8ff676ed13d7b274eaf7f6018bbd78f6bf53d6114d76f6e535fd75c14714f2c"
+    },
+    {
+      "id": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
+      "kind": "representation-changed",
+      "canonicalUrl": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/",
+      "markdownUrl": "https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/index.md",
+      "contentSha256": "1ecb105f34c565381dcbb3a1e7de0df2dc5c31b3fe15783902a491606a0e6bb6",
+      "previousContentSha256": "d480a194796574a327765c9ae2dffecfe0f34e88c4cf0a7bae43a0c711a84086"
     }
   ]
 }

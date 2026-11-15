@@ -11,8 +11,6 @@ Event     Live Music     15 November 2026     One-off date
 
 Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
 
-[Book or check details](<https://www.jettyroad.com.au/dromana>)
-
 Hosted at
 
 Jetty Road Brewery
@@ -43,7 +41,7 @@ Check organiser for pricing
 
 Weather flexible
 
-[Book or check details](<https://www.jettyroad.com.au/dromana>) [Add to calendar](<https://calendar.google.com/calendar/render?action=TEMPLATE&text=Jimmy+%26+Niki+Live+at+Jetty+Road+Brewery&dates=20261115T020000Z%2F20261115T050000Z&details=Each+weekend+at+Jetty+Road+Brewery+you+can+enjoy+brews+and+bites%2C+accompanied+by+local+artists+playing+cool+tunes.+Full+menu+available+from+12pm%2C+Jimmy+%26+Niki+will+be+live+from+1pm.%0A%0ADetails%3A+https%3A%2F%2Fpeninsulainsider.com.au%2Fwhats-on%2Fjimmy-and-niki-live-at-jetty-road-brewery-2026-11-15%2F&location=Jetty+Road+Brewery%2C+Dromana%2C+Mornington+Peninsula%2C+VIC%2C+Australia>)
+Booking and calendar links are withdrawn; this session has finished.
 
 Keep planning
 

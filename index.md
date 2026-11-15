@@ -47,31 +47,29 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
+- ### [Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
 
-### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
 
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+Sun, 15 Nov   Tar Barrel   Live music
 
-Sun, 15 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
+Event details checked 10 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
 
-Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+- ### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
-- ### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
-Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
+Sun, 15 Nov   Peninsula Hot Springs Eco Lodges   Wellness
 
-Sun, 15 Nov   Peninsula Beer Garden   Live music
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au>)
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://peninsulabeergarden.com.au/live-music/>)
+- ### [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
 
-- ### [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat.
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Sun, 15 Nov   Alba Thermal Springs & Spa   Food & wine
 
-Sun, 15 Nov   Jetty Road Brewery   Live music
-
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.jettyroad.com.au/dromana>)
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://albathermalsprings.com.au/alba-experiences/promotions/>)
 
 ## Three ways into the Peninsula
 

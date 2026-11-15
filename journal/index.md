@@ -631,26 +631,6 @@ Month
 
 - [Sun, 15 Nov
 
-### Bennsong Live at Peninsula Beer Garden
-
-Boneo
-
-Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
-- [Sun, 15 Nov
-
-### Jimmy & Niki Live at Jetty Road Brewery
-
-Dromana
-
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes. Full menu available from 12pm, Jimmy & Niki will be live from 1pm.
-
- Event · Live Music](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
-
-- [Sun, 15 Nov
-
 ### Michael Charles Live at The Pig & Whistle Tavern
 
 Main Ridge
@@ -658,3 +638,23 @@ Main Ridge
 Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
 
  Event · Live Music](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+
+- [Sun, 15 Nov
+
+### Mr Morpheus Live at Tar Barrel
+
+Mornington
+
+Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
+
+ Event · Live Music](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
+
+- [Sun, 15 Nov
+
+### Sunday sessions at Peninsula Hot Springs Eco Lodges
+
+Fingal
+
+Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
+
+ Event · Wellness](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)

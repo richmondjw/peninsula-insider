@@ -9,9 +9,11 @@ About Peninsula Insider
 
 # The Peninsula, with a point of view.
 
-We live here. We choose places worth your time, say who they suit and explain why they make the cut.
+We choose places worth your time, say who they suit and explain why they make the cut.
 
-Peninsula Insider is an independent guide shaped by real visits, local knowledge and ongoing checks.
+Peninsula Insider is an independently researched and reviewed guide shaped by official sources, local context and continuing checks.
+
+[Explore our picks](<https://peninsulainsider.com.au/explore/places/>) [See how a pick is checked](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
 Cape Schanck, Mornington Peninsula  Photography: Courtesy of Visit Victoria
 
@@ -26,7 +28,7 @@ The method
 
 ## How we choose
 
-Research, real visits, local knowledge and editorial judgement guide our choices. These are the questions behind a useful recommendation.
+Independent research, official sources, local context and editorial judgement guide our choices. These are the questions behind a useful recommendation.
 
 - ### Is it worth your time?
 
@@ -44,11 +46,51 @@ Season, weather, opening details and the pace of a visit can change the recommen
 
 Every verdict should give you something useful to decide with, beyond a flattering description.
 
+The evidence trail
+
+### What “checked” means here
+
+A recommendation separates what a primary source confirms from the judgement Peninsula Insider adds. Time-sensitive listings carry a review date when a whole-record check has been completed.
+
+- #### Verify the practical facts
+
+We start with the operator or responsible authority for location, access, opening details, booking requirements and time-sensitive conditions.
+
+- #### Add the editorial judgement
+
+We say who a place suits, why it is worth choosing and what might make another option better for your day.
+
+- #### Show the limits
+
+A source check is not presented as a visit. Where evidence is partial, changing or unavailable, the recommendation says so.
+
+- #### Check again after publication
+
+Automated checks watch public pages and source links. When a material detail cannot be confirmed, we qualify it, direct you to the organiser or pause the listing.
+
+**Method reviewed:** 10 November 2026.
+
 A verdict in practice
 
 A properly wild coast walk with a steep descent and a real payoff. Check conditions before you go, then allow enough time for the climb back.
 
- [Read the Bushrangers Bay walk guide](<https://peninsulainsider.com.au/journal/walks-bushrangers-bay-walk-guide/>)
+**Why choose it**
+
+A dramatic coastal walk with a clear sense of reward.
+
+**Who it suits**
+
+Walkers comfortable with steps, uneven ground and a return climb.
+
+**The trade-off**
+
+It is a walking destination, not a swimming beach, and conditions can change the day.
+
+**Before leaving**
+
+Check the responsible authority for current access and conditions.
+
+  [Check the responsible authority](<https://www.parks.vic.gov.au/places-to-see/sites/bushrangers-bay-walk>) [See the Peninsula guide](<https://peninsulainsider.com.au/explore/bushrangers-bay-walk/>)
 
 Independent editorial
 
@@ -62,13 +104,17 @@ Businesses cannot pay for a recommendation, ranking or Insider Pick.
 
 We may work through advertising, sponsored content and partnerships. We identify that work clearly and keep it separate from our editorial choices.
 
+### Responsibility
+
+Peninsula Insider is published by Optiflows Pty Ltd. Our [terms](<https://peninsulainsider.com.au/terms/>) explain the commercial boundary, and our [partner information](<https://peninsulainsider.com.au/partners/>) explains how businesses can work with us.
+
 Sorrento Ferry, Mornington Peninsula  Photography: Courtesy of Visit Victoria
 
 Keeping things current
 
 ## Places change. We keep checking.
 
-We recheck details on a rolling basis and correct errors in public. If something is inaccurate or out of date, tell us what needs fixing.
+Time-sensitive details are checked against the responsible source, and public pages are monitored after publication. If something is inaccurate or out of date, tell us what needs fixing. The correction route returns a case reference.
 
  [Report a correction](<https://peninsulainsider.com.au/contact/?type=correction#correction>)
 

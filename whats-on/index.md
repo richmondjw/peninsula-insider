@@ -13,11 +13,11 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Three reasons to go
 
-- Sun, 15 Nov · 12pm–4pm · Boneo
+- Sun, 15 Nov · Main Ridge
 
-### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
-Enjoy live music at Peninsula Beer Garden! Bennsong (Benn Manie) is a versatile entertainer who has been involved in the music industry for many years.
+Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker.
 
 Live Music
 
@@ -29,39 +29,17 @@ Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
 
 Wellness
 
-- Sun, 15 Nov · 1pm–4pm · Dromana
+- Sun, 15 Nov · 1:30pm–4:30pm · Mornington
 
-### [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+### [Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
 
 Live Music
 
 ## Day by day
 
 ### Sunday 15 November
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly
-
-- 1.30pm
-
-[Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
-
-Mr Morpheus plays Tar Barrel's Sunday live-music session from 1.30pm to 4.30pm at the Mornington brewery and distillery.
-
-Mornington · Live Music
-
-- [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
-
-Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker. Doors open at 2.30pm.
-
-Main Ridge · Live Music
 
 - [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
 
