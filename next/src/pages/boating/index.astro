@@ -3,38 +3,98 @@ import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import SectionHero from '../../components/SectionHero.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import BfAnalytics from '../../components/BfAnalytics.astro';
+import AskLine from '../../components/v5/AskLine.astro';
 import { buildBfHubSchema } from '../../lib/schema';
 import { pageProvenance } from '../../lib/page-provenance';
-import { BF_EXTERNAL, formatVerifiedStamp } from '../../lib/bf';
+import { BF_EXTERNAL } from '../../lib/bf';
 
-// Source: peninsula_insider_boating_fishing_v1/content-bf/hub_boating_index.md
+// Every fact on this page comes from the published ramp, hire and charter
+// records (src/content/boat-ramps, boat-hire, fishing-charters, and the tidal
+// ranges in fishing-locations) or from the cited official sources. The short
+// notes below restate record facts; when a record changes, change its note.
 
 const allRamps = await getCollection('boatRamps', ({ data }) => data.status === 'published');
 const allHire = await getCollection('boatHire', ({ data }) => data.status === 'published');
+const allCharters = await getCollection('fishingCharters', ({ data }) => data.status === 'published');
 
 // PI-004: the stamp is derived from the records this page is about, never
-// declared. The label is "Last fact-verified" only when every one of those
-// records carries live supporting evidence in the claim registry; otherwise
-// the floor of their review dates is published, worded as a review.
+// declared. "Last fact-verified" only when every record has live supporting
+// evidence in the claim registry; otherwise the floor of their review dates,
+// worded as a review.
 const provenance = await pageProvenance(allRamps, 'boat-ramps');
-const verificationStamp = provenance.stampISO ? formatVerifiedStamp(provenance.stampISO) : null;
 const modifiedISO = provenance.stampISO ?? undefined;
+const reviewedOn = provenance.stampISO
+  ? new Intl.DateTimeFormat('en-AU', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Australia/Melbourne' }).format(new Date(provenance.stampISO))
+  : null;
+
+// Geographic order, south-west to north along each shore. Document order,
+// not a ranking; any ramp published later is appended in its water.
+const RAMP_ORDER = [
+  'sorrento-boat-ramp',
+  'rye-boat-ramp',
+  'safety-beach-boat-ramp',
+  'mornington-park-boat-ramp',
+  'hastings-boat-ramp',
+  'warneet-boat-ramp',
+];
+const RAMP_NOTES: Record<string, string> = {
+  'sorrento-boat-ramp': 'Breakwater shelter and the shortest run to the southern snapper grounds and the Heads.',
+  'rye-boat-ramp': 'The biggest car park on the bay side, with about 127 trailer spaces and fish-cleaning facilities.',
+  'safety-beach-boat-ramp': 'Plenty of trailer parking and a picnic ground alongside. Not one for a low-tide arrival.',
+  'mornington-park-boat-ramp': 'Central bay shore. The car park is shared with the pier and the yacht club, so it is tight.',
+  'hastings-boat-ramp': 'Upgraded in 2024, with an all-abilities hoist on the new southern pontoon. The base for Western Port charters.',
+  'warneet-boat-ramp': 'Smaller and quieter, with a central pontoon, for the whiting and flathead grounds of the northern arm.',
+};
+const TIDE: Record<string, { label: string; low: boolean; mid: boolean; high: boolean }> = {
+  'all-tide': { label: 'Any tide', low: true, mid: true, high: true },
+  'mid-to-high': { label: 'Mid to high tide', low: false, mid: true, high: true },
+  'high-tide-only': { label: 'High tide only', low: false, mid: false, high: true },
+  'tidal-extreme': { label: 'Check the tide first', low: false, mid: false, high: true },
+};
+const PRESSURE: Record<string, string> = { high: 'High', medium: 'Medium', low: 'Low' };
+
+const ordered = [
+  ...RAMP_ORDER.map((slug) => allRamps.find((r) => r.data.slug === slug)).filter((r) => r !== undefined),
+  ...allRamps.filter((r) => !RAMP_ORDER.includes(r.data.slug)),
+];
+const WATERS = [
+  { key: 'port-phillip-bay', name: 'Port Phillip Bay', station: 'Portsea', note: 'Calmer water and a small tidal range.' },
+  { key: 'western-port', name: 'Western Port', station: 'Stony Point', note: 'Strongly tidal. Time your launch and your return.' },
+].map((w) => ({ ...w, ramps: ordered.filter((r) => r.data.region === w.key) }))
+ .filter((w) => w.ramps.length > 0);
+const anyTideCount = allRamps.filter((r) => r.data.tideDependence === 'all-tide').length;
+
+const CHARTER_ORDER = ['proline-charters', 'western-port-fishing-charters', 'im-hooked-fishing-charters', 'reel-time-fishing-charters'];
+const CHARTER_NOTES: Record<string, string> = {
+  'proline-charters': 'From Sorrento Pier since 1991, on two of the largest charter boats in Victoria.',
+  'western-port-fishing-charters': 'A 50-foot flybridge out of Westernport Marina at Hastings. Western Port only.',
+  'im-hooked-fishing-charters': 'A 24-foot catamaran from several Peninsula ramps. Wheelchair-accessible.',
+  'reel-time-fishing-charters': 'Two trailer boats from several Peninsula ramps. Suits groups of 11 to 18.',
+};
+const charters = [
+  ...CHARTER_ORDER.map((slug) => allCharters.find((c) => c.data.slug === slug)).filter((c) => c !== undefined),
+  ...allCharters.filter((c) => !CHARTER_ORDER.includes(c.data.slug)),
+];
+const hire = allHire.find((h) => h.data.slug === 'mornington-boat-hire') ?? allHire[0];
+
+const trustLead = `${allRamps.length} public ramps, all free to launch.${reviewedOn ? ` ${provenance.stampLabel} ` : ''}`;
+
+const hero = pageImage('boating-hero');
+const pier = pageImage('boating-pier');
+const heroBase = hero.src.replace(/\.webp$/, '');
+const pierBase = pier.src.replace(/\.webp$/, '');
 
 const breadcrumbItems = [
   { label: 'Home', href: '/' },
   { label: 'Boating' },
 ];
 
-const featuredRamps = allRamps.slice(0, 6);
-const featuredHire = allHire.slice(0, 4);
-
 const hubSchema = buildBfHubSchema({
   name: 'Boating on the Mornington Peninsula',
   description:
-    'Boat hire, ramp access, tides, and charter logistics on the Mornington Peninsula. Editorial Peninsula-specific guidance for owners and renters.',
+    'Public boat ramps, self-drive hire, skippered charters, tides and safety on the Mornington Peninsula, checked against the ramp records and official sources.',
   path: '/boating/',
   dateModified: modifiedISO,
   breadcrumbs: [
@@ -42,13 +102,13 @@ const hubSchema = buildBfHubSchema({
     { name: 'Boating' },
   ],
   items: [
-    ...featuredRamps.map((r) => ({
+    ...ordered.map((r) => ({
       name: r.data.name,
       path: `/boating/ramps/${r.data.slug}/`,
       description: r.data.intro,
       itemType: 'Place',
     })),
-    ...featuredHire.map((h) => ({
+    ...allHire.map((h) => ({
       name: h.data.name,
       path: `/boating/hire/${h.data.slug}/`,
       description: h.data.intro,
@@ -62,7 +122,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Boating on the Mornington Peninsula · Peninsula Insider"
-  description="The complete guide to boating on the Mornington Peninsula: boat hire, ramps and access, tides and safety, charter options, and the line between boating and fishing."
+  description="Where to launch on the Mornington Peninsula, which ramps work at low tide, where to hire a boat without a licence, and the checks to make before you go out."
   section="boating"
   canonical="https://peninsulainsider.com.au/boating/"
   ogImage={pageImage('boating-hub').src}
@@ -73,108 +133,551 @@ export const prerender = true;
 
   <Breadcrumbs items={breadcrumbItems} />
 
-  <SectionHero
-    eyebrow="Boating"
-    title="Boating the <em>Mornington Peninsula</em>"
-    dek="Two clean choices: own a vessel and need a ramp, or do not own one and need a hire operator or skippered charter. The infrastructure is here. So are the avoidable mistakes."
-    gradient="vineyard"
-    heroImage="/images/sourced/explore-portsea-front-beach-01.webp"
-  entitySlug="boating"
-  />
-
-  <section class="experience-index" data-bf-article>
-    <div class="container prose">
-      <p class="label label--accent">What to read first</p>
-      <h2>Hiring versus bringing your own boat</h2>
-      <p>
-        No-licence self-drive hire is available at several Peninsula locations.
-        It suits visiting anglers, day-trippers, and families who want time on
-        the water without the logistical overhead of trailering a boat from
-        Melbourne. Hire vessels are typically small tinnies or polycraft rated
-        for protected bay waters, not offshore use. Most hire sessions are
-        half-day or full-day. Gear and licence cover are sometimes included,
-        confirm at booking.
-      </p>
-      <p>
-        Trailer-boat owners have multiple ramp options along both Port Phillip
-        Bay and Western Port. The two things that catch people out are
-        <strong>tide dependence</strong> and <strong>weekend parking</strong>.
-        Western Port ramps at Warneet and Tooradin cannot be safely launched
-        at low water, the channel shallows on the ebb. Schnapper Point and
-        Sorrento fill their trailer parking by 8am on fine Saturdays during
-        snapper season. Plan accordingly.
-      </p>
+  <section class="bh-cover container" aria-labelledby="bh-title">
+    <div class="bh-cover__panel">
+      <div class="bh-cover__text">
+        <h1 class="bh-cover__title" id="bh-title">Boating the Mornington Peninsula</h1>
+        <p class="bh-cover__dek">
+          Two coastlines, two very different tides. Bring your own boat and pick the ramp
+          that suits the water today, or leave the trailer at home and hire one or go out
+          with a skipper.
+        </p>
+        <div class="bh-cover__actions">
+          <a class="bh-cover__primary" href="#ramps">Find a ramp</a>
+          <a class="bh-cover__secondary" href="#no-boat">No boat? Hire or charter</a>
+        </div>
+        <p class="bh-cover__trust">
+          {trustLead}{reviewedOn && <span class="nowrap">{reviewedOn}.</span>}
+        </p>
+      </div>
+      <figure class="bh-cover__media">
+        <img
+          src={hero.src}
+          srcset={`${heroBase}-800.webp 800w, ${heroBase}-1280.webp 1280w, ${hero.src} 2000w`}
+          sizes="(min-width: 1100px) 58vw, 100vw"
+          width="2000"
+          height="1333"
+          alt={hero.alt}
+          fetchpriority="high"
+          loading="eager"
+          decoding="async"
+        />
+        <figcaption class="bh-cover__caption">
+          <span>{hero.caption}</span>
+          <span>Photo · {hero.credit}</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="experience-index experience-index--plain">
+  <section class="bh-ramps" id="ramps" aria-labelledby="ramps-title">
     <div class="container">
-      <div class="venues__header">
-        <div>
-          <p class="label label--accent">Sub-hubs</p>
-          <h2 class="venues__title">Go deeper</h2>
+      <div class="bh-head">
+        <h2 id="ramps-title">Choose your ramp</h2>
+        <p class="bh-head__dek">
+          All {allRamps.length} are free to launch. The tide decides more than the drive does:
+          {anyTideCount} work at any tide, the rest need the water up.
+        </p>
+      </div>
+
+      {WATERS.map((water) => (
+        <section class="bh-water" aria-labelledby={`water-${water.key}`}>
+          <div class="bh-water__head">
+            <h3 id={`water-${water.key}`}>{water.name}</h3>
+            <p>{water.note} Tide station: <strong>{water.station}</strong>.</p>
+          </div>
+          <div class="bh-cols" aria-hidden="true">
+            <span>Ramp</span><span>Launch at</span><span>Lanes</span><span>Parking pressure</span>
+          </div>
+          <ul class="bh-ramplist" role="list">
+            {water.ramps.map((ramp) => {
+              const t = TIDE[ramp.data.tideDependence] ?? TIDE['tidal-extreme'];
+              return (
+                <li class="bh-ramp">
+                  <div class="bh-ramp__name">
+                    <h4><a class="bh-link" href={`/boating/ramps/${ramp.data.slug}/`}>{ramp.data.name.replace(/ Boat Ramp$/, '')}</a></h4>
+                    {RAMP_NOTES[ramp.data.slug] && <p>{RAMP_NOTES[ramp.data.slug]}</p>}
+                  </div>
+                  <dl class="bh-ramp__facts">
+                    <div class="bh-fact bh-fact--tide">
+                      <dt>Launch at</dt>
+                      <dd>
+                        <svg class="bh-gauge" viewBox="0 0 14 30" width="14" height="30" aria-hidden="true" focusable="false">
+                          <rect x="1" y="1" width="12" height="8.5" rx="2" class={t.high ? 'on' : 'off'} />
+                          <rect x="1" y="10.75" width="12" height="8.5" rx="2" class={t.mid ? 'on' : 'off'} />
+                          <rect x="1" y="20.5" width="12" height="8.5" rx="2" class={t.low ? 'on' : 'off'} />
+                        </svg>
+                        {t.label}
+                      </dd>
+                    </div>
+                    {ramp.data.laneCount && (
+                      <div class="bh-fact">
+                        <dt>Lanes</dt>
+                        <dd>{ramp.data.laneCount}</dd>
+                      </div>
+                    )}
+                    {ramp.data.parkingPressure && (
+                      <div class="bh-fact">
+                        <dt>Parking pressure</dt>
+                        <dd>{PRESSURE[ramp.data.parkingPressure]}</dd>
+                      </div>
+                    )}
+                  </dl>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
+
+      <div class="bh-source">
+        <p>
+          Lanes, tide access and parking are checked against
+          <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a> and the
+          <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
+        </p>
+        <a class="bh-link bh-more" href="/boating/ramps/">Every ramp in detail <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bh-noboat" id="no-boat" aria-labelledby="noboat-title">
+    <div class="container bh-noboat__grid">
+      <div class="bh-noboat__body">
+        <h2 id="noboat-title">No boat? Hire one, or go with a skipper</h2>
+
+        {hire && (
+          <div class="bh-option">
+            <h3>Self-drive hire</h3>
+            <p class="bh-option__lead">
+              <a class="bh-link" href={`/boating/hire/${hire.data.slug}/`}>{hire.data.name}</a> runs tinnies and
+              polycraft for the protected bay from {hire.data.departurePoint}.
+              {!hire.data.licenceRequired && ' No marine licence needed.'}
+            </p>
+            {hire.data.seasonalityNote && (
+              <p class="bh-option__meta">Open year-round when the weather allows. Book ahead in the summer holidays and on long weekends.</p>
+            )}
+          </div>
+        )}
+
+        <div class="bh-option">
+          <h3>Skippered fishing charters</h3>
+          <p class="bh-option__lead">The skipper handles the boat and finds the fish. These four are reviewed in our fishing guide.</p>
+          <ul class="bh-charters" role="list">
+            {charters.map((c) => (
+              <li>
+                <a class="bh-link" href={`/fishing/charters/${c.data.slug}/`}>{c.data.name}</a>
+                {CHARTER_NOTES[c.data.slug] && <p>{CHARTER_NOTES[c.data.slug]}</p>}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-      <div class="venues__grid venues__grid--links">
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/boating/ramps/">Boat ramps</a></h3>
-          <p class="pi-card__dek">Schnapper Point, Sorrento, Safety Beach, Rye, Hastings, Warneet, Tooradin. Tide dependence, parking pressure, and the alternative when this one's full.</p>
-          <div class="pi-card__actions"><a href="/boating/ramps/" class="pi-btn pi-btn--solid">Browse ramps &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/boating/hire/">Boat hire</a></h3>
-          <p class="pi-card__dek">Self-drive hire by location: Mornington, Sorrento, Rye, Safety Beach. Polycraft and tinnies for the bay, no-licence options, gear-included rates.</p>
-          <div class="pi-card__actions"><a href="/boating/hire/" class="pi-btn pi-btn--solid">Browse hire &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/charters/">Fishing charters</a></h3>
-          <p class="pi-card__dek">Want to fish without managing a vessel? The charter side lives in /fishing/. Skippered, licence-covered, gear-included.</p>
-          <div class="pi-card__actions"><a href="/fishing/charters/" class="pi-btn pi-btn--solid">Compare charters &rarr;</a></div>
-        </div></div>
-        <div class="pi-card"><div class="pi-card__body">
-          <h3 class="pi-card__title"><a href="/fishing/">Fishing</a></h3>
-          <p class="pi-card__dek">Once you've sorted your access, the fishing decisions: which species, which tide, which technique, which target.</p>
-          <div class="pi-card__actions"><a href="/fishing/" class="pi-btn pi-btn--solid">Fishing hub &rarr;</a></div>
-        </div></div>
-      </div>
+
+      <figure class="bh-noboat__photo">
+        <img
+          src={pier.src}
+          srcset={`${pierBase}-800.webp 800w, ${pier.src} 1280w`}
+          sizes="(min-width: 1100px) 40vw, 100vw"
+          width="1280"
+          height="854"
+          alt={pier.alt}
+          loading="lazy"
+          decoding="async"
+        />
+        <figcaption class="bh-caption">
+          <span>{pier.caption}</span>
+          <span>Photo · {pier.credit}</span>
+        </figcaption>
+      </figure>
     </div>
   </section>
 
-  <section class="experience-index">
-    <div class="container prose">
-      <p class="label label--accent">Tides and safety</p>
-      <h2>Pre-trip checks that actually matter</h2>
-      <p>
-        Tides on the Peninsula operate on an approximately 12.4-hour cycle.
-        Tidal range in Port Phillip Bay is modest, typically 0.6 to 1.0m at
-        Port Melbourne. Western Port is significantly more tidal at
-        approximately 2.5 to 2.8m, which directly affects channel depth, ramp
-        access, and fish behaviour.
-      </p>
-      <p>
-        Use <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Willyweather tide tables</a>
-        or the <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Bureau of Meteorology tidal predictions</a>
-        for the reference station relevant to your launch point. Port Phillip
-        Bay southern ramps: use Portsea reference station. Western Port ramps:
-        use Stony Point reference station. Northern Port Phillip Bay: use
-        Port Melbourne reference station.
-      </p>
-      <p>
-        <strong>The Rip at Port Phillip Heads requires particular respect.</strong>
-        South and south-westerly swell entering the Heads creates dangerous
-        standing waves. Do not attempt to cross the Rip in unsuitable
-        conditions regardless of vessel size or experience. Marine forecasts
-        from <a href={BF_EXTERNAL.bom} rel="external">BOM</a> the night before
-        and morning of every trip. Identify your nearest alternative ramp
-        before you launch. This is not hypothetical.
-      </p>
-      <p class="prose__verified">
-        {provenance.stampLabel} {verificationStamp} against
-        <a href={BF_EXTERNAL.betterBoating} rel="external">Better Boating Victoria</a>
-        and <a href={BF_EXTERNAL.mornpenShire} rel="external">Mornington Peninsula Shire</a>.
-      </p>
+  <section class="bh-safety" id="before-you-launch" aria-labelledby="safety-title">
+    <div class="container bh-safety__grid">
+      <div class="bh-safety__lead">
+        <h2 id="safety-title">Before you launch</h2>
+        <p class="bh-safety__rip">
+          <strong>Respect the Rip.</strong> South and south-westerly swell running into Port
+          Phillip Heads stands up into dangerous waves. Do not cross in unsuitable conditions,
+          whatever the size of your boat or your experience.
+        </p>
+        <ol class="bh-checks">
+          <li>
+            <h3>Read the forecast twice</h3>
+            <p>
+              Check the <a href={BF_EXTERNAL.bom} rel="external">Bureau of Meteorology</a> marine
+              forecast the night before and again on the morning you go.
+            </p>
+          </li>
+          <li>
+            <h3>Use the right tide station</h3>
+            <p>
+              Portsea for the Peninsula's bay ramps, Stony Point for Western Port. Heading up the
+              bay towards Melbourne, switch to Port Melbourne.
+              <a href={BF_EXTERNAL.willyweather} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Willyweather</a> and
+              the <a href={BF_EXTERNAL.bom} rel="external" data-bf-event="bf_tide_lookup" data-bf-source="hub-boating">Bureau</a> both publish them.
+            </p>
+          </li>
+          <li>
+            <h3>Know your second ramp</h3>
+            <p>Pick an alternative before you leave home, in case the first is full or the tide turns against you.</p>
+          </li>
+        </ol>
+        <a class="bh-safety__more" href="/boating/tides-safety/">Tides and safety in full <span aria-hidden="true">→</span></a>
+      </div>
+
+      <figure class="bh-range" aria-labelledby="range-title">
+        <figcaption id="range-title">
+          <span class="bh-range__title">How far the water moves</span>
+          <span class="bh-range__sub">Typical rise and fall between low and high tide</span>
+        </figcaption>
+        <svg viewBox="0 0 320 214" role="img" aria-labelledby="range-desc" focusable="false">
+          <desc id="range-desc">Port Phillip Bay rises and falls about 0.5 to 1.0 metres. Western Port rises and falls about 2.5 to 2.8 metres, several times as much.</desc>
+          <g class="bh-range__grid">
+            <line x1="44" x2="310" y1="180" y2="180" />
+            <line x1="44" x2="310" y1="130" y2="130" />
+            <line x1="44" x2="310" y1="80" y2="80" />
+            <line x1="44" x2="310" y1="30" y2="30" />
+          </g>
+          <g class="bh-range__axis">
+            <text x="36" y="184">0 m</text>
+            <text x="36" y="134">1 m</text>
+            <text x="36" y="84">2 m</text>
+            <text x="36" y="34">3 m</text>
+          </g>
+          <rect class="bh-range__ppb" x="80" y="155" width="64" height="25" rx="4" />
+          <rect class="bh-range__ppb bh-range__ppb--max" x="80.75" y="130.75" width="62.5" height="23.5" rx="4" />
+          <rect class="bh-range__wp" x="210" y="55" width="64" height="125" rx="4" />
+          <rect class="bh-range__wp bh-range__wp--max" x="210.75" y="40.75" width="62.5" height="13.5" rx="4" />
+          <text class="bh-range__val" x="112" y="120">0.5 to 1.0 m</text>
+          <text class="bh-range__val" x="242" y="30">2.5 to 2.8 m</text>
+          <text class="bh-range__name" x="112" y="204">Port Phillip Bay</text>
+          <text class="bh-range__name" x="242" y="204">Western Port</text>
+        </svg>
+        <p class="bh-range__note">
+          The dashed top of each bar is the spread between a small tide and a big one. Western
+          Port's bigger tide changes channel depth and ramp access through the day, which is why
+          Warneet wants the upper half of the tide.
+        </p>
+      </figure>
     </div>
   </section>
+
+  <nav class="bh-onward container" aria-labelledby="onward-title">
+    <h2 id="onward-title">More on the water</h2>
+    <ul role="list">
+      <li><a class="bh-link" href="/boating/ramps/">Boat ramps</a><p>Lanes, parking, tide windows and the nearest alternative for each</p></li>
+      <li><a class="bh-link" href="/boating/tides-safety/">Tides and safety</a><p>Tide stations, the Rip and the checks before every trip</p></li>
+      <li><a class="bh-link" href="/fishing/">Fishing</a><p>What's biting, where, and on which tide</p></li>
+    </ul>
+  </nav>
+
+  <AskLine
+    id="boating-ask"
+    dek="Ask which ramp suits tomorrow's tide, or where to take the kids out for a first go."
+    placeholder="A low-tide ramp near Sorrento"
+  />
 
   <NewsletterBlock />
 </BaseLayout>
+
+<script>
+  // The corner "Ask PI" launcher steps aside while the cover is on screen, so it
+  // never sits over the cover's text or actions (same pattern as HomeCover).
+  let coverSeen: IntersectionObserver | null = null;
+  function watchBoatingCover() {
+    coverSeen?.disconnect();
+    document.documentElement.classList.remove('pi-hero-ask');
+    const cover = document.querySelector('.bh-cover');
+    if (!cover || !('IntersectionObserver' in window)) return;
+    coverSeen = new IntersectionObserver(([e]) => document.documentElement.classList.toggle('pi-hero-ask', e.isIntersecting));
+    coverSeen.observe(cover);
+  }
+  document.addEventListener('astro:page-load', watchBoatingCover);
+</script>
+
+<style>
+  /* Type uses only the fs tokens: 800 page title, 700 sections, 600 sub-sections,
+     500 deks and item names, 400 body, 300 supporting, 200 captions, 100 labels. */
+
+  /* Cover: one navy panel, text left, photograph right; stacked on mobile. */
+  .bh-cover { margin-top: var(--space-5); }
+  .bh-cover__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    background: var(--harbour-deep);
+    color: var(--white);
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    min-height: clamp(30rem, 58vh, 38rem);
+  }
+  .bh-cover__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--space-5);
+    padding: var(--space-8) var(--space-7);
+  }
+  .bh-cover__title {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-800);
+    line-height: var(--lh-display);
+    letter-spacing: var(--ls-display);
+    color: var(--white);
+    text-wrap: balance;
+    max-width: 12ch;
+  }
+  .bh-cover__dek {
+    margin: 0;
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 34ch;
+    text-wrap: pretty;
+  }
+  .bh-cover__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-5); }
+  .bh-cover__primary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 var(--space-5);
+    border-radius: var(--radius-s);
+    background: var(--sand);
+    color: var(--harbour-deep);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-400);
+    text-decoration: none;
+    transition: background-color var(--dur-med) var(--ease-enter);
+  }
+  .bh-cover__primary:hover { background: var(--white); }
+  .bh-cover__secondary {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    color: var(--white);
+    font-weight: var(--fw-medium);
+    font-size: var(--fs-400);
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    text-decoration-color: rgba(255, 255, 255, 0.55);
+  }
+  .bh-cover__secondary:hover { text-decoration-color: var(--sand); }
+  .bh-cover__primary:focus-visible,
+  .bh-cover__secondary:focus-visible { outline: 2px solid var(--sand); outline-offset: 3px; }
+  .bh-cover__trust {
+    margin: 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: var(--fs-300);
+    font-weight: var(--fw-medium);
+    color: rgba(255, 255, 255, 0.9);
+  }
+  .nowrap { white-space: nowrap; }
+  .bh-cover__media { position: relative; margin: 0; min-height: 100%; }
+  .bh-cover__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 62% 70%;
+  }
+  .bh-cover__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0 var(--space-3);
+    padding: var(--space-7) var(--space-5) var(--space-3);
+    background: linear-gradient(to top, rgba(11, 46, 74, 0.86), rgba(11, 46, 74, 0));
+    font-size: var(--fs-200);
+    line-height: 1.5;
+    color: var(--white);
+  }
+
+  .bh-caption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 var(--space-3);
+    margin: var(--space-2) 0 0;
+    font-size: var(--fs-200);
+    line-height: 1.5;
+    color: var(--muted);
+  }
+
+  /* One record-link style for ramps, hire, charters and onward routes. */
+  .bh-link {
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    color: var(--harbour);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--harbour) 35%, transparent);
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+  .bh-link:hover { color: var(--harbour-h); text-decoration-color: currentColor; }
+
+  /* Section rhythm: space separates sections, never a rule plus a tint. */
+  .bh-ramps { padding: var(--space-9) 0 var(--space-8); }
+  .bh-head { max-width: var(--measure-prose); margin-bottom: var(--space-7); }
+  .bh-head h2,
+  .bh-noboat h2,
+  .bh-safety h2,
+  .bh-onward h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-700);
+    line-height: var(--lh-heading);
+    color: var(--ink);
+    text-wrap: balance;
+  }
+  .bh-head__dek { margin: var(--space-4) 0 0; font-size: var(--fs-500); line-height: var(--lh-dek); color: var(--muted); text-wrap: pretty; }
+
+  .bh-water + .bh-water { margin-top: var(--space-8); }
+  .bh-water__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-5); margin-bottom: var(--space-4); }
+  .bh-water__head h3 { margin: 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-600); color: var(--ink); }
+  .bh-water__head p { margin: 0; font-size: var(--fs-300); color: var(--muted); }
+  .bh-water__head strong { color: var(--ink); font-weight: var(--fw-semibold); }
+
+  .bh-cols,
+  .bh-ramp {
+    display: grid;
+    grid-template-columns: minmax(0, 34rem) minmax(0, 1.3fr) minmax(0, 0.6fr) minmax(0, 1fr);
+    column-gap: var(--space-6);
+  }
+  .bh-cols {
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--border);
+    font-size: var(--fs-200);
+    color: var(--muted);
+  }
+  .bh-ramplist { list-style: none; margin: 0; padding: 0; }
+  .bh-ramp { padding: var(--space-5) 0; border-bottom: 1px solid var(--border); align-items: start; }
+  .bh-ramp__name h4 { margin: 0; font-size: var(--fs-500); line-height: 1.3; }
+  .bh-ramp__name p { margin: var(--space-1) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--muted); text-wrap: pretty; }
+  .bh-ramp__facts { grid-column: 2 / -1; display: grid; grid-template-columns: subgrid; margin: 0; padding-top: 0.2rem; }
+  .bh-fact { margin: 0; }
+  .bh-fact dt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .bh-fact dd { margin: 0; font-size: var(--fs-400); color: var(--ink); font-variant-numeric: tabular-nums; }
+  .bh-fact--tide dd { display: flex; align-items: center; gap: var(--space-3); }
+  .bh-gauge { flex: none; }
+  .bh-gauge .on { fill: var(--harbour); }
+  .bh-gauge .off { fill: none; stroke: var(--border-strong); stroke-width: 1; }
+
+  .bh-source { margin-top: var(--space-6); max-width: var(--measure-prose); }
+  .bh-source p { margin: 0; font-size: var(--fs-300); color: var(--muted); }
+  .bh-source p a { color: var(--harbour); text-underline-offset: 0.2em; }
+  .bh-more { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; margin-top: var(--space-2); font-size: var(--fs-400); }
+
+  /* No boat */
+  .bh-noboat { padding: var(--space-8) 0 var(--space-9); }
+  .bh-noboat__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: start; }
+  .bh-noboat__photo { margin: 0; position: sticky; top: var(--space-8); }
+  .bh-noboat__photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; object-position: 35% 88%; border-radius: var(--radius-m); }
+  .bh-option { margin-top: var(--space-6); }
+  .bh-option h3 { margin: 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-600); color: var(--ink); }
+  .bh-option__lead { margin: var(--space-3) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--ink); max-width: var(--measure-prose); }
+  .bh-option__meta { margin: var(--space-2) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--muted); max-width: var(--measure-prose); }
+  .bh-charters { list-style: none; margin: var(--space-4) 0 0; padding: 0; }
+  .bh-charters li { padding: var(--space-4) 0; border-bottom: 1px solid var(--border); }
+  .bh-charters li:last-child { border-bottom: 0; }
+  .bh-charters .bh-link { font-size: var(--fs-500); }
+  .bh-charters p { margin: var(--space-1) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--muted); }
+
+  /* Safety: the one dark band, so it reads as the serious part of the page. */
+  .bh-safety { background: var(--harbour-deep); color: var(--white); padding: var(--space-9) 0; }
+  .bh-safety__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--space-8); align-items: center; }
+  .bh-safety h2 { color: var(--white); }
+  .bh-safety a { color: var(--white); text-decoration: underline; text-decoration-color: var(--sand); text-underline-offset: 0.2em; }
+  .bh-safety a:focus-visible { outline: 2px solid var(--sand); outline-offset: 2px; }
+  .bh-safety__rip {
+    margin: var(--space-5) 0 0;
+    padding: var(--space-5);
+    border-radius: var(--radius-m);
+    background: var(--harbour);
+    font-size: var(--fs-500);
+    line-height: var(--lh-dek);
+    max-width: 52ch;
+  }
+  .bh-safety__rip strong { color: var(--sand); }
+  .bh-checks { list-style: none; counter-reset: check; margin: var(--space-6) 0 0; padding: 0; display: grid; gap: var(--space-5); max-width: 56ch; }
+  .bh-checks li { counter-increment: check; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); column-gap: var(--space-3); }
+  .bh-checks li::before {
+    content: counter(check);
+    grid-row: span 2;
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    color: var(--white);
+    font-family: var(--font-display);
+    font-weight: var(--fw-display);
+    font-size: var(--fs-300);
+  }
+  .bh-checks h3 { margin: 0.15rem 0 0; font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-500); line-height: 1.3; color: var(--white); }
+  .bh-checks p { margin: var(--space-1) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: rgba(255, 255, 255, 0.88); }
+  .bh-safety__more { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; margin-top: var(--space-5); font-weight: var(--fw-semibold); font-size: var(--fs-400); }
+
+  .bh-range { margin: 0; padding: var(--space-6); border-radius: var(--radius-m); background: var(--harbour); }
+  .bh-range figcaption { display: flex; flex-direction: column; gap: var(--space-1); margin-bottom: var(--space-4); }
+  .bh-range__title { font-family: var(--font-display); font-weight: var(--fw-display); font-size: var(--fs-500); color: var(--white); }
+  .bh-range__sub { font-size: var(--fs-300); color: rgba(255, 255, 255, 0.88); }
+  .bh-range svg { display: block; width: 100%; height: auto; overflow: visible; }
+  .bh-range__grid line { stroke: rgba(255, 255, 255, 0.22); stroke-width: 1; }
+  .bh-range__axis text { fill: rgba(255, 255, 255, 0.88); font-family: var(--font-ui); font-size: 13px; font-weight: 500; text-anchor: end; }
+  .bh-range__ppb { fill: var(--white); }
+  .bh-range__wp { fill: var(--sand); }
+  .bh-range__ppb--max,
+  .bh-range__wp--max { fill: none; stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .bh-range__ppb--max { stroke: var(--white); }
+  .bh-range__wp--max { stroke: var(--sand); }
+  .bh-range__val { fill: var(--white); font-family: var(--font-ui); font-size: 15px; font-weight: 600; text-anchor: middle; paint-order: stroke; stroke: var(--harbour); stroke-width: 6px; stroke-linejoin: round; }
+  .bh-range__name { fill: var(--white); font-family: var(--font-ui); font-size: 14px; font-weight: 500; text-anchor: middle; }
+  .bh-range__note { margin: var(--space-4) 0 0; font-size: var(--fs-300); line-height: 1.6; color: rgba(255, 255, 255, 0.9); }
+
+  .bh-onward { padding: var(--space-9) 0 var(--space-7); }
+  .bh-onward ul { list-style: none; margin: var(--space-5) 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+  .bh-onward .bh-link { font-size: var(--fs-500); }
+  .bh-onward p { margin: var(--space-1) 0 0; font-size: var(--fs-400); line-height: var(--lh-body); color: var(--muted); }
+
+  @media (max-width: 1100px) {
+    .bh-cover__panel { grid-template-columns: 1fr; min-height: 0; }
+    .bh-cover__media { order: -1; aspect-ratio: 16 / 10; min-height: 0; }
+    .bh-cover__text { padding: var(--space-6) var(--space-6) var(--space-7); }
+    .bh-cover__dek { max-width: 48ch; }
+    .bh-safety__grid, .bh-noboat__grid { grid-template-columns: 1fr; gap: var(--space-7); }
+    .bh-noboat__photo { position: static; }
+    .bh-noboat__photo img { aspect-ratio: 16 / 9; }
+    .bh-cols, .bh-ramp { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.2fr) minmax(0, 0.5fr) minmax(0, 0.9fr); }
+  }
+  @media (max-width: 767px) {
+    .bh-cover { margin-top: var(--space-3); }
+    .bh-cover__media { aspect-ratio: 16 / 11; }
+    .bh-cover__media img { object-position: 55% 62%; }
+    .bh-cover__caption { justify-content: flex-start; flex-direction: column; padding: var(--space-5) var(--space-4) var(--space-2); font-size: var(--fs-100); }
+    .bh-cover__text { gap: var(--space-4); padding: var(--space-5) var(--space-5) var(--space-6); }
+    .bh-cover__dek { font-size: var(--fs-400); }
+    .bh-cover__actions { flex-direction: column; align-items: stretch; gap: var(--space-2); }
+    .bh-cover__primary, .bh-cover__secondary { justify-content: center; }
+    .bh-ramps, .bh-safety { padding: var(--space-8) 0; }
+    .bh-noboat { padding: var(--space-7) 0 var(--space-8); }
+    .bh-onward { padding: var(--space-8) 0 var(--space-6); }
+    .bh-cols { display: none; }
+    .bh-ramp { display: block; }
+    .bh-ramp__facts { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.6fr) minmax(0, 1fr); gap: var(--space-4); margin-top: var(--space-3); padding: 0; }
+    .bh-fact dt { position: static; width: auto; height: auto; overflow: visible; clip-path: none; white-space: normal; font-size: var(--fs-100); color: var(--muted); margin-bottom: 2px; }
+    .bh-fact--tide dd { gap: var(--space-2); }
+    .bh-safety__rip { padding: var(--space-4); font-size: var(--fs-400); }
+    .bh-range { padding: var(--space-5); }
+    .bh-onward ul { grid-template-columns: 1fr; gap: var(--space-5); }
+  }
+</style>
