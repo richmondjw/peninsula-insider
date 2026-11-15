@@ -11,6 +11,14 @@ This weekend
 
 The Peninsula has more on than any one weekend can hold. These are the events we would prioritise, ranked by what they are actually like to attend, not what the marketing copy claims.
 
+Festivals   Annual, November
+
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
 Photo · BrooksieG [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>)[Image source](<https://commons.wikimedia.org/wiki/File:Pt_Leo_sculpture.jpg>)
 
 Arts   Check opening hours
@@ -85,45 +93,37 @@ Live acoustic music at Spike Bar on Saturday evenings, from 5pm to 8pm.
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Live Music  15 Nov
+Live Music  22 Nov
 
-### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
-Enjoy live music at Peninsula Beer Garden!
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their…
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
-Arts  15 Nov
+Live Music  21 Nov
 
-### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to…
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their…
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
 
-Live Music  15 Nov
+Exhibitions  21 Nov
 
-### [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
-Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by local artists playing cool tunes.
+Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
-Food & Wine  15 Nov
+Food & Wine  22 Nov
 
-### [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
-A casual Sunday long-table session on the Polperro lawn, pairing large-format wines with generous shared dishes.
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
-
-Live Music  15 Nov
-
-### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
-
-Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next?
-
-[Plan this →](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
 
 ## The Insider Note
 

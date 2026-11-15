@@ -41,37 +41,37 @@ Red Hill wine country to the southern coast.
 
 ## This weekend
 
-14–15 November
+21–22 November
 
  [See all events](<https://peninsulainsider.com.au/whats-on/>)
 
 Swipe or scroll through the picks
 
-- ### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
 
-Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next?
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
 
-Sun, 15 Nov   Pig & Whistle Tavern   Live music
+Sat, 21 Nov   Peppers Moonah Links   Every Saturday
 
-Event details checked 10 Nov 2026 · [Organiser’s page](<https://www.thepigandwhistle.com.au/what-s-on>)
+Event details checked 2 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 
-- ### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+- ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
-Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
 
-Sun, 15 Nov   Peninsula Hot Springs Eco Lodges   Wellness
+Sat, 21 Nov   Emu Plains Reserve   Market
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://www.peninsulahotsprings.com/events/sunday-sessions-at-peninsula-hot-springs?hsLang=en-au>)
+Event details checked 3 Oct 2026 · [Organiser’s page](<https://www.emuplainsmarket.com.au/>)
 
-- Alba Thermal Springs & Spa, Fingal, Mornington Peninsula   Photo courtesy of Visit Victoria.
+- Mornington Peninsula Regional Gallery, Mornington   Photo: Robert Blackburn, courtesy of Visit Victoria.
 
-### [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat.
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
 
-Sun, 15 Nov   Alba Thermal Springs & Spa   Food & wine
+Sat, 21 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
-Event details checked 9 Nov 2026 · [Organiser’s page](<https://albathermalsprings.com.au/alba-experiences/promotions/>)
+Event details checked 8 Oct 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
 
 ## Three ways into the Peninsula
 

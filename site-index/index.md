@@ -495,8 +495,6 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Ben Smith Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-- [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
-
 - [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
 - [Brown Sugar - Rolling Stones](<https://peninsulainsider.com.au/whats-on/brown-sugar-rolling-stones-2026-11-27/>)
@@ -539,31 +537,21 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
 
-- [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
-
 - [Gareth Sansom at MPRG](<https://peninsulainsider.com.au/whats-on/gareth-sansom-at-mprg-2026-12-05/>)
 
 - [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
 - [James Vincent Live at Fenian Wines](<https://peninsulainsider.com.au/whats-on/james-vincent-live-at-fenian-wines-2026-12-12/>)
 
-- [Jimmy & Niki Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/jimmy-and-niki-live-at-jetty-road-brewery-2026-11-15/>)
-
 - [Legends Of Sunbury: Spectrum, Madder Lake & Phil Manning Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/legends-of-sunbury-spectrum-madder-lake-and-phil-manning-live-at-the-pig-and-whistle-taver-2026-12-1/>)
 
 - [Luke O'Shea & Lyn Bowtell Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/luke-o-shea-and-lyn-bowtell-live-at-the-pig-and-whistle-tavern-2026-11-27/>)
 
-- [Magnum Bonum at Polperro Winery](<https://peninsulainsider.com.au/whats-on/magnum-bonum-at-polperro-winery-2026-11-15/>)
-
 - [Meet The Makers at Hawkes Farm](<https://peninsulainsider.com.au/whats-on/meet-the-makers-at-hawkes-farm-2026-11-28/>)
-
-- [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
 
 - [Mornington Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-christmas-series-at-mornington-racecourse-2026-12-04/>)
 
 - [Mornington Twilight Christmas Series at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/mornington-twilight-christmas-series-at-mornington-racecourse-2026-12-16/>)
-
-- [Mr Morpheus Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/mr-morpheus-live-at-tar-barrel-2026-11-15/>)
 
 - [New Year's Day at Mornington Racecourse](<https://peninsulainsider.com.au/whats-on/new-year-s-day-at-mornington-racecourse-2027-01-01/>)
 
@@ -603,13 +591,9 @@ A direct index of the major sections and planning pages on Peninsula Insider. Us
 
 - [Soul Night Market at Hastings Foreshore](<https://peninsulainsider.com.au/whats-on/soul-night-market-at-hastings-foreshore-2026-12-18/>)
 
-- [Sourdough Masterclass at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/sourdough-masterclass-at-peninsula-gourmet-cooking-school-2026-11-15/>)
-
 - [Summer Camp at The Ranch Adventure Park](<https://peninsulainsider.com.au/whats-on/summer-camp-at-the-ranch-adventure-park-2027-01-18/>)
 
 - [Summer Xmas Seafood Class at Peninsula Gourmet Cooking School](<https://peninsulainsider.com.au/whats-on/summer-xmas-seafood-class-at-peninsula-gourmet-cooking-school-2026-11-28/>)
-
-- [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
 
 - [Sunday Sessions: Pottery Workshops at Peachy Keen Ceramics](<https://peninsulainsider.com.au/whats-on/sunday-sessions-pottery-workshops-at-peachy-keen-ceramics-2026-12-06/>)
 

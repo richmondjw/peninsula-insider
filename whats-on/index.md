@@ -1,43 +1,179 @@
 Canonical: https://peninsulainsider.com.au/whats-on/
 Publisher: Peninsula Insider
 Published: unknown
-Modified: 2026-11-15
+Modified: 2026-11-16
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
 # What's on this weekend
 
-Fri 13 – Sun 15 November  · Mornington Peninsula
+Fri 20 – Sun 22 November  · Mornington Peninsula
 
 Find the date, place and reason to go, then check with the organiser before you head out.
 
-## Two reasons to go
+## Three reasons to go
 
-- Sun, 15 Nov · Main Ridge
+- Sun, 22 Nov · 3pm–6pm · Mornington
 
-### [Michael Charles Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/michael-charles-live-at-the-pig-and-whistle-tavern-2026-11-15/>)
+### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
-Chicago Blues Hall of Fame inductee Michael Charles brings his Where To Next? tour to the Pig & Whistle's intimate Shed Theatre, supported by Dylan Walker.
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
 
 Live Music
 
-- Sun, 15 Nov · Fingal
+- Sat, 21 Nov · 10am–12pm · Mornington
 
-### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
-Sunday sessions at Bath House Café, complimentary with bathing. Starts 12pm.
+Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
-Wellness
+Exhibitions
+
+- Sun, 22 Nov · 11:30am–2pm · Merricks
+
+### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+
+Food & Wine
 
 ## Day by day
 
-### Sunday 15 November
+### Friday 20 November
 
-- [The Peninsula Retreat at Alba Thermal Springs & Spa](<https://peninsulainsider.com.au/whats-on/the-peninsula-retreat-at-alba-thermal-springs-and-spa-2026-11-15/>)
+- 11am
 
-Embrace the natural beauty of the Peninsula and the healing powers of water and nature with Alba’s two day Peninsula Retreat. The retreat includes a guided coastal hike, hot springs bathing across two days, wellness activities and all meals.
+[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
 
-Fingal · Food & Wine · On during your dates · runs to Mon, 16 Nov
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Mornington · Exhibitions · Recurring weekly · Also Sat & Sun
+
+- 5pm
+
+[Dee - Calmer Miles Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/dee-calmer-miles-live-at-peninsula-beer-garden-2026-11-20/>)
+
+Peninsula locals that are regulars on the music scene! Dee from The Calmer Miles exhibits a freshness and passion in her music.
+
+Boneo · Live Music
+
+- 5pm
+
+[Will Rounds Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/will-rounds-live-at-peppers-moonah-links-resort-2026-11-20/>)
+
+Settle into the weekend with Acoustic Friday in the Spike Bar at Moonah Links. From 5pm to 8pm each Saturday, enjoy the sounds of talented local acoustic artists in a relaxed and welcoming setting.
+
+Fingal · Live Music
+
+- [The Lucky Duck & Pinot Lunch](<https://peninsulainsider.com.au/whats-on/the-lucky-duck-and-pinot-lunch-2026-11-20/>)
+
+One-off chef’s lunch featuring an all-duck menu paired with pinot noir.
+
+Red Hill · Food & Wine
+
+### Saturday 21 November
+
+- 9am
+
+[Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Balnarring · Markets · Recurring monthly
+
+- 10.30am
+
+[Pitmaster Masterclass at Red Gum BBQ](<https://peninsulainsider.com.au/whats-on/pitmaster-masterclass-at-red-gum-bbq-2026-11-21/>)
+
+Low & Slow Pitmaster Masterclass at Red Gum BBQ Get hands-on with the art of authentic Southern-style BBQ at Red Gum BBQ, Red Hill. There’s a little more to great BBQ than throwing a few snags on the grill.
+
+Red Hill · Food & Wine
+
+- 11am
+
+[Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
+
+The shuttle ticket is the cleanest way to make a day of VineHop. The Festival Hub works better if you want one venue, parking and the main stage.
+
+Mount Martha · Festivals
+
+- 5pm
+
+[Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
+
+Saturday acoustic music at Spike Bar, from 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
+
+Fingal · Live Music · Recurring weekly
+
+- 5pm
+
+[Deja Vu Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/deja-vu-live-at-peninsula-beer-garden-2026-11-21/>)
+
+Enjoy live music at Peninsula Beer Garden! Deja Vu are a dynamic duo playing upbeat covers, that make you want to get up and dance.
+
+Boneo · Live Music
+
+- 5pm
+
+[Sam O'Connell Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/sam-o-connell-live-at-peppers-moonah-links-resort-2026-11-21/>)
+
+Ease into the weekend with live music every Saturday in the Spike Bar at Moonah Links. Enjoy a rotating line-up of talented local artists from 5pm to 8pm, creating the perfect atmosphere to relax with friends, family or colleagues.
+
+Fingal · Live Music
+
+- 6pm
+
+[Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
+
+Mornington · Live Music
+
+- 6pm
+
+[Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
+
+Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
+
+Dromana · Live Music
+
+- 8pm
+
+[Felicity Urquhart & Josh Cunningham Live at The Pig & Whistle Tavern](<https://peninsulainsider.com.au/whats-on/felicity-urquhart-and-josh-cunningham-live-at-the-pig-and-whistle-tavern-2026-11-21/>)
+
+Multi-Award-winning singer-songwriters Felicity Urquhart & Josh Cunningham are hitting the road again to celebrate their chart-topping, third studio album, Everything Around You.
+
+Main Ridge · Live Music
+
+- [Taste & Create, Gourmet Bar](<https://peninsulainsider.com.au/whats-on/taste-and-create-gourmet-bar-2026-11-21/>)
+
+Taste 12 chocolates, then create your own Gourmet Chocolate Bar. Starts 11.30am.
+
+Flinders · Food & Wine
+
+- [Vinehop at Phaedrus Estate](<https://peninsulainsider.com.au/whats-on/vinehop-2026-11-21/>)
+
+Phaedrus Estate is a host venue for the 2026 Vinehop festival, with live music and a DJ from Fudge and Jinxit from 11.30am to 5pm and three food trucks. Festival tickets are sold through Vinehop.
+
+Moorooduc · Cellar Doors
+
+### Sunday 22 November
+
+- 9am
+
+[Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+A VFMA-accredited village market with local growers and specialty makers, supported by the Mt Eliza Chamber of Commerce.
+
+Mount Eliza · Markets · Recurring monthly
+
+- 1pm
+
+[Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
+
+Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
+
+Boneo · Live Music
 
 ## Book ahead
 

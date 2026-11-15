@@ -5,11 +5,11 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-Peninsula This Weekend   Fri 13 – Sun 15 November
+Peninsula This Weekend   Fri 20 – Sun 22 November
 
 # What’s on this weekend
 
-1 source-checked events for Fri 13 – Sun 15 November. Confirm details with the organiser before travelling.
+1 source-checked events for Fri 20 – Sun 22 November. Confirm details with the organiser before travelling.
 
 Cape Schanck at dawn. [Marshlung / source](<https://commons.wikimedia.org/wiki/File:Cape_schanck_looking_towards_pulpit_rock_at_dawn.jpg>) · [CC BY-SA 4.0](<https://creativecommons.org/licenses/by-sa/4.0/>) · cropped and converted to WebP.
 
@@ -25,7 +25,7 @@ Date confirmed · Live Music
 
 After a Fingal or Cape Schanck day, this is a Saturday evening music stop. No booking required.
 
-Saturday 14 November   5pm–8pm   Fingal   Checked 2 Nov 2026
+Saturday 21 November   5pm–8pm   Fingal   Checked 2 Nov 2026
 
 [View details](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>) [Check organiser details](<https://www.moonahlinks.com.au/cms/dining/spike-bar/>)
 

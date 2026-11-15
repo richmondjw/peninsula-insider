@@ -67,13 +67,13 @@ World-renowned whip artist Nathan “Whippy” Griggs brings his Aussie Tour to 
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/whippy-griggs-live-for-a-crackin-night-at-the-ranch-2026-12-13/>)
 
-Arts  15 Nov
+Arts  25 Nov
 
-### [Festive Wreath Making at Heronswood House and Garden](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+### [Improv Comedy Show at The Bay Hotel Mornington](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
-A two-hour workshop with botanical designer Domenica Vavala, using fresh and dried locally sourced foliage to make a sustainable festive wreath to…
+Come and finish the year out with our last student showcase of comedy!
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/festive-wreath-making-at-heronswood-house-and-garden-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/improv-comedy-show-at-the-bay-hotel-mornington-2026-11-25/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -69,13 +69,13 @@ Each weekend at Jetty Road Brewery you can enjoy brews and bites, accompanied by
 
 [Plan this →](<https://peninsulainsider.com.au/whats-on/ben-smith-live-at-jetty-road-brewery-2026-11-27/>)
 
-Live Music  15 Nov
+Live Music  28 Nov
 
-### [Bennsong Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+### [Brad Kennedy Live at Peppers Moonah Links Resort](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
-Enjoy live music at Peninsula Beer Garden!
+Ease into the weekend with live music in the Spike Bar at Moonah Links.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/bennsong-live-at-peninsula-beer-garden-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/brad-kennedy-live-at-peppers-moonah-links-resort-2026-11-28/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

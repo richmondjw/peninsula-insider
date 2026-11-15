@@ -79,21 +79,29 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Wellness   Check session dates
+Festivals   Annual, November
 
-### [Peninsula Hot Springs Studio Yoga](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-A 45-minute studio yoga class listed by Peninsula Hot Springs for 7:30am daily, for bathing guests aged 16 and over.
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-hot-springs-daily-studio-yoga/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-Wellness  15 Nov
+Markets   Monthly – 2nd Saturday of every month
 
-### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-Sunday sessions at Bath House Café, complimentary with bathing.
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
+
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 

@@ -69,23 +69,29 @@ Keep planning
 
  [All events -\>](<https://peninsulainsider.com.au/whats-on/>)
 
-Wellness   Dates on request
+Festivals   Annual, November
 
-### [Restore & Pamper Retreat at Polperro Farmhouse](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+### [Peninsula VineHop Festival 2026](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-[Red Hill](<https://peninsulainsider.com.au/explore/places/red-hill/>)
+A one-day craft drinks festival across seven Mornington Peninsula venues on Saturday 21 November 2026, with tastings, food and live music.
 
-3-day, 2-night wellness retreat at Polperro Farmhouse in Red Hill.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/peninsula-vinehop-festival-2026/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/restore-pamper-retreat-at-polperro-farmhouse/>)
+Markets   Monthly – 2nd Saturday of every month
 
-Wellness  15 Nov
+### [Crib Point Community Market](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-### [Sunday sessions at Peninsula Hot Springs Eco Lodges](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+Indoor and outdoor community market at Crib Point Community House on the second Saturday of the month, 9am to 1pm.
 
-Sunday sessions at Bath House Café, complimentary with bathing.
+[Plan this →](<https://peninsulainsider.com.au/whats-on/crib-point-community-market/>)
 
-[Plan this →](<https://peninsulainsider.com.au/whats-on/sunday-sessions-2026-11-15/>)
+Markets   Fourth Sunday October through November 2026, 9am to 1pm.
+
+### [Mt Eliza Farmers Market](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
+
+VFMA-accredited farmers market on the Mount Eliza Village Green and Mt Eliza Way service road.
+
+[Plan this →](<https://peninsulainsider.com.au/whats-on/mt-eliza-farmers-market/>)
 
 Something wrong on this page, or is this your business? [Tell us what to fix](<https://peninsulainsider.com.au/contact/?type=correction>) and you get a case reference back. corrections@peninsulainsider.com.au reaches the same desk.
 
