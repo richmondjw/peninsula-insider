@@ -5,13 +5,15 @@ Modified: 2026-10-03
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Where you stay shapes the whole trip.
+Places to stay
 
-The best stay starts with a place that suits your days. Choose a wine-country or coastal base, then find the hotel, villa or cottage that makes the weekend yours.
+# Wine country or the coast?
 
-26 stays chosen by our editors, checked between September and October 2026. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+Choose your base first: the end of the Peninsula that suits your days, then the hotel, villa or cottage that makes the weekend.
 
-[Choose your base](<https://peninsulainsider.com.au/stay/#choose-base>) [Browse all 26 stays](<https://peninsulainsider.com.au/stay/#browse-stay>)
+Every stay chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+
+Lindenderry at Red Hill, Mornington Peninsula. Photo: Peter Foster, courtesy of Visit Victoria.
 
 ## First, choose your corner of the Peninsula
 

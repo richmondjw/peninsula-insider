@@ -5,13 +5,15 @@ Modified: 2026-10-08
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
+Eat & drink on the Peninsula
+
 # A long lunch, a village coffee, a table by the bay
 
-44 places to eat and drink across the Peninsula, from ridge-top farm kitchens to bayside pubs. Find the one that fits your day.
+44 places to eat and drink, from ridge-top farm kitchens to bayside pubs, each with the reason it made our list.
 
-Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/>)
+Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Trofeo Estate, Dromana, Mornington Peninsula. Photo courtesy of Visit Victoria.
+Paringa Estate, Red Hill South, Mornington Peninsula. Photo courtesy of Visit Victoria.
 
 ## Six starting points. Six different days.
 

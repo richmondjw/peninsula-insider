@@ -5,13 +5,15 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-The local wine edit
+Cellar doors worth the drive up the ridge
 
 # Mornington Peninsula wine country
 
-Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. Find your kind of visit, then confirm current hours.
+A ridge tasting, a vineyard lunch or a booked visit with a small producer. Choose the kind of day first, then the cellar door.
 
-[Choose your kind of day](<https://peninsulainsider.com.au/wine/#wine-choices>) [Browse all 44 places](<https://peninsulainsider.com.au/wine/#browse-wine>)
+Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+
+Polperro, Red Hill, Mornington Peninsula. Photo: Peter Tarasiuk, courtesy of Visit Victoria.
 
 ## What kind of day in wine country?
 

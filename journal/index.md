@@ -5,37 +5,35 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# The Journal .
+The Journal · November
 
-Good places. Interesting people. And a few reasons to stay a little longer.
+# A good lunch without the four-hour degustation
 
-Rare Hare at Willow Creek, Merricks North, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+Relaxed midday meals across the Peninsula, sorted by where you will be and who you are with.
 
-## [Casual Lunch on the Mornington Peninsula: Where to Eat Well Without Making a Day of It](<https://peninsulainsider.com.au/journal/best-casual-lunch-mornington-peninsula/>)
+87 stories, written by our editors. Never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
 
-Not every Peninsula lunch needs a degustation and four hours. The places that do a relaxed, good midday meal, sorted by where you will be and who you are with.
+Rare Hare at Willow Creek, Merricks North, Mornington Peninsula. Photo courtesy of Visit Victoria.
+
+## Latest stories
+
+### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+
+A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
 
 10 Nov 2026
 
-## Worth your time
+### [The Mornington Peninsula in Summer: How to Do It Well](<https://peninsulainsider.com.au/journal/mornington-peninsula-in-summer/>)
+
+Long light, warm bay water and the busiest roads of the year. A local's plan for summer on the Peninsula: which side to swim, when to move, what to book and what to leave loose.
+
+10 Nov 2026
 
 ### [A spring visit to National Works on Paper](<https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/>)
 
 A practical note for a gallery afternoon in Mornington.
 
 17 Sept 2026
-
-### [The case for a spring weekend](<https://peninsulainsider.com.au/journal/the-spring-peninsula/>)
-
-Vines coming back into leaf, quieter cellar doors and the first warm afternoons. A good time to see the Peninsula differently.
-
-16 Apr 2026
-
-### [The Peninsula pantry](<https://peninsulainsider.com.au/journal/the-peninsula-pantry/>)
-
-A Saturday shopping list for anyone cooking in a rental.
-
-9 Apr 2026
 
 ## Food & wine
 
@@ -55,25 +53,17 @@ The first coffee. A good breakfast. The day still ahead.
 
 9 Apr 2026
 
-Dromana Pier and Port Phillip Bay at sunset, Mornington Peninsula   Photo · Peter Tarasiuk, courtesy of Visit Victoria
+Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
 
-### [Date Night on the Mornington Peninsula: Where to Book for Two](<https://peninsulainsider.com.au/journal/date-night-restaurants-mornington-peninsula/>)
+### [Peninsula This Weekend - 11 to 12 July](<https://peninsulainsider.com.au/journal/peninsula-this-weekend-jul-11/>)
 
-A sunset drink, a room worth dressing for and no long drive home. The Peninsula's best dinners for two, from a Sri Lankan wine bar on the ridge to a set menu in Flinders, and how to build the evening around them.
+A proper wet winter weekend concentrates everything. The answer on a day like this is one indoor booking with some real weight to it - truffle country, a long lunch, or the pools when the air outside is genuinely cold.
 
-10 Nov 2026
+10 July 2026
 
 ## Out & about
 
 [All places & weekends](<https://peninsulainsider.com.au/journal/?theme=towns-and-places#archive>)
-
-Cape Schanck, Mornington Peninsula   Photo · Courtesy of Visit Victoria
-
-### [The Peninsula's Best Late-Afternoon Walks](<https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/>)
-
-When lunch is over and the light starts improving, these are the walks that make the region feel larger, wilder, and worth staying for.
-
-8 Apr 2026
 
 Flinders Golf Club, Mornington Peninsula   Photo · Gary Lisbon, courtesy of Visit Victoria
 
@@ -90,6 +80,14 @@ Jackalope Hotel, Merricks North, Mornington Peninsula   Photo · Peter Foster, c
 A stay that shapes the trip, rather than simply hosts it.
 
 2 Apr 2026
+
+Sorrento, Mornington Peninsula   Photo · Courtesy of Visit Victoria
+
+### [A weekend beyond the summer strip](<https://peninsulainsider.com.au/journal/the-sorrento-weekend/>)
+
+Another way to spend a few days at the tip.
+
+12 Apr 2026
 
 ## Find your next read
 

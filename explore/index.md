@@ -5,9 +5,15 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Things to do on the Mornington Peninsula
+Things to do
 
-Walks, beaches, galleries, golf and day spas, each with the reason it earns a place.
+# Walks, beaches and hot springs
+
+Pick by the time you have. Each one comes with the reason it earns its place.
+
+Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+
+Ocean coast walk, Portsea, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria.
 
 ## All 52 experiences
 

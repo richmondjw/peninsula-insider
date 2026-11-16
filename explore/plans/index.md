@@ -5,24 +5,27 @@ Modified: unknown
 Format: public main text, generated from the canonical page; imagery and interactive controls omitted.
 Dates and caveats below retain their page meaning; this format is not a new fact check.
 
-# Don’t plan.
-Pick one of ours.
+Plans
 
-A good day starts with a few good decisions. We’ve put the stops in order: choose the one that suits you, check transport and bookings, then make it your own.
+# Don’t plan. Pick one of ours.
 
-Narrow it down
+Ready-made days and weekends with the stops in order. Our first-visit pick runs from the Red Hill ridge to Point Nepean over 3 days.
+
+Chosen by our editors, never paid for. [How we choose](<https://peninsulainsider.com.au/about/#how-we-choose>)
+
+Point Nepean, Mornington Peninsula. Photo: Jesse Hisco, courtesy of Visit Victoria.
 
 ## Ready-made itineraries
 
-Editor’s pick
+Narrow it down
+
+Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula · Photo: Two Palms Australia, courtesy of Visit Victoria
 
 ### [Ridge to sea](<https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/>)
 
 Our starting point for a first weekend: vineyard lunches, a coastal walk and Point Nepean, with a different base each night.
 
 3 days · Red Hill & Merricks · Couples
-
-Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula · Photo: Two Palms Australia, courtesy of Visit Victoria
 
 Cape Schanck, Mornington Peninsula · Photo: Courtesy of Visit Victoria
 
