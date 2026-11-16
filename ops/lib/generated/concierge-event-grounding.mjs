@@ -12,7 +12,7 @@ function validateManifest(m) {
   if (!m || m.schemaVersion !== 1) return ["manifest-schema"];
   for (const key of ["id", "sourceRevision", "sourceDigest"]) if (!nonempty(m[key])) errors.push("missing-" + key);
   if (!fields.every((k) => nonempty(m.bundle?.[k]))) errors.push("bundle-incomplete");
-  if (!instant(m.sourceVerifiedAt) || !instant(m.contentPublishedAt) || !instant(m.ingestedAt) || !instant(m.retrievedAt)) errors.push("freshness-incomplete");
+  if (!(m.sourceVerifiedAt === null || instant(m.sourceVerifiedAt)) || !(m.contentPublishedAt === null || instant(m.contentPublishedAt)) || !instant(m.ingestedAt) || !instant(m.retrievedAt)) errors.push("freshness-incomplete");
   if (Date.parse(m.retrievedAt) < Date.parse(m.ingestedAt)) errors.push("retrieved-before-ingested");
   if (m.state !== "complete" || m.failures?.length || m.lockHeld !== true) errors.push("incomplete-or-failed");
   if (!Array.isArray(m.sourceRecords) || !Array.isArray(m.outcomes) || !Array.isArray(m.indexRows) || !Array.isArray(m.pages)) return [...errors, "inventory-schema"];

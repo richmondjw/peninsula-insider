@@ -21,7 +21,7 @@ export async function connectSnapshotWriter(rpc) {
     commit:async prepared=>{
       readPrepared(prepared);
       const result=one(await rpc('concierge_snapshot_commit',{
-        expected_token:prepared.expectedToken, snapshot_token:prepared.token, snapshot_payload:prepared.payload,
+        expected_token:prepared.expectedToken??null, snapshot_token:prepared.token, snapshot_payload:prepared.payload,
         operation:prepared.operation??'forward',runtime_bundle:prepared.runtimeBundle??null,
       }));
       if(result.committed!==true||result.token!==prepared.token||typeof result.retry!=='boolean')throw Error('snapshot-commit-ack');
