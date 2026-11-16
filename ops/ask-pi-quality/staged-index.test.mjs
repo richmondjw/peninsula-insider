@@ -5,6 +5,7 @@ import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawn,spawnSync} from 'node:child_process';
+import {createHash} from 'node:crypto';
 import {hash} from './evaluator.mjs';
 import {prepareSnapshot,readPrepared,retrieveGrounded,prepareRollback,commitPrepared} from './staged-index.mjs';
 const fixtures=JSON.parse(await readFile(new URL('./fixtures.v1.json',import.meta.url),'utf8')).cases;
@@ -29,6 +30,7 @@ function call(db,request){
 }
 function commit(db,prepared,extra={}) {return call(db,{action:'commit',prepared,...extra});}
 function active(db){const r=call(db,{action:'read'});assert.equal(r.status,0,r.stderr);return r.value;}
+function storageFor(db){return {read:async()=>active(db),readSnapshot:async token=>call(db,{action:'read-snapshot',token}).value,commit:async prepared=>{const r=commit(db,prepared);if(r.status)throw Error(r.value?.error);return r.value;}};}
 function concurrentCommit(db,prepared){return new Promise((resolve,reject)=>{
  const child=spawn(process.platform==='win32'?'python':'python3',[fileURLToPath(new URL('./sqlite-stage.py',import.meta.url)),db]);
  let output='';child.stdout.on('data',chunk=>output+=chunk);child.on('error',reject);
@@ -109,4 +111,24 @@ test('integration coordinator validates before storage and resolves lost commit 
  await assert.rejects(commitPrepared(storage,{...next,payload:next.payload+' '}),/prepared-digest/);assert.equal(calls,0);
  assert.deepEqual(await commitPrepared(storage,next),{committed:true,recovered:true});assert.equal(calls,1);
  assert.equal(active(db).token,next.token);
+});
+test('external token rebinding and rehashed stale-manifest forgery cannot replace a committed winner',async()=>{
+ const db=await database(),old=await prepare(),a=await prepare(baseline,old,'a'),b=await prepare(baseline,old,'b');commit(db,old);commit(db,a);
+ const rebound={...b,expectedToken:a.token};
+ await assert.rejects(commitPrepared(storageFor(db),rebound),/prepared-predecessor/);
+ assert.equal(commit(db,rebound).status,1);
+ const value=JSON.parse(b.payload);value.predecessorToken=a.token;
+ const payload=JSON.stringify(value),forged={...rebound,payload,token:createHash('sha256').update(payload).digest('hex')};
+ await assert.rejects(commitPrepared(storageFor(db),forged),/predecessor-binding/);
+ assert.equal(active(db).token,a.token);
+});
+test('corrupted retained payload never receives a successful identical retry or rollback acknowledgement',async()=>{
+ const corrupt=(db,target)=>{const r=spawnSync(process.platform==='win32'?'python':'python3',['-c',"import sqlite3,json,sys; v=json.load(sys.stdin); c=sqlite3.connect(sys.argv[1]); c.execute('UPDATE snapshots SET payload=? WHERE token=?',(v['payload']+' ',v['token'])); c.commit()",db],{input:JSON.stringify(target),encoding:'utf8'});assert.equal(r.status,0,r.stderr);};
+ const db=await database(),old=await prepare();commit(db,old);corrupt(db,old);
+ assert.equal(commit(db,old).status,1);
+ await assert.rejects(commitPrepared(storageFor(db),old),/prepared-digest/);
+ const other=await database(),next=await prepare(baseline,old,'next');commit(other,old);commit(other,next);corrupt(other,old);
+ const rolled=prepareRollback(next,old,bundle);assert.equal(commit(other,rolled).status,1);
+ await assert.rejects(commitPrepared(storageFor(other),rolled),/rollback-snapshot-not-retained/);
+ assert.equal(active(other).token,next.token);
 });

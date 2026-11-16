@@ -19,20 +19,38 @@ def run(path, request):
     if request["action"] == "read":
         row = db.execute("SELECT s.token,s.payload FROM active a JOIN snapshots s ON s.token=a.token WHERE a.slot=1").fetchone()
         return dict(zip(("token", "payload"), row)) if row else None
+    if request["action"] == "read-snapshot":
+        row = db.execute("SELECT token,payload FROM snapshots WHERE token=?", (request["token"],)).fetchone()
+        return dict(zip(("token", "payload"), row)) if row else None
     if request["action"] != "commit":
         raise ValueError("unsupported action")
     value = request["prepared"]
     if hashlib.sha256(value["payload"].encode()).hexdigest() != value["token"]:
         raise ValueError("prepared digest mismatch")
+    document = json.loads(value["payload"])
     db.execute("BEGIN IMMEDIATE")
     try:
-        row = db.execute("SELECT token FROM active WHERE slot=1").fetchone()
+        row = db.execute("SELECT a.token,s.payload FROM active a JOIN snapshots s ON s.token=a.token WHERE a.slot=1").fetchone()
         current = row[0] if row else None
+        if row and hashlib.sha256(row[1].encode()).hexdigest() != current:
+            raise ValueError("active snapshot corrupt")
+        retained = db.execute("SELECT payload FROM snapshots WHERE token=?", (value["token"],)).fetchone()
+        if retained and (retained[0] != value["payload"] or hashlib.sha256(retained[0].encode()).hexdigest() != value["token"]):
+            raise ValueError("stored payload mismatch")
         if current == value["token"]:
             db.execute("ROLLBACK")
             return {"committed": True, "retry": True}
         if current != value["expectedToken"]:
             raise ValueError("predecessor changed")
+        operation = value.get("operation", "forward")
+        if operation == "rollback":
+            if not retained or value.get("runtimeBundle") != document["manifest"]["bundle"]:
+                raise ValueError("invalid rollback target or bundle")
+        elif operation == "forward":
+            if document.get("predecessorToken") != value["expectedToken"]:
+                raise ValueError("prepared predecessor mismatch")
+        else:
+            raise ValueError("unsupported operation")
         db.execute("INSERT OR IGNORE INTO snapshots(token,payload) VALUES(?,?)", (value["token"], value["payload"]))
         if request.get("crash") == "after-insert":
             os._exit(75)

@@ -28,6 +28,7 @@ export function readPrepared(prepared) {
   if(!prepared||typeof prepared.payload!=='string'||prepared.token!==digest(prepared.payload))throw Error('prepared-digest');
   const value=JSON.parse(prepared.payload);
   if(value.version!==1)throw Error('prepared-version');
+  if(value.predecessorToken!==null&&!/^[a-f0-9]{64}$/.test(value.predecessorToken??''))throw Error('prepared-predecessor');
   if(!Number.isInteger(value.dimensions)||value.dimensions<1||value.dimensions>4096)throw Error('embedding-dimensions');
   validateBindings(value.manifest,value.records);
   const ids=value.manifest.indexRows.map(r=>r.id);
@@ -52,6 +53,7 @@ export async function prepareSnapshot(previous,manifest,records,{embed,dimension
   validateBindings(manifest,records);
   const decision=promote(old?.manifest??null,manifest);
   if(!decision.promoted)throw Error(decision.errors.join(','));
+  if(old&&hash(old.manifest)===hash(manifest)&&hash(old.records)===hash(records))return {...previous};
   const embeddings=[];
   for(const row of manifest.indexRows){
     const record=records.find(r=>r.id===row.id);
@@ -62,7 +64,7 @@ export async function prepareSnapshot(previous,manifest,records,{embed,dimension
     if(!Array.isArray(vector)||vector.length!==dimensions||!vector.every(Number.isFinite))throw Error('embedding-shape');
     embeddings.push({id:row.id,textDigest,vector});
   }
-  const payload=JSON.stringify({version:1,manifest,records,dimensions,embeddings});
+  const payload=JSON.stringify({version:1,predecessorToken:previous?.token??null,manifest,records,dimensions,embeddings});
   const result={expectedToken:previous?.token??null,token:digest(payload),payload};
   readPrepared(result);
   return result;
@@ -73,7 +75,7 @@ export function prepareRollback(current,previous,runtimeBundle) {
   if(bundleKey(runtimeBundle)!==bundleKey(target.manifest.bundle))throw Error('rollback-runtime-bundle');
   const result=rollback(active.manifest,target.manifest,{bundleKey:bundleKey(runtimeBundle),manifestDigest:hash(target.manifest),invalidateCacheKey:cacheKey(active.manifest)});
   if(!result.rolledBack)throw Error('rollback-receipt');
-  return {...previous,expectedToken:current.token};
+  return {...previous,expectedToken:current.token,operation:'rollback',runtimeBundle};
 }
 
 /** Application-side adapter boundary. The storage CAS must itself be atomic.
@@ -81,7 +83,25 @@ export function prepareRollback(current,previous,runtimeBundle) {
  * blindly promoting another generation. This adapter is not wired to production.
  */
 export async function commitPrepared(storage,prepared) {
-  readPrepared(prepared);
+  const candidate=readPrepared(prepared);
+  const current=await storage.read();
+  const active=current?readPrepared(current):null;
+  if(current?.token===prepared.token){
+    if(current.payload!==prepared.payload)throw Error('stored-payload-mismatch');
+  }else{
+    if((current?.token??null)!==prepared.expectedToken)throw Error('predecessor-changed');
+    if(prepared.operation==='rollback'){
+      const retained=await storage.readSnapshot(prepared.token);
+      if(!retained||retained.payload!==prepared.payload)throw Error('rollback-snapshot-not-retained');
+      readPrepared(retained);
+      prepareRollback(current,retained,prepared.runtimeBundle);
+    }else{
+      if(prepared.operation!==undefined&&prepared.operation!=='forward')throw Error('unsupported-operation');
+      if(candidate.predecessorToken!==prepared.expectedToken)throw Error('prepared-predecessor-mismatch');
+      const transition=promote(active?.manifest??null,candidate.manifest);
+      if(!transition.promoted)throw Error(transition.errors.join(','));
+    }
+  }
   try {return await storage.commit(prepared);}
   catch(error){
     const current=await storage.read();
