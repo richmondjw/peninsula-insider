@@ -575,7 +575,7 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
       statusData: Object.fromEntries([
         ...(hasLegacyExceptions(live.event.data) ? ['startDate', 'endDate', 'nextOccurrence', 'recurrence', 'recurrenceNote', 'title', 'summary', 'streetAddress', 'suburb', 'coordinates', 'place', 'venue', 'officialEventUrl'] : []),
         'startTime', 'endTime', 'endsNextDay', 'timezone', 'cancelled', 'postponed',
-        'rescheduledTo', 'bookingStatus', 'expiresAt', 'occurrenceExceptions', 'intelligence', 'seriesOccurrences', 'venueName', 'sourceUpdatedAt', 'lastVerifiedAt', 'lastCheckedDate', 'verificationStatus', 'skipThis',
+        'rescheduledTo', 'bookingStatus', 'expiresAt', 'occurrenceExceptions', 'occurrencePolicy', 'intelligence', 'seriesOccurrences', 'venueName', 'sourceUpdatedAt', 'lastVerifiedAt', 'lastCheckedDate', 'verificationStatus', 'skipThis',
       ].filter((key) => (live.event.data as any)[key] !== undefined)
         .map((key) => [key, (live.event.data as any)[key]])),
     };
@@ -587,3 +587,4 @@ export function feedFor(events: LiveEvent[]): FeedEntry[] {
     return entry;
   });
 }
+

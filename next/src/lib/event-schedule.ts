@@ -190,7 +190,7 @@ const FAR_HORIZON_DAYS = 370;
 /** Derive the single occurrence rule for an event, or null when undated. */
 function baseRuleFor(event: { data: Record<string, any> }, now: Date): OccurrenceRule | null {
   const data = event.data as Record<string, any>;
-  if (data.intelligence && Array.isArray(data.seriesOccurrences) && data.seriesOccurrences.length) {
+  if ((data.intelligence || data.occurrencePolicy === 'confirmed-only') && Array.isArray(data.seriesOccurrences) && data.seriesOccurrences.length) {
     const dates: string[] = data.seriesOccurrences.map((session: any) => session.date).sort();
     return {kind: 'explicit', start: parseIsoLocal(dates[0]), end: parseIsoLocal(dates.at(-1)!), dates};
   }
@@ -312,3 +312,4 @@ export function occursInWindow(rule: OccurrenceRule, win: ScopeWindow): boolean 
   }
   return false;
 }
+

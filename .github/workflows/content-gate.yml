@@ -466,3 +466,46 @@ jobs:
         if: failure()
         run: |
           echo "::error title=The source-link gate is no longer a gate::A full build either accepted a citation nothing has probed, or wrote to ops/records/link-health/probe-ledger.json while judging it. Nothing in a build may write that file. Reproduce locally with: cd next && npm run test:link-health:build"
+
+
+  chocolate-tree-review:
+    name: Chocolate Tree exact-head full build and rendered evidence
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 753
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: next/package-lock.json
+      - name: Install locked dependencies
+        working-directory: next
+        run: npm ci --prefer-offline
+      - name: Full build with every existing gate
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -o pipefail
+          mkdir -p review/deck-chocolate-tree
+          git rev-parse HEAD > review/deck-chocolate-tree/head.txt
+          test "$(git rev-parse HEAD)" = "$REVIEW_HEAD_SHA"
+          npm run build 2>&1 | tee review/deck-chocolate-tree/full-build.log
+      - name: Canonical, redirect, selected dates, feed, calendar and schema at mobile and desktop
+        working-directory: next
+        env:
+          REVIEW_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: node scripts/review-deck-chocolate-tree.mjs
+      - name: Retain exact-head evidence including failures
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chocolate-tree-review-${{ github.event.pull_request.head.sha }}
+          path: next/review/deck-chocolate-tree/
+          if-no-files-found: error
+          retention-days: 14

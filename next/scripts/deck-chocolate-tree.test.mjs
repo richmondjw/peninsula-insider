@@ -1,0 +1,37 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {ruleFor,occursOnDay,occursInWindow} from '../src/lib/event-schedule.ts';
+import {hasExplicitSeries,nextSeriesData,occurrenceData,explicitOccurrence} from '../src/lib/intelligence-series.mjs';
+import {isPublicEventRecord,currentVerifiedPrice,approvedEventContent} from '../src/lib/event-publication.mjs';
+const canonical='deck-the-chocolate-tree-2026-12-05';
+const oldSlug='deck-the-chocolate-tree-at-the-chocolateries-mornington-peninsula-2026-12-05';
+const load=async slug=>JSON.parse(await readFile(new URL(`../src/content/events/${slug}.json`,import.meta.url),'utf8'));
+const raw=await load(canonical),old=await load(oldSlug);
+const parsed=x=>({...x,status:x.status??'published',startDate:new Date(x.startDate),endDate:new Date(x.endDate),nextOccurrence:x.nextOccurrence?new Date(x.nextOccurrence):undefined});
+const data=parsed(raw),duplicate=parsed(old),now=new Date('2026-11-16T09:00:00Z');
+const expected=[5,6,...Array.from({length:13},(_,i)=>i+12)];
+
+test('actual feed serializer retains the explicit-series discriminator through JSON',async()=>{
+ const source=await readFile(new URL('../src/pages/whats-on/_data.ts',import.meta.url),'utf8');
+ const {stripTypeScriptTypes}=await import('node:module');
+ const tail=source.slice(source.indexOf('export function feedFor(')).replace('export function','function');
+ const feedFor=new Function('isoDate','hasLegacyExceptions',stripTypeScriptTypes(tail)+';return feedFor;')(d=>d.toISOString().slice(0,10),()=>false);
+ const rule=ruleFor({data},now);
+ const [feed]=JSON.parse(JSON.stringify(feedFor([{slug:canonical,href:'/whats-on/'+canonical+'/',title:data.title,oneLiner:data.summary,meta:[],free:false,event:{data},rule}])));
+ assert.equal(feed.k,'explicit');assert.equal(feed.dates.length,15);assert.equal(hasExplicitSeries(feed.statusData),true);
+ assert.equal(occurrenceData(feed.statusData,'2026-12-07'),null);
+ assert.equal(occurrenceData(feed.statusData,'2026-12-12').startTime,'09:00');
+});
+test('all fifteen actual dates and no gap or out-of-range date are generated',()=>{const rule=ruleFor({data},now);assert.equal(rule.kind,'explicit');assert.equal(rule.dates.length,15);for(let day=1;day<=31;day++){const date=`2026-12-${String(day).padStart(2,'0')}`;assert.equal(occursOnDay(rule,new Date(date)),expected.includes(day),date);}});
+test('gap-only listing windows contain no occurrence',()=>{const rule=ruleFor({data},now);assert.equal(occursInWindow(rule,{start:new Date('2026-12-07'),end:new Date('2026-12-11')}),false);assert.equal(occursInWindow(rule,{start:new Date('2026-12-12'),end:new Date('2026-12-13')}),true);});
+test('listing status and shared rules yield exactly one card on each included day',()=>{for(const day of [5,6,7,11,12,24,25]){const date=new Date(`2026-12-${String(day).padStart(2,'0')}`);const cards=[data,duplicate].filter(x=>x.status==='published'&&isPublicEventRecord(x,now)&&occursOnDay(ruleFor({data:x},now),date));assert.equal(cards.length,expected.includes(day)?1:0);if(cards.length)assert.equal(cards[0].eventId,'MP-EVT-0126');}});
+test('detail selects December12 through the hiatus rather than an invented session',()=>{for(const instant of ['2026-12-06T05:00:01Z','2026-12-07T01:00:00Z','2026-12-11T22:00:00Z']){const detail=nextSeriesData(data,new Date(instant));assert.equal(detail.startDate.toISOString().slice(0,10),'2026-12-12');assert.equal(detail.endDate.toISOString().slice(0,10),'2026-12-12');}assert.equal(occurrenceData(data,'2026-12-07'),null);});
+test('daily start and end are Melbourne AEDT, not a continuous twenty-day event',()=>{const session=explicitOccurrence(data,'2026-12-12',now);assert.equal(session.startsAt.toISOString(),'2026-12-11T22:00:00.000Z');assert.equal(session.endsAt.toISOString(),'2026-12-12T05:00:00.000Z');});
+test('confirmed editorial schedule does not fabricate intelligence approval',()=>{assert.equal(hasExplicitSeries(data),true);assert.equal(raw.intelligence,undefined);assert.equal(raw.verification,'tentative');assert.match(raw.verificationNote,/Single-primary-source/);});
+test('same publisher URL is one source and booking is not an availability promise',()=>{assert.equal(raw.officialEventUrl,old.officialEventUrl);assert.equal(raw.bookingStatus,'not-required');assert.match(raw.bookingStatusNote,/subject to availability/i);assert.ok(!raw.editorNote.includes('$14'));assert.equal(currentVerifiedPrice(raw,now)?.label,'$14 per person');assert.equal(currentVerifiedPrice(raw,new Date('2026-11-18T00:00:00Z')),null);});
+test('archive retains original identity and static redirect consolidates existing URL',async()=>{assert.equal(old.eventId,'MP-EVT-0173');assert.equal(old.status,'archived');assert.match(old.archivedReason,/MP-EVT-0126/);const page=await readFile(new URL(`../src/pages/whats-on/${oldSlug}.astro`,import.meta.url),'utf8');assert.ok(page.includes(`<Redirect to="/whats-on/${canonical}/" consolidate />`));assert.ok(!page.includes('noindex'));});
+test('image rights and unaffected source fields are preserved exactly',async()=>{for(const slug of [canonical,oldSlug]){const prior=JSON.parse(await readFile(new URL(`./fixtures/deck-chocolate-tree/${slug}.json`,import.meta.url),'utf8'));const current=await load(slug);for(const key of ['eventId','slug','heroImage','bookingUrl','officialEventUrl','sourceUrl','publishedAt','discoveredAt'])assert.deepEqual(current[key],prior[key],key);} });
+test('any future review receipt must bind the corrected content and schedule',()=>{const digest=approvedEventContent(data);assert.notEqual(digest,approvedEventContent({...data,seriesOccurrences:data.seriesOccurrences.slice(1)}));assert.notEqual(digest,approvedEventContent({...data,editorNote:data.editorNote+' changed'}));});
+test('cadence records cannot accidentally opt into stray session fields',()=>{assert.equal(hasExplicitSeries({...data,occurrencePolicy:'cadence'}),false);});
+test('existing source status default and separate listing/detail gates remain unchanged',async()=>{const schema=await readFile(new URL('../src/content.config.ts',import.meta.url),'utf8');assert.match(schema,/enum\(\['draft', 'review', 'scheduled', 'published', 'expired', 'past', 'archived'\]\)\s*\.default\('published'\)/);const detail=await readFile(new URL('../src/pages/whats-on/[slug].astro',import.meta.url),'utf8');assert.match(detail,/getCollection\('events', \(\{ data \}\) => isPublicEventRecord\(data\)\)/);const listing=await readFile(new URL('../src/pages/whats-on/_data.ts',import.meta.url),'utf8');assert.match(listing,/getCollection\('events', \(\{ data \}\) => data.status === 'published'\)/);});
