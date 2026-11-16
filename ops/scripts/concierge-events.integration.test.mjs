@@ -64,3 +64,10 @@ test('malformed source aborts actual writer before any network, embedding or del
 test('empty required event collection never reconciles away the previous index',async()=>{
  const {result,calls}=await run('empty');assert.equal(result.status,1);assert.deepEqual(calls,[]);assert.match(result.stderr,/required source inventory is empty/);
 });
+test('malformed nested admission fields cannot become pruning exclusions',async()=>{
+ const session={id:'one',originalDate:'2026-12-12',date:'invalid',status:'scheduled',venueName:'Synthetic',startTime:null,endTime:null,sourceUrl:'https://example.com'};
+ for(const override of [{seriesOccurrences:[session],occurrencePolicy:'confirmed-only'},{occurrenceExceptions:[{date:'2026-02-30',status:'cancelled'}]},{suburb:42},{place:{id:42}},{intelligence:'invalid'},{intelligence:{geography:[]}},{intelligence:{reviewedAt:42}}]){
+  const {result,calls}=await run('malformed',{...fixture,...override});
+  assert.equal(result.status,1);assert.deepEqual(calls,[]);assert.match(result.stderr,/Event projection failed/);
+ }
+});
