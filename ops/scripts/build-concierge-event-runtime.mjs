@@ -7,7 +7,7 @@ import {fileURLToPath} from 'node:url';
 const root=fileURLToPath(new URL('../../',import.meta.url));
 const require=createRequire(new URL('../../next/package.json',import.meta.url));
 const esbuild=require('esbuild');
-const result=await esbuild.build({absWorkingDir:root,entryPoints:['ops/lib/concierge-event-grounding.mjs'],bundle:true,format:'esm',platform:'neutral',target:'es2022',write:false,metafile:true});
+const result=await esbuild.build({absWorkingDir:root,entryPoints:['ops/lib/concierge-event-grounding.mjs'],bundle:true,format:'esm',platform:'neutral',external:['node:crypto'],target:'es2022',write:false,metafile:true});
 const hash=value=>createHash('sha256').update(value).digest('hex');
 const sourceHashes={};
 for(const file of Object.keys(result.metafile.inputs).sort())sourceHashes[file]=hash((await readFile(resolve(root,file),'utf8')).replaceAll('\r\n','\n'));

@@ -2,7 +2,7 @@
 import {createHash} from 'node:crypto';
 import {hash} from './concierge-manifest.mjs';
 import {validateManifest,promote,bundleKey,rollback,cacheKey} from './concierge-manifest.mjs';
-import {validateEventSource} from '../scripts/concierge-events.mjs';
+import {validateEventSource} from './concierge-event-source.mjs';
 const digest=text=>createHash('sha256').update(text).digest('hex');
 
 

@@ -1,3 +1,184 @@
+// ops/lib/concierge-snapshot.mjs
+import { createHash as createHash2 } from "node:crypto";
+
+// ops/lib/concierge-manifest.mjs
+import { createHash } from "node:crypto";
+var hash = (value) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
+var nonempty = (x) => typeof x === "string" && x.length > 0;
+var instant = (x) => nonempty(x) && Number.isFinite(Date.parse(x));
+var fields = ["indexSchema", "embeddingModel", "promptRevision", "appRevision"];
+function validateManifest(m) {
+  const errors = [];
+  if (!m || m.schemaVersion !== 1) return ["manifest-schema"];
+  for (const key of ["id", "sourceRevision", "sourceDigest"]) if (!nonempty(m[key])) errors.push("missing-" + key);
+  if (!fields.every((k) => nonempty(m.bundle?.[k]))) errors.push("bundle-incomplete");
+  if (!instant(m.sourceVerifiedAt) || !instant(m.contentPublishedAt) || !instant(m.ingestedAt) || !instant(m.retrievedAt)) errors.push("freshness-incomplete");
+  if (Date.parse(m.retrievedAt) < Date.parse(m.ingestedAt)) errors.push("retrieved-before-ingested");
+  if (m.state !== "complete" || m.failures?.length || m.lockHeld !== true) errors.push("incomplete-or-failed");
+  if (!Array.isArray(m.sourceRecords) || !Array.isArray(m.outcomes) || !Array.isArray(m.indexRows) || !Array.isArray(m.pages)) return [...errors, "inventory-schema"];
+  if (![...m.sourceRecords, ...m.outcomes, ...m.indexRows, ...m.pages].every((r) => r && typeof r === "object" && !Array.isArray(r))) return [...errors, "record-schema"];
+  if (!Array.isArray(m.failures)) errors.push("failure-ledger-missing");
+  if (m.sourceDigest !== hash(m.sourceRecords)) errors.push("source-digest");
+  const ids = m.sourceRecords.map((r) => r.id), rowIds = m.indexRows.map((r) => r.id), outcomeIds = m.outcomes.map((r) => r.id);
+  for (const [name, values] of [["source", ids], ["index", rowIds], ["outcome", outcomeIds]]) if (values.some((x) => !nonempty(x)) || new Set(values).size !== values.length) errors.push(name + "-duplicates-or-missing-id");
+  const source = new Map(m.sourceRecords.map((r) => [r.id, r])), rows = new Map(m.indexRows.map((r) => [r.id, r]));
+  if (outcomeIds.length !== ids.length || ids.some((id) => !outcomeIds.includes(id)) || outcomeIds.some((id) => !source.has(id))) errors.push("unaccounted-source");
+  for (const r of m.sourceRecords) if (!nonempty(r.revision) || !nonempty(r.effectiveRevision) || !["index", "exclude"].includes(r.admission) || r.admission === "exclude" && !nonempty(r.exclusionReason)) errors.push("source-contract");
+  for (const outcome of m.outcomes) {
+    const r = source.get(outcome.id);
+    if (!r) continue;
+    if (outcome.status === "failed") {
+      errors.push("record-failed");
+      continue;
+    }
+    if (outcome.status === "excluded") {
+      if (r.admission !== "exclude" || outcome.reason !== r.exclusionReason || rows.has(r.id)) errors.push("unjustified-exclusion");
+    } else if (outcome.status === "indexed") {
+      const row = rows.get(r.id);
+      if (r.admission !== "index" || !row || row.revision !== r.effectiveRevision || outcome.revision !== r.effectiveRevision) errors.push("revision-or-admission-mismatch");
+    } else errors.push("unknown-outcome");
+  }
+  if (rowIds.some((id) => !source.has(id))) errors.push("stale-or-unexpected-index-row");
+  const pageIds = m.pages.flatMap((p) => Array.isArray(p.ids) ? p.ids : []);
+  if (!m.pages.length || m.pages[0].cursor !== null || m.pages.at(-1).nextCursor !== null || m.pages.some((p, i) => p.snapshot !== m.sourceRevision || !Array.isArray(p.ids) || i > 0 && (p.cursor == null || p.cursor !== m.pages[i - 1].nextCursor)) || new Set(m.pages.map((p) => p.cursor)).size !== m.pages.length || JSON.stringify(pageIds) !== JSON.stringify(ids)) errors.push("pagination-not-exhaustive");
+  if (!Array.isArray(m.previousIndexedIds) || !Array.isArray(m.removedIds) || [m.previousIndexedIds, m.removedIds].some((ids2) => ids2.some((id) => !nonempty(id)) || new Set(ids2).size !== ids2.length)) errors.push("deletion-schema");
+  else {
+    const removed = m.previousIndexedIds.filter((id) => !rowIds.includes(id)).sort();
+    if (JSON.stringify(removed) !== JSON.stringify([...m.removedIds].sort())) errors.push("deletion-accounting");
+  }
+  return [...new Set(errors)];
+}
+
+// ops/lib/concierge-event-source.mjs
+function validateEventSource(data, slug) {
+  const object = (v, label) => {
+    if (!v || typeof v !== "object" || Array.isArray(v)) throw Error(`Invalid event ${label}`);
+  };
+  const text = (v, label) => {
+    if (typeof v !== "string") throw Error(`Invalid event ${label}`);
+  };
+  const bool = (v, label) => {
+    if (typeof v !== "boolean") throw Error(`Invalid event ${label}`);
+  };
+  const date = (v, label) => {
+    if (typeof v !== "string" || !/^\d{4}-\d{2}-\d{2}(?:T.*)?$/.test(v) || !Number.isFinite(Date.parse(v)) || (/* @__PURE__ */ new Date(v.slice(0, 10) + "T00:00:00Z")).toISOString().slice(0, 10) !== v.slice(0, 10)) throw Error(`Invalid event ${label}`);
+  };
+  if (!data || typeof data !== "object" || Array.isArray(data)) throw Error("Invalid event source object");
+  if (typeof slug !== "string" || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(slug)) throw Error("Invalid event identity");
+  if (typeof data.title !== "string" || !data.title.trim()) throw Error("Missing event title");
+  if (data.slug !== void 0 && data.slug !== slug) throw Error("Event slug does not match source filename");
+  if (data.status !== void 0 && !["draft", "review", "scheduled", "published", "expired", "past", "archived"].includes(data.status)) throw Error("Invalid event lifecycle");
+  for (const [field, allowed] of Object.entries({ recurrence: ["one-off", "weekly", "monthly", "annual", "seasonal", "ongoing"], occurrencePolicy: ["cadence", "confirmed-only"], dateBasis: ["fixed", "operator-calendar", "on-request", "opening-hours"], contentKind: ["event", "experience", "offer"], bookingStatus: ["open", "sold-out", "waitlist", "closed", "not-required", "unknown"] })) {
+    if (data[field] !== void 0 && !allowed.includes(data[field])) throw Error(`Invalid event ${field}`);
+  }
+  for (const field of ["cancelled", "postponed", "skipThis", "endsNextDay", "reviewHold", "factualReviewHold"]) if (data[field] !== void 0) bool(data[field], field);
+  for (const field of ["suburb", "summary", "venueName", "startTime", "endTime", "timezone", "recurrenceNote", "verificationStatus", "bookingStatus", "reviewStatus"]) if (data[field] !== void 0) text(data[field], field);
+  for (const field of ["place", "venue"]) if (data[field] !== void 0) {
+    if (typeof data[field] === "string") continue;
+    object(data[field], field);
+    text(data[field].id, field + ".id");
+  }
+  for (const field of ["startDate", "endDate", "nextOccurrence", "rescheduledTo", "expiresAt", "sourceUpdatedAt", "lastVerifiedAt", "lastCheckedDate", "publishedAt"]) {
+    const value = data[field];
+    if (value === void 0 && field !== "startDate") continue;
+    date(value, field);
+  }
+  if (data.endDate && Date.parse(data.endDate) < Date.parse(data.startDate)) throw Error("Inverted event date range");
+  for (const field of ["seriesOccurrences", "occurrenceExceptions"]) if (data[field] !== void 0) {
+    const values = data[field];
+    if (!Array.isArray(values)) throw Error(`Invalid event ${field}`);
+    const days = /* @__PURE__ */ new Set();
+    for (const row of values) {
+      object(row, field);
+      date(row.date, field + ".date");
+      for (const key of ["date", "originalDate", "rescheduledTo"]) if (row[key] !== void 0 && !/^\d{4}-\d{2}-\d{2}$/.test(row[key])) throw Error(`Invalid event ${field}.${key}`);
+      if (days.has(row.date)) throw Error(`Duplicate event ${field} date`);
+      days.add(row.date);
+      const statuses = ["cancelled", "postponed", "rescheduled", "sold-out", "moved", "as-scheduled", ...field === "seriesOccurrences" ? ["scheduled"] : []];
+      if (!statuses.includes(row.status)) throw Error(`Invalid event ${field}.status`);
+      for (const key of ["originalDate", "rescheduledTo"]) if (row[key] !== void 0) date(row[key], field + "." + key);
+      if (field === "seriesOccurrences") {
+        text(row.id, field + ".id");
+        date(row.originalDate, field + ".originalDate");
+        text(row.venueName, field + ".venueName");
+        text(row.sourceUrl, field + ".sourceUrl");
+      }
+      for (const key of ["startTime", "endTime", "venueName", "sourceUrl", "note"]) if (row[key] !== void 0 && !(field === "seriesOccurrences" && ["startTime", "endTime"].includes(key) && row[key] === null)) text(row[key], field + "." + key);
+    }
+  }
+  if (data.sourceReview !== void 0) {
+    object(data.sourceReview, "sourceReview");
+    if (data.sourceReview.required !== void 0) bool(data.sourceReview.required, "sourceReview.required");
+  }
+  if (data.intelligence !== void 0) {
+    const receipt = data.intelligence;
+    object(receipt, "intelligence");
+    for (const key of ["revision", "approvedContent", "approvedBy"]) if (receipt[key] !== void 0) text(receipt[key], "intelligence." + key);
+    for (const key of ["approvedAt", "reviewedAt"]) if (receipt[key] !== void 0) date(receipt[key], "intelligence." + key);
+    if (receipt.factScore !== void 0 && (typeof receipt.factScore !== "number" || !Number.isFinite(receipt.factScore))) throw Error("Invalid event intelligence.factScore");
+    if (receipt.evidenceIds !== void 0) {
+      if (!Array.isArray(receipt.evidenceIds) || receipt.evidenceIds.some((v) => typeof v !== "string")) throw Error("Invalid event intelligence.evidenceIds");
+    }
+    if (receipt.standingAuthority !== void 0) {
+      object(receipt.standingAuthority, "intelligence.standingAuthority");
+      for (const key of ["id", "by", "scope", "source"]) if (receipt.standingAuthority[key] !== void 0) text(receipt.standingAuthority[key], "standingAuthority." + key);
+      if (receipt.standingAuthority.at !== void 0) date(receipt.standingAuthority.at, "standingAuthority.at");
+    }
+    if (receipt.geography !== void 0) {
+      const geo = receipt.geography;
+      object(geo, "intelligence.geography");
+      if (geo.shireConfirmed !== void 0) bool(geo.shireConfirmed, "geography.shireConfirmed");
+      for (const key of ["verifiedBy", "evidenceId"]) if (geo[key] !== void 0) text(geo[key], "geography." + key);
+      if (geo.checkedAt !== void 0) date(geo.checkedAt, "geography.checkedAt");
+    }
+  }
+}
+
+// ops/lib/concierge-snapshot.mjs
+var digest = (text) => createHash2("sha256").update(text).digest("hex");
+function validateRecords(records) {
+  const object = (v) => v !== null && typeof v === "object" && !Array.isArray(v);
+  const text = (v) => typeof v === "string" && v.trim().length > 0;
+  const instant2 = (v) => text(v) && /^\d{4}-\d{2}-\d{2}T/.test(v) && Number.isFinite(Date.parse(v));
+  if (records.some((r) => !object(r) || !text(r.id) || !text(r.revision) || !object(r.data) || r.verifiedAt !== null && !instant2(r.verifiedAt) || r.validUntil !== void 0 && !instant2(r.validUntil) || r.liveAvailability !== void 0 && (!object(r.liveAvailability) || typeof r.liveAvailability.available !== "boolean" || !instant2(r.liveAvailability.checkedAt) || !instant2(r.liveAvailability.validUntil)))) return ["record-schema"];
+  return [];
+}
+function validateBindings(manifest, records) {
+  const errors = validateManifest(manifest);
+  if (errors.length) throw Error(errors.join(","));
+  if (!Array.isArray(records) || records.length !== manifest.sourceRecords.length) throw Error("record-inventory");
+  const invalid = validateRecords(records);
+  if (invalid.length) throw Error(invalid.join(","));
+  const byId = new Map(records.map((r) => [r?.id, r]));
+  if (byId.size !== records.length) throw Error("duplicate-record");
+  for (const source of manifest.sourceRecords) {
+    const record = byId.get(source.id);
+    if (!record || record.revision !== source.effectiveRevision || source.payloadDigest !== hash(record)) throw Error("source-payload-binding");
+    const data = { ...record.data };
+    for (const key of ["startTime", "endTime"]) if (data[key] === null) delete data[key];
+    validateEventSource(data, data.slug ?? record.id);
+  }
+}
+function readPrepared(prepared) {
+  if (!prepared || typeof prepared.payload !== "string" || prepared.token !== digest(prepared.payload)) throw Error("prepared-digest");
+  const value = JSON.parse(prepared.payload);
+  if (value.version !== 1) throw Error("prepared-version");
+  if (value.predecessorToken !== null && !/^[a-f0-9]{64}$/.test(value.predecessorToken ?? "")) throw Error("prepared-predecessor");
+  if (!Number.isInteger(value.dimensions) || value.dimensions < 1 || value.dimensions > 4096) throw Error("embedding-dimensions");
+  validateBindings(value.manifest, value.records);
+  const ids = value.manifest.indexRows.map((r) => r.id);
+  if (!Array.isArray(value.embeddings) || value.embeddings.length !== ids.length) throw Error("embedding-inventory");
+  const embedded = /* @__PURE__ */ new Set();
+  for (const row of value.embeddings) {
+    if (!ids.includes(row.id) || embedded.has(row.id) || !Array.isArray(row.vector) || row.vector.length !== value.dimensions || !row.vector.every(Number.isFinite)) throw Error("embedding-shape");
+    embedded.add(row.id);
+    const source = value.records.find((r) => r.id === row.id);
+    if (row.textDigest !== hash(`${source.data.title}
+${source.data.summary ?? ""}`)) throw Error("embedding-text-binding");
+  }
+  return value;
+}
+
 // next/src/lib/event-occurrence.mjs
 var PENINSULA_TZ = "Australia/Melbourne";
 var MINUTE = 6e4;
@@ -19,8 +200,8 @@ function formatterFor(tz) {
   }
   return f;
 }
-function zonedParts(instant, tz = PENINSULA_TZ) {
-  const parts = formatterFor(tz).formatToParts(instant);
+function zonedParts(instant2, tz = PENINSULA_TZ) {
+  const parts = formatterFor(tz).formatToParts(instant2);
   const num = (type) => Number(parts.find((p) => p.type === type)?.value ?? "0");
   return {
     year: num("year"),
@@ -31,14 +212,14 @@ function zonedParts(instant, tz = PENINSULA_TZ) {
     second: num("second")
   };
 }
-function zoneOffsetMinutes(instant, tz = PENINSULA_TZ) {
-  const p = zonedParts(instant, tz);
+function zoneOffsetMinutes(instant2, tz = PENINSULA_TZ) {
+  const p = zonedParts(instant2, tz);
   const asUtc = Date.UTC(p.year, p.month - 1, p.day, p.hour, p.minute, p.second);
-  const whole = instant.getTime() - instant.getTime() % 1e3;
+  const whole = instant2.getTime() - instant2.getTime() % 1e3;
   return Math.round((asUtc - whole) / MINUTE);
 }
-function isoOffsetFor(instant, tz = PENINSULA_TZ) {
-  const minutes = zoneOffsetMinutes(instant, tz);
+function isoOffsetFor(instant2, tz = PENINSULA_TZ) {
+  const minutes = zoneOffsetMinutes(instant2, tz);
   const sign = minutes < 0 ? "-" : "+";
   const abs = Math.abs(minutes);
   return `${sign}${String(Math.floor(abs / 60)).padStart(2, "0")}:${String(abs % 60).padStart(2, "0")}`;
@@ -486,8 +667,8 @@ function approvedEventContent(data) {
   return JSON.stringify(content);
 }
 function hasRoutineAuthority(data, now) {
-  const receipt = data.intelligence, checked = +new Date(receipt.reviewedAt), instant = +new Date(now);
-  return receipt.approvedBy === EVENT_PUBLISHER && validEventAuthority(receipt.standingAuthority, now) && data.contentKind === "event" && !data.sponsored && !data.heroImage && receipt.geography?.shireConfirmed === true && receipt.factScore === 100 && checked >= Date.parse(receipt.standingAuthority.at) && instant - checked < 864e5 && Number.isFinite(+new Date(data.expiresAt)) && instant < +new Date(data.expiresAt);
+  const receipt = data.intelligence, checked = +new Date(receipt.reviewedAt), instant2 = +new Date(now);
+  return receipt.approvedBy === EVENT_PUBLISHER && validEventAuthority(receipt.standingAuthority, now) && data.contentKind === "event" && !data.sponsored && !data.heroImage && receipt.geography?.shireConfirmed === true && receipt.factScore === 100 && checked >= Date.parse(receipt.standingAuthority.at) && instant2 - checked < 864e5 && Number.isFinite(+new Date(data.expiresAt)) && instant2 < +new Date(data.expiresAt);
 }
 function eventContentKind(data) {
   if (["event", "experience", "offer"].includes(data?.contentKind)) return data.contentKind;
@@ -745,5 +926,6 @@ Check the event page with the operator before booking.` : `I couldn't verify a m
 export {
   eventAnswer,
   groundEventRecords,
+  readPrepared,
   resolveMonthPlace
 };

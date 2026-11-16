@@ -1,3 +1,4 @@
+export {readPrepared} from './concierge-snapshot.mjs';
 /** Production event answer boundary. Uses canonical publication and occurrences.
  * No models, inferred availability or broadening of an empty result.
  */
