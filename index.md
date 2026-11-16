@@ -47,14 +47,6 @@ Red Hill wine country to the southern coast.
 
 Swipe or scroll through the picks
 
-- ### [Acoustic Saturdays at Peppers Moonah Links](<https://peninsulainsider.com.au/whats-on/acoustic-saturdays-peppers-moonah-links-2026/>)
-
-Sam O’Connell plays Spike Bar this Saturday, 5pm to 8pm. Make it an evening stop after a day around Fingal or Cape Schanck.
-
-Sat, 21 Nov   Peppers Moonah Links   Every Saturday
-
-Event details checked 16 Nov 2026 · [Organiser’s page](<https://www.moonahlinks.com.au/cms/whats-on/>)
-
 - ### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
 
 Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
@@ -72,6 +64,14 @@ Start with the award-winning works, then take time with the wider survey of cont
 Sat, 21 Nov   Mornington Peninsula Regional Gallery   Tuesday to Sunday, 11am to 4pm
 
 Event details checked 16 Nov 2026 · [Organiser’s page](<https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026>)
+
+- ### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and.
+
+Sat, 21 Nov   Tar Barrel   Live music
+
+Event details checked 9 Nov 2026 · [Organiser’s page](<https://tarbarrel.com.au/music/>)
 
 ## Three ways into the Peninsula
 

@@ -13,41 +13,35 @@ Find the date, place and reason to go, then check with the organiser before you 
 
 ## Three reasons to go
 
-- Sat, 21 Nov · 6pm–9pm · Mornington
+- Sat, 21 Nov · 9am–2pm · Balnarring
 
-### [Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+### [Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+
+Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+
+Markets
+
+- Mornington Peninsula Regional Gallery, Mornington   Photo: pru\_mitchell / Wikimedia Commons, CC BY 2.0.
+
+Fri, 20 Nov · 11am–4pm · Mornington
+
+### [National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
+
+Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
+
+Exhibitions
+
+- Sun, 22 Nov · 3pm–6pm · Mornington
+
+### [Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
 
 Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery.
 
 Live Music
 
-- Sat, 21 Nov · 10am–12pm · Mornington
-
-### [CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
-
-Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
-
-Exhibitions
-
-- Sun, 22 Nov · 11:30am–2pm · Merricks
-
-### [Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
-
-For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
-
-Food & Wine
-
 ## Day by day
 
 ### Friday 20 November
-
-- 11am
-
-[National Works on Paper 2026 (NWOP)](<https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/>)
-
-Start with the award-winning works, then take time with the wider survey of contemporary art on paper.
-
-Mornington · Exhibitions · Recurring weekly · Also Sat & Sun
 
 - 5pm
 
@@ -73,13 +67,13 @@ Red Hill · Food & Wine
 
 ### Saturday 21 November
 
-- 9am
+- 10am
 
-[Emu Plains Market](<https://peninsulainsider.com.au/whats-on/emu-plains-market/>)
+[CREATE: Pottery for your table](<https://peninsulainsider.com.au/whats-on/create-pottery-for-your-table/>)
 
-Emu Plains is the artisan market that actually feels like the Peninsula: stringybarks, music, makers you'd buy from twice.
+Come along and make a charcuterie platter with Caitlin from Peachy Keen Ceramics.
 
-Balnarring · Markets · Recurring monthly
+Mornington · Exhibitions
 
 - 10.30am
 
@@ -123,6 +117,14 @@ Fingal · Live Music
 
 - 6pm
 
+[Coco Michelle Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/coco-michelle-live-at-tar-barrel-2026-11-21/>)
+
+Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Enjoy a drink, taste the menu and stay for the live music on weekends!
+
+Mornington · Live Music
+
+- 6pm
+
 [Oskar Proy Live at Jetty Road Brewery](<https://peninsulainsider.com.au/whats-on/oskar-proy-live-at-jetty-road-brewery-2026-11-21/>)
 
 Live music every weekend at Jetty Road Brewery! Kick-back and enjoy a freshly brewed beer and bite while listening to live local music at Jetty Road Brewery.
@@ -159,6 +161,14 @@ A VFMA-accredited village market with local growers and specialty makers, suppor
 
 Mount Eliza · Markets · Recurring monthly
 
+- 11.30am
+
+[Culinary Garden Experience at Laura Pt Leo Estate](<https://peninsulainsider.com.au/whats-on/culinary-garden-experience-at-laura-pt-leo-estate-2026-11-22/>)
+
+For garden lovers, vegetarians and those with a passion for provenance, experience produce-to-plate at its most extraordinary. Once a year, Pt.
+
+Merricks · Food & Wine
+
 - 1pm
 
 [Tiana V Live at Peninsula Beer Garden](<https://peninsulainsider.com.au/whats-on/tiana-v-live-at-peninsula-beer-garden-2026-11-22/>)
@@ -166,14 +176,6 @@ Mount Eliza · Markets · Recurring monthly
 Enjoy live music at Peninsula Beer Garden! Join the cool vibes and coastal tunes from Tiana V, a Mornington Peninsula based singer & guitarist who started out when she was only 8 years old.
 
 Boneo · Live Music
-
-- 3pm
-
-[Audio Replica Live at Tar Barrel](<https://peninsulainsider.com.au/whats-on/audio-replica-live-at-tar-barrel-2026-11-22/>)
-
-Located in the Mornington Industrial Estate, Tar Barrel Brewery and Distillery produce award-winning craft beers alongside diverse tastes as part of their whiskey and gin distillery. Have a drink, enjoy the menu and experience live music on the weekends!
-
-Mornington · Live Music
 
 ## Book ahead
 
