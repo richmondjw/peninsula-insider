@@ -1,0 +1,32 @@
+---
+// Detail templates share a reading frame; section backgrounds remain full width.
+---
+<div class="plan-page-frame"><slot /></div>
+<style>
+  .plan-page-frame { --plan-gutter: clamp(1.5rem, 5vw, 4rem); }
+  .plan-page-frame :global(.container),
+  .plan-page-frame :global(.pl-container) {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1280px;
+    margin-inline: auto;
+    padding-inline: var(--plan-gutter);
+  }
+  .plan-page-frame :global(.itinerary-detail) { padding-top: 0; }
+  .plan-page-frame :global(.itinerary-detail__cover-band) { background: #0B2E4A; }
+  .plan-page-frame :global(.itinerary-detail__cover) {
+    margin-bottom: 0;
+    padding-block: clamp(1.5rem, 3.5vw, 3rem);
+  }
+  .plan-page-frame :global(.itinerary-route-band) { background: #E8EFF0; }
+  .plan-page-frame :global(.itinerary-route) {
+    margin-bottom: 0;
+    padding-block: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  .plan-page-frame :global(.itinerary-detail__body) { padding-top: clamp(2.25rem, 5vw, 4rem); }
+  .plan-page-frame :global(.pl-cover__visual),
+  .plan-page-frame :global(.pl-cover__reader-tools) { margin-inline: 0; }
+  .plan-page-frame :global(.pl-cover__caption) { padding-inline: 0; }
+  .plan-page-frame :global(.pi-article-actions) { flex-wrap: wrap; }
+  .plan-page-frame :global(.itinerary-detail__main) { min-width: 0; }
+</style>
