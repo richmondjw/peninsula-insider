@@ -11,6 +11,7 @@ import { isJournalEditorial, isJournalDiscovery } from '../../lib/journal-curati
 import { themeDefs } from '../../lib/journal-themes';
 import curation from '../../data/journal-front.json';
 import '../../styles/journal-editorial.css';
+import HubEntry from '../../components/v5/hub/HubEntry.astro';
 const articles=(await getCollection('articles',({data})=>isJournalEditorial(data))).sort((a,b)=>b.data.publishedAt.getTime()-a.data.publishedAt.getTime());
 const authors=await getCollection('authors');
 const byline=(a:typeof articles[number])=>a.data.houseByline?'Peninsula Insider':authors.find(x=>x.id===a.data.author.id)?.data.name??'Peninsula Insider';
@@ -34,7 +35,16 @@ async function pick(slugs:string[],count:number,theme?:string,uniqueImages=false
  return result;
 }
 const [lead]=await pick(fresh?[curation.lead,curation.leadFallback]:[],1,undefined,true);
-const desk=await pick(curation.desk,3);
+// The rail shows only recent pieces: a curated slug older than 75 days gives way
+// to the newest stories (2026-11-16, it was showing April spring pieces in November).
+const RAIL_MAX_AGE=75*864e5;
+const recentDesk=curation.desk.filter(s=>{const a=discoveryArticles.find(x=>routeSlug(x)===s);return a&&Date.now()-a.data.publishedAt.getTime()<RAIL_MAX_AGE;});
+const desk=(await pick(recentDesk,3)).sort((a,b)=>b.data.publishedAt.getTime()-a.data.publishedAt.getTime());
+// The lead story opens the page in the shared hub hero (2026-11-16).
+const leadImage=lead?await resolveJournalImage(routeSlug(lead),lead.data):null;
+const leadTitle=lead?(displayFor(lead).title||lead.data.title):'';
+const leadDek=lead?(displayFor(lead).dek||lead.data.dek||''):'';
+const monthName=new Date().toLocaleDateString('en-AU',{month:'long',timeZone:'Australia/Melbourne'});
 // Two themed sections, one card style: Food & wine (with the cellar-door
 // people story) and Out & about (walks with weekends and stays).
 const food=await pick([...curation.people,...curation.food],3,'food-and-wine',true);
@@ -52,9 +62,20 @@ const topicsFor=(a:typeof articles[number])=>themes.filter(t=>t.articles.include
 ---
 <BaseLayout title="The Journal · Peninsula Insider" description="Stories, people and places from the Mornington Peninsula. Explore the Peninsula Insider Journal." section="journal">
 <JournalImageRecovery />
+{lead && leadImage ? <HubEntry
+  kicker={`The Journal · ${monthName}`}
+  title={leadTitle}
+  dek={leadDek}
+  primary={{ label: displayFor(lead).eyebrow ? `Read: ${displayFor(lead).eyebrow}` : 'Read this story', href: `/journal/${routeSlug(lead)}/` }}
+  secondary={{ label: 'Browse every story', href: '#archive', arrow: 'down' }}
+  trust={`${articles.length} stories, written by our editors. Never paid for.`}
+  trustHref="/editorial-approach/"
+  trustLabel="Our standards"
+  image={{ page: '/journal/', role: 'hero', entity: `articles/${routeSlug(lead)}`, src: leadImage.src, alt: leadImage.alt, caption: leadImage.caption, credit: leadImage.credit }}
+  headingId="journal-title"
+/> : <section class="journal-heading wrap"><h1 id="journal-title">The Journal</h1></section>}
 <div class="journal-page" data-journal-index>
- <section class="journal-heading wrap" aria-labelledby="journal-title"><h1 id="journal-title">The Journal<span>.</span></h1><p class="intro">Good places. Interesting people. And a few reasons to stay a little longer.</p></section>
- {lead && <section class="opening wrap" id="cover" aria-label="This edit"><JournalStory article={lead} display={displayFor(lead)} lead author={byline(lead)}/><aside class="editor-rail" aria-labelledby="rail-title"><h2 id="rail-title" class="rail-title eyebrow">Worth your time</h2>{desk.map(a=><article class="rail-story"><h3><a href={`/journal/${routeSlug(a)}/`}>{displayFor(a).title || a.data.title}</a></h3><p>{displayFor(a).dek || a.data.dek}</p><p class="meta"><time datetime={a.data.publishedAt.toISOString()}>{a.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</time></p></article>)}</aside></section>}
+ {lead && <section class="journal-latest wrap" aria-labelledby="rail-title"><h2 id="rail-title" class="journal-latest__title">Latest stories</h2><div class="journal-latest__grid">{desk.map(a=><article class="rail-story"><h3><a href={`/journal/${routeSlug(a)}/`}>{displayFor(a).title || a.data.title}</a></h3><p>{displayFor(a).dek || a.data.dek}</p><p class="meta"><time datetime={a.data.publishedAt.toISOString()}>{a.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</time></p></article>)}</div></section>}
  {food.length>0&&<section class="wrap section-space" id="food-wine" aria-labelledby="food-wine-title"><header class="section-heading"><h2 id="food-wine-title">Food &amp; wine</h2><a href="?theme=food-and-wine#archive" class="text-link" data-theme-link="food-and-wine">All food &amp; wine stories</a></header><div class="story-grid">{food.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</div></section>}
  {outdoors.length>0&&<section class="wrap section-space" id="outdoors" aria-labelledby="outdoors-title"><header class="section-heading"><h2 id="outdoors-title">Out &amp; about</h2><a href="?theme=towns-and-places#archive" class="text-link" data-theme-link="towns-and-places">All places &amp; weekends</a></header><div class="story-grid">{outdoors.map(a=><JournalStory article={a} display={displayFor(a)} author={byline(a)}/>)}</div></section>}
  <section class="archive wrap section-space" id="archive" aria-labelledby="archive-title"><header class="section-heading"><h2 id="archive-title">Find your next read</h2><a href="/picks/" class="text-link">Insider Picks archive</a></header>
@@ -77,6 +98,10 @@ import '../../scripts/journal-index';
 .story-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-6);align-items:start}
 @media(max-width:767px){.story-grid{grid-template-columns:1fr;gap:var(--space-7)}}
 .journal-events{padding-top:var(--space-7)}
+.journal-latest{padding-top:var(--space-6)}
+.journal-latest__title{font:600 var(--fs-600)/1.2 var(--font-display);letter-spacing:-.02em;margin:0 0 var(--space-3)}
+.journal-latest__grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-6)}
+@media(max-width:767px){.journal-latest__grid{grid-template-columns:1fr;gap:0}}
 .journal-events :global(.event-strip){border:0;background:#fff;padding-top:0}
 .journal-events :global(.event-strip__card){padding:0;border:0;border-radius:0;background:none}
 .journal-events :global(.event-strip__card:hover){transform:none;box-shadow:none}

@@ -1,6 +1,8 @@
 ---
 import {occurrenceData} from '../../lib/intelligence-series.mjs';
 import { categoryHero } from '../../lib/category-heroes';
+import { pageImage } from '../../lib/page-images';
+import HubEntry from '../../components/v5/hub/HubEntry.astro';
 import { eventContentKind } from '../../lib/event-publication.mjs';
 /**
  * /whats-on/ - the canonical When front door (v5 rebuild, T-601).
@@ -235,8 +237,7 @@ const categoryOptions = [...new Set(calendarEvents.map((entry) => entry.event.da
   .sort((a, b) => a.label.localeCompare(b.label));
 const modifiedTime = todayISO;
 const pageDescription = `Browse Mornington Peninsula events by date: markets, live music, exhibitions and festivals. Choose this weekend, school holidays or your own dates.`;
-// Keep the conceptual artwork for link previews; the page header is text-only.
-const hubImage = categoryHero('whats-on');
+const hubImage = pageImage('whats-on-hero');
 ---
 
 <BaseLayout
@@ -249,15 +250,21 @@ const hubImage = categoryHero('whats-on');
 >
   <script data-wo-event-schema type="application/ld+json" set:html={JSON.stringify(itemListLd)} />
 
-  <header class="wo-head">
-    <div class="container wo-head__inner">
-      <div class="wo-head__copy">
-        <h1 class="wo-head__title" data-wo-heading>What's on this weekend</h1>
-        <p class="wo-head__context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</p>
-        <p class="wo-head__rule">Find the date, place and reason to go, then check with the organiser before you head out.</p>
-      </div>
-    </div>
-  </header>
+  <HubEntry
+    kicker="Events on the Peninsula"
+    title="What's on this weekend"
+    dek="Markets, live music, exhibitions and festivals across the Peninsula, with the date, the place and the reason to go."
+    primary={{ label: `See all ${weekendUniqueCount} events this weekend`, href: '#wo-calendar', arrow: 'down' }}
+    trust="Each listing links to its organiser and shows when we checked it. Never paid for."
+    trustHref="/how-we-check/"
+    trustLabel="How we check"
+    image={pageImage('whats-on-hero')}
+    focal={{ desktop: '50% 55%', mobile: '50% 58%' }}
+    headingId="wo-title"
+  >
+    <span slot="title" data-wo-heading>What's on this weekend</span>
+    <Fragment slot="context"><span data-wo-range>{weekend.label}</span> · Mornington Peninsula</Fragment>
+  </HubEntry>
 
   <div class="container wo-scope-wrap">
     <WhatsOnScopeBar

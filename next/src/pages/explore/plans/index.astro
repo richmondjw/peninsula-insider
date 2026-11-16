@@ -6,7 +6,12 @@ import PlanBuilder from '../../../components/v5/plans/PlanBuilder.astro';
 import PlanIndexRows from '../../../components/v5/plans/PlanIndexRows.astro';
 import PlanNextStep from '../../../components/v5/plans/PlanNextStep.astro';
 import { buildPlansModel } from '../../../components/v5/plans/plans-data';
+import HubEntry from '../../../components/v5/hub/HubEntry.astro';
+import { spanOf } from '../../../lib/checked-span';
 const model = await buildPlansModel();
+const itineraries = model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority);
+const pick = itineraries[0];
+const planChecked = spanOf(itineraries.map(plan => plan.verifiedAt));
 const catalogue = [
   ...model.plans.filter(plan => plan.kind === 'itinerary').sort((a,b) => b.editorialPriority - a.editorialPriority),
   ...model.plans.filter(plan => plan.kind === 'guide').sort((a,b) => a.displayTitle.localeCompare(b.displayTitle)),
@@ -23,11 +28,18 @@ export const prerender = true;
 <BaseLayout title="Mornington Peninsula Plans · Peninsula Insider" description="Choose a Peninsula day or weekend, with editorial itineraries, clear routes and practical planning guides. Use an itinerary in My Trip and make it yours." section="explore" canonical="https://peninsulainsider.com.au/explore/plans/" ogImage={pageImage('plans-hub').src}>
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
   <!-- One opening (headline, standfirst, matcher, editor's pick), then the other itineraries, guides and a quiet close. -->
-  <PlanIndexRows model={model}>
-    <Fragment slot="intro">
-      <h1>Don’t plan.<br />Pick one of ours.</h1>
-      <p class="plans-intro">A good day starts with a few good decisions. We’ve put the stops in order: choose the one that suits you, check transport and bookings, then make it your own.</p>
-    </Fragment>
+  {pick?.image ? <HubEntry
+    kicker="Plans"
+    title="Don’t plan. Pick one of ours."
+    dek={`Ready-made days and weekends with the stops in order. Our first-visit pick runs from the Red Hill ridge to Point Nepean${pick.dayCount ? ` over ${pick.dayCount} days` : ''}.`}
+    primary={{ label: `See the ${pick.displayTitle} plan`, href: pick.href }}
+    secondary={{ label: `Browse all ${itineraries.length} plans`, href: '#all-plans', arrow: 'down' }}
+    trust={planChecked ? `Every plan ${planChecked}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
+    image={pageImage('plans-hero')}
+    focal={{ desktop: '50% 70%', mobile: '50% 72%' }}
+    headingId="plans-title"
+  /> : <h1 class="container">Don’t plan. Pick one of ours.</h1>}
+  <PlanIndexRows model={model} pickInGrid={Boolean(pick?.image)}>
     <PlanBuilder slot="matcher" model={model} />
     <PlanContextEngine model={model} />
   </PlanIndexRows>
@@ -36,4 +48,6 @@ export const prerender = true;
 <style>
   h1{font-weight:500;line-height:1.05;font-family:var(--font-display);letter-spacing:-.035em;margin:0;max-width:17ch}
   .plans-intro{max-width:44ch;margin:var(--space-4) 0 var(--space-2);font:var(--fs-400)/1.6 var(--font-ui);color:var(--text)}
+  /* Phones: the trust line already says what the page holds; the editor's pick and its button reach the first screen. */
+  @media(max-width:45rem){.plans-intro{display:none}}
 </style>
