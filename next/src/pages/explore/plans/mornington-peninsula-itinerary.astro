@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PlanPageFrame from '../../../components/v5/plans/PlanPageFrame.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import ItineraryCard from '../../../components/ItineraryCard.astro';
 import VenueCard from '../../../components/VenueCard.astro';
@@ -72,6 +73,7 @@ export const prerender = true;
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   <Breadcrumbs items={breadcrumbItems} />
 
+  <PlanPageFrame>
   <article class="article">
     <div class="container">
       <h1 class="article__title">The Mornington Peninsula Itinerary</h1>
@@ -182,5 +184,6 @@ export const prerender = true;
     </div>
   </section>
 
+  </PlanPageFrame>
   <NewsletterBlock />
 </BaseLayout>

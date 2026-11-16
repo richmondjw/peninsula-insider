@@ -15,6 +15,7 @@ import PhotoStage from '../../../components/PhotoStage.astro';
 import { photoPlan } from '../../../lib/photo-set';
 import { getCollection, render, type CollectionEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PlanPageFrame from '../../../components/v5/plans/PlanPageFrame.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import VenueCard from '../../../components/VenueCard.astro';
 import ExperienceCard from '../../../components/ExperienceCard.astro';
@@ -454,6 +455,7 @@ export const prerender = true;
     <Breadcrumbs items={aBreadcrumbs} />
   </div>
 
+  <PlanPageFrame>
   <article class:list={['pl-article', isOneNightGuide && 'pl-article--one-night', hasPlanQuickChoices && 'pl-article--quick-choices']}>
     {/* ── Cover spread ──────────────────────────────────────────────── */}
     <header class="pl-cover" aria-label="Cover">
@@ -749,6 +751,7 @@ export const prerender = true;
     </section>
   )}
 
+  </PlanPageFrame>
   {!isOneNightGuide && <NewsletterBlock body={planNewsletterBody} />}
 </BaseLayout>
 ) : (
@@ -767,9 +770,10 @@ export const prerender = true;
   <div class="itinerary-detail__breadcrumb"><Breadcrumbs items={breadcrumbItems} /></div>
 
   {/* ─── 1. Hero ──────────────────────────────────────────────────────── */}
+  <PlanPageFrame>
   <section class="itinerary-detail">
-    <div class="container">
-      <div class="itinerary-detail__cover">
+    <div class="itinerary-detail__cover-band">
+      <div class="container itinerary-detail__cover">
         <div class="itinerary-detail__intro">
       <div class="itinerary-detail__meta">
         <a href="/explore/plans/" class="itinerary-detail__back">Plans</a>
@@ -860,7 +864,9 @@ export const prerender = true;
         </div>
       </div>
 
-      <nav class="itinerary-route" id="route-overview" aria-label="Route overview">
+    </div>
+    <div class="itinerary-route-band">
+      <nav class="container itinerary-route" id="route-overview" aria-label="Route overview">
         <div class="itinerary-route__heading">
           <p class="itinerary-route__eyebrow">Your route</p>
           <h2>{groupedStops.length === 1 ? 'A day in sequence' : `${groupedStops.length} days, one connected journey`}</h2>
@@ -877,7 +883,8 @@ export const prerender = true;
           ))}
         </ol>
       </nav>
-
+    </div>
+    <div class="container itinerary-detail__body">
       <div class="itinerary-detail__grid">
         {/* ─── 2. At-a-glance facts box ────────────────────────────── */}
         <aside class="facts">
@@ -1216,6 +1223,7 @@ export const prerender = true;
     </section>
   )}
 
+  </PlanPageFrame>
   <NewsletterBlock />
 </BaseLayout>
 )}
