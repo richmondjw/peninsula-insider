@@ -1,6 +1,6 @@
 {
   "note": "Probe results for source URLs cited by the corpus. Written ONLY by next/scripts/probe-link-health.mjs, by a human or a scheduled job, never by a build. Read offline by next/scripts/audit-link-health.mjs. A verdict is what a probe saw, not an inference. This file is a RECORD, not a report: it does not live under ops/reports/ because nothing here is reproducible from the tree, and reverting it destroys evidence rather than regenerating it.",
-  "updatedAt": "2026-11-15T16:58:22.186Z",
+  "updatedAt": "2026-11-16T20:40:15.978Z",
   "links": [
     {
       "url": "http://www.bom.gov.au/vic/forecasts/mornington-peninsula.shtml",
@@ -535,6 +535,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "Program &#8211; Melbourne Design Week"
+    },
+    {
+      "url": "https://devilbend.beer/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Devilbend Farm Beer Co | Farm-Brewed Beer &amp; Farm-to-Table Dining",
+      "probedOn": "2026-11-16",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://dromanahotel.com.au",
@@ -2695,6 +2703,14 @@
       "pageTitle": "Home - Peninsula Vinehop Festival"
     },
     {
+      "url": "https://vinehopfestival.com.au/the-venues/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "The Venues - Peninsula Vinehop Festival",
+      "probedOn": "2026-11-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://vinetrekker.com.au/mornington-peninsula-beaches/",
       "verdict": "blocked",
       "httpCode": "200",
@@ -3723,6 +3739,14 @@
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {
+      "url": "https://www.hickinbotham.biz/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Hickinbotham of Dromana | Wine Tasting, Beer Tasting, Restaurant, Weddings & Functions",
+      "probedOn": "2026-11-16",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
       "url": "https://www.hillandridgemarket.com.au",
       "verdict": "ok",
       "httpCode": "200",
@@ -4036,6 +4060,14 @@
       "probedOn": "2026-09-13",
       "probedBy": "audit-link-health.mjs --probe",
       "pageTitle": "The Best Accessible Beaches in Melbourne and Regional Victoria - Blogs - Melbourne Playgrounds"
+    },
+    {
+      "url": "https://www.mockredhill.com.au/",
+      "verdict": "ok",
+      "httpCode": "200",
+      "pageTitle": "Mock Red Hill",
+      "probedOn": "2026-11-16",
+      "probedBy": "scripts/probe-link-health.mjs"
     },
     {
       "url": "https://www.montalto.com.au",
@@ -4537,6 +4569,14 @@
       "httpCode": "200",
       "pageTitle": "Tootgarook Bushland Reserve - Mornington Peninsula Shire",
       "probedOn": "2026-10-03",
+      "probedBy": "scripts/probe-link-health.mjs"
+    },
+    {
+      "url": "https://www.mornpen.vic.gov.au/Things-to-do/The-Briars/About-The-Briars",
+      "verdict": "blocked",
+      "httpCode": "403",
+      "pageTitle": "Access Denied",
+      "probedOn": "2026-11-16",
       "probedBy": "scripts/probe-link-health.mjs"
     },
     {

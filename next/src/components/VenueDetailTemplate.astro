@@ -1,5 +1,5 @@
 ---
-import { cleanCaption } from '../lib/image-caption.mjs';
+import { cleanCaption, isArtwork } from '../lib/image-caption.mjs';
 import { placeLabel, typeLabel, routeSlug, titleize, venueHref, venueHrefPrefix, formatHeroCredit, isListableVenue, isPermanentlyClosed } from '../lib/editorial';
 import { resolveLiveStatusUrl, verifiedFreshnessLabel } from '../lib/venues';
 import Breadcrumbs from './Breadcrumbs.astro';
@@ -161,7 +161,7 @@ const { alt: heroAlt, presentation: heroPresentation } = altFor(hero, heroLabel)
 // file, and the record says nothing about it - so pass nothing rather
 // than let one image's disclosure stand in for another's. Capturing
 // provenance at upload is the operator flow, which is gated separately.
-const heroCredit = hero.override ? hero.override.credit : data.heroImage?.credit;
+const heroCredit = isArtwork(hero.override ?? data.heroImage) ? undefined : hero.override ? hero.override.credit : data.heroImage?.credit;
 // Caption rule (lib/image-caption.mjs): place line, then the source.
 const heroPlace = cleanCaption(hero.override ? hero.override.caption : data.heroImage?.caption);
 const flindersCommonsHero = venueSlug === 'flinders-hotel' && !hero.override && hero.hasPhoto;

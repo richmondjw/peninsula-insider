@@ -14,6 +14,7 @@ import {
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import EventBadges from '../../components/EventBadges.astro';
 import EventCard from '../../components/EventCard.astro';
+import ClusterLinks from '../../components/ClusterLinks.astro';
 import EventImageCredit from '../../components/EventImageCredit.astro';
 import NewsletterBlock from '../../components/NewsletterBlock.astro';
 import CorrectionNote from '../../components/CorrectionNote.astro';
@@ -23,6 +24,7 @@ import {
   eventLensLabel,
   routeSlug,
   venueHref,
+  isListableVenue,
   weatherCopy,
 } from '../../lib/editorial';
 import { isCancelledEvent, isCurrentEvent, loadLiveEvents } from './_data';
@@ -42,6 +44,11 @@ export async function getStaticPaths() {
 }
 
 const { event: originalEvent } = Astro.props;
+const hostVenueEntries = await Promise.all((originalEvent.data.hostVenues ?? []).map((ref: { collection: 'venues'; id: string }) => getEntry(ref)));
+const hostVenueLinks = hostVenueEntries.filter((host) => host && isListableVenue(host)).map((host) => ({ label: host!.data.name, href: venueHref(host) }));
+const hostGuideEntries = await Promise.all((originalEvent.data.hostGuides ?? []).map((ref: { collection: 'articles'; id: string }) => getEntry(ref)));
+const hostGuideLinks = hostGuideEntries.filter((guide) => guide?.data.status === 'published' && !guide.data.sitemapExclude).map((guide) => ({ label: guide!.data.title, href: `/journal/${routeSlug(guide)}/` }));
+const hostCoverageLinks = [...hostVenueLinks, ...hostGuideLinks];
 const now = new Date();
 const explicitSeries = hasExplicitSeries(originalEvent.data) || hasLegacyExceptions(originalEvent.data);
 const event = explicitSeries ? {...originalEvent, data: nextSeriesData(originalEvent.data, now)} : originalEvent;
@@ -361,6 +368,8 @@ export const prerender = true;
             </div>
           )}
 
+          {hostCoverageLinks.length > 0 && <div class="event-detail__hosts"><ClusterLinks links={hostCoverageLinks} heading="Festival venues in the PI guide" /></div>}
+
           {event.data.skipThis && event.data.skipReason && (
             <aside class="skip-callout">
               <p class="skip-callout__label">Worth knowing</p>
@@ -568,6 +577,18 @@ export const prerender = true;
 </script>
 
 <style>
+  .event-detail__hosts :global(.cluster-links__link) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: var(--harbour, #10527e);
+    font-size: 1rem;
+  }
+  .event-detail__hosts :global(.cluster-links__link:focus-visible) {
+    outline: 2px solid var(--harbour, #10527e);
+    outline-offset: 4px;
+  }
+
   .event-detail__intro-action { margin: 1rem 0 0; }
   .event-detail__price-check { display: block; margin-top: 0.35rem; color: var(--soft); }
   [data-price-current][hidden], [data-price-fallback][hidden] { display: none; }
