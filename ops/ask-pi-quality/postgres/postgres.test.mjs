@@ -16,8 +16,10 @@ async function prepare(f=baseline,previous=null,id='initial'){
 }
 async function worker(schema,prepared,crash){return new Promise((resolve,reject)=>{
  const child=spawn(process.execPath,[fileURLToPath(new URL('./crash-worker.mjs',import.meta.url))]);
- let error='';child.stderr.on('data',chunk=>error+=chunk);child.on('error',reject);
- child.on('close',status=>resolve({status,error}));child.stdin.end(JSON.stringify({schema,prepared,crash}));
+ let error='';const timer=setTimeout(()=>{child.kill('SIGKILL');reject(Error('synthetic crash worker timed out'));},15000);
+ child.stderr.on('data',chunk=>error+=chunk);child.on('error',error=>{clearTimeout(timer);reject(error);});
+ child.on('close',status=>{clearTimeout(timer);resolve({status,error});});child.stdin.on('error',error=>{clearTimeout(timer);child.kill('SIGKILL');reject(error);});
+ child.stdin.end(JSON.stringify({schema,prepared,crash}));
 });}
 before(async()=>{
  assertCiTarget();
@@ -69,7 +71,11 @@ test('readers see an entire old or new snapshot and ranking remains pinned durin
  const next=await prepare(changed,old,'next');await commit(db,old);
  let reached,release;const atPointer=new Promise(r=>reached=r),resume=new Promise(r=>release=r);
  const writing=commit(db,next,{hook:async phase=>{if(phase==='after-pointer'){reached();await resume;}}});
- await atPointer;const captured=await read(db);assert.equal(captured.token,old.token);release();await writing;
+ let captured,timer;
+ try {
+  await Promise.race([atPointer,writing.then(()=>{throw Error('writer completed before barrier');}),new Promise((_,reject)=>{timer=setTimeout(()=>reject(Error('pointer barrier timed out')),15000);})]);
+  captured=await read(db);assert.equal(captured.token,old.token);
+ } finally {clearTimeout(timer);release();await writing;}
  assert.equal(retrieveGrounded(await read(db),baseline,pgBundle).disposition,'abstain');
  const before=retrieveGrounded(captured,baseline,pgBundle),ranked=await rankedCandidates(db,captured.token,before.matches.map(m=>m.id),vector,baseline.query);
  assert.deepEqual(ranked.vector,before.matches.map(m=>m.id));
