@@ -112,6 +112,7 @@ export function analyseHtml(html) {
     claims: chosen.map((h) => ({
       text: h.text,
       count: h.total ?? Number(h.text.match(/^All\s+([\d,]+)/)[1].replace(/,/g, '')),
+      headingCount: /^All\s+[\d,]+\b/.test(h.text) ? Number(h.text.match(/^All\s+([\d,]+)/)[1].replace(/,/g, '')) : null,
     })),
   };
 }
@@ -128,6 +129,9 @@ export function checkPage(name, html) {
     );
   }
   for (const claim of a.claims) {
+    if (claim.headingCount !== null && claim.headingCount !== claim.count) {
+      failures.push(`visible heading says ${claim.headingCount} but its directory total is ${claim.count}`);
+    }
     if (claim.count !== a.runtimeCount) {
       failures.push(
         `heading says ${claim.count} ("${claim.text}") but the filter bar will ` +

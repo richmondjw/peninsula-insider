@@ -81,7 +81,7 @@ export const prerender = true;
   {Object.entries(grouped).every(([, items]) => items.length === 0) ? (
     <section class="experience-index">
       <div class="container prose">
-        <p>Ramp pages are being prepared. Six ramp profiles ship in the next wave: Safety Beach, Sorrento, Rye, Mornington Park, Hastings, and Warneet.</p>
+        <p>Ramp pages are being prepared. Upcoming ramp profiles include Safety Beach, Sorrento, Rye, Mornington Park, Hastings, and Warneet.</p>
       </div>
     </section>
   ) : (
@@ -91,7 +91,7 @@ export const prerender = true;
           <div class="venues__header">
             <div>
               <p class="label label--accent">{REGION_LABEL[region as keyof typeof REGION_LABEL]}</p>
-              <h2 class="venues__title">{items.length} {items.length === 1 ? 'ramp' : 'ramps'}</h2>
+              <h2 class="venues__title">Boat ramps</h2>
             </div>
           </div>
           <div class="venues__grid venues__grid--links">

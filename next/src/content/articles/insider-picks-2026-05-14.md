@@ -33,7 +33,7 @@ faq:
 
 This is the second-to-last week before winter framing starts to feel earned. The forecast is doing us a favour - 14 to 20 °C, sunny, light wind, dry through at least Saturday. Mother's Day is done. King's Birthday is still four weekends away. The Peninsula is in one of its rare uncrowded, unbusy in-between windows, and the rooms that were impossible in April are answering the phone.
 
-The picks. One for this week, one for tonight, one for whichever afternoon you can spare, and one for the long lunch you keep saying you'll book and don't.
+Plan the week around a booking, an evening out, a walk and the long lunch you keep saying you'll book and don't.
 
 ## 1. Book the truffle hunt this week
 

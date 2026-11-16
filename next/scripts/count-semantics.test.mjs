@@ -168,6 +168,8 @@ test('count-free editorial heading retains the directory/filter parity gate', ()
   assert.ok(checkPage('fixture', inflated).failures.length > 0, 'duplicate cards must still fail');
   const wrongTotal = html.replace('data-directory-total="3"', 'data-directory-total="4"');
   assert.ok(checkPage('fixture', wrongTotal).failures.length > 0, 'a stale total must still fail');
+  const staleHeading = html.replace('>Places to eat', '>All 4 places to eat');
+  assert.ok(checkPage('fixture', staleHeading).failures.length > 0, 'metadata cannot mask a stale visible count');
 });
 
 test('built hubs agree (skipped when dist/ is absent)', (t) => {
