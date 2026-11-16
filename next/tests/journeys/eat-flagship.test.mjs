@@ -65,7 +65,7 @@ test('all eight anchor pages share readable mobile typography without overflow',
       const proseFonts = await reader.page.$$eval('main p', ps => ps.filter(p => p.getBoundingClientRect().height > 0).map(p => getComputedStyle(p).fontFamily));
       assert.ok(proseFonts.every(font => font.includes('Figtree')), `${route}: ${proseFonts.join(', ')}`);
       if(route !== '/') assert.equal(style.size,32,route);
-      if(route === '/eat/') assert.ok(await reader.page.$eval('.eat-entry__primary', el => el.getBoundingClientRect().bottom <= innerHeight), 'first-visit browse action fits the mobile screen');
+      if(route === '/eat/') assert.ok(await reader.page.$eval('.hub-entry__primary', el => el.getBoundingClientRect().bottom <= innerHeight), 'first-visit browse action fits the mobile screen');
     }
   } finally { await reader.close(); }
 });

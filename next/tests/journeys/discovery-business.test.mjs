@@ -108,7 +108,7 @@ test('category filters are reachable from the first screen and restore the match
       assert.equal(geometry.bars,1,route);
       assert.equal(geometry.overflow,false,route);
       if (route === '/stay/') {
-        const jump = await reader.page.$('.stay-hero__secondary[href="#browse-stay"]');
+        const jump = await reader.page.$('.hub-entry__secondary[href="#browse-stay"]');
         assert.ok(jump, 'Stay needs a direct first-screen path to filters');
         const bounds = await jump.boundingBox();
         assert.ok(bounds && bounds.y + bounds.height < 750, 'Stay browse action buried');
@@ -122,7 +122,7 @@ test('category filters are reachable from the first screen and restore the match
       } else if (route === '/eat/') {
         // 2026-11-10 simplification: the hero's primary "Browse all N places" action is the
         // first-screen path to the filtered directory (the separate category link row is gone).
-        const jump = await reader.page.$('.eat-entry__primary[href="#directory"], .category-browse__links a[href="#directory"]');
+        const jump = await reader.page.$('.hub-entry__primary[href="#directory"], .category-browse__links a[href="#directory"]');
         assert.ok(jump, 'Eat needs a direct first-screen path to filters');
         const bounds = await jump.boundingBox();
         assert.ok(bounds && bounds.y + bounds.height < 750, 'Eat browse action buried');
@@ -164,10 +164,10 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
     await reader.page.evaluateOnNewDocument(() => localStorage.removeItem('pi-consent-v1'));
     await reader.page.setViewport({ width: 320, height: 568 });
     await reader.load('/wine/');
-    await reader.waitFor(() => document.querySelector('.wine-hero__visual img')?.naturalWidth > 0, 'wine hero photo did not load');
+    await reader.waitFor(() => document.querySelector('.hub-entry__photo img')?.naturalWidth > 0, 'wine hero photo did not load');
     const firstFold = await reader.page.evaluate(() => ({
       cookie: document.querySelector('#cookie-banner')?.dataset.state,
-      actionBottom: document.querySelector('.wine-hero__primary')?.getBoundingClientRect().bottom,
+      actionBottom: document.querySelector('.hub-entry__primary')?.getBoundingClientRect().bottom,
       overflow: document.documentElement.scrollWidth > innerWidth + 1,
       title: document.querySelector('main h1')?.textContent.trim(),
     }));
@@ -176,7 +176,7 @@ test('wine visitors can choose a day or reach filtered places on a first visit',
     assert.ok(firstFold.actionBottom <= 568, 'first-screen wine choice is below the 320px fold');
     assert.equal(firstFold.overflow, false);
     await reader.page.setViewport({ width: 390, height: 844 });
-    await reader.page.click('.wine-hero__secondary');
+    await reader.page.click('.hub-entry__secondary');
     await reader.waitFor(() => location.hash === '#browse-wine', 'browse link did not reach the directory controls');
     const browse = await reader.page.evaluate(() => ({
       top: document.querySelector('#browse-wine')?.getBoundingClientRect().top,
@@ -227,7 +227,7 @@ test('first-visit Explore actions and filters stay in view with the cookie note'
     await reader.load('/explore/');
     const narrow = await reader.page.evaluate(() => ({
       cookie: document.querySelector('#cookie-banner')?.getAttribute('data-state'),
-      actionBottom: document.querySelector('.x-hero__primary')?.getBoundingClientRect().bottom,
+      actionBottom: document.querySelector('.hub-entry__primary')?.getBoundingClientRect().bottom,
       overflow: document.documentElement.scrollWidth > innerWidth + 1,
     }));
     assert.equal(narrow.cookie, 'visible');
