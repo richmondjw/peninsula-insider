@@ -212,7 +212,7 @@ const configuredV5Pillars = [
       fallback: {
         eyebrow: "Editor's note",
         title: 'The weekend edit',
-        verdict: 'Three calls, selected for the days ahead. Check dates before you make the drive.',
+        verdict: 'Selected for the days ahead. Check dates before you make the drive.',
         href: '/whats-on/',
         cta: 'See what is on',
       },

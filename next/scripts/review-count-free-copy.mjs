@@ -73,6 +73,15 @@ try {
         observed.directory = { total: contract.claims[0].count, countable: contract.countableNodes };
       }
       report.pages.push({ route, width, ...observed });
+      if (route === '/' && width === 1440) {
+        await page.evaluate(() => scrollTo(0, 0));
+        await page.click('[data-pillar-toggle][aria-controls="v5-panel-whats-on"]');
+        await page.waitForSelector('#v5-panel-whats-on:not([hidden])');
+        const menu = await page.$eval('#v5-panel-whats-on', el => el.textContent);
+        assert.ok(menu.includes('Selected for the days ahead.'));
+        assert.ok(!menu.includes('Three calls'));
+        await page.screenshot({ path: `${out}/home-1440-whats-on-menu.png` });
+      }
     } finally { await reader.close(); }
   }
 } finally {
