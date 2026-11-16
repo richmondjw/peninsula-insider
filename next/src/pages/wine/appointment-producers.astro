@@ -52,7 +52,7 @@ export const prerender = true;
 
 <BaseLayout
   title="Small-Production Wine Producers · Mornington Peninsula · Peninsula Insider"
-  description={`Explore ${venues.length} Mornington Peninsula wine producers, from Merricks to Flinders. Find producer guides and direct links to plan your visit.`}
+  description={`Explore Mornington Peninsula wine producers, from Merricks to Flinders. Find producer guides and direct links to plan your visit.`}
   section="wine" canonical={canonical}
 >
   <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
@@ -63,7 +63,7 @@ export const prerender = true;
       <div class="producer-hero__copy">
         <p class="eyebrow">Wine country · The producer shortlist</p>
         <h1 id="guide-title">Small producers.<br />A little planning.</h1>
-        <p class="standfirst">Go beyond the familiar cellar-door circuit. Explore {venues.length} Peninsula producers and make the visiting arrangements part of the plan.</p>
+        <p class="standfirst">Go beyond the familiar cellar-door circuit. Explore Peninsula producers and make the visiting arrangements part of the plan.</p>
         <a class="pi-btn pi-btn--solid" href="#producers">Explore the producers <span aria-hidden="true">↓</span></a>
         <p class="hero-note">Some visits need an appointment. Others have regular cellar-door hours.</p>
       </div>
@@ -83,7 +83,7 @@ export const prerender = true;
     </section>
 
     <section class="producer-directory container" id="producers" aria-labelledby="producers-title">
-      <header class="directory-heading"><div><p class="eyebrow">Your shortlist</p><h2 id="producers-title">{venues.length} producers to explore</h2><p>Listed alphabetically. Visiting arrangements vary by producer.</p></div><a href="/wine/">Browse all wine country <span aria-hidden="true">↗</span></a></header>
+      <header class="directory-heading"><div><p class="eyebrow">Your shortlist</p><h2 id="producers-title">Producers to explore</h2><p>Listed alphabetically. Visiting arrangements vary by producer.</p></div><a href="/wine/">Browse all wine country <span aria-hidden="true">↗</span></a></header>
       <div class="producer-grid">
         {venues.map((venue) => {
           const slug = routeSlug(venue);

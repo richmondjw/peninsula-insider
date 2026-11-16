@@ -56,7 +56,7 @@ clusterLinks:
     href: "/explore/plans/the-couples-weekend/"
 faq:
   - question: "What should I do on Friday night when arriving on the Mornington Peninsula?"
-    answer: "Three options depending on energy and planning: the pub (The Heritage at Balnarring for hinterland stays, where it pays to call ahead; Flinders Hotel for the south; Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route, eaten on the deck); or a reserved dinner at Bistro Elba in Sorrento or Red Gum BBQ in Red Hill after checking current Friday service. A pub is simpler, but check its kitchen hours and reserve on busy weekends."
+    answer: "Choose according to energy and planning: the pub (The Heritage at Balnarring for hinterland stays, where it pays to call ahead; Flinders Hotel for the south; Hotel Sorrento front bar for the coast); the provisions stop (bread, cheese, chicken, and wine from the nearest good deli en route, eaten on the deck); or a reserved dinner at Bistro Elba in Sorrento or Red Gum BBQ in Red Hill after checking current Friday service. A pub is simpler, but check its kitchen hours and reserve on busy weekends."
   - question: "Which Peninsula pubs are best for Friday night dinner on arrival?"
     answer: "The Heritage at Balnarring for Red Hill hinterland stays (open fires, a big beer garden, a pub favourites menu, call ahead to book). Flinders Hotel for southern Peninsula stays (check Friday dinner hours and book ahead). Hotel Sorrento front bar for Sorrento, ordering from the bar menu rather than the bistro."
   - question: "Can I do a provisions stop instead of eating out on Friday night on the Peninsula?"
@@ -73,7 +73,7 @@ The Peninsula weekend does not start at the cellar door on Saturday morning. It 
 
 This is the gap. The Friday night arrival. It is easy to fumble: a mediocre takeaway, a rummage through whatever the last guest left in the rental kitchen, a vague sense that the weekend will start properly tomorrow. The first evening sets the rhythm. Handle it well and Saturday feels expansive.
 
-Here are the three ways to handle it.
+Here is how to settle in.
 
 ## Option one: the pub
 
@@ -122,6 +122,6 @@ The booked dinner is the Friday arrival for couples without kids who want the we
 
 The reason the Friday night arrival matters is Saturday morning. If Friday night was the pub, you wake up feeling like you have already been here a day. If Friday night was the provisions board on the deck, you wake up with bread and eggs in the kitchen and no reason to leave the house until eleven. If Friday night was a proper dinner, you wake up feeling like the weekend has already delivered something.
 
-In all three cases, Saturday morning starts from a position of calm rather than urgency. You are not trying to find breakfast and a cellar door and a lunch booking while simultaneously remembering to buy sunscreen. You are standing in the kitchen with a coffee, looking at the view, wondering whether to do anything before noon.
+Whichever you choose, Saturday morning starts from a position of calm rather than urgency. You are not trying to find breakfast and a cellar door and a lunch booking while simultaneously remembering to buy sunscreen. You are standing in the kitchen with a coffee, looking at the view, wondering whether to do anything before noon.
 
 That feeling is the point of a Peninsula weekend. It starts on Friday night.

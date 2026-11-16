@@ -340,7 +340,7 @@ export const prerender = true;
     title="Wine country or the coast?"
     dek={standfirst}
     primary={{ label: 'Compare Red Hill and Sorrento', href: '#choose-base', arrow: 'down' }}
-    secondary={{ label: `Browse all ${stayCount} stays`, href: '#browse-stay', arrow: 'down' }}
+    secondary={{ label: `Browse stays`, href: '#browse-stay', arrow: 'down' }}
     trust={stayChecked ? `Every stay ${stayChecked}. Chosen by our editors, never paid for.` : 'Every stay chosen by our editors, never paid for.'}
     image={pageImage('stay-hero')}
     focal={{ desktop: '62% 50%', mobile: '66% 55%' }}
@@ -352,7 +352,7 @@ export const prerender = true;
     <TheSix
       id="stay-shortlist"
       heading="Stays worth building a weekend around"
-      sub="Six distinct ways in, chosen by our editors."
+      sub="Distinct ways in, chosen by our editors."
       surface="stay"
       items={sixItems}
       trip={false}
@@ -366,7 +366,7 @@ export const prerender = true;
   <div id="browse-stay">
     <DirectoryRows
       id="stay-directory"
-      heading={`All ${stayCount} places to stay`}
+      heading={`Places to stay`}
       sub={directoryChecked ? `${directoryChecked}.` : undefined}
       surface="stay"
       noun="stays"
@@ -402,7 +402,7 @@ export const prerender = true;
   <section class="hub-faq" aria-label="Frequently asked questions">
     <div class="container">
       <div class="hub-faq__intro">
-        <h2 class="hub-faq__title">Three honest answers before you book the bed</h2>
+        <h2 class="hub-faq__title">Before you book the bed</h2>
       </div>
       <div class="hub-faq__list">
         {faqSchema.mainEntity.map((item) => (

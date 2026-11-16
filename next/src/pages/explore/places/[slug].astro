@@ -96,7 +96,7 @@ const snapshotCards = [
     label: 'Eat & drink',
     title:
       eatVenues.length > 0
-        ? `${venuesForPlace.filter((venue) => !isStayVenue(venue) && !wineTypes.includes(venue.data.type) && venue.data.type !== 'spa').length} dining picks mapped`
+        ? 'Dining picks to explore'
         : 'Dining coverage coming',
     body: eatVenues.length > 0
       ? 'Food and drink stops currently mapped to this place, each with its own editor note.'
@@ -107,7 +107,7 @@ const snapshotCards = [
     label: 'Wine & producers',
     title:
       wineVenues.length > 0
-        ? `${venuesForPlace.filter((venue) => wineTypes.includes(venue.data.type)).length} cellar doors & makers`
+        ? 'Cellar doors & makers'
         : 'Wine coverage coming',
     body: wineVenues.length > 0
       ? 'Wineries, producers, and distillers worth working into the day. The place hub anchors them into real geography.'
@@ -118,7 +118,7 @@ const snapshotCards = [
     label: 'Stay',
     title:
       stayVenues.length > 0
-        ? `${venuesForPlace.filter(isStayVenue).length} stays in the hub`
+        ? 'Find a place to stay'
         : 'Stays coming',
     body: stayVenues.length > 0
       ? 'When a place has a workable bed attached, it stops being a stop and starts becoming a base.'

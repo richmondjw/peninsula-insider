@@ -77,22 +77,22 @@ const courseShortlist = [
 
 const golfAreas = [
   {
-    name: 'Fingal + Cape Schanck', cue: '4 venues',
+    name: 'Fingal + Cape Schanck', cue: 'Southern courses',
     summary: 'The strongest concentration of courses, including public resorts and private-club architecture.',
     href: '#cape-courses', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Fingal+Cape+Schanck+Victoria',
   },
   {
-    name: 'Boneo + Rye + Rosebud', cue: '3 venues',
+    name: 'Boneo + Rye + Rosebud', cue: 'Across the southern towns',
     summary: 'A practical central cluster for Eagle Ridge, The Dunes and Rosebud Country Club.',
     href: '#course-eagle-ridge-golf-course', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Boneo+Rye+Rosebud+Victoria',
   },
   {
-    name: 'Sorrento + Portsea', cue: '2 venues',
+    name: 'Sorrento + Portsea', cue: 'Coastal courses',
     summary: 'Southern bayside clubs with limited visitor windows and nearby town bases.',
     href: '#course-sorrento-golf-club', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Sorrento+Portsea+Victoria',
   },
   {
-    name: 'Mornington + Flinders', cue: '2 venues',
+    name: 'Mornington + Flinders', cue: 'Coastal courses',
     summary: 'Two distinct coastal directions: northern bay access or the eastern clifftop course.',
     href: '#course-mornington-golf-club', mapUrl: 'https://www.google.com/maps/search/?api=1&query=golf+courses+Mornington+Flinders+Victoria',
   },
@@ -126,13 +126,13 @@ function firstSentences(text: string, n = 3): string {
 // ── JSON-LD schemas ───────────────────────────────────────────────────────────
 const collectionSchema = buildCollectionPageSchema({
   name: 'Mornington Peninsula Golf Courses - Peninsula Insider',
-  description: 'Compare 11 Mornington Peninsula golf venues by visitor access, location and playing style.',
+  description: 'Compare Mornington Peninsula golf venues by visitor access, location and playing style.',
   path: '/explore/golf/',
   dateModified: '2026-11-16',
 });
 const itemListSchema = buildItemListSchema({
   name: 'Mornington Peninsula Golf Venues',
-  description: '11 Mornington Peninsula golf venues grouped by location and visitor access.',
+  description: 'Mornington Peninsula golf venues grouped by location and visitor access.',
   listPath: '/explore/golf',
   items: [
     { name: 'Moonah Links', path: '/explore/moonah-links/', itemType: 'GolfCourse', addressLocality: 'Fingal' },
@@ -192,8 +192,8 @@ export const prerender = true;
 ---
 
 <BaseLayout
-  title="Mornington Peninsula Golf - Compare 11 Venues · Peninsula Insider"
-  description="Compare 11 Mornington Peninsula golf venues by visitor access, location and playing style, with course guides and stay ideas."
+  title="Mornington Peninsula Golf - Compare Courses · Peninsula Insider"
+  description="Compare Mornington Peninsula golf venues by visitor access, location and playing style, with course guides and stay ideas."
   section="explore"
   canonical="https://peninsulainsider.com.au/explore/golf/"
   ogImage={pageImage('golf-hub').src}
@@ -213,7 +213,7 @@ export const prerender = true;
     eyebrow="Explore guide"
     title="Mornington Peninsula <em>Golf</em>"
     dek="A rare mix of visitor-bookable coastal courses and private-club architecture, all within reach of a Peninsula weekend."
-    meta={[{ label: '11 golf venues' }, { label: 'Public and private access' }]}
+    meta={[{ label: 'Peninsula golf' }, { label: 'Public and private access' }]}
     primaryAction={{ label: 'Choose your round', href: '#choose-your-round' }}
     heroImage={pageImage('golf-hub').src}
     imageAlt={pageImage('golf-hub').alt}
@@ -226,9 +226,9 @@ export const prerender = true;
       <div class="golf-fit__intro">
         <p class="label label--accent">Compare the courses</p>
         <h2 id="golf-fit-title">Choose by course character, access and location</h2>
-        <p>Start with four distinct fits, or compare all 11 venues before opening the course details and current visitor-access source.</p>
+        <p>Start with the shortlist, or compare the venues before opening the course details and current visitor-access source.</p>
       </div>
-      <div class="golf-shortlist" aria-label="Four useful starting points">
+      <div class="golf-shortlist" aria-label="Useful starting points">
         {courseShortlist.map(({ cue, reason, course }) => (
           <a href={`#course-${course.slug}`} class="golf-shortlist__item">
             <span>{cue}</span>
@@ -296,7 +296,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">Cape Schanck / Fingal cluster</p>
           <h2 class="venues__title">Cape Schanck and Fingal courses</h2>
-          <p class="venues__sub">Four southern Peninsula golf venues with different access rules and playing styles.</p>
+          <p class="venues__sub">Southern Peninsula golf venues with different access rules and playing styles.</p>
         </div>
       </div>
       <div class="golf-grid golf-grid--cape">
@@ -356,7 +356,7 @@ export const prerender = true;
         <div>
           <p class="label label--accent">Across the Peninsula</p>
           <h2 class="venues__title">More ways to play</h2>
-          <p class="venues__sub">Seven golf venues across several towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.</p>
+          <p class="venues__sub">Golf venues across Peninsula towns and coastlines. Compare visitor access and check the drive from your base before choosing a round.</p>
         </div>
       </div>
       <div class="golf-grid golf-grid--bay">
@@ -547,7 +547,7 @@ export const prerender = true;
         <article class="golf-pick__path">
           <span>Stay beside the course</span>
           <h3>I want the simplest golf-weekend base</h3>
-          <p>Start with the two venues in this guide that put accommodation beside the course.</p>
+          <p>Start with the venues in this guide that put accommodation beside the course.</p>
           <div class="golf-pick__links">
             <a href="#course-moonah-links">Moonah Links</a>
             <a href="#course-racv-cape-schanck-golf-course">RACV Cape Schanck</a>

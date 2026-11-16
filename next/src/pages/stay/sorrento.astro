@@ -31,7 +31,7 @@ const breadcrumbSchema = buildBreadcrumbSchema([
 const collectionSchema = {
   '@context': 'https://schema.org', '@type': 'CollectionPage',
   name: 'Where to stay in Sorrento',
-  description: 'Choose between two different Sorrento hotel stays, with room, occupancy and reservation details to check before booking.',
+  description: 'Compare Sorrento hotel stays, with room, occupancy and reservation details to check before booking.',
   url: absUrl('/stay/sorrento/'),
   mainEntity: { '@type': 'ItemList', itemListOrder: 'https://schema.org/ItemListUnordered', numberOfItems: venues.length,
     itemListElement: venues.map((venue, index) => ({ '@type': 'ListItem', position: index + 1, name: venue.data.name, url: absUrl(venueHref(venue, '/stay')) })) },
@@ -117,7 +117,7 @@ export const prerender = true;
     <div class="container sorrento-close__grid">
       <div>
         <h2 id="sorrento-close-title">Make the room choice last.</h2>
-        <p>Once the hotel fits your group and your evening, check the individual room, rate inclusions and any current notices. These are two useful starting points, not a ranking of every Sorrento stay.</p>
+        <p>Once the hotel fits your group and your evening, check the individual room, rate inclusions and any current notices. These are useful starting points, not a ranking of every Sorrento stay.</p>
         <p class="sorrento-close__links"><a href="/explore/places/sorrento/">Explore Sorrento</a><a href="/stay/coastal-stays/">Compare coastal stays</a><a href="/stay/">Browse all stays</a></p>
         <ProvenanceLine records={venues} type="venues" noun="venue" />
       </div>

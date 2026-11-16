@@ -160,6 +160,16 @@ test('the pre-fix shape is what this test would have caught', () => {
   );
 });
 
+test('count-free editorial heading retains the directory/filter parity gate', () => {
+  const html = fixtureHtml.replace('id="directory-heading">All 3 places to eat', 'id="directory-heading" data-directory-total="3">Places to eat');
+  assert.equal(checkPage('fixture', html).skipped, false);
+  assert.deepEqual(checkPage('fixture', html).failures, []);
+  const inflated = html.replace(/ data-filter-countable="true"/g, '');
+  assert.ok(checkPage('fixture', inflated).failures.length > 0, 'duplicate cards must still fail');
+  const wrongTotal = html.replace('data-directory-total="3"', 'data-directory-total="4"');
+  assert.ok(checkPage('fixture', wrongTotal).failures.length > 0, 'a stale total must still fail');
+});
+
 test('built hubs agree (skipped when dist/ is absent)', (t) => {
   const pages = ['eat/index.html', 'wine/index.html', 'stay/index.html', 'explore/index.html'];
   const present = pages.filter((p) => existsSync(new URL(p, `file://${DIST}`)));

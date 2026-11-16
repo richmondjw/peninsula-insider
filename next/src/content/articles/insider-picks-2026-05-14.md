@@ -1,5 +1,5 @@
 ---
-title: "Insider Picks - Week of 14 May: Four Moves Before Winter Sets In"
+title: "Insider Picks - Week of 14 May: Before Winter Sets In"
 dek: "One booking to lock in this week, one move for tonight, one walk while the light holds, and one autumn lunch in a room that is currently as quiet as it gets."
 author: "editorial"
 houseByline: true
@@ -22,7 +22,7 @@ clusterLinks:
     href: "/whats-on/this-weekend/archive/2026-05-11/"
   - label: "The Autumn Weekend Edit"
     href: "/journal/autumn-weekend-edit/"
-  - label: "Tedesca, Tractor, Laura: The Three Peninsula Dinners"
+  - label: "Tedesca, Tractor, Laura: Peninsula Dinners"
     href: "/journal/three-italian-dinners/"
 faq:
   - question: "When does Red Hill Truffles open for 2026?"
@@ -33,7 +33,7 @@ faq:
 
 This is the second-to-last week before winter framing starts to feel earned. The forecast is doing us a favour - 14 to 20 °C, sunny, light wind, dry through at least Saturday. Mother's Day is done. King's Birthday is still four weekends away. The Peninsula is in one of its rare uncrowded, unbusy in-between windows, and the rooms that were impossible in April are answering the phone.
 
-Four picks. One for this week, one for tonight, one for whichever afternoon you can spare, and one for the long lunch you keep saying you'll book and don't.
+The picks. One for this week, one for tonight, one for whichever afternoon you can spare, and one for the long lunch you keep saying you'll book and don't.
 
 ## 1. Book the truffle hunt this week
 

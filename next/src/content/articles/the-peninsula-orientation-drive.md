@@ -1,5 +1,5 @@
 ---
-title: "The Peninsula Orientation Drive: Six Stops in One Day"
+title: "The Peninsula Orientation Drive: A First Visit in One Day"
 dek: "The drive to make on your first visit, or the one to send a friend on when you are out of time to explain why you keep coming back. Coffee, ridge, hinterland, ocean, village, bay  -  in that order, with most of a day to enjoy it."
 author: "editorial"
 houseByline: true
@@ -59,7 +59,7 @@ The hardest question we get from friends planning a first visit to the Peninsula
 
 One day isn't enough to see the Peninsula properly, because the region is not one landscape. It is four: the bayside towns along Port Phillip, the winery plateau through the middle, the ocean coast along the south, and the tip that runs from Sorrento to Point Nepean. First-time visitors who pick one and stay in it often leave wondering what the rest of the conversation is about.
 
-There is a better first day. It is a drive: six stops across most of a day, one small lunch in the middle, and it exists specifically to orient you. Not to show you the best restaurant or the prettiest beach, but to hand you the map. After this loop you'll understand why the Peninsula has four distinct weekends hiding inside it, and you'll know which one to come back for.
+There is a better first day. It is a drive across most of a day, one small lunch in the middle, and it exists specifically to orient you. Not to show you the best restaurant or the prettiest beach, but to hand you the map. After this loop you'll understand why the Peninsula has distinct weekends hiding inside it, and you'll know which one to come back for.
 
 
 ## Stop 1  -  Commonfolk Coffee, Mornington (9:00)

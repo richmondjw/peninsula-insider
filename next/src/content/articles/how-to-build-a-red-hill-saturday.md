@@ -34,7 +34,7 @@ section: plans
 planShape: "day-trip"
 lastVerified: 2026-04-22
 clusterLinks:
-  - label: "The Cellar Door Short List - Five Producers Worth the Appointment"
+  - label: "The Cellar Door Short List - Producers Worth the Appointment"
     href: "/journal/the-cellar-door-short-list/"
   - label: "How to Plan a Peninsula Weekend"
     href: "/explore/plans/how-to-plan-a-peninsula-weekend/"

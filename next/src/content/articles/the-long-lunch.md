@@ -1,6 +1,6 @@
 ---
 title: "The Long Lunch: Why the Mornington Peninsula Does Sunday Better Than Anywhere in Victoria"
-dek: "Three hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend."
+dek: "Hatted restaurants, a bay view, and nowhere you need to be until Monday. This is the case for staying the whole weekend."
 author: "editorial"
 houseByline: true
 publishedAt: 2026-03-15
@@ -40,7 +40,9 @@ The question is how to do it right.
 
 The plateau that runs through Red Hill and Merricks is the key. Altitude and cool air create pinot noir country that stands with the Yarra Valley's best, and the chefs who've set up here know the vineyards outside the window are their larder, their narrative, and their competitive advantage. The whole regional lunch concept makes more sense when you can see where the wine comes from through the dining room glass.
 
-## The three rooms worth booking
+<span id="the-three-rooms-worth-booking"></span>
+
+## The rooms worth booking
 
 **Ten Minutes by Tractor** sits at the top. Two hats (GFG 2025), an estate wine program built over two decades, and a degustation that changes with the seasons in ways that feel genuinely responsive. Book six weeks ahead for weekends. Lunch suits it; dinner is more formal and less relaxed. The bread service alone is worth the trip.
 

@@ -49,7 +49,7 @@ export const prerender = true;
       <div><p>We selected public cellar doors with different reasons to go: a focused tasting, a meal, or a broader estate visit. Each has an operator-published visitor offering. Photography is checked separately from the editorial selection. The order is editorial, with no numerical ranking or paid placement. Wine scores do not measure a cellar-door visit.</p><p>This is researched planning guidance. The check covers public access, visit format and booking guidance. Availability is confirmed directly with the operator; check your date before travelling. <a href="/editorial-approach/">Our editorial approach</a></p></div>
     </section>
     <section id="compare" class="cellar-compare container" aria-labelledby="compare-title">
-      <p class="cellar-eyebrow">Find your fit</p><h2 id="compare-title">{picks.length} doors, different days.</h2><p>Pick the kind of visit you want, then jump to the practical notes.</p>
+      <p class="cellar-eyebrow">Find your fit</p><h2 id="compare-title">Cellar doors for different days.</h2><p>Pick the kind of visit you want, then jump to the practical notes.</p>
       <div class="cellar-comparison" role="list">{picks.map(p=><div class="cellar-comparison__row" role="listitem"><a href={`#${p.slug}`}>{p.venue.data.name}<span aria-hidden="true"> ↘</span></a><span>{p.fit}</span><span>{p.venue.data.address.match(/,\s*(.*?)\s+VIC/)?.[1]}</span></div>)}</div>
     </section>
     <section id="shortlist" class="cellar-shortlist container" aria-labelledby="shortlist-title">

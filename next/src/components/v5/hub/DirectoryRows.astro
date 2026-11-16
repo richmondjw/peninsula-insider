@@ -122,7 +122,7 @@ const featuredNote = featuredCount > 0
     <div class="v5-directory__header">
       <div>
         {eyebrow && <p class="v5-directory__eyebrow">{eyebrow}</p>}
-        <h2 class="v5-directory__heading" id={headingId} tabindex="-1">{heading}</h2>
+        <h2 class="v5-directory__heading" id={headingId} tabindex="-1" data-directory-total={countable ? items.length : undefined}>{heading}</h2>
         {(sub || featuredNote) && <p class="v5-directory__sub">{featuredNote && <span data-featured-note hidden>{featuredNote} </span>}{sub}</p>}
       </div>
       {topLink && (

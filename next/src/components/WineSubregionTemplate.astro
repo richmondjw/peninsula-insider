@@ -171,16 +171,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
 <section class="wine-factsheet">
   <div class="container">
     <dl class="wine-factsheet__grid">
-      <div class="wine-factsheet__cell">
-        <dt>Producers mapped</dt>
-        <dd>{totalProducers}</dd>
-      </div>
-      {hattedCount > 0 && (
-        <div class="wine-factsheet__cell">
-          <dt>Hatted producers</dt>
-          <dd>{hattedCount}</dd>
-        </div>
-      )}
+
       {topAuthority && (
         <div class="wine-factsheet__cell">
           <dt>Top Halliday</dt>
@@ -259,22 +250,22 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     <p class="wine-scoreboard__label label label--accent">What's mapped here</p>
     <ul class="wine-scoreboard__list">
       {totalProducers > 0 && (
-        <li><a href="#producers"><strong>{totalProducers}</strong><span>cellar doors & producers</span></a></li>
+        <li><a href="#producers"><span>Cellar doors & producers</span></a></li>
       )}
       {anchors.length > 0 && (
-        <li><a href="#anchors"><strong>{anchors.length}</strong><span>editor's anchors</span></a></li>
+        <li><a href="#anchors"><span>Editor's anchors</span></a></li>
       )}
       {hattedCount > 0 && (
-        <li><a href="#producers"><strong>{hattedCount}</strong><span>hatted producers</span></a></li>
+        <li><a href="#producers"><span>Hatted producers</span></a></li>
       )}
       {journalLinks.length > 0 && (
-        <li><a href="#journal"><strong>{journalLinks.length}</strong><span>journal pieces</span></a></li>
+        <li><a href="#journal"><span>Journal pieces</span></a></li>
       )}
       {nearbySubregions.length > 0 && (
-        <li><a href="#nearby"><strong>{nearbySubregions.length}</strong><span>nearby sub-regions</span></a></li>
+        <li><a href="#nearby"><span>Nearby sub-regions</span></a></li>
       )}
       {faqItems.length > 0 && (
-        <li><a href="#faqs"><strong>{faqItems.length}</strong><span>answered questions</span></a></li>
+        <li><a href="#faqs"><span>Answered questions</span></a></li>
       )}
     </ul>
   </div>
@@ -285,7 +276,7 @@ const placeHeroCredit = place?.data?.heroImage?.credit ?? null;
     <div class="venues__header">
       <div>
         <p class="label label--accent">Every producer · {new Date().getFullYear()}</p>
-        <h2 class="venues__title">{totalProducers} cellar door{totalProducers !== 1 ? 's and producers' : ' / producer'} in {subregionLabel}</h2>
+        <h2 class="venues__title">Cellar doors and producers in {subregionLabel}</h2>
         <p class="venues__sub">Ordered by editorial authority and Halliday score. Each card opens the full editor's note.</p>
       </div>
       <a href="/wine/" class="venues__link">All producers →</a>

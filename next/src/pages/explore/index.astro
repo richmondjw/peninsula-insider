@@ -290,7 +290,7 @@ const shelfGuides: Record<string, { href: string; label: string }> = {
 // footer or hub pages; these six did not, so they stay (link graph).
 const places = await getCollection('places');
 const moreWays = [
-  { href: '/explore/places/', label: `All ${places.length} towns` },
+  { href: '/explore/places/', label: `Explore the towns` },
   { href: '/explore/day-trips/', label: 'Day trips' },
   { href: '/explore/weekend-trips/', label: 'Weekend trips' },
   { href: '/explore/family-friendly/', label: 'With kids' },
@@ -367,7 +367,7 @@ export const prerender = true;
     kicker="Things to do"
     title="Walks, beaches and hot springs"
     dek="Pick by the time you have. Each one comes with the reason it earns its place."
-    primary={{ label: `Browse all ${directoryRows.length} things to do`, href: '#directory', arrow: 'down' }}
+    primary={{ label: `Browse things to do`, href: '#directory', arrow: 'down' }}
     secondary={{ label: 'See them on the map', href: '/map/' }}
     trust={exploreChecked ? `${exploreChecked[0].toUpperCase()}${exploreChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
     image={pageImage('explore-hero')}
@@ -382,7 +382,7 @@ export const prerender = true;
   <section class="x-directory" id="directory" aria-labelledby="directory-heading">
     <div class="container">
       <div class="x-directory__head">
-        <h2 class="x-directory__heading" id="directory-heading">All {directoryRows.length} experiences</h2>
+        <h2 class="x-directory__heading" id="directory-heading" data-directory-total={directoryRows.length}>Explore the experiences</h2>
       </div>
       <FilterBar
         surface="explore"
@@ -391,7 +391,7 @@ export const prerender = true;
         facets={['cat', 'place', 'party', 'price']}
       />
       <div class="x-directory__list">
-        <CardGrid label={`All ${directoryRows.length} experiences`} layout="rows">
+        <CardGrid label={`Explore the experiences`} layout="rows">
           {directoryRows.map((r, i) => (
             <li
               data-facets={JSON.stringify(r.facets)}

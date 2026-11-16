@@ -182,7 +182,7 @@ const configuredV5Pillars = [
     rail: {
       eyebrow: editorsPickEyebrow,
       title: 'The Peninsula pub crawl',
-      verdict: 'Six pubs, three routes, and a day built around them rather than squeezed between other plans. Pick the route by which way the wind is blowing.',
+      verdict: 'Local pubs, unhurried routes, and a day built around them rather than squeezed between other plans. Pick the route by which way the wind is blowing.',
       href: '/explore/plans/the-pub-crawl/',
       cta: 'Open the plan',
     },

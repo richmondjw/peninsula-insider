@@ -86,12 +86,16 @@ export function analyseHtml(html) {
   let m;
   while ((m = H2.exec(body)) !== null) {
     const text = decodeEntities(m[2].replace(/<[^>]*>/g, '')).replace(/\s+/g, ' ').trim();
-    headings.push({ text, directory: /directory__heading/.test(m[1]) });
+    const total = m[1].match(/\bdata-directory-total="(\d+)"/);
+    headings.push({ text, directory: /directory__heading/.test(m[1]), total: total ? Number(total[1]) : null });
   }
   // A count claim is a heading that opens with "All <number>". Prefer the
   // ones the directory modules render; fall back to any h2 so a hand-rolled
   // listing page is still covered.
-  const claimed = headings.filter((h) => /^All\s+[\d,]+\b/.test(h.text));
+  // Editorial headings are count-free. Their explicit total still verifies
+  // that the rendered directory and runtime filters share one result set.
+  // Legacy numeric headings remain checked when a surface uses them.
+  const claimed = headings.filter((h) => h.total !== null || /^All\s+[\d,]+\b/.test(h.text));
   const scoped = claimed.filter((h) => h.directory);
   const chosen = scoped.length ? scoped : claimed;
 
@@ -107,7 +111,7 @@ export function analyseHtml(html) {
     hasFilterCount: /\sdata-filter-count[=\s/>]/.test(body),
     claims: chosen.map((h) => ({
       text: h.text,
-      count: Number(h.text.match(/^All\s+([\d,]+)/)[1].replace(/,/g, '')),
+      count: h.total ?? Number(h.text.match(/^All\s+([\d,]+)/)[1].replace(/,/g, '')),
     })),
   };
 }
@@ -172,7 +176,7 @@ function main() {
   for (const required of REQUIRED_SURFACES) {
     if (!seen.has(required)) {
       failures.push(
-        `${required}: expected a filtered listing with an "All N" heading, found none. ` +
+        `${required}: expected a filtered listing with an explicit directory total, found none. ` +
           'Did the page lose its FilterBar, its heading, or its data-filter-countable markers?',
       );
     }

@@ -1,5 +1,5 @@
 ---
-title: "Three verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray"
+title: "Verified Peninsula stops: Moorooduc, Bushrangers Bay and Nazaaray"
 dek: Current practical information from the operators and Parks Victoria for a winery visit, a Cape Schanck walk and a Flinders cellar door.
 author: "editorial"
 houseByline: true

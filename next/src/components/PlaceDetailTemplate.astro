@@ -415,7 +415,7 @@ const factual = place.data.factualLede ?? '';
     <div class="container">
       <div class="place-tldr__intro">
         <p class="label label--accent">{place.data.name} in brief</p>
-        <h2 class="place-tldr__title">{place.data.name} in {place.data.tldr.length} points</h2>
+        <h2 class="place-tldr__title">{place.data.name} at a glance</h2>
       </div>
       <ol class="place-tldr__list">
         {place.data.tldr.map((item: string, i: number) => (
@@ -480,22 +480,22 @@ const factual = place.data.factualLede ?? '';
       <p class="place-scoreboard__label label label--accent">What's mapped here</p>
       <ul class="place-scoreboard__list">
         {eatVenues.length > 0 && (
-          <li><a href="#eat-drink"><strong>{eatVenues.length}</strong><span>places to eat</span></a></li>
+          <li><a href="#eat-drink"><span>Places to eat</span></a></li>
         )}
         {wineVenues.length > 0 && (
-          <li><a href="#wine"><strong>{wineVenues.length}</strong><span>cellar doors & makers</span></a></li>
+          <li><a href="#wine"><span>Cellar doors & makers</span></a></li>
         )}
         {stayVenues.length > 0 && (
-          <li><a href="#stay"><strong>{stayVenues.length}</strong><span>stays</span></a></li>
+          <li><a href="#stay"><span>Stays</span></a></li>
         )}
         {experiences.length > 0 && (
-          <li><a href="#explore"><strong>{experiences.length}</strong><span>ways to explore</span></a></li>
+          <li><a href="#explore"><span>Ways to explore</span></a></li>
         )}
         {itineraries.length > 0 && (
-          <li><a href="#escapes"><strong>{itineraries.length}</strong><span>escape plans</span></a></li>
+          <li><a href="#escapes"><span>Escape plans</span></a></li>
         )}
         {articles.length > 0 && (
-          <li><a href="#journal"><strong>{articles.length}</strong><span>journal pieces</span></a></li>
+          <li><a href="#journal"><span>Journal pieces</span></a></li>
         )}
       </ul>
     </div>
