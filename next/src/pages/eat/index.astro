@@ -29,8 +29,7 @@ import { pageImage } from '../../lib/page-images';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AskLine from '../../components/v5/AskLine.astro';
-import HubEntry from '../../components/v5/hub/HubEntry.astro';
-import { checkedSpan } from '../../lib/checked-span';
+import EatEntry from '../../components/v5/hub/EatEntry.astro';
 import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
 import type { SixItem } from '../../components/v5/hub/TheSix.astro';
@@ -61,7 +60,6 @@ const venuesAll = (await getCollection('venues'))
 // eatTypes (lib/editorial) excludes 'winery', so venuesAll holds none: this
 // is a defensive second pass, not a split (one venue, one URL; HUB-01).
 const venues = venuesAll.filter((v) => v.data.type !== 'winery');
-const eatChecked = checkedSpan(venues.map((v) => v.data));
 const viralFoodFestival = (await loadLiveEvents(new Date())).find(
   (event) => event.slug === 'viral-food-festival-mornington-2026',
 );
@@ -322,22 +320,13 @@ export const prerender = true;
   section="eat"
   canonical="https://peninsulainsider.com.au/eat/"
   modifiedTime="2026-10-08"
-  ogImage={pageImage('eat-entry').src}
+  ogImage={categoryHero('eat').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(pillarSchema)} />
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
-  <!-- 1. Orient: the shared hub opening. -->
-  <HubEntry
-    kicker="Eat & drink on the Peninsula"
-    title="A long lunch, a village coffee, a table by the bay"
-    dek={`${venues.length} places to eat and drink, from ridge-top farm kitchens to bayside pubs, each with the reason it made our list.`}
-    primary={{ label: `Browse all ${venues.length} places`, href: '#directory', arrow: 'down' }}
-    secondary={{ label: 'See them on the map', href: '/map/?cat=restaurant' }}
-    trust={eatChecked ? `${eatChecked[0].toUpperCase()}${eatChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
-    image={pageImage('eat-entry')}
-    focal={{ desktop: '50% 50%', mobile: '50% 45%' }}
-  />
+  <!-- 1. Orient: h1 + Editor stand-first (content-guidelines example 1) -->
+  <EatEntry count={venues.length} image={pageImage('eat-hero')} />
   <CategoryBrowse directory="directory" count={directoryItems.length} noun="places to eat" showLinks={false} />
 
   <div data-category-editorial>

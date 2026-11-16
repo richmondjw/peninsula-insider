@@ -33,9 +33,7 @@ const segments = rawPathname.split('/').filter(Boolean);
 // Level 1 and the homepage carry no breadcrumbs; gate/admin surfaces
 // and the 404 page are excluded.
 const excluded = ['access', 'admin', '404', '404.html'];
-// /explore/plans/ is the Plans pillar in the main navigation, so it is level 1 too.
-const TOP_LEVEL = new Set(['explore/plans']);
-const show = segments.length >= 2 && !excluded.includes(segments[0]) && !TOP_LEVEL.has(segments.join('/'));
+const show = segments.length >= 2 && !excluded.includes(segments[0]);
 
 const SEGMENT_LABELS: Record<string, string> = {
   eat: 'Eat & Drink',

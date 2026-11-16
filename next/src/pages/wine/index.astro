@@ -23,8 +23,6 @@ import { resolveHero } from '../../lib/inline-edit/resolve-hero';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import AskLine from '../../components/v5/AskLine.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
-import HubEntry from '../../components/v5/hub/HubEntry.astro';
-import { checkedSpan } from '../../lib/checked-span';
 import FilterBar from '../../components/v5/FilterBar.astro';
 import SortControl from '../../components/v5/SortControl.astro';
 import TheSix from '../../components/v5/hub/TheSix.astro';
@@ -280,9 +278,9 @@ const journalItems = Object.keys(journalVerdicts)
 // ── Stand-first (<= 80 words, carries cellar-door SEO phrases + the
 //    walk-in/appointment orientation line) ─────────────────────────────────
 const standfirst =
-  'A ridge tasting, a vineyard lunch or a booked visit with a small producer. Choose the kind of day first, then the cellar door.';
+  'Go for a ridge tasting, stay for a vineyard lunch, or book a smaller producer. Find your kind of visit, then confirm current hours.';
 
-const wineChecked = checkedSpan(venues.map((v) => v.data));
+const wineHero = categoryHero('wine');
 
 const breadcrumbItems = [{ label: 'Home', href: '/' }, { label: 'Wine Country' }];
 
@@ -305,22 +303,29 @@ const faqSchema = {
   description="Explore Mornington Peninsula wine country: wineries by area, Pinot Noir and Chardonnay, cellar door visits, and winery dining. Start planning your wine-country trip."
   section="wine"
   canonical="https://peninsulainsider.com.au/wine/"
-  ogImage={pageImage('wine-hero').src}
+  ogImage={categoryHero('wine').src}
 >
   <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
+  <Breadcrumbs items={breadcrumbItems} />
 
   <!-- 1. Image-led introduction and two clear planning paths. -->
-  <HubEntry
-    kicker="Wine country"
-    title="Cellar doors worth the drive up the ridge"
-    dek={standfirst}
-    primary={{ label: 'Pick your kind of wine day', href: '#wine-choices', arrow: 'down' }}
-    secondary={{ label: `Browse all ${venues.length} wineries`, href: '#browse-wine', arrow: 'down' }}
-    trust={wineChecked ? `${wineChecked[0].toUpperCase()}${wineChecked.slice(1)}. Chosen by our editors, never paid for.` : 'Chosen by our editors, never paid for.'}
-    image={pageImage('wine-hero')}
-    focal={{ desktop: '30% 60%', mobile: '25% 62%' }}
-  />
+  <section class="wine-hero" aria-labelledby="wine-hero-title">
+    <div class="container wine-hero__grid">
+      <div class="wine-hero__copy">
+        <p class="wine-hero__eyebrow">The local wine edit</p>
+        <h1 id="wine-hero-title">Mornington Peninsula wine country</h1>
+        <p class="wine-hero__lead">{standfirst}</p>
+        <div class="wine-hero__actions">
+          <a class="wine-hero__primary" href="#wine-choices">Choose your kind of day <span aria-hidden="true">&rarr;</span></a>
+          <a class="wine-hero__secondary" href="#browse-wine">Browse all {venues.length} places <span aria-hidden="true">&darr;</span></a>
+        </div>
+      </div>
+      <figure class="wine-hero__visual">
+        <img src={wineHero.src} alt={wineHero.alt} width="2000" height="1334" fetchpriority="high" decoding="async" data-pi-responsive="(max-width: 760px) calc(100vw - 2rem), 1200px" />
+      </figure>
+    </div>
+  </section>
 
   <div data-category-editorial>
     <WineVisitChooser />

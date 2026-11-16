@@ -13,25 +13,8 @@ const hero=await resolveJournalImage(slug,article.data);
  <div class:list={[lead && 'cover-copy']}>
  {lead ? <h2><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h2> : <h3><a href={`/journal/${slug}/`}>{display.title || article.data.title}</a></h3>}
  <p class={lead?'cover-dek':'dek'}>{display.dek || article.data.dek}</p>
- {lead && <a class="cover-read" href={`/journal/${slug}/`}>Read the story <span aria-hidden="true">→</span></a>}
  {/* Round 2 (2026-11-10): image, headline, one line, date. No kicker; the
      house byline is omitted on our own site and a named author is kept. */}
  <p class="meta">{author !== 'Peninsula Insider' && <>{author} · </>}<time datetime={article.data.publishedAt.toISOString()}>{article.data.publishedAt.toLocaleDateString('en-AU',{day:'numeric',month:'short',year:'numeric'})}</time></p>
  </div>
 </article>
-
-<style>
-.cover-read{display:inline-flex;align-items:center;gap:.45rem;min-height:48px;margin-top:.25rem;padding:0 1.25rem;border-radius:var(--radius-s);background:var(--accent);color:var(--white);font:600 var(--fs-300)/1 var(--font-ui);text-decoration:none}
-.cover-read:hover{background:var(--text)}
-.cover-read:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
-/* Phones: a shorter lead photograph, and the read link straight after the headline so the
-   story and its action both reach the first screen. */
-@media(max-width:767px){
-:global(.journal-page .cover img){aspect-ratio:2/1!important}
-:global(.journal-page .cover .cover-copy){display:flex;flex-direction:column}
-:global(.journal-page .cover .cover-copy h2){order:1}
-.cover-read{order:2;align-self:flex-start;margin-top:var(--space-3)}
-:global(.journal-page .cover .cover-dek){order:3}
-:global(.journal-page .cover .cover-copy .meta){order:4}
-}
-</style>

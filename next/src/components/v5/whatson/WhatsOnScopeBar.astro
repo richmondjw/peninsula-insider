@@ -273,11 +273,9 @@ const { weekendStartISO, weekendLabel, nextWeekendLabel, holidays, todayISO, tow
     .wo-scope__row {
       gap: 0.375rem;
     }
-    /* Phones: the date choices are one row that scrolls sideways, so they do not crowd the hero.
-       The date panel is positioned against .wo-scope, outside this row, so it is not clipped. */
-    .wo-scope__row { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--space-4, 1rem)); padding: 2px var(--space-4, 1rem); scroll-padding-inline: var(--space-4, 1rem); }
-    .wo-scope__row::-webkit-scrollbar { display: none; }
-    .wo-scope__btn { flex: none; padding-inline: 0.8rem; }
+    .wo-scope__btn {
+      padding-inline: 0.8rem;
+    }
     /* On a phone the date panel spans the control row instead of hanging off one pill. */
     .wo-scope { position: relative; }
     .wo-scope__custom { position: static; }

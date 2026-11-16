@@ -166,9 +166,6 @@ const starters = [
       applyChrome();
     }
 
-    // The control that opened the panel (the masthead Ask PI link, a page form), so
-    // closing returns focus there rather than to the hidden launcher.
-    let opener: HTMLElement | null = null;
     function open(focus = true) {
       if (onAskPage()) return;
       root!.dataset.state = 'open';
@@ -210,7 +207,7 @@ const starters = [
           root!.dataset.mode = store.get(localStorage, MODE) === 'float' ? 'float' : 'dock';
         }
       }, 220);
-      if (focus) (opener && opener.isConnected ? opener : launch).focus({ preventScroll: true });
+      if (focus) launch.focus({ preventScroll: true });
     }
 
     /* ---------- rendering ---------- */
@@ -446,7 +443,6 @@ const starters = [
       const url = new URL(a.href, location.href);
       if (url.origin !== location.origin || url.pathname !== '/ask/') return;
       e.preventDefault();
-      opener = a;
       (window as any).__piSearchClose?.();
       const q = url.searchParams.get('q');
       if (q) ask(q);
@@ -523,10 +519,6 @@ const starters = [
     opacity: 0; transform: scale(.4); transition: opacity var(--dur-fast), transform var(--dur-fast);
   }
   .pi-chat__launch.has-thread .pi-chat__launch-dot { opacity: 1; transform: none; }
-  /* 2026-11-16: Ask PI lives in the masthead on every page, so the floating launcher
-     no longer sits over page text. The button stays in the DOM for the panel's own
-     state (aria-expanded, unread dot) and as the fallback focus target. */
-  .pi-chat__launch { display: none; }
   /* Phones: the launcher shrinks to her portrait so it never sits over a page's text.
      The name stays in the accessibility tree. */
   @media (max-width: 47.99em) {
