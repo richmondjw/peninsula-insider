@@ -72,3 +72,17 @@ test('all approved pilot links have exact aliases and matching canonical resolve
 test('a hyphenated street name does not assert a town mention',()=>{
  assert.equal(audit('<p>1175 Mornington-Flinders Road</p>',[{...entity,kind:'place',aliases:['Mornington','Flinders']}]).mentions.length,0);
 });
+
+test('published prose coverage includes multiple roots and excludes cards, FAQ and active plans',()=>{
+ const route='/explore/regions/test/';
+ const markup=`<link rel="canonical" href="${route}"><section class="prose"><p>Test Venue</p><div class="prose"><p>Test Venue again</p></div></section><div class="prose"><p>Test Venue third</p></div><aside class="prose"><p>Test Venue card</p></aside><section class="faq-section"><div class="prose"><p>Test Venue FAQ</p></div></section>`;
+ const a=contextualMentions(pageFacts(markup,route),[entity],targets());
+ assert.equal(a.scope,'published-prose');assert.equal(a.mentions.length,3);assert.deepEqual(a.mentions.map(m=>m.first),[true,false,false]);
+ const plans='/explore/plans/test/';assert.equal(contextualMentions(pageFacts(markup.replace(route,plans),plans),[entity],targets()).excluded,true);
+});
+test('place introductory text is included, metadata and own-entity mentions are not link opportunities',()=>{
+ const route='/explore/places/test/';const own={...entity,href:route};
+ const markup=`<link rel="canonical" href="${route}"><p class="pdv2-lede__intro">Test Venue</p><p class="hero-deck">Test Venue metadata</p>`;
+ const a=contextualMentions(pageFacts(markup,route),[own],new Map([[route,pageFacts(markup,route)]]));
+ assert.equal(a.mentions.length,1);assert.equal(a.mentions[0].status,'self-reference');
+});

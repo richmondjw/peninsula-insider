@@ -73,20 +73,29 @@ function runs(block) {
 /** Apply only the renderer's supplied overrides in memory; never write CMS/source. */
 export function contextualMentions(page, entities, pages) {
   const nodes = descendants(page.dom);
-  const root = nodes.find(n => attr(n, 'data-pi-prose-root') !== undefined);
-  if (!root || page.stub || page.noindex || page.canonical !== page.url) return { excluded:true, reason:'no eligible rendered journal body', mentions:[] };
+  const marked = nodes.filter(n => attr(n, 'data-pi-prose-root') !== undefined);
+  const classes = n => (attr(n, 'class') ?? '').split(/\s+/);
+  const isExcluded = n => {
+    for (let p=n; p; p=p.parentNode) if (['nav','aside','header','footer'].includes(p.tagName) || classes(p).some(c => /^(faq-section|venue-card|experience-card|journal-card)(--|$)/.test(c))) return true;
+    return false;
+  };
+  const supported = /^\/(journal|explore|eat|wine|stay|guides)\//.test(page.url) && !page.url.startsWith('/explore/plans/');
+  const candidates = marked.length ? marked : supported && !page.url.startsWith('/journal/') ? nodes.filter(n => classes(n).includes('prose') || classes(n).some(c => ['pdv2-lede__factual','pdv2-lede__intro'].includes(c))) : [];
+  const roots = candidates.filter(n => !isExcluded(n) && !candidates.some(other => other !== n && descendants(other).includes(n)));
+  if (!roots.length || page.stub || page.noindex || page.canonical !== page.url) return { excluded:true, reason:page.stub ? 'redirect' : page.noindex ? 'noindex' : page.canonical !== page.url ? 'noncanonical' : 'no supported contextual body (plans excluded for active work)', mentions:[] };
+  const bodyNodes = () => roots.flatMap(descendants);
   let overrideCount = 0;
   const overrideNode = nodes.find(n => attr(n, 'id') === 'pi-block-overrides');
   if (overrideNode) {
     const overrides = JSON.parse(text(overrideNode));
-    for (const n of descendants(root)) {
+    for (const n of bodyNodes()) {
       const id = attr(n,'data-pi-block-id');
       if (id && typeof overrides[id] === 'string') {
         n.childNodes = parseFragment(overrides[id]).childNodes; overrideCount++;
       }
     }
   }
-  const blocks = descendants(root).filter(n => BLOCKS.has(n.tagName));
+  const blocks = bodyNodes().filter(n => BLOCKS.has(n.tagName) && !isExcluded(n));
   const mentions = []; const seen = new Set();
   for (const [index, block] of blocks.entries()) {
     const { value, spans } = runs(block); const matches = [];
@@ -111,12 +120,12 @@ export function contextualMentions(page, entities, pages) {
       const href = links.length === 1 ? links[0] : null;
       const state = targetState(m.entity,pages);
       const resolved = href ? destination(href,page.url) : null;
-      const status = unique.length > 1 || state === 'ambiguous' ? 'ambiguous' : state !== 'eligible' ? state : href && resolved === m.entity.href ? 'linked' : href ? (resolved ? 'wrong' : 'external-reference') : links.length > 1 ? 'partial-link' : 'missing';
+      const status = m.entity.href?.split('#')[0] === page.url ? 'self-reference' : unique.length > 1 || state === 'ambiguous' ? 'ambiguous' : state !== 'eligible' ? state : href && resolved === m.entity.href ? 'linked' : href ? (resolved ? 'wrong' : 'external-reference') : links.length > 1 ? 'partial-link' : 'missing';
       mentions.push({entityId:m.entity.id, name:m.alias, target:m.entity.href, status, href, first:!seen.has(m.entity.id), block:index, blockId:attr(block,'data-pi-block-id') ?? null, context:value, candidates:unique});
       seen.add(m.entity.id);
     }
   }
-  return {excluded:false, overrideCount, mentions};
+  return {excluded:false, scope:marked.length ? 'journal-body' : 'published-prose', overrideCount, mentions};
 }
 export async function auditJournalLinks(pageInventory, contentRoot, policy) {
   const entities = await catalogue(contentRoot,policy);
@@ -127,12 +136,12 @@ export async function auditJournalLinks(pageInventory, contentRoot, policy) {
     pages.set(url,facts);
   }
   const articles = [];
-  for (const [url,page] of pages) if (url.startsWith('/journal/')) {
+  for (const [url,page] of pages) {
     page.dom = parse(pageInventory.get(url).html);
     articles.push({url,...contextualMentions(page,entities,pages)});
     delete page.dom;
   }
   const totals = {};
   for (const a of articles) for (const m of a.mentions.filter(m => m.first)) totals[m.status] = (totals[m.status] ?? 0) + 1;
-  return {version:1, mode:'audit-only', policy:'Exact names; first contextual occurrence; related cards excluded. Every change requires editorial review. No claim re-verification.', catalogue:entities.map(e => ({...e,targetState:targetState(e,pages)})), totals, articles};
+  return {version:2, coverage:{pages:pages.size, inspected:articles.filter(a=>!a.excluded).length, excluded:articles.filter(a=>a.excluded).length}, mode:'audit-only', policy:'Exact names; first contextual occurrence; related cards excluded. Every change requires editorial review. No claim re-verification.', catalogue:entities.map(e => ({...e,targetState:targetState(e,pages)})), totals, articles};
 }
